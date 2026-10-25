@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Concluding it's foot-shaped",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concluding",
+      "at": 0,
+      "meaning": "concluding as an adjective means final, coming at the end"
+     },
+     {
+      "text": "foot-shaped",
+      "at": 16,
+      "meaning": "a shoemaker's ... is the foot-shaped block on which shoes are made"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone remarks that the closing item happens to be shaped like a foot.",
+     "walkthrough": "The second sense is a noun used loosely: a cobbler's last is a wooden or metal foot form, so 'foot-shaped' describes it.",
+     "definitionFit": "Synonym: something concluding is the final one, and the cobbler's form is literally shaped like a foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "foot-shaped"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,64 @@
     "text": "Paganini is to be played without 'pop' symbols",
     "enumeration": "8"
    },
-   "solution": "INSIGNIA"
+   "solution": "INSIGNIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "symbols",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be played",
+       "at": 12,
+       "note": "music to be played is performed in a new arrangement, so the remaining letters get rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 25,
+         "note": "without means the father's letters are removed from the violinist's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paganini",
+         "at": 0
+        },
+        {
+         "words": "pop",
+         "at": 34,
+         "gives": "PA",
+         "note": "pop is a familiar word for father, PA"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert note: Paganini will be performed, but nothing from the pop charts.",
+     "walkthrough": "'without' takes PA out of PAGANINI, leaving GANINI; with IS this is rearranged by 'to be played'. 'pop' is father, not popular music.",
+     "definitionFit": "Synonym: insignia are badges or emblems, the symbols of rank or office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +143,49 @@
     "text": "Knave takes king for joker",
     "enumeration": "4"
    },
-   "solution": "CARD"
+   "solution": "CARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "joker",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes",
+       "at": 6,
+       "note": "takes means the scoundrel's word holds the king's letter within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Knave",
+       "at": 0,
+       "gives": "CAD",
+       "note": "a knave is a scoundrel, a cad"
+      },
+      {
+       "words": "king",
+       "at": 12,
+       "gives": "R",
+       "note": "R is the abbreviation for king (Rex)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a card game, the jack captures the king and is used as a wild card.",
+     "definitionFit": "Synonym: a card is an amusing, eccentric person, a joker or wag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Knave"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +199,82 @@
     "text": "Hard time getting back into Prague ground to assemble, as in former days",
     "enumeration": "8"
    },
-   "solution": "UPGATHER"
+   "solution": "UPGATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "assemble, as in former days",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 23,
+       "note": "into means the reversed pair goes inside the rearranged city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "at": 35,
+         "note": "ground means crushed and broken up, so the city's letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prague",
+         "at": 28,
+         "note": "the Czech capital's name, taken letter for letter as the fodder to be ground"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "getting back",
+         "at": 10,
+         "note": "getting back means the two letters are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Hard",
+           "at": 0,
+           "gives": "H",
+           "note": "H is the pencil abbreviation for hard"
+          },
+          {
+           "words": "time",
+           "at": 5,
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough period follows a return to Prague, where people gather as they did long ago.",
+     "walkthrough": "'getting back' turns HT into TH, which goes 'into' UPGAER, the letters of PRAGUE 'ground'.",
+     "definitionFit": "Archaic word: to gather up or collect together, a verb now found only in older writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +288,59 @@
     "text": "Features about the coreless apples?",
     "enumeration": "6"
    },
-   "solution": "EATERS"
+   "solution": "EATERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "apples",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "about means the facial features go around the trimmed article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Features",
+       "at": 0,
+       "gives": "EARS",
+       "note": "ears are features of the head"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "coreless",
+         "at": 19,
+         "note": "coreless means the middle letter of the word the is removed, leaving its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grocer's description of apples that have had their cores taken out.",
+     "walkthrough": "'coreless' strips the middle of 'the', and 'about' wraps the facial features round what is left. The question mark warns that apples are only one kind of eater, a dessert variety.",
+     "definitionFit": "Example: an eater is an eating apple, as opposed to a cooker, so apples fit by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "coreless"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +360,42 @@
      }
     ]
    },
-   "solution": "BOXSPANNER"
+   "solution": "BOXSPANNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "case",
+       "at": 5,
+       "gives": "BOX",
+       "note": "a box is a case or container"
+      },
+      {
+       "words": "linking device",
+       "at": 10,
+       "gives": "SPANNER",
+       "note": "a spanner is something that spans, linking two sides"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A catalogue entry: a tool case that comes with a connecting gadget.",
+     "definitionFit": "Example: a box spanner is a socket-like wrench, one kind of tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "linking"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +409,56 @@
     "text": "Cup presented wrongly to a lazy person",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lazy person",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cup",
+       "at": 0,
+       "gives": "POT",
+       "note": "a pot is a cup, as in a trophy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "presented wrongly",
+         "at": 4,
+         "note": "presented wrongly means the two small words are set out in the wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to",
+         "at": 22
+        },
+        {
+         "words": "a",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trophy is handed to an idle winner by mistake.",
+     "walkthrough": "'presented wrongly' rearranges TO A as ATO.",
+     "definitionFit": "Idiom: a couch potato is an idle person, and the vegetable alone is used for an inactive slob."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cup"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +472,48 @@
     "text": "Dope cut with large narrow hollow",
     "enumeration": "4"
    },
-   "solution": "GLEN"
+   "solution": "GLEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "narrow hollow",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cut with",
+       "at": 5,
+       "note": "cut with means the information word is split open by the size letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dope",
+       "at": 0,
+       "gives": "GEN",
+       "note": "dope and gen both mean inside information"
+      },
+      {
+       "words": "large",
+       "at": 14,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs adulterated with a lot of filler, perhaps found in a deep hollow.",
+     "walkthrough": "'Dope' suggests drugs, as 'cut' does, but here it means information.",
+     "definitionFit": "Synonym: a glen is a narrow valley, especially in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dope"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +527,59 @@
     "text": "Membranes (a thousand) in a mess",
     "enumeration": "5"
    },
-   "solution": "AMNIA"
+   "solution": "AMNIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Membranes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 11
+      },
+      {
+       "words": "thousand",
+       "at": 13,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mess",
+         "at": 28,
+         "note": "in a mess means the two little words are jumbled up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Membranes, a thousand of them, in a messy heap.",
+     "walkthrough": "'mess' rearranges IN A as NIA.",
+     "definitionFit": "Plural noun: the amnion is the innermost membrane around an embryo, and these are several of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +599,59 @@
      }
     ]
    },
-   "solution": "PIANOROLL"
+   "solution": "PIANOROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music storage medium",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets inside",
+       "at": 36,
+       "note": "gets inside means the rearranged letters go within the word for head"
+      }
+     ],
+     "parts": [
+      {
+       "words": "head",
+       "at": 48,
+       "gives": "POLL",
+       "note": "poll is an old word for the head"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 21,
+         "note": "playing means the words are performed differently, so their letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on air",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recording medium, playing on the radio, gets into someone's head like an earworm.",
+     "walkthrough": "'playing' signals a shuffle of 'on air', and 'gets inside' places it within an old word for the head; 'playing on air' reads as broadcasting.",
+     "definitionFit": "Example: a perforated roll that drives a player piano stores music as holes in paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +671,49 @@
      }
     ]
    },
-   "solution": "THIRDRATE"
+   "solution": "THIRDRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "indifferent",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "After means the word for judge comes following the interval"
+      }
+     ],
+     "parts": [
+      {
+       "words": "interval",
+       "at": 6,
+       "gives": "THIRD",
+       "note": "a third is a musical interval"
+      },
+      {
+       "words": "judge",
+       "at": 16,
+       "gives": "RATE",
+       "note": "to rate is to judge or assess"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following a break, the critic gives a lukewarm verdict.",
+     "walkthrough": "'interval' suggests a theatre break, but it is the musical interval.",
+     "definitionFit": "Synonym: indifferent can mean mediocre, of poor quality, like something inferior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interval"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +727,49 @@
     "text": "Produce cut when Pence intervenes",
     "enumeration": "5"
    },
-   "solution": "SPAWN"
+   "solution": "SPAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervenes",
+       "at": 23,
+       "note": "intervenes means the money letter comes between the letters of the cut word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cut",
+       "at": 8,
+       "gives": "SAWN",
+       "note": "sawn means cut with a saw"
+      },
+      {
+       "words": "Pence",
+       "at": 17,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political story: output is slashed when Mike Pence steps in.",
+     "walkthrough": "'Pence' looks like the US vice-president but is just P, as in pence.",
+     "definitionFit": "Synonym: to spawn is to produce or generate, originally of fish laying eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pence"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +783,48 @@
     "text": "'Butterfly Month' involves performing",
     "enumeration": "7"
    },
-   "solution": "MONARCH"
+   "solution": "MONARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Butterfly",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "at": 18,
+       "note": "involves means the month wraps around the performing word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Month",
+       "at": 11,
+       "gives": "MARCH",
+       "note": "March is a month"
+      },
+      {
+       "words": "performing",
+       "at": 27,
+       "gives": "ON",
+       "note": "on means performing, as an actor on stage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A themed month celebrating butterflies includes live shows.",
+     "definitionFit": "Example: the monarch is a large orange and black butterfly famous for migrating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Month"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +844,43 @@
      }
     ]
    },
-   "solution": "MOPUP"
+   "solution": "MOPUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clear the mess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Flash",
+       "at": 23,
+       "gives": "MO",
+       "note": "mo is a moment, a flash"
+      },
+      {
+       "words": "the dog",
+       "at": 30,
+       "gives": "PUP",
+       "note": "a pup is a young dog"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cleaning up after a dog named Flash.",
+     "walkthrough": "'Flash' looks like a pet's name but is a moment, MO.",
+     "definitionFit": "Phrasal verb: to mop up is to clean up spills or finish off remaining tasks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flash"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +900,42 @@
      }
     ]
    },
-   "solution": "ROLLERRINK"
+   "solution": "ROLLERRINK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Multi-wheeled transport used in this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "posh car",
+       "at": 37,
+       "gives": "ROLLER",
+       "note": "a Roller is slang for a Rolls-Royce, the posh car"
+      },
+      {
+       "words": "enclosure",
+       "at": 46,
+       "gives": "RINK",
+       "note": "a rink is an enclosed area for skating or curling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart car is parked in a pen, beside a many-wheeled vehicle.",
+     "walkthrough": "The definition points at roller skates, the multi-wheeled transport used there.",
+     "definitionFit": "Description: skaters glide round on wheeled skates in such a venue, so it is defined by what is used in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +962,42 @@
     "text": "Holly cut off singular killjoy",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holly cut off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "singular",
+       "at": 14,
+       "gives": "S",
+       "note": "S is the grammatical abbreviation for singular"
+      },
+      {
+       "words": "killjoy",
+       "at": 23,
+       "gives": "PRIG",
+       "note": "a prig is a self-righteous person, a killjoy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holly branch is pruned by one solitary spoilsport.",
+     "walkthrough": "The definition is by example: a small cut piece of holly is one kind.",
+     "definitionFit": "Example: a small stem cut from a plant, such as a piece of holly at Christmas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Holly"
+    }
+   }
   },
   {
    "number": 17,
@@ -298,7 +1011,49 @@
     "text": "Prized example of peer pressure at the start",
     "enumeration": "5"
    },
-   "solution": "PEARL"
+   "solution": "PEARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prized example",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the start",
+       "at": 32,
+       "note": "at the start means the pressure letter goes in front of the nobleman"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pressure",
+       "at": 23,
+       "gives": "P",
+       "note": "P is the physics abbreviation for pressure"
+      },
+      {
+       "words": "peer",
+       "at": 18,
+       "gives": "EARL",
+       "note": "an earl is a peer of the realm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine instance of teenagers pushing each other from the beginning.",
+     "walkthrough": "'peer pressure' reads as one phrase but splits into two pieces.",
+     "definitionFit": "Figurative: a pearl is something highly valued, a prized specimen, as in pearls of wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1067,46 @@
     "text": "Obliterate extremely lacking African prince",
     "enumeration": "3"
    },
-   "solution": "RAS"
+   "solution": "RAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African prince",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "extremely lacking",
+       "at": 11,
+       "note": "extremely lacking means the word loses its letters at both ends"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Obliterate",
+       "at": 0,
+       "gives": "ERASE",
+       "note": "to erase is to obliterate"
+      },
+      {
+       "gives": "EE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wipe out a prince who is badly in need.",
+     "walkthrough": "'extremely lacking' removes the E at each end of ERASE.",
+     "definitionFit": "Title: a ras is an Ethiopian prince or chief, as in Ras Tafari."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1120,32 @@
     "text": "Order repeatedly issued by them for audio equipment?",
     "enumeration": "8"
    },
-   "solution": "SPEAKERS"
+   "solution": "SPEAKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Order repeatedly issued by them",
+      "at": 0,
+      "meaning": "the presiding officer of the House of Commons calls 'Order! Order!' to quieten MPs"
+     },
+     {
+      "text": "audio equipment",
+      "at": 36,
+      "meaning": "loudspeakers are the boxes that produce sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A cryptic question about who keeps calling for order, then about sound gear.",
+     "walkthrough": "The Speaker chairs the UK House of Commons and is famous for shouting 'Order!'.",
+     "definitionFit": "Two senses: presiding officers of parliaments, and the loudspeakers in a sound system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1159,51 @@
     "text": "African country's familiar populist politician changes sides",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African country's",
+      "at": 0,
+      "note": "the apostrophe-s stands for 'is', linking the definition to the wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "changes sides",
+       "at": 47,
+       "note": "changes sides means the letter for left is swapped for the letter for right"
+      }
+     ],
+     "parts": [
+      {
+       "words": "familiar populist politician",
+       "at": 18,
+       "gives": "NIGEL",
+       "note": "Nigel Farage is a well-known British populist politician"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry political line about a populist who switches allegiance.",
+     "walkthrough": "Nigel Farage led UKIP and the Brexit Party; 'changes sides' turns L (left) into R (right).",
+     "definitionFit": "Example: a landlocked West African state named after its great river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1217,41 @@
     "text": "Direction of type of desktop display system jig?",
     "enumeration": "8"
    },
-   "solution": "GUIDANCE"
+   "solution": "GUIDANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Direction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "type of desktop display system",
+       "at": 13,
+       "gives": "GUI",
+       "note": "GUI is a graphical user interface, the windows and icons on a computer desktop"
+      },
+      {
+       "words": "jig",
+       "at": 44,
+       "gives": "DANCE",
+       "note": "a jig is a lively dance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions on making a computer screen do a little dance.",
+     "definitionFit": "Synonym: direction in the sense of advice or instruction on what to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jig"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1265,41 @@
     "text": "Cast out parsley?",
     "enumeration": "7"
    },
-   "solution": "PLAYERS"
+   "solution": "PLAYERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 5,
+       "note": "out means the herb's letters are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parsley",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook throws away the parsley.",
+     "walkthrough": "'Cast' looks like a verb meaning throw but is the noun for a play's actors.",
+     "definitionFit": "Synonym: the cast of a show is the set of actors performing in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1313,58 @@
     "text": "Learn? I can't — lacking time for observation and application",
     "enumeration": "6"
    },
-   "solution": "ARNICA"
+   "solution": "ARNICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "application",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking",
+       "at": 17,
+       "note": "lacking means the letters of the religious season are taken out of the words"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Learn",
+         "at": 0,
+         "note": "taken as written; the run that remains also happens to lie hidden in these words, a coincidence of the subtraction rather than a separate device"
+        },
+        {
+         "words": "I can't",
+         "at": 7,
+         "note": "taken as written, apostrophe dropped"
+        }
+       ]
+      },
+      {
+       "words": "time for observation",
+       "at": 25,
+       "gives": "LENT",
+       "note": "Lent is the season observed by fasting before Easter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student despairs of learning, too busy to watch and apply themselves.",
+     "walkthrough": "'lacking' removes L, E, N and T, scattered, from LEARNICANT.",
+     "definitionFit": "Example: a herbal ointment rubbed on bruises, a remedy applied to the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "observation"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1378,31 @@
     "text": "Drinker's snack?",
     "enumeration": "6"
    },
-   "solution": "SUPPER"
+   "solution": "SUPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drinker's",
+      "at": 0,
+      "meaning": "one who sups is a drinker; the 's stands for 'is'"
+     },
+     {
+      "text": "snack",
+      "at": 10,
+      "meaning": "a light late-evening meal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is a made-up word: one who sups, so a drinker.",
+     "definitionFit": "Two senses: someone who sups or sips a drink, and a light meal taken late in the day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drinker's"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1416,42 @@
     "text": "Jewellery calls for attention to collar",
     "enumeration": "7"
    },
-   "solution": "EARRING"
+   "solution": "EARRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jewellery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "attention",
+       "at": 20,
+       "gives": "EAR",
+       "note": "to give an ear is to pay attention"
+      },
+      {
+       "words": "collar",
+       "at": 33,
+       "gives": "RING",
+       "note": "a ring is a band like a collar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Phone calls asking for someone to notice a necklace.",
+     "walkthrough": "'calls for' is a link meaning requires.",
+     "definitionFit": "Example: an ornament worn on the lobe, one kind of jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1465,31 @@
     "text": "No hope at all for this £1,001?",
     "enumeration": "5"
    },
-   "solution": "GONER"
+   "solution": "GONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No hope at all for this",
+      "at": 0,
+      "meaning": "someone with no hope at all is doomed, past saving"
+     },
+     {
+      "text": "£1,001",
+      "at": 24,
+      "meaning": "G (a grand) is a thousand pounds, and a oner is one pound, so the sum reads as the two together"
+     }
+    ],
+    "explanation": {
+     "surface": "A sum of money is declared hopeless.",
+     "walkthrough": "G for a grand was first American slang for a thousand dollars, also used for pounds; 'oner' is British slang for a pound.",
+     "definitionFit": "Description: someone or something past saving is doomed, beyond all hope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1503,50 @@
     "text": "Miss touring Gibraltar, having rejected Rabat",
     "enumeration": "4"
    },
-   "solution": "GIRL"
+   "solution": "GIRL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 5,
+       "note": "touring means moving around, so the Rock's letters are rearranged"
+      },
+      {
+       "text": "having rejected",
+       "at": 24,
+       "note": "having rejected means the Moroccan capital's letters are thrown out of the mix"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gibraltar",
+       "at": 13
+      },
+      {
+       "words": "Rabat",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman travels round the Rock after turning down Morocco's capital.",
+     "walkthrough": "'touring' shuffles GIBRALTAR and 'having rejected' removes the letters of RABAT, leaving G, I, R and L.",
+     "definitionFit": "Synonym: Miss is the title for an unmarried young woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1560,43 @@
     "text": "Fish workers' means of effecting a run-through",
     "enumeration": "9"
    },
-   "solution": "PIKESTAFF"
+   "solution": "PIKESTAFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "means of effecting a run-through",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "PIKE",
+       "note": "a pike is a freshwater fish"
+      },
+      {
+       "words": "workers'",
+       "at": 5,
+       "gives": "STAFF",
+       "note": "staff are the workers of an organisation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fishermen's equipment for a rehearsal.",
+     "walkthrough": "'run-through' suggests a rehearsal but means piercing someone with a spiked weapon.",
+     "definitionFit": "Description: a long spiked pole could skewer an enemy, running them through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run-through"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1610,46 @@
     "text": "Timeless puzzle causes depression",
     "enumeration": "4"
    },
-   "solution": "SUMP"
+   "solution": "SUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "depression",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Timeless",
+       "at": 0,
+       "note": "Timeless means the abbreviation for time is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "puzzle",
+       "at": 9,
+       "gives": "STUMP",
+       "note": "to stump is to puzzle or baffle"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eternal riddle leaves someone feeling low.",
+     "walkthrough": "'depression' suggests low mood but is a hollow.",
+     "definitionFit": "Synonym: a sump is a pit or hollow where liquid collects, a depression in the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 29,
@@ -490,7 +1673,73 @@
    "group": [
     "29-down",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A year's worth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 34,
+       "note": "inside means the water and the boy go within the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting drunk",
+         "at": 53,
+         "note": "getting drunk means the words are muddled up, as if intoxicated"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for us",
+         "at": 41
+        },
+        {
+         "words": "no",
+         "at": 50
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the drink",
+         "at": 18,
+         "gives": "SEA",
+         "note": "the drink is slang for the sea"
+        },
+        {
+         "words": "son",
+         "at": 29,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotal toast: a year of the drink, the son at home, but none of us drunk.",
+     "walkthrough": "'getting drunk' shuffles 'for us no', and 'inside' places the sea plus son within it. 'No getting drunk' looks like abstinence but is the anagram signal.",
+     "definitionFit": "Description: spring, summer, autumn and winter together make up a full year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 30,
@@ -504,7 +1753,41 @@
     "text": "Teller gets changed to run race",
     "enumeration": "9"
    },
-   "solution": "RACONTEUR"
+   "solution": "RACONTEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Teller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changed",
+       "at": 12,
+       "note": "changed means the letters of the phrase are altered in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to run race",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank clerk switches jobs to compete in a race.",
+     "walkthrough": "'Teller' suggests a bank clerk but means a teller of stories.",
+     "definitionFit": "Synonym: a skilled storyteller, someone who tells anecdotes well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Teller"
+    }
+   }
   },
   {
    "number": 31,
@@ -518,7 +1801,49 @@
     "text": "British historian? Lay off this Chinese region!",
     "enumeration": "5"
    },
-   "solution": "MACAU"
+   "solution": "MACAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinese region",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 23,
+       "note": "off means the word lay is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British historian",
+       "at": 0,
+       "gives": "MACAULAY",
+       "note": "Thomas Babington Macaulay was a British historian"
+      },
+      {
+       "words": "Lay",
+       "at": 19,
+       "gives": "LAY",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British historian is told to keep his hands off a Chinese territory.",
+     "walkthrough": "'Lay off' looks like a phrase meaning stop, but 'off' removes LAY.",
+     "definitionFit": "Example: a former Portuguese colony, now a special administrative region of China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lay"
+    }
+   }
   }
  ]
 }
