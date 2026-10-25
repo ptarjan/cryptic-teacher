@@ -677,4 +677,18 @@ check("unaccounted_words skips leaves and indicators",
       w.unaccounted_words(w.locate_copy({"wp": "ins<imprisoned by>([Lunatics]NUTS, [detectives]DI)"}, NUD, ()), NUD)
       == ["lacking", "clothes"])
 
+# "variously interrupting" / "separately within": the inner letters go in one by one.
+tree = w.translate({"wp": "ins<variously interrupting>([reception]LEVEE, [first two characters]AB)"},
+                   "Don't mess with first two characters variously interrupting reception", "LEAVEBE")
+check("a scattering indicator spreads the inner letters (AB in LEVEE is LEAVEBE)", tree is not None, tree)
+tree = w.translate({"wp": "ins<separately within>([Study], first<leads to>([academics], [rebutting], [arguments]))"},
+                   "Study leads to academics rebutting arguments separately within 24-hour period", "SATURDAY")
+check("separately within: A, R, A one by one into STUDY is SATURDAY", tree is not None, tree)
+try:
+    w.translate({"wp": "ins<within>([reception]LEVEE, [first two characters]AB)"},
+                "Don't mess with first two characters within reception", "LEAVEBE")
+    check("a plain container indicator does not spread the inner", False, "accepted")
+except w.WordplayError as e:
+    check("a plain container indicator does not spread the inner", "does not give LEAVEBE" in str(e), str(e))
+
 raise SystemExit(fails > 0)

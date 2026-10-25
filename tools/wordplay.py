@@ -700,6 +700,26 @@ _SIZES = {"pair": 2, "couple": 2, "two": 2, "three": 3, "four": 4}
 _MIDDLE = {"middle", "centre", "center", "central", "essentially", "inside"}
 
 
+_SCATTER = {"separately", "variously", "individually", "scattered", "spread", "distributed",
+            "dispersed", "apart", "each"}
+
+
+def _scatters(node):
+    """True when a container's indicators say the inner letters go in one by one
+    ("variously interrupting", "separately within")."""
+    toks = re.findall(r"[a-z]+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower())
+    return any(t in _SCATTER for t in toks)
+
+
+def _spread_in(o, i):
+    """`o` with the letters of `i` dropped in one by one, in order, each at a different
+    place inside it (never at either end): "AB variously interrupting LEVEE" is LEAVEBE."""
+    if len(i) < 2 or len(i) > len(o) - 1:
+        return set()
+    return {"".join(o[a:b] + c for a, b, c in zip((0,) + gaps, gaps + (len(o),), tuple(i) + ("",)))
+            for gaps in itertools.combinations(range(1, len(o)), len(i))}
+
+
 def _span_words(node):
     """(sides, sizes, halves, middle): the position words in a reversal's indicators,
     or None when they name no stretch (an ordinary whole-word reversal)."""
@@ -758,8 +778,13 @@ def values(node):
         vs = values(parts[0])
         return {v[::-1] for v in vs}.union(*(_span_flips(node, v) for v in vs))
     if op == "container":
-        return {o[:k] + i + o[k:] for o in values(parts[0]) for i in values(parts[1])
+        outs = {o[:k] + i + o[k:] for o in values(parts[0]) for i in values(parts[1])
                 for k in range(1, len(o))}
+        if _scatters(node):
+            for o in values(parts[0]):
+                for i in values(parts[1]):
+                    outs |= _spread_in(o, i)
+        return outs
     if op == "deletion":
         out = set()
         for f in values(parts[0]):
@@ -1091,6 +1116,15 @@ def _match_container(node, want, got):
                     and match(outer, want[:k] + want[k + n:], trial) is not None):
                 got.update(trial)
                 return True
+    if _scatters(node):
+        for n in sorted(lengths(inner) or range(2, len(want))):
+            for pos in itertools.combinations(range(1, len(want) - 1), n):
+                trial = dict(got)
+                rest = "".join(c for j, c in enumerate(want) if j not in pos)
+                if (match(inner, "".join(want[j] for j in pos), trial) is not None
+                        and match(outer, rest, trial) is not None):
+                    got.update(trial)
+                    return True
     return False
 
 
