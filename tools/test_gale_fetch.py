@@ -428,4 +428,8 @@ assert kept == [("LSNR", lday, "GM1"), ("LSNR", D(1955, 6, 16), "GM2")], kept
 cites = [urllib.parse.unquote(urllib.parse.unquote(u)) for u in urls]
 assert "Listener, 16 June 1955" in cites[1] and "Listener, 2 June 1955" in cites[0], cites
 assert gf.key("LSNR", lday, 1309, True) == "LSNR/report/1309" and gf.key("LSNR", lday) == "LSNR/1955-06-02"
+req = Path(tempfile.mkdtemp()) / "requests.txt"
+assert gf.requested_days(req) == []
+req.write_text("1981-06-20 bad 1930-04-18\n1981-06-20\n")
+assert gf.requested_days(req) == [D(1981, 6, 20), D(1930, 4, 18)], gf.requested_days(req)
 print("test_gale_fetch: ok")
