@@ -5035,9 +5035,14 @@ global.realSetTimeout(() => {
     "a clean solve's burst is centred on the clue panel, not the grid square: " + measured);
   unspyPanel(); unspyMid();
   // Panel not laid out (no box on screen): fall back to the middle square.
-  // Solve otherE (typed fresh over whatever it holds) with the panel at 0x0.
+  // Solve otherE on an empty grid with the panel at 0x0.
   // Both the letter boxes and the hint panel must be off screen, or the burst
   // legitimately lands on the panel (onScreenBox tries #hint-pattern, then #hint-panel).
+  // The reset matters: otherE (1-down) shares its first square with cleanE
+  // (1-across), and selecting a clue puts the cursor on its first EMPTY square,
+  // so typing the whole answer over cleanE's letter lands one square late and
+  // otherE never solves, so it never bursts at all.
+  registry["reset-puzzle"].onclick();
   panelEl.layout(0, 0);
   registry["hint-panel"].layout(0, 0);
   select(otherE);
