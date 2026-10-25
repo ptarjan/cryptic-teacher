@@ -4204,14 +4204,6 @@
           style="left:calc(50% + ${x}px);
                  top:calc(50% + ${y}px)${extra || ""}">${ring.letters[idx]}</button>`;
     const focus = ringKbdFocused() ? " ana-focus" : "";
-    // Crossing a tile off only fades it, so say what the fading means: how many
-    // letters are used, which are left, and that a tap on a crossed one undoes it.
-    const usedN = ring.letters.filter((_, i) => ring.struck[i] || pinnedTile[i]).length;
-    const left = ring.letters.filter((_, i) => !ring.struck[i] && !pinnedTile[i]).join(" ");
-    const tally = !n ? "" : `<p class="muted ana-count" id="ana-count">${usedN
-      ? `${usedN} of ${n} used${left ? ` · left: ${left}` : " · all used"}${
-        Object.keys(ring.struck).some((i) => ring.struck[i]) ? " · tap a crossed-off letter to put it back" : ""}`
-      : "Tap a letter to cross it off once you have used it"}</p>`;
     // Once a letter is pinned the circle is the wrong shape. A ring says the
     // letters have no order, and a pinned letter is exactly a piece of order:
     // it is letter 4 of the answer, not "somewhere round there". Counting
@@ -4254,7 +4246,7 @@
       const lineDisc = `<div class="ana-disc ana-line${focus}" style="width:${
         widest * pitch + 34}px;height:${rows.length * ROW + 10}px">${tiles}</div>`;
       return `<div class="anagram-ring">
-      <div class="ana-discs">${lineDisc}</div>${tally}
+      <div class="ana-discs">${lineDisc}</div>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
     }
@@ -4279,7 +4271,7 @@
     // itself would have set on the old disc is gone with it. Deriving the class
     // fresh on every render is what makes the ring survive its own redraws.
     return `<div class="anagram-ring">
-      <div class="ana-discs">${discs}</div>${tally}
+      <div class="ana-discs">${discs}</div>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
   }
