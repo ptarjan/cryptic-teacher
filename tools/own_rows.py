@@ -209,6 +209,19 @@ def keep_unlanded(base, text, pids):
     return shape_queue.dump(out)
 
 
+def drop_pruned(text):
+    """`text` (the list as staged) without the rows the planner's prune dropped from the
+    burn tree (prune_shape_queue.pending): nothing else commits that edit, so the
+    committed list kept its ghost rows (1804 on master against 677 in the burn)."""
+    import prune_shape_queue
+    import shape_queue
+    rows = json.loads(text or "[]")
+    gone = prune_shape_queue.pending(r["id"] for r in rows)
+    if not gone:
+        return text
+    return shape_queue.dump([r for r in rows if r["id"] not in gone])
+
+
 def stage(*pids):
     """Several ids chain onto one another's result, so a batch commit holds every
     one's rows (staged one at a time, each would rebuild from HEAD and undo the last)."""
@@ -224,7 +237,8 @@ def stage(*pids):
         for pid in pids:
             text = _merger(rel)(text, donor, pid)
         if rel in LIST_RELS:
-            text = keep_unlanded(head, text, set(pids))
+            text = drop_pruned(text)
+            text = keep_unlanded(head, text, set(pids))   # after the drop: a pid's unsettled row stays
         _stage_blob(rel, text)
 
 

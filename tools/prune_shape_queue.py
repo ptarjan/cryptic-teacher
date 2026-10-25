@@ -93,11 +93,67 @@ def auto(load=_load, stamp=None, every=AUTO_EVERY_S):
     stamp.touch()
     with Q.locked():
         rs = json.loads(Q.PATH.read_text())
+        seed_pending(rs)
         gone = stale_ids(rs, load)
         gone |= {r["id"] for r in rs if Q.exempt(r["id"].partition("#")[0]) and Q.shape_reason(r.get("reason", ""))}
         if gone:
             Q.write(Q.dump([r for r in rs if r["id"] not in gone]))
+            note_pending(gone)
+            log_line(f"  shape redo list: pruned {len(gone)} settled rows ({len(rs) - len(gone)} left)")
     return len(gone)
+
+
+def pending_path():
+    import os
+    return Path(os.environ.get("TMPDIR", "/tmp")) / "ct-prune-shape-pending.txt"
+
+
+def note_pending(ids):
+    """Remember pruned ids: the planner's prune edits the burn tree's list only, and
+    own_rows.stage drops these rows from the next puzzle commit's copy (pending())."""
+    with pending_path().open("a") as f:
+        f.write("".join(f"{i}\n" for i in sorted(ids)))
+
+
+def seed_pending(rs):
+    """First run with no pending file: the rows HEAD holds that the tree's list `rs`
+    already lost (pruned before this file existed) are pending too."""
+    import subprocess
+    if pending_path().exists():
+        return
+    try:
+        out = subprocess.run(["git", "-C", str(Q.PATH.parent), "show", "HEAD:tools/data/shape_reannotate.json"],
+                             capture_output=True, text=True, timeout=60)
+        head = {r["id"] for r in json.loads(out.stdout)} if out.returncode == 0 else set()
+    except (OSError, ValueError, subprocess.SubprocessError):
+        head = set()
+    note_pending(head - {r["id"] for r in rs})
+
+
+def pending(head_ids):
+    """The pruned ids HEAD's list still holds. The file keeps only those, so a row
+    whose drop was committed (or never existed) is forgotten and a later re-queue stays."""
+    path = pending_path()
+    try:
+        ids = set(path.read_text().split()) & set(head_ids)
+        path.write_text("".join(f"{i}\n" for i in sorted(ids)))
+    except OSError:
+        return set()
+    return ids
+
+
+def log_line(msg):
+    """The burn's pool re-plans run the planner with stderr dropped, so the prune also
+    appends to the burn's own log (.prereset.log in $CT_MAIN_CHECKOUT, else this tree)
+    when that file exists."""
+    import os
+    log = Path(os.environ.get("CT_MAIN_CHECKOUT") or Path(__file__).resolve().parent.parent) / ".prereset.log"
+    try:
+        if log.is_file():
+            with log.open("a") as f:
+                f.write(msg + "\n")
+    except OSError:
+        pass
 
 
 def main(argv):
