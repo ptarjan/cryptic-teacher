@@ -330,6 +330,7 @@ gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
 saved_tld = gf.times_listener_days
+gf.REQUESTS = Path("/nonexistent/requests.txt")  # not the machine's real request list
 gf.times_listener_days = lambda docs: []  # the Saturday Listener articles are tested below
 docs ={"TGRH/2000-01-03": {"why": "no crossword in the issue's contents", "matcher": gale_docs.MATCHER["TGRH"]}, "FTHA/2010-01-04": {"doc": "HS1"}}
 gale_docs.load = lambda *a: docs
@@ -391,7 +392,11 @@ tl = [r for r in plan_all if r[2:] and r[-1] == "listener"]
 assert len(tl) == len(days) and {r[0] for r in tl} == {"TTDA"}, len(tl)
 gale_listener.wanted = lambda: [(D(1955, 6, 2), 1309, False)]
 gale_inbox.other_wanted = lambda prod: [D(2000, 1, 4)] if prod == "TGRH" else []
+# Other papers come only while the plan has fewer than REPLAN rows, so give the
+# Saturday list a few rows (the full 1241 would fill the plan and leave no TGRH).
+gf.times_listener_days = lambda docs: days[:3]
 order = [r[0] if not r[3:] or r[-1] != "listener" else "TTL" for r in gf.plan(set(), 0)]
+gf.times_listener_days = saved_tld
 assert order[0] == "LSNR" and order.index("TTL") < order.index("TGRH"), order[:3]
 gale_listener.wanted = lambda: []
 # its Fetched folder is its own, and file_page only keeps it (no edition, no magazine layout)
