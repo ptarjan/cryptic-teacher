@@ -79,9 +79,34 @@ def _open():
     conn = sqlite3.connect(_store(), timeout=600)
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA synchronous=NORMAL")
+    conn.execute("PRAGMA journal_size_limit=268435456")  # a checkpointed -wal is cut back to 256MB
     conn.execute("CREATE TABLE IF NOT EXISTS rows(key TEXT PRIMARY KEY, val BLOB, deps BLOB, used INTEGER)"
                  " WITHOUT ROWID")
     return conn
+
+
+PRUNE_BATCH = 2000
+
+
+def _prune(conn, cutoff):
+    """Drop rows used before cutoff, PRUNE_BATCH keys per transaction.
+
+    One DELETE over a store of tens of gigabytes keeps every freed page in the
+    WAL until it commits (21GB seen); a batch per key range commits, then
+    checkpoints, so the WAL stays small and a killed prune keeps its progress."""
+    lo = None
+    while True:
+        args = (lo,) if lo is not None else ()
+        row = conn.execute(f"SELECT max(key) FROM (SELECT key FROM rows {'WHERE key > ?' if args else ''}"
+                           f" ORDER BY key LIMIT {PRUNE_BATCH})", args).fetchone()
+        hi = row[0]
+        if hi is None:
+            return
+        with conn:
+            conn.execute("DELETE FROM rows WHERE used < ?" + (" AND key > ?" if args else "") + " AND key <= ?",
+                         (cutoff, *args, hi))
+        conn.execute("PRAGMA wal_checkpoint(PASSIVE)")
+        lo = hi
 
 
 def _blobs(paths, listed=None):
@@ -391,12 +416,13 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             conn.executemany("UPDATE rows SET used=? WHERE key=?",
                              ((today, keys[p]) for p in paths
                               if p not in missed and keys[p] not in moved and stored[keys[p]][2] != today))
-            # The prune is a full scan (`used` has no index, and the store is
-            # gigabytes: 2.6GB re-read per call, three calls a reindex, under
-            # memory pressure), yet its cutoff moves only when the day does,
-            # so it runs once a day: user_version holds the day it last ran.
-            if conn.execute("PRAGMA user_version").fetchone()[0] != today:
-                conn.execute("DELETE FROM rows WHERE used < ?", (today - PRUNE_DAYS,))
+        # The prune is a full scan (`used` has no index, and the store is
+        # gigabytes: 2.6GB re-read per call, three calls a reindex, under
+        # memory pressure), yet its cutoff moves only when the day does,
+        # so it runs once a day: user_version holds the day it last ran.
+        if conn.execute("PRAGMA user_version").fetchone()[0] != today:
+            _prune(conn, today - PRUNE_DAYS)
+            with conn:
                 conn.execute(f"PRAGMA user_version={today}")
     except sqlite3.Error as err:
         print(f"row cache for {name}.{fn.__name__}: could not store {len(miss)} rows: {err!r}", file=sys.stderr)
