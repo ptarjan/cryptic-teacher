@@ -4897,9 +4897,10 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # are the ones this reread keeps.
     # A clue filed with no enumeration is no reason either (the Gale page's clue column left it
     # off): the grid's light settles its count, the answers add nothing to the clue, and the full
-    # read of a puzzle already held whole in clues never merges its answers (decide(): its reading
-    # is not complete, it files to --out) - 650 linked grids (10-22: 79 of them 2000s Times for
-    # the Times write-ups left partial) stayed unanswered behind it.
+    # read of a puzzle already held whole in clues never merged its answers (decide(): its reading
+    # is not complete, it filed to --out) - 650 linked grids (10-22: 79 of them 2000s Times for
+    # the Times write-ups left partial) stayed unanswered behind it. Since 10-25 (UNFILED_HELD)
+    # decide() fills such a held file's blank lights from the full read too.
     if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old):
         return None
     grid = trove_solution_ocr.puzzle_grid(old)
@@ -7496,6 +7497,74 @@ def suspect_held(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_UNFILED_HELD whose linked solution grid gave
+#: answers for a puzzle this tool holds with every clue, an answer short, yet whose answers never
+#: reached the held file: a full read (answers_only stood aside: a held answer the grid reads otherwise,
+#: the held file from another page, a reread that keeps the VLM) with a clue blank went to --out whole
+#: (decide()), its answers with it; or its write was refused whole over a held clue the certain
+#: punctuation mends left faulted (mend_held: "one . , owner" to "one , owner"). Since REREAD_UNFILED_HELD
+#: decide() fills the held file's blank lights from such a reading, and mend_held keeps such a clue as
+#: held. answers_only first, once. 10-25: 227 Times grids (3,825 answers in their --out copies) and 17
+#: refused writes.
+UNFILED_HELD = "solution short, its answers filed to --out over a held file with every clue"
+REREAD_UNFILED_HELD = "2026-10-25T14:30:00+00:00"
+#: {(held path, copy path): ((held stamp, copy stamp), whether the copy answers a light the held file leaves blank)}
+_UNFILED_GAIN = {}
+
+
+def unfiled_gain(series, number, pid):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled on the grid of
+    its --out copy CROPS/unfiled/`pid`.json, leaves blank a light that copy answers; parsed again only
+    when either stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    q = CROPS / "unfiled" / f"{pid}.json"
+    stamp = (_stat_stamp(p), _stat_stamp(q))
+    if None in stamp:
+        return False
+    hit = _UNFILED_GAIN.get((p, q))
+    if hit is None or hit[0] != stamp:
+        try:
+            held, out = json.loads(p.read_text()), json.loads(q.read_text())
+        except (OSError, ValueError):
+            return False
+        es = held.get("entries") or ()
+        read = {entry_id(e): e.get("solution") for e in out.get("entries") or () if e.get("solution")}
+        gain = bool(es) and (held.get("source") or {}).get("acquiredBy") == TOOL and filled(held)[0] == len(es) \
+            and trove_solution_ocr.puzzle_grid(held) == trove_solution_ocr.puzzle_grid(out) \
+            and any(not e.get("solution") and read.get(entry_id(e)) for e in es)
+        hit = _UNFILED_GAIN[p, q] = (stamp, gain)
+    return hit[1]
+
+
+#: The write gate's refusals of a held clue that a mend left faulted (UNFILED_HELD's second cause).
+GATE_REFUSALS = ("(punctuation.faults)", "holds the page's text")
+
+
+def unfiled_held(row):
+    """Whether Times ledger `row`, read before REREAD_UNFILED_HELD, has a verdict whose linked solution
+    grid gave answers for a puzzle held with every clue and an answer short, that went to --out (a full
+    read, "unfiled", its copy answering a light the held file leaves blank: unfiled_gain) or whose write
+    the gate refused over a clue (GATE_REFUSALS)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED_HELD)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if not v.get("id") or v.get("refused") or not isinstance(s, dict) or s.get("refused") \
+                or not s.get("accepted") or filed_state(paper.series, v.get("number")) != (False, True):
+            continue
+        refused = str(v.get("refusedWrite") or "")
+        if "SHAPE" in refused and any(g in refused for g in GATE_REFUSALS):
+            return True
+        if v.get("unfiled") and not v.get("answersOnly") and unfiled_gain(paper.series, v.get("number"), v["id"]):
+            return True
+    return False
+
+
 def fix_reason(row):
     """Why a read `row` is read again for a reader fix landed since, or None:
     a refusal read before its cause's fix (REREAD_REFUSED), or a solution
@@ -7545,6 +7614,8 @@ def fix_reason(row):
         return HEAVY_PRINT
     if suspect_held(row):
         return SUSPECT_HELD
+    if unfiled_held(row):
+        return UNFILED_HELD
     if row.get("solutionKey") != solution_key():
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -8069,7 +8140,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SUSPECT_HELD: 2,
+         HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -8576,7 +8647,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD)
+                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -9157,6 +9228,21 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
             verdict["answered"] = answered
             commit(held_at, old, verdict)
         return
+    # A full reading not complete() (a clue blank or suspect) whose puzzle the corpus holds with every
+    # clue: the held clues stand, and its answers are the held file's, not --out's. Only a blank held
+    # light takes one, crossing no held letter on another (merge_answers keep): this reading's own
+    # clues were short, and no held answer goes for it. Filed to --out, the held file never took one
+    # (10-25: 227 Times grids, 3,825 answers read; held answers differing on 53 of them).
+    old = json.loads(held_path.read_text()) if dest and held_path.exists() else None
+    if old is not None and (old.get("source") or {}).get("acquiredBy") == TOOL \
+            and filled(old)[0] == len(old.get("entries") or ()) > 0 \
+            and trove_solution_ocr.puzzle_grid(old) == trove_solution_ocr.puzzle_grid(puzzle):
+        verdict["heldWhole"] = True
+        answered = merge_answers(old, puzzle, keep=True)
+        if answered:
+            verdict["answered"] = answered
+            commit(held_at, old, verdict)
+        return
     where = ("out", puzzle["id"]) if dest else held_at
     if dest:  # not complete(): it files to --out, not the corpus; the log line says so
         verdict["unfiled"] = len(puzzle["entries"]) - filled(puzzle)[0]
@@ -9325,7 +9411,12 @@ def mend_held(puzzle, path, tool=TOOL):
     # A held clue's run of spaces (edition_commit.spaced) is cut to one, and
     # its punctuation's certain mends made (punctuation.mend_puzzle), in
     # place, annotation and all: the words stand.
-    collapsed = {**collapse_held_spaces(old), **punctuation.mend_puzzle(old)}
+    before = {entry_id(e): copy.deepcopy(e) for e in old["entries"]}
+    # A mend that leaves its clue one the write gate refuses as a new clue (a fault the certain mends
+    # leave, "one . , owner" to "one , owner"; the page's text, "(7,.4) Original" to "(7, 4) Original")
+    # is not made: the held words stand as they were, which the gate passes, for the re-read. Made, the
+    # write was refused whole and its answers with it (10-25: 17 Times grids).
+    collapsed = punctuation.unmend_refused(old, before, {**collapse_held_spaces(old), **punctuation.mend_puzzle(old)})
     stray = strayed(old, spaces=False)
     lost = shared | stray | set(faults(old))
     # A reading that improves() the file replaces it, its words and all.
@@ -9693,14 +9784,16 @@ def book_marks(was, now, book):
     return bool(was and book and now != was and ocr_clues.reprint_marked(was, book) == now)
 
 
-def merge_answers(old, puzzle, tool=TOOL, reread=False):
+def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False):
     """{light: its answer now (None: dropped)} after taking `puzzle`'s
     answers into the held filing `old` (in place): each light this reading
     answers takes its answer, and a held answer a new one crosses on
     another letter is dropped; with `reread` (this reading read the
     solution grid) so is every held answer it did not read again, the
     older reader's sure reads having filed wrong ones (BAYED for DATED).
-    A light whose answer changes loses its
+    With `keep`, no held answer changes or goes: only a blank light takes
+    this reading's answer, and only one that crosses no held letter on
+    another (_fill_writeup_blanks). A light whose answer changes loses its
     annotation, written against the old answer. {} when `old` is not
     `tool`'s or lies on another grid."""
     if (old.get("source") or {}).get("acquiredBy") != tool \
@@ -9711,7 +9804,7 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False):
         return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
     new = {entry_id(e): e["solution"] for e in puzzle["entries"] if e.get("solution")}
     letters = {rc: ch for e in puzzle["entries"] if e.get("solution") for rc, ch in zip(cells(e), e["solution"])}
-    if "blog" in (old.get("solutions") or {}):
+    if keep or "blog" in (old.get("solutions") or {}):
         return _fill_writeup_blanks(old, new, cells)
     changed = {}
     for e in old["entries"]:

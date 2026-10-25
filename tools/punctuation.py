@@ -31,7 +31,11 @@ due). An unpaired bracket is ocr_clues.bled's, not this module's.
 A space before ? ! ; : is the old Times's own setting, and an odd count of
 double quotes is a quote spanning clues or a seconds mark (4'33"): neither
 is a rule.
+
+A mend that leaves its clue one the write gate refuses (gate_refuses) is
+not made on a filed clue (unmend_refused): the held words pass as they are.
 """
+import copy
 import re
 
 #: Endings after a stop that make a web address, not two words.
@@ -267,9 +271,40 @@ def mend_entry(entry):
 
 def mend_puzzle(puzzle):
     """{light: its clue now} for each clue of `puzzle` mend_entry changed,
-    in place."""
+    in place. A clue the mends would leave one the write gate refuses (gate_refuses:
+    "one . , owner" to "one , owner") stays as it was (unmend_refused)."""
     from groups import entry_id
-    return {entry_id(e): e["clue"]["text"] for e in puzzle.get("entries") or () if mend_entry(e)}
+    before = {entry_id(e): copy.deepcopy(e) for e in puzzle.get("entries") or () if "number" in e and "direction" in e}
+    return unmend_refused(puzzle, before, {entry_id(e): e["clue"]["text"]
+                                           for e in puzzle.get("entries") or () if mend_entry(e)})
+
+
+def gate_refuses(clue):
+    """Whether puzzle_integrity's write gate refuses `clue` as a changed OCR clue: a fault
+    (check_new_punctuation), a run of spaces (check_new_spaces) or the page's text (check_new_bleed)."""
+    import ocr_clues
+    text = clue.get("text") if isinstance(clue, dict) else None
+    return bool(text) and bool(faults(text) or "  " in text or ocr_clues.bled(text, clue.get("asPrinted") or ()))
+
+
+def unmend_refused(puzzle, before, mended):
+    """`mended` ({light: its clue now}) less each light whose mended clue the write gate refuses
+    (gate_refuses), that entry of `puzzle` put back as `before` ({light: the entry before}) holds
+    it, in place. A certain mend that leaves a fault ("one . , owner" to "one , owner") or the
+    page's text ("(7,.4) Original" to "(7, 4) Original") changes a held clue into one the gate
+    refuses as new, and the write goes whole, its answers with it; the held words as they were pass
+    and stay for the re-read. 10-25: 17 Times grids' answers refused so."""
+    from groups import entry_id
+    out = dict(mended)
+    for e in puzzle.get("entries") or ():
+        if "number" not in e or "direction" not in e:
+            continue
+        lid = entry_id(e)
+        if lid in out and lid in before and gate_refuses(e.get("clue")):
+            e.clear()
+            e.update(copy.deepcopy(before[lid]))
+            del out[lid]
+    return out
 
 
 def faulted(puzzle):

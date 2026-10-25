@@ -278,10 +278,13 @@ def write_flags(path, ids):
 def mend_clue_marks(puzzle):
     """Cut each clue's runs of spaces to one and make punctuation's certain
     mends (a stray "·", a "." run on to the next word), in place, annotation
-    and italics moved with the words. Returns {light: its clue now}."""
+    and italics moved with the words. Returns {light: its clue now}. A clue
+    these mends would leave one the write gate refuses stays as it was
+    (punctuation.unmend_refused): mended, its held file's write went whole."""
+    before = {entry_id(e): copy.deepcopy(e) for e in puzzle["entries"]}
     spaced = {entry_id(e): e["clue"]["text"] for e in puzzle["entries"]
               if isinstance(e.get("clue"), dict) and enumeration.collapse_entry_spaces(e)}
-    return {**spaced, **punctuation.mend_puzzle(puzzle)}
+    return punctuation.unmend_refused(puzzle, before, {**spaced, **punctuation.mend_puzzle(puzzle)})
 
 
 def offsets(old, new):
@@ -356,10 +359,13 @@ def mechanical(puzzle, filer=None):
         return puzzle, []
     fixed = copy.deepcopy(puzzle)
     notes = []
+    before = {entry_id(e): copy.deepcopy(e) for e in fixed["entries"]}
     marks = mend_clue_marks(fixed)
     if marks:
         notes.append(f"{len(marks)} clue(s) with stray marks or spaces mended")
+    # A slip's mend that leaves its clue one the write gate refuses stays unmade (punctuation.unmend_refused).
     texts = mend_clue_text(fixed)
+    texts = punctuation.unmend_refused(fixed, before, texts) if texts else texts
     if texts:
         notes.append(f"{len(texts)} clue(s) with a scan's slips mended: " + ", ".join(sorted(texts)))
     breaks = restore_word_breaks(fixed)

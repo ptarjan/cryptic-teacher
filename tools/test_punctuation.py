@@ -128,6 +128,21 @@ held = puzzle("newspaper", "Caught by.clever message")
 check("strayed flags a fault", {"1-across"}, edition_commit.strayed(held))
 check("not with spaces=False (the held path mends it)", set(), edition_commit.strayed(held, spaces=False))
 check("mend_puzzle reports the light", {"1-across": "Caught by clever message"}, p.mend_puzzle(copy.deepcopy(held)))
+# A mend that leaves its clue one the gate refuses as new is not made: the held words pass as they are, and the
+# write that merges answers into the file stands (10-25: times-18300 "one . , owner", times-17709 "·at ... time;,").
+for was in ("Composure of the number one . , owner", "Anxious about, ·at one time;, King Edward"):
+    half = puzzle("newspaper", was)
+    check(f"mend_puzzle leaves {was!r} as held", ({}, was), (p.mend_puzzle(half), half["entries"][0]["clue"]["text"]))
+check("gate_refuses a clue the gate would", (True, False, True),
+      (p.gate_refuses({"text": "one , owner"}), p.gate_refuses({"text": "one, owner"}), p.gate_refuses({"text": "a  b"})))
+import fetch_puzzle
+fp_old = puzzle("newspaper", "Gaping , mouth heartily  taking pate")
+fp_new = puzzle("newspaper", "Gaping , mouth heartily taking pate")
+check("a held clue the writer kept, that the write's mends turned into one the gate refuses, goes back as held",
+      "Gaping , mouth heartily  taking pate",
+      fetch_puzzle.kept_held_clues(fp_old, fp_new, {(1, "across"): "Gaping , mouth heartily  taking pate"})["entries"][0]["clue"]["text"])
+check("... a clue the writer brought new is the gate's to judge",
+      {}, fetch_puzzle.kept_clues(puzzle("newspaper", "Sweden;, say"), puzzle("newspaper", "Sweden, say;,")))
 
 # corrects() takes a certain mend, and no reading that brings a fault.
 check("corrects takes the mend", True, fa.corrects("Caught by.clever message", "Caught by clever message"))
