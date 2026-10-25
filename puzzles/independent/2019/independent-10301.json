@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Covering report",
     "enumeration": "4"
    },
-   "solution": "BARK"
+   "solution": "BARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0,
+      "meaning": "the protective outer layer of a tree trunk"
+     },
+     {
+      "text": "report",
+      "at": 9,
+      "meaning": "the sharp explosive sound of a gun firing"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses: a tree's outer skin, and the crack a gun gives when fired, both called by the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Covering"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +70,31 @@
     "text": "Keep playing or stick?",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep playing",
+      "at": 0,
+      "meaning": "in cricket, to carry on batting is to ..."
+     },
+     {
+      "text": "stick",
+      "at": 16,
+      "meaning": "a short rod, such as a conductor's or a relay runner's"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as two words, the answer is the cricket phrase for carrying on batting; read as one, it is a rod.",
+     "definitionFit": "A relay runner or conductor holds this short rod, an ordinary example of a stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,49 @@
     "text": "Progressively move heart of British comic writer",
     "enumeration": "7"
    },
-   "solution": "RATCHET"
+   "solution": "RATCHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Progressively move",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heart of",
+       "at": 19,
+       "note": "the heart is what is left when the outermost letters at each end of the writer's surname are trimmed off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British comic writer",
+       "at": 28,
+       "gives": "PRATCHETT",
+       "note": "Terry Pratchett, British author of the comic Discworld fantasy novels"
+      },
+      {
+       "gives": "P"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to shift the emotional core of a much-loved British humorist.",
+     "walkthrough": "'heart of' strips P and T from the ends of PRATCHETT; the writer is never named, so this is a deletion from a synonym, not letters printed in the clue.",
+     "definitionFit": "To ratchet something up or down is to shift it step by step, as a toothed mechanism does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +164,48 @@
     "text": "Foresight of French when invading local territory",
     "enumeration": "10"
    },
-   "solution": "PROVIDENCE"
+   "solution": "PROVIDENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foresight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invading",
+       "at": 25,
+       "note": "invading means pushing into the middle of the territory, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local territory",
+       "at": 34,
+       "gives": "PROVINCE",
+       "note": "a province is a regional territory of a country"
+      },
+      {
+       "words": "of French",
+       "at": 10,
+       "gives": "DE",
+       "note": "de is the French word for of"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note on French foresight shown when an army invaded a neighbouring region.",
+     "definitionFit": "An older sense of the word is prudent forethought, careful planning for the future."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invading"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +219,59 @@
     "text": "Wealthy doctor keeping on in part of London",
     "enumeration": "8"
    },
-   "solution": "RICHMOND"
+   "solution": "RICHMOND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of London",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wealthy",
+       "at": 0,
+       "gives": "RICH",
+       "note": "wealthy means rich"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "at": 15,
+         "note": "keeping means holding something within, so the doctor's letters enclose the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 8,
+         "gives": "MD",
+         "note": "MD, Doctor of Medicine"
+        },
+        {
+         "words": "on",
+         "at": 23,
+         "gives": "ON"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rich physician hangs on to a property in a smart district of the capital.",
+     "walkthrough": "Richmond is a leafy borough in south-west London.",
+     "definitionFit": "Richmond is a borough and district on the Thames in south-west London, so an example of an area of the city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +285,47 @@
     "text": "Harshness deposing pair of leaders, it's true",
     "enumeration": "6"
    },
-   "solution": "VERITY"
+   "solution": "VERITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's true",
+      "at": 36,
+      "note": "a definition by description: a statement that is true, a truth"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "deposing pair of leaders",
+       "at": 10,
+       "note": "deposing means removing from the top, and a pair of leaders are the first two letters of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Harshness",
+       "at": 0,
+       "gives": "SEVERITY",
+       "note": "harshness means severity"
+      },
+      {
+       "gives": "SE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Political comment: a harsh regime overthrows two leaders, and that is the truth.",
+     "walkthrough": "'deposing pair of leaders' takes SE off the front of SEVERITY.",
+     "definitionFit": "The word is a noun for a truth or a principle accepted as true, so 'it's true' describes one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "deposing"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +339,40 @@
     "text": "Duke finished port",
     "enumeration": "5"
    },
-   "solution": "DOVER"
+   "solution": "DOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "port",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duke",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "words": "finished",
+       "at": 5,
+       "gives": "OVER",
+       "note": "finished means over, as in 'the game is over'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman is done for in a harbour town.",
+     "definitionFit": "Dover is the English Channel port in Kent closest to France, a ferry harbour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +386,61 @@
     "text": "Irishman around pub picked up nurses",
     "enumeration": "7"
    },
-   "solution": "NANNIES"
+   "solution": "NANNIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nurses",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 20,
+       "note": "in a down clue, picking something up lifts it so the letters read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 9,
+         "note": "around means the Irishman's name surrounds the pub"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irishman",
+         "at": 0,
+         "gives": "SEAN",
+         "note": "Sean is a common Irish man's name"
+        },
+        {
+         "words": "pub",
+         "at": 16,
+         "gives": "INN",
+         "note": "an inn is a pub"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish drinker hangs around the bar and is collected by nurses.",
+     "walkthrough": "'picked up' turns SEINNAN upward, as a down entry reads.",
+     "definitionFit": "Both words are verbs for looking after someone carefully, as a nanny does a child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +460,43 @@
      }
     ]
    },
-   "solution": "EARLYDAYS"
+   "solution": "EARLYDAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "back in January, it would seem?",
+      "at": 21,
+      "note": "a playful description: January is when the year is young"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ruined",
+       "at": 12,
+       "note": "ruined means wrecked, so the letters of the two words are broken up and rebuilt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lady's year",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's year has been wrecked, and she looks back to how it started in January.",
+     "walkthrough": "'ruined' rearranges LADYSYEAR.",
+     "definitionFit": "The phrase means a time too soon to judge, and literally January sits at the start of the calendar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +510,70 @@
     "text": "German leader's encouragement to repeat company's initial investing in German currency",
     "enumeration": "8"
    },
-   "solution": "BISMARCK"
+   "solution": "BISMARCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German leader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "encouragement to repeat",
+       "at": 16,
+       "gives": "BIS",
+       "note": "bis is a call from an audience for a piece to be played again, an encore"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "investing in",
+         "at": 58,
+         "note": "investing means putting something into, so the initial goes inside the currency"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German currency",
+         "at": 71,
+         "gives": "MARK",
+         "note": "the mark was Germany's currency before the euro"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initial",
+           "at": 50,
+           "note": "the initial of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "company's",
+           "at": 40
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial tip: repeat the firm's first move of putting money into German currency.",
+     "walkthrough": "'initial' takes C from company's; 'investing in' puts it inside MARK.",
+     "definitionFit": "Otto von Bismarck was the first chancellor of the united German Empire, so a historical head of state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +587,52 @@
     "text": "Unison passage? Annoyed comment before it's played back",
     "enumeration": "5"
    },
-   "solution": "TUTTI"
+   "solution": "TUTTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unison passage?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Annoyed comment",
+       "at": 16,
+       "gives": "TUT",
+       "note": "tut is the click of the tongue expressing irritation"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "played back",
+         "at": 44,
+         "note": "played back, like a recording rewound, means the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 39,
+         "gives": "IT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician tuts at a passage in unison before the recording is replayed.",
+     "walkthrough": "'played back' turns IT into TI.",
+     "definitionFit": "In a score the instruction tutti marks a section where all the players perform together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +646,72 @@
     "text": "Camel-rider, perhaps, caught by a pair of Arabs carrying blade",
     "enumeration": "9"
    },
-   "solution": "CARAVANER"
+   "solution": "CARAVANER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Camel-rider, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "at": 22,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 48,
+         "note": "carrying means holding inside, so the doubled letters enclose the blade"
+        }
+       ],
+       "parts": [
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "a pair of",
+           "at": 32,
+           "note": "a pair means two copies of the abbreviation"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Arabs",
+           "at": 42,
+           "gives": "AR",
+           "note": "Ar is the abbreviation for Arab or Arabic"
+          }
+         ]
+        },
+        {
+         "words": "blade",
+         "at": 57,
+         "gives": "VANE",
+         "note": "a vane is a blade, as on a windmill or propeller"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A camel rider is captured by two Arabs who are carrying a knife.",
+     "walkthrough": "'a pair of' gives ARAR.",
+     "definitionFit": "A traveller in a desert caravan might well be riding a camel, so this is an example, signalled by 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blade"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +725,53 @@
     "text": "Prophet repelled an intrusive smell",
     "enumeration": "5"
    },
-   "solution": "NAHUM"
+   "solution": "NAHUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prophet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repelled",
+         "at": 8,
+         "note": "repelled means driven back, so the little word is turned around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "at": 17,
+         "gives": "AN"
+        }
+       ]
+      },
+      {
+       "words": "intrusive smell",
+       "at": 20,
+       "gives": "HUM",
+       "note": "a hum is slang for an unpleasant, pervading smell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man is driven away by a smell that won't leave.",
+     "walkthrough": "'repelled' turns AN into NA.",
+     "definitionFit": "Nahum is one of the minor prophets with a book in the Old Testament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repelled"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +785,57 @@
     "text": "Obstetric study? Degree takes a long time, though not at first",
     "enumeration": "9"
    },
-   "solution": "MATERNITY"
+   "solution": "MATERNITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obstetric study?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Degree",
+       "at": 17,
+       "gives": "MA",
+       "note": "MA, Master of Arts"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 50,
+         "note": "not at first means the opening letter of the word is left off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a long time",
+         "at": 30,
+         "gives": "ETERNITY",
+         "note": "an eternity is a very long time, informally"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A degree in obstetrics takes ages to finish, though not at the beginning.",
+     "walkthrough": "'not at first' drops the E from ETERNITY.",
+     "definitionFit": "Obstetrics deals with pregnancy and childbirth, the subject of a maternity ward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Degree"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +849,54 @@
     "text": "American backing computer pioneer for surgical procedure",
     "enumeration": "8"
    },
-   "solution": "SUTURING"
+   "solution": "SUTURING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surgical procedure",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 9,
+         "note": "backing means going backwards, so the abbreviation is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "US",
+         "note": "US, the United States"
+        }
+       ]
+      },
+      {
+       "words": "computer pioneer",
+       "at": 17,
+       "gives": "TURING",
+       "note": "Alan Turing, British pioneer of computer science"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American supports a famous computer scientist's work towards a surgical operation.",
+     "walkthrough": "'backing' turns US into SU.",
+     "definitionFit": "Stitching a wound closed is a standard operation in surgery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +916,42 @@
      }
     ]
    },
-   "solution": "SAINTPAUL"
+   "solution": "SAINTPAUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "letter writer",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Dreadful",
+       "at": 0,
+       "note": "dreadful means awful, so the letters are badly jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "input, alas",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone groans at the awful material fed in by a correspondent.",
+     "walkthrough": "'Dreadful' rearranges INPUTALAS.",
+     "definitionFit": "The apostle wrote the epistles of the New Testament, letters to early churches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +965,57 @@
     "text": "English discernible in handwriting leading to a celebration",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "celebration",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "discernible in",
+         "at": 8,
+         "note": "discernible in means seen inside, so the letter sits within the other word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "handwriting",
+         "at": 23,
+         "gives": "FIST",
+         "note": "fist is informal for a person's handwriting"
+        },
+        {
+         "words": "English",
+         "at": 0,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 46
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Englishness shows in someone's handwriting, which leads to a party.",
+     "walkthrough": "'discernible in' puts E inside FIST.",
+     "definitionFit": "A fiesta is a festive holiday or party, particularly in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "handwriting"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1035,41 @@
      }
     ]
    },
-   "solution": "ICEYACHT"
+   "solution": "ICEYACHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "winter sports racer?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "developed",
+       "at": 10,
+       "note": "developed means changed and built up, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Each city",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Every town has built up a racer for winter sport.",
+     "walkthrough": "'developed' rearranges EACHCITY.",
+     "definitionFit": "This sailing craft runs on runners over frozen lakes, and is raced in winter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1083,41 @@
     "text": "Wet smear spoiled glasses",
     "enumeration": "8"
    },
-   "solution": "STEMWARE"
+   "solution": "STEMWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "glasses",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spoiled",
+       "at": 10,
+       "note": "spoiled means ruined, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wet smear",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A damp smudge has marred the glassware.",
+     "walkthrough": "'spoiled' rearranges WETSMEAR.",
+     "definitionFit": "Stemware is the collective name for drinking vessels with stems, such as wine goblets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glasses"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1131,64 @@
     "text": "Wrote mostly about expression of gratitude for new pupils",
     "enumeration": "6"
    },
-   "solution": "INTAKE"
+   "solution": "INTAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "new pupils",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means surrounding, so the shortened word goes round the thanks"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 6,
+         "note": "mostly means most of the word, so its final letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wrote",
+         "at": 0,
+         "gives": "INKED",
+         "note": "inked means wrote in ink"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "expression of gratitude",
+       "at": 19,
+       "gives": "TA",
+       "note": "ta is British informal for thank you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher wrote much of a thank-you note for the newcomers.",
+     "walkthrough": "'mostly' leaves INKE.",
+     "definitionFit": "A school's intake is the batch of pupils enrolled at one time, its new arrivals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrote"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1202,52 @@
     "text": "Oath's half covered by loud noise",
     "enumeration": "7"
    },
-   "solution": "THUNDER"
+   "solution": "THUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loud noise",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 7,
+         "note": "half here means the second half of the word for a sworn promise"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oath's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "covered by",
+       "at": 12,
+       "gives": "UNDER",
+       "note": "under means covered by, as in 'under a blanket'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half of someone's swearing is drowned out by a din.",
+     "walkthrough": "'half' takes TH, the back half of OATH.",
+     "definitionFit": "Thunder is the rumbling crash after lightning, and by extension any loud booming sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1261,48 @@
     "text": "Tries US lawyers, bringing in hired staff member?",
     "enumeration": "8"
    },
-   "solution": "ATTEMPTS"
+   "solution": "ATTEMPTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tries",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 18,
+       "note": "bringing in means taking someone inside, so one piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US lawyers",
+       "at": 6,
+       "gives": "ATTS",
+       "note": "atts is short for attorneys, American lawyers"
+      },
+      {
+       "words": "hired staff member",
+       "at": 30,
+       "gives": "TEMP",
+       "note": "a temp is a temporary worker hired through an agency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American lawyers prosecute cases with help from a temporary office worker.",
+     "definitionFit": "Both are plural nouns or verbs for efforts made to do something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tries"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1316,71 @@
     "text": "Setter's cross about one peculiar bird",
     "enumeration": "7"
    },
-   "solution": "PHOENIX"
+   "solution": "PHOENIX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "about means surrounding, so the setter's letters go round the jumbled number"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Setter's",
+         "at": 0,
+         "gives": "PHI",
+         "note": "Phi is the setter of this puzzle"
+        },
+        {
+         "words": "cross",
+         "at": 9,
+         "gives": "X",
+         "note": "X is the shape of a cross"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "peculiar",
+         "at": 25,
+         "note": "peculiar means odd, so the letters are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle's author is annoyed at one strange bird.",
+     "walkthrough": "Phi set this puzzle, so 'Setter's' is his pen-name; 'peculiar' gives OEN.",
+     "definitionFit": "The phoenix is the mythical bird said to be reborn from its own ashes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1394,57 @@
     "text": "Midsummer lover, he left one from Scotland upset",
     "enumeration": "6"
    },
-   "solution": "HELENA"
+   "solution": "HELENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Midsummer lover",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "he",
+       "at": 17
+      },
+      {
+       "words": "left",
+       "at": 20,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 43,
+         "note": "upset means turned over, so in this down entry the Scottish word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one from Scotland",
+         "at": 25,
+         "gives": "ANE",
+         "note": "ane is the Scots word for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A summer romance ends: he walks out, and the Scottish girl is distraught.",
+     "walkthrough": "'upset' turns ANE into ENA. Helena chases Demetrius in Shakespeare's A Midsummer Night's Dream.",
+     "definitionFit": "In A Midsummer Night's Dream Helena is one of the four young lovers in the woods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Midsummer"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1464,41 @@
      }
     ]
    },
-   "solution": "TRUSSBEAM"
+   "solution": "TRUSSBEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strengthened support?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in earthquake",
+       "at": 33,
+       "note": "an earthquake shakes everything up, so the letters are tumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Same burst",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The same thing burst apart during a tremor, despite reinforcement.",
+     "walkthrough": "'in earthquake' rearranges SAMEBURST.",
+     "definitionFit": "This beam is braced by a frame of struts, making a reinforced structural member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earthquake"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1512,47 @@
     "text": "Pitiless on being confined in pen",
     "enumeration": "5"
    },
-   "solution": "STONY"
+   "solution": "STONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pitiless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being confined in",
+       "at": 12,
+       "note": "being confined in means shut up inside, so the small word is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pen",
+       "at": 30,
+       "gives": "STY",
+       "note": "a sty is a pen for pigs"
+      },
+      {
+       "words": "on",
+       "at": 9,
+       "gives": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shut away in a pen without mercy.",
+     "definitionFit": "A stony stare or heart is hard and unfeeling, showing no mercy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1566,58 @@
     "text": "Love a story not involving rugby?",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Love",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 5
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not involving",
+         "at": 13,
+         "note": "not involving means leaving out, so the letters for the sport are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 7,
+         "gives": "RUMOUR",
+         "note": "a rumour is a story going around"
+        },
+        {
+         "words": "rugby",
+         "at": 27,
+         "gives": "RU",
+         "note": "RU is the abbreviation for Rugby Union"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romance whose tale has nothing to do with the rugby club.",
+     "walkthrough": "'not involving' drops RU from RUMOUR.",
+     "definitionFit": "Amour is a love affair, borrowed from the French word for love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rugby"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1631,48 @@
     "text": "Scoundrel's good shifting cosmetic",
     "enumeration": "5"
    },
-   "solution": "ROUGE"
+   "solution": "ROUGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cosmetic",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "shifting",
+       "at": 17,
+       "note": "shifting means moving to a new place within the same word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scoundrel's",
+       "at": 0,
+       "gives": "ROGUE",
+       "note": "a scoundrel is a rogue; the 's is 'has'"
+      },
+      {
+       "words": "good",
+       "at": 12,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain's virtue has moved over into make-up.",
+     "walkthrough": "'shifting' moves the G of ROGUE one place along.",
+     "definitionFit": "Rouge is red powder or cream applied to colour the cheeks, a make-up product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1686,58 @@
     "text": "Classical princess and classic city advertisement recalled",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Classical princess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "and",
+       "at": 19
+      },
+      {
+       "words": "classic city",
+       "at": 23,
+       "gives": "ROME",
+       "note": "Rome, the city of classical antiquity"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 50,
+         "note": "recalled means called back, so the abbreviation is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advertisement",
+         "at": 36,
+         "gives": "AD",
+         "note": "an ad is an advertisement"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical princess, an ancient city and a withdrawn advertisement.",
+     "walkthrough": "'recalled' turns AD into DA.",
+     "definitionFit": "In Greek myth Andromeda was the Ethiopian princess chained to a rock and rescued by Perseus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1751,35 @@
     "text": "Only one component of skean-dhu will do for Indian?",
     "enumeration": "5"
    },
-   "solution": "HINDU"
+   "solution": "HINDU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Only one component of skean-dhu will do for Indian?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Only one component of skean-dhu will do for Indian?",
+       "at": 0,
+       "note": "only the second part of the Scottish dagger's name, with its 'doo' sound, serves to end the word for an Indian of a particular faith"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A skean-dhu is the small knife worn in a Highland stocking; its 'dhu', said 'doo', supplies the ending sound of the answer.",
+     "definitionFit": "Most people in India follow the religion whose followers are called this, so it names an Indian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "component"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1799,41 @@
      }
     ]
    },
-   "solution": "LARDYCAKES"
+   "solution": "LARDYCAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sweet treats",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cooked",
+       "at": 12,
+       "note": "cooked means prepared or fiddled, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lacks ready",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker short of anything ready to eat whips up some cakes.",
+     "walkthrough": "'cooked' rearranges LACKSREADY. Lardy cakes are rich English fruit buns made with lard.",
+     "definitionFit": "These rich spiced fruit buns from southern England are a sweet baked teatime treat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lacks"
+    }
+   }
   },
   {
    "number": 30,
@@ -495,7 +1847,48 @@
     "text": "Car part cut after length installed",
     "enumeration": "4"
    },
-   "solution": "AXLE"
+   "solution": "AXLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Car part",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "installed",
+       "at": 26,
+       "note": "installed means fitted inside, so the letter is put within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cut",
+       "at": 9,
+       "gives": "AXE",
+       "note": "to axe is to cut"
+      },
+      {
+       "words": "length",
+       "at": 19,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic cuts a component after fitting it to a car.",
+     "walkthrough": "'installed' puts L inside AXE.",
+     "definitionFit": "The rod on which a vehicle's wheels turn is a key piece of a car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   }
  ]
 }
