@@ -108,6 +108,7 @@ corpus, and rebuilding it here would race any fetch that is running.
 import argparse
 import bisect
 import collections
+import contextlib
 import copy
 import re
 import json
@@ -950,6 +951,204 @@ def repair_misread_names(apply_it=False, rows=MISREAD_NAMES):
     return blanked
 
 
+#: The day from which repair_uncrossed looks at the answers filed to Times files: 8,564's BATES for
+#: PATES ("They're made of paste") was filed 10-18.
+UNCROSSED_SINCE = "2026-10-18"
+#: How many days after a puzzle's own date its solution grid's crop may be dated (the host edition).
+CROP_DAYS = 14
+
+
+def answered_since(since=UNCROSSED_SINCE, ref="HEAD"):
+    """{puzzle id: {light: answer}} of the Times answers `ref`'s files hold that the last commit
+    before `since` did not (a file new since then gives every answer it holds)."""
+    base = git_out("rev-list", "-1", f"--before={since}T00:00", ref).strip()
+    if not base:
+        return {}
+    got = {}
+    for rel in git_out("diff", "--name-only", base, ref, "--", "puzzles/times").split():
+        if not rel.endswith(".json") or not (fetcher.ROOT / rel).exists():
+            continue
+        now = json.loads((fetcher.ROOT / rel).read_text())
+        try:
+            was = json.loads(git_out("show", f"{base}:{rel}") or "{}")
+        except ValueError:
+            was = {}
+        held = {entry_id(e): e.get("solution") for e in was.get("entries") or ()}
+        new = {entry_id(e): e["solution"] for e in now.get("entries") or ()
+               if e.get("solution") and not held.get(entry_id(e))}
+        if new:
+            got[Path(rel).stem] = new
+    return got
+
+
+def grid_crops(root=None):
+    """{puzzle number: [(date, path)]} of the solution grid crops file_archive_org_puzzles.read_solution
+    leaves (CROPS/solutions/<edition>_<number>.png)."""
+    import file_archive_org_puzzles as archive
+    by = {}
+    for p in Path(root or archive.CROPS / "solutions").glob("*.png"):
+        num = p.stem.rsplit("_", 1)[-1]
+        try:
+            day = datetime.strptime(p.stem[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if num.isdigit():
+            by.setdefault(int(num), []).append((day, p))
+    return by
+
+
+def grid_crop(puzzle, crops):
+    """The earliest crop of `crops` (grid_crops) for `puzzle`'s number dated from its own date
+    to CROP_DAYS after, or None."""
+    try:
+        day = datetime.strptime(puzzle.get("date") or "", "%Y-%m-%d").date()
+    except ValueError:
+        return None
+    near = sorted(c for c in crops.get(puzzle.get("number"), ()) if 0 <= (c[0] - day).days <= CROP_DAYS)
+    return near[0][1] if near else None
+
+
+def misread_alternative(word, lone):
+    """Whether one letter's change at a lone cell (`lone`: the letters' indices) of `word` makes a
+    listed word: a misread there has a word to have been (BATES for PATES)."""
+    import trove_solution_ocr as tso
+    return any(i in lone for i, _ in tso.one_change(word.upper()))
+
+
+def uncrossed_suspects(puzzle, lights=None):
+    """{light: [lone letter indices]} of `puzzle`'s answers (those of `lights`, all by default)
+    file_archive_org_puzzles.uncrossed leaves out, short of the classifier's reading of its cells,
+    where a misread_alternative lies. The rest it leaves out (a partial grid's MILOMETER, no word one
+    letter off it) are not looked at: their crop's classifier read costs ~5 s a puzzle."""
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    es = puzzle.get("entries") or ()
+    answers = {entry_id(e): e["solution"] for e in es if e.get("solution")}
+    if not answers:
+        return {}
+    grid = tso.puzzle_grid(puzzle)
+    enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
+    lts = tso.lights(grid)
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    out = {}
+    for k in sorted(archive.uncrossed(answers, grid, enums)):
+        if lights is not None and k not in lights:
+            continue
+        idx = [i for i, _, _ in archive.lone_cells(k, lts, on, answers)]
+        if misread_alternative(answers[k], idx):
+            out[k] = idx
+    return out
+
+
+#: grid_crops() for the workers of uncrossed_reads (forked: read once, not sent with each puzzle).
+_CROPS = {}
+
+
+def crop_probs(crop, grid):
+    """trove_solution_ocr.cell_probs of `crop` for `grid`, kept under CROPS/cell_probs by the crop's
+    size and time and the grid, so a dry run's reads serve the --apply that follows."""
+    import hashlib
+    import numpy as np
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    st = Path(crop).stat()
+    key = hashlib.sha256(json.dumps([str(crop), st.st_size, st.st_mtime_ns, ["".join(r) for r in grid]]).encode()).hexdigest()[:20]
+    kept = archive.CROPS / "cell_probs" / f"{key}.npz"
+    if kept.exists():
+        with np.load(kept) as z:
+            return None if not len(z["cells"]) else {tuple(int(v) for v in rc): p for rc, p in zip(z["cells"], z["p"])}
+    probs = tso.cell_probs(crop, grid)
+    kept.parent.mkdir(parents=True, exist_ok=True)
+    cells = sorted(probs or ())
+    tmp = kept.with_suffix(".part.npz")
+    np.savez(tmp, cells=np.array(cells, dtype=np.int16).reshape(-1, 2),
+             p=np.array([probs[rc] for rc in cells], dtype=np.float32).reshape(-1, 26))
+    tmp.replace(kept)
+    return probs
+
+
+def _uncrossed_one(item):
+    """(id, [(light, answer, lowest lone-cell probability or None: no crop read, rival)]) of one
+    puzzle's uncrossed_suspects, `rival` the listed word the classifier reads its lone letters as
+    (file_archive_org_puzzles.misread_rival), None where it stands."""
+    pid, lights = item
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    path = puzzle_paths.find(pid)
+    if path is None:
+        return pid, []
+    puzzle = fetcher.read_puzzle_file(path)
+    if (puzzle.get("source") or {}).get("acquiredBy") != archive.TOOL:
+        return pid, []
+    sus = uncrossed_suspects(puzzle, lights)
+    if not sus:
+        return pid, []
+    grid = tso.puzzle_grid(puzzle)
+    crop = grid_crop(puzzle, _CROPS)
+    probs = crop_probs(crop, grid) if crop else None
+    es = puzzle["entries"]
+    answers = {entry_id(e): e["solution"] for e in es if e.get("solution")}
+    lts = tso.lights(grid)
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    got = []
+    for k in sus:
+        lone = archive.lone_cells(k, lts, on, answers)
+        low = None if not probs else round(min((float(probs[rc][tso.AZ.index(ch)]) if rc in probs and ch in tso.AZ
+                                                else 0.0 for _, rc, ch in lone), default=1.0), 3)
+        got.append((k, answers[k], low, archive.misread_rival(answers[k], lone, probs) if probs else None))
+    return pid, got
+
+
+def uncrossed_reads(answered, workers=1, crops=None):
+    """[(id, light, answer, lowest lone-cell probability, rival)] of _uncrossed_one over
+    `answered` ({id: lights}, answered_since)."""
+    _CROPS.clear()
+    _CROPS.update(grid_crops() if crops is None else crops)
+    items = [(pid, set(lights)) for pid, lights in sorted(answered.items())]
+    found = []
+    import multiprocessing
+    with multiprocessing.get_context("fork").Pool(workers) if workers > 1 else contextlib.nullcontext() as pool:
+        for i, got in enumerate(pool.imap(_uncrossed_one, items, chunksize=4) if pool else map(_uncrossed_one, items)):
+            found.append(got)
+            if i % 500 == 499:
+                print(f"{i + 1} of {len(items)} puzzles read", file=sys.stderr, flush=True)
+    return [(pid, k, a, low, rival) for pid, rows in found for k, a, low, rival in rows]
+
+
+def repair_uncrossed(since=UNCROSSED_SINCE, apply_it=False, workers=1, answered=None, crops=None):
+    """[(id, light, answer, the listed word the classifier reads it as)] for each Times answer filed
+    since `since` (answered_since) that file_archive_org_puzzles.uncrossed leaves out by the
+    classifier's reading of the grid's crop (cell_probs): a lone letter (unchecked, or crossed by a
+    blank light) read as another at RIVAL_P and over its own, making a listed word (misread_rival).
+    Each is blanked, a light left for a reread to fill, not a wrong word (8,564's BATES for PATES,
+    its B read .035); an answer whose crop is not read stands. One pass over the files as they
+    stand: a blank made here leaves no other answer out. With `apply_it` False nothing is written."""
+    answered = answered_since(since) if answered is None else answered
+    bad = {}
+    for pid, k, a, low, rival in uncrossed_reads(answered, workers, crops):
+        if rival:
+            bad.setdefault(pid, []).append((k, a, rival))
+    blanked = []
+    for pid, rows in sorted(bad.items()):
+        path = puzzle_paths.find(pid)
+        puzzle = fetcher.read_puzzle_file(path)
+        drop = {k: a for k, a, _ in rows}
+        for e in puzzle["entries"]:
+            if drop.get(entry_id(e)) and e.get("solution") == drop[entry_id(e)]:
+                e["solution"] = None
+                e.pop("annotation", None)
+        blanked += [(pid, k, a, rival) for k, a, rival in rows]
+        if apply_it:
+            fetcher.write_puzzle_file(path, puzzle)
+    return blanked
+
+
 #: How many days on an edition's next issue may lie (a Sunday, a holiday, a missing paper).
 NEXT_ISSUE_DAYS = 4
 
@@ -1087,6 +1286,13 @@ def main(argv):
     ap.add_argument("--misread-names", action="store_true",
                     help="only blank the Times answers in MISREAD_NAMES (a surname cmudict alone lists, "
                          "misread off a word: BOAN for ROAN); --apply writes")
+    ap.add_argument("--uncrossed", nargs="?", const=UNCROSSED_SINCE, metavar="SINCE",
+                    help="only blank the Times answers filed since SINCE (default " + UNCROSSED_SINCE + ") "
+                         "with a letter no other answer checks that the cell classifier reads, off the grid's "
+                         "crop, as another making a listed word (repair_uncrossed: BATES for PATES); "
+                         "--apply writes")
+    ap.add_argument("--workers", type=int, default=1, metavar="N",
+                    help="with --uncrossed, classify the grid crops in N processes")
     ap.add_argument("--renumbered", action="store_true",
                     help="only rename the Times puzzles filed one below the title their page prints, "
                          "a solution heading bearing the title out (misnumbered_titles), newest first; "
@@ -1143,6 +1349,13 @@ def main(argv):
         moved = [r for r in found if r[3] is None]
         print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
               + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
+        return 0
+    if args.uncrossed:
+        blanked = repair_uncrossed(args.uncrossed, args.apply, args.workers)
+        for pid, lid, word, rival in blanked:
+            print(f"{pid} {lid}: {word} -> blank (the classifier reads {rival})")
+        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+              f"{'blanked' if args.apply else 'would be blanked'}")
         return 0
     if args.misread_names:
         blanked = repair_misread_names(args.apply)
