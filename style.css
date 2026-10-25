@@ -1751,6 +1751,20 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .seo-latest li { margin: 0 0 3px; }
 .seo-latest a.p-answers { font-size: .82rem; color: var(--muted); }
 
+/* While app.js boots (html.ct-boot, set in index.html's head and cleared by
+   showApp) the crawl links and footer wait, and an empty 15x15 stands where the
+   grid will draw, so the first thing on screen is the shape of the puzzle and
+   not a page of links with the footer in the middle of it. */
+#boot-grid { display: none; }
+html.ct-boot .seo-nav, html.ct-boot footer { display: none; }
+html.ct-boot #boot-grid {
+  display: block; width: min(100%, 600px); aspect-ratio: 1; margin: 16px 0;
+  border: 2px solid var(--line); box-sizing: border-box; opacity: .6;
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: calc(100% / 15) calc(100% / 15);
+}
+
 /* The sync code is going to be read off one screen and typed into another, by
    hand, probably on a phone. Monospaced and spaced out so O/0-style misreads
    are impossible to make — the alphabet in app.js already excludes the
