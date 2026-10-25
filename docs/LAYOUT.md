@@ -3075,6 +3075,11 @@ tools/prereset_watch.sh                        what the */5 fire of the pre-rese
 tools/test_prereset_watch.sh                   does tools/prereset_watch.sh see a burn that is
                                                alive but stuck, and one that is dead with
                                                orphans holding its tree lease?
+tools/test_full_reindex_ban.py                 is a full local cold rebuild of the puzzle index
+                                               impossible by accident: plain --reindex refused
+                                               outside CI without CT_ALLOW_FULL_REINDEX=1 /
+                                               --force-full, and reindex() stopping when more
+                                               than 5,000 index rows miss the row cache?
 tools/test_reindex_changed.py                  does fetch_puzzle.reindex_changed() re-read only
                                                the puzzle files newer than the index, and fall
                                                back to the full reindex when there is no index?

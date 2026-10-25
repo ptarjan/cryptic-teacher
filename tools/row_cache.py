@@ -252,7 +252,16 @@ def code_for(name, fn_name, roots=(), salt=""):
     return f"{name}.{fn_name}:{code_key}:{salt}:{_data_salt(name, {fn_name, *roots}, code_key)}"
 
 
-def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None, stale_ok=False):
+class TooManyMisses(Exception):
+    """cached_map found more missing rows than its `max_miss` allows."""
+
+    def __init__(self, ns, misses, limit):
+        super().__init__(f"row cache for {ns}: {misses} rows missing (limit {limit})")
+        self.misses, self.limit = misses, limit
+
+
+def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None, stale_ok=False,
+               max_miss=None):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
     code_reach.key(name, {fn.__name__, *roots}). `listed` is
@@ -267,7 +276,10 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     row made by OLDER code keeps that row until a fresh one is made; rows no
     code has made come first; at the deadline the map returns, with the
     unit marked as having backlog left, instead of stopping, so the caller
-    always has a complete answer and the rows catch up across runs."""
+    always has a complete answer and the rows catch up across runs.
+
+    `max_miss`: raise TooManyMisses, making nothing, when more rows than this
+    are missing."""
     paths = list(paths)
     try:
         conn = _open()
@@ -290,6 +302,10 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                 out[p] = row
                 continue
         miss.append(p)
+    if max_miss is not None and len(miss) > max_miss:
+        # Before anything is made: a cache-key change must not silently turn
+        # a cheap step into a whole-corpus scan (`max_miss`: raise instead).
+        raise TooManyMisses(f"{name}.{fn.__name__}", len(miss), max_miss)
     missed = set(miss)
     today = int(time.time() // 86400)
     ns = f"{name}.{fn.__name__}"

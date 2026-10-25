@@ -112,7 +112,10 @@ function reindex() {
   // stdout swallowed (one "indexed N puzzle(s)" line nobody reads), stderr kept:
   // a python that is missing or a rebuild that fails must say so where the test
   // output is, not silently leave a stale index behind.
-  execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), "--reindex"],
+  // CI makes every row (free minutes); a local tree starts from the deploy's
+  // index, since a plain --reindex is refused there (a ~2000 CPU-s cold scan).
+  const mode = process.env.GITHUB_ACTIONS ? "--reindex" : "--reindex-from-deploy";
+  execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), mode],
     { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"] });
 }
 
