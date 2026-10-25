@@ -56,17 +56,58 @@ _pending_cache = {}
 def pending():
     """{puzzle id: {clue key ("22a"): reason}} for the rows not yet tried."""
     rs = rows()
-    if _pending_cache.get("rows") is not rs:  # rows() returns one list per file version
+    sha = code_sha()
+    if _pending_cache.get("rows") is not rs or _pending_cache.get("sha") != sha:  # rows() returns one list per file version
         out = {}
         for r in rs:
-            if r.get("tried"):
+            if r.get("tried") and not rearmed(r, sha):
                 continue
             pid, _, clue = r["id"].partition("#")
             if exempt(pid) and shape_reason(r.get("reason", "")):
                 continue
             out.setdefault(pid, {})[clue] = r.get("reason", "")
-        _pending_cache.update(rows=rs, out=out)
+        _pending_cache.update(rows=rs, out=out, sha=sha)
     return _pending_cache["out"]
+
+
+#: A clue the model nulled is tried again when the annotate code (or the flagging rule, which
+#: annotate_ledger.CODE_PATHS covers) changed since, at most this many tries in all.
+MAX_TRIES = 3
+_sha_cache = {}
+
+
+def code_sha():
+    """Short sha of the last commit touching annotate code (annotate_ledger.code_commit), the same
+    signal the cost ledger judges by; None when git or the module is not there. Looked up at most
+    every 10 minutes: pending() asks on every call."""
+    import time
+    now = time.monotonic()
+    if "at" not in _sha_cache or now - _sha_cache["at"] > 600:
+        try:
+            import annotate_ledger
+            sha = annotate_ledger.code_commit()[0]
+        except Exception:
+            sha = None
+        _sha_cache.update(at=now, sha=sha)
+    return _sha_cache["sha"]
+
+
+def tries(row):
+    """How many times the model has tried this row (rows tried before the count was kept: once)."""
+    return row.get("tries", 1 if row.get("tried") else 0)
+
+
+def rearmed(row, sha=None):
+    """True for a tried row the burn should take again: the annotate code changed since its last
+    try (tried_code differs; rows tried before it was kept count as changed) and it is under
+    MAX_TRIES. Past the cap it stays hidden; exhausted() lists it."""
+    sha = sha or code_sha()
+    return bool(sha) and tries(row) < MAX_TRIES and row.get("tried_code") != sha
+
+
+def exhausted():
+    """Row ids tried MAX_TRIES times and still flagged: the report of clues the model cannot fix."""
+    return [r["id"] for r in rows() if r.get("tried") and tries(r) >= MAX_TRIES]
 
 
 def puzzle_ids():
@@ -98,6 +139,19 @@ def listed(puzzle):
     """{entry id: reason} for every listed clue of this puzzle, tried or not:
     the ones apply holds to the detectors."""
     return _by_entry(puzzle, _listed_by_puzzle().get(puzzle.get("id")))
+
+
+def hidden(puzzle):
+    """{entry id: reason} for the listed clues whose walkthrough the site hides: those still flagged.
+    A stale row (settled(): no detector it names fires now) and a convention-series shape row (never
+    redone, see exempt) hide nothing, so a fixed clue shows before its row is pruned."""
+    got = listed(puzzle)
+    if not got:
+        return got
+    by_id = {f"{e['number']}-{e['direction']}": e for e in puzzle.get("entries") or []}
+    skip = exempt(puzzle.get("id"))
+    return {k: why for k, why in got.items()
+            if not (skip and shape_reason(why)) and not settled(by_id[k], why)}
 
 
 _listed_cache = {}
@@ -504,13 +558,14 @@ def done(puzzle, written, held=()):
     if not mine:
         return 0
     verdict = {clue_key(by_id[k]): k in held or still_flagged(by_id[k]) for k in mine}
+    sha = code_sha()
     with locked():
         out = []
         for r in json.loads(PATH.read_text()):
             p, _, c = r["id"].partition("#")
             if p == puzzle["id"] and c in verdict:
                 if verdict[c]:
-                    out.append({**r, "tried": True})
+                    out.append({**r, "tried": True, "tries": tries(r) + 1, "tried_code": sha})
                 continue
             out.append(r)
         write(dump(out))
