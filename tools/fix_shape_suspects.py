@@ -3174,7 +3174,57 @@ def r_del_wraps_charade(node, parent, ctx):
     return new
 
 
-RULE_REPAIRS = {"delWrapsCharade": r_del_wraps_charade, "nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def _single_pick(p):
+    """(op, n, indicator text) of a selection over one plain leaf, else None."""
+    if not isinstance(p, dict) or p.get("op") not in W.SELECT or p.get("unchecked") or "gives" in p:
+        return None
+    sub = p.get("parts") or []
+    if len(sub) != 1 or "words" not in sub[0] or "op" in sub[0] or sub[0].get("unchecked") or not isinstance(sub[0].get("at"), int):
+        return None
+    return p["op"], p.get("n"), tuple(str(i.get("text")).lower() for i in p.get("indicators") or [])
+
+
+def r_repeated_selection(node, parent, ctx):
+    """repeatedSelection: charade(first<ind>([a]), first<ind>([b]), ...) of the same pick, each over one word
+    (an acrostic written word by word) is one pick, first<ind>([a b ...]) over the words together. Only runs of
+    neighbouring parts whose words follow each other in the clue with only blanks between; kept only when the
+    tree still gives the answer and the rule counts fewer."""
+    clue = ctx.get("clue") or ""
+    parts = node.get("parts") or []
+    if node.get("op") != "charade" or node.get("unchecked") or not ctx.get("answer") or not V.repeated_selections(node):
+        return None
+    out, i, merged = [], 0, False
+    while i < len(parts):
+        key = _single_pick(parts[i])
+        j = i + 1
+        while key and j < len(parts) and _single_pick(parts[j]) == key:
+            a, b = parts[j - 1]["parts"][0], parts[j]["parts"][0]
+            if W.letters(clue[a["at"] + len(a["words"]):b["at"]]) or b["at"] < a["at"]:
+                break
+            j += 1
+        if key and j - i > 1:
+            first, last = parts[i]["parts"][0], parts[j - 1]["parts"][0]
+            new = copy.deepcopy(parts[i])
+            new["parts"] = [{"words": clue[first["at"]:last["at"] + len(last["words"])], "at": first["at"]}]
+            out.append(new)
+            merged = True
+        else:
+            out += parts[i:j]
+        i = j
+    if not merged:
+        return None
+    new = {x: copy.deepcopy(y) for x, y in node.items() if x not in ("parts", "gives")}
+    new["parts"] = out
+    if len(out) == 1:
+        new = out[0]
+    if node.get("gives") is not None and "op" in new and new["op"] == "charade":
+        new["gives"] = node["gives"]
+    if not _eval_swapped(node, parent, new, ctx) or V.repeated_selections(new) >= V.repeated_selections(node):
+        return None
+    return new
+
+
+RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,

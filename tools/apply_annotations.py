@@ -375,7 +375,8 @@ def repair_pool_gap(new, entry):
         # poolGap, and unindicatedBare (the "missing wordplay.noIndicator" first-check failure,
         # 100 sessions and $27 after the check in one day): a word filed on the wrong node moves
         # to the bare op, or a spare clue word beside it becomes its indicator.
-        for rule, count in (("poolGap", V.pool_gaps), ("unindicatedBare", lambda t, c: V.unindicated_ops(t))):
+        for rule, count in (("poolGap", V.pool_gaps), ("unindicatedBare", lambda t, c: V.unindicated_ops(t)),
+                            ("repeatedSelection", lambda t, c: V.repeated_selections(t))):
             if not count(wp, clue):
                 continue
             fixed, used = F.repair_tree(wp, clue, entry.get("solution"), {rule: F.RULE_REPAIRS[rule]})
