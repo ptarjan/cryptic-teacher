@@ -116,28 +116,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "repeat",
+     "indicators": [
+      {
+       "text": "doubled",
+       "at": 8,
+       "note": "doubled says the little word is written twice"
+      }
+     ],
      "parts": [
       {
        "words": "in this manner",
+       "at": 16,
        "gives": "SO",
-       "note": "'do it so' means do it in this manner"
-      },
-      {
-       "words": "doubled",
-       "gives": "SO",
-       "note": "the same word again, making a pair"
+       "note": "so means thus, in this way"
       }
      ]
     },
     "explanation": {
-     "surface": "Doing a task in this particular way twice over only gives middling results.",
-     "walkthrough": "'Doubled' tells you to write the same two letters twice, giving the hyphenated SO-SO.",
-     "definitionFit": "Something so-so is neither good nor bad, merely middling or mediocre, which is what average means in casual speech."
+     "surface": "An ordinary result, twice over, done this way.",
+     "definitionFit": "Something middling, neither good nor bad, is described as mediocre or so-so."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Average"
     }
    }
   },
@@ -441,53 +444,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOADEGREE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is cut"
+       "text": "trailing behind",
+       "at": 29,
+       "note": "trailing behind puts the cut smell after the other two pieces"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "stinker",
+       "at": 45,
+       "gives": "TOAD",
+       "note": "a toad is a nasty person, a stinker"
+      },
+      {
+       "words": "say",
+       "at": 54,
+       "gives": "EG",
+       "note": "EG (for example) is what say means here"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "trailing behind",
-         "note": "something trailing behind comes after, so it is placed at the end"
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "stinker",
-         "gives": "TOAD",
-         "note": "a toad is a contemptible, nasty person"
-        },
-        {
-         "words": "say",
-         "gives": "EG",
-         "note": "e.g. means for example, which is what 'say' can mean"
-        },
-        {
          "words": "horrible smell",
-         "gives": "REE",
-         "note": "a reek is a strong unpleasant smell, shortened by one letter"
+         "at": 7,
+         "gives": "REEK",
+         "note": "a reek is a strong unpleasant smell"
+        },
+        {
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rather nasty odour following a particularly smelly person.",
-     "walkthrough": "'Stinker, say' looks like one unit, but 'say' is separate and gives the abbreviation for 'for example'.",
-     "definitionFit": "The phrase means to some extent or moderately, which is the sense of fairly in 'fairly good'."
+     "surface": "A fairly bad smell lingers behind a nasty person.",
+     "walkthrough": "'Fairly horrible' reads as one phrase, but Fairly alone is the definition and 'horrible smell' is a single synonym. 'mostly' drops its last letter, and 'trailing behind' puts it after the other two pieces.",
+     "definitionFit": "Doing something to some extent, partially rather than wholly, is doing it fairly."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "say"
+     "misdirectedWord": "horrible"
     }
    }
   },

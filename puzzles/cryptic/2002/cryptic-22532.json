@@ -862,7 +862,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the repeated verb inside the remaining letters"
+       "at": 11,
+       "note": "in tells us the doubled verb goes inside the shortened town"
       }
      ],
      "parts": [
@@ -871,32 +872,47 @@
        "indicators": [
         {
          "text": "Not half",
-         "note": "not half says one half of the college name is dropped"
+         "at": 22,
+         "note": "not half here means only half of the word is kept, its first three letters"
         }
        ],
        "parts": [
         {
          "words": "Merton",
-         "note": "taken as written"
+         "at": 14
         }
        ]
       },
       {
-       "words": "Dine twice",
-       "gives": "EATEAT",
-       "note": "eat means dine, written two times"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 5,
+         "note": "twice says the verb is written out two times in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dine",
+         "at": 0,
+         "gives": "EAT",
+         "note": "to dine is to eat"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner at Merton College, eating double helpings, insists he is no vegetarian.",
-     "walkthrough": "Merton is an Oxford college; only its first half, MER, is kept and the doubled verb goes inside.",
-     "definitionFit": "Someone who eats animal flesh, a carnivore, is by definition not a vegetarian."
+     "surface": "An invitation to eat twice in the London suburb of Merton, met with an enthusiastic yes, though the guest is no vegetarian.",
+     "walkthrough": "'Not half!' is British slang for 'very much so!', but here 'Not half' keeps only the first half of the town's name. 'twice' doubles the verb, and 'in' places it after the first letter.",
+     "definitionFit": "A meat-eater is a carnivore, the opposite of a vegetarian."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Merton"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Not"
     }
    }
   },
