@@ -1,7 +1,6 @@
 # Solving a puzzle that has no published answers
 
-Prize puzzles appear without solutions for about a week. Solve cold, then
-annotate in this same turn; when the key arrives, wrong entries are re-annotated.
+Prize puzzles appear without solutions for a week. Solve cold, then annotate this turn.
 
 ## Input
 
@@ -21,7 +20,7 @@ each entry id to its answer and its definition, verbatim from the clue:
 
     {"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}, ...}
 
-Spaces, hyphens and apostrophes are stripped. Write it after every pass,
+Spaces, hyphens, apostrophes are stripped. Write it after every pass,
 the cold pass first: a run ending without it is thrown away. Give every entry your best answer, adding
 `"guess": true` where unsure; omit an entry only when you have no candidate.
 Then run the check:
@@ -38,12 +37,10 @@ Once the check passes, write the fill in and make the copy you annotate:
     python3 tools/apply_solution.py <number> --fill <path> --no-reindex
     python3 tools/annotate_check.py --view <number>
 
-A puzzle a blog wrote up never takes a model fill: the apply says "not written", the lights the
-blog left out stay blank, and you give those answers in your `_ann` file. That is not an error.
+A blog puzzle takes no model fill: "not written" is no error; give those answers in your `_ann` file.
 
-Annotate each `(MODEL)` answer there from the wordplay you derived it by. Once `annotate_check.py` says `clean`,
-end with the confidence line below and nothing else —
-no summary, no further pass.
+Annotate each `(MODEL)` answer from the wordplay you derived it by. Once `annotate_check.py` says `clean`,
+end with the confidence line below: no summary, no further pass.
 
 ## Method
 

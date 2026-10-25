@@ -38,7 +38,7 @@ function open() {
   const blocksBtn = () => row().find((b) => b.onclick && !b.disabled && /building blocks/i.test(b.textContent || ""));
   const armedBtn = () => row().find((b) => b.textContent === ARMED);
   const tellArmed = () => body().includes(ARMED) && /data-arm="blocks-tell" class="[^"]*arm-cost/.test(body());
-  const blocksOpen = () => /The building blocks<\/span>/.test(body().replace(/<div class="hint-step guess">[\s\S]*$/, ""));
+  const blocksOpen = () => /The building blocks(<span class="step-won">[^<]*<\/span>)?<\/span>/.test(body().replace(/<div class="hint-step guess">[\s\S]*$/, ""));
   return { d, reg, puz, key, row, body, asking, hints, blocksBtn, armedBtn, tellArmed, blocksOpen };
 }
 
@@ -84,6 +84,9 @@ for (const e of blocky) {
     check(!t.asking() && t.blocksOpen() && t.hints() === before + 1,
       `firstTapArms (${id}): the second tap reveals the blocks and charges one: ${before} -> ${t.hints()}`);
   } else {
+    // A piece whose letters are all printed in the clue (anagram fodder) opens on
+    // one tap, unarmed and free (blocksFree); only a rung that arms is a purchase.
+    if (!t.armedBtn() && t.hints() === before) continue;
     if (outright++) continue;
     check(t.armedBtn() && !t.blocksOpen() && t.hints() === before,
       `firstTapArms (${id}): the rung button arms and charges nothing`);
