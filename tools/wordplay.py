@@ -466,6 +466,55 @@ def not_in_clue(text, clue, nth=1):
     return head + "copy the clue words exactly"
 
 
+_ELLIPSIS = re.compile(r"\s*(?:\.\.\.|…)\s*")
+
+
+def _split_ellipsis(node, clue):
+    """An indicator written 'taking ... into' (a phrase split round other words) is
+    two indicators, 'taking' and 'into': the refusal asked for one <..> per run
+    and the gap words are the model's own pieces. Only a text the clue does not
+    print as it is (an ellipsis in the clue itself stays one indicator)."""
+    inds = node.get("indicators")
+    if inds:
+        out = []
+        for ind in inds:
+            text = ind.get("text")
+            parts = [p for p in _ELLIPSIS.split(text) if p.strip()] if isinstance(text, str) else []
+            if len(parts) > 1 and text not in clue and _ELLIPSIS.search(text):
+                out += [{**ind, "text": p} for p in parts]
+            else:
+                out.append(ind)
+        node["indicators"] = out
+    for p in node.get("parts") or ():
+        _split_ellipsis(p, clue)
+
+
+def _strip_inner_marks(text):
+    """(`text` without `#n` marks, n) for a quote that put the mark inside it
+    ('Greek#2 goddess', 'guy#2 at#2 St#2 Andrews') when every mark is the same n:
+    the copy asked for is the quote's. None otherwise."""
+    marks = set(re.findall(r"#(\d+)(?=\s|$)", text))
+    if len(marks) != 1 or not re.search(r"#\d+\s", text):
+        return None
+    return re.sub(r"#\d+(?=\s|$)", "", text), int(marks.pop())
+
+
+def _reordered_run(text, clue):
+    """The clue's run of words that are `text`'s words in another order
+    ('flambé, perhaps' for the clue's 'perhaps flambé'), when exactly one run of
+    the clue has them; else None."""
+    want = sorted(w.lower() for w in re.findall(r"[\w'’]+", fold_marks(text)))
+    if len(want) < 2:
+        return None
+    toks = [(m.group().lower(), m.start(), m.end()) for m in re.finditer(r"[\w'’]+", fold_marks(clue))]
+    runs = {(toks[i][1], toks[i + len(want) - 1][2]) for i in range(len(toks) - len(want) + 1)
+            if sorted(t[0] for t in toks[i:i + len(want)]) == want}
+    if len(runs) != 1:
+        return None
+    a, b = runs.pop()
+    return a, clue[a:b]
+
+
 def locate(node, clue, taken=()):
     """Fill `at` on every span of `node` from `clue`; `#n` suffixes pick the
     nth copy and come off the stored text.
@@ -483,6 +532,9 @@ def locate(node, clue, taken=()):
         m = re.fullmatch(r"(.+?)#(\d+)", text) if "#" in text else None
         if m and text not in clue:
             text, nth = m.group(1), int(m.group(2))
+            span[key] = text
+        elif "#" in text and text not in clue and _strip_inner_marks(text):
+            text, nth = _strip_inner_marks(text)
             span[key] = text
         if "at" in span:
             used.append((span["at"], span["at"] + len(text)))
@@ -509,6 +561,15 @@ def locate(node, clue, taken=()):
             folded = fold_marks(clue).lower()
             if len(folded) == len(clue):
                 at = find_at(folded, fold_marks(text).lower(), nth, used)
+        if at is None and nth > 1 and "#" not in text:
+            # '#2' for a word the clue prints once: the only copy there is.
+            if len(re.findall(rf"(?<!\w){re.escape(text.lower())}(?!\w)", clue.lower())) == 1:
+                at = find_at(clue.lower(), text.lower(), 1, used) if low else find_at(clue, text, 1, used)
+        if at is None and nth == 1 and "#" not in text:
+            run = _reordered_run(text, clue)  # the words are there, in the clue's order
+            if run:
+                at, text = run
+                span[key] = text
         if at is not None and clue[at:at + len(text)] != text:
             span[key] = text = clue[at:at + len(text)]
         if at is None:
@@ -1454,6 +1515,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     word in both picks another copy; `respell(text, clue)` spells each span's
     words as the clue prints them first (a retyped apostrophe or capital)."""
     tree = parse(clue_out["wp"])
+    _split_ellipsis(tree, clue)
     if respell:
         for span, key in _spans(tree):
             if not re.search(r"#\d+$", span[key]):
@@ -1461,7 +1523,9 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
     locate(tree, clue, taken)
     notes = dict(clue_out.get("notes") or {})
     seen = {}
-    raw = list(_spans(parse(clue_out["wp"]), True))
+    raw_tree = parse(clue_out["wp"])
+    _split_ellipsis(raw_tree, clue)
+    raw = list(_spans(raw_tree, True))
     for (span, key), (orig, _) in zip(_spans(tree, True), raw):
         name = orig[key]
         base = re.sub(r"#\d+$", "", name)
@@ -1500,6 +1564,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
 def locate_copy(clue_out, clue, taken):
     """The model's wp parsed and located against `clue`, for reading spans only."""
     tree = parse(clue_out["wp"])
+    _split_ellipsis(tree, clue)
     locate(tree, clue, taken)
     return tree
 

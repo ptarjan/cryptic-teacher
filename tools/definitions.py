@@ -121,6 +121,17 @@ def place(definitions, clue):
     for d in defs:
         if isinstance(d.get("text"), str):
             d["text"] = respell(d["text"], clue)
+            m = re.fullmatch(r"(.+?)#(\d+)", d["text"]) if "#" in d["text"] else None
+            if m and d["text"] not in clue and "at" not in d:
+                # 'talk#2' as in a wordplay quote: the nth copy of the words; the
+                # only copy when the clue prints them once.
+                base, n = respell(m.group(1), clue), int(m.group(2))
+                found = candidates(base, clue)
+                if found and base in clue:
+                    d["text"] = base
+                    d["at"] = found[n - 1] if len(found) >= n else found[0] if len(found) == 1 else None
+                    if d["at"] is None:
+                        del d["at"]
     todo = {k: candidates(d.get("text") or "", clue)
             for k, d in enumerate(defs) if not span_ok(d, clue)}
     for k in todo:

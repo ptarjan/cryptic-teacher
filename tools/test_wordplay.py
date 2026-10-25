@@ -164,15 +164,12 @@ for name, expr, words, clue in [
     ("empty", "", ["empty"], None),
     ("words not in the clue", "ana<crazy>([delusions])", ["'delusions' is not in the clue"],
      "Immaculate? That's a crazy delusion"),
-    ("a repeat that isn't there", "[in#2]IN", ["no copy #2"], "Tea in cup"),
+    ("a repeat that isn't there", "[in#3]IN", ["has 2 copies", "no copy #3"], "Tea in cup in a hurry"),
     ("gapped words name the clue's own run", "rev<swaps for>([x]X)",
      ["'swaps daughter for'", "'swaps', 'for'"], "Country fellow swaps daughter for piano!"),
-    ("a repeat counts whole words", "[a#2]A", ["has 1 copy"], "Animal inhabiting a region of Spain"),
-    ("reordered words say the clue's order", "[who in Paris]X", ["different order", "'in', 'paris', 'who'"],
-     "Traitor in Paris who attracts support"),
-    ("#n mid-quote names the fix", "[ugly#2 this]X", ["write 'ugly this#2'"],
-     "This is ugly this, terribly ugly this around"),
-    ("#n mid-quote", "[ugly#2 this]X", ["`#n` goes once"], "This is ugly, terribly ugly this around"),
+    ("a reordering that two runs fit", "[b a]X", [], "a b c a b"),
+    ("#n mid-quote with two different marks", "[ugly#2 this#3]X", ["no copy #3"],
+     "This is ugly, terribly ugly this around"),
 ]:
     r = perr(expr, *words, clue=clue)
     check(f"parse refuses: {name}", r is True, r)
@@ -211,6 +208,44 @@ try:
     check("an unmatched note lists the free spans", False, "accepted")
 except w.WordplayError as e:
     check("an unmatched note lists the free spans", "'a'" in str(e) and "'b'" in str(e), str(e))
+
+# Quote-not-in-clue mends, from real refusals (annotate audit 10-24/25).
+def spans_of(wp, clue):
+    t = w.parse(wp, clue)
+    return [(s[k], s.get("at")) for s, k in w._spans(t)]
+
+
+# '#2' on a word the clue prints once: the only copy.
+check("#2 on a single copy takes it", spans_of("[revolutionaries#2]X",
+      "However, two revolutionaries may be killed") == [("revolutionaries", 13)])
+check("a repeat counts whole words, so a lone 'a' takes it", spans_of("[a#2]A", "Animal inhabiting a region of Spain")
+      == [("a", 18)])
+check("reordered words with other words after", spans_of("[who in Paris]X", "Traitor in Paris who attracts support")
+      == [("in Paris who", 8)])
+# '#n' inside the quote, not at its end.
+check("inner #2 is moved to the quote's copy", spans_of("[Greek#2 goddess]X", "Old Greek bronze captures Greek goddess, almost entirely")
+      == [("Greek goddess", 26)])
+check("inner #2 on a once-printed run takes it", spans_of("[Test#2 for one]X", "Test papers? Test for one cabbie")
+      == [("Test for one", 13)])
+check("inner #2 on every word picks the second run",
+      spans_of("[guy#2 at#2 St#2 Andrews]X", "Guy at St Andrews? Liberal guy at St Andrews, not Conservative")
+      == [("guy at St Andrews", 27)])
+# The clue's order for the same words.
+check("reordered words take the clue's run", spans_of("[read intensively]X", "Particular sketch intensively read by Brad, say")
+      == [("intensively read", 18)])
+check("reordered words with punctuation", spans_of("[flambé, perhaps]X", "Fifty tucking into meat, perhaps flambé, visible in the dark")
+      == [("perhaps flambé", 25)])
+# A definition 'talk#2' is the second copy of 'talk' (real clue); a lone copy is taken.
+import definitions as D
+placed = D.place([{"text": "talk#2"}], "Religious leader beginning to talk and talk")
+check("a definition's #2 picks the second copy", placed[0]["text"] == "talk" and placed[0]["at"] == 39, placed)
+placed = D.place([{"text": "reptile#2"}], "Roll reptile over eating lake reptile")
+check("a definition's #2 on the clue's last word", placed[0]["at"] == 30, placed)
+# A split indicator written with an ellipsis is two indicators.
+tree = w.translate({"wp": "ins<putting ... into>([Go wrong]AB, [last message]CD)"},
+                   "Go wrong, putting last message into place", "ACDB")
+check("'a ... b' indicator splits into two",
+      [i["text"] for i in tree.get("indicators") or []] == ["putting", "into"], tree)
 
 # A selection whose leaf holds the pick, not the words it picks from (a third of the
 # 'does not give' refusals in the annotate audit): translate drops the leaf's letters.
