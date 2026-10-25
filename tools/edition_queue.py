@@ -892,7 +892,16 @@ def _plan(papers, cache, reread, out, asked=None):
     ended = time.monotonic()
     if out is not None and ended - began >= SLOW_PLAN:
         out.append(slow_plan_note(took, ended, began))
-    return by_urgency(scans), by_urgency(reads)
+    return by_urgency(scans, serves=solution_needs(t[3] for t in reads)), by_urgency(reads)
+
+
+def solution_needs(reads):
+    """The (paper, rel) of every edition a newest-first paper's solution read (times_solution_work)
+    waits on: its own and its needs. by_urgency puts the scans of these first with that work: on 10-24
+    3,528 such rereads waited on their own stale scan, 3,385 of those scans past 5,000 in the scan list."""
+    named = newest_first_papers()
+    return {(u["paper"], rel) for u in reads if u.get("paper") in named and times_solution_work(u)
+            for rel in [u["rel"], *(u.get("needs") or ())]}
 
 
 #: Reasons of a puzzle never read or scanned: new work, filed before any refusal is read again.
@@ -1147,7 +1156,7 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
-def by_urgency(units):
+def by_urgency(units, serves=frozenset()):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
@@ -1156,7 +1165,9 @@ def by_urgency(units):
     ahead of rank 0 (hand-saved pages) too, strictly newest edition first whatever their rank and
     fa.likely_gain (scans and reads alike: a read's scan is its edition's
     date too), the paper's place and plan's order breaking a tie; the rest
-    keep the order above after them."""
+    keep the order above after them. Last, with CT_NEWEST_FIRST: those papers' solution work
+    (times_solution_work, or a scan whose (paper, rel) is in `serves`) first of all, then their
+    never-read units, then the Listener's, then the rest."""
     units = sorted(units, key=lambda t: t[1:3])
     units.sort(key=lambda t: "" if t[0] == 0 else t[3].get("date", ""), reverse=True)
     units.sort(key=lambda t: (t[0], -fa.likely_gain(t[3])))
@@ -1208,7 +1219,31 @@ def by_urgency(units):
     for *_, u in units:
         if u.get("paper") == "listener":
             (again if refusal_reread(u.get("reason") or "") else listener).append(u)
-    return alternate(again, listener) + [u for *_, u in units if u.get("paper") != "listener"]
+    listener_order = alternate(again, listener)
+    others = [u for *_, u in units if u.get("paper") != "listener"]
+    # Paul 10-24: "Remember times is the most important", "getting them with their solutions is highest
+    # priority". The named papers' solution rereads (answers-only work, few or no VLM asks) go first of
+    # all, not interleaved with any other paper's; then their never-read pages; then the Listener's; then
+    # the rest in the order above. On 10-24 2,727 Listener never-read reads stood ahead of every Times
+    # solution reread and ~3,300 more were alternated one for one with Telegraph never-read pages.
+    # gpu_fill still picks VLM-asking reads (FT, Telegraph) out of order to keep an idle GPU busy.
+    named = newest_first_papers()
+    if not named:
+        return listener_order + others
+    solution = [u for u in others if u.get("paper") in named
+                and (times_solution_work(u) or (u.get("paper"), u.get("rel")) in serves)]
+    first = {id(u) for u in solution}
+    new = [u for u in others if u.get("paper") in named and id(u) not in first and u.get("rank", 9) <= 1]
+    first |= {id(u) for u in new}
+    return solution + new + listener_order + [u for u in others if id(u) not in first]
+
+
+def times_solution_work(unit):
+    """Whether `unit` is solution work of a newest-first paper's puzzle: its reason one of
+    TIMES_SOLUTION's (below LOW_ASK), or a read whose answers a stored heading links (fa.LIKELY[0])."""
+    reason = unit.get("reason") or ""
+    return (reason.startswith(TIMES_SOLUTION)
+            or (unit.get("kind") == "read" and fa.LIKELY[0] in (unit.get("likely") or {})))
 
 
 #: The rank 2 reasons whose last read was refused or short and a fix landed
@@ -1289,6 +1324,10 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.SHORT_WIDE,
            fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
+#: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
+#: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
+#: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).
+TIMES_SOLUTION = LOW_ASK + CPU_ONLY + fa.HOST_REASONS
 
 
 def vlm_feed_reads():
