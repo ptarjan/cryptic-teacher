@@ -731,6 +731,9 @@ def evidence_reason(reason):
             or reason == fa.HEAVY_PRINT
             # A held file with a suspect clue whose answers-only reading went to --out (fa.suspect_held), once.
             or reason == fa.SUSPECT_HELD
+            # A held file with every clue whose full read's answers went to --out, or whose write a mended
+            # clue's fault refused (fa.unfiled_held), once.
+            or reason == fa.UNFILED_HELD
             # The other two answers_only rereads likely() predicts nothing for: a grid older code read short
             # (cells unclassified) for a puzzle held short from its page that short_again passes over (its
             # blocks under SURE_BLOCKS), and a held puzzle with a clue filed without its count. Paul 10-24:
@@ -1275,7 +1278,8 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
-              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD)
+              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
+              fa.UNFILED_HELD)
 
 
 def unproven_first(unit):
@@ -1348,7 +1352,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
-           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD)
+           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

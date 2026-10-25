@@ -1066,6 +1066,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     held = puzzle_paths.find(puzzle["id"]) if corpus else (path if path.exists() else None)
     old = read_puzzle_file(held) if held else None
     generator = generator or generator_of(held or path)
+    # The held clues the writer keeps as they are (kept_held_clues, below).
+    kept = kept_clues(old, puzzle)
     # What each annotation was written for: the held file's words, or the
     # writer's own for one it wrote now.
     written = (written_against(old) if old is not None else {}), written_against(puzzle)
@@ -1152,6 +1154,7 @@ def write_puzzle_file(path, puzzle, generator=None):
     puzzle = definitions.place_puzzle(puzzle)
     # Every object's keys in the schema's order, so no writer's order survives.
     puzzle = puzzle_schema.order(puzzle)
+    puzzle = kept_held_clues(old, puzzle, kept)
     # Every write goes through the corpus sweep's per-puzzle checks, so no
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # lazy: it imports this module
@@ -1188,6 +1191,46 @@ def write_puzzle_file(path, puzzle, generator=None):
     # leave the copy the site loads showing yesterday's.
     write_shim(dest, puzzle)
     return dest
+
+
+def kept_clues(old, puzzle):
+    """{light: clue text} of each OCR clue (provenance.OCR_CHANNELS) `puzzle` keeps word for word
+    from the held file `old`: a writer merging answers into it, or mending another clue."""
+    if old is None or (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return {}
+    def text(e):
+        clue = e.get("clue")
+        return clue.get("text") if isinstance(clue, dict) else None
+    was = {(e.get("number"), e.get("direction")): text(e) for e in old.get("entries") or ()}
+    return {(e.get("number"), e.get("direction")): text(e) for e in puzzle.get("entries") or ()
+            if text(e) and was.get((e.get("number"), e.get("direction"))) == text(e)}
+
+
+def kept_held_clues(old, puzzle, kept):
+    """`puzzle` with each clue of `kept` (kept_clues: one the writer gave as `old` holds it) that this
+    write's own mends changed into one the write gate refuses as new (punctuation.gate_refuses: a
+    stop dropped from "one . , owner" leaving "one , owner"; a run of spaces cut from "Gaping ,
+    mouth heartily  taking" leaving a spaced comma) put back as `old` holds it, its annotation too.
+    The held words pass the gate, so the write stands; mended, it was refused whole, the answers it
+    merged with it (10-25: 17 Times grids). The clue stays due for its re-read (edition_commit.strayed)."""
+    if not kept:
+        return puzzle
+    was = {(e.get("number"), e.get("direction")): e for e in old.get("entries") or ()}
+    back = []
+    for i, e in enumerate(puzzle.get("entries") or ()):
+        key = (e.get("number"), e.get("direction"))
+        clue = e.get("clue")
+        if key in kept and isinstance(clue, dict) and clue.get("text") != kept[key] and punctuation.gate_refuses(clue):
+            back.append((i, key))
+    if not back:
+        return puzzle
+    puzzle = json.loads(json.dumps(puzzle))
+    for i, key in back:
+        e, h = puzzle["entries"][i], was[key]
+        e["clue"] = json.loads(json.dumps(h["clue"]))
+        if h.get("annotation") and h.get("solution") == e.get("solution"):
+            e["annotation"] = json.loads(json.dumps(h["annotation"]))
+    return puzzle
 
 
 def series_of(page_id):

@@ -570,6 +570,31 @@ check("a grid read for a puzzle held with a suspect clue is SUSPECT_HELD (rank 2
       "not read since, with no answer read, or held complete",
       [f.SUSPECT_HELD, False, False, False, 2, True, True],
       sh + [f.RANKS[f.SUSPECT_HELD], f.SUSPECT_HELD in f.SOLUTION_FIXES, f.SUSPECT_HELD.startswith("solution short")])
+# A full read whose answers went to --out over a puzzle held with every clue (its copy answering a light the held file
+# leaves blank), or whose write the gate refused over a mended held clue, is UNFILED_HELD, once (10-25).
+def uh_row(at="2026-10-25T06:00:00+00:00", accepted=30, **v):
+    return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "solutionKey": f.solution_key(),
+            "verdicts": [{"number": 99999992, "id": "times-99999992", "solutionFrom": "1984-05-02 leaf 3",
+                          "solution": {"accepted": accepted, "lights": 30, "blocks": 1.0}, **v}]}
+real_ug = f.unfiled_gain
+f.filed_state = lambda series, n: (False, True)
+f.unfiled_gain = lambda series, n, pid: True
+gate = "refusing to write times-99999992: SHAPE 14-across: clue 'one , owner' holds a space before a comma: x (punctuation.faults)"
+uh = [f.fix_reason(uh_row(unfiled=2)), f.unfiled_held(uh_row(refusedWrite=gate)),
+      f.unfiled_held(uh_row("2026-10-26T00:00:00+00:00", unfiled=2)), f.unfiled_held(uh_row(accepted=0, unfiled=2)),
+      f.unfiled_held(uh_row(unfiled=2, answersOnly=True)), f.unfiled_held(uh_row(refusedWrite="refusing: CROSS cell (6, 6)"))]
+f.filed_state = lambda series, n: (False, False)
+uh.append(f.unfiled_held(uh_row(unfiled=2)))
+f.filed_state = lambda series, n: (False, True)
+f.unfiled_gain = lambda series, n, pid: False
+uh.append(f.unfiled_held(uh_row(unfiled=2)))
+f.unfiled_gain = real_ug
+f.filed_state = real_fs
+check("a full read filed to --out over a puzzle held with every clue, or refused over a mended clue, is UNFILED_HELD "
+      "(rank 2, answers-only first, a LOW prefix); not read since, with no answer read, answers-only, another refusal, "
+      "held with a clue blank, or its copy adding nothing",
+      [f.UNFILED_HELD, True, False, False, False, False, False, False, 2, True, True],
+      uh + [f.RANKS[f.UNFILED_HELD], f.UNFILED_HELD in f.SOLUTION_FIXES, f.UNFILED_HELD.startswith("solution short")])
 # A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
 # REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
 def vu_row(at, gap=1):
@@ -2349,6 +2374,37 @@ with tempfile.TemporaryDirectory() as dd_dir:
     f.complete = lambda p: True
 check("an answers-only reading of a held file complete() refuses merges its answers into the held file, not --out",
       (["held"], ["BAT", "BED", "DOE", "TOE"]), (dd_where[1:], sorted((verdict.get("answered") or {}).values())))
+# decide(): a full reading not complete() (a clue blank) of a puzzle held with every clue merges its answers into the
+# held file, not --out; only blank held lights take one, crossing no held letter on another, and no held answer goes
+# (10-25: 227 Times grids, 3,825 answers in their --out copies).
+def uh_decide(held, sols, solution=True):
+    reading = lights_held(sols)
+    reading["entries"][3]["clue"] = {"text": ""}
+    with tempfile.TemporaryDirectory() as uh_dir:
+        (Path(uh_dir) / "held-1.json").write_text(json.dumps(held))
+        where = []
+        v = {"number": 1, **({"solution": {"accepted": 4, "lights": 4}} if solution else {})}
+        f.complete = lambda p: False
+        f.decide(v, reading, "times", uh_dir, set(), lambda w, p, vv: where.append(w and w[0]) or True,
+                 path=lambda w, series, puzzles: Path(uh_dir) / f"{w[0]}-{w[1]}.json")
+        f.complete = lambda p: True
+        return where[1:], v.get("answered"), v.get("heldWhole"), v.get("unfiled")
+check("a full reading with a clue blank fills a held file with every clue: its blank lights, the held answer kept",
+      (["held"], {"1-down": "BED", "2-down": "TOE", "3-across": "DOE"}, True, None),
+      uh_decide(lights_held(["BIT", None, None, None]), ["BAT", "BED", "TOE", "DOE"]))
+check("... an answer crossing a held letter on another stays out",
+      (["held"], {"2-down": "TOE", "3-across": "DOE"}, True, None),
+      uh_decide(lights_held(["BIT", None, None, None]), ["BAT", "XED", "TOE", "DOE"]))
+uh_blank = lights_held([None] * 4)
+uh_blank["entries"][2]["clue"] = {"text": ""}
+check("... a held file with a clue blank: the reading goes to --out as before",
+      ["out"], uh_decide(uh_blank, ["BAT", "BED", "TOE", "DOE"])[0])
+check("... another tool's held file: --out as before",
+      ["out"], uh_decide(lights_held([None] * 4, tool="other"), ["BAT", "BED", "TOE", "DOE"])[0])
+check("merge_answers keep: no held answer changes or goes, a blank light crossing it otherwise stays blank",
+      ({"2-down": "TOE"}, ["BIT", "BAD", "TOE", None]),
+      (lambda held: (f.merge_answers(held, lights_held(["BAT", "XED", "TOE", None]), keep=True),
+                     [e["solution"] for e in held["entries"]]))(lights_held(["BIT", "BAD", None, None])))
 # unenumerated_held(): a row read before REREAD_UNENUMERATED that linked a grid, whose held puzzle is short of
 # answers and has a clue with no enumeration, is read again once (fix_reason).
 import tempfile
