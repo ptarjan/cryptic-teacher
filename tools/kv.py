@@ -16,9 +16,15 @@ NAMESPACE = "85f9de552ea64b229c113df624fb6ca0"
 
 
 def _run(args, timeout):
-    return subprocess.run(["npx", "wrangler"] + args, cwd=ROOT / "sync",
-                          capture_output=True, text=True,
-                          stdin=subprocess.DEVNULL, timeout=timeout)
+    """A hang is a failed call, so the callers' one retry covers it too: a
+    list that normally takes 16 s timed out at 180 s once under a load spike."""
+    try:
+        return subprocess.run(["npx", "wrangler"] + args, cwd=ROOT / "sync",
+                              capture_output=True, text=True,
+                              stdin=subprocess.DEVNULL, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return subprocess.CompletedProcess(args, 124, "",
+                                           f"wrangler timed out after {timeout} s")
 
 
 def list_keys(prefix=None, timeout=180):
