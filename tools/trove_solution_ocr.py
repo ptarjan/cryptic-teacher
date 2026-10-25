@@ -926,6 +926,37 @@ def cell_probs(image, grid):
     return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
 
 
+def crop_strips(image, grid, keys):
+    """{"12-across": {"png", "p"}} of lights `keys` ((number, direction)) of solution-grid `image`
+    (the crop read_framed reads): read_framed's stats["strips"] for them (light_strip on the
+    framing whose blocks fit best, with each cell's classifier probabilities), cut after the
+    reading. {} when read_framed would classify nothing (no framing's blocks_sure) or no lattice
+    lies on the image. Outside read_framed (solution_key stays the reader's): answers_only asks it
+    of the last lights its held file and reading leave blank whose strip read_framed did not cut
+    (the reading was 3+ short, or its word was dropped after: misread_word, uncrossed)."""
+    try:
+        gray = np.asarray(Image.open(image).convert("L"))
+        framed = framings(gray, grid)
+    except (OSError, ValueError):
+        return {}
+    if not framed:
+        return {}
+    fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
+    best = max(range(len(framed)), key=lambda i: fits[i])
+    g, ys, xs = framed[best]
+    if not blocks_sure(g, grid, (ys, xs), fits[best]):
+        return {}
+    lts = lights(grid)
+    keys = [k for k in keys if k in lts]
+    probs = classified({rc: glyph(g, ys, xs, *rc) for k in keys for rc in lts[k]})
+    out = {}
+    for k in keys:
+        png = light_strip(g, ys, xs, lts[k])
+        if png:
+            out[f"{k[0]}-{k[1]}"] = {"png": png, "p": [[round(float(x), 5) for x in probs[rc]] for rc in lts[k]]}
+    return out
+
+
 def bounded_light(cells, direction, seen, word, wholes):
     """Whether a light read off a grid whose blocks read unsure stands: the
     cells either side of it read as blocks (or are off the grid), so the

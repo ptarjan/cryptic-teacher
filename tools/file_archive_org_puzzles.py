@@ -4970,6 +4970,10 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
                                            crossed=crossed, every=bool(hit.get("heldTitle")),
                                            blog="blog" in (old.get("solutions") or {}))
+    if ask_vlm:
+        answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
+                                    crossed=crossed, every=bool(hit.get("heldTitle")),
+                                    blog="blog" in (old.get("solutions") or {}))
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -5001,6 +5005,41 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         verdict["read_as"] = hit["number"]
     verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True, every=False, blog=False):
+    """(answers, info) of answers_only's checked reading `answers` of a held puzzle's `entries` with
+    the VLM's words added for the last 1 to trove_solution_ocr.STRIP_MAX lights the held file and
+    the reading leave blank whose strip read_framed did not cut (`strips`: the ones it cut, asked
+    already): the reading was 3+ short, or its word was dropped after (misread_word, uncrossed).
+    Their strips are cut off the grid's `crop` (trove_solution_ocr.crop_strips) and asked as
+    vlm_lights asks, its known letters the held answers' and the reading's; a word stands only where
+    the answers-only checks (checked_answers) keep it beside the rest, every other answer as it was.
+    10-25: of 338 blank lights of 1-2-short Times files read on that day's code, none had a strip:
+    171 had been read and dropped (misread 46, uncrossed 42, a full read's 83), 131 read by a full
+    read (no enumerations: no strip)."""
+    held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
+    left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
+    if not left or len(left) > trove_solution_ocr.STRIP_MAX:
+        return answers, info
+    want = [_light_key(k) for k in left if k not in strips]
+    if not want or crop is None or not crop.exists() or not vlm.wanted():
+        return answers, info
+    cut = trove_solution_ocr.crop_strips(crop, grid, want)
+    if not cut:
+        return answers, info
+    _, by = vlm_lights({**held, **answers}, cut, grid, enums)
+    info = {**info, "lateStrips": sorted(cut)}
+    if not by:
+        return answers, info
+    checked, _, _ = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed,
+                                    every=every, blog=blog)
+    took = {k: w for k, w in by.items() if checked.get(k) == w}
+    if not took:
+        return answers, info
+    info = {**info, "vlmLights": sorted(set(info.get("vlmLights") or ()) | set(took)),
+            "accepted": info.get("accepted", 0) + len(took)}
+    return {**answers, **took}, info
 
 
 def solution_crop(sol, number):
@@ -7614,18 +7653,88 @@ def floor_short(row, paper):
     return False
 
 
+#: The due reason of a Times row read since REREAD_VLM_UNLISTED, before REREAD_LATE_STRIPS, whose held
+#: puzzle (every clue, from this page) leaves 1 to STRIP_MAX lights blank, one of them with no strip in
+#: its reading (strip_missing) though the grid's cells were classified: read_framed cuts strips only when
+#: its own reading is 1-2 short, and a full read (no enumerations) cuts none. Since then answers_only cuts
+#: the strip off the crop after its checks (late_strips). 10-25: of 338 blank lights of 1-2-short Times
+#: files with no strip, 171 were read and dropped after (misread 46, uncrossed 42, by a full read 83),
+#: 131 read by a full read; none due. Once, as an answers-only reread (SOLUTION_FIXES).
+LATE_STRIPS = "solution short, its last lights' strips cut since"
+REREAD_LATE_STRIPS = "2026-10-25T20:00:00+00:00"
+#: {(held path, reading path): ((held stamp, reading stamp), whether a blank light has no strip)}
+_LATE_STRIPS = {}
+
+
+def strip_missing(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled and 1 to STRIP_MAX
+    answers short, leaves blank a light whose strip its linked solution grid's reading (the solution
+    page's edition dir name `sol_dir`, its cells classified) did not keep, and the grid's crop is kept
+    (late_strips cuts it there); parsed again only when either stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    q = CROPS / "solution_reads" / f"{sol_dir}_{number}.json"
+    stamp = (_stat_stamp(p), _stat_stamp(q))
+    if None in stamp:
+        return False
+    hit = _LATE_STRIPS.get((p, q))
+    if hit is None or hit[0] != stamp:
+        try:
+            held, read = json.loads(p.read_text()), json.loads(q.read_text())
+        except (OSError, ValueError):
+            return False
+        es = held.get("entries") or ()
+        stats = read.get("stats") or {}
+        strips = stats.get("strips") or {}
+        blank = [entry_id(e) for e in es if not e.get("solution")]
+        missing = bool(es) and (held.get("source") or {}).get("acquiredBy") == TOOL and filled(held)[0] == len(es) \
+            and "classified" in stats and 0 < len(blank) <= trove_solution_ocr.STRIP_MAX \
+            and any(k not in strips for k in blank) \
+            and (CROPS / "solutions" / f"{sol_dir}_{number}.png").exists()
+        hit = _LATE_STRIPS[p, q] = (stamp, missing)
+    return hit[1]
+
+
+def late_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read at
+    SURE_BLOCKS (by answers_only or a full read) for a puzzle held with every clue and not every answer,
+    from this page, leaving blank a light with no strip (strip_missing)."""
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        if strip_missing(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+            return True
+    return False
+
+
 def short_again(row):
     """UNLISTED or SHORT_WIDE for Times ledger `row`, read before REREAD_UNLISTED, with a verdict whose
     linked solution grid it read short at SURE_BLOCKS for a puzzle held with every clue and not every
     answer, filed from this page (answers_only reads only such a puzzle); else None. UNLISTED when any
     such verdict is at most trove_solution_ocr.STRIP_MAX short. VLM_UNLISTED for such a row read since,
     before REREAD_VLM_UNLISTED, at most STRIP_MAX short; VLM_FLOOR_SHORT for one read since, before
-    REREAD_VLM_FLOOR, whose reading kept a strip of a light left blank (floor_short)."""
+    REREAD_VLM_FLOOR, whose reading kept a strip of a light left blank (floor_short); LATE_STRIPS for one
+    read since REREAD_VLM_UNLISTED, before REREAD_LATE_STRIPS, not due so, whose held file leaves a light
+    blank with no strip (late_short)."""
     paper = paper_of(row.get("edition", ""))
-    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_FLOOR)):
+    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_LATE_STRIPS)):
         return None
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_FLOOR)):
+        return LATE_STRIPS if late_short(row, paper) else None
     if not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_UNLISTED)):
-        return VLM_FLOOR_SHORT if floor_short(row, paper) else None
+        if floor_short(row, paper):
+            return VLM_FLOOR_SHORT
+        return LATE_STRIPS if late_short(row, paper) else None
     if not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
         gaps = answerable_gaps(row, paper)
         return VLM_UNLISTED if gaps and min(gaps) <= trove_solution_ocr.STRIP_MAX else None
@@ -8540,7 +8649,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -9049,7 +9158,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH, VLM_FLOOR_SHORT)
+                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS)
 
 
 def keeps_vlm(why, row, unit=None):
