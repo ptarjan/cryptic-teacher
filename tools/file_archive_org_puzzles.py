@@ -4691,15 +4691,17 @@ def vlm_word(reply, pattern, sizes, probs, enum=None):
     """The word of the VLM's `reply` for a light whose crossings give `pattern` (a letter
     where an accepted light holds it, else "?"), made of words of `sizes` letters, or None:
     its letters are as many as the light's, agree with every crossing letter, each is at
-    least VLM_FLOOR likely in its cell by the classifier's `probs` (one list of 26 a cell),
-    and each piece is a listed word (trove_solution_ocr.piece_listed), or the whole is a
-    name both readers agree on (unlisted_word, by the light's enumeration `enum`)."""
+    least VLM_FLOOR likely in its cell by the classifier's `probs` (one list of 26 a cell)
+    but for a word the classifier reads too (floor_word), and each piece is a listed word
+    (trove_solution_ocr.piece_listed), or the whole is a name both readers agree on
+    (unlisted_word, by the light's enumeration `enum`)."""
     word = re.sub(r"[^A-Za-z?]", "", (reply or "").strip().splitlines()[0] if (reply or "").strip() else "").upper()
     if len(word) != len(pattern) or "?" in word:
         return None
     if any(p != "?" and p != ch for p, ch in zip(pattern, word)):
         return None
-    if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR for p, ch in zip(probs, word)):
+    low = [i for i, (p, ch) in enumerate(zip(probs, word)) if p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR]
+    if low and not floor_word(word, pattern, sizes, probs, low):
         return None
     # A listed word, or a name the classifier reads too (unlisted_word): a name the lexicons lack
     # is also what both may misread together (BALINITY for SALINITY, 1973 print), so it stands
@@ -4710,6 +4712,44 @@ def vlm_word(reply, pattern, sizes, probs, enum=None):
             return word if unlisted_word(word, pattern, probs, enum) else None
         at += size
     return word
+
+
+#: floor_word: a listed VLM word the classifier reads under VLM_FLOOR in at most FLOOR_CELLS cells, each
+#: piece holding one the likeliest listed word its crossings leave (trove_solution_ocr.decoded) by
+#: FLOOR_MARGIN (log odds) over the next. 10-25: 650 Times puzzles stood 1-2 lights short after their
+#: VLM_UNLISTED reread; 176 of their lights had a VLM word thrown away under the floor alone, the right
+#: ones one faint letter off the classifier's (LATITUDINARIANS' L at 0.003, ANTIPODES' D at 0.005, the
+#: classifier's own pick by 2-50 log odds), the wrong ones not listed (ACCED, ULTRE) or another listed
+#: word the classifier likes better (HOSTER for its HOSIER, LIGHT for EIGHT). Of 67 so taken, 62 with one
+#: cell under fit their clues, every one; a second (CUBER for "Die content", both at 0.0) does not.
+FLOOR_CELLS = 1
+FLOOR_MARGIN = math.log(7)
+
+
+def floor_word(word, pattern, sizes, probs, low):
+    """Whether VLM word `word` stands though the classifier reads its cells `low` (indexes) under
+    VLM_FLOOR: at most FLOOR_CELLS of them, every piece of `sizes` a listed word, and each piece
+    holding one no surname alone (name_only) and decoded() the likeliest listed word agreeing with the
+    crossings `pattern` by FLOOR_MARGIN: the two readers name it."""
+    import numpy as np
+    if len(low) > FLOOR_CELLS:
+        return False
+    held = {i: ch for i, ch in enumerate(pattern) if ch != "?"}
+    cells = {i: np.asarray(p, float) for i, p in enumerate(probs)}
+    at = 0
+    for size in sizes:
+        span, piece = list(range(at, at + size)), word[at:at + size]
+        at += size
+        if not trove_solution_ocr.piece_listed(piece, len(sizes) > 1):
+            return False
+        if not any(i in span for i in low):
+            continue
+        if trove_solution_ocr.name_only(piece):
+            return False
+        top, margin = trove_solution_ocr.decoded(span, cells, {i: held[i] for i in span if i in held})
+        if top != piece or margin < FLOOR_MARGIN:
+            return False
+    return True
 
 
 def unlisted_word(word, pattern, probs, enum):
@@ -7523,6 +7563,55 @@ REREAD_UNLISTED = "2026-10-24T23:00:00+00:00"
 #: PERSHORE, TAKORADI, HARPAGON). Once; the VLM's replies are cached, so the reread asks nothing new.
 VLM_UNLISTED = "solution short, its VLM word unlisted"
 REREAD_VLM_UNLISTED = "2026-10-25T12:15:00+00:00"
+#: The due reason of such a grid read since REREAD_VLM_UNLISTED, before REREAD_VLM_FLOOR, 1 to STRIP_MAX
+#: lights short, whose reading (solved()'s CROPS/solution_reads copy) kept a strip of a light the held file
+#: leaves blank: since then the VLM's word for it stands one cell under VLM_FLOOR when the classifier
+#: decodes it too (floor_word). 10-25: 650 Times puzzles stood 1-2 short so, none due. Once; the VLM's
+#: replies are cached, so the reread asks only strips never answered.
+VLM_FLOOR_SHORT = "solution short, its VLM word one cell under the floor"
+REREAD_VLM_FLOOR = "2026-10-25T19:45:00+00:00"
+#: {(held path, reading path): ((held stamp, reading stamp), whether a strip's light is blank in the held file)}
+_FLOOR_STRIPS = {}
+
+
+def strip_blank(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled and an answer short,
+    leaves blank a light whose strip its linked solution grid's reading (the solution page's edition
+    dir name `sol_dir`) kept; parsed again only when either stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    q = CROPS / "solution_reads" / f"{sol_dir}_{number}.json"
+    stamp = (_stat_stamp(p), _stat_stamp(q))
+    if None in stamp:
+        return False
+    hit = _FLOOR_STRIPS.get((p, q))
+    if hit is None or hit[0] != stamp:
+        try:
+            held, read = json.loads(p.read_text()), json.loads(q.read_text())
+        except (OSError, ValueError):
+            return False
+        es = held.get("entries") or ()
+        strips = ((read.get("stats") or {}).get("strips")) or {}
+        blank = bool(es) and (held.get("source") or {}).get("acquiredBy") == TOOL and filled(held)[0] == len(es) \
+            and any(not e.get("solution") and entry_id(e) in strips for e in es)
+        hit = _FLOOR_STRIPS[p, q] = (stamp, blank)
+    return hit[1]
+
+
+def floor_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has a verdict 1 to STRIP_MAX short (answerable_gaps)
+    whose reading kept a strip of a light its held file leaves blank (strip_blank)."""
+    gaps = answerable_gaps(row, paper)
+    if not gaps or min(gaps) > trove_solution_ocr.STRIP_MAX:
+        return False
+    for v in row.get("verdicts", ()):
+        if not v.get("id") or v.get("refused") or not v.get("solutionFrom") \
+                or filed_state(paper.series, v.get("number")) != (False, True):
+            continue
+        if strip_blank(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+            return True
+    return False
 
 
 def short_again(row):
@@ -7530,10 +7619,13 @@ def short_again(row):
     linked solution grid it read short at SURE_BLOCKS for a puzzle held with every clue and not every
     answer, filed from this page (answers_only reads only such a puzzle); else None. UNLISTED when any
     such verdict is at most trove_solution_ocr.STRIP_MAX short. VLM_UNLISTED for such a row read since,
-    before REREAD_VLM_UNLISTED, at most STRIP_MAX short."""
+    before REREAD_VLM_UNLISTED, at most STRIP_MAX short; VLM_FLOOR_SHORT for one read since, before
+    REREAD_VLM_FLOOR, whose reading kept a strip of a light left blank (floor_short)."""
     paper = paper_of(row.get("edition", ""))
-    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_UNLISTED)):
+    if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_FLOOR)):
         return None
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_UNLISTED)):
+        return VLM_FLOOR_SHORT if floor_short(row, paper) else None
     if not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
         gaps = answerable_gaps(row, paper)
         return VLM_UNLISTED if gaps and min(gaps) <= trove_solution_ocr.STRIP_MAX else None
@@ -8448,7 +8540,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -8957,7 +9049,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH)
+                  HELD_CLASH, VLM_FLOOR_SHORT)
 
 
 def keeps_vlm(why, row, unit=None):

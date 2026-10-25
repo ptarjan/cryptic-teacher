@@ -721,6 +721,9 @@ def evidence_reason(reason):
             # A held puzzle whose grid read 1-2 lights short since unlisted_reads, before the VLM's unlisted
             # strip words stood (fa.unlisted_word): likely() predicts it nothing, so this keeps it, once.
             or reason == fa.VLM_UNLISTED
+            # One read since, its reading's strip of a light left blank, before the VLM's word stood one
+            # cell under the classifier's floor (fa.floor_word): once.
+            or reason == fa.VLM_FLOOR_SHORT
             # A held puzzle whose linked solution grid was refused (its blocks, or its ink's size) before
             # read_solution looked for it by its blocks (matched_box), once. likely() predicts nothing for
             # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
@@ -1282,7 +1285,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
               fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
-              fa.UNFILED_HELD, fa.HELD_CLASH)
+              fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT)
 
 
 def unproven_first(unit):
@@ -1356,7 +1359,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
            fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
-           fa.HELD_CLASH)
+           fa.HELD_CLASH, fa.VLM_FLOOR_SHORT)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).
