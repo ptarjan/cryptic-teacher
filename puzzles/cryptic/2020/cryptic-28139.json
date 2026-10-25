@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,60 @@
     "text": "Pet with clothing, belly out, is comical",
     "enumeration": "6"
    },
-   "solution": "JOCOSE"
+   "solution": "JOCOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "comical",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pet",
+       "at": 0,
+       "gives": "JO",
+       "note": "Jo is an old Scots word for a sweetheart or darling, a pet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 25,
+         "note": "out tells us the belly word is taken away from the clothing word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clothing",
+         "at": 9,
+         "gives": "COSTUME",
+         "note": "a costume is a set of clothing"
+        },
+        {
+         "words": "belly",
+         "at": 19,
+         "gives": "TUM",
+         "note": "tum is a colloquial word for the belly"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet animal in a little outfit, its tummy poking out, is a funny sight.",
+     "walkthrough": "'out' removes TUM from COSTUME, leaving COSE. JO (from Burns, 'John Anderson, my jo') is an obscure word for a sweetheart.",
+     "definitionFit": "Jocose describes someone playful and joking, which is a synonym for funny or comical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +101,41 @@
     "text": "DA then re-engineered fan",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fan",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "engineered",
+       "at": 11,
+       "note": "the letters are engineered into a new structure, the second half of 're-engineered' working as the anagram signal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "DA then re",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A district attorney who has been reprogrammed into a devoted supporter.",
+     "walkthrough": "The hyphenated word is split: its 're' joins DA THEN as fodder and 'engineered' is the anagram signal.",
+     "definitionFit": "A fan of something is a follower or supporter of it, a synonym of an adherent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "re-engineered"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +149,53 @@
     "text": "Boatman's upper crust, bleeding edge, going forward",
     "enumeration": "6"
    },
-   "solution": "RATING"
+   "solution": "RATING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boatman's",
+      "at": 0,
+      "note": "read as 'Boatman is': the setter calls himself a sailor, and an ordinary sailor in the navy is called this"
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "bleeding edge",
+       "at": 23,
+       "note": "the edge letter of the crust word bleeds away from its place in the word"
+      },
+      {
+       "text": "going forward",
+       "at": 38,
+       "note": "the edge letter goes forward through the word to its far end, a business-jargon phrase reused"
+      }
+     ],
+     "parts": [
+      {
+       "words": "upper crust",
+       "at": 10,
+       "gives": "GRATIN",
+       "note": "a gratin is a dish with a browned crust of breadcrumbs or cheese on top"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Business-speak: the setter is cutting-edge elite from now on.",
+     "walkthrough": "'bleeding edge' and 'going forward' are business jargon, the puzzle's theme. Together they move the G at the edge of GRATIN to the other end. 'Boatman's' is the definition, the setter naming himself as a sailor.",
+     "definitionFit": "A rating is a non-commissioned sailor, so a boatman, which the setter's pseudonym says he is, is one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bleeding"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +209,42 @@
     "text": "In your mouth, it's tender fruitless sweet spot",
     "enumeration": "7"
    },
-   "solution": "GUMBOIL"
+   "solution": "GUMBOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In your mouth, it's tender",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fruitless sweet",
+       "at": 27,
+       "gives": "GUM",
+       "note": "a fruit gum is a chewy sweet; take 'fruit' away and the gum remains"
+      },
+      {
+       "words": "spot",
+       "at": 43,
+       "gives": "BOIL",
+       "note": "a boil is a painful spot on the skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist's warning: there's a sore place in your mouth where sweets have done damage.",
+     "walkthrough": "'fruitless sweet' is a fruit gum without the fruit. A fruit gum is a British chewy sweet.",
+     "definitionFit": "A gumboil is an abscess on the gum, a sore swelling felt inside the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fruitless"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +264,55 @@
      }
     ]
    },
-   "solution": "OILRIG"
+   "solution": "OILRIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant needed to get well",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Heads up",
+       "at": 20,
+       "note": "in a down clue, sending the pieces up the column reads them backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Perhaps Betty",
+         "at": 0,
+         "gives": "GIRL",
+         "note": "Betty is an example of a girl's name, so a girl"
+        },
+        {
+         "words": "Moon",
+         "at": 14,
+         "gives": "IO",
+         "note": "Io is one of the moons of Jupiter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Betty Moon is warned to look out for a plant that will help her recover.",
+     "walkthrough": "'Heads up' reverses GIRL + IO in this down clue. 'well' is an oil well, not good health.",
+     "definitionFit": "An oil rig is industrial equipment, a plant, that drills to reach an oil well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +332,32 @@
      }
     ]
    },
-   "solution": "NOTVITAL"
+   "solution": "NOTVITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dead",
+      "at": 0,
+      "meaning": "vital can mean alive, so dead is lacking life"
+     },
+     {
+      "text": "unimportant",
+      "at": 5,
+      "meaning": "not essential, of little consequence"
+     }
+    ],
+    "explanation": {
+     "surface": "A slangy pairing, as in 'dead boring', meaning really unimportant.",
+     "walkthrough": "Read as a surface, 'Dead' is an intensifier ('dead easy'); as a definition it means lifeless, the opposite of 'vital' in its living sense.",
+     "definitionFit": "Vital means both living and essential, so its negation fits both lifeless and inessential."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dead"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +377,45 @@
      }
     ]
    },
-   "solution": "GOODVALUE"
+   "solution": "GOODVALUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Popularly priced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 37,
+       "note": "up here means amiss or wrong, as in 'what's up?', so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vogue",
+       "at": 24
+      },
+      {
+       "words": "load",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something cheap and fashionable, so stock up.",
+     "walkthrough": "'up' as an anagram signal means amiss (the setter defended it on the blog); 'and in' are link words.",
+     "definitionFit": "Something worth what it costs, at a price people like, is reasonably priced and so popular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +429,59 @@
     "text": "One closes loop — how synergy begins, where people take the plunge",
     "enumeration": "5"
    },
-   "solution": "LIDOS"
+   "solution": "LIDOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where people take the plunge",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One closes",
+       "at": 0,
+       "gives": "LID",
+       "note": "a lid is a thing that closes a container"
+      },
+      {
+       "words": "loop",
+       "at": 11,
+       "gives": "O",
+       "note": "the letter O is shaped like a loop"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "begins",
+         "at": 30,
+         "note": "begins asks for the first letter of the word synergy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "synergy",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Business jargon: someone who closes the loop is where synergy starts and people take bold risks.",
+     "walkthrough": "'closes the loop' and 'synergy' are business jargon, the puzzle's theme. 'take the plunge' means dive into water, not risk something new.",
+     "definitionFit": "Lidos are public open-air swimming pools, places where swimmers dive in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plunge"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +495,65 @@
     "text": "Arms for long distance backed by nonsense talk",
     "enumeration": "9"
    },
-   "solution": "FORELIMBS"
+   "solution": "FORELIMBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arms",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 30,
+       "note": "by places the nonsense after the reversed distance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for",
+       "at": 5
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 23,
+         "note": "backed means the distance word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "long distance",
+         "at": 9,
+         "gives": "MILE",
+         "note": "a mile is a long distance"
+        }
+       ]
+      },
+      {
+       "words": "nonsense talk",
+       "at": 33,
+       "gives": "BS",
+       "note": "BS is a slang abbreviation for nonsense, short for bullshit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weapons for long-range use, supported by meaningless chatter.",
+     "walkthrough": "'Arms' looks like weapons but means limbs; 'backed' makes ELIM from MILE.",
+     "definitionFit": "Forelimbs are the front legs of an animal, and in a person they are the arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arms"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +567,59 @@
     "text": "Push the envelope of danger: Boatman's following",
     "enumeration": "5"
    },
-   "solution": "DRIVE"
+   "solution": "DRIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Push",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 39,
+       "note": "following puts the setter's piece after the outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "the envelope of",
+         "at": 5,
+         "note": "the envelope is the outer wrapping, so the outside letters of danger"
+        }
+       ],
+       "parts": [
+        {
+         "words": "danger",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "Boatman's",
+       "at": 29,
+       "gives": "IVE",
+       "note": "the setter's 'Boatman has' becomes 'I've' from the setter's own point of view"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jargon: the setter is pushing the envelope of danger next.",
+     "walkthrough": "'Push the envelope' is business jargon; here 'envelope' signals the outer letters DR. 'Boatman's' means 'Boatman has', giving I'VE.",
+     "definitionFit": "To drive cattle or a nail is to push it forward, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "envelope"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +633,56 @@
     "text": "Sly to reach out pointlessly",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 13,
+       "note": "out means out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pointlessly",
+         "at": 17,
+         "note": "a compass point, here east, is lost from the word reach"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reach",
+         "at": 7
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty person stretches out without purpose.",
+     "walkthrough": "'pointlessly' removes E (east, a compass point) from REACH; 'out' shuffles RACH.",
+     "definitionFit": "Arch as an adjective means knowing and mischievous, close to sly or roguish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pointlessly"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +702,82 @@
      }
     ]
    },
-   "solution": "SEAEGG"
+   "solution": "SEAEGG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spiky urchin",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SEA",
+       "indicators": [
+        {
+         "text": "reported",
+         "at": 8,
+         "note": "reported means the word is heard, spoken aloud"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Witness",
+         "at": 0,
+         "gives": "SEE",
+         "note": "to witness something is to see it"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disposing of",
+         "at": 35,
+         "note": "disposing of means the letter a is thrown out"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "uncovered",
+           "at": 25,
+           "note": "uncovered strips off the outside letters of beggar"
+          }
+         ],
+         "parts": [
+          {
+           "words": "beggar",
+           "at": 17
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "at": 48
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witness says a ragged beggar was stripped of his rags by a street child.",
+     "walkthrough": "'uncovered' turns BEGGAR into EGGA, then 'disposing of a' leaves EGG. 'urchin' looks like a street child, but it is the sea creature.",
+     "definitionFit": "Sea egg is a name for the sea urchin, a spiny marine animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "urchin"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +791,40 @@
     "text": "Out of repair, rig a technical means to supply water",
     "enumeration": "8"
    },
-   "solution": "IRRIGATE"
+   "solution": "IRRIGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supply water",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Out of",
+       "at": 0,
+       "note": "the letters come out of the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "repair, rig a technical",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Using parts from a repair job, rigging up a technical means of piping water.",
+     "definitionFit": "To irrigate land is to bring water to it through channels or pipes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repair"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +838,66 @@
     "text": "Paradigm shift in poem: it has terminal consonance",
     "enumeration": "7"
    },
-   "solution": "EPITOME"
+   "solution": "EPITOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paradigm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shift",
+         "at": 9,
+         "note": "a shift moves things around, so the letters of poem and it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem",
+         "at": 18
+        },
+        {
+         "words": "it",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "terminal",
+         "at": 31,
+         "note": "terminal asks for the final letter of consonance"
+        }
+       ],
+       "parts": [
+        {
+         "words": "consonance",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poem changing its model, its endings rhyming in consonance.",
+     "walkthrough": "'Paradigm shift' is business jargon split in two: 'Paradigm' is the definition and 'shift' the anagram signal.",
+     "definitionFit": "A paradigm is a perfect model or example, as an epitome is the typical embodiment of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +911,43 @@
     "text": "Not a ham, as ham might be supplied for immoral acts",
     "enumeration": "8"
    },
-   "solution": "PROCURED"
+   "solution": "PROCURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supplied for immoral acts",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not a ham",
+       "at": 0,
+       "gives": "PRO",
+       "note": "a ham is an amateur performer, so not one is a professional, a pro"
+      },
+      {
+       "words": "as ham might be",
+       "at": 11,
+       "gives": "CURED",
+       "note": "ham meat is often cured by salting or smoking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A real actor, not an amateur, provided as a meat might be for wicked purposes.",
+     "walkthrough": "'ham' means an amateur performer the first time, cured meat the second.",
+     "definitionFit": "To procure is to obtain someone for prostitution, providing them for sexual immorality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ham"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +961,54 @@
     "text": "My agile, lean thoughtful leadership could be moonshine",
     "enumeration": "4"
    },
-   "solution": "MALT"
+   "solution": "MALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moonshine",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leadership",
+       "at": 26,
+       "note": "the leaders of the words are their first letters, a business-jargon word reused"
+      }
+     ],
+     "parts": [
+      {
+       "words": "My",
+       "at": 0
+      },
+      {
+       "words": "agile",
+       "at": 3
+      },
+      {
+       "words": "lean",
+       "at": 10
+      },
+      {
+       "words": "thoughtful",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jargon: my agile, lean, thoughtful leadership style might be nonsense.",
+     "walkthrough": "'agile', 'lean' and 'leadership' are business jargon; 'moonshine' means illicit liquor here, not foolish talk.",
+     "definitionFit": "Malt whisky is distilled liquor, and moonshine is illicitly distilled spirit, so it could be one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "moonshine"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1022,60 @@
     "text": "Run away from (rudely snub) Harlem Shuffle",
     "enumeration": "7"
    },
-   "solution": "SHAMBLE"
+   "solution": "SHAMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shuffle",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "rudely",
+       "at": 15,
+       "note": "rudely means roughly, so the letters are roughly mixed up"
+      },
+      {
+       "text": "away from",
+       "at": 4,
+       "note": "the letters of run go away from the mixed letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "snub",
+         "at": 22
+        },
+        {
+         "words": "Harlem",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "Run",
+       "at": 0,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fleeing from a rude rebuff, someone dances the Harlem Shuffle.",
+     "walkthrough": "SNUB HARLEM, shuffled with 'rudely', holds SHAMBLE plus RUN, which 'away from' removes. Harlem Shuffle is a 1960s soul song; 'Run' is a word, not just R.",
+     "definitionFit": "To shamble is to walk awkwardly, dragging the feet, the same gait as a shuffle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harlem"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1089,50 @@
     "text": "For big business leaders, change management's losing men",
     "enumeration": "8"
    },
-   "solution": "MAGNATES"
+   "solution": "MAGNATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big business leaders",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "change",
+       "at": 26,
+       "note": "change means alter the order of the letters"
+      },
+      {
+       "text": "losing",
+       "at": 46,
+       "note": "losing means the letters of men are left out of the mix"
+      }
+     ],
+     "parts": [
+      {
+       "words": "management's",
+       "at": 33
+      },
+      {
+       "words": "men",
+       "at": 53
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bosses order a restructure that sheds male staff.",
+     "walkthrough": "A composite anagram: the letters of the possessive word, less the men, are mixed by 'change'.",
+     "definitionFit": "Magnates are tycoons, wealthy and powerful figures who run major companies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1146,41 @@
     "text": "Terrain reimagined for coach",
     "enumeration": "7"
    },
-   "solution": "TRAINER"
+   "solution": "TRAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coach",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reimagined",
+       "at": 8,
+       "note": "reimagined means thought up anew, so the letters are given a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Terrain",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Landscape redesigned for a bus.",
+     "walkthrough": "'coach' looks like a bus but is a sports instructor.",
+     "definitionFit": "A coach is someone who instructs athletes, a synonym of a sports instructor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1194,58 @@
     "text": "One gets beneath the surface of cannabis, uncovering disease",
     "enumeration": "8"
    },
-   "solution": "POTHOLER"
+   "solution": "POTHOLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One gets beneath the surface",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cannabis",
+       "at": 32,
+       "gives": "POT",
+       "note": "pot is a slang word for cannabis"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncovering",
+         "at": 42,
+         "note": "uncovering means the outer letters of the disease are stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disease",
+         "at": 53,
+         "gives": "CHOLERA",
+         "note": "cholera is an infectious disease"
+        },
+        {
+         "gives": "CA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug user digs into the problem, revealing illness.",
+     "walkthrough": "'uncovering' strips C and A off CHOLERA, leaving HOLER. 'One gets beneath the surface' sounds like an investigator.",
+     "definitionFit": "A potholer explores caves, literally going underground beneath the ground's surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surface"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1259,71 @@
     "text": "Core competency raised — leader embraces it, excited",
     "enumeration": "6"
    },
-   "solution": "HEATED"
+   "solution": "HEATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "excited",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraces",
+       "at": 32,
+       "note": "embraces means the leader word holds the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "leader",
+       "at": 25,
+       "gives": "HEAD",
+       "note": "a head is a leader"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 16,
+         "note": "in a down clue, raised means read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "Core",
+           "at": 0,
+           "note": "the core is the middle, so the central letters of competency"
+          }
+         ],
+         "parts": [
+          {
+           "words": "competency",
+           "at": 5
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jargon: a boss is thrilled that the team's core competency has gone up.",
+     "walkthrough": "'Core' gives ET from COMPETENCY; 'raised' turns it to TE in this down clue; 'embraces' puts it into HEAD. 'Core competency' is business jargon.",
+     "definitionFit": "Heated means passionate or roused, as an argument is heated when tempers are worked up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "competency"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1337,65 @@
     "text": "Following scrap, you say your leader is fit for heavy lifting?",
     "enumeration": "6"
    },
-   "solution": "MIGHTY"
+   "solution": "MIGHTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fit for heavy lifting",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "MIGHT",
+       "indicators": [
+        {
+         "text": "you say",
+         "at": 17,
+         "note": "you say means the word is spoken aloud"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scrap",
+         "at": 10,
+         "gives": "MITE",
+         "note": "a mite is a tiny scrap or bit"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 30,
+         "note": "the leader is the first letter of your"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a fight, you claim your boss is strong enough to lift weights.",
+     "walkthrough": "'scrap' looks like a fight but means a tiny bit, a mite.",
+     "definitionFit": "Mighty means very strong, so able to lift heavy loads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1409,49 @@
     "text": "Insubordination in Spain's greatly outside the box",
     "enumeration": "6"
    },
-   "solution": "MUTINY"
+   "solution": "MUTINY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insubordination",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 35,
+       "note": "outside puts the Spanish word around the box"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spain's greatly",
+       "at": 19,
+       "gives": "MUY",
+       "note": "muy is Spanish for very or greatly"
+      },
+      {
+       "words": "the box",
+       "at": 43,
+       "gives": "TIN",
+       "note": "a tin is a box"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebellion in Spain is a matter of thinking outside the box.",
+     "walkthrough": "'outside the box' is business jargon, split so that 'outside' is the container signal and 'the box' a tin.",
+     "definitionFit": "A mutiny is an open revolt against officers, the most extreme disobedience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1465,49 @@
     "text": "Compact lunch, say, consumed by judge",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compact",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consumed by",
+       "at": 20,
+       "note": "consumed by means the eating word goes inside the judging word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "judge",
+       "at": 32,
+       "gives": "TRY",
+       "note": "to try a case is to judge it"
+      },
+      {
+       "words": "lunch, say",
+       "at": 8,
+       "gives": "EAT",
+       "note": "to lunch is an example of eating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small packed lunch is eaten by a judge.",
+     "walkthrough": "'Compact' looks like an adjective but is a noun, a pact; 'lunch' is a verb here.",
+     "definitionFit": "A compact is an agreement between parties, a formal treaty or pact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Compact"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1521,42 @@
     "text": "Buzzword for one thing that bosses and workers all are",
     "enumeration": "5"
    },
-   "solution": "HUMAN"
+   "solution": "HUMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thing that bosses and workers all are",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Buzzword",
+       "at": 0,
+       "gives": "HUM",
+       "note": "read as 'buzz word', a word for a buzz: a hum is a low buzzing noise"
+      },
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "AN",
+       "note": "an is the indefinite article, meaning one of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jargon: the latest buzzword for something every boss and worker shares.",
+     "walkthrough": "'Buzzword' looks like the theme's jargon, but is read as a word meaning buzz. 'one thing' is a person, used loosely as a noun.",
+     "definitionFit": "Everyone in an office, manager or staff, is a person, a member of our species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Buzzword"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1576,63 @@
      }
     ]
    },
-   "solution": "AIRTRAVEL"
+   "solution": "AIRTRAVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "transport mode",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Added",
+       "at": 0,
+       "note": "added tells us the volume letter is put into the mixed letters"
+      },
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in places the volume letter within the disrupted letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disrupted",
+         "at": 16,
+         "note": "disrupted means the letters of arterial are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arterial",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "volume",
+       "at": 6,
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extra traffic on a congested main road makes a different way of getting about.",
+     "walkthrough": "'arterial' suggests a main road, but its letters are mixed by 'disrupted', and V goes into ARTRAEL.",
+     "definitionFit": "Flying is a way of getting from place to place, one way to travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arterial"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1646,58 @@
     "text": "Cut hard at the end of the day",
     "enumeration": "5"
    },
-   "solution": "HEWED"
+   "solution": "HEWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hard",
+       "at": 4,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 16,
+         "note": "end of asks for the last letter of the word the"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "day",
+       "at": 27,
+       "gives": "WED",
+       "note": "Wed is the abbreviation for Wednesday, a day"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jargon: at the end of the day, the cut was a tough one.",
+     "walkthrough": "'at the end of the day' is business jargon split up: 'at' links, 'end of the' gives E, 'day' gives WED.",
+     "definitionFit": "To hew is to chop with an axe, so the past form means chopped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1711,42 @@
     "text": "Check places for funds again",
     "enumeration": "9"
    },
-   "solution": "REINVESTS"
+   "solution": "REINVESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "funds again",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Check",
+       "at": 0,
+       "gives": "REIN",
+       "note": "to rein in is to check or restrain"
+      },
+      {
+       "words": "places",
+       "at": 6,
+       "gives": "VESTS",
+       "note": "to vest power in someone is to place it with them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector looks at where the money has gone a second time.",
+     "walkthrough": "'funds' is a verb here, and 'places' a verb meaning puts.",
+     "definitionFit": "To put money back into a business is to finance it a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funds"
+    }
+   }
   }
  ]
 }
