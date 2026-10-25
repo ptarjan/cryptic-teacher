@@ -1937,48 +1937,16 @@ def progress_page(idx, today=None, now=None):
     page_ld = {"@context": "https://schema.org", "@type": "Article", "headline": title,
                "url": canonical, "description": desc, "isAccessibleForFree": True}
     body = [masthead(crumbs), '<main class="static-main tutorial-static">', f"<h1>{title}</h1>",
-            f"<p>The goal is every cryptic puzzle each series has printed, with every answer and a "
-            f"hint for every clue. As of {as_of}: {known:,} are known to exist, "
-            f"{stages[S_DOWNLOADED]:,} are downloaded, {stages[S_FILED]:,} are filed, "
-            f"{stages[S_SOLVED]:,} are solved and {stages[S_HINTED]:,} are hinted."
-            + (f" {queued:,} scans are downloaded but not read yet." if queued is not None else "")
+            f'<p class="muted">As of {as_of}.'
+            + (f" {queued:,} scans downloaded, not read yet." if queued is not None else "")
             + "</p>",
             funnel_chart(stages), table,
-            '<p class="muted small-note"><strong>Known</strong> is the coverage ledger\'s count, one '
-            "per print date or number, so a reprint counts once, and never less than a series' "
-            "downloaded. "
-            "<strong>Filed</strong> counts puzzle files, <strong>solved</strong> the files with every "
-            "answer, <strong>hinted</strong> the files with every clue explained. Answers are found "
-            "in the session that writes the hints, so solved has no pace of its own. "
-            "<strong>Downloaded</strong> is filed plus the read queue, so it sits above filed: the queue "
-            "is scans on disk (archive.org and Gale newspaper editions, Gale Listener pages, Trove "
-            "articles) never read yet, one puzzle an edition or page, a Trove article counted at the "
-            "share of read articles that held one, and no more than is known and not yet filed. "
-            "Downloaded less filed is what is not read yet; the queues below count it as to read. "
-            "The running totals below are not nested: scans on disk and scans not read are the "
-            "recorded counts, so each moves at its own pace and the gap to filed is real. "
-            "In the bars each stage sits inside the one above, and the table shows the same "
-            "numbers. A pace over fewer days than its window says how many; &mdash; is a stage "
-            "counted on one day only. "
-            "Filed, solved and hinted are recounted every time the site updates (London time "
-            "above); known and downloaded are counted once a night.</p>",
+            '<p class="muted small-note">Each bar sits inside the one above. Downloaded is filed '
+            "plus scans not read. Filed, solved and hinted are recounted every time the site "
+            "updates; known and downloaded once a night.</p>",
             *(("<h2>The queues</h2>",
-               "<p>Three queues feed the goal, each shown as its depth now and, in brackets, its "
-               "seven-day flow a day: in / out. <strong>To fetch</strong> is puzzles known to exist "
-               "that we have not downloaded: known less downloaded (or less filed plus read queue "
-               "where that is more, for a series filed from a blog), never below 0. Its "
-               "in is the gain in the known count (negative when that count falls) and its out is "
-               "the gain in filed plus read queue. <strong>Read failed</strong> is scans we hold "
-               "that were read and gave no puzzle (a blank clue list, no crossword found, or "
-               "nothing that parsed): downloaded less filed less read queue. It is a leftover "
-               "to be fixed, so it has no flow. <strong>To read</strong> is scans on disk not "
-               "read yet; its in is the gain in the read queue plus its out, and its out is the "
-               "gain in filed. <strong>To annotate</strong> is filed puzzles with a clue still "
-               "unexplained (filed less hinted); its in is the gain in filed and its out the gain "
-               "in hinted. Each flow is the change in a recorded count between nights, so a read "
-               "is counted as a puzzle filed, which also counts a puzzle filed from another source "
-               "and misses a scan read for nothing. A ? is a count recorded on fewer than two "
-               "nights. A series with every queue empty is left out.</p>",
+               '<p class="muted small-note">Depth now (flow a day over 7 days: in / out). '
+               "Read failed is scans read that gave no puzzle.</p>",
                queue_table(days[today], recorded),
                fetching_note(progress.load_fetching())) if queued is not None else ()),
             "<h2>Running totals</h2>", recent,
