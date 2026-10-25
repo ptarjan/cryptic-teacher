@@ -487,6 +487,24 @@ check("a Times solution read short before the cell classifier is due as such, ra
       [f.fix_reason(part(20, None, "other")), f.rank_of_reason(unclassified), f.fix_reason(classified_part),
        f.fix_reason(ft_part(next(iter(f.SOLUTION_UNCLASSIFIED)))), f.fix_reason(ft_part("other"))])
 check("the cell classifier reads the Times papers' grids only", ("times", "gale"), f.CELLS_CLASSIFIED)
+# A grid older code read short, its cells unclassified, under SURE_BLOCKS (short_again passes over it) for a
+# puzzle held with every clue and not every answer is UNCLASSIFIED_HELD: an answers-only reread (10-24).
+uh_row = {**part(20, None, "other"), "edition": "NewsUK1984UKEnglish/1984-05-01_61715", "verdicts": [
+    {"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
+     "solution": {"accepted": 20, "lights": 30, "blocks": 0.9}}]}
+real_fs = f.filed_state
+f.filed_state = lambda series, n: (False, True)
+uh_short = f.fix_reason(uh_row)
+f.filed_state = lambda series, n: (True, True)
+uh_whole = f.fix_reason(uh_row)
+f.filed_state = lambda series, n: None
+uh_none = f.fix_reason(uh_row)
+f.filed_state = real_fs
+check("a grid read short unclassified for a puzzle held short is UNCLASSIFIED_HELD (rank 2, answers-only, once by key); "
+      "held whole or not held, the plain reason",
+      [f.UNCLASSIFIED_HELD, unclassified, unclassified, 2, True, None],
+      [uh_short, uh_whole, uh_none, f.RANKS[f.UNCLASSIFIED_HELD], f.UNCLASSIFIED_HELD in f.SOLUTION_FIXES,
+       f.fix_reason({**uh_row, "solutionKey": f.solution_key()})])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],

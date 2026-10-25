@@ -710,6 +710,13 @@ def evidence_reason(reason):
             # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
             # puzzles held short (1980s ~250, 1990s ~115, 1970s ~105) stood so, none planned.
             or reason == fa.REFUSED_GRID
+            # The other two answers_only rereads likely() predicts nothing for: a grid older code read short
+            # (cells unclassified) for a puzzle held short from its page that short_again passes over (its
+            # blocks under SURE_BLOCKS), and a held puzzle with a clue filed without its count. Paul 10-24:
+            # ~670 and ~275 Times puzzles held every clue short of answers so, none planned. Each once: a
+            # reread writes this solution_key; unenumerated_held wants a read before REREAD_UNENUMERATED.
+            # Plain "solution short, its cells unclassified" (no puzzle answers_only can read) stays out.
+            or reason in (fa.UNCLASSIFIED_HELD, "answers held back by a clue with no enumeration")
             or reason.endswith(" cured since"))  # trove: the fix for the cause a read was refused for landed
 
 
@@ -1201,7 +1208,7 @@ def by_urgency(units):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID)
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
 
 
 def unproven_first(unit):
@@ -1271,7 +1278,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.SHORT_WIDE,
-           fa.REFUSED_GRID)
+           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD)
 
 
 def vlm_feed_reads():

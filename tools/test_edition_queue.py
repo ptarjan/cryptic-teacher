@@ -261,6 +261,15 @@ check("a grid refused unmatched is evidence: only_evidence keeps its read with n
       (True, [f.REFUSED_GRID], True, True),
       (eq.evidence_reason(f.REFUSED_GRID), [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused)])[1]],
        f.REFUSED_GRID in eq.FIX_LANDED, f.REFUSED_GRID.startswith(eq.LOW_ASK)))
+# ---- The unclassified-held and unenumerated answers-only rereads are planned likewise; plain unclassified is not (10-24)
+_unenum = "answers held back by a clue with no enumeration"
+check("an unclassified grid of a puzzle held short, and a held clue bare of its count, are evidence (low-ask, "
+      "fix-landed); a plain unclassified one, no puzzle answers_only can read, is dropped",
+      ([f.UNCLASSIFIED_HELD, _unenum], True, True, True, True, False),
+      ([u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=r) for r in
+                                                           (f.UNCLASSIFIED_HELD, _unenum, "solution short, its cells unclassified")])[1]],
+       f.UNCLASSIFIED_HELD in eq.FIX_LANDED, f.UNCLASSIFIED_HELD.startswith(eq.LOW_ASK), _unenum.startswith(eq.LOW_ASK),
+       eq.evidence_reason(_unenum), eq.evidence_reason("solution short, its cells unclassified")))
 # ---- Gale Times 2000-14 pages with evidence of a puzzle that can file are planned (10-22)
 _third = {"kind": "read", "paper": "gale", "rel": "GaleTimes2007UKEnglish/2007-03-15", "date": "2007-03-15",
           "reason": eq.THREE_COLUMNS, "rank": 2, "needs": ["GaleTimes2007UKEnglish/2007-03-15", "GaleTimes2007UKEnglish/2007-03-16"]}

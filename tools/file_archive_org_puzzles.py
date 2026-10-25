@@ -6841,11 +6841,22 @@ def short_again(row):
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED or not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)):
         return None
+    gaps = answerable_gaps(row, paper)
+    if not gaps:
+        return None
+    return UNLISTED if min(gaps) <= trove_solution_ocr.STRIP_MAX else SHORT_WIDE
+
+
+def answerable_gaps(row, paper, sure=True):
+    """[lights short] of each verdict of ledger `row` (of `paper`) whose linked solution grid it read
+    short (at SURE_BLOCKS, unless not `sure`) for a puzzle held with every clue and not every answer,
+    filed from this page: those answers_only reads again."""
     gaps = []
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
-                or not isinstance(s, dict) or s.get("refused") or s.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS):
+                or not isinstance(s, dict) or s.get("refused")
+                or sure and s.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS):
             continue
         gap = s.get("lights", 0) - s.get("accepted", 0)
         if gap <= 0 or filed_state(paper.series, v.get("number")) != (False, True):
@@ -6857,9 +6868,7 @@ def short_again(row):
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
         gaps.append(gap)
-    if not gaps:
-        return None
-    return UNLISTED if min(gaps) <= trove_solution_ocr.STRIP_MAX else SHORT_WIDE
+    return gaps
 
 
 #: The due reason of a Times edition whose linked solution grid was refused (its blocks not the
@@ -6870,6 +6879,14 @@ def short_again(row):
 #: (SOLUTION_FIXES), once: rows read before REREAD_REFUSED_GRID. Paul 10-24: 699 Times puzzles
 #: (1970s 132, 1980s 288, 1990s 135) stood refused so.
 REFUSED_GRID = "solution short, its grid refused unmatched"
+#: The due reason of a Times edition whose solution grid older code read short, its cells never
+#: classified, for a puzzle held with every clue and not every answer from this page (answerable_gaps,
+#: at any blocks), that short_again passes over (its grid read under SURE_BLOCKS). likely() predicts
+#: it nothing, so it is edition_queue evidence of its own; the rest of "solution short, its cells
+#: unclassified" (no such puzzle: not held, held whole or from another page; answers_only would
+#: refuse each, and the full read spend VLM asks for no answer) stays unplanned. Paul 10-24: ~670
+#: Times puzzles stood so (1940s-90s), none planned. Once: the reread writes this solution_key.
+UNCLASSIFIED_HELD = "solution short, its cells unclassified, its puzzle held short"
 REREAD_REFUSED_GRID = "2026-10-24T22:00:00+00:00"
 #: The refusals matched_box may mend.
 GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading is ")
@@ -6936,6 +6953,8 @@ def fix_reason(row):
                         and s.get("lights", 0) - s.get("accepted", 0) > SHORT_GAP and short_again(row):
                     return SHORT_WIDE
                 if paper in CELLS_CLASSIFIED and not s.get("refused") and "classified" not in s:
+                    if answerable_gaps(row, paper_of(row.get("edition", "")), sure=False):
+                        return UNCLASSIFIED_HELD
                     return "solution short, its cells unclassified"
                 if paper not in CELLS_CLASSIFIED and row.get("solutionKey") in SOLUTION_UNCLASSIFIED:
                     continue
@@ -7420,7 +7439,7 @@ REREAD_HOST_HEADINGS = "2026-10-24T21:30:00+00:00"
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
 RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
-         "solution short, its cells unclassified": 2, "refused clues-short before its fix": 2,
+         "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, SHORT_WIDE: 2,
@@ -7867,7 +7886,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID)
+                  REFUSED_GRID, UNCLASSIFIED_HELD)
 
 
 def keeps_vlm(why, row, unit=None):
