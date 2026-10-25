@@ -105,7 +105,7 @@ sl = Path(tempfile.mkdtemp()) / "shape.json"
 sl.write_text(json.dumps([
     {"id": "r1#1a", "reason": "del_single: x"}, {"id": "r1#2d", "reason": "arity_ins: y"},
     {"id": "r2#1a", "reason": "spelling.unsaid: z"}, {"id": "r3#1a", "reason": "hidden: h"},
-    {"id": "r4#1a", "reason": "del_single: x", "tried": True}]
+    {"id": "r4#1a", "reason": "del_single: x", "tried": True, "tries": shape_queue.MAX_TRIES}]
     + [{"id": "r5#%da" % i, "reason": "del_single: x"} for i in range(1, 12)]))
 shape_queue.PATH = sl
 base = {"hasSolutions": True, "unannotated": 0}

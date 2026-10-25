@@ -931,7 +931,7 @@ check("the dispatcher ends 0, every unit started once", (0, ["r1", "r2", "s1", "
 check("a read whose needed scan has not begun starts without waiting for it, and the scan still runs", True,
       ev.index(["start", "read", "r1", "v1"]) < ev.index(["end", "scan", "s1"]))
 check("a unit past its limit is killed, the others not held up", (False, True, True),
-      (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
+      (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 25))  # slow sleeps 30: under 25 is killed, with slack for a loaded runner
 log.unlink(missing_ok=True)
 fake(sleep={"n1": 1.0})
 eq.plan = lambda papers, cache=None, reread=None, out=None: (
@@ -2789,7 +2789,7 @@ check("the closure is the root, its module-level imports (transitively), scripts
 check("a lazy import, a script only mentioned, tests, pages and other scripts are outside it",
       ([], 4), (lambda r: (r[0], len(r[1])))(hr.relevant(["tools/lazy_only.py", "tools/mention.py", "tools/page.js", "tools/unrelated.py"], cl)))
 check("the real queue's closure holds the units' scripts and not the site builders or fetchers it never starts",
-      (True, True, True, True, False, False, False, False),
+      (True, True, True, True, False, False, False, True),  # shape_queue: a commit loads it (edition_commit.MODULES)
       tuple(("tools/" + n in hr.queue_code(eq.TOOLS)) for n in ("scan_queue.py", "vlm_reader.py", "file_archive_org_puzzles.py", "ocr_full_pass.sh",
                                                                  "build_seo_pages.py", "fetch_globeandmail.py", "ci_cache.js", "shape_queue.py")))
 push_file(seed, "tools/b.py", "1\n", "unrelated tool")

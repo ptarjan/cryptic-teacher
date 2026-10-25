@@ -40,11 +40,9 @@ import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-import annotation  # noqa: E402
-import validate_annotations as V  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
+import annotation
+import validate_annotations as V
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
 
 SINCE = "2026-10-14T00:00:00Z"
 TRANSCRIPTS = "/data/claude/projects/*cryptic-teacher*/*.jsonl"

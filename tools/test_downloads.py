@@ -28,7 +28,7 @@ files = [f for f in subprocess.run(["git", "ls-files", "tools/*.py", "tools/*.sh
 # own state. Anything fetched from the web is a download.
 DERIVED = ["annotate_cost_ledger\\.jsonl", "archive_coverage", "cryptic-progress-rows\\.json", "clues_only_grids", "cryptic-abbreviations-table\\.json", "vlm_health", "fetch_nation", "held_dates","archive_org_crops", "archive_org_tess", "corpus_queue", "coverage_ledger", "detsolve",
            "cryptic-blog-facts(?:\\.(?:lock|deferred)|-index\\.sqlite)", "cryptic-teacher", "gale_inbox", "ocr_remote", "ocr_words", "postproc_learn", "rapidocr", "scan_reread_requests\\.jsonl",
-           "vlm_reader"]
+           "vlm_reader", "cryptic-letter-pass-day", "security_alert_watch\\.json"]
 ALLOWED = r"(\.cache|\.config|\.local|\.claude|\.ssh|\.cryptic-teacher)\b"
 rules = [
     ("a home path outside the allowed dot-directories",

@@ -4590,7 +4590,7 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     minute) is asked only for the clue columns that hold a clue they leave
     blank or do not settle (weak_lights), every column when the grid does not
     lie on them or nothing parses. A page they settle is filed with no ask."""
-    if hit.get("heldTitle"):
+    if (hit or {}).get("heldTitle"):
         # The title the page's scan lost, its held puzzle's (HELD_TITLE): the answers alone, no VLM
         # ask, never a full read (the page has no title box to lay its clues from).
         got = answers_only(d, found, hit, solutions, ask_vlm=False, crossed=True)
