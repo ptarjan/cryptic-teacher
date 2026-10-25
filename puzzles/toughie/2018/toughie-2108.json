@@ -22,6 +22,9 @@
   "date": "2018-10-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,32 @@
     "text": "Creature with a tiny brain being brainwashed?",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creature with a tiny brain",
+      "at": 0,
+      "meaning": "a small invertebrate such as a beetle or ant, whose brain is minute"
+     },
+     {
+      "text": "being brainwashed?",
+      "at": 27,
+      "meaning": "read as two words: someone indoctrinated by a cult is inside a sect"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe at someone dim-witted: a creature with a tiny brain, perhaps because their brain has been washed.",
+     "walkthrough": "The question mark flags the split reading: brainwashed people are often 'in a sect'.",
+     "definitionFit": "Bugs such as ants and beetles have very small nervous systems, so a creature with a tiny brain is a fair description of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brainwashed"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +77,45 @@
     "text": "Trigger visible, we hear?",
     "enumeration": "6"
    },
-   "solution": "INCITE"
+   "solution": "INCITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trigger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "INCITE",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 17,
+       "note": "says the word for 'visible' is to be spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "visible",
+       "at": 8,
+       "gives": "INSIGHT",
+       "note": "something visible is in sight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a trigger can be seen, as if checking a gun.",
+     "walkthrough": "Visible is IN SIGHT, which when spoken matches the verb for provoking.",
+     "definitionFit": "To trigger something is to provoke or stir it up, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trigger"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +129,68 @@
     "text": "At sea, person with less time to find big fish in the main?",
     "enumeration": "9"
    },
-   "solution": "SHIPOWNER"
+   "solution": "SHIPOWNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big fish in the main?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "At sea",
+       "at": 0,
+       "note": "being at sea means confused, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 20,
+         "note": "less tells us to remove a letter from the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "person",
+           "at": 8
+          },
+          {
+           "words": "with",
+           "at": 15
+          }
+         ]
+        },
+        {
+         "words": "time",
+         "at": 25,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone out at sea, short of time, hunting a large fish in the ocean.",
+     "walkthrough": "'less time' removes T from PERSON WITH, and 'At sea' rearranges the remaining nine letters.",
+     "definitionFit": "The main is the open sea, and a big fish there, playfully, is a wealthy owner of vessels: a figurative big shot of shipping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +204,48 @@
     "text": "Great book, volume featuring Indian drink",
     "enumeration": "7"
    },
-   "solution": "CLASSIC"
+   "solution": "CLASSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great book",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featuring",
+       "at": 19,
+       "note": "the volume abbreviation features, or holds, the drink within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "volume",
+       "at": 12,
+       "gives": "CC",
+       "note": "cc, cubic centimetres, is a measure of volume"
+      },
+      {
+       "words": "Indian drink",
+       "at": 29,
+       "gives": "LASSI",
+       "note": "lassi is a yoghurt drink from India"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recommendation for a great book that is a volume with an Indian drink in its pages.",
+     "definitionFit": "A classic is a work of literature of lasting renown, an acknowledged great book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +259,48 @@
     "text": "Horror story by South German playwright",
     "enumeration": "8"
    },
-   "solution": "SCHILLER"
+   "solution": "SCHILLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German playwright",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 13,
+       "note": "by means next to, so the abbreviation stands beside the story, here placed first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "South",
+       "at": 16,
+       "gives": "S"
+      },
+      {
+       "words": "Horror story",
+       "at": 0,
+       "gives": "CHILLER",
+       "note": "a chiller is a frightening tale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horror story written by a south German dramatist.",
+     "walkthrough": "Friedrich Schiller wrote The Robbers and William Tell.",
+     "definitionFit": "Friedrich Schiller was a leading 18th-century German dramatist and poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +320,61 @@
      }
     ]
    },
-   "solution": "CIRCULARSAW"
+   "solution": "CIRCULARSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blade",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to open",
+       "at": 36,
+       "note": "the letter opens the answer, coming first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "letter",
+       "at": 29,
+       "gives": "CIRCULAR",
+       "note": "a circular is a letter sent to many people"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to be lifted",
+         "at": 11,
+         "note": "in a down clue, lifted means read from the bottom up, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "used",
+         "at": 6,
+         "gives": "WAS",
+         "note": "used to be is was; here the word for past existence is the past tense of 'be'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blade once raised along with a letter-opener.",
+     "walkthrough": "'used to be' gives WAS, which 'lifted' turns upward in the down light; 'letter to open' puts CIRCULAR first.",
+     "definitionFit": "This power tool is a rotating toothed disc, a cutting blade used in carpentry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +388,62 @@
     "text": "Mix in red with 2/3 of all the fifteen in green?",
     "enumeration": "7"
    },
-   "solution": "IRELAND"
+   "solution": "IRELAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the fifteen in green?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Mix",
+       "at": 0,
+       "note": "mix tells us to stir the letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 4
+      },
+      {
+       "words": "red",
+       "at": 7
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "2/3 of",
+         "at": 16,
+         "note": "two-thirds of a three-letter word is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paint recipe: mix red with most of everything, and somehow get a green.",
+     "walkthrough": "A rugby union side has fifteen players; the national team of the Irish wears green shirts.",
+     "definitionFit": "The national rugby union fifteen of the Irish plays in green jerseys, so the team is named for its country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +457,45 @@
     "text": "Tricky working without leader",
     "enumeration": "5"
    },
-   "solution": "LYING"
+   "solution": "LYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tricky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without leader",
+       "at": 15,
+       "note": "the first letter of the word for 'working' is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "working",
+       "at": 7,
+       "gives": "PLYING",
+       "note": "plying a trade means working at it"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something tricky is going on with no one in charge.",
+     "definitionFit": "Tricky in the sense of deceitful: someone telling untruths is being dishonest and crafty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +509,61 @@
     "text": "About to admit lapse with wine, plastered",
     "enumeration": "8"
    },
-   "solution": "RENDERED"
+   "solution": "RENDERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plastered",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to admit",
+         "at": 6,
+         "note": "to admit something is to let it in, so the short word takes in another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "About",
+         "at": 0,
+         "gives": "RE",
+         "note": "re means about or concerning"
+        },
+        {
+         "words": "lapse",
+         "at": 15,
+         "gives": "END",
+         "note": "to lapse is to end or expire"
+        }
+       ]
+      },
+      {
+       "words": "wine",
+       "at": 26,
+       "gives": "RED",
+       "note": "red is red wine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone about to own up to a slip after a lot of wine, being thoroughly drunk.",
+     "walkthrough": "'Plastered' suggests drunk, but here it means coated with plaster.",
+     "definitionFit": "Rendering is applying a coat of plaster or cement to a wall, so a rendered wall is one that has been plastered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plastered"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +577,57 @@
     "text": "Heading for Chinese capital city, cross peak",
     "enumeration": "6"
    },
-   "solution": "CLIMAX"
+   "solution": "CLIMAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "peak",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Heading for",
+         "at": 0,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chinese",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "capital city",
+       "at": 20,
+       "gives": "LIMA",
+       "note": "Lima is the capital of Peru"
+      },
+      {
+       "words": "cross",
+       "at": 34,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated traveller heading for China's capital hits a peak of frustration.",
+     "definitionFit": "A climax is the highest point or culmination of something, its peak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +641,47 @@
     "text": "Isn't area unrecognisable as well?",
     "enumeration": "8"
    },
-   "solution": "ARTESIAN"
+   "solution": "ARTESIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as well?",
+      "at": 26,
+      "note": "an adjective describing a kind of water source, as in 'X well'"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unrecognisable",
+       "at": 11,
+       "note": "letters made unrecognisable are scrambled out of their order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Isn't",
+       "at": 0
+      },
+      {
+       "words": "area",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question: isn't this area unrecognisable too?",
+     "walkthrough": "'as well' looks like 'also' but means 'like the type of well' that this word describes.",
+     "definitionFit": "An artesian well is one where pressure pushes groundwater up without pumping, so the word naturally describes a well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +695,59 @@
     "text": "Match clothing philosopher's put on back of cabinet",
     "enumeration": "9"
    },
-   "solution": "TROUSSEAU"
+   "solution": "TROUSSEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Match clothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 29,
+       "note": "the philosopher is put on, after, the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 36,
+         "note": "the back of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cabinet",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "words": "philosopher's",
+       "at": 15,
+       "gives": "ROUSSEAU",
+       "note": "Jean-Jacques Rousseau was a French philosopher; the 's is 'is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A philosopher dresses up in an outfit found at the back of a wardrobe-like cabinet.",
+     "walkthrough": "'Match' is a marriage, as in a good match.",
+     "definitionFit": "A bride's collection of clothes and linen for her marriage, so clothing for a wedding match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +761,31 @@
     "text": "Tremendous as a trumpeter?",
     "enumeration": "11"
    },
-   "solution": "ELEPHANTINE"
+   "solution": "ELEPHANTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tremendous",
+      "at": 0,
+      "meaning": "huge, enormous in size"
+     },
+     {
+      "text": "as a trumpeter?",
+      "at": 11,
+      "meaning": "like the large animal that trumpets with its trunk"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for a brass player, whose playing is tremendous.",
+     "definitionFit": "The adjective means both enormous and like the huge pachyderm known for trumpeting calls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trumpeter"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +799,29 @@
     "text": "Approach fish",
     "enumeration": "5"
    },
-   "solution": "ANGLE"
+   "solution": "ANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approach",
+      "at": 0,
+      "meaning": "a point of view or way of tackling something"
+     },
+     {
+      "text": "fish",
+      "at": 9,
+      "meaning": "to fish with rod and line"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to go up to some fish.",
+     "definitionFit": "The word means a particular slant on a subject, and as a verb, to fish with a hook and line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +845,32 @@
      }
     ]
    },
-   "solution": "NICKELANDDIME"
+   "solution": "NICKELANDDIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trivial",
+      "at": 0,
+      "meaning": "petty, of little importance (as a verb"
+     },
+     {
+      "text": "change in America?",
+      "at": 8,
+      "meaning": "small coins in US currency: the five-cent and ten-cent pieces"
+     }
+    ],
+    "explanation": {
+     "surface": "A small shift in American life is called trivial.",
+     "walkthrough": "A nickel is a US five-cent coin and a dime a ten-cent one.",
+     "definitionFit": "The phrase describes something petty or small-scale, and literally names two low-value US coins: loose change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +884,83 @@
     "text": "Feeling trendy, with it, during endless outing to dance",
     "enumeration": "9"
    },
-   "solution": "INTUITION"
+   "solution": "INTUITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trendy",
+       "at": 8,
+       "gives": "IN",
+       "note": "in means fashionable"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 25,
+         "note": "during puts one piece in the middle of another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "to dance",
+           "at": 47,
+           "note": "letters sent to dance are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "endless",
+             "at": 32,
+             "note": "the last letter of the word is cut off"
+            }
+           ],
+           "parts": [
+            {
+             "words": "outing",
+             "at": 40
+            },
+            {
+             "gives": "G"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "it",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling fashionable and switched on on a night out dancing.",
+     "walkthrough": "'to dance' makes TUION from the shortened outing, and 'during' sets 'it' within that.",
+     "definitionFit": "Intuition is an instinctive feeling or hunch rather than reasoned knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outing"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +974,47 @@
     "text": "Female informer working for furniture maker",
     "enumeration": "8"
    },
-   "solution": "SHERATON"
+   "solution": "SHERATON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "furniture maker",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "SHE",
+       "note": "she is a female pronoun"
+      },
+      {
+       "words": "informer",
+       "at": 7,
+       "gives": "RAT",
+       "note": "a rat is someone who informs on others"
+      },
+      {
+       "words": "working",
+       "at": 16,
+       "gives": "ON",
+       "note": "on means operating or working"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who informs, working undercover at a furniture maker.",
+     "definitionFit": "Thomas Sheraton was an English cabinet maker whose name labels a style of furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1034,67 @@
      }
     ]
    },
-   "solution": "HORSECHESTNUT"
+   "solution": "HORSECHESTNUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 11,
+       "note": "the trunk sits in the way, inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "otherwise",
+         "at": 32,
+         "note": "otherwise means in another form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 20
+        },
+        {
+         "words": "sun",
+         "at": 24
+        },
+        {
+         "words": "or",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "trunk",
+       "at": 5,
+       "gives": "CHEST",
+       "note": "a chest is a large storage trunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree trunk is blocking out the sun, or else something else is.",
+     "walkthrough": "'trunk' suggests part of a tree but means a box; 'otherwise' makes HORSENUT, which the box sits within.",
+     "definitionFit": "A large deciduous tree with spiky fruits containing conkers, a common British park tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1108,59 @@
     "text": "Remove spot on outside of twitcher's hide",
     "enumeration": "7"
    },
-   "solution": "EXTRACT"
+   "solution": "EXTRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hide",
+       "at": 37,
+       "note": "the outer word hides the letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spot on",
+       "at": 7,
+       "gives": "EXACT",
+       "note": "spot on means exact or precisely right"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside of",
+         "at": 15,
+         "note": "the outside of a word is its first and last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "twitcher's",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher is told to remove a mark from the outside of their hide.",
+     "walkthrough": "A twitcher is a keen birdwatcher, and a hide is a shelter for watching birds; here 'hide' means conceal.",
+     "definitionFit": "To extract is to pull out or take away, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1174,48 @@
     "text": "Linen family put in piles",
     "enumeration": "7"
    },
-   "solution": "NAPKINS"
+   "solution": "NAPKINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Linen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 13,
+       "note": "one word goes into the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "piles",
+       "at": 20,
+       "gives": "NAPS",
+       "note": "naps are the raised fibres, or piles, of fabric"
+      },
+      {
+       "words": "family",
+       "at": 6,
+       "gives": "KIN",
+       "note": "kin are relatives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Household linen of the family stacked into heaps.",
+     "definitionFit": "Table linen is a collective name for cloths and serviettes, so the plural fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piles"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1229,41 @@
     "text": "Foil lining pans too generously",
     "enumeration": "6"
    },
-   "solution": "STOOGE"
+   "solution": "STOOGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foil",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "lining",
+       "at": 5,
+       "note": "the answer lines the inside of the words, running through them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pans too generously",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen tip: pans lined too generously with foil.",
+     "walkthrough": "'Foil' suggests kitchen foil but means a comic's partner.",
+     "definitionFit": "In comedy, a straight man who sets off the comedian is called a foil; both serve as the butt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Foil"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1277,45 @@
     "text": "I must interrupt holiday for further exam",
     "enumeration": "5"
    },
-   "solution": "RESIT"
+   "solution": "RESIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "further exam",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must interrupt",
+       "at": 2,
+       "note": "the letter breaks into the middle of the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "holiday",
+       "at": 17,
+       "gives": "REST",
+       "note": "a rest is a break or holiday"
+      },
+      {
+       "words": "I",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's holiday is cut short by having to sit an exam again.",
+     "definitionFit": "A second attempt at an examination one has failed, taken again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1329,50 @@
     "text": "Father and son's last vamp",
     "enumeration": "5"
    },
-   "solution": "SIREN"
+   "solution": "SIREN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vamp",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Father",
+       "at": 0,
+       "gives": "SIRE",
+       "note": "to sire is to father; a sire is a father"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 17,
+         "note": "the last letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "son's",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father and his son both fall for the same seductive woman.",
+     "definitionFit": "A vamp is a seductive, dangerous woman, as is a temptress who lures men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1386,41 @@
     "text": "Latest run in paper",
     "enumeration": "9"
    },
-   "solution": "NEWSPRINT"
+   "solution": "NEWSPRINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "paper",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Latest",
+       "at": 0,
+       "gives": "NEW",
+       "note": "the latest thing is new"
+      },
+      {
+       "words": "run",
+       "at": 7,
+       "gives": "SPRINT",
+       "note": "a sprint is a fast run"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The newest race reported in the newspaper.",
+     "definitionFit": "Cheap paper on which newspapers are printed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1434,57 @@
     "text": "Pond primarily put in ground for freshwater animal",
     "enumeration": "8"
    },
-   "solution": "TERRAPIN"
+   "solution": "TERRAPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "freshwater animal",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 15,
+       "note": "the letter goes inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ground",
+       "at": 22,
+       "gives": "TERRAIN",
+       "note": "terrain is ground or land"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 5,
+         "note": "the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pond",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden pond is dug into the ground for a freshwater creature.",
+     "definitionFit": "A small freshwater turtle, an animal living in ponds and rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1498,48 @@
     "text": "Urge two parties to crush one",
     "enumeration": "6"
    },
-   "solution": "LIBIDO"
+   "solution": "LIBIDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to crush",
+       "at": 17,
+       "note": "the two words squeeze the letter between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "two parties",
+       "at": 5,
+       "gives": "LIBDO",
+       "note": "Lib is the Liberal party and a do is a party"
+      },
+      {
+       "words": "one",
+       "at": 26,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call for two political parties to crush a single rival.",
+     "definitionFit": "Libido is sexual desire or drive, a strong urge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1553,41 @@
     "text": "A number of marriages in later years",
     "enumeration": "8"
    },
-   "solution": "NINETIES"
+   "solution": "NINETIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "later years",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A number",
+       "at": 0,
+       "gives": "NINE",
+       "note": "nine is a number"
+      },
+      {
+       "words": "marriages",
+       "at": 12,
+       "gives": "TIES",
+       "note": "ties are bonds, such as marriages"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has had several marriages late in life.",
+     "definitionFit": "The decade from ninety to ninety-nine of one's life is very old age, later years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1601,69 @@
     "text": "American corporation finally invested in wonderful time for payment",
     "enumeration": "6"
    },
-   "solution": "USANCE"
+   "solution": "USANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "time for payment",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "US",
+       "note": "US is short for the United States, so American"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "invested in",
+         "at": 29,
+         "note": "invested in puts the letter inside the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wonderful",
+         "at": 41,
+         "gives": "ACE",
+         "note": "ace means excellent or wonderful"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 21,
+           "note": "the last letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "corporation",
+           "at": 9
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American corporation finally invests in a wonderful period for being paid.",
+     "definitionFit": "In banking, usance is the period allowed by custom before a bill of exchange is due to be paid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   }
  ]
 }
