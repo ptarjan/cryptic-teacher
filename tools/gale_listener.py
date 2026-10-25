@@ -575,8 +575,6 @@ UNCLOSED = re.compile(r"(?<![\w(])\((\d{1,2})\s(?!(?:Down|Across|Ac|Dn|Up)\b)(?=
 #: A later light of a bracket so read: "(2-4oA)" for (2-40A), "(9-IoD)" for
 #: (9-10D) (No 273, 1935), which left the clue run on into the one before.
 LATER_LIKE = re.compile(r"(?<=\(\d-|\d\d-)(\d[IlioOzZsSg]|[IlioOzZsSg]\d|[Il][IlioOzZsSg])(?=[A-Z]?[)\-,])")
-LIKE_FIGURES = str.maketrans("IlioOzZsSg", "1110022559")
-WIDE_BRACKETS = str.maketrans("（）", "()")
 #: A light a clue refers to, "See (31) Down.": no clue's number.
 SEE = re.compile(r"\bsee\W*$", re.IGNORECASE)
 #: ... or names its direction after it: "Certainly applicable to (33)Down."
@@ -591,15 +589,15 @@ def figures_read(text):
     """`text` with each MARK_LIKE number read as figures, its length kept
     (paragraph_columns places each clue by its offset), and a full-width
     bracket read as one ("（16)Without", ch on No 400)."""
-    text = text.translate(WIDE_BRACKETS)
+    text = clue_text.wide_brackets_narrowed(text)
 
     def fix(m):
         tok = m.group(1)
         if tok.isdigit() or not (re.search(r"\d", tok) or m.group(2) or re.fullmatch(r"[Il][\dIlioOzZsSg]", tok)
                                  or m.group(3) and tok in ("I", "l")):
             return m.group(0)
-        return m.group(0)[:m.start(1) - m.start()] + tok.translate(LIKE_FIGURES)
-    text = LATER_LIKE.sub(lambda m: m.group(1).translate(LIKE_FIGURES), MARK_LIKE.sub(fix, text))
+        return m.group(0)[:m.start(1) - m.start()] + clue_text.figures_like(tok)
+    text = LATER_LIKE.sub(lambda m: clue_text.figures_like(m.group(1)),MARK_LIKE.sub(fix, text))
     return UNCLOSED.sub(r"(\1)", text)
 
 
@@ -1467,12 +1465,12 @@ def bands(box, located):
 
 #: A page that prints a puzzle's clues or diagram elsewhere says where:
 #: "(For clues see page 1057)", "Diagram and rules on page 885".
-ELSEWHERE = re.compile(r"\b(?:clues?|diagram|rules)\b[^.]{0,40}?\bpage\s+(\d{2,4})\b", re.IGNORECASE)
+CLUES_ELSEWHERE = re.compile(r"\b(?:clues?|diagram|rules)\b[^.]{0,40}?\bpage\s+(\d{2,4})\b", re.IGNORECASE)
 
 
 def elsewhere(words):
     """The magazine pages the page's words send its clues or diagram to."""
-    return sorted({int(n) for n in ELSEWHERE.findall(" ".join(ocr_clues.lines_of(words).split()))})
+    return sorted({int(n) for n in CLUES_ELSEWHERE.findall(" ".join(ocr_clues.lines_of(words).split()))})
 
 
 # ------------------------------------------------------------ a Times page's Listener
@@ -1882,7 +1880,7 @@ def theme_line(words):
     above the ACROSS heading, over it, as No 447's (1938) "CANVAS / The 26s
     that 28U 7D 7A 5, 35 13, 1A, and a 9 37U 27 6." heads its lists: the
     lights it names are the theme's, which no list clues. A token read with
-    a letter for a figure ("IA", "S,") is the figure (LIKE_FIGURES)."""
+    a letter for a figure ("IA", "S,") is the figure (clue_text.figures_like)."""
     across = next((w for w in sorted(headings(words), key=lambda w: w[1]) if heading(w[4]) == "ACROSS"), None)
     if across is None:
         return None
@@ -1915,7 +1913,7 @@ def theme_line(words):
             # A figure read as a letter stands alone only where no word
             # would: "S," is 5, "I" the word.
             if m and (re.search(r"\d", m.group(1)) or m.group(2) or m.group(1) in ("S", "l")):
-                n = m.group(1).translate(LIKE_FIGURES).lstrip("0")
+                n = clue_text.figures_like(m.group(1)).lstrip("0")
                 if n:
                     tokens.append(n + m.group(2).strip("'’s"))
     return title[4], tokens
