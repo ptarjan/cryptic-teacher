@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,70 @@
     "text": "Sauce I don't know at all, edges of label cut off",
     "enumeration": "7"
    },
-   "solution": "PASSATA"
+   "solution": "PASSATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I don't know",
+       "at": 6,
+       "gives": "PASS",
+       "note": "in a quiz, saying 'pass' means you don't know the answer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut off",
+         "at": 42,
+         "note": "the named letters are removed from the phrase before them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at all",
+         "at": 19,
+         "gives": "ATALL",
+         "note": "taken as its letters"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "edges of",
+           "at": 27,
+           "note": "the edges of a word are its first and last letters, here the two Ls of 'label'"
+          }
+         ],
+         "parts": [
+          {
+           "words": "label",
+           "at": 36
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook is baffled by an unlabelled jar of sauce whose label has been trimmed.",
+     "walkthrough": "'edges of label' gives L and L; 'cut off' removes both Ls from ATALL to leave ATA.",
+     "definitionFit": "Passata is an Italian tomato purée, used as a base for cooking sauces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "know"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +112,45 @@
     "text": "Quick expulsion, by the sound of it, as a pack of lies reported?",
     "enumeration": "7"
    },
-   "solution": "ATISHOO"
+   "solution": "ATISHOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quick expulsion, by the sound of it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ATISHOO",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 55,
+       "note": "what is reported is spoken, so the phrase is said rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a pack of lies",
+       "at": 40,
+       "gives": "ATISSUE",
+       "note": "a 'tissue of lies' is an idiom for a pack of lies, so the phrase gives 'a tissue'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a speedy expulsion is what is said of a pack of lies.",
+     "walkthrough": "The definition is the sound a sneeze makes, which is why 'by the sound of it' sits with it.",
+     "definitionFit": "A sneeze is a sudden quick expulsion of air, and this is the word people use for its noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +177,50 @@
     "text": "Artist created new romantic hero",
     "enumeration": "7"
    },
-   "solution": "TRISTAN"
+   "solution": "TRISTAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "romantic hero",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "created",
+         "at": 7,
+         "note": "the letters of the word artist are made into something new, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Artist",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 15,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter invents a fresh hero for a romance.",
+     "definitionFit": "Tristan is the lover of Isolde in medieval romance, a classic romantic hero of legend and Wagner's opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "created"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +234,61 @@
     "text": "Vegetable container covered in fruit, knocked over",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocked over",
+       "at": 38,
+       "note": "something knocked over ends up upside down, so the whole assembly is reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covered in",
+         "at": 20,
+         "note": "the container is surrounded by the fruit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 31,
+         "gives": "HIPS",
+         "note": "hips are the fruit of the rose"
+        },
+        {
+         "words": "container",
+         "at": 10,
+         "gives": "CAN",
+         "note": "a can is a container"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin of vegetables, smothered in fruit, gets toppled.",
+     "walkthrough": "Rose hips are the fruit here, not apples or pears; 'knocked over' turns the whole assembly round, not just the container.",
+     "definitionFit": "Spinach is a leafy green vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +302,42 @@
     "text": "Old governor, good and dead",
     "enumeration": "6"
    },
-   "solution": "PILATE"
+   "solution": "PILATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old governor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 14,
+       "gives": "PI",
+       "note": "PI, short for pious, means good in crosswords"
+      },
+      {
+       "words": "dead",
+       "at": 23,
+       "gives": "LATE",
+       "note": "the late person is one who has died"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old governor described as both good and dead.",
+     "walkthrough": "PI is a crossword abbreviation for pious, hence good.",
+     "definitionFit": "Pontius Pilate was the Roman governor of Judaea at the trial of Jesus, so an old governor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +357,32 @@
      }
     ]
    },
-   "solution": "NUMBERTWO"
+   "solution": "NUMBERTWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stool",
+      "at": 0,
+      "meaning": "a nursery euphemism for faeces is this phrase"
+     },
+     {
+      "text": "might one sit beside chair?",
+      "at": 7,
+      "meaning": "the deputy in an organisation, who sits next to the chairperson"
+     }
+    ],
+    "explanation": {
+     "surface": "Is a stool the kind of seat one would place beside a chair?",
+     "walkthrough": "'Stool' and 'chair' pose as furniture; the first is excrement, the second the person chairing a meeting.",
+     "definitionFit": "The phrase is both a childish word for excrement and a title for the deputy to a leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stool"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +396,31 @@
     "text": "Scary work in a fridge",
     "enumeration": "7"
    },
-   "solution": "CHILLER"
+   "solution": "CHILLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scary work",
+      "at": 0,
+      "meaning": "a horror film or frightening novel"
+     },
+     {
+      "text": "a fridge",
+      "at": 14,
+      "meaning": "a refrigerated cabinet that keeps food cold"
+     }
+    ],
+    "explanation": {
+     "surface": "A frightening story set inside a refrigerator.",
+     "definitionFit": "The word covers both a thriller meant to frighten and a cold-storage appliance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +440,76 @@
      }
     ]
    },
-   "solution": "SOLOMONGRUNDY"
+   "solution": "SOLOMONGRUNDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this chap lasted a week!",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "As a result",
+       "at": 0,
+       "gives": "SO",
+       "note": "so means therefore, as a result"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 19,
+         "note": "the runner's name goes inside the long race"
+        }
+       ],
+       "parts": [
+        {
+         "words": "marathon",
+         "at": 22,
+         "gives": "LONGRUN",
+         "note": "a marathon is a long run"
+        },
+        {
+         "words": "Farah",
+         "at": 13,
+         "gives": "MO",
+         "note": "Mo Farah is the British distance runner"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 44,
+         "note": "take the odd-numbered letters of days, first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "days",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mo Farah running a marathon that drags on for days, set beside a nursery-rhyme figure.",
+     "walkthrough": "In the nursery rhyme he was born on Monday and buried on Sunday.",
+     "definitionFit": "The nursery-rhyme character lives his entire life from Monday to Sunday, so his life lasts a week."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "marathon"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +533,32 @@
    "group": [
     "10-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prefer sugar granulated or in cubes?",
+      "at": 0,
+      "meaning": "read as a host's question: would you enjoy the sugar loose, or would you rather take a cube of it"
+     },
+     {
+      "text": "There is no choice",
+      "at": 37,
+      "meaning": "an idiom telling someone to accept things as they are"
+     }
+    ],
+    "explanation": {
+     "surface": "A host asks how a guest takes their sugar, then declares they get no say.",
+     "walkthrough": "The first half is a whimsical reading: 'lump' as sugar in cube form. Bloggers found it loose.",
+     "definitionFit": "The idiom means you must put up with something whether you are happy with it or not."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cubes"
+    }
+   }
   },
   {
    "number": 11,
@@ -220,7 +599,41 @@
     "text": "Wooden building rented out by Earl Grey, perhaps?",
     "enumeration": "6"
    },
-   "solution": "CHALET"
+   "solution": "CHALET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wooden building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Earl Grey, perhaps",
+       "at": 30,
+       "gives": "CHA",
+       "note": "Earl Grey is a kind of tea, and cha is slang for tea"
+      },
+      {
+       "words": "rented out",
+       "at": 16,
+       "gives": "LET",
+       "note": "to let a property is to rent it out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timber cabin leased out by a Prime Minister-era aristocrat, or by a tea brand.",
+     "definitionFit": "A chalet is a wooden house of the kind built in the Alps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Earl"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +657,64 @@
      }
     ]
    },
-   "solution": "ONTHESLY"
+   "solution": "ONTHESLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "under the table",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "the players go inside the trimmed magazine"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "kicking leader",
+         "at": 31,
+         "note": "the first letter is kicked out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "periodical",
+         "at": 20,
+         "gives": "MONTHLY",
+         "note": "a monthly is a magazine published each month"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "Opposing players",
+       "at": 0,
+       "gives": "ES",
+       "note": "in bridge East and South are opponents, giving E and S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rival footballers kicking the editor of a magazine under the table.",
+     "walkthrough": "'Opposing players' sounds like football, but the opponents are bridge partners East and South.",
+     "definitionFit": "Done under the table is done secretly, the same as done covertly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kicking"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +734,60 @@
      }
     ]
    },
-   "solution": "JOSWINSON"
+   "solution": "JOSWINSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leader once",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "less",
+       "at": 19,
+       "note": "the letter for hot is taken away"
+      },
+      {
+       "text": "around",
+       "at": 28,
+       "note": "the new letters are put where the removed one was, with the rest around them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "PM",
+       "at": 15,
+       "gives": "JOHNSON",
+       "note": "Boris Johnson was the UK Prime Minister in 2019"
+      },
+      {
+       "words": "hot",
+       "at": 24,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      },
+      {
+       "words": "the Palace of Westminster, perhaps",
+       "at": 35,
+       "gives": "SWI",
+       "note": "the Houses of Parliament are in the London postcode SW1, written here as SWI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Prime Minister seems cooler around Parliament.",
+     "walkthrough": "SW1 is the postcode of Westminster, with the 1 read as I.",
+     "definitionFit": "Jo Swinson led the Liberal Democrats in 2019, so she was a party leader once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +801,85 @@
     "text": "Duck under branch gripped by bird, not one for hawk",
     "enumeration": "9"
    },
-   "solution": "WARMONGER"
+   "solution": "WARMONGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hawk",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripped by",
+       "at": 18,
+       "note": "the branch and duck are held inside the bird"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 35,
+         "note": "the letter for one is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 29,
+         "gives": "WINGER",
+         "note": "something that flies on wings"
+        },
+        {
+         "words": "one",
+         "at": 39,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "under",
+         "at": 5,
+         "note": "in a down clue the duck is placed below the branch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "branch",
+         "at": 11,
+         "gives": "ARM",
+         "note": "an arm is a branch, as of a river or organisation"
+        },
+        {
+         "words": "Duck",
+         "at": 0,
+         "gives": "O",
+         "note": "a duck in cricket is a score of nothing, O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duck sits beneath a branch clutched by a bird, which is no hawk.",
+     "walkthrough": "'not one' removes I from WINGER to give WNGER, which holds ARMO.",
+     "definitionFit": "A hawk in politics is someone eager for war, the opposite of a dove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hawk"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +916,74 @@
    "group": [
     "17-across",
     "16-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's not true",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 44,
+       "note": "the fair Tory goes around the two initials"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "by the look of him",
+         "at": 52,
+         "gives": "FAIR",
+         "note": "Boris Johnson is fair-haired, so his appearance is fair"
+        },
+        {
+         "words": "Boris",
+         "at": 38,
+         "gives": "TORY",
+         "note": "Boris Johnson is a Conservative, a Tory"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "at": 26,
+         "note": "the first letters of the words you and see"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 17
+        },
+        {
+         "words": "see",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that Boris Johnson's untruths are evident from his very appearance.",
+     "walkthrough": "'by the look of him' points to Johnson's famously blond hair.",
+     "definitionFit": "A fanciful tale of make-believe, so anything invented and untrue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +997,41 @@
     "text": "Cut, boil has exploded",
     "enumeration": "7"
    },
-   "solution": "ABOLISH"
+   "solution": "ABOLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exploded",
+       "at": 14,
+       "note": "an exploded thing is blown into pieces, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boil has",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boil that has burst open after being lanced.",
+     "walkthrough": "Commenters queried 'cut' for abolish; it works as cutting a job or service entirely.",
+     "definitionFit": "To scrap or do away with something, as budget cuts axe a scheme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1045,50 @@
     "text": "Bully ruing action having lost in battle",
     "enumeration": "9"
    },
-   "solution": "AGINCOURT"
+   "solution": "AGINCOURT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Bully",
+       "at": 0,
+       "note": "to bully is to push around, so these letters are pushed about"
+      },
+      {
+       "text": "having lost",
+       "at": 19,
+       "note": "the letters of the small word are taken out before the shuffle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ruing action",
+       "at": 6
+      },
+      {
+       "words": "in",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bully regrets his behaviour after losing a fight.",
+     "walkthrough": "Letters of RUING ACTION less IN are rearranged.",
+     "definitionFit": "Henry V's English army won this battle against the French in 1415."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bully"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1102,81 @@
     "text": "No regret standing between walls of Newgate cell",
     "enumeration": "7"
    },
-   "solution": "NEURONE"
+   "solution": "NEURONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cell",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 19,
+       "note": "the reversed phrase sits between the two letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "walls of",
+         "at": 27,
+         "note": "the walls of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Newgate",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing",
+         "at": 10,
+         "note": "in a down clue, standing means upright, so read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "No",
+           "at": 0,
+           "gives": "NO"
+          },
+          {
+           "words": "regret",
+           "at": 3,
+           "gives": "RUE",
+           "note": "to rue is to regret"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner in Newgate's cell, standing between its walls, feels no regret.",
+     "walkthrough": "Newgate was a notorious London prison, steering the solver to a prison cell. 'standing' turns NORUE into EURON.",
+     "definitionFit": "A nerve cell is called a neurone, so it is a type of biological cell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cell"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1190,42 @@
     "text": "Welcome again, maître d's bubbly",
     "enumeration": "7"
    },
-   "solution": "READMIT"
+   "solution": "READMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Welcome again",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bubbly",
+       "at": 26,
+       "note": "something bubbly is effervescent and unsettled, so the letters move about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "maître d",
+       "at": 15,
+       "gives": "MAITRED",
+       "note": "the head waiter, written as its letters without the accent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The head waiter's effusive greeting to returning diners.",
+     "definitionFit": "To let someone back in, as a hospital takes a patient back in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bubbly"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1239,55 @@
     "text": "Presumption if heart is about right",
     "enumeration": "6"
    },
-   "solution": "HUBRIS"
+   "solution": "HUBRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presumption",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 24,
+       "note": "the word is goes around the letter for right"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "heart",
+         "at": 15,
+         "gives": "HUB",
+         "note": "the hub is the centre or heart of something"
+        },
+        {
+         "words": "is",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 30,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dubious claim that something is presumed right at its core.",
+     "definitionFit": "Hubris is excessive pride or arrogance, akin to presumptuousness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1301,64 @@
     "text": "Where hula dancer might perform, on well after backing singer",
     "enumeration": "8"
    },
-   "solution": "HONOLULU"
+   "solution": "HONOLULU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where hula dancer might perform",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 47,
+         "note": "the two short words are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "on",
+           "at": 33,
+           "gives": "ON"
+          },
+          {
+           "words": "well",
+           "at": 36,
+           "gives": "OH",
+           "note": "oh is an exclamation like well"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "singer",
+       "at": 55,
+       "gives": "LULU",
+       "note": "Lulu is a Scottish pop singer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A backing singer for a hula dancer, waiting her turn on stage.",
+     "walkthrough": "'backing' turns ONOH into HONO. 'backing singer' poses as one phrase. Lulu is a long-running British pop star.",
+     "definitionFit": "The capital of Hawaii, home of the hula dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1372,41 @@
     "text": "Winning club, positive",
     "enumeration": "6"
    },
-   "solution": "UPBEAT"
+   "solution": "UPBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "positive",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Winning",
+       "at": 0,
+       "gives": "UP",
+       "note": "a team that is up is ahead"
+      },
+      {
+       "words": "club",
+       "at": 8,
+       "gives": "BEAT",
+       "note": "to club someone is to beat them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer or team on a winning streak feeling confident.",
+     "definitionFit": "Being optimistic and cheerful in outlook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1420,41 @@
     "text": "Tiny thing left in place of tower",
     "enumeration": "5"
    },
-   "solution": "BABEL"
+   "solution": "BABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place of tower",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tiny thing",
+       "at": 0,
+       "gives": "BABE",
+       "note": "a babe is a baby, a tiny thing"
+      },
+      {
+       "words": "left",
+       "at": 11,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little object abandoned instead of a tower.",
+     "walkthrough": "'in place of' looks like substitution, but 'in' is only a link.",
+     "definitionFit": "In Genesis the tower was built in Babel, the city where languages were confused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1468,32 @@
     "text": "Instrument blown: were only Victoria, Emma, Mel B and Mel C performing?",
     "enumeration": "10"
    },
-   "solution": "DIDGERIDOO"
+   "solution": "DIDGERIDOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instrument blown",
+      "at": 0,
+      "meaning": "a wind instrument of Aboriginal Australia"
+     },
+     {
+      "text": "were only Victoria, Emma, Mel B and Mel C performing?",
+      "at": 18,
+      "meaning": "if only four of the Spice Girls sang, one might ask whether Geri did nothing"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about a Spice Girls gig missing one member, with a wind instrument.",
+     "walkthrough": "The Spice Girls were Victoria, Emma, Mel B, Mel C and Geri; O is nothing.",
+     "definitionFit": "A long wooden drone pipe from Aboriginal Australia, played by blowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1511,31 @@
    "group": [
     "27-across",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lovely",
+      "at": 0,
+      "meaning": "a stunningly attractive woman"
+     },
+     {
+      "text": "surprise",
+      "at": 9,
+      "meaning": "a shock or startling piece of news"
+     }
+    ],
+    "explanation": {
+     "surface": "Something delightful that comes unexpectedly.",
+     "definitionFit": "The word means both a glamorous woman and a piece of startling news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lovely"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1549,41 @@
     "text": "Treasure, like US singer?",
     "enumeration": "7"
    },
-   "solution": "CHERISH"
+   "solution": "CHERISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treasure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US singer",
+       "at": 15,
+       "gives": "CHER",
+       "note": "Cher is an American singer"
+      },
+      {
+       "words": "like",
+       "at": 10,
+       "gives": "ISH",
+       "note": "the suffix -ish means like"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical treasure resembling the US singer.",
+     "definitionFit": "To treasure someone is to hold them dear and value them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Treasure"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1597,49 @@
     "text": "Into river, pad let down",
     "enumeration": "7"
    },
-   "solution": "DEFLATE"
+   "solution": "DEFLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "let down",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Into",
+       "at": 0,
+       "note": "the pad goes into the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 5,
+       "gives": "DEE",
+       "note": "the Dee is a British river"
+      },
+      {
+       "words": "pad",
+       "at": 12,
+       "gives": "FLAT",
+       "note": "a flat is a pad, a place to live"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's apartment slips into a river, and they are disappointed.",
+     "walkthrough": "The Dee is a river in Scotland and in Wales.",
+     "definitionFit": "To let the air out, as of a tyre, or to let someone's spirits sink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pad"
+    }
+   }
   }
  ]
 }
