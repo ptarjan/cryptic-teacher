@@ -115,60 +115,71 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "about means surrounding, so the first two pieces go round the doubled letter"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "leader",
-         "note": "the leader of a word is its front letter, so only the opening of Express is kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Express",
-         "note": "the opening letter of the newspaper's name"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 8,
+           "note": "a leader is the front of something, so only the opening letter of Express is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Express",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "article",
+         "at": 15,
+         "gives": "A",
+         "note": "a is the indefinite article"
         }
        ]
       },
       {
-       "op": "reversal",
+       "op": "repeat",
        "indicators": [
         {
-         "text": "about",
-         "note": "about can mean turned round, so the article and the marriages are read backwards together"
+         "text": "twice",
+         "at": 29,
+         "note": "twice tells us to write the married abbreviation two times over"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "article",
-           "gives": "A",
-           "note": "the indefinite article"
-          },
-          {
-           "words": "twice-married",
-           "gives": "MM",
-           "note": "M is the abbreviation for married, written twice"
-          }
-         ]
+         "words": "married",
+         "at": 35,
+         "gives": "M",
+         "note": "M is the standard abbreviation for married, as in genealogies"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Daily Express runs a gossip piece about some much-married actor everyone knows by first name.",
-     "walkthrough": "A luvvie is British slang for a gushing actor; Emma Thompson is the familiar one meant here, known by first name alone.",
-     "definitionFit": "Emma is the first name by which the actress Emma Thompson, a stock theatrical luvvie, is familiarly called."
+     "surface": "A newspaper editorial attacks a much-married thespian.",
+     "walkthrough": "'about' puts MM inside E and A; 'twice' doubles the M.",
+     "definitionFit": "A luvvie is a theatrical actor; a familiar way to name one is by first name only, as with Thompson."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Express"
     }
    }
   },
