@@ -552,6 +552,23 @@ check("a grid read short at 0.946-0.97 blocks for a puzzle held short is HEAVY_P
       "not under the floor, at SURE_BLOCKS, read since, or held whole",
       [f.HEAVY_PRINT, False, False, False, False, 2, True],
       hv + [f.RANKS[f.HEAVY_PRINT], f.HEAVY_PRINT in f.SOLUTION_FIXES])
+# The same read since REREAD_HEAVY, no cell classified at SOLUTION_BLOCKS-SURE_BLOCKS, is SURE_FRAMING (10-25
+# evening: read_framed classifies on the best sure framing and very heavy prints since); once. A grid whose
+# cells were classified (even none decoded) is not, nor one under SOLUTION_BLOCKS or held whole.
+f.filed_state = lambda series, n: (False, True)
+sf_after = "2026-10-25T14:00:00+00:00"
+sf_cls = heavy_row(0.93, sf_after)
+sf_cls["verdicts"][0]["solution"]["classified"] = 0
+sf = [f.fix_reason(heavy_row(0.93, sf_after)), f.fix_reason(heavy_row(0.96, sf_after)), f.unsure_short(sf_cls),
+      f.unsure_short(heavy_row(0.8, sf_after)), f.unsure_short(heavy_row(0.98, sf_after)),
+      f.unsure_short(heavy_row(0.93, "2026-10-26T00:00:00+00:00"))]
+f.filed_state = lambda series, n: (True, True)
+sf.append(f.unsure_short(heavy_row(0.93, sf_after)))
+f.filed_state = real_fs
+check("a grid read short unclassified under SURE_BLOCKS since REREAD_HEAVY for a puzzle held short is SURE_FRAMING "
+      "(rank 2, answers-only); not classified, under SOLUTION_BLOCKS, at SURE_BLOCKS, read since, or held whole",
+      [f.SURE_FRAMING, f.SURE_FRAMING, False, False, False, False, False, 2, True],
+      sf + [f.RANKS[f.SURE_FRAMING], f.SURE_FRAMING in f.SOLUTION_FIXES])
 # A grid that gave answers for a puzzle held with a suspect clue (complete() refuses it) is SUSPECT_HELD, once:
 # decide() sent its answers-only reading to --out before REREAD_SUSPECT (10-25).
 def sh_row(at="2026-10-25T06:00:00+00:00", accepted=30):
@@ -1350,6 +1367,21 @@ gray = np.where(gray == 0, rng.integers(0, 40, gray.shape), rng.integers(200, 25
 grid5 = [".....", ".#...", ".....", ".....", "....."]
 check("a flecked block read as a block, a fat letter's light as a light", 1.0,
       tso.block_agreement(gray, grid5, (0, 0, 60, 60)))
+# blocks_sure / sure_framing: a framing that finds every block, a few inked lights read as blocks too, is
+# sure (a heavy print); one that misses a block is not, however well it fits; the classifier reads the
+# best-fitting sure framing (times-20419: two framings at 0.969, the first missed a block).
+rules5 = ([k * 60 for k in range(6)], [k * 60 for k in range(6)])
+inked = gray.copy()
+for r, c in [(0, 0), (3, 1), (4, 4)]:
+    inked[r * 60 + 6:(r + 1) * 60, c * 60 + 6:(c + 1) * 60] = 10
+lost = gray.copy()
+lost[66:120, 66:120] = 240
+fits5 = [round(tso.block_agreement(g, grid5, rules5), 3) for g in (lost, inked)]
+check("an inked print with every block found is sure, a framing missing a block is not; the sure one is read",
+      [[0.96, 0.88], True, False, 1, None],
+      [fits5, tso.blocks_sure(inked, grid5, rules5, fits5[1]), tso.blocks_sure(lost, grid5, rules5, fits5[0]),
+       tso.sure_framing([(lost, *rules5), (inked, *rules5)], grid5, fits5),
+       tso.sure_framing([(lost, *rules5)], grid5, fits5[:1])])
 
 # improves(): a reading replaces a file this tool filed when it beats it.
 pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()

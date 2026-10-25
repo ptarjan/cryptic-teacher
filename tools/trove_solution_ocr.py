@@ -481,11 +481,16 @@ def block_agreement(gray, grid, lat):
 #: inked letters (Times 1940s-90s), not a lattice off the grid (that misses blocks). 10-25: of the
 #: Times grids read 6+ lights short, ~1 in 4 fit so at 0.94-0.969, the classifier never run on them.
 HEAVY_EXTRA = 12
+#: The light cells read as blocks blocks_sure lets a framing that finds every grid block have since
+#: 10-25 evening: 1970s-80s Times prints ink 13-24 letters so (times-16372 13, 16549 17, 16598 20),
+#: every block found, no cell classified. A lattice off the grid misses blocks (a half cell off, each
+#: block cell is half paper); one that reads everything a block is far past this.
+VERY_HEAVY_EXTRA = 24
 
 
 def blocks_sure(gray, grid, lat, agreement=None):
     """Whether lattice `lat` of `gray` is surely `grid`'s: its block_agreement (`agreement`, when
-    known) at SURE_BLOCKS, or every grid block read a block and at most HEAVY_EXTRA light cells
+    known) at SURE_BLOCKS, or every grid block read a block and at most VERY_HEAVY_EXTRA light cells
     read as blocks (a heavy print)."""
     if agreement is not None and agreement >= SURE_BLOCKS:
         return True
@@ -495,7 +500,20 @@ def blocks_sure(gray, grid, lat, agreement=None):
     cells = [(seen[(r, c)], ch == "#") for r, row in enumerate(grid) for c, ch in enumerate(row)]
     if sum(s == b for s, b in cells) >= SURE_BLOCKS * len(cells):
         return True
-    return all(s for s, b in cells if b) and sum(1 for s, b in cells if s and not b) <= HEAVY_EXTRA
+    return all(s for s, b in cells if b) and sum(1 for s, b in cells if s and not b) <= VERY_HEAVY_EXTRA
+
+
+def sure_framing(framed, grid, fits):
+    """The index of the framing of `framed` ([(gray, ys, xs)], framings()) whose cells the classifier
+    reads: the best-fitting one by `fits` (each one's block_agreement) when blocks_sure, else the
+    best-fitting other one that is; None when none is. A few pixels apart, two framings of a heavy
+    print read alike (0.969 each, times-20419): the first missed one block, the other none (10-25: 1
+    of 152 short Times grids with no cell classified)."""
+    for i in sorted(range(len(framed)), key=lambda i: -fits[i]):
+        g, ys, xs = framed[i]
+        if blocks_sure(g, grid, (ys, xs), fits[i]):
+            return i
+    return None
 
 
 # ------------------------------------------------------------ reading
@@ -795,11 +813,15 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         blocks, lat = fits[best], framed[best]
     else:
         reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
+        fits = [r[1]["blocks"] for r in reads]
         best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
         blocks, lat = reads[best][1]["blocks"], framed[best]
     # The classifier reads a heavy print's grid too (blocks_sure): every block found, a few
-    # inked letters read as blocks.
-    sure = blocks_sure(lat[0], grid, lat[1:], blocks)
+    # inked letters read as blocks; on the best-fitting framing that is so (sure_framing), the
+    # best one when it is.
+    at = sure_framing(framed, grid, fits)
+    sure = at is not None
+    clat = framed[at] if sure else lat
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -837,10 +859,10 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
                     if bounded_light(lts[key], key[1], seen, w, [p.get(key, ()) for p in printeds])}
     more, probs = {}, None
     if classify and sure:
-        # The classifier reads the best-fitting lattice's cells: an accepted
+        # The classifier reads the best-fitting sure lattice's cells: an accepted
         # light it surely reads otherwise is dropped, and the lights left are
         # decoded from its letters.
-        g, ys, xs = lat
+        g, ys, xs = clat
         probs = classified({rc: glyph(g, ys, xs, *rc) for cells in lts.values() for rc in cells})
         dropped = vetoed(lts, accepted, probs)
         accepted = {k: w for k, w in accepted.items() if k not in dropped}
@@ -849,6 +871,8 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         stats = {**stats, "vetoed": len(dropped), "classified": len(more)}
         if blocks < SURE_BLOCKS:
             stats["heavy"] = True
+        if at != best:
+            stats["sureFraming"] = at
         if enums is not None:
             fit = fitted_reads(lts, accepted, probs, enums)
             accepted.update(fit)
@@ -860,7 +884,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     stats = {**stats, "blocks": blocks, "accepted": len(accepted), "lattices": len(reads)}
     short = [key for key in lts if key not in accepted]
     if enums is not None and classify and sure and 0 < len(short) <= STRIP_MAX:
-        g, ys, xs = lat
+        g, ys, xs = clat
         strips = {k: light_strip(g, ys, xs, lts[k]) for k in short}
         # With each cell's classifier probabilities: a word the VLM gives stands only where the
         # classifier finds each of its letters possible (VLM_FLOOR).
@@ -906,9 +930,9 @@ SURE_BLOCKS = 0.97
 
 def cell_probs(image, grid):
     """{cell: 26 letter probabilities} of the cell classifier over every light's cell of
-    solution-grid `image` (the crop read_framed reads), on the framing whose blocks fit best:
+    solution-grid `image` (the crop read_framed reads), on the framing sure_framing picks:
     the probabilities read_framed's classify step reads (its `lean` lattice). None when no
-    framing's blocks read at SURE_BLOCKS (read_framed classifies nothing then) or no lattice
+    framing's blocks are sure (blocks_sure: read_framed classifies nothing then) or no lattice
     lies on the image. Outside read_framed (solution_key stays the reader's): the uncrossed
     check of file_archive_org_puzzles asks it only of the lights it would leave out."""
     try:
@@ -919,17 +943,17 @@ def cell_probs(image, grid):
     if not framed:
         return None
     fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
-    best = max(range(len(framed)), key=lambda i: fits[i])
-    g, ys, xs = framed[best]
-    if not blocks_sure(g, grid, (ys, xs), fits[best]):
+    at = sure_framing(framed, grid, fits)
+    if at is None:
         return None
+    g, ys, xs = framed[at]
     return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
 
 
 def crop_strips(image, grid, keys):
     """{"12-across": {"png", "p"}} of lights `keys` ((number, direction)) of solution-grid `image`
     (the crop read_framed reads): read_framed's stats["strips"] for them (light_strip on the
-    framing whose blocks fit best, with each cell's classifier probabilities), cut after the
+    framing sure_framing picks, with each cell's classifier probabilities), cut after the
     reading. {} when read_framed would classify nothing (no framing's blocks_sure) or no lattice
     lies on the image. Outside read_framed (solution_key stays the reader's): answers_only asks it
     of the last lights its held file and reading leave blank whose strip read_framed did not cut
@@ -942,10 +966,10 @@ def crop_strips(image, grid, keys):
     if not framed:
         return {}
     fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
-    best = max(range(len(framed)), key=lambda i: fits[i])
-    g, ys, xs = framed[best]
-    if not blocks_sure(g, grid, (ys, xs), fits[best]):
+    at = sure_framing(framed, grid, fits)
+    if at is None:
         return {}
+    g, ys, xs = framed[at]
     lts = lights(grid)
     keys = [k for k in keys if k in lts]
     probs = classified({rc: glyph(g, ys, xs, *rc) for k in keys for rc in lts[k]})
