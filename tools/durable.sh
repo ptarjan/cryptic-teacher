@@ -270,7 +270,7 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
 }
 
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
-  local lock move pending
+  local lock move pending onto
   durable_wait
   # Cut off after CT_NET_TIMEOUT (120s): a stalled ssh to github.com (10-23) would hold the move,
   # and the slices with it, for good. Failed or cut off, the tree moves to the origin/master last fetched.
@@ -283,18 +283,30 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
   # under a shared lock on code.lock; the move takes it alone, so none loads
   # half of each version.
   lock="$(git rev-parse --path-format=absolute --git-path code.lock)"
-  # Every commit settled (pushed, or set aside for a re-read): origin/master
-  # holds what stands, so the tree moves straight there (reset --keep, which
-  # refuses a file the job has changed). A rebase would replay a set-aside
-  # commit onto origin's version and stop on the same conflict.
-  move='git rebase -q origin/master 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }'
+  # The target is origin/master plus the commits push_puzzle_commit.sh holds
+  # for its next batched push (--sync-target). Moved to origin/master alone,
+  # the tree lost each file a checkpoint had just put in the batch until the
+  # batch went out, up to PUSH_BATCH_SECS later (10-24 23:30: times-14417 and
+  # times-16746 batched, then gone from the queue's tree 5 s on): a plan or a
+  # unit looking meanwhile saw a written puzzle missing, and a re-read of it
+  # wrote over origin's older copy, a commit the batch then refused.
+  onto=$(bash "$_durable_dir/push_puzzle_commit.sh" --sync-target 2>/dev/null) || onto=origin/master
+  # Every commit settled (pushed, batched, or set aside for a re-read): the
+  # target holds what stands, so the tree moves straight there (reset --keep,
+  # which refuses a file the job has changed). A rebase would replay a
+  # set-aside commit onto origin's version and stop on the same conflict.
+  move="git rebase -q $onto 2>/dev/null || { git rebase --abort 2>/dev/null; exit 1; }"
   pending="$(git rev-list "${_durable_pushed:-origin/master}..HEAD")" && [ -z "$pending" ] &&
-    move='git reset -q --keep origin/master 2>/dev/null'
+    move="git reset -q --keep $onto 2>/dev/null"
   if ! flock -w 60 "$lock" sh -c "$move"; then
     echo "durable: tree left where it is (rebase failed, or code.lock busy 60s); its commits are pushed"
     return 1
   fi
+  # On the batch, the next checkpoint pushes from its tip: its commits are
+  # settled already, and replaying each again would cost a fetch apiece.
   _durable_pushed=""
+  [ "$(git rev-parse -q --verify "$onto" 2>/dev/null)" = "$(git rev-parse -q --verify origin/master)" ] ||
+    _durable_pushed="$(git rev-parse -q --verify "$onto")"
   durable_reread_refused
   return 0
 }
