@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,58 @@
     "text": "Male paid by performance, not at first unaccompanied",
     "enumeration": "6"
    },
-   "solution": "GIGOLO"
+   "solution": "GIGOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Male paid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "performance",
+       "at": 13,
+       "gives": "GIG",
+       "note": "a gig is a musical performance"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 26,
+         "note": "says the opening letter of the word for unaccompanied is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unaccompanied",
+         "at": 39,
+         "gives": "SOLO",
+         "note": "a solo is played unaccompanied"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is paid according to how he performs, but at first he worked alone.",
+     "walkthrough": "'not at first' removes the S of SOLO, leaving OLO.",
+     "definitionFit": "A man paid to be a woman's companion or lover is the classic sense of this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +99,95 @@
     "text": "Keen exhibitionist just starting run — under arrest potentially right away?",
     "enumeration": "8"
    },
-   "solution": "STREAKER"
+   "solution": "STREAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keen exhibitionist just starting run — under arrest potentially right away?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 39,
+       "note": "in a down clue the later pieces sit under the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "potentially",
+         "at": 52,
+         "note": "what arrest could potentially become, its letters reworked into another order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "right away",
+           "at": 64,
+           "note": "tells us one R, the abbreviation for right, is taken out of arrest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "arrest",
+           "at": 45
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "just starting",
+         "at": 19,
+         "note": "only the opening letters of the two words are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Keen",
+         "at": 0
+        },
+        {
+         "words": "exhibitionist",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "run",
+       "at": 33,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for run"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An eager show-off makes a dash and may soon be arrested — and off he goes.",
+     "walkthrough": "'right away' takes an R out of ARREST; 'potentially' rearranges the rest (ARRST less one R, i.e. AREST) as STREA. Under it go KE (starts of Keen exhibitionist) and R.",
+     "definitionFit": "The whole clue describes a naked runner at a public event, a show-off who may well be arrested."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +201,49 @@
     "text": "Reticent about two newspapers appearing evasive",
     "enumeration": "6"
    },
-   "solution": "SHIFTY"
+   "solution": "SHIFTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evasive",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 9,
+       "note": "the word for reticent goes about, around, the newspapers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reticent",
+       "at": 0,
+       "gives": "SHY",
+       "note": "a shy person is reticent"
+      },
+      {
+       "words": "two newspapers",
+       "at": 15,
+       "gives": "IFT",
+       "note": "the i and the Financial Times (FT) are two British newspapers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet person, buried in a couple of papers, seems to be dodging something.",
+     "walkthrough": "The i is a British national daily paper; FT is the Financial Times.",
+     "definitionFit": "Someone shifty looks untrustworthy and avoids straight answers, a synonym for dodgy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reticent"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +270,30 @@
     "text": "Desert shade",
     "enumeration": "6"
    },
-   "solution": "MAROON"
+   "solution": "MAROON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Desert",
+      "at": 0,
+      "meaning": "to abandon someone, as on an island"
+     },
+     {
+      "text": "shade",
+      "at": 7,
+      "meaning": "a brownish-crimson colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A colour found in the desert.",
+     "definitionFit": "To strand someone is to abandon them; the same word names a dark red-brown colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +307,70 @@
     "text": "Supply kit, not primarily for a team of 3 15 15s?",
     "enumeration": "6"
    },
-   "solution": "TROIKA"
+   "solution": "TROIKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "team of 3 15 15s?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Supply",
+         "at": 0,
+         "note": "read as 'supplely', i.e. flexibly, so the letters bend into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kit",
+         "at": 7
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not primarily",
+           "at": 12,
+           "note": "the first letter of 'for' is not used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "for",
+           "at": 26
+          },
+          {
+           "gives": "F"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to provide equipment, but not chiefly for a three-person team.",
+     "walkthrough": "'Supply' is not about providing: it is the adverb of supple, rearranging KIT and OR (for less F). 15 15s are GEE GEES, horses, with a nod to the Bee Gees, the three-brother theme.",
+     "definitionFit": "A Russian carriage is drawn by three horses abreast; the word also means that team or any trio."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +390,39 @@
      }
     ]
    },
-   "solution": "DIRTCHEAP"
+   "solution": "DIRTCHEAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going for a song",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 11,
+       "note": "something done badly is messed up, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hat priced",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poorly priced hat is going very cheap.",
+     "definitionFit": "Something going for a song is sold for very little money, the idiom for very cheap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +446,75 @@
    "group": [
     "8-across",
     "4-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rod",
+       "at": 7,
+       "gives": "BAR",
+       "note": "a bar is a rod"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 12,
+         "note": "only the extreme letters of raunchy are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "raunchy",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "male",
+       "at": 30,
+       "gives": "M"
+      },
+      {
+       "words": "article",
+       "at": 36,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
+      {
+       "words": "1",
+       "at": 47,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "down",
+       "at": 49,
+       "gives": "LOW",
+       "note": "low means down, as in spirits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer named Rod, a very racy man, writes a piece about a performance.",
+     "walkthrough": "'1 down' looks like a cross-reference to 1 Down but is simply I (Roman one) and LOW (down). Barry Manilow is a US singer; Barry is also the eldest Bee Gee.",
+     "definitionFit": "He is an American pop vocalist famous for ballads like Mandy and Copacabana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "1"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +538,47 @@
      }
     ]
    },
-   "solution": "COMEOFFIT"
+   "solution": "COMEOFFIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't be ridiculous!",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Succeed",
+       "at": 0,
+       "gives": "COMEOFF",
+       "note": "a plan that comes off succeeds"
+      },
+      {
+       "words": "the first",
+       "at": 8,
+       "gives": "I",
+       "note": "I is the Roman numeral for first, as in a monarch's title"
+      },
+      {
+       "words": "time",
+       "at": 18,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting it right at the first attempt? Surely not!",
+     "walkthrough": "'the first' is I as in Elizabeth I.",
+     "definitionFit": "This exclamation is an idiom telling someone to stop talking nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +602,42 @@
    "group": [
     "10-across",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "actor and model",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "singer",
+       "at": 29,
+       "gives": "ROBIN",
+       "note": "a robin is a songbird"
+      },
+      {
+       "words": "Things assumed to be true",
+       "at": 0,
+       "gives": "GIVENS",
+       "note": "givens are facts taken for granted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A set of premises attributed to a singer, an actor and a model.",
+     "walkthrough": "'singer' looks like part of the list of people, but it is the bird. Robin is also a Bee Gee.",
+     "definitionFit": "Robin Givens is an American actress and model, once married to Mike Tyson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 11,
@@ -238,7 +683,71 @@
      }
     ]
    },
-   "solution": "ONIONBAG"
+   "solution": "ONIONBAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the net",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Working",
+       "at": 0,
+       "gives": "ON",
+       "note": "a machine that is on is working"
+      },
+      {
+       "words": "10",
+       "at": 13,
+       "gives": "IO",
+       "note": "the number 10 is drawn as the letters I and O"
+      },
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pens",
+         "at": 27,
+         "note": "to pen is to enclose, so the article sits inside the two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "14 15",
+         "at": 21,
+         "gives": "BG",
+         "note": "the answers to 14 and 15 are the letter names for B and G"
+        },
+        {
+         "words": "article",
+         "at": 32,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic list of numbered items producing an article for netting.",
+     "walkthrough": "'14 15' are BEE and GEE, letters B and G, which pen A. 10 is read as the shapes I and O.",
+     "definitionFit": "In British football slang the goal net is called by this name, after the mesh sacks onions are sold in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +761,44 @@
     "text": "Drink not right for social gathering",
     "enumeration": "3"
    },
-   "solution": "BEE"
+   "solution": "BEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "social gathering",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not right",
+       "at": 6,
+       "note": "R, the abbreviation for right, is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "BEER",
+       "note": "beer is a drink"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drinking isn't proper at a social event.",
+     "definitionFit": "A gathering for communal work or fun, like a sewing or spelling meeting, is called this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +812,41 @@
     "text": "My regular visits to Gateshead",
     "enumeration": "3"
    },
-   "solution": "GEE"
+   "solution": "GEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "regular",
+       "at": 3,
+       "note": "taking letters at regular intervals, every third one, from the town name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gateshead",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I make routine trips to Gateshead.",
+     "walkthrough": "Gateshead is a town in north-east England, by Newcastle. 'My' is the exclamation, not the possessive.",
+     "definitionFit": "Both are mild exclamations of surprise, as in 'My, how you've grown'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +870,41 @@
    "group": [
     "16-across",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor and singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cast",
+       "at": 17,
+       "note": "to cast is to throw, sending the letters into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a chimerical revue",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer is given a role in a fantastical revue.",
+     "walkthrough": "Maurice is also a Bee Gee.",
+     "definitionFit": "He was a French entertainer who acted in Hollywood films such as Gigi and sang in music halls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +928,49 @@
    "group": [
     "16-down",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "the word for raving goes about the fan"
+      }
+     ],
+     "parts": [
+      {
+       "words": "raving",
+       "at": 5,
+       "gives": "MAD",
+       "note": "raving means mad"
+      },
+      {
+       "words": "fan",
+       "at": 18,
+       "gives": "NUT",
+       "note": "a nut is an enthusiast, as in fitness nut"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team going wild over a supporter.",
+     "walkthrough": "Manchester United is an English football club.",
+     "definitionFit": "This is the common short name of Manchester United, a football club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 17,
@@ -351,7 +1007,37 @@
    "group": [
     "18-down",
     "11-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unemotional person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "COLD + FISH",
+     "parts": [
+      {
+       "words": "clings",
+       "at": 19,
+       "note": "the answer read as wordplay gives C (...) and LINGS (..., plural of ling), spelling the clue word once the space is added"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aloof person clings on, needing room.",
+     "walkthrough": "A reverse clue: 'with space needed' tells you to split the clue word as C LINGS.",
+     "definitionFit": "A cold, aloof person who shows no warmth is idiomatically called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clings"
+    }
+   }
   },
   {
    "number": 19,
@@ -371,7 +1057,48 @@
      }
     ]
    },
-   "solution": "SHUTEYE"
+   "solution": "SHUTEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time Out",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "booth",
+       "at": 6,
+       "gives": "HUT",
+       "note": "a hut is a small booth or shed"
+      },
+      {
+       "words": "Observer",
+       "at": 17,
+       "gives": "EYE",
+       "note": "an eye is what observes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of newspapers and magazines: a small booth with the Observer and Time Out.",
+     "walkthrough": "The Observer is a British Sunday paper and Time Out a London listings magazine, which hides the definition.",
+     "definitionFit": "Taking time out to rest describes sleep, which is the informal sense here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Observer"
+    }
+   }
   },
   {
    "number": 20,
@@ -385,7 +1112,61 @@
     "text": "Making threefold part for high voices (mostly home key)",
     "enumeration": "8"
    },
-   "solution": "TREBLING"
+   "solution": "TREBLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Making threefold",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 39,
+         "note": "the last letter is lost from the word for the high part"
+        }
+       ],
+       "parts": [
+        {
+         "words": "part for high voices",
+         "at": 17,
+         "gives": "TREBLE",
+         "note": "the treble is the high part in choral music"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "home",
+       "at": 46,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "key",
+       "at": 51,
+       "gives": "G",
+       "note": "G is a musical key"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical arrangement tripled for high voices.",
+     "definitionFit": "To treble is to multiply by three, so this present participle means making threefold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1180,86 @@
     "text": "Happy, oddly, caught up in extremely northern storm",
     "enumeration": "7"
    },
-   "solution": "TYPHOON"
+   "solution": "TYPHOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught",
+         "at": 14,
+         "note": "the letters are caught, held, inside"
+        },
+        {
+         "text": "in",
+         "at": 24,
+         "note": "signals placement inside the word for extremely"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extremely",
+         "at": 27,
+         "gives": "TOO",
+         "note": "too means extremely"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 21,
+           "note": "in a down clue, up means the letters are read bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "op": "alternate",
+           "indicators": [
+            {
+             "text": "oddly",
+             "at": 7,
+             "note": "the odd-numbered letters of Happy are used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Happy",
+             "at": 0
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "northern",
+       "at": 37,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful person gets trapped in a fierce northern storm.",
+     "walkthrough": "'Happy' looks like a mood in the scene, but only its odd letters are used; 'up' reverses them because this is a down clue, and 'extremely' gives the word for too much.",
+     "definitionFit": "A violent tropical cyclone in the western Pacific is this kind of storm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Happy"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1279,67 @@
      }
     ]
    },
-   "solution": "NEDKELLY"
+   "solution": "NEDKELLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aussie",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clenches",
+       "at": 5,
+       "note": "the fool holds the shortened fist inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fool",
+       "at": 0,
+       "gives": "NELLY",
+       "note": "a nelly is a silly person"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "knocking out",
+         "at": 20,
+         "note": "removes the posh letter from the fist"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fist",
+         "at": 14,
+         "gives": "DUKE",
+         "note": "duke is slang for a fist"
+        },
+        {
+         "words": "posh",
+         "at": 33,
+         "gives": "U",
+         "note": "U means upper class"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool clenches a fist and knocks out a posh Australian.",
+     "walkthrough": "'knocking out' looks like a boxing blow; it removes U from DUKE, leaving DKE. A nelly, as in 'not on your nelly', is British slang.",
+     "definitionFit": "He was a famous Australian bushranger, an outlaw hanged in 1880."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocking"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1353,49 @@
     "text": "Outlandish point by Times, relating to the Listener",
     "enumeration": "6"
    },
-   "solution": "EXOTIC"
+   "solution": "EXOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outlandish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "point",
+       "at": 11,
+       "gives": "E",
+       "note": "E, for east, is a compass point"
+      },
+      {
+       "words": "Times",
+       "at": 20,
+       "gives": "X",
+       "note": "X is the multiplication sign"
+      },
+      {
+       "words": "relating to the Listener",
+       "at": 27,
+       "gives": "OTIC",
+       "note": "otic means relating to the ear, the organ that listens"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd point made by the Times about the Listener.",
+     "walkthrough": "The Times and the Listener (a crossword series it runs) look like newspapers; here they are the times sign and the ear.",
+     "definitionFit": "Something exotic is strikingly foreign or unusual, a synonym for bizarre or alien."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1409,52 @@
     "text": "Fast food from Bake Off? Nonsense!",
     "enumeration": "6"
    },
-   "solution": "KEBABS"
+   "solution": "KEBABS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Off",
+         "at": 20,
+         "note": "something off has gone wrong, so the letters are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bake",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Nonsense",
+       "at": 25,
+       "gives": "BS",
+       "note": "BS is slang for nonsense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snack from the TV baking contest dismissed as rubbish.",
+     "walkthrough": "Bake Off is a British TV baking competition.",
+     "definitionFit": "Skewered grilled meat is a takeaway staple, a classic quick meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Off"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1478,52 @@
    "group": [
     "25-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mechanic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roughly",
+         "at": 17,
+         "note": "done roughly, the letters are arranged untidily"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agrees",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "£500",
+       "at": 25,
+       "gives": "MONKEY",
+       "note": "monkey is British slang for five hundred pounds"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic agrees a price of about five hundred pounds.",
+     "walkthrough": "'roughly' looks like an approximation of the money; it rearranges AGREES.",
+     "definitionFit": "This informal phrase means a car mechanic, someone who works with oily engines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roughly"
+    }
+   }
   },
   {
    "number": 25,
@@ -498,7 +1550,50 @@
     "text": "Notably two-in-one record player",
     "enumeration": "6"
    },
-   "solution": "STEREO"
+   "solution": "STEREO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "record player",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "the two notes go in the one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 15,
+       "gives": "SO",
+       "note": "so is one note of the scale"
+      },
+      {
+       "words": "Notably two",
+       "at": 0,
+       "gives": "TERE",
+       "note": "two musical notes, te and re"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A combined record player, notably two units in one.",
+     "walkthrough": "'Notably' says the numbers count notes of the sol-fa scale.",
+     "definitionFit": "A sound system with two channels is commonly called by this name, so it serves as a record player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Notably"
+    }
+   }
   },
   {
    "number": 27,
@@ -512,7 +1607,40 @@
     "text": "Search round for small band",
     "enumeration": "5"
    },
-   "solution": "COMBO"
+   "solution": "COMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "small band",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Search",
+       "at": 0,
+       "gives": "COMB",
+       "note": "to comb is to search thoroughly"
+      },
+      {
+       "words": "round",
+       "at": 7,
+       "gives": "O",
+       "note": "O is round in shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking around for a small group of musicians.",
+     "definitionFit": "A small jazz or pop group is informally called by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -539,7 +1667,72 @@
     "text": "Architect from 15 14 repeatedly visiting Iceland",
     "enumeration": "5"
    },
-   "solution": "GIBBS"
+   "solution": "GIBBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "15",
+       "at": 15,
+       "gives": "G",
+       "note": "the answer to 15 is the name of the letter G"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "visiting",
+         "at": 32,
+         "note": "visitors go inside, so the letters sit within the code"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Iceland",
+         "at": 41,
+         "gives": "IS",
+         "note": "IS is the international code for Iceland"
+        },
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "repeatedly",
+           "at": 21,
+           "note": "repeatedly means more than once, so the letter from the cross-reference to 14 appears twice in a row"
+          }
+         ],
+         "parts": [
+          {
+           "words": "14",
+           "at": 18,
+           "gives": "B",
+           "note": "the answer to 14 is the name of the letter B"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An architect from the Bee Gees, visiting Iceland again and again.",
+     "walkthrough": "James Gibbs designed St Martin-in-the-Fields in London; Gibb is also the Bee Gees' surname.",
+     "definitionFit": "James Gibbs was an eighteenth-century British designer of churches and the Radcliffe Camera."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Iceland"
+    }
+   }
   },
   {
    "number": 30,
@@ -559,7 +1752,65 @@
      }
     ]
    },
-   "solution": "DOWNUNDER"
+   "solution": "DOWNUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in Australia?",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "words": "with",
+       "at": 6,
+       "gives": "W"
+      },
+      {
+       "words": "sister",
+       "at": 11,
+       "gives": "NUN",
+       "note": "a nun is a religious sister"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 33,
+         "note": "the colour word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ruby, perhaps",
+         "at": 18,
+         "gives": "RED",
+         "note": "ruby is an example of red"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party with a sister named Ruby back home in Australia.",
+     "walkthrough": "'Ruby' looks like the sister's name; it is the colour.",
+     "definitionFit": "This phrase is a nickname for Australia and New Zealand, so it means located there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ruby"
+    }
+   }
   }
  ]
 }
