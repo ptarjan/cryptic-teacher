@@ -954,6 +954,7 @@ def from_model(m, entry, puzzle=None):
         # A note that only says the table's abbreviation is derivable: dropped,
         # not refused, since view() shows the same gloss from the table.
         strip_abbreviation_notes(out["wordplay"])
+        fill_palindrome_fodder(out["wordplay"], defs, want)
         drop_vacuous_sound(out["wordplay"])
         merge_sounded_charade(out["wordplay"], clue)
     elif notes:
@@ -964,6 +965,22 @@ def from_model(m, entry, puzzle=None):
         if k in m:
             out[k] = m[k]
     return out
+
+
+def fill_palindrome_fodder(tree, defs, want):
+    """pal<ind>() over a clue with one definition: the definition's own words are the
+    palindrome ("Bread, either way" NAAN; the clue's two halves are the same words), the
+    one shape validate_annotations.in_definition allows a leaf to share. The empty pal()
+    gives no block, so the check called the clue missing its blocks (16 of the 66
+    'missing annotation field' refusals in the annotate audit 10-24/25). Its one part
+    becomes that leaf, in place; the answer was already proved a palindrome."""
+    if (isinstance(tree, dict) and tree.get("op") == "palindrome" and not tree.get("parts")
+            and len(defs) == 1 and "at" in defs[0] and want):
+        import wordplay
+        leaf = {"words": defs[0]["text"], "at": defs[0]["at"], "gives": wordplay.letters(want)}
+        if defs[0].get("note"):
+            leaf["note"] = defs[0]["note"]
+        tree["parts"] = [leaf]
 
 
 def drop_vacuous_sound(tree):

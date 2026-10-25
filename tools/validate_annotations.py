@@ -1057,6 +1057,14 @@ FILLER_WORDS = {
 # adjectived" was papering over state = CAL).
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
+#: What to write when a derived field is empty: the run writes `def` and `wp`, never these keys.
+MISSING_FIELD_FIX = {
+    "definitions": " — the clue has no `def`: write the clue words that define the answer, as `def` "
+                   "(two for a double definition). If the wordplay covers every clue word there is "
+                   "none to write: the puzzle's preamble must define it (definedByPreamble)",
+    "blocks": " — the wordplay gives no letters to show: write `wp` as an expression that builds the "
+              "answer (a leaf [clue words]LETTERS for each piece), or a double definition (two `def`s, no `wp`)",
+}
 _QUOTED = re.compile(r"'([^']+)'|\"([^\"]+)\"|‘([^’]+)’|“([^”]+)”")
 
 
@@ -7883,7 +7891,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
                                          or whole_rebus(ann, clue)):
                 continue
             if not ann.get(key):
-                errors.append(f"{tag}: missing annotation field '{key}'")
+                errors.append(f"{tag}: missing annotation field '{key}'{MISSING_FIELD_FIX.get(key, '')}")
         # A themed answer the puzzle's preamble defines ("the unclued answers
         # are birds") has no definition in its clue. Only a puzzle that prints
         # a preamble can say so, and the flag replaces the definition rather

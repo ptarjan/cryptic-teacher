@@ -234,6 +234,15 @@ def normalize(ann, entry, entries, puzzle=None):
     held = puzzle if puzzle is not None else {"entries": entries}
     if annotation.is_model(ann) or any(k in ann for k in VIEW_KEYS):
         return annotation.from_model(ann, entry, held)
+    if not any(k in ann for k in ("definitions", "wordplay", "definedByPreamble")):
+        # A clue given only its explanation or features (a --patch onto a null entry): the file
+        # would hold a stub the first check then calls missing type, definitions and blocks
+        # (annotate audit 10-24/25: 82 sessions). Say what the clue is missing, once.
+        import wordplay
+        raise wordplay.WordplayError(
+            f"has {sorted(ann) or 'nothing'} but no `def` and no `wp`: write the clue whole, "
+            f"{{\"def\": \"<definition words>\", \"wp\": \"<expression>\", \"notes\": {{...}}, ...}} "
+            f"(a double definition has two `def`s and no `wp`)")
     out = dict(ann)
     if isinstance(out.get("wordplay"), dict):
         # a stored tree is parse -> evaluate -> normalize too: letters checked, shape made canonical
