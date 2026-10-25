@@ -8083,8 +8083,29 @@
   // Safari throws once replaceState is called too often. A URL that did not
   // update must not take the puzzle switch down with it, so the throw is
   // caught here, the one place the bar is written, and reported.
+  // Browsers allow about 100 calls per 10 seconds. Normal use never gets near
+  // that, so writes go straight through until 80 have landed in the window;
+  // after that only the latest URL is kept and written once the window frees up.
+  const addressWrites = [];
+  let addressPending = null;
+  let addressTimer = null;
   function setAddress(url) {
     if (!window.history || !window.history.replaceState) return;
+    const now = Date.now();
+    while (addressWrites.length && now - addressWrites[0] > 10000) addressWrites.shift();
+    if (addressWrites.length >= 80) {
+      addressPending = url;
+      if (!addressTimer) {
+        addressTimer = setTimeout(() => {
+          addressTimer = null;
+          const u = addressPending;
+          addressPending = null;
+          if (u) setAddress(u);
+        }, 1000);
+      }
+      return;
+    }
+    addressWrites.push(now);
     try { window.history.replaceState(null, "", url); }
     catch (e) { console.warn("address bar not updated to " + url + ": " + ((e && e.message) || e)); }
   }

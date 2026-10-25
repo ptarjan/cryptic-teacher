@@ -4531,7 +4531,7 @@ registry["reset-puzzle"].onclick();
   // own origin, so fetching a puzzle file from it sends nothing out.
   assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')
       || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')
-      || f.startsWith('fetch(at("puzzles/')),
+      || f.startsWith('fetch(at("puzzles/') || f.startsWith('fetch(at("./")')),
     "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two
@@ -4562,7 +4562,7 @@ registry["reset-puzzle"].onclick();
   // never stamped and never listed as an asset.
   const stamp = fs.readFileSync(path.join(ROOT, "tools/stamp_assets.py"), "utf8");
   assert(!/["']sw\.js["']/.test(stamp), "sw.js is not a stamped asset");
-  assert(/serviceWorker\.register\("sw\.js"\)/.test(src),
+  assert(/serviceWorker\.register\((at\()?"sw\.js"\)?\)/.test(src),
     "and the page registers it at its bare URL");
 
   // The bridge ignores a message its own bot wrote unless it carries the wake
