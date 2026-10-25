@@ -330,6 +330,9 @@ PRIZE_LAG = 7
 #: number (LOOSE_NUMBER); prize_words() judges the words.
 PRIZE_SOLUTION = re.compile(r"^\W*(?:(\S{4,11})\s+(\S{1,3})\s+)?(\S{4,7})\s+(\S{5,10})\W*\s+" + r"(?:[nm][^\s\d]{0,2}\s*)?"
                             r"(\S{1,7}(?:\s\S{1,5}){0,2})$", re.IGNORECASE)
+#: The 2006-07 Gale Times Monday's heading of the Saturday prize's solution: "Competition Solution 23,450"
+#: (2006-11-27; no "Prize" word, so no PRIZE_SOLUTION): its words like "competition" and "solution".
+COMPETITION_SOLUTION = re.compile(r"^\W*(\S{9,13})\s+(\S{6,10})\W*\s+(\S{1,7}(?:\s\S{1,5}){0,2})$", re.IGNORECASE)
 
 
 def prize_words(m):
@@ -444,6 +447,11 @@ def solution_at(ws, k, expected, clean=(), prize=()):
                 n = solution_number(p[5], prize)
                 if n is not None:
                     return n, j
+            c = COMPETITION_SOLUTION.match(text)
+            if c and like(c[1], "competition") and like(c[2], "solution") and not re.search(r"\d", c[1] + c[2]) \
+                    and re.fullmatch(r"\d{1,2}[,.]\d{3}\W?", c[3]) and number_of(c[3].rstrip(".,:;")) in prize:
+                return number_of(c[3].rstrip(".,:;")), j  # read clean, no repair: one reader's "23, 530"
+                # beside the others' "23,539" (2007-03-12) is no number of its own
         y = YESTERDAY_SOLUTION.match(text)
         if y:  # the 2009-10 Gale Times: "Yesterday's solution 24,378" over its grid
             n = solution_number(y[1], expected)
@@ -468,8 +476,9 @@ def solution_at(ws, k, expected, clean=(), prize=()):
 
 
 #: Marks the OCR glues between a heading's words ("Solution to.Puzzle",
-#: "Solution-to", "Puzzle:No").
-GLUED_MARKS = re.compile(r"(?<=[A-Za-z])[.:\-'’`]+(?=[A-Za-z])")
+#: "Solution-to", "Puzzle:No"), or between its last word and the number ("Solution to Crossword.21,677",
+#: "Crossword. 21,677": 2001-03-17).
+GLUED_MARKS = re.compile(r"(?<=[A-Za-z])[.:\-'’`]+(?=[A-Za-z]|\s?\d)")
 #: A speck read as a word of its own between a heading's words: marks
 #: ("No : 14,276"), or one character before a word ("Solution 1 to Puzzle",
 #: RapidOCR's "Solution" + "n of Puzzle" where its second box starts inside
@@ -6649,6 +6658,30 @@ for _paper, _pins in _DOT_LEADER_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before solution_at read the 2006-07 Monday's
+#: "Competition Solution 23,450" (COMPETITION_SOLUTION) and unspecked parted a mark glued before a heading's
+#: number ("Solution to Crossword.21,677"): both link only headings that linked nothing, so every scan
+#: stands, the Times's and the Gale Times's too. The Gale hosts of puzzles filed with no answer are read in
+#: their solution bands once more (REREAD_HOST_HEADINGS), where day_headings also reads "Solution to
+#: yesterday's" over "Crossword 22,204". Paul 10-25: ~50 unanswered 2000s Times puzzles' hosts printed these.
+_DAY_HEADING_FIX = {
+    "ft": ("470b3be9817bc707", "c12ba916bedcebfe", "07726c4a4c88f8eb"),
+    "gale": ("88e35d105e756b77", "295644727aaf0696", "b22cb4022147145e"),
+    "galeft": ("901ab903027df717", "24aae059123f354f", "fe8ad8a8474e675f"),
+    "galeindependent": ("d06b4823d93fa78c", "ac3d167690e7f51d", "efec33309a8a7e9a"),
+    "galesundaytimes": ("82609412d7065146", "832816eaa8ccd12c", "6be8a305b502ea0d"),
+    "galetelegraph": ("7396432ab4bcf5b4", "dcd620c2efaea810", "93c86242b7ba3542"),
+    "galetls": ("278bb7c3611fced5", "dd122ab1f6de2c04", "f63e8c6f5679c7c7"),
+    "guardian": ("60a33bf7f44aaa68", "a76b1c68318476f6", "360c98fc36e63266"),
+    "telegraph": ("844c851a165304e5", "5c6bc4e0faad0739", "9e498503509faf7c"),
+    "times": ("a0f82f7d8ff7c028", "76835109ba9c42e2", "516f28b9e031d6a9"),
+    "times1930": ("9282185cc921b19a", "4657569ce8da974c", "5d9d486af4b94a99"),
+}
+for _paper, _pins in _DAY_HEADING_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -6663,7 +6696,8 @@ def prize_rescan(paper, key, rel):
         return False
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
-    return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2])
+    return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
+                        _DAY_HEADING_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -6745,7 +6779,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # as SURE_FRAMING.
                   "fd768722a95d6269": "8417cfb08f3a9706",
                   # LOOSE_NUMBER's dot leader (_DOT_LEADER_FIX): no grid is read otherwise.
-                  "7a7113210025b6ae": "8417cfb08f3a9706"}
+                  "7a7113210025b6ae": "8417cfb08f3a9706",
+                  # COMPETITION_SOLUTION and a mark glued before a number (_DAY_HEADING_FIX): no grid is
+                  # read otherwise.
+                  "707dd4b1636238eb": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -8765,9 +8802,11 @@ HOST_SCAN = "scan stale, solution host"
 #: Then (10-25) its misread "Solution" words too (solution_like: 1945-60s "SoL.UTION oF PvzzLe"),
 #: "The Solution of" over its number (1973-74) and "SolutiontoCrossword" (host_heading_lines).
 #: Then (10-25 evening) a number with its dot leader glued on ("No. 10,052....": LOOSE_NUMBER).
+#: Then (10-25 night) the 2000s' headings by the day: "Solution to yesterday's" over "Crossword 22,204",
+#: "Solution to last Saturday's" over "Crossword 22,199" (day_headings), "Competition Solution 23,450", "Crossword.21,677".
 HOST_RESCAN = "solution host, its headings read before their fix"
 #: Once: a host whose solutions_only read ("solOnly" "at") is older than this is due (host_rescan_due).
-REREAD_HOST_HEADINGS = "2026-10-25T21:45:00+00:00"
+REREAD_HOST_HEADINGS = "2026-10-25T22:30:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
 RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
@@ -9382,6 +9421,8 @@ def solutions_only(d):
     # A Monday's "Solution to Crossword 22,845" (2004-12-20: no "Prize" word, so neither PRIZE_SOLUTION
     # nor a SOLUTION_LAGS number) is the Saturday prize's, PRIZE_LAG before the date's title.
     prize = {t - PRIZE_LAG for t in voted} if prize_monday(day) and paper.series == SERIES else set()
+    # "Solution to yesterday's" over "Crossword 22,204" (day_headings): any number a heading may print.
+    lagged = {t - lag for t in voted for lag in SOLUTION_LAGS + HOLIDAY_LAGS}
     import ocr_remote
     with ocr_remote.local_slot():
         for leaf in leaves:
@@ -9391,6 +9432,9 @@ def solutions_only(d):
             read = cached_page_words(key)
 
             def judge(lines, pool=None):
+                if paper.series == SERIES:
+                    for n, b in day_headings(lines, lines if pool is None else pool, lagged):
+                        sols.setdefault(n, b)
                 lines = host_heading_lines(lines, pool)
                 lines += [ln[k:] for ln in lines for k in range(1, len(ln))
                           if HEADING_START.match(ln[k][4]) or solution_like(ln[k][4])]
@@ -9521,6 +9565,44 @@ def prize_headings(lines, prize):
                 if read.isdigit() and int(read) in prize:
                     found.append((int(read), box_of(ws[k:j + 1])))
                 break
+    return found
+
+
+#: A Gale Times host's heading that names its puzzle by the day: "Solution to yesterday's" and "Solution to
+#: last Saturday's" (2002-04 Saturdays) over "Crossword 22,204", "Crossword 22,199". Its "Solution"
+#: capitalised: prose's "the solution to yesterday's crisis" is none. (2012-13's "The Solution to
+#: yesterday's" prints no number and has no grid under it: the ink there is a 142x20 rule.)
+DAY_HEADING = re.compile(r"^\W*((?-i:S)\S{5,9})\s+t\S?\s+(?:yesterday|last\s+saturday)\W{0,2}s\W*$", re.IGNORECASE)
+#: The "Crossword 22,204" line under a DAY_HEADING (a mark may be glued on: "Crossword.21,677").
+CROSSWORD_UNDER = re.compile(r"^\W*([A-Za-z]\S{5,10}?)[\s.,:;\-]*(\d[\d\s.,]{3,7}?)\W*$")
+
+
+def day_headings(lines, pool, expected):
+    """[(number, box)] of the DAY_HEADING headings in `lines` with "Crossword N" under them in `pool` (the
+    nearest line under holding words below the heading's own span, those words alone: a two-column band's
+    "Crossword 22,204 Crossword 22,199" under "Solution to yesterday's Solution to last Saturday's"), N one
+    of `expected` (solution_number)."""
+    found = []
+    for ln in lines:
+        words = split_words(ln)
+        for k in range(len(words)):
+            for span in (3, 4):
+                head = words[k:k + span]
+                m = len(head) == span and DAY_HEADING.match(" ".join(w[4] for w in head))
+                if not m or not like(m[1], "solution") or re.search(r"\d", m[1]):
+                    continue
+                x0, x1, h = head[0][0], head[-1][2], head[0][3] - head[0][1]
+                top, foot = min(w[1] for w in head), max(w[3] for w in head)
+                under = []  # (not lines_under: "Crossword 22,204" opens above the foot "yesterday's" sets)
+                for u in sorted((u for u in pool if u is not ln and (top + foot) / 2 < box_of(u)[1] <= foot + 2 * h),
+                                key=lambda u: box_of(u)[1]):
+                    under = [w for w in split_words(u) if x0 - h <= (w[0] + w[2]) / 2 <= x1 + h]
+                    if under:
+                        break
+                c = CROSSWORD_UNDER.match(" ".join(w[4] for w in under))
+                n = c and like(c[1].lower(), "crossword") and solution_number(c[2], expected)
+                if n:
+                    found.append((n, box_of(head + under)))
     return found
 
 

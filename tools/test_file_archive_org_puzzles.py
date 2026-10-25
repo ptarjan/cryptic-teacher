@@ -186,6 +186,25 @@ check("... a speck before its number (1964-02-12, 1965-02-18), a dash and dots g
        host_reads([line("Solution OF PUZZLE.No.-10,308..- Trustees' Sale")], 10309)])
 check("... its 'Puzzt' not read as a number (u 0, z 2, t 1: 10221) before the number it prints (1964-02-12)",
       [10530], host_reads([line("SoL.uTioN OF Puzzt No. 10,530 Unrive")], 10531))
+check("... a mark glued between 'Crossword' and its number (2001-03-17)", [[21677], [21677]],
+      [host_reads([line("Solution to Crossword.21,677")], 21678), host_reads([line("Solution to Crossword. 21,677")], 21678)])
+check("... the Monday's 'Competition Solution' of the Saturday prize (2006-11-27), not prose's 'competition'",
+      [[23450], [], []], [host_reads([line("callywag Competition Solution 23,450")], 23457),
+                          host_reads([line("the competition dissolution 23 times")], 23457),
+                          # one reader's "23, 530" of 23,539 (2007-03-12): read clean or not at all
+                          host_reads([line("Competition Solution 23, 530")], 23546)])
+_day = [line("Solution to yesterday's", x=1480, y=3970) + line("Solution to last Saturday's", x=1714, y=3970),
+        line("Crossword 22,204", x=1480, y=3990) + line("Crossword 22,199", x=1714, y=3990)]
+check("'Solution to yesterday's' and 'Solution to last Saturday's' side by side over 'Crossword 22,204' and "
+      "'Crossword 22,199' (2002-11-23): each the number under its own words", (22204, 22199),
+      tuple(n for n, _ in f.day_headings(_day, _day, set(range(22190, 22210)))))
+_day2 = [line("Solution to yesterday's", x=1520, y=3986), line("Crossword 22,204", x=1520, y=4000)]
+check("... its 'Crossword' line opening above the heading's foot (the apostrophe's tall box, 2002-11-23)", [22204],
+      [n for n, _ in f.day_headings(_day2, _day2, {22204})])
+_prose = [line("a solution to yesterday's crisis", y=3970), line("Crossword 22,204", y=3990)]
+check("... not prose's lowercase 'solution', nor 2012's 'The Solution to yesterday's' over a clue, no number",
+      [[], []], [f.day_headings(_prose, _prose, {22204}),
+                 f.day_headings([line("he Solution to yesterday's this with husband away (9")], [], {25116})])
 check("... a title line alone is none", [], host_reads([line("Puzzle No 13,313")], 13313))
 check("... nor an article's 'solution' over one", [],
       host_reads([line("a solution to the crisis"), line("Puzzle No 13,313", y=120)], 13313))
@@ -339,7 +358,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._BAND_WIDTH_FIX[gt.key][:2],
                                                                       *f._GRID_CAP_FIX[gt.key][:2],
                                                                       *f._NEG_EXPECTED_FIX[gt.key][:2],
-                                                                      *f._DOT_LEADER_FIX[gt.key][:2]},
+                                                                      *f._DOT_LEADER_FIX[gt.key][:2],
+                                                                      *f._DAY_HEADING_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1640,7 +1660,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._DOT_LEADER_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._DAY_HEADING_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -1651,18 +1671,24 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "edition": "GaleTimes2007UKEnglish/2007-03-16"}, "h"),
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
-      "pins over, its pinned key the one the dot-leader fix pins over, whose pinned key is its real scan key, "
-      "and the three fixes' old keys stand under it", [True, True, True, True],
+      "pins over, its pinned key the one the dot-leader fix pins over, its the one the day-heading fix pins "
+      "over, whose pinned key is its real scan key, and the four fixes' old keys stand under it",
+      [True, True, True, True, True],
       [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
        all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
+       all(v[2] == f._DAY_HEADING_FIX[k][0] for k, v in f._DOT_LEADER_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._DOT_LEADER_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._DOT_LEADER_FIX[k][2]}
-           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX) for k, v in t.items() for o in v[:2])])
-_dk = f._DOT_LEADER_FIX["gale"]
-check("a Gale Times scan made before the dot-leader fix stands, a BAND_RESCAN day's too", [True, True],
+           for k, v in f._DAY_HEADING_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._DAY_HEADING_FIX[k][2]}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX)
+           for k, v in t.items() for o in v[:2])])
+_dk, _hk = f._DOT_LEADER_FIX["gale"], f._DAY_HEADING_FIX["gale"]
+check("a Gale Times scan made before the dot-leader fix or the day-heading fix stands, a BAND_RESCAN day's too",
+      [True, True, True, True],
       [f.scan_current({"edition": "GaleTimes1962UKEnglish/1962-07-28", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h"),
-       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h")])
+       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _dk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2002UKEnglish/2002-11-23", "scanKey": _hk[0], "filesHash": "h", "scan": {}}, "h"),
+       f.scan_current({"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _hk[0], "filesHash": "h", "scan": {}}, "h")])
 _wp, _np = Image.new("L", (4664, 10), 255), Image.new("L", (f.SCAN_WIDTH, 10), 255)
 check("a solution grid 510 wide at SCAN_WIDTH is shaped on a 4664 px page (the cap grows with it), not on a "
       "3296 px page, and a puzzle's 1070 on neither", [True, False, False, False],
