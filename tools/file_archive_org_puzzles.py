@@ -6752,10 +6752,12 @@ def unfiled_blank(row):
 
 #: The reason of an edition whose ledger row says its read wrote a puzzle to the corpus that the corpus
 #: no longer holds: no file of that number, none renamed from its id, no copy in CROPS/unfiled. Paul
-#: 10-25: 2,286 Times puzzles stood so (1945-56 ~50 a year, 1970-73 ~110, 2007-08 ~145; 2,056 of them
-#: written with a blank clue, before destination() sent those to --out), all read 10-06..10-25 and
-#: never committed, so due_reason saw them read and nothing re-read them: the biggest unfiled cause of
-#: the Times years under 300. Read again once (REREAD_LOST) with the current reader: a whole read
+#: 10-25: 2,286 Times puzzles stood so (1945-56 ~50 a year, 1970-73 ~110, 2007-08 ~145), all read
+#: 10-06..10-17, so due_reason saw them read and nothing re-read them: the biggest unfiled cause of
+#: the Times years under 300. ~2,210 of them had a blank clue, so decide() wrote them to --out
+#: (CROPS/unfiled) as it should, on the host the queue ran on until 10-17 16:09 MDT, whose cache did
+#: not move with it; the ledger marked no --out write "unfiled" until 10-19. None read since is
+#: missing from origin/master. Read again once (REREAD_LOST) with the current reader: a whole read
 #: files to the corpus, one still blank goes to --out as "unfiled" (unfiled_blank's from then on).
 LOST_WRITE = "written, its file gone"
 #: ISO time before which a read whose write is gone (lost_writes) is read again once. A read after it
@@ -6785,6 +6787,24 @@ def _held_span(series):
     return hit[1]
 
 
+_DAYS = {}
+
+
+def _held_days(series):
+    """The dates ("YYYY-MM-DD") of the puzzles the series' listing (_held_list) holds."""
+    version, held = _held_list(series)
+    hit = _DAYS.get(series)
+    if hit is None or hit[0] != (version, len(held)):
+        hit = _DAYS[series] = ((version, len(held)), frozenset(e[2] for _, e in held if e and e[2]))
+    return hit[1]
+
+
+def _row_day(row):
+    """The date ("YYYY-MM-DD") of ledger `row`'s edition: its dir name's, else its scan's; None."""
+    m = re.search(r"\d{4}-\d{2}-\d{2}", row.get("edition") or "")
+    return m.group() if m else ((row.get("scan") or {}).get("date") or "")[:10] or None
+
+
 def lost_writes(row):
     """[puzzle id] of the puzzles ledger `row`'s read wrote to the corpus that it no
     longer holds (LOST_WRITE): a written verdict (not refused, skipped, mended or
@@ -6792,8 +6812,13 @@ def lost_writes(row):
     the lowest and highest the series' listing holds (_held_span: a gap in it; a
     series with no listing, or a number past its ends, is never told gone) and
     has no file, not renamed since (renamed_ids.json), and not written unfiled
-    (its "unfiled" count or a CROPS/unfiled copy: unfiled_blank's)."""
+    (its "unfiled" count or a CROPS/unfiled copy: unfiled_blank's), while the
+    series holds no puzzle of the edition's date: one that does was filed under
+    another number since (10-24's renumber, tools/repair_fetched.py --renumbered,
+    leaves no renamed_ids.json row: times-22158 is times-22159 now), and a
+    re-read would file the page's puzzle twice."""
     out = []
+    day = _row_day(row)
     for v in row.get("verdicts", ()):
         if (v.get("refused") or not v.get("wrote") or v.get("skip") or v.get("mended") or v.get("answersOnly")
                 or not v.get("id") or v.get("unfiled") is not None or "number" not in v):
@@ -6806,6 +6831,8 @@ def lost_writes(row):
             continue
         if (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
+        if day and day in _held_days(series):
+            continue  # the edition's puzzle is filed, under another number
         out.append(v["id"])
     return out
 

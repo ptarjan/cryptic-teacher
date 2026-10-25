@@ -268,6 +268,13 @@ try:
     _lw_not = [f.lost_writes({**_lwrow, "verdicts": [{**_lw, **extra}]})
                for extra in ({"unfiled": 2}, {"refused": "x"}, {"skip": "already held"}, {"wrote": False},
                              {"answersOnly": True}, {"id": "cryptic-9999998"})]
+    # The edition's date filed under another number (10-24's renumber: times-22158 is times-22159 now).
+    f._held_list = lambda series: ((2, ((1, None), (9999999, (None, None, "1970-01-02")), (99999999, None)))
+                                   if series == "times" else (2, ()))
+    _lw_dated = (f.lost_writes(_lwrow),
+                 f.lost_writes({**_lwrow, "edition": "GaleTimes1970UKEnglish/1970-01-02", "scan": {}}),
+                 f.lost_writes({**_lwrow, "scan": {**_lwrow["scan"], "date": "1970-01-03"}}))
+    f._held_list = lambda series: (1, ((1, None), (99999999, None))) if series == "times" else (1, ())
     f._renamed_ids = lambda: {"times-9999998": "times-9999999"}
     _lw_renamed = f.lost_writes(_lwrow)
     f._renamed_ids = _lw_ren
@@ -278,6 +285,7 @@ try:
 finally:
     f._held_list, f._renamed_ids = _lw_list, _lw_ren
     f._SPAN.clear()
+    f._DAYS.clear()
     f._HELD_PATH.pop(("times", 9999998), None)
     if _lw_was is not None:
         f._HELD_PATH[("times", 9999998)] = _lw_was
@@ -288,6 +296,8 @@ check("not an unfiled, refused, skipped, unwritten or answers-only verdict, nor 
       _lw_not)
 check("not a renamed id, one whose file is held, nor a number past the series' highest (a test's, a new one's)",
       ([], [], []), (_lw_renamed, _lw_held, _lw_past))
+check("not one whose edition's date the series holds under another number (by scan or dir date); another date's is",
+      ([], [], ["times-9999998"]), _lw_dated)
 check("the reason is evidence, ranked 2, a fix-landed reread, never skipped, and tier 0 for a newest-first paper",
       (True, 2, True, True, 0),
       (eq.evidence_reason(f.LOST_WRITE), f.rank_of_reason(f.LOST_WRITE), f.LOST_WRITE in eq.FIX_LANDED,
