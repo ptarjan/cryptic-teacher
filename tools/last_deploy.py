@@ -5,7 +5,7 @@
     python3 tools/last_deploy.py OWNER/REPO --moved    # prints "yes" when master is ahead of it
 
 pages.yml builds and deploys only when something other than puzzle files
-changed, plus every 15 minutes (pages-schedule.yml) when master has moved since
+changed, plus every 15 minutes (its own schedule) when master has moved since
 the last deploy, so "what is live" is no longer "the last push's run". The
 github-pages deployments say it directly: one call, and the newest one with a
 success status is the live site (deploy-pages records the built commit as the

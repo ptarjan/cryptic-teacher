@@ -61,8 +61,8 @@ landing.js                                     on a puzzle answers page, marks t
                                                search visitor came for (Google's text fragment,
                                                or #12-across) and offers the rest of the
                                                crossword with hints under it
-appnav.js                                      the home-screen app's bottom tab bar (Solve, Library,
-                                               Puzzles, Stats, Learn) and back link, shown only
+appnav.js                                      the home-screen app's bottom tab bar (Solve,
+                                               Library, Stats, Learn) and back link, shown only
                                                when the site runs standalone with no browser
                                                around it
 quotes.js                                      curls the straight quotes clue text is stored
@@ -1045,10 +1045,9 @@ tools/wait_for_deploy.py                       blocks until Pages is serving the
 tools/last_deploy.py                           the commit the live site was last deployed from,
                                                read off the github-pages deployments (one gh
                                                call); pages.yml's scope job and build path diff
-                                               against it, and pages-schedule.yml's 15-minute
-                                               clock asks it whether master has moved (--moved)
-                                               before it dispatches a build of the puzzle-only
-                                               pushes
+                                               against it, and the scope job's 15-minute
+                                               scheduled tick asks it whether master has moved
+                                               (--moved) before it builds the puzzle-only pushes
 tools/test_wait_for_deploy.py                  proves that check reads the live page before it
                                                calls a deploy failed, and finds its expected
                                                hashes in the assets rather than in an
@@ -1128,8 +1127,8 @@ tools/test_clue_landing.js                     does a search visitor land on the
                                                on sync/events.js's list
 tools/test_app_nav.js                          can a home-screen app user get back to their
                                                puzzle? Standalone, every page must carry the
-                                               tab bar with its own section lit and a Solve
-                                               tab that reopens the last puzzle, a page reached
+                                               tab bar with its own section lit and a Solve tab
+                                               that reopens the last puzzle, a page reached
                                                from the app or another page must offer a back
                                                link that is history.back(), and a browser tab
                                                must get none of it
