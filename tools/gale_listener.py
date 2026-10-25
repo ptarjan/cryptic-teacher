@@ -2860,17 +2860,15 @@ def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, 
                            *(own - k for k in range(1, file_gale_listener.REPORT_WITHIN + 1) if isinstance(own, int))]
                if isinstance(n, int) and n > 0}
     if file_it and numbers:
-        # This page's grids are found (and cached by its hash, page_grids) before the filing lock: on a page
-        # just read they are the one uncached OCR the filing does, and under the lock they held every other
-        # Listener unit waiting (10-24: 72% of units waited, median 110 s, for a median 168 s unit).
-        if isinstance(own, int):
-            import subprocess
-            try:
-                file_gale_listener.page_grids(p, h)
-            except subprocess.TimeoutExpired:
-                pass  # found again under the lock, which says so
+        # The grids of every page the filing joins, this one's first, are found (and cached by its hash,
+        # page_grids) before the filing lock: under it they held every other Listener unit waiting (10-24:
+        # 72% of units waited, median 110 s, for a median 168 s unit; No 4002's unit held it 1000 s finding
+        # No 4000's page, ledgered by its own unit and not yet found). Under the lock only this page is
+        # found (its search timed out above, which the run says); another not cached waits for its own unit.
+        file_gale_listener.find_grids(store, inbox, numbers, first=p.name)
         with scan_queue.lock(store / "filing", wait_for_it=True):
-            file_gale_listener.run(store, inbox, out=out, numbers=numbers)
+            file_gale_listener.run(store, inbox, out=out, numbers=numbers,
+                                   grids_of=file_gale_listener.filing_grids(p.name, out=out))
     return "read"
 
 

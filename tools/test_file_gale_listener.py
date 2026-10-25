@@ -604,4 +604,23 @@ check("one leaving the read numbers where they were is (mirror)", True,
       f.unmoved({"rows": OPEN, "printed": [[0, 0, 1], [0, 1, 2]]}, OPEN, under))
 check("a flip leaving a cell in no light is no mend", ({(0, 0)}, False),
       (f.unlit(["+..", "...", "..."]), f.unmoved({"rows": OPEN, "numbering": "printed"}, ["...", "...", "..."], ["+..", "...", "..."])))
+# Under the filing lock a read unit finds no page's grids but its own: a page
+# another unit ledgered and has not found yet (No 4000's, under No 4002's
+# lock for 1000 s on 10-24) is skipped, its own unit's filing joining it.
+gcache = tmp / "grids-lock"
+gcache.mkdir()
+cached_one = [{"grid": {"rows": OPEN, "sides": {"[0, 0, \"r\"]": 1.0}}, "fit": None}]
+(gcache / "had.json").write_text(json.dumps({"code": f.code_key(f.lg, *f.GRID_CODE), "grids": cached_one}))
+found, said = [], io.StringIO()
+real_page_grids, f.page_grids = f.page_grids, lambda path, sha, cache=f.GRIDS: found.append(path.name) or []
+grids_of = f.filing_grids("mine.pdf", cache=gcache, out=said)
+check("the unit's own page is found under the lock, another cached is read from the cache, one not cached is skipped",
+      ([], [{"grid": {"rows": OPEN, "sides": {(0, 0, "r"): 1.0}}, "fit": None}], None, ["mine.pdf"], True),
+      (grids_of(Path("mine.pdf"), "new"), grids_of(Path("x.pdf"), "had"), grids_of(Path("y.pdf"), "none"), found,
+       "y.pdf: grids not found yet" in said.getvalue()))
+f.page_grids = real_page_grids
+rows_of = {"a": {"file": "a.pdf", "number": 5}, "b": {"file": "b.pdf", "number": 9}, "c": {"file": "c.pdf", "number": 10},
+           "d": {"file": "gone.pdf", "number": 6}}
+check("the pages joined for No 5 are No 5's to REPORT_WITHIN on, of those saved",
+      ["a", "b"], [sha for sha, _ in f.joined_pages(rows_of, {"a.pdf": 1, "b.pdf": 1, "c.pdf": 1}, {5})])
 sys.exit(1 if fails else 0)

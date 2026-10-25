@@ -1103,13 +1103,8 @@ def page_grids(path, sha, cache=GRIDS):
     import ocr_remote
     key = code_key(lg, *GRID_CODE)
     dest = cache / f"{sha}.json"
-    got = gl.read_json(dest)
-    if got is not None:
-        if got.get("code") == file_key(lg):
-            got["code"] = key
-            gl.write_whole(dest, json.dumps(got))
-        if got.get("code") == key:
-            return loaded_grids(got["grids"])
+    if (got := cached_grids(sha, cache)) is not None:
+        return got
     got = ocr_remote.call("listener_grids", path.name, data=path.read_bytes())
     if got is None:
         with _HERE, ocr_remote.local_slot():
@@ -1119,6 +1114,70 @@ def page_grids(path, sha, cache=GRIDS):
     cache.mkdir(parents=True, exist_ok=True)
     gl.write_whole(dest, json.dumps({"code": key, "grids": grids}))
     return loaded_grids(json.loads(json.dumps(grids)))
+
+
+def cached_grids(sha, cache=GRIDS):
+    """page_grids() of the saved file of hash `sha` as its cache holds them
+    at listener_grid's code, else None: nothing is found."""
+    key = code_key(lg, *GRID_CODE)
+    dest = cache / f"{sha}.json"
+    got = gl.read_json(dest)
+    if got is None:
+        return None
+    if got.get("code") == file_key(lg):
+        got["code"] = key
+        gl.write_whole(dest, json.dumps(got))
+    return loaded_grids(got["grids"]) if got.get("code") == key else None
+
+
+def find_grids(store, inbox, numbers, first=None, cache=GRIDS):
+    """page_grids() of every saved page run(numbers=`numbers`) joins, `first`
+    (a page name) first: what gale_listener.read_unit does before the
+    filing lock, so the filing under it finds none (filing_grids). A page
+    not cached is found under its own lock, so two units joining it find it
+    once, the second waiting for the first's cache (10-24: No 4002's unit
+    found No 4000's page under the filing lock while 4000's own unit found
+    it too, 1000 s at 3.8 GB with six units waiting). A page timing out is
+    left to the run, which says so."""
+    import subprocess
+    ledger = gl.load_ledger(store)
+    where = {p.name: p for p in gl.page_files(inbox)}
+    files = sorted(joined_pages(ledger, where, numbers), key=lambda f: (f[1]["file"] != first, f[1]["file"]))
+    for sha, e in files:
+        if cached_grids(sha, cache) is not None:
+            continue
+        with scan_queue.lock(cache / f"{sha}.json", wait_for_it=True):
+            try:
+                page_grids(where[e["file"]], sha, cache)
+            except subprocess.TimeoutExpired:
+                pass
+
+
+def filing_grids(own=None, cache=GRIDS, out=sys.stdout):
+    """run()'s grids_of under the filing lock: the cached grids alone
+    (cached_grids), but for the page `own` (a name), found as page_grids
+    finds it. A page not cached (one another unit has ledgered and not yet
+    found the grids of) is not joined this run; its own unit's filing,
+    joining the Nos it can move, joins it."""
+    def grids_of(path, sha):
+        if path.name == own:
+            return page_grids(path, sha, cache)
+        got = cached_grids(sha, cache)
+        if got is None:
+            print(f"{path.name}: grids not found yet; joined when its own unit files", file=out)
+        return got
+    return grids_of
+
+
+def joined_pages(ledger, where, numbers=None):
+    """[(sha, ledger row)] of the saved pages (`where` {name: path}) run()
+    joins for `numbers` (None: every page): those of No n to n +
+    REPORT_WITHIN, where n's report may be."""
+    files = [(sha, e) for sha, e in ledger.items() if e["file"] in where]
+    if numbers is not None:
+        files = [(sha, e) for sha, e in files if any(
+            isinstance(e.get("number"), int) and 0 <= e["number"] - n <= REPORT_WITHIN for n in numbers)]
+    return files
 
 
 #: Held while this process finds a page's grids here (~600 MB a page).
@@ -1303,7 +1362,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
     ledger = gl.load_ledger(store)
     # The saved pages, listed once (the folder and its Fetched subfolder; on the desktop over the share).
     where = {p.name: p for p in gl.page_files(inbox)}
-    files = [(sha, e) for sha, e in ledger.items() if e["file"] in where]
+    files = joined_pages(ledger, where, numbers)
     readings = {}
     # With `numbers`, only their readings are opened: each read unit files its own puzzles while others write theirs.
     paths = (sorted(store.glob("listener-*.json")) if numbers is None
@@ -1316,9 +1375,7 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
             continue
         if numbers is None or r["number"] in numbers:
             readings[r["number"]] = r
-    if numbers is not None:
-        files = [(sha, e) for sha, e in files if any(
-            isinstance(e.get("number"), int) and 0 <= e["number"] - n <= REPORT_WITHIN for n in numbers)]
+
     def page(f):
         sha, e = f
         try:
