@@ -7059,12 +7059,15 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
         return NO_TITLE_RESCAN
+    # Ahead of the short third column: a lost write's reread is a full read by current code (the third
+    # column's too), and evidence; that reason is a blanket one bar THREE_COLUMNS_YEARS' (10-25: no such
+    # unit planned, 273 of 2007-08's pages lost so).
+    if scan_queue.read_before(row, scan_queue.when(REREAD_LOST)) and lost_writes(row):
+        return LOST_WRITE
     if short_three_columns(row) and scan_queue.read_before(row, scan_queue.when(REREAD_THREE_COLUMNS[2])):
         return "short Times page, its third clue column read since"
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
-    if scan_queue.read_before(row, scan_queue.when(REREAD_LOST)) and lost_writes(row):
-        return LOST_WRITE
     # Ahead of unenumerated_held: a refused grid is the evidence (edition_queue.evidence_reason), and
     # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
