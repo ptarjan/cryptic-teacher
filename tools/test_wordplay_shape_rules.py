@@ -637,6 +637,8 @@ check("a reverse reading that anagrams a run of the clue's words is not counted"
     {"op": "reverse", "reading": "ALTER NATE", "parts": [lf("How to make neat")]}))
 check("a reading with no such word still is", 1, v.reverse_phrase(
     {"op": "reverse", "reading": "ROUGH + HEWN", "parts": [lf("When cryptic maybe")]}))
+check("the annotate prompt tells the model when reverse([words]) is refused (reversePhrase)", True,
+      "reversePhrase" in open(os.path.join(os.path.dirname(__file__), "annotate_prompt.md")).read())
 check("a leaf that doubles its own words by a repeat word is not a synonym", 0, v.anagram_synonyms(
     {"op": "anagram", "indicators": [{"text": "damaged"}], "parts": [lf("double-headed besom's", "BBESOM"), lf("it")]}))
 check("a leaf that gives other letters is still one", 1, v.anagram_synonyms(
