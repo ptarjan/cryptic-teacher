@@ -918,7 +918,7 @@ def browser_puzzle(puzzle):
     # step-by-step and building blocks. Read from the file on every build, so a
     # clue that leaves the queue is back on the next deploy with no list to edit.
     import shape_queue
-    redo = shape_queue.listed(out)
+    redo = shape_queue.hidden(out)
     if redo:
         # On the annotation, because that is what the ladder is built from.
         out["entries"] = [{**e, "annotation": {**e["annotation"], "redo": True}}

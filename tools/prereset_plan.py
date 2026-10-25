@@ -1907,8 +1907,14 @@ def print_backlog(annotate_blocked, solve_blocked):
     decides. $CT_SERIES, a space-separated list of series keys, narrows it to
     those papers. Clues-only puzzles join it as clues_only_rows()."""
     import scan_queue
+    try:    # ghost rows (already fixed, or a convention series) neither block tails nor hide hints
+        import prune_shape_queue
+        if (n := prune_shape_queue.auto()) is not None:
+            print(f"  shape redo list: pruned {n} settled rows", file=sys.stderr)
+    except Exception as e:
+        print(f"  shape redo list prune failed: {e}", file=sys.stderr)
     index = json.loads(INDEX.read_text(encoding="utf-8"))
-    rereads = {r["id"] for r in scan_queue.open_requests()}
+    rereads ={r["id"] for r in scan_queue.open_requests()}
     if rereads:
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)

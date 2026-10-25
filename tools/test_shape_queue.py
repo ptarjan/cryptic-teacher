@@ -23,6 +23,17 @@ def check(name, ok):
     print(("  ok: " if ok else "  FAIL: ") + name)
     fails += not ok
 
+# A tried row is re-armed when the annotate code changed since (Q.rearmed); the tests below
+# hold the code still (no sha) so a tried row stays tried, and this block sets one.
+Q._sha_cache.update(at=float("inf"), sha=None)
+check("no code sha: a tried row stays tried", not Q.rearmed({"tried": True}))
+Q._sha_cache.update(sha="abc")
+check("annotate code changed since a legacy tried row: re-armed", Q.rearmed({"tried": True}))
+check("tried under this code: not re-armed", not Q.rearmed({"tried": True, "tries": 1, "tried_code": "abc"}))
+check("tried under older code: re-armed", Q.rearmed({"tried": True, "tries": 2, "tried_code": "old"}))
+check("three tries: capped", not Q.rearmed({"tried": True, "tries": 3, "tried_code": "old"}))
+Q._sha_cache.update(sha=None)
+
 tmp = Path(tempfile.mkdtemp())
 A.TOOLS = tmp
 Q.REAL = Q.PATH

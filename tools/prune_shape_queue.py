@@ -78,6 +78,28 @@ def _load(pid):
         return None
 
 
+AUTO_EVERY_S = 1800   # the planner prunes at most this often: it loads every queued puzzle
+
+
+def auto(load=_load, stamp=None, every=AUTO_EVERY_S):
+    """What the planner runs: drop the stale rows (stale_ids) and the convention-series shape
+    rows (never redone, they only hid good walkthroughs) in one locked rewrite. Returns the
+    count dropped, or None when it ran less than `every` seconds ago (mtime of `stamp`)."""
+    import os
+    import time
+    stamp = Path(stamp or os.path.join(os.environ.get("TMPDIR", "/tmp"), "ct-prune-shape-queue.stamp"))
+    if stamp.exists() and time.time() - stamp.stat().st_mtime < every:
+        return None
+    stamp.touch()
+    with Q.locked():
+        rs = json.loads(Q.PATH.read_text())
+        gone = stale_ids(rs, load)
+        gone |= {r["id"] for r in rs if Q.exempt(r["id"].partition("#")[0]) and Q.shape_reason(r.get("reason", ""))}
+        if gone:
+            Q.write(Q.dump([r for r in rs if r["id"] not in gone]))
+    return len(gone)
+
+
 def main(argv):
     write = "--write" in argv
     with Q.locked():
@@ -94,6 +116,9 @@ def main(argv):
         for cls, n in total.most_common():
             print(f"{cls:32} {per[cls]:5} of {n}")
         print(f"stale {len(gone)} of {len(rs)}")
+        capped = Q.exhausted()
+        print(f"{len(capped)} rows tried {Q.MAX_TRIES} times and still flagged (hidden, not redone): "
+              + " ".join(capped[:40]) + (" ..." if len(capped) > 40 else ""))
         if write:
             Q.write(Q.dump([r for r in rs if r["id"] not in gone]))
     return 0
