@@ -3994,7 +3994,8 @@ def hosted(found, held):
     """The numbers whose solutions an edition `found` may print: the issue
     before each of its titles, and on a Saturday title the Saturday
     before's prize; a filed puzzle one issue before a day of the edition,
-    or its Saturday a week before. A title may be misread, so the numbers
+    or its Saturday a week before, or one whose host_days name the day (past
+    a day with no paper). A title may be misread, so the numbers
     its filed neighbours in `held` ({number: date}) within SOLUTION_DAYS
     count to stand as titles too, unless one is a title read. A puzzle whose
     next issue is missing is hosted by none: the week-later issue prints
@@ -4010,7 +4011,8 @@ def hosted(found, held):
     on = set(days.values()) | {day}
     one = datetime.timedelta(days=1)
     prior = {h - one - one * ((h - one).weekday() == 6) for h in on} | \
-        {h - 7 * one for h in on if h.weekday() == 5} | {h - 9 * one for h in on if prize_monday(h)}
+        {h - 7 * one for h in on if h.weekday() == 5} | {h - 9 * one for h in on if prize_monday(h)} | \
+        {d for h in on for d in hosts_of(h)}
     return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
         {t - PRIZE_LAG for t, d in days.items() if prize_monday(d)} | \
         {m for d in prior for m in Held.of(held).on_day.get(d, ())}
@@ -4030,7 +4032,7 @@ def hosted_window(paper, found):
     """(first, last) date of the filed puzzles linked_solutions(paper, found,
     held) reads of `held`, or None when it reads none: hosted's neighbours
     count only within SOLUTION_DAYS of the edition's day, and its prior days
-    lie at most a week before a day the edition's titles print on. Two helds
+    lie at most HOST_REACH days before a day the edition's titles print on. Two helds
     alike between them link alike (solution_sources)."""
     if paper not in (TIMES, GALE) or not found["solutions"] or not found.get("date"):
         return None
@@ -4038,7 +4040,7 @@ def hosted_window(paper, found):
     own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
     on = {issue_day(day, t, own, found.get("item")) for t in own} | {day}
     span = datetime.timedelta(days=SOLUTION_DAYS)
-    return min(day - span, *(h - datetime.timedelta(days=9 if prize_monday(h) else 7) for h in on)), max(day + span, max(on))
+    return min(day - span, *(h - datetime.timedelta(days=HOST_REACH) for h in on)), max(day + span, max(on))
 
 
 def held_between(held, window):
@@ -7816,20 +7818,71 @@ def answerless_puzzles(series, held, solutions=()):
 WEEK_ON_SATURDAYS = datetime.date(1981, 7, 4)
 
 
+@functools.lru_cache(maxsize=None)
+def good_friday(year):
+    """The Good Friday of `year` (Gregorian Easter, two days before)."""
+    a, (b, c) = year % 19, divmod(year, 100)
+    d, e = divmod(b, 4)
+    g = (b - (b + 8) // 25 + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = divmod(c, 4)
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    n = h + l - 7 * m + 114
+    return datetime.date(year, n // 31, n % 31 + 1) - datetime.timedelta(days=2)
+
+
+def no_paper(day):
+    """Whether no Times is published on `day`: a Sunday or Christmas Day (no 25 Dec edition is in the
+    archive in any year), so a solution due then prints in the next issue."""
+    return day.weekday() == 6 or (day.month, day.day) == (12, 25)
+
+
+def maybe_no_paper(day):
+    """Whether the Times of `day` was published some years only: Boxing Day (on disk in 1987, 1989,
+    1991 and from 1998, none before) and Good Friday (on disk from 1986, none before)."""
+    return (day.month, day.day) == (12, 26) or day == good_friday(day.year)
+
+
+def next_issue(day):
+    """`day`, or the first day after it that is not no_paper."""
+    while no_paper(day):
+        day += datetime.timedelta(days=1)
+    return day
+
+
 def host_day(day):
     """The date of the issue printing the solution of the puzzle of `day`: the next day's, a Saturday's
     prize a week on, a Saturday's before WEEK_ON_SATURDAYS the Monday after (hosted: the issue before
-    each title, the Saturday before's prize)."""
+    each title, the Saturday before's prize); a day with no paper (no_paper) gives way to the next issue.
+    Paul 10-24: 12 puzzles were hosted by a 25 Dec, never on disk."""
     if day.weekday() != 5:
-        return day + datetime.timedelta(days=1)
-    return day + datetime.timedelta(days=7 if day >= WEEK_ON_SATURDAYS else 2)
+        return next_issue(day + datetime.timedelta(days=1))
+    return next_issue(day + datetime.timedelta(days=7 if day >= WEEK_ON_SATURDAYS else 2))
 
 
-def host_days(day):
+#: The most days after a puzzle's that host_days may name (a Saturday's prize Monday on 25 Dec, the
+#: 26th without a paper: the 27th): hosted reads the held puzzles this far before each day it prints on.
+HOST_REACH = 11
+
+
+def host_days(day, on=None):
     """Every date that may print the solution of the puzzle of `day`: host_day, and for a Saturday
-    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG)."""
-    more = [day + datetime.timedelta(days=9)] if day.weekday() == 5 and day >= PRIZE_MONDAYS else []
-    return [host_day(day), *more]
+    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG). A host that is
+    maybe_no_paper and not in `on` (the dates on disk; None: unknown) has the next issue after it too."""
+    more = [next_issue(day + datetime.timedelta(days=9))] if day.weekday() == 5 and day >= PRIZE_MONDAYS else []
+    out = []
+    for h in (host_day(day), *more):
+        gap = maybe_no_paper(h) and (on is None or h not in on)
+        for g in (h, next_issue(h + datetime.timedelta(days=1))) if gap else (h,):
+            if g not in out:
+                out.append(g)
+    return out
+
+
+def hosts_of(day):
+    """The dates of the puzzles whose solution an issue of `day` may print (host_days inverted)."""
+    return [d for d in (day - datetime.timedelta(days=k) for k in range(1, HOST_REACH + 1)) if day in host_days(d)]
 
 
 def host_rescan_due(paper, row):
@@ -7844,9 +7897,9 @@ def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
     host_rescan_due: solution_hosts' stale hosts' kin, read in their solution bands alone (HOST_RESCAN)."""
     if paper is not GALE:
         return {}
-    want = {}
+    want, on = {}, set(map(edition_date, dirs))
     for n, day in answerless_puzzles(paper.series, held, solutions).items():
-        for host in host_days(day):
+        for host in host_days(day, on):
             want.setdefault(host, []).append(n)
     out = {}
     for d in dirs:
@@ -7864,9 +7917,9 @@ def solution_hosts(paper, st, dirs, rels, stale_set, scans, solutions, held, fhs
     none of its puzzles (_text_linked); one with no text or whose text is not read yet is kept."""
     if paper.series != SERIES:
         return {}
-    want = {}
+    want, on = {}, set(map(edition_date, dirs))
     for n, day in answerless_puzzles(paper.series, held, solutions).items():
-        for host in host_days(day):
+        for host in host_days(day, on):
             want.setdefault(host, []).append(n)
     if not want:
         return {}

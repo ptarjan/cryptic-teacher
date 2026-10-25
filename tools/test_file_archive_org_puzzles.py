@@ -1347,6 +1347,18 @@ check("a Saturday before 1981-07-04 is hosted by the Monday after, one from it b
       (f.host_days(D("1970-05-09")), f.host_days(D("1981-06-27")), f.host_days(D("1981-07-04")),
        12463 in f.hosted({"date": "1970-05-11", "item": "GaleTimes1970UKEnglish", "puzzles": [{"number": 12464, "leaf": 0}],
                           "solutions": [{"number": 12463, "leaf": 0}]}, {12463: D("1970-05-09")})))
+# No Times on 25 Dec (none in the archive): its solutions print in the next issue; 26 Dec and Good
+# Friday only some years, so a host there not on disk has the next issue too.
+check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off disk gives way to the next; "
+      "the 27 Dec Monday hosts the 18 Dec Saturday's prize",
+      ([D("2007-12-26"), D("2007-12-27")], [D("1993-12-27")], [D("2006-12-23"), D("2006-12-26")], [D("1990-12-26"), D("1990-12-27")],
+       [D("2008-12-26")], [D("1974-04-12"), D("1974-04-13")], D("1974-04-11"), True, [D("1993-12-18")]),
+      (f.host_days(D("2007-12-24")), f.host_days(D("1993-12-18")), f.host_days(D("2006-12-16"), {D("2006-12-26")}),
+       f.host_days(D("1990-12-24"), {D("1990-12-27")}), f.host_days(D("2008-12-24"), {D("2008-12-26")}),
+       f.host_days(D("1974-04-11")), f.good_friday(1974) - datetime.timedelta(days=1),
+       19417 in f.hosted({"date": "1993-12-27", "item": "GaleTimes1993UKEnglish", "puzzles": [{"number": 19423, "leaf": 0}],
+                          "solutions": [{"number": 19417, "leaf": 0}]}, {19417: D("1993-12-18"), 19422: D("1993-12-24")}),
+       f.hosts_of(D("1993-12-27"))[-1:]))
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
 _mon = {"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
