@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,72 @@
     "text": "Dish made in France — half of it put in container, but not all",
     "enumeration": "6"
    },
-   "solution": "FAJITA"
+   "solution": "FAJITA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "half of it put in",
+       "at": 22,
+       "note": "the second half of the French word is shifted into the shortened container"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "made in France",
+         "at": 5,
+         "gives": "FAIT",
+         "note": "fait is the French word for made"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "but not all",
+           "at": 51,
+           "note": "only part of the container word is used, so its final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "container",
+           "at": 40,
+           "gives": "JAR",
+           "note": "a jar is a container"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note about a French dish, half of it spooned into a container that is not quite full.",
+     "walkthrough": "The 'it' in 'half of it' is the French word itself: its second half moves into the shortened container while the first half stays in front.",
+     "definitionFit": "A fajita is a Mexican-style dish of grilled strips of meat wrapped in a tortilla."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +113,44 @@
     "text": "Polled live, as many a footballer will have done?",
     "enumeration": "8"
    },
-   "solution": "BEHEADED"
+   "solution": "BEHEADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Polled",
+      "at": 0,
+      "note": "polled can mean with the head cut off or lopped"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "live",
+       "at": 7,
+       "gives": "BE",
+       "note": "to live is to be, to exist"
+      },
+      {
+       "words": "as many a footballer will have done",
+       "at": 13,
+       "gives": "HEADED",
+       "note": "footballers often have headed the ball"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about footballers who have been polled for their opinion while still playing.",
+     "walkthrough": "Polled looks like voting; its older sense is having the head (or horns) removed.",
+     "definitionFit": "Polled once meant cropped at the head, so a polled person has had the head taken off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polled"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +164,48 @@
     "text": "Capital chap, a fellow in solitary?",
     "enumeration": "8"
    },
-   "solution": "LONDONER"
+   "solution": "LONDONER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital chap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the fellow word is placed inside the word for a solitary person"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solitary",
+       "at": 26,
+       "gives": "LONER",
+       "note": "a solitary person is a loner"
+      },
+      {
+       "words": "a fellow",
+       "at": 14,
+       "gives": "DON",
+       "note": "a don is a university fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from the big city is pictured as a lonely academic in solitary confinement.",
+     "definitionFit": "A man from the British capital city is a native or resident of that city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "solitary"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +219,56 @@
     "text": "Almost nothing dull in this resort",
     "enumeration": "7"
    },
-   "solution": "ZERMATT"
+   "solution": "ZERMATT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resort",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost all the word for nothing is used, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 7,
+         "gives": "ZERO",
+         "note": "zero is nothing"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "dull",
+       "at": 15,
+       "gives": "MATT",
+       "note": "matt means dull, without shine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that there is next to nothing dull about this holiday spot.",
+     "definitionFit": "Zermatt is a Swiss ski resort beneath the Matterhorn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +282,52 @@
     "text": "Character once left after British engineer",
     "enumeration": "6"
    },
-   "solution": "BRUNEL"
+   "solution": "BRUNEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "engineer",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the character and left letters come after the British letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British",
+       "at": 26,
+       "gives": "B"
+      },
+      {
+       "words": "Character once",
+       "at": 0,
+       "gives": "RUNE",
+       "note": "a rune is a character of an ancient alphabet"
+      },
+      {
+       "words": "left",
+       "at": 15,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historic figure departs, following a British engineer.",
+     "definitionFit": "Isambard Kingdom Brunel was a famous Victorian engineer of bridges, railways and ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +341,30 @@
     "text": "Moving towards border",
     "enumeration": "6"
    },
-   "solution": "EDGING"
+   "solution": "EDGING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moving towards",
+      "at": 0,
+      "meaning": "creeping gradually closer, inching along"
+     },
+     {
+      "text": "border",
+      "at": 15,
+      "meaning": "a trim or fringe along an edge"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shuffling up to a frontier.",
+     "definitionFit": "Both senses are standard: inching gradually forward, and a decorative trim along a rim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +378,50 @@
     "text": "Fan out when dancing in spring",
     "enumeration": "8"
    },
-   "solution": "FOUNTAIN"
+   "solution": "FOUNTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spring",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when dancing",
+         "at": 8,
+         "note": "dancing letters move around, so these words are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fan out",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer spreads out a fan in springtime.",
+     "walkthrough": "'when dancing' looks like part of the scene but is the anagram signal; 'spring' reads as the season, yet it is a source of water.",
+     "definitionFit": "A fountain is a spring of water, a source where water jets or wells up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +441,57 @@
      }
     ]
    },
-   "solution": "CAKEHOLE"
+   "solution": "CAKEHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mouth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "CA",
+       "note": "ca, short for circa, means about"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that's not unknown",
+         "at": 28,
+         "note": "an unknown in algebra is y, so that letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "type of surgery",
+         "at": 12,
+         "gives": "KEYHOLE",
+         "note": "keyhole surgery is minimally invasive surgery"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like an operation on the mouth by a well-known kind of surgery.",
+     "walkthrough": "In maths x, y and z are unknowns; here Y goes.",
+     "definitionFit": "Cakehole is British slang for the mouth, as in 'shut your cakehole'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +505,54 @@
     "text": "Perhaps set back by rheumatoid arthritis to an extent",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps set",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 12,
+       "note": "set back means the letters found are read in the reverse direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to an extent",
+         "at": 41,
+         "note": "only part of the phrase is used, the letters lying within the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rheumatoid arthritis",
+         "at": 20,
+         "gives": "OIDAR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is set back by a painful joint condition.",
+     "walkthrough": "'to an extent' picks OIDAR from rheumatOID ARthritis; 'back' turns it round.",
+     "definitionFit": "A set is a broadcast receiver, of which a wireless is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +566,44 @@
     "text": "Cable in Wiltshire, stripped of core",
     "enumeration": "4"
    },
-   "solution": "WIRE"
+   "solution": "WIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "stripped of core",
+       "at": 20,
+       "note": "the inner letters of the county name are removed, leaving the ends"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wiltshire",
+       "at": 9
+      },
+      {
+       "gives": "LTSHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cable in a West Country county has had its central wires exposed.",
+     "walkthrough": "Wiltshire is an English county; 'stripped of core' removes LTSHI, leaving WI and RE.",
+     "definitionFit": "A cable is a length of conducting metal strand, insulated or bare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +617,67 @@
     "text": "Size of papers backing remark in report",
     "enumeration": "9"
    },
-   "solution": "DIMENSION"
+   "solution": "DIMENSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Size",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 15,
+         "note": "backing means the papers word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "papers",
+         "at": 8,
+         "gives": "ID",
+         "note": "ID means identity papers"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MENSION",
+       "indicators": [
+        {
+         "text": "in report",
+         "at": 30,
+         "note": "a report is something heard, so the word is said aloud"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remark",
+         "at": 23,
+         "gives": "MENTION",
+         "note": "to mention is to remark"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers supporting a comment made in a report on size.",
+     "walkthrough": "'backing' turns ID into DI; 'in report' gives the sound of MENTION, written MENSION.",
+     "definitionFit": "A dimension is a measurement such as length or width, a measure of extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +691,54 @@
     "text": "Excuse signal — charge to be overturned",
     "enumeration": "6"
    },
-   "solution": "PARDON"
+   "solution": "PARDON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excuse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to be overturned",
+       "at": 23,
+       "note": "overturned means the combined words are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "signal",
+         "at": 7,
+         "gives": "NOD",
+         "note": "a nod is a signal"
+        },
+        {
+         "words": "charge",
+         "at": 16,
+         "gives": "RAP",
+         "note": "a rap is a criminal charge"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal plea: a hint that the charge will be thrown out on appeal.",
+     "walkthrough": "'to be overturned' turns NODRAP round.",
+     "definitionFit": "To pardon is to forgive or let off, which is what to excuse means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +752,69 @@
     "text": "Closure of mainline journey section in public transport message",
     "enumeration": "8"
    },
-   "solution": "TELEGRAM"
+   "solution": "TELEGRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "message",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the first letters go inside the transport word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "public transport",
+       "at": 39,
+       "gives": "TRAM",
+       "note": "a tram is a form of public transport"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "Closure of",
+           "at": 0,
+           "note": "the closure of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mainline",
+           "at": 11
+          }
+         ]
+        },
+        {
+         "words": "journey section",
+         "at": 20,
+         "gives": "LEG",
+         "note": "a leg is a stage of a journey"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice about a line closure on part of a rail journey.",
+     "definitionFit": "A telegram is a message sent by telegraph and delivered on paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Closure"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +828,50 @@
     "text": "Death of Venus and Adonis, originally when 2?",
     "enumeration": "3"
    },
-   "solution": "END"
+   "solution": "END",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Death",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "nth",
+     "n": 2,
+     "indicators": [
+      {
+       "text": "originally when 2?",
+       "at": 27,
+       "note": "2 is beheaded: with each word's head off, the original letters are their second ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Venus",
+       "at": 9
+      },
+      {
+       "words": "and",
+       "at": 15
+      },
+      {
+       "words": "Adonis",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about the deaths in Shakespeare's poem Venus and Adonis.",
+     "walkthrough": "2-down is BEHEADED; beheaded, the three words begin E, N, D.",
+     "definitionFit": "An end is a death, the finish of a life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +885,58 @@
     "text": "Straggling agent hiding international article in Berlin",
     "enumeration": "7"
    },
-   "solution": "SPIDERY"
+   "solution": "SPIDERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straggling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 17,
+       "note": "the agent word conceals the others within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agent",
+       "at": 11,
+       "gives": "SPY",
+       "note": "a spy is a secret agent"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "international",
+         "at": 24,
+         "gives": "I"
+        },
+        {
+         "words": "article in Berlin",
+         "at": 38,
+         "gives": "DER",
+         "note": "der is a German definite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stray spy conceals a foreign object in Berlin.",
+     "definitionFit": "Spidery handwriting is thin and sprawling, with long irregular strokes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agent"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +950,48 @@
     "text": "A girl having the edge in writing?",
     "enumeration": "8"
    },
-   "solution": "PRIMROSE"
+   "solution": "PRIMROSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "the edge word is placed inside the writing word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writing",
+       "at": 26,
+       "gives": "PROSE",
+       "note": "prose is ordinary written language"
+      },
+      {
+       "words": "the edge",
+       "at": 14,
+       "gives": "RIM",
+       "note": "a rim is an edge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with the upper hand in her written work.",
+     "definitionFit": "Primrose is a female given name, taken from the yellow spring flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +1005,49 @@
     "text": "The Elusive Pimpernel, ultimately a slippery sort",
     "enumeration": "3"
    },
-   "solution": "EEL"
+   "solution": "EEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a slippery sort",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "at": 23,
+       "note": "ultimately points to the final letter of each word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The",
+       "at": 0
+      },
+      {
+       "words": "Elusive",
+       "at": 4
+      },
+      {
+       "words": "Pimpernel",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hero of a famous novel is a hard man to catch.",
+     "walkthrough": "The Scarlet Pimpernel is the elusive hero of Baroness Orczy's novel.",
+     "definitionFit": "An eel is a long slimy fish, and a byword for a person hard to pin down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pimpernel"
+    }
+   }
   },
   {
    "number": 18,
@@ -275,7 +1061,63 @@
     "text": "Dullard in squat almost stifling noise",
     "enumeration": "7"
    },
-   "solution": "PUDDING"
+   "solution": "PUDDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dullard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "at": 24,
+       "note": "the shortened word smothers the noise word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 17,
+         "note": "almost all of the word is used, the last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "squat",
+         "at": 11,
+         "gives": "PUDGY",
+         "note": "squat means short and fat, pudgy"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "noise",
+       "at": 33,
+       "gives": "DIN",
+       "note": "din is noise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-witted person squatting down and muffling a sound.",
+     "definitionFit": "A pudding is British slang for a stupid or sluggish person, a lump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "squat"
+    }
+   }
   },
   {
    "number": 19,
@@ -289,7 +1131,46 @@
     "text": "Tanned 2 in need of a wash",
     "enumeration": "8"
    },
-   "solution": "UNBATHED"
+   "solution": "UNBATHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in need of a wash",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "2",
+       "at": 7,
+       "note": "2-down is beheaded, so the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tanned",
+       "at": 0,
+       "gives": "SUNBATHED",
+       "note": "to have sunbathed is to have lain in the sun to tan"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sunburnt and grubby after a beach day.",
+     "walkthrough": "The cross-reference to 2-down tells you to remove the head, the first letter.",
+     "definitionFit": "Someone who has not had a bath is dirty and wants cleaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tanned"
+    }
+   }
   },
   {
    "number": 20,
@@ -303,7 +1184,44 @@
     "text": "After switching components, stop working where gas flows?",
     "enumeration": "8"
    },
-   "solution": "DOWNWIND"
+   "solution": "DOWNWIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where gas flows?",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "After switching components",
+       "at": 0,
+       "note": "the two parts of the phrase change places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stop working",
+       "at": 28,
+       "gives": "WINDDOWN",
+       "note": "to wind down is to stop working, to relax"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer swaps parts and shuts down, asking where the gas goes.",
+     "walkthrough": "'After switching components' swaps WIND and DOWN. The question mark flags the flatulent hint in 'gas'.",
+     "definitionFit": "Gas released in the open drifts in the direction the breeze blows it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1245,47 @@
      }
     ]
    },
-   "solution": "PSANDQS"
+   "solution": "PSANDQS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something to mind?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Appendix",
+       "at": 0,
+       "gives": "PS",
+       "note": "PS, a postscript, is an addition at the end of a letter"
+      },
+      {
+       "words": "with",
+       "at": 9,
+       "gives": "AND",
+       "note": "and means with"
+      },
+      {
+       "words": "questions",
+       "at": 14,
+       "gives": "QS",
+       "note": "Q is short for question, so QS is questions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adding questions at the end makes one think.",
+     "definitionFit": "To mind your Ps and Qs is the idiom for watching your manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mind"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1299,42 @@
     "text": "Lacking connection, wife apparently in a good mood",
     "enumeration": "8"
    },
-   "solution": "WIRELESS"
+   "solution": "WIRELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lacking connection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "wife",
+       "at": 20,
+       "gives": "W"
+      },
+      {
+       "words": "apparently in a good mood",
+       "at": 25,
+       "gives": "IRELESS",
+       "note": "ire is anger, so someone without ire seems content"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cut-off wife who seems cheerful all the same.",
+     "walkthrough": "'apparently' flags a made-up word: IRE-LESS, without anger.",
+     "definitionFit": "Wireless technology works with no cables or physical link."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mood"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1348,45 @@
     "text": "They twirl in topless underwear",
     "enumeration": "6"
    },
-   "solution": "EDDIES"
+   "solution": "EDDIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They twirl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "topless",
+       "at": 14,
+       "note": "the top, the first letter, is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "underwear",
+       "at": 22,
+       "gives": "TEDDIES",
+       "note": "a teddy is a one-piece undergarment for women"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dancers spinning around in skimpy lingerie.",
+     "definitionFit": "Eddies are swirls of water or air that spin round in circles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1400,46 @@
     "text": "Old stone hotel, one needing renovation",
     "enumeration": "6"
    },
-   "solution": "EOLITH"
+   "solution": "EOLITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old stone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "needing renovation",
+       "at": 21,
+       "note": "renovation rebuilds, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotel",
+       "at": 10
+      },
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old stone hotel needing to be done up.",
+     "definitionFit": "An eolith is a crudely chipped flint thought to be among the earliest tools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hotel"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1453,47 @@
     "text": "Sportsman left in enclosure",
     "enumeration": "6"
    },
-   "solution": "BOWLER"
+   "solution": "BOWLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sportsman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the left letter goes inside the enclosure word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "enclosure",
+       "at": 18,
+       "gives": "BOWER",
+       "note": "a bower is a shady leafy retreat enclosed by trees"
+      },
+      {
+       "words": "left",
+       "at": 10,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete stays behind in a pen.",
+     "definitionFit": "A bowler is a cricketer who delivers the ball, and also a player of bowls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1507,69 @@
     "text": "Call into East London, primarily for some hard stuff",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some hard stuff",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 5,
+       "note": "the call word goes into the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "East",
+         "at": 10,
+         "gives": "E"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 23,
+           "note": "primarily means the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "London",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Call",
+       "at": 0,
+       "gives": "NAME",
+       "note": "to name is to call"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to the East End of London for a stiff drink.",
+     "walkthrough": "'some hard stuff' looks like strong liquor; it is the coating on teeth.",
+     "definitionFit": "Enamel is the hard glossy coating on teeth, and a hard paint or glaze."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 27,
@@ -417,7 +1589,64 @@
      }
     ]
    },
-   "solution": "REDPLANET"
+   "solution": "REDPLANET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mars",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 24,
+       "note": "the outer letters come on after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "left-wing",
+       "at": 27,
+       "gives": "RED",
+       "note": "red means left-wing, socialist"
+      },
+      {
+       "words": "scheme",
+       "at": 37,
+       "gives": "PLAN",
+       "note": "a plan is a scheme"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case for",
+         "at": 5,
+         "note": "the case is the outside, so the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enrolment",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument for joining a socialist programme.",
+     "definitionFit": "Mars is called this because of its rusty reddish colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mars"
+    }
+   }
   },
   {
    "number": 28,
@@ -431,7 +1660,47 @@
     "text": "How, perhaps, 25 put on weight",
     "enumeration": "4"
    },
-   "solution": "WHAT"
+   "solution": "WHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 17,
+       "note": "the hat goes on after the weight letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weight",
+       "at": 24,
+       "gives": "W"
+      },
+      {
+       "words": "25",
+       "at": 14,
+       "gives": "HAT",
+       "note": "25-across is bowler, a type of hat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks how a cricketer has put on weight.",
+     "definitionFit": "Both 'how?' and 'what?' serve as exclamations asking someone to repeat themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "How"
+    }
+   }
   },
   {
    "number": 29,
@@ -445,7 +1714,48 @@
     "text": "Gentle 9 or 22 hosting you patronisingly",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gentle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosting",
+       "at": 15,
+       "note": "the set word holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "9 or 22",
+       "at": 7,
+       "gives": "SET",
+       "note": "9 is radio and 22 is wireless, both called a set"
+      },
+      {
+       "words": "you patronisingly",
+       "at": 23,
+       "gives": "WE",
+       "note": "'we', as in 'how are we today?', is a patronising way to address you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentle broadcaster talking down to the listener.",
+     "definitionFit": "Sweet means kind and mild-mannered, soft in temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "patronisingly"
+    }
+   }
   },
   {
    "number": 30,
@@ -465,7 +1775,42 @@
      }
     ]
    },
-   "solution": "QUEENBEE"
+   "solution": "QUEENBEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Company woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "who governs",
+       "at": 14,
+       "gives": "QUEEN",
+       "note": "a queen is a monarch who reigns"
+      },
+      {
+       "words": "inter alia, social workers",
+       "at": 27,
+       "gives": "BEE",
+       "note": "a bee is one among the social insects that work in a colony"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A businesswoman runs the office among social workers.",
+     "definitionFit": "A queen bee is a dominant woman in a group or firm, bossing the others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   }
  ]
 }
