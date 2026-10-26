@@ -42,6 +42,7 @@
 # puzzle, drops the clues-only copy, and carries the re-read's clue text in
 # where the filed clue was never corrected.
 set -uo pipefail
+. "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
 CONFLICT=3
 here="$(cd "$(dirname "$0")" && pwd)"
 common=$(git rev-parse --path-format=absolute --git-common-dir) || exit 1

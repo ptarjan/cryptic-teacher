@@ -88,6 +88,7 @@
 # Requirements: python3, git, and the `claude` CLI on PATH for the annotation step.
 
 set -uo pipefail
+. "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 # Most ticks start nothing (tools/unit_queue.py why_run): stop before the
