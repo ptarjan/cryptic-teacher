@@ -54,7 +54,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --five-hour        # pace five-hour windows until this week resets
-    tools/prereset_plan.py --rush MINUTES     # five-hour mode: burn flat out to 100% (MINUTES is the target; stays armed until 100% or the reset)
+    tools/prereset_plan.py --rush [MINUTES]   # burn flat out until the weekly meter hits 100% or its reset (MINUTES is optional, unused)
     tools/prereset_plan.py --weekly           # pace the weekly meter (the default)
     tools/prereset_plan.py --self-test
 """
@@ -137,17 +137,24 @@ CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
 FIVE_HOUR = ".prereset.five-hour"
-# `--rush MINUTES` (Paul 10-26 "burn your whole five hours quickly and I can
-# reset you"): an epoch deadline that pulls the five-hour meter's reset in.
-# While it is armed and the five-hour meter is under RUSH_TARGET the need is
-# the memory cap (full width, no cpu cap; burn runs are API-bound, about 0.1
-# core each, so six cores hold far more than six runs; only a truly high load
-# shrinks the pool via load_cap). It stays armed past its deadline until the
-# meter reaches RUSH_TARGET or the real five-hour reset passes, then width()
-# deletes it: at the first deadline 87% fell back to the real reset and the
-# pacer set width 0 (Paul: "You didn't finish the window").
+# `--rush` (Paul 10-26 "burn your whole five hours quickly and I can reset
+# you", then "fit another seven day reset in before the Wednesday reset"): RUSH
+# holds the weekly meter's reset epoch at arming. While it is armed and both
+# meters are under RUSH_TARGET the need is the memory cap (flat out, no cpu cap:
+# burn runs are API-bound, about 0.1 core each; only a truly high load shrinks
+# the pool, via load_cap). The five-hour cap stops the burn by itself, and the
+# rush stays armed across five-hour resets and past any deadline, so after Paul
+# resets (the meter falls under RUSH_TARGET) it resumes flat out with nobody
+# re-arming it. It disarms (width() deletes the file) only when the weekly
+# reaches RUSH_TARGET or the weekly reset passes. Each meter reaching
+# RUSH_SPENT wakes our room once per window (RUSH_SPENT_STAMP, cleared when the
+# meter falls) so Paul can reset.
 RUSH = ".prereset.rush"
 RUSH_TARGET = 100.0
+RUSH_SPENT = 99.0
+RUSH_SPENT_STAMP = ".prereset.rush-spent-{}"
+RUSH_ROOM = "cryptic-crosswords"
+WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
 # the five-hour meter's rise in usage-history.csv, split between the burn and
@@ -198,16 +205,56 @@ def ceiling(meter, rushing=False):
     return SESSION_CEILING if meter == "session" else EXHAUSTED
 
 
-def rush_active(meter, stamp, pct, real_hours_left):
-    """True while a rush is armed (RUSH holds a deadline), the five-hour meter is
-    under RUSH_TARGET and its real reset is still ahead: the deadline itself
-    does not end it."""
+def rush_active(meter, stamp, pct, week_pct, now=None):
+    """True while a rush is armed (RUSH holds the weekly reset epoch it ends
+    at, still ahead), the session is being paced and both meters are under
+    RUSH_TARGET."""
     try:
-        float(stamp)
+        until = float(stamp)
     except (TypeError, ValueError):
         return False
+    if until <= (time.time() if now is None else now):
+        return False
     return (meter == "session" and pct is not None and pct < RUSH_TARGET
-            and real_hours_left is not None and real_hours_left > 0)
+            and week_pct is not None and week_pct < RUSH_TARGET)
+
+
+def rush_disarmed(stamp, week_pct, now):
+    """True when an armed rush is over for good: the weekly meter is spent or
+    its reset has passed. An unreadable stamp or meter keeps it."""
+    try:
+        return float(stamp) <= now or (week_pct is not None and week_pct >= RUSH_TARGET)
+    except (TypeError, ValueError):
+        return False
+
+
+def rush_notify(home, name, pct, say):
+    """Wake our room once per window when meter `name` reaches RUSH_SPENT; the
+    stamp goes when it falls, so the next window wakes it again."""
+    mark = home / RUSH_SPENT_STAMP.format(name)
+    if pct is None:
+        return False
+    if pct < RUSH_SPENT:
+        mark.unlink(missing_ok=True)
+        return False
+    if mark.exists():
+        return False
+    try:
+        mark.write_text(f"{pct:g}\n")
+    except OSError:
+        return False
+    say(f"The rush has spent the {name} meter ({pct:g}%): reset it to carry on. "
+        f"The burn resumes by itself once it falls.")
+    return True
+
+
+def wake_room(text):
+    import subprocess
+    try:
+        subprocess.run([WAKE_SH, "-q", "-c", RUSH_ROOM, text], timeout=60,
+                       capture_output=True)
+    except (OSError, subprocess.SubprocessError) as exc:
+        print(f"rush: room not woken: {exc}", file=sys.stderr)
 
 
 def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES, min_width=MIN_RATE_WIDTH):
@@ -481,26 +528,17 @@ def mode(stamp, resets_at):
         return "weekly"
 
 
-def rushed(meter, hours_left, stamp, now):
-    """The five-hour meter's hours left, pulled in to RUSH's deadline while it
-    is still ahead."""
-    try:
-        until = (float(stamp) - now) / 3600
-    except (TypeError, ValueError):
-        return hours_left
-    if meter != "session" or until <= 0 or hours_left is None:
-        return hours_left
-    return min(hours_left, until)
-
-
-def set_rush(minutes):
-    """--rush MINUTES: five-hour mode, spent by now + MINUTES."""
+def set_rush(minutes=None):
+    """--rush [MINUTES]: five-hour mode, flat out until the weekly meter is spent
+    or resets. MINUTES is accepted for old callers and unused."""
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     set_mode("session")
-    until = time.time() + float(minutes) * 60
+    until = time.time() + weekly_usage.resets_in_hours("weekly")[0] * 3600
     (home / RUSH).write_text(f"{until:.0f}\n")
-    print(f"rushing: the five-hour window is spent by "
-          f"{dt.datetime.fromtimestamp(until, dt.timezone.utc).astimezone():%H:%M}")
+    for name in ("five-hour", "weekly"):
+        (home / RUSH_SPENT_STAMP.format(name)).unlink(missing_ok=True)
+    print(f"rushing: flat out until the weekly meter is spent or resets at "
+          f"{dt.datetime.fromtimestamp(until, dt.timezone.utc).astimezone():%a %H:%M}")
     return 0
 
 
@@ -656,6 +694,7 @@ def width(arg=None, floor=1):
     runs_needed = bridge = ratio = pct = hours_left = None
     meter = "weekly"
     rushing = False
+    week_pct = None
     try:
         now = time.time()
         meter = mode(_read(home / FIVE_HOUR),
@@ -669,10 +708,14 @@ def width(arg=None, floor=1):
         pct = weekly_usage.usage_pct(meter)
         hours_left, _ = weekly_usage.resets_in_hours(meter)
         stamp = _read(home / RUSH)
-        rushing = rush_active(meter, stamp, pct, hours_left)
-        if stamp is not None and not rushing:  # spent, or the real reset passed
-            (home / RUSH).unlink(missing_ok=True)
-        hours_left = rushed(meter, hours_left, _read(home / RUSH), now)
+        if stamp is not None:
+            week_pct = weekly_usage.usage_pct("weekly")
+            for name, p in (("five-hour", pct), ("weekly", week_pct)):
+                rush_notify(home, name, p, wake_room)
+            if rush_disarmed(stamp, week_pct, now):
+                (home / RUSH).unlink(missing_ok=True)
+            else:
+                rushing = rush_active(meter, stamp, pct, week_pct, now)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
                                  len(burn_rss_kb()))
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
@@ -682,7 +725,7 @@ def width(arg=None, floor=1):
     load = cpu_load(home / CPU_STATE)
     runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
-    if rushing:  # full width to RUSH_TARGET: memory is the only cap
+    if rushing:  # flat out: memory is the only cap
         runs_needed = DEFAULT_CEILING if mem is None else mem
         cpu = None
     w = width_for(runs_needed, mem, cpu, current, floor)
@@ -736,7 +779,7 @@ def self_test():
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + 3)
+         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -892,18 +935,25 @@ CPU_CASES = [
     (None, 1.0, 4, 4, None),
     (2.13, 0.98, 6, 13.22, 52),  # the span's average, not the 3 alive at the plan (cap 11)
 ]
-# (meter, RUSH's stamp, five-hour pct, real hours to its reset) -> rush active
+# (meter, RUSH's stamp, five-hour pct, weekly pct, now) -> rush active
 RUSH_CASES = [
-    ("session", "1000000\n", 87, 1.7, True),    # deadline long past, 87%: still on
-    ("session", "1000000\n", 99, 1.7, True),
-    ("session", "1000000\n", 100, 1.7, False),  # spent
-    ("session", "1000000\n", 87, 0.0, False),   # the real reset passed
-    ("session", "1000000\n", 87, -0.1, False),
-    ("session", None, 87, 1.7, False),           # not armed
-    ("session", "garbage", 87, 1.7, False),
-    ("weekly", "1000000\n", 87, 1.7, False),    # the week has reset: retired
-    ("session", "1000000\n", None, 1.7, False),  # meter unread
-    ("session", "1000000\n", 87, None, False),
+    ("session", "2000000\n", 87, 71, 1000000, True),
+    ("session", "2000000\n", 99, 71, 1000000, True),
+    ("session", "2000000\n", 100, 71, 1000000, False),   # five-hour spent: the cap holds it
+    ("session", "2000000\n", 3, 71, 1000000, True),      # Paul reset: flat out again, not re-armed
+    ("session", "2000000\n", 50, 100, 1000000, False),   # weekly spent
+    ("session", "2000000\n", 50, 71, 2000000, False),    # the weekly reset passed
+    ("session", None, 50, 71, 1000000, False),
+    ("session", "garbage", 50, 71, 1000000, False),
+    ("weekly", "2000000\n", 50, 71, 1000000, False),
+    ("session", "2000000\n", None, 71, 1000000, False),
+    ("session", "2000000\n", 50, None, 1000000, False),
+]
+# (RUSH's stamp, weekly pct, now) -> disarmed
+RUSH_OFF_CASES = [
+    ("2000000\n", 71, 1000000, False), ("2000000\n", 100, 1000000, True),
+    ("2000000\n", 71, 2000001, True), ("2000000\n", None, 1000000, False),
+    ("garbage", 100, 1000000, False),
 ]
 # (1-minute load, cores, current width) -> load cap
 LOAD_CASES = [
@@ -939,7 +989,8 @@ def width_self_test():
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
               + [(load_cap, (l, c, w), x) for l, c, w, x in LOAD_CASES]
               + [(cpu_runs, (n, s), w) for n, s, w in CPU_RUNS_CASES]
-              + [(rush_active, (m, st, p, h), w) for m, st, p, h, w in RUSH_CASES]
+              + [(rush_active, (m, st, p, h, n), w) for m, st, p, h, n, w in RUSH_CASES]
+              + [(rush_disarmed, (st, h, n), w) for st, h, n, w in RUSH_OFF_CASES]
               + [(ceiling, (m, r), w) for m, r, w in [("session", True, 100.0),
                                                      ("session", False, SESSION_CEILING),
                                                      ("weekly", True, 100.0)]]
@@ -1006,6 +1057,19 @@ def width_self_test():
                 os.environ.pop("CT_MAIN_CHECKOUT", None)
             else:
                 os.environ["CT_MAIN_CHECKOUT"] = saved
+    # rush_notify: once per window, again after the meter falls
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        said = []
+        seq = [("weekly", 98, 0), ("weekly", 99, 1), ("weekly", 100, 0), ("weekly", 40, 0),
+               ("weekly", 99, 1), ("five-hour", None, 0)]
+        for name, pct, sent in seq:
+            before = len(said)
+            rush_notify(Path(tmp), name, pct, said.append)
+            if len(said) - before != sent:
+                print(f"FAIL rush_notify({name}, {pct}) sent {len(said) - before} (want {sent})",
+                      file=sys.stderr)
+                bad += 1
     return bad
 
 
@@ -2440,7 +2504,8 @@ def main():
         at = sys.argv.index("--cover-first")
         return cover_first(" ".join(sys.argv[at + 1:]).split())
     if "--rush" in sys.argv:
-        return set_rush(sys.argv[sys.argv.index("--rush") + 1])
+        rest = sys.argv[sys.argv.index("--rush") + 1:]
+        return set_rush(rest[0] if rest and not rest[0].startswith("-") else None)
     if "--five-hour" in sys.argv:
         return set_mode("session")
     if "--weekly" in sys.argv:
