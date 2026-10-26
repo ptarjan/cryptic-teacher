@@ -212,6 +212,38 @@ check("... nor an article's 'solution' over one", [],
 check("a Gale host with no solutions-only read since the fix is due", True, f.host_rescan_due(f.GALE, {"scan": {}}))
 check("... not once read since", False, f.host_rescan_due(f.GALE, {"solOnly": {"at": "2099-01-01T00:00:00+00:00"}}))
 check("... nor an archive.org Times edition", False, f.host_rescan_due(f.TIMES, {"scan": {}}))
+# HOST_GRID_RESCAN: one read since REREAD_HOST_HEADINGS, before REREAD_HOST_GRIDS (loose_bands), is due once more
+# under its own reason; one older still is a HOST_RESCAN.
+_between = {"solOnly": {"at": f.REREAD_HOST_HEADINGS.replace("22:30", "23:30")}}
+check("a host read since the headings fix, before loose_bands, is due as HOST_GRID_RESCAN",
+      (True, f.HOST_GRID_RESCAN), (f.host_rescan_due(f.GALE, _between), f.host_rescan_reason(_between)))
+check("... one never read so, as HOST_RESCAN; both ranked and host reads", (f.HOST_RESCAN, True, True),
+      (f.host_rescan_reason({"scan": {}}), f.HOST_GRID_RESCAN in f.RANKS, f.HOST_GRID_RESCAN in f.HOST_REASONS))
+
+
+def _lattice(img, x0, y0, w, h, step=24):
+    from PIL import ImageDraw
+    dr = ImageDraw.Draw(img)
+    for x in range(x0, x0 + w + 1, step):
+        dr.line([(x, y0), (x, y0 + h)], fill=0, width=3)
+    for y in range(y0, y0 + h + 1, step):
+        dr.line([(x0, y), (x0 + w, y)], fill=0, width=3)
+
+
+# The 1940s Times's solution grid (1942-01-27: its box 0.74 wide for its height, the heading's ink run into its top;
+# 1942-06-09: 1.26, its foot rows broken off) gets a band over it; a puzzle-sized grid and a square one
+# solution_bands already covers do not get another.
+_page = Image.new("L", (f.SCAN_WIDTH, 2000), 255)
+_lattice(_page, 1100, 400, 240, 324)   # 0.74, the heading run into its top
+_lattice(_page, 2000, 400, 300, 238)   # 1.26
+_lattice(_page, 300, 1000, 700, 700)   # the puzzle's own grid: too wide
+_lattice(_page, 2000, 1200, 300, 300)  # solution_shaped: solution_bands' own
+_have = f.solution_bands(_page, [])
+_loose = sorted(f.loose_bands(_page, _have)[len(_have):])
+_want = [(1100 - 30, 400 - 70, 1100 + 560, 400 + 84 + 5), (2000 - 30, 400 - 70, 2000 + 560, 400 + 5)]
+check("loose_bands: one band over each near-square solution-sized grid solution_shaped refuses, from over its top "
+      "down by its excess height", (1, 2, True),
+      (len(_have), len(_loose), all(abs(a - b) <= 6 for g, w in zip(_loose, _want) for a, b in zip(g, w))))
 check("Concise, Times Two and Jumbo titles are not the cryptic's", [],
       f.headings([line("CONCISE CROSSWORD NO 2065"), line("Times Two Crossword, page 32"),
                   line("Times Jumbo Crossword No 812")], f.TITLE))
