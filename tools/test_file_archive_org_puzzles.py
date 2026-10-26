@@ -1041,6 +1041,25 @@ check("a held file short whose solution the same day's other scan links too, rea
       oc_due + [f.RANKS[f.OTHER_COPY], f.OTHER_COPY in f.SOLUTION_FIXES, f.OTHER_COPY.startswith("solution short"),
                 f.OTHER_COPY in __import__("edition_queue").LOW_ASK, f.OTHER_COPY in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.OTHER_COPY)])
+# NEAR_WORD: a held file short whose blank light's cached VLM reply near_word mends (strip_near), read before
+# REREAD_NEAR_WORD and due nothing else: due; read since, or no reply mends: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 0
+real_sn = f.strip_near
+f.strip_near = lambda series, n, sol_dir: True
+nw_due = [f.short_again(vu_row("2026-10-26T11:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
+f.strip_near = lambda series, n, sol_dir: False
+nw_due.append(f.short_again(vu_row("2026-10-26T11:30:00+00:00")))
+f.strip_near = real_sn
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply mends to one listed word, read before "
+      "REREAD_NEAR_WORD: NEAR_WORD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or no reply "
+      "mends: not",
+      [f.NEAR_WORD, None, None, 2, True, True, True, True, True],
+      nw_due + [f.RANKS[f.NEAR_WORD], f.NEAR_WORD in f.SOLUTION_FIXES, f.NEAR_WORD.startswith("solution short"),
+                f.NEAR_WORD in __import__("edition_queue").LOW_ASK, f.NEAR_WORD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.NEAR_WORD)])
 # solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
 oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
 oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")
@@ -3440,6 +3459,27 @@ check("a name no lexicon lists is not taken even where the classifier reads it a
       f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"]))
 check("a listed word the classifier finds possible is taken", "SALINITY",
       f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
+check("a VLM reply a letter short or long and no word is mended to the one listed word of the light that "
+      "agrees with its crossings (HORPIPE, CASCAS); a real word of the wrong length is not (BASIS for PASS)",
+      ["HORNPIPE", "CASCA", None, "HORNPIPE", "CASCA"],
+      [f.near_word("HORPIPE", "??R?P?P?"), f.near_word("CASCAS", "C?S?A"), f.near_word("BASIS", "?A?S"),
+       f.vlm_word("HORPIPE", "??R?P?P?", [8], [cell_p(c) for c in "HORNPIPE"]),
+       f.vlm_word("CASCAS", "C?S?A", [5], [cell_p(c) for c in "CASCA"], "5")])
+check("a mended word stands on vlm_word's checks: EANS mends to EANES, but the classifier reads ERNES' R "
+      "(a 1989 print's 22-down), so it is not taken", ("EANES", None),
+      (f.near_word("EANS", "E?N?S"), f.vlm_word("EANS", "E?N?S", [5], [cell_p(c) for c in "ERNES"])))
+check("a reply of the light's length with a square it could not read (?) is filled to the one listed word of its "
+      "letters and crossings (HOR?PIPE, ?RFE); its own letters must agree with the crossings",
+      [("HORNPIPE", {3}), "ORFE", None, "ORFE"],
+      [f.mend_word("HOR?PIPE", "??R?P?P?"), f.near_word("?RFE", "?R?E"), f.mend_word("?RFA", "?R?E"),
+       f.vlm_word("?RFE", "?R?E", [4], [cell_p(c) for c in "ORFE"])])
+check("a mended word whose own letter, as the VLM read it, the classifier reads under the floor in an open cell is "
+      "not taken (OFISH mended to OFFISH for \"Like Jabberwocky thought\": its O read U, UFFISH); the letter the "
+      "mend added may be (BARSAC's B)",
+      [None, "OFFISH", "BARSAC"],
+      [f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "UFFISH"]),
+       f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "OFFISH"]),
+       f.vlm_word("ARSAC", "?A?S?C", [6], [cell_p("O")] + [cell_p(c) for c in "ARSAC"])])
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
 check("a VLM word the classifier reads every one of its 3+ open letters under VLM_ALONE_P is not taken (RUMPLE "
