@@ -9690,11 +9690,13 @@ def load_likely(path):
         _PAGES_FACTS.setdefault(k, v)
 
 
-def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fhs=None):
+def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fhs=None, hosting=()):
     """{edition dir: {fix: puzzles}} of the `reads` (dir: reason) whose
     re-read is predicted to file puzzles whole that their last read left
     short, by each fix (LIKELY, short_cause). An edition due as the issue
-    printing an answerless puzzle's solution (STALE_SCAN[0]) counts each
+    printing an answerless puzzle's solution (STALE_SCAN[0], or in `hosting`:
+    one blanket_or_fix gave its own puzzle's answers-only fix instead, its
+    stale scan rescanned all the same) counts each
     such puzzle whose heading its archive.org text links now (text_headings:
     HEADING_SECONDS a plan, the dirs in `order` first) and whose clues
     would stand. With `st` (a PaperPlan) and `fhs` (each read's input_hash),
@@ -9711,7 +9713,7 @@ def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fh
         if by:
             out[d] = dict(by)
     deadline = time.monotonic() + (HEADING_UPDATE_SECONDS if update else HEADING_SECONDS)
-    for d in [d for d in order if reads[d] == STALE_SCAN[0]] if wanting else ():
+    for d in [d for d in order if reads[d] == STALE_SCAN[0] or d in hosting] if wanting else ():
         scan = scans[rels[d]]
         day = scan.get("date") or day_of(d)
         linked = _text_linked(st, paper, d, rels[d], scan, day, held, deadline, (fhs or {}).get(d)) if day else None
@@ -10327,7 +10329,14 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
     else:
         def newest(d):
             return edition_date(d) or datetime.date.min
-    fixes = likely(paper, known, reads, rels, scans, solutions, held, sorted(reads, key=newest, reverse=True), st, fhs)
+    # A stale edition due as an answerless puzzle's next issue that blanket_or_fix gave its own puzzle's
+    # answers-only fix (SOLUTION_FIXES) instead of STALE_SCAN[0] (9f7427e056f) is rescanned all the same
+    # (its scan unit), so its text still predicts the answers it links.
+    hosting = {d for d in reads if d in stale_set and reads[d] in SOLUTION_FIXES
+               and any(p["number"] in answerless or p["number"] in answerless_own and has_host(d)
+                       for p in scans[rels[d]]["puzzles"])}
+    fixes = likely(paper, known, reads, rels, scans, solutions, held, sorted(reads, key=newest, reverse=True), st, fhs,
+                   hosting)
     for d, by in fixes.items():
         # A whole-corpus re-read a fix now completes a puzzle of is one that can change what was filed.
         if reads[d] == STALE_SCAN[1] and LIKELY[0] in by:
