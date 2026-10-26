@@ -3246,5 +3246,7 @@ tools/test_audit_updates.py                    does audit_updates class each rer
 building and checking the site
 tools/test_overtype.js                         typing over a filled word keeps going through
                                                its filled squares
+tools/grid_ocr_cache.py                        the solution-grid reader's recogniser outputs,
+                                               kept on disk by what they are of
 ```
 <!-- LAYOUT-END -->

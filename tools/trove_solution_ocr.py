@@ -84,6 +84,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter
 import downloads
+import grid_ocr_cache
 import media_manifest
 import trove_grid
 
@@ -120,14 +121,23 @@ def available():
     return None
 
 
+def rec_models():
+    """The model files recognisers() loads, in its order, none loaded (grid_ocr_cache keys by them)."""
+    import importlib.util
+    spec = importlib.util.find_spec("rapidocr_onnxruntime")
+    if spec is None or not spec.origin:
+        raise ImportError("No module named 'rapidocr_onnxruntime'")
+    models = [Path(spec.origin).parent / "models" / "ch_PP-OCRv4_rec_infer.onnx"]
+    return models + [m for m in EXTRA_MODELS if m.exists()]
+
+
 def recognisers():
-    """[(onnx session, the vocabulary indices of blank + A-Z)], one a model."""
+    """[(onnx session, the vocabulary indices of blank + A-Z)], one a model (rec_models)."""
     global _REC
     if _REC is None:
         import onnxruntime as ort
-        import rapidocr_onnxruntime
-        models = [Path(rapidocr_onnxruntime.__file__).parent / "models" / "ch_PP-OCRv4_rec_infer.onnx"]
-        models += [m for m in EXTRA_MODELS if m.exists()]
+        import rapidocr_onnxruntime  # noqa: F401
+        models = rec_models()
         import ocr_clues
         opts = ort.SessionOptions()
         opts.log_severity_level = 3
@@ -534,15 +544,18 @@ def read_lights(lts, crop):
     cuts out of the image: every light read in every rendering by every
     recogniser, a read counting only at the light's full length. sure is
     {cell: {letter: {(direction, rendering, recogniser)}}} for letters read at
-    MIN_PROB; full is {light: every full-length word read for it}."""
-    sure, full = {}, {}
+    MIN_PROB; full is {light: every full-length word read for it}. Each recogniser output is
+    kept by its cells, rendering and model (grid_ocr_cache): a crop read before reads no cell
+    again, its sessions not even loaded."""
+    sure, full, models = {}, {}, None
     for key, cells in lts.items():
         crops = [crop(r, c) for r, c in cells]
         if any(x.size == 0 for x in crops):
             continue
-        for (vi, render), (ri, rec) in itertools.product(enumerate(VARIANTS.values()),
-                                                         enumerate(recognisers())):
-            word, probs = read_word(word_image([render(x) for x in crops]), rec)
+        models = models or rec_models()
+        for (vi, render), ri in itertools.product(enumerate(VARIANTS.values()), range(len(models))):
+            word, probs = grid_ocr_cache.recognised(
+                crops, vi, ri, models, lambda: read_word(word_image([render(x) for x in crops]), recognisers()[ri]))
             if len(word) != len(cells):
                 continue
             full.setdefault(key, set()).add(word)
@@ -1738,7 +1751,12 @@ def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=F
     (`bounded`, `classify` and `framing` passed on).
     Else cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
     recogniser read the light itself as exactly that word, and the word is
-    known()."""
+    known(). The recogniser's outputs on `image` (a file) are kept by grid_ocr_cache."""
+    with grid_ocr_cache.crop_scope(image):
+        return _read_answers(image, grid, tight, bounded, classify, lean, enums, framing)
+
+
+def _read_answers(image, grid, tight, bounded, classify, lean, enums, framing):
     if tight:
         return read_framed(image, grid, bounded, classify, lean, enums, framing)
     gray = np.asarray(Image.open(image).convert("L"))
