@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Pelt with dried berries",
     "enumeration": "6"
    },
-   "solution": "PEPPER"
+   "solution": "PEPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pelt with",
+      "at": 0,
+      "meaning": "to pelt someone with missiles is to shower them, as with a barrage of shots or questions"
+     },
+     {
+      "text": "dried berries",
+      "at": 10,
+      "meaning": "peppercorns are the dried berries of a vine, ground as a spice"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to throw dried fruit at someone.",
+     "definitionFit": "The word is both a verb for bombarding someone and the spice made from dried peppercorns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pelt"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,69 @@
     "text": "Vegetable better cooked — nothing old should be swallowed",
     "enumeration": "8"
    },
-   "solution": "BEETROOT"
+   "solution": "BEETROOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "should be swallowed",
+       "at": 38,
+       "note": "the two letters are taken inside the rearranged word, as food goes down inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 17,
+         "note": "something cooked has been worked over and changed, so the letters of the word better are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "better",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 26,
+         "gives": "O",
+         "note": "nothing is zero, shaped like the letter O"
+        },
+        {
+         "words": "old",
+         "at": 34,
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cooking advice: a vegetable is better cooked, and nothing old should be eaten.",
+     "walkthrough": "'better' and 'cooked' read as kitchen advice, but 'cooked' is the anagram signal and the two Os go into the shuffled letters before the final T.",
+     "definitionFit": "The red root of the beet plant is a common salad and soup vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowed"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +147,36 @@
     "text": "These regions are hell!",
     "enumeration": "6"
    },
-   "solution": "NETHER"
+   "solution": "NETHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "These regions are hell!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "These regions are hell!",
+       "at": 0,
+       "note": "the ... regions are the underworld, so the word that goes with regions here makes them hell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated complaint about some awful part of the world.",
+     "walkthrough": "The phrase 'nether regions' means the underworld, and also, as a coy euphemism, the private parts.",
+     "definitionFit": "Nether means lower, and the lower regions of old cosmology are the underworld of the damned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "regions"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +190,59 @@
     "text": "Bring up empty envelope? Gold coin is inside",
     "enumeration": "7"
    },
-   "solution": "EDUCATE"
+   "solution": "EDUCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bring up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is inside",
+       "at": 35,
+       "note": "the coin sits within the two remaining letters of the emptied word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 9,
+         "note": "an empty envelope has nothing between its edges, so only its first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "envelope",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "Gold coin",
+       "at": 25,
+       "gives": "DUCAT",
+       "note": "a ducat was a gold coin used across medieval Europe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opens an envelope that should be empty and finds a gold coin inside.",
+     "walkthrough": "'empty' is the convention of removing a word's contents, keeping only its outer letters; the ducat was a Venetian gold coin.",
+     "definitionFit": "To bring up a child includes schooling and teaching them, the sense of instruct or train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bring"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +256,36 @@
     "text": "I found it in Greece",
     "enumeration": "6"
    },
-   "solution": "EUREKA"
+   "solution": "EUREKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I found it in Greece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I found it in Greece",
+       "at": 0,
+       "note": "the Greek word Archimedes is said to have shouted in his bath means I have found it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller boasting of a discovery made on holiday in Greece.",
+     "walkthrough": "Archimedes supposedly cried this Greek word on discovering displacement in his bath.",
+     "definitionFit": "The exclamation is Greek for I have found it, used for any triumphant discovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +305,36 @@
      }
     ]
    },
-   "solution": "AIRMILES"
+   "solution": "AIRMILES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Points collected on the fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Points collected on the fly",
+       "at": 0,
+       "note": "on the fly usually means hastily, but here it means while flying, and the points are a frequent flyer reward"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scoring points quickly, without planning.",
+     "walkthrough": "'on the fly' looks like the idiom for improvising; it means literally while flying.",
+     "definitionFit": "Air Miles is a loyalty scheme whose points accrue as you take flights and spend with partners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +348,49 @@
     "text": "Ministers always in tears",
     "enumeration": "9"
    },
-   "solution": "REVERENDS"
+   "solution": "REVERENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ministers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "the word for always is placed inside the word for tears"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tears",
+       "at": 20,
+       "gives": "RENDS",
+       "note": "rends means tears apart"
+      },
+      {
+       "words": "always",
+       "at": 10,
+       "gives": "EVER",
+       "note": "ever means always, as in ever hopeful"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clergymen are perpetually weeping.",
+     "walkthrough": "'tears' reads as crying but is the verb, RENDS.",
+     "definitionFit": "Clergy are given the title Reverend, and church ministers are such clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +404,49 @@
     "text": "I would follow nasty smell that's close",
     "enumeration": "5"
    },
-   "solution": "HUMID"
+   "solution": "HUMID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follow",
+       "at": 8,
+       "note": "the contraction for I would comes after the word for a bad smell"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nasty smell",
+       "at": 15,
+       "gives": "HUM",
+       "note": "hum is British slang for a bad smell"
+      },
+      {
+       "words": "I would",
+       "at": 0,
+       "gives": "ID",
+       "note": "I'd is the contraction of I would"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they would come after a bad smell that's nearby.",
+     "walkthrough": "HUM is British slang for a stink. 'close' is the weather sense, not near.",
+     "definitionFit": "Close weather is muggy and airless, heavy with moisture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +466,36 @@
      }
     ]
    },
-   "solution": "SPOTCHECK"
+   "solution": "SPOTCHECK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impromptu test for measles?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Impromptu test for measles?",
+       "at": 0,
+       "note": "a surprise inspection is named, and the measles joke reads it as checking for spots"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's surprise examination for a spotty disease.",
+     "walkthrough": "Measles causes a rash of spots, so a check for spots would detect it.",
+     "definitionFit": "A random unannounced inspection is called this, and the phrase literally describes looking for spots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "measles"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +509,48 @@
     "text": "Disreputable motor yacht on the water",
     "enumeration": "5"
    },
-   "solution": "SEAMY"
+   "solution": "SEAMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disreputable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 25,
+       "note": "in this across clue the yacht's letters sit on, that is after, the letters for the water"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the water",
+       "at": 28,
+       "gives": "SEA",
+       "note": "the sea is the water a boat floats on"
+      },
+      {
+       "words": "motor yacht",
+       "at": 13,
+       "gives": "MY",
+       "note": "MY is the prefix for a motor yacht, as in MY Britannia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady motor yacht out on the sea.",
+     "definitionFit": "The seamy side of life is its sordid, unsavoury part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "motor"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +564,43 @@
     "text": "Reportedly did well in exam for history",
     "enumeration": "4"
    },
-   "solution": "PAST"
+   "solution": "PAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "history",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PAST",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reported speech is heard, so the word is the one that sounds like the given phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "did well in exam",
+       "at": 11,
+       "gives": "PASSED",
+       "note": "to pass an exam is to succeed in it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apparently did well in a history exam.",
+     "definitionFit": "Bygone times and events make up history, the record of former days."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "history"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +614,36 @@
     "text": "One gets coverage in Mail",
     "enumeration": "6"
    },
-   "solution": "ARMOUR"
+   "solution": "ARMOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One gets coverage in Mail",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One gets coverage in Mail",
+       "at": 0,
+       "note": "a knight in chain mail is covered by protective metal, rather than featured in a newspaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets written about in the Daily Mail newspaper.",
+     "walkthrough": "The Mail is a British newspaper, but mail is also chain mail, linked metal protection.",
+     "definitionFit": "Chain mail is a form of protective metal covering for the body worn in battle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mail"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +667,31 @@
      }
     ]
    },
-   "solution": "TOAFAULT"
+   "solution": "TOAFAULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Why repairer is called",
+      "at": 0,
+      "meaning": "a repair person is summoned out to deal with a breakdown"
+     },
+     {
+      "text": "excessively",
+      "at": 23,
+      "meaning": "to an excessive degree, as in generous beyond reason"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks why a repairman gets called out so often.",
+     "definitionFit": "The idiom means overly, as in honest beyond what is wise, and literally describes going to a breakdown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "excessively"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +705,30 @@
     "text": "Sort of farm that stores electricity",
     "enumeration": "7"
    },
-   "solution": "BATTERY"
+   "solution": "BATTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of farm",
+      "at": 0,
+      "meaning": "a ... farm keeps hens in rows of cages"
+     },
+     {
+      "text": "that stores electricity",
+      "at": 13,
+      "meaning": "a cell holding electric charge for later use"
+     }
+    ],
+    "explanation": {
+     "surface": "A kind of farm that holds electrical power.",
+     "definitionFit": "The word names both intensive caged poultry farming and a cell that holds electric charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "farm"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +748,41 @@
      }
     ]
    },
-   "solution": "ATRANDOM"
+   "solution": "ATRANDOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without planning",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rehearsed",
+       "at": 10,
+       "note": "going over a play again and again reworks it, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drama not",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unrehearsed drama put on without planning.",
+     "walkthrough": "'not rehearsed' reads as one phrase, but 'not' is fodder and 'rehearsed' alone signals the anagram.",
+     "definitionFit": "Doing something haphazardly, by chance, is acting without any plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rehearsed"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +796,40 @@
     "text": "In seminar, open binder",
     "enumeration": "4"
    },
-   "solution": "ROPE"
+   "solution": "ROPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "binder",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the letters are found sitting in the words seminar and open, across the comma"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seminar, open",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a seminar, a ring binder lies open.",
+     "definitionFit": "A cord is used to tie or bind things together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "binder"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +843,43 @@
     "text": "Elegant writer's catalogue for pig farmer?",
     "enumeration": "7"
    },
-   "solution": "STYLIST"
+   "solution": "STYLIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elegant writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pig farmer?",
+       "at": 31,
+       "gives": "STY",
+       "note": "a pig farmer keeps a sty, the pen pigs live in"
+      },
+      {
+       "words": "catalogue",
+       "at": 17,
+       "gives": "LIST",
+       "note": "a list is a catalogue of items"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sophisticated author compiles an inventory for someone who raises pigs.",
+     "walkthrough": "'Elegant writer' is a stylish prose writer, a writer with style.",
+     "definitionFit": "A writer prized for polished, graceful prose is a master of style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "farmer"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +893,30 @@
     "text": "An abundance of beatings",
     "enumeration": "8"
    },
-   "solution": "LASHINGS"
+   "solution": "LASHINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An abundance",
+      "at": 0,
+      "meaning": "... means a great plenty, as in ... of cream"
+     },
+     {
+      "text": "beatings",
+      "at": 16,
+      "meaning": "floggings with a whip"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone receives plenty of beatings.",
+     "definitionFit": "The word means both floggings and, informally in Britain, a large plentiful quantity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abundance"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +936,58 @@
      }
     ]
    },
-   "solution": "STIRFRY"
+   "solution": "STIRFRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 18,
+       "note": "in a down clue the first part sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooked",
+         "at": 11,
+         "note": "cooked means altered by preparation, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "first",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "railway",
+       "at": 21,
+       "gives": "RY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meal first cooked aboard a train.",
+     "walkthrough": "'cooked' rearranges FIRST to STIRF.",
+     "definitionFit": "Food quickly fried while stirred in a wok is a classic Chinese dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1001,31 @@
     "text": "Mad to cause vessel to leak?",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0,
+      "meaning": "eccentric or crazy, as an adjective for a wild idea"
+     },
+     {
+      "text": "to cause vessel to leak?",
+      "at": 4,
+      "meaning": "breaking a pot would make it leak"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks if it's mad to make a container leak.",
+     "definitionFit": "The word is an informal adjective for crazy, and read literally means splitting a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1045,42 @@
      }
     ]
    },
-   "solution": "COPOUT"
+   "solution": "COPOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoid responsibility",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "policeman",
+       "at": 25,
+       "gives": "COP",
+       "note": "cop is slang for a police officer"
+      },
+      {
+       "words": "dismissed",
+       "at": 41,
+       "gives": "OUT",
+       "note": "a batsman dismissed in cricket is out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is sacked for shirking his duties.",
+     "walkthrough": "'dismissed' suggests sacking but is the cricket sense, out.",
+     "definitionFit": "The phrasal verb means to back out of a duty or commitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dismissed"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1094,41 @@
     "text": "Gives a false face",
     "enumeration": "6"
    },
-   "solution": "VISAGE"
+   "solution": "VISAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "face",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "false",
+       "at": 8,
+       "note": "a false thing is not genuine, so these letters are put in a new, untrue order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gives a",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presents a false appearance.",
+     "walkthrough": "'false face' looks like a mask; 'face' alone is the definition.",
+     "definitionFit": "Visage is a literary word for a person's countenance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1142,45 @@
     "text": "Vehicle is hard to make disappear",
     "enumeration": "6"
    },
-   "solution": "VANISH"
+   "solution": "VANISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disappear",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "VAN",
+       "note": "a van is a road vehicle"
+      },
+      {
+       "words": "is",
+       "at": 8
+      },
+      {
+       "words": "hard",
+       "at": 11,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is difficult to make a vehicle vanish.",
+     "definitionFit": "To vanish is to go out of sight suddenly, to be seen no more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1194,31 @@
     "text": "Old woman tied up in knots?",
     "enumeration": "6"
    },
-   "solution": "GRANNY"
+   "solution": "GRANNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old woman",
+      "at": 0,
+      "meaning": "a grandmother, informally"
+     },
+     {
+      "text": "tied up in knots?",
+      "at": 10,
+      "meaning": "a ... knot is a badly tied reef knot"
+     }
+    ],
+    "explanation": {
+     "surface": "An elderly lady gets tangled up.",
+     "definitionFit": "The word is informal for grandmother and names a knot, the faulty reef knot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knots"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1232,40 @@
     "text": "Trim English bird",
     "enumeration": "5"
    },
-   "solution": "SNIPE"
+   "solution": "SNIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Trim",
+       "at": 0,
+       "gives": "SNIP",
+       "note": "to snip is to trim with scissors"
+      },
+      {
+       "words": "English",
+       "at": 5,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clipping an English bird.",
+     "definitionFit": "The long-billed wading bird of marshes, famous for being hard to shoot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1279,36 @@
     "text": "This boy is usually a girl",
     "enumeration": "9"
    },
-   "solution": "PRINCIPAL"
+   "solution": "PRINCIPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This boy is usually a girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "This boy is usually a girl",
+       "at": 0,
+       "note": "in British pantomime the young male hero is traditionally played by a young actress"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox about a boy who is normally a girl.",
+     "walkthrough": "Pantomime is a British family Christmas theatre show where the hero, the 'principal boy', is played by a woman.",
+     "definitionFit": "The leading boy's role in pantomime is named this, from its sense of chief or main."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1322,36 @@
     "text": "One's arrival is a relief for the surgery",
     "enumeration": "5"
    },
-   "solution": "LOCUM"
+   "solution": "LOCUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's arrival is a relief for the surgery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's arrival is a relief for the surgery",
+       "at": 0,
+       "note": "relief means a stand-in, here a doctor who covers for an absent one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Busy practice staff are glad when help turns up.",
+     "walkthrough": "'relief' is the stand-in sense, and 'surgery' is the British word for a doctor's practice.",
+     "definitionFit": "A doctor who temporarily stands in for another at a practice is called this, from Latin locum tenens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1371,30 @@
      }
     ]
    },
-   "solution": "PRESSGANG"
+   "solution": "PRESSGANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compel to join",
+      "at": 0,
+      "meaning": "to force someone into service, as navies once seized sailors"
+     },
+     {
+      "text": "group of journalists",
+      "at": 15,
+      "meaning": "a crowd of reporters, read literally"
+     }
+    ],
+    "explanation": {
+     "surface": "Reporters being forced to sign up to something.",
+     "definitionFit": "The verb means to coerce into service, from the gangs who forced men into the navy; literally a band of reporters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Compel"
+    }
+   }
   }
  ]
 }
