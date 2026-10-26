@@ -4609,9 +4609,11 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     blank or do not settle (weak_lights), every column when the grid does not
     lie on them or nothing parses. A page they settle is filed with no ask."""
     if (hit or {}).get("heldTitle"):
-        # The title the page's scan lost, its held puzzle's (HELD_TITLE): the answers alone, no VLM
-        # ask, never a full read (the page has no title box to lay its clues from).
-        got = answers_only(d, found, hit, solutions, ask_vlm=False, crossed=True)
+        # The title the page's scan lost, its held puzzle's (HELD_TITLE): the answers alone, never a full
+        # read (the page has no title box to lay its clues from); no VLM ask but for a HELD_STRIPS reread
+        # (_HELD_ASK), and then only of a grid that proves the held puzzle's (answers_only: held_proven).
+        got = answers_only(d, found, hit, solutions, ask_vlm=d is not None and d.name in _HELD_ASK["names"],
+                           crossed=True)
         return got or ({"number": hit["number"], "leaf": hit["leaf"], "heldTitle": True,
                         "skip": "a held title read answers-only: no linked solution grid gave its answers"}, None)
     if not ocr_first:
@@ -5024,6 +5026,10 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         if number != hit["number"]:
             verdict["read_as"] = hit["number"]
         return verdict, None
+    # A held title (HELD_STRIPS) asks the VLM only of a grid its reading proves the held puzzle's (held_proven):
+    # with no title read, a grid that gives the held answers is the only sign the strips are this puzzle's.
+    if ask_vlm and hit.get("heldTitle") and not held_proven(es, answers):
+        ask_vlm = False
     # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
     strips = info.pop("strips", None)
     asked = {}
@@ -7641,12 +7647,43 @@ HELD_TITLE = "untitled page, its held puzzle's answers read"
 #: Once: a row read before this is due HELD_TITLE. 10-26: again, its answers judged by held_proven
 #: (10-25's reads left out every uncrossed answer of a grid that gave the held answers).
 REREAD_HELD_TITLE = "2026-10-26T01:00:00+00:00"
+#: The due reason of a Times row a held-title read (HELD_TITLE: answers-only, no VLM ask) read before
+#: REREAD_HELD_STRIPS, its held puzzle (every clue, from this page) left 1 to LATE_MAX lights blank and the
+#: grid's crop kept (held_strips): read so again, its blank lights' strips asked (vlm_lights, late_strips)
+#: when its grid reading proves the held puzzle's (held_proven). 10-26 03:20Z: 172 Times puzzles (1950s 108,
+#: 1960s 39, 1940s 18) stood 1-5 short after their HELD_TITLE rereads with no unit planned: 158 blank lights
+#: with a strip cut and never asked, ~160 with none cut; every grid proven. Once, as an answers-only reread
+#: (SOLUTION_FIXES).
+HELD_STRIPS = "solution short, its held title's strips asked since"
+REREAD_HELD_STRIPS = "2026-10-26T04:15:00+00:00"
+#: Editions (dir names) a held-title read asks the VLM for (HELD_STRIPS), set by _run like _KEEP_VLM.
+_HELD_ASK = {"names": set()}
 
 
-def held_titles(row, cache=None):
+def held_strips(row, cache=None):
+    """Whether Times ledger `row` is due HELD_STRIPS: a held title (held_titles, read before
+    REREAD_HELD_STRIPS) of a puzzle held 1 to LATE_MAX answers short whose linked grid's crop is kept."""
+    hits = held_titles(row, cache, REREAD_HELD_STRIPS)
+    if not hits:
+        return False
+    paper = paper_of(row.get("edition", ""))
+    for v in row.get("verdicts", ()):
+        if not v.get("solutionFrom") or v.get("wrongGrid") or v.get("number") != hits[0]["number"]:
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, hits[0]["number"])].read_text())
+        except (KeyError, OSError, ValueError):
+            continue
+        blank = sum(1 for e in held.get("entries") or () if not e.get("solution"))
+        if 0 < blank <= LATE_MAX and (CROPS / "solutions" / f"{v['solutionFrom'].rsplit(' leaf ', 1)[0]}_{v['number']}.png").exists():
+            return True
+    return False
+
+
+def held_titles(row, cache=None, before=REREAD_HELD_TITLE):
     """[{"number", "leaf", "box": None, "heldTitle": True}] for Times ledger `row` (HELD_TITLE): its scan by
     current scan code holds no title and it has no verdict but one (not refused) of the held puzzle's
-    number (its title the scan lost), read before REREAD_HELD_TITLE, and the one
+    number (its title the scan lost), read before `before` (REREAD_HELD_TITLE; held_strips' later), and the one
     puzzle its series holds for the scan's date is held with every clue and not every answer, by this
     tool, from a leaf of this edition (page_url); else []. The hit is the held puzzle's title as the
     page's lost one: filed_number files it only as the number the date's count gives, and answers_only
@@ -7665,7 +7702,7 @@ def held_titles(row, cache=None):
         return []
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED or row.get("scanKey") not in current_keys(paper) \
-            or not scan_queue.read_before(row, scan_queue.when(REREAD_HELD_TITLE)):
+            or not scan_queue.read_before(row, scan_queue.when(before)):
         return []
     try:
         day = datetime.date.fromisoformat(scan["date"])
@@ -7690,9 +7727,9 @@ def held_titles(row, cache=None):
     return []
 
 
-def held_titled(row, cache=None):
-    """`row`'s scan with its held_titles as its titles, or None when it has none."""
-    hits = held_titles(row, cache)
+def held_titled(row, cache=None, before=REREAD_HELD_TITLE):
+    """`row`'s scan with its held_titles (read before `before`) as its titles, or None when it has none."""
+    hits = held_titles(row, cache, before)
     return {**row["scan"], "puzzles": hits} if hits else None
 
 
@@ -8698,6 +8735,8 @@ def fix_reason(row):
         return NO_TITLE_RESCAN
     if held_titles(row):
         return HELD_TITLE
+    if held_strips(row):
+        return HELD_STRIPS
     # Ahead of the short third column: a lost write's reread is a full read by current code (the third
     # column's too), and evidence; that reason is a blanket one bar THREE_COLUMNS_YEARS' (10-25: no such
     # unit planned, 273 of 2007-08's pages lost so).
@@ -9275,7 +9314,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -9785,7 +9824,8 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS)
+                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
+                  HELD_STRIPS)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -10283,7 +10323,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     solutions, sources = solution_sources(dirs, scans, rels, held_dates(paper.series),
                                           sister_solutions(cache, paper or TIMES))
     due = {}
-    keep_vlm = set()
+    keep_vlm, held_ask = set(), set()
     for d in dirs:
         rel = rels[d]
         if editions and rel not in editions or d in held_back or fresh is not None and rel not in fresh:
@@ -10292,7 +10332,10 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
-        titled = held_titled(known[rel], cache) if why == HELD_TITLE else None
+        titled = held_titled(known[rel], cache) if why == HELD_TITLE else \
+            held_titled(known[rel], cache, REREAD_HELD_STRIPS) if why == HELD_STRIPS else None
+        if titled and why == HELD_STRIPS:
+            held_ask.add(d.name)
         if titled:
             # Read under its held puzzle's title (held_titles), answers-only; the row keeps that scan, so
             # its titles and solutionsSeen stand as read.
@@ -10308,6 +10351,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     # Read only when something is due: a unit that finds nothing due ends here.
     held = held_numbers(paper.series) if due else set()
     _KEEP_VLM["names"] = keep_vlm
+    _HELD_ASK["names"] = held_ask
     if due:
         held_dates(paper.series)  # read once here: the forked workers start with it
     keys = sorted(due, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(due)

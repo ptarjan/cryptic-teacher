@@ -2952,6 +2952,30 @@ with tempfile.TemporaryDirectory() as ht_dir:
           [f.held_proven(hp_es, hp_four), f.held_proven(hp_es, {**hp_four, "5-across": "GOLD"}),
            f.held_proven(hp_es, {k: v for k, v in hp_four.items() if k != "4-across"}),
            f.held_proven(hp_es, {**hp_four, "5-across": "KILO"})])
+    # held_strips(): a row a held-title read (no VLM ask) wrote since REREAD_HELD_TITLE, before REREAD_HELD_STRIPS,
+    # its held puzzle 1 to LATE_MAX short and the grid's crop kept, is read again asking its strips (HELD_STRIPS).
+    hs_crops, f.CROPS = f.CROPS, Path(ht_dir) / "crops"
+    (f.CROPS / "solutions").mkdir(parents=True)
+    hs_crop = f.CROPS / "solutions" / "1956-09-17_8235.png"
+    hs_crop.write_bytes(b"png")
+    hs_row = {**ht_row, "readAt": "2026-10-26T02:00:00+00:00", "scan": {**ht_row["scan"], "puzzles": [ht_hit]},
+              "verdicts": [{"number": 8235, "id": "times-8235", "answersOnly": True, "solutionFrom": "1956-09-17 leaf 0"}]}
+    hs_es = lambda blank: [{"number": n, "direction": "across", "solution": None if n <= blank else "WORD"} for n in range(1, 9)]
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(2)}))
+    hs_due = [f.held_strips(hs_row, ht_dir), f.held_titles(hs_row, ht_dir), f.RANKS[f.HELD_STRIPS],
+              f.HELD_STRIPS in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_STRIPS, {}, {}), f.HELD_STRIPS.startswith("solution short")]
+    hs_not = [f.held_strips({**hs_row, "readAt": "2026-10-26T05:00:00+00:00"}, ht_dir),
+              f.held_strips({**hs_row, "verdicts": [{**hs_row["verdicts"][0], "wrongGrid": "x"}]}, ht_dir)]
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(6)}))
+    hs_not.append(f.held_strips(hs_row, ht_dir))
+    ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(2)}))
+    hs_crop.unlink()
+    hs_not.append(f.held_strips(hs_row, ht_dir))
+    f.CROPS = hs_crops
+    ht_file.write_text(json.dumps(ht_held))
+    check("a held title read since REREAD_HELD_TITLE, 1-5 short, its crop kept, is due HELD_STRIPS (rank 2, answers-only)",
+          [True, [], 2, True, False, True], hs_due)
+    check("... not read after REREAD_HELD_STRIPS, of another puzzle's grid, 6 short, or with no crop", [False] * 4, hs_not)
     ht_state[0] = (True, True)
     ht_none.append(f.held_titles(ht_row, ht_dir))
     ht_state[0] = (False, False)
@@ -2979,9 +3003,15 @@ ht_ao, ht_rp = f.answers_only, f.read_page
 f.answers_only = lambda *a, **k: ht_calls.append(k) or None
 f.read_page = lambda *a, **k: (_ for _ in ()).throw(AssertionError("a held title read in full"))
 ht_v, ht_p = f.read_puzzle(None, {"puzzles": [ht_hit]}, ht_hit, {})
+# A HELD_STRIPS reread's edition (_HELD_ASK) asks its strips; another edition's held title does not.
+f._HELD_ASK["names"] = {"1956-09-15"}
+f.read_puzzle(Path("GaleTimes1956UKEnglish/1956-09-15"), {"puzzles": [ht_hit]}, ht_hit, {})
+f.read_puzzle(Path("GaleTimes1956UKEnglish/1956-09-16"), {"puzzles": [ht_hit]}, ht_hit, {})
+f._HELD_ASK["names"] = set()
 f.answers_only, f.read_page = ht_ao, ht_rp
-check("a held title its grid gives no answers is skipped, its answers read with no VLM ask",
-      (None, True, 8235, [{"ask_vlm": False, "crossed": True}]), (ht_p, "skip" in ht_v, ht_v["number"], ht_calls))
+check("a held title its grid gives no answers is skipped, its answers read with no VLM ask but for HELD_STRIPS's",
+      (None, True, 8235, [{"ask_vlm": False, "crossed": True}, {"ask_vlm": True, "crossed": True},
+                          {"ask_vlm": False, "crossed": True}]), (ht_p, "skip" in ht_v, ht_v["number"], ht_calls))
 # uncrossed(): an answer with a cell another light crosses unanswered is left out (one pass).
 # 3x3 grid, its middle cell black: 1-across, 1-down, 2-down, 3-across round the edge.
 ht_grid = [list("..."), list(".#."), list("...")]
