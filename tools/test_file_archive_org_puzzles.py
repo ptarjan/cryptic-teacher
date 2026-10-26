@@ -3786,6 +3786,45 @@ check("a leader's sure misread spelling no word does not veto another lattice's 
       "BED", framed({(2, 0): "B", (2, 1): "Q", (2, 2): "D"}))
 check("a leader's sure letter spelling another word leaves the light unread",
       None, framed({(2, 0): "B", (2, 1): "E", (2, 2): "G"}))
+# grid_ocr_cache: read_lights' recogniser outputs are kept on disk by their cells, rendering and
+# model, per crop file: a fresh process (memo cleared) reads the same cells off disk, exactly
+# (float32 probabilities), the recogniser never run; other cells are read. 10-26: every reader
+# fix pushed read each Times grid again (~65 of ~95 CPU-s a grid in the recogniser).
+import grid_ocr_cache as goc
+real_cache = goc.CROP_CACHE
+goc.CROP_CACHE = Path(os.environ["TMP"]) / "grid_ocr"
+fake_model = Path(os.environ["TMP"]) / "fake_rec.onnx"
+fake_model.write_bytes(b"model")
+cells_a = [np.full((9, 9), 40, np.uint8), np.full((9, 9), 200, np.uint8)[1:8, 1:8]]
+probs_a = [float(np.float32(0.93)), float(np.float32(0.5123))]
+runs = []
+
+
+def fake_read(word, probs):
+    def read():
+        runs.append(word)
+        return word, list(probs)
+    return read
+
+
+crop_png = os.path.join(os.environ["TMP"], "grid3.png")
+try:
+    goc._MEMO.clear()
+    with goc.crop_scope(crop_png):
+        first = goc.recognised(cells_a, 1, 0, [fake_model], fake_read("AB", probs_a))
+    goc._MEMO.clear()
+    with goc.crop_scope(crop_png):
+        again = goc.recognised(cells_a, 1, 0, [fake_model], fake_read("XX", [0.1, 0.1]))
+        other = goc.recognised(cells_a, 2, 0, [fake_model], fake_read("CD", probs_a))
+    goc._MEMO.clear()
+    with goc.crop_scope(io.BytesIO(b"no file")):
+        unfiled = goc.recognised(cells_a, 3, 0, [fake_model], fake_read("EF", probs_a))
+finally:
+    goc.CROP_CACHE = real_cache
+    goc._MEMO.clear()
+check("a crop's recogniser outputs read again off disk, exactly; other renderings read",
+      [("AB", probs_a), ("AB", probs_a), ("CD", probs_a), ("EF", probs_a), ["AB", "CD", "EF"], 1],
+      [first, again, other, unfiled, runs, len(list((Path(os.environ["TMP"]) / "grid_ocr").glob("*.json.z")))])
 # agreed_reads(): two lattices reading a light surely in every cell as the
 # one listed word among its whole reads take it, though its numbered cell's
 # glyph match refused it (16752 REPINED, 14290 EGGDANCE); a rival whole read

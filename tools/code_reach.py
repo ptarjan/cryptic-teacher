@@ -47,8 +47,10 @@ STORE = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryp
 PRUNE_DAYS = 7
 #: Modules not followed by default: the desktop transport (ocr_remote runs
 #: the same code there) and its busy probe change how a result travels,
-#: never what it is.
-TRANSPORT = ("ocr_remote", "desktop_busy")
+#: never what it is. grid_ocr_cache keeps the solution-grid recogniser's outputs
+#: on disk by their input and engine version: it changes where an output comes
+#: from, never what it is.
+TRANSPORT = ("ocr_remote", "desktop_busy", "grid_ocr_cache")
 #: Definitions (module.name) that size a computation's thread pools, never
 #: what it computes: a key over OCR results may leave them out (an `opaque`
 #: entry naming one definition, not a module).

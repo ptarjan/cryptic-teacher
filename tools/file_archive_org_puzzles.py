@@ -4702,8 +4702,11 @@ def _stage_line(d, hit, t0, outcome):
     """Log answers_only's CPU for one title (since `t0`), by stage, and the unit's CPU so far."""
     try:
         spent = {k: round(v, 1) for k, v in _STAGE_CPU.items() if v >= 0.1}
+        # The grid recogniser's outputs kept (grid_ocr_cache) and read this unit.
+        ocr = (sys.modules.get("grid_ocr_cache") and sys.modules["grid_ocr_cache"].COUNTS) or {}
         print(f"answers-only cpu {getattr(d, 'name', d)} No {(hit or {}).get('number')}: "
-              f"{time.process_time() - t0:.1f}s {outcome}; {spent}; unit {time.process_time():.1f}s",
+              f"{time.process_time() - t0:.1f}s {outcome}; {spent}; unit {time.process_time():.1f}s; "
+              f"grid ocr kept {ocr.get('hit', 0)} read {ocr.get('miss', 0)}",
               file=sys.stderr, flush=True)
     except Exception:
         pass
@@ -7979,7 +7982,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "48889b2b90d6ecea": "8417cfb08f3a9706",
                   # near_read (a grid read just under SOLUTION_BLOCKS with half its lights) and
                   # aligned_framings (MATCHED_LATTICE only): due once as NEAR_GRID.
-                  "2e75c9e00b077a82": "8417cfb08f3a9706"}
+                  "2e75c9e00b077a82": "8417cfb08f3a9706",
+                  # grid_ocr_cache (read_lights' recogniser outputs kept on disk by their input):
+                  # the same readings.
+                  "c9df82853ceacd39": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -7990,8 +7996,9 @@ def solved(sol, grid, above=False, lean=False, enums=None):
     solution_key() stays the reader's."""
     if not _SOLVED_CODE:
         import code_reach
-        _SOLVED_CODE.append(code_reach.key("file_archive_org_puzzles", {"read_solution", "page"},
-                                           opaque=code_reach.TRANSPORT + code_reach.SIZING))
+        code = code_reach.key("file_archive_org_puzzles", {"read_solution", "page"},
+                              opaque=code_reach.TRANSPORT + code_reach.SIZING)
+        _SOLVED_CODE.append(_SOLVED_PINS.get(code, code))
     d, leaf = sol["dir"], sol["leaf"]
     key = hashlib.sha256(json.dumps([_SOLVED_CODE[0], os.stat(d / f"leaf_{leaf:04d}.jpg").st_size, leaf,
                                      list(sol["box"]), bool(above), list(grid)]
@@ -8012,6 +8019,10 @@ def solved(sol, grid, above=False, lean=False, enums=None):
 
 
 _SOLVED_CODE = []
+#: {_SOLVED_CODE of newer code: the one it stands in for}, for a change that reads the same: the
+#: readings kept under the old one stand. grid_ocr_cache (read_lights' recogniser outputs kept on
+#: disk by their input; outputs compared alike on cached crops, 10-26).
+_SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03"}
 
 
 def input_hash(d):

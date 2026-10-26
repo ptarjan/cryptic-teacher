@@ -872,6 +872,7 @@ LAYOUT = [
     ("fetching", "tools/audit_updates.py", "audit the clue text each reread (\"Update ...\" commit) wrote: glitches it brought in or took out"),
     ("fetching", "tools/test_audit_updates.py", "does audit_updates class each reread change introduced, fixed or neutral, and alert on a new class?"),
     ("building and checking the site", "tools/test_overtype.js", "typing over a filled word keeps going through its filled squares"),
+    ("building and checking the site", "tools/grid_ocr_cache.py", "the solution-grid reader's recogniser outputs, kept on disk by what they are of"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
