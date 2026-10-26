@@ -85,7 +85,7 @@ same("the blocks lexicon, read only to stamp an asset each page re-checks",
      fp(blob_of={"tools/data/lexicons/blocks.json": Z, "tools/data/lexicons/abbreviations.json": Z}))
 moved("the stylesheet", fp(blob_of={"style.css": Z}))
 same("the budgets table, a test, a doc", fp(blob_of={"tools/data/deploy_budgets.json": Z,
-                                                      "tools/test_validate_scope.sh": Z, "APP.md": Z}))
+                                                      "tools/test_validate_scope.sh": Z, "docs/APP.md": Z}))
 same("the homepage, restamped by every reindex", fp(blob_of={"index.html": Z}))
 
 code = pc.reached()

@@ -12,7 +12,7 @@
 # (between <!-- NAME-START ... --> and <!-- NAME-END -->) and code fences are
 # skipped: build_readme.py rewrites the first, and the second is not prose.
 #
-# It checks README.md, APP.md, BACKFILLS.md, STYLE.md, tools/data/README.md
+# It checks README.md, docs/APP.md, docs/BACKFILLS.md, docs/STYLE.md, tools/data/README.md
 # and docs/*.md, and first checks itself on a fixture.
 import os
 import sys
@@ -84,7 +84,7 @@ if got != [1, 2]:
     print(f"FAIL: self-test flagged lines {got}, want [1, 2]", file=sys.stderr)
     sys.exit(1)
 
-files = ["README.md", "APP.md", "BACKFILLS.md", "STYLE.md", "tools/data/README.md"] + sorted(glob.glob("docs/*.md"))
+files = ["README.md", "docs/APP.md", "docs/BACKFILLS.md", "docs/STYLE.md", "tools/data/README.md"] + sorted(glob.glob("docs/*.md"))
 bad = 0
 for f in files:
     try:

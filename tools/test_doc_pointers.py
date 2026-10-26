@@ -30,7 +30,7 @@ os.chdir(REPO)
 import re
 import subprocess
 
-DOCS = ["README.md", "APP.md", "STYLE.md", "BACKFILLS.md", "docs/LAYOUT.md",
+DOCS = ["README.md", "docs/APP.md", "docs/STYLE.md", "docs/BACKFILLS.md", "docs/LAYOUT.md",
         "docs/AI_SOLVING.md", "docs/ARCHIVE_COVERAGE.md", "docs/FEATURES.md", "docs/PUZZLE_FORMAT.md",
         "docs/ADDING_PUZZLES.md", "docs/NIGHTLY.md", "tools/AUTHORING.md", "tools/data/README.md",
         "vendor/README.md"]

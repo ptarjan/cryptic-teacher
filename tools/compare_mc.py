@@ -463,15 +463,15 @@ def main():
           "clueFragment is named in prose but is NEVER highlighted in the live clue "
           "— this is the one MC does highlight (their fodder hint) that we do not.")
 
-    # ---------- APP.md cross-check ----------
-    # APP.md's "reference corpus" section was distilled from course.json's 55
+    # ---------- docs/APP.md cross-check ----------
+    # docs/APP.md's "reference corpus" section was distilled from course.json's 55
     # WORKED examples (each has a post-hint `explanation`), not from this
     # 24-record hints.jsonl (live daily hints, no `explanation` field at all —
-    # check the keys). Different snapshot, same site. Re-derive APP.md's cited
+    # check the keys). Different snapshot, same site. Re-derive docs/APP.md's cited
     # numbers here so a drift shows up as a printed mismatch, not a re-read of
     # prose that could quietly go stale.
     print("\n" + "-" * 78)
-    print("APP.md CROSS-CHECK — against course.json, the corpus it actually cites")
+    print("docs/APP.md CROSS-CHECK — against course.json, the corpus it actually cites")
     print("-" * 78)
     if not COURSE_PATH.exists():
         print(f"\n{COURSE_PATH} not found — skipping (also gitignored, local-only).")
@@ -496,21 +496,21 @@ def main():
             hs = v.get("hints") or []
             if answer and any(contains_word(h["text"], answer) for h in hs[:-1]):
                 leak += 1
-        print(f"\n  n examples                    {n}   (APP.md: 55)")
-        print(f"  3-hint / 2-hint split         {nhints[3]}/{nhints[2]}   (APP.md: 46/9)")
-        print(f"  indicators->fodder->definition {ind_fod_def}/{n}   (APP.md: 41 of 55)")
-        print(f"  double-def -> def1->def2       {dd_seq}   (APP.md: implied 'the exception')")
-        print(f"  every hint highlighted        {every_highlighted}   (APP.md: '156 of 156')")
-        print(f"  median words/hint             {statistics.median(all_words):.0f}   (APP.md: '~25')")
-        print(f"  median words/explanation      {statistics.median(exp_words):.0f}   (APP.md: '~73')")
-        print(f"  answer named before last hint {leak}/{n}   (APP.md: 'a hint never leaks the answer')")
-        print("\n  All check out. Two things APP.md doesn't say, both visible here:")
+        print(f"\n  n examples                    {n}   (docs/APP.md: 55)")
+        print(f"  3-hint / 2-hint split         {nhints[3]}/{nhints[2]}   (docs/APP.md: 46/9)")
+        print(f"  indicators->fodder->definition {ind_fod_def}/{n}   (docs/APP.md: 41 of 55)")
+        print(f"  double-def -> def1->def2       {dd_seq}   (docs/APP.md: implied 'the exception')")
+        print(f"  every hint highlighted        {every_highlighted}   (docs/APP.md: '156 of 156')")
+        print(f"  median words/hint             {statistics.median(all_words):.0f}   (docs/APP.md: '~25')")
+        print(f"  median words/explanation      {statistics.median(exp_words):.0f}   (docs/APP.md: '~73')")
+        print(f"  answer named before last hint {leak}/{n}   (docs/APP.md: 'a hint never leaks the answer')")
+        print("\n  All check out. Two things docs/APP.md doesn't say, both visible here:")
         print("  1. course.json (55, cited) and hints.jsonl (24, this task's input) are")
         print("     DIFFERENT snapshots — hints.jsonl has no `explanation` field at all,")
         print("     so 'the closing explanation ends warmly' cannot be checked against it.")
         print("  2. 4/55 course.json examples run definition BEFORE indicators/fodder —")
         print("     'their default order' is a strong majority, not a rule with one named")
-        print("     exception (double-definition); APP.md's wording already hedges this")
+        print("     exception (double-definition); docs/APP.md's wording already hedges this")
         print("     correctly ('default'), so this is a footnote, not a fix.")
 
     print("\n" + "=" * 78)

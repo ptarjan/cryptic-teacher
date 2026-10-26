@@ -763,7 +763,7 @@ unit_annotate() {  # id [solve]
     # to would let a settings edit made for an interactive session silently
     # retune the nightly job.
     # Opus on purpose: benchmarked head-to-head against Fable
-    # on 30078 (see APP.md), it matched — 23/25 types, 22/25 definitions,
+    # on 30078 (see docs/APP.md), it matched — 23/25 types, 22/25 definitions,
     # zero cryptic definitions, both hard clues solved — in the same wall time
     # for a third of the cost, because the bill is nearly all output tokens.
     WORKER_MODEL="$ANNOTATE_MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_JOB="the nightly update"

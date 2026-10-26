@@ -98,7 +98,7 @@ poke README.md "$corpus" '5. **Full walkthrough** — nightly-side'
 # A second, non-colliding change, so the pick is not empty once the index is
 # rebuilt. It has to be an existing tracked file: build_readme.py refuses to run
 # against a new file with no row in its layout table, and this function runs it.
-printf '\n<!-- the night'"'"'s own work -->\n' >> APP.md
+printf '\n<!-- the night'"'"'s own work -->\n' >> docs/APP.md
 git commit -qam "the night's work"
 git rebase -q upstream >/dev/null 2>&1
 check "the rebase did stop" "$(git diff --name-only --diff-filter=U)" "README.md"
@@ -106,7 +106,7 @@ rebuild_generated_conflicts; check "returns zero" "$?" "0"
 # The state directory, not REBASE_HEAD: git leaves that ref behind afterwards.
 check "the rebase finished" "$(rebase_running && echo yes)" ""
 check "the night's own change survived" \
-  "$(grep -c "the night's own work" APP.md)" "1"
+  "$(grep -c "the night's own work" docs/APP.md)" "1"
 check "no markers left in the README" "$(grep -c '^<<<<<<< ' README.md)" "0"
 check "the ladder line was rebuilt, not picked" \
   "$(grep -c '^5\. \*\*Full walkthrough\*\* — the whole assembly' README.md)" "1"
@@ -132,7 +132,7 @@ git commit -qam "master retired $retired"
 git checkout -q -B nightly3 "$base"
 printf '\n' >> "$retired"
 poke README.md "$corpus" '5. **Full walkthrough** — nightly-side'
-printf '\n<!-- the night'"'"'s own work -->\n' >> APP.md
+printf '\n<!-- the night'"'"'s own work -->\n' >> docs/APP.md
 git commit -qam "the night rewrote $retired"
 git rebase -q upstream3 >/dev/null 2>&1
 check "the rebase did stop on both" \
@@ -142,7 +142,7 @@ check "the rebase finished" "$(rebase_running && echo yes)" ""
 check "the retired file is not resurrected" \
   "$(git ls-files -- "$retired")$( [ -e "$retired" ] && echo ' on disk')" ""
 check "the night's own change survived" \
-  "$(grep -c "the night's own work" APP.md)" "1"
+  "$(grep -c "the night's own work" docs/APP.md)" "1"
 check "nothing left uncommitted" "$(git status --porcelain)" ""
 only_build=
 

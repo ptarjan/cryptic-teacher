@@ -98,7 +98,7 @@ for (const [f, why] of reached) {
 for (const d of SMOKE_DEPS) {
   assert(tracked.some((f) => f.startsWith(d)), `SMOKE_DEPS names ${d}, which matches no tracked file`);
 }
-for (const f of ["README.md", "docs/LAYOUT.md", "STYLE.md", ".github/workflows/tests.yml", "tools/corpus_queue.py"]) {
+for (const f of ["README.md", "docs/LAYOUT.md", "docs/STYLE.md", ".github/workflows/tests.yml", "tools/corpus_queue.py"]) {
   assert(!covered(f), `${f} is outside SMOKE_DEPS, so changing it leaves the cache valid`);
 }
 assert(reached.size > 20, `the scan found only ${reached.size} files; it is no longer finding the smoke test's reach`);

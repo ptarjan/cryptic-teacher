@@ -706,11 +706,11 @@ annotating
 tools/build_annotate_prompt.py                 regenerates that prompt’s wordplay grammar from
                                                tools/wordplay.py, and its worked examples from
                                                the corpus in the shape the run writes
-STYLE.md                                       the standing style rules, read whole by every
+docs/STYLE.md                                  the standing style rules, read whole by every
                                                annotating run
-APP.md                                         how the app presents an annotation and how it
+docs/APP.md                                    how the app presents an annotation and how it
                                                ships — separate from style
-BACKFILLS.md                                   the sweeps over already-published clues, worth
+docs/BACKFILLS.md                              the sweeps over already-published clues, worth
                                                doing only with inference to spare; every item
                                                is already handled going forward, so none of it
                                                blocks a puzzle

@@ -489,7 +489,7 @@ def load_words(floors, rebuild=False):
 def load_blacklist():
     """Words a previous clue-writing attempt gave up on, with the reason.
 
-    Persisted so the knowledge accumulates: the same principle STYLE.md applies
+    Persisted so the knowledge accumulates: the same principle docs/STYLE.md applies
     to feedback — encode it once, never rediscover it."""
     if BLACKLIST_FILE.exists():
         doc = json.loads(BLACKLIST_FILE.read_text(encoding="utf-8"))

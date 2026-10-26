@@ -107,7 +107,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # The controlled vocabulary for `type`: an array of names from
 # tools/data/clue_types.json, naming EVERY mechanism the wordplay uses in the
-# order it is applied (see STYLE.md — "honest types"). A letter_selection says
+# order it is applied (see docs/STYLE.md — "honest types"). A letter_selection says
 # which letters on the block that keeps them, as `select`.
 TYPE_NAMES = clue_types.NAMES
 
@@ -255,7 +255,7 @@ def check_two_pieces(tag, ann, errors):
     Definition, wordplay (fodder or indicator), or joinery. Nothing else — and a
     block with an empty `gives` is the annotation saying out loud that a word is
     there for the surface alone. That is legitimate when ANNOTATING a published
-    clue (30039 5A, 30040 16A and 30067 20D all carry one, and STYLE.md's
+    clue (30039 5A, 30040 16A and 30067 20D all carry one, and docs/STYLE.md's
     "leftover words" rule tells the annotator to record it rather than drop it),
     which is why this only fires on authored puzzles.
 
@@ -355,7 +355,7 @@ def check_walkthrough_budget(tag, ann, warnings):
         warnings.append(
             f"{tag}: walkthrough is {len(wt)} words with a building-blocks rung above it "
             f"(budget {MAX_WALKTHROUGH_WORDS}) — cut whatever the blocks already say and "
-            f"keep only what they cannot show (STYLE.md, 'the blocks already told them')")
+            f"keep only what they cannot show (docs/STYLE.md, 'the blocks already told them')")
 
 
 # A link word stands in for an equals sign. CORE_LINKS states the rule: it may
@@ -1853,7 +1853,7 @@ def check_part_of_speech(tag, ann, warnings):
     """The definition must be substitutable for the answer, which means their
     inflections agree: a plural answer needs a plural definition, an -ing answer
     an -ing definition. Only the mechanical, unambiguous endings are checked here; the
-    judgement call lives in STYLE.md and tools/annotate_prompt.md.
+    judgement call lives in docs/STYLE.md and tools/annotate_prompt.md.
 
     A definition's `note` silences this for it: some setters genuinely define a
     plural with a mass noun ("Lousy payment" = PEANUTS), and the honest response
@@ -8102,7 +8102,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
         walk = explanation(ann).get("walkthrough") or ""
         for h in walkthrough_hedges(walk, clue):
             errors.append(f"{tag}: walkthrough hedges with {h!r} — parse the chunk "
-                          f"properly instead of excusing it (STYLE.md); a clue word is quoted "
+                          f"properly instead of excusing it (docs/STYLE.md); a clue word is quoted "
                           f"('{h}' is fine in quotes only if the clue prints it), else say what "
                           f"the word does (the pun, the indicator) without the hedge")
         if len(walk.split()) > WALKTHROUGH_HARD_MAX:

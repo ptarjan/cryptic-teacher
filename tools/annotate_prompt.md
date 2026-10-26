@@ -153,7 +153,7 @@ only when the preamble says where).
 ## Taste
 
 The check enforces the mechanics and explains each rule when broken. It cannot see
-these. `STYLE.md` holds the product feedback behind them and wins any disagreement.
+these. `docs/STYLE.md` holds the product feedback behind them and wins any disagreement.
 
 - The definition must substitute for the answer in a sentence: same part of speech,
   same inflection. Say the swap out loud. This is the most common mistake.

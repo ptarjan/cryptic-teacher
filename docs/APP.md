@@ -512,7 +512,7 @@ existing annotation:
   `definitionFit` averaging 24 words against a 30-word cap. Fable's extra output
   tokens were iteration, not finished prose.
 - That pin rested on a single puzzle. The 10-12 paired A/B that re-tested it
-  is in [docs/AI_SOLVING.md](docs/AI_SOLVING.md). Whatever the pin, read the
+  is in [AI_SOLVING.md](AI_SOLVING.md). Whatever the pin, read the
   capped clues of any run at `MAX_CRYPTIC_DEFINITIONS`.
 
 ## Social cards and icons

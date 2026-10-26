@@ -13,7 +13,7 @@ It is written for an outside technical reader. The operational details live
 elsewhere: [NIGHTLY.md](NIGHTLY.md) covers the scheduled jobs,
 [PUZZLE_FORMAT.md](PUZZLE_FORMAT.md) the file format and annotation rules,
 [ARCHIVE_COVERAGE.md](ARCHIVE_COVERAGE.md) the scanned archive, and
-[APP.md](../APP.md) how the site presents a hint.
+[APP.md](APP.md) how the site presents a hint.
 
 ## The problem in one paragraph
 
@@ -59,7 +59,7 @@ refuse a bare alias there. The corpus itself, not this document, is the
 record of which model wrote which puzzle's hints.
 
 **Why Opus.** The pin was first chosen on 08-08 from a one-puzzle benchmark,
-recorded in [APP.md](../APP.md) under "The annotator model". Opus 5 matched
+recorded in [APP.md](APP.md) under "The annotator model". Opus 5 matched
 Fable 5 on clue types and definitions (23 and 22 of 25), used no cryptic
 definitions and solved both of the hardest clues, at about a third of Fable's
 cost. Sonnet 5 was cheaper again, but it quietly filed the two clues it could
@@ -135,7 +135,7 @@ annotating newest-first appeared on 07-30.
 ### August: picking the annotator, adding a solver (08-02 to 08-29)
 
 The annotator was first pinned to Fable, then moved to Opus on 08-08 after a
-one-puzzle benchmark (the table in [APP.md](../APP.md)): Opus matched Fable's
+one-puzzle benchmark (the table in [APP.md](APP.md)): Opus matched Fable's
 structure at about a third of the cost, Sonnet quietly filed the clues it
 could not solve as "cryptic definition", and Haiku fabricated. Two things in
 that benchmark shaped everything after. A validator-clean annotation is not a
