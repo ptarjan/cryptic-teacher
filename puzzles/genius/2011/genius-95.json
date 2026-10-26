@@ -694,49 +694,47 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ANI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "some",
-         "note": "some means only a portion, so just part of the letters in the words that follow is kept"
+         "at": 15,
+         "note": "only some of the word Pakistani is kept, its closing letters"
+        },
+        {
+         "text": "dumped",
+         "at": 30,
+         "note": "dumped says the front of the word Pakistani is thrown away; its first letter is also this clue's message letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Pakistani",
-         "gives": "ANI",
-         "select": "last",
-         "note": "the tail of the word"
+         "at": 20,
+         "gives": "PAKISTANI",
+         "note": "taken as written before its front is shed"
+        },
+        {
+         "gives": "PAKIST"
         }
        ]
       },
       {
        "words": "on",
-       "note": "the whole word"
+       "at": 37
       },
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "ship",
-         "note": "the start of the word"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "dumped",
-       "note": "the extra word, surface padding whose first letter joins the hidden message"
+       "words": "ship",
+       "at": 40,
+       "gives": "S",
+       "note": "S is an abbreviation for ship, as in SS for steamship"
       }
      ]
     },
     "explanation": {
-     "surface": "A cargo of electrically charged goods some Pakistani dumped on a ship.",
-     "walkthrough": "This is really a hidden word, 'Pakistani on ship', with the extra word 'dumped' (giving D) breaking the run.",
-     "definitionFit": "Anions are negatively charged ions, particles of matter carrying an electric charge."
+     "surface": "Some Pakistani goods are unloaded onto a vessel and billed.",
+     "walkthrough": "'dumped' is the puzzle's extra word, its first letter D going to the message; drop it and the answer runs on from the tail of 'Pakistani' through 'on' and the S of 'ship'.",
+     "definitionFit": "These are negatively charged ions, particles of matter carrying an electric charge."
     },
     "features": {
      "answerInScene": false,
