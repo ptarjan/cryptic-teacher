@@ -76,6 +76,11 @@ $_task"
 # into the memory directory. The 5-minute cache, because nine turn gaps in ten
 # are under 90s and a 1-hour cache write is billed at the higher rate.
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 CLAUDE_CODE_PROMPT_CACHE_TTL=5m
+# CLAUDE_CODE_PROMPT_CACHE_TTL covers only the main-thread request sources; a
+# run whose requests carry another source (annotate runs: 13 transcripts on
+# 10-25 wrote 1-hour cache and no 5-minute) takes the subagent setting, so name
+# that too, and FORCE_PROMPT_CACHING_5M beats every other source and setting.
+export CLAUDE_CODE_SUBAGENT_PROMPT_CACHE_TTL=5m FORCE_PROMPT_CACHING_5M=1
 # No gitStatus block in the context: building it runs `git status`, which costs
 # minutes of CPU per run in this repo and nothing here reads it.
 export CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1
