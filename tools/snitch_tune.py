@@ -1,0 +1,22 @@
+"""Collect (date, series, nitch, raw components, per-clue device detail) for
+every SNITCH-rated puzzle we hold, into ~/.cache/cryptic-snitch-rows.json, the input
+to tools/snitch_weights.py."""
+import json, sys
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import puzzle_paths
+import difficulty as D
+from fetch_puzzle import read_puzzle_file, puzzle_is_annotated
+sn = json.loads((ROOT / "tools/data/snitch.json").read_text())
+ctx = D.context()
+rows = []
+for pid, v in sn.items():
+    path = puzzle_paths.find(pid)
+    if path is None:
+        continue
+    puz = read_puzzle_file(path)
+    r = D.raw(puz, ctx)
+    rows.append({"id": pid, "date": v["date"], "nitch": v["nitch"], "annotated": puzzle_is_annotated(puz), **r})
+(Path.home() / ".cache" / "cryptic-snitch-rows.json").write_text(json.dumps(rows))
+print(len(rows), sum(1 for r in rows if r["device"] is not None))

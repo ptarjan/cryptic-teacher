@@ -35,12 +35,12 @@ too. Prefer, in this order:
    how often it fires: each firing on a correct fill costs the solver a fix
    turn, so keep it only if that rate is low, and give the numbers in your
    note. The refusal must say what to reparse. Add a case to
-   `tools/test_apply_refusal.py` and run that test. If the check replaces a
+   `tests/test_apply_refusal.py` and run that test. If the check replaces a
    rule in `tools/solve_prompt.md`, delete the rule.
 2. **A rule in `tools/solve_prompt.md`**, only when no check is possible.
    State it in general terms, not about this clue, in the file's plain style,
    under the heading it belongs to. Sharpen an existing rule rather than add
-   one that says the same thing. `tools/test_solve_misses.py` caps the file at
+   one that says the same thing. `tests/test_solve_misses.py` caps the file at
    500 words, so a rule that does not fit must replace or merge with a weaker
    one.
 3. **Nothing**, if the honest diagnosis is an obscure word or reference.

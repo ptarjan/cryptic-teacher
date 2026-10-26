@@ -2,7 +2,7 @@
 """Hold every step of the deploy to a time budget, from one table.
 
   python3 tools/step_budgets.py check-run REPO RUN_ID [ATTEMPT]   # the last step of pages.yml's build job
-  python3 tools/step_budgets.py lint [WORKFLOW TABLE]              # tools/test_step_budgets.sh
+  python3 tools/step_budgets.py lint [WORKFLOW TABLE]              # tests/test_step_budgets.sh
 
 The deploy went from about five minutes to fourteen in under two weeks without
 anyone choosing it: a serial corpus check that gained rules while the corpus

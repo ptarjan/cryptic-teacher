@@ -715,7 +715,7 @@ $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)"
     --exclude-dynamic-system-prompt-sections \
     --model "$ANNOTATE_MODEL" \
     --effort "$ANNOTATE_EFFORT" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tools/test_*),Bash(grep *)" \
+    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(bash tests/test_*),Bash(grep *)" \
     </dev/null >"$misslog" 2>&1
   miss_rc=$?
   rm -f "$miss_sid"

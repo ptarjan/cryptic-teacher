@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+# Does /puzzles/ describe each series without counting it?
+# A series blurb with a count or puzzle number must be refused, the hub must
+# not print a series' puzzle total, and each series with enough rated puzzles
+# gets a difficulty strip whose median sits where its middle puzzle is.
+# Each series has a landing page at /puzzles/series/<series>/ that leads with
+# its newest puzzle ("today's No 29" only when it is dated today, else
+# "latest"), and the hub and the year listings link to it; and the site
+# stages with /puzzles/series/ in it. A reprinting paper is listed by its
+# reprint rows, which link to the originals.
+#
+#     python3 tests/test_series_hub.py
+#
+# A synthetic index, so nothing here reads the corpus or writes to the tree.
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+
+fails = []
+
+
+def result(key, ok):
+    if ok is True:
+        print(f"ok   {key}")
+    else:
+        fails.append(key)
+        print(f"FAIL: {key}")
+
+
+import re
+import app_tables as A
+import build_seo_pages as B
+
+def refused(text):
+    try:
+        A.series_blurbs(f'  const SERIES_BADGE = {{\n    x: ["x", `{text}`],\n  }};')
+    except SystemExit:
+        return True
+    return False
+
+result("COUNT", refused("now near 5,200") and refused("past 12400"))
+result("GRID", not refused("a 13x13 grid, Penguin book 5 No 18"))
+result("APP", bool(A.series_blurbs()))
+
+ps = [{"series": "times", "number": i, "id": f"times-{i}", "date": "2025-01-01",
+       "hasSolutions": True,
+       "difficulty": {"percentile": 10 * (i % 10), "band": "Tough" if i % 10 >= 5 else "Gentle"}}
+      for i in range(30)]
+page = B.hub_page({"puzzles": ps})
+section = page.split('<section class="s-series"', 1)[1].split("</section>", 1)[0]
+desc = lambda pg: re.search(r'<meta name="description" content="([^"]*)"', pg).group(1)
+result("NOTOTAL", "30 puzzle" not in section and not re.search(r"\d", desc(page)))
+result("STRIP", page.count('class="chart strip"') == 1 and "harder than 50%" in page
+      and "diff-tough" in page and 'class="median"' in page)
+result("FEW", B.difficulty_strip("x", ps[:B.STRIP_MIN - 1]) == "")
+
+from datetime import date
+for p in ps:
+    p["date"] = f"2025-01-{1 + p['number'] % 28:02d}"
+    p["setter"] = "Brummie"
+ps.sort(key=lambda p: p["date"], reverse=True)
+idx = {"puzzles": ps}
+years = B.listings(idx)["times"]
+newest = ps[0]
+title = lambda pg: re.search(r"<title>(.*?)</title>", pg).group(1)
+today = B.series_page("times", years, date.fromisoformat(newest["date"]))
+other = B.series_page("times", years, date(2030, 1, 1))
+result("TODAY", title(today) == f"Times Cryptic crossword answers – today&#x27;s No {newest['number']} by Brummie")
+result("LATEST", "– latest No" in title(other) and "today" not in title(other))
+result("LEADS", today.index(f'puzzles/{newest["id"]}/') < today.index("Recent puzzles"))
+result("NOCOUNT", "30 puzzle" not in today and "30 crossword" not in today)
+years = today.split('class="s-years">', 1)[1].split("</p>", 1)[0]
+result("YEARCOUNTS", years.count("<a ") == years.count("</a> ("))
+out = dict(B.series_pages(idx, date(2030, 1, 1)))
+result("PATHS", B.ROOT / "puzzles/series/times/index.html" in out
+      and "refresh" in out[B.ROOT / "puzzles/series/index.html"])
+import tempfile, pathlib, stage_site
+with tempfile.TemporaryDirectory() as tmp:
+    src = pathlib.Path(tmp, "src")
+    for rel in ("puzzles/series/index.html", "puzzles/series/times/index.html",
+                "puzzles/series/times/2025/index.html"):
+        (src / rel).parent.mkdir(parents=True, exist_ok=True)
+        (src / rel).write_text(rel)
+    # Two PUBLISH globs match puzzles/series/index.html; staging must take it once.
+    result("STAGE", len(stage_site.stage(src, pathlib.Path(tmp, "out"))) == 3)
+result("LINKED", f'{B.BASE}/puzzles/series/times/"' in page
+      and f'{B.BASE}/puzzles/series/times/"' in B.listing_page("times", "2025", ps, None, None))
+# One way to say each thing. The hub, a series page and a year listing carry
+# the same badge legend, and a year listing the same difficulty strip and the
+# same link back; the badges and the percentile sentence are built by one
+# helper each, and the app's chips and tooltip say what the pages say.
+listing = B.listing_page("times", "2025", ps, None, None)
+result("YEARDESC", not re.search(r"\d+ Times", desc(listing)) and "30" not in desc(listing))
+result("LEGEND", all(B.BADGE_KEY in pg for pg in (page, today, listing))
+      and "Gentle, Moderate" not in page)
+result("YEARSTRIP", listing.count('class="chart strip"') == 1)
+result("HUBLINK", all(B.hub_link() in pg and "All papers" not in pg for pg in (today, listing)))
+import pathlib, series as S
+src = pathlib.Path(B.__file__).read_text()
+app = (pathlib.Path(B.__file__).parent.parent / "app.js").read_text()
+result("ONEWAY", src.count('class="badge diff') == 1 and src.count('class="badge series"') == 1
+      and src.count("harder than ") == 1
+      and B.harder_than("${d.percentile}") in app and app.count('class="badge diff') == 1)
+chips = dict(re.findall(r'^\s{4}(\w+): \["([^"]*)"', app.split("const SERIES_BADGE = {", 1)[1]
+                        .split("\n  };", 1)[0], re.M))
+# Clue counts beside words (/learn/, /indicators/, /abbreviations/) come from
+# build_abbreviations.count_html() alone; a showcase note wears the app's
+# feature-tag look, not the coverage badge's.
+result("COUNTS", not re.search(r'class="muted[^"]*">\{[^}]*:,\}', src))
+result("NOTE", '<span class="badge feature">65 letters</span>' in B.hub_row(ps[0], "65 letters")
+      and 'class="badge feature"' in app)
+result("CHIPS", bool(chips) and all(S.badge(k) == v for k, v in chips.items()))
+# A reprinting paper keeps its series page, listed by its reprint rows, each
+# linking to the original's answer page; a reprint of a puzzle without answers
+# is not listed.
+rp = {"puzzles": ps, "reprints": [
+    {"id": "globeandmail-3146", "series": "globeandmail", "number": 3146, "date": "2025-03-01",
+     "name": "Globe and Mail cryptic crossword No 3,146", "reprintOf": ps[0]["id"]},
+    {"id": "globeandmail-3147", "series": "globeandmail", "number": 3147, "date": "2025-03-02",
+     "name": "x", "reprintOf": "times-999"}]}
+gm = B.listings(rp).get("globeandmail", {})
+gpage = B.listing_page("globeandmail", "2025", gm.get("2025", []), None, None)
+result("REPRINT", [p["number"] for ps_ in gm.values() for p in ps_] == [3146]
+      and f'{B.BASE}/puzzles/{ps[0]["id"]}/' in gpage and "No 3,146" in gpage
+      and sum(map(len, B.listings(rp)["times"].values())) == len(ps))
+
+print("PASS" if not fails else f"FAIL: {', '.join(fails)}")
+sys.exit(1 if fails else 0)

@@ -24,7 +24,7 @@ make the tree give the answer is dropped, so none can invent a parse.
                   goes onto the one leaf under it that makes the tree give the answer.
   composites      ana(del(whole, taken)) is comp(whole, taken): del() wants one run.
 
-    python3 tools/test_unchecked_repairs.py
+    python3 tests/test_unchecked_repairs.py
 """
 import collections
 import copy

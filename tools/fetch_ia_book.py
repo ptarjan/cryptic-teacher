@@ -118,7 +118,7 @@ out for the full hour.
 WHY A LEDGER AS WELL AS THE CONTEXT MANAGER. borrowed()'s finally clause
 covers every exit Python controls, and nothing else: a process killed by a
 signal runs no finally clause at all, and that includes plain SIGTERM, which
-is what `timeout N` sends. Verified by tools/test_ia_loan_leak.py, which
+is what `timeout N` sends. Verified by tests/test_ia_loan_leak.py, which
 kills a holder mid-loan with SIGTERM and with SIGKILL and watches the loan
 stay out. So the return cannot be guaranteed in-process, and the guarantee is
 moved to the NEXT process instead: record_loan() writes the identifier to

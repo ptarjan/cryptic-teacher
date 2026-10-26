@@ -64,7 +64,7 @@ Terms used below:
   a hint" in red; the same button again reveals. A click elsewhere, focus
   moving away, or 4 seconds puts it back. Free taps (a question to answer, a
   rung already paid for, a solved clue) stay one tap.
-  `tools/test_block_confirm.js` covers it.
+  `tests/test_block_confirm.js` covers it.
 - **Revealed rungs are a set, not a count.** `hintsShown` maps entryKey to rung
   keys. An integer can only say "the first N", which would force every lower
   rung open with any higher one. Do not reintroduce a scalar.
@@ -283,7 +283,7 @@ Terms used below:
     `SYNC_RESERVED`): `{ on, open }`, where `open` is the puzzles on paper now.
     Paper on one device and the ladder on another is a fair way to solve; the
     letters still sync as usual.
-  - `tools/test_paper_mode.js` asserts each signal hidden on paper and, as the
+  - `tests/test_paper_mode.js` asserts each signal hidden on paper and, as the
     mirror, present for the same keystrokes off paper.
 - **"Reveal one letter"** is available at any time and hidden once the entry is
   solved. It never advances the ladder but always counts in scoring (the meter,
@@ -687,7 +687,7 @@ times as long. So:
   that runs a tool reading every puzzle says, in its row, which
   actions/cache step carries its results between runs, how it limits
   itself to what changed, or why it can do neither.
-  `tools/test_step_budgets.sh` fails on a step with no name, no budget, or
+  `tests/test_step_budgets.sh` fails on a step with no name, no budget, or
   corpus work with none of those.
 - **A cache under `.git/` or `~/.cache` is empty in CI** unless the
   workflow restores it. `tools/row_cache.py` keeps its store in the git

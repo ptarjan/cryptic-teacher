@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Turn one OCR'd clue list into the light spec tools/reconstruct_grid.py wants.
 
-This parser is GATED: tools/test_acquire_book.py reproduces the ten-puzzle vol-5 control and
+This parser is GATED: tests/test_acquire_book.py reproduces the ten-puzzle vol-5 control and
 fails if any grid, or any node count, moves. It is that gate, not this
 docstring, that makes a change here safe -- the search is deterministic, so a
 node count that moves means the spec moved, and a spec that moves has to be

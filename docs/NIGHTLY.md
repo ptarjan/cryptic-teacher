@@ -82,7 +82,7 @@ committed is never filed again. Three mechanisms, one shared helper
 Puzzle files are written whole (a temp file renamed into place), and a `.json`
 that does not parse is never committed. Downloads live under one root (see
 "Downloaded source material" in [LAYOUT.md](LAYOUT.md)) and derived caches under `~/.cache`, never
-`/tmp`, and every fetcher skips what it already has, so a restart resumes. `tools/test_durable.sh` kills a fake job each way
+`/tmp`, and every fetcher skips what it already has, so a restart resumes. `tests/test_durable.sh` kills a fake job each way
 and fails if a scheduled job with no timeout, or one over 15 minutes, does not
 use these mechanisms.
 

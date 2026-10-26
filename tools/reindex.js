@@ -11,7 +11,7 @@
    boots the app many times, nothing in a test process writes puzzle files, and
    the rebuild is python reading every puzzle file.
 
-   Across processes (tools/fake_dom.js, tools/test_push_hold.js, and CI's build
+   Across processes (tools/fake_dom.js, tests/test_push_hold.js, and CI's build
    step before any test starts) the work is skipped when the output is already
    newer than everything it is derived from — see current() — which is the
    ordinary state of both a developer's tree and a CI job whose build step has

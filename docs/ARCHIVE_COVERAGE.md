@@ -102,7 +102,7 @@ So nothing is ever queued by hand:
   for the rest of that worker's run. The first pass after the VLM answers
   again reads those sources again.
 
-An edition-list job cannot be written: `tools/test_corpus_queue.py` fails if a
+An edition-list job cannot be written: `tests/test_corpus_queue.py` fails if a
 queue file or a job argument appears.
 
 `python3 tools/corpus_queue.py tick` starts the pass whenever no corpus job is

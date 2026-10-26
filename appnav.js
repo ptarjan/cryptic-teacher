@@ -20,7 +20,7 @@
    Loaded in <head>, not deferred, by index.html (data-app) and every page
    tools/build_seo_pages.py templates, so html.standalone and the room the bar
    needs are set before the first paint and nothing moves when it arrives.
-   tools/test_app_nav.js runs it. */
+   tests/test_app_nav.js runs it. */
 (function () {
   "use strict";
   var doc = document, root = doc.documentElement, win = window;

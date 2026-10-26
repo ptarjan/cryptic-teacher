@@ -290,7 +290,7 @@ repair) lives in `tools/clue_text.py` (or `quotes.py`, `dashes.py`,
 `enumeration.py`), never in a paper's reader or fetcher, so a fix learned on
 one source reaches them all. Per-source code keeps only what is the source's
 own: page layout, finding the puzzle page, grid geometry, HTML parsing and URL
-logic. `tools/test_ocr_text_central.py` enforces it in CI: it walks every
+logic. `tests/test_ocr_text_central.py` enforces it in CI: it walks every
 source-reading module (by name, or by importing an OCR, PDF or image library)
 and fails on a `translate`/`maketrans`, a `sub`/`replace` on typographic marks,
 a letter-for-digit regex class, or a single-character confusion table outside

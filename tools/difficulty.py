@@ -194,7 +194,7 @@ scratch/comment_blend.py.
 One scale for every paper: score() and rate() never look at the series, the
 baseline, weights and bands are collection-wide, and the only per-series
 parts are data one paper has (the SNITCH, the comment blend, which keeps its
-series' own mean and spread). tools/test_difficulty_one_scale.py enforces it.
+series' own mean and spread). tests/test_difficulty_one_scale.py enforces it.
 
 Weights are fixed (above): checking leads at 0.45, rarity 0.30, and every
 other component 0.25. The components are printed alongside the index so a

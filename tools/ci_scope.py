@@ -32,7 +32,7 @@ PUZZLE = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.json")
 #: A puzzle's blog facts (tools/blog_store.py): puzzle data, checked with its puzzle.
 SIDECAR = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.blog")
 #: Work-queue state the burn jobs rewrite thousands of times a day. No test
-#: reads the real file (they run against fixtures; tools/test_ci_scope.py pins
+#: reads the real file (they run against fixtures; tests/test_ci_scope.py pins
 #: the list against ci_cache.js, which excludes the same files from the smoke
 #: test's code key).
 QUEUE_STATE = validate_scope.QUEUE_STATE

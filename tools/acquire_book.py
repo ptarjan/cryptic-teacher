@@ -79,7 +79,7 @@ either bound is reported as budget-exhausted, which is a statement about this
 machine and not about the puzzle, and is deliberately not folded into either
 the successes or the failures.
 
-THE GATE. tools/test_acquire_book.py reproduces the ten-puzzle vol-5 control
+THE GATE. tests/test_acquire_book.py reproduces the ten-puzzle vol-5 control
 and fails if a single grid or a single NODE COUNT moves. The search is
 deterministic, so a node count is a fingerprint of the spec that went in: it
 catches a parser change that a grid comparison would sleep through.
@@ -238,7 +238,7 @@ def borrow_text(identifier, max_pages=None):
     held for exactly as long as the read takes.
 
     fetch_ia_book is imported HERE rather than at module scope on purpose: it
-    needs the third-party `requests`, and tools/test_acquire_book.py imports
+    needs the third-party `requests`, and tests/test_acquire_book.py imports
     this module on a runner that has no third-party packages at all. A
     missing dependency must cost the borrow route, not every caller of the
     file.

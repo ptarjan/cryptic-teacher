@@ -155,7 +155,7 @@ jobs:
       # the server sends only what was pushed since. A cold store is a full
       # fetch, as before. Written out rather than actions/checkout, which
       # deletes an existing repository's refs before it fetches and so would
-      # offer no have. tools/test_ci_checkout.sh runs this script twice
+      # offer no have. tests/test_ci_checkout.sh runs this script twice
       # against a local origin.
       - name: Restore the git store
         if: needs.scope.outputs.deploy == 'true'
@@ -308,7 +308,7 @@ jobs:
       # the shim bytes, so indexing without building is not a thing that can be
       # correct.
       # Our own puzzle is built from its clues rather than committed (see
-      # tools/test_build_authored_puzzle.py). Its series is unlisted in
+      # tests/test_build_authored_puzzle.py). Its series is unlisted in
       # tools/series.py, so the reindex below files it where only ?p=authored-1
       # finds it. Before the reindex, which builds its shim.
       - name: Build the authored puzzle
@@ -566,7 +566,7 @@ jobs:
       # still. Run 38370347047 failed its budgets and saved no shims or clue
       # index; 38376042604's reindex then took 119s instead of ~50s and its
       # authored puzzle 31s. Paths match each restore exactly: they are part
-      # of the cache's version. tools/test_ci_checkout.sh checks each
+      # of the cache's version. tests/test_ci_checkout.sh checks each
       # restore has its save.
       # Not gated on the deploy: the store is the checkout's, and it is good
       # once the checkout succeeded. Gated on the deploy it was never saved

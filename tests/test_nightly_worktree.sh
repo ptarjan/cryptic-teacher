@@ -1,0 +1,217 @@
+#!/bin/bash
+# Which tree does a scheduled job end up running in? Checked by running one.
+#
+# tools/nightly_worktree.sh has two outcomes — its own worktree, or nothing at
+# all — and they differ only in what the job then reads out of the tree, so
+# neither announces itself as wrong. There is no third: the main checkout is
+# refused in every state, because a job sharing a tree with a person wedges it.
+#
+# Run standalone or from tools/smoke_test.js.
+set -uo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+fails=0
+check() { if [ "$2" = "$3" ]; then echo "ok   $1"; else
+  echo "FAIL $1"; echo "       want $3"; echo "       got  $2"; fails=$((fails + 1)); fi; }
+
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+git config --global --get init.defaultBranch >/dev/null 2>&1 || true
+
+# A repo with an origin, and a job that reports nothing but the tree it woke up
+# in. The two builders stand in for the generated output the helper rebuilds
+# after a reset; each leaves a marker in the tree it was run from.
+git init -q --bare "$tmp/origin.git"
+git init -q "$tmp/main"
+mkdir -p "$tmp/main/tools"
+cp "$ROOT/tools/nightly_worktree.sh" "$ROOT/tools/unstage_unparsable.sh" "$ROOT/tools/commit_puzzles.sh" "$ROOT/tools/commit_subject.py" "$ROOT/tools/renamed_ids.py" "$ROOT/tools/alert.sh" "$ROOT/tools/puzzle_worker.sh" "$ROOT/tools/low_cpu.sh" "$tmp/main/tools/"
+for stub in fetch_puzzle build_abbreviations; do
+  printf '%s\n' '#!/usr/bin/env python3' 'import os, sys' \
+    'open(os.path.basename(sys.argv[0]) + ".ran", "w").close()' \
+    > "$tmp/main/tools/$stub.py"
+done
+cat > "$tmp/main/tools/faketask.sh" <<'JOB'
+#!/bin/bash
+. "$(dirname "$0")/../tools/nightly_worktree.sh"
+echo "RAN IN $(cd "$(dirname "$0")/.." && pwd)"
+JOB
+chmod +x "$tmp/main/tools/faketask.sh"
+printf ".*.tree.lock\n" > "$tmp/main/.gitignore"
+git -C "$tmp/main" add -A
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm init
+git -C "$tmp/main" remote add origin "$tmp/origin.git"
+git -C "$tmp/main" push -q origin HEAD:master
+git -C "$tmp/main" branch -q -M master
+git -C "$tmp/main" fetch -q origin master
+
+run() { # run() <worktree-root> -> the job's output, stderr folded in
+  ALERT_ENV_FILE=/nonexistent CT_WORKTREE_ROOT="$1" \
+    bash "$tmp/main/tools/faketask.sh" 2>&1
+}
+
+# 1. The happy path, and the baseline the next two are read against.
+got="$(run "$tmp/trees" | grep '^RAN IN ')"
+check "a job gets its own worktree" "$got" "RAN IN $tmp/trees/faketask"
+
+# Generated output is gitignored, so the reset that pins the tree to
+# origin/master deletes it and a tree made tonight never had it. The job reads
+# it — and stamps pages that name it by content hash — long before its own
+# build step, so a tree handed over without it fails the job, not the helper.
+for built in fetch_puzzle.py.ran build_abbreviations.py.ran; do
+  check "the worktree has its $built rebuilt after the reset" \
+    "$([ -e "$tmp/trees/faketask/$built" ] && echo yes || echo no)" "yes"
+done
+
+# A job that reads none of them at start (CT_GENERATED=none) gets no rebuild,
+# and one that needs them on some later path builds them there (ct_generated).
+cat > "$tmp/main/tools/lazytask.sh" <<'JOB'
+#!/bin/bash
+CT_GENERATED=none
+. "$(dirname "$0")/../tools/nightly_worktree.sh"
+cd "$(dirname "$0")/.." || exit 1
+echo "AT START $(ls ./*.ran 2>/dev/null | wc -l | tr -d ' ')"
+ct_generated "$PWD"
+echo "ON DEMAND $(ls ./*.ran 2>/dev/null | wc -l | tr -d ' ')"
+JOB
+git -C "$tmp/main" add tools/lazytask.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm lazytask
+git -C "$tmp/main" push -q origin HEAD:master
+got="$(ALERT_ENV_FILE=/nonexistent CT_WORKTREE_ROOT="$tmp/trees" bash "$tmp/main/tools/lazytask.sh" 2>&1 | grep -E '^(AT START|ON DEMAND)' | tr '\n' ' ')"
+check "CT_GENERATED=none skips the start rebuild; ct_generated builds them later" "$got" "AT START 0 ON DEMAND 2 "
+
+# A job's publish rebases its own tree, which can rewrite the running script.
+# Bash reads a script file as it goes, so the rest of the run must come from
+# the script as it was when the run began.
+cat > "$tmp/main/tools/selfedit.sh" <<'JOB'
+#!/bin/bash
+. "$(dirname "$0")/../tools/nightly_worktree.sh"
+printf '%s\n' '#!/bin/bash' '# a first line much longer than the one it replaces, as a rebase brings it ...' \
+  'echo "THE REWRITE RAN"' 'exit' > "$0"
+JOB
+# Longer than bash's read buffer, so the rest is read from the file later.
+for _ in $(seq 400); do echo "# padding padding padding padding padding padding" >> "$tmp/main/tools/selfedit.sh"; done
+echo 'echo "THE ORIGINAL FINISHED"' >> "$tmp/main/tools/selfedit.sh"
+git -C "$tmp/main" add tools/selfedit.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm selfedit
+git -C "$tmp/main" push -q origin HEAD:master
+got="$(ALERT_ENV_FILE=/nonexistent CT_WORKTREE_ROOT="$tmp/trees" timeout 20 \
+  bash "$tmp/main/tools/selfedit.sh" 2>&1 | grep -v '^===')"
+check "a run whose script is rewritten mid-run finishes as it began" "$got" "THE ORIGINAL FINISHED"
+git -C "$tmp/main" rm -q tools/selfedit.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm "no selfedit"
+git -C "$tmp/main" push -q origin HEAD:master
+
+# 2. An index.lock outlives the process that took it — nothing in git ever
+#    clears one — so a single crashed command otherwise fails every future run
+#    of the job in the same way, forever.
+lock="$(git -C "$tmp/trees/faketask" rev-parse --git-dir)/index.lock"
+: > "$lock"
+touch -t 200001010000 "$lock"
+out="$(run "$tmp/trees")"
+check "a stale index.lock is cleared, not waited on" \
+  "$(echo "$out" | grep -c 'clearing an index.lock')" "1"
+check "and the job still gets its worktree" \
+  "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/trees/faketask"
+
+# 2b. A run in flight holds its tree. A second fire must not reset it: the reset
+#     discards everything the live run has written but not yet committed.
+echo inflight >> "$tmp/trees/faketask/tools/faketask.sh"
+exec 8>"$tmp/main/.faketask.tree.lock"
+flock -n 8
+out="$(run "$tmp/trees")"
+exec 8>&-
+check "a second fire leaves a held tree alone" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+check "and the live run's uncommitted edit survives" \
+  "$(grep -c inflight "$tmp/trees/faketask/tools/faketask.sh")" "1"
+git -C "$tmp/trees/faketask" checkout -q -- tools/faketask.sh
+
+# 2c. Starting the job from inside its worktree, or in place, skips the reset
+#     but writes to the same tree, so it needs the same lease. A hand start of
+#     the burn that bypassed it would lose annotations.
+exec 8>"$tmp/main/.faketask.tree.lock"
+flock -n 8
+for how in CT_IN_WORKTREE CT_NO_WORKTREE; do
+  out="$(env "$how=1" ALERT_ENV_FILE=/nonexistent \
+    bash "$tmp/trees/faketask/tools/faketask.sh" 2>&1)"
+  check "a $how=1 start leaves a held tree alone" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+done
+exec 8>&-
+out="$(CT_IN_WORKTREE=1 ALERT_ENV_FILE=/nonexistent bash "$tmp/trees/faketask/tools/faketask.sh" 2>&1)"
+check "and runs once the lease is free" "$(echo "$out" | grep '^RAN IN ')" "RAN IN $tmp/trees/faketask"
+
+# 3. With no worktree to be had, nothing runs. The main checkout is the only
+#    other tree, and it is refused in the state that looks safest too: clean and
+#    at origin/master is a snapshot, and says nothing about the edit that lands
+#    while the job is mid-rebase.
+: > "$tmp/blocked"   # a file where the worktree root wants a directory
+out="$(run "$tmp/blocked/trees")"
+check "a clean checkout at origin/master is refused" \
+  "$(echo "$out" | grep -c 'stopping without running')" "1"
+check "and nothing runs there" "$(echo "$out" | grep -c '^RAN IN ')" "0"
+
+# 4. Behind origin/master it is refused for a second reason as well: a job that
+#    plans from a stale corpus hands out work that is already pushed.
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -q --allow-empty -m ahead
+git -C "$tmp/main" push -q origin master
+git -C "$tmp/main" reset -q --hard HEAD~1
+out="$(run "$tmp/blocked/trees")"
+check "a checkout behind origin/master is refused" \
+  "$(echo "$out" | grep -c '^RAN IN ')" "0"
+
+# 5. And dirty, for a third: the job would sweep somebody's unstaged work into
+#    its own commit.
+git -C "$tmp/main" merge -q --ff-only origin/master
+echo dirt >> "$tmp/main/tools/faketask.sh"
+out="$(run "$tmp/blocked/trees")"
+check "a dirty checkout is refused" \
+  "$(echo "$out" | grep -c '^RAN IN ')" "0"
+git -C "$tmp/main" checkout -q -- tools/faketask.sh
+
+# 6. The main checkout follows origin/master at every job start. A local edit
+#    that is provably nothing — origin/master's own content, or index.html
+#    differing only by asset stamps — is put back rather than left to block it;
+#    any other edit leaves it behind and says so in an alert.
+git clone -q -b master "$tmp/origin.git" "$tmp/other"
+upstream() { # upstream <file> <content>: commit and push from another clone
+  printf '%s\n' "$2" > "$tmp/other/$1"
+  git -C "$tmp/other" add -A
+  git -C "$tmp/other" -c user.email=t@t -c user.name=t commit -qm "$1"
+  git -C "$tmp/other" push -q origin HEAD:master
+}
+at_origin() { git -C "$tmp/main" fetch -q origin master
+  [ "$(git -C "$tmp/main" rev-parse HEAD)" = "$(git -C "$tmp/main" rev-parse origin/master)" ] && echo yes || echo no; }
+git -C "$tmp/main" checkout -q master
+git -C "$tmp/main" merge -q --ff-only origin/master
+cp "$ROOT/tools/stamp_assets.py" "$tmp/other/tools/"
+printf 'x\n' > "$tmp/other/app.js"
+upstream index.html '<script src="app.js"></script>'
+upstream manifest.toml 'schedule = "twice a day"'
+out="$(run "$tmp/trees")"
+check "a clean checkout behind origin/master is fast-forwarded" "$(at_origin)" yes
+
+upstream manifest.toml 'schedule = "hourly"'
+printf '%s\n' 'schedule = "hourly"' > "$tmp/main/manifest.toml"
+out="$(run "$tmp/trees")"
+check "an edit origin/master already holds does not block it" "$(at_origin)" yes
+check "and raises no alert" "$(echo "$out" | grep -c '^ALERT: ')" 0
+
+upstream index.html '<script src="app.js"></script>
+<p>new</p>'
+(cd "$tmp/main" && python3 tools/stamp_assets.py >/dev/null 2>&1)
+check "the stamp really dirtied index.html" "$(git -C "$tmp/main" diff --name-only)" index.html
+out="$(run "$tmp/trees")"
+check "asset stamps in index.html do not block it" "$(at_origin)" yes
+check "and leave it as stored" "$(git -C "$tmp/main" status --porcelain --untracked-files=no)" ""
+
+upstream manifest.toml 'schedule = "daily"'
+printf '%s\n' 'schedule = "by hand"' > "$tmp/main/manifest.toml"
+out="$(run "$tmp/trees")"
+check "a real edit is left where it is" "$(cat "$tmp/main/manifest.toml")" 'schedule = "by hand"'
+check "and it wakes the room naming the file" \
+  "$(echo "$out" | grep '^ALERT: ' | grep -c 'uncommitted edits to tracked files: manifest.toml')" 1
+check "and the job still runs" "$(echo "$out" | grep -c '^RAN IN ')" 1
+git -C "$tmp/main" checkout -q -- manifest.toml
+out="$(run "$tmp/trees")"
+check "once it is put back the next start fast-forwards" "$(at_origin)" yes
+
+[ "$fails" = 0 ] && echo "NIGHTLY WORKTREE PASSED" || echo "$fails check(s) failed"
+exit $((fails > 0))

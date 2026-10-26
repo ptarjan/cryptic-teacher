@@ -128,7 +128,7 @@ const COUNTER_DAYS = 3;
    `f:<day>` -> the counts as last copied into KV.
 
    Plain fetch() rather than RPC, so this file still imports under node, where
-   tools/test_push_hold.js and tools/test_kv_writes.js drive it. */
+   tests/test_push_hold.js and tests/test_kv_writes.js drive it. */
 export class EventCounter {
   constructor(state) { this.storage = state.storage; }
 

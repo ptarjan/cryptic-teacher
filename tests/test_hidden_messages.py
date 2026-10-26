@@ -1,0 +1,160 @@
+#!/usr/bin/env python3
+# Hidden-letter devices: each hiddenLetter agrees with its clue's blocks or
+# text, a message is spelt by its clues' letters in order, a preamble naming
+# a device without `messages` is counted by the ratchet, and the converter reads
+# letters off existing blocks.
+import os
+import sys
+os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+
+import copy
+import annotation
+import hidden_messages as hm
+import puzzle_schema
+import validate_annotations as v
+
+PREAMBLE = ("Wordplay in each across clue omits a letter from the entry. In order, "
+            "the omissions form a hint, which must be written below the grid.")
+
+
+def entry(n, direction, clue, answer, tree, hidden=None):
+    """A clue as a file stores it: its wordplay tree, the device's letter a leaf
+    with no clue words (supplied) or one a deletion takes out (extra)."""
+    ann = {"definitions": [{"text": clue.split()[-1], "at": clue.rindex(" ") + 1}],
+           "wordplay": tree, "explanation": {"walkthrough": "w"}}
+    if hidden:
+        ann["hiddenLetter"] = hidden
+    return {"number": n, "direction": direction, "position": {"x": 0, "y": n},
+            "length": len(answer), "clue": {"text": clue, "enumeration": str(len(answer))},
+            "solution": answer, "annotation": ann}
+
+
+def puzzle(entries, messages=None, preamble=PREAMBLE):
+    p = {"id": "genius-1", "number": 1, "date": "2026-01-01",
+         "preamble": preamble, "dimensions": {"cols": 9, "rows": 9},
+         "source": {"publisher": "Guardian", "url": "https://x.example/1", "retrievedFrom": "publisher",
+                    "acquiredBy": "tools/genius_puzzles.py", "acquiredOn": "2026-01-01", "gridOrigin": "published"},
+         "solutions": {"origin": "published"}, "entries": entries}
+    if messages:
+        p["messages"] = messages
+    return p
+
+
+# HI: 1-across and 3-across each omit a letter (a leaf with no clue words
+# supplies it); 2-down's wordplay gives an extra X, which a deletion takes out.
+def entries(hidden=True):
+    return [
+        entry(1, "across", "Bat ox", "HOT",
+              {"op": "charade", "parts": [{"gives": "H", "note": "the omitted letter"},
+                                          {"words": "Bat", "gives": "O"}, {"words": "ox", "gives": "T"}]},
+              {"kind": "omitted", "letter": "H"} if hidden else None),
+        entry(3, "across", "Sat on", "SIT",
+              {"op": "container", "parts": [{"words": "Sat", "gives": "ST"},
+                                            {"gives": "I", "note": "the omitted letter"}]},
+              {"kind": "omitted", "letter": "I"} if hidden else None),
+        entry(2, "down", "Tome hat", "TOME",
+              {"op": "deletion", "parts": [{"words": "Tome", "gives": "TOMEX"}, {"gives": "X"}]},
+              {"kind": "extra", "letter": "X"} if hidden else None),
+    ]
+
+
+def seen(e):
+    """The annotation as hidden_messages reads it: annotation.view()'s blocks."""
+    return annotation.view(e["annotation"], e)
+
+
+MSG = [{"text": "HI", "kind": "omitted", "direction": "across", "order": "clues", "placement": "belowGrid"}]
+fails = 0
+
+
+def check(name, want, got):
+    global fails
+    ok = bool(got) == want
+    fails += not ok
+    print(("ok  " if ok else "FAIL"), name, "" if ok else got)
+
+
+def problems(p):
+    p = puzzle_schema.order(p)
+    view = annotation.view_puzzle(p)
+    return (puzzle_schema.validate(p) + hm.message_problems(view)
+            + [x for e in view["entries"] for x in hm.letter_problems(e["annotation"], e)])
+
+
+check("letters spell the message", False, problems(puzzle(entries(), MSG)))
+bad = copy.deepcopy(MSG); bad[0]["text"] = "IH"
+check("letters out of order", True, problems(puzzle(entries(), bad)))
+un = copy.deepcopy(bad); un[0]["order"] = "unordered"
+check("unordered reads them in any order", False, problems(puzzle(entries(), un)))
+wrong = entries(); wrong[1]["annotation"]["hiddenLetter"]["letter"] = "A"
+check("omitted letter the blocks do not lack", True, problems(puzzle(wrong, MSG)))
+wrong = entries(); wrong[2]["annotation"]["hiddenLetter"]["letter"] = "T"
+check("extra letter the blocks do not add", True, problems(puzzle(wrong, MSG)))
+mis = entries(); mis[0]["annotation"]["hiddenLetter"] = {"kind": "misprint", "letter": "C", "printed": "B", "at": 0}
+check("misprint at its printed letter", False, hm.letter_problems(seen(mis[0]), mis[0]))
+mis[0]["annotation"]["hiddenLetter"]["at"] = 1
+check("misprint at the wrong offset", True, hm.letter_problems(seen(mis[0]), mis[0]))
+mis[0]["annotation"]["hiddenLetter"] = {"kind": "extra", "letter": "X", "at": 1}
+check("extra takes no offset", True, hm.letter_problems(seen(mis[0]), mis[0]))
+# Letters Latent (genius-263): a letter dropped wherever it occurs is supplied
+# once per occurrence, each in its own leaf with no clue words.
+latent = entry(5, "across", "Gamma ian scholar", "GRAMMARIAN",
+               {"op": "charade", "parts": [
+                   {"op": "container", "parts": [{"words": "Gamma", "gives": "GAMMA"},
+                                                 {"gives": "R", "note": "supplied"}]},
+                   {"gives": "R", "note": "supplied"}, {"words": "ian", "gives": "IAN"}]},
+               {"kind": "omitted", "letter": "R"})
+check("latent letter supplied at each occurrence", False, hm.letter_problems(seen(latent), latent))
+check("latent letter reads as omitted", True, hm.entry_letter(seen(latent), latent) == ("omitted", "R") or [])
+mixed = seen(latent); mixed["blocks"][1]["gives"] = "S"
+check("two different supplied letters are no one omission", True, hm.entry_letter(mixed, latent) != ("omitted", "R") or [])
+check("schema refuses an unknown kind", True,
+      puzzle_schema.validate(puzzle_schema.order(puzzle(entries(), [{**MSG[0], "kind": "swapped"}]))))
+
+# The ratchet: a preamble naming a device with no messages warns once, as
+# `puzzle:`, so count_backlog counts it under "messages".
+p = puzzle(entries(hidden=False))
+warns = hm.check_preamble(p)
+check("device without messages is counted", True, warns)
+check("ratchet counts it once", True, v.count_backlog(warns)["messages"] == 1 or [])
+check("with messages nothing is counted", False, hm.check_preamble(puzzle(entries(), MSG)))
+for text in ["Seven solutions, not defined, are linked.",
+             "Answers lose a letter before entry.",
+             "Erratum: 12 across should read (5).",
+             "The first letters of the unclued answers are irrelevant.",
+             # cryptic-26974: groups of letters left out of wordplay, read nowhere
+             "In one case, these letters involve the beginning and end of the alphabet. These groups of "
+             "three or four letters are to be included in the solution, but are omitted from the wordplay.",
+             # cyclops-743: a minor omission from a quoted extract, not a clue letter
+             "Running round the shaded squares is an extract (with a minor omission). The 55 letters "
+             "of this entry not crossing with normal solutions are: A B C",
+             # near-misses of the two widenings: no clue, no reading together
+             "A letter must be removed from each answer before entry.",
+             "A letter must be removed from each clue before solving. Take care."]:
+    check(f"not a device: {text!r}", False, hm.device_kinds(text))
+for text in ["Each clue contains a misprint; the correct letters spell a quotation.",
+             "One letter too many is generated by the wordplay in each clue; these extra letters spell an instruction.",
+             PREAMBLE,
+             # genius-250: removed letter per clue, read as "the superfluous material"
+             "A letter must be removed from each clue before solving. Careful consideration of the "
+             "superfluous material will lead to one conclusion.",
+             # genius-194: a number word between "these" and "omissions"
+             "In the remaining sixteen clues, the wordplay omits one letter from the solution. When "
+             "these sixteen omissions are added, the logic will become apparent."]:
+    check(f"a device:{text[:40]!r}", True, hm.device_kinds(text))
+
+# The converter reads the letters off the blocks and writes them back. A run
+# of fewer than four letters is too short to tell from chance, so spell OPEN.
+four = [entry(n, "across", f"Clue {n} word", ans,
+              {"op": op, "parts": sorted([{"gives": miss, "note": "the omitted letter"},
+                                          {"words": "Clue", "gives": ans.replace(miss, "", 1)}],
+                                         key=lambda x: op == "container" and "words" not in x)})
+        for n, ans, miss, op in [(1, "OAK", "O", "charade"), (3, "SPA", "P", "container"),
+                                 (5, "EAR", "E", "charade"), (7, "NIL", "N", "charade")]]
+status, text, new = hm.convert(puzzle(four))
+check("converter reads the across omissions", True, status == "converted" and text == "OPEN" or [])
+if new:
+    check("converted puzzle is clean", False, problems(new))
+if fails:
+    raise SystemExit(fails)
+print("all hidden-message checks passed")

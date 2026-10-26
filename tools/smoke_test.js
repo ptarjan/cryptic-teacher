@@ -1094,18 +1094,18 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   // kind that gets run before a push. Change any of these and run CI=1.
   if ((FULL || process.env.CI) && SLICE.i === 0) {
     const hold = require("child_process").spawnSync(
-      process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
+      process.execPath, [path.join(ROOT, "tests/test_push_hold.js")], { encoding: "utf8" });
     assert(hold.status === 0,
-      "tools/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
+      "tests/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
       + "exactly once\n" + (hold.stdout || "") + (hold.stderr || ""));
 
     /* Ticking a second paper while the first tick is still being saved. Shelled
        out for the same reason and a different one: the suite here is synchronous,
        and a race only exists between two promises. */
     const race = require("child_process").spawnSync(
-      process.execPath, [path.join(ROOT, "tools/test_notify_race.js")], { encoding: "utf8" });
+      process.execPath, [path.join(ROOT, "tests/test_notify_race.js")], { encoding: "utf8" });
     assert(race.status === 0,
-      "tools/test_notify_race.js: a paper ticked while another is saving is queued, "
+      "tests/test_notify_race.js: a paper ticked while another is saving is queued, "
       + "not dropped and then unticked\n" + (race.stdout || "") + (race.stderr || ""));
 
     /* The bridge path the pre-reset burn's alerts resolve at runtime. Shelled
@@ -1113,25 +1113,25 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
        schedule that would notice: when it is wrong, the alert saying so is the
        thing that goes silent. */
     const paths = require("child_process").spawnSync(
-      "bash", [path.join(ROOT, "tools/test_prereset_paths.sh")], { encoding: "utf8" });
+      "bash", [path.join(ROOT, "tests/test_prereset_paths.sh")], { encoding: "utf8" });
     assert(paths.status === 0,
-      "tools/test_prereset_paths.sh: the burn finds wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
+      "tests/test_prereset_paths.sh: the burn finds wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
 
     /* The catch-all alert, which exists to report failures nobody thought of --
        and so must not re-report the one the run already explained. */
     const claimed = require("child_process").spawnSync(
-      "bash", [path.join(ROOT, "tools/test_alert_claimed.sh")], { encoding: "utf8" });
+      "bash", [path.join(ROOT, "tests/test_alert_claimed.sh")], { encoding: "utf8" });
     assert(claimed.status === 0,
-      "tools/test_alert_claimed.sh: a traceback an alert already quoted is not "
+      "tests/test_alert_claimed.sh: a traceback an alert already quoted is not "
       + "sent again as unexplained\n" + (claimed.stdout || "") + (claimed.stderr || ""));
 
     /* Which tree a scheduled job runs in. The wrong one is not an error there:
        the job runs, plans from a stale corpus, and hands out work that is
        already pushed. */
     const tree = require("child_process").spawnSync(
-      "bash", [path.join(ROOT, "tools/test_nightly_worktree.sh")], { encoding: "utf8" });
+      "bash", [path.join(ROOT, "tests/test_nightly_worktree.sh")], { encoding: "utf8" });
     assert(tree.status === 0,
-      "tools/test_nightly_worktree.sh: a job gets its own worktree, or refuses "
+      "tests/test_nightly_worktree.sh: a job gets its own worktree, or refuses "
       + "to run in a checkout that is dirty or behind\n"
       + (tree.stdout || "") + (tree.stderr || ""));
   }
@@ -1466,7 +1466,7 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
 }
 // --- clicking a pattern box moves the cursor; overtyping a letter moves to the next unlocked square ---
 // (typing into a gap still skips to the next gap; typing over a filled square goes to the
-// very next square that is not locked in, filled or not — see tools/test_overtype.js)
+// very next square that is not locked in, filled or not — see tests/test_overtype.js)
 {
   const bad = wrongLetter(answer[4]);
   assert(registry["hint-pattern"].listeners.click, "pattern strip has a click handler");
@@ -7875,7 +7875,7 @@ global.realSetTimeout(() => {
 // frozen Guardian cryptics): each is booted as its browser form, every
 // annotated clue's ladder is climbed, and every one must have rungs. Each is
 // climbed twice from the same seed, and the two climbs must match: the panel a
-// clue shows depends on nothing but the puzzle. tools/test_shim_format.py
+// clue shows depends on nothing but the puzzle. tests/test_shim_format.py
 // checks the data.
 for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["-c",
     "import json, fetch_puzzle as fp\n"

@@ -5,7 +5,7 @@
 # which differ only in which ids they pick, when, how many at once and how they
 # pace themselves. This is the only file that runs a model on
 # tools/solve_prompt.md or tools/annotate_prompt.md, and
-# tools/test_puzzle_worker.sh holds it to that.
+# tests/test_puzzle_worker.sh holds it to that.
 #
 # A cold solve runs only inside the turn that annotates the same puzzle, never
 # as a pick of its own: working an answer out and explaining how it was worked

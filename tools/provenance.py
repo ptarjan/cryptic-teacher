@@ -189,7 +189,7 @@ OCR_CHANNELS = ("newspaper", "book")
 # channel that disagrees with the tool that fetched it.
 #
 # A tool named here is a tool that exists — asserted by
-# tools/test_provenance.py, which checks each one resolves to a file in
+# tests/test_provenance.py, which checks each one resolves to a file in
 # tools/. "tools/fetch_metro.py --wayback" is a separate entry from
 # "tools/fetch_metro.py" on purpose: it is the same script reading a different
 # channel, and the flag is the only thing that distinguishes them.

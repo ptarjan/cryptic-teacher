@@ -39,7 +39,7 @@
 #     local commit a failed push left) before its reset, when the job's script
 #     sets CT_SALVAGE_PATHS before sourcing it.
 #
-# tools/test_durable.sh kills a fake job each of these ways and checks that
+# tests/test_durable.sh kills a fake job each of these ways and checks that
 # what it filed reaches origin; it also fails when a scheduled entry point
 # neither sources this file nor is listed there as short.
 

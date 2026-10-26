@@ -1,0 +1,278 @@
+#!/usr/bin/env python3
+# Does every puzzle write refuse what the corpus sweep would report?
+#
+#     python3 tests/test_puzzle_invariants.py
+#
+# fetch_puzzle.write_puzzle_file runs puzzle_integrity.check_puzzle on every
+# write, so a fetcher cannot put a corpus-sweep defect on disk.
+# Each case below takes a healthy puzzle from the corpus, gives it one defect,
+# and expects the write to be refused naming it; the
+# deliberate shapes (cryptic-30098's blank 12-across, cryptic-23053's corrected
+# answer, a Times prize the filer cannot date yet) must still write. The
+# cross-puzzle DATE check is asked of synthetic rows and then of the corpus.
+import contextlib
+import io
+import os
+import re
+import shutil
+import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+os.chdir(REPO)
+sys.path.insert(0, str(REPO / "tools"))
+from groups import entry_id
+import copy
+import corroborate
+import datetime
+import fetch_puzzle as fetcher
+import json
+import puzzle_integrity as pi
+import quotes
+import series as series_meta
+import tempfile
+
+tmp_dirs = []
+fails = 0
+
+
+def same(what, got, want):
+    global fails
+    if got == want:
+        print(f"  ok: {what}")
+    else:
+        print(f"  FAIL: {what}\n    want {want}\n    got  {got}")
+        fails += 1
+
+
+def sweep():
+
+
+    tmp = Path(tempfile.mkdtemp())
+    tmp_dirs.append(tmp)
+    # Offline: no second source fills what a case leaves out, and no ledger is kept.
+    corroborate.SOURCES = ()
+    corroborate.LEDGER = tmp / "ledger.json"
+
+
+    def real(pid):
+        return fetcher.read_puzzle_file(fetcher.resolve_puzzle(pid))
+
+
+    def write(name, puzzle, over=None):
+        """REFUSED <name> <first flag> or WROTE <name>, writing into a scratch dir."""
+        path = tmp / f"{puzzle['id']}.json"
+        if over is not None:
+            path.write_text(json.dumps(over), encoding="utf-8")
+        elif path.exists():
+            path.unlink()
+        try:
+            fetcher.write_puzzle_file(path, puzzle)
+        except ValueError as err:
+            flag = str(err).split(": ", 1)[1].split(" ", 1)[0]
+            print(f"REFUSED {name} {flag}")
+            return None
+        print(f"WROTE {name}")
+        return json.loads(path.read_text(encoding="utf-8"))
+
+
+    def entry(p, eid):
+        return next(e for e in p["entries"] if entry_id(e) == eid)
+
+
+    indy = real("independent-12000")
+    write("healthy", indy)
+
+    p = copy.deepcopy(indy)
+    p["setter"] = "Unknown"
+    write("placeholder-setter", p)
+
+    p = copy.deepcopy(indy)
+    p["setter"] = "Juji / ©News Licensing/Times Media Limited"
+    write("licensed-setter", p)
+
+    p = copy.deepcopy(indy)
+    p["setter"] = "Picaroon "
+    write("padded-setter", p)
+
+    p = copy.deepcopy(indy)
+    p["setter"] = None
+    write("bylined-null-setter", p)
+
+    # A bylined series' puzzle no source names a setter for (series.py unbylined).
+    p = copy.deepcopy(real("genius-83"))
+    p["setter"] = None
+    write("genius-null-setter", p)
+    p["id"], p["number"] = "genius-84", 84
+    write("genius-unbylined-84", p)
+    p = copy.deepcopy(real("genius-83"))
+    p["setter"], p["id"], p["number"] = None, "genius-7", 7
+    p["solutions"] = {"origin": "unsolved"}
+    for e in p["entries"]:
+        e.pop("solution", None)
+    write("genius-unsolved-nosetter", p)
+
+    p = copy.deepcopy(indy)
+    p["date"] = None
+    write("feed-undated", p)
+
+    # A complete puzzle read off a newspaper scan writes with no byline (the 1970s
+    # FT printed none) and no answers (an unreadable solution grid).
+    ft = real("ftcryptic-13232")
+    p = {k: v for k, v in copy.deepcopy(ft).items()
+         if k not in ("setter", "source", "solutions", "annotatedBy")}
+    p["source"] = {"url": "https://archive.org/details/FinancialTimes1975UKEnglish/page/n20"}
+    for e in p["entries"]:
+        e.pop("solution", None)
+        e.pop("annotation", None)
+    try:
+        fetcher.write_puzzle_file(tmp / f"{p['id']}.json", p, generator="tools/file_archive_org_puzzles.py")
+        print("WROTE scan-no-byline-no-answers")
+    except ValueError as err:
+        print(f"REFUSED scan-no-byline-no-answers {err}")
+
+
+    p = copy.deepcopy(indy)
+    p["entries"][0]["clue"]["text"] = "dishe{s a la Mi}lanese " + p["entries"][0]["clue"]["text"]
+    write("braced-clue", p)
+
+    p = copy.deepcopy(indy)
+    p["entries"][0]["clue"]["text"] = "<i>Black Narcissus</i> " + p["entries"][0]["clue"]["text"]
+    write("markup-clue", p)
+
+    p = copy.deepcopy(indy)
+    p["entries"][0]["clue"]["text"] = "Cyclops \u0096 " + p["entries"][0]["clue"]["text"]
+    write("c1-clue", p)
+
+    p = copy.deepcopy(indy)
+    a = next(e for e in p["entries"] if e["direction"] == "across" and e.get("solution"))
+    a["solution"] = a["solution"][:-1] + ("Z" if a["solution"][-1] != "Z" else "Q")
+    write("crossing-conflict", p)
+
+    p = copy.deepcopy(indy)
+    blank = copy.deepcopy(indy)
+    first = entry(blank, entry_id(p["entries"][0]))
+    first["clue"] = {"enumeration": first["clue"]["enumeration"], "missing": True}
+    write("refetch-blanks-a-clue", blank, over=p)
+
+    p = copy.deepcopy(indy)
+    p["source"]["acquiredOn"] = "2020-01-01"
+    fresh = copy.deepcopy(indy)
+    del fresh["source"]
+    got = write("refetch-keeps-acquiredOn", fresh, over=p)
+    print("ACQUIRED", got and got["source"]["acquiredOn"])
+
+    p = copy.deepcopy(indy)
+    lead, cont = p["entries"][0], p["entries"][1]
+    lead["clue"]["enumeration"] = f"{lead['length']},{cont['length']}"
+    cont["clue"] = {"text": f"See {lead['number']}"}
+    lead["group"] = cont["group"] = [entry_id(lead), entry_id(cont)]
+    cont.pop("annotation", None)
+    write("continuation-holds-group", p)
+    del cont["group"]
+    write("leader-holds-group", p)
+
+    quick = real("timesquick-2000")
+    p = copy.deepcopy(quick)
+    lead = next(e for e in p["entries"] if not fetcher.is_continuation(e["clue"]["text"]))
+    del lead["clue"]["enumeration"]
+    write("blog-clue-no-enumeration", p)
+
+    p = copy.deepcopy(real("sundaytimes-5000"))
+    p["date"] = None
+    write("prize-not-yet-dated", p)
+
+    # Clue text curled by its source is written straight, and an annotation
+    # quoting it is straightened with it rather than dropped as stale.
+    curled = copy.deepcopy(real("independent-10458"))
+    for e in curled["entries"]:
+        for holder, key in quotes._clue_strings(e):
+            holder[key] = holder[key].replace("'", "\u2019")
+    before = sum("annotation" in e for e in curled["entries"])
+    got = write("curled-clues", curled)
+    print("STRAIGHT", bool(got) and not any(quotes.curly(got))
+          and any("\u2019" in e["clue"].get("text", "") for e in curled["entries"])
+          and sum("annotation" in e for e in got["entries"]) == before)
+
+    write("30098-blank-12a", real("cryptic-30098"))
+    write("23053-corrected", real("cryptic-23053"))
+
+
+    def day(y, m, d):
+        return datetime.date(y, m, d)
+
+
+    def dates(name, rows):
+        flags = []
+        pi.check_dates(rows, flags)
+        print(f"DATES {name} {len(flags)}")
+
+
+    dates("rising", [("timesquick", 181, day(2014, 11, 17), "timesquick-181"),
+                     ("timesquick", 182, day(2014, 11, 18), "timesquick-182")])
+    dates("same-day", [("timesquick", 181, day(2014, 11, 17), "timesquick-181"),
+                       ("timesquick", 182, day(2014, 11, 17), "timesquick-182")])
+    dates("backwards", [("cryptic", 24744, day(2009, 7, 14), "cryptic-24744"),
+                        ("cryptic", 24745, day(2009, 7, 7), "cryptic-24745")])
+    # A book puzzle holds a `year` and no `date`, so the sweep hands it over undated.
+    dates("book-years", [("book", 1001, None, "book-1001"),
+                         ("book", 1002, None, "book-1002")])
+
+    held, flags = [], []
+    for path in fetcher.puzzle_files():
+        z = fetcher.read_puzzle_file(path)
+        held.append((series_meta.of(z), z["number"], pi.date_of(z), z["id"]))
+        pi.check_setter(z, flags)
+    pi.check_dates(held, flags)
+    print("CORPUS " + ("; ".join(f"{f} {pid} {w}" for f, pid, w in flags[:5]) or "clean"))
+
+
+buf = io.StringIO()
+try:
+    with contextlib.redirect_stdout(buf):
+        sweep()
+finally:
+    shutil.rmtree(tmp_dirs[0], ignore_errors=True) if tmp_dirs else None
+out = buf.getvalue().rstrip("\n")
+
+
+def grep(pattern):
+    return "\n".join(l for l in out.splitlines() if re.search(pattern, l))
+
+
+print("every puzzle write runs the corpus sweep's per-puzzle checks")
+same("curly quotes in clue text and its annotation are written straight, annotations kept", grep('^STRAIGHT '), "STRAIGHT True")
+same("a healthy puzzle writes", grep('^WROTE healthy$'), "WROTE healthy")
+same("a group held by its leader alone writes", grep(' leader-holds-group'), "WROTE leader-holds-group")
+same("a continuation holding the group is refused", grep(' continuation-holds-group'), "REFUSED continuation-holds-group SHAPE")
+same("a placeholder setter is refused", grep(' placeholder-setter'), "REFUSED placeholder-setter SETTER")
+same("a syndication suffix on a setter is refused", grep(' licensed-setter'), "REFUSED licensed-setter SETTER")
+same("a setter with stray whitespace is refused", grep(' padded-setter'), "REFUSED padded-setter SETTER")
+same("a bylined series with no setter writes (no setter never holds a write)", grep(' bylined-null-setter'), "WROTE bylined-null-setter")
+same("a Genius with no setter writes", grep(' genius-null-setter'), "WROTE genius-null-setter")
+same("an unsolved Genius with no setter writes (no source names one)", grep(' genius-unsolved-nosetter'), "WROTE genius-unsolved-nosetter")
+same("a Genius series.py lists as unbylined writes with no setter", grep(' genius-unbylined-84'), "WROTE genius-unbylined-84")
+same("a complete scanned puzzle with no byline and no answers writes", grep(' scan-no-byline-no-answers'), "WROTE scan-no-byline-no-answers")
+same("a feed puzzle with no date is refused", grep(' feed-undated'), "REFUSED feed-undated SHAPE")
+same("a blog's braces in a clue are refused", grep(' braced-clue'), "REFUSED braced-clue SHAPE")
+same("HTML in a clue is refused", grep(' markup-clue'), "REFUSED markup-clue SHAPE")
+same("a C1 control character is refused", grep(' c1-clue'), "REFUSED c1-clue SHAPE")
+same("a crossing conflict is refused", grep(' crossing-conflict'), "REFUSED crossing-conflict CROSS")
+same("a re-fetch may not blank a clue the file has", grep(' refetch-blanks-a-clue'), "REFUSED refetch-blanks-a-clue SHAPE")
+same("a re-fetch keeps the file's acquiredOn", grep('^ACQUIRED '), "ACQUIRED 2020-01-01")
+same("a blog clue without its count is refused", grep(' blog-clue-no-enumeration'), "REFUSED blog-clue-no-enumeration SHAPE")
+same("a prize with no date is refused: the filer always fits one", grep(' prize-not-yet-dated'), "REFUSED prize-not-yet-dated SHAPE")
+same("30098's deliberately blank 12-across writes", grep(' 30098-blank-12a'), "WROTE 30098-blank-12a")
+same("23053's corrected answer writes", grep(' 23053-corrected'), "WROTE 23053-corrected")
+same("rising dates pass", grep('^DATES rising '), "DATES rising 0")
+same("two numbers on one day are flagged", grep('^DATES same-day '), "DATES same-day 1")
+same("a later number dated earlier is flagged", grep('^DATES backwards '), "DATES backwards 1")
+same("book years are not a sequence", grep('^DATES book-years '), "DATES book-years 0")
+same("the corpus's setters and dates are clean", grep('^CORPUS '), "CORPUS clean")
+
+if fails:
+    print("\n".join([l for l in out.splitlines()
+                     if not re.match(r"(WROTE|REFUSED|DATES|ACQUIRED|CORPUS) ", l)][:20]))
+    print(f"puzzle_invariants: {fails} check(s) failed")
+    sys.exit(1)
+print("puzzle_invariants: all checks passed")
