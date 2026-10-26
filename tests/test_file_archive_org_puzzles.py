@@ -1157,8 +1157,8 @@ cr_due.append(f.short_again(vu_row("2026-10-26T02:00:00+00:00", gap=8)))
 f.many_blank = real_mb
 f.filed_state = real_fs
 check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES: CANDIDATE_READS (rank 2, "
-      "answers-only, a LOW prefix); read since, or not 6+ short, nothing",
-      [f.CANDIDATE_READS, None, None, 2, True, True],
+      "answers-only, a LOW prefix); read since, before REREAD_WIDE_AGREED, WIDE_AGREED; not 6+ short, nothing",
+      [f.CANDIDATE_READS, f.WIDE_AGREED, None, 2, True, True],
       cr_due + [f.RANKS[f.CANDIDATE_READS], f.CANDIDATE_READS in f.SOLUTION_FIXES, f.CANDIDATE_READS.startswith("solution short")])
 # A held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT (due nothing else): CLUE_SHORT;
 # read since, or 3+ short, nothing.
@@ -1191,9 +1191,9 @@ for cw_n, cw_at in ((3, "2026-10-26T05:00:00+00:00"), (5, "2026-10-26T05:00:00+0
 f.held_blanks = real_hb
 f.filed_state = real_fs
 check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE: CLUE_WIDE (rank 2, answers-only, "
-      "evidence, a LOW prefix, a fix landed); read since, 2 short read since CLASH_SHORT, 6 short since "
-      "CANDIDATE_READS, nothing",
-      [f.CLUE_WIDE, f.CLUE_WIDE, None, None, None, 2, True, True, True, True, True],
+      "evidence, a LOW prefix, a fix landed); read since, 2 short read since CLASH_SHORT, nothing; 6 short since "
+      "CANDIDATE_READS, before REREAD_WIDE_AGREED, WIDE_AGREED",
+      [f.CLUE_WIDE, f.CLUE_WIDE, None, None, f.WIDE_AGREED, 2, True, True, True, True, True],
       cw_due + [f.RANKS[f.CLUE_WIDE], f.CLUE_WIDE in f.SOLUTION_FIXES, f.CLUE_WIDE.startswith("solution short"),
                 f.CLUE_WIDE in __import__("edition_queue").LOW_ASK, f.CLUE_WIDE in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.CLUE_WIDE)])
@@ -1517,9 +1517,10 @@ f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
 cd_near = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
 (f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
  f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
-check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) asks nothing, the clue read's DOG "
+check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) asks no pick, only the 2 lights with "
+      "candidates their plain strip (WIDE_AGREED; CAT on unread cells is the VLM's alone: refused), the clue read's DOG "
       "stands; 2 candidates for every light asks each plainly and to pick (12 asks), CAT standing in all six",
-      [({"1-across": "DOG"}, 0), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
+      [({"1-across": "DOG"}, 2), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
                                   [f"{n}-across" for n in (1, 11, 3, 5, 7, 9)])],
       [(cd_far[0], cd_far_asks),
        (cd_near[0], cd_near[1]["candidateAsks"], len(cd_asked) - cd_far_asks, cd_near[1]["vlmLights"])])
@@ -1549,6 +1550,58 @@ check("candidate_reads, 4 short: the clue read leaving 3 open asks nothing (DOG 
       "plainly and to pick (4 asks), the puzzle whole",
       [({"1-across": "DOG"}, 0), ({"1-across": "DOG", "3-across": "DOG", "5-across": "CAT", "7-across": "CAT"}, 4)],
       [(cw_far[0], cw_far_asks), (cw_near[0], len(cw_asked) - cw_far_asks)])
+# wide_pick: a plain strip read of a 6+ short grid's light stands where a second reader names the same word.
+wp = lambda word, p=0.6: [[p if c == ch else (1 - p) / 25 for c in f.trove_solution_ocr.AZ] for ch in word]
+check("wide_pick: CAT the clue read's top candidate stands; COT neither the top candidate nor the classifier's "
+      "letters does not; COT the classifier reads in every open cell stands; CAT on cells the classifier reads "
+      "nothing of (the VLM alone) does not",
+      ["CAT", None, "COT", None],
+      [f.wide_pick("CAT\n", "CAT", "C??", [3], wp("CAT")),
+       f.wide_pick("COT", "CAT", "C??", [3], wp("CAT")),
+       f.wide_pick("COT", None, "C??", [3], wp("COT")),
+       f.wide_pick("CAT", "CAT", "???", [3], [[1 / 26] * 26 for _ in range(3)])])
+# WIDE_AGREED: candidate_reads on a grid 6 short, one light with a candidate: its plain strip asked, the word the top
+# candidate and the VLM agree on taken, its letters the next pass's crossings; no light with a candidate: no ask.
+wa_es = [dict(e, clue={"text": "Xq zv", "enumeration": "3"}) for e in cd_es]
+wa_cat = {rc: np.array(wp("CAT")[rc[1]]) for rc in cd_lts[(1, "across")]}
+f.crop_cell_probs = lambda crop, grid: {rc: wa_cat.get(rc, np.full(26, 1 / 26)) for cells in cd_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cd_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+wa_asked, wa_seen = [], []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: wa_asked.append(prompt) or "CAT"
+def wa_reads(lts, acc, probs, enums):
+    wa_seen.append(sorted(acc))
+    return {}, ({(1, "across"): [("CAT", 0.0), ("COT", -1.0)]} if (1, "across") not in acc else {})
+f.trove_solution_ocr.clue_reads = wa_reads
+wa = f.candidate_reads(wa_es, {}, {"accepted": 0}, [], {(1, "across"): "3"}, Path(__file__))
+wa_n = len(wa_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: ({}, {})
+wa_none = f.candidate_reads(wa_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+check("candidate_reads, 6 short (WIDE_AGREED): the one light with a candidate asked its plain strip once, CAT (the top "
+      "candidate, read so) taken and lent to the next clue read; with no candidate anywhere nothing is asked",
+      [{"1-across": "CAT"}, ["1-across"], 1, 1, True, ({}, 1)],
+      [wa[0], wa[1].get("wideAgreed"), wa[1]["candidateAsks"], wa_n, [(1, "across")] in wa_seen,
+       (wa_none[0], len(wa_asked))])
+# WIDE_AGREED's due reason: a row read before REREAD_WIDE_AGREED whose held file is more than LATE_MAX short
+# (many_short), due nothing else: due; read since, or not so short: not.
+f.filed_state = lambda series, n: (False, True)
+real_mny = f.many_short
+f.many_short = lambda row, paper, few=False, wide=False: not few and not wide
+wd_due = [f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.many_short = lambda row, paper, few=False, wide=False: False
+wd_due.append(f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)))
+f.many_short = real_mny
+f.filed_state = real_fs
+check("a held file more than LATE_MAX short read before REREAD_WIDE_AGREED: WIDE_AGREED (rank 2, answers-only, "
+      "evidence, LOW, a fix landed); read since, or not so short: not",
+      [f.WIDE_AGREED, None, None, 2, True, True, True, True, True],
+      wd_due + [f.RANKS[f.WIDE_AGREED], f.WIDE_AGREED in f.SOLUTION_FIXES, f.WIDE_AGREED.startswith("solution short"),
+                f.WIDE_AGREED in __import__("edition_queue").LOW_ASK, f.WIDE_AGREED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.WIDE_AGREED)])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
