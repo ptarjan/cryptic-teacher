@@ -4952,8 +4952,7 @@
         key: "definition",
         label: LABELS.definition,
         html: `<p>It splits between ${named.slice(0, -1).join(", ")} and ${named[named.length - 1]}
-          — ${count} unrelated meanings of the same answer. The clue reads like one sentence so
-          that you don't notice it is ${count} definitions side by side.</p>` +
+          — ${count} unrelated meanings of the same answer.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
     } else if (isLit && !ann.fromBlog) {
@@ -4968,7 +4967,7 @@
         key: "definition",
         label: LABELS.definition,
         html: `<p>There's no separate wordplay here: <mark class="def">${escClue(defs[0].text)}</mark>
-          is a whole-clue description of the answer, worded to make you picture something else at first.</p>`
+          is a whole-clue description of the answer.</p>`
       });
     } else {
       // Say WHERE the definition sits and WHERE the wordplay therefore starts:
@@ -4995,9 +4994,8 @@
     const defStep = steps[steps.length - 1];
     if ((ann.linkWords || []).length && defStep) {
       const lw = ann.linkWords.map((w) => `<mark class="link">${escClue(w)}</mark>`).join(LIST_SEP);
-      defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
-        just a link — words that join the definition to the wordplay and add
-        no letters of their own.</p>`;
+      defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are link words" : "is a link word"}:
+        no letters.</p>`;
     }
 
     // Indicators only exist for some clue types — no rung that says "none".
