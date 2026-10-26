@@ -54,6 +54,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --five-hour        # pace five-hour windows until this week resets
+    tools/prereset_plan.py --rush MINUTES     # five-hour mode, spent by MINUTES from now
     tools/prereset_plan.py --weekly           # pace the weekly meter (the default)
     tools/prereset_plan.py --self-test
 """
@@ -136,6 +137,11 @@ CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
 FIVE_HOUR = ".prereset.five-hour"
+# `--rush MINUTES` (Paul 10-26 "burn your whole five hours quickly and I can
+# reset you"): an epoch deadline that pulls the five-hour meter's reset in, so
+# the pacer spends the window by then instead of by its real reset. Ignored
+# once past.
+RUSH = ".prereset.rush"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
 # the five-hour meter's rise in usage-history.csv, split between the burn and
@@ -455,6 +461,37 @@ def mode(stamp, resets_at):
         return "weekly"
 
 
+def rush_left(stamp, now):
+    """Hours until RUSH's deadline, 0 when there is none or it has passed."""
+    try:
+        return max(0.0, (float(stamp) - now) / 3600)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def rushed(meter, hours_left, stamp, now):
+    """The five-hour meter's hours left, pulled in to RUSH's deadline while it
+    is still ahead."""
+    try:
+        until = (float(stamp) - now) / 3600
+    except (TypeError, ValueError):
+        return hours_left
+    if meter != "session" or until <= 0 or hours_left is None:
+        return hours_left
+    return min(hours_left, until)
+
+
+def set_rush(minutes):
+    """--rush MINUTES: five-hour mode, spent by now + MINUTES."""
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    set_mode("session")
+    until = time.time() + float(minutes) * 60
+    (home / RUSH).write_text(f"{until:.0f}\n")
+    print(f"rushing: the five-hour window is spent by "
+          f"{dt.datetime.fromtimestamp(until, dt.timezone.utc).astimezone():%H:%M}")
+    return 0
+
+
 def set_mode(meter):
     """--five-hour stamps FIVE_HOUR with this week's reset; --weekly removes it."""
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
@@ -618,6 +655,7 @@ def width(arg=None, floor=1):
                  five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH), now - RATIO_SPAN_S, now))
         pct = weekly_usage.usage_pct(meter)
         hours_left, _ = weekly_usage.resets_in_hours(meter)
+        hours_left = rushed(meter, hours_left, _read(home / RUSH), now)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
                                  len(burn_rss_kb()))
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
@@ -629,6 +667,10 @@ def width(arg=None, floor=1):
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
     w = width_for(runs_needed, mem, cpu, current, floor)
     busy = load_cap(read_load1(), os.cpu_count(), current)
+    # A rush is Paul trading a slower box for the window spent now: the load cap
+    # stands down, and two runs a core (they mostly wait on the API) bound it.
+    if rush_left(_read(home / RUSH), time.time()) and meter == "session":
+        busy = 2 * (os.cpu_count() or 1)
     if busy is not None and w > busy:
         w = busy
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
@@ -2364,6 +2406,8 @@ def main():
     if "--cover-first" in sys.argv:
         at = sys.argv.index("--cover-first")
         return cover_first(" ".join(sys.argv[at + 1:]).split())
+    if "--rush" in sys.argv:
+        return set_rush(sys.argv[sys.argv.index("--rush") + 1])
     if "--five-hour" in sys.argv:
         return set_mode("session")
     if "--weekly" in sys.argv:
