@@ -1492,9 +1492,9 @@ check("clue_reads: STEAL read surely is taken; uniform cells leave the light ope
 import base64 as _b64
 import io as _io
 from PIL import Image as _Image
-_buf = _io.BytesIO()
-_Image.new("L", (4, 4), 255).save(_buf, "PNG")
-cd_png = _b64.b64encode(_buf.getvalue()).decode()
+_png_buf = _io.BytesIO()
+_Image.new("L", (4, 4), 255).save(_png_buf, "PNG")
+cd_png = _b64.b64encode(_png_buf.getvalue()).decode()
 cd_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "Feline", "enumeration": "3"}}
          for n in (1, 3, 5, 7, 9, 11)]
 cd_lts = {(n, "across"): [(i, 0), (i, 1), (i, 2)] for i, n in enumerate((1, 3, 5, 7, 9, 11))}
