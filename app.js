@@ -8635,7 +8635,7 @@
   // sentence would rewrite itself under you.
   let tallyDrawn = false;
 
-  // "What you used today": every device in a clue the solver took a hint or a
+  // "What you needed help with": every device in a clue the solver took a hint or a
   // letter on, with how many such clues, each linked to its lesson section, so
   // the finish names what to go and read. Derived from the saved ladder state
   // (hintsShown, hintsEarned, revealsUsed in ct:<id>), so it is there on a
@@ -8660,7 +8660,7 @@
   function recapHTML() {
     const used = recapCounts();
     if (!used.length) return "";
-    return `<div class="recap"><p class="recap-head">What you used today</p><ul>${used.map(([t, n]) =>
+    return `<div class="recap"><p class="recap-head">What you needed help with</p><ul>${used.map(([t, n]) =>
       `<li><a class="learn-link" href="${learnHref(DEVICE_RULES[t].learn)}">${esc(TYPES[t].label)}</a>` +
       ` <span class="muted">× ${n}</span></li>`).join("")}</ul></div>`;
   }

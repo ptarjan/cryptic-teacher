@@ -7695,10 +7695,10 @@ global.realSetTimeout(() => {
     return box.children.map((c) => c.innerHTML).join("");
   };
   const clean = scoreline(save(zero, {}));
-  assert(!/What you used today/.test(clean), "a puzzle finished with no hints has no recap: " + clean);
+  assert(!/What you needed help with/.test(clean), "a puzzle finished with no hints has no recap: " + clean);
 
   const html = scoreline(save(Object.assign({}, zero, { [entryId(b1)]: 2 }), { [entryId(b2)]: 1 }));
-  assert(/What you used today/.test(html), "a finish with hints lists what was used: " + html);
+  assert(/What you needed help with/.test(html), "a finish with hints lists what was used: " + html);
   const want = {};
   // Each clue counts once, under its most specific device, so the counts add
   // up to the number of clues that needed help.
