@@ -4762,28 +4762,71 @@
     // reversal / container / anagram wrapped round some of the pieces): the
     // tree is walked, each leaf is its chip, and a nested operation is
     // bracketed. Given up (the flat reading below) when a leaf is not a chip.
+    //
+    // Walked whatever the number of chips, one included: "most of THANET" has
+    // a single chip, and reading it as that chip alone says a six makes a five.
+    // A piece with no clue words of its own — the letter a deletion drops — is
+    // no chip, so it is told by where it comes off the whole and how many
+    // letters it is ("minus last letter"), which is what makes the counts add up.
+    const vals = wpResults(tree, ann.answer);
+    const val = (n) => (n ? (vals.get(n) != null ? vals.get(n) : wpKnown(n)) : null);
+    const plural = (k, w) => `${k === 1 ? "" : k + " "}${w}${k === 1 ? "" : "s"}`;
+    // W the whole, cuts the letters each dropped piece gives, R what is left
+    // (any of them may be unknown). Where they come off is read off the letters:
+    // R itself when it is known, else which end of W the cut matches.
+    const cutWords = (W, cuts, R) => {
+      const C = cuts.every((c) => c != null) ? cuts.join("") : null;
+      const k = C ? C.length : W && R ? W.length - R.length : 0;
+      if (!(k > 0)) return "minus some letters";
+      const fits = (rest) => (R ? rest === R : true);
+      if (W && cuts.length === 2 && C && W.startsWith(cuts[0]) && W.endsWith(cuts[1])
+        && W.length > k && fits(W.slice(cuts[0].length, W.length - cuts[1].length))) {
+        return k === 2 ? "minus first and last letters" : `minus ${cuts[0].length} from the front and ${cuts[1].length} from the back`;
+      }
+      if (W && (!R || W.length - k === R.length)) {
+        const last = (!C || W.endsWith(C)) && (R ? W.slice(0, -k) === R : C && !W.startsWith(C));
+        const first = (!C || W.startsWith(C)) && (R ? W.slice(k) === R : C && !W.endsWith(C));
+        if (last) return `minus ${plural(k, "last letter")}`;
+        if (first) return `minus ${plural(k, "first letter")}`;
+        const m = (W.length - k) / 2;
+        if (R && Number.isInteger(m) && W.slice(0, m) + W.slice(m + k) === R) return `minus ${plural(k, "middle letter")}`;
+      }
+      return `minus ${k} letter${k === 1 ? "" : "s"}`;
+    };
+    const OP_WORDS = { anagram: "anagram of", reversal: "reversal of", hidden: "hidden in", homophone: "sounds like",
+      first: "first letter of", last: "last letter of", middle: "middle of", outer: "outer letters of",
+      alternate: "alternate letters of", regular: "regular letters of", nth: "regular letters of" };
+    const chipless = (p) => p && !p.op && !p.words && val(p) != null;
     const used = new Set();
     const walk = (node, top) => {
       if (!node) return null;
       if (!node.op || !node.parts) {
         const i = at(node);
-        if (i < 0 || used.has(i)) return null;
-        used.add(i);
-        return [i];
+        if (i >= 0 && !used.has(i)) { used.add(i); return [i]; }
+        // A letter the clue gives without words of its own, inside a charade.
+        if (chipless(node)) return [plural(val(node).length, "letter")];
+        return null;
       }
-      const kids = node.parts.map((p) => walk(p, false));
-      if (!kids.length || kids.some((k) => !k)) return null;
       const op = node.op;
+      const here = top ? wholeWord(ann.answer) : val(node);
       let out;
-      if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
-      else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "minus", kids[1]);
-      else {
-        const lead = op === "charade" || op === "composite" ? [] : [op === "anagram" ? "anagram of" : `${op.replace(/_/g, " ")} of`];
-        out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
+      if (op === "deletion" && node.parts.slice(1).every(chipless)) {
+        const whole = walk(node.parts[0], false);
+        if (!whole) return null;
+        out = whole.concat(cutWords(val(node.parts[0]), node.parts.slice(1).map(val), here));
+      } else {
+        const kids = node.parts.map((p) => walk(p, false));
+        if (!kids.length || kids.some((k) => !k)) return null;
+        if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
+        else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "minus", kids[1]);
+        else {
+          const lead = op === "charade" || op === "composite" ? [] : [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`];
+          out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
+        }
       }
       return top || out.every((x) => typeof x === "number") && out.length === 1 ? out : ["("].concat(out, ")");
     };
-    const walked = tree.op && tree.parts && blocks.length > 1 ? walk(tree, true) : null;
+    const walked = tree.op && tree.parts && blocks.length ? walk(tree, true) : null;
     const treeParts = walked && used.size === blocks.length ? walked : null;
     const parts = treeParts ? treeParts
       : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
