@@ -1637,6 +1637,52 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .layout { gap: 10px; }
 }
 
+/* ---------- wide screens: one fixed frame, no page scroll ----------
+   Built for a full-screen browser on a 1080p video (Cracking the Cryptic: ~125%
+   zoom, a 1536x864 CSS viewport) but right for any landscape screen this size.
+   The puzzle fills the window under the header: the grid is sized to the HEIGHT
+   it has, the current clue and its hints sit under the clue lists on the right,
+   and each list scrolls on its own, so nothing the solver is reading moves when
+   the page does. The bottom-left corner holds nothing but the grid itself — a
+   webcam overlay lives there — so the check buttons ride above the clue lists.
+   Columns are a width question, so this asks about width and shape, never the
+   pointer; the sizes inside stay in the touch rules above. app.js writes --rows,
+   --cols and --lay-top (how far down the page the puzzle starts). */
+@media (min-width: 1280px) and (min-aspect-ratio: 13/10) and (min-height: 560px) {
+  body { max-width: none; padding: 0 28px 48px; }
+  #app .layout {
+    --wide-cap: calc((100dvh - var(--lay-top, 150px) - 16px) / var(--rows, 15) - 1px);
+    --wide-col: min(calc(var(--cols, 15) * (var(--wide-cap) + 1px) + 4px), 52%);
+    display: grid; gap: 8px 28px; align-items: stretch;
+    grid-template-columns: var(--wide-col) minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    height: calc(100dvh - var(--lay-top, 150px) - 8px); min-height: 480px;
+  }
+  #app .left-col { display: contents; }
+  #grid-wrap { grid-column: 1; grid-row: 1 / -1; align-self: start; }
+  #grid { --cellcap: var(--wide-cap); }
+  .toolbar { grid-column: 2; grid-row: 1; margin: 0; gap: 10px; font-size: .95rem; }
+  .tool { font-size: .95rem; padding: 8px 16px; }
+  .toolbar-label { font-size: .8rem; }
+  #hidden-message { grid-column: 2; grid-row: 2; margin: 0; }
+  #check-result { grid-column: 2; grid-row: 3; margin: 0; }
+  /* Both lists side by side, each its own scroller; any off-grid lists go beside them. */
+  #app .clues-col {
+    grid-column: 2; grid-row: 4; min-height: 0; min-width: 0; flex-wrap: nowrap; gap: 24px;
+  }
+  #app .clue-list {
+    flex: 1 1 0; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+    padding-right: 4px;
+  }
+  .clue-list h3 { position: sticky; top: 0; background: var(--bg); z-index: 1; margin-top: 0; }
+  #hint-panel {
+    grid-column: 2; grid-row: 5; margin: 0; padding: 14px 18px;
+    max-height: calc((100dvh - var(--lay-top, 150px)) * .52); overflow-y: auto;
+  }
+  .clue-list ol { font-size: 1.1rem; }
+  .hint-step p, .hint-step ul { font-size: 1.05rem; max-width: none; }
+}
+
 /* ---------- static pages (tools/build_seo_pages.py) ----------
    The archive pages under /puzzles/<n>/ and /learn/ are plain documents with no
    JavaScript, so they get a narrower measure and prose-first spacing rather than

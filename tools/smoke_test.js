@@ -421,6 +421,13 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
       "and that place is a @container query, not a window width: " + before.slice(-140));
   }
 
+  // The wide-screen frame (no page scroll, grid sized to height, lists scroll on
+  // their own) keeps the check buttons out of the bottom-left, where a webcam sits.
+  assert(/@media \(min-width: 1280px\)[^{]*\{[\s\S]*?#app \.clue-list\s*\{[^}]*overflow-y:\s*auto/.test(all),
+    "style.css keeps the wide-screen layout with independently scrolling clue lists");
+  assert(/@media \(min-width: 1280px\)[^{]*\{[\s\S]*?\.toolbar\s*\{[^}]*grid-column:\s*2;\s*grid-row:\s*1/.test(all),
+    "the wide layout puts the check toolbar top-right, never bottom-left");
+
   // --- and how big things are is asked about the pointer, not the width ---
   // As one query, an iPad shrinks when turned to the WIDER side: portrait
   // stacks and gets tablet cells and type, landscape falls through to the
