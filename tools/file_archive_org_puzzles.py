@@ -12401,7 +12401,7 @@ def _fill_writeup_blanks(old, new, cells):
         held.update(zip(cells(e), a))
         e.pop("annotation", None)
         changed[lid] = a
-    solutions = old["solutions"]
+    solutions = old.get("solutions") or {}
     if changed and isinstance(solutions.get("partial"), list):
         blank = {entry_id(e) for e in old["entries"] if not (e.get("solution") or "").strip()}
         left = [i for i in solutions["partial"] if i in blank]
