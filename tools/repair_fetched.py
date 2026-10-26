@@ -1807,6 +1807,118 @@ def repair_side_answers(apply_it=False, side=None, crops=None):
     return out
 
 
+def count_parts(enum):
+    """[part lengths] of a clue's count "(4,3-5)" -> [4, 3, 5]; [] when it gives none."""
+    return [int(n) for n in re.findall(r"\d+", enum or "")]
+
+
+def crossing_fills(puzzle):
+    """({light: word}, {light: (word, why)}) for each blank light of `puzzle` whose every cell its held
+    answers already give (1930's NYASSA, RAREE: a light the reader left blank though each letter of
+    it is crossed by an answer filed). The crossing letters are taken only as a word: listed whole
+    (trove_solution_ocr.listed) or, under a count of several words, each word of it listed, none a
+    surname cmudict alone lists (name_only: 1954's SUTRO for "OUTS with an r in it", SUTOR); the
+    clue's count fits the light; and it is no other light's held answer (a word printed twice in one
+    grid is a misread crossing, not the setter's). A cell two held answers give differently gives
+    none."""
+    import trove_solution_ocr as tso
+    def cells(e):
+        x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
+        return [(x + i * across, y + i * (not across)) for i in range(e["length"])]
+    es = puzzle.get("entries") or ()
+    letters, clash = {}, set()
+    for e in es:
+        if e.get("solution"):
+            for rc, ch in zip(cells(e), e["solution"].upper()):
+                if letters.setdefault(rc, ch) != ch:
+                    clash.add(rc)
+    held = {e["solution"].upper() for e in es if e.get("solution")}
+    took, why = {}, {}
+    for e in es:
+        if e.get("solution") or not e.get("length"):
+            continue
+        at = cells(e)
+        if any(rc not in letters or rc in clash for rc in at):
+            continue
+        word = "".join(letters[rc] for rc in at)
+        lid = entry_id(e)
+        parts = count_parts((e.get("clue") or {}).get("enumeration"))
+        if not word.isalpha():
+            why[lid] = (word, "not letters")
+        elif parts and sum(parts) != len(word):
+            why[lid] = (word, "the clue's count is not the light's length")
+        elif word in held:
+            why[lid] = (word, "another light's held answer")
+        elif tso.listed(word) and not tso.name_only(word):
+            took[lid] = word
+        elif len(parts) > 1 and all(tso.listed(w) and not tso.name_only(w) for w in
+                                    (word[sum(parts[:i]):sum(parts[:i + 1])] for i in range(len(parts)))):
+            took[lid] = word
+        elif tso.listed(word):
+            why[lid] = (word, "a cmudict-only name")
+        else:
+            why[lid] = (word, "no listed word")
+    return took, why
+
+
+def repair_crossing_fills(apply_it=False, paths=None):
+    """Each held Times file (the archive filer's) with a blank light its crossing answers spell
+    whole (crossing_fills) has the light filled, merged as repair_side_answers merges (file_archive_org_
+    puzzles.merge_answers keep: no held answer changes or goes, a blog-keyed file's write-up answers
+    stand, its solutions.partial follows) and written through fetch_puzzle.write_puzzle_file
+    (provenance.stamp's origin), a file provenance.check faults left unwritten. `paths`: the files
+    looked at (default every puzzles/times file). {"filled": [(id, date, light, word)], "whole":
+    [ids now fully answered], "refused": [(id, date, light, word, why)], "files": n}. With
+    `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    import provenance
+    if paths is None:
+        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+    out = {"filled": [], "whole": [], "refused": [], "files": 0}
+    for path in paths:
+        try:
+            held = fetcher.read_puzzle_file(path)
+        except (OSError, ValueError):
+            continue
+        es = held.get("entries") or ()
+        if (held.get("source") or {}).get("acquiredBy") != archive.TOOL or all(e.get("solution") for e in es):
+            continue
+        took, why = crossing_fills(held)
+        pid, day = held.get("id"), held.get("date")
+        out["refused"] += [(pid, day, lid, w, r) for lid, (w, r) in sorted(why.items())]
+        if not took:
+            continue
+        out["files"] += 1
+        before = provenance.check(held)
+        new = copy.deepcopy(held)
+        reading = copy.deepcopy(held)
+        for e in reading["entries"]:
+            e["solution"] = e.get("solution") or took.get(entry_id(e))
+        changed = archive.merge_answers(new, reading, keep=True)
+        if not changed:
+            continue
+        try:
+            stamped = provenance.stamp(copy.deepcopy(new), held["source"]["acquiredBy"])
+        except ValueError as err:
+            out["refused"] += [(pid, day, lid, w, f"provenance: {err}") for lid, w in sorted(changed.items())]
+            continue
+        faults = [f for f in provenance.check(stamped) if f not in before]
+        if faults:
+            out["refused"] += [(pid, day, lid, w, f"provenance: {faults[0]}") for lid, w in sorted(changed.items())]
+            continue
+        if apply_it:
+            try:
+                fetcher.write_puzzle_file(path, new)
+            except Exception as err:  # the write gate's refusal: the file stands as held
+                out["refused"] += [(pid, day, lid, w, f"write refused: {type(err).__name__}")
+                                   for lid, w in sorted(changed.items())]
+                continue
+        out["filled"] += [(pid, day, lid, w) for lid, w in sorted(changed.items())]
+        if all(e.get("solution") for e in new["entries"]):
+            out["whole"].append(pid)
+    return out
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -1867,6 +1979,10 @@ def main(argv):
                     help="only fill the blank lights of each held Times file from its --out copy in "
                          "CROPS/unfiled (a full reread's answers decide() filed there), never a held answer, "
                          "by the answers-only rules (side_fills); --apply writes")
+    ap.add_argument("--crossing-fills", action="store_true",
+                    help="only fill each blank light of a held Times file whose every cell its crossing answers "
+                         "give, where those letters make a listed word (or listed words to the clue's count) that "
+                         "no other light holds (crossing_fills); --apply writes")
     ap.add_argument("--workers", type=int, default=1, metavar="N",
                     help="with --uncrossed, classify the grid crops in N processes")
     ap.add_argument("--renumbered", action="store_true",
@@ -1925,6 +2041,19 @@ def main(argv):
         moved = [r for r in found if r[3] is None]
         print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
               + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
+        return 0
+    if args.crossing_fills:
+        got = repair_crossing_fills(args.apply)
+        for pid, day, lid, word in got["filled"]:
+            print(f"{pid} ({day}) {lid}: blank -> {word}")
+        for pid, day, lid, word, why in got["refused"]:
+            print(f"{pid} ({day}) {lid}: {word} left: {why}")
+        decade = lambda day: f"{(day or '0000')[:3]}0s"
+        verb = "filled" if args.apply else "would be filled"
+        print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
+              + ", ".join(f"{d} {n}" for d, n in sorted(Counter(decade(r[1]) for r in got["filled"]).items()))
+              + f"), {len(got['whole'])} made fully answered; left "
+              + ", ".join(f"{why} {n}" for why, n in Counter(r[4] for r in got["refused"]).most_common()))
         return 0
     if args.side_answers:
         got = repair_side_answers(args.apply)

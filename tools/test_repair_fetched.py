@@ -809,5 +809,57 @@ finally:
     rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = uw_saved
     shutil.rmtree(uw_dir, ignore_errors=True)
 
+# crossing_fills / repair_crossing_fills: a blank light every cell of which its held crossings give is
+# filled with those letters when they make a listed word no other light holds.
+cf_saved = tso.corpus_words
+tso.corpus_words = lambda: set()
+try:
+    def cf_puzzle(sols):
+        # 2x2, no black: 1-across, 1-down, 2-down, 3-across; every cell lies in an across and a down.
+        p = uc_puzzle(sols)
+        p["dimensions"] = {"cols": 2, "rows": 2}
+        p["source"] = {"publisher": "Times", "retrievedFrom": "newspaper", "acquiredOn": "2026-10-19",
+                       "url": "https://archive.org/details/per_times_the-times_1930-10-18_45647/page/n4/mode/1up",
+                       "acquiredBy": "tools/file_archive_org_puzzles.py", "gridOrigin": "published"}
+        p["solutions"] = {"origin": "published"}
+        for e, (x, y) in zip(p["entries"], [(0, 0), (0, 0), (1, 0), (0, 1)]):
+            e["position"], e["length"], e["clue"]["enumeration"] = {"x": x, "y": y}, 2, "2"
+        return p
+    # AN over TO: the columns read AT and NO.
+    same("a blank light its crossings spell as a listed word is taken",
+         rf.crossing_fills(cf_puzzle(["AN", "AT", None, "TO"]))[0], {"2-down": "NO"})
+    same("(mirror) crossings spelling no listed word are left, named",
+         rf.crossing_fills(cf_puzzle(["AQ", "AT", None, "TX"])), ({}, {"2-down": ("QX", "no listed word")}))
+    same("(mirror) a word another light holds is left",
+         rf.crossing_fills(cf_puzzle(["SO", "SO", None, "OS"]))[1], {"2-down": ("OS", "another light's held answer")})
+    cf_count = cf_puzzle(["AN", "AT", None, "TO"])
+    cf_count["entries"][2]["clue"]["enumeration"] = "3"
+    same("(mirror) a count that is not the light's length is left",
+         rf.crossing_fills(cf_count)[1], {"2-down": ("NO", "the clue's count is not the light's length")})
+    same("(mirror) a light with a cell no answer gives is not looked at",
+         rf.crossing_fills(cf_puzzle(["AN", "AT", None, None])), ({}, {}))
+    cf_dir = Path(tempfile.mkdtemp())
+    try:
+        cf_path = cf_dir / "times-1.json"
+        cf_path.write_text(json.dumps(cf_puzzle(["AN", "AT", None, "TO"]), indent=1) + "\n")
+        cf_io = (rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file)
+        rf.fetcher.read_puzzle_file = lambda path: json.loads(Path(path).read_text())
+        rf.fetcher.write_puzzle_file = lambda path, puzzle: Path(path).write_text(json.dumps(puzzle, indent=1) + "\n")
+        try:
+            cf_dry = rf.repair_crossing_fills(paths=[cf_path])
+            same("(dry run) the fill is named and nothing written",
+                 [cf_dry["filled"], json.loads(cf_path.read_text())["entries"][2]["solution"]],
+                 [[("times-1", "1990-01-01", "2-down", "NO")], None])
+            cf_done = rf.repair_crossing_fills(apply_it=True, paths=[cf_path])
+            same("--apply fills it, the held answers stand, the puzzle is whole",
+                 [[e["solution"] for e in json.loads(cf_path.read_text())["entries"]], cf_done["whole"]],
+                 [["AN", "AT", "NO", "TO"], ["times-1"]])
+        finally:
+            rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = cf_io
+    finally:
+        shutil.rmtree(cf_dir, ignore_errors=True)
+finally:
+    tso.corpus_words = cf_saved
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)
