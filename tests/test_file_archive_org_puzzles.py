@@ -4222,10 +4222,14 @@ def framed_classify(blocks):
                                      **sure_cells("BED", at=(2, 0)), **sure_cells("TOD", at=(0, 2), across=False)}
     real_glyph = tso.glyph
     tso.glyph = lambda g, ys, xs, r, c: None
+    # The stub framing has no pixels: blocks_sure's heavy-print fallback must see no block read.
+    real_blocks_read = tso.blocks_read
+    tso.blocks_read = lambda gray, lat, n: {(0, 0): None}
     try:
         return tso.read_framed(os.path.join(os.environ["TMP"], "grid3.png"), grid3, classify=True)
     finally:
         tso.framings, tso.read_lattice, tso.classified, tso.glyph = real_framings, real_lattice, real_classified, real_glyph
+        tso.blocks_read = real_blocks_read
 got, info = framed_classify(1.0)
 check("a sure grid's other lights are decoded by the classifier",
       ({(1, "across"): "CAT", (1, "down"): "COB", (3, "across"): "BED", (2, "down"): "TOD"}, 3, 0),
