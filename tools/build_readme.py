@@ -871,6 +871,7 @@ LAYOUT = [
     ("fetching", "tools/test_learn_postproc.py", "does learn_postproc class each clue rewrite and score a rule's hits, worse and fixpoint breaks?"),
     ("fetching", "tools/audit_updates.py", "audit the clue text each reread (\"Update ...\" commit) wrote: glitches it brought in or took out"),
     ("fetching", "tools/test_audit_updates.py", "does audit_updates class each reread change introduced, fixed or neutral, and alert on a new class?"),
+    ("building and checking the site", "tools/test_overtype.js", "typing over a filled word keeps going through its filled squares"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

@@ -63,7 +63,7 @@ Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
 audit hits are worth fixing and do not fail the build. 2 when the annotations
 were not applied at all (STOPPED), so the puzzle file is as it was.
 """
-import yield_cpu  # noqa: F401  (a nice-19 burn's session yields too)
+import yield_cpu  # a nice-19 burn's session yields too
 import contextlib
 import io
 import json
@@ -96,6 +96,7 @@ from validate_annotations import letters
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname
 from find_renarration import scan
 
+yield_cpu.yield_autogroup()  # idempotent; the import already did it
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 # Printed under a clean report: the run's whole remaining job is one line.
