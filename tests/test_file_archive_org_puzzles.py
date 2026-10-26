@@ -3798,6 +3798,14 @@ check("a VLM reply of the light's length one letter off one listed word is mende
        f.swap_word("CORONEL", "C?R?N?L", [7], [cell_p(c) for c in "CORONEL"]),
        f.swap_word("EIGHT", "E?G?T", [5], [cell_p(c) for c in "EIGHT"]),
        f.swap_word("TOBB", "?O?B", [4], [cell_p(c) for c in "TOBB"])))
+check("a VLM reply the classifier misreads with it is settled by its clue: the one listed word near it (a letter "
+      "swapped, a '?' filled) that the clue's definition links (STAIR for SIAIR, COHERES for TOHERES); never with no "
+      "clue, nor where two listed words lie near (E?E?D: EASED, EDGED, ENDED...)",
+      (None, "STAIR", "COHERES", None),
+      (f.vlm_word("SIAIR", "S?A?R", [5], [cell_p(c) for c in "SIAIR"]),
+       f.vlm_word("SIAIR", "S?A?R", [5], [cell_p(c) for c in "SIAIR"], None, "The way to parade in step"),
+       f.defined_word("TOHERES", "??H?R?S", [7], "Sticks here in an island"),
+       f.defined_word("E?E?D", "E???D", [5], "Being sharp, advanced gradually")))
 # held_blank_unchecked: a word read for a held-blank light, its unchecked letters (no other light) read again.
 hu_real = tso.lights
 tso.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (4, "down"): [(0, 3), (1, 3), (2, 3), (3, 3)]}
