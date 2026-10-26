@@ -7695,10 +7695,10 @@ global.realSetTimeout(() => {
     return box.children.map((c) => c.innerHTML).join("");
   };
   const clean = scoreline(save(zero, {}));
-  assert(!/What you needed help with/.test(clean), "a puzzle finished with no hints has no recap: " + clean);
+  assert(!/Your hints by clue type/.test(clean), "a puzzle finished with no hints has no recap: " + clean);
 
   const html = scoreline(save(Object.assign({}, zero, { [entryId(b1)]: 2 }), { [entryId(b2)]: 1 }));
-  assert(/What you needed help with/.test(html), "a finish with hints lists what was used: " + html);
+  assert(/Your hints by clue type/.test(html), "a finish with hints lists what was used: " + html);
   const want = {};
   // Each clue counts once, under its most specific device, so the counts add
   // up to the number of clues that needed help.
@@ -7707,7 +7707,7 @@ global.realSetTimeout(() => {
     const t = ts.find((x) => x !== "charade") || ts[0];
     if (t) want[t] = (want[t] || 0) + 1;
   });
-  const got = Object.fromEntries([...html.matchAll(/href="[^"]*learn\/#([a-z-]+)">([^<]+)<\/a> <span class="muted">× (\d+)<\/span>/g)]
+  const got = Object.fromEntries([...html.matchAll(/href="[^"]*learn\/#([a-z-]+)">([^<]+)<\/a> <span class="muted">\d+ hints? · (\d+) clues?<\/span>/g)]
     .map((m) => [m[2], +m[3]]));
   const label = (t) => global.CRYPTIC_INDEX.clueTypes.types.find((x) => x.name === t).label;
   for (const [t, n] of Object.entries(want)) {
