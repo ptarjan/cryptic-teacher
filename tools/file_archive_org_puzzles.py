@@ -8759,7 +8759,7 @@ def _strip_near(p, q):
         return False
     try:
         lts = trove_solution_ocr.lights(trove_solution_ocr.puzzle_grid(held))
-    except Exception:  # noqa: BLE001 - a held grid the reader cannot lay: nothing to mend
+    except (KeyError, IndexError, TypeError):  # a held grid the reader cannot lay: nothing to mend
         return False
     letters = {}
     for e in es:
@@ -8774,7 +8774,7 @@ def _strip_near(p, q):
         sizes = trove_solution_ocr.pieces_of((e.get("clue") or {}).get("enumeration"), len(cells))
         try:
             data = vlm.png(Image.open(io.BytesIO(base64.b64decode(strips[entry_id(e)]["png"]))))
-        except Exception:  # noqa: BLE001 - a strip that does not decode was never asked
+        except (KeyError, TypeError, ValueError, OSError):  # a strip that does not decode was never asked
             continue
         path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
         if not path.exists():
