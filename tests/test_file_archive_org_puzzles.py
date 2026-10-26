@@ -442,7 +442,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._GRID_CAP_FIX[gt.key][:2],
                                                                       *f._NEG_EXPECTED_FIX[gt.key][:2],
                                                                       *f._DOT_LEADER_FIX[gt.key][:2],
-                                                                      *f._DAY_HEADING_FIX[gt.key][:2]},
+                                                                      *f._DAY_HEADING_FIX[gt.key][:2],
+                                                                      *f._CHAMPIONSHIP_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -1093,6 +1094,9 @@ _fd_tso.glyph = lambda g, ys, xs, r, c: (r, c)
 _fd_tso.classified = lambda glyphs: _sp_batches.append(list(glyphs)) or {
     k: _fd_np.array([0.1 * k[0] + 1e-7 * len(glyphs), 1 / 3 + k[1]], _fd_np.float32) for k in glyphs}
 _fd_tso.light_strip = lambda g, ys, xs, cells: "png"
+# The disk cache is keyed by the crop's bytes: this blank 40x40 crop is _cf_png's, whose "no framing" for a
+# 3x3 grid the _crop_framed check above kept. A cache of its own, so no earlier check's file is read.
+_sp_cache, _goc.FRAMED_CACHE = _goc.FRAMED_CACHE, Path(_cf_tmp.mkdtemp()) / "framed"
 try:
     _sp_forget()
     _sp_keys = list(_fd_tso.lights(_sp_grid))
@@ -1108,6 +1112,7 @@ try:
 finally:
     (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph,
      _fd_tso.light_strip) = _sp_real
+    _goc.FRAMED_CACHE = _sp_cache
     _sp_forget()
 _sp_lts = _fd_tso.lights(_sp_grid)
 check("crop_strips: a strip batch classified once, kept in memory and on disk alike; other lights their own "
@@ -1140,11 +1145,15 @@ f.trove_solution_ocr.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 
 rj_es = [{"number": 1, "direction": "across", "solution": "DOE"}, {"number": 1, "direction": "down", "solution": None}]
 rj_strips = {"1-down": {"p": [[0.9 if c == ch else 0.1 / 25 for c in f.trove_solution_ocr.AZ] for ch in "DAD"]}}
 rj = [f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "DAD"}, rj_strips, None, {(1, "down"): "3"}, None),
-      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BAD"}, rj_strips, None, {(1, "down"): "3"}, None)]
+      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BAD"}, rj_strips, None, {(1, "down"): "3"}, None),
+      f.rejudged(rj_es, {"1-across": "DOE"}, {"accepted": 1}, {"1-down": "BUG"}, rj_strips, None, {(1, "down"): "3"}, None)]
 f.checked_answers, f.trove_solution_ocr.lights = real_ca, real_lts
+# A reply against a crossing one swap off the one listed word the classifier reads in every open cell is
+# mended to it (swap_word, SWAP_WORD: BAD on D?? read DAD); one whose mend the classifier reads otherwise is not.
 check("rejudged: the VLM's word stands on the checked crossings (DAD on D??), its light named; one against them "
-      "(BAD) keeps the reading",
+      "the classifier mends (BAD) stands mended; one it does not (BUG: DUG's U read A) keeps the reading",
       [({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
+       ({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
        ({"1-across": "DOE"}, {"accepted": 1})], rj)
 # A held file 6+ short on a classified grid, read before REREAD_CANDIDATES (due nothing else): CANDIDATE_READS;
 # read since, or not so short, nothing.
@@ -2525,7 +2534,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._DAY_HEADING_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._CHAMPIONSHIP_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -2537,15 +2546,17 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
       "pins over, its pinned key the one the dot-leader fix pins over, its the one the day-heading fix pins "
-      "over, whose pinned key is its real scan key, and the four fixes' old keys stand under it",
-      [True, True, True, True, True],
+      "over, its the one the championship fix pins over, whose pinned key is its real scan key, and the five "
+      "fixes' old keys stand under it",
+      [True, True, True, True, True, True],
       [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
        all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
        all(v[2] == f._DAY_HEADING_FIX[k][0] for k, v in f._DOT_LEADER_FIX.items()),
+       all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._DAY_HEADING_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._DAY_HEADING_FIX[k][2]}
-           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX)
+           for k, v in f._CHAMPIONSHIP_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._CHAMPIONSHIP_FIX[k][2]}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX)
            for k, v in t.items() for o in v[:2])])
 _dk, _hk = f._DOT_LEADER_FIX["gale"], f._DAY_HEADING_FIX["gale"]
 check("a Gale Times scan made before the dot-leader fix or the day-heading fix stands, a BAND_RESCAN day's too",
@@ -3524,8 +3535,11 @@ def ao_decide(held, read, crossed=False):
     with tempfile.TemporaryDirectory() as hd_dir:
         (Path(hd_dir) / "held-1.json").write_text(json.dumps(held))
         v, p = f.answers_only(*ao_args, crossed=crossed)
-        f.decide(v, p, "times", hd_dir, set(), lambda where, p, vv: True,
-                 path=lambda where, series, puzzles: Path(hd_dir) / f"{where[0]}-{where[1]}.json")
+        # decide() writes only through commit: this one writes the held file it is given, as the filer's does.
+        hd_path = lambda where: Path(hd_dir) / f"{where[0]}-{where[1]}.json"
+        f.decide(v, p, "times", hd_dir, set(),
+                 lambda where, p, vv: where is None or hd_path(where).write_text(json.dumps(p)) > 0,
+                 path=lambda where, series, puzzles: hd_path(where))
         return v, [e["solution"] for e in json.loads((Path(hd_dir) / "held-1.json").read_text())["entries"]]
 verdict, sols = ao_decide(lights_held(["BAT", "BED", None, None]), {"2-down": "TOE", "3-across": "DOE"})
 check("an answers-only reread keeps each held answer it did not read again (times-4766's GREET, MERRIMENT)",
@@ -3626,7 +3640,10 @@ ao_held[0] = lights_held([None] * 4)
 import tempfile
 with tempfile.TemporaryDirectory() as ue_dir:
     ue_path = Path(ue_dir) / "times-1.json"
-    ue_path.write_text(json.dumps(ao_held[0]))
+    # Its own fixture: ao_held[0] is set afresh (every clue counted) by the checks above.
+    ue_bare = lights_held([None] * 4)
+    ue_bare["entries"][1]["clue"].pop("enumeration")
+    ue_path.write_text(json.dumps(ue_bare))
     ue_old = f._HELD_PATH.get((f.TIMES.series, 1))
     f._HELD_PATH[f.TIMES.series, 1] = ue_path
     ue_row = {"edition": "NewsUK1990UKEnglish/1990-08-22_1", "readAt": "2026-10-22T16:00:00+00:00",
@@ -4498,7 +4515,13 @@ Image.new("L", (90, 90), 255).save(stale)
 seen.clear()
 f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution crop saved by other code is not reused: the grid is cut again", (352 * 3, 352 * 3), seen[0][0])
-stats_blocks = 0.8
+# Under SOLUTION_BLOCKS a Times read stands from NEAR_BLOCKS with NEAR_SHARE of its lights read (near_read,
+# NEAR_GRID): here one light of one, so a grid is refused only under NEAR_BLOCKS.
+stats_blocks = f.NEAR_BLOCKS
+got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
+check("a Times solution grid at NEAR_BLOCKS whose lights it read stands as a near read",
+      ({"1-across": "ABC"}, False, True), (got, "refused" in info, info.get("near")))
+stats_blocks = f.NEAR_BLOCKS - 0.01
 got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("a solution grid whose blocks are not the puzzle's gives no answers", ({}, True), (got, "refused" in info))
 stats_blocks = 0.9
@@ -4521,7 +4544,7 @@ for name, rect, want in (("tall", (110, 160, 460, 640), 1), ("wide", (110, 160, 
     check(f"a {name} ink box (a grid and what is joined to it) is read as its square part",
           ({"1-across": "ABC"}, True, True),
           (got, seen[0][0][0] == seen[0][0][1], abs(seen[0][0][0] - 352 * 3) <= 3 * 3))
-    stats_blocks = 0.8
+    stats_blocks = f.NEAR_BLOCKS - 0.01
     seen.clear()
     got, info = f.read_solution(f.page(led, 3), {**sol, "dir": led}, ["..."])
     check(f"...and a {name} one no cut of which has the puzzle's blocks is refused", ({}, True, True),
