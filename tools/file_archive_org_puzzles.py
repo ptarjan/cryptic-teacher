@@ -5316,6 +5316,10 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=every,
                                     blog="blog" in (old.get("solutions") or {}))
+    # A grid left short: a blank light whose clue's anagram or hidden word is the one word its crossings
+    # and the classifier allow (WORDPLAY_SHORT), its letters then crossings for the reads below.
+    answers, info = wordplay_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
+                                   every=every, blog="blog" in (old.get("solutions") or {}))
     # A Times grid left short: the clue-constrained read, and the VLM's picks among a light's candidates
     # where they could complete the puzzle or nearly (6+ short, or 1-2: CLUE_SHORT).
     answers, info = candidate_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
@@ -5600,6 +5604,107 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
     if vl:
         info["vlmLights"] = sorted(set(info.get("vlmLights") or ()) | set(vl))
     info["accepted"] = info.get("accepted", 0) + len(took)
+    return {**answers, **took}, info
+
+
+#: wordplay_word: the shortest light it reads, and the fewest crossing letters it needs (a hidden or
+#: reversed word: half its letters, rounded down, as KINGS in "striking suit" fit an open light).
+WORDPLAY_MIN, WORDPLAY_KNOWN = 5, 2
+
+
+def wordplay_fit(clue, pattern, enum=None):
+    """The word clue text `clue`'s wordplay (trove_solution_ocr.clue_wordplay: an anagram of two or more of
+    its words in a row, a word hidden across its word breaks, or reversed) spells for a blank light whose
+    known letters are `pattern` (? open), or None: the one such word of the lexicon fitting the
+    crossings, a dictionary word or a past answer, of WORDPLAY_MIN letters or more and of the light's
+    enumeration, crossed at WORDPLAY_KNOWN letters at least (a hidden or reversed word at half of them).
+    Wordplay alone is our reading, not the print's: 10-26, held out on 5,000 Times grids' known lights,
+    the one fitting word was the held word 7,048 times and another 20 (CHAMP for "picnic hamper"'s CRAMP,
+    NOISE for NAIVE, LEWES for LEWIS), and on blank lights it gave TERRET for "Quit after retaining old
+    record in race" (DEPART). wordplay_word has the printed grid confirm it."""
+    t = trove_solution_ocr
+    n = len(pattern)
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    known = n - pattern.count("?")
+    if n < WORDPLAY_MIN or not clue or not parts or sum(parts) != n or known < WORDPLAY_KNOWN or not known < n:
+        return None
+    fits = {w: how for w, how in t.clue_wordplay(clue, n).items() if all(p == "?" or p == ch for p, ch in zip(pattern, w))}
+    if len(fits) != 1:
+        return None
+    (word, how), = fits.items()
+    if how != "anagram" and 2 * known < n - 1:
+        return None
+    return word if word.lower() in t.wordnet() or word in t.corpus_words() else None
+
+
+def wordplay_word(clue, pattern, cells, probs, enum=None):
+    """wordplay_fit's word for a blank light of `cells` (known letters `pattern`), where the printed
+    solution grid confirms it: the classifier's likeliest letter (`probs`, {cell: 26 probabilities} off
+    the grid's crop) is the word's in every cell no crossing fixes; else None. The answer filed is the
+    print's, read with the clue's help to choose among the classifier's reads. 10-26, held out on 265
+    such words of Times grids: 235 stood, each the held answer but BEDRESTS for "Red's best for these
+    invalid appliances", the held file's misread REDRESTS; all 12 others refused (CHAMP, NOISE, LEWES)."""
+    t = trove_solution_ocr
+    word = wordplay_fit(clue, pattern, enum)
+    if not word:
+        return None
+    for rc, p, ch in zip(cells, pattern, word):
+        if p != "?":
+            continue
+        pr = probs.get(rc)
+        if pr is None:
+            return None
+        pr = [float(x) for x in pr]
+        if max(range(len(pr)), key=pr.__getitem__) != t.AZ.index(ch):
+            return None
+    return word
+
+
+def wordplay_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False, blog=False):
+    """(answers, info) of answers_only's checked reading `answers` of a held puzzle's `entries` that leaves a
+    light blank, with each blank light's clue's wordplay word (wordplay_word, on the held answers' and the
+    reading's crossings, confirmed by the classifier off the grid's `crop`) added, a word taken lending its
+    letters to the next. No VLM ask. Every word stands only where the answers-only checks
+    (checked_answers) keep it beside the rest. 10-26: 1,732 unanswered Times stood with no unit planned
+    (747 1-2 short, their last lights the VLM's misreads of old prints) (WORDPLAY_SHORT)."""
+    t = trove_solution_ocr
+    held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
+    left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
+    if not left or crop is None or not crop.exists():
+        return answers, info
+    probs = None
+    lts = t.lights(grid)
+    clue = {entry_id(e): (e.get("clue") or {}).get("text") if isinstance(e.get("clue"), dict) else e.get("clue")
+            for e in entries}
+    letters = {rc: ch for k, w in {**held, **answers}.items() for rc, ch in zip(lts.get(_light_key(k), ()), w)}
+    by = {}
+    while True:
+        new = False
+        for lid in left:
+            key = _light_key(lid)
+            cells = lts.get(key)
+            if lid in by or not cells or len(cells) < WORDPLAY_MIN or not clue.get(lid):
+                continue
+            pattern = "".join(letters.get(rc, "?") for rc in cells)
+            if not wordplay_fit(clue[lid], pattern, enums.get(key)):
+                continue
+            if probs is None:
+                probs = crop_cell_probs(crop, grid) or {}
+            word = wordplay_word(clue[lid], pattern, cells, probs, enums.get(key))
+            if word:
+                by[lid] = word
+                letters.update(zip(cells, word))
+                new = True
+        if not new:
+            break
+    if not by:
+        return answers, info
+    checked, _, _ = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed,
+                                    every=every, blog=blog)
+    took = {k: w for k, w in by.items() if checked.get(k) == w}
+    if not took:
+        return answers, info
+    info = {**info, "wordplay": sorted(took), "accepted": info.get("accepted", 0) + len(took)}
     return {**answers, **took}, info
 
 
@@ -8719,6 +8824,13 @@ REREAD_OTHER_COPY = "2026-10-26T11:00:00+00:00"
 #: Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached, so it asks nothing new.
 NEAR_WORD = "solution short, its VLM word mended to its one listed word since"
 REREAD_NEAR_WORD = "2026-10-26T12:00:00+00:00"
+#: The due reason of a Times row read before REREAD_WORDPLAY, due none of those above, whose held puzzle
+#: (every clue, from this page) leaves 1 to LATE_MAX lights blank, one whose clue's anagram or hidden word is
+#: the one word its held crossings allow (held_wordplay; the read has the classifier confirm it). 10-26 12:00Z: of
+#: 1,732 unanswered Times with no unit planned, 747 stood 1-2 short. Once, as an answers-only reread
+#: (SOLUTION_FIXES); it asks the VLM nothing new.
+WORDPLAY_SHORT = "solution short, its last lights read by their clues' wordplay since"
+REREAD_WORDPLAY = "2026-10-26T13:15:00+00:00"
 #: {(held path, reading path): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
 
@@ -8805,6 +8917,75 @@ def near_short(row, paper):
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
         if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+            return True
+    return False
+
+
+#: {held path: (held stamp, held_wordplay's answer)}
+_WORDPLAY_HELD = {}
+
+
+def held_wordplay(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves 1 to LATE_MAX
+    lights blank, one whose clue's wordplay spells one word on the held crossings (wordplay_fit; the read
+    has the classifier confirm it), its linked solution grid's crop (the solution page's edition dir name `sol_dir`) kept; parsed again
+    only when the held file's stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None or not (CROPS / "solutions" / f"{sol_dir}_{number}.png").exists():
+        return False
+    stamp = _stat_stamp(p)
+    if stamp is None:
+        return False
+    hit = _WORDPLAY_HELD.get(p)
+    if hit is None or hit[0] != stamp:
+        hit = _WORDPLAY_HELD[p] = (stamp, _held_wordplay(p))
+    return hit[1]
+
+
+def _held_wordplay(p):
+    """held_wordplay of the held file at `p`."""
+    t = trove_solution_ocr
+    try:
+        held = json.loads(p.read_text())
+        lts = t.lights(t.puzzle_grid(held))
+    except Exception:  # noqa: BLE001 - a held file or grid the reader cannot lay: nothing to read
+        return False
+    es = held.get("entries") or ()
+    if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or filled(held)[0] != len(es):
+        return False
+    letters = {}
+    for e in es:
+        for rc, ch in zip(lts.get((e.get("number"), e.get("direction")), ()), re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())):
+            letters[rc] = ch
+    if not 0 < sum(1 for e in es if not e.get("solution")) <= LATE_MAX:
+        return False
+    for e in es:
+        cells = lts.get((e.get("number"), e.get("direction")))
+        if e.get("solution") or not cells or len(cells) < WORDPLAY_MIN:
+            continue
+        clue = e.get("clue") or {}
+        if wordplay_fit(clue.get("text"), "".join(letters.get(rc, "?") for rc in cells), clue.get("enumeration")):
+            return True
+    return False
+
+
+def wordplay_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
+    held with every clue and not every answer, from this page, a blank light's clue's wordplay spelling one
+    word on the held crossings (held_wordplay)."""
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        if held_wordplay(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
             return True
     return False
 
@@ -8972,7 +9153,8 @@ def short_again(row):
     before REREAD_CLASH_SHORT; CLUE_WIDE for one read before REREAD_CLUE_WIDE, due none of those, whose
     held file leaves CANDIDATE_SLACK+1 to LATE_MAX lights blank (many_short's wide); NEAR_WORD for one read
     before REREAD_NEAR_WORD, due none of those, a blank light's cached VLM reply mended by near_word
-    (near_short)."""
+    (near_short); WORDPLAY_SHORT for one read before REREAD_WORDPLAY, due none of those, a blank light's
+    clue's wordplay spelling one word on the held crossings (wordplay_short)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -8993,6 +9175,8 @@ def short_again(row):
         return CLUE_WIDE
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_NEAR_WORD)) and near_short(row, paper):
         return NEAR_WORD
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_WORDPLAY)) and wordplay_short(row, paper):
+        return WORDPLAY_SHORT
     return why
 
 
@@ -10028,7 +10212,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -10590,7 +10774,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT)
 
 
 def keeps_vlm(why, row, unit=None):

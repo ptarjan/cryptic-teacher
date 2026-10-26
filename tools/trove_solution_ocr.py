@@ -1797,6 +1797,55 @@ def name_only(word):
     return w in _LISTED and w not in (_LEXICON or ()) and word.lower() not in wordnet() and w not in corpus_words()
 
 
+#: {length: {sorted letters: [listed_of words]}}: clue_wordplay's anagram index, built a length at a time.
+_ANAGRAMS = {}
+
+
+def clue_words(text):
+    """The words of clue `text` in capitals, letters only, its trailing enumeration ("(4,6)") left off."""
+    text = re.sub(r"\(\s*[\d,\-\s.]+\s*\)\s*$", "", text or "")
+    return [x for x in (re.sub(r"[^A-Z]", "", w.upper()) for w in re.findall(r"[A-Za-z][A-Za-z'’\-]*", text)) if x]
+
+
+def clue_wordplay(text, n):
+    """{word: how} of the listed_of(`n`) words clue `text`'s letters spell: "anagram", the letters of two or
+    more of its words in a row (a word's own letters, its definition's as often as its fodder, give SHRUB
+    for "Drop clean brush"), not as they stand; "hidden", letters in a row across a word break, not whole
+    words; "reversed", those read backwards."""
+    words, _ = listed_of(n)
+    if n not in _ANAGRAMS:
+        by = {}
+        for w in words:
+            by.setdefault("".join(sorted(w)), []).append(w)
+        _ANAGRAMS[n] = (by, set(words))
+    by, have = _ANAGRAMS[n]
+    toks = clue_words(text)
+    out = {}
+    for i in range(len(toks)):
+        run = toks[i]
+        for j in range(i + 1, len(toks)):
+            run += toks[j]
+            if len(run) > n:
+                break
+            if len(run) == n:
+                for w in by.get("".join(sorted(run)), ()):
+                    if w != run:
+                        out.setdefault(w, "anagram")
+    joined, ends = "", []
+    for x in toks:
+        joined += x
+        ends.append(len(joined))
+    starts = {0, *ends[:-1]}
+    for a in range(len(joined) - n + 1):
+        b = a + n
+        if not any(a < k < b for k in ends) or (a in starts and b in ends):
+            continue
+        for w, how in ((joined[a:b], "hidden"), (joined[a:b][::-1], "reversed")):
+            if w in have:
+                out.setdefault(w, how)
+    return out
+
+
 def cells_sure(word, cells, probs, held):
     """Whether each cell of `cells` that `held` ({cell: letter}) does not hold reads its letter of
     `word` at least UNLISTED_TOP likely."""

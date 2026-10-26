@@ -1060,6 +1060,26 @@ check("a held file short whose blank light's cached VLM reply mends to one liste
       nw_due + [f.RANKS[f.NEAR_WORD], f.NEAR_WORD in f.SOLUTION_FIXES, f.NEAR_WORD.startswith("solution short"),
                 f.NEAR_WORD in __import__("edition_queue").LOW_ASK, f.NEAR_WORD in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.NEAR_WORD)])
+# WORDPLAY_SHORT: a held file short whose blank light's clue's wordplay spells one word on the held crossings
+# (held_wordplay), read before REREAD_WORDPLAY and due nothing else: due; read since, or no such light: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 0
+real_sn, real_hw = f.strip_near, f.held_wordplay
+f.strip_near = lambda series, n, sol_dir: False
+f.held_wordplay = lambda series, n, sol_dir: True
+wp_due = [f.short_again(vu_row("2026-10-26T12:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
+f.held_wordplay = lambda series, n, sol_dir: False
+wp_due.append(f.short_again(vu_row("2026-10-26T12:30:00+00:00")))
+f.strip_near, f.held_wordplay = real_sn, real_hw
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose blank light's clue's anagram or hidden word fits its held crossings, read before "
+      "REREAD_WORDPLAY: WORDPLAY_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); read since, or no "
+      "such light: not",
+      [f.WORDPLAY_SHORT, None, None, 2, True, True, True, True, True],
+      wp_due + [f.RANKS[f.WORDPLAY_SHORT], f.WORDPLAY_SHORT in f.SOLUTION_FIXES, f.WORDPLAY_SHORT.startswith("solution short"),
+                f.WORDPLAY_SHORT in __import__("edition_queue").LOW_ASK, f.WORDPLAY_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.WORDPLAY_SHORT)])
 # solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
 oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
 oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")
@@ -3480,6 +3500,30 @@ check("a mended word whose own letter, as the VLM read it, the classifier reads 
       [f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "UFFISH"]),
        f.vlm_word("OFISH", "?F?I?H", [6], [cell_p(c) for c in "OFFISH"]),
        f.vlm_word("ARSAC", "?A?S?C", [6], [cell_p("O")] + [cell_p(c) for c in "ARSAC"])])
+check("a clue's wordplay: an anagram of two or more of its words in a row (ADVERTISER, \"TV is dearer\"), not of "
+      "one word (SHRUB for \"Drop clean brush\"'s SCRUB); a word hidden across its word breaks (CHAMP in \"picnic "
+      "hamper\"), or reversed",
+      ["anagram", None, "hidden", "reversed"],
+      [tso.clue_wordplay("TV is dearer alternative for him (10)", 10).get("ADVERTISER"),
+       tso.clue_wordplay("Drop clean brush", 5).get("SHRUB"),
+       tso.clue_wordplay("Crush front of picnic hamper", 5).get("CHAMP"),
+       tso.clue_wordplay("Bad evil", 5).get("LIVED")])
+check("a blank light's wordplay fit: the one listed word on its crossings (DESPERADO, LOATHE); not a hidden "
+      "word crossed at under half its letters (KINGS), a light under WORDPLAY_MIN or of another enumeration",
+      ["DESPERADO", "LOATHE", None, None, None],
+      [f.wordplay_fit("Road speed potentially criminal", "D?S?E?A??", "9"),
+       f.wordplay_fit("Abominate alterations made to a hotel", "L??T??", "6"),
+       f.wordplay_fit("What a striking suit!", "????S", "5"),
+       f.wordplay_fit("Article in German", "?E?", "3"),
+       f.wordplay_fit("Road speed potentially criminal", "D?S?E?A??", "4,6")])
+wp_cells = [(0, i) for i in range(9)]
+check("a wordplay fit stands only where the printed grid confirms it: the classifier's likeliest letter is the "
+      "word's in every open cell (DESPERADO, faint at 0.4); not where it reads one otherwise (DESPERADO's O as D)",
+      ["DESPERADO", None],
+      [f.wordplay_word("Road speed potentially criminal", "D?S?E?A??", wp_cells,
+                       {rc: cell_p(c, 0.4) for rc, c in zip(wp_cells, "DESPERADO")}, "9"),
+       f.wordplay_word("Road speed potentially criminal", "D?S?E?A??", wp_cells,
+                       {rc: cell_p(c) for rc, c in zip(wp_cells, "DESPERADD")}, "9")])
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
 check("a VLM word the classifier reads every one of its 3+ open letters under VLM_ALONE_P is not taken (RUMPLE "
