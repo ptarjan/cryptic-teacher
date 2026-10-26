@@ -94,4 +94,28 @@ wp = wordplay.locate({"op": "repeat", "indicators": [ind("parties")], "parts": [
 msgs = V.shape_warnings("10A", {"wordplay": wp})
 check("spanOverlap message names the shared words",
       any("indicator 'parties' and leaf 'parties' both claim 'parties'" in m for m in msgs))
+
+# doesNotGive residue (10-24..26 audit, 665 distinct refusals sampled): a container's arguments the wrong way round
+# (CALLOW) and a charade out of order (TSHIRT) are mended when exactly one edit gives the answer; the rest are named
+def mend(wp, clue, ans):
+    try:
+        return wordplay.render(wordplay.translate({"wp": wp, "notes": {}}, clue, ans))
+    except wordplay.WordplayError as e:
+        return "REFUSED " + str(e)
+check("doesNotGive: a container with its arguments swapped is mended in place",
+      mend("ins<worn by>([Everyone]ALL, [Jersey, say]COW)", "Everyone is worn by Jersey, say", "CALLOW")
+      == "ins<worn by>([Jersey, say]COW, [Everyone]ALL)")
+check("doesNotGive: a charade out of order is mended in place",
+      mend("last<end of>([market]) + ana<new>([this]) + last<ultimately>([couturier])",
+           "market this new ultimately couturier end of", "TSHIRT").startswith("ana<new>([this]) + last<ultimately>"))
+amb = {"op": "charade", "parts": [leaf("a", "A"), leaf("b", "B"), leaf("ab", "AB")]}
+bad = dict(amb, parts=[amb["parts"][0], amb["parts"][2], amb["parts"][1]])
+check("doesNotGive fixer declines when two orders give the answer (A+AB+B: AB+A+B and A+B+AB both do)",
+      F.RULE_REPAIRS["doesNotGive"](bad, None, {"clue": "a b ab", "answer": "ABAB"}) is None)
+check("doesNotGive counter fires on a tree that does not give the answer, not on one that does",
+      counters["doesNotGive"](bad, {"_answer": "ABAB"}, "a b ab") == 1 and counters["doesNotGive"](amb, {"_answer": "ABAB"}, "") == 0)
+msg = mend("[Perfect]HONEY + rev<brought about>([team]PARTY)", "Perfect team brought about", "HONEYTRAP")
+check("doesNotGive: a letter doubled at the join is named, not mended", msg.startswith("REFUSED") and "one letter too many" in msg and "extra Y" in msg)
+msg = mend("[Question]Q + [concerned with]IN + [church]CE", "Question concerned with church", "QUINCE")
+check("doesNotGive: a letter missing at the join is named, not mended", "one letter short of QUINCE: U is missing at letter 2" in msg)
 sys.exit(1 if fails else 0)

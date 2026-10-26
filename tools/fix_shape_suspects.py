@@ -3399,6 +3399,42 @@ def r_ana_flatten(node, parent, ctx):
     return new
 
 
+def r_does_not_give(node, parent, ctx):
+    """doesNotGive: a tree that does not give the answer (the first check's commonest refusal), mended
+    only when ONE edit makes it give it and no other single edit does: a container whose two arguments
+    are the wrong way round (`ins<worn by>(ALL, COW)` for CALLOW: the outer is the second argument), or a
+    charade whose pieces stand in the wrong order (a charade with no indicator of its own, up to four
+    pieces). Two edits that both work, or none, stay refused. Run once, at the root, on the unevaluated tree."""
+    answer = ctx.get("answer")
+    if parent is not None or not answer or node.get("unchecked"):
+        return None
+    try:
+        W.evaluate(copy.deepcopy(node), answer)
+        return None
+    except W.WordplayError:
+        pass
+    except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
+        return None
+    found = []
+    for k, (n, _p) in enumerate(list(walk(node))):
+        parts = n.get("parts") or []
+        edits = []
+        if n.get("op") == "container" and len(parts) == 2:
+            edits.append(list(reversed(range(2))))
+        elif n.get("op") == "charade" and 2 <= len(parts) <= 4 and not n.get("indicators"):
+            edits += [list(o) for o in itertools.permutations(range(len(parts))) if list(o) != list(range(len(parts)))]
+        for order in edits:
+            new = copy.deepcopy(node)
+            target = list(walk(new))[k][0]
+            target["parts"] = [target["parts"][i] for i in order]
+            try:
+                W.evaluate(copy.deepcopy(new), answer)
+            except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
+                continue
+            found.append(new)
+    return found[0] if len(found) == 1 else None
+
+
 RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
@@ -3410,7 +3446,7 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
-                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf}
+                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give}
 
 
 def note_deletions(tree):
