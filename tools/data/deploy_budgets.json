@@ -1,8 +1,8 @@
 {
   "_doc": "Seconds each step of .github/workflows/pages.yml may take, keyed 'job/step name'. tools/step_budgets.py check-run fails the build job's last step on a step over its budget or with no row; tools/test_step_budgets.sh fails on a step with no row, and on a step that reads the whole corpus without naming the cache it restores ('cache'), how it limits itself to what changed ('incremental'), or why it can do neither ('uncached'). Raise a budget only with the reason in the commit: a budget that moves with every slowdown catches nothing.",
   "build/Restore the git store": {"seconds": 30},
-  "build/Check out": {"seconds": 30,
-    "note": "was 120 with actions/checkout fetching the whole ~1GB tree every run (66s, run 38370347047). Now an incremental fetch on the cached store (tools/test_ci_checkout.sh): 6s warm (run 38380967725); a cold store is the old ~63s full fetch and goes over, once"},
+  "build/Check out": {"seconds": 150,
+    "note": "was 30. Two paths, measured over the last 100 runs of pages.yml (12 real build jobs): warm incremental fetch 9-12s (10 runs); and the store reset, where Check out finds the restored git store over 1500MB, drops .git and fetches from scratch, 91s and 94s (runs 40267913545, 40276271478). The store restarts at 335MB and grew to 1397MB and then 1660MB across the builds between resets, so the reset recurs about every 6th build (2 in 12): expected work, not runner variance, and it failed 2 of 12 builds against the old 30s. 150 = 1.6x the slowest reset seen (94s). The warm path is far under it (p99 12s); a warm-path regression now shows only as the step nearing 94s, which is the price of one row for both paths"},
   "build/Set up Python": {"seconds": 30},
   "build/Install Pillow": {"seconds": 45},
   "build/Restore the row cache": {"seconds": 60},
