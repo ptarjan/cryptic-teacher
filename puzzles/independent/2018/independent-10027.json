@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,49 @@
     "text": "Film star with no love for costume",
     "enumeration": "4"
    },
-   "solution": "GARB"
+   "solution": "GARB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "costume",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "at": 10,
+       "note": "with no tells us to drop a letter from the star's surname"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Film star",
+       "at": 0,
+       "gives": "GARBO",
+       "note": "Greta Garbo, the Swedish-born Hollywood star"
+      },
+      {
+       "words": "love",
+       "at": 18,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, shaped like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A screen idol who has fallen out of love with wardrobe.",
+     "walkthrough": "Remove O (love, a tennis zero) from GARBO.",
+     "definitionFit": "Garb is clothing, especially a distinctive outfit, much like a costume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +90,32 @@
     "text": "Distant flicker",
     "enumeration": "6"
    },
-   "solution": "REMOTE"
+   "solution": "REMOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distant",
+      "at": 0,
+      "meaning": "far away, isolated"
+     },
+     {
+      "text": "flicker",
+      "at": 8,
+      "meaning": "informal name for the handset used to switch TV channels"
+     }
+    ],
+    "explanation": {
+     "surface": "A faint, far-off glimmer of light.",
+     "walkthrough": "'flicker' looks like a glimmer, but it is one who flicks between channels: the TV handset.",
+     "definitionFit": "A far-off place is a synonym pair with distant; the handset you flick channels with is the TV controller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flicker"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +129,73 @@
     "text": "Forestall old boy, one getting invite after separation",
     "enumeration": "7"
    },
-   "solution": "OBVIATE"
+   "solution": "OBVIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forestall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "at": 10,
+       "gives": "OB",
+       "note": "OB is the standard abbreviation for an old boy, a former pupil"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "getting",
+         "at": 23,
+         "note": "the remainder gets the single letter, taking it inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "after separation",
+           "at": 38,
+           "note": "split the word invite into two parts, its first two letters standing apart from the rest"
+          }
+         ],
+         "parts": [
+          {
+           "words": "invite",
+           "at": 31
+          },
+          {
+           "gives": "IN"
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 19,
+         "gives": "A",
+         "note": "A means one, as in a single item"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old school chum heads off a party invitation once a couple splits.",
+     "walkthrough": "'invite after separation' reads as IN VITE: 'one getting in VITE' puts A inside VITE to make VIATE, after OB.",
+     "definitionFit": "To obviate something is to anticipate and prevent it, which is what forestalling means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "separation"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +209,75 @@
     "text": "Ruin destroyed a not-unknown Conservative peer",
     "enumeration": "8"
    },
-   "solution": "URINATOR"
+   "solution": "URINATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "peer",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "destroyed",
+         "at": 5,
+         "note": "destroyed tells us the letters of ruin are wrecked and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ruin",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 17,
+         "note": "not means the following unknown is to be left out of the party word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Conservative",
+         "at": 29,
+         "gives": "TORY",
+         "note": "a Tory is a member of the UK Conservative Party"
+        },
+        {
+         "words": "unknown",
+         "at": 21,
+         "gives": "Y",
+         "note": "Y is an algebraic unknown, like x and z"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known Tory lord brought to ruin and disgrace.",
+     "walkthrough": "'destroyed' rearranges RUIN to URIN; 'not' removes Y (an unknown) from TORY, leaving TOR. 'peer' is not a lord here but one who pees.",
+     "definitionFit": "Read as someone who pees, a peer is one who passes water, a comic coinage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +291,69 @@
     "text": "Agility of limbs seen flying to catch Australian tail-ender",
     "enumeration": "10"
    },
-   "solution": "NIMBLENESS"
+   "solution": "NIMBLENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agility",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 29,
+       "note": "to catch means the jumble holds the next letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flying",
+         "at": 22,
+         "note": "flying limbs suggests the letters flailing into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "limbs seen",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail-ender",
+         "at": 49,
+         "note": "the tail-ender is the last letter, a cricket joke on the lower-order batsman"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Australian",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fielder's speed as limbs dive to catch an Aussie number eleven.",
+     "walkthrough": "'flying' rearranges LIMBS SEEN; 'to catch' puts N, the last letter of Australian ('tail-ender'), inside it. A tail-ender in cricket is a weak batsman at the end of the order.",
+     "definitionFit": "Being quick and light on your feet is the quality of agility, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail-ender"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +367,54 @@
     "text": "Trouble held up plant",
     "enumeration": "6"
    },
-   "solution": "DAHLIA"
+   "solution": "DAHLIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 13,
+       "note": "in a down clue, up means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Trouble",
+         "at": 0,
+         "gives": "AIL",
+         "note": "to ail is to trouble, as in what ails you"
+        },
+        {
+         "words": "held",
+         "at": 8,
+         "gives": "HAD",
+         "note": "had means held, as in had in your hands"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something went wrong and a planting was delayed.",
+     "walkthrough": "In a down clue 'up' turns the whole charade backwards, so 'Trouble' and 'held' end up in reverse order.",
+     "definitionFit": "The dahlia is a showy garden flower with tuberous roots, an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +428,41 @@
     "text": "Happy with hook-up? Post on social media",
     "enumeration": "6"
    },
-   "solution": "UPDATE"
+   "solution": "UPDATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Post on social media",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Happy",
+       "at": 0,
+       "gives": "UP",
+       "note": "up means cheerful, in good spirits"
+      },
+      {
+       "words": "hook-up",
+       "at": 11,
+       "gives": "DATE",
+       "note": "a date is a romantic meeting, an informal hook-up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pleased about a romantic encounter, someone wonders whether to tell their followers online.",
+     "definitionFit": "A new status or news item put out on a feed is an update, a common verb and noun in social media use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hook-up"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +476,60 @@
     "text": "Still old officer getting trapped wind",
     "enumeration": "7"
    },
-   "solution": "PICCOLO"
+   "solution": "PICCOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting trapped",
+       "at": 18,
+       "note": "the officer gets trapped inside the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Still",
+         "at": 0,
+         "gives": "PIC",
+         "note": "a pic is a still, a photograph"
+        },
+        {
+         "words": "old",
+         "at": 6,
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "officer",
+       "at": 10,
+       "gives": "COL",
+       "note": "Col is the abbreviation for colonel, an army officer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired officer is still suffering from trapped wind.",
+     "walkthrough": "'wind' is not digestive but a wind instrument; 'trapped' sounds medical but is the container signal.",
+     "definitionFit": "The piccolo is a small flute, one of the woodwind family of instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +543,61 @@
     "text": "Place to observe Ken's partner taking ecstasy on toilet",
     "enumeration": "8"
    },
-   "solution": "BARBICAN"
+   "solution": "BARBICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place to observe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 31,
+         "note": "taking here means taking away, removing the drug from the doll"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ken's partner",
+         "at": 17,
+         "gives": "BARBIE",
+         "note": "Barbie, the doll whose boyfriend is Ken"
+        },
+        {
+         "words": "ecstasy",
+         "at": 38,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
+      },
+      {
+       "words": "toilet",
+       "at": 49,
+       "gives": "CAN",
+       "note": "can is slang for a toilet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seedy scene: Barbie on drugs on the loo, watched from somewhere.",
+     "walkthrough": "'taking' looks like taking drugs but means removing E from BARBIE.",
+     "definitionFit": "A barbican is a fortified gate tower or outwork from which defenders kept watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +611,36 @@
     "text": "Don't picket, you say? I won't!",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't picket, you say? I won't!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Don't picket, you say? I won't!",
+       "at": 0,
+       "note": "a strike-breaker refuses to picket; and 'picket' heard as pick it suggests the crust on a wound you should leave alone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker replies defiantly when told not to join the picket line.",
+     "walkthrough": "Two senses: a strike-breaker who will not picket, and a wound crust you are told not to pick.",
+     "definitionFit": "A worker crossing a picket line is called this insult; the same word names the crust over a healing wound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picket"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +660,64 @@
      }
     ]
    },
-   "solution": "ORIONSBELT"
+   "solution": "ORIONSBELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "three stars",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Rundown",
+       "at": 0,
+       "note": "rundown suggests a dilapidated place, so the letters are knocked into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 21,
+         "note": "lacking means the hotel letter is taken out of Hilton"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hilton",
+         "at": 8
+        },
+        {
+         "words": "Hotel",
+         "at": 15,
+         "gives": "H",
+         "note": "H is Hotel in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "words": "robes",
+       "at": 29
+      }
+     ]
+    },
+    "spelling": "ORION'S BELT",
+    "explanation": {
+     "surface": "A shabby Hilton without bathrobes still claims a three-star rating.",
+     "walkthrough": "'lacking' removes H (Hotel) from HILTON, leaving ILTON; 'Rundown' rearranges ILTON with ROBES.",
+     "definitionFit": "The hunter constellation's waist is marked by three bright stars in a row, the famous asterism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +731,49 @@
     "text": "Statue possibly of Greek character included in import",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Statue possibly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included in",
+       "at": 35,
+       "note": "included in means the letter goes inside the word for import"
+      }
+     ],
+     "parts": [
+      {
+       "words": "import",
+       "at": 47,
+       "gives": "MOMENT",
+       "note": "moment means importance, as in a matter of great moment"
+      },
+      {
+       "words": "Greek character",
+       "at": 19,
+       "gives": "NU",
+       "note": "nu is the thirteenth letter of the Greek alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure carved in stone, perhaps, and imported.",
+     "walkthrough": "'import' means significance (MOMENT), not shipping goods in.",
+     "definitionFit": "A statue is one example of a memorial structure, hence 'possibly'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "import"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +787,60 @@
     "text": "Peacekeeping organisation's soldier invested in diamonds, perhaps — not helpful",
     "enumeration": "10"
    },
-   "solution": "UNOBLIGING"
+   "solution": "UNOBLIGING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not helpful",
+      "at": 68
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Peacekeeping organisation",
+       "at": 0,
+       "gives": "UNO",
+       "note": "UNO is the United Nations Organisation, which sends peacekeepers"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "invested in",
+         "at": 36,
+         "note": "invested in means the soldier is placed inside the jewellery word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diamonds, perhaps",
+         "at": 48,
+         "gives": "BLING",
+         "note": "bling is flashy jewellery, of which diamonds are an example"
+        },
+        {
+         "words": "soldier",
+         "at": 28,
+         "gives": "GI",
+         "note": "GI is an American soldier"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A UN peacekeeper puts money into gems and is no help to anyone.",
+     "walkthrough": "'invested' suggests money but here means placed inside. Bling is slang for showy jewellery.",
+     "definitionFit": "Someone who will not do favours or help out is described as disobliging or uncooperative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +854,36 @@
     "text": "Digital coverage to be reinforced?",
     "enumeration": "6"
    },
-   "solution": "TOECAP"
+   "solution": "TOECAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Digital coverage to be reinforced?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Digital coverage to be reinforced?",
+       "at": 0,
+       "note": "digital means relating to digits, toes; the steel cap over the toes of a work boot strengthens it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a call to strengthen broadband or online news coverage.",
+     "walkthrough": "'Digital' looks electronic but refers to toes.",
+     "definitionFit": "A boot's protective front piece, often steel, covers the toes, so it is coverage for digits that is reinforced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Digital"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +897,54 @@
     "text": "Local authority depositing gold in branch",
     "enumeration": "7"
    },
-   "solution": "BOROUGH"
+   "solution": "BOROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Local authority",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "depositing",
+       "at": 16,
+       "note": "depositing tells us the gold is placed somewhere"
+      },
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in places the gold inside the word for branch"
+      }
+     ],
+     "parts": [
+      {
+       "words": "branch",
+       "at": 35,
+       "gives": "BOUGH",
+       "note": "a bough is a large branch of a tree"
+      },
+      {
+       "words": "gold",
+       "at": 27,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A council stashes its gold in a branch office.",
+     "walkthrough": "'branch' suggests a bank office but is a tree's limb; gold is the heraldic word.",
+     "definitionFit": "A town or district with its own council is a unit of local government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "branch"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +958,62 @@
     "text": "Employee of 17 working nights brings in union and head of management",
     "enumeration": "8"
    },
-   "solution": "GUNSMITH"
+   "solution": "GUNSMITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Employee of 17",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 15,
+       "note": "working means the letters are worked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nights",
+       "at": 23
+      },
+      {
+       "words": "union",
+       "at": 40,
+       "gives": "U"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 50,
+         "note": "head of means the first letter of management"
+        }
+       ],
+       "parts": [
+        {
+         "words": "management",
+         "at": 58
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A night-shift worker at the club signs up with the union and the boss.",
+     "walkthrough": "'brings in' joins U and M (head of 'management') into the letters of NIGHTS, all rearranged ('working'). 17 is ARSENAL.",
+     "definitionFit": "An arsenal makes or stores weapons, so a craftsman who makes firearms would work there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nights"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +1027,58 @@
     "text": "Bottom line's about North American military-industrial complex",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "military-industrial complex",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about means going around the abbreviation for North American"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Bottom",
+         "at": 0,
+         "gives": "ARSE",
+         "note": "arse is British slang for the bottom"
+        },
+        {
+         "words": "line",
+         "at": 7,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "North American",
+       "at": 20,
+       "gives": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The bottom line on America's military-industrial complex.",
+     "walkthrough": "'about' puts the bottom and the line letter around the North American abbreviation. ARSE is British slang for the backside.",
+     "definitionFit": "An arsenal is a place, often a large site, where weapons and munitions are made or stored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 18,
@@ -275,7 +1092,70 @@
     "text": "Covered passage from Catholic hymnal initially, having gone outside",
     "enumeration": "7"
    },
-   "solution": "ARCHWAY"
+   "solution": "ARCHWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Covered passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 60,
+       "note": "outside means the departure word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gone",
+       "at": 55,
+       "gives": "AWAY",
+       "note": "away means gone, as in out of the house"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Catholic",
+         "at": 21,
+         "gives": "RC",
+         "note": "RC is the abbreviation for Roman Catholic"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 37,
+           "note": "initially picks the first letter of hymnal"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hymnal",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer slips out of the vaulted passage with a hymnbook.",
+     "walkthrough": "'having gone outside' reads as a departure but places the word for gone around the Catholic letters and the hymnal initial.",
+     "definitionFit": "An archway is a passage beneath an arch, covered overhead by the curved structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gone"
+    }
+   }
   },
   {
    "number": 19,
@@ -289,7 +1169,42 @@
     "text": "Cuckoo to exclude monarch",
     "enumeration": "7"
    },
-   "solution": "BARKING"
+   "solution": "BARKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cuckoo",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to exclude",
+       "at": 7,
+       "gives": "BAR",
+       "note": "to bar someone is to exclude them"
+      },
+      {
+       "words": "monarch",
+       "at": 18,
+       "gives": "KING",
+       "note": "a king is a monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuckoo pushes the reigning bird out of the nest.",
+     "walkthrough": "'Cuckoo' is not the bird but slang for mad; 'barking' (short for barking mad) is British slang for crazy.",
+     "definitionFit": "Both words are informal ways of calling someone crazy, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cuckoo"
+    }
+   }
   },
   {
    "number": 20,
@@ -303,7 +1218,48 @@
     "text": "Hot cake left out once",
     "enumeration": "6"
    },
-   "solution": "STOLEN"
+   "solution": "STOLEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out once",
+       "at": 14,
+       "note": "out once means one of the two copies of the letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cake",
+       "at": 4,
+       "gives": "STOLLEN",
+       "note": "stollen is a German fruit loaf eaten at Christmas"
+      },
+      {
+       "words": "left",
+       "at": 9,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warm cake was once abandoned on the side.",
+     "walkthrough": "STOLLEN has two Ls; only one goes, as 'once' says. 'Hot' is slang for stolen goods.",
+     "definitionFit": "Goods that are hot have been recently stolen and are risky to sell, a criminal slang sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hot"
+    }
+   }
   },
   {
    "number": 21,
@@ -317,7 +1273,52 @@
     "text": "Old prog rockers met up for church",
     "enumeration": "6"
    },
-   "solution": "TEMPLE"
+   "solution": "TEMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "church",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 21,
+       "note": "in a down clue, up means reading from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Old prog rockers",
+         "at": 0,
+         "gives": "ELP",
+         "note": "ELP, Emerson, Lake and Palmer, the 1970s progressive rock band"
+        },
+        {
+         "words": "met",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ageing prog rock musicians got together for a church reunion.",
+     "walkthrough": "'up' turns ELP + MET backwards, giving TEM + PLE.",
+     "definitionFit": "A temple is a place of worship; in French Protestant usage a church is called one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "met"
+    }
+   }
   },
   {
    "number": 22,
@@ -331,7 +1332,61 @@
     "text": "Last of veteran Apple Macs is recycled — they've no memory left",
     "enumeration": "8"
    },
-   "solution": "AMNESICS"
+   "solution": "AMNESICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they've no memory left",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "recycled",
+       "at": 30,
+       "note": "recycled suggests the letters being broken down and reused in a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Last of",
+         "at": 0,
+         "note": "last of takes the final letter of each of the two words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "veteran",
+         "at": 8
+        },
+        {
+         "words": "Apple",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "Macs is",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old Apple computers go for recycling once their memory is used up.",
+     "walkthrough": "'Last of' gives N and E; 'recycled' rearranges these with MACS IS.",
+     "definitionFit": "People with amnesia have lost their memory, so they have none left, a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 23,
@@ -345,7 +1400,42 @@
     "text": "Neither piece is one of those who famously skewered king",
     "enumeration": "6"
    },
-   "solution": "NORMAN"
+   "solution": "NORMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of those who famously skewered king",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Neither",
+       "at": 0,
+       "gives": "NOR",
+       "note": "nor pairs with neither, as in neither this nor that"
+      },
+      {
+       "words": "piece",
+       "at": 8,
+       "gives": "MAN",
+       "note": "a man is a piece in chess or draughts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Neither chess piece is the one that took down the king.",
+     "walkthrough": "In 1066 the Norman invaders killed King Harold, by tradition with an arrow in the eye.",
+     "definitionFit": "The Normans defeated Harold II at Hastings, the king traditionally pierced by an arrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 24,
@@ -365,7 +1455,63 @@
      }
     ]
    },
-   "solution": "IMAGEMAKER"
+   "solution": "IMAGEMAKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spin doctor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Morph's",
+       "at": 18,
+       "gives": "IM",
+       "note": "Morph is the setter, so Morph's means I am, shortened to I'm"
+      },
+      {
+       "words": "a",
+       "at": 26
+      },
+      {
+       "words": "beauty",
+       "at": 28,
+       "gives": "GEM",
+       "note": "a gem is a beauty, something precious"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dissolute",
+         "at": 44,
+         "note": "dissolute means loose, so the letters of rake are loosened into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rake",
+         "at": 54
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A PR man announces the setter is lovely and a dissolute rake.",
+     "walkthrough": "'Morph's' becomes I'M, since the setter refers to themself.",
+     "definitionFit": "A spin doctor manages a politician's public reputation, crafting how they look to voters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Morph's"
+    }
+   }
   },
   {
    "number": 25,
@@ -379,7 +1525,46 @@
     "text": "Women ensnared by wicked madam",
     "enumeration": "4"
    },
-   "solution": "BAWD"
+   "solution": "BAWD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "madam",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ensnared by",
+       "at": 6,
+       "note": "ensnared by means caught inside the word for wicked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wicked",
+       "at": 18,
+       "gives": "BAD",
+       "note": "bad means wicked"
+      },
+      {
+       "words": "Women",
+       "at": 0,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Young women are trapped by a cruel brothel keeper.",
+     "definitionFit": "A bawd is an old word for a woman who runs a brothel, which is what madam means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1578,42 @@
     "text": "Count to exclude monarch",
     "enumeration": "4"
    },
-   "solution": "BANK"
+   "solution": "BANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Count",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to exclude",
+       "at": 6,
+       "gives": "BAN",
+       "note": "to ban someone is to exclude them"
+      },
+      {
+       "words": "monarch",
+       "at": 17,
+       "gives": "K",
+       "note": "K is an abbreviation for king, a monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman sets out to depose the sovereign.",
+     "walkthrough": "'Count' is not a nobleman but a verb: to count on is to bank on.",
+     "definitionFit": "To bank on something is to rely or count on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Count"
+    }
+   }
   },
   {
    "number": 26,
@@ -407,7 +1627,42 @@
     "text": "Exercise, gaining weight on diet of fish?",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "diet of fish?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Exercise",
+       "at": 0,
+       "gives": "PLANK",
+       "note": "the plank is a core-strengthening exercise held face down"
+      },
+      {
+       "words": "weight",
+       "at": 18,
+       "gives": "TON",
+       "note": "a ton is a unit of weight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working out but putting on weight wonders whether to eat fish.",
+     "walkthrough": "'gaining' joins the two pieces. The question mark flags that whales and many fish feed on these drifting organisms.",
+     "definitionFit": "Tiny drifting organisms in the sea are the food of many fish and whales, hence their diet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 27,
@@ -421,7 +1676,45 @@
     "text": "Badgers picked up a sound",
     "enumeration": "6"
    },
-   "solution": "ANNOYS"
+   "solution": "ANNOYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Badgers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ANNOYS",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 8,
+       "note": "picked up means heard, as a microphone picks up a sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sound",
+       "at": 18,
+       "gives": "ANOISE",
+       "note": "the indefinite article, A; a sound is a noise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The badgers picked up a sound in the night.",
+     "walkthrough": "'Badgers' is a verb, not the animals.",
+     "definitionFit": "To badger someone is to pester them, which irritates them; a verb in the third person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Badgers"
+    }
+   }
   }
  ]
 }
