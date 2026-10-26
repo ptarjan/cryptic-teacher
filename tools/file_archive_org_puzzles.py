@@ -4999,6 +4999,22 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     grid = trove_solution_ocr.puzzle_grid(old)
     enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
     answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True, enums=enums)
+    # A grid read unsure of its blocks whose crop reads whole as another grid (printed_grid) is another
+    # puzzle's: the page's other heading's grid, when its page printed the two under each other's
+    # headings (swapped_heading), else none of this puzzle's.
+    if not info.get("refused") and info.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS:
+        printed = printed_grid(solution_crop(sol, number), grid)
+        if printed is not None:
+            moved = swapped_heading(sol, number, solutions, printed, grid, paper.series, enums)
+            if moved:
+                sol, answers, info = moved
+            else:
+                verdict = {"number": number, "leaf": hit["leaf"], "answersOnly": True, "vlmAsks": 0,
+                           "solutionFrom": solution_source(sol), "wrongGrid": OTHER_GRID,
+                           "skip": f"the linked solution grid is another puzzle's: {OTHER_GRID}"}
+                if number != hit["number"]:
+                    verdict["read_as"] = hit["number"]
+                return verdict, None
     # Another puzzle's grid (wrong_grid) files none of its answers, nor does a full read of it.
     other = wrong_grid(es, answers, paper.series, number)
     if other:
@@ -5415,6 +5431,93 @@ WRONG_GRID_REACH = 7
 #: At least this many of a reading's answers alike at the same lights for another held puzzle to be
 #: its grid's (wrong_grid): a short word may sit at one light of two grids by chance.
 WRONG_GRID_ALIKE = 3
+
+
+#: The cells a solution crop's blocks must miss of a puzzle's grid, and as many it must read as blocks
+#: where the grid has light, for printed_grid to call it another grid.
+OTHER_GRID_CELLS = 2
+#: answers_only's wrongGrid of a crop printed_grid reads as another grid, no heading of its page the
+#: puzzle's (swapped_heading).
+OTHER_GRID = "its blocks read whole as another grid's"
+
+
+def blocks_of(grid):
+    """The block mask of `grid` (rows of cells, "#" a block) as a tuple of tuples."""
+    return tuple(tuple(ch == "#" for ch in row) for row in grid)
+
+
+def printed_grid(crop, grid):
+    """The block mask (blocks_of) of another crossword grid than `grid` that a solution grid's crop
+    (solution_crop) reads as, or None: on its best-fitting framing every cell read a block or light,
+    the blocks in 180-degree turn symmetry, every light cell in a light of 2 or more, and at least
+    OTHER_GRID_CELLS of `grid`'s blocks read light and of its lights read blocks. A heavy print's
+    inked letters (blocks only, scattered) or a grey screen's blocks read paper (lights only) are not.
+    10-26: of the Times held 6+ short, 13 linked crops read so, each another puzzle's grid exactly
+    (times-18089's page prints 18,094's grid under its heading, 18094's 18,089's; 20015 off 1999's
+    misread 21015; 21976 off 21971's heading read twice), every held grid fitting its own clues."""
+    import numpy as np
+    from PIL import Image
+    try:
+        gray = np.asarray(Image.open(crop).convert("L"))
+        framed = trove_solution_ocr.framings(gray, grid)
+    except (OSError, ValueError):
+        return None
+    fits = [trove_solution_ocr.block_agreement(g, grid, (ys, xs)) for g, ys, xs in framed]
+    g, ys, xs = framed[int(np.argmax(fits))]
+    n = len(grid)
+    seen = trove_solution_ocr.blocks_read(g, (ys, xs), n)
+    if None in seen.values() or any(len(row) != n for row in grid):
+        return None
+    mask = tuple(tuple(bool(seen[(r, c)]) for c in range(n)) for r in range(n))
+    if any(mask[r][c] != mask[n - 1 - r][n - 1 - c] for r in range(n) for c in range(n)):
+        return None
+    own = blocks_of(grid)
+    missed = sum(own[r][c] and not mask[r][c] for r in range(n) for c in range(n))
+    extra = sum(mask[r][c] and not own[r][c] for r in range(n) for c in range(n))
+    if missed < OTHER_GRID_CELLS or extra < OTHER_GRID_CELLS:
+        return None
+    rows = ["".join("#" if b else "." for b in row) for row in mask]
+    lit = {rc for cells in trove_solution_ocr.lights(rows).values() if len(cells) >= 2 for rc in cells}
+    if any(not mask[r][c] and (r, c) not in lit for r in range(n) for c in range(n)):
+        return None
+    return mask
+
+
+def swapped_heading(sol, number, solutions, printed, grid, series, enums):
+    """(heading, answers, info) of puzzle No `number`'s grid `grid` read under another solution heading
+    of `sol`'s page and leaf, or None: one whose puzzle is held on another grid that is exactly the
+    one `sol`'s crop reads as (`printed`, printed_grid), and under which `grid` reads at SURE_BLOCKS.
+    The page printed the two grids under each other's headings (Saturdays 1987-90: 17,424 and 17,429,
+    18,089 and 18,094, 18,316 and 18,321, 18,394 and 18,399, each heading over the other's grid, its
+    answers the other's clues'). The heading is relabelled `number`, so its crop and read are this
+    puzzle's (solution_crop, solved)."""
+    here = (os.fspath(sol["dir"]), sol["leaf"], tuple(sol["box"]))
+    day = Path(sol["dir"]).name[:10]
+    seen, cands = set(), []
+    # The same day's other editions too (the archive.org and Gale copies of one paper): 1990-06-16's
+    # archive.org scan read only the 18,316 heading, the Gale page both.
+    linked = [{**s, "dir": Path(k)} for (k, _), v in _LINKED.items() if Path(k).name[:10] == day for s in v[4]]
+    for s in list(solutions.values()) + linked:
+        at = (os.fspath(s["dir"]), s["leaf"], tuple(s["box"]))
+        if s["number"] == number or at == here or (s["number"], at) in seen \
+                or (at[1] != here[1] if at[0] == here[0] else Path(at[0]).name[:10] != day):
+            continue
+        seen.add((s["number"], at))
+        cands.append(s)
+    mine = blocks_of(grid)
+    for s in cands:
+        theirs = held_file(series, s["number"])
+        if not theirs:
+            continue
+        other = blocks_of(trove_solution_ocr.puzzle_grid(theirs))
+        if other != printed or other == mine:
+            continue
+        moved = {**s, "number": number}
+        answers, info = solved(moved, grid, above=paper_of(moved["dir"]).solution_above, lean=True, enums=enums)
+        if info.get("refused") or info.get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS:
+            continue
+        return moved, answers, {**info, "swappedHeading": s["number"]}
+    return None
 
 
 def whole_word(held, read):
@@ -8348,6 +8451,31 @@ def unsure_short(row):
     return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
 
 
+#: The due reason of a Times edition read before REREAD_OTHER_GRID whose linked solution grid read short at
+#: blocks SOLUTION_BLOCKS to SURE_BLOCKS, no cell classified: since then answers_only reads its crop for
+#: another puzzle's grid (printed_grid), the grid printed under the page's other heading taken
+#: (swapped_heading), else none (OTHER_GRID). 10-26: 13 Times held 6+ short so, 8 of them on four
+#: Saturday pages that print the two grids under each other's headings. answers_only, once.
+OTHER_GRID_SHORT = "solution short, its blocks read for another puzzle's grid since"
+REREAD_OTHER_GRID = "2026-10-26T03:00:00+00:00"
+
+
+def other_grid_short(row):
+    """Whether Times ledger `row`, read before REREAD_OTHER_GRID, read a linked solution grid short at blocks
+    SOLUTION_BLOCKS to SURE_BLOCKS with no cell classified, for a puzzle answers_only reads (answerable_gaps):
+    unsure_short's band, read again for printed_grid and swapped_heading."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_OTHER_GRID)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    band = dict(row, verdicts=[v for v in row.get("verdicts", ()) if isinstance(v.get("solution"), dict)
+                               and "classified" not in v["solution"] and not v["solution"].get("refused")
+                               and v["solution"].get("accepted", 0) < v["solution"].get("lights", 0)
+                               and SOLUTION_BLOCKS <= v["solution"].get("blocks", 0) < trove_solution_ocr.SURE_BLOCKS])
+    return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
+
+
 #: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
 #: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
 #: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
@@ -8593,6 +8721,8 @@ def fix_reason(row):
         return HEAVY_PRINT
     if unsure_short(row):
         return SURE_FRAMING
+    if other_grid_short(row):
+        return OTHER_GRID_SHORT
     if suspect_held(row):
         return SUSPECT_HELD
     if unfiled_held(row):
@@ -9146,7 +9276,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -9655,7 +9785,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
-                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, VLM_REJUDGED, CANDIDATE_READS)
+                  HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS)
 
 
 def keeps_vlm(why, row, unit=None):

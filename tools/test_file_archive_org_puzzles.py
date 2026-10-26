@@ -599,6 +599,54 @@ check("a grid read short unclassified under SURE_BLOCKS since REREAD_HEAVY for a
       "(rank 2, answers-only); not classified, under SOLUTION_BLOCKS, at SURE_BLOCKS, read since, or held whole",
       [f.SURE_FRAMING, f.SURE_FRAMING, False, False, False, False, False, 2, True],
       sf + [f.RANKS[f.SURE_FRAMING], f.SURE_FRAMING in f.SOLUTION_FIXES])
+# The same band read since REREAD_SURE_FRAMING, before REREAD_OTHER_GRID, is OTHER_GRID_SHORT (10-26: its crop
+# read for another puzzle's grid, printed_grid / swapped_heading); once. Not read since, refused, or classified.
+f.filed_state = lambda series, n: (False, True)
+og_after = "2026-10-25T22:00:00+00:00"
+og_cls = heavy_row(0.93, og_after)
+og_cls["verdicts"][0]["solution"]["classified"] = 0
+og_ref = heavy_row(0.93, og_after)
+og_ref["verdicts"][0]["solution"]["refused"] = "its blocks are not the puzzle's"
+og = [f.fix_reason(heavy_row(0.93, og_after)), f.other_grid_short(og_cls), f.other_grid_short(og_ref),
+      f.other_grid_short(heavy_row(0.98, og_after)), f.other_grid_short(heavy_row(0.93, "2026-10-26T04:00:00+00:00"))]
+f.filed_state = real_fs
+check("a grid read short unclassified under SURE_BLOCKS since REREAD_SURE_FRAMING is OTHER_GRID_SHORT (rank 2, "
+      "answers-only, a LOW prefix); not classified, refused, at SURE_BLOCKS or read since",
+      [f.OTHER_GRID_SHORT, False, False, False, False, 2, True, True],
+      og + [f.RANKS[f.OTHER_GRID_SHORT], f.OTHER_GRID_SHORT in f.SOLUTION_FIXES,
+            f.OTHER_GRID_SHORT.startswith("solution short")])
+# printed_grid: a crop whose blocks read whole as another symmetric grid (two blocks moved: times-18089's page
+# printed 18,094's grid under its heading) is that grid's mask; the puzzle's own grid, or no crop, is None.
+from PIL import Image as _OgImage, ImageDraw as _OgDraw
+og_a = ["".join("#" if r % 2 and c % 2 else "." for c in range(15)) for r in range(15)]
+og_b = [list(row) for row in og_a]
+og_b[1][1] = og_b[13][13] = "."
+og_b[0][4] = og_b[14][10] = "#"
+og_b = ["".join(row) for row in og_b]
+
+
+def og_png(grid, path, pitch=30, pad=20):
+    n = len(grid)
+    im = _OgImage.new("L", (n * pitch + 2 * pad, n * pitch + 2 * pad), 255)
+    dr = _OgDraw.Draw(im)
+    for r, row in enumerate(grid):
+        for c, ch in enumerate(row):
+            if ch == "#":
+                dr.rectangle([pad + c * pitch, pad + r * pitch, pad + (c + 1) * pitch, pad + (r + 1) * pitch], fill=0)
+    for i in range(n + 1):
+        dr.line([pad, pad + i * pitch, pad + n * pitch, pad + i * pitch], fill=0, width=2)
+        dr.line([pad + i * pitch, pad, pad + i * pitch, pad + n * pitch], fill=0, width=2)
+    im.resize((im.width * 3, im.height * 3)).save(path)
+
+
+og_dir = Path(tempfile.mkdtemp())
+og_png(og_b, og_dir / "b.png")
+og_png(og_a, og_dir / "a.png")
+check("printed_grid reads a crop of another symmetric grid as its blocks; the puzzle's own grid, or no crop, None",
+      [True, None, None],
+      [f.printed_grid(og_dir / "b.png", og_a) == f.blocks_of(og_b), f.printed_grid(og_dir / "a.png", og_a),
+       f.printed_grid(og_dir / "missing.png", og_a)])
+shutil.rmtree(og_dir)
 # A grid that gave answers for a puzzle held with a suspect clue (complete() refuses it) is SUSPECT_HELD, once:
 # decide() sent its answers-only reading to --out before REREAD_SUSPECT (10-25).
 def sh_row(at="2026-10-25T06:00:00+00:00", accepted=30):
