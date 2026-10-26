@@ -612,6 +612,35 @@ check("a Christmas prize Monday links the prize of the Saturday sixteen days bef
        link(edition("2007-01-08", [23492], [23480]), {}, f.GALE),
        link(edition("2007-01-15", [23498], [23486]), {}, f.GALE),
        [f.christmas_prize_monday(D(s)) for s in ("2007-12-31", "2008-01-07", "2001-12-31", "2007-12-24", "2008-01-14")]])
+# WEEK_ON_SOLUTIONS, championship_number(): a championship eliminator's or qualifier's solution prints a week or
+# more on (1987-02-26 "Solution to puzzle No 17,284" of 02-19; 1989-01-23 "Solution to Qualifier Puzzle No 17,877"
+# of 01-12; 2012-03-29 "1st Qualifier 25,116" of 03-21). Those hosts link it; another day's lag-6 stranger and
+# the next day's deferral notice link nothing; a plain lag-7 heading reads clean on its week-on host.
+champ_words = lambda s: [[(0, 0, 10, 10, x) for x in s.split()]]
+check("a championship puzzle's week-later host links its solution; its heading forms read; no other day's",
+      [[17284], [17877], [25116], [], [], [D("1988-01-15"), D("1988-01-25")],
+       [17907, 17877, 23357, 25116, 25786, 17565, None, None, None, None], [17907, 25451]],
+      [link(edition("1987-02-26", [17290], [17284]), {17284: D("1987-02-19")}, f.GALE),
+       link(edition("1989-01-23", [17886], [17877]), {17877: D("1989-01-12")}, f.GALE),
+       link(edition("2012-03-29", [25123], [25116]), {25116: D("2012-03-21")}, f.GALE),
+       link(edition("1987-02-27", [17291], [17285]), {17285: D("1987-02-20")}, f.GALE),
+       link(edition("1989-01-24", [17887], [17878]), {17878: D("1989-01-13")}, f.GALE),
+       f.host_days(D("1988-01-14")),
+       [f.championship_number(t, {n}) for t, n in (
+           ("Solution to Eliminator a Puzzle INO 17,907", 17907), ("Solution t to Qualifier Puzzle No 17,877", 17877),
+           ("Solution toQualifyingPuzzle23,357", 23357), ("1st Qualifier 25,116", 25116),
+           ("Solution to Second Qualifying puzzle 25,786", 25786),
+           ("Solation to The Times Collins Dictioriaries. Crossword Caamp lonship Qualifying Puzzle No 17,565", 17565),
+           ("The solution to yesterday's eliminator puzzle 17,595", 17595), ("Qualifying Puzzle No 17,565", 17565),
+           ("lonship Qualifying Puzzle No 17,565", 17565),
+           ("Solution to Crossword 23,352", 23352))],
+       [n for (n, _), in (f.solution_headings(champ_words("Solution to Eliminator Puzzle No 17,907"), [17913]),
+                          f.solution_headings(champ_words("Solution to 25,451"), [25458]))]])
+_week_on = lambda day: {"edition": f"GaleTimes1989UKEnglish/{day}", "solOnly": {"at": "2026-10-26T09:00:00+00:00"}}
+check("a week-on host read before its championship heading is due once as HOST_WEEK_ON_RESCAN, ranked; another day is not",
+      (True, False, f.HOST_WEEK_ON_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _week_on("1989-02-23")), f.host_rescan_due(f.GALE, _week_on("1989-02-22")),
+       f.host_rescan_reason(_week_on("1989-02-23")), f.HOST_WEEK_ON_RESCAN in f.RANKS, f.HOST_WEEK_ON_RESCAN in f.HOST_REASONS))
 # hosted(): a solution prints in the next issue, a Saturday prize's also in
 # the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
 # heading) and a heading a week after a puzzle whose next issue is missing
