@@ -3224,7 +3224,7 @@ check("merge_answers keep: no held answer changes or goes, a blank light crossin
 fr_real = {n: getattr(f, n) for n in ("misread_word", "uncrossed")}
 fr_seen = []
 f.misread_word = lambda w, enum=None: w == "BEX"
-f.uncrossed = lambda answers, grid, enums=None, probs=None: (
+f.uncrossed = lambda answers, grid, enums=None, probs=None, rivals=None: (
     fr_seen.append((sorted(answers), probs is not None)) or ({"2-down"} & set(answers)))
 try:
     ao_held[0] = lights_held(["BAD", None, None, "DOE"])
