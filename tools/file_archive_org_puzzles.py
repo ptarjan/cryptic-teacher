@@ -7240,6 +7240,9 @@ MATCH_MARGIN, MATCH_STEP = 0.2, 0.5
 #: Whether a matched grid is read on matched_box's own lattice too, not only on its crop's
 #: framings(). 10-26: Times grids refused "its blocks are not the puzzle's" though matched at
 #: SOLUTION_BLOCKS (times-13746: matched 1.0, its crop framed 3 rows short at 0.738).
+#: Off: its dry run (18 matched Times grids, no VLM) read 27 answers, 25 right by clue, but
+#: times-3938 (1942) filed EASTCARD/ESTEEM for LASTCARD and (likely) LETTER; snapping the lattice
+#: onto the rules' ink read worse (3938 0 answers, 19151 2 of 7). MATCHED_GRID is due only when on.
 MATCHED_LATTICE = False
 
 
@@ -7285,42 +7288,6 @@ def matched_box(window, grid, sides):
         if best is None or fit[y0, x0] > best[3]:
             best = (float(score[y0, x0]) / (n * n), (x0, y0, x0 + s, y0 + s), pitch, float(fit[y0, x0]))
     return best and best[:3]
-
-
-def snapped(window, box, pitch, n):
-    """(x0, y0, pitch) of matched_box's lattice (`box`, `pitch`, n x n) moved onto the grid's printed
-    rules in `window`: matched_box places it only to MATCH_MARGIN of a cell, and a lattice that far
-    off cuts the frame into the edge cells (times-3938, 1942: LASTCARD's L read E with the top rule,
-    filing EASTCARD/ESTEEM). The rows and the columns are each moved to the offset, within that
-    margin, whose rules lie on the most ink, at the pitch (within half a pixel) inking them most."""
-    import numpy as np
-    dark = 255.0 - np.asarray(window.convert("L"), dtype=np.float64)
-    h, w = dark.shape
-    x0, y0 = box[0], box[1]
-    r = max(1, int(round(pitch * MATCH_MARGIN)))
-    best = None
-    for p in np.arange(pitch - 0.5, pitch + 0.51, 0.1):
-        side = int(round(p * n))
-        xa, xb = max(0, x0), min(w, x0 + side)
-        ya, yb = max(0, y0), min(h, y0 + side)
-        fits = []
-        for lo, hi, length, take in ((y0, h, (xa, xb), lambda at, s: dark[at, s[0]:s[1]]),
-                                     (x0, w, (ya, yb), lambda at, s: dark[s[0]:s[1], at].T)):
-            top = None
-            for d in range(-r, r + 1):
-                at = [int(round(lo + d + k * p)) for k in range(n + 1)]
-                if at[0] < 0 or at[-1] >= hi:
-                    continue
-                ink = float(take(np.array(at), length).mean())
-                if top is None or ink > top[0]:
-                    top = (ink, d)
-            fits.append(top)
-        if None in fits:
-            continue
-        ink = fits[0][0] + fits[1][0]
-        if best is None or ink > best[0]:
-            best = (ink, x0 + fits[1][1], y0 + fits[0][1], float(p))
-    return (x0, y0, pitch) if best is None else best[1:]
 
 
 def worded(word, enum=None):
@@ -7417,8 +7384,7 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
             cut = (max(0, x0 - pad), max(0, y0 - pad), min(window.width, x1 + pad), min(window.height, y1 + pad))
             # Its own lattice is read too (MATCHED_LATTICE), in the 3x crop's pixels: the crop's
             # framings() may miss its rows (a broken frame, letters joined to the rules).
-            sx, sy, sp = snapped(window, found[1], found[2], len(grid))
-            answers, stats = read(cut, (3 * (sx - cut[0]), 3 * (sy - cut[1]), 3 * sp, 3 * sp)
+            answers, stats = read(cut, (3 * (x0 - cut[0]), 3 * (y0 - cut[1]), 3 * found[2], 3 * found[2])
                                   if MATCHED_LATTICE else None)
             # A matched grid's ink is read past what joined it, its letters less sure: an answer
             # stands only as a word, or words by its enumeration (1978's AQUALUNG read AGUALUNG).
@@ -7882,7 +7848,8 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # championship_number and CHAMPIONSHIP_LAGS (_CHAMPIONSHIP_FIX): no grid is read otherwise.
                   "fb1e89c48b881125": "8417cfb08f3a9706",
                   # MATCHED_LATTICE (a matched grid read on its own lattice): due once as MATCHED_GRID.
-                  "476130221335c0fe": "8417cfb08f3a9706", "be186d5bd4567331": "8417cfb08f3a9706"}
+                  "476130221335c0fe": "8417cfb08f3a9706", "be186d5bd4567331": "8417cfb08f3a9706",
+                  "48889b2b90d6ecea": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
