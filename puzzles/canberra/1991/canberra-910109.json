@@ -171,48 +171,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIENNESE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "headless",
-       "note": "something headless has lost its top, so the opening letter of the second number is dropped"
+       "text": "make",
+       "at": 19,
+       "note": "to make something is to form it, so the leftover letters are formed into a new word"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "make",
-         "note": "to make here is to build something new out of the materials, so the letters are put together in another order"
+         "text": "headless",
+         "at": 9,
+         "note": "headless means each number word loses its first letter"
         }
        ],
        "parts": [
         {
-         "words": "7",
-         "gives": "SEVEN",
-         "note": "the number written as a word"
+         "words": "7 and 9",
+         "at": 0,
+         "gives": "SEVENNINES",
+         "note": "the numbers written as words, seven and nines"
         },
         {
-         "words": "9",
-         "gives": "INE",
-         "note": "the number nine written as a word, without its first letter"
+         "gives": "SN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cross-reference clue claiming entries 7 and 9, cut short, combine to name a city's people.",
-     "walkthrough": "'7 and 9' looks like a pointer to 7 Across and 9 Across, but it means the numbers themselves, spelt out; only nine loses its head here.",
-     "definitionFit": "The Viennese are the inhabitants of Vienna, the capital city of Austria."
+     "surface": "A sum where two numbers, missing their tops, somehow add up to the residents of a capital city.",
+     "walkthrough": "Behead SEVEN and NINES to get EVEN and INES; 'make' then rearranges those letters. The S needs nine in the plural.",
+     "definitionFit": "Vienna is the capital of Austria, and its inhabitants are called by this name."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "7"
+     "misdirectedWord": "capital"
     }
    }
   },
@@ -1410,44 +1409,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "to let gas escape",
-      "at": 23
+      "text": "gas escape",
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "VENTPIPE",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "to let",
+       "at": 23,
+       "note": "to let a letter go means freeing the opening E so it can run to the very end"
+      }
+     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "VENTPIPE",
+       "op": "charade",
        "parts": [
         {
          "words": "happening",
+         "at": 13,
          "gives": "EVENT",
-         "note": "an event is a happening; its first letter moves to the end"
+         "note": "an event is a happening, something that takes place"
         },
         {
          "words": "Dickens hero",
+         "at": 0,
          "gives": "PIP",
-         "note": "Pip is the hero of Great Expectations"
+         "note": "Pip is the hero of Dickens's Great Expectations"
         }
        ]
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A Dickensian hero's adventure, apparently ending in some flatulence.",
-     "walkthrough": "The hero is placed inside the happening after its opening letter has moved to the back; nothing signals either step, so this is the loosest clue in the puzzle.",
-     "definitionFit": "A vent-pipe is a pipe that lets gas or air escape from a drain, tank or soil stack."
+     "surface": "A Dickens hero happens to break wind, as the clue's picture suggests.",
+     "walkthrough": "'to let' frees the first E of EVENTPIP and sends it to the end.",
+     "definitionFit": "A pipe that vents is an outlet through which fumes and gas are released from a building or system."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "happening"
+     "misdirectedWord": "hero"
     }
    }
   }

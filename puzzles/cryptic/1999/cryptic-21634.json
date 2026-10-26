@@ -1686,52 +1686,76 @@
     "definitions": [
      {
       "text": "Peter is broadcasting",
-      "at": 26,
-      "note": "names a broadcaster called Peter, so the answer is his surname"
+      "at": 26
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SISSONS",
-     "indicators": [
-      {
-       "text": "If",
-       "note": "if this pairing holds, the parallel pairing must too, so we swap each word for its counterpart"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "If",
+         "at": 0,
+         "note": "the 'if' sets up a rule about family abbreviations, inviting us to swap the female letter for its male counterpart"
+        }
+       ],
        "parts": [
         {
          "words": "'d'",
-         "gives": "S",
-         "note": "in family trees d stands for daughter; its counterpart letter stands for son"
+         "at": 3,
+         "gives": "D",
+         "note": "d is the genealogical abbreviation for daughter, and s is its counterpart for son"
         },
         {
-         "words": "is",
-         "note": "taken as written"
+         "gives": "D"
         },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 7
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "then",
+         "at": 21,
+         "note": "then follows the rule through, swapping the daughters for their brothers in the same way"
+        }
+       ],
+       "parts": [
         {
          "words": "daughters",
-         "gives": "SONS",
-         "note": "the male counterpart of daughters"
+         "at": 10,
+         "gives": "DAUGHTERS",
+         "note": "the word daughters, whose male counterpart is sons"
+        },
+        {
+         "gives": "DAUGHTERS"
+        },
+        {
+         "gives": "SONS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A riddle linking a family's daughters with a man called Peter being on the air.",
-     "walkthrough": "The parallel statement 'S is sons' runs together as the surname of Peter Sissons, a leading BBC television newsreader in 1999.",
-     "definitionFit": "The surname belongs to Peter Sissons, the British television news presenter on air at the time."
+     "surface": "A logic puzzle: if one letter stands for daughters, what does that make Peter, who is on air?",
+     "walkthrough": "Swap each female term in 'd is daughters' for its male partner and you read 'S is sons', run together. Peter Sissons was a long-serving BBC television newsreader and presenter.",
+     "definitionFit": "Peter Sissons was a British news presenter, a man whose career was spent on radio and television."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "daughters"
+     "misdirectedWord": "Peter"
     }
    }
   },
