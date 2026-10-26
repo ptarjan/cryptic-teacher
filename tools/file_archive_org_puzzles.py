@@ -5020,16 +5020,20 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # hide the clash and leave an answers-only read that files nothing.
     if not fits_lights(old["entries"], answers):
         return None
+    # A held title (HELD_TITLE) whose grid reading gives HELD_PROOF of the held answers word for word, and
+    # another word for none, is this puzzle's grid as surely as a titled page's: its answers take the
+    # titled read's uncrossed check (misread_rival), not every-uncrossed-goes (held_proven).
+    every = bool(hit.get("heldTitle")) and not held_proven(es, answers)
     answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
-                                           crossed=crossed, every=bool(hit.get("heldTitle")),
+                                           crossed=crossed, every=every,
                                            blog="blog" in (old.get("solutions") or {}))
     if asked:
         answers, info = rejudged(es, answers, info, asked, strips, grid, enums, solution_crop(sol, number),
-                                 crossed=crossed, every=bool(hit.get("heldTitle")),
+                                 crossed=crossed, every=every,
                                  blog="blog" in (old.get("solutions") or {}))
     if ask_vlm:
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
-                                    crossed=crossed, every=bool(hit.get("heldTitle")),
+                                    crossed=crossed, every=every,
                                     blog="blog" in (old.get("solutions") or {}))
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
@@ -5306,6 +5310,25 @@ def wrong_grid(entries, answers, series, number):
         if alike >= WRONG_GRID_ALIKE and alike > agree:
             return f"{alike} of its answers are No {n}'s held ones at the same lights ({agree} this one's)"
     return None
+
+
+#: The held answers a held title's (HELD_TITLE) grid reading must give word for word, giving another
+#: word for none, for its grid to stand as the puzzle's (held_proven).
+HELD_PROOF = 4
+
+
+def held_proven(entries, answers):
+    """Whether a solution grid's reading `answers` ({"12-across": word}) proves the grid the held puzzle's
+    (its `entries`): HELD_PROOF or more held answers read word for word and none as another word
+    (whole_word). A held title (HELD_TITLE) stands on no title read, so answers_only left out every
+    answer uncrossed named (an unread crossing light, none of the classifier's misread_rival check);
+    10-25: 135 Times files read so stood 1-16 short on ~630 lights their reading gave, each agreeing
+    with every held letter (times-8025's TERRITORIALARMY, EXPLAINS: 26 held answers read alike), while
+    wrong_grid already refuses a grid giving other words than 2 held ones."""
+    held = {entry_id(e): e.get("solution") for e in entries or () if e.get("solution")}
+    both = [k for k, a in answers.items() if a and k in held]
+    agree = sum(held[k] == answers[k] for k in both)
+    return agree >= HELD_PROOF and not any(whole_word(held[k], answers[k]) for k in both)
 
 
 def settle_held(entries, answers, enums=None, blog=False):
@@ -7372,8 +7395,9 @@ def untitled_rescan(row):
 #: VLM ask: no clue is read again. Paul 10-25: 241 Times puzzles (1945-66 ~225: 1956-09-15's 8,235 under
 #: the 09-17 heading "Solution of Puzzle No 8,235") stood so of ~690 linking no solution grid.
 HELD_TITLE = "untitled page, its held puzzle's answers read"
-#: Once: a row read before this is due HELD_TITLE.
-REREAD_HELD_TITLE = "2026-10-25T06:30:00+00:00"
+#: Once: a row read before this is due HELD_TITLE. 10-26: again, its answers judged by held_proven
+#: (10-25's reads left out every uncrossed answer of a grid that gave the held answers).
+REREAD_HELD_TITLE = "2026-10-26T01:00:00+00:00"
 
 
 def held_titles(row, cache=None):
@@ -7385,7 +7409,10 @@ def held_titles(row, cache=None):
     page's lost one: filed_number files it only as the number the date's count gives, and answers_only
     reads it only from the held file of this page."""
     scan = row.get("scan") or {}
-    if "inputs" not in row or scan.get("puzzles") or scan.get("failed") or not scan.get("date"):
+    # A row a held-title read wrote keeps its scan with that held title as its one title (held_titled):
+    # no title of the page's own, so read again as one after REREAD_HELD_TITLE moves (10-26: held_proven).
+    if "inputs" not in row or any(not p.get("heldTitle") for p in scan.get("puzzles") or ()) \
+            or scan.get("failed") or not scan.get("date"):
         return []
     # A verdict the page's older scan read under the title it lost (10-25: 82 Times rows of 1949-89, one
     # verdict each, the held puzzle's, its title gone from the scan by current code) stands for that
