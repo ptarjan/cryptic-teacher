@@ -3081,7 +3081,7 @@ def index_row(path):
         # .json beside it is the source the shim was built from.
         "file": shim.name,
         # content hash → app.js appends it as ?v= so browsers never serve a
-        # stale puzzle after a re-annotation (see APP.md, cache busting)
+        # stale puzzle after a re-annotation (see docs/APP.md, cache busting)
         "v": hashlib.md5(text.encode("utf-8")).hexdigest()[:8],
         "annotated": annotated,
         # Written only on a puzzle that has hints and lacks some, most often

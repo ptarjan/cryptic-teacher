@@ -8,7 +8,7 @@ This file explains how we set an original puzzle. There are two steps:
 `tools/grid_fill.py` does not write clues, and never will. That judgement is the
 point of the site.
 
-The annotation rules themselves are in `STYLE.md`. This file records how the
+The annotation rules themselves are in `docs/STYLE.md`. This file records how the
 clue-writing rules were found and measured, using our first authored puzzle,
 A001 (id `authored-1`; twenty clues, built from `tools/data/sample_fill_11.json` and
 `tools/data/authored_A001_clues.json`).
@@ -120,7 +120,7 @@ only from new candidates, or the resumed generator offers the banned word
 again.
 
 Record each rejection in `tools/data/unclueable.json` **with a reason**, so the
-knowledge is kept instead of rediscovered. (`STYLE.md` applies the same
+knowledge is kept instead of rediscovered. (`docs/STYLE.md` applies the same
 principle to product feedback.) Most current entries are proper nouns: Lufz
 folds them into lowercase entries, and its `isProperNoun` only looks at
 capitalisation, so it cannot tell ERIC the name from a common noun. Until there
@@ -190,7 +190,7 @@ For each entry the clue writer gets:
 
 A human still writes, per entry, the `clue` and the `annotation` (type,
 definition, indicators, blocks, walkthrough), which `tools/validate_annotations.py`
-and `STYLE.md` govern. The annotation rules apply here: the definition must
+and `docs/STYLE.md` govern. The annotation rules apply here: the definition must
 match the answer's part of speech, every content word must be accounted for,
 and the type must name every mechanism. An answer with several hooks makes that
 easier.
@@ -682,7 +682,7 @@ So every word does exactly one of three jobs: part of the DEFINITION, part of th
 WORDPLAY (fodder or indicator), or a LINK WORD joining the two. A word that only
 makes the surface read nicely is a fault, **however good the sentence**. In the
 schema it has one signature: a block with `"gives": ""`, the "surface only"
-padding that `STYLE.md`'s leftover-words rule tells the annotator to record.
+padding that `docs/STYLE.md`'s leftover-words rule tells the annotator to record.
 Nine of A001's twenty clues had one.
 
 `check_two_pieces()` in `tools/validate_annotations.py` makes it an ERROR, scoped
@@ -833,7 +833,7 @@ have to go, start from that clue.
 > need to have the full walkthrough.**
 
 The rule, what a walkthrough should keep, and `check_walkthrough_budget()` are in
-`STYLE.md`, "The blocks already told them". The evidence behind it: all twenty
+`docs/STYLE.md`, "The blocks already told them". The evidence behind it: all twenty
 A001 walkthroughs ran 44-63 words (median 54), and every one restated its own
 blocks, just when the learner no longer needed it. Trimmed to what the blocks
 cannot show, they run 19-42 words, median 32. The budget warns above 45, which

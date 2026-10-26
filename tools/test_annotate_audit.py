@@ -99,7 +99,7 @@ check(a.tool_error_kind("Bash", "cat tools/_puzzle_toughie-3670.json; ls tools/_
       "the opening read with an ls of the not-yet-written _ann file wastes nothing")
 check(a.tool_error_kind("Bash", "cat a.json; ls b.json", "Exit code 2\nls: b.json: Permission denied"),
       "Bash `ls` exited non-zero", "an ls that fails for another reason is still a failure, named ls")
-check(a.tool_error_kind("Bash", "cat STYLE.md | head -80; python3 -c \"import json; x=1\"",
+check(a.tool_error_kind("Bash", "cat docs/STYLE.md | head -80; python3 -c \"import json; x=1\"",
                         "Exit code 1\nTraceback"),
       "Bash `python3 -c` exited non-zero", "a chain is named by its last command, not split inside quotes")
 check(a.failed_command("python3 - <<'EOF'\nimport a; b\nEOF"), "python3 -",

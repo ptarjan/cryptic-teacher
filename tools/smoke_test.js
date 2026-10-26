@@ -180,7 +180,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 }
 
 // --- cache busting: index.html must reference current asset hashes ---
-// (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — APP.md)
+// (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — docs/APP.md)
 {
   const crypto = require("crypto");
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
@@ -761,7 +761,7 @@ assert(bareName === openPuz.name || openTitle.includes('class="muted"'),
 }
 
 // The badge marks the exception, not the norm: an annotated puzzle's title
-// carries no badge at all (see APP.md, "Badge the exception"). So the title
+// carries no badge at all (see docs/APP.md, "Badge the exception"). So the title
 // must agree with the index rather than always saying something.
 {
   const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId);

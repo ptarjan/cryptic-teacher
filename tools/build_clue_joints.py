@@ -2,7 +2,7 @@
 """Derive the joint vocabularies the authoring checks use from published clues.
 
 tools/validate_annotations.py holds three rules about how a clue's pieces
-attach (STYLE.md, "the joints"). Each needs a word list, and each list is a
+attach (docs/STYLE.md, "the joints"). Each needs a word list, and each list is a
 claim about what published setters do, so each is measured here instead of
 typed:
 

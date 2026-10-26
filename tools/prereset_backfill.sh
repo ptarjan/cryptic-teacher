@@ -142,7 +142,7 @@ else
 fi
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
-# (APP.md). Matching quality at a third the cost matters more here than
+# (docs/APP.md). Matching quality at a third the cost matters more here than
 # anywhere: a cheaper annotator is straightforwardly more puzzles per reset.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
@@ -1579,7 +1579,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
       what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
+  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and docs/STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
   # The field a re-exec came back into keeps its queue.
   if [ "$POOL_PHASE" != "$field" ]; then
     POOL_PHASE=$field

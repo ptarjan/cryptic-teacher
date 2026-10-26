@@ -3386,7 +3386,7 @@
   // The ladder is BUILT PER CLUE, not fixed: a rung only exists if it has
   // something to say. A double definition has no indicators, so it gets no
   // "spot the indicator" rung, and
-  // its rungs are worded for two definitions rather than one. See APP.md.
+  // its rungs are worded for two definitions rather than one. See docs/APP.md.
   const FILL_LABEL = "Fill in answer";
 
   // The clue types and their families, from tools/data/clue_types.json by way
@@ -3395,7 +3395,7 @@
   // The type rung must not hand the mechanism over. It names the FAMILY — the
   // shape of the job — and the precise (honest, compound) type is held back
   // until the building-blocks rung. The families are in precedence order: the
-  // first one a compound type uses is the one the rung names. See APP.md.
+  // first one a compound type uses is the one the rung names. See docs/APP.md.
   //
   // A family's `n` is how many annotated clues in puzzles/ it is a correct
   // answer for — grading accepts every family a compound type uses, so that is
@@ -3415,7 +3415,7 @@
   // would be a button that is almost never right, so it is folded into the
   // family its `picker` names: a clue of that family is answered by that chip,
   // while the hint, the walkthrough and the explanation still name the real
-  // type. See APP.md.
+  // type. See docs/APP.md.
   const PICKER_SHARE = 0.005;
   const FAMILY_TOTAL = FAMILIES.reduce((s, f) => s + f.n, 0);
   const PICKED = FAMILIES.filter((f) => f.n >= PICKER_SHARE * FAMILY_TOTAL);
