@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Game bird giving you bellyache",
     "enumeration": "6"
    },
-   "solution": "GROUSE"
+   "solution": "GROUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game bird",
+      "at": 0,
+      "meaning": "a moorland bird shot for sport"
+     },
+     {
+      "text": "bellyache",
+      "at": 21,
+      "meaning": "to bellyache is to grumble or complain"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Grouse is both a game bird and a verb meaning to moan, the same sense as slangy bellyache."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bellyache"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +70,48 @@
     "text": "Primate from waterway in Indian province …",
     "enumeration": "7"
    },
-   "solution": "GORILLA"
+   "solution": "GORILLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the waterway sits in the province, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Indian province",
+       "at": 25,
+       "gives": "GOA",
+       "note": "Goa is a state on the west coast of India"
+      },
+      {
+       "words": "waterway",
+       "at": 13,
+       "gives": "RILL",
+       "note": "a rill is a small stream"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller asks where an ape found in an Indian state's river came from.",
+     "definitionFit": "The largest ape is a primate, the order that includes monkeys and humans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +125,52 @@
     "text": "… and another from Algerian port terribly gaunt",
     "enumeration": "9"
    },
-   "solution": "ORANGUTAN"
+   "solution": "ORANGUTAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another",
+      "at": 6
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Algerian port",
+       "at": 19,
+       "gives": "ORAN",
+       "note": "Oran is a port city in north-west Algeria"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 33,
+         "note": "the word gaunt is treated terribly, its letters jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gaunt",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue, a second ape arrives from a North African port looking dreadfully thin.",
+     "walkthrough": "The ellipsis links back to 1 Down, so 'another' means another primate. 'terribly' rearranges GAUNT into GUTAN.",
+     "definitionFit": "Read with the previous clue, another means a second primate, here the red ape of Borneo and Sumatra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +184,94 @@
     "text": "Make easy money in slip up? Risky after fine is extracted",
     "enumeration": "8"
    },
-   "solution": "SIMPLIFY"
+   "solution": "SIMPLIFY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make easy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 34,
+       "note": "the risky part comes after the money-in-slip part"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the money is put into the slip, one piece going inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 24,
+           "note": "up means the letters of slip are in disorder"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slip",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "money",
+         "at": 10,
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "is extracted",
+         "at": 45,
+         "note": "the fine is taken out of the word for risky"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Risky",
+         "at": 28,
+         "gives": "IFFY",
+         "note": "iffy means doubtful or risky"
+        },
+        {
+         "words": "fine",
+         "at": 40,
+         "gives": "F",
+         "note": "F is the pencil-grading abbreviation for fine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on easy money in a betting slip, with the warning that it is risky once a fine is deducted.",
+     "walkthrough": "'slip up' looks like a blunder, but 'up' here means jumbled, and 'is extracted' takes the fine out. The money goes in after the jumble, giving SIMPL.",
+     "definitionFit": "To simplify something is to make it less complicated, which is the same as making it easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +285,45 @@
     "text": "Gathered condiment, gathered together",
     "enumeration": "8"
    },
-   "solution": "MUSTERED"
+   "solution": "MUSTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gathered together",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MUSTERED",
+     "indicators": [
+      {
+       "text": "Gathered",
+       "at": 0,
+       "note": "gathered, as in 'I gather', means learned by hearing, so the condiment word is heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "condiment",
+       "at": 9,
+       "gives": "MUSTARD",
+       "note": "mustard is a hot yellow condiment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook collects the mustard and gathers everything up in one place.",
+     "walkthrough": "The first 'Gathered' is not a definition: it means 'heard', so the word for the condiment is said out loud.",
+     "definitionFit": "To muster troops or supporters is to assemble them, so the past tense means assembled in one place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gathered"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +337,41 @@
     "text": "Release gun dog out of its confines",
     "enumeration": "4"
    },
-   "solution": "UNDO"
+   "solution": "UNDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Release",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "out of its confines",
+       "at": 16,
+       "note": "the phrase gun dog loses its boundaries, the very first and very last letters, leaving what is held inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gun dog",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to let a hunting dog out of its kennel.",
+     "walkthrough": "'out of its confines' strips the outer letters G and G from GUNDOG.",
+     "definitionFit": "To undo a knot or fastening is to loosen it and set it free, a synonym of release."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Release"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +385,59 @@
     "text": "These are ferocious rows over a piece of gossip",
     "enumeration": "6"
    },
-   "solution": "TIGERS"
+   "solution": "TIGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "These are ferocious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 25,
+       "note": "the rows lie over and around the piece of gossip, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rows",
+       "at": 20,
+       "gives": "TIERS",
+       "note": "tiers are rows of seats one above another"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a piece of",
+         "at": 30,
+         "note": "only a piece of the word gossip is used, its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gossip",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fierce quarrels break out over a scrap of gossip.",
+     "walkthrough": "'rows' suggests arguments, but here it means tiers of seating.",
+     "definitionFit": "Big striped cats are famously fierce beasts, so they fit a description of things that are ferocious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rows"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +451,40 @@
     "text": "Study year needing cash",
     "enumeration": "5"
    },
-   "solution": "READY"
+   "solution": "READY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cash",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "READ",
+       "note": "to read a subject at university is to study it"
+      },
+      {
+       "words": "year",
+       "at": 6,
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student taking a year of study finds they are short of money.",
+     "definitionFit": "The ready, or readies, is British slang for cash in hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +498,50 @@
     "text": "Camping equipment thrown in river when relations become warmer",
     "enumeration": "7"
    },
-   "solution": "DETENTE"
+   "solution": "DETENTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "when relations become warmer",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "thrown in",
+       "at": 18,
+       "note": "the camping gear is thrown into the river, so one goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 28,
+       "gives": "DEE",
+       "note": "the Dee is a river in Wales, England and Scotland"
+      },
+      {
+       "words": "Camping equipment",
+       "at": 0,
+       "gives": "TENT",
+       "note": "a tent is the shelter campers sleep in"
+      }
+     ]
+    },
+    "spelling": "DÉTENTE",
+    "explanation": {
+     "surface": "Campers' gear gets chucked in a river just as the weather warms up.",
+     "walkthrough": "'relations become warmer' reads as weather or family, but it means relations between nations.",
+     "definitionFit": "A diplomatic thaw, when hostile states ease tension, is the state of affairs the clue describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "warmer"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +565,73 @@
      }
     ]
    },
-   "solution": "TICTACTOE"
+   "solution": "TICTACTOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Childish game from US",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 32,
+         "note": "short means the word for approval is cut by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "approval",
+         "at": 23,
+         "gives": "TICK",
+         "note": "a tick marks something as approved"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "diplomacy",
+       "at": 39,
+       "gives": "TACT",
+       "note": "tact is diplomatic sensitivity"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 62,
+         "note": "heartless means the word out-of-date keeps only its ends, all the inside gone"
+        }
+       ],
+       "parts": [
+        {
+         "words": "out-of-date",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American children's game is mocked as outdated diplomacy with no heart.",
+     "walkthrough": "'short' cuts TICK to TIC; 'heartless' leaves just O and E of OUT-OF-DATE.",
+     "definitionFit": "Tic-tac-toe is the American name for noughts and crosses, a simple game for children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diplomacy"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +645,48 @@
     "text": "Lecturer's absorbed by a lot of papers in field of study",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "field of study",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbed by",
+       "at": 11,
+       "note": "the lecturer is taken in by the papers, so it goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a lot of papers",
+       "at": 23,
+       "gives": "REAM",
+       "note": "a ream is a large quantity of paper, 500 sheets"
+      },
+      {
+       "words": "Lecturer's",
+       "at": 0,
+       "gives": "L",
+       "note": "L stands for lecturer; the 's is 'is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An academic disappears under a mountain of paperwork in their subject.",
+     "definitionFit": "A realm is a domain or sphere, and a sphere of knowledge is a field of study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absorbed"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +700,62 @@
     "text": "Dining out, magnate's regularly ignored and understandably cross",
     "enumeration": "9"
    },
-   "solution": "INDIGNANT"
+   "solution": "INDIGNANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 7,
+         "note": "out means the letters of dining are put out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dining",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly ignored",
+         "at": 22,
+         "note": "every other letter of the word is passed over, leaving the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "magnate's",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tycoon snubbed again and again while eating out is, naturally, annoyed.",
+     "walkthrough": "'out' rearranges DINING to INDIGN. 'regularly ignored' drops alternate letters of MAGNATE, keeping A, N, T; the 's means 'is'.",
+     "definitionFit": "Indignant means angry at unfair treatment, which is one sense of cross as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dining"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +769,65 @@
     "text": "A member landed on top of you? That's a solicitor's area",
     "enumeration": "8"
    },
-   "solution": "LEGALITY"
+   "solution": "LEGALITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a solicitor's area",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 16,
+       "note": "on puts the landing part on top of what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A member",
+       "at": 0,
+       "gives": "LEG",
+       "note": "a leg is a limb, a member of the body"
+      },
+      {
+       "words": "landed",
+       "at": 9,
+       "gives": "ALIT",
+       "note": "alit is a past tense of alight, to land"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 19,
+         "note": "the top of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slapstick scene: a limb lands on someone, and a lawyer is called in.",
+     "definitionFit": "Lawfulness is the subject a solicitor deals with, so it is that lawyer's domain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +841,43 @@
     "text": "Cold 15 fabric in drawer for 20",
     "enumeration": "6"
    },
-   "solution": "CRAYON"
+   "solution": "CRAYON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drawer for 20",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the tap abbreviation for cold"
+      },
+      {
+       "words": "15 fabric",
+       "at": 5,
+       "gives": "RAYON",
+       "note": "15 is ARTIFICIAL; rayon is a man-made silk-like fabric"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly synthetic cloth is found in a drawer meant for colours.",
+     "walkthrough": "'drawer' suggests furniture, but here it means something that draws, made for the colourings of 20.",
+     "definitionFit": "A wax stick for colouring is a tool that draws, the drawer that applies colourings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawer"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +891,53 @@
     "text": "Legal profession's awfully remote — it responds to pressure",
     "enumeration": "9"
    },
-   "solution": "BAROMETER"
+   "solution": "BAROMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it responds to pressure",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Legal profession",
+       "at": 0,
+       "gives": "BAR",
+       "note": "the Bar is the profession of barristers"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 19,
+         "note": "awfully means the letters of remote are mangled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remote",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lawyers are terribly aloof, yet they bow to pressure.",
+     "walkthrough": "'awfully' rearranges REMOTE to OMETER.",
+     "definitionFit": "This weather instrument measures the air's weight, its needle moving as atmospheric pressure changes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +961,65 @@
    "group": [
     "15-across",
     "20-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food dyes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dressing",
+       "at": 13,
+       "note": "the two letters of as dress the rest, wrapped around the outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as",
+       "at": 10
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 50,
+         "note": "out means the letters of occurring, aioli and lift are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "occurring",
+         "at": 22
+        },
+        {
+         "words": "aioli",
+         "at": 37
+        },
+        {
+         "words": "lift",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook warns that the garlic mayonnaise has colouring in it and wants it taken away.",
+     "walkthrough": "'lift out!' reads like an order to remove the dressing, but 'out' signals the jumble and 'dressing' means the two-letter word wraps around it.",
+     "definitionFit": "Synthetic colouring agents are what food manufacturers add to make products look brighter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1033,70 @@
     "text": "Stunted moose! — turn around and look!",
     "enumeration": "4"
    },
-   "solution": "OGLE"
+   "solution": "OGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "look",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 22,
+       "note": "around means the combined letters are turned to run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Stunted",
+           "at": 0,
+           "note": "a stunted animal is cut short, so the word loses its tail letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "moose",
+           "at": 8,
+           "gives": "ELK",
+           "note": "the elk is the European name for the moose"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        },
+        {
+         "words": "turn",
+         "at": 17,
+         "gives": "GO",
+         "note": "a go is a turn in a game"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A startled cry about a small moose, urging someone to turn round and take a look.",
+     "walkthrough": "The elk is the Old World name for the moose. 'Stunted' docks it to EL, and 'around' turns the whole of ELGO back.",
+     "definitionFit": "To ogle is to look at someone with obvious desire, a lingering kind of look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1110,60 @@
     "text": "Posse let out with no time to be mortified",
     "enumeration": "9"
    },
-   "solution": "GANGRENED"
+   "solution": "GANGRENED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mortified",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Posse",
+       "at": 0,
+       "gives": "GANG",
+       "note": "a posse is a gang"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 14,
+         "note": "with no means the time letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let out",
+         "at": 6,
+         "gives": "RENTED",
+         "note": "a property let out is rented"
+        },
+        {
+         "words": "time",
+         "at": 22,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang is released with no time served and feels humiliated.",
+     "walkthrough": "'mortified' suggests embarrassment, but its literal sense is dead flesh.",
+     "definitionFit": "Mortified in its old medical sense means affected by tissue death, which is what gangrene is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mortified"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1177,42 @@
     "text": "Britain relatively wet becoming brighter",
     "enumeration": "8"
    },
-   "solution": "BRAINIER"
+   "solution": "BRAINIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "brighter",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Britain",
+       "at": 0,
+       "gives": "B",
+       "note": "B is an abbreviation for British or Britain"
+      },
+      {
+       "words": "relatively wet",
+       "at": 8,
+       "gives": "RAINIER",
+       "note": "rainier is the comparative of rainy, wet to a greater degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britain growing wetter, oddly said to be getting brighter.",
+     "definitionFit": "Brighter in the sense of cleverer, a person with more brains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brighter"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1226,41 @@
     "text": "'Tabloid Kelvin' is done for",
     "enumeration": "4"
    },
-   "solution": "SUNK"
+   "solution": "SUNK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "done for",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tabloid",
+       "at": 1,
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "words": "Kelvin",
+       "at": 9,
+       "gives": "K",
+       "note": "K is the symbol for kelvin, the unit of temperature"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper nickname for someone named Kelvin, who is finished.",
+     "definitionFit": "Sunk means ruined beyond rescue, the same idiom as being finished or done for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kelvin"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1274,43 @@
     "text": "Silicon and flashy accessories in Big Brother say",
     "enumeration": "7"
    },
-   "solution": "SIBLING"
+   "solution": "SIBLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Big Brother say",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Silicon",
+       "at": 0,
+       "gives": "SI",
+       "note": "Si is the chemical symbol for silicon"
+      },
+      {
+       "words": "flashy accessories",
+       "at": 12,
+       "gives": "BLING",
+       "note": "bling is showy jewellery"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Implants and gaudy jewellery on a reality TV show.",
+     "walkthrough": "'Big Brother' suggests the reality TV show, but it is an older brother.",
+     "definitionFit": "An older brother is one example of a brother or sister, hence 'say'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Big"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1337,70 @@
     "text": "Artist initially drops in the identical colour dragged across canvas?",
     "enumeration": "7"
    },
-   "solution": "SMEARED"
+   "solution": "SMEARED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dragged across canvas?",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "drops in",
+         "at": 17,
+         "note": "in a down clue the letter falls lower down the word it is in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the identical",
+         "at": 26,
+         "gives": "SAME",
+         "note": "the same means identical"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 7,
+           "note": "initially means the first letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Artist",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "colour",
+       "at": 40,
+       "gives": "RED",
+       "note": "red is a colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter drops into the same colour that has been dragged across the canvas.",
+     "walkthrough": "In a down clue a letter that 'drops' moves lower: 'drops in' shifts the artist's initial further into the word for identical, making SMEA.",
+     "definitionFit": "Paint smeared on canvas has been dragged or smudged across the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1414,30 @@
     "text": "Flowers from Leopold for Joyce",
     "enumeration": "6"
    },
-   "solution": "BLOOMS"
+   "solution": "BLOOMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flowers",
+      "at": 0,
+      "meaning": "flowers as a noun, the blossoms on plants"
+     },
+     {
+      "text": "from Leopold for Joyce",
+      "at": 8,
+      "meaning": "belonging to Leopold Bloom, hero of James Joyce's Ulysses: his, possessive"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Blossoms on plants, and also the possessive of the surname of Joyce's Leopold in Ulysses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joyce"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1451,40 @@
     "text": "Suburb leases housing — an incoherent speech",
     "enumeration": "6"
    },
-   "solution": "BURBLE"
+   "solution": "BURBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an incoherent speech",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 14,
+       "note": "the words suburb leases house the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Suburb leases",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Property leases in the suburbs come with unintelligible talk.",
+     "definitionFit": "A burble is a stream of rambling, confused talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1498,48 @@
     "text": "A bird if fearful's not caught",
     "enumeration": "5"
    },
-   "solution": "RAVEN"
+   "solution": "RAVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 20,
+       "note": "not caught means the caught letter is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fearful's",
+       "at": 10,
+       "gives": "CRAVEN",
+       "note": "craven means cowardly, fearful; the 's is 'is'"
+      },
+      {
+       "words": "caught",
+       "at": 24,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird which, if timid, will not be captured.",
+     "definitionFit": "The large black crow is a familiar bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1553,52 @@
     "text": "I go deeper leaving nothing out in family tree",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "family tree",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 12,
+       "note": "the nothing letter is left behind, taken away"
+      },
+      {
+       "text": "out",
+       "at": 28,
+       "note": "out means the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I go deeper",
+       "at": 0
+      },
+      {
+       "words": "nothing",
+       "at": 20,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genealogist promises to dig deeper into the family tree, omitting nothing.",
+     "walkthrough": "'leaving' removes O from IGODEEPER and 'out' rearranges the rest.",
+     "definitionFit": "A pedigree is a recorded line of ancestry, the same as a family tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1612,42 @@
     "text": "Maybe water that comes with hail?",
     "enumeration": "4"
    },
-   "solution": "WAVE"
+   "solution": "WAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "at": 23,
+       "gives": "W"
+      },
+      {
+       "words": "hail",
+       "at": 28,
+       "gives": "AVE",
+       "note": "ave is Latin for hail, as in 'Ave Caesar'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about what water might do when a hailstorm arrives.",
+     "walkthrough": "'hail' suggests the weather, but here it is the Latin greeting.",
+     "definitionFit": "A breaker on the sea is one example of moving water, hence 'Maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hail"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1661,70 @@
     "text": "One stringed instrument in ten possibly undamaged",
     "enumeration": "9"
    },
-   "solution": "INVIOLATE"
+   "solution": "INVIOLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "undamaged",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "the instrument is placed inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "possibly",
+           "at": 31,
+           "note": "possibly means the letters of ten are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ten",
+           "at": 27
+          }
+         ]
+        },
+        {
+         "words": "stringed instrument",
+         "at": 4,
+         "gives": "VIOLA",
+         "note": "a viola is a stringed instrument"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One string instrument in ten might survive undamaged.",
+     "walkthrough": "'possibly' makes NTE from the number, and 'in' puts the instrument after its first letter.",
+     "definitionFit": "Inviolate means unharmed or kept intact, a synonym of undamaged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1738,49 @@
     "text": "Victor taking whiskey in secret",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 7,
+       "note": "taking means taking away the whiskey letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Victor",
+       "at": 0,
+       "gives": "WINNER",
+       "note": "a victor is a winner"
+      },
+      {
+       "words": "whiskey",
+       "at": 14,
+       "gives": "W",
+       "note": "Whiskey is W in the NATO alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A victor drinks whiskey in private.",
+     "walkthrough": "Victor and whiskey are both NATO alphabet words, but only whiskey is used that way.",
+     "definitionFit": "Inner thoughts are private ones, kept hidden or secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1794,47 @@
     "text": "Anxiety in Germany produces violent criminal",
     "enumeration": "8"
    },
-   "solution": "GANGSTER"
+   "solution": "GANGSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "violent criminal",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the anxiety is placed in Germany, one inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Germany",
+       "at": 11,
+       "gives": "GER"
+      },
+      {
+       "words": "Anxiety",
+       "at": 0,
+       "gives": "ANGST",
+       "note": "angst is anxiety or dread"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiety in Germany produces a violent criminal.",
+     "definitionFit": "A gangster is a violent member of an organised crime gang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "produces"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +1848,40 @@
     "text": "Garlands end regularly abandoned in different stations",
     "enumeration": "6"
    },
-   "solution": "GRADED"
+   "solution": "GRADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in different stations",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly abandoned",
+       "at": 13,
+       "note": "every other letter is abandoned, leaving the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Garlands end",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Garlands left behind at stations.",
+     "definitionFit": "Graded means sorted into different ranks or classes, a station being a place in a hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stations"
+    }
+   }
   }
  ]
 }
