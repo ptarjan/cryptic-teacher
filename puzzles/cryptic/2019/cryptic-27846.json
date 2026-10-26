@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Mall forerunner's become tiresome",
     "enumeration": "4"
    },
-   "solution": "PALL"
+   "solution": "PALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mall forerunner",
+      "at": 0,
+      "meaning": "in the name of the London street ... Mall, this word comes just before Mall"
+     },
+     {
+      "text": "become tiresome",
+      "at": 18,
+      "meaning": "to lose interest or appeal through sameness, as a routine does"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that came before the shopping mall has started to bore people.",
+     "definitionFit": "Pall Mall is a famous London street, and a thing that palls grows dull or wearisome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mall"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,29 @@
     "text": "It follows it might have to be taken out",
     "enumeration": "8"
    },
-   "solution": "APPENDIX"
+   "solution": "APPENDIX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It follows",
+      "at": 0,
+      "meaning": "the supplementary section that comes after the main text of a book"
+     },
+     {
+      "text": "it might have to be taken out",
+      "at": 11,
+      "meaning": "the small organ off the gut that a surgeon removes when it is inflamed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: the back-matter section of a book follows the text, and the body's vestigial organ is often surgically removed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +107,67 @@
     "text": "Dodgy sun-baked starter removed from eatery",
     "enumeration": "6"
    },
-   "solution": "UNSAFE"
+   "solution": "UNSAFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dodgy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "baked",
+         "at": 10,
+         "note": "baked suggests the letters have been cooked into a new form, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sun",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "starter removed from",
+         "at": 16,
+         "note": "the opening letter is taken off the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eatery",
+         "at": 37,
+         "gives": "CAFE",
+         "note": "a cafe is a small eatery"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that sunburnt food from a restaurant missing its first course could be risky.",
+     "walkthrough": "'baked' rearranges SUN to UNS; 'starter removed from' takes the C off CAFE to leave AFE.",
+     "definitionFit": "Synonyms: something dodgy is risky or dangerous, not secure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "baked"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +181,49 @@
     "text": "Bond's suspicious about Bellow",
     "enumeration": "8"
    },
-   "solution": "WARRANTY"
+   "solution": "WARRANTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about means going around, so one word wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "suspicious",
+       "at": 7,
+       "gives": "WARY",
+       "note": "wary means cautious or suspicious"
+      },
+      {
+       "words": "Bellow",
+       "at": 24,
+       "gives": "RANT",
+       "note": "to rant is to shout loudly, to bellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond is wary of the novelist Saul Bellow, or so it seems.",
+     "walkthrough": "'Bond' and 'Bellow' look like names (the spy and the novelist) but are the definition and a verb.",
+     "definitionFit": "A guarantee or pledge: a bond is a binding promise, as a warranty is a written assurance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +237,60 @@
     "text": "States true version up front: 'It was one's first abode'",
     "enumeration": "6"
    },
-   "solution": "UTERUS"
+   "solution": "UTERUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It was one's first abode",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "up front",
+       "at": 20,
+       "note": "the rearranged piece is placed in front of the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "version",
+         "at": 12,
+         "note": "a version is a different rendering, so the letters are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "true",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "States",
+       "at": 0,
+       "gives": "US",
+       "note": "US is the United States"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American political slogan placed at the top of a sign.",
+     "walkthrough": "'States' looks like a verb but is the country; the definition is a riddle about where everyone lived before birth.",
+     "definitionFit": "Everyone lived in the womb before birth, making it each person's first home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "States"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +304,48 @@
     "text": "Gets more friendly with expelled members",
     "enumeration": "4"
    },
-   "solution": "ARMS"
+   "solution": "ARMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "members",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "expelled",
+       "at": 24,
+       "note": "expelled means thrown out, so a letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gets more friendly",
+       "at": 0,
+       "gives": "WARMS",
+       "note": "someone who warms to you becomes friendlier"
+      },
+      {
+       "words": "with",
+       "at": 19,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grows friendlier towards members who have been thrown out of the club.",
+     "walkthrough": "'expelled' removes W (with) from WARMS.",
+     "definitionFit": "The limbs are members of the body, an old sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +359,58 @@
     "text": "Drive home with knickers virtually unrestrained",
     "enumeration": "7"
    },
-   "solution": "RAMPANT"
+   "solution": "RAMPANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unrestrained",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drive home",
+       "at": 0,
+       "gives": "RAM",
+       "note": "to ram a point is to drive it home forcefully"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "virtually",
+         "at": 25,
+         "note": "virtually means almost, so the word is not quite complete and loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knickers",
+         "at": 16,
+         "gives": "PANTS",
+         "note": "pants is the British word for knickers, underwear"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drives home wearing so little underwear they are almost uninhibited.",
+     "walkthrough": "'virtually' drops the last letter of PANTS. In Britain pants are underwear, not trousers.",
+     "definitionFit": "Synonyms: something rampant spreads wildly, without check or control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "knickers"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +424,42 @@
     "text": "Rating indignation as a symbolic thing?",
     "enumeration": "7"
    },
-   "solution": "SALTIRE"
+   "solution": "SALTIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "symbolic thing",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rating",
+       "at": 0,
+       "gives": "SALT",
+       "note": "a rating is an ordinary sailor, and an old salt is a seasoned sailor"
+      },
+      {
+       "words": "indignation",
+       "at": 7,
+       "gives": "IRE",
+       "note": "ire is anger or indignation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether giving something a score of outrage makes it symbolic.",
+     "walkthrough": "A rating here is a naval seaman, not a score.",
+     "definitionFit": "The diagonal cross of St Andrew on the Scottish flag is an emblem, a symbol of Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rating"
+    }
+   }
   },
   {
    "number": 9,
@@ -153,7 +483,59 @@
    "group": [
     "9-across",
     "22-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Element of organ",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "infection",
+       "at": 17,
+       "gives": "FLU",
+       "note": "flu is a viral infection"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 31,
+         "note": "reduced means cut down, here to just its first letter, the usual short form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "energy",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "words": "smoker",
+       "at": 62,
+       "gives": "PIPE",
+       "note": "a pipe is something smoked"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note: a heavy smoker with a chest infection has little energy.",
+     "walkthrough": "'organ' suggests the body, but the instrument is meant; 'smoker' is a pipe, not a person.",
+     "definitionFit": "A kind of organ pipe that sounds like a whistle or recorder, one component of a church organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 10,
@@ -167,7 +549,60 @@
     "text": "Author includes 'Mountain King' as a perfume ingredient",
     "enumeration": "9"
    },
-   "solution": "AMBERGRIS"
+   "solution": "AMBERGRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "perfume ingredient",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 7,
+       "note": "includes means the outer word holds the others inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Author",
+       "at": 0,
+       "gives": "AMIS",
+       "note": "Kingsley or Martin Amis, English novelists"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mountain",
+         "at": 17,
+         "gives": "BERG",
+         "note": "berg is a mountain, as in iceberg or the Afrikaans word"
+        },
+        {
+         "words": "King",
+         "at": 26,
+         "gives": "R",
+         "note": "R is the abbreviation for king, from Latin rex"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist's book features 'In the Hall of the Mountain King', apparently as a scent.",
+     "walkthrough": "The quoted 'Mountain King' recalls Grieg's piece but splits into two pieces.",
+     "definitionFit": "A waxy substance from sperm whales long used as a fixative in fine perfumes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mountain"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +616,46 @@
     "text": "Turn on US president (wife getting chop)",
     "enumeration": "9"
    },
-   "solution": "BUSHWHACK"
+   "solution": "BUSHWHACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turn on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US president",
+       "at": 8,
+       "gives": "BUSH",
+       "note": "George Bush, either of the two presidents"
+      },
+      {
+       "words": "wife",
+       "at": 22,
+       "gives": "W"
+      },
+      {
+       "words": "chop",
+       "at": 35,
+       "gives": "HACK",
+       "note": "to hack is to chop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to attack an American president while his wife is being axed.",
+     "definitionFit": "To ambush or suddenly attack, which is to turn on someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 12,
@@ -195,7 +669,59 @@
     "text": "Mark ordered to secure grand opening",
     "enumeration": "5"
    },
-   "solution": "BADGE"
+   "solution": "BADGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to secure",
+       "at": 13,
+       "note": "to secure is to hold fast, so one word encloses the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ordered",
+       "at": 5,
+       "gives": "BADE",
+       "note": "bade is the past tense of bid, meaning ordered"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 29,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grand",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Mark was told to arrange a grand launch.",
+     "walkthrough": "'grand opening' gives just G.",
+     "definitionFit": "A badge is an emblem or mark showing rank or membership."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +735,48 @@
     "text": "Health food to eat with bulk",
     "enumeration": "5"
    },
-   "solution": "BRAWN"
+   "solution": "BRAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bulk",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to eat",
+       "at": 12,
+       "note": "eating takes something inside, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Health food",
+       "at": 0,
+       "gives": "BRAN",
+       "note": "bran is the husk of grain, eaten as a fibre-rich health food"
+      },
+      {
+       "words": "with",
+       "at": 19,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on a nutritious diet for building up muscle.",
+     "walkthrough": "'to eat' puts W (with) inside BRAN.",
+     "definitionFit": "Muscular strength or sheer physical size; brawn is bulk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bulk"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +790,62 @@
     "text": "Shady stationer nursing bad back",
     "enumeration": "8"
    },
-   "solution": "SINISTER"
+   "solution": "SINISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shady",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 16,
+       "note": "nursing means holding close, so one word cradles the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stationer",
+       "at": 6,
+       "gives": "SITER",
+       "note": "read literally, one who stations or sites things: a siter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 28,
+         "note": "back means the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bad",
+         "at": 24,
+         "gives": "SIN",
+         "note": "something bad is a sin, a wrong"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy shopkeeper selling paper is caring for someone with a bad back.",
+     "walkthrough": "'stationer' is not the shopkeeper but one who stations, a SITER; 'back' turns SIN to NIS.",
+     "definitionFit": "Synonyms: something sinister is threatening or suspect, shady."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stationer"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +859,48 @@
     "text": "Bird book released by bailiff",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "released by",
+       "at": 10,
+       "note": "released by means let go, so a letter departs from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bailiff",
+       "at": 22,
+       "gives": "BEAGLE",
+       "note": "beagle is an old word for a sheriff's officer or bailiff"
+      },
+      {
+       "words": "book",
+       "at": 5,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird kept as evidence is freed by the court official.",
+     "walkthrough": "'bailiff' uses the old slang sense of beagle, a court officer; 'released by' drops the B.",
+     "definitionFit": "A large bird of prey; an example of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bailiff"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +914,44 @@
     "text": "Enemy broadcast 'fake'!",
     "enumeration": "4"
    },
-   "solution": "FAUX"
+   "solution": "FAUX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fake",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FAUX",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 6,
+       "note": "broadcast means spoken on air, so the word is heard aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Enemy",
+       "at": 0,
+       "gives": "FOES",
+       "note": "the enemy as a body means foes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouts that an opponent's broadcast is fake news.",
+     "walkthrough": "French faux sounds like foes.",
+     "definitionFit": "Faux, borrowed from French for false, means imitation or sham."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +965,59 @@
     "text": "Port Washington's outskirts flooded by river",
     "enumeration": "5"
    },
-   "solution": "TAWNY"
+   "solution": "TAWNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "flooded by",
+       "at": 28,
+       "note": "flooded by means engulfed, so the river surrounds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 39,
+       "gives": "TAY",
+       "note": "the Tay is a Scottish river"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts",
+         "at": 18,
+         "note": "the outskirts are the edges, so the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Washington",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The edges of a port in Washington State are flooded by a river.",
+     "walkthrough": "Tawny is a kind of port wine, not a harbour.",
+     "definitionFit": "Tawny port is a wood-aged style of fortified wine; tawny names that wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1031,52 @@
     "text": "Metal cruet cast a slight shade",
     "enumeration": "8"
    },
-   "solution": "TINCTURE"
+   "solution": "TINCTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slight shade",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Metal",
+       "at": 0,
+       "gives": "TIN",
+       "note": "tin is a metal"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cast",
+         "at": 12,
+         "note": "cast as in throwing or moulding anew, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cruet",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A metal condiment holder throws a faint shadow.",
+     "walkthrough": "'cast' rearranges CRUET to CTURE.",
+     "definitionFit": "A tincture is a trace or tinge, a faint hint of colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1090,29 @@
     "text": "Many lands",
     "enumeration": "4"
    },
-   "solution": "BAGS"
+   "solution": "BAGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0,
+      "meaning": "plenty, as in having lots of something"
+     },
+     {
+      "text": "lands",
+      "at": 5,
+      "meaning": "secures or claims, as when you land a good seat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: 'bags of' means lots, and to bag something is to land or secure it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lands"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1126,43 @@
     "text": "Live! Hit performer's jazz instrumentalist",
     "enumeration": "8"
    },
-   "solution": "BEBOPPER"
+   "solution": "BEBOPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jazz instrumentalist",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Live",
+       "at": 0,
+       "gives": "BE",
+       "note": "to be is to exist or live"
+      },
+      {
+       "words": "Hit performer",
+       "at": 6,
+       "gives": "BOPPER",
+       "note": "one who bops, that is who hits, is a bopper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A live gig by a star with a chart hit who plays jazz.",
+     "walkthrough": "'Hit performer' suggests a pop star but is one who performs a hit, a bopper.",
+     "definitionFit": "Bebop is a fast, complex style of jazz, and a musician playing it is a bebopper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1176,62 @@
     "text": "Indications of office sin: gin-swilling one on one",
     "enumeration": "8"
    },
-   "solution": "INSIGNIA"
+   "solution": "INSIGNIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indications of office",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swilling",
+         "at": 31,
+         "note": "swilling means sloshing about, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sin",
+         "at": 22
+        },
+        {
+         "words": "gin",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 40,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "one",
+       "at": 47,
+       "gives": "A",
+       "note": "A means one, as in a single thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official's misdeed: drinking gin while working one-to-one.",
+     "walkthrough": "'swilling' rearranges SIN GIN to INSIGN; then I and A, both meaning one.",
+     "definitionFit": "Badges or emblems marking rank or official position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swilling"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1245,52 @@
     "text": "Corrupt data etc repaired",
     "enumeration": "6"
    },
-   "solution": "INFECT"
+   "solution": "INFECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corrupt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "data",
+       "at": 8,
+       "gives": "INF",
+       "note": "INF is short for information, data, as in the .inf file extension"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "repaired",
+         "at": 17,
+         "note": "repaired means fixed by rearranging"
+        }
+       ],
+       "parts": [
+        {
+         "words": "etc",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Damaged computer data and the like have been fixed.",
+     "walkthrough": "'repaired' rearranges ETC to ECT.",
+     "definitionFit": "To corrupt files or a system is to contaminate them, as a virus does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1304,46 @@
     "text": "Shows competence when dropping first black",
     "enumeration": "5"
    },
-   "solution": "SABLE"
+   "solution": "SABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "black",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping first",
+       "at": 22,
+       "note": "dropping first means losing the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shows competence",
+       "at": 0,
+       "gives": "ISABLE",
+       "note": "someone who is able shows competence, so 'is able'"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proves capable once they stop coming last, or first.",
+     "walkthrough": "'dropping first' removes the I from IS ABLE.",
+     "definitionFit": "Sable is the heraldic term for the colour black."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1357,29 @@
     "text": "Record run",
     "enumeration": "6"
    },
-   "solution": "SINGLE"
+   "solution": "SINGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0,
+      "meaning": "a disc carrying one track, released on its own"
+     },
+     {
+      "text": "run",
+      "at": 7,
+      "meaning": "in cricket, a hit scoring one run"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: a song released alone is a single, and in cricket a single is one run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1399,40 @@
      }
     ]
    },
-   "solution": "GIFTTOKEN"
+   "solution": "GIFTTOKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cash substitute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "hit",
+       "at": 29,
+       "note": "hit means battered, so the letters are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if Kent got",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A voucher instead of money, offered if a man named Kent got assaulted.",
+     "definitionFit": "A voucher given as a present that can be exchanged for goods instead of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1446,49 @@
     "text": "Working to get rid of one part of the percussion section?",
     "enumeration": "4"
    },
-   "solution": "GONG"
+   "solution": "GONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of the percussion section",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to get rid of",
+       "at": 8,
+       "note": "getting rid of means discarding, so a letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Working",
+       "at": 0,
+       "gives": "GOING",
+       "note": "a going concern is a working one"
+      },
+      {
+       "words": "one",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician tries to sack one drummer from the orchestra.",
+     "walkthrough": "'to get rid of' drops I from GOING.",
+     "definitionFit": "A tuned metal disc that is struck, an example of an orchestral percussion instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Working"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1515,28 @@
     "text": "A lot of money that's forced into the ground",
     "enumeration": "4"
    },
-   "solution": "PILE"
+   "solution": "PILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot of money",
+      "at": 0,
+      "meaning": "a fortune, as in making a heap of cash"
+     },
+     {
+      "text": "that's forced into the ground",
+      "at": 15,
+      "meaning": "a heavy post driven into soil to support a building"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Double definition: making a pile is getting rich, and a pile is a driven foundation post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1550,43 @@
     "text": "It's fabulous producing old-hat student humour?",
     "enumeration": "7"
    },
-   "solution": "UNICORN"
+   "solution": "UNICORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's fabulous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "student",
+       "at": 32,
+       "gives": "UNI",
+       "note": "uni, short for university, is where a student goes"
+      },
+      {
+       "words": "humour",
+       "at": 40,
+       "gives": "CORN",
+       "note": "corn is banal, trite humour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tired campus jokes are claimed to be wonderful.",
+     "walkthrough": "'old-hat' qualifies the humour: corn is stale humour. 'fabulous' means from fable, not marvellous.",
+     "definitionFit": "A mythical horned horse, a creature of fable and legend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fabulous"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1600,59 @@
     "text": "Old Red Belly performing without bass",
     "enumeration": "7"
    },
-   "solution": "ELDERLY"
+   "solution": "ELDERLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "performing",
+       "at": 14,
+       "note": "performing suggests the letters put on a show in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 25,
+         "note": "without means lacking, so a letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Red Belly",
+         "at": 4
+        },
+        {
+         "words": "bass",
+         "at": 33,
+         "gives": "B",
+         "note": "B is the abbreviation for bass in music"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged band called Red Belly plays a gig with no bass player.",
+     "walkthrough": "'without' drops B to leave REDELLY, which 'performing' rearranges.",
+     "definitionFit": "Synonyms: an elderly person is aged, old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bass"
+    }
+   }
   }
  ]
 }
