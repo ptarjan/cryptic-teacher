@@ -357,6 +357,11 @@ check("a grid refused for its blocks before MATCHED_LATTICE is evidence too, a l
       (eq.evidence_reason(f.MATCHED_GRID),
        [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=f.MATCHED_GRID)])[1]],
        f.MATCHED_GRID in eq.FIX_LANDED, f.MATCHED_GRID.startswith(eq.LOW_ASK)))
+check("a grid refused just under the blocks bar with half its lights read (NEAR_GRID) is evidence too, a low-ask fix-landed one",
+      (True, [f.NEAR_GRID], True, True),
+      (eq.evidence_reason(f.NEAR_GRID),
+       [u["reason"] for u in eq.only_evidence("times", [], [dict(_refused, reason=f.NEAR_GRID)])[1]],
+       f.NEAR_GRID in eq.FIX_LANDED, f.NEAR_GRID.startswith(eq.LOW_ASK)))
 # ---- The unclassified-held and unenumerated answers-only rereads are planned likewise; plain unclassified is not (10-24)
 _unenum = "answers held back by a clue with no enumeration"
 check("an unclassified grid of a puzzle held short, and a held clue bare of its count, are evidence (low-ask, "
