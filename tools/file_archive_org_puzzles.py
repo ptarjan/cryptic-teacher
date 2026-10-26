@@ -5035,11 +5035,15 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
-    if paper.key not in CELLS_CLASSIFIED:
+    if paper.key not in CELLS_CLASSIFIED and paper.series != SERIES:
         return None
     number, _, why = filed_number(d, found, hit)
     sol = solutions.get(number) if number is not None and not why else None
-    if not sol:
+    # A Times puzzle of another item (TIMES_1930's archive.org pages) whose solution grid a classified
+    # print holds (the Gale Times issue after it) is read so too: the classifier reads that grid as
+    # read_solution does (its own dir's paper). 10-26: times-139, 153, 162, 248 (1930), titles misread,
+    # their Gale headings linked, went to a full read that files the grid's answers unchecked.
+    if not sol or paper.key not in CELLS_CLASSIFIED and paper_of(sol["dir"]).key not in CELLS_CLASSIFIED:
         return None
     old = held_file(paper.series, number)
     es = (old or {}).get("entries") or ()
@@ -7771,6 +7775,33 @@ def inputs_of(files_hash, found, series, reprints=None):
     return edition_commit.inputs(files_hash, reprints, series, numbers)
 
 
+def mended_verdicts(found, row):
+    """Ledger `row`'s verdicts filed off a title of `found` (scan) read as another number (read_as):
+    times-153 of 1930-07-30, its title read "158"."""
+    titles = {p["number"] for p in found["puzzles"]}
+    return [v for v in (row or {}).get("verdicts", ())
+            if v.get("number") is not None and v.get("read_as", v["number"]) != v["number"] and v["read_as"] in titles]
+
+
+def seen_solutions(found, row, solutions, series=None):
+    """An edition's solutionsSeen: its scan `found`'s titles that `solutions` links, then each number its
+    ledger `row` filed off a misread title (mended_verdicts), not a title, linked, and either seen at its
+    last read or (a Times puzzle, `series` SERIES) one a read is predicted to answer off that heading
+    (short_cause "answers linked": filed with every clue, no answers read). A puzzle filed under its
+    mended number is read off that number's heading (answers_only, filed_number), so a heading of it
+    linked since makes the edition due, once. Before 10-26 only the titles counted: 9 Times puzzles
+    unanswered (1930's 139, 153, 162, 248, 253, 264; 2011-13's 24740, 25234, 25383) never came due for
+    it. Not every mended number: 33 FT rows of 1984 and Times rows due a fix of their own (a renumber,
+    an unfiled puzzle) would have come due as the blanket "inputs changed", their answers read already."""
+    nums = [p["number"] for p in found["puzzles"]]
+    seen = sorted(n for n in nums if n in solutions)
+    before = set((row or {}).get("solutionsSeen") or ())
+    return seen + sorted({v["number"] for v in mended_verdicts(found, row)
+                          if v["number"] in solutions and v["number"] not in nums
+                          and (v["number"] in before or series == SERIES
+                               and short_cause(series, row, v, solutions) == LIKELY[0])})
+
+
 def solution_source(sol):
     """Where a linked solution heading `sol` prints: a verdict's solutionFrom."""
     return f"{sol['dir'].name} leaf {sol['leaf']}"
@@ -9800,7 +9831,7 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
         own = tuple(n in answerless_own for n in nums)
         key = (True, fh, tuple(n in answerless for n in nums), own, any(own) and has_host(d))
     else:
-        key = (False, fh, tuple(n in solutions for n in nums), seen_by,
+        key = (False, fh, tuple(n in solutions for n in nums + [v["number"] for v in mended_verdicts(scan, row)]), seen_by,
                tuple(sources.get(v["number"]) for v in row.get("verdicts", ()) if v.get("solutionFrom")))
     hit = st.reasons.get(rel)
     if hit is not None and hit[0] is row and hit[1] == key:
@@ -9815,8 +9846,8 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
                                                          for n in nums) else
                fix_reason(row) or STALE_SCAN[1])
     else:
-        sol_seen = sorted(n for n in nums if n in solutions)
-        ik = (row["filesHash"], tuple(nums))
+        sol_seen = seen_solutions(scan, row, solutions, paper.series)
+        ik =(row["filesHash"], tuple(nums))
         if ik not in st.inputs:
             st.inputs[ik] = inputs_of(row["filesHash"], scan, paper.series)
         why = due_reason(row, st.inputs[ik], sol_seen, seen_by, reread, sources)
@@ -10794,8 +10825,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             continue
         fh = known[rel]["filesHash"]
         h = inputs_of(fh, scans[rel], paper.series)
-        sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        why = due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
+        sol_seen = seen_solutions(scans[rel], known[rel], solutions, paper.series)
+        why =due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         titled = held_titled(known[rel], cache) if why == HELD_TITLE else \
             held_titled(known[rel], cache, REREAD_HELD_STRIPS) if why == HELD_STRIPS else None
         if titled and why == HELD_STRIPS:
@@ -10805,7 +10836,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             # its titles and solutionsSeen stand as read.
             scans[rel] = titled
             h = inputs_of(fh, titled, paper.series)
-            sol_seen = sorted(n for n in (p["number"] for p in titled["puzzles"]) if n in solutions)
+            sol_seen = seen_solutions(titled, known[rel], solutions, paper.series)
         if why or editions and (unit is None or unit.get("force")):
             if keeps_vlm(why, known[rel], unit):
                 keep_vlm.add(d.name)
@@ -10837,7 +10868,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": paper.series,
             "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
             "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(paper_of(d)), "solutionKey": solution_key(),
-            "vlmVersion": vlm.version(),
+            "vlmVersion": vlm.version(), "solOnly": known[rels[d]].get("solOnly"),
             "reprints": read_with}
     fresh, read_now = 0, set()
     for (d, found), (results, vlm_ok, *decided) in scan_queue.parallel(
@@ -10860,7 +10891,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         # mended no longer makes the edition due.
         h = inputs_of(fh, found, paper.series, read_with)
         known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
-                                        solution_key())
+                                        solution_key(), known[rel].get("solOnly"))
         changed.add(rel)
         read_now.add(rel)
         flush()

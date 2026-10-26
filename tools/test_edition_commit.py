@@ -96,6 +96,10 @@ check("the row is the read's, with the VLM it was read with",
        "solutionsSeen": [], "verdicts": [{"number": 18184, "id": "times-18184", "wrote": True}], "vlm": "v1"},
       {k: v for k, v in row.items() if k != "readAt"})
 check("this process's VLM answer goes in the request", True, desk.sent["vlm"])
+only = {"v": 1, "scanKey": "sk", "filesHash": "fh", "scan": {"solutions": [{"number": 25814}]}, "at": "2026-10-26"}
+check("a host's reread keeps its solutions-only read (the headings only it found); a row with none gets none",
+      (only, False), (ec.row("r", "h", found, "fh", "sk", [], [], "v1", "solk", only)["solOnly"],
+                      "solOnly" in ec.row("r", "h", found, "fh", "sk", [], [], "v1", "solk")))
 tools = Path(".").resolve()
 late = sorted(m for m in set(sys.modules) - loaded
               if Path(getattr(sys.modules[m], "__file__", None) or "/").resolve().parent == tools)
