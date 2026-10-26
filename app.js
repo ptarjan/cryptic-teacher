@@ -3290,19 +3290,13 @@
     return (h.group || [entryId(h)]).map((id) => byId[id]).filter(Boolean).every(isEntrySolved);
   }
 
-  // Solving the clue with the building blocks open is the blocks rung having
-  // done its job rather than given the answer away. It hands over the PIECES —
-  // fodder, a container, a hidden word's carrier — and putting them together is
-  // the work it deliberately leaves to the solver; doing that work and arriving
-  // at the answer is not a hint bought, so the rung is WORKED OUT, the same deal
-  // a right answer to a rung's question already gets.
-  //
-  // Before solvedWith is frozen, not after: unlike the pending-guess case below,
-  // this rung is already up and already inside the count being taken.
-  function creditOpenBlocks(e) {
-    if (shownRungs(e).indexOf("blocks") < 0) return;
-    if (earnedRungs(e).indexOf("blocks") < 0) earnedRungs(e).push("blocks");
-  }
+  // Solving the clue with the building blocks open does NOT turn that rung into
+  // a worked-out one. Every free way onto the rung marks it earned when it opens
+  // (a question answered, or a piece whose letters are already in the clue), and
+  // every other way asked for two taps under "costs a hint". A blocks rung that
+  // is shown but not earned was therefore bought, and refunding it at the solve
+  // left the warning a lie: Paul, on 28A THANE, "This said it would cost a clue
+  // but didn't" — the clue kept its star and read "no hints at all".
 
   // viaType marks the one call (typeLetter) that represents an actual solve;
   // revealLetter and fillAnswer call this too, so solvedWith is frozen for them
@@ -3312,7 +3306,6 @@
     let typedOne = false;
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[entryId(e)] === undefined) {
-        creditOpenBlocks(e);
         solvedWith[entryId(e)] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
         // You were being quizzed on a rung of this clue and then you solved it
         // from the grid. Leaving the question up asks you to go on hunting for
