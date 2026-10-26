@@ -992,19 +992,51 @@ def cell_probs(image, grid):
     framing's blocks are sure (blocks_sure: read_framed classifies nothing then) or no lattice
     lies on the image. Outside read_framed (solution_key stays the reader's): the uncrossed
     check of file_archive_org_puzzles asks it only of the lights it would leave out."""
+    got = _crop_framed(image, grid)
+    if got is None:
+        return None
+    g, ys, xs = got
+    return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
+
+
+def _crop_framed(image, grid):
+    """(gray, ys, xs) of the framing sure_framing picks on solution-grid crop `image` for `grid`
+    (cell_probs' and crop_strips'), or None: the image unreadable or framings() raising ValueError, no
+    lattice on it, or no framing's blocks sure. The last CROP_FRAMED_KEPT kept (_CROP_FRAMED) by the
+    crop file's path, size and time and the grid: answers_only's checks and strip cuts
+    (checked_answers, late_strips, candidate_reads each pass, clash_reads) ask it of one crop up to
+    ~6 times a title, and framings() alone is ~3 s of CPU (10-26 live: a title's late_strips ~19 s,
+    its checks 20-30 s, at load 37 on 28 cores). The same image and grid frame alike: no reading
+    changes. Not read_framed's (solution_key stays the reader's)."""
+    try:
+        st = os.stat(image)
+        key = (os.fspath(image), st.st_size, st.st_mtime_ns, tuple("".join(r) for r in grid))
+    except (OSError, TypeError):
+        key = None
+    if key is not None:
+        for k, got in _CROP_FRAMED.get("last", ()):
+            if k == key:
+                return got
     try:
         gray = np.asarray(Image.open(image).convert("L"))
         framed = framings(gray, grid)
     except (OSError, ValueError):
-        return None
-    if not framed:
-        return None
-    fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
-    at = sure_framing(framed, grid, fits)
-    if at is None:
-        return None
-    g, ys, xs = framed[at]
-    return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
+        framed = None
+    got = None
+    if framed:
+        fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
+        at = sure_framing(framed, grid, fits)
+        if at is not None:
+            got = framed[at]
+    if key is not None:
+        # One tuple, swapped whole: a worker thread reads it as one.
+        _CROP_FRAMED["last"] = ((key, got), *_CROP_FRAMED.get("last", ())[:CROP_FRAMED_KEPT - 1])
+    return got
+
+
+#: {"last": ((key, framing or None), ...)}: _crop_framed's last CROP_FRAMED_KEPT crops, newest first.
+_CROP_FRAMED = {}
+CROP_FRAMED_KEPT = 4
 
 
 def crop_strips(image, grid, keys):
@@ -1015,18 +1047,10 @@ def crop_strips(image, grid, keys):
     lies on the image. Outside read_framed (solution_key stays the reader's): answers_only asks it
     of the last lights its held file and reading leave blank whose strip read_framed did not cut
     (the reading was 3+ short, or its word was dropped after: misread_word, uncrossed)."""
-    try:
-        gray = np.asarray(Image.open(image).convert("L"))
-        framed = framings(gray, grid)
-    except (OSError, ValueError):
+    got = _crop_framed(image, grid)
+    if got is None:
         return {}
-    if not framed:
-        return {}
-    fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
-    at = sure_framing(framed, grid, fits)
-    if at is None:
-        return {}
-    g, ys, xs = framed[at]
+    g, ys, xs = got
     lts = lights(grid)
     keys = [k for k in keys if k in lts]
     probs = classified({rc: glyph(g, ys, xs, *rc) for k in keys for rc in lts[k]})
