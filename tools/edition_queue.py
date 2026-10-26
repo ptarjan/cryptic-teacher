@@ -117,6 +117,14 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 from pathlib import Path
 
+if sys.argv[1:2] == ["unit"]:
+    # A unit's numpy runs one BLAS thread, set before anything imports it: OpenBLAS otherwise
+    # spins a thread per core on tiny batches (the per-cell classifier's ~16 cells cost 5-7 s
+    # CPU for 0.3 s wall), on a box whose 24 units already fill every core. Results move only at
+    # float rounding (~3e-7). RapidOCR's onnxruntime and cv2 are sized apart (ocr_clues.engine_threads).
+    for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        os.environ.setdefault(_var, "1")
+
 TOOLS = Path(__file__).resolve().parent
 
 
