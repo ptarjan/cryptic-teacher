@@ -9478,7 +9478,7 @@ def _held_wordplay(p, defined=False):
     try:
         held = json.loads(p.read_text())
         lts = t.lights(t.puzzle_grid(held))
-    except Exception:  # noqa: BLE001 - a held file or grid the reader cannot lay: nothing to read
+    except Exception:  # a broad catch on purpose: a held file or grid the reader cannot lay: nothing to read
         return False
     es = held.get("entries") or ()
     if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or filled(held)[0] != len(es):

@@ -136,7 +136,7 @@ def recognisers():
     global _REC
     if _REC is None:
         import onnxruntime as ort
-        import rapidocr_onnxruntime  # noqa: F401
+        __import__("rapidocr_onnxruntime")  # fail here, not later, if the engine package is missing
         models = rec_models()
         import ocr_clues
         opts = ort.SessionOptions()
