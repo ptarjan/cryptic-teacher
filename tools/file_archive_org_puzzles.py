@@ -5481,7 +5481,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
                 return verdict, None
     # Another puzzle's grid (wrong_grid) files none of its answers, nor does a full read of it.
     t0 = _stage("printed_grid", t0)
-    other = wrong_grid(es, answers, paper.series, number)
+    other = wrong_grid(es, answers, paper.series, number, printed=sure_page(sol["dir"], info))
     t0 = _stage("wrong_grid", t0)
     if other:
         verdict = {"number": number, "leaf": hit["leaf"], "answersOnly": True, "vlmAsks": 0,
@@ -6360,7 +6360,7 @@ def full_read_answers(paper, number, puzzle, sol, grid, answers, info):
     held = bool((old.get("source") or {}).get("acquiredBy") == TOOL and old.get("entries")
                 and trove_solution_ocr.puzzle_grid(old) == trove_solution_ocr.puzzle_grid(puzzle))
     es = old["entries"] if held else puzzle["entries"]
-    if held and wrong_grid(es, answers, paper.series, number):
+    if held and wrong_grid(es, answers, paper.series, number, printed=sure_page(sol["dir"], info)):
         return answers, info
     enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
     enums.update({(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration")
@@ -6488,29 +6488,67 @@ def whole_word(held, read):
     return len(held) != len(read) or sum(a != b for a, b in zip(held, read)) > 2
 
 
-def wrong_grid(entries, answers, series, number):
+def page_date(name):
+    """The date ("2002-11-08") a solution page's edition dir name (or solutionFrom, "1982-02-24_61166
+    leaf 29") begins with, or None (wrong_grid's `printed`)."""
+    m = re.match(r"\d{4}-\d\d-\d\d", Path(str(name or "")).name)
+    return m.group(0) if m else None
+
+
+def sure_page(name, info):
+    """wrong_grid's `printed` for a solution page (edition dir name or solutionFrom `name`) whose grid read
+    (stats `info`) at trove_solution_ocr.SURE_BLOCKS, else None: a grid read unsure of its blocks keeps the
+    old checks (10-26: times-18253's 1990-03-29 host, another pattern read at 0.911, refused only through
+    18256's stray held answers)."""
+    sure = isinstance(info, dict) and info.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS
+    return page_date(name) if sure else None
+
+
+def wrong_grid(entries, answers, series, number, printed=None):
     """Why a solution grid's reading `answers` ({"12-across": word}) is not puzzle No `number`'s of
     `series`, whose held file has `entries` (None: none held), or None. Two cases (10-25's whole-word
     held clashes): the reading gives other words than 2 or more held answers and agrees on fewer
     (another puzzle's grid alike in blocks: times-11998 off July's 11998, times-15492 numbered
     off by one), or a held puzzle within WRONG_GRID_REACH numbers holds more of its answers at the
-    same lights (WRONG_GRID_ALIKE at least) than this one's held file does (times-21706 and
-    times-22186 read off the next day's grid). Such a grid's answers are none of this puzzle's."""
+    same lights (WRONG_GRID_ALIKE at least) than this one's held file does. Such a grid's answers
+    are none of this puzzle's.
+
+    `printed` (the solution page's date, "2002-11-08") rules out a puzzle dated that day or later: its
+    solution cannot be on the page. A held answer a puzzle within reach holds word for word at the same
+    light is a stray copy (STRAY_GRID), no evidence against the reading. 10-26: 20 Times of 2001-02
+    (and times-18399) stood refused so, their held neighbours' answers the strays: the 10-24 read_as
+    reads (a title read a number up) filed No N's grid's words into N+1's file at the lights the two
+    grids share (times-22192 held DEPARTURELOUNGE where its clue "Admire from a global perspective?
+    (5,3,5,2)" wants THINKTHEWORLDOF; 22186 BRITAIN, OVERALL, PORKPIE for WITHOUT, NITPICK, TONSURE;
+    21706 NOTHALF, WINEBARMTANKARD for ANTHONY, PERIODFURNITURE). Then N's own grid read clean (30 of
+    30, every word its clue's) was refused as "No N+1's held ones at the same lights (0 this one's)",
+    N+1's as "reads other words than 6 held answers" - each puzzle's own grid kept off it."""
     read = {k: a for k, a in answers.items() if a}
     if not read:
         return None
+    def placed(e):
+        p = e.get("position") or {}
+        return p.get("x"), p.get("y"), e.get("direction"), e.get("solution")
+    near = {}
+    for n in sorted(range(number - WRONG_GRID_REACH, number + WRONG_GRID_REACH + 1), key=lambda m: abs(m - number)):
+        other = held_file(series, n) if n != number else None
+        if other:
+            near[n] = (other, {entry_id(e): e.get("solution") for e in other.get("entries") or () if e.get("solution")})
     held = {entry_id(e): e.get("solution") for e in entries or () if e.get("solution")}
+    # A held answer another held puzzle within reach holds on the same cells (its light may be numbered
+    # otherwise): a stray copy of its word.
+    theirs_placed = {placed(e) for other, _ in near.values() for e in other.get("entries") or () if e.get("solution")} \
+        if printed else set()
+    strays = {entry_id(e) for e in entries or () if e.get("solution") and placed(e) in theirs_placed}
     both = [k for k in read if k in held]
     agree = sum(held[k] == read[k] for k in both)
-    whole = sorted(k for k in both if whole_word(held[k], read[k]))
+    whole = sorted(k for k in both if whole_word(held[k], read[k]) and k not in strays)
     if len(whole) >= 2 and len(whole) > agree:
         return (f"it reads other words than {len(whole)} held answers ({', '.join(whole[:4])}) "
                 f"and agrees on {agree}")
-    for n in sorted(range(number - WRONG_GRID_REACH, number + WRONG_GRID_REACH + 1), key=lambda m: abs(m - number)):
-        other = held_file(series, n) if n != number else None
-        if not other:
+    for n, (other, theirs) in near.items():
+        if printed and str(other.get("date") or "")[:10] >= printed[:10]:
             continue
-        theirs = {entry_id(e): e.get("solution") for e in other.get("entries") or () if e.get("solution")}
         alike = sum(theirs.get(k) == a for k, a in read.items())
         if alike >= WRONG_GRID_ALIKE and alike > agree:
             return f"{alike} of its answers are No {n}'s held ones at the same lights ({agree} this one's)"
@@ -10121,6 +10159,67 @@ def other_grid_short(row):
     return bool(band["verdicts"]) and bool(answerable_gaps(band, paper, sure=False))
 
 
+#: The due reason of a Times edition whose answers-only read refused its linked solution grid as another
+#: puzzle's (wrongGrid, not OTHER_GRID) where the grid's cached reading (solution_reads), read at
+#: SURE_BLOCKS, now passes wrong_grid with the page's date: a neighbour dated on or after the page is no
+#: evidence, a held answer a neighbour holds on the same cells a stray copy. Due when read before
+#: REREAD_STRAY_GRID, or when a held neighbour within WRONG_GRID_REACH was written since the last read
+#: (N's own grid filed, N+1's strays then show; a row read since that still refuses is due no more).
+#: 10-26: 20 Times (2001-02 Gale, 18399) stood so, ~520 lights, every cached reading 28-32 of 28-32
+#: accepted and right by its clues (CODPIECE, TYNWALD, THINKTHEWORLDOF). answers_only, once a wave.
+STRAY_GRID = "solution short, its grid refused through a neighbour's stray answers since"
+REREAD_STRAY_GRID = "2026-10-26T21:00:00+00:00"
+
+
+def stray_refused(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool short of an answer, has a cached reading of its
+    linked solution grid (the solution page's edition dir name `sol_dir`) read at SURE_BLOCKS that
+    wrong_grid, given the page's date (sure_page), no longer refuses."""
+    held = held_file(series, number)
+    es = (held or {}).get("entries") or ()
+    if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or all(e.get("solution") for e in es):
+        return False
+    try:
+        read = json.loads((CROPS / "solution_reads" / f"{sol_dir}_{number}.json").read_text())
+    except (OSError, ValueError):
+        return False
+    printed = sure_page(sol_dir, read.get("stats"))
+    return bool(printed and read.get("answers")) and not wrong_grid(es, read["answers"], series, number, printed=printed)
+
+
+def neighbour_written(series, number, row):
+    """Whether a held file of `series` within WRONG_GRID_REACH of `number` (not its own) was written after
+    ledger `row` was read."""
+    for n in range(number - WRONG_GRID_REACH, number + WRONG_GRID_REACH + 1):
+        p = _HELD_PATH.get((series, n)) if n != number else None
+        try:
+            t = datetime.datetime.fromtimestamp(os.stat(p).st_mtime, datetime.timezone.utc) if p else None
+        except OSError:
+            t = None
+        if t and scan_queue.read_before(row, t):
+            return True
+    return False
+
+
+def stray_grid(row):
+    """Whether Times ledger `row` has an answers-only verdict refusing its linked grid as another puzzle's
+    (wrongGrid, but OTHER_GRID) whose cached reading wrong_grid now passes (stray_refused), read before
+    REREAD_STRAY_GRID or before a held neighbour's last write (neighbour_written)."""
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        if not v.get("wrongGrid") or v["wrongGrid"] == OTHER_GRID or not v.get("solutionFrom") \
+                or not isinstance(v.get("number"), int):
+            continue
+        if not scan_queue.read_before(row, scan_queue.when(REREAD_STRAY_GRID)) \
+                and not neighbour_written(paper.series, v["number"], row):
+            continue
+        if stray_refused(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
 #: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
 #: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
@@ -10374,6 +10473,8 @@ def fix_reason(row):
         return SURE_FRAMING
     if other_grid_short(row):
         return OTHER_GRID_SHORT
+    if stray_grid(row):
+        return STRAY_GRID
     if suspect_held(row):
         return SUSPECT_HELD
     if unfiled_held(row):
@@ -10954,7 +11055,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -11516,7 +11617,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, FULL_SHORT)
+                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, FULL_SHORT, STRAY_GRID)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -12285,7 +12386,7 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
         # its clues may file, none of its answers.
         old = json.loads(held_path.read_text()) if held_path.exists() else {}
         other = wrong_grid(old.get("entries"), {entry_id(e): e.get("solution") for e in puzzle["entries"]},
-                           series, puzzle["number"])
+                           series, puzzle["number"], printed=sure_page(verdict["solutionFrom"], verdict.get("solution")))
         if other:
             verdict["wrongGrid"] = other
             puzzle = copy.deepcopy(puzzle)
