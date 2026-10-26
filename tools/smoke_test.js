@@ -2695,7 +2695,7 @@ function blogSidecars() {
   const linked = findClue("linkWords");
   assert(linked, "at least one annotation names its link words");
   openClue(linked);
-  assert(registry["hint-body"].innerHTML.includes("just a link"),
+  assert(registry["hint-body"].innerHTML.includes("is a link word:") || registry["hint-body"].innerHTML.includes("are link words:"),
     "link words are explained on the definition rung: " + registry["hint-body"].innerHTML);
   assert(registry["hint-clue"].innerHTML.includes('mark class="link"'),
     "link words are highlighted in the clue: " + registry["hint-clue"].innerHTML);
