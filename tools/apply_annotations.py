@@ -433,6 +433,17 @@ def _span_overlaps(tree, clue):
         return 0
 
 
+def _gives_not(tree, answer):
+    """1 when `tree` does not give `answer` (the refusal the first check names), else 0."""
+    import copy
+    import wordplay
+    try:
+        wordplay.evaluate(copy.deepcopy(tree), answer or "")
+        return 0
+    except Exception:
+        return 1
+
+
 def rule_counters():
     """{validator rule: fn(tree, full annotation with _answer, clue) -> hits}: the one table
     that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
@@ -445,6 +456,7 @@ def rule_counters():
     table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
     table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
     table["spanOverlap"] = lambda t, a, c: _span_overlaps(t, c)
+    table["doesNotGive"] = lambda t, a, c: _gives_not(t, a.get("_answer"))
     return table
 
 

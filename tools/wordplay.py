@@ -1330,6 +1330,37 @@ def _hint(node, want):
     return None
 
 
+def _seam_hint(node, want):
+    """A charade whose pieces each give one string and join one letter over or under the answer: say which
+    letter and where (HONEY + YTRAP is HONEYYTRAP, the answer HONEYTRAP: a letter doubled at the join), so the
+    model changes the piece that is wrong and not the whole parse. Not mended in code: either side could be
+    the slip. None unless exactly one letter is the difference."""
+    pieces = parts_of(node)
+    try:
+        got = [next(iter(values(p))) if len(values(p)) == 1 else None for p in pieces]
+    except (WordplayError, _NeedTarget):
+        return None
+    if len(pieces) < 2 or None in got:
+        return None
+    joined = "".join(got)
+    bounds, at = [], 0
+    for g in got:
+        at += len(g)
+        bounds.append(at)
+    for i in range(len(joined)):
+        if len(joined) == len(want) + 1 and joined[:i] + joined[i + 1:] == want:
+            who = [render(p) for p, hi in zip(pieces, bounds) if hi - len(got[bounds.index(hi)]) <= i < hi]
+            return (f"{render(node)} gives {joined}, one letter too many for {want}: the extra {joined[i]} "
+                    f"is in {who[0]} (or the piece next to it repeats it); cut it from the piece whose letters "
+                    f"are not its clue word's own")
+        if len(joined) + 1 == len(want) and joined[:i] + want[i] + joined[i:] == want:
+            near = [render(p) for p, hi in zip(pieces, bounds) if hi == i or hi - len(got[bounds.index(hi)]) == i]
+            return (f"{render(node)} gives {joined}, one letter short of {want}: {want[i]} is missing at "
+                    f"letter {i + 1}" + (f", at the join of {' and '.join(near)}" if near else "") +
+                    "; a piece lacks it or a piece is missing")
+    return None
+
+
 def diagnose(node, want):
     """The deepest node that fails to give its share of `want`, in words."""
     op = node.get("op")
@@ -1384,6 +1415,9 @@ def diagnose(node, want):
         return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} "
                 f"here" + (f" (the fodder has {extra} to spare" if extra else " (") +
                 (f"{'; ' if extra else ''}it lacks {short})" if short else ")"))
+    seam = _seam_hint(node, want) if op == "charade" else None
+    if seam:
+        return seam
     msg = f"{render(node)} gives {_gives(node)}; the answer needs {want} here"
     if op is None and leaf_letters(node)[::-1] == want:
         msg += (f". {leaf_letters(node)} reads backwards: a leaf's letters come before any "
@@ -1631,6 +1665,21 @@ def _is_sub(small, big):
     return bool(n) and any(big[i:i + n] == small for i in range(len(big) - n + 1))
 
 
+def _with_rule_mends(tree, clue, answer):
+    """`tree` mended by the bag's doesNotGive fixer (fix_shape_suspects.RULE_REPAIRS, the one table
+    the old puzzles' sweep reads too): arguments of a container the wrong way round, a charade out of
+    order, each only when exactly one edit gives the answer. None when it does not mend."""
+    try:
+        import fix_shape_suspects as F
+        fixed, used = F.repair_tree(tree, clue, answer, {"doesNotGive": F.RULE_REPAIRS["doesNotGive"]})
+        if used:
+            evaluate(fixed, answer)
+            return fixed
+    except Exception:
+        pass
+    return None
+
+
 def translate(clue_out, clue, answer, taken=(), respell=None):
     """The stored tree for one clue of model output ({"wp", "notes"}),
     checked against `answer`. Notes are keyed by span words (`#2` for a
@@ -1675,7 +1724,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
         evaluate(tree, answer)
     except WordplayError as err:
         tree = (_with_picks_dropped(tree, answer) or _with_hidden_merged(tree, clue, answer)
-                or _with_after_swapped(tree, answer))
+                or _with_after_swapped(tree, answer) or _with_rule_mends(tree, clue, answer))
         if tree is None:
             left = unaccounted_words(locate_copy(clue_out, clue, taken), clue, taken)
             if left and "does not give" in str(err):
