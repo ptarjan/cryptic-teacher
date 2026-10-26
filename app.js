@@ -4267,12 +4267,16 @@
   // The clue's own words under the free wheel: tap one to add its letters to
   // the ring, tap it again to take them out. A word that is in the ring is
   // drawn filled, so the chip row reads as which words the ring is made of.
+  function clueWords(e) {
+    return clueText(e).split(/\s+/).map((w) => w.replace(/[^A-Za-z]/g, "")).map((w, i) => [w, i]).filter((p) => p[0]);
+  }
+
   function ringWordChips(e) {
-    const words = clueText(e).split(/\s+/).map((w) => w.replace(/[^A-Za-z]/g, "")).map((w, i) => [w, i]).filter((p) => p[0]);
+    const words = clueWords(e);
     if (!words.length) return "";
     const inRing = ring.words || {};
     return `<div class="ana-words">${words.map(([w, i]) =>
-      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" data-w="${esc(w.toUpperCase())}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
+      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
   }
 
   // Add or remove a whole clue word. Removing drops that word's tiles and
@@ -6932,7 +6936,12 @@
     });
     panel.querySelectorAll("button.ana-word").forEach((b) => {
       b.onmousedown = keepFocus;
-      b.onclick = () => toggleRingWord(b.getAttribute("data-aw"), b.getAttribute("data-w"));
+      b.onclick = () => {
+        // The word comes from the clue itself, not read back out of the DOM.
+        const cur = currentEntry();
+        const hit = cur && clueWords(cur).find((p) => String(p[1]) === b.getAttribute("data-aw"));
+        if (hit) toggleRingWord(String(hit[1]), hit[0].toUpperCase());
+      };
     });
     const shuffle = document.getElementById("ana-shuffle");
     // Struck letters survive a shuffle: they are the ones already on the grid,
