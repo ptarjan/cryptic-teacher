@@ -830,6 +830,30 @@ check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES:
       "answers-only, a LOW prefix); read since, or not 6+ short, nothing",
       [f.CANDIDATE_READS, None, None, 2, True, True],
       cr_due + [f.RANKS[f.CANDIDATE_READS], f.CANDIDATE_READS in f.SOLUTION_FIXES, f.CANDIDATE_READS.startswith("solution short")])
+# A held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT (due nothing else): CLUE_SHORT;
+# read since, or 3+ short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_hb = f.held_blanks
+f.held_blanks = lambda series, n, sol_dir: 2
+cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-26T07:00:00+00:00", gap=2))]
+f.held_blanks = lambda series, n, sol_dir: 3
+cs_due.append(f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT: CLUE_SHORT (rank 2, "
+      "answers-only, a LOW prefix); read since, or 3+ blank, nothing",
+      [f.CLUE_SHORT, None, None, 2, True, True],
+      cs_due + [f.RANKS[f.CLUE_SHORT], f.CLUE_SHORT in f.SOLUTION_FIXES, f.CLUE_SHORT.startswith("solution short")])
+# agreed_word: an unlisted VLM name stands under VLM_UNLISTED_TOP when every cell's likeliest letter is its own.
+ag = lambda word, faint: [[(faint if i in (2,) else 0.95) if c == ch else (1 - (faint if i in (2,) else 0.95)) / 25
+                           for c in f.trove_solution_ocr.AZ] for i, ch in enumerate(word)]
+ag_low = ag("PALGRAVE", 0.5)
+ag_off = ag("PALGRAVE", 0.5)
+ag_off[2] = [0.3 if c == "L" else (0.6 if c == "T" else 0.1 / 24) for c in f.trove_solution_ocr.AZ]
+check("agreed_word: PALGRAVE with its L at 0.5, every letter the classifier's likeliest, stands; at 0.3 under "
+      "AGREED_TOP, or its L read likelier as T, it does not",
+      [True, False, False],
+      [f.agreed_word("PALGRAVE", ag_low), f.agreed_word("PALGRAVE", ag("PALGRAVE", 0.3)), f.agreed_word("PALGRAVE", ag_off)])
 # candidate_pick: the pick stands only as the plain strip read's word too, a word, read by the classifier as no other.
 import numpy as np
 cp_cells = [(0, i) for i in range(5)]
