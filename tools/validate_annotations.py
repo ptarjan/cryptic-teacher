@@ -4014,10 +4014,23 @@ def span_overlaps(tree):
     nothing honest to change (read off 8 of the 27 span_overlap rows of
     tools/data/shape_reannotate.json, 10-17). A leaf that merely overlaps
     another, or an indicator over a leaf, is still counted."""
+    return len(span_overlap_pairs(tree))
+
+
+def span_overlap_pairs(tree):
+    """The (a, b) pairs span_overlaps counts, each a (kind, start, end, text) from _claimed."""
     sp = _claimed(tree)
-    return sum(1 for i, a in enumerate(sp) for b in sp[i + 1:]
-               if a[1] < b[2] and b[1] < a[2]
-               and not (a[0] == b[0] == "leaf" and a[1] == b[1] and a[2] == b[2]))
+    return [(a, b) for i, a in enumerate(sp) for b in sp[i + 1:]
+            if a[1] < b[2] and b[1] < a[2]
+            and not (a[0] == b[0] == "leaf" and a[1] == b[1] and a[2] == b[2])]
+
+
+def span_overlap_text(tree):
+    """Each overlap named by its words, so the model sees which clue words are claimed twice:
+    "indicator 'parties' and leaf 'parties' both claim 'parties'"."""
+    return "; ".join(
+        f"{a[0]} '{a[3]}' and {b[0]} '{b[3]}' both claim '{a[3][max(b[1] - a[1], 0):min(b[2], a[2]) - a[1]]}'"
+        for a, b in span_overlap_pairs(tree))
 
 
 def _with_places(ann, clue):
@@ -7486,7 +7499,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
     if k := bad_arity(tree):
         out.append(f"{tag}: {k} {STORED_ARITY}")
     if k := span_overlaps(tree):
-        out.append(f"{tag}: {k} {SPAN_OVERLAP}: two leaves or indicators share clue words")
+        out.append(f"{tag}: {k} {SPAN_OVERLAP}: {span_overlap_text(tree)}. A clue word does one job: write it in only "
+                   f"one of the two, and take the other's letters or instruction from other clue words")
     if k := in_definition(ann):
         out.append(f"{tag}: {k} {IN_DEFINITION}: the definition and the wordplay do not share words "
                    f"unless the clue is &lit. Often the definition is drawn too wide: an "

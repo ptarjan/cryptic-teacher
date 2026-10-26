@@ -3293,6 +3293,23 @@ def _edge_trim(a, b, clue):
     return None
 
 
+def _move_inner_indicator(a, b, sa, sb, clue, items):
+    """An indicator printed inside a leaf's words that the clue prints again outside every claimed
+    span ("in#2" in hid<in>([competition in Japan]) of "expert in competition in Japan"): move it to
+    the one free occurrence. True when moved."""
+    ind, lf = (a, b) if a[0] == "indicator" else (b, a)
+    si, sl = (sa, sb) if ind is a else (sb, sa)
+    if not (sl[0] <= si[0] and si[1] <= sl[1]):
+        return False
+    taken = [(x[1]["at"], x[1]["at"] + len(x[2])) for x in items if x is not ind]
+    free = [m.start() for m in re.finditer(r"(?<![A-Za-z])%s(?![A-Za-z])" % re.escape(ind[2]), clue, re.I)
+            if not any(m.start() < t[1] and t[0] < m.end() for t in taken)]
+    if len(free) != 1:
+        return False
+    ind[1]["at"] = free[0]
+    return True
+
+
 def r_span_overlap(node, parent, ctx):
     """spanOverlap: an indicator and a leaf claim the same clue words. Only the unambiguous cuts: a
     leaf lying at the edge of an indicator (the indicator "is captivated by" over the leaf "is" gives
@@ -3322,20 +3339,28 @@ def r_span_overlap(node, parent, ctx):
         for x, a in enumerate(items):
             for b in items[x + 1:]:
                 sa, sb = (a[1]["at"], a[1]["at"] + len(a[2])), (b[1]["at"], b[1]["at"] + len(b[2]))
-                if not (sa[0] < sb[1] and sb[0] < sa[1]) or (a[0] == b[0] == "leaf" and sa == sb) or a[0] == b[0]:
+                if not (sa[0] < sb[1] and sb[0] < sa[1]) or sa == sb:
                     continue
                 got = _edge_trim(sa, sb, clue)
                 if not got:
+                    if a[0] != b[0]:
+                        step = _move_inner_indicator(a, b, sa, sb, clue, items)
+                    if step:
+                        break
                     continue
                 which, (s, e) = got
-                ind, lf = (a, b) if a[0] == "indicator" else (b, a)
                 outer = (a, b)[which]
-                if outer is ind:          # the leaf sits at the indicator's edge: the indicator is cut back
-                    ind[1]["text"], ind[1]["at"] = clue[s:e], s
-                elif "gives" in lf[1]:    # the indicator sits at the leaf's edge: the leaf is cut back
-                    lf[1]["words"], lf[1]["at"] = clue[s:e], s
-                else:
+                key = "text" if outer[0] == "indicator" else "words"
+                if a[0] == b[0] == "leaf":
+                    # two leaves: the outer one gives way at its edge, only when it carries its letters
+                    # (`gives`) and the pieces still stand in the tree's order (TENORDRUM: "a few pound"
+                    # over "pound" would put XX before LB)
+                    inner = (b, a)[which]
+                    if "gives" not in outer[1] or (which == 0) != (s < inner[1]["at"]):
+                        continue
+                elif outer[0] == "leaf" and "gives" not in outer[1]:
                     continue
+                outer[1][key], outer[1]["at"] = clue[s:e], s
                 step = True
                 break
             if step:
