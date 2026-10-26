@@ -22,6 +22,9 @@
   "date": "2017-09-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,29 @@
     "text": "Film director of slender build",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film director",
+      "at": 0,
+      "meaning": "David ... directed Lawrence of Arabia and Brief Encounter"
+     },
+     {
+      "text": "of slender build",
+      "at": 14,
+      "meaning": "thin, without spare flesh"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of some film-maker as a thin person.",
+     "definitionFit": "Two senses: the surname of the British director David Lean, and an adjective for a thin, spare physique."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +74,70 @@
     "text": "Vegetable a girl cooked at first without hesitation",
     "enumeration": "8"
    },
-   "solution": "CELERIAC"
+   "solution": "CELERIAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 33,
+         "note": "used in its old sense of outside: the girl's name sits around the hesitation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a girl",
+         "at": 10,
+         "gives": "CELIA",
+         "note": "Celia is a girl's name"
+        },
+        {
+         "words": "hesitation",
+         "at": 41,
+         "gives": "ER",
+         "note": "er is the sound of someone hesitating"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 24,
+         "note": "only the opening letter of the word cooked is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cooked",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: some girl cooked a vegetable first, without pausing.",
+     "walkthrough": "'without' looks like 'lacking' but here has its old sense of 'outside': the girl's name goes round the hesitation.",
+     "definitionFit": "Celeriac is a root vegetable, a variety of celery grown for its swollen base."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +151,60 @@
     "text": "Blood constituent originally lacking in paternal grandmother?",
     "enumeration": "6"
    },
-   "solution": "PLASMA"
+   "solution": "PLASMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blood constituent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 37,
+       "note": "the opening letter goes inside the grandmother phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paternal grandmother",
+       "at": 40,
+       "gives": "PASMA",
+       "note": "your father's mother is pa's ma"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 18,
+         "note": "signals the opening letter of the word lacking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lacking",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether some blood component is missing in a father's mother.",
+     "walkthrough": "'paternal grandmother' is read literally as PA'S MA; L from 'lacking' goes inside to make P-L-ASMA.",
+     "definitionFit": "Plasma is the pale fluid part of blood in which the cells are suspended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lacking"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +218,31 @@
     "text": "Dishonest action that has strings attached?",
     "enumeration": "6"
    },
-   "solution": "FIDDLE"
+   "solution": "FIDDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dishonest action",
+      "at": 0,
+      "meaning": "a swindle or piece of cheating"
+     },
+     {
+      "text": "that has strings attached?",
+      "at": 17,
+      "meaning": "a violin, an instrument fitted with strings"
+     }
+    ],
+    "explanation": {
+     "surface": "A shady deal that comes with conditions, strings attached being an idiom for hidden obligations.",
+     "definitionFit": "Two senses: a fraud or swindle, and the everyday name for a violin, a stringed instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strings"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +256,32 @@
     "text": "Continental commander of British Expeditionary Force?",
     "enumeration": "6"
    },
-   "solution": "FRENCH"
+   "solution": "FRENCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Continental",
+      "at": 0,
+      "meaning": "belonging to a country on the European mainland, here France"
+     },
+     {
+      "text": "commander of British Expeditionary Force?",
+      "at": 12,
+      "meaning": "Field Marshal Sir John ... led the British army in France in 1914"
+     }
+    ],
+    "explanation": {
+     "surface": "A wartime query: was the commander of the British force a foreigner from the mainland?",
+     "walkthrough": "The British Expeditionary Force was the British army sent to France in 1914, first led by Sir John French.",
+     "definitionFit": "Two senses: of France, a European mainland nation, and the surname of the First World War field marshal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Continental"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +295,53 @@
     "text": "Inferior wall decoration father obtained to begin with",
     "enumeration": "4"
    },
-   "solution": "DADO"
+   "solution": "DADO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inferior wall decoration",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "father",
+       "at": 25,
+       "gives": "DAD",
+       "note": "dad is an informal word for father"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "to begin with",
+         "at": 41,
+         "note": "only the opening letter of the word obtained is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obtained",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad got hold of some second-rate wall ornament early on.",
+     "walkthrough": "'Inferior' is not a judgement of quality but means lower down: the decoration on the lower part of a wall.",
+     "definitionFit": "A dado is the decorated lower section of an interior wall, below a rail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inferior"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +355,60 @@
     "text": "Purchase made by the 4 dn, always with silver inside",
     "enumeration": "8"
    },
-   "solution": "LEVERAGE"
+   "solution": "LEVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Purchase",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 46,
+       "note": "the words for always and silver go within the foreign article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the 4 dn",
+       "at": 17,
+       "gives": "LE",
+       "note": "4 down is the language word for France, and 'the' in that tongue is le"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "always",
+         "at": 27,
+         "gives": "EVER",
+         "note": "ever means at all times"
+        },
+        {
+         "words": "silver",
+         "at": 39,
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something bought by the French that is eternally lined with silver.",
+     "walkthrough": "'Purchase' means grip or mechanical advantage, not a buy; 'the 4 dn' asks for 'the' in French, 4 down's answer.",
+     "definitionFit": "Purchase can mean a firm hold or mechanical advantage gained, which is what a lever provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Purchase"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +422,69 @@
     "text": "Wake-up call — not one initially rousing partygoer",
     "enumeration": "8"
    },
-   "solution": "REVELLER"
+   "solution": "REVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "partygoer",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 15,
+         "note": "signals that the letter for one is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wake-up call",
+         "at": 0,
+         "gives": "REVEILLE",
+         "note": "reveille is the bugle call that wakes soldiers in the morning"
+        },
+        {
+         "words": "one",
+         "at": 19,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 23,
+         "note": "only the opening letter of the word rousing is wanted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rousing",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A morning call fails to stir a hungover party guest.",
+     "walkthrough": "'not one' drops I from REVEILLE to leave REVELLE; R from 'rousing' is added.",
+     "definitionFit": "A reveller is someone enjoying a lively celebration, just as a partygoer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +498,40 @@
     "text": "Salad ingredient in Parisian drinking-den",
     "enumeration": "6"
    },
-   "solution": "ENDIVE"
+   "solution": "ENDIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salad ingredient",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in Parisian",
+       "at": 17,
+       "gives": "EN",
+       "note": "en is French for in"
+      },
+      {
+       "words": "drinking-den",
+       "at": 29,
+       "gives": "DIVE",
+       "note": "a dive is a seedy bar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salad item served in some Paris bar.",
+     "definitionFit": "Endive is a bitter leafy plant related to chicory, eaten raw in salads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +545,50 @@
     "text": "Irrationality of peacekeepers regarding a family member",
     "enumeration": "8"
    },
-   "solution": "UNREASON"
+   "solution": "UNREASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irrationality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "peacekeepers",
+       "at": 17,
+       "gives": "UN",
+       "note": "the UN, the United Nations, sends peacekeeping forces"
+      },
+      {
+       "words": "regarding",
+       "at": 30,
+       "gives": "RE",
+       "note": "re means concerning or about"
+      },
+      {
+       "words": "a",
+       "at": 40
+      },
+      {
+       "words": "family member",
+       "at": 42,
+       "gives": "SON",
+       "note": "a son is a member of a family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The madness of peacekeeping troops where a relative is concerned.",
+     "definitionFit": "Unreason is a lack of reason or logic, which is the same as irrationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +602,41 @@
     "text": "Wine served in Boudicca's time",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "served in",
+       "at": 5,
+       "note": "the wine is presented within the words that follow, like a drink in a glass"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boudicca's time",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink offered in the era of the warrior queen of the Iceni.",
+     "walkthrough": "Boudicca was a British queen who rebelled against Rome; the wine sits across 'BoudiccA'S TIme'.",
+     "definitionFit": "Asti is a sparkling white wine from the Piedmont region of Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +650,31 @@
     "text": "Substance used by painter, one performing in club",
     "enumeration": "8"
    },
-   "solution": "STRIPPER"
+   "solution": "STRIPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Substance used by painter",
+      "at": 0,
+      "meaning": "a solvent that removes old paint"
+     },
+     {
+      "text": "one performing in club",
+      "at": 27,
+      "meaning": "an exotic dancer who undresses in a nightclub"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone working as a decorator by day and dancing in a nightclub by night.",
+     "definitionFit": "Two senses: a chemical that lifts old paint or varnish, and a dancer who takes off clothing for an audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "painter"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +688,56 @@
     "text": "European citizen, a chap around at that time",
     "enumeration": "8"
    },
-   "solution": "ATHENIAN"
+   "solution": "ATHENIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European citizen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 25,
+       "note": "the article and the man's name go round the word for at that time"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 18
+        },
+        {
+         "words": "chap",
+         "at": 20,
+         "gives": "IAN",
+         "note": "Ian is a man's name"
+        }
+       ]
+      },
+      {
+       "words": "at that time",
+       "at": 32,
+       "gives": "THEN",
+       "note": "then means at that moment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Europe described as a fellow present at that period.",
+     "definitionFit": "An Athenian is a native or resident of Athens, the Greek capital, so a citizen of a European city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +751,50 @@
     "text": "Company traditionally starts to trade with Orient",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Company traditionally",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "starts to",
+       "at": 22,
+       "note": "the opening letters of each of the following three words are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trade",
+       "at": 32
+      },
+      {
+       "words": "with",
+       "at": 38
+      },
+      {
+       "words": "Orient",
+       "at": 43
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm that, by custom, begins trading with the East.",
+     "walkthrough": "The definition rests on the saying 'two's company, three's a crowd'.",
+     "definitionFit": "By the proverb, a pair of people makes company, while a third makes a crowd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +808,56 @@
     "text": "Storyteller from Scottish island going north to river",
     "enumeration": "8"
    },
-   "solution": "NARRATOR"
+   "solution": "NARRATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storyteller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going north",
+         "at": 33,
+         "note": "in a down entry, moving upward means the island's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish island",
+         "at": 17,
+         "gives": "ARRAN",
+         "note": "Arran is an island in the Firth of Clyde"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "at": 45,
+       "gives": "TO"
+      },
+      {
+       "words": "river",
+       "at": 48,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller travels from a Scottish isle northward to a river.",
+     "definitionFit": "A narrator is the person who tells or relates a story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +871,40 @@
     "text": "Damage ceramic vessel? Crazy",
     "enumeration": "8"
    },
-   "solution": "CRACKPOT"
+   "solution": "CRACKPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Damage",
+       "at": 0,
+       "gives": "CRACK",
+       "note": "to crack is to damage by splitting"
+      },
+      {
+       "words": "ceramic vessel",
+       "at": 7,
+       "gives": "POT",
+       "note": "a pot is a container made of clay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking a clay jar is called insane.",
+     "definitionFit": "Crackpot as an adjective means eccentric or mad, like a crazy scheme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +918,30 @@
     "text": "Fairly easy on the eye",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fairly",
+      "at": 0,
+      "meaning": "to a moderate degree, as in quite good"
+     },
+     {
+      "text": "easy on the eye",
+      "at": 7,
+      "meaning": "attractive to look at"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone described as reasonably good-looking.",
+     "definitionFit": "Two senses: an adverb meaning moderately or rather, and an adjective meaning attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fairly"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +955,49 @@
     "text": "Those people pinch gold? That's the hypothesis",
     "enumeration": "6"
    },
-   "solution": "THEORY"
+   "solution": "THEORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hypothesis",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinch",
+       "at": 13,
+       "note": "the word for those people squeezes the gold between its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Those people",
+       "at": 0,
+       "gives": "THEY",
+       "note": "they refers to those people"
+      },
+      {
+       "words": "gold",
+       "at": 19,
+       "gives": "OR",
+       "note": "or is the heraldic word for gold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idea that certain people are stealing gold.",
+     "walkthrough": "'pinch' looks like steal but means grip: THEY holds OR to give THE-OR-Y.",
+     "definitionFit": "A theory is a proposed explanation still to be proved, which is what a hypothesis is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pinch"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1011,42 @@
     "text": "Grass some ungulates rejected",
     "enumeration": "4"
    },
-   "solution": "REED"
+   "solution": "REED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejected",
+       "at": 21,
+       "note": "sent back, so the animal name is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some ungulates",
+       "at": 6,
+       "gives": "DEER",
+       "note": "deer are hoofed mammals, one group of ungulates"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hoofed animals turning down some grass.",
+     "definitionFit": "A reed is a tall grass-like plant growing in wet ground, so a type of grass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1060,32 @@
     "text": "Turkey, for example, that's served in can",
     "enumeration": "4"
    },
-   "solution": "BIRD"
+   "solution": "BIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turkey, for example",
+      "at": 0,
+      "meaning": "a turkey is one kind of feathered creature"
+     },
+     {
+      "text": "that's served in can",
+      "at": 21,
+      "meaning": "prison time, can being slang for jail; rhyming slang from birdlime, time"
+     }
+    ],
+    "explanation": {
+     "surface": "A turkey dished up from a tin.",
+     "walkthrough": "'can' is slang for prison; doing bird is British slang for serving a jail sentence.",
+     "definitionFit": "Two senses: a feathered animal such as a turkey, and British slang for a prison sentence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1099,56 @@
     "text": "Refinement of English member swinging cane",
     "enumeration": "8"
    },
-   "solution": "ELEGANCE"
+   "solution": "ELEGANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refinement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 14,
+       "gives": "E"
+      },
+      {
+       "words": "member",
+       "at": 22,
+       "gives": "LEG",
+       "note": "a leg is a limb, one of the body's members"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swinging",
+         "at": 29,
+         "note": "the word cane is moved about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cane",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English gent swinging a walking cane, a picture of refinement.",
+     "definitionFit": "Elegance is grace and polish of style or manner, which is what refinement describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1162,58 @@
     "text": "Team removing last of luggage from railway junction",
     "enumeration": "4"
    },
-   "solution": "CREW"
+   "solution": "CREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removing",
+       "at": 5,
+       "note": "signals taking a letter away from the town's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "railway junction",
+       "at": 35,
+       "gives": "CREWE",
+       "note": "Crewe is an English town famous as a major railway junction"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 14,
+         "note": "the final letter of the word luggage is the one dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "luggage",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of porters taking the last bags from a station.",
+     "walkthrough": "CREWE, a town in Cheshire, England, known as a railway junction, loses its final E.",
+     "definitionFit": "A crew is a group of people working together, such as a boat's rowers or a ship's company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1227,50 @@
     "text": "Move fast, beginning to study engraving, perhaps",
     "enumeration": "6"
    },
-   "solution": "SPRINT"
+   "solution": "SPRINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move fast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 11,
+         "note": "only the opening letter of the word study is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "study",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "engraving, perhaps",
+       "at": 30,
+       "gives": "PRINT",
+       "note": "an engraving is one example of a print"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to hurry and start learning the craft of engraving.",
+     "definitionFit": "To sprint is to run at full speed over a short distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -357,7 +1284,40 @@
     "text": "Theatre act finished? Here's something to eat",
     "enumeration": "8"
    },
-   "solution": "TURNOVER"
+   "solution": "TURNOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something to eat",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Theatre act",
+       "at": 0,
+       "gives": "TURN",
+       "note": "a turn is a performer's act in a variety show"
+      },
+      {
+       "words": "finished",
+       "at": 12,
+       "gives": "OVER",
+       "note": "over means ended"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A variety act ends and someone offers a snack.",
+     "definitionFit": "A turnover is a pastry folded over a sweet or savoury filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -371,7 +1331,59 @@
     "text": "Girl carrying Republican papers for 24 hours",
     "enumeration": "6"
    },
-   "solution": "FRIDAY"
+   "solution": "FRIDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "24 hours",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 5,
+       "note": "the girl's name holds the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "FAY",
+       "note": "Fay is a girl's name"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Republican",
+         "at": 14,
+         "gives": "R"
+        },
+        {
+         "words": "papers",
+         "at": 25,
+         "gives": "ID",
+         "note": "ID means identity papers"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl holds a Republican's documents for a full day.",
+     "walkthrough": "'Girl' tempts as the definition, thinking of a girl Friday, but it supplies the name that holds the other pieces.",
+     "definitionFit": "The weekday after Thursday is one day, a period lasting a full day and night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl"
+    }
+   }
   }
  ]
 }
