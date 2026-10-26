@@ -22,6 +22,9 @@
   "date": "2018-02-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Note down the highest score ever?",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Note down",
+      "at": 0,
+      "meaning": "to note something down is to write it into a log or register"
+     },
+     {
+      "text": "the highest score ever",
+      "at": 10,
+      "meaning": "the best figure ever achieved, a sporting best that stands in the books"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether they should jot down what looks like an all-time top score.",
+     "definitionFit": "As a verb it means to write down or register; as a noun it is the best performance yet achieved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +75,69 @@
     "text": "Intervening in desperate scrap, judge finally sums up",
     "enumeration": "6"
    },
-   "solution": "RECAPS"
+   "solution": "RECAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sums up",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Intervening in",
+       "at": 0,
+       "note": "something intervening comes between, so this letter goes into the middle of the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "desperate",
+         "at": 15,
+         "note": "desperate suggests wild disorder, so the letters of scrap are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scrap",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 38,
+         "note": "finally points to the closing letter of the word judge"
+        }
+       ],
+       "parts": [
+        {
+         "words": "judge",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the middle of a frantic fight, a judge at last steps in and summarises.",
+     "walkthrough": "'desperate' turns SCRAP into RCAPS, and 'Intervening in' puts E, the last letter of judge from 'finally', inside it.",
+     "definitionFit": "A recap is a summary, so the verb recaps means summarises, matching sums up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +157,43 @@
      }
     ]
    },
-   "solution": "CLOCKWATCHING"
+   "solution": "CLOCKWATCHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "activity of bored employee",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Grandfather maybe",
+       "at": 0,
+       "gives": "CLOCK",
+       "note": "a grandfather clock is a tall pendulum clock, so a grandfather is an example of a timepiece"
+      },
+      {
+       "words": "witnessing",
+       "at": 18,
+       "gives": "WATCHING",
+       "note": "witnessing means watching"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grandfather observing what a bored worker gets up to.",
+     "walkthrough": "'Grandfather' looks like a relative; it is the tall longcase pendulum clock.",
+     "definitionFit": "A bored worker keeps checking the time, waiting for the shift to end; that habit has this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grandfather"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +207,55 @@
     "text": "Regret overheard gibe, and waffle",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waffle",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "RHU",
+       "indicators": [
+        {
+         "text": "overheard",
+         "at": 7,
+         "note": "overheard means the word is caught by ear, so we write letters that sound like it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Regret",
+         "at": 0,
+         "gives": "RUE",
+         "note": "to regret is to rue"
+        }
+       ]
+      },
+      {
+       "words": "gibe",
+       "at": 17,
+       "gives": "BARB",
+       "note": "a gibe is a barb, a cutting remark"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sorry to have heard a taunt, and some empty talk.",
+     "walkthrough": "RUE said aloud gives RHU, the first part of the plant's name.",
+     "definitionFit": "Rhubarb is British slang for nonsense or meaningless chatter, the same idea as waffle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "waffle"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +269,39 @@
     "text": "A peak volume",
     "enumeration": "6"
    },
-   "solution": "AMOUNT"
+   "solution": "AMOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "volume",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "peak",
+       "at": 2,
+       "gives": "MOUNT",
+       "note": "a peak is a mountain, abbreviated mount"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountain-top, or perhaps a book: a terse phrase of nouns.",
+     "definitionFit": "Volume in the sense of quantity or quantity of something, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +315,52 @@
     "text": "I wander uphill to see native New Zealander",
     "enumeration": "5"
    },
-   "solution": "MAORI"
+   "solution": "MAORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "native New Zealander",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "uphill",
+       "at": 9,
+       "note": "in a down clue going uphill means reading the letters from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 0
+        },
+        {
+         "words": "wander",
+         "at": 2,
+         "gives": "ROAM",
+         "note": "to wander is to roam"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walker heads up a slope hoping to meet an indigenous New Zealander.",
+     "walkthrough": "'uphill' turns I ROAM upside down in the down grid entry.",
+     "definitionFit": "The Maori are the Polynesian people indigenous to New Zealand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uphill"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +388,45 @@
      }
     ]
    },
-   "solution": "UPTOTHEMINUTE"
+   "solution": "UPTOTHEMINUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Latest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fancy",
+       "at": 24,
+       "note": "fancy as a verb means to imagine or make elaborate, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "out",
+       "at": 7
+      },
+      {
+       "words": "umpteenth I",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The newest one is released, and the speaker supposes it is about the hundredth.",
+     "walkthrough": "'fancy' reads as 'I imagine' but tells you to rearrange OUT and UMPTEENTH I together.",
+     "definitionFit": "Something completely current or most recent is described with this phrase, a synonym for latest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +440,41 @@
     "text": "Holding tureen is complicated",
     "enumeration": "6"
    },
-   "solution": "TENURE"
+   "solution": "TENURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "is complicated",
+       "at": 15,
+       "note": "something complicated is tangled, so the letters of the word tureen are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tureen",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Carrying a soup dish turns out to be tricky.",
+     "walkthrough": "'Holding' looks like gripping the dish; it is the noun, possession or occupancy.",
+     "definitionFit": "Tenure is the holding of an office or property, so a holding in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Holding"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +488,53 @@
     "text": "Credit quote convoluted: it involves going through hoops",
     "enumeration": "7"
    },
-   "solution": "CROQUET"
+   "solution": "CROQUET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it involves going through hoops",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Credit",
+       "at": 0,
+       "gives": "CR",
+       "note": "CR is the standard accounting abbreviation for credit"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "convoluted",
+         "at": 13,
+         "note": "convoluted means twisted, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quote",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tangled reference about something requiring a lot of bureaucratic effort.",
+     "walkthrough": "'going through hoops' suggests jumping through hoops for officials; here the hoops are literal.",
+     "definitionFit": "This lawn game is played by striking balls with mallets through small wire arches called hoops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hoops"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +554,54 @@
      }
     ]
    },
-   "solution": "TOPDRAWER"
+   "solution": "TOPDRAWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outstanding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "spinner",
+       "at": 12,
+       "gives": "TOP",
+       "note": "a top is a toy that spins"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to lift",
+         "at": 41,
+         "note": "in a down clue to lift means to raise the word so it reads from the bottom up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trophy, perhaps",
+         "at": 24,
+         "gives": "REWARD",
+         "note": "a trophy is an example of a reward"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket spin bowler wins a trophy and hoists it above the head.",
+     "walkthrough": "'spinner' suggests a spin bowler in cricket; it is the toy that spins. 'to lift' turns REWARD upside down.",
+     "definitionFit": "Top-drawer is an idiom for first-rate or of the highest class, hence outstanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spinner"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +615,58 @@
     "text": "Figure seen on middle of sofa regularly",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regularly",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 12,
+       "note": "on means placed after, so this number follows the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 15,
+         "note": "the middle of a word means its central letters, here those of sofa"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sofa",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "Figure",
+       "at": 0,
+       "gives": "TEN",
+       "note": "a figure is a number, such as ten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A number is spotted sitting in the middle of a settee time after time.",
+     "definitionFit": "Often and regularly both mean frequently, happening many times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +680,58 @@
     "text": "A couple of kings happy to retire for real",
     "enumeration": "5"
    },
-   "solution": "PUKKA"
+   "solution": "PUKKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for real",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to retire",
+       "at": 24,
+       "note": "to retire is to draw back, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "couple of kings",
+         "at": 2,
+         "gives": "KK",
+         "note": "K is the abbreviation for king, so two kings are KK"
+        },
+        {
+         "words": "happy",
+         "at": 18,
+         "gives": "UP",
+         "note": "being up means being cheerful or happy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two monarchs are genuinely pleased to step down.",
+     "walkthrough": "'to retire' reverses A, KK and UP together.",
+     "definitionFit": "Pukka is an Anglo-Indian word meaning genuine or authentic, as in the slang 'for real'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +745,30 @@
     "text": "Dog lead",
     "enumeration": "7"
    },
-   "solution": "POINTER"
+   "solution": "POINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0,
+      "meaning": "a breed of gun dog that stands still aiming its muzzle at game"
+     },
+     {
+      "text": "lead",
+      "at": 4,
+      "meaning": "a lead here is a hint or tip that directs someone"
+     }
+    ],
+    "explanation": {
+     "surface": "Dog lead: a leash for a pet.",
+     "definitionFit": "It is a breed of hunting dog, and also a clue or tip that points the way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +782,62 @@
     "text": "Vegetable gold, black and green, I gathered",
     "enumeration": "9"
    },
-   "solution": "AUBERGINE"
+   "solution": "AUBERGINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gold",
+       "at": 10,
+       "gives": "AU",
+       "note": "AU is the chemical symbol for gold"
+      },
+      {
+       "words": "black",
+       "at": 16,
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "gathered",
+         "at": 35,
+         "note": "gathered means drawn together into folds, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "green",
+         "at": 26
+        },
+        {
+         "words": "I",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable described by its colours, gold, black and green, collected by the speaker.",
+     "walkthrough": "'gathered' rearranges GREEN and I into ERGINE.",
+     "definitionFit": "The aubergine, or eggplant, is a purple-skinned fruit used as a vegetable in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +851,39 @@
     "text": "Small animals in nonconformist groups",
     "enumeration": "7"
    },
-   "solution": "INSECTS"
+   "solution": "INSECTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small animals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 14
+      },
+      {
+       "words": "nonconformist groups",
+       "at": 17,
+       "gives": "SECTS",
+       "note": "sects are dissenting religious groups that break from the mainstream"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Creatures found among bands of dissenters.",
+     "definitionFit": "Insects are tiny creatures, so they are an example of small animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nonconformist"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +903,42 @@
      }
     ]
    },
-   "solution": "SLIPUP"
+   "solution": "SLIPUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "raised",
+       "at": 17,
+       "note": "in a down clue raised means the letters go upwards, reading from the bottom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "students",
+       "at": 8,
+       "gives": "PUPILS",
+       "note": "pupils are students"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An error that learners brought up.",
+     "definitionFit": "A slip-up is a minor error, a synonym for mistake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +952,56 @@
     "text": "Gaol's opening: despicable type is free!",
     "enumeration": "6"
    },
-   "solution": "GRATIS"
+   "solution": "GRATIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "free",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 7,
+         "note": "the opening of a word is its first letter, here that of Gaol's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gaol's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "despicable type",
+       "at": 16,
+       "gives": "RAT",
+       "note": "a rat is a contemptible, treacherous person"
+      },
+      {
+       "words": "is",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain escapes jail and is suddenly at liberty.",
+     "walkthrough": "'free' looks like released from prison; it means costing nothing. Gaol is the British spelling of jail.",
+     "definitionFit": "Gratis means without charge, so free in the sense of costing nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1015,59 @@
     "text": "Poor Jack is in depressed condition",
     "enumeration": "7"
    },
-   "solution": "LOCKJAW"
+   "solution": "LOCKJAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "condition",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 10,
+       "note": "is in means this piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "depressed",
+       "at": 16,
+       "gives": "LOW",
+       "note": "to feel depressed is to feel low"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Poor",
+         "at": 0,
+         "note": "poor means badly made, so the letters of Jack are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jack",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unfortunate Jack is feeling down.",
+     "walkthrough": "'depressed condition' looks like the definition; only 'condition' defines, and 'depressed' gives the outer letters.",
+     "definitionFit": "Lockjaw, or tetanus, is a medical condition causing spasm of the jaw muscles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1081,54 @@
     "text": "Massive job mujaheddin must keep up",
     "enumeration": "5"
    },
-   "solution": "JUMBO"
+   "solution": "JUMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Massive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 33,
+       "note": "in a down clue up means the letters are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "must keep",
+         "at": 23,
+         "note": "to keep is to hold inside, so the letters sit concealed within these words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "job mujaheddin",
+         "at": 8,
+         "gives": "OBMUJ"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enormous task that the fighters have to sustain.",
+     "walkthrough": "'must keep' picks OBMUJ from 'job mujaheddin', and 'up' turns it backwards.",
+     "definitionFit": "Jumbo means very large, as in a jumbo jet, hence massive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1142,69 @@
     "text": "Risk sliding around close to crevasse, for one going down mountain",
     "enumeration": "5"
    },
-   "solution": "SKIER"
+   "solution": "SKIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one going down mountain",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 13,
+       "note": "around means placed so as to surround the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sliding",
+         "at": 5,
+         "note": "sliding suggests letters slipping about, so the word Risk is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Risk",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 20,
+         "note": "the close of a word is its last letter, here that of crevasse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crevasse",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous slip near a deep crack in a glacier, a mountaineering hazard.",
+     "walkthrough": "'sliding' turns RISK into SKIR, and 'around' wraps it round E, the final letter of crevasse from 'close to'.",
+     "definitionFit": "A skier descends slopes on skis, so is someone travelling down a mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sliding"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1218,59 @@
     "text": "Square, primarily, in proper solid shape",
     "enumeration": "5"
    },
-   "solution": "PRISM"
+   "solution": "PRISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "solid shape",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in means this letter is placed inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "proper",
+       "at": 22,
+       "gives": "PRIM",
+       "note": "prim means stiffly proper or prudish"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 8,
+         "note": "primarily means first of all, pointing to the opening letter of Square"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Square",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A square-looking item, mainly fitted in the right sort of solid figure.",
+     "walkthrough": "'Square' looks like the shape; only its first letter, S, is used.",
+     "definitionFit": "A prism is a three-dimensional geometric figure with two identical parallel ends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1284,31 @@
     "text": "Report result of tight vote?",
     "enumeration": "7"
    },
-   "solution": "RECOUNT"
+   "solution": "RECOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Report",
+      "at": 0,
+      "meaning": "to report is to relate or tell a story"
+     },
+     {
+      "text": "result of tight vote?",
+      "at": 7,
+      "meaning": "a very close election often leads to the ballots being tallied a second time"
+     }
+    ],
+    "explanation": {
+     "surface": "A news report on what happens after a knife-edge election.",
+     "definitionFit": "To recount is to narrate, while a recount is a second counting of votes after a narrow outcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1322,53 @@
     "text": "Unlikely flier, one strange bird!",
     "enumeration": "6"
    },
-   "solution": "PIGEON"
+   "solution": "PIGEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unlikely flier",
+       "at": 0,
+       "gives": "PIG",
+       "note": "from the saying 'pigs might fly', meaning something will never happen"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 20,
+         "note": "strange means odd, so the letters of one are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about a peculiar bird that hardly seems able to fly.",
+     "walkthrough": "'strange' rearranges ONE into EON.",
+     "definitionFit": "The pigeon is a common bird, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Unlikely"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1382,43 @@
     "text": "Evaluate female equine?",
     "enumeration": "6"
    },
-   "solution": "ASSESS"
+   "solution": "ASSESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evaluate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "equine",
+       "at": 16,
+       "gives": "ASS",
+       "note": "an ass is a donkey, a member of the horse family"
+      },
+      {
+       "words": "female",
+       "at": 9,
+       "gives": "ESS",
+       "note": "-ess is the suffix that makes a female form, as in lioness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether this is a she-donkey.",
+     "walkthrough": "The joke reads the answer as a feminine form of donkey, like lioness.",
+     "definitionFit": "To assess is to judge the value or quality of something, a synonym for evaluate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "female"
+    }
+   }
   }
  ]
 }
