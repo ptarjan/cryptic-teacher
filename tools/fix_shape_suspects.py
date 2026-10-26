@@ -2231,9 +2231,46 @@ def r_misplaced_indicator(node, parent, ctx):
                     inner = {x: y for x, y in lf.items() if x != "gives"}
                     new["parts"][k] = {"op": op, "indicators": [copy.deepcopy(ind)], "parts": [inner]}
                     keep(new)
+    if not good and not sel and not any(
+            not leaf(d) and V._OP_LEXICON.get(d.get("op")) in types for d, _ in list(walk(node))[1:]):
+        return _fold_link_word(node, base, ind, parent, ctx)
     if not good:
         return None
     return next(iter(good.values())) if len(good) == 1 else None
+
+
+def _fold_link_word(node, base, ind, parent, ctx):
+    """misplacedIndicator, link word: no op inside the charade is of the type the word signals
+    (CO + ana<various>(menus) carrying 'introducing'), so it is a plain link word between pieces.
+    A charade needs no indicator, and the validator wants every clue word in a leaf, an indicator
+    or the definition: the word joins the one synonym leaf it touches in the clue (Company
+    introducing = CO). Two touching leaves stay for the model (either could hold it)."""
+    clue = ctx["clue"]
+    a = ind.get("at")
+    if a is None or not ind.get("text") or clue[a:a + len(ind["text"])] != ind["text"]:
+        return None
+    b = a + len(ind["text"])
+    near = []
+    for k, lf in enumerate(base.get("parts") or []):
+        if not (isinstance(lf, dict) and leaf(lf) and lf.get("words") and lf.get("gives")) or lf.get("unchecked") \
+                or lf.get("at") is None or W.letters(lf["gives"]) == W.letters(lf["words"]):
+            continue
+        la, lb = lf["at"], lf["at"] + len(lf["words"])
+        if clue[la:lb] != lf["words"]:
+            continue
+        if lb <= a and not W.letters(clue[lb:a]):
+            near.append((k, la, b))
+        elif b <= la and not W.letters(clue[b:la]):
+            near.append((k, a, lb))
+    if len(near) != 1:
+        return None
+    k, x, y = near[0]
+    text, at = clue_text(clue, x, y)
+    new = copy.deepcopy(base)
+    new["parts"][k] = {**new["parts"][k], "words": text, "at": at}
+    if V.misplaced_indicators(new) or V.folded_indicators(new) or not _eval_swapped(node, parent, new, ctx):
+        return None
+    return new
 
 
 def r_shared_charade(node, parent, ctx):
