@@ -4871,11 +4871,11 @@ def vlm_word(reply, pattern, sizes, probs, enum=None, clue=None):
     if not word:
         word = swap_word(reply, pattern, sizes, probs)
     if not word and clue:
-        word = defined_word(reply, pattern, sizes, clue, enum)
+        word = defined_word(reply, pattern, sizes, clue, enum, probs)
     return word
 
 
-def defined_word(reply, pattern, sizes, clue, enum=None):
+def defined_word(reply, pattern, sizes, clue, enum=None, probs=None):
     """The one listed word (trove_solution_ocr.listed_of, each piece of `sizes` listed) of the light's
     length agreeing with every crossing letter of `pattern` that is near the VLM's `reply` (one letter
     swapped, 1 to MEND_GAPS "?" squares filled, or one letter added or dropped; the reply itself too),
@@ -4888,7 +4888,10 @@ def defined_word(reply, pattern, sizes, clue, enum=None):
     TOHERES, GINGERLY, QUAGMIRE, REDEEM, SUBVERSION, ABSOLVED, INSTALLS, MOIST, EQUIP, UTTERING,
     SEMESTER, STAIR; ACCURACY, CYCLONE, TRUNCHEONS, BACKSIDE, SLAPHAPPY under the floor), and 2 more
     its anagram spells (HOUSE PARTY, SHOT IN THE DARK). With 2+ near words the one linked was wrong
-    1 in 5 (ENDED for EDGED, PEER for BEAR, LAD for COD), so never taken (DEFINED_WORD)."""
+    1 in 5 (ENDED for EDGED, PEER for BEAR, LAD for COD); such a word stands only where it is also the
+    classifier's likeliest near word (`probs`, one list of 26 a cell, over the open cells) by FLOOR_MARGIN:
+    11 so, each right (BUCK, LAMB, OILER, SERENE, RAGBAG, ECSTASY, DOUBLED, JERKIN, TWIG, REMISS, ASPIC),
+    every wrong one the classifier's second (RANGER over RANGED, COOK over CLOD) (DEFINED_WORD)."""
     t = trove_solution_ocr
     lines = (reply or "").strip().splitlines()
     word = re.sub(r"[^A-Za-z?]", "", lines[0]).upper() if lines else ""
@@ -4919,12 +4922,23 @@ def defined_word(reply, pattern, sizes, clue, enum=None):
     else:
         return None
     near = [w for w in near if _pieces_listed(w, sizes)]
-    if len(near) != 1:
+    if not near:
         return None
-    got = near[0]
-    if t.definition_linked(got, clue) or wordplay_fit(clue, pattern, enum) == got:
+    play = wordplay_fit(clue, pattern, enum)
+    named = [w for w in near if w == play or t.definition_linked(w, clue)]
+    if len(named) != 1:
+        return None
+    got = named[0]
+    if len(near) == 1:
         return got
-    return None
+    if probs is None or len(probs) != n:
+        return None
+    opened = [i for i, p in enumerate(pattern) if p == "?"]
+
+    def likely(w):
+        return sum(math.log(max(float(probs[i][t.AZ.index(w[i])]), 1e-6)) for i in opened)
+    best = likely(got)
+    return got if all(best - likely(w) >= FLOOR_MARGIN for w in near if w != got) else None
 
 
 def _pieces_listed(word, sizes):
@@ -9243,10 +9257,10 @@ REREAD_SWAP_WORD = "2026-10-26T14:30:00+00:00"
 #: (every clue, from this page) leaves blank a light whose strip its reading kept and whose cached VLM reply
 #: vlm_word refuses but is near one listed word its clue defines (defined_word, strip_near's defined).
 #: 10-26 18:45Z: of 2,640 unanswered Times with no unit planned, 1,169 stood 1-2 short, their last lights
-#: the VLM's misreads the classifier misreads too (1970s-80s prints); 19 cached replies so settle. Once,
+#: the VLM's misreads the classifier misreads too (1970s-80s prints); 33 cached replies so settle. Once,
 #: as an answers-only reread (SOLUTION_FIXES); the replies are cached, so it asks nothing new.
 DEFINED_WORD = "solution short, its VLM word a letter off the one word its clue defines since"
-REREAD_DEFINED_WORD = "2026-10-26T19:30:00+00:00"
+REREAD_DEFINED_WORD = "2026-10-26T19:45:00+00:00"
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
 #: The due reason of a Times row, due none of those above, whose last read of a puzzle held with every clue
@@ -9353,7 +9367,7 @@ def _strip_near(p, q, swap=False, defined=False):
         probs = strips[entry_id(e)].get("p") or ()
         if defined:
             clue = (e.get("clue") or {}).get("text")
-            if not vlm_word(reply, pattern, sizes, probs, enum) and defined_word(reply, pattern, sizes, clue, enum):
+            if not vlm_word(reply, pattern, sizes, probs, enum) and defined_word(reply, pattern, sizes, clue, enum, probs):
                 return True
         elif swap:
             if not _vlm_word(reply, pattern, sizes, probs, enum) and swap_word(reply, pattern, sizes, probs):

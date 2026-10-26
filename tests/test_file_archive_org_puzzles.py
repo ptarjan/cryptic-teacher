@@ -3806,6 +3806,13 @@ check("a VLM reply the classifier misreads with it is settled by its clue: the o
        f.vlm_word("SIAIR", "S?A?R", [5], [cell_p(c) for c in "SIAIR"], None, "The way to parade in step"),
        f.defined_word("TOHERES", "??H?R?S", [7], "Sticks here in an island"),
        f.defined_word("E?E?D", "E???D", [5], "Being sharp, advanced gradually")))
+check("of several listed words near the VLM's reply, the one its clue defines stands only where the classifier "
+      "reads it likeliest by FLOOR_MARGIN (BUCK for BUCY on ??C?, its K read surely); not on a flat cell, nor with "
+      "no probabilities",
+      ("BUCK", None, None),
+      (f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy", None, [cell_p(c) for c in "BUCK"]),
+       f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy", None, [cell_p("B"), cell_p("U"), cell_p("C"), flat]),
+       f.defined_word("BUCY", "??C?", [4], "Dollar for a dandy")))
 # held_blank_unchecked: a word read for a held-blank light, its unchecked letters (no other light) read again.
 hu_real = tso.lights
 tso.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (4, "down"): [(0, 3), (1, 3), (2, 3), (3, 3)]}
