@@ -9565,9 +9565,18 @@ HOST_GRID_RESCAN = "solution host, its loose solution grids unread"
 #: Once: a host whose solutions_only read is older than this is due (host_rescan_due); HOST_GRID_RESCAN when
 #: that read is newer than REREAD_HOST_HEADINGS (host_rescan_reason).
 REREAD_HOST_GRIDS = "2026-10-26T07:45:00+00:00"
+#: The reason of the same read of a host read since REREAD_HOST_GRIDS, before REREAD_HOST_COLUMNS: solutions_only
+#: now also reads a heading set in a narrow column beside another, its number on the row under it
+#: (column_headings: 1950's "SOLUTION OF PUZZLE" over "No. 6,235.", 1970's "The Solution to Crossword" over
+#: "12,475, the fourth entry"), and the 2007-14 "Monday's Solution 23,792" (named_day_headings). Paul 10-26: 25
+#: unanswered Times puzzles' hosts read their heading's words but linked none; 20 now link, 0 to another number.
+HOST_COLUMN_RESCAN = "solution host, its column headings unread"
+#: Once: a host whose solutions_only read is older than this is due (host_rescan_due); HOST_COLUMN_RESCAN when
+#: that read is newer than REREAD_HOST_GRIDS (host_rescan_reason).
+REREAD_HOST_COLUMNS = "2026-10-26T08:45:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
-HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -9906,7 +9915,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
             if u["rel"] in hosts and u["reason"] in ("scan stale", "never scanned"):
                 u.update(reason=HOST_SCAN, rank=RANKS[HOST_SCAN], gain=hosts[u["rel"]])
         scan_units.sort(key=lambda u: u["reason"] != HOST_SCAN)  # stable: the order within each group stands
-    # Hosts whose scan stands but whose solution bands were read before REREAD_HOST_GRIDS, ahead too.
+    # Hosts whose scan stands but whose solution bands were read before REREAD_HOST_COLUMNS, ahead too.
     rescans = host_rescans(paper, dirs, rels, stale_set, solutions, held, known)
     if rescans:
         scan_units[:0] = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": RANKS[HOST_RESCAN], "date": day_of(d),
@@ -10019,15 +10028,18 @@ def hosts_of(day):
 
 def host_rescan_due(paper, row):
     """Whether Gale Times ledger `row` of a solution host is due its solutions_only read once more
-    (HOST_RESCAN, HOST_GRID_RESCAN): none made at or after REREAD_HOST_GRIDS (a "solOnly" with no "at" is older)."""
-    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_GRIDS
+    (HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN): none made at or after REREAD_HOST_COLUMNS (a "solOnly"
+    with no "at" is older)."""
+    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_COLUMNS
 
 
 def host_rescan_reason(row):
     """The reason a host_rescan_due ledger `row` is read: HOST_RESCAN when its solutions_only read is older
-    than REREAD_HOST_HEADINGS (or there is none), else HOST_GRID_RESCAN (only loose_bands is new to it)."""
-    return HOST_RESCAN if str(((row or {}).get("solOnly") or {}).get("at") or "") < REREAD_HOST_HEADINGS \
-        else HOST_GRID_RESCAN
+    than REREAD_HOST_HEADINGS (or there is none), HOST_GRID_RESCAN when older than REREAD_HOST_GRIDS (loose_bands
+    new to it), else HOST_COLUMN_RESCAN (only column_headings and named_day_headings are)."""
+    at = str(((row or {}).get("solOnly") or {}).get("at") or "")
+    return HOST_RESCAN if at < REREAD_HOST_HEADINGS else HOST_GRID_RESCAN if at < REREAD_HOST_GRIDS \
+        else HOST_COLUMN_RESCAN
 
 
 def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
@@ -10189,12 +10201,17 @@ def solutions_only(d):
     prize = {t - PRIZE_LAG for t in voted} if prize_monday(day) and paper.series == SERIES else set()
     # "Solution to yesterday's" over "Crossword 22,204" (day_headings): any number a heading may print.
     lagged = {t - lag for t in voted for lag in SOLUTION_LAGS + HOLIDAY_LAGS}
+    # A heading set in a narrow column beside another (column_headings): the numbers solution_headings expects.
+    lags = {t - lag for t in voted for lag in SOLUTION_LAGS}
     import ocr_remote
     with ocr_remote.local_slot():
         for leaf in leaves:
             img = page(d, leaf)
             key = f"{d.parent.name}_{d.name}_{leaf}"
             sols = {}
+            # column_headings' and named_day_headings' finds, taken after every other read's, less the numbers
+            # any read saw deferred ("will appear on Wednesday")
+            columns, deferred = {}, set()
             read = cached_page_words(key)
 
             def judge(lines, pool=None):
@@ -10206,6 +10223,10 @@ def solutions_only(d):
                           if HEADING_START.match(ln[k][4]) or solution_like(ln[k][4])]
                 for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
                     sols.setdefault(n, b)
+                if paper.series == SERIES:
+                    for n, b in column_headings(lines, lines if pool is None else pool, lags, deferred) \
+                            + named_day_headings(lines, lagged):
+                        columns.setdefault(n, b)
             for band in loose_bands(img, solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words])):
                 for which in READERS:
                     path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
@@ -10216,7 +10237,10 @@ def solutions_only(d):
                 # alone is no heading
                 lines = printed_lines(words)
                 judge([ln for ln in lines if any(solution_like(w[4]) for w in ln)], lines)
-            found["solutions"] += [{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
+            for n, b in columns.items():
+                if n not in deferred:
+                    sols.setdefault(n, b)
+            found["solutions"] +=[{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
                                    if n not in {s["number"] for s in found["solutions"]}]
     return found
 
@@ -10398,6 +10422,122 @@ def day_headings(lines, pool, expected):
                 n = c and like(c[1].lower(), "crossword") and solution_number(c[2], expected)
                 if n:
                     found.append((n, box_of(head + under)))
+    return found
+
+
+#: How far past a heading word, in its heights, the next word on its line may start and be the heading's:
+#: a band's line runs on into the column beside it ("Solution OF PUZZLE" then, 94 px on, "DORKING-REIGATE").
+COLUMN_GAP = 1.5
+#: A deferral's words after a heading's number ("Solution of Puzzle No. 12,747 will appear on Wednesday",
+#: read "willappearon", "will annear", "1 Bnnear"): that host prints no grid for it.
+DEFERRED = re.compile(r"will|[a-z][pn]{2}[ec]ar", re.IGNORECASE)
+
+
+def column_headings(lines, pool, expected, deferred=None):
+    """[(number, box)] of the headings in `lines` set in a narrow column, a band's line running on into the
+    one beside it: from each solution_like word, the words on its line up to a gap of COLUMN_GAP heights,
+    joined to the rows under it in `pool` (the page's or band's lines) whose words start within two
+    heights left of the heading (of a short word just before it: "The") and centre within three right of
+    it, up to HEADING_RUN rows and the
+    first holding a number (two digits or more: a speck under a misread "3.24" is no digit of it, 1942-06-01),
+    read as solution_at reads a line (`expected`, solution_number). Paul 10-26:
+    25 unanswered Times puzzles' hosts read their heading's words, never linked: 1950's "SOLUTION OF
+    PUZZLE" over "No. 6,235." beside an advertisement column, 1970's "The Solution to Crossword" over
+    "12,475, the fourth entry", 1976-86's "Solution of Puzzle No" over "14,322". None where words like
+    "will appear" follow its number (DEFERRED: 1971-04-19, 1981-01-10 print no grid): its number is added
+    to `deferred` (a set, when given) for the caller to refuse it from every other read of the leaf too
+    (one read "will annear" as "1 Bnnear"). solutions_only's alone: scan() reaches none of it."""
+    words = list({tuple(w): None for u in pool for w in split_words(u)})
+    found = []
+    for ln in lines:
+        for w in split_words(ln):
+            if not solution_like(w[4]) or re.search(r"\d", w[4]):
+                continue
+            h = max(w[3] - w[1], 1)
+            mid = (w[1] + w[3]) / 2
+            run = [w]
+            # the next word on its row, in any line of `pool` (a band may split the row), up to its number: the
+            # next column's clue number is none of it ("No. 4,14" then "5 A wooden-headed fellow": 4,145, 1943-06-09)
+            def next_on_row(cur, seen):
+                nxt = [v for v in words if -h <= v[0] - cur[2] <= COLUMN_GAP * h and v[0] > cur[0]
+                       and abs((v[1] + v[3]) / 2 - mid) <= h / 2 and v not in seen]
+                return min(nxt, key=lambda v: v[0]) if nxt else None
+            while len(re.findall(r"\d", run[-1][4])) < 2:
+                v = next_on_row(run[-1], run)
+                if v is None:
+                    break
+                run.append(v)
+            beyond = []  # the words on past its number, for DEFERRED alone ("No 15.419 will appear")
+            for _ in range(3):
+                v = next_on_row((beyond or run)[-1], run + beyond)
+                if v is None:
+                    break
+                beyond.append(v)
+            # the column's left from a short word just before ("The", "he": 1970's number sets under it)
+            lead = [v for v in words if len(v[4]) <= 3 and 0 <= w[0] - v[2] <= COLUMN_GAP * h
+                    and abs((v[1] + v[3]) / 2 - mid) <= h / 2]
+            x0, x1 = min([w[0]] + [v[0] for v in lead]), max(v[2] for v in run)
+            top, foot, rows = w[1], max(v[3] for v in run), []
+            for _ in range(HEADING_RUN + 1):
+                cand = [v for v in words if (v[1] + v[3]) / 2 > (top + foot) / 2 + h / 2 and v[1] <= foot + 1.5 * h
+                        and v[0] >= x0 - 2 * h and (v[0] + v[2]) / 2 <= x1 + 3 * h]
+                if not cand:
+                    break
+                first = min(v[1] for v in cand)
+                row = sorted((v for v in cand if v[1] <= first + h / 2), key=lambda v: v[0])
+                rows.append(row)
+                top, foot = min(v[1] for v in row), max(v[3] for v in row)
+            text = [(*v[:4], v[4] if re.search(r"\d", v[4]) else v[4].lstrip(".,:;'-") or v[4]) for v in run]
+            for k, row in enumerate([[]] + rows[:HEADING_RUN]):
+                text += row
+                if not any(re.search(r"\d", v[4]) for v in text):
+                    continue
+                end = solution_at(text, 0, expected)
+                if end is not None and not column_heading_like(text[:end[1] + 1], end[0]):
+                    end = None
+                if end is not None:
+                    n, j = end
+                    after = text[j + 1:] + (rows[k] if k < len(rows) else []) + (beyond if k == 0 else [])
+                    if not any(DEFERRED.search(v[4]) for v in after):
+                        found.append((n, box_of(text[:j + 1])))
+                    elif deferred is not None:
+                        deferred.add(n)
+                    break
+                if any(len(re.findall(r"\d", v[4])) >= 2 for v in text):
+                    break  # its number read but none expected: no speck under it read on ("3.24" + "7": 3,747)
+    return found
+
+
+def column_heading_like(words, n):
+    """Whether column_headings' joined heading `words` (up to its number, read as `n`) reads as one: a
+    word like "Puzzle" or "Crossword" in it, and its number's digits all of `n`'s but one at most, not
+    junk solution_at repairs ("Solution gto 4, (6" over a speck "6": 4,061, 1943-05-01)."""
+    named = any(like(re.sub(r"[^a-z]", "", w[4].lower()), m) for w in words for m in ("puzzle", "crossword"))
+    return named and len(re.findall(r"\d", "".join(w[4] for w in words))) >= len(str(n)) - 1
+
+
+#: The 2007-14 Gale Times heading by the day: "Monday's Solution 23,792", "Wednesday's solution 24,105",
+#: "Yesterday's solution 25,814" read glued ("Yesterday'ssolution25,814") or cut ("ay's", "terday's"):
+#: a day's "...day's" (or its "ay's"), a "solution" word, its number read clean.
+DAY_SOLUTION = re.compile(r"^\W*[A-Za-z]{0,7}?(?:day|ay)\W{0,2}s?\s*(s[o0]l[a-z]{3,6}?)\s*(\d{2}[,.]\d{3})(?![\d,.]?\d)",
+                          re.IGNORECASE)
+
+
+def named_day_headings(lines, expected):
+    """[(number, box)] of the DAY_SOLUTION headings in `lines` whose "solution" word reads like one and
+    whose number, read digit for digit, is one of `expected`: no repair (a misread of another number never
+    stands for one). Paul 10-26: 6 unanswered 2007-14 Times puzzles' hosts read "Monday's Solution 23,792"
+    (2007-12-26: the Christmas issue gap), "Wednesday's" or a glued "Yesterday'ssolution25,814", which
+    YESTERDAY_SOLUTION (spaced, "yesterday" whole) misses. solutions_only's alone."""
+    found = []
+    for ln in lines:
+        ws = split_words(ln)
+        for k in range(len(ws)):
+            for j in range(k, min(len(ws), k + 3)):
+                m = DAY_SOLUTION.match(" ".join(v[4] for v in ws[k:j + 1]))
+                if m and like(m[1].lower(), "solution") and number_of(m[2]) in expected:
+                    found.append((number_of(m[2]), box_of(ws[k:j + 1])))
+                    break
     return found
 
 

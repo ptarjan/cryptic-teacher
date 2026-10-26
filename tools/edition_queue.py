@@ -715,6 +715,9 @@ def evidence_reason(reason):
             # A solution host of an unanswered Times puzzle read before loose_bands read the heading over a
             # near-square solution grid (the 1940s'): once (fa.host_rescan_reason); a scan, kept as a host's.
             or reason == fa.HOST_GRID_RESCAN
+            # ... read before column_headings read a heading set in a narrow column beside another, its number on
+            # the row under it, and named_day_headings the 2007-14 "Monday's Solution 23,792": once.
+            or reason == fa.HOST_COLUMN_RESCAN
             # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
             # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
             or reason == fa.RIGHT_FOREIGN_READ
