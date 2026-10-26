@@ -2918,16 +2918,22 @@
   // already filled by a crossing entry are not worth stopping on. If everything
   // ahead is filled, fall back to a plain one-square step so the cursor still
   // moves (and typing over a letter stays possible).
-  function advanceToGap() {
+  // Overtyping: when the square just typed in already held a letter, the cursor
+  // goes to the very next square in the entry even if that one is filled, so a
+  // filled word can be retyped straight through. Only locked squares are skipped.
+  function advanceToGap(overtype) {
     const e = gridEntry();
+    const light = e ? entryCells(e) : currentLight();
+    const i = light ? light.findIndex((c) => c && c.x === cur.x && c.y === cur.y) : -1;
+    if (overtype && light && i >= 0) {
+      const nxt = light.slice(i + 1).find((c) => c && !cellConfirmed(c));
+      if (nxt) { cur.x = nxt.x; cur.y = nxt.y; return; }
+    }
     if (!e) {
-      const light = currentLight();
-      const i = light ? light.findIndex((c) => c.x === cur.x && c.y === cur.y) : -1;
       const gap = light && light.slice(i + 1).find((c) => !c.letter);
       if (gap) { cur.x = gap.x; cur.y = gap.y; } else stepLight(1);
       return;
     }
-    const i = e.direction === "across" ? cur.x - e.position.x : cur.y - e.position.y;
     for (let j = i + 1; j < e.length; j++) {
       const c = cellAt(e, j);
       if (!c.letter) { cur.x = c.x; cur.y = c.y; return; }
@@ -2968,11 +2974,12 @@
   function typeLetter(ch) {
     const c = cells[cur.y][cur.x];
     if (!c) return;
-    if (cellConfirmed(c)) { pulseCells([c]); advanceToGap(); refreshAll(); return; }
+    if (cellConfirmed(c)) { pulseCells([c]); advanceToGap(true); refreshAll(); return; }
+    const overtype = !!c.letter;
     beacon("letter");
     c.letter = ch; c.wrong = false; c.revealed = false;
     checkSolvedEntries(true);
-    advanceToGap();
+    advanceToGap(overtype);
     refreshAll(); saveState();
   }
 
