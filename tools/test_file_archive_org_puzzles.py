@@ -835,15 +835,36 @@ check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES:
 f.filed_state = lambda series, n: (False, True)
 real_hb = f.held_blanks
 f.held_blanks = lambda series, n, sol_dir: 2
-cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-26T07:00:00+00:00", gap=2))]
+cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2))]
+# Read since REREAD_CLUE_SHORT, before REREAD_CLASH_SHORT: CLASH_SHORT.
+cs_due.append(f.short_again(vu_row(f.REREAD_CLUE_SHORT, gap=2)))
 f.held_blanks = lambda series, n, sol_dir: 3
 cs_due.append(f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)))
 f.held_blanks = real_hb
 f.filed_state = real_fs
 check("a held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT: CLUE_SHORT (rank 2, "
-      "answers-only, a LOW prefix); read since, or 3+ blank, nothing",
-      [f.CLUE_SHORT, None, None, 2, True, True],
-      cs_due + [f.RANKS[f.CLUE_SHORT], f.CLUE_SHORT in f.SOLUTION_FIXES, f.CLUE_SHORT.startswith("solution short")])
+      "answers-only, a LOW prefix); read since, before REREAD_CLASH_SHORT, CLASH_SHORT (the same); read since "
+      "both, or 3+ blank, nothing",
+      [f.CLUE_SHORT, None, f.CLASH_SHORT, None, 2, True, True, 2, True, True, True, True],
+      cs_due + [f.RANKS[f.CLUE_SHORT], f.CLUE_SHORT in f.SOLUTION_FIXES, f.CLUE_SHORT.startswith("solution short"),
+                f.RANKS[f.CLASH_SHORT], f.CLASH_SHORT in f.SOLUTION_FIXES, f.CLASH_SHORT.startswith("solution short"),
+                f.REREAD_CLUE_SHORT < f.REREAD_CLASH_SHORT, f.CLASH_SHORT in __import__("edition_queue").LOW_ASK])
+# held_recrossed: a blank light's VLM word against a held crossing stands, the crossing read again with its letter,
+# where that makes a listed word and the clue read with the crossing open gives the VLM word too.
+import numpy as np
+hr_cell = lambda top, p=0.9, second=None, q=0.0: np.array(
+    [p if c == top else (q if c == second else (1 - p - q) / (24 if second else 25)) for c in f.trove_solution_ocr.AZ])
+hr_lts = {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (1, "down"): [(0, 0), (1, 0), (2, 0), (3, 0)]}
+hr_probs = {(0, 0): hr_cell("F", 0.6, "P", 0.3), (0, 1): hr_cell("O"), (0, 2): hr_cell("U"), (0, 3): hr_cell("R"),
+            (1, 0): hr_cell("L"), (2, 0): hr_cell("A"), (3, 0): hr_cell("T")}
+hr_enums = {(1, "across"): "4", (1, "down"): "4"}
+check("held_recrossed: FOUR against a held PLAT re-reads it FLAT; YOUR (YLAT no word), a crossing not held, or one "
+      "agreeing (FLAT) re-reads nothing",
+      [{(1, "down"): "FLAT"}, None, None, None],
+      [f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums),
+       f.held_recrossed("YOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, set(), hr_probs, hr_enums),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "FLAT"}, {(1, "down")}, hr_probs, hr_enums)])
 # agreed_word: an unlisted VLM name stands under VLM_UNLISTED_TOP when every cell's likeliest letter is its own.
 ag = lambda word, faint: [[(faint if i in (2,) else 0.95) if c == ch else (1 - (faint if i in (2,) else 0.95)) / 25
                            for c in f.trove_solution_ocr.AZ] for i, ch in enumerate(word)]

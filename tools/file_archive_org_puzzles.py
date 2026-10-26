@@ -5083,6 +5083,11 @@ def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # where they could complete the puzzle or nearly (6+ short, or 1-2: CLUE_SHORT).
     answers, info = candidate_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
                                     every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
+    # A grid's last 1-2 lights whose VLM strip read clashes with held crossings their re-read makes words
+    # (clash_reads, CLASH_SHORT): the held crossings are re-read with it.
+    answers, info, recrossed = clash_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
+                                           every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
+    clash = {**clash, **recrossed}
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -5357,6 +5362,111 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
         info["vlmLights"] = sorted(set(info.get("vlmLights") or ()) | set(vl))
     info["accepted"] = info.get("accepted", 0) + len(took)
     return {**answers, **took}, info
+
+
+#: held_recrossed: the most held crossings one VLM word may re-read (WELL-PLACED over TEASE, NATO, ROPY).
+CLASH_CROSSINGS = 3
+
+
+def held_recrossed(word, key, lts, known, held, probs, enums, cell_p=None):
+    """{crossing key: its word re-read} for VLM word `word` of blank light `key` (of grid lights `lts`)
+    that crosses answers `known` ({key: word}) on other letters, each such crossing a `held` one
+    (keys), or None. The held crossings are older code's reads of the same printed grid, and on the
+    last lights of a short Times grid the VLM's plain strip read clashing with one is as often the held
+    letter misread (TOTA for IOTA, PLAT for FLAT, UTTER for OTTER, SUS for BUS) as its own slip.
+    It stands when: at most CLASH_CROSSINGS held crossings clash, each on one cell, and each one's word
+    with the VLM's letter there is a listed word (worded, or a corpus answer; no misread_word); the
+    VLM word passes vlm_word on its crossings with those cells open (`cell_p` the strip's probabilities
+    a cell, else the grid's `probs`), and is a word the clue-constrained read gives the light with those
+    crossings open (trove_solution_ocr.clue_reads: the word taken, or one of its CANDIDATE_OFFER
+    likeliest candidates). 10-26, of 131 Times lights 1-2 short with a VLM read against a held
+    crossing, most such reads were the VLM's (HAPPYHO, THANKPUZZLES), each crossing word re-read no
+    word (ROLYPOLP) or the read no candidate (JACENT for DECENT, CEREAL with RAISA)."""
+    t = trove_solution_ocr
+    cells = lts.get(key)
+    if not cells or len(word) != len(cells) or not word.isalpha() or misread_word(word, enums.get(key)):
+        return None
+    letters = {rc: ch for k, w in known.items() for rc, ch in zip(lts[k], w)}
+    off = [i for i, rc in enumerate(cells) if rc in letters and letters[rc] != word[i]]
+    if not off:
+        return None
+    alts = {}
+    for i in off:
+        on = [k for k in known if k != key and cells[i] in lts[k]]
+        if len(on) != 1 or on[0] not in held:
+            return None
+        j = on[0]
+        ji = lts[j].index(cells[i])
+        was = alts.get(j, known[j])
+        alts[j] = was[:ji] + word[i] + was[ji + 1:]
+    if len(alts) > CLASH_CROSSINGS or len(alts) != len(off):
+        return None
+    for j, alt in alts.items():
+        if misread_word(alt, enums.get(j)) or not (worded(alt, enums.get(j)) or alt in t.corpus_words()):
+            return None
+    opened = {k: w for k, w in known.items() if k not in alts}
+    pattern = "".join("?" if i in off else letters.get(rc, "?") for i, rc in enumerate(cells))
+    p = cell_p if cell_p is not None else [probs[rc] for rc in cells]
+    if vlm_word(word, pattern, t.pieces_of(enums.get(key), len(cells)), p, enums.get(key)) != word:
+        return None
+    got, cands = t.clue_reads(lts, opened, probs, enums)
+    if got.get(key) != word and word not in [w for w, _ in (cands.get(key) or ())[:CANDIDATE_OFFER]]:
+        return None
+    return alts
+
+
+def clash_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False, blog=False, ask=True):
+    """(answers, info, clash) of answers_only's checked reading `answers` of a held puzzle's `entries` left
+    1 to CANDIDATE_SLACK lights blank after candidate_reads, with each such light's VLM plain strip read
+    (vlm_lights' ask, its strip cut off the grid's `crop`) taken where it clashes with held crossings that
+    held_recrossed re-reads: the light takes the VLM word and each such crossing its word re-read, all
+    standing together where the answers-only checks (checked_answers; settle_held takes each re-read
+    crossing as the read answer, its changed letter checked by the VLM word) keep them. `clash` is
+    settle_held's {light: {"held", "read", "took"}} of the crossings so changed. A blog's held answers
+    (`blog`) always stand: none is re-read. 10-26 (CLASH_SHORT): of 666 Times puzzles 1-2 short with no
+    unit planned, 131 blank lights had a VLM read against a held crossing."""
+    import base64
+    import io
+    from PIL import Image
+    t = trove_solution_ocr
+    held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
+    left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
+    if blog or not ask or not left or len(left) > CANDIDATE_SLACK or crop is None or not crop.exists() \
+            or not vlm.wanted():
+        return answers, info, {}
+    probs = crop_cell_probs(crop, grid)
+    if not probs:
+        return answers, info, {}
+    lts = t.lights(grid)
+    cut = t.crop_strips(crop, grid, [_light_key(k) for k in left])
+    if not cut:
+        return answers, info, {}
+    asked = {}
+    vlm_lights({**held, **answers}, cut, grid, enums, asked)
+    known = {_light_key(k): w for k, w in {**held, **answers}.items() if _light_key(k) in lts}
+    mine = {_light_key(k) for k in held}
+    by = {}
+    for lid, reply in sorted(asked.items()):
+        key = _light_key(lid)
+        word = reply_word(reply)
+        alts = held_recrossed(word, key, lts, {**known, **{_light_key(k): w for k, w in by.items()}},
+                              mine - {_light_key(k) for k in by}, probs, enums, cut[lid]["p"])
+        if alts is None:
+            continue
+        by[lid] = word
+        by.update({f"{j[0]}-{j[1]}": w for j, w in alts.items()})
+    if not by:
+        return answers, info, {}
+    checked, _, clash = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed,
+                                        every=every, blog=blog)
+    if any(checked.get(k) != w for k, w in by.items()):
+        return answers, info, {}
+    clash = {k: c for k, c in clash.items() if k in by and c.get("took") == "read"}
+    info = {**info, "clashRead": sorted(k for k in by if k not in clash),
+            "vlmLights": sorted(set(info.get("vlmLights") or ()) | {k for k in by if k not in clash}),
+            "heldClash": {**(info.get("heldClash") or {}), **clash},
+            "accepted": info.get("accepted", 0) + len(by) - len(clash)}
+    return {**answers, **by}, info, clash
 
 
 def solution_crop(sol, number):
@@ -8229,6 +8339,15 @@ REREAD_CANDIDATES = "2026-10-26T04:30:00+00:00"
 #: planned. Once, as an answers-only reread (SOLUTION_FIXES).
 CLUE_SHORT = "solution short, its last lights read by their clues' candidates since"
 REREAD_CLUE_SHORT = "2026-10-26T06:00:00+00:00"
+#: The due reason of a Times row read before REREAD_CLASH_SHORT, due none of those above (CLUE_SHORT's
+#: rows read before REREAD_CLUE_SHORT take both fixes in one reread), whose held puzzle leaves 1 to
+#: CANDIDATE_SLACK lights blank as many_short's few: since then answers_only takes such a light's VLM
+#: strip read against held crossings that read again with its letters as listed words, the clue read
+#: giving it too (clash_reads, held_recrossed). 10-26: of 666 Times puzzles 1-2 short with no unit
+#: planned, 131 blank lights had a VLM read against a held crossing; 21 stand so, 24 held answers re-read
+#: (TOTA for IOTA, PLAT for FLAT, UTTER for OTTER), each right by its clue. Once, answers-only.
+CLASH_SHORT = "solution short, its last lights' VLM reads against held crossings settled since"
+REREAD_CLASH_SHORT = "2026-10-26T07:00:00+00:00"
 #: {(held path, reading path): ((held stamp, reading stamp), held_blanks' answer)}
 _MANY_SHORT = {}
 
@@ -8355,7 +8474,8 @@ def short_again(row):
     those, whose reading kept a strip of a light left blank (floor_short); CANDIDATE_READS for one read
     before REREAD_CANDIDATES, due none of those, whose held file leaves more than LATE_MAX lights blank
     (many_short); CLUE_SHORT for one read before REREAD_CLUE_SHORT, due none of those, whose held file
-    leaves 1 to CANDIDATE_SLACK lights blank (many_short's few)."""
+    leaves 1 to CANDIDATE_SLACK lights blank (many_short's few); CLASH_SHORT for such a row read since,
+    before REREAD_CLASH_SHORT."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -8370,6 +8490,8 @@ def short_again(row):
         return CANDIDATE_READS
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_SHORT)) and many_short(row, paper, few=True):
         return CLUE_SHORT
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLASH_SHORT)) and many_short(row, paper, few=True):
+        return CLASH_SHORT
     return why
 
 
@@ -9378,7 +9500,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -9889,7 +10011,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT)
 
 
 def keeps_vlm(why, row, unit=None):
