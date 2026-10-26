@@ -7,6 +7,7 @@
 # no function that measures or rates a puzzle may name a series. (The Times'
 # SNITCH ranges and comment blend are data only the Times has, and live outside
 # these functions; the blend is restandardised onto the series' own clue index.)
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import inspect
 import os
 import sys

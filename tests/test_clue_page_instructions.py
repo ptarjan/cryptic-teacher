@@ -3,6 +3,7 @@
 # its note links to; the fetcher reads them from there and files them with the
 # note (cryptic-23646's note says only "the numbers on this grid should be
 # ignored"; what defines its asterisked clues is on the clue page).
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

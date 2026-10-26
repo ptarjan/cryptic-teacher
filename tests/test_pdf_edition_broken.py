@@ -8,6 +8,7 @@
 #     python3 tests/test_pdf_edition_broken.py
 #
 # A three-page PDF made here, no network, nothing written outside a temp dir.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

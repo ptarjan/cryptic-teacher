@@ -15,6 +15,7 @@
 #     python3 tests/test_file_gale_listener.py
 #
 # Synthetic readings, grids and letters in a temp dir: no OCR, no page image.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 import atexit

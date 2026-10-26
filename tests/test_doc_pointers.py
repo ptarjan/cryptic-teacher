@@ -19,6 +19,7 @@
 #   - `name()` needs `name` to appear in some tracked .py/.js/.sh/.html file.
 # Tokens with spaces, placeholders (<x>, *, {}, $), URLs, flags and absolute or
 # home paths are prose, not pointers, and are skipped.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 from pathlib import Path

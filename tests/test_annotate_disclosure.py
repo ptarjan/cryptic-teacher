@@ -10,6 +10,7 @@
 # quiet on the right one, so each is tested from both sides here. The blog
 # lookup most of all: it must appear once only the last few clues are null, and
 # never earlier, never on a blind run and never for a series nobody blogs.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import re
 import subprocess

@@ -15,6 +15,7 @@
 # Also: the page chrome above The Nation's clue list (share bar, byline, issue
 # line, newsletter blurbs) is not a preamble (fetch_nation.preamble_of,
 # tools/boilerplate.py).
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

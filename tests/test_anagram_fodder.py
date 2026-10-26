@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # An anagram's fodder is drawn from the clue: its wordplay's words and the
 # letters its blocks give. GROAN is not the fodder of a clue that says grain.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

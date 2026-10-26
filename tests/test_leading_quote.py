@@ -5,6 +5,7 @@
 # a matched quotation, an elision and a dropped h stand, offsets move with the
 # text, a publisher's clue is never touched, both OCR readers finish a clue
 # through it, and the write gate refuses what it would still mend.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -4,6 +4,7 @@
 # puzzle read by eye, with its look-alike on the other side. A straight puzzle
 # is unrated (difficulty.raw) and goes behind every cryptic in the hinting
 # queue (prereset_plan), a No 1 or a series' oldest included.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

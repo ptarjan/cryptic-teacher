@@ -10,6 +10,7 @@
 #
 # Gale is a stand-in object: nothing is asked of Gale, the portal, the Mac or
 # the desktop, and nothing is written outside a temp dir.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 import atexit

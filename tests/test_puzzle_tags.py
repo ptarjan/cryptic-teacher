@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # tools/puzzle_tags.py tags what the file states and nothing it only suggests:
 # each tag on a real puzzle that has it, and off the look-alike that does not.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

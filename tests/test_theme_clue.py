@@ -3,6 +3,7 @@
 # puzzle that prints no preamble. It lets a block with no clue words stand as
 # a preamble would, must name a worded entry, re-queues a recorded annotate
 # failure, survives clues-only promotion, and no annotation may set or change it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

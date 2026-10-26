@@ -9,6 +9,7 @@
 # its `alsoLeads` {clue, group, annotation} (tools/groups.py). This pins the
 # schema, the groups readers, the shape checks, the annotate run's view and
 # write, and the Genius parser's "See N" placing for that case.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

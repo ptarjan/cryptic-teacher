@@ -11,6 +11,7 @@
 # a crossing answer contradicts, or names a model's fill. A malformed one stops the check with the
 # shape to write. The run's view of an OCR'd, model-solved puzzle carries
 # `source.retrievedFrom` and the grid, so neither is read off the puzzle file.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # A paper's erratum in the preamble fixes its clue and leaves the preamble;
 # the instructions beside it stay, and the write gate refuses one left behind.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
