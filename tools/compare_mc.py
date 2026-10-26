@@ -159,9 +159,8 @@ def ladder_steps(ann, clue_text):
         def_text = f"The definition is {definition}{def_place(clue_text, defs[0])}"
     if ann.get("linkWords"):
         lw = ", ".join(ann["linkWords"])
-        verb = "are" if len(ann["linkWords"]) > 1 else "is"
-        def_text += (f" {lw} {verb} just a link — words that join the definition "
-                     "to the wordplay and contribute no letters of their own.")
+        verb = "are link words" if len(ann["linkWords"]) > 1 else "is a link word"
+        def_text += f" {lw} {verb}: no letters."
     steps.append(("definition", def_text))
 
     if inds:
