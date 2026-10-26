@@ -1803,6 +1803,134 @@ def cells_sure(word, cells, probs, held):
     return all(rc in held or probs[rc][AZ.index(ch)] >= UNLISTED_TOP for rc, ch in zip(cells, word))
 
 
+#: clue_reads (a clue-constrained read of a Times grid 6+ lights short): a light is taken as the
+#: likeliest candidate (fit_candidates) by CLUE_MARGIN log odds over the next, each cell no taken
+#: crossing holds at least CLUE_FLOOR likely, none the classifier reads as another letter at CLUE_SURE.
+#: Candidates are the listed words of each piece of the light's enumeration within CLUE_TOL of the
+#: best piece, CLUE_CAP of them at most. 10-25, held out 5-fold on the known lights of 192 Times
+#: puzzles 6+ short: 2,460 taken, 0 wrong by their clues (12 differ from the held file: its OCR's
+#: MEACURE, BANDORA, BUM for RUM...).
+CLUE_MARGIN, CLUE_FLOOR, CLUE_SURE = np.log(1000), 0.05, 0.9
+CLUE_TOL, CLUE_CAP = np.log(1e4), 400
+
+
+def _piece_candidates(cells, probs, held, multi):
+    """[(word, log score)] of listed words for the piece on `cells`, agreeing with `held`, within
+    CLUE_TOL of the best, best first (a short piece of a phrase: piece_listed's words only)."""
+    ws, arr = listed_of(len(cells))
+    if not len(ws):
+        return []
+    if multi and len(cells) <= 3:
+        ok = np.array([piece_listed(w, True) for w in ws], bool)
+    else:
+        ok = np.ones(len(ws), bool)
+    score = np.zeros(len(ws))
+    for i, rc in enumerate(cells):
+        if rc in held:
+            ok &= arr[:, i] == AZ.index(held[rc])
+        else:
+            score += np.log(np.maximum(probs[rc][arr[:, i]], 1e-12))
+    idx = np.nonzero(ok)[0]
+    if not len(idx):
+        return []
+    sc = score[idx]
+    keep = idx[sc >= sc.max() - CLUE_TOL]
+    keep = keep[np.argsort(-score[keep], kind="stable")][:CLUE_CAP]
+    return [(ws[i], float(score[i])) for i in keep]
+
+
+def fit_candidates(cells, probs, held, enum):
+    """[(word, log score)] of the light on `cells`: its enumeration's pieces' candidates
+    (_piece_candidates) run together, within CLUE_TOL of the best, best first, CLUE_CAP at most."""
+    sizes = pieces_of(enum, len(cells))
+    multi = len(sizes) > 1
+    out, at = [("", 0.0)], 0
+    for s in sizes:
+        span = cells[at:at + s]
+        at += s
+        if all(rc in held for rc in span):
+            pl = [("".join(held[rc] for rc in span), 0.0)]
+        else:
+            pl = _piece_candidates(span, probs, held, multi)
+        if not pl:
+            return []
+        nxt = [(a + w, x + y) for a, x in out for w, y in pl]
+        best = max(x for _, x in nxt)
+        out = sorted([c for c in nxt if c[1] >= best - CLUE_TOL], key=lambda c: -c[1])[:CLUE_CAP]
+    return out
+
+
+def clue_fit_ok(word, cells, probs, held, enum):
+    """Whether `word` may stand on `cells`: each cell `held` does not hold at least CLUE_FLOOR
+    likely and read as no other letter at CLUE_SURE, and a piece only a name list holds read
+    surely (cells_sure)."""
+    for rc, ch in zip(cells, word):
+        if rc in held:
+            continue
+        p = probs[rc]
+        if p[AZ.index(ch)] < CLUE_FLOOR or (p.max() >= CLUE_SURE and int(np.argmax(p)) != AZ.index(ch)):
+            return False
+    at = 0
+    for size in pieces_of(enum, len(cells)):
+        if name_only(word[at:at + size]) and not cells_sure(word[at:at + size], cells[at:at + size], probs, held):
+            return False
+        at += size
+    return True
+
+
+def clue_reads(lts, accepted, probs, enums):
+    """({key: word} taken, {key: candidates} of each light left open) of grid lights `lts` past the
+    `accepted` ones ({key: word}), by the classifier's `probs` and the clues' enumerations `enums`
+    ({key: text}). Each open light's candidates (fit_candidates, on the taken letters) are pruned by
+    its open crossings' (a letter no candidate of the crossing has there goes, unless the two share
+    none: then a truth lies outside a list); the light whose best candidate leads by CLUE_MARGIN
+    and fits (clue_fit_ok) is taken, the widest margin first, its letters held, until none is."""
+    have, out = dict(accepted), {}
+    while True:
+        held = {rc: ch for k, w in have.items() for rc, ch in zip(lts[k], w)}
+        C = {}
+        for key, cells in lts.items():
+            if key in have or any(rc not in probs for rc in cells):
+                continue
+            if any(rc in held and probs[rc][AZ.index(held[rc])] < CLASS_FLOOR for rc in cells):
+                continue
+            C[key] = fit_candidates(cells, probs, held, enums.get(key))
+        where = {}
+        for key in C:
+            for i, rc in enumerate(lts[key]):
+                where.setdefault(rc, []).append((key, i))
+        changed = True
+        while changed:
+            changed = False
+            for occ in where.values():
+                if len(occ) < 2:
+                    continue
+                (a, i), (b, j) = occ[0], occ[1]
+                if not C[a] or not C[b]:
+                    continue
+                both = {w[i] for w, _ in C[a]} & {w[j] for w, _ in C[b]}
+                if not both:
+                    continue
+                na = [c for c in C[a] if c[0][i] in both]
+                nb = [c for c in C[b] if c[0][j] in both]
+                if len(na) < len(C[a]) or len(nb) < len(C[b]):
+                    C[a], C[b] = na, nb
+                    changed = True
+        best = None
+        for key, cs in C.items():
+            if not cs:
+                continue
+            w, s = cs[0]
+            m = s - cs[1][1] if len(cs) > 1 else np.inf
+            if m < CLUE_MARGIN or not clue_fit_ok(w, lts[key], probs, held, enums.get(key)):
+                continue
+            if best is None or m > best[0]:
+                best = (m, key, w)
+        if best is None:
+            return out, C
+        have[best[1]] = out[best[1]] = best[2]
+
+
 #: The repo whose committed puzzles/ corpus_words() reads (tests point it at
 #: a scratch git tree), and the channels and solution origins it trusts: a
 #: person typed these answers. An OCR read of a page (newspaper, book) or a

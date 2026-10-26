@@ -695,6 +695,9 @@ tools/annotate_prompt.md                       the prompt the daily Claude Code 
 fetching
 tools/vlm_solution_prompt.md                   the prompt the vision model gets to read one row
                                                of a printed solution grid
+tools/vlm_candidate_prompt.md                  the prompt the vision model gets to pick one of
+                                               a light's candidate words from its row of a
+                                               printed solution grid, with the clue
 tools/vlm_report_prompt.md                     the prompt the vision model gets to read one
                                                light of a Listener report's typewritten filled
                                                grid
