@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "They take in sarcastic comments",
     "enumeration": "4"
    },
-   "solution": "DIGS"
+   "solution": "DIGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They take in",
+      "at": 0,
+      "meaning": "lodgings take in lodgers, and ... is the informal British word for rented rooms"
+     },
+     {
+      "text": "sarcastic comments",
+      "at": 13,
+      "meaning": "barbed, mocking remarks aimed at someone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first definition is loose: lodgings 'take in' people as paying guests.",
+     "definitionFit": "Two senses of one word: informal lodgings that take in boarders, and pointed jibes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,73 @@
     "text": "Working without pay? 'Oh, flipping no!', Rex and Ray snapped",
     "enumeration": "8"
    },
-   "solution": "HONORARY"
+   "solution": "HONORARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Working without pay?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 26,
+         "note": "flipping turns the word oh over so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oh",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "no",
+       "at": 35,
+       "note": "taken as written"
+      },
+      {
+       "words": "Rex",
+       "at": 41,
+       "gives": "R",
+       "note": "R is the abbreviation for Rex, Latin for king"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "snapped",
+         "at": 53,
+         "note": "something snapped is broken, so the letters of ray are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ray",
+         "at": 49
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked to work for nothing loses their temper, with Rex and Ray both snapping back a refusal.",
+     "walkthrough": "'flipping' looks like a mild British expletive but is the reversal signal; 'snapped' looks like temper but is the anagram signal.",
+     "definitionFit": "An honorary post is one held without salary, so its holder is in effect unpaid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +151,46 @@
     "text": "Decrepit old thing fails to start music",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "music",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "fails to start",
+       "at": 19,
+       "note": "the first letter of the word is missing, as if it did not get going"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Decrepit old thing",
+       "at": 0,
+       "gives": "CROCK",
+       "note": "a crock is an old, broken-down person, car or object"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient car refuses to start, and so the music system in it is silent too.",
+     "walkthrough": "'fails to start' suggests a clapped-out car, but it removes the C from CROCK.",
+     "definitionFit": "Rock is a genre of popular music built on electric guitars and drums."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fails"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +204,52 @@
     "text": "Exercised caution with Mike's poisonous plant",
     "enumeration": "8"
    },
-   "solution": "ACONITUM"
+   "solution": "ACONITUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "poisonous plant",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Exercised",
+         "at": 0,
+         "note": "exercised suggests the letters are worked about and moved into new places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "caution",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "Mike's",
+       "at": 23,
+       "gives": "M",
+       "note": "Mike is the radio alphabet word for the letter M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone advises being careful around Mike's dangerous garden plant.",
+     "walkthrough": "'Exercised caution' reads as a set phrase, but 'Exercised' rearranges CAUTION into ACONITU.",
+     "definitionFit": "Aconitum is the genus of monkshood and wolfsbane, highly toxic flowering plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exercised"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +263,79 @@
     "text": "Gold Coast's heart and soul freely accepts new government envoy",
     "enumeration": "6"
    },
-   "solution": "CONSUL"
+   "solution": "CONSUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "government envoy",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "at": 13,
+         "note": "the heart of the phrase Gold Coast is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gold Coast",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "at": 35,
+         "note": "accepts means the jumbled letters take another letter in among them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "freely",
+           "at": 28,
+           "note": "freely says the letters of soul move about loosely"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soul",
+           "at": 23
+          }
+         ]
+        },
+        {
+         "words": "new",
+         "at": 43,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy to the Gold Coast, the old name for Ghana, is welcomed heart and soul by its new rulers.",
+     "walkthrough": "The heart of GOLD COAST is C; 'freely' turns SOUL into OSUL, which 'accepts' N to give ONSUL.",
+     "definitionFit": "A consul is an official sent by a state to represent its interests and citizens abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freely"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +349,52 @@
     "text": "Not everything that was written about game bird by conservation body",
     "enumeration": "10"
    },
-   "solution": "ABRIDGMENT"
+   "solution": "ABRIDGMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not everything that was written",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 32,
+         "note": "about here means the letters are moved around into a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game bird",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "conservation body",
+       "at": 51,
+       "gives": "NT",
+       "note": "NT is the National Trust, the British charity that preserves historic houses and land"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conservation charity publishes something about a game bird, perhaps a pheasant.",
+     "walkthrough": "'about' looks like 'concerning' but rearranges GAME BIRD into ABRIDGME.",
+     "definitionFit": "An abridgment is a shortened version of a text, keeping only part of the original."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +408,75 @@
     "text": "Determine position of Imbruglia's top ten hit, led by Gold",
     "enumeration": "6"
    },
-   "solution": "ORIENT"
+   "solution": "ORIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Determine position of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "led by",
+       "at": 47,
+       "note": "led by puts the gold piece at the front of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gold",
+       "at": 54,
+       "gives": "OR",
+       "note": "OR is the heraldic word for gold"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 34,
+         "note": "the top of a name is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Imbruglia's",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hit",
+         "at": 42,
+         "note": "hit means the letters are struck and knocked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ten",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Natalie Imbruglia's Top Ten hit, the 1997 single Torn, went gold in sales.",
+     "walkthrough": "'top ten hit' reads as a chart phrase; 'top' takes I from Imbruglia and 'hit' rearranges TEN into ENT.",
+     "definitionFit": "To orient something is to fix where it lies relative to the compass or surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +490,52 @@
     "text": "An occupier of Eden Avenue's main block",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An occupier of Eden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "main",
+         "at": 29,
+         "note": "the main or chief letter of a word is its first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Avenue's",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "block",
+       "at": 34,
+       "gives": "DAM",
+       "note": "a dam blocks the flow of a river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A resident of Eden Avenue lives in the main block of flats.",
+     "walkthrough": "'Eden Avenue' reads as a street address, but Eden belongs to the definition.",
+     "definitionFit": "In Genesis the first man was placed in the Garden of Eden, so he lived there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Avenue's"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +549,52 @@
     "text": "Current takes rook circling wood",
     "enumeration": "5"
    },
-   "solution": "IROKO"
+   "solution": "IROKO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Current",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "circling",
+         "at": 19,
+         "note": "circling has the letters of rook wheel round into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rook",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river current carries off a rook, which circles above the woods.",
+     "walkthrough": "'circling' looks like a bird's flight but rearranges ROOK into ROKO.",
+     "definitionFit": "Iroko is a hard tropical African timber, sometimes called African teak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circling"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +608,31 @@
     "text": "In the habit of being beaten?",
     "enumeration": "9"
    },
-   "solution": "CLOBBERED"
+   "solution": "CLOBBERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the habit",
+      "at": 0,
+      "meaning": "clobber is British slang for clothes, so this means dressed or clothed"
+     },
+     {
+      "text": "being beaten?",
+      "at": 16,
+      "meaning": "thrashed or heavily defeated"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'habit' suggests a monk's robe or a routine; here it is just clothing.",
+     "definitionFit": "The word means both dressed in clobber (clothing) and thrashed or soundly defeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +646,42 @@
     "text": "Storing spades and hose",
     "enumeration": "9"
    },
-   "solution": "STOCKINGS"
+   "solution": "STOCKINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hose",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Storing",
+       "at": 0,
+       "gives": "STOCKING",
+       "note": "stocking goods means storing them for sale"
+      },
+      {
+       "words": "spades",
+       "at": 8,
+       "gives": "S",
+       "note": "S is the abbreviation for spades in card games"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden shed holds spades and a hosepipe.",
+     "walkthrough": "'hose' looks like a garden hosepipe but means legwear.",
+     "definitionFit": "Hose is an old collective word for leg coverings such as tights and nylons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hose"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +701,42 @@
      }
     ]
    },
-   "solution": "IBEAM"
+   "solution": "IBEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supporter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "smile",
+       "at": 21,
+       "gives": "BEAM",
+       "note": "to beam is to smile broadly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan is made to smile.",
+     "walkthrough": "'Supporter' suggests a fan but means a structural girder.",
+     "definitionFit": "An I-beam is a steel girder with an I-shaped cross-section that carries loads in buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Supporter"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +750,63 @@
     "text": "Approval of hair arrangement, involving initially uncut diamonds",
     "enumeration": "7"
    },
-   "solution": "PLAUDIT"
+   "solution": "PLAUDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approval",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 30,
+       "note": "involving means the braid wraps around the chosen letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hair arrangement",
+       "at": 12,
+       "gives": "PLAIT",
+       "note": "a plait is hair woven into a braid"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 40,
+         "note": "initially picks the first letter of each of the two following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "uncut",
+         "at": 50
+        },
+        {
+         "words": "diamonds",
+         "at": 56
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylist wins praise for a braided hairdo set with uncut diamonds.",
+     "walkthrough": "'initially' takes U and D; 'involving' sets them inside PLAIT.",
+     "definitionFit": "A plaudit is an expression of praise or enthusiastic approval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +820,44 @@
     "text": "Unsettle sound stage",
     "enumeration": "5"
    },
-   "solution": "PHASE"
+   "solution": "PHASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stage",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PHASE",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 9,
+       "note": "sound says the word for unsettle is said aloud, giving a different spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unsettle",
+       "at": 0,
+       "gives": "FAZE",
+       "note": "to faze someone is to disconcert them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noise disrupts a performance on a sound stage.",
+     "walkthrough": "'sound stage' reads as a film studio, but 'sound' is the homophone signal.",
+     "definitionFit": "A phase is a distinct step or period in a process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +871,49 @@
     "text": "Part of a line of harmonic accompaniment about to stop",
     "enumeration": "10"
    },
-   "solution": "DESCENDANT"
+   "solution": "DESCENDANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of a line",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "about means the counter-melody goes around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "harmonic accompaniment",
+       "at": 18,
+       "gives": "DESCANT",
+       "note": "a descant is a counter-melody sung above the main tune"
+      },
+      {
+       "words": "to stop",
+       "at": 47,
+       "gives": "END",
+       "note": "to end something is to stop it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer in one part of a choir line stops the descant mid-phrase.",
+     "walkthrough": "'Part of a line' reads as a musical phrase but means a member of a family line.",
+     "definitionFit": "A descendant is one member of a lineage, someone in a family's line of succession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +933,41 @@
      }
     ]
    },
-   "solution": "LIGHTUP"
+   "solution": "LIGHTUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look happy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "solution to clue",
+       "at": 18,
+       "gives": "LIGHT",
+       "note": "in crosswords a light is the answer entered in the grid"
+      },
+      {
+       "words": "over",
+       "at": 35,
+       "gives": "UP",
+       "note": "up means finished or over, as in time is up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver beams on cracking a clue.",
+     "definitionFit": "When a face lights up it suddenly shows joy or animation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +981,59 @@
     "text": "Might have an obligation to reside in Porbandar's outskirts",
     "enumeration": "5"
    },
-   "solution": "POWER"
+   "solution": "POWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Might",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to reside in",
+       "at": 25,
+       "note": "to reside in means one piece lives inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts",
+         "at": 50,
+         "note": "the outskirts of a place name are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Porbandar",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "have an obligation",
+       "at": 6,
+       "gives": "OWE",
+       "note": "to owe is to be under an obligation to pay or do something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels duty-bound to live on the edge of Porbandar, a coastal town in Gujarat, India.",
+     "walkthrough": "'Might' looks like a modal verb but is a noun meaning strength.",
+     "definitionFit": "Might as a noun is strength or force, the same as power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Might"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1047,49 @@
     "text": "Fool around near Gulf",
     "enumeration": "5"
    },
-   "solution": "ABYSS"
+   "solution": "ABYSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gulf",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 5,
+       "note": "around means the word for fool surrounds the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fool",
+       "at": 0,
+       "gives": "ASS",
+       "note": "an ass is a stupid person"
+      },
+      {
+       "words": "near",
+       "at": 12,
+       "gives": "BY",
+       "note": "by means beside or close to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone messes about close to the Gulf coast.",
+     "walkthrough": "'Gulf' looks like a sea region but means a chasm.",
+     "definitionFit": "An abyss is a vast chasm, a deep gulf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gulf"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1103,41 @@
     "text": "M1's gender-specific crew",
     "enumeration": "3"
    },
-   "solution": "MAN"
+   "solution": "MAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gender-specific crew",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "M",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "words": "1",
+       "at": 1,
+       "gives": "AN",
+       "note": "an is a word for one, as in an apple"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorway's crew is all men.",
+     "walkthrough": "The M1 is Britain's main motorway north from London; here M is just the letter and 1 is AN.",
+     "definitionFit": "To man a vessel is to crew it, a verb with a gendered origin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "M1's"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1151,41 @@
     "text": "Diet no-no, munched at this time of day?",
     "enumeration": "8"
    },
-   "solution": "NOONTIDE"
+   "solution": "NOONTIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this time of day",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "munched",
+       "at": 12,
+       "note": "munched means the letters are chewed up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Diet no-no",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter munches a forbidden snack at midday.",
+     "walkthrough": "'munched' rearranges DIETNONO.",
+     "definitionFit": "Noontide is an old word for midday, the hour when lunch is eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "munched"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1199,43 @@
     "text": "In Mexico, the inclination for a bender",
     "enumeration": "5"
    },
-   "solution": "ELBOW"
+   "solution": "ELBOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bender",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In Mexico, the",
+       "at": 0,
+       "gives": "EL",
+       "note": "el is the Spanish for the, Spanish being Mexico's language"
+      },
+      {
+       "words": "inclination",
+       "at": 15,
+       "gives": "BOW",
+       "note": "a bow is an inclination of the head or body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In Mexico, someone has a taste for a drinking binge.",
+     "walkthrough": "'a bender' suggests a drinking spree but means a joint that bends.",
+     "definitionFit": "The elbow is the joint that lets the arm bend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bender"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1249,60 @@
     "text": "City's bishop about to restrict those with conservative views",
     "enumeration": "8"
    },
-   "solution": "BRIGHTON"
+   "solution": "BRIGHTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to restrict",
+       "at": 20,
+       "note": "to restrict means the first pieces close around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bishop",
+         "at": 7,
+         "gives": "B",
+         "note": "B is the chess abbreviation for bishop"
+        },
+        {
+         "words": "about",
+         "at": 14,
+         "gives": "ON",
+         "note": "on means about or concerning"
+        }
+       ]
+      },
+      {
+       "words": "those with conservative views",
+       "at": 32,
+       "gives": "RIGHT",
+       "note": "the right is the conservative side of politics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's bishop is about to clamp down on conservatives.",
+     "walkthrough": "This is the city on England's south coast. 'about' looks like 'on the point of' with 'to restrict', but it means 'on'; 'to restrict' is the enclosing signal.",
+     "definitionFit": "Brighton and Hove has had city status since 2000, so Brighton counts as a city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1316,41 @@
     "text": "Old lover, smooth, fast mover",
     "enumeration": "7"
    },
-   "solution": "EXPRESS"
+   "solution": "EXPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fast mover",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old lover",
+       "at": 0,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "words": "smooth",
+       "at": 11,
+       "gives": "PRESS",
+       "note": "to press clothes is to smooth them with an iron"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner, a smooth operator, moves fast.",
+     "definitionFit": "An express is a fast train or coach that makes few stops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "smooth"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1364,49 @@
     "text": "Bush needs fix under pressure",
     "enumeration": "6"
    },
-   "solution": "PRIVET"
+   "solution": "PRIVET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 15,
+       "note": "under puts the fixing below the pressure letter in this down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pressure",
+       "at": 21,
+       "gives": "P",
+       "note": "P is the physics symbol for pressure"
+      },
+      {
+       "words": "fix",
+       "at": 11,
+       "gives": "RIVET",
+       "note": "to rivet is to fix with metal pins"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrub needs mending while it is under stress.",
+     "walkthrough": "'under pressure' reads as an idiom; in a down clue it places RIVET beneath P.",
+     "definitionFit": "Privet is a shrub commonly grown as a hedge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1420,60 @@
     "text": "Poor Cats actor finally gets dressed in old corsets",
     "enumeration": "6"
    },
-   "solution": "STRAYS"
+   "solution": "STRAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poor Cats",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets dressed in",
+       "at": 24,
+       "note": "gets dressed in places the letter inside the garment word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old corsets",
+       "at": 40,
+       "gives": "STAYS",
+       "note": "stays are an old word for a corset stiffened with bones"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 16,
+         "note": "finally takes the last letter of the word actor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actor",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A struggling actor in the musical Cats ends up dressed in old corsets.",
+     "walkthrough": "'Poor Cats' reads like a bad review of the musical but means homeless cats.",
+     "definitionFit": "Strays are homeless animals, often pitiful cats left to fend for themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cats"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1487,47 @@
     "text": "Isolated figure to expose 'fake news king'",
     "enumeration": "7"
    },
-   "solution": "OUTLIER"
+   "solution": "OUTLIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Isolated figure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to expose",
+       "at": 16,
+       "gives": "OUT",
+       "note": "to out someone is to expose them publicly"
+      },
+      {
+       "words": "fake news",
+       "at": 27,
+       "gives": "LIE",
+       "note": "a lie is a false statement"
+      },
+      {
+       "words": "king",
+       "at": 37,
+       "gives": "R",
+       "note": "R is the abbreviation for rex, king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to unmask a ruler of misinformation, leaving them isolated.",
+     "definitionFit": "In statistics this is a data point lying far from all the others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 26,
@@ -407,7 +1541,58 @@
     "text": "Desire for drink? No way, given day and position",
     "enumeration": "5"
    },
-   "solution": "THIRD"
+   "solution": "THIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "position",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 18,
+         "note": "no here means the following word is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Desire for drink",
+         "at": 0,
+         "gives": "THIRST",
+         "note": "thirst is the need to drink"
+        },
+        {
+         "words": "way",
+         "at": 21,
+         "gives": "ST",
+         "note": "ST is short for street, a way"
+        }
+       ]
+      },
+      {
+       "words": "day",
+       "at": 32,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thirsty is told there is no way they can drink on the day, given their status.",
+     "definitionFit": "Third is a place in a ranking, the one after second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1606,31 @@
     "text": "African country's version of takeaway",
     "enumeration": "4"
    },
-   "solution": "TOGO"
+   "solution": "TOGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 0,
+      "meaning": "a West African nation between Ghana and Benin"
+     },
+     {
+      "text": "takeaway",
+      "at": 29,
+      "meaning": "food bought ... is a takeaway in British terms"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is the American 'to go' for food carried out.",
+     "definitionFit": "A small West African republic, and the phrase ordering carry-out food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1644,59 @@
     "text": "Rare moth flitting round home in Yorkshire town",
     "enumeration": "9"
    },
-   "solution": "ROTHERHAM"
+   "solution": "ROTHERHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Yorkshire town",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 19,
+       "note": "round means the jumbled letters go around the other one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "flitting",
+         "at": 10,
+         "note": "flitting means fluttering about, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rare moth",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "home",
+       "at": 25,
+       "gives": "H",
+       "note": "H is the abbreviation for home, as in a fixture list"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rare moth flutters round a house in Yorkshire.",
+     "walkthrough": "'flitting' rearranges RAREMOTH, and 'round' puts it around H.",
+     "definitionFit": "A town in South Yorkshire known for its steel and its football club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flitting"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1710,29 @@
     "text": "Bite lip",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bite",
+      "at": 0,
+      "meaning": "sharpness or keenness in a voice or remark"
+     },
+     {
+      "text": "lip",
+      "at": 5,
+      "meaning": "the rim or brink of something"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses: incisive sharpness in tone, and a rim or border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bite"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1746,41 @@
     "text": "Old people blossom with one",
     "enumeration": "4"
    },
-   "solution": "MAYA"
+   "solution": "MAYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "blossom",
+       "at": 11,
+       "gives": "MAY",
+       "note": "may is the blossom of the hawthorn"
+      },
+      {
+       "words": "one",
+       "at": 24,
+       "gives": "A",
+       "note": "a means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly folk bloom with someone.",
+     "definitionFit": "The Maya were a pre-Columbian civilisation of Central America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blossom"
+    }
+   }
   },
   {
    "number": 30,
@@ -483,7 +1800,58 @@
      }
     ]
    },
-   "solution": "GREENEYED"
+   "solution": "GREENEYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Descriptive of a kind of monster",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "novelist",
+       "at": 33,
+       "gives": "GREENE",
+       "note": "Graham Greene was an English novelist"
+      },
+      {
+       "words": "the Old",
+       "at": 43,
+       "gives": "YE",
+       "note": "ye is an archaic form of the"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "for a start",
+         "at": 58,
+         "note": "for a start takes the first letter of devil"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Devil",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist presents the Devil as a monster to begin with.",
+     "walkthrough": "Jealousy is 'the green-eyed monster' in Othello.",
+     "definitionFit": "Shakespeare calls jealousy the monster with green eyes, so the adjective describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "novelist"
+    }
+   }
   },
   {
    "number": 31,
@@ -497,7 +1865,29 @@
     "text": "That's a surprise celebrity",
     "enumeration": "5"
    },
-   "solution": "GLORY"
+   "solution": "GLORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's a surprise",
+      "at": 0,
+      "meaning": "an exclamation of astonishment"
+     },
+     {
+      "text": "celebrity",
+      "at": 18,
+      "meaning": "fame or renown"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "An exclamation of astonishment, and also the honour and renown that fame brings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surprise"
+    }
+   }
   }
  ]
 }
