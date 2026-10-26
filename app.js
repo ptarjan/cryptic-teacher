@@ -8640,7 +8640,9 @@
   // the finish names what to go and read. Derived from the saved ladder state
   // (hintsShown, hintsEarned, revealsUsed in ct:<id>), so it is there on a
   // reopened finished puzzle and on every synced device without storing
-  // anything new. A clue counts each of its types once.
+  // anything new. A clue counts once, under its most specific device (a charade
+  // that also has a container counts as the container), so the counts add up to
+  // the clues-with-hints figure in the tally line above.
   function recapCounts() {
     const used = {}, seen = {};
     entries.forEach((e) => {
@@ -8649,7 +8651,9 @@
       seen[key] = true;
       const ann = annOf(e);
       if (!ann || !(hintsCharged(e) > 0 || revealsUsed[key] > 0)) return;
-      new Set(ann.type || []).forEach((t) => { if (DEVICE_RULES[t]) used[t] = (used[t] || 0) + 1; });
+      const ts = (ann.type || []).filter((t) => DEVICE_RULES[t]);
+      const t = ts.find((x) => x !== "charade") || ts[0];
+      if (t) used[t] = (used[t] || 0) + 1;
     });
     return Object.entries(used).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   }
@@ -8676,7 +8680,7 @@
     tallyDrawn = true;
     const total = entries.filter((e) => !leaderOf[entryId(e)]).length;
     const counted = {};
-    let noHints = 0, levels = 0;
+    let noHints = 0, helped = 0, levels = 0;
     entries.forEach((e) => {
       const key = entryKey(e);
       if (counted[key]) return;
@@ -8684,12 +8688,13 @@
       const rungs = hintsCharged(e);
       levels += rungs;
       if (!rungs && !(revealsUsed[key] > 0)) noHints++;
+      else helped++;
     });
     const mins = Math.round((timing.solvedMs || timing.activeMs || 0) / 60000);
     const bits = [`<strong>${total}</strong> clues`];
-    if (noHints) bits.push(`<strong>${noHints}</strong> of them with no hint at all`);
-    bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} used`
-                     : "not one hint used");
+    if (noHints) bits.push(`<strong>${noHints}</strong> with no hint at all`);
+    if (helped) bits.push(`<strong>${helped}</strong> with help (${levels} hint${levels === 1 ? "" : "s"})`);
+    else bits.push("not one hint used");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
     parts.line.innerHTML = `<p class="shout">Finished — you completed the whole grid.</p>`
       + `<p class="tally">${bits.join(LIST_SEP)}</p>`
