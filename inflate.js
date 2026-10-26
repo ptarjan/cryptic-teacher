@@ -3,7 +3,7 @@
    puzzles/<id>.js.gz (tools/stage_site.py), and app.js loads this file only
    when it has to inflate one by hand. A plain DEFLATE decoder after zlib's
    puff.c: stored, fixed and dynamic blocks; one gzip member.
-   tools/test_inflate.js holds it to zlib. */
+   tests/test_inflate.js holds it to zlib. */
 (function (root) {
   "use strict";
   const LBASE = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258];

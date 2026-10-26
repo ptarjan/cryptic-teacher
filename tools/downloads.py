@@ -3,7 +3,7 @@
 One root, outside the repo and never under /tmp (a reboot wipes /tmp, and
 getting a scan or a borrowed book back costs hours of crawling or another
 loan). Every folder a fetcher fills is named here and nowhere else;
-tools/test_downloads.py fails on a path spelled anywhere else in tools/.
+tests/test_downloads.py fails on a path spelled anywhere else in tools/.
 Derived caches a tool can rebuild from these (crops, OCR and VLM readings,
 the integrity index) stay in ~/.cache. Gale's pages are the one exception:
 they stay on the media disk, under its "Gale crosswords" folder

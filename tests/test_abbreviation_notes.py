@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+# Is an abbreviation gloss derived from the table, never stored?
+#
+#     python3 tests/test_abbreviation_notes.py
+#
+# A wordplay leaf whose clue words -> letters pair is in
+# build_abbreviations.table() needs no note: annotation.view() shows
+# ABBREVIATION_GLOSS. A stored note that only restates it is refused by
+# validate_annotations, dropped by from_model (and to_model), and stripped
+# from the corpus by strip_abbreviation_notes.py.
+# A note that adds anything (a domain, a source) stays. All in memory, on a
+# copy of quiptic-619 (11-across: [folio]F).
+import os
+import sys
+os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+
+import copy
+import json
+from pathlib import Path
+
+import annotation as A
+import fetch_puzzle as fp
+import puzzle_paths
+import strip_abbreviation_notes as S
+import validate_annotations as V
+import wordplay as W
+
+fails = 0
+def check(name, ok, detail=""):
+    global fails
+    fails += not ok
+    print(("ok  " if ok else "FAIL"), name, "" if ok else detail)
+
+p = fp.read_puzzle_file(puzzle_paths.find("quiptic-619"))
+S.strip_puzzle(p)  # the puzzle as migrated, whether or not the corpus is yet
+i = next(k for k, e in enumerate(p["entries"]) if e["number"] == 11 and e["direction"] == "across")
+e = p["entries"][i]
+def folio(ann):
+    """The [folio]F leaf, wherever the tree files it (an anagram's own part, or
+    under the charade filed there before tools/flatten_anagram_fodder.py)."""
+    stack = [ann["wordplay"]]
+    while stack:
+        node = stack.pop()
+        if node.get("words") == "folio":
+            return node
+        stack += node.get("parts") or []
+
+def with_note(note):
+    q = copy.deepcopy(p)
+    leaf = folio(q["entries"][i]["annotation"])
+    assert leaf["words"] == "folio" and leaf["gives"] == "F", leaf
+    if note is None:
+        leaf.pop("note", None)
+    else:
+        leaf["note"] = note
+    return q
+
+def block(q):
+    v = A.view(q["entries"][i]["annotation"], q["entries"][i], q)
+    return next(b for b in v["blocks"] if b.get("clueFragment") == "folio")
+
+# The table holds folio F and with W (and, by the corpus, deserted D); it does
+# not hold sex S, one setter's habit (tools/build_corpus_abbreviations.py).
+check("the table holds folio F", A.is_abbreviation({"words": "folio", "gives": "F"}))
+check("a pair the table lacks is no abbreviation", not A.is_abbreviation({"words": "sex", "gives": "S"}))
+
+# view(): a leaf with no note shows the gloss; a stored note wins.
+bare = with_note(None)
+check("view shows the table's gloss on a bare leaf",
+      block(bare).get("note") == "F is a standard abbreviation for folio", block(bare))
+kept = with_note("F is the abbreviation for folio, as printed on old books")
+check("view keeps a note that adds something", block(kept)["note"].endswith("old books"), block(kept))
+check("a clue-initial capital reads in lower case",
+      A.abbreviation_gloss({"words": "With", "gives": "W", "at": 0}) == "W is a standard abbreviation for with")
+check("a capital mid-clue is kept",
+      A.abbreviation_gloss({"words": "Conservative", "gives": "C", "at": 9}) == "C is a standard abbreviation for Conservative")
+
+# restates_abbreviation: precise both ways.
+leaf = lambda note, w="folio", g="F": {"words": w, "gives": g, "note": note}
+for note in ("F is the abbreviation for folio", "F is the standard abbreviation for folio.",
+             "F is a recorded abbreviation for folio", "standard abbreviation", "abbreviation for folio",
+             "F = folio", "F abbreviates folio", "F is short for folio", "the usual abbreviation",
+             "f. is the dictionary abbreviation of 'folio'"):
+    check(f"restates: {note!r}", A.restates_abbreviation(leaf(note)))
+for note in ("F is the abbreviation for folio, as printed on old books", "F is the paper-size abbreviation for folio",
+             "a folio is a sheet folded once", "F for folio, the page size; then reversed"):
+    check(f"adds something: {note!r}", not A.restates_abbreviation(leaf(note)))
+check("a note on a pair the table lacks stays (sex S)",
+      not A.restates_abbreviation(leaf("S is a recorded abbreviation for sex", "sex", "S")))
+
+# A run's own puzzle: until the corpus is stripped, only a note the committed
+# file does not hold is refused, so files still carrying them keep validating.
+path = puzzle_paths.find("quiptic-619")
+V.ABBREVIATION_NOTES_STRIPPED = False
+run = []
+V.check_no_new_abbreviation_notes(with_note("F stands for folio"), path, run)
+check("a run's new restating note is refused", len(run) == 1 and "11-across" in run[0], run)
+run = []
+V.check_no_new_abbreviation_notes(fp.read_puzzle_file(path), path, run)
+check("notes the committed file holds are not a run's", run == [], run)
+
+# Once stripped, the validator refuses the restating note anywhere and passes the bare leaf.
+V.ABBREVIATION_NOTES_STRIPPED = True
+def errors(q):
+    _, errs, _ = V.validate_puzzle(q)
+    return [m for m in errs if "restates the abbreviation table" in m]
+check("validate refuses a note that restates the table",
+      len(errors(with_note("F is the standard abbreviation for folio"))) == 1,
+      errors(with_note("F is the standard abbreviation for folio")))
+check("validate passes the bare leaf", errors(bare) == [], errors(bare))
+check("validate passes a note that adds something", errors(kept) == [], errors(kept))
+
+# from_model drops the note rather than failing; to_model never offers it.
+m = A.to_model(with_note(None)["entries"][i]["annotation"])
+m["notes"]["folio"] = "F is the standard abbreviation for folio"
+got = A.from_model(copy.deepcopy(m), e, p)
+check("from_model drops a restating note", "note" not in folio(got), folio(got))
+m["notes"]["folio"] = "F is the abbreviation for folio, as printed on old books"
+check("from_model keeps a note that adds something", "note" in folio(A.from_model(copy.deepcopy(m), e, p)))
+check("to_model leaves a restating note out",
+      "folio" not in A.to_model(with_note("F is the abbreviation for folio")["entries"][i]["annotation"]).get("notes", {}))
+
+# The migration: strip_puzzle drops exactly those notes and is idempotent.
+q = with_note("F is the abbreviation for folio")
+dropped = S.strip_puzzle(q)
+check("strip_puzzle drops the restating note", [d[1:3] for d in dropped] == [("folio", "F")], dropped)
+check("a second strip finds nothing", S.strip_puzzle(q) == [])
+check("strip leaves other notes", folio(kept["entries"][i]["annotation"]).get("note") and not S.strip_puzzle(kept))
+
+# Derived block notes: a selection, a hidden word and the article A need no model note.
+def blk(tree):
+    return A._blocks(tree, {})[0]
+sel = lambda op, w="state": {"op": op, "parts": [{"words": w}]}
+check("a first-letter block derives its note", blk({**sel("first"), "parts": [{"words": "state", "gives": "STATE"}]}).get("note") == "first letter")
+check("a selection keeps a leaf's own note", blk({"op": "last", "parts": [{"words": "cricket", "gives": "CRICKET", "note": "mine"}]}).get("note") == "mine")
+check("a hidden block derives its note", blk({"op": "hidden", "parts": [{"words": "crab hors", "gives": "CRABHORS"}]}).get("note") == A.HIDDEN_NOTE)
+check("the article A derives its note", blk({"words": "An", "gives": "A"}).get("note") == "the indefinite article, A")
+check("a synonym leaf still needs a note", "note" not in blk({"words": "beneath", "gives": "UNDER"}))
+
+# First-check classes made mechanical: a vacuous sound() under a plain spoon, a sounded charade,
+# a repeated bare piece, and letters named in an indicator note.
+vac = {"op": "spoonerism", "parts": [{"op": "homophone", "spelt": "HAIR", "parts": [
+    {"words": "head", "at": 0, "gives": "HAIR"}]}, {"words": "lice", "at": 5, "gives": "BUGS"}]}
+A.drop_vacuous_sound(vac)
+check("spoon(sound(x, x), b) drops the vacuous sound", vac["parts"][0].get("words") == "head", vac)
+three = {"op": "spoonerism", "spelt": "BEARHUGS", "parts": [{"op": "homophone", "spelt": "HAIR", "parts": [
+    {"words": "head", "at": 0, "gives": "HAIR"}]}, {"words": "lice", "at": 5, "gives": "BUGS"}]}
+A.drop_vacuous_sound(three)
+check("spoon(.., SPELT) keeps its sound", three["parts"][0].get("op") == "homophone")
+check("a plain spoonerism needs no soundsLike", V.plain_spoonerism({"type": ["spoonerism"], "wordplay": {"op": "spoonerism", "parts": []}}))
+taught = {"op": "spoonerism", "spelt": "FERRYMAN", "parts": [
+    {"words": "Tipsy", "at": 0, "gives": "MERRY"}, {"words": "supporter", "at": 6, "gives": "FAN"}]}
+check("spoon(a, b, SPELT) over bare leaves needs no soundsLike either",
+      V.plain_spoonerism({"type": ["spoonerism"], "wordplay": taught}))
+check("a spoon over a sound() (homophone type) is still held to the sound rule",
+      not V.plain_spoonerism({"type": ["spoonerism", "homophone"], "wordplay": three}))
+errs, warns = [], []
+V.check_sound_names_its_source("11A", {"type": ["spoonerism"], "answer": "FERRYMAN", "wordplay": taught,
+                                       "blocks": [{"clueFragment": "supporter", "gives": "FAN"}]}, errs, warns)
+check("the taught 3-argument spoon passes the sound check", errs == [], errs)
+errs, warns = [], []
+V.check_sound_names_its_source("1A", {"type": ["spoonerism"], "answer": "FORECAST", "wordplay": vac["parts"][0] and {"op": "spoonerism", "parts": []},
+                                      "blocks": [{"clueFragment": "heart", "gives": "CORE"}]}, errs, warns)
+check("a plain spoonerism passes the sound check", errs == [], errs)
+clue = "Richard King Edward we hear one in charge"
+ch = {"op": "homophone", "spelt": "DICTATOR", "parts": [{"op": "charade", "parts": [
+    {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "King Edward", "at": 8, "gives": "TATER", "note": "a spud"}]}]}
+A.merge_sounded_charade(ch, clue)
+leaf = ch["parts"][0]
+check("a sounded charade of adjacent leaves merges", (leaf.get("words"), leaf.get("gives")) == ("Richard King Edward", "DICKTATER"), leaf)
+apart = {"op": "homophone", "spelt": "X", "parts": [{"op": "charade", "parts": [
+    {"words": "Richard", "at": 0, "gives": "DICK"}, {"words": "edward", "at": 30, "gives": "TATER"}]}]}
+A.merge_sounded_charade(apart, clue)
+check("leaves apart in the clue stay a charade", apart["parts"][0].get("op") == "charade")
+rep = A.name_repeated_pieces([{"clueFragment": "new", "gives": "N"}, {"gives": "N"}, {"gives": "Q"}])
+check("a repeated bare piece takes the first one's words", rep[1].get("clueFragment") == "new" and rep[1].get("note"), rep)
+check("a new bare piece is left alone", not rep[2].get("clueFragment"), rep)
+vw = {"answer": "FOO", "blocks": [{"clueFragment": "hospital", "gives": "H"}],
+      "indicators": [{"text": "outside", "note": "the letters go outside, around, the H"}]}
+A.name_clue_words_in_indicator_notes(vw)
+check("an indicator note names the clue words, not the letters", "“hospital”" in vw["indicators"][0]["note"], vw)
+
+print("abbreviation notes:", "all checks passed" if not fails else f"FAILED {fails}")
+raise SystemExit(1 if fails else 0)

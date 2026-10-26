@@ -8,7 +8,7 @@ puzzle file and a row into tools/data/source_clue_wrong.json. When the pre-reset
 backfill discards that run (tools/prereset_backfill.sh discard_puzzle) the file
 goes back, so the row must go too: otherwise it names a clue the file does not
 hold, and the next sibling puzzle's commit carries it to master, where
-tools/test_source_answer_wrong.py fails on it.
+tests/test_source_answer_wrong.py fails on it.
 
 A row stays when the file on disk holds its printed clue (compared as
 clue_words, as that test does), so rows committed with an earlier annotation

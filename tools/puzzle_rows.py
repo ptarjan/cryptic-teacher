@@ -8,7 +8,7 @@
 A table here describes one puzzle file's content, keyed by its id ("<id>" or
 "<id>/<entry id>"): a clue, answer or light the source got wrong, a setter's
 error, a nina, a light the solver missed, the newspaper id a book file is. A
-row whose file is gone names nothing, and tools/test_source_answer_wrong.py
+row whose file is gone names nothing, and tests/test_source_answer_wrong.py
 fails on it.
 
 So whatever deletes or renames a puzzle file takes its rows in the same commit:

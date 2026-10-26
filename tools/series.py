@@ -876,7 +876,7 @@ def display_number(series, number):
     position_of() so the volume is not said twice.
 
     Mirrored by displayNumber() in app.js for the picker rows, which must
-    print the same string (tools/test_date_numbers.py).
+    print the same string (tests/test_date_numbers.py).
     """
     if (day := number_date(series, number)):
         return day.strftime("%-d %b %Y")

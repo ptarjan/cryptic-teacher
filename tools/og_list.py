@@ -22,7 +22,7 @@ the app.js tables it draws from.
 Not on all of tools/data, as it was: annotate and blog-facts commits touch a
 sidecar there (blog_disagree.json, setter_error.json, the lexicons) many times
 a day, none of which a card reads, and each one worked all ~17k rows out again
-(~45s of the deploy). tools/test_og_card_key.py holds that line.
+(~45s of the deploy). tests/test_og_card_key.py holds that line.
 
 An edit to the drawing code works every row out again (a minute or so, no
 drawing), but a card is redrawn only if its HTML came out different.

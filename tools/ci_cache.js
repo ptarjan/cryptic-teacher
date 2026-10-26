@@ -51,7 +51,7 @@ const ROOT = path.join(__dirname, "..");
 // tools/. The one assertion over the whole tree, build_readme.py
 // --check-layout (every tracked file has a row in docs/LAYOUT.md), and the
 // shelled-out sub-tests are made by slice 0, which is never skipped, so a
-// docs-only push still gets them and they need no key. tools/test_ci_cache_deps.js keeps the list from going stale:
+// docs-only push still gets them and they need no key. tests/test_ci_cache_deps.js keeps the list from going stale:
 // it fails when a file the smoke test reaches is not named here.
 // Over-including costs a re-run; under-including serves a stale pass.
 const SMOKE_DEPS = [
@@ -82,8 +82,8 @@ const SMOKE_DEPS = [
     "tools/punctuation.py", "tools/puzzle_schema.py", "tools/puzzle_style.py", "tools/puzzle_tags.py", "tools/quotes.py", "tools/reconstruct_grid.py", "tools/reprints.py",
     "tools/reindex.js", "tools/repair_fetched.py", "tools/puzzle_rows.py", "tools/renamed_ids.py", "tools/row_cache.py", "tools/budget.py", "tools/scan_crop.py", "tools/scan_queue.py", "tools/series.py",
     "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
-    "tools/test_alert_claimed.sh", "tools/test_nightly_worktree.sh",
-    "tools/test_notify_race.js", "tools/test_prereset_paths.sh", "tools/test_push_hold.js",
+    "tests/test_alert_claimed.sh", "tests/test_nightly_worktree.sh",
+    "tests/test_notify_race.js", "tests/test_prereset_paths.sh", "tests/test_push_hold.js",
     "tools/clue_repair.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
     "tools/tutorial.html", "tools/unstage_unparsable.sh", "tools/validate_annotations.py", "tools/vlm_reader.py",
     // clues_only's Genius jigsaw builder (genius_puzzles.promote_jigsaw) and what it imports.
@@ -93,7 +93,7 @@ const SMOKE_DEPS = [
 ];
 // Files under a declared prefix that no result depends on: the work queue the
 // burn jobs rewrite thousands of times a day (tools/ci_scope.py's QUEUE_STATE;
-// tools/test_ci_scope.py keeps the two lists equal). Left in the key, every
+// tests/test_ci_scope.py keeps the two lists equal). Left in the key, every
 // "Annotate" push would re-run the whole smoke test.
 const INERT = ["tools/data/shape_reannotate.json"];
 const CHECKS = {

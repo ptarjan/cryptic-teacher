@@ -3266,7 +3266,7 @@ def clue_row_problems(served, printed, why):
     correction with evidence: it must change the text, and its note must argue
     the case (an OCR misread needs only a short one, a clue read off the scan
     is evidenced by the page however short the clue). One rule for the filer
-    (annotate_check) and tools/test_source_answer_wrong.py."""
+    (annotate_check) and tests/test_source_answer_wrong.py."""
     floor = (len(SCAN_READ) + 1 if why.startswith(SCAN_READ)
              else 25 if why.startswith("OCR misread: ") else 40)
     problems = []

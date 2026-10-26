@@ -347,7 +347,7 @@ def write_up_date(rec, printed):
     """The write-up's date for a puzzle printed on `printed`, or None. A url's
     date is the post's own. georgeho's date for a post is believed unless it
     falls more than a day before the print date (a daily is sometimes blogged
-    the evening before; tools/test_times_dates.py allows the same), which no
+    the evening before; tests/test_times_dates.py allows the same), which no
     write-up can; then the post before it in LiveJournal's id order dates it,
     if that one does not."""
     earliest = (printed - fbp.DAY).isoformat()

@@ -1,0 +1,445 @@
+#!/bin/bash
+# Does the pre-reset backfill's rolling pool schedule the way it claims?
+#
+#     bash tests/test_prereset_pool.sh
+#
+# run_pool and its helpers are read out of tools/prereset_backfill.sh rather
+# than copied, with run_claude replaced by a stub that sleeps a random short
+# time and logs when it started and ended, and everything that touches git,
+# the meters or the network stubbed out. Checked off that log:
+#   - at no launch are more runs in flight than the width at that moment;
+#   - a freed slot is refilled while other runs are still going;
+#   - launches are at least POOL_LAUNCH_GAP apart;
+#   - every id is handled exactly once, the failing one through the failure path;
+#   - a width change at a checkpoint takes effect, growing and shrinking;
+#   - at width 0 nothing starts, and the pool naps and resumes when it grows;
+#   - the tree is synced mid-pool with runs still in flight, and the pool
+#     keeps starting runs after it rather than draining for it;
+#   - each checkpoint is handed the average in flight, measured;
+#   - a puzzle without all its answers is solved and annotated by one run, its
+#     fill applied again from the committed puzzle before it is committed;
+#   - a puzzle held clues-only commits its clues-only file's removal with the
+#     grid its solve filed;
+#   - a sync that brings new shell code re-execs the pool onto it, the runs in
+#     flight adopted and committed by the new code, none lost or run twice.
+set -uo pipefail
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT="$REPO/tools/prereset_backfill.sh"
+fails=0
+check() {  # check <what> <expected> <got>
+  if [ "$2" = "$3" ]; then echo "ok   $1"; else
+    echo "FAIL $1: expected [$2], got [$3]"; fails=$((fails + 1)); fi
+}
+
+tree="$(mktemp -d)"
+trap 'rm -rf "$tree" /tmp/ct-prereset-pooltest-$$-*' EXIT
+EVENTS="$tree/events"
+RUNS="$tree/runs"; mkdir -p "$RUNS"   # the run session records; none left by a restart
+resumed=" "
+WIDTH_FILE="$tree/width"
+
+export POOL_LAUNCH_GAP=0.1
+POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
+POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
+RELOAD_ASKED=0      # the script sets it at its top level; reload_due reads it
+eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
+for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
+          pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
+          needs_solve solve_applied resumed_first reload_due; do
+  block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
+  if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
+  eval "$block"
+done
+# The shell code never moves here; the re-exec is checked at the end.
+shell_sum() { :; }
+SHELL_SUM=""
+# The per-puzzle worker the script sources; its model calls are stubbed below.
+. "$(dirname "$SCRIPT")/puzzle_worker.sh"
+
+now() { echo "$EPOCHREALTIME"; }
+FAIL_ID="pooltest-$$-5"
+run_claude() {
+  echo "start $1 $(now)" >>"$EVENTS"
+  [ -n "${3:-}" ] && { echo "solve $1" >>"$EVENTS"; echo '{}' >"$3"; }
+  sleep "$(awk -v r="$RANDOM" 'BEGIN{printf "%.2f", 0.5 + (r % 40) / 100}')"
+  echo "end $1 $(now)" >>"$EVENTS"
+  echo "done $1" >"/tmp/ct-prereset-$1.txt"
+  [ "$1" != "$FAIL_ID" ]
+}
+UNSOLVED_ID="pooltest-$$-3"
+HELD_ID="pooltest-$$-held"
+git() {
+  [ "$1" = rev-parse ] && { echo "$tree/${*: -1}"; return; }
+  # only HELD_ID is tracked under clues_only/
+  [ "$1" = ls-files ] && { case "${*: -1}" in clues_only/*/"$HELD_ID".json) echo "${*: -1}" ;; esac; return; }
+  [ "$1" = add ] && echo "staged ${*:3}" >>"$EVENTS"
+  echo "git $1 ${*: -1}" >>"$EVENTS"
+}
+pool_bag() { :; }   # bagging reads the queue through tools/clue_bag.py; not under test here
+worker_sweep_scratch() { :; }
+tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
+discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
+MODEL=opus WORKER_MODEL=opus
+handled=0
+# Width 2 to start; 4 after the fourth run is handled; 1 after the tenth; 0 for
+# one checkpoint after the thirteenth, then 1 again.
+handle() {
+  echo "$1 $2" >>"$EVENTS"
+  handled=$((handled + 1))
+  [ "$handled" = 4 ] && echo 4 >"$WIDTH_FILE"
+  [ "$handled" = 10 ] && echo 1 >"$WIDTH_FILE"
+  [ "$handled" = 13 ] && echo 0 >"$WIDTH_FILE"
+  return 0
+}
+commit_puzzle() { handle ok "$1"; }
+handle_failed_run() { handle fail "$1"; }
+echo 2 >"$WIDTH_FILE"
+# Width 0 is read at two checkpoints running, then 1 again. pool_reap refills a
+# freed slot before the checkpoint that may drop the width (the width only
+# changes at checkpoints), so the run launched at the stale width of 1 is still
+# in flight at the first 0; the second 0 is the checkpoint with nothing in
+# flight, where the pool naps.
+wave_width() {  # runs in a $(...) subshell: the zero count is kept in a file
+  local w; w=$(cat "$WIDTH_FILE"); echo "width $w $(now)" >>"$EVENTS"; echo "$w"
+  [ "$w" = 0 ] || { rm -f "$WIDTH_FILE.zero"; return 0; }
+  [ -e "$WIDTH_FILE.zero" ] && echo 1 >"$WIDTH_FILE"
+  : >"$WIDTH_FILE.zero"
+}
+after_wave() { echo "after failed=$4 avg=$3 hours=$2 pool=$6" >>"$EVENTS"; return 0; }
+requeue_failed() { :; }
+sync_wave() { echo "sync inflight=${#POOL_RUNS[@]}" >>"$EVENTS"; }
+past_deadline() { false; }
+alert() { echo "ALERT $*" >>"$EVENTS"; }
+python3() {
+  case "$1" in
+    tools/puzzle_paths.py) echo "puzzles/x/2026/$2.json" ;;
+    tools/weekly_usage.py) echo "${METER_PCT:-10}" ;;
+    tools/prereset_plan.py)
+      case "$2" in
+        --cover-first) echo "replan deadline=${CT_DEADLINE:-} now=$(date +%s)" >>"$EVENTS"
+          [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
+          case "${PLAN_REVERSE:-}" in
+            '') cat ;;
+            dedup) tac | awk '!seen[$0]++' ;;   # each id once, as the planner lists them
+            drop) tac | sed 1d ;;               # an id lost: the order is not taken
+            *) tac ;;
+          esac ;;
+        --backlog) [ -z "${BACKLOG_FN:-}" ] || "$BACKLOG_FN" ;;
+        *) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
+      esac ;;
+    tools/failed_inputs.py) : ;;
+    tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
+    tools/provenance.py) echo "Trailer: x" ;;
+    tools/solve_misses.py) [ "$2" = keep-log ] ;;
+    tools/annotate_check.py) [ "$2" = --nothing-due ] && return "${NOTHING_DUE_RC:-1}"
+      echo "hints $2" >>"$EVENTS" ;;
+    tools/own_rows.py) : ;;
+    tools/clues_only.py) return 1 ;;   # implausible: no clue list here is
+    *) echo "unexpected python3 $*" >&2; return 1 ;;
+  esac
+}
+DRY_RUN=0 requeued=" " wide=""
+
+ids=()
+for i in $(seq 1 16); do ids+=("pooltest-$$-$i"); done
+queue=("${ids[@]}") at=0
+out=$(run_pool "Annotate" "Annotate @ in @PATH@" 0 2>&1)
+check "run_pool returns 0 with nothing stopping it" 0 $?
+
+# One verdict per property, computed from the event log in time order.
+verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
+  $1 == "width" { w = $2; if (w + 0 > maxw) maxw = w }
+  $1 == "start" {
+    inflight++; starts++
+    if (inflight > w) over++
+    if (inflight > peak[w]) peak[w] = inflight
+    # runs still going that started before the latest end: a wave scheduler
+    # never launches while any of those are in flight
+    if (older > 0) refilled_while_busy++
+    if (last != "" && $3 - last < gap - 0.03) close_launch++
+    last = $3; started[$2]++
+  }
+  $1 == "end" { inflight--; older = inflight }
+  $1 == "ok" || $1 == "fail" { handled[$2]++; kind[$1]++ }
+  $1 == "solve" { solved[$2] = 1 }
+  $1 == "sync" && $2 != "inflight=0" { inflight_sync++; synced = 1 }
+  $1 == "start" && synced { started_after_sync++ }
+  $1 == "sync" { syncs++ }
+  $1 == "after" && $2 == "failed=1" { failure_checkpoints++ }
+  $1 == "after" {
+    split($3, a, "="); avg = a[2]
+    if (avg !~ /^[0-9]+\.[0-9][0-9]$/ || avg + 0 > maxw) bad_avg++
+    if (avg + 0 > 1) concurrent++
+  }
+  END {
+    for (id in handled) if (handled[id] != 1) twice++
+    for (id in started) if (started[id] != 1) twice++
+    print "over=" over + 0
+    print "refilled=" (refilled_while_busy > 0)
+    print "spacing=" close_launch + 0
+    print "handled=" length(handled) " ok=" kind["ok"] + 0 " fail=" kind["fail"] + 0 " twice=" twice + 0
+    print "peak4=" peak[4] + 0 " peak1=" peak[1] + 0
+    print "syncs=" (syncs >= 2) " inflight=" (inflight_sync > 0) " started_after=" (started_after_sync > 0)
+    print "failure_checkpoint=" failure_checkpoints + 0
+    print "avg=" bad_avg + 0 " concurrent=" (concurrent > 0)
+  }' "$EVENTS")
+get() { printf '%s\n' "$verdicts" | grep "^$1=" | cut -d= -f2-; }
+
+check "never more runs in flight at a launch than the width then" 0 "$(get over)"
+check "a freed slot is refilled while other runs are still going" 1 "$(get refilled)"
+check "launches are at least POOL_LAUNCH_GAP apart" 0 "$(get spacing)"
+check "every id handled exactly once, one through the failure path" \
+  "16 ok=15 fail=1 twice=0" "$(get handled)"
+check "the width growing to 4 fills four slots" 4 "$(get peak4 | cut -d' ' -f1)"
+check "the width shrinking to 1 runs one at a time" "peak1=1" "$(get peak4 | cut -d' ' -f2)"
+check "the tree is synced mid-pool with runs in flight, and runs still start after it" \
+  "1 inflight=1 started_after=1" "$(get syncs)"
+check "a failed run is judged at a checkpoint of its own" 1 "$(get failure_checkpoint)"
+check "each checkpoint logs a measured average in flight, within the width" \
+  "0 concurrent=1" "$(get avg)"
+check "at width 0 the pool naps with nothing in flight" 1 \
+  "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of 0: napping')"
+check "the pool logs its width for the planner" 1 \
+  "$(printf '%s\n' "$out" | grep -cm1 '^--- pool of [0-9][0-9]*: ')"
+# One run solves and annotates; its fill is applied again from the committed
+# puzzle, without a reindex, with its hints put back on top, and only then is
+# the puzzle finished and committed, once.
+check "an answerless puzzle is solved and annotated by one run, its fill checked, then committed" \
+  "start solve end git-checkout applied --no-reindex hints ok" \
+  "$(awk -v id="$UNSOLVED_ID" '
+      ($1 == "start" || $1 == "end" || $1 == "solve") && $2 == id { printf "%s ", $1 }
+      $1 == "git" && $2 == "checkout" && index($3, id) { printf "git-checkout " }
+      $1 == "applied" && $2 == id { printf "applied %s ", $NF }
+      $1 == "hints" && $2 == id { printf "hints " }
+      ($1 == "ok" || $1 == "fail") && $2 == id { printf "%s", $1 }' "$EVENTS")"
+check "the run is logged as solving it first" "1" \
+  "$(printf '%s\n' "$out" | grep -c "\[$UNSOLVED_ID\] started, solving it first")"
+# A clues-only puzzle's commit carries the grid its solve filed and the
+# clues-only file that solve removed.
+: >"$EVENTS"
+stage_puzzle "$HELD_ID"
+check "a clues-only solve stages its grid and its clues-only file's removal" \
+  "staged -- puzzles/${HELD_ID%-*}/*/$HELD_ID.json clues_only/*/$HELD_ID.json" \
+  "$(grep '^staged' "$EVENTS")"
+# The re-plan blocks the shell for minutes on a loaded machine, so a reordering
+# pool re-plans once per POOL_SYNC_SECS, not at each checkpoint.
+: >"$EVENTS"
+POOL_SYNC_SECS=3600 POOL_REPLANNED_US=0
+echo 2 >"$WIDTH_FILE"
+handled=0
+queue=(); for i in $(seq 1 6); do queue+=("pooltest-$$-r$i"); done
+at=0
+out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
+check "a reordering pool re-plans once per sync interval, not per checkpoint" \
+  "1 checkpoints=1" \
+  "$(grep -c '^replan' "$EVENTS") checkpoints=$(( $(grep -c '^after' "$EVENTS") > 1 ))"
+grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
+
+# A slow re-plan runs in the background: runs go on starting at the width in
+# force while it works, never past it, and its order (here reversed) is taken
+# for what is still unlaunched when it lands.
+replan_pool() {  # replan_pool <tag>: run a reordering pool of 8, re-planning each second
+  : >"$EVENTS"
+  POOL_SYNC_SECS=1 POOL_REPLANNED_US=0 handled=0
+  echo 2 >"$WIDTH_FILE"
+  queue=(); for i in $(seq 1 8); do queue+=("pooltest-$$-$1$i"); done
+  [ -z "${QUEUE_DUP:-}" ] || queue+=("pooltest-$$-$1$QUEUE_DUP")
+  at=0
+  out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
+}
+replan_verdict() {  # starts while a plan ran, launches over the width, ids not handled once
+  printf '%s\n' "$out" | awk '/^--- re-planning/ { inplan = 1 } /^--- pool of/ { inplan = 0 }
+       / started/ && inplan { during++ } END { print (during > 0) }' | tr '\n' ' '
+  awk '$1 == "width" { w = $2 }
+       $1 == "start" { inflight++; if (inflight > w) over++; s[$2]++ }
+       $1 == "end" { inflight-- }
+       $1 == "ok" || $1 == "fail" { h[$2]++ }
+       END { bad = 0; for (i in s) if (s[i] != 1) bad++; for (i in h) if (h[i] != 1) bad++
+             print over + 0, length(h), bad }' "$EVENTS"
+}
+PLAN_SLEEP=1.5 PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool s
+check "a slow re-plan: runs start while it works, within the width, each id once" \
+  "1 0 8 0" "$(replan_verdict)"
+check "the background re-plan's order is the one launched" "pooltest-$$-s8" \
+  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# A queue holding an id twice (10-16: 40 nation puzzles both filed and held
+# clues-only) gets its order back with each id once: that order is taken, and
+# the id runs once. An order that loses an id is not taken, and says why.
+PLAN_REVERSE=dedup QUEUE_DUP=3 POOL_PLAN_SECS=60 replan_pool d
+check "a re-plan listing a twice-queued id once is taken, and the id runs once" \
+  "pooltest-$$-d3 1 1" \
+  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p) $(grep -c "^start pooltest-$$-d3 " "$EVENTS") $(printf '%s\n' "$out" | grep -cm1 '^--- re-plan done in [0-9]*s (planner [0-9?]*s): order taken')"
+PLAN_REVERSE=drop POOL_PLAN_SECS=60 replan_pool m
+check "a re-plan that loses an id is discarded, with the id named, and the order kept" \
+  "1 pooltest-$$-m1" \
+  "$(printf '%s\n' "$out" | grep -cm1 "but discarded.*1 ids in went missing (pooltest-$$-m8)") $(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# The planner gets a soft deadline (CT_DEADLINE) at 70% of POOL_PLAN_SECS, so a
+# cold row cache stops short of the kill with its rows stored
+# (prereset_plan.best_effort).
+PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool t
+check "the re-plan's planner runs under a deadline 42s out of 60" 1 \
+  "$(awk '$1 == "replan" { sub("deadline=", "", $2); sub("now=", "", $3); d = $2 - $3; print (d >= 40 && d <= 42); exit }' "$EVENTS")"
+# A run that fails mid re-plan with the five-hour window below LOCKOUT_PCT failed
+# on its own puzzle: the pool goes on filling its slots (10-15 it sank from 7
+# runs to 2 through one re-plan). With the meter at the lockout it stops, since
+# the checkpoint after the plan may nap.
+LOCKOUT_PCT=90
+starts_after_fail() {  # runs started after $1 failed, before the next width read
+  awk -v id="$1" '$1 == "fail" && $2 == id { f = 1; next } f && $1 == "width" { exit }
+       f && $1 == "start" { n++ } END { print n + 0 }' "$EVENTS"
+}
+FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
+check "a failure mid re-plan with the window open: the pool keeps filling its slots" 1 \
+  "$(( $(starts_after_fail "pooltest-$$-f3") > 0 ))"
+FAIL_ID="pooltest-$$-l3" METER_PCT=95 PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool l
+check "a failure mid re-plan at the lockout: no new run starts until the checkpoint" 0 \
+  "$(starts_after_fail "pooltest-$$-l3")"
+# A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a
+# survivor would hold this test's output open for its 30s), and the queue keeps
+# its order.
+t0=$SECONDS
+PLAN_SLEEP=30 POOL_PLAN_SECS=1 replan_pool h
+check "a hung re-plan is stopped at its deadline, its sleep killed with it" 1 \
+  "$(( SECONDS - t0 < 20 ))"
+check "after a hung re-plan the pool goes on, within the width, each id once" \
+  "1 0 8 0" "$(replan_verdict)"
+check "a stopped re-plan is logged and leaves the order as it was" \
+  "1 pooltest-$$-h1 pooltest-$$-h2 pooltest-$$-h3" \
+  "$(printf '%s\n' "$out" | grep -cm1 '^--- re-plan still running after') $(awk '$1 == "start" { print $2 }' "$EVENTS" | head -3 | tr '\n' ' ' | sed 's/ $//')"
+grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
+# The re-read backlog re-admits an id this run already finished once it is
+# due again (10-14: quiptic-71/166/230/321, repaired after their runs failed,
+# waited for the next burn), and adds one filed since. An id still queued or in
+# flight is never added twice. The stub lists r1 once it has been handled, as
+# --backlog does for a puzzle repaired after its run failed, and only once, as
+# the ledger or the annotation then holds it out.
+readmit_backlog() {
+  grep -qE "^(ok|fail) pooltest-$$-r1( |$)" "$EVENTS" || return 0
+  [ -e "$EVENTS.readmitted" ] && return 0
+  : >"$EVENTS.readmitted"
+  # r5 is listed while it is queued or in flight, not once it is handled: the
+  # real backlog does not hold a puzzle whose annotation is committed. Slots are
+  # refilled before the commit, so r5 may already have run by now.
+  grep -qE "^(ok|fail) pooltest-$$-r5( |$)" "$EVENTS" && { echo "pooltest-$$-r1 pooltest-$$-rnew"; return; }
+  echo "pooltest-$$-r1 pooltest-$$-rnew pooltest-$$-r5"
+}
+rm -f "$EVENTS.readmitted"
+BACKLOG_FN=readmit_backlog POOL_PLAN_SECS=60 replan_pool r
+check "a re-plan re-admits a finished id due again and adds a new one; a queued id starts once" \
+  "2 1 1" \
+  "$(awk -v p="pooltest-$$-r" '$1 == "start" { s[$2]++ } END { print s[p "1"] + 0, s[p "new"] + 0, s[p "5"] + 0 }' "$EVENTS")"
+rm -f "$EVENTS.readmitted"
+
+# A sync that brings new shell code: the pool re-execs itself onto it at its
+# loop top, adopts the runs in flight, reaps them with the new code, and goes
+# on with the queue. A harness of the pool's own functions stands in for the
+# script, and its "sync" rewrites the harness, as a sync moving the tree does.
+# Two runs outlast the sync, so they are in flight at the exec.
+HARNESS="$tree/harness.sh"
+REEXEC_EVENTS="$tree/reexec-events"
+cat >"$HARNESS" <<'EOF'
+set -uo pipefail
+CODE=old
+eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
+for fn in pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_interval_start \
+          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room reload_due; do
+  block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
+  [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
+  eval "$block"
+done
+eval "$(sed -n '/^REEXEC_VARS=(/,/)$/p' "$SCRIPT")"
+POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
+RELOAD_ASKED=0 WATCH_PID=""
+RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
+queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
+resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
+SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # set at the script's top level; reexec_self carries it
+adopted_state=${CT_PRERESET_STATE:-}
+if [ -n "${CT_PRERESET_STATE:-}" ]; then
+  st=$CT_PRERESET_STATE; unset CT_PRERESET_STATE
+  reexec_load "$st"
+  echo "adopted $$ ${POOL_RUNS[*]}" >>"$EVENTS"
+fi
+SHELL_SUM=$(shell_sum)
+run_claude() {
+  echo "start $1 $CODE" >>"$EVENTS"
+  case "$1" in *-x1) sleep 1.5 ;; *-x2|*-x3) sleep 4 ;; *) sleep 0.5 ;; esac
+  echo "end $1" >>"$EVENTS"
+}
+commit_puzzle() { echo "ok $1 $CODE $$" >>"$EVENTS"; }
+handle_failed_run() { echo "fail $1 $CODE" >>"$EVENTS"; }
+sync_wave() {
+  echo "sync ${#POOL_RUNS[@]}" >>"$EVENTS"
+  [ -e "$tree/moved" ] && return
+  touch "$tree/moved"
+  sed 's/^CODE=old$/CODE=new/' "$PRERESET_SELF" >"$PRERESET_SELF.new" && mv "$PRERESET_SELF.new" "$PRERESET_SELF"
+}
+after_wave() { return 0; }
+requeue_failed() { :; }
+wave_width() { echo 3; }
+past_deadline() { false; }
+needs_solve() { false; }
+worker_put_back() { :; }
+worker_kind() { echo; }
+worker_implausible() { false; }
+alert() { echo "ALERT $*" >>"$EVENTS"; }
+pool_bag() { :; }
+worker_sweep_scratch() { :; }
+git() { echo abc1234; }
+python3() {
+  case "$1" in
+    tools/puzzle_paths.py) echo "puzzles/x/$2.json" ;;
+    tools/weekly_usage.py) echo 10 ;;
+    tools/annotate_check.py) return 1 ;;   # --nothing-due: there is work
+    *) echo "ALERT unexpected python3 $*" >>"$EVENTS"; return 1 ;;
+  esac
+}
+# The sync clock starts here, not at the eval of the lines above: on a loaded box
+# those take longer than POOL_SYNC_SECS and the first sync would land before any
+# run was in flight. After an exec the state carries it.
+[ -n "$adopted_state" ] || POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
+run_pool Annotate "Annotate @" 0
+echo "finished $$ $CODE" >>"$EVENTS"
+EOF
+reexec_ids=""; for i in $(seq 1 6); do reexec_ids="$reexec_ids pooltest-$$-x$i"; done
+mkdir -p "$tree/runs"
+EVENTS="$REEXEC_EVENTS" IDS="$reexec_ids" SCRIPT="$SCRIPT" tree="$tree" \
+  bash "$HARNESS" >"$tree/reexec-out" 2>&1
+check "the re-exec ran the harness to its end, onto the new code" "new" \
+  "$(awk '$1 == "finished" { print $3 }' "$REEXEC_EVENTS")"
+# x1 ends first and its slot is refilled (x4, by the old code) before its commit
+# and before the sync that brings the new code, so three are in flight at the exec.
+check "it adopted the three runs in flight" "3" \
+  "$(awk '$1 == "adopted" { print NF - 2 }' "$REEXEC_EVENTS")"
+check "each id started once and committed once, none failed" "6 6 0" \
+  "$(awk '$1 == "start" { s[$2]++ } $1 == "ok" { o[$2]++ } $1 == "fail" { f++ }
+         END { n = 0; for (i in s) if (s[i] == 1) n++; m = 0; for (i in o) if (o[i] == 1) m++; print n, m, f + 0 }' "$REEXEC_EVENTS")"
+check "the adopted runs, started by the old code, are committed by the new" \
+  "pooltest-$$-x2 pooltest-$$-x3 pooltest-$$-x4" \
+  "$(awk '$1 == "start" && $3 == "old" { old[$2] = 1 } $1 == "ok" && $3 == "new" && old[$2] { print $2 }' "$REEXEC_EVENTS" | sort | tr '\n' ' ' | sed 's/ $//')"
+check "one process throughout: the exec keeps the pid" 1 \
+  "$(awk '$1 == "ok" || $1 == "adopted" || $1 == "finished" { print $1 == "ok" ? $4 : $2 }' "$REEXEC_EVENTS" | sort -u | wc -l | tr -d ' ')"
+check "the state file is gone after the load" "" "$(ls "$tree"/runlog.state 2>/dev/null)"
+if grep -q '^ALERT' "$REEXEC_EVENTS"; then
+  echo "FAIL re-exec: $(grep '^ALERT' "$REEXEC_EVENTS")"; fails=$((fails + 1))
+fi
+[ "$fails" -gt 0 ] && { echo "--- re-exec events"; cat "$REEXEC_EVENTS"; echo "--- re-exec output"; cat "$tree/reexec-out"; }
+
+# A burn started from a bridge session must not hand the bridge's claude
+# variables to its runs: entrypoint sdk-py makes the usage tally skip their
+# spend as bridge turns. tools/claude_path.sh drops them, and every script that
+# runs claude -p sources it.
+check "a run started with the bridge's env carries none of its claude variables" "" \
+  "$(CLAUDE_CODE_ENTRYPOINT=sdk-py CLAUDECODE=1 CLAUDE_CODE_SESSION_ID=bridge CLAUDE_CONFIG_DIR=/keep \
+     bash -c '. "$1/tools/claude_path.sh"; env' _ "$REPO" | grep -E '^(CLAUDECODE|CLAUDE_CODE_ENTRYPOINT|CLAUDE_CODE_SESSION_ID)=')"
+check "CLAUDE_CONFIG_DIR, where the login lives, is kept" "CLAUDE_CONFIG_DIR=/keep" \
+  "$(CLAUDE_CONFIG_DIR=/keep bash -c '. "$1/tools/claude_path.sh"; env' _ "$REPO" | grep '^CLAUDE_CONFIG_DIR=')"
+check "every script that runs claude -p sources tools/claude_path.sh" "" \
+  "$(cd "$REPO" && for f in $(grep -l 'claude -p' tools/*.sh | grep -v -e '/test_' -e '/puzzle_worker.sh$'); do
+       grep -q 'claude_path.sh' "$f" || echo "$f"; done)"
+
+if [ "$fails" -gt 0 ]; then
+  echo "--- events"; cat "$EVENTS"; echo "--- output"; printf '%s\n' "$out"
+  echo "$fails failed"; exit 1
+fi
+echo "all pool checks pass"

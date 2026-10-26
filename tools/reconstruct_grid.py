@@ -81,7 +81,7 @@ Beyond the numbering the search enforces these, and only these:
 
 The row, column and connectivity rules are `strict`, and they are here
 because they hold for every published grid we have — recounted over the whole
-corpus by tools/test_reconstruct_grid.py's nightly run (CT_FULL=1; a sample of
+corpus by tests/test_reconstruct_grid.py's nightly run (CT_FULL=1; a sample of
 it otherwise), so a series that arrives breaking one fails that test rather
 than quietly costing hit rate. They earn their place
 on speed as much as on accuracy: an all-black row is numbered perfectly well
@@ -904,7 +904,7 @@ def conventions_broken(grid, symmetry=True):
 
     The search enforces these, so a published grid that breaks one is a
     published grid the search cannot return, and this is the sentence that
-    says which. It is what tools/test_reconstruct_grid.py prints beside a
+    says which. It is what tests/test_reconstruct_grid.py prints beside a
     miss, so a miss never has to be investigated by hand twice.
     """
     rows, cols = len(grid), len(grid[0])

@@ -938,7 +938,7 @@ BARE_SEE = re.compile(rf"\(?\s*{SEE_WORD}\s*({SEE_NUMBER}|[lI])\s*(?:ac|dn|acros
 
 # ======================================================================
 # Fixes that lived in one source's reader, moved here so every source has them.
-# tools/test_ocr_text_central.py fails on a new one left in a reader.
+# tests/test_ocr_text_central.py fails on a new one left in a reader.
 # ======================================================================
 
 #: Mac Roman's punctuation as cp1252 reads it: a PDF set in that encoding

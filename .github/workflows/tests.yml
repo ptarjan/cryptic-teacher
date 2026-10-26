@@ -26,11 +26,11 @@
 # pages.yml has its own group, and even there a queued build dies the moment
 # the next push arrives, so a check must never live in pages.yml.
 #
-# So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js,py}
+# So the loop globs both of the repo's test-file spellings, tests/test_*.{sh,js,py}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
 # being written, and a list to add to is a list somebody forgets. The one file
 # that spells it the second way is tools/smoke_test.js.
-# tools/test_ci_coverage.js asserts that every test entry point is matched here,
+# tests/test_ci_coverage.js asserts that every test entry point is matched here,
 # so the next file to be named something new fails rather than disappearing.
 #
 # The scripts are spread over parallel `test` jobs, and within a job the
@@ -265,6 +265,7 @@ jobs:
           sparse-checkout: |
             /tools/
             !/tools/data/yt_solvers/
+            /tests/
             /.github/
       - uses: actions/setup-python@v6
         if: needs.scope.outputs.mode == 'fast'
@@ -336,7 +337,7 @@ jobs:
       # The tree is ~54k files; actions/checkout fetches and writes all of it
       # (~95s a job, 11 jobs). pages.yml saves its object store, and this
       # restores it and fetches only what was pushed since, as pages.yml's
-      # Check out does (same script; tools/test_ci_checkout.sh tests that one).
+      # Check out does (same script; tests/test_ci_checkout.sh tests that one).
       # A miss is a full fetch. Network steps need `shell: bash`: the job's
       # default shell has no network.
       - name: Restore the git store
@@ -392,7 +393,7 @@ jobs:
           git diff --exit-code tools/annotate_prompt.md \
             || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")
           # The whole corpus through the integrity checker, once per run;
-          # tools/test_puzzle_integrity.py tests the checker on fixtures.
+          # tests/test_puzzle_integrity.py tests the checker on fixtures.
           python3 tools/puzzle_integrity.py --quiet || fails+=("tools/puzzle_integrity.py found a corpus defect")
           if [ "${#fails[@]}" -gt 0 ]; then
             echo "FAILED: ${#fails[@]}"
@@ -437,7 +438,7 @@ jobs:
       # The tree is ~54k files; actions/checkout fetches and writes all of it
       # (~95s a job, 11 jobs). pages.yml saves its object store, and this
       # restores it and fetches only what was pushed since, as pages.yml's
-      # Check out does (same script; tools/test_ci_checkout.sh tests that one).
+      # Check out does (same script; tests/test_ci_checkout.sh tests that one).
       # A miss is a full fetch. Network steps need `shell: bash`: the job's
       # default shell has no network.
       - name: Restore the git store
@@ -495,7 +496,7 @@ jobs:
           SHARDS: ${{ strategy.job-total }}
         run: |
           all=()
-          for t in tools/test_*.sh tools/test_*.js tools/test_*.py tools/*_test.sh tools/*_test.js; do
+          for t in tests/test_*.sh tests/test_*.js tests/test_*.py tools/*_test.sh tools/*_test.js; do
             [ -e "$t" ] || continue
             all+=("$t")
           done

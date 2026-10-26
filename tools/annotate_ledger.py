@@ -91,7 +91,7 @@ CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_
               "tools/hidden_mechanical.py", "tools/tree_normalize.py", "tools/code_checks.py"]
 # The ledger and its test match tools/annotate* but do not change what an annotate run costs:
 # a commit to them must not reset the best level or lift a no-lever record.
-LEDGER_FILES = [":(exclude)tools/annotate_ledger.py", ":(exclude)tools/test_annotate_ledger.py",
+LEDGER_FILES = [":(exclude)tools/annotate_ledger.py", ":(exclude)tests/test_annotate_ledger.py",
                 ":(exclude)tools/annotate_audit.py"]
 
 

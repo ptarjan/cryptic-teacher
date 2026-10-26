@@ -25,8 +25,9 @@ TOOLS = ROOT / "tools"
 
 
 def tests():
-    return sorted(p for p in TOOLS.iterdir()
-                  if re.fullmatch(r"test_.+\.(sh|js)|.+_test\.(sh|js)", p.name))
+    return sorted([p for p in (ROOT / "tests").iterdir()
+                   if re.fullmatch(r"test_.+\.(sh|js)", p.name)]
+                  + [p for p in TOOLS.iterdir() if re.fullmatch(r".+_test\.(sh|js)", p.name)])
 
 
 def module_imports(path):
@@ -118,9 +119,9 @@ def check_pipefail_grep(paths):
 
 def main():
     fails = []
-    py = sorted(p.relative_to(ROOT).as_posix() for d in ("tools", "sync") if (ROOT / d).is_dir()
+    py = sorted(p.relative_to(ROOT).as_posix() for d in ("tools", "tests", "sync") if (ROOT / d).is_dir()
                 for p in (ROOT / d).rglob("*.py") if "node_modules" not in p.parts)
-    sh = sorted(p.relative_to(ROOT).as_posix() for d in ("tools", "sync") if (ROOT / d).is_dir()
+    sh = sorted(p.relative_to(ROOT).as_posix() for d in ("tools", "tests", "sync") if (ROOT / d).is_dir()
                 for p in (ROOT / d).rglob("*.sh"))
     if shutil.which("ruff"):
         r = subprocess.run(["ruff", "check", "--no-cache", "--isolated", "--select", "E9,F63,F7,F82",

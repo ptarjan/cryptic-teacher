@@ -1,0 +1,191 @@
+#!/bin/bash
+# Does tools/book_queue.py still offer the right book to tools/acquire_books.sh?
+#
+#     bash tests/test_book_queue.sh
+#
+# This queue drives an UNATTENDED scheduled job that spends a one-hour archive.org
+# loan on whatever it names. Two ways to get that wrong, and both are silent:
+# offering a book the corpus already holds burns the account's allowance
+# re-reading it, and dropping a book nobody has read leaves it unread forever
+# with the log saying the queue is empty. Neither shows up anywhere a person
+# looks, so they are asserted here.
+#
+# The fixtures are synthetic registries in a temp tree — no loan, no network,
+# and no dependence on how many books happen to be read today.
+set -uo pipefail
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+fails=0
+check() {  # check <what> <expected> <got>
+  if [ "$2" = "$3" ]; then echo "ok   $1"; else
+    echo "FAIL $1: expected [$2], got [$3]"; fails=$((fails + 1)); fi
+}
+
+tree="$(mktemp -d)"
+trap 'rm -rf "$tree"' EXIT
+# Cached book text lives under tools/downloads.py's root; keep the real one out of it.
+export CT_DOWNLOADS="$tree/downloads"
+mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
+cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$REPO/tools/json_merge.py" \
+  "$REPO/tools/media_manifest.py" "$REPO/tools/local_config.py" "$tree/tools/"
+# The book texts' manifest (media_manifest.BOOK_TEXTS), as its one-off build leaves it.
+mkdir -p "$CT_DOWNLOADS/.manifest" "$CT_DOWNLOADS/ia-books"
+: > "$CT_DOWNLOADS/.manifest/ia-books.jsonl"
+save_text() { (cd "$tree/tools" && python3 -c 'import sys, book_queue as q; q.save_text(sys.argv[1], "text\n")' "$1"); }
+
+cat > "$tree/tools/data/books.json" <<'JSON'
+{"books": [
+ {"book_index": 1, "identifier": "read-one", "title": "Read One"},
+ {"book_index": 2, "identifier": "unread-best", "title": "Unread Best"},
+ {"book_index": 3, "identifier": "unread-worse", "title": "Unread Worse"},
+ {"book_index": 4, "identifier": "unranked", "title": "Registered But Unranked"}]}
+JSON
+cat > "$tree/tools/data/book_candidates.json" <<'JSON'
+{"ranking": [
+ {"identifier": "read-one", "estimated_puzzle_count": 70},
+ {"identifier": "unread-best", "estimated_puzzle_count": 80},
+ {"identifier": "unread-worse", "estimated_puzzle_count": 90}]}
+JSON
+
+# One puzzle filed against book 1 (numbers are book_index * 1000 + position),
+# read by the reader in force (see RE-READS below).
+echo '{}' > "$tree/puzzles/book/2000/book-1007.json"
+reads_all() { echo '{"read-one": {"on": "9999-01-01"}, "unread-best": {"on": "9999-01-01"},
+ "unread-worse": {"on": "9999-01-01"}, "unranked": {"on": "9999-01-01"}}' \
+  > "$tree/tools/data/book_reads.json"; }
+echo '{"read-one": {"on": "9999-01-01"}}' > "$tree/tools/data/book_reads.json"
+
+got="$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+# A book with a puzzle in the corpus is read; the rest are offered best first,
+# and the one nothing measured goes last rather than being dropped.
+check "order, best first, unranked last" "unread-best unread-worse unranked " "$got"
+check "a book the corpus already holds is not offered" "" "$(echo "$got" | grep -o read-one)"
+check "--next names the head of that queue" "unread-best" \
+  "$(cd "$tree" && python3 tools/book_queue.py --next)"
+check "--count counts the unread, not the registry" "3" \
+  "$(cd "$tree" && python3 tools/book_queue.py --count)"
+
+# A book archive.org lends to no one leaves the queue for good, even when a
+# reader change makes every book due again: asking again is the same refusal.
+echo '{"read-one": {"on": "9999-01-01"}, "unread-best": {"on": "2000-01-01", "not_lendable": "is_lendable=false"}}' \
+  > "$tree/tools/data/book_reads.json"
+check "a not-lendable book is never offered, due or not" "unread-worse unranked " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+(cd "$tree" && python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_not_lendable("unread-worse", "no copies")')
+check "record_not_lendable drops the book and keeps its reason" "unranked no copies" \
+  "$(cd "$tree" && python3 tools/book_queue.py --next) $(cd "$tree" && python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; print(q.not_lendable("unread-worse"))')"
+echo '{"read-one": {"on": "9999-01-01"}}' > "$tree/tools/data/book_reads.json"
+
+# A book with puzzles filed whose text is gone, once due, takes its ranking
+# place: clues-only filing makes its unfiled leaves worth a loan too.
+echo '{}' > "$tree/tools/data/book_reads.json"
+check "a due book whose text is gone is ranked with the unread, not behind them" \
+  "read-one unread-best unread-worse unranked " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+echo '{"read-one": {"on": "9999-01-01"}}' > "$tree/tools/data/book_reads.json"
+
+# A pin jumps the ranking, an already-read or unknown pin is skipped.
+echo '{"pinned": ["read-one", "no-such-book", "unranked"]}' > "$tree/tools/data/book_pins.json"
+check "pinned book comes first; read and unknown pins are skipped" \
+  "unranked unread-best unread-worse " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+rm "$tree/tools/data/book_pins.json"
+
+# Every book read: --next must FAIL rather than print nothing, or the caller
+# cannot tell "finished" from "broken" and alerts on a finished queue.
+for n in 2007 3007 4007; do echo '{}' > "$tree/puzzles/book/2000/book-$n.json"; done
+reads_all
+check "--count is 0 once every book is read" "0" \
+  "$(cd "$tree" && python3 tools/book_queue.py --count)"
+(cd "$tree" && python3 tools/book_queue.py --next >/dev/null 2>&1)
+check "--next exits non-zero on an empty queue" "1" "$?"
+
+# RE-READS. Every book above is filed and none has a read on record, so all
+# are due. The ones whose text is on disk are re-read with no loan; the rest
+# go back to the borrow queue.
+rm "$tree/tools/data/book_reads.json"
+save_text read-one
+echo text > "$tree/downloads/ia-books/unread-best.sample-6p.txt"
+echo text > "$tree/downloads/ia-books/unread-worse.txt"  # on disk, never noted: the queue reads no disk
+check "a due book with cached text is re-read, a sample is not a book" "read-one" \
+  "$(cd "$tree" && python3 tools/book_queue.py --reread | tr '\n' ' ' | sed 's/ $//')"
+check "a due book whose text is gone is borrowed again" \
+  "unread-best unread-worse unranked " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+# A read on or after REREAD_BEFORE takes a book off both lists.
+(cd "$tree/tools" && python3 -c '
+import book_queue as q
+for i in ("read-one", "unread-best", "unread-worse", "unranked"):
+    q.record_read(i, 60, 50)')
+# A read earlier on the day the reader changed is the old reader's.
+check "a read hours before the reader change is still due" "True" \
+  "$(cd "$tree/tools" && python3 -c '
+import book_queue as q, json
+q.READS.write_text(json.dumps({"read-one": {"on": q.REREAD_BEFORE[:10] + "T00:00:01+00:00"}}))
+print(q.due("read-one"))')"
+(cd "$tree/tools" && python3 -c '
+import book_queue as q
+for i in ("read-one", "unread-best", "unread-worse", "unranked"):
+    q.record_read(i, 60, 50)')
+check "a book read by the reader in force is not re-read" "" \
+  "$(cd "$tree" && python3 tools/book_queue.py --reread)"
+check "nor borrowed again" "0" "$(cd "$tree" && python3 tools/book_queue.py --count)"
+# A book never read whose text is on disk is re-read, never borrowed.
+rm "$tree/tools/data/book_reads.json" "$tree/puzzles/book/2000/book-2007.json"
+save_text unread-best
+check "an unread book with text on disk is not borrowed" "" \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | grep -x unread-best)"
+
+# A book whose text holds no puzzle region the reader can find: acquire_book
+# exits 5, writes a no_puzzles row with the reason (read as of today, so not
+# due), and leaves the queue free for the next book. Run end to end on a copy
+# of tools/ with a text that has no section title and no clue leaf.
+# A copy of the real tools/ and registries in a second tree, so series.py
+# finds the book it reads.
+real="$(cd "$REPO" && python3 -c 'import json; print(json.load(open("tools/data/books.json"))["books"][0]["identifier"])')"
+t2="$tree/real"
+mkdir -p "$t2"
+cp -r "$REPO/tools" "$t2/tools"
+printf 'A cookery book\n\nNothing here is a crossword.\n' > "$tree/blank.txt"
+echo '{}' > "$t2/tools/data/book_reads.json"
+(cd "$t2" && python3 tools/acquire_book.py "$real" --text "$tree/blank.txt" \
+   --out "$tree/out" >/dev/null 2>&1)
+check "no puzzle region exits EXIT_NO_PUZZLES" "5" "$?"
+q2() { (cd "$t2" && python3 -c "import sys; sys.path.insert(0, 'tools'); import book_queue as q; print($1)"); }
+check "and records a no_puzzles row with its reason, found 0" "True 0" \
+  "$(q2 "bool(q.no_puzzles('$real')), q.reads()['$real']['found']")"
+check "and is not due again" "False" "$(q2 "q.due('$real')")"
+
+# A light whose number the OCR lost (light_spec's None) is kept as a reading
+# without a number: a formatted "None" would be a word the clue vote reads as
+# its lost opening.
+check "a reprint light with no number is written without one" \
+  "ACROSS|Lost number clue (5)|7 Kept clue (4)|DOWN|" \
+  "$(cd "$tree/tools" && python3 -c '
+import book_queue as q
+p = q.save_reprint("times-1", "leaf", 1, [[None, 5, "x", {"clue": "Lost number clue", "enumeration": "5"}],
+                                          [7, 4, "x", {"clue": "Kept clue", "enumeration": "4"}]], [], root=".")
+print("|".join(p.read_text().splitlines()) + "|")')"
+# Nor does any stored reading carry one (every line save_reprint wrote opens on
+# its number, so a line opening on "None" is a formatted lost number).
+check "no stored reprint reading opens a line on a formatted None" "" \
+  "$(cd "$REPO/tools" && env -u CT_DOWNLOADS python3 -c '
+import book_queue as q, pathlib
+d = pathlib.Path(q.REPRINT_DIR)
+print(" ".join(str(p) for p in sorted(d.glob("*/*.txt")) if d.is_dir()
+               and any(l.startswith("None ") for l in p.read_text(encoding="utf-8", errors="replace").splitlines())))')"
+
+# The real registries must still parse and agree with each other, since the
+# fixtures above cannot catch a row that lost its identifier.
+(cd "$REPO" && python3 tools/book_queue.py >/dev/null 2>&1)
+check "the real registry still produces a queue" "0" "$?"
+
+# Commit subjects name the book ("Read The Penguin Book of ..."), never its
+# archive.org identifier, so every registered book needs a title.
+check "every registered book has a title for its commit subject" "" \
+  "$(cd "$REPO" && python3 -c '
+import json
+print(" ".join(b["identifier"] for b in json.load(open("tools/data/books.json"))["books"] if not b.get("title")))')"
+check "a read names its book by title" "The Penguin Book of Sunday Times Crosswords, volume 2" \
+  "$(cd "$REPO" && python3 tools/book_queue.py --title secondpenguinboo0000unse_c2w6)"
+
+[ "$fails" = 0 ] && echo "PASSED" || { echo "$fails FAILED"; exit 1; }

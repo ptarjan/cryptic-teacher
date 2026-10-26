@@ -717,7 +717,7 @@
 
   // What a solver reads instead of the stored number: display_number() in
   // tools/series.py, which writes the same row on the archive pages, so the two
-  // must agree character for character (tools/test_date_numbers.py). "No 3,018"
+  // must agree character for character (tests/test_date_numbers.py). "No 3,018"
   // names a puzzle no book prints, and with one chip for the whole shelf a bare
   // "No 18" would name thirty different puzzles.
   function displayNumber(p) {
@@ -1440,7 +1440,7 @@
     });
   }
 
-  // ---- sync scheduler (tools/test_sync_retry.js runs this block as is) ----
+  // ---- sync scheduler (tests/test_sync_retry.js runs this block as is) ----
   /* Every save is in localStorage before any of this runs, and a push only
      ever reads from there, so a push that fails loses nothing: the letters
      are still on this device and go up with the next push. What a failure

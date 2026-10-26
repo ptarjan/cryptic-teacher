@@ -1,0 +1,223 @@
+#!/bin/bash
+# Is a failed puzzle skipped the next night, and back once its inputs change?
+#
+# The blocks of tools/daily_update.sh that read and write the failure ledger are
+# READ OUT of that file by their own first and last lines rather than copied
+# here, then driven against a scratch ledger and scratch puzzles. Nothing in
+# the checkout is written; the last check says so.
+#
+#     bash tests/test_failed_inputs.sh
+set -uo pipefail
+cd "$(dirname "$0")/.."
+REPO="$PWD"
+fails=0
+check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
+  echo "  FAIL: $1"$'\n'"    expected: $3"$'\n'"    got:      $2"; fails=$((fails + 1)); fi; }
+tree_before=$(git status --porcelain)
+
+pick=$(awk '/^annotate_blocked=/,/^)$/' tools/daily_update.sh)
+charge=$(awk '/^record_annotate_failure\(\)/,/^}$/' tools/daily_update.sh)
+for block in pick charge; do
+  [ -n "${!block}" ] ||
+    { echo "FAIL: the $block block is no longer where this test reads it from"; exit 1; }
+done
+
+sand=$(mktemp -d)
+trap 'rm -rf "$sand"' EXIT
+ln -s "$REPO/tools" "$sand/tools"
+mkdir -p "$sand/puzzles"
+export FAILED_INPUTS_FILE="$sand/ledger.json"
+export FAILED_INPUTS_PUZZLES="$sand/puzzles"
+ledger() { python3 tools/failed_inputs.py "$@"; }
+
+puzzle() {  # id answer [definition: half an annotation] — one-entry, undated puzzle file
+  python3 - "$sand/puzzles/${1%-*}/undated/$1.json" "$2" "${3:-}" <<'EOF'
+import json, os, sys
+path, answer, ann = sys.argv[1:]
+os.makedirs(os.path.dirname(path), exist_ok=True)
+e = {"number": 1, "direction": "across", "clue": {"text": "Test", "enumeration": "3"}, "solution": answer, "length": 3,
+     "position": {"x": 0, "y": 0}}
+if ann:
+    e["annotation"] = {"definitions": [{"text": ann, "at": e["clue"]["text"].index(ann)}]}
+json.dump({"id": path.rsplit("/", 1)[1][:-5], "dimensions": {"rows": 3, "cols": 3},
+           "entries": [e]}, open(path, "w"))
+EOF
+}
+index() {  # each argument is id:YYYY-MM-DD:annotated
+  python3 - "$sand/puzzles/index.json" "$@" <<'EOF'
+import json, sys
+out = []
+for arg in sys.argv[2:]:
+    pid, when, done = arg.split(":")
+    out.append({"id": pid, "date": when, "annotated": done == "yes",
+                "hasSolutions": True})
+json.dump({"puzzles": out}, open(sys.argv[1], "w"))
+EOF
+}
+queue() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$pending" ); }
+eval "$charge"
+
+puzzle ct-1 CAT; puzzle ct-2 DOG; puzzle ct-3 EMU
+index ct-1:2020-01-03:no ct-2:2020-01-02:no ct-3:2020-01-01:no
+
+echo "a puzzle is in the queue until it fails"
+check "the two newest" "$(queue)" "ct-1 ct-2"
+
+echo "a validator's rejection is recorded, whatever words the clue error quotes"
+record_annotate_failure ct-1 "validation rejected tonight's annotation: ERROR 1-across: 'network' is not a definition" --judged >/dev/null
+check "ct-1 is skipped" "$(ledger skipped annotate)" "ct-1"
+
+echo "a transient failure is not recorded, so it retries next night"
+record_annotate_failure ct-2 "ct-2 failed: API Error: 529 overloaded" >/dev/null
+record_annotate_failure ct-2 "ct-2 failed: Claude AI usage limit reached" >/dev/null
+record_annotate_failure ct-2 "five-hour window 92% spent (limit 70%)" >/dev/null
+record_annotate_failure ct-2 "You've hit your monthly spend limit" >/dev/null
+check "only ct-1 is skipped" "$(ledger skipped annotate)" "ct-1"
+
+echo "the next night the failed puzzle is left out and the budget refilled"
+check "ct-2 and ct-3 instead" "$(queue)" "ct-2 ct-3"
+check "and the log counts it" "$(ledger summary)" \
+  "skipped as failed on unchanged inputs: 1 — annotate 1 (ct-1)"
+
+echo "half an annotation left on disk is not a new input"
+puzzle ct-1 CAT "Test"
+check "still skipped" "$(queue)" "ct-2 ct-3"
+
+echo "a hand-fixed answer is a new input, and the puzzle comes back by itself"
+puzzle ct-1 COT
+check "back at the head of the queue" "$(queue)" "ct-1 ct-2"
+check "and the stale record is dropped" "$(ledger summary)" \
+  "skipped as failed on unchanged inputs: 0"
+check "from the file too" "$(python3 -c "import json; print(json.load(open('$FAILED_INPUTS_FILE'))['annotate'])")" "{}"
+
+echo "a wall-clock kill is recorded against the puzzle"
+# Clearing on a commit and recording a clean run that wrote nothing are
+# tools/puzzle_worker.sh's, driven in tests/test_discard_alert.sh.
+record_annotate_failure ct-3 "ct-3 ran past 90m without finishing and was stopped" >/dev/null
+check "a wall-clock kill is the puzzle's" "$(ledger skipped annotate)" "ct-3"
+ledger clear annotate ct-3 >/dev/null
+
+echo "the cold solve uses the same rule"
+puzzle ct-4 ""
+ledger record solve ct-4 --judged --reason "crossings disagree at 1-across" >/dev/null
+check "skipped" "$(ledger skipped solve)" "ct-4"
+puzzle ct-4 GNU
+check "answers arriving are a new input" "$(ledger skipped solve)" ""
+
+echo "clearing by hand is the one-off retry after a code change"
+puzzle ct-5 CAT; puzzle ct-6 DOG
+ledger record solve ct-5 --judged --reason "pieces join to CAX, expected CAT" >/dev/null
+ledger record solve ct-6 --judged --reason "crossings disagree" >/dev/null
+check "a bare clear names nothing" "$(ledger clear solve 2>&1 >/dev/null; echo "rc=$?")" \
+  "failed_inputs.py clear: name the ids, a --reason, or --all"$'\n'"rc=1"
+check "clear by reason" "$(ledger clear solve --reason "PIECES JOIN")" "cleared 1 solve failures; they are tried again next run"
+check "the other stays skipped" "$(ledger skipped solve)" "ct-6"
+check "clear --all" "$(ledger clear solve --all >/dev/null; ledger skipped solve)" ""
+
+echo "a record from before the puzzle hash stays skipped, held to the puzzle as it is"
+python3 - "$FAILED_INPUTS_FILE" <<'EOF2'
+import json, sys
+d = json.load(open(sys.argv[1]))
+d["solve"]["ct-6"] = {"date": "2026-10-01", "inputs": "0123456789abcdef", "reason": "old"}
+json.dump(d, open(sys.argv[1], "w"))
+EOF2
+check "skipped" "$(ledger skipped solve)" "ct-6"
+check "re-keyed on disk" "$(python3 -c "import json; print(sorted(json.load(open('$FAILED_INPUTS_FILE'))['solve']['ct-6']))")" \
+  "['date', 'puzzle', 'reason']"
+puzzle ct-6 DOT
+check "and a changed puzzle comes back" "$(ledger skipped solve)" ""
+
+echo "new arrivals are not capped; ANNOTATE_MAX bounds only the older backlog"
+# shellcheck disable=SC2154 # $fresh is set by the eval of $pick
+fresh_q() { ( cd "$sand" && ANNOTATE_MAX=2 eval "$pick" && printf '%s\n' "$fresh" ); }
+ago() { python3 -c "import datetime as d; print(d.date.today() - d.timedelta(days=$1))"; }
+for i in 1 2 3; do puzzle "nw-$i" CAT; done
+puzzle old-1 CAT; puzzle old-2 CAT; puzzle old-3 CAT
+index "nw-1:$(ago 0):no" "nw-2:$(ago 1):no" "nw-3:$(ago 1):no" \
+      old-1:2020-01-03:no old-2:2020-01-02:no old-3:2020-01-01:no
+check "all three of the last two days' puzzles" "$(fresh_q | tr ' ' '\n' | sort | xargs)" "nw-1 nw-2 nw-3"
+check "and the backlog still gets its two" "$(queue)" "old-1 old-2"
+index "nw-1:$(ago 3):no" old-1:2020-01-03:no
+check "three days old is backlog" "$(fresh_q)" ""
+
+echo "a puzzle whose official key landed in the last two days is a new arrival too"
+# The unit that refetched it notes it (daily_units.py keyed --record, from its
+# tree's diff against HEAD); the tick reads the note.
+export UNIT_QUEUE_STATE="$sand/state"
+git -C "$sand" init -q
+puzzle old-1 ""
+git -C "$sand" add puzzles/old/undated/old-1.json
+git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
+puzzle old-1 CAT
+index old-1:2020-01-03:no old-2:2020-01-02:no old-3:2020-01-01:no
+check "a keyless queue has no new arrival" "$(fresh_q)" ""
+check "the refetch notes the key" "$(cd "$sand" && python3 tools/daily_units.py keyed --record)" "keyed: old-1"
+check "old-1 jumps the cap" "$(fresh_q)" "old-1"
+check "and the backlog is the rest" "$(queue)" "old-2 old-3"
+rm -rf "$sand/.git"
+
+echo "a failure recorded with a run's edits still on disk holds the puzzle as committed"
+git -C "$sand" init -q
+puzzle hd-1 ""
+git -C "$sand" add puzzles/hd/undated/hd-1.json
+git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
+puzzle hd-1 CAT   # the cold solve's answer, written in by the run
+ledger record annotate hd-1 --judged --reason "ERROR: 1A: no annotation" >/dev/null
+git -C "$sand" checkout -q -- puzzles/hd/undated/hd-1.json   # the run's edits discarded
+check "hd-1 is skipped once its edits are gone" "$(ledger skipped annotate | grep -c '^hd-1$')" "1"
+rm -rf "$sand/.git"
+
+echo "a change to the code or data that refused a row makes it due by itself"
+out=$(cd "$sand" && PYTHONPATH="$REPO/tools" python3 - "$sand" <<'EOF'
+import json, os, sys
+from pathlib import Path
+import failed_inputs as fi
+sand = Path(sys.argv[1])
+tools = sand / "fake_tools"; tools.mkdir()
+fi.TOOLS = tools
+(tools / "puzzle_integrity.py").write_text("import helper\n")
+(tools / "helper.py").write_text("X = 1\n")
+for kind_mods in fi.CHECKERS.values():
+    for m in kind_mods:
+        if not (tools / f"{m}.py").exists():
+            (tools / f"{m}.py").write_text("")
+def write(pid, date):
+    p = sand / "puzzles" / "nn" / "undated" / f"{pid}.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"id": pid, "date": date, "dimensions": {"rows": 1, "cols": 1}, "entries": []}))
+write("nn-5", "2012-12-10"); write("nn-6", "2012-12-04")
+reason = "puzzle_integrity.RefusedWrite: refusing to write nn-5: DATE dated 2012-12-10, not before nn-6's 2012-12-04"
+rec = {"puzzle": fi.input_hash("nn-5"), "code": fi.code_version("solve", "nn-5", reason), "reason": reason}
+def state(label):
+    fi._module_version.cache_clear()
+    print(label, "due" if fi.due("solve", "nn-5", rec) else "held")
+state("unchanged:")
+(tools / "apply_solution.py").write_text("# unrelated to this refusal\n")
+state("an unnamed checker changed:")
+(tools / "helper.py").write_text("X = 2\n")
+state("an import of the named check changed:")
+rec["code"] = fi.code_version("solve", "nn-5", reason)
+write("nn-6", "2012-12-11")
+state("the neighbour it named was re-dated:")
+rec["code"] = fi.code_version("solve", "nn-5", reason)
+(tools / "puzzle_integrity.py").write_text("import helper  # fixed\n")
+state("the named check changed:")
+older = {"puzzle": rec["puzzle"], "reason": reason}
+print("an older record naming its check:", "due" if fi.due("solve", "nn-5", older) else "held")
+older = {"puzzle": rec["puzzle"], "reason": "  no single grid holds these answers"}
+print("an older record naming none:", "due" if fi.due("solve", "nn-5", older) else "held")
+EOF
+)
+check "an unrefused row is held" "$(grep -c '^unchanged: held' <<<"$out")" "1"
+check "an unnamed checker leaves it held" "$(grep -c '^an unnamed checker changed: held' <<<"$out")" "1"
+check "an import of the named check makes it due" "$(grep -c 'an import of the named check changed: due' <<<"$out")" "1"
+check "re-dating the named neighbour makes it due" "$(grep -c 'neighbour it named was re-dated: due' <<<"$out")" "1"
+check "the named check changing makes it due" "$(grep -c '^the named check changed: due' <<<"$out")" "1"
+check "an older record naming its check is due" "$(grep -c 'older record naming its check: due' <<<"$out")" "1"
+check "an older record naming none holds on its puzzle alone" "$(grep -c 'older record naming none: held' <<<"$out")" "1"
+
+echo "the working tree is untouched"
+check "git status unchanged" "$(git status --porcelain)" "$tree_before"
+
+[ "$fails" = 0 ] && echo "failed inputs: all checks passed" || echo "failed inputs: $fails FAILED"
+exit $((fails > 0))

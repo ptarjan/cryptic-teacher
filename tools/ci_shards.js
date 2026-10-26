@@ -4,7 +4,7 @@
    collects — and asks for one shard of it. The split is a pure function of that
    list, so the jobs agree without talking to each other: every file lands in
    exactly one shard, and a file nobody's glob matched is a file that runs
-   nowhere, which is what tools/test_ci_coverage.js is there to catch.
+   nowhere, which is what tests/test_ci_coverage.js is there to catch.
 
    Balance is by cost, not by count: a few scripts are most of the suite's
    runtime and putting two of them in one shard makes that shard the wall clock.
@@ -27,7 +27,7 @@
    (the runner has CORES cores); LPT charges such an item COST/CORES.
    `--parallel` prints the PARALLEL items of a shard's list, `--serial` the rest.
 
-   Usage: printf '%s\n' tools/test_a.sh ... | node tools/ci_shards.js <i> <n>
+   Usage: printf '%s\n' tests/test_a.sh ... | node tools/ci_shards.js <i> <n>
           printf '%s\n' <shard's items> | node tools/ci_shards.js --needs-pages */
 "use strict";
 
@@ -38,20 +38,20 @@ const COST = {
   // pays; a slice whose every puzzle is cached is dropped before it runs
   // (tools/ci_cache.js).
   "tools/smoke_test.js": 480,
-  "tools/test_push_conflict.sh": 17,
-  "tools/test_reconstruct_grid.py": 25,
-  "tools/test_paper_mode.js": 62,
-  "tools/test_file_trove_puzzles.sh": 54,
-  "tools/test_solve_queue_clues.sh": 66,
-  "tools/test_shim_format.py": 59,
-  "tools/test_acquire_book.py": 61,
-  "tools/test_provenance.py": 28,
-  "tools/test_blog_facts.sh": 34,
-  "tools/test_puzzle_invariants.py": 7,
-  "tools/test_alert_claimed.sh": 6,
-  "tools/test_repair_fetched.py": 5,
-  "tools/test_letter_facts.sh": 4,
-  "tools/test_og_tags.js": 4,
+  "tests/test_push_conflict.sh": 17,
+  "tests/test_reconstruct_grid.py": 25,
+  "tests/test_paper_mode.js": 62,
+  "tests/test_file_trove_puzzles.sh": 54,
+  "tests/test_solve_queue_clues.sh": 66,
+  "tests/test_shim_format.py": 59,
+  "tests/test_acquire_book.py": 61,
+  "tests/test_provenance.py": 28,
+  "tests/test_blog_facts.sh": 34,
+  "tests/test_puzzle_invariants.py": 7,
+  "tests/test_alert_claimed.sh": 6,
+  "tests/test_repair_fetched.py": 5,
+  "tests/test_letter_facts.sh": 4,
+  "tests/test_og_tags.js": 4,
 };
 const DEFAULT_COST = 3;
 
@@ -63,7 +63,7 @@ const PARALLEL = new Set(["tools/smoke_test.js"]);
 const CORES = 4;
 
 // The scripts that read what tools/build_seo_pages.py writes.
-const PAGES = new Set(["tools/smoke_test.js", "tools/test_og_tags.js"]);
+const PAGES = new Set(["tools/smoke_test.js", "tests/test_og_tags.js"]);
 // Runner seconds to build them, charged once to a shard that holds a reader.
 const PAGE_BUILD = 95;
 

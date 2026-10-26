@@ -1,0 +1,463 @@
+#!/usr/bin/env python3
+# Does tools/acquire_book.py still recover the grids its stored control records?
+#
+#     python3 tests/test_acquire_book.py
+#
+# Acquiring a book is meant to cost CPU and nothing else, which is only true
+# while the parser keeps parsing the same way. tools/light_spec.py reads OCR
+# that is wrong in a dozen specific ways and repairs it with three general
+# rules, and a "harmless" tightening of any of them silently changes which
+# books come out the far end. This is the gate that makes such a change
+# visible, and tools/light_spec.py says in its own docstring that it is gated
+# by this file.
+#
+# THE CONTROL is ten puzzles from Penguin volume 5. Five of them (3, 18, 27, 44, 45) are in puzzles/ and
+# were checked by hand; the other five are the interesting failures — an
+# ambiguous pair, a ten-fill collapse, a no-solution, a second ambiguous pair —
+# and they are in the control precisely because a change that "improves" the
+# parser usually shows up first as one of those quietly becoming something
+# else.
+#
+# IT GATES ON NODE COUNTS, NOT JUST GRIDS. The search is deterministic, so the
+# number of nodes it visits is a fingerprint of the light spec that went into
+# it. Two different specs can produce the same grid; they essentially never
+# produce the same node count. Comparing grids alone would sleep through a
+# parser change that happens not to move the answer on these ten — which is
+# most parser changes.
+#
+# NO BOOK TEXT LIVES IN THIS REPO. tools/data/penguin5_control.json stores
+# light specs (numbers and lengths), black-square patterns, and a sha256 over
+# the parser's full output including clue text. So PART 2, which exercises the
+# parser itself, needs the OCR text and SKIPS cleanly when it is absent —
+# which is the normal case in CI. Part 1 runs everywhere and is the part that
+# can fail the build.
+#
+# Set PENGUIN_TEXT to the OCR dump (or leave tools/fetch_ia_book.py's own
+# output where it lands) to get parts 2 and 3 as well.
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+os.chdir(REPO)
+
+if "PENGUIN_TEXT" in os.environ:
+    os.environ["TEXT"] = os.environ["PENGUIN_TEXT"]
+else:
+    downloads = subprocess.run([sys.executable, "tools/downloads.py"], stdout=subprocess.PIPE,
+                               text=True).stdout.strip()
+    os.environ["TEXT"] = f"{downloads}/ia-books/newpenguinbkguar0000perk.txt"
+
+# Parts 2-4 each ran in a process of their own; they patch acquire_book, so each
+# starts from the modules this script began with.
+BASELINE = set(sys.modules)
+
+
+def fresh():
+    for name in set(sys.modules) - BASELINE:
+        del sys.modules[name]
+
+
+# ---------------------------------------------------------------- parts 1
+import hashlib
+import json, re, tempfile
+from concurrent.futures import ProcessPoolExecutor
+from pathlib import Path
+
+sys.path.insert(0, "tools")
+import grid_verdict
+from light_spec import build_spec
+from reconstruct_grid import reconstruct
+from groups import entry_id
+
+CONTROL = json.loads(Path("tools/data/penguin5_control.json").read_text())
+PUZZLES = CONTROL["puzzles"]
+failures = []
+
+
+def fail(msg):
+    failures.append(msg)
+    print(f"  FAIL {msg}")
+
+
+# ---------------------------------------------------------------- part 1
+# The reconstructor and the verdict, gated on the stored specs. No book text.
+def run_one(item):
+    bn, spec = item
+    triples = ([(lg[0], "across", lg[1]) for lg in spec["across"]]
+               + [(lg[0], "down", lg[1]) for lg in spec["down"]])
+    found, info = reconstruct(triples, cols=15, rows=15, limit=40, symmetry=True,
+                              max_nodes=8_000_000, fallback=False)
+    return bn, [list(g) for g in found], info
+
+
+print("part 1: the ten-puzzle vol-5 control, from stored light specs")
+jobs = [(bn, p["light_spec"]) for bn, p in sorted(PUZZLES.items(), key=lambda kv: int(kv[0]))]
+passed = 0
+with ProcessPoolExecutor(max_workers=4) as pool:
+    for bn, found, info in pool.map(run_one, jobs):
+        want = PUZZLES[bn]
+        ok = True
+        if sorted(found) != sorted(want["expected_grids"]):
+            fail(f"#{bn}: {len(found)} grid(s), expected {len(want['expected_grids'])}"
+                 f" — the recovered geometry moved")
+            ok = False
+        spec_digest = hashlib.sha256(json.dumps(
+            PUZZLES[bn]["light_spec"], sort_keys=True,
+            separators=(",", ":")).encode()).hexdigest()
+        if spec_digest != want["spec_digest"]:
+            fail(f"#{bn}: the stored light spec changed — the light spec that "
+                 f"went in is not the one this control was measured with")
+            ok = False
+        elif info["nodes"] != want["expected_nodes"]:
+            # Same spec, same grids (checked above): the search itself prunes
+            # differently. Re-measure expected_nodes once the grids still match.
+            fail(f"#{bn}: search visited {info['nodes']} nodes, expected "
+                 f"{want['expected_nodes']} — the spec is unchanged, so the "
+                 f"search's pruning changed; re-measure the control")
+            ok = False
+        if bool(info["truncated"]) != want["expected_truncated"]:
+            fail(f"#{bn}: truncated={info['truncated']}, expected "
+                 f"{want['expected_truncated']}")
+            ok = False
+        status, _ = grid_verdict.verdict([tuple(g) for g in found],
+                                          bool(info["truncated"]))
+        if status != want["expected_status"]:
+            fail(f"#{bn}: verdict {status}, expected {want['expected_status']}")
+            ok = False
+        if ok:
+            passed += 1
+            print(f"  ok   #{bn:>2} lights={want['lights']} nodes={info['nodes']} "
+                  f"{status}")
+print(f"  {passed}/{len(jobs)} control puzzles reproduced exactly")
+
+# The five in puzzles/ must come back as usable uniques, not as a shortlist.
+for bn in CONTROL["known_good_in_corpus"]:
+    got = PUZZLES[str(bn)]["expected_status"]
+    if got != "exact-unique":
+        fail(f"#{bn} is in the corpus by hand but the control expects {got}")
+
+# ---------------------------------------------------------------- part 1b
+# The thresholds are only worth what they cost on real grids, and every one of
+# those costs is a claim this file will not let drift silently.
+print("part 1b: the reject rules still do what they were measured to do")
+for bn, p in PUZZLES.items():
+    spec = p["light_spec"]
+    reasons = grid_verdict.screen_spec(spec["across"], spec["down"])
+    if reasons and p["expected_status"] in ("exact-unique",):
+        fail(f"#{bn} reconstructs uniquely but screen_spec rejects it: {reasons[0]}")
+for rule in ("across == down cell totals", "checked-cell fraction",
+             "must have a 1-Across"):
+    if rule not in grid_verdict.DISCARDED:
+        fail(f"{rule!r} was measured false against the corpus and must stay "
+             f"in grid_verdict.DISCARDED so nobody reinstates it")
+short = [[1, 4, "plain"]] * 10
+if not grid_verdict.screen_spec(short, []):
+    fail("a 10-light list must be rejected: a 15x15 prints at least 24")
+
+# ---------------------------------------------------------------- part 2
+# The parser itself. Needs the OCR text, which is never committed.
+text = Path(os.environ["TEXT"])
+if not text.exists():
+    print(f"part 2: SKIPPED — no OCR text at {text}")
+    print("  (set PENGUIN_TEXT, or run tools/fetch_ia_book.py, to gate the parser)")
+else:
+    from parse_penguin_book import parse_book
+    print(f"part 2: the parser, against {text}")
+    parsed = {p["book_number"]: p for p in parse_book(text)}
+    for bn, want in sorted(PUZZLES.items(), key=lambda kv: int(kv[0])):
+        p = parsed.get(int(bn))
+        if p is None:
+            fail(f"#{bn}: the book no longer splits into a puzzle with this number")
+            continue
+        a, d, notes, damage = build_spec(p)
+        got = {"across": [[lg[0], lg[1], lg[2]] for lg in a],
+               "down": [[lg[0], lg[1], lg[2]] for lg in d]}
+        if got != want["light_spec"]:
+            fail(f"#{bn}: the light spec moved — {len(a) + len(d)} lights now, "
+                 f"{want['lights']} in the control")
+            continue
+        payload = json.dumps([[[lg[0], lg[1], lg[2], (lg[3] or {}).get("clue"),
+                                 (lg[3] or {}).get("enumeration")] for lg in side]
+                               for side in (a, d)], ensure_ascii=False)
+        got_digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+        if got_digest != want["clue_digest"]:
+            fail(f"#{bn}: lengths and numbers match but the CLUE TEXT the "
+                 f"parser attaches to them changed")
+        else:
+            print(f"  ok   #{bn:>2} spec and clue text both unchanged")
+
+    # ------------------------------------------------------------ part 3
+    # End to end: the five known-good puzzles must come out of the pipeline
+    # matching what is in puzzles/, grid and clues, with no model involved.
+    print("part 3: the five known-good puzzles, filed unsolved, against puzzles/")
+    sys.path.insert(0, "tools")
+    from acquire_book import file_unsolved
+    import fetch_puzzle
+    import provenance
+    import puzzle_paths
+    import series
+    SKIP_ENTRY = {"solution", "annotation", "solutionConfidence"}
+    with tempfile.TemporaryDirectory() as tmp:
+        for bn in CONTROL["known_good_in_corpus"]:
+            want = PUZZLES[str(bn)]
+            a, d, _, _ = build_spec(parsed[bn])
+            grid = tuple(want["expected_grids"][0])
+            # bn is the number the BOOK prints. The id carries the book too
+            # (tools/series.py: book_index * 1000 + position), so this book's
+            # No 18 is book-3018 and the control's own numbering is unchanged.
+            # The archive.org identifier is the only thing that names the book,
+            # here as in the tool: the run reads that item's text, so that item
+            # decides the number.
+            pid = series.puzzle_id(series.BOOK_SERIES,
+                                   series.book_number(CONTROL["source_identifier"], bn))
+            path, problems = file_unsolved(
+                {"book_number": bn, "setter": want["setter"]}, grid, a, d,
+                CONTROL["source_identifier"], Path(tmp))
+            if path is None:
+                fail(f"{pid}: could not be filed — {problems[0]}")
+                continue
+            mine = fetch_puzzle.read_puzzle_file(path)
+            corpus = fetch_puzzle.read_puzzle_file(puzzle_paths.find(pid))
+            if any(e.get("solution") is not None for e in mine["entries"]):
+                fail(f"{pid}: filed with answers; --unsolved must file none")
+            if provenance.solution_detail(mine):
+                fail(f"{pid}: carries solution detail — an unsolved file "
+                     f"must not, or reindex marks it model-solved")
+            # source is stamped at WRITE time and records when this file
+            # arrived, so the copy just written into /tmp says it arrived today
+            # while the corpus copy carries its real git date. They are supposed
+            # to differ; what must match is the puzzle.
+            diffs = [k for k in set(mine) | set(corpus)
+                     if k not in {"solutions", "entries", "source", "annotatedBy"}
+                     and mine.get(k) != corpus.get(k)]
+            # Not solutions.origin: this files --unsolved and the corpus copies
+            # have been solved since, so "unsolved" vs "model" is the pipeline
+            # working, not drifting.
+            for k in ("gridOrigin", "retrievedFrom", "publisher"):
+                if mine.get("source", {}).get(k) != corpus.get("source", {}).get(k):
+                    diffs.append(f"source.{k}")
+            me = {entry_id(e): e for e in mine["entries"]}
+            we = {entry_id(e): e for e in corpus["entries"]}
+            if set(me) != set(we):
+                diffs.append("entry ids")
+            for eid in set(me) & set(we):
+                for k in (set(me[eid]) | set(we[eid])) - SKIP_ENTRY:
+                    if me[eid].get(k) != we[eid].get(k):
+                        diffs.append(f"{eid}.{k}")
+            if diffs:
+                # book-3018's 7-down is a KNOWN corpus error, not a
+                # pipeline one: the book prints a hyphenated enumeration and the
+                # file in puzzles/ carries a comma. The pipeline reads what is
+                # printed.
+                known = {"book-3018": {"7-down.clue"}}
+                unexpected = sorted(set(diffs) - known.get(pid, set()))
+                if unexpected:
+                    fail(f"{pid}: differs from puzzles/ in "
+                         f"{len(unexpected)} place(s): {unexpected[:4]}")
+                else:
+                    print(f"  ok   {pid} matches puzzles/ apart from the "
+                          f"known corpus error in 7-down")
+            else:
+                print(f"  ok   {pid} matches puzzles/ exactly "
+                      f"(grid and clues, {len(mine['entries'])} entries)")
+
+print()
+if failures:
+    print(f"FAILED: {len(failures)} problem(s)")
+    sys.exit(1)
+print("PASSED")
+
+fresh()
+status = 0
+tmp = tempfile.mkdtemp()
+
+
+def part2(argv1):
+    import json, sys
+    from pathlib import Path
+    sys.path.insert(0, "tools")
+    import acquire_book as ab
+
+    tmp = Path(argv1)
+    (tmp / "text.txt").write_text("x")
+    lights = {"across": [{"number": 1, "clue": "a", "enumeration": "5"}], "down": []}
+    ab.parse_book = lambda _path: [dict(lights, book_number=1), dict(lights, book_number=2)]
+    ab.build_quality_report = lambda _p: {"puzzles": []}
+    ab.build_spec = lambda _p: ([(1, 5, "plain")], [], [], [])
+    ab.grid_verdict.screen_spec = lambda _a, _d: []
+    # The guard refuses an unregistered item, rightly; the fake book is registered here.
+    ab.book_number.__globals__["BOOK_BY_IDENTIFIER"]["some-book"] = {"book_index": 1, "title": "Some Book"}
+
+
+    class Killed(Exception):
+        pass
+
+
+    class Pool:
+        def __init__(self, **_kw):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_exc):
+            return False
+
+        def submit(self, _fn, job):
+            # The first search lands; every later one dies a moment after, as a
+            # killed run's would (as_completed yields the landed one first).
+            import threading
+            from concurrent.futures import Future
+            f = Future()
+            if not getattr(self, "landed", False):
+                self.landed = True
+                f.set_result({"book_number": job["book_number"], "status": "no-solution", "nodes": 1,
+                              "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+                              "conventions_broken": [], "detail": {}, "grids": []})
+            else:
+                threading.Timer(0.5, f.set_exception, [Killed()]).start()
+            return f
+
+
+    ab.ProcessPoolExecutor = Pool
+    try:
+        ab.main(["some-book", "--text", str(tmp / "text.txt"), "--out", str(tmp)])
+        raise SystemExit("FAIL the fake pool was never killed")
+    except Killed:
+        pass
+    got = [r["status"] for r in json.loads((tmp / "some-book" / "report.json").read_text())["puzzles"]]
+    if got != ["no-solution", "cut-short"]:
+        raise SystemExit(f"FAIL a killed run's report says {got}, want ['no-solution', 'cut-short']")
+    print("ok   a run killed mid-search leaves its unlanded searches cut-short")
+
+
+def part3(argv1):
+    import json, sys
+    from pathlib import Path
+    sys.path.insert(0, "tools")
+    import acquire_book as ab
+    import book_queue
+    import fetch_puzzle
+    import file_archive_org_puzzles as fao
+    from clue_index import ClueIndex
+
+    tmp = Path(argv1) / "reprint"
+    tmp.mkdir()
+    (tmp / "text.txt").write_text("x")
+    book_queue.REPRINT_DIR = tmp / "book-reprints"
+    held = [f"Held clue number {i} about something" for i in range(8)]
+    fresh = [f"Another puzzle's clue {i} entirely" for i in range(8)]
+    index = ClueIndex()
+    index.add("times-99999", {"entries": [{"clue": {"text": t}} for t in held]})
+    fetch_puzzle.clue_index = lambda: index
+
+
+    def spec(texts):
+        return ([[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[:4])],
+                [[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[4:])], [], [])
+
+
+    ab.parse_book = lambda _path: [{"book_number": 1, "across": [{"clue": held[0]}], "texts": held},
+                                   {"book_number": 2, "across": [{"clue": fresh[0]}], "texts": fresh}]
+    ab.build_quality_report = lambda _p: {"puzzles": []}
+    ab.build_spec = lambda p: spec(p["texts"])
+    ab.grid_verdict.screen_spec = lambda _a, _d: []
+    searched = []
+
+
+    def fake_search(jobs, _n):
+        for job in jobs:
+            searched.append(job["book_number"])
+            yield {"book_number": job["book_number"], "status": "unparseable", "nodes": 0,
+                   "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+                   "conventions_broken": [], "detail": {}, "grids": []}
+
+
+    ab._searched = fake_search
+    ab.main(["isbn_9781902254067", "--text", str(tmp / "text.txt"), "--out", str(tmp), "--file", "--only", "1", "2"])
+    rows = {r["book_number"]: r for r in json.loads((tmp / "isbn_9781902254067" / "report.json").read_text())["puzzles"]}
+    if rows[1].get("status") != "reprint" or rows[1].get("reprint_of") != "times-99999":
+        raise SystemExit(f"FAIL a leaf reprinting times-99999 was reported {rows[1]}")
+    if searched != [2]:
+        raise SystemExit(f"FAIL searched {searched}, want only the fresh leaf [2]")
+    if list((tmp / "isbn_9781902254067").rglob("book-*.json")):
+        raise SystemExit("FAIL a reprint leaf was filed as a book puzzle")
+    files = fao.book_reprint_files(99999, "times")
+    if [p.name for p in files] != ["isbn_9781902254067-1.txt"]:
+        raise SystemExit(f"FAIL the reprint's reading is {files}, want isbn_9781902254067-1.txt")
+    text = fao.reprint_text(files[0].read_text())
+    if not text or held[0] not in text or held[7] not in text:
+        raise SystemExit(f"FAIL the archive.org filer does not read the reprint as a reading:\n{text}")
+    if not fao.reprint_key([99999], "times"):
+        raise SystemExit("FAIL a book reprint does not make its Times edition due")
+    print("ok   a leaf reprinting a held puzzle is kept as its reading, not filed as book-N")
+
+
+def part4(argv1):
+    import json, sys
+    from pathlib import Path
+    sys.path.insert(0, "tools")
+    import acquire_book as ab
+    import fetch_puzzle
+    from clue_index import ClueIndex
+
+    tmp = Path(argv1) / "twice"
+    tmp.mkdir()
+    (tmp / "text.txt").write_text("x")
+    fetch_puzzle.clue_index = lambda: ClueIndex()
+    page = [f"Old city clue number {i} about something" for i in range(8)]
+    again = [t.replace("Old city", "Oldcity") for t in page]
+    again[7] = "OCR noise ate this clue"
+    other = [f"Another puzzle's clue {i} entirely" for i in range(8)]
+
+
+    def spec(texts):
+        return ([[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[:4])],
+                [[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[4:])], [], [])
+
+
+    ab.parse_book = lambda _path: [{"book_number": n, "across": [{"clue": t[0]}], "texts": t}
+                                   for n, t in ((1, page), (2, again), (3, other))]
+    ab.build_quality_report = lambda _p: {"puzzles": []}
+    ab.build_spec = lambda p: spec(p["texts"])
+    ab.grid_verdict.screen_spec = lambda _a, _d: []
+    searched = []
+
+
+    def fake_search(jobs, _n):
+        for job in jobs:
+            searched.append(job["book_number"])
+            yield {"book_number": job["book_number"], "status": "unparseable", "nodes": 0,
+                   "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+                   "conventions_broken": [], "detail": {}, "grids": []}
+
+
+    ab._searched = fake_search
+    ab.main(["telegraphallnewc0000unse_a7j2", "--text", str(tmp / "text.txt"), "--out", str(tmp),
+             "--file", "--only", "1", "2", "3"])
+    rows = {r["book_number"]: r for r in json.loads(
+        (tmp / "telegraphallnewc0000unse_a7j2" / "report.json").read_text())["puzzles"]}
+    first = ab.puzzle_id(ab.BOOK_SERIES, ab.book_number("telegraphallnewc0000unse_a7j2", 1))
+    if rows[2].get("status") != "duplicate-in-read" or rows[2].get("same_as") != first:
+        raise SystemExit(f"FAIL the page read twice was reported {rows[2]}, want same_as {first}")
+    if searched != [1, 3]:
+        raise SystemExit(f"FAIL searched {searched}, want [1, 3]")
+    print("ok   a page the scan holds twice is filed once")
+
+
+try:
+    for part in (part2, part3, part4):
+        fresh()
+        try:
+            part(tmp)
+        except SystemExit as e:
+            if e.code not in (None, 0):
+                print(e.code)
+                status = 1
+finally:
+    shutil.rmtree(tmp, ignore_errors=True)
+sys.exit(status)

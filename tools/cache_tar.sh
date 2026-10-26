@@ -14,7 +14,7 @@
 # find lists the directory instead; the cache's path is just TAR.
 # tools/step_budgets.py lint refuses a cache path that globs puzzles/ again.
 set -euo pipefail
-cd "${CACHE_TAR_ROOT:-$(dirname "$0")/..}"  # CACHE_TAR_ROOT: tools/test_cache_tar.sh
+cd "${CACHE_TAR_ROOT:-$(dirname "$0")/..}"  # CACHE_TAR_ROOT: tests/test_cache_tar.sh
 case "${1:-}" in
   pack)
     [ $# -eq 3 ] || { echo "usage: $0 pack pages|shims TAR" >&2; exit 2; }
