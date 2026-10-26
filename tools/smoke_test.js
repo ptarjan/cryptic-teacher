@@ -1457,7 +1457,9 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "pattern counts typed letters: " + patHTML());
   assert(new RegExp(`data-i="${len - 1}"`).test(patHTML()), "boxes carry their index so they can be clicked: " + patHTML());
 }
-// --- clicking a pattern box moves the cursor; typing skips filled squares ---
+// --- clicking a pattern box moves the cursor; overtyping a letter moves to the next unlocked square ---
+// (typing into a gap still skips to the next gap; typing over a filled square goes to the
+// very next square that is not locked in, filled or not — see tools/test_overtype.js)
 {
   const bad = wrongLetter(answer[4]);
   assert(registry["hint-pattern"].listeners.click, "pattern strip has a click handler");
@@ -1505,7 +1507,9 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   assert(patHTML().includes(`${len - 2} of ${len} letters in place`), "gap cleared: " + patHTML());
   clickBox(0);
   kd(ev(wrongLetter(answer[0])));         // overwrite index 0 ...
-  assert(curIndex() === 4, "typing skips filled squares to the next gap, got " + curIndex());
+  assert(curIndex() === 1,
+    "overtyping a filled square moves to the next unlocked square, got " + curIndex());
+  clickBox(4);                            // put the cursor back on the gap
   kd(ev(bad));                            // ... and the gap at 4 takes it
   assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "grid refilled: " + patHTML());
   // leave the entry correct and complete: the solved count below expects it
@@ -1555,8 +1559,8 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
     const row = registry["hint-vote"].innerHTML;
     const m = /data-vote="([^"|]+)\|up"/.exec(row);
     assert(m, "a solved clue offers the vote row: " + row.slice(-400));
-    assert(/^c:[a-z0-9]+-\d+:\d+-(across|down)$/.test(m[1]),
-      "and it names the puzzle and the clue, nothing about the solver: " + m[1]);
+    assert(m && /^c:[a-z0-9]+-\d+:\d+-(across|down)$/.test(m[1]),
+      "and it names the puzzle and the clue, nothing about the solver: " + (m && m[1]));
     assert(/data-vote="[^"]+\|down"/.test(row), "both verdicts are offered: " + row.slice(-400));
     assert(!/data-vote=/.test(body),
       "and it is not in the body, where its place would depend on the ladder above it: "
