@@ -3505,6 +3505,41 @@ def _shim_current(path, v):
         return False
 
 
+def _sibling_shim_dirs():
+    """The puzzles/ dirs of the other trees of this repo, the main checkout
+    first (git worktree list order); trees without one are skipped."""
+    try:
+        out = _git("worktree", "list", "--porcelain")
+    except (OSError, subprocess.CalledProcessError):
+        return []
+    here = puzzle_paths.PUZZLE_DIR.resolve()
+    dirs = [Path(line[9:]) / puzzle_paths.PUZZLE_DIR.name
+            for line in out.splitlines() if line.startswith("worktree ")]
+    return [d for d in dirs if d.is_dir() and d.resolve() != here]
+
+
+def _copy_current_shim(path, v, dirs):
+    """Make the puzzle's shim by copying the same-named one from the first of
+    `dirs` whose md5[:8] is `v`, written whole or not at all. Never copies a
+    file that is not `v`. True if copied."""
+    dest = shim_path(path)
+    for d in dirs:
+        try:
+            data = (d / dest.name).read_bytes()
+        except OSError:
+            continue
+        if hashlib.md5(data).hexdigest()[:8] != v:
+            continue
+        part = dest.with_name(f".{dest.name}.part")
+        with open(part, "wb") as f:
+            f.write(data)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(part, dest)
+        return True
+    return False
+
+
 def reindex_from_deploy():
     """The index the deploy built (pages.yml's full reindex, live at
     DEPLOYED_INDEX), brought up to this checkout, instead of making every row
@@ -3514,7 +3549,8 @@ def reindex_from_deploy():
     the same row code and index shape (_deployed_usable); then only the
     puzzles changed since that commit get their rows made here, a puzzle no
     longer on disk loses its row, and a shim missing or not the row's `v` is
-    written (~5 ms each, ~340 CPU-s for a tree with none). Otherwise
+    copied from another tree that has it current, else written (~5 ms
+    each, ~340 CPU-s for a tree with none). Otherwise
     reindex_changed(). Returns a line saying which."""
     index = _deployed_index()
     commit = index and _deployed_usable(index)
@@ -3531,13 +3567,18 @@ def reindex_from_deploy():
     stale = [(files[r["id"]], r["v"]) for key in kept for r in kept[key]
              if r["id"] not in changed and not _shim_current(files[r["id"]], r.get("v"))]
     import parallel
-    written = parallel.pmap(_shim_hash, [p for p, _ in stale])
+    # A stale shim is often current in another tree (the unit trees go days
+    # between rebuilds): copy that one, and only make the shims no tree has.
+    dirs = _sibling_shim_dirs()
+    todo = [(p, v) for p, v in stale if not _copy_current_shim(p, v, dirs)]
+    copied = len(stale) - len(todo)
+    written = parallel.pmap(_shim_hash, [p for p, _ in todo])
     # A shim that comes out other than the row says is a row that would too.
-    changed |= {p.stem for (p, v), got in zip(stale, written) if got != v}
+    changed |= {p.stem for (p, v), got in zip(todo, written) if got != v}
     changed |= files.keys() - ids
     _merge_rows(index, [files[i] for i in sorted(changed)])
     return (f"deployed index from {commit[:11]}: re-made {len(changed)} row(s), "
-            f"wrote {len(stale)} shim(s), dropped {dropped} row(s) with no file here")
+            f"copied {copied} shim(s), wrote {len(todo)} shim(s), dropped {dropped} row(s) with no file here")
 
 
 def log_rebuild(mode, outcome):
