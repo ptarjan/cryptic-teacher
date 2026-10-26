@@ -1346,6 +1346,45 @@ ms_late = [f.late_strips(ms_es, {}, {"heldMisread": ["1-across"]}, {}, [], {}, P
 f.trove_solution_ocr.crop_strips, f.vlm.wanted = real_cs, real_want
 check("late_strips: a held answer the checks dropped (heldMisread) is cut a strip; every light held, none is",
       [[[(1, "across")]], ({}, {"heldMisread": ["1-across"]}), ({}, {})], [ms_cut] + ms_late)
+
+
+# agreed_held: a misread-dropped word the VLM's strip reply spells letter for letter stands; a reply that differs,
+# a phrase piece no listed word, an open cell the classifier reads otherwise, or a held crossing whose letter swapped
+# makes a corpus answer (BUSK: DUSK, so DOPED) does not.
+def ah_probs(word, other=None):
+    out = []
+    for i, ch in enumerate(word):
+        p = [0.0] * 26
+        p[f.trove_solution_ocr.AZ.index(ch if other is None or i not in other else other[i])] = 0.9
+        out.append(p)
+    return out
+
+
+check("agreed_held: the reading's dropped word spelled alike by the VLM stands; a reply that differs, a phrase "
+      "piece unlisted, the classifier reading an open cell otherwise, a crossing's corpus swap: not",
+      ["CARIBS", None, None, None, None],
+      [f.agreed_held("CARIBS\n", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS"), {}),
+       f.agreed_held("CAROBS", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS"), {}),
+       f.agreed_held("BEAGREEN", "BEAGREEN", "?E?G?E?N", [3, 5], ah_probs("BEAGREEN"), {}),
+       f.agreed_held("CARIBS", "CARIBS", "C?R?B?", [6], ah_probs("CARIBS", {3: "O"}), {}),
+       f.agreed_held("BOPED", "BOPED", "B?P?D", [5], ah_probs("BOPED"), {0: ("BUSK", 0)})])
+# AGREED_HELD: a row read before REREAD_AGREED_HELD whose cached strip reply spells a misread-dropped word
+# (agreed_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_as, real_ms = f.agreed_short, f.misread_short
+f.misread_short = lambda row, paper: False
+f.agreed_short = lambda row, paper: True
+ah_due = [f.short_again(vu_row("2026-10-26T20:20:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.agreed_short = lambda row, paper: False
+ah_due.append(f.short_again(vu_row("2026-10-26T20:20:00+00:00", ao=True)))
+f.agreed_short, f.misread_short = real_as, real_ms
+f.filed_state = real_fs
+check("a held file short whose cached strip reply spells a misread-dropped word, read before REREAD_AGREED_HELD: "
+      "AGREED_HELD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.AGREED_HELD, None, None, 2, True, True, True, True, True],
+      ah_due + [f.RANKS[f.AGREED_HELD], f.AGREED_HELD in f.SOLUTION_FIXES, f.AGREED_HELD.startswith("solution short"),
+                f.AGREED_HELD in __import__("edition_queue").LOW_ASK, f.AGREED_HELD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.AGREED_HELD)])
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
