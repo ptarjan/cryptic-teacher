@@ -878,10 +878,10 @@ check("a full read filed to --out over a puzzle held with every clue, or refused
       [f.UNFILED_HELD, True, False, False, False, False, False, False, 2, True, True],
       uh + [f.RANKS[f.UNFILED_HELD], f.UNFILED_HELD in f.SOLUTION_FIXES, f.UNFILED_HELD.startswith("solution short")])# A grid read 1-2 lights short at SURE_BLOCKS: before REREAD_UNLISTED, UNLISTED; read since, before
 # REREAD_VLM_UNLISTED, VLM_UNLISTED (the VLM's unlisted strip words stand since); after it, nothing.
-def vu_row(at, gap=1):
+def vu_row(at, gap=1, ao=False):
     return {"edition": "NewsUK1984UKEnglish/1984-05-01_61715", "readAt": at, "verdicts": [
         {"number": 99999991, "id": "times-99999991", "solutionFrom": "1984-05-02 leaf 3",
-         "solution": {"accepted": 30 - gap, "lights": 30, "blocks": 1.0}}]}
+         "solution": {"accepted": 30 - gap, "lights": 30, "blocks": 1.0}, **({"answersOnly": True} if ao else {})}]}
 f.filed_state = lambda series, n: (False, True)
 vu = [f.short_again(vu_row("2026-10-24T12:00:00+00:00")), f.short_again(vu_row("2026-10-25T06:00:00+00:00")),
       f.short_again(vu_row("2026-10-25T06:00:00+00:00", gap=4)), f.short_again(vu_row("2026-10-26T00:00:00+00:00"))]
@@ -1165,11 +1165,11 @@ check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES:
 f.filed_state = lambda series, n: (False, True)
 real_hb = f.held_blanks
 f.held_blanks = lambda series, n, sol_dir: 2
-cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2))]
+cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2, ao=True))]
 # Read since REREAD_CLUE_SHORT, before REREAD_CLASH_SHORT: CLASH_SHORT.
 cs_due.append(f.short_again(vu_row(f.REREAD_CLUE_SHORT, gap=2)))
 f.held_blanks = lambda series, n, sol_dir: 3
-cs_due.append(f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2)))
+cs_due.append(f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2, ao=True)))
 f.held_blanks = real_hb
 f.filed_state = real_fs
 check("a held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT: CLUE_SHORT (rank 2, "
@@ -1186,7 +1186,8 @@ cw_due = []
 for cw_n, cw_at in ((3, "2026-10-26T05:00:00+00:00"), (5, "2026-10-26T05:00:00+00:00"), (4, "2026-10-27T12:00:00+00:00"),
                     (2, "2026-10-27T12:00:00+00:00"), (6, "2026-10-26T05:00:00+00:00")):
     f.held_blanks = lambda series, n, sol_dir, b=cw_n: b
-    cw_due.append(f.short_again(vu_row(cw_at, gap=cw_n)))
+    # Read since the stamps by answers_only (a full read since is FULL_SHORT's).
+    cw_due.append(f.short_again(vu_row(cw_at, gap=cw_n, ao=len(cw_due) >= 2)))
 f.held_blanks = real_hb
 f.filed_state = real_fs
 check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE: CLUE_WIDE (rank 2, answers-only, "
@@ -1201,7 +1202,7 @@ check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE:
 f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 1
 oc_two = {99999991: {"1984-05-02 leaf 3", "1984-05-02_61716 leaf 12"}}
-oc_row = vu_row("2026-10-26T09:00:00+00:00")
+oc_row = vu_row("2026-10-26T09:00:00+00:00", ao=True)
 oc_row["verdicts"][0]["solution"].update(classified=3)
 oc_due = [f.due_reason({**oc_row, "inputs": "h", "solutionsSeen": [], "vlm": "v", "solutionKey": f.solution_key(),
                         "scan": {"puzzles": [{"number": 99999991}]}}, "h", [], "v", None, oc_two),
@@ -1269,6 +1270,40 @@ check("a held file short whose blank light's wordplay word WordNet links to its 
       cs_due + [f.RANKS[f.CLUE_SOLVED], f.CLUE_SOLVED in f.SOLUTION_FIXES, f.CLUE_SOLVED.startswith("solution short"),
                 f.CLUE_SOLVED in __import__("edition_queue").LOW_ASK, f.CLUE_SOLVED in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.CLUE_SOLVED)])
+# FULL_SHORT: a held file short last read by a full read (after every REREAD_ stamp), due nothing else: due, at
+# any time; read answers-only since, a full read answers_only fell to ("answersTried"), or none blank: not.
+f.filed_state = lambda series, n: (False, True)
+fs_tried = vu_row("2027-01-01T00:00:00+00:00", gap=3)
+fs_tried["verdicts"][0]["answersTried"] = True
+f.held_blanks = lambda series, n, sol_dir: 3
+fs_due = [f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3)), f.short_again(vu_row("2026-10-26T18:00:00+00:00", gap=8)),
+          f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3, ao=True)), f.short_again(fs_tried)]
+f.held_blanks = lambda series, n, sol_dir: 0
+fs_due.append(f.short_again(vu_row("2027-01-01T00:00:00+00:00", gap=3)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short last read by a full read: FULL_SHORT at any time (rank 2, answers-only, evidence, LOW, a "
+      "fix landed); read answers-only since, a full read after answers_only tried, or none blank: not",
+      [f.FULL_SHORT, f.FULL_SHORT, None, None, None, 2, True, True, True, True, True],
+      fs_due + [f.RANKS[f.FULL_SHORT], f.FULL_SHORT in f.SOLUTION_FIXES, f.FULL_SHORT.startswith("solution short"),
+                f.FULL_SHORT in __import__("edition_queue").LOW_ASK, f.FULL_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.FULL_SHORT)])
+# read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
+# never got that far (no held file) is not, nor an answers-only verdict.
+real_rp_inner = f._read_puzzle
+def fs_inner(held, verdict):
+    def go(d, found, hit, solutions, ocr_first=True):
+        if held:
+            f._ANSWERS_TRIED["held"] = True
+        return dict(verdict), None
+    return go
+fs_marks = []
+for fs_held, fs_v in ((True, {"number": 1}), (False, {"number": 1}), (True, {"number": 1, "answersOnly": True})):
+    f._read_puzzle = fs_inner(fs_held, fs_v)
+    fs_marks.append(f.read_puzzle(None, None, None, None)[0].get("answersTried"))
+f._read_puzzle = real_rp_inner
+check("read_puzzle marks a full read answers_only fell to after holding the held file 'answersTried'; not one with "
+      "no held file, nor an answers-only verdict", [True, None, None], fs_marks)
 # solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
 oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
 oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")

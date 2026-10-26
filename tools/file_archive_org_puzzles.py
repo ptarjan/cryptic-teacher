@@ -4722,7 +4722,23 @@ def fallback_futile(paper, d):
     return (paper.key == "ft" and year == "1981") or (paper.key == "gale" and "1960" <= year <= "1966")
 
 
+#: Set by _answers_only once it holds the title's held file (this tool's, from this page, every clue, an answer
+#: short): read_puzzle marks a full read after it "answersTried", so FULL_SHORT is not due for it again.
+_ANSWERS_TRIED = {}
+
+
 def read_puzzle(d, found, hit, solutions, ocr_first=True):
+    """_read_puzzle's (verdict, puzzle or None), its verdict marked "answersTried" when it is a full read
+    answers_only fell to after holding the title's held file (FULL_SHORT reads such a puzzle answers-only
+    once, never again after that)."""
+    _ANSWERS_TRIED.clear()
+    verdict, puzzle = _read_puzzle(d, found, hit, solutions, ocr_first)
+    if _ANSWERS_TRIED.get("held") and isinstance(verdict, dict) and not verdict.get("answersOnly"):
+        verdict["answersTried"] = True
+    return verdict, puzzle
+
+
+def _read_puzzle(d, found, hit, solutions, ocr_first=True):
     """(verdict, puzzle or None) for one title on one page. The scan's own
     readers read it first; the desktop's VLM (one at a time, ~8 asks a
     minute) is asked only for the clue columns that hold a clue they leave
@@ -5354,6 +5370,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # decide() fills such a held file's blank lights from the full read too.
     if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old):
         return None
+    _ANSWERS_TRIED["held"] = True
     t0 = _stage("held", t0)
     grid = trove_solution_ocr.puzzle_grid(old)
     enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
@@ -9151,6 +9168,45 @@ SWAP_WORD = "solution short, its VLM word a letter off its one listed word since
 REREAD_SWAP_WORD = "2026-10-26T14:30:00+00:00"
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
+#: The due reason of a Times row, due none of those above, whose last read of a puzzle held with every clue
+#: from this page, an answer short (held_blanks: its grid's cells classified, its crop kept), was a full read
+#: (no "answersOnly" verdict) that answers_only did not try first ("answersTried": read_puzzle marks a full
+#: read that followed answers_only's look at the held file): a full read cuts no strip (solved() has no
+#: enumerations), asks the VLM of no light and runs none of answers_only's later reads (late_strips,
+#: candidate_reads, clash_reads, wordplay and clue reads). Every reason above is due only for a row read
+#: before its REREAD_ stamp, so a puzzle first filed (or filed again: LOST_WRITE, an answers-linked page
+#: whose held file was another page's) after the last stamp stood short with nothing planned. 10-26 18:45Z:
+#: 277 unanswered Times stood so with no unit planned (1-2 short 90, 3-5 61, 6+ 126; 1970s-80s most), ~15
+#: more an hour. Once a read: the answers-only reread's verdict is "answersOnly", or, when answers_only
+#: falls to the full read, "answersTried".
+FULL_SHORT = "solution short, its full read's last lights read answers-only"
+
+
+def full_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has a verdict, by a full read answers_only did not try first
+    (no "answersOnly" or "answersTried"), whose linked solution grid it read for a puzzle held with every
+    clue and not every answer, from this page, its cells classified and its crop kept (held_blanks), none
+    of its clues shared or faulty (answers_only refuses those to the full read)."""
+    from fetch_puzzle import duplicated_clues
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or v.get("answersOnly") or v.get("answersTried") or v.get("heldTitle")
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+            es = held.get("entries") or ()
+            if any(duplicated_clues(es)) or faults(held):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        if held_blanks(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]) >= 1:
+            return True
+    return False
 
 
 def strip_near(series, number, sol_dir, swap=False):
@@ -9490,7 +9546,9 @@ def short_again(row):
     clue's wordplay spelling one word on the held crossings (wordplay_short); CLUE_SOLVED for one read
     before REREAD_CLUE_SOLVED, due none of those, that word linked to its clue's definition too
     (held_clue_solved); SWAP_WORD for one read before REREAD_SWAP_WORD, due none of those, a blank light's
-    cached VLM reply a letter off one listed word the classifier reads (near_short with swap)."""
+    cached VLM reply a letter off one listed word the classifier reads (near_short with swap); FULL_SHORT for
+    one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
+    not try first (full_short)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -9518,6 +9576,8 @@ def short_again(row):
         return CLUE_SOLVED
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_SWAP_WORD)) and near_short(row, paper, swap=True):
         return SWAP_WORD
+    if why is None and full_short(row, paper):
+        return FULL_SHORT
     return why
 
 
@@ -10589,7 +10649,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -11152,7 +11212,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD)
+                  SWAP_WORD, FULL_SHORT)
 
 
 def keeps_vlm(why, row, unit=None):
