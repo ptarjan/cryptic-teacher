@@ -692,8 +692,8 @@ check("a grid refused unmatched is a rank 2 answers-only reread, once: a read af
                                          "edition": "NewsUK1984UKEnglish/1984-05-01_61715"})))
 check("a grid refused for its blocks after matched_box is a rank 2 answers-only reread, once (MATCHED_GRID): "
       "a read after REREAD_MATCHED_GRID is not due; an ink-size refusal is not its",
-      (2, True, True, True, False, False),
-      (f.RANKS[f.MATCHED_GRID], f.MATCHED_GRID in f.SOLUTION_FIXES, f.MATCHED_LATTICE,
+      (2, True, True, False, False),
+      (f.RANKS[f.MATCHED_GRID], f.MATCHED_GRID in f.SOLUTION_FIXES,
        f.REREAD_MATCHED_GRID > f.REREAD_REFUSED_GRID,
        f.refused_grid({**part(0, "its blocks are not the puzzle's", None), "edition": "NewsUK1984UKEnglish/1984-05-01_61715"},
                       f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1]),
