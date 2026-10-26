@@ -1288,6 +1288,64 @@ check("a held file short last read by a full read: FULL_SHORT at any time (rank 
       fs_due + [f.RANKS[f.FULL_SHORT], f.FULL_SHORT in f.SOLUTION_FIXES, f.FULL_SHORT.startswith("solution short"),
                 f.FULL_SHORT in __import__("edition_queue").LOW_ASK, f.FULL_SHORT in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.FULL_SHORT)])
+# MISREAD_STRIPS: an answers-only row whose checks dropped a held answer still blank (misread_short), read before
+# REREAD_MISREAD_STRIPS and due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ms = f.misread_short
+f.misread_short = lambda row, paper: True
+ms_due = [f.short_again(vu_row("2026-10-26T19:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.misread_short = lambda row, paper: False
+ms_due.append(f.short_again(vu_row("2026-10-26T19:50:00+00:00", ao=True)))
+f.misread_short = real_ms
+f.filed_state = real_fs
+check("a held file short whose answers-only checks dropped a held answer still blank, read before "
+      "REREAD_MISREAD_STRIPS: MISREAD_STRIPS (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none "
+      "so: not",
+      [f.MISREAD_STRIPS, None, None, 2, True, True, True, True, True],
+      ms_due + [f.RANKS[f.MISREAD_STRIPS], f.MISREAD_STRIPS in f.SOLUTION_FIXES, f.MISREAD_STRIPS.startswith("solution short"),
+                f.MISREAD_STRIPS in __import__("edition_queue").LOW_ASK, f.MISREAD_STRIPS in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.MISREAD_STRIPS)])
+# misread_short: the verdict's heldMisread light blank in the held file (from this page, 1-5 blank): due; the held
+# file holding it, no heldMisread, or a full read's verdict: not.
+ms_row = vu_row("2026-10-26T19:50:00+00:00", ao=True)
+ms_row["scan"] = {}
+ms_row["verdicts"][0].update(leaf=3, solution={**ms_row["verdicts"][0]["solution"], "heldMisread": ["1-across"]})
+ms_paper = f.paper_of(ms_row["edition"])
+ms_path = Path(_cf_tmp.mkdtemp()) / "held.json"
+ms_saved = (f.filed_state, f.held_blanks, f.page_url, f._HELD_PATH.get((ms_paper.series, 99999991)))
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 1
+f.page_url = lambda d, scan, leaf: "u"
+f._HELD_PATH[ms_paper.series, 99999991] = ms_path
+ms_out = []
+for ms_sol in (None, "ARCHIMAGE"):
+    ms_path.write_text(json.dumps({"source": {"url": "u"}, "entries": [
+        {"number": 1, "direction": "across", "solution": ms_sol}, {"number": 2, "direction": "down", "solution": "AB"}]}))
+    ms_out.append(f.misread_short(ms_row, ms_paper))
+ms_path.write_text(json.dumps({"source": {"url": "u"}, "entries": [{"number": 1, "direction": "across", "solution": None}]}))
+ms_plain = json.loads(json.dumps(ms_row))
+del ms_plain["verdicts"][0]["solution"]["heldMisread"]
+ms_full = json.loads(json.dumps(ms_row))
+del ms_full["verdicts"][0]["answersOnly"]
+ms_out += [f.misread_short(ms_plain, ms_paper), f.misread_short(ms_full, ms_paper)]
+f.filed_state, f.held_blanks, f.page_url = ms_saved[:3]
+if ms_saved[3] is None:
+    del f._HELD_PATH[ms_paper.series, 99999991]
+else:
+    f._HELD_PATH[ms_paper.series, 99999991] = ms_saved[3]
+check("misread_short: a dropped held answer still blank in the held file: due; held again, no heldMisread, a full read: not",
+      [True, False, False, False], ms_out)
+# late_strips counts a held answer the checks dropped (heldMisread) blank: its strip is cut; held, nothing is.
+ms_cut = []
+real_cs, real_want = f.trove_solution_ocr.crop_strips, f.vlm.wanted
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: ms_cut.append(keys) or {}
+f.vlm.wanted = lambda: True
+ms_es = [{"number": 1, "direction": "across", "solution": "ABC"}, {"number": 3, "direction": "across", "solution": "DEF"}]
+ms_late = [f.late_strips(ms_es, {}, {"heldMisread": ["1-across"]}, {}, [], {}, Path(__file__)),
+           f.late_strips(ms_es, {}, {}, {}, [], {}, Path(__file__))]
+f.trove_solution_ocr.crop_strips, f.vlm.wanted = real_cs, real_want
+check("late_strips: a held answer the checks dropped (heldMisread) is cut a strip; every light held, none is",
+      [[[(1, "across")]], ({}, {"heldMisread": ["1-across"]}), ({}, {})], [ms_cut] + ms_late)
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
