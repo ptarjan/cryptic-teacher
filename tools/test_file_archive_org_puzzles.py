@@ -839,16 +839,33 @@ cs_due = [f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)), f.short_aga
 # Read since REREAD_CLUE_SHORT, before REREAD_CLASH_SHORT: CLASH_SHORT.
 cs_due.append(f.short_again(vu_row(f.REREAD_CLUE_SHORT, gap=2)))
 f.held_blanks = lambda series, n, sol_dir: 3
-cs_due.append(f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=2)))
+cs_due.append(f.short_again(vu_row("2026-10-27T12:00:00+00:00", gap=2)))
 f.held_blanks = real_hb
 f.filed_state = real_fs
 check("a held file 1-2 short on a classified grid, read before REREAD_CLUE_SHORT: CLUE_SHORT (rank 2, "
       "answers-only, a LOW prefix); read since, before REREAD_CLASH_SHORT, CLASH_SHORT (the same); read since "
-      "both, or 3+ blank, nothing",
+      "both, or 3+ blank read since, nothing",
       [f.CLUE_SHORT, None, f.CLASH_SHORT, None, 2, True, True, 2, True, True, True, True],
       cs_due + [f.RANKS[f.CLUE_SHORT], f.CLUE_SHORT in f.SOLUTION_FIXES, f.CLUE_SHORT.startswith("solution short"),
                 f.RANKS[f.CLASH_SHORT], f.CLASH_SHORT in f.SOLUTION_FIXES, f.CLASH_SHORT.startswith("solution short"),
                 f.REREAD_CLUE_SHORT < f.REREAD_CLASH_SHORT, f.CLASH_SHORT in __import__("edition_queue").LOW_ASK])
+# A held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE (due nothing else): CLUE_WIDE; read
+# since, or 1-2 / 6+ short read after those reasons' stamps, nothing.
+f.filed_state = lambda series, n: (False, True)
+cw_due = []
+for cw_n, cw_at in ((3, "2026-10-26T05:00:00+00:00"), (5, "2026-10-26T05:00:00+00:00"), (4, "2026-10-27T12:00:00+00:00"),
+                    (2, "2026-10-27T12:00:00+00:00"), (6, "2026-10-26T05:00:00+00:00")):
+    f.held_blanks = lambda series, n, sol_dir, b=cw_n: b
+    cw_due.append(f.short_again(vu_row(cw_at, gap=cw_n)))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE: CLUE_WIDE (rank 2, answers-only, "
+      "evidence, a LOW prefix, a fix landed); read since, 2 short read since CLASH_SHORT, 6 short since "
+      "CANDIDATE_READS, nothing",
+      [f.CLUE_WIDE, f.CLUE_WIDE, None, None, None, 2, True, True, True, True, True],
+      cw_due + [f.RANKS[f.CLUE_WIDE], f.CLUE_WIDE in f.SOLUTION_FIXES, f.CLUE_WIDE.startswith("solution short"),
+                f.CLUE_WIDE in __import__("edition_queue").LOW_ASK, f.CLUE_WIDE in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.CLUE_WIDE)])
 # held_recrossed: a blank light's VLM word against a held crossing stands, the crossing read again with its letter,
 # where that makes a listed word and the clue read with the crossing open gives the VLM word too.
 import numpy as np
@@ -932,6 +949,32 @@ check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) a
                                   [f"{n}-across" for n in (1, 11, 3, 5, 7, 9)])],
       [(cd_far[0], cd_far_asks),
        (cd_near[0], cd_near[1]["candidateAsks"], len(cd_asked) - cd_far_asks, cd_near[1]["vlmLights"])])
+# CLUE_WIDE: a grid left 3-5 short is asked only once its clue read leaves at most CANDIDATE_SLACK lights open.
+cw_es, cw_lts = cd_es[:4], {k: v for k, v in list(cd_lts.items())[:4]}
+cw_dog = lambda rc: np.array([0.9 if c == "DOG"[rc[1]] else 0.1 / 25 for c in f.trove_solution_ocr.AZ])
+f.crop_cell_probs = lambda crop, grid: {rc: (cw_dog(rc) if rc[0] < 2 else np.full(26, 1 / 26))
+                                         for cells in cw_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cw_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+cw_asked = []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: cw_asked.append(prompt) or "CAT"
+cw_cands = lambda lts, acc: {k: [("CAT", 0.0), ("COT", -1.0)] for k in lts if k not in acc}
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {(1, "across"): "DOG"} if (1, "across") not in acc else {}, cw_cands(lts, {**acc, (1, "across"): "DOG"}))
+cw_far = f.candidate_reads(cw_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+cw_far_asks = len(cw_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {k: "DOG" for k in ((1, "across"), (3, "across")) if k not in acc},
+    cw_cands(lts, {**acc, (1, "across"): "DOG", (3, "across"): "DOG"}))
+cw_near = f.candidate_reads(cw_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+check("candidate_reads, 4 short: the clue read leaving 3 open asks nothing (DOG stands); leaving 2 open asks each "
+      "plainly and to pick (4 asks), the puzzle whole",
+      [({"1-across": "DOG"}, 0), ({"1-across": "DOG", "3-across": "DOG", "5-across": "CAT", "7-across": "CAT"}, 4)],
+      [(cw_far[0], cw_far_asks), (cw_near[0], len(cw_asked) - cw_far_asks)])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],
@@ -3185,6 +3228,26 @@ check("a listed word the classifier finds possible is taken", "SALINITY",
       f.vlm_word("SALINITY", "?ALINITY", [8], [cell_p(c) for c in "SALINITY"]))
 check("the VLM's word against the classifier's floor is not taken", None,
       f.vlm_word("PLAT", "?L?T", [4], [flat, cell_p("L"), cell_p("F"), cell_p("T")]))
+check("a VLM word the classifier reads every one of its 3+ open letters under VLM_ALONE_P is not taken (RUMPLE "
+      "for RUMPUS on ?U????); one letter read surely, or two open, it is",
+      (None, "RUMPLE", "RUMPLE"),
+      (f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.3) for c in "RUMPLE"]),
+       f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.9 if i == 2 else 0.3) for i, c in enumerate("RUMPLE")]),
+       f.vlm_word("RUMPLE", "RUM?L?", [6], [cell_p(c, 0.3) for c in "RUMPLE"])))
+# held_blank_unchecked: a word read for a held-blank light, its unchecked letters (no other light) read again.
+hu_real = tso.lights
+tso.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (4, "down"): [(0, 3), (1, 3), (2, 3), (3, 3)]}
+hu_es = [{"number": 1, "direction": "across", "solution": None}, {"number": 4, "direction": "down", "solution": "EVEN"}]
+hu = f.held_blank_unchecked(hu_es, {"1-across": "DINE", "4-down": "EVEN"}, None)
+hu_none = f.held_blank_unchecked([dict(e, solution=None) for e in hu_es], {"1-across": "DINE", "4-down": "EVEN"}, None)
+tso.lights = hu_real
+hu_probs = {(0, 0): [0.8 if c == "P" else (0.075 if c == "D" else 0.125 / 24) for c in tso.AZ],
+            (0, 1): cell_p("I"), (0, 2): cell_p("N")}
+check("held_blank_unchecked: DINE read for a held-blank light, its D, I, N unchecked, is read again and misread_rival "
+      "names PINE (D 0.075 under P 0.80); the held EVEN is not, nor anything of a file holding no answer",
+      (["1-across"], [0, 1, 2], "PINE", {}),
+      (sorted(hu), [i for i, _, _ in hu.get("1-across", ())], f.misread_rival("DINE", hu.get("1-across", ()), hu_probs),
+       hu_none))
 def faint(word, at, p=0.005, rival="B"):
     """cell_p of `word`, its cell `at` read as `rival` (0.9) with the word's letter at `p`, under VLM_FLOOR."""
     cells = [cell_p(c) for c in word]
