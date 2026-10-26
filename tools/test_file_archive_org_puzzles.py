@@ -701,6 +701,29 @@ check("a grid refused for its blocks after matched_box is a rank 2 answers-only 
                        "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "x leaf 1",
                                      "solution": {"refused": "the ink under the heading is 88x30"}}]},
                       f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1])))
+_g3 = ["...", "...", "..."]  # 6 lights
+check("a Times grid read just under SOLUTION_BLOCKS stands with half its lights or more accepted (near_read); "
+      "not under NEAR_BLOCKS, with fewer, or for a paper not classified",
+      (True, False, False, False),
+      (f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": 0.849}, _g3, True),
+       f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": f.NEAR_BLOCKS - 0.01}, _g3, True),
+       f.near_read({1: "A", 2: "B"}, {"blocks": 0.849}, _g3, True),
+       f.near_read({1: "A", 2: "B", 3: "C"}, {"blocks": 0.849}, _g3, False)))
+_near = lambda blocks, acc, at="2026-10-25T01:00:00+00:00": {
+    **refused(None, at), "edition": "NewsUK1984UKEnglish/1984-05-01_61715",
+    "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "x leaf 1",
+                  "solution": {"refused": "its blocks are not the puzzle's", "blocks": blocks, "accepted": acc, "lights": 30}}]}
+_filed_state = f.filed_state
+f.filed_state = lambda series, number: (False,)
+try:
+    check("a grid refused just under the blocks bar with half its lights read is a rank 2 answers-only reread, once "
+          "(NEAR_GRID): not one read after REREAD_NEAR_GRID, further under the bar, or with fewer lights read",
+          (2, True, True, False, False, False, f.NEAR_GRID),
+          (f.RANKS[f.NEAR_GRID], f.NEAR_GRID in f.SOLUTION_FIXES, f.near_refused(_near(0.849, 26)),
+           f.near_refused(_near(0.849, 26, "2099-01-01T00:00:00+00:00")), f.near_refused(_near(0.7, 26)),
+           f.near_refused(_near(0.849, 10)), f.due_reason(_near(0.849, 26), "h", [], "v")))
+finally:
+    f.filed_state = _filed_state
 classified_part ={**part(20, None, "other"), "verdicts": [
     {"number": 1, "solution": {"accepted": 20, "lights": 30, "classified": 3}}]}
 ft_part = lambda key: {**part(20, None, key), "edition": "FinancialTimes1985UKEnglish/1985-01-02"}
@@ -4108,6 +4131,19 @@ for r, row in enumerate(mg):
 m_agree, m_box, _ = f.matched_box(mw, mg, (200, 400))
 check("a grid joined to a neighbour's ink is found by its blocks", (1.0, True),
       (m_agree, all(abs(a - b) <= 4 for a, b in zip(m_box, (100, 100, 350, 350)))))
+# aligned_framings(): with a matched lattice, a framing whose blocks agree near its reads whole; one
+# far under (times-3938's at 0.796, rows off the grid) reads only the cells its rules cut as the
+# matched lattice's do, here the first row of a lattice 3px a row short.
+_ag = np.full((120, 120), 255, np.uint8)
+_m, _same, _drift = (_ag, *tso.even((10, 10, 20, 20), 5)), (_ag, *tso.even((11, 10, 20, 20), 5)), (_ag, *tso.even((10, 10, 20, 17), 5))
+_fits = {id(_m[1]): 1.0, id(_same[1]): 0.99, id(_drift[1]): 0.8}
+_ba, tso.block_agreement = tso.block_agreement, lambda g, grid, lat: _fits[id(lat[0])]
+try:
+    _keep, _only = tso.aligned_framings(_ag, ["....."] * 5, [_m, _same, _drift])
+finally:
+    tso.block_agreement = _ba
+check("a framing far under a matched lattice reads only its aligned cells; one near it, every cell",
+      (3, {2: {(0, c) for c in range(5)}}), (len(_keep), _only))
 # solved(): read_solution kept by what it reads from, so a re-read for a
 # clue-vote change runs no solution OCR; another grid or heading reads again.
 stats_blocks = 1.0

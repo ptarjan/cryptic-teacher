@@ -783,6 +783,44 @@ def framings(gray, grid):
     return tried
 
 
+#: How far under a matched lattice's block agreement (read_framed's `framing`) another framing's
+#: may read and still be read whole with it: 0.03 is ~7 cells of a 15x15 grid, a frame's or a heavy
+#: letter's worth; a framing that missed a row or column reads 0.1-0.2 under. Such a framing reads
+#: only the cells whose rules lie within FRAMING_ALIGN of a cell's pitch of the matched lattice's.
+FRAMING_SLACK, FRAMING_ALIGN = 0.03, 0.15
+
+
+def aligned_framings(gray, grid, framed):
+    """(framed, {index: cells}) of read_framed's lattices `framed` ([(gray, ys, xs)], the matched
+    lattice first, in `gray`'s pixels): a framing whose blocks agree within FRAMING_SLACK of the
+    matched lattice's is read whole; one further under cuts other cells where its rules drift off
+    the grid's (a row missed: 13746's framings read 15 rows over 12), and reads only the cells whose
+    four rules lie within FRAMING_ALIGN of the matched lattice's (its index's cells), or not at all.
+    10-26: times-3938's 0.796 framing of a grid matched at 1.0 read 1-down ESTEEM on cells not the
+    grid's (LETTER), and 1-across was fitted EASTCARD on its E (LASTCARD)."""
+    n = len(grid)
+    mys, mxs = framed[0][1], framed[0][2]
+    top = block_agreement(gray, grid, (mys, mxs))
+    reach = FRAMING_ALIGN * (mys[-1] - mys[0]) / n
+    keep, only, box = [framed[0]], {}, None
+    for g, ys, xs in framed[1:]:
+        if block_agreement(g, grid, (ys, xs)) >= top - FRAMING_SLACK:
+            keep.append((g, ys, xs))
+            continue
+        oy = ox = 0
+        if g is not gray:
+            # framings()' ruled patch: the largest ink of the image, cut out.
+            if box is None:
+                box = trove_grid.largest_component(gray < trove_grid.otsu(gray))
+            ox, oy = box[0], box[1]
+        rows = [r for r in range(n) if abs(ys[r] + oy - mys[r]) <= reach and abs(ys[r + 1] + oy - mys[r + 1]) <= reach]
+        cols = [c for c in range(n) if abs(xs[c] + ox - mxs[c]) <= reach and abs(xs[c + 1] + ox - mxs[c + 1]) <= reach]
+        if rows and cols:
+            only[len(keep)] = {(r, c) for r in rows for c in cols}
+            keep.append((g, ys, xs))
+    return keep, only
+
+
 def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None, framing=None):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
@@ -803,6 +841,20 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         # 10-26: framings() of a matched grid's crop missed 3 of 15 rows (times-13746: matched at
         # 1.0, framed at 0.738); the matched lattice itself is the grid's.
         framed = [(gray, *even(framing, len(grid)))] + framed
+        framed, only = aligned_framings(gray, grid, framed)
+    else:
+        only = {}
+    lts = lights(grid)
+
+    def within(read, i):
+        # A framing far off the matched lattice reads only the lights on cells it cuts as it does.
+        ok = only.get(i)
+        if ok is None:
+            return read
+        acc, st, sure_at, printed = read
+        whole = {k for k, cells in lts.items() if all(rc in ok for rc in cells)}
+        return ({k: w for k, w in acc.items() if k in whole}, st, {rc: ch for rc, ch in sure_at.items() if rc in ok},
+                {k: (v if k in whole else set()) for k, v in printed.items()})
     if lean:
         # Each lattice read costs ~480 recogniser runs (~25 s of CPU). The lattice whose blocks
         # fit best is read first, and when it accepts every light the others can add none (take()
@@ -810,14 +862,14 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
         done, nlights = {}, len(lights(grid))
         for i in sorted(range(len(framed)), key=lambda i: -fits[i]):
-            done[i] = read_lattice(*framed[i], grid)
+            done[i] = within(read_lattice(*framed[i], grid), i)
             if len(done[i][0]) == nlights:
                 break
         reads = [done[i] for i in sorted(done)]
         best = max(range(len(framed)), key=lambda i: fits[i])
         blocks, lat = fits[best], framed[best]
     else:
-        reads = [read_lattice(g, ys, xs, grid) for g, ys, xs in framed]
+        reads = [within(read_lattice(g, ys, xs, grid), i) for i, (g, ys, xs) in enumerate(framed)]
         fits = [r[1]["blocks"] for r in reads]
         best = max(range(len(reads)), key=lambda i: reads[i][1]["blocks"])
         blocks, lat = reads[best][1]["blocks"], framed[best]

@@ -7240,9 +7240,11 @@ MATCH_MARGIN, MATCH_STEP = 0.2, 0.5
 #: Whether a matched grid is read on matched_box's own lattice too, not only on its crop's
 #: framings(). 10-26: Times grids refused "its blocks are not the puzzle's" though matched at
 #: SOLUTION_BLOCKS (times-13746: matched 1.0, its crop framed 3 rows short at 0.738).
-#: Off: its dry run (18 matched Times grids, no VLM) read 27 answers, 25 right by clue, but
-#: times-3938 (1942) filed EASTCARD/ESTEEM for LASTCARD and (likely) LETTER; snapping the lattice
-#: onto the rules' ink read worse (3938 0 answers, 19151 2 of 7). MATCHED_GRID is due only when on.
+#: Its first dry run read times-3938 (1942) EASTCARD/ESTEEM for LASTCARD and (likely) LETTER: ESTEEM
+#: was read on a framing of the crop at 0.796, rows off the grid, and EASTCARD fitted on its E; since,
+#: a framing far under the matched lattice reads only the cells it cuts as the matched lattice does
+#: (trove_solution_ocr.aligned_framings). Still off: that guard's dry run (10-26) lost times-19151's 7
+#: right answers and 5475's SEAWEED, and never reached 3938. MATCHED_GRID is due only when on.
 MATCHED_LATTICE = False
 
 
@@ -7304,6 +7306,22 @@ def worded(word, enum=None):
             return False
         at += p
     return True
+
+
+#: A Times grid read whose blocks agree at NEAR_BLOCKS up to SOLUTION_BLOCKS stands when it accepted
+#: at least NEAR_SHARE of the grid's lights (near_read): another puzzle's grid, or a lattice off the
+#: grid, reads no such share of words crossing alike; its blocks were a heavy print's inked letters
+#: read as blocks. 10-26: times-22797 (2004) read 26 of 29 lights at 0.849, 22719 28 of 30 at 0.822,
+#: 22730 22 of 28 at 0.844, refused one or a few cells under the bar.
+NEAR_BLOCKS, NEAR_SHARE = 0.80, 0.5
+
+
+def near_read(answers, stats, grid, classify):
+    """Whether a solution grid read under SOLUTION_BLOCKS stands (NEAR_BLOCKS, NEAR_SHARE): a Times
+    print's (`classify`), its blocks at NEAR_BLOCKS or more, its accepted `answers` at least
+    NEAR_SHARE of `grid`'s lights."""
+    return bool(classify and stats.get("blocks", 0) >= NEAR_BLOCKS
+                and len(answers) >= NEAR_SHARE * len(trove_solution_ocr.lights(grid)))
 
 
 def read_solution(img, sol, grid, above=False, lean=False, enums=None):
@@ -7396,7 +7414,9 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
         return {}, {"refused": f"the ink under the heading is {bw}x{bh}"}
     answers, stats = best
     if stats["blocks"] < SOLUTION_BLOCKS:
-        return {}, {**stats, "refused": "its blocks are not the puzzle's"}
+        if not near_read(answers, stats, grid, classify):
+            return {}, {**stats, "refused": "its blocks are not the puzzle's"}
+        stats = {**stats, "near": True}
     return {f"{n}-{d}": w for (n, d), w in answers.items()}, stats
 
 
@@ -7849,7 +7869,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "fb1e89c48b881125": "8417cfb08f3a9706",
                   # MATCHED_LATTICE (a matched grid read on its own lattice): due once as MATCHED_GRID.
                   "476130221335c0fe": "8417cfb08f3a9706", "be186d5bd4567331": "8417cfb08f3a9706",
-                  "48889b2b90d6ecea": "8417cfb08f3a9706"}
+                  "48889b2b90d6ecea": "8417cfb08f3a9706",
+                  # near_read (a grid read just under SOLUTION_BLOCKS with half its lights) and
+                  # aligned_framings (MATCHED_LATTICE only): due once as NEAR_GRID.
+                  "2e75c9e00b077a82": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -9420,6 +9443,31 @@ MATCHED_GRID = "solution short, its matched grid read on its own lattice since"
 REREAD_MATCHED_GRID = "2026-10-26T14:00:00+00:00"
 #: The refusals matched_box may mend.
 GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading is ")
+#: The due reason of a Times edition whose linked solution grid was refused for its blocks read at
+#: NEAR_BLOCKS up to SOLUTION_BLOCKS with at least NEAR_SHARE of its lights accepted (near_read),
+#: before read_solution took such a read: rows read before REREAD_NEAR_GRID, once. 10-26: times-22797
+#: (26 of 29 lights at 0.849), 22719, 22730, 15538, 20683, 16144, 268, 229 stood refused so.
+NEAR_GRID = "solution short, its grid read near the blocks bar since"
+REREAD_NEAR_GRID = "2026-10-26T13:45:00+00:00"
+
+
+def near_refused(row):
+    """Whether Times ledger `row`, read before REREAD_NEAR_GRID, refused a linked solution grid for its
+    blocks that near_read takes now (its stats: blocks NEAR_BLOCKS up to SOLUTION_BLOCKS, accepted at
+    least NEAR_SHARE of its lights), for a puzzle held without every answer."""
+    if not refused_grid(row, REREAD_NEAR_GRID, GRID_REFUSALS[:1]):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if not v.get("solutionFrom") or not v.get("id") or not isinstance(s, dict) \
+                or not str(s.get("refused") or "").startswith(GRID_REFUSALS[0]):
+            continue
+        if NEAR_BLOCKS <= s.get("blocks", 0) < SOLUTION_BLOCKS and s.get("lights") \
+                and s.get("accepted", 0) >= NEAR_SHARE * s["lights"]:
+            filed = filed_state(paper_of(row.get("edition", "")).series, v.get("number"))
+            if filed is not None and not filed[0]:
+                return True
+    return False
 
 
 #: The due reason of an edition whose puzzle filed a number off its title (verdict "read_as") and
@@ -9803,6 +9851,8 @@ def fix_reason(row):
     # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
         return REFUSED_GRID
+    if near_refused(row):
+        return NEAR_GRID
     if MATCHED_LATTICE and refused_grid(row, REREAD_MATCHED_GRID, GRID_REFUSALS[:1]):
         return MATCHED_GRID
     if unenumerated_held(row):
@@ -10394,7 +10444,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
-         REFUSED_GRID: 2, MATCHED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
+         REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -10952,7 +11002,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, MATCHED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
+                  REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED)
 
