@@ -920,8 +920,11 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     # framings() and its fits are _crop_framed's own, but for a matched lattice put first: the
     # checks after the reading (cell_probs, crop_strips) take this framing, not framed again.
     seen = framing is None and crop_key is not None and _crop_key(image, grid) == crop_key
+    disk = grid_ocr_cache.framed_paths(image, grid) if seen else None
     if seen:
         _keep_framed(crop_key, clat if sure else None)
+        # On disk too (grid_ocr_cache.keep_framing): a later unit whose reading solved() kept frames nothing.
+        grid_ocr_cache.keep_framing(disk, clat if sure else None, sure and clat[0] is gray)
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -967,6 +970,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         if seen:
             # cell_probs' very probabilities (the same framing's cells, in the same order).
             _CELL_PROBS_SEEN["last"] = ((crop_key, dict(probs)), *_CELL_PROBS_SEEN.get("last", ())[:CROP_FRAMED_KEPT - 1])
+            grid_ocr_cache.keep_probs(disk, probs)
         dropped = vetoed(lts, accepted, probs)
         accepted = {k: w for k, w in accepted.items() if k not in dropped}
         more = classified_reads(lts, accepted, probs)
@@ -1047,8 +1051,15 @@ def cell_probs(image, grid):
     got = _crop_framed(image, grid)
     if got is None:
         return None
+    # Kept on disk by the crop's bytes (grid_ocr_cache.keep_probs: read_framed's or an earlier check's).
+    disk = grid_ocr_cache.framed_paths(image, grid) if key is not None else None
+    kept = grid_ocr_cache.kept_probs(disk)
+    if kept is not None:
+        return kept
     g, ys, xs = got
-    return classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
+    probs = classified({rc: glyph(g, ys, xs, *rc) for cells in lights(grid).values() for rc in cells})
+    grid_ocr_cache.keep_probs(disk, probs)
+    return probs
 
 
 def _crop_framed(image, grid):
@@ -1066,6 +1077,13 @@ def _crop_framed(image, grid):
         for k, got in _CROP_FRAMED.get("last", ()):
             if k == key:
                 return got
+    # Kept on disk by the crop's bytes (grid_ocr_cache.keep_framing: read_framed's or an earlier check's).
+    disk = grid_ocr_cache.framed_paths(image, grid) if key is not None else None
+    kept = grid_ocr_cache.kept_framing(disk, lambda: np.asarray(Image.open(image).convert("L")))
+    if kept is not None:
+        _keep_framed(key, kept[0])
+        return kept[0]
+    gray = None
     try:
         gray = np.asarray(Image.open(image).convert("L"))
         framed = framings(gray, grid)
@@ -1079,6 +1097,9 @@ def _crop_framed(image, grid):
             got = framed[at]
     if key is not None:
         _keep_framed(key, got)
+        if framed is not None:
+            # An unreadable image or framings() raising is not kept: it may read another time.
+            grid_ocr_cache.keep_framing(disk, got, got is not None and got[0] is gray)
     return got
 
 

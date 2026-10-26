@@ -30,6 +30,8 @@ import json, os
 from pathlib import Path
 import file_archive_org_puzzles as f
 f.HELD_SERIES_CACHE = None  # no on-disk snapshot leaking in from ~/.cache; the snapshot case sets its own
+import grid_ocr_cache as _goc
+_goc.FRAMED_CACHE = Path(os.environ["TMP"]) / "framed"  # crop framings kept by tests' crops stay in TMP
 import ocr_clues
 import clue_repair
 
@@ -1003,6 +1005,70 @@ check("rendered_cell: each cell's pixels rendered once a rendering; cell_probs: 
       "crop taken, nothing framed", [[[1, 2, 3, 4], [5, 6, 7, 8]], [[1, 2, 3, 4], [5, 6, 7, 8]],
                                      [[9, 10, 11, 12], [13, 14, 15, 16]], [[1, 2, 3, 4], [5, 6, 7, 8]],
                                      3, {(0, 0): "p"}, 3], _rc_out)
+# _crop_framed's framing and cell_probs' probabilities are kept on disk too (grid_ocr_cache.keep_framing,
+# keep_probs) by the crop's bytes, grid and framed_version: a unit whose reading solved() kept (memory empty)
+# frames and classifies nothing, and gets the same arrays and rule types back (Python and numpy scalars, a
+# straightened patch's gray kept, the crop's own read again). An unreadable file is none kept. 10-26: such
+# units paid 22-48 s of "checked".
+import numpy as _fd_np
+_fd_tso = f.trove_solution_ocr
+_fd_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (30, 30), 255).save(_fd_png)
+_fd_patch = _fd_np.arange(16, dtype=_fd_np.uint8).reshape(4, 4)
+_fd_calls, _fd_at = [], [0]
+_fd_real = (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph)
+
+
+def _fd_framings(gray, grid):
+    _fd_calls.append("framed")
+    return [(gray, [0, 10, 20], [0.5, 10.5, _fd_np.float64(20.5)]),
+            (_fd_patch, _fd_np.array([0, 2, 4]), [0, 2, _fd_np.int64(4)])]
+
+
+def _fd_forget():
+    _fd_tso._CROP_FRAMED.clear()
+    _fd_tso._CELL_PROBS_SEEN.clear()
+
+
+_fd_tso.framings = _fd_framings
+_fd_tso.sure_framing = lambda framed, grid, fits: _fd_at[0]
+_fd_tso.block_agreement = lambda g, grid, lat: 1.0
+_fd_tso.glyph = lambda g, ys, xs, r, c: (r, c)
+_fd_tso.classified = lambda glyphs: _fd_calls.append("classified") or {
+    k: _fd_np.array([0.1 * k[0], 1 / 3 + k[1]], _fd_np.float32) for k in glyphs}
+try:
+    _fd_forget()
+    _fd_first = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+    _fd_forget()
+    _fd_own = _fd_tso._crop_framed(_fd_png, ["..", ".."])
+    _fd_again = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+    _fd_at[0] = 1
+    _fd_forget()
+    _fd_tso._crop_framed(_fd_png, ["...", "...", "..."])
+    _fd_forget()
+    _fd_kept = _fd_tso._crop_framed(_fd_png, ["...", "...", "..."])
+    _fd_paths = _fd_tso.grid_ocr_cache.framed_paths(_fd_png, ["..", ".."])
+    _fd_paths[1].write_bytes(b"torn")
+    _fd_forget()
+    _fd_torn = _fd_tso.cell_probs(_fd_png, ["..", ".."])
+finally:
+    (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph) = _fd_real
+    _fd_forget()
+
+
+def _fd_same(a, b):
+    return list(a) == list(b) and all(a[k].dtype == b[k].dtype and a[k].tobytes() == b[k].tobytes() for k in a)
+
+
+check("cell_probs and _crop_framed kept on disk: framed and classified once a crop and grid, the same probabilities, "
+      "rules and grays back; a torn file classified again",
+      [["framed", "classified", "framed", "classified"], True, True,
+       [int, int, int], [float, float, _fd_np.float64], True, True, [0, 2, 4], [int, int, _fd_np.int64], True],
+      [_fd_calls, _fd_same(_fd_first, _fd_again), _fd_same(_fd_first, _fd_torn),
+       [type(x) for x in _fd_own[1]], [type(x) for x in _fd_own[2]],
+       _fd_own[0].tobytes() == _fd_np.asarray(_CfImage.open(_fd_png).convert("L")).tobytes(),
+       _fd_kept[0].tobytes() == _fd_patch.tobytes() and _fd_kept[0].shape == (4, 4),
+       _fd_kept[1].tolist(), [type(x) for x in _fd_kept[2]], isinstance(_fd_kept[1], _fd_np.ndarray)])
 # A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
 # until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
 f.filed_state = lambda series, n: (False, True)
