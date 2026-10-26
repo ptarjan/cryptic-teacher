@@ -4686,6 +4686,29 @@ def read_page_why(why, *args, **kw):
         return read_page(*args, **kw)
 
 
+#: {stage: process CPU seconds} of the title read_puzzle is reading (answers_only's stages, _stage):
+#: logged once a title (_stage_line), so a unit's CPU is placed from the live log, no trial read.
+_STAGE_CPU = {}
+
+
+def _stage(name, t0):
+    """Add the process CPU since `t0` to `name`'s (_STAGE_CPU); the time now, the next stage's start."""
+    now = time.process_time()
+    _STAGE_CPU[name] = _STAGE_CPU.get(name, 0.0) + now - t0
+    return now
+
+
+def _stage_line(d, hit, t0, outcome):
+    """Log answers_only's CPU for one title (since `t0`), by stage, and the unit's CPU so far."""
+    try:
+        spent = {k: round(v, 1) for k, v in _STAGE_CPU.items() if v >= 0.1}
+        print(f"answers-only cpu {getattr(d, 'name', d)} No {(hit or {}).get('number')}: "
+              f"{time.process_time() - t0:.1f}s {outcome}; {spent}; unit {time.process_time():.1f}s",
+              file=sys.stderr, flush=True)
+    except Exception:
+        pass
+
+
 def fallback_futile(paper, d):
     """True for a page whose "no reading parses" refusal the VLM's every-column read has
     not turned into a puzzle: the 10-21 vlm_asks.log (5h) has 19 such reads (104 asks) of
@@ -4706,13 +4729,19 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
         # The title the page's scan lost, its held puzzle's (HELD_TITLE): the answers alone, never a full
         # read (the page has no title box to lay its clues from); no VLM ask but for a HELD_STRIPS reread
         # (_HELD_ASK), and then only of a grid that proves the held puzzle's (answers_only: held_proven).
+        _STAGE_CPU.clear()
+        t0 = time.process_time()
         got = answers_only(d, found, hit, solutions, ask_vlm=d is not None and d.name in _HELD_ASK["names"],
                            crossed=True)
+        _stage_line(d, hit, t0, "held title " + ("taken" if got is not None else "none"))
         return got or ({"number": hit["number"], "leaf": hit["leaf"], "heldTitle": True,
                         "skip": "a held title read answers-only: no linked solution grid gave its answers"}, None)
     if not ocr_first:
         return read_page_why("direct:no-ocr-first", d, found, hit, solutions, None)
+    _STAGE_CPU.clear()
+    t0 = time.process_time()
     cheap = answers_only(d, found, hit, solutions)
+    _stage_line(d, hit, t0, "taken" if cheap is not None else "none, full read")
     if cheap is not None:
         return cheap
     verdict, puzzle = read_page(d, found, hit, solutions, False)
@@ -5288,6 +5317,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     checks is left out (uncrossed) when the classifier reads one such letter off the grid's crop as
     another making a listed word (misread_rival; cell_probs, asked only when one would be left out),
     or with no crop read; a held title's (HELD_TITLE) every time."""
+    t0 = time.process_time()
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
@@ -5321,9 +5351,11 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # decide() fills such a held file's blank lights from the full read too.
     if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old):
         return None
+    t0 = _stage("held", t0)
     grid = trove_solution_ocr.puzzle_grid(old)
     enums = {(e["number"], e["direction"]): (e["clue"] or {}).get("enumeration") for e in es}
     answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above, lean=True, enums=enums)
+    t0 = _stage("solved", t0)
     # A grid read unsure of its blocks whose crop reads whole as another grid (printed_grid) is another
     # puzzle's: the page's other heading's grid, when its page printed the two under each other's
     # headings (swapped_heading), else none of this puzzle's.
@@ -5341,7 +5373,9 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
                     verdict["read_as"] = hit["number"]
                 return verdict, None
     # Another puzzle's grid (wrong_grid) files none of its answers, nor does a full read of it.
+    t0 = _stage("printed_grid", t0)
     other = wrong_grid(es, answers, paper.series, number)
+    t0 = _stage("wrong_grid", t0)
     if other:
         verdict = {"number": number, "leaf": hit["leaf"], "answersOnly": True, "vlmAsks": 0,
                    "solutionFrom": solution_source(sol), "wrongGrid": other,
@@ -5363,42 +5397,51 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # A reading at odds with itself (an answer its light's length does not fit, two crossing on different
     # letters) is the full read's, judged before the misread and uncrossed drops below: a drop would
     # hide the clash and leave an answers-only read that files nothing.
+    t0 = _stage("vlm_lights", t0)
     if not fits_lights(old["entries"], answers):
         return None
     # A held title (HELD_TITLE) whose grid reading gives HELD_PROOF of the held answers word for word, and
     # another word for none, is this puzzle's grid as surely as a titled page's: its answers take the
     # titled read's uncrossed check (misread_rival), not every-uncrossed-goes (held_proven).
+    t0 = _stage("fits_lights", t0)
     every = bool(hit.get("heldTitle")) and not held_proven(es, answers)
     answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
                                            crossed=crossed, every=every,
                                            blog="blog" in (old.get("solutions") or {}))
+    t0 = _stage("checked", t0)
     if asked:
         answers, info = rejudged(es, answers, info, asked, strips, grid, enums, solution_crop(sol, number),
                                  crossed=crossed, every=every,
                                  blog="blog" in (old.get("solutions") or {}))
+    t0 = _stage("rejudged", t0)
     if ask_vlm:
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=every,
                                     blog="blog" in (old.get("solutions") or {}))
     # A grid left short: a blank light whose clue's anagram or hidden word is the one word its crossings
     # and the classifier allow (WORDPLAY_SHORT), its letters then crossings for the reads below.
+    t0 = _stage("late_strips", t0)
     answers, info = wordplay_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
                                    every=every, blog="blog" in (old.get("solutions") or {}))
     # A Times grid left short: the clue-constrained read, and the VLM's picks among a light's candidates
     # where they could complete the puzzle or nearly (6+ short, or 1-2: CLUE_SHORT).
+    t0 = _stage("wordplay", t0)
     answers, info = candidate_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
                                     every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
     # A grid's last 1-2 lights whose VLM strip read clashes with held crossings their re-read makes words
     # (clash_reads, CLASH_SHORT): the held crossings are re-read with it.
+    t0 = _stage("candidates", t0)
     answers, info, recrossed = clash_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
                                            every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
     clash = {**clash, **recrossed}
+    t0 = _stage("clash_reads", t0)
     # A Times grid still short after every read of the print: a blank light its clue's wordplay and
     # definition solve (CLUE_SOLVED), last, so no read of the print leans on it. Ours, not the paper's:
     # decide() records it so (mark_clue_solved).
     if clue_solvable(old):
         answers, info = clue_solved_reads(es, answers, info, grid, enums, solution_crop(sol, number),
                                           crossed=crossed, every=every)
+    t0 = _stage("clue_solved", t0)
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
