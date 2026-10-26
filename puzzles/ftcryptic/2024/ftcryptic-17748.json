@@ -308,63 +308,75 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "introduced to",
-       "at": 15,
-       "note": "each initial is set in front of an idiot, as if being introduced"
-      }
-     ],
      "parts": [
       {
        "words": "hot",
        "at": 6,
-       "gives": "H"
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
       },
       {
-       "op": "deletion",
+       "op": "container",
        "indicators": [
         {
-         "text": "who shall be nameless",
-         "at": 42,
-         "note": "the idiots lose the N for name, leaving them nameless"
+         "text": "introduced to",
+         "at": 15,
+         "note": "the two letters are brought in ahead of each copy of the trimmed word"
         }
        ],
        "parts": [
         {
-         "words": "idiot",
-         "at": 29,
-         "gives": "NUMPTY",
-         "note": "numpty is Scottish slang for a fool"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "who shall be nameless",
+           "at": 42,
+           "note": "nameless means without N, the abbreviation for name, so each copy loses that letter"
+          }
+         ],
+         "parts": [
+          {
+           "op": "repeat",
+           "indicators": [
+            {
+             "text": "twins",
+             "at": 35,
+             "note": "twins means the word for idiot appears twice"
+            }
+           ],
+           "parts": [
+            {
+             "words": "idiot",
+             "at": 29,
+             "gives": "NUMPTY",
+             "note": "numpty is Scottish slang for a fool"
+            }
+           ]
+          },
+          {
+           "gives": "NN"
+          }
+         ]
         },
         {
-         "gives": "N"
+         "words": "date",
+         "at": 10,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "words": "date",
-       "at": 10,
-       "gives": "D"
-      },
-      {
-       "words": "twins",
-       "at": 35,
-       "gives": "UMPTY",
-       "note": "the second of the twins is the same nameless idiot again"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sips something warm while a date is presented to two foolish siblings it would be kinder not to name.",
-     "walkthrough": "N is the standard abbreviation for name. Humpty Dumpty is the theme's egg; the drink was a 17th-century ale boiled with brandy.",
-     "definitionFit": "Humpty Dumpty was an old English beverage of ale boiled up with brandy, recorded in dictionaries from the 1690s."
+     "surface": "A romantic evening ends in drinks with a pair of foolish siblings whose names are kept quiet.",
+     "walkthrough": "'who shall be nameless' looks like coy discretion but means drop the letter for name. Numpty is Scottish slang for a fool.",
+     "definitionFit": "It is an old drink of ale boiled with brandy, besides being the egg of the nursery rhyme."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Drink"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "twins"
     }
    }
   },

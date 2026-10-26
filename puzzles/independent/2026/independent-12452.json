@@ -497,49 +497,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not initially",
-       "note": "what is not there initially has lost the letter it began with, so the word arrives one short at the front"
-      }
-     ],
      "parts": [
       {
        "words": "Bar",
+       "at": 0,
        "gives": "INN",
-       "note": "a bar in the village-pub sense, which is where the surface starts"
+       "note": "a bar is a pub, an inn"
       },
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ruined",
+         "at": 23,
+         "note": "ruined letters are wrecked and rebuilt in a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "ruined",
-           "note": "a ruined building has its parts lying in the wrong places, and so do these letters"
+           "text": "not initially",
+           "at": 9,
+           "note": "the word menu loses its opening letter"
           }
          ],
          "parts": [
           {
            "words": "menu",
-           "gives": "ENU",
-           "note": "the word with its first letter gone, and those three get shuffled"
+           "at": 4
+          },
+          {
+           "gives": "M"
           }
          ]
-        },
-        {
-         "words": "works",
-         "gives": "DOES",
-         "note": "works as a verb — he works, he does — the plain third-person substitute"
         }
        ]
+      },
+      {
+       "words": "works",
+       "at": 32,
+       "gives": "DOES",
+       "note": "works as a verb: does, as in 'that does the job'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash is doing the job of a full stop, and 'ruined' reaches back over only three letters, not over the bar as well.",
-     "definitionFit": "possibly dodgy suggestions -> INNUENDOES: sly remarks that leave something improper unsaid, so 'dodgy' catches the flavour and 'suggestions' the plural noun."
+     "surface": "A diner complains that the pub's food list has been spoiled, and the staff respond with snide remarks.",
+     "walkthrough": "The dash makes 'works' look like a separate comment; it is a verb meaning 'does', and the definition is the final phrase.",
+     "definitionFit": "Innuendo is a hint or insinuation, often a sly sexual one, hence possibly dodgy remarks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "works"
     }
    }
   },
