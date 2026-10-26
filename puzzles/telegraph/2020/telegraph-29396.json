@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,56 @@
     "text": "Area final cut short, unfortunately",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unfortunately",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Area",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 11,
+         "note": "cut short says the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "final",
+         "at": 5,
+         "gives": "LAST",
+         "note": "final means last, as in the last round"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad report that a region's last match or performance was curtailed.",
+     "walkthrough": "'cut short' trims LAST to LAS.",
+     "definitionFit": "Alas is an interjection of regret, used where one might say sadly or regrettably."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +96,42 @@
     "text": "Some of Horatio Nelson's quota",
     "enumeration": "6"
    },
-   "solution": "RATION"
+   "solution": "RATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quota",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some of",
+       "at": 0,
+       "note": "Some of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horatio Nelson's",
+       "at": 8,
+       "gives": "RATION",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historical aside about the admiral's allotted share of something, perhaps rum.",
+     "definitionFit": "A ration is a fixed allowance or share, which is what a quota is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nelson's"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +145,44 @@
     "text": "Celebrity's naked? Not half!",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Celebrity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Not half!",
+       "at": 19,
+       "note": "not half asks for only half of the word, here its first four letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "naked",
+       "at": 12,
+       "gives": "STARKERS",
+       "note": "starkers is British slang for stark naked"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid question about whether a famous person posed nude, with the British retort 'Not half!' meaning 'absolutely'.",
+     "walkthrough": "'Not half!' is British slang for 'very much so', but here it asks for half of STARKERS. The 's of Celebrity's stands for 'is'.",
+     "definitionFit": "A star is a famous performer or public figure, a synonym for a celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +196,81 @@
     "text": "Crime writer succeeded when introducing the ultimate character in Ellery Queen",
     "enumeration": "6"
    },
-   "solution": "SAYERS"
+   "solution": "SAYERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crime writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "succeeded",
+       "at": 13,
+       "gives": "S",
+       "note": "S is the abbreviation for succeeded in genealogies"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "introducing",
+         "at": 28,
+         "note": "introducing means bringing something in, so the letters go inside the word for when"
+        }
+       ],
+       "parts": [
+        {
+         "words": "when",
+         "at": 23,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "the ultimate character in",
+             "at": 40,
+             "note": "the ultimate character asks for the last letter of the following word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Ellery",
+             "at": 66
+            }
+           ]
+          },
+          {
+           "words": "Queen",
+           "at": 73,
+           "gives": "ER",
+           "note": "ER, Elizabeth Regina, is the crossword queen"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of detective-fiction trivia linking one crime author with the pen name Ellery Queen.",
+     "walkthrough": "Ellery Queen looks like a single name to be mined for one letter, but it is split: Y, the last letter of Ellery, plus Queen as a separate word.",
+     "definitionFit": "Dorothy L. Sayers wrote the Lord Peter Wimsey detective novels, making her a famous crime novelist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +284,58 @@
     "text": "Dr No with strange ploy for domination",
     "enumeration": "8"
    },
-   "solution": "MONOPOLY"
+   "solution": "MONOPOLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "domination",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dr",
+       "at": 0,
+       "gives": "MO",
+       "note": "MO, medical officer, is a doctor"
+      },
+      {
+       "words": "No",
+       "at": 3,
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 11,
+         "note": "strange signals that the letters are put into an odd new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ploy",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Bond villain Dr No hatches an unusual scheme to rule the world.",
+     "walkthrough": "Dr No looks like one name, but Dr gives MO, NO stays as written, and 'strange' turns PLOY into POLY.",
+     "definitionFit": "A monopoly is exclusive control of a market, a form of commercial dominance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dr"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +349,41 @@
     "text": "Support ruling's reasoning",
     "enumeration": "10"
    },
-   "solution": "BRAINPOWER"
+   "solution": "BRAINPOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reasoning",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Support",
+       "at": 0,
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
+      },
+      {
+       "words": "ruling's",
+       "at": 8,
+       "gives": "INPOWER",
+       "note": "ruling means in power, as a governing party is; the 's links it to the definition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that backing a judge's decision is a matter of logic.",
+     "definitionFit": "Brainpower is intellectual capacity, the faculty used in thinking things through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +403,41 @@
      }
     ]
    },
-   "solution": "CLEARCUT"
+   "solution": "CLEARCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distinct",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cloudless",
+       "at": 12,
+       "gives": "CLEAR",
+       "note": "a cloudless sky is clear"
+      },
+      {
+       "words": "section",
+       "at": 22,
+       "gives": "CUT",
+       "note": "a cut is a section, as of meat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something stands out sharply in a part of the sky with no cloud.",
+     "definitionFit": "Clear-cut means sharply defined and unambiguous, so plainly separate or obvious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +451,49 @@
     "text": "Talk together about single evergreen tree",
     "enumeration": "7"
    },
-   "solution": "CONIFER"
+   "solution": "CONIFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evergreen tree",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about says the first piece goes around the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Talk together",
+       "at": 0,
+       "gives": "CONFER",
+       "note": "to confer is to discuss together"
+      },
+      {
+       "words": "single",
+       "at": 20,
+       "gives": "I",
+       "note": "I, the Roman numeral one, means single"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people chat beside one lone pine or fir.",
+     "walkthrough": "'about' puts I inside CONFER.",
+     "definitionFit": "Most cone-bearing trees such as pines and firs keep their needles all year, so they are evergreen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +507,58 @@
     "text": "A Poet Laureate perhaps crossing over on a ship",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on a ship",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "crossing",
+         "at": 24,
+         "note": "crossing means straddling, so the poet's word goes around the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Poet Laureate perhaps",
+         "at": 2,
+         "gives": "BARD",
+         "note": "a poet laureate is an example of a bard, a poet"
+        },
+        {
+         "words": "over",
+         "at": 33,
+         "gives": "O",
+         "note": "O is the cricket abbreviation for over"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national poet sails across the sea on a voyage.",
+     "walkthrough": "'crossing' puts O inside BARD. 'perhaps' marks the laureate as one example of a poet.",
+     "definitionFit": "Aboard is an adverb meaning on or in a vessel, so it fits the phrase on a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +572,46 @@
     "text": "Detail in a small symbol",
     "enumeration": "6"
    },
-   "solution": "ASSIGN"
+   "solution": "ASSIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Detail",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10
+      },
+      {
+       "words": "small",
+       "at": 12,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "symbol",
+       "at": 18,
+       "gives": "SIGN",
+       "note": "a sign is a symbol"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine point of design lies in one tiny emblem.",
+     "walkthrough": "Detail looks like a noun but is the verb: to detail someone is to assign them a task.",
+     "definitionFit": "To detail soldiers or staff is to allocate them to a particular duty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Detail"
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +625,69 @@
     "text": "Persuasive speech from Republican ahead of other fluid one by Conservative",
     "enumeration": "8"
    },
-   "solution": "RHETORIC"
+   "solution": "RHETORIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Persuasive speech",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead of",
+       "at": 34,
+       "note": "ahead of places the first letter before the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Republican",
+       "at": 23,
+       "gives": "R"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fluid",
+         "at": 49,
+         "note": "fluid says the letters of the following word flow into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "other",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 55,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "Conservative",
+       "at": 62,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political report on a fluent oration given by a party member.",
+     "walkthrough": "'fluid' rearranges OTHER to HETOR.",
+     "definitionFit": "Rhetoric is the art of persuasive or impressive language, used in oratory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +715,47 @@
      }
     ]
    },
-   "solution": "ATONEFELLSWOOP"
+   "solution": "ATONEFELLSWOOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suddenly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "agreed",
+       "at": 9,
+       "gives": "ATONE",
+       "note": "people who agree are at one"
+      },
+      {
+       "words": "to knock down",
+       "at": 16,
+       "gives": "FELL",
+       "note": "to fell is to knock down, as a tree"
+      },
+      {
+       "words": "dive",
+       "at": 30,
+       "gives": "SWOOP",
+       "note": "a swoop is a sudden dive, as by a bird"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrestler abruptly consents to flatten an opponent with a diving move.",
+     "definitionFit": "The idiom means all in one sudden action, so it describes something happening abruptly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dive"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +775,41 @@
      }
     ]
    },
-   "solution": "TRIPSWITCH"
+   "solution": "TRIPSWITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "safety device",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Short journey",
+       "at": 0,
+       "gives": "TRIP",
+       "note": "a trip is a short journey"
+      },
+      {
+       "words": "to exchange",
+       "at": 14,
+       "gives": "SWITCH",
+       "note": "to switch is to exchange one thing for another"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a brief outing in order to swap a protective gadget.",
+     "definitionFit": "A trip switch cuts the electricity automatically when a fault occurs, protecting a circuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "journey"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +823,60 @@
     "text": "Ring up describing island shrub",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shrub",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "describing",
+       "at": 8,
+       "note": "describing is used in its sense of drawing round, so the reversed word encloses the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 5,
+         "note": "in a down clue up means the word is written bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ring",
+         "at": 0,
+         "gives": "CALL",
+         "note": "to ring is to call on the phone"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "at": 19,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning someone to describe a bush growing on an island.",
+     "walkthrough": "'up' turns CALL into LLAC, and 'describing', in its geometric sense of drawing a line around, puts I inside.",
+     "definitionFit": "Lilac is a flowering bush with fragrant purple or white blossoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +890,40 @@
     "text": "Struggle with appearance",
     "enumeration": "4"
    },
-   "solution": "VIEW"
+   "solution": "VIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appearance",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Struggle",
+       "at": 0,
+       "gives": "VIE",
+       "note": "to vie is to compete or struggle"
+      },
+      {
+       "words": "with",
+       "at": 9,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone battles with how they look.",
+     "definitionFit": "A view can mean a sight or aspect, the way something looks or presents itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +943,51 @@
      }
     ]
    },
-   "solution": "WINDFARM"
+   "solution": "WINDFARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supplier of energy",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Western",
+       "at": 0,
+       "gives": "W"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 17,
+         "note": "new signals that the letters are made into something fresh, a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "firm and",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A western company and a start-up providing power.",
+     "walkthrough": "'new' rearranges FIRMAND to INDFARM.",
+     "definitionFit": "A wind farm is a group of turbines generating electricity, so it provides power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1001,31 @@
     "text": "Measure of monarch?",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0,
+      "meaning": "a measuring stick marked in inches or centimetres"
+     },
+     {
+      "text": "monarch",
+      "at": 11,
+      "meaning": "a sovereign who governs a country"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the stature or worth of a king.",
+     "definitionFit": "The word means both a straight measuring strip and a person who reigns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Measure"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1039,41 @@
     "text": "Upset about poetry",
     "enumeration": "7"
    },
-   "solution": "REVERSE"
+   "solution": "REVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "poetry",
+       "at": 12,
+       "gives": "VERSE",
+       "note": "verse is poetry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is distressed over a poem.",
+     "definitionFit": "A reverse is a setback or defeat, so it means an upset, as in sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1087,53 @@
     "text": "Sign of boredom? New approach backfired",
     "enumeration": "4"
    },
-   "solution": "YAWN"
+   "solution": "YAWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign of boredom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backfired",
+       "at": 30,
+       "note": "backfired is read as fired backwards, so the letters run in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "New",
+         "at": 17,
+         "gives": "N"
+        },
+        {
+         "words": "approach",
+         "at": 21,
+         "gives": "WAY",
+         "note": "a way is an approach or method"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh tactic failed and left everyone bored.",
+     "walkthrough": "'backfired' turns NWAY into YAWN.",
+     "definitionFit": "Opening the mouth wide and inhaling deeply is a classic display of tedium or tiredness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backfired"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1157,59 @@
      }
     ]
    },
-   "solution": "SENDTOCOVENTRY"
+   "solution": "SENDTOCOVENTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ostracise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 31,
+       "note": "cutting means slicing into, so the other letters go inside the guard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "guard",
+       "at": 39,
+       "gives": "SENTRY",
+       "note": "a sentry is a guard"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 21,
+         "note": "out signals that the letters are put out of their usual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "NCO, voted",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit freezes out a non-commissioned officer after a vote removes him from sentry duty.",
+     "walkthrough": "'out' rearranges NCO VOTED to DTOCOVEN, and 'cutting' places that inside SENTRY.",
+     "definitionFit": "The British idiom means to refuse to speak to or associate with someone, shunning them deliberately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1223,48 @@
     "text": "Tricky question from guy on right",
     "enumeration": "6"
    },
-   "solution": "TEASER"
+   "solution": "TEASER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tricky question",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 25,
+       "note": "on places the second piece after the first in a down clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "guy",
+       "at": 21,
+       "gives": "TEASE",
+       "note": "to guy is to mock or rib, that is to tease"
+      },
+      {
+       "words": "right",
+       "at": 28,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling query put by a man standing on the right.",
+     "walkthrough": "Guy looks like a noun for a man but is the verb meaning to make fun of.",
+     "definitionFit": "A teaser is a brain-teaser, a puzzle or problem that is hard to solve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1278,42 @@
     "text": "Hunter of game given stick",
     "enumeration": "6"
    },
-   "solution": "NIMROD"
+   "solution": "NIMROD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hunter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "game",
+       "at": 10,
+       "gives": "NIM",
+       "note": "nim is a game of taking objects from heaps"
+      },
+      {
+       "words": "stick",
+       "at": 21,
+       "gives": "ROD",
+       "note": "a rod is a stick"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huntsman of wild animals is handed a stick.",
+     "walkthrough": "Game suggests quarry for the hunter, but it is the game of nim.",
+     "definitionFit": "Nimrod is the biblical mighty hunter, whose name is used for any skilled hunter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1333,78 @@
      }
     ]
    },
-   "solution": "RIFFRAFF"
+   "solution": "RIFFRAFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mob",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "at": 30,
+       "note": "leading places the first group before the musical marking"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "receiving",
+         "at": 14,
+         "note": "receiving means taking in, so the reordered letters go around the other letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Foolish",
+           "at": 0,
+           "note": "foolish suggests the letters behave madly and are reordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "friar",
+           "at": 8,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "fine",
+         "at": 24,
+         "gives": "F",
+         "note": "F is the pencil abbreviation for fine"
+        }
+       ]
+      },
+      {
+       "words": "very loud",
+       "at": 38,
+       "gives": "FF",
+       "note": "FF, fortissimo, is the musical marking for very loud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly monk takes a penalty and heads a noisy crowd.",
+     "walkthrough": "'Foolish' rearranges FRIAR to RIFRA, and 'receiving' takes F inside to give RIFFRA.",
+     "definitionFit": "Riff-raff means disreputable common people, a disorderly rabble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1418,45 @@
     "text": "To-do caused by us in force, southern",
     "enumeration": "4"
    },
-   "solution": "FUSS"
+   "solution": "FUSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To-do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "force",
+       "at": 22,
+       "gives": "F",
+       "note": "F is the physics abbreviation for force"
+      },
+      {
+       "words": "us",
+       "at": 16,
+       "gives": "US"
+      },
+      {
+       "words": "southern",
+       "at": 29,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commotion stirred up by us southerners in strength.",
+     "definitionFit": "A to-do is a commotion or fuss, a bother about something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1470,49 @@
     "text": "Discover the truth about doctor breaking law",
     "enumeration": "6"
    },
-   "solution": "RUMBLE"
+   "solution": "RUMBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discover the truth about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 32,
+       "note": "breaking means splitting open, so one word goes into the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "law",
+       "at": 41,
+       "gives": "RULE",
+       "note": "a rule is a law"
+      },
+      {
+       "words": "doctor",
+       "at": 25,
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uncovering the facts on a medic who broke the law.",
+     "walkthrough": "'about' belongs to the definition, not the wordplay: rumble someone is British slang for seeing through them.",
+     "definitionFit": "To rumble someone is to find out what they are secretly up to and expose them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1526,53 @@
     "text": "Landowner taking day off in sanctuary",
     "enumeration": "4"
    },
-   "solution": "LAIR"
+   "solution": "LAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sanctuary",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 10,
+       "note": "taking with off means removing something from the word"
+      },
+      {
+       "text": "off",
+       "at": 21,
+       "note": "off completes the instruction to remove the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Landowner",
+       "at": 0,
+       "gives": "LAIRD",
+       "note": "a laird is a Scottish landowner"
+      },
+      {
+       "words": "day",
+       "at": 17,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner having a day's leave in a refuge.",
+     "walkthrough": "A laird is the Scottish term for a landed proprietor; 'taking off' drops D.",
+     "definitionFit": "A lair is an animal's den, a hiding place or retreat, so a sanctuary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1586,59 @@
     "text": "Rare panic involving head of chambers",
     "enumeration": "6"
    },
-   "solution": "SCARCE"
+   "solution": "SCARCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 11,
+       "note": "involving means enclosing, so the letter goes inside the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "panic",
+       "at": 5,
+       "gives": "SCARE",
+       "note": "a scare is a sudden panic"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 21,
+         "note": "head of asks for the first letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chambers",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual fright breaks out involving the senior barrister of a set of legal chambers.",
+     "walkthrough": "'involving' puts C inside SCARE.",
+     "definitionFit": "Scarce means in short supply or seldom found, a synonym of uncommon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chambers"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1662,40 @@
      }
     ]
    },
-   "solution": "STEPONIT"
+   "solution": "STEPONIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hurry up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 23,
+       "note": "lost suggests the letters have gone astray and are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set point",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis coach urges a player to speed up or lose a crucial set point.",
+     "definitionFit": "The idiom means to accelerate, from pressing on a car's accelerator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   }
  ]
 }
