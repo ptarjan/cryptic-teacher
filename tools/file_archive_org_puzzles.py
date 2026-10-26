@@ -4021,17 +4021,47 @@ def linked_solutions(paper, found, held):
     (a misread of the day before's, or of another paper's) would link a
     stranger, so each stands as the number solution_number reads it as of
     those the edition hosts (hosted), and no title of the edition is (a
-    puzzle's solution never prints with it); else it is dropped."""
+    puzzle's solution never prints with it); else it is dropped. A title
+    read off a solution heading's own print (heading_titles) is no title."""
     if paper not in (TIMES, GALE) or not found["solutions"]:
         return found["solutions"]
     expected = hosted(found, held)
-    printed = {p["number"] for p in found["puzzles"]}
+    printed = {p["number"] for p in found["puzzles"]} - heading_titles(found)
     out = []
     for s in found["solutions"]:
         n = solution_number(str(s["number"]), expected)
         if n is not None and n not in printed:
             out.append({**s, "number": n})
     return out
+
+
+def heading_titles(found):
+    """The numbers of `found`'s titles each read off a solution heading's own print: a title box
+    on a heading's leaf, at least HEADING_TITLE_SHARE of it inside that heading's box, its number
+    the heading's digits. The 2003-04 Gale Saturday's scan read "Crossword 22,269" and "22,264", its
+    two solution headings, as its titles (its own 22,270 unread), so linked_solutions dropped both
+    headings as the edition's titles; their solutions_only read found them in the same place. Paul
+    10-26: 13 Times puzzles' hosts so read their heading and linked none."""
+    out = set()
+    for p in found["puzzles"]:
+        pb = p.get("box")
+        if not pb:
+            continue
+        area = max(1, (pb[2] - pb[0]) * (pb[3] - pb[1]))
+        for s in found["solutions"]:
+            sb = s.get("box")
+            if not sb or s.get("leaf") != p.get("leaf") or re.sub(r"\D", "", str(s["number"])) != str(p["number"]):
+                continue
+            w = min(pb[2], sb[2]) - max(pb[0], sb[0])
+            h = min(pb[3], sb[3]) - max(pb[1], sb[1])
+            if w > 0 and h > 0 and w * h >= HEADING_TITLE_SHARE * area:
+                out.add(p["number"])
+    return out
+
+
+#: The share of a title's box within a solution heading's box past which heading_titles takes the
+#: title for the heading read again (the 2003-04 Saturdays': over 0.8).
+HEADING_TITLE_SHARE = 0.5
 
 
 def hosted(found, held):

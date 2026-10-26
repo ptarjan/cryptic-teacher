@@ -571,6 +571,20 @@ check("a heading read where no title was links only as a number the title or nei
        # 1981-03-05: "13485" mends to a title printed in the edition itself
        link(edition("1981-03-05", [15465, 15466], [13485])),
        link(edition("1997-09-09", [], [20379]), {}, f.FT)])
+# heading_titles(): 2003-02-08's scan read its two solution headings ("Crossword 22,269", "22,264") as its
+# titles, its own 22,270 unread; its solutions_only read found them in the same boxes. A title read
+# off a heading's print is no title, so both link; a real title elsewhere still keeps its number out.
+sat = {"date": "2003-02-08",
+       "puzzles": [{"number": 22269, "leaf": 0, "box": [1534, 3829, 1760, 3868]},
+                   {"number": 22264, "leaf": 0, "box": [1910, 3827, 2138, 3872]}],
+       "solutions": [{"number": 22269, "leaf": 0, "box": [1509, 3805, 1786, 3863]},
+                     {"number": 22264, "leaf": 0, "box": [1865, 3809, 2183, 3864]}]}
+sat_far = {**sat, "puzzles": [{**sat["puzzles"][0], "box": [288, 2461, 1000, 2514]}, sat["puzzles"][1]]}
+held_sat = {22263: D("2003-01-31"), 22264: D("2003-02-01"), 22269: D("2003-02-07")}
+check("a title read off a solution heading's own print does not keep the heading from linking",
+      [{22264, 22269}, [22264, 22269], {22264}, [22264], set()],
+      [f.heading_titles(sat), sorted(link(sat, held_sat, f.GALE)), f.heading_titles(sat_far),
+       sorted(link(sat_far, held_sat, f.GALE)), f.heading_titles(edition("2003-02-08", [22269], [22269]))])
 # hosted(): a solution prints in the next issue, a Saturday prize's also in
 # the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
 # heading) and a heading a week after a puzzle whose next issue is missing
