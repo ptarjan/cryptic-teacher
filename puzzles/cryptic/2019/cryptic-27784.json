@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,32 @@
      }
     ]
    },
-   "solution": "FOURLETTERWORDS"
+   "solution": "FOURLETTERWORDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Text like this",
+      "at": 0,
+      "meaning": "every word of this clue (text, like, this, many, deem, tabu) has exactly four letters, so the clue is itself an example"
+     },
+     {
+      "text": "many deem tabu",
+      "at": 15,
+      "meaning": "swear words are the classic taboo vocabulary, crude terms that many people consider unsayable"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that some piece of writing contains words many people would consider off-limits.",
+     "walkthrough": "Count the letters of each clue word: all six have four, so the clue demonstrates its own answer.",
+     "definitionFit": "Crude swear words are traditionally called this because so many of the commonest ones are short, taboo terms of four letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Text"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +83,36 @@
     "text": "Lives created in self-reliant way",
     "enumeration": "15"
    },
-   "solution": "AUTOBIOGRAPHIES"
+   "solution": "AUTOBIOGRAPHIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lives created in self-reliant way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Lives created in self-reliant way",
+       "at": 0,
+       "note": "lives here are written life stories, and self-reliant means produced by the subject themselves rather than by another writer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to describe people who live independently, making their own way in the world.",
+     "walkthrough": "'Lives' looks like a verb or the plural of life lived; it is the noun for written life stories. 'Self-reliant' hints at the Greek prefix for self.",
+     "definitionFit": "Accounts of a person's life written by that same person are memoirs of this kind, life stories produced by their own subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lives"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +126,71 @@
     "text": "Numbers of solutions including old slang turned up in print",
     "enumeration": "10"
    },
-   "solution": "PHOTOGRAPH"
+   "solution": "PHOTOGRAPH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "print",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 21,
+       "note": "including means the pair of values holds the next part between them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Numbers of solutions",
+       "at": 0,
+       "gives": "PHPH",
+       "note": "pH is the number measuring the acidity of a chemical solution; plural numbers gives two of them, PH and PH"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 41,
+         "note": "turned up in a down clue means the letters are read from the bottom upwards, i.e. backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "slang",
+           "at": 35,
+           "gives": "ARGOT",
+           "note": "argot is the slang or jargon of a particular group"
+          },
+          {
+           "words": "old",
+           "at": 31,
+           "gives": "O"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Appears to be about how often answers to puzzles contain dated slang that has surfaced in print.",
+     "walkthrough": "'Solutions' suggests crossword answers but means chemical liquids, whose acidity is given as a pH value. 'Turned up' suits a down clue, read bottom to top.",
+     "definitionFit": "A print is a copy made photographically on paper, so the two words name the same picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solutions"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +204,59 @@
     "text": "Self-reference in book published without purpose",
     "enumeration": "7"
    },
-   "solution": "BRENDAN"
+   "solution": "BRENDAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Self-reference",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "book",
+       "at": 18,
+       "gives": "B"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 33,
+         "note": "without in its old sense of outside, so the publishing word goes around the next part"
+        }
+       ],
+       "parts": [
+        {
+         "words": "published",
+         "at": 23,
+         "gives": "RAN",
+         "note": "ran, as in a newspaper ran the story, means published"
+        },
+        {
+         "words": "purpose",
+         "at": 41,
+         "gives": "END",
+         "note": "an end is an aim or purpose, as in to that end"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a complaint about a book that came out with no clear point to it.",
+     "walkthrough": "The answer is the setter's own pseudonym, hence 'Self-reference': in this puzzle the setter names themself.",
+     "definitionFit": "The setter's pseudonym is the name the puzzle's compiler uses, so writing it in the grid refers to its own creator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +270,42 @@
     "text": "A head among teachers",
     "enumeration": "4"
    },
-   "solution": "EACH"
+   "solution": "EACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A head",
+      "at": 0,
+      "note": "as in tickets cost five pounds a head, meaning per person"
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 7,
+       "note": "among says the letters are found inside the word teachers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teachers",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looks like a description of a headteacher working among the staff.",
+     "walkthrough": "'A head' reads as a school head, but it is the phrase for per person.",
+     "definitionFit": "Priced 'a head' means per person, the same as saying for every individual one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +333,30 @@
      }
     ]
    },
-   "solution": "FROMTOPTOBOTTOM"
+   "solution": "FROMTOPTOBOTTOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Completely",
+      "at": 0,
+      "meaning": "the phrase means thoroughly or in every part, as in cleaned the house fully"
+     },
+     {
+      "text": "normal way to enter answer like this",
+      "at": 11,
+      "meaning": "a down answer such as this one is written into the grid starting at the highest square and ending at the lowest"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to be an instruction about how solvers should fill in their answers.",
+     "walkthrough": "This is a down clue, so its own answer is entered in exactly the way the phrase describes.",
+     "definitionFit": "Going over something in its entirety, head to foot, is an idiom for doing it completely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +380,64 @@
      }
     ]
    },
-   "solution": "SPEAKSFORITSELF"
+   "solution": "SPEAKSFORITSELF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Requires no explanation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 29,
+       "gives": "S",
+       "note": "S is the usual abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "summits",
+       "at": 35,
+       "gives": "PEAKS",
+       "note": "peaks are mountain tops or summits"
+      },
+      {
+       "words": "since",
+       "at": 44,
+       "gives": "FOR",
+       "note": "for can mean since or because, as in 'for he was tired'"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "represented",
+         "at": 58,
+         "note": "represented means presented again in another form, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "left is",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to say that small summits need no explanation because the political left is represented there.",
+     "walkthrough": "'represented' rearranges LEFT IS into ITSELF; 'from' is a link.",
+     "definitionFit": "Something that is self-evident is idiomatically said to need no further comment or justification from anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +457,36 @@
      }
     ]
    },
-   "solution": "COAUTHOR"
+   "solution": "COAUTHOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's not self-sufficient creating work that's bound to be finished",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One's not self-sufficient creating work that's bound to be finished",
+       "at": 0,
+       "note": "a work that's bound is a book; someone who needs a partner to write one is not self-sufficient as a writer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like a dependent person doing a job that is certain to be completed.",
+     "walkthrough": "'Bound' looks like 'certain to', but it means a book with a binding; 'finished' is the completed book.",
+     "definitionFit": "A writer who shares the writing of a book with a partner does not produce it alone, hence not self-sufficient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +500,59 @@
     "text": "Page in article, very dry and short",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "article",
+       "at": 8,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in puts the page letter inside the dry-wine word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very dry",
+         "at": 17,
+         "gives": "BRUT",
+         "note": "brut describes the driest champagnes and sparkling wines"
+        },
+        {
+         "words": "Page",
+         "at": 0,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A page of some article is described as very dry and brief.",
+     "walkthrough": "'Very dry' is a wine label term, BRUT, rather than a comment on dull writing.",
+     "definitionFit": "A short or curt manner is brusque, sudden and lacking in politeness, which is this adjective's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +572,57 @@
      }
     ]
    },
-   "solution": "TRYOUT"
+   "solution": "TRYOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "test",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 5,
+       "note": "around means the fish word encloses the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "TROUT",
+       "note": "a trout is a freshwater fish"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 12,
+         "note": "end of means the final letter of the word jetty"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jetty",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler tries for fish around the end of a jetty to test the spot.",
+     "definitionFit": "A trial run or audition used to evaluate something is a test of its quality before it is adopted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +636,59 @@
     "text": "He repeatedly gets involved with main book in old collection",
     "enumeration": "8"
    },
-   "solution": "NEHEMIAH"
+   "solution": "NEHEMIAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "book in old collection",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "gets involved with",
+       "at": 14,
+       "note": "involved here means tangled up, so the letters are mixed together with those of main"
+      }
+     ],
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 3,
+         "note": "repeatedly means the word He is written twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He",
+         "at": 0,
+         "gives": "HE",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "main",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps getting involved with the main book in an old collection.",
+     "walkthrough": "'gets involved with' scrambles HEHE and MAIN together. The 'old collection' is the Old Testament.",
+     "definitionFit": "This is one of the historical books of the Old Testament, the older collection of biblical scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +702,72 @@
     "text": "Spirit originally from Persia, mostly",
     "enumeration": "4"
    },
-   "solution": "PERI"
+   "solution": "PERI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spirit originally from Persia, mostly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 18,
+       "note": "from means that letter is taken away out of what remains of Persia"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 31,
+         "note": "mostly means all of the word Persia except its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Persia",
+         "at": 23
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 7,
+         "note": "originally means the first letter of the word Spirit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spirit",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A spirit whose origins lie chiefly in Persia.",
+     "walkthrough": "The whole clue is the definition too: in Persian mythology this is a fairy-like spirit.",
+     "definitionFit": "In Persian folklore this is a beautiful supernatural being, a fairy or sprite, so a spirit originating in Persia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +781,32 @@
     "text": "Detention facility not recommended for stoners",
     "enumeration": "10"
    },
-   "solution": "GLASSHOUSE"
+   "solution": "GLASSHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Detention facility",
+      "at": 0,
+      "meaning": "British military slang for an army prison, from the glass-roofed one at Aldershot"
+     },
+     {
+      "text": "not recommended for stoners",
+      "at": 19,
+      "meaning": "the proverb says those who live in a house made of panes should not throw stones"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to advise that a certain prison is unsuitable for people who take drugs.",
+     "walkthrough": "'Stoners' suggests cannabis users; it means people throwing stones.",
+     "definitionFit": "A greenhouse is fragile, so the proverb warns its residents against throwing stones; separately it is military slang for a detention barracks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stoners"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +820,36 @@
     "text": "Something said by self-described birdwatcher?",
     "enumeration": "10"
    },
-   "solution": "SPOONERISM"
+   "solution": "SPOONERISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something said by self-described birdwatcher?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Something said by self-described birdwatcher?",
+       "at": 0,
+       "note": "someone who mangles words by swapping their initial sounds might call themself a word botcher, which comes out as bird watcher"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what a person who calls themself a keen birder might say.",
+     "walkthrough": "Swap the initial sounds of 'word botcher', someone who mangles words, and it becomes 'bird watcher'.",
+     "definitionFit": "Such a transposition of initial sounds, named after the Oxford don William Spooner, is exactly what turns word botcher into birdwatcher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "birdwatcher"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +863,40 @@
     "text": "Staying out — it's hellishly dark",
     "enumeration": "7"
    },
-   "solution": "STYGIAN"
+   "solution": "STYGIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hellishly dark",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 8,
+       "note": "out here means out of order or awry, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Staying",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remarks that staying outdoors is dreadfully dark.",
+     "definitionFit": "Named after the Styx, the river of the classical underworld, the word means gloomy and dark as Hades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +910,31 @@
     "text": "Bridge as card game",
     "enumeration": "7"
    },
-   "solution": "PONTOON"
+   "solution": "PONTOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bridge",
+      "at": 0,
+      "meaning": "a floating structure of boats or floats supporting a roadway across water"
+     },
+     {
+      "text": "card game",
+      "at": 10,
+      "meaning": "the British name for the card game also called twenty-one or blackjack"
+     }
+    ],
+    "explanation": {
+     "surface": "Seems to say bridge is a card game, which it is.",
+     "walkthrough": "'Bridge' looks like the card game, but here it is a floating crossing; the card game is the other definition.",
+     "definitionFit": "A floating bridge resting on boats has this name, and so does the British version of blackjack, twenty-one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bridge"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +948,44 @@
     "text": "A way to travel on horseback",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on horseback",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "way",
+       "at": 2,
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a way"
+      },
+      {
+       "words": "travel",
+       "at": 9,
+       "gives": "RIDE",
+       "note": "to ride is to travel on a horse or vehicle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Simply describes riding as a means of getting around on a horse.",
+     "definitionFit": "Sitting with one leg on each side, as a rider does on a horse, is the posture this word describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1005,46 @@
      }
     ]
    },
-   "solution": "BREATHESIN"
+   "solution": "BREATHESIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is inspiring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "excited",
+       "at": 19,
+       "note": "excited means stirred up, so the letters of these two words are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brain",
+       "at": 13
+      },
+      {
+       "words": "these",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is stimulating, getting the brain excited with these ideas.",
+     "walkthrough": "'Inspiring' reads as stimulating, but it is used in its literal sense of drawing in air.",
+     "definitionFit": "To inspire literally means to inhale, drawing air into the lungs, so 'is inspiring' is the present tense of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1058,59 @@
     "text": "Edge attached to side of boater?",
     "enumeration": "4"
    },
-   "solution": "BRIM"
+   "solution": "BRIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Edge attached to side of boater?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attached to",
+       "at": 5,
+       "note": "attached to means the edge word is fixed onto that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "side of",
+         "at": 17,
+         "note": "side of means the letter at one side, the start, of the word boater"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boater",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "Edge",
+       "at": 0,
+       "gives": "RIM",
+       "note": "a rim is an edge or border"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Describes the edge sticking out from the side of a straw boater hat.",
+     "walkthrough": "A boater is a flat-topped straw hat; the whole clue also describes the projecting edge around it.",
+     "definitionFit": "The projecting edge that runs around a hat is this word, and a boater's is flat and stiff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1124,46 @@
     "text": "Person exploring below porthole, moving right",
     "enumeration": "8"
    },
-   "solution": "POTHOLER"
+   "solution": "POTHOLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person exploring below",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "moving",
+       "at": 33,
+       "note": "moving means that letter is shifted to another place in the word porthole"
+      }
+     ],
+     "parts": [
+      {
+       "words": "porthole",
+       "at": 23
+      },
+      {
+       "words": "right",
+       "at": 40,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to describe a sailor below decks peering out of a porthole and moving right.",
+     "walkthrough": "'Below' seems to place the person under a porthole on a ship; it means underground, in caves.",
+     "definitionFit": "A caver who explores underground cave systems and shafts is someone exploring below the surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "below"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1177,30 @@
     "text": "Stand test of time, like this clue",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand test of time",
+      "at": 0,
+      "meaning": "to endure or keep going for a long time"
+     },
+     {
+      "text": "like this clue",
+      "at": 20,
+      "meaning": "this is the final clue in the list, coming after all the others"
+     }
+    ],
+    "explanation": {
+     "surface": "Hopes a clue will endure and be remembered.",
+     "walkthrough": "This is the final clue in the puzzle, so it describes itself.",
+     "definitionFit": "To endure is to keep going over time, and the final item in a series is the one at the end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1214,43 @@
     "text": "Setter's anagram subject to further examination",
     "enumeration": "6"
    },
-   "solution": "RETEST"
+   "solution": "RETEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "subject to further examination",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "anagram",
+       "at": 9,
+       "note": "the word anagram itself openly says the letters of setter are to be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Setter's",
+       "at": 0,
+       "gives": "SETTER",
+       "note": "the setter is the compiler of the crossword; the possessive says the anagram belongs to this word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's own anagram is put through more scrutiny.",
+     "walkthrough": "'Setter's anagram' means an anagram of the word setter, not one the setter wrote.",
+     "definitionFit": "To examine something a second time, putting it through checks again, is a verb of the same sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Setter's"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1264,43 @@
     "text": "Producers of serpentine dreads?",
     "enumeration": "6"
    },
-   "solution": "ADDERS"
+   "solution": "ADDERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Producers of serpentine dreads?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "serpentine",
+       "at": 13,
+       "note": "serpentine means winding or twisting, so the letters of dreads are twisted round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dreads",
+       "at": 24
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Asks what causes people's fear of snakes.",
+     "walkthrough": "The vipers in question produce snake fears; equally, an anagram 'serpentine' twists DREADS.",
+     "definitionFit": "These venomous snakes are Britain's only native vipers, so they cause the fear people have of snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dreads"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1314,60 @@
     "text": "Robs special facility, splitting diamonds and paintings",
     "enumeration": "8"
    },
-   "solution": "DESPOILS"
+   "solution": "DESPOILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Robs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "splitting",
+       "at": 23,
+       "note": "splitting means it comes between the next two parts"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "diamonds",
+         "at": 33,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds"
+        },
+        {
+         "words": "paintings",
+         "at": 46,
+         "gives": "OILS",
+         "note": "oils are paintings done in oil paint"
+        }
+       ]
+      },
+      {
+       "words": "special facility",
+       "at": 5,
+       "gives": "ESP",
+       "note": "ESP, extrasensory perception, is a supposed special mental power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thieves raid a special facility that separates jewels from art.",
+     "walkthrough": "'Special facility' sounds like a building but means a sixth sense, ESP.",
+     "definitionFit": "To plunder or rob a place by force is to pillage it, the verb's original sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facility"
+    }
+   }
   }
  ]
 }
