@@ -861,5 +861,52 @@ try:
 finally:
     tso.corpus_words = cf_saved
 
+# clue_fills / repair_clue_fills: a blank light of a held Times file 1-2 short that its clue's wordplay (a
+# hidden word) spells on the held crossings, WordNet linking the definition, is filed as our solve.
+def cl_puzzle(sols, clue2="Singer in poet enormously"):
+    # 5x5, its middle 3x3 black: 1-across, 1-down, 2-down, 3-across round the edge.
+    lights = [(1, "across", 0, 0), (1, "down", 0, 0), (2, "down", 4, 0), (3, "across", 0, 4)]
+    texts = ["Box", "Ship of the desert", clue2, "Lemur"]
+    return {"id": "times-1", "number": 1, "date": "1990-01-01", "series": "times",
+            "source": {"publisher": "Times", "retrievedFrom": "newspaper", "acquiredOn": "2026-10-19",
+                       "url": "https://archive.org/details/per_times_the-times_1930-10-18_45647/page/n4/mode/1up",
+                       "acquiredBy": "tools/file_archive_org_puzzles.py", "gridOrigin": "published"},
+            "solutions": {"origin": "published"}, "dimensions": {"cols": 5, "rows": 5},
+            "entries": [{"number": n, "direction": d, "position": {"x": x, "y": y}, "length": 5,
+                         "clue": {"text": t, "enumeration": "5"}, "solution": s}
+                        for (n, d, x, y), s, t in zip(lights, sols, texts)]}
+
+
+# T???R off CHEST and LEMUR: poeT ENORmously hides TENOR, a singer.
+same("a blank light its clue's wordplay spells, the definition linked, is taken",
+     rf.clue_fills(cl_puzzle(["CHEST", "CAMEL", None, "LEMUR"]))[:2], ({"2-down": "TENOR"}, {"2-down": "wordplay"}))
+same("(mirror) a clue with no wordplay word is left, named",
+     rf.clue_fills(cl_puzzle(["CHEST", "CAMEL", None, "LEMUR"], "Fried prawns"))[2], {"2-down": ("T???R", "no wordplay word")})
+cl_blog = cl_puzzle(["CHEST", "CAMEL", None, "LEMUR"])
+cl_blog["solutions"]["blog"] = "https://example.org/times-1"
+same("(mirror) a blog-keyed file takes none of ours", rf.clue_fills(cl_blog), ({}, {}, {}))
+cl_dir = Path(tempfile.mkdtemp())
+try:
+    cl_path = cl_dir / "times-1.json"
+    cl_path.write_text(json.dumps(cl_puzzle(["CHEST", "CAMEL", None, "LEMUR"]), indent=1) + "\n")
+    cl_io = (rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file)
+    rf.fetcher.read_puzzle_file = lambda path: json.loads(Path(path).read_text())
+    rf.fetcher.write_puzzle_file = lambda path, puzzle: Path(path).write_text(json.dumps(puzzle, indent=1) + "\n")
+    try:
+        same("(dry run) the fill is named and nothing written",
+             [rf.repair_clue_fills(paths=[cl_path])["filled"], json.loads(cl_path.read_text())["entries"][2]["solution"]],
+             [[("times-1", "1990-01-01", "2-down", "TENOR", "wordplay")], None])
+        cl_done = rf.repair_clue_fills(apply_it=True, paths=[cl_path])
+        cl_after = json.loads(cl_path.read_text())
+        same("--apply fills it as our solve: model CLUE_SOLVER, the paper's answers printed, the puzzle whole",
+             [[e["solution"] for e in cl_after["entries"]], cl_after["solutions"].get("model"),
+              sorted(cl_after["solutions"].get("printed") or {}), cl_done["whole"]],
+             [["CHEST", "CAMEL", "TENOR", "LEMUR"], "clue-wordplay+wordnet", ["1-across", "1-down", "3-across"],
+              ["times-1"]])
+    finally:
+        rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = cl_io
+finally:
+    shutil.rmtree(cl_dir, ignore_errors=True)
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

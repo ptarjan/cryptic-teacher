@@ -1919,6 +1919,165 @@ def repair_crossing_fills(apply_it=False, paths=None):
     return out
 
 
+#: clue_fills: the most blank lights a held Times file may have to be looked at (rereads of 1-2 short
+#: files came back "already held": their last lights are the VLM's refused misreads of old prints).
+CLUE_FILLS_BLANK = 2
+
+
+def clue_fills(puzzle, most_blank=CLUE_FILLS_BLANK, define=False):
+    """({light: word}, {light: tier}, {light: (pattern or word, why)}) for the blank lights of held Times
+    file `puzzle` (1..`most_blank` of them, the file clue_solvable: no blog's write-up, no other solve)
+    that their clues solve on the held crossing letters, as answers-only rereads' clue_solved_reads does:
+    - "wordplay": file_archive_org_puzzles.wordplay_fit's one word (an anagram, hidden or reversed word of
+      the clue, a listed word of the light's count, 2+ letters crossed) that WordNet links to the clue's
+      definition (trove_solution_ocr.definition_linked);
+    - "definition" (with `define`): the crossings give all but one letter at most, exactly one listed word
+      (trove_solution_ocr.listed_of) fits them and the clue's count, and definition_linked links it.
+    Never a surname cmudict alone lists (name_only) nor another light's held answer; a word taken lends its
+    letters to the next. Every word stands only past checked_answers' guards (misread_word, uncrossed with
+    no classifier read: a word crossing a light still blank goes) beside the held answers. No page, crop
+    or OCR is read. 10-26, the 2,832 blank lights of 2,159 Times files 1-2 short: wordplay 2 (SEPIA, UNDID,
+    both right, 2 whole); 35 wordplay words WordNet links no definition to (mostly right: TRANSEPT,
+    OLYMPIANS; some not: ARCDE, HAVED) left; "definition" 0 (39 lights crossed but a letter, 2 with one
+    listed word, ARERE and ITD, unlinked), so it is off by default: unchecked on any word yet."""
+    import file_archive_org_puzzles as archive
+    import trove_solution_ocr as tso
+    import numpy as np
+    es = puzzle.get("entries") or ()
+    blank = [entry_id(e) for e in es if not e.get("solution")]
+    if not blank or len(blank) > most_blank or not archive.clue_solvable(puzzle):
+        return {}, {}, {}
+    grid = tso.puzzle_grid(puzzle)
+    lts = tso.lights(grid)
+    enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
+    clue = {entry_id(e): (e.get("clue") or {}).get("text") if isinstance(e.get("clue"), dict) else e.get("clue")
+            for e in es}
+    have = {entry_id(e): e["solution"].upper() for e in es if e.get("solution")}
+    letters, clash = {}, set()
+    for lid, w in have.items():
+        for rc, ch in zip(lts.get(archive._light_key(lid), ()), w):
+            if letters.setdefault(rc, ch) != ch:
+                clash.add(rc)
+    for rc in clash:
+        letters.pop(rc, None)
+    held = set(have.values())
+    by, tier, why = {}, {}, {}
+    while True:
+        new = False
+        for lid in blank:
+            key = archive._light_key(lid)
+            cells = lts.get(key)
+            if lid in by or not cells or not clue.get(lid):
+                continue
+            pattern = "".join(letters.get(rc, "?") for rc in cells)
+            if "?" not in pattern:
+                why[lid] = (pattern, "every letter crossed (--crossing-fills)")
+                continue
+            word, how = archive.wordplay_fit(clue[lid], pattern, enums.get(key)), "wordplay"
+            if word and not tso.definition_linked(word, clue[lid]):
+                why[lid] = (word, "wordplay word, definition not linked")
+                word = None
+            if not word and define and pattern.count("?") <= 1:
+                parts = count_parts(enums.get(key))
+                words, arr = tso.listed_of(len(pattern))
+                mask = np.ones(len(words), bool)
+                for i, ch in enumerate(pattern):
+                    if ch != "?":
+                        mask &= arr[:, i] == ord(ch) - ord("A")
+                fits = [words[i] for i in np.flatnonzero(mask)]
+                if parts and sum(parts) != len(pattern):
+                    why[lid] = (pattern, "the clue's count is not the light's length")
+                elif len(fits) != 1:
+                    why.setdefault(lid, (pattern, f"{len(fits)} listed words fit"))
+                elif tso.definition_linked(fits[0], clue[lid]):
+                    word, how = fits[0], "definition"
+                else:
+                    why.setdefault(lid, (fits[0], "one listed word fits, definition not linked"))
+            if not word:
+                why.setdefault(lid, (pattern, "no wordplay word"))
+                continue
+            word = word.upper()
+            if word in held or word in by.values():
+                why[lid] = (word, "another light's held answer")
+            elif tso.name_only(word):
+                why[lid] = (word, "a cmudict-only name")
+            else:
+                by[lid], tier[lid] = word, how
+                why.pop(lid, None)
+                letters.update(zip(cells, word))
+                new = True
+        if not new:
+            break
+    if not by:
+        return {}, {}, why
+    checked, _, _ = archive.checked_answers(es, {**have, **by}, grid, enums, {}, None)
+    for lid in sorted(by):
+        if checked.get(lid) != by[lid]:
+            why[lid] = (by.pop(lid), "the answers-only checks (checked_answers)")
+            tier.pop(lid)
+    return by, tier, why
+
+
+def repair_clue_fills(apply_it=False, paths=None, define=False):
+    """Each held Times file (the archive filer's, clue_solvable) 1-2 lights short has the lights its clues
+    solve (clue_fills) filled, recorded as answers-only rereads record clue_solved_reads' words: merged by
+    file_archive_org_puzzles.merge_answers keep (no held answer changes or goes), then mark_clue_solved
+    (solutions model CLUE_SOLVER, origin "model" at stamp, the paper's own answers in solutions.printed),
+    written through fetch_puzzle.write_puzzle_file (provenance.stamp, puzzle_integrity.refuse_bad_write), a
+    file provenance.check faults left unwritten. `paths`: the files looked at (default every puzzles/times
+    file). {"filled": [(id, date, light, word, tier)], "whole": [ids], "refused": [(id, date, light, word,
+    why)], "files": n}. With `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    import provenance
+    if paths is None:
+        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+    out = {"filled": [], "whole": [], "refused": [], "files": 0}
+    for path in paths:
+        try:
+            held = fetcher.read_puzzle_file(path)
+        except (OSError, ValueError):
+            continue
+        es = held.get("entries") or ()
+        if (held.get("source") or {}).get("acquiredBy") != archive.TOOL or all(e.get("solution") for e in es):
+            continue
+        took, tier, why = clue_fills(held, define=define)
+        pid, day = held.get("id"), held.get("date")
+        out["refused"] += [(pid, day, lid, w, r) for lid, (w, r) in sorted(why.items())]
+        if not took:
+            continue
+        out["files"] += 1
+        before = provenance.check(held)
+        new = copy.deepcopy(held)
+        reading = copy.deepcopy(held)
+        for e in reading["entries"]:
+            e["solution"] = e.get("solution") or took.get(entry_id(e))
+        changed = archive.merge_answers(new, reading, keep=True)
+        archive.mark_clue_solved(new, {"solution": {"clueSolved": took}}, changed)
+        changed = {k: w for k, w in changed.items() if w}
+        if not changed:
+            continue
+        try:
+            stamped = provenance.stamp(copy.deepcopy(new), held["source"]["acquiredBy"])
+        except ValueError as err:
+            out["refused"] += [(pid, day, lid, w, f"provenance: {err}") for lid, w in sorted(changed.items())]
+            continue
+        faults = [f for f in provenance.check(stamped) if f not in before]
+        if faults:
+            out["refused"] += [(pid, day, lid, w, f"provenance: {faults[0]}") for lid, w in sorted(changed.items())]
+            continue
+        if apply_it:
+            try:
+                fetcher.write_puzzle_file(path, new)
+            except Exception as err:  # the write gate's refusal: the file stands as held
+                out["refused"] += [(pid, day, lid, w, f"write refused: {type(err).__name__}: {err}")
+                                   for lid, w in sorted(changed.items())]
+                continue
+        out["filled"] += [(pid, day, lid, w, tier.get(lid)) for lid, w in sorted(changed.items())]
+        if all(e.get("solution") for e in new["entries"]):
+            out["whole"].append(pid)
+    return out
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -1983,6 +2142,13 @@ def main(argv):
                     help="only fill each blank light of a held Times file whose every cell its crossing answers "
                          "give, where those letters make a listed word (or listed words to the clue's count) that "
                          "no other light holds (crossing_fills); --apply writes")
+    ap.add_argument("--clue-fills", action="store_true",
+                    help="only fill the blank lights of each held Times file 1-2 short that their clues solve on the "
+                         "held crossings (clue_fills: one wordplay word WordNet links to the definition), recorded "
+                         "as our solve (mark_clue_solved); --apply writes")
+    ap.add_argument("--define", action="store_true",
+                    help="with --clue-fills, also the definition-only tier: crossings give all but one letter, "
+                         "one listed word fits, WordNet links it (unchecked: it found none on 10-26)")
     ap.add_argument("--workers", type=int, default=1, metavar="N",
                     help="with --uncrossed, classify the grid crops in N processes")
     ap.add_argument("--renumbered", action="store_true",
@@ -2054,6 +2220,17 @@ def main(argv):
               + ", ".join(f"{d} {n}" for d, n in sorted(Counter(decade(r[1]) for r in got["filled"]).items()))
               + f"), {len(got['whole'])} made fully answered; left "
               + ", ".join(f"{why} {n}" for why, n in Counter(r[4] for r in got["refused"]).most_common()))
+        return 0
+    if args.clue_fills:
+        got = repair_clue_fills(args.apply, define=args.define)
+        for pid, day, lid, word, tier in got["filled"]:
+            print(f"{pid} ({day}) {lid}: blank -> {word} [{tier}]")
+        verb = "filled" if args.apply else "would be filled"
+        print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
+              + ", ".join(f"{t} {n}" for t, n in sorted(Counter(r[4] for r in got["filled"]).items()))
+              + f"), {len(got['whole'])} made fully answered; left "
+              + ", ".join(f"{why} {n}" for why, n in Counter(
+                  r[4] if not r[4].endswith("fit") else "N listed words fit" for r in got["refused"]).most_common()))
         return 0
     if args.side_answers:
         got = repair_side_answers(args.apply)
