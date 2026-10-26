@@ -807,6 +807,10 @@ def evidence_reason(reason):
             # The same band read since: its crop read for another puzzle's grid, the page's other heading's
             # taken where the page swapped them (fa.other_grid_short, fa.swapped_heading), once.
             or reason == fa.OTHER_GRID_SHORT
+            # A held puzzle whose own grid answers-only refused as another puzzle's through a neighbour's
+            # stray held answers (or one dated on or after the page), its cached sure reading passing
+            # wrong_grid now (fa.stray_grid): once, and again when a neighbour's held file moves.
+            or reason == fa.STRAY_GRID
             # A puzzle filed a number off its title and renumbered to it since: its answers were read off
             # the wrong number's grid (fa.renumbered). Ranked and answers-only (SOLUTION_FIXES) since 10-25,
             # but no evidence reason, so only_evidence dropped every one (33 Times puzzles, 2001-02), once.
@@ -1369,7 +1373,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
-              fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.FULL_SHORT)
+              fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.FULL_SHORT, fa.STRAY_GRID)
 
 
 def unproven_first(unit):
@@ -1445,7 +1449,7 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
            fa.REFUSED_GRID, fa.MATCHED_GRID, fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
-           fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.FULL_SHORT)
+           fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.FULL_SHORT, fa.STRAY_GRID)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

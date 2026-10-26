@@ -3390,6 +3390,32 @@ try:
           (puzzle, "No 2's" in verdict["wrongGrid"]))
 finally:
     f.held_file = real_ao_held
+# STRAY_GRID (10-26): given the solution page's date, a neighbour dated that day or later is no evidence (its
+# solution cannot be on the page: times-22191's grid refused as 22192's), and a held answer a neighbour holds
+# on the same cells is a stray copy (times-22192 held 22191's DEPARTURELOUNGE), not a clash.
+stray_near = {2: dict(lights_held(["BAT", "BED", "TOE", None]), date="2002-11-08")}
+f.held_file = lambda series, n: copy.deepcopy(stray_near.get(n))
+try:
+    blank = lights_held([None] * 4)["entries"]
+    read = {"1-across": "BAT", "1-down": "BED", "2-down": "TOE", "3-across": "DOE"}
+    dated = [f.wrong_grid(blank, read, "times", 1, printed="2002-11-08"),
+             "No 2's" in (f.wrong_grid(blank, read, "times", 1, printed="2002-11-09") or ""),
+             "No 2's" in (f.wrong_grid(blank, read, "times", 1) or "")]
+    stray_near[2] = dict(lights_held(["SUN", None, "ZIP", None]), date="2002-11-01")
+    strays = lights_held(["SUN", None, "ZIP", None])["entries"]
+    copied = [f.wrong_grid(strays, read, "times", 1, printed="2002-11-09"),
+              "2 held answers" in (f.wrong_grid(strays, read, "times", 1) or "")]
+finally:
+    f.held_file = real_ao_held
+check("wrong_grid with the page's date: a neighbour dated on or after it is no evidence; a held answer a "
+      "neighbour holds on the same cells is a stray copy; without a date the old checks stand",
+      [None, True, True, None, True], dated + copied)
+check("sure_page: the page's date only for a grid read at SURE_BLOCKS (times-18253's 0.911 keeps the old checks)",
+      ["2002-11-08", "1982-02-24", None, None],
+      [f.sure_page(Path("/x/2002-11-08"), {"blocks": 1.0}), f.sure_page("1982-02-24_61166 leaf 29", {"blocks": 0.97}),
+       f.sure_page("1990-03-29_63666", {"blocks": 0.911}), f.sure_page("src", {"blocks": 1.0})])
+check("STRAY_GRID is a rank 2 answers-only fix reason", (2, True, True),
+      (f.RANKS[f.STRAY_GRID], f.STRAY_GRID in f.SOLUTION_FIXES, f.STRAY_GRID.startswith("solution short")))
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
