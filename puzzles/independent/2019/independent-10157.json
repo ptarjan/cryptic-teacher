@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,39 @@
     "text": "A hard back",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "back",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "hard",
+       "at": 2,
+       "gives": "STERN",
+       "note": "stern means hard, severe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a terse description of something with a hard back, a book perhaps.",
+     "definitionFit": "On a ship, astern is an adverb meaning backwards or towards the rear, so it can stand for 'back'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +80,63 @@
     "text": "Start to doctor a sea inlet, possibly",
     "enumeration": "10"
    },
-   "solution": "DESALINATE"
+   "solution": "DESALINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Start to doctor a sea inlet, possibly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "at": 0,
+         "note": "the start of a word is its first letter, so only the opening letter of doctor is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 29,
+         "note": "possibly signals that the letters of a sea inlet may be arranged in another way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a sea inlet",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Suggests treating the salty water of a sea inlet as the first step in doctoring it.",
+     "walkthrough": "'possibly' rearranges A SEA INLET into ESALINATE, after the D from 'Start to doctor'. The whole clue also describes the process.",
+     "definitionFit": "Removing salt is the first thing done to make seawater from an inlet drinkable, so the whole clue describes the process."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +150,59 @@
     "text": "Insect, note, coming on board in small quantities",
     "enumeration": "8"
    },
-   "solution": "SMIDGENS"
+   "solution": "SMIDGENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "small quantities",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming on",
+       "at": 14,
+       "note": "coming on board a ship means getting inside it, so these letters go inside the ship's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "board",
+       "at": 24,
+       "gives": "SS",
+       "note": "on board means aboard a ship; SS (steamship) stands for the vessel that is boarded"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Insect",
+         "at": 0,
+         "gives": "MIDGE",
+         "note": "a midge is a small biting insect"
+        },
+        {
+         "words": "note",
+         "at": 8,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect and a note get on board, in small amounts, like a stowaway story.",
+     "walkthrough": "'on board' is the crossword convention for going inside SS, the steamship.",
+     "definitionFit": "A smidgen is a tiny amount, so the plural means small quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +216,64 @@
     "text": "Film workers, say, heading off, about to challenge critic's response",
     "enumeration": "6"
    },
-   "solution": "REVIEW"
+   "solution": "REVIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "critic's response",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 32,
+       "note": "about says the remaining letters go around the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 19,
+         "note": "the heading of a word is its first letter, which comes off here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Film workers, say",
+         "at": 0,
+         "gives": "CREW",
+         "note": "a film crew is the team of workers on a shoot"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "challenge",
+       "at": 41,
+       "gives": "VIE",
+       "note": "to vie is to compete or challenge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Film workers set out to challenge a critic's verdict.",
+     "walkthrough": "'Film workers, say' is a crew, the 'say' flagging an example rather than a definition.",
+     "definitionFit": "A review is the written assessment a critic gives of a film, book or show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +287,48 @@
     "text": "Sleepy, having lost party sparkle",
     "enumeration": "4"
    },
-   "solution": "ZING"
+   "solution": "ZING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sparkle",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "having lost",
+       "at": 8,
+       "note": "having lost says the next piece is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sleepy",
+       "at": 0,
+       "gives": "DOZING",
+       "note": "dozing means sleepy, nodding off"
+      },
+      {
+       "words": "party",
+       "at": 20,
+       "gives": "DO",
+       "note": "a do is a party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drowsy has lost the sparkle a party should give them.",
+     "definitionFit": "Zing is liveliness or zest, the same quality as sparkle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +342,31 @@
     "text": "Slips — or other lingerie items?",
     "enumeration": "8"
    },
-   "solution": "BLOOMERS"
+   "solution": "BLOOMERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slips",
+      "at": 0,
+      "meaning": "slips are mistakes or blunders"
+     },
+     {
+      "text": "other lingerie items",
+      "at": 11,
+      "meaning": "long loose knickers, women's underwear like slips"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Slips' reads as underwear, but the first sense is mistakes; the second definition carries the underwear.",
+     "definitionFit": "Bloomers is British slang for blunders and also the name of old-fashioned loose knickers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slips"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +380,59 @@
     "text": "Regarded swarm getting amongst scattered seed",
     "enumeration": "8"
    },
-   "solution": "ESTEEMED"
+   "solution": "ESTEEMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regarded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting amongst",
+       "at": 15,
+       "note": "getting amongst says one piece goes into the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scattered",
+         "at": 31,
+         "note": "scattered seed is spread out, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seed",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "words": "swarm",
+       "at": 9,
+       "gives": "TEEM",
+       "note": "to teem is to swarm, be full of"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swarm of birds descends on seed scattered on the ground.",
+     "walkthrough": "'Regarded' looks like a verb in the past tense meaning looked at; here it means held in regard.",
+     "definitionFit": "Esteemed means held in high regard, so it is a past participle like 'regarded'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swarm"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +446,47 @@
     "text": "Audacious US lawyer leading cartel",
     "enumeration": "6"
    },
-   "solution": "DARING"
+   "solution": "DARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Audacious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading",
+       "at": 20,
+       "note": "leading means this piece comes first, before the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US lawyer",
+       "at": 10,
+       "gives": "DA",
+       "note": "DA is a District Attorney, an American prosecutor"
+      },
+      {
+       "words": "cartel",
+       "at": 28,
+       "gives": "RING",
+       "note": "a ring is a group working together illegally, like a cartel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American lawyer heading a cartel is bold indeed.",
+     "definitionFit": "Daring and audacious are both adjectives for boldness that ignores risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +500,52 @@
     "text": "Religious text initially replaced by edition of consuming interest?",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of consuming interest?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "initially replaced by",
+       "at": 15,
+       "note": "initially points to the first letter, which is replaced by the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Religious text",
+       "at": 0,
+       "gives": "BIBLE",
+       "note": "the Bible is the religious text of Christianity"
+      },
+      {
+       "gives": "B"
+      },
+      {
+       "words": "edition",
+       "at": 37,
+       "gives": "ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new edition of a sacred book is a matter of real interest.",
+     "walkthrough": "'consuming' is literal: something that can be eaten is of interest to a consumer; the question mark flags the pun.",
+     "definitionFit": "Something fit to eat is a pun on 'consuming interest', since it interests the one doing the consuming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "consuming"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +559,39 @@
     "text": "Target of Zeus in fabled antiquity",
     "enumeration": "4"
    },
-   "solution": "LEDA"
+   "solution": "LEDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Target of Zeus",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in says the letters sit inside the words fabled antiquity"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fabled antiquity",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Zeus's conquest is the stuff of fabled ancient myth.",
+     "definitionFit": "In Greek myth, Zeus pursued and seduced Leda in the form of a swan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +605,42 @@
     "text": "Delightful fashionable people in town",
     "enumeration": "10"
    },
-   "solution": "DARLINGTON"
+   "solution": "DARLINGTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "town",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Delightful",
+       "at": 0,
+       "gives": "DARLING",
+       "note": "darling means sweet or delightful"
+      },
+      {
+       "words": "fashionable people",
+       "at": 11,
+       "gives": "TON",
+       "note": "the ton is high society, fashionable people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charming, stylish people out on the town.",
+     "walkthrough": "DARLINGTON is a market town in County Durham, north-east England.",
+     "definitionFit": "This is a specific example of a town, named in a general way by the clue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +654,62 @@
     "text": "Surfing, individual captures connection to another page, mostly",
     "enumeration": "6"
    },
-   "solution": "ONLINE"
+   "solution": "ONLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surfing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captures",
+       "at": 20,
+       "note": "captures says the first piece holds the next one inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "individual",
+       "at": 9,
+       "gives": "ONE",
+       "note": "one means a single individual"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 57,
+         "note": "mostly means most of the word is used, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "connection to another page",
+         "at": 29,
+         "gives": "LINK",
+         "note": "a link joins one web page to another"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A web user finds a link to another page while browsing.",
+     "definitionFit": "Surfing the web means browsing it while connected to the internet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -199,7 +723,73 @@
     "text": "Unpleasant looks returned after City backed some reportage",
     "enumeration": "8"
    },
-   "solution": "NEWSREEL"
+   "solution": "NEWSREEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some reportage",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "after puts the reversed looks after the reversed city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 37,
+         "note": "backed means this word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "City",
+         "at": 32,
+         "gives": "WEN",
+         "note": "a wen is a large crowded city; London was called the Great Wen"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 17,
+         "note": "returned means this word is read from the end back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Unpleasant looks",
+         "at": 0,
+         "gives": "LEERS",
+         "note": "leers are sly, unpleasant looks"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nasty looks come back after the City backs a piece of journalism.",
+     "walkthrough": "'backed' turns WEN into NEW and 'returned' turns LEERS into SREEL. 'City' is the old London nickname 'the Great Wen'.",
+     "definitionFit": "A cinema news film is a form of reportage, so it is 'some' of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 14,
@@ -213,7 +803,59 @@
     "text": "Dodgy item can't get carried by soldiers ready to be posted",
     "enumeration": "10"
    },
-   "solution": "REMITTANCE"
+   "solution": "REMITTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ready to be posted",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "get carried by",
+       "at": 17,
+       "note": "get carried by says this piece goes inside the soldiers' letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "at": 32,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British Army corps"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Dodgy",
+         "at": 0,
+         "note": "dodgy means unreliable or doubtful, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "item can't",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers lug around a shady item that can't be posted.",
+     "walkthrough": "'ready' is British slang for cash, and the Royal Engineers are the soldiers.",
+     "definitionFit": "'ready' is slang for money, and money sent by post is a payment sent off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 15,
@@ -227,7 +869,49 @@
     "text": "Go by cathedral feature that's behind article from Gaudi?",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go by",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "that's behind",
+       "at": 24,
+       "note": "that's behind puts the cathedral feature after the article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article from Gaudi",
+       "at": 38,
+       "gives": "EL",
+       "note": "el is 'the' in Spanish; Gaudi was a Spanish architect"
+      },
+      {
+       "words": "cathedral feature",
+       "at": 6,
+       "gives": "APSE",
+       "note": "an apse is the rounded end of a cathedral or church"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tour passes by Gaudi's cathedral, perhaps the Sagrada Familia in Barcelona.",
+     "walkthrough": "Gaudi stands for Spanish, so his article is EL.",
+     "definitionFit": "Time going by is time that has passed, so the verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gaudi"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +925,58 @@
     "text": "Disordered atlas brought in final Oriental location",
     "enumeration": "8"
    },
-   "solution": "EASTLAND"
+   "solution": "EASTLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Oriental location",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 17,
+       "note": "brought in says the rearranged letters go inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "final",
+       "at": 28,
+       "gives": "END",
+       "note": "the final part of something is its end"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Disordered",
+         "at": 0,
+         "note": "disordered says the letters are out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "atlas",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A messy atlas helps reach a last destination in the East.",
+     "definitionFit": "An eastern land is a region of the Orient, so a location there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +990,49 @@
     "text": "Morning, in the main, perhaps, will do for Irishman",
     "enumeration": "6"
    },
-   "solution": "SEAMAS"
+   "solution": "SEAMAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irishman",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "in says the morning goes inside the waters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the main, perhaps",
+       "at": 12,
+       "gives": "SEAS",
+       "note": "the main is the open ocean; 'perhaps' marks it as an example of seas"
+      },
+      {
+       "words": "Morning",
+       "at": 0,
+       "gives": "AM",
+       "note": "AM, ante meridiem, means morning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A morning at sea is just the thing for an Irishman.",
+     "walkthrough": "'the main' is the poetic name for the open ocean.",
+     "definitionFit": "Seamas is an Irish form of the forename James, so names a man from Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1046,72 @@
     "text": "The old getting upset about standard sexiness — that's something outrageous",
     "enumeration": "8"
    },
-   "solution": "ENORMITY"
+   "solution": "ENORMITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something outrageous",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about says the old word goes around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "getting upset",
+         "at": 8,
+         "note": "in a down clue, upset means turned upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The old",
+         "at": 0,
+         "gives": "YE",
+         "note": "ye is an old form of 'the'"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "standard",
+         "at": 28,
+         "gives": "NORM",
+         "note": "a norm is a standard"
+        },
+        {
+         "words": "sexiness",
+         "at": 37,
+         "gives": "IT",
+         "note": "it is old slang for sex appeal"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old person is upset about modern standards of sex appeal: it's an outrage.",
+     "walkthrough": "'IT' for sex appeal comes from the 1927 film 'It' with Clara Bow.",
+     "definitionFit": "An enormity is an outrageous wickedness or monstrous act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1125,49 @@
     "text": "Couples starting asking Theresa May, revealing complaint",
     "enumeration": "6"
    },
-   "solution": "ASTHMA"
+   "solution": "ASTHMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Couples starting",
+       "at": 0,
+       "note": "couples means pairs, and starting means the first pair of letters from each of the next words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "asking",
+       "at": 17
+      },
+      {
+       "words": "Theresa",
+       "at": 24
+      },
+      {
+       "words": "May",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters asking Theresa May questions reveal a complaint against her.",
+     "walkthrough": "'Couples starting' takes the opening two letters of each word: AS, TH, MA. Theresa May was British Prime Minister in 2019.",
+     "definitionFit": "A complaint can be an illness, and asthma is a chronic breathing illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1181,71 @@
     "text": "Happen to interrupt fool and drunk returning dangerous material?",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dangerous material?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to interrupt",
+         "at": 7,
+         "note": "to interrupt says this piece goes inside the next one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fool",
+         "at": 20,
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        },
+        {
+         "words": "Happen",
+         "at": 0,
+         "gives": "BE",
+         "note": "to be is to happen, take place"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 35,
+         "note": "returning means the word is read back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drunk",
+         "at": 29,
+         "gives": "SOT",
+         "note": "a sot is a drunkard"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something happens to break up a fool and a drunk on their way home.",
+     "definitionFit": "This fibrous mineral is a known cancer risk, an example of a dangerous material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1259,43 @@
     "text": "Cockney tough guy picked up in Arctic landscape",
     "enumeration": "6"
    },
-   "solution": "TUNDRA"
+   "solution": "TUNDRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arctic landscape",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 18,
+       "note": "in a down clue, picked up means lifted, so read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cockney tough guy",
+       "at": 0,
+       "gives": "ARDNUT",
+       "note": "a hard nut is a tough guy; a Cockney drops the H, so 'ard nut"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough Cockney is caught out in the Arctic.",
+     "walkthrough": "'picked up' tempts as a homophone, but here it lifts the letters: 'ARD NUT read upwards. Cockneys, from London's East End, drop their H's.",
+     "definitionFit": "Tundra is the vast treeless plain of the Arctic with permanently frozen subsoil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1309,40 @@
     "text": "Old bargain regarding bones",
     "enumeration": "6"
    },
-   "solution": "OSTEAL"
+   "solution": "OSTEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regarding bones",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "bargain",
+       "at": 4,
+       "gives": "STEAL",
+       "note": "a steal is something bought for very little, a bargain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looks like a dealer's note on an old bargain in the bone trade.",
+     "definitionFit": "Osteal is a medical adjective meaning of or relating to bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bargain"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1362,71 @@
      }
     ]
    },
-   "solution": "AXEMEN"
+   "solution": "AXEMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fellers",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 24,
+       "note": "among puts these letters inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "25",
+       "at": 30,
+       "gives": "AMEN",
+       "note": "this points to the answer of 25 across, the word said at the end of a prayer"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Times",
+         "at": 0,
+         "gives": "X",
+         "note": "X is the multiplication sign, meaning times"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "foremost",
+           "at": 15,
+           "note": "foremost means the front letter of this word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Editor's",
+           "at": 6
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor leads a team of people.",
+     "walkthrough": "'fellers' looks like slang for men, but it is those who fell trees.",
+     "definitionFit": "Lumberjacks who chop trees down are fellers, those who fell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fellers"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1440,40 @@
     "text": "Town with unexpected Latin charm",
     "enumeration": "10"
    },
-   "solution": "ALTRINCHAM"
+   "solution": "ALTRINCHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unexpected",
+       "at": 10,
+       "note": "unexpected says the letters come out in a surprising order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Latin charm",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town has an unexpected Latin charm about it.",
+     "walkthrough": "ALTRINCHAM is a town in Greater Manchester, England.",
+     "definitionFit": "This is a specific example of a town in north-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1487,47 @@
     "text": "Some European Government dismissed, causing stink",
     "enumeration": "4"
    },
-   "solution": "REEK"
+   "solution": "REEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stink",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dismissed",
+       "at": 25,
+       "note": "dismissed says the government letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Some European",
+       "at": 0,
+       "gives": "GREEK",
+       "note": "a Greek is one European"
+      },
+      {
+       "words": "Government",
+       "at": 14,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European government is sacked amid a political stink.",
+     "definitionFit": "A reek is a strong unpleasant smell, the same as a stink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Government"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1541,47 @@
     "text": "Monks, say, behind a termination of religious activity?",
     "enumeration": "4"
    },
-   "solution": "AMEN"
+   "solution": "AMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "termination of religious activity?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind",
+       "at": 12,
+       "note": "behind puts the monks after the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      },
+      {
+       "words": "Monks, say",
+       "at": 0,
+       "gives": "MEN",
+       "note": "monks are an example of men"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Monks lagging behind signal the end of worship.",
+     "definitionFit": "This word is said at the close of a prayer or hymn, ending an act of worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1595,42 @@
     "text": "Make valuable contribution to high-end earnings",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make valuable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "contribution to",
+       "at": 14,
+       "note": "contribution to says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "high-end earnings",
+       "at": 30,
+       "gives": "ENDEAR",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like financial advice on boosting the top earners' income.",
+     "definitionFit": "To make someone cherished or dear to others is to make them valued, valuable in affection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "valuable"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1644,48 @@
     "text": "Movement in French city seen in newspaper items",
     "enumeration": "8"
    },
-   "solution": "ARTICLES"
+   "solution": "ARTICLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "newspaper items",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 24,
+       "note": "seen in says this piece sits inside the French city"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French city",
+       "at": 12,
+       "gives": "ARLES",
+       "note": "Arles is a city in Provence, southern France"
+      },
+      {
+       "words": "Movement",
+       "at": 0,
+       "gives": "TIC",
+       "note": "a tic is an involuntary twitch or movement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movement in a French city is reported in the papers.",
+     "definitionFit": "Pieces of writing in a newspaper are called articles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Movement"
+    }
+   }
   }
  ]
 }
