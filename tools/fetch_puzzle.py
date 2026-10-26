@@ -38,6 +38,7 @@ Exit status for --latest: 0 and prints the puzzle number if a NEW puzzle was
 downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
 """
 
+import fnmatch
 import functools
 import hashlib
 import html
@@ -3144,7 +3145,19 @@ def index_row_deps(path, row):
         shim = hashlib.md5(shim_path(path).read_bytes()).hexdigest()[:8]
     except FileNotFoundError:
         shim = None
-    return blog_fact_hashes().get(row["id"]), row["id"] in puzzle_tags.blogged_ninas(), shim
+    return blog_fact_hash(path), row["id"] in puzzle_tags.blogged_ninas(), shim
+
+
+def blog_fact_hash(path):
+    """blog_fact_hashes()'s value for the puzzle file `path`, off the one
+    sidecar beside it (the one blog_store.row_for reads), None with none: a
+    --reindex-changed of 40 files hashed all ~33k sidecars (7.5 of its ~17
+    fixed CPU-s) for the rows of those 40."""
+    import blog_store
+    try:
+        return hashlib.sha1(blog_store.sidecar_of(path).read_bytes()).hexdigest()[:16]
+    except FileNotFoundError:
+        return None
 
 
 def reprint_name(series, number):
@@ -3581,10 +3594,33 @@ def reindex_changed():
     except (FileNotFoundError, ValueError):
         reindex()
         return None
-    changed = [f for f in puzzle_files() if f.stat().st_mtime_ns > stamp]
+    changed = _files_newer(stamp)
     if not changed:
         return 0
     return _merge_rows(index, changed)
+
+
+def _files_newer(stamp):
+    """puzzle_files() modified after `stamp` (ns), in its order: one scandir
+    pass that stats each entry and makes a Path only of what changed, half
+    the ~3.2 CPU-s of listing ~64k Paths and statting each (every daily tick
+    runs this). The same files as its glob: pathlib's * matches dotfiles
+    and follows linked folders, as is_dir() does."""
+    out = []
+    try:
+        for top in os.scandir(puzzle_paths.PUZZLE_DIR):
+            if not top.is_dir():
+                continue
+            for year in os.scandir(top.path):
+                if not year.is_dir():
+                    continue
+                for e in os.scandir(year.path):
+                    if (fnmatch.fnmatchcase(e.name, "*-[0-9]*.json")
+                            and e.stat().st_mtime_ns > stamp):
+                        out.append(Path(e.path))
+    except (FileNotFoundError, NotADirectoryError):
+        pass
+    return sorted(out)
 
 
 def _merge_rows(index, changed):
