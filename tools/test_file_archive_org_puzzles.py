@@ -768,6 +768,77 @@ check("rejudged: the VLM's word stands on the checked crossings (DAD on D??), it
       "(BAD) keeps the reading",
       [({"1-across": "DOE", "1-down": "DAD"}, {"accepted": 2, "vlmLights": ["1-down"], "rejudged": ["1-down"]}),
        ({"1-across": "DOE"}, {"accepted": 1})], rj)
+# A held file 6+ short on a classified grid, read before REREAD_CANDIDATES (due nothing else): CANDIDATE_READS;
+# read since, or not so short, nothing.
+f.filed_state = lambda series, n: (False, True)
+real_mb = f.many_blank
+f.many_blank = lambda series, n, sol_dir: True
+cr_due = [f.short_again(vu_row("2026-10-26T02:00:00+00:00", gap=8)), f.short_again(vu_row("2026-10-26T05:00:00+00:00", gap=8))]
+f.many_blank = lambda series, n, sol_dir: False
+cr_due.append(f.short_again(vu_row("2026-10-26T02:00:00+00:00", gap=8)))
+f.many_blank = real_mb
+f.filed_state = real_fs
+check("a held file 6+ short on a classified grid, read before REREAD_CANDIDATES: CANDIDATE_READS (rank 2, "
+      "answers-only, a LOW prefix); read since, or not 6+ short, nothing",
+      [f.CANDIDATE_READS, None, None, 2, True, True],
+      cr_due + [f.RANKS[f.CANDIDATE_READS], f.CANDIDATE_READS in f.SOLUTION_FIXES, f.CANDIDATE_READS.startswith("solution short")])
+# candidate_pick: the pick stands only as the plain strip read's word too, a word, read by the classifier as no other.
+import numpy as np
+cp_cells = [(0, i) for i in range(5)]
+cp_probs = {rc: np.full(26, 1 / 26) for rc in cp_cells}
+cp_sure = dict(cp_probs)
+cp_sure[(0, 4)] = np.array([0.95 if c == "M" else 0.05 / 25 for c in f.trove_solution_ocr.AZ])
+cp_offer = ["STEAD", "STEAL", "STEAM"]
+check("candidate_pick: STEAL picked and read plain stands; read plain STEAM, picked off the list, or its L read "
+      "surely as M, it does not",
+      ["STEAL", None, None, None],
+      [f.candidate_pick("STEAL", "STEAL", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAM", "STEAL", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAK", "STEAK", cp_offer, cp_cells, cp_probs, {}, "5"),
+       f.candidate_pick("STEAL", "STEAL", cp_offer, cp_cells, cp_sure, {}, "5")])
+# clue_reads: a light whose cells read STEAL surely is taken; the classifier reading nothing, no light is.
+cr_lts = {(1, "across"): cp_cells}
+cr_steal = {rc: np.array([0.99 if c == ch else 0.01 / 25 for c in f.trove_solution_ocr.AZ]) for rc, ch in zip(cp_cells, "STEAL")}
+check("clue_reads: STEAL read surely is taken; uniform cells leave the light open with its candidates",
+      [{(1, "across"): "STEAL"}, {}, True],
+      [f.trove_solution_ocr.clue_reads(cr_lts, {}, cr_steal, {(1, "across"): "5"})[0],
+       f.trove_solution_ocr.clue_reads(cr_lts, {}, cp_probs, {(1, "across"): "5"})[0],
+       len(f.trove_solution_ocr.clue_reads(cr_lts, {}, cp_probs, {(1, "across"): "5"})[1][(1, "across")]) >= 2])
+# candidate_reads: asks only when every blank light but CANDIDATE_SLACK has 2+ candidates.
+import base64 as _b64
+import io as _io
+from PIL import Image as _Image
+_buf = _io.BytesIO()
+_Image.new("L", (4, 4), 255).save(_buf, "PNG")
+cd_png = _b64.b64encode(_buf.getvalue()).decode()
+cd_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "Feline", "enumeration": "3"}}
+         for n in (1, 3, 5, 7, 9, 11)]
+cd_lts = {(n, "across"): [(i, 0), (i, 1), (i, 2)] for i, n in enumerate((1, 3, 5, 7, 9, 11))}
+real = (f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+        f.vlm.ask, f.vlm.wanted, f.checked_answers)
+f.crop_cell_probs = lambda crop, grid: {rc: np.full(26, 1 / 26) for cells in cd_lts.values() for rc in cells}
+f.trove_solution_ocr.lights = lambda grid: cd_lts
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {f"{n}-{d}": {"png": cd_png} for n, d in keys}
+f.vlm.wanted = lambda: True
+f.checked_answers = lambda entries, answers, grid, enums, info, crop=None, **k: (answers, info, {})
+cd_asked = []
+f.vlm.ask = lambda img, prompt, max_tokens=1500: cd_asked.append(prompt) or "CAT"
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {(1, "across"): "DOG"} if (1, "across") not in acc else {},
+    {k: ([("CAT", 0.0), ("COT", -1.0)] if k[0] in (3, 5) else []) for k in lts if k not in acc})
+cd_far = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+cd_far_asks = len(cd_asked)
+f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
+    {}, {k: [("CAT", 0.0), ("COT", -1.0)] for k in lts if k not in acc})
+cd_near = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
+(f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
+ f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) asks nothing, the clue read's DOG "
+      "stands; 2 candidates for every light asks each plainly and to pick (12 asks), CAT standing in all six",
+      [({"1-across": "DOG"}, 0), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
+                                  [f"{n}-across" for n in (1, 11, 3, 5, 7, 9)])],
+      [(cd_far[0], cd_far_asks),
+       (cd_near[0], cd_near[1]["candidateAsks"], len(cd_asked) - cd_far_asks, cd_near[1]["vlmLights"])])
 check("an answers-only grid read one letter off a word is a misread (a 1973 print's ADORESS for ADDRESS); "
       "a word, a listed name (William RUFUS), and words by their enumeration stand",
       [True, False, False, False, False, (12, "down")],

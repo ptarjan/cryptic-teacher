@@ -197,6 +197,7 @@ LAYOUT = [
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
     ("fetching", "tools/vlm_solution_prompt.md", "the prompt the vision model gets to read one row of a printed solution grid"),
+    ("fetching", "tools/vlm_candidate_prompt.md", "the prompt the vision model gets to pick one of a light's candidate words from its row of a printed solution grid, with the clue"),
     ("fetching", "tools/vlm_report_prompt.md", "the prompt the vision model gets to read one light of a Listener report's typewritten filled grid"),
     ("annotating", "tools/build_annotate_prompt.py", "regenerates that prompt’s wordplay grammar from tools/wordplay.py, and its worked examples from the corpus in the shape the run writes"),
     ("annotating", "STYLE.md", "the standing style rules, read whole by every annotating run"),
