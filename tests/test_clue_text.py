@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """clue_text: ACROSS/DOWN heading readings every old copy accepted."""
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import re
 import clue_text as ct
 

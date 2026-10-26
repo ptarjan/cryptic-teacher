@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """fill_checked_lights fills a blank only from crossings or the write-up's own word."""
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import fill_checked_lights as f
 
 
