@@ -54,7 +54,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --five-hour        # pace five-hour windows until this week resets
-    tools/prereset_plan.py --rush MINUTES     # five-hour mode, spent by MINUTES from now
+    tools/prereset_plan.py --rush MINUTES     # five-hour mode: burn flat out to 100% (MINUTES is the target; stays armed until 100% or the reset)
     tools/prereset_plan.py --weekly           # pace the weekly meter (the default)
     tools/prereset_plan.py --self-test
 """
@@ -138,10 +138,16 @@ CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
 FIVE_HOUR = ".prereset.five-hour"
 # `--rush MINUTES` (Paul 10-26 "burn your whole five hours quickly and I can
-# reset you"): an epoch deadline that pulls the five-hour meter's reset in, so
-# the pacer spends the window by then instead of by its real reset. Ignored
-# once past.
+# reset you"): an epoch deadline that pulls the five-hour meter's reset in.
+# While it is armed and the five-hour meter is under RUSH_TARGET the need is
+# the memory cap (full width, no cpu cap; burn runs are API-bound, about 0.1
+# core each, so six cores hold far more than six runs; only a truly high load
+# shrinks the pool via load_cap). It stays armed past its deadline until the
+# meter reaches RUSH_TARGET or the real five-hour reset passes, then width()
+# deletes it: at the first deadline 87% fell back to the real reset and the
+# pacer set width 0 (Paul: "You didn't finish the window").
 RUSH = ".prereset.rush"
+RUSH_TARGET = 100.0
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
 # the five-hour meter's rise in usage-history.csv, split between the burn and
@@ -185,9 +191,23 @@ RATE_MIN_LINES = 10
 MIN_RATE_WIDTH = 2.0
 
 
-def ceiling(meter):
+def ceiling(meter, rushing=False):
     """The level the meter's need aims at and must stay under."""
+    if rushing:
+        return RUSH_TARGET
     return SESSION_CEILING if meter == "session" else EXHAUSTED
+
+
+def rush_active(meter, stamp, pct, real_hours_left):
+    """True while a rush is armed (RUSH holds a deadline), the five-hour meter is
+    under RUSH_TARGET and its real reset is still ahead: the deadline itself
+    does not end it."""
+    try:
+        float(stamp)
+    except (TypeError, ValueError):
+        return False
+    return (meter == "session" and pct is not None and pct < RUSH_TARGET
+            and real_hours_left is not None and real_hours_left > 0)
 
 
 def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES, min_width=MIN_RATE_WIDTH):
@@ -461,14 +481,6 @@ def mode(stamp, resets_at):
         return "weekly"
 
 
-def rush_left(stamp, now):
-    """Hours until RUSH's deadline, 0 when there is none or it has passed."""
-    try:
-        return max(0.0, (float(stamp) - now) / 3600)
-    except (TypeError, ValueError):
-        return 0.0
-
-
 def rushed(meter, hours_left, stamp, now):
     """The five-hour meter's hours left, pulled in to RUSH's deadline while it
     is still ahead."""
@@ -643,6 +655,7 @@ def width(arg=None, floor=1):
     current = current_width(arg, lines)
     runs_needed = bridge = ratio = pct = hours_left = None
     meter = "weekly"
+    rushing = False
     try:
         now = time.time()
         meter = mode(_read(home / FIVE_HOUR),
@@ -655,6 +668,10 @@ def width(arg=None, floor=1):
                  five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH), now - RATIO_SPAN_S, now))
         pct = weekly_usage.usage_pct(meter)
         hours_left, _ = weekly_usage.resets_in_hours(meter)
+        stamp = _read(home / RUSH)
+        rushing = rush_active(meter, stamp, pct, hours_left)
+        if stamp is not None and not rushing:  # spent, or the real reset passed
+            (home / RUSH).unlink(missing_ok=True)
         hours_left = rushed(meter, hours_left, _read(home / RUSH), now)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
                                  len(burn_rss_kb()))
@@ -665,13 +682,11 @@ def width(arg=None, floor=1):
     load = cpu_load(home / CPU_STATE)
     runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
+    if rushing:  # full width to RUSH_TARGET: memory is the only cap
+        runs_needed = DEFAULT_CEILING if mem is None else mem
+        cpu = None
     w = width_for(runs_needed, mem, cpu, current, floor)
     busy = load_cap(read_load1(), os.cpu_count(), current)
-    # A rush is Paul trading a slower box for the window spent now: the load cap
-    # stands down to one run a core: two a core (10-26) left the bridge waiting
-    # 0.41 s of every second for a CPU.
-    if rush_left(_read(home / RUSH), time.time()) and meter == "session":
-        busy = os.cpu_count() or 1
     if busy is not None and w > busy:
         w = busy
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
@@ -685,7 +700,7 @@ def width(arg=None, floor=1):
           if pct is not None and hours_left is not None else "meter unread")
     aim = (f", aiming {aim_hours(meter, hours_left):.2f}h out"
            if hours_left is not None and hours_left > 0 else "")
-    print(f"width {w}: need {runs_needed} for {name} {ceiling(meter):g}% before its reset ({at}{aim}; "
+    print(f"width {w}: need {runs_needed} for {name} {ceiling(meter, rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
           f"bridge {shown}{per}), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
     return w
@@ -721,7 +736,7 @@ def self_test():
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4 + 4 + 2)
+         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + 3)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -877,6 +892,19 @@ CPU_CASES = [
     (None, 1.0, 4, 4, None),
     (2.13, 0.98, 6, 13.22, 52),  # the span's average, not the 3 alive at the plan (cap 11)
 ]
+# (meter, RUSH's stamp, five-hour pct, real hours to its reset) -> rush active
+RUSH_CASES = [
+    ("session", "1000000\n", 87, 1.7, True),    # deadline long past, 87%: still on
+    ("session", "1000000\n", 99, 1.7, True),
+    ("session", "1000000\n", 100, 1.7, False),  # spent
+    ("session", "1000000\n", 87, 0.0, False),   # the real reset passed
+    ("session", "1000000\n", 87, -0.1, False),
+    ("session", None, 87, 1.7, False),           # not armed
+    ("session", "garbage", 87, 1.7, False),
+    ("weekly", "1000000\n", 87, 1.7, False),    # the week has reset: retired
+    ("session", "1000000\n", None, 1.7, False),  # meter unread
+    ("session", "1000000\n", 87, None, False),
+]
 # (1-minute load, cores, current width) -> load cap
 LOAD_CASES = [
     (3.0, 6, 10, None),    # calm: no cap, quota use untouched
@@ -911,6 +939,10 @@ def width_self_test():
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
               + [(load_cap, (l, c, w), x) for l, c, w, x in LOAD_CASES]
               + [(cpu_runs, (n, s), w) for n, s, w in CPU_RUNS_CASES]
+              + [(rush_active, (m, st, p, h), w) for m, st, p, h, w in RUSH_CASES]
+              + [(ceiling, (m, r), w) for m, r, w in [("session", True, 100.0),
+                                                     ("session", False, SESSION_CEILING),
+                                                     ("weekly", True, 100.0)]]
               + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES]
               + [(five_per_weekly, (t, a, b), w) for t, a, b, w in RATIO_CASES])
     for fn, args, want in checks:
