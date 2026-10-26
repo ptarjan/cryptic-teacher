@@ -1017,6 +1017,69 @@ check("a held file 3-5 short on a classified grid, read before REREAD_CLUE_WIDE:
       cw_due + [f.RANKS[f.CLUE_WIDE], f.CLUE_WIDE in f.SOLUTION_FIXES, f.CLUE_WIDE.startswith("solution short"),
                 f.CLUE_WIDE in __import__("edition_queue").LOW_ASK, f.CLUE_WIDE in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.CLUE_WIDE)])
+# OTHER_COPY: a held file short whose solution the same day's other scan (Gale / archive.org) links too, read
+# before REREAD_OTHER_COPY: due; no other copy, another day's, read since, or none blank: not.
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 1
+oc_two = {99999991: {"1984-05-02 leaf 3", "1984-05-02_61716 leaf 12"}}
+oc_row = vu_row("2026-10-26T09:00:00+00:00")
+oc_row["verdicts"][0]["solution"].update(classified=3)
+oc_due = [f.due_reason({**oc_row, "inputs": "h", "solutionsSeen": [], "vlm": "v", "solutionKey": f.solution_key(),
+                        "scan": {"puzzles": [{"number": 99999991}]}}, "h", [], "v", None, oc_two),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), oc_two),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), {99999991: {"1984-05-02 leaf 3"}}),
+          f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), {99999991: {"1984-05-02 leaf 3", "1984-05-09 leaf 2"}}),
+          f.other_copy_short(vu_row("2026-10-27T12:00:00+00:00"), oc_two)]
+f.held_blanks = lambda series, n, sol_dir: 0
+oc_due.append(f.other_copy_short(vu_row("2026-10-26T09:00:00+00:00"), oc_two))
+f.held_blanks = real_hb
+f.filed_state = real_fs
+check("a held file short whose solution the same day's other scan links too, read before REREAD_OTHER_COPY: "
+      "OTHER_COPY (rank 2, answers-only, evidence, LOW, a fix landed); one copy, another day's, read since, none "
+      "blank: not",
+      [f.OTHER_COPY, True, False, False, False, False, 2, True, True, True, True, True],
+      oc_due + [f.RANKS[f.OTHER_COPY], f.OTHER_COPY in f.SOLUTION_FIXES, f.OTHER_COPY.startswith("solution short"),
+                f.OTHER_COPY in __import__("edition_queue").LOW_ASK, f.OTHER_COPY in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.OTHER_COPY)])
+# solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
+oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
+oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")
+real_linked = f._linked
+f._linked = lambda d, scan, held: [{"number": 7, "leaf": 1, "box": (0, 0, 1, 1)}] if d != oc_o else \
+    [{"number": 8, "leaf": 2, "box": (0, 0, 1, 1)}]
+oc_sols, oc_every = f.solution_sources([oc_g, oc_o], {"g": {}, "o": {}}, {oc_g: "g", oc_o: "o"}, {},
+                                       {7: {"number": 7, "leaf": 12, "dir": oc_n}, 8: {"number": 8, "leaf": 4, "dir": oc_n}})
+f._linked = real_linked
+check("a linked heading the same day's other scan prints too carries that copy; one whose copy is another day's not",
+      [oc_g, [oc_n], oc_o, None, {"1984-05-02 leaf 1", "1984-05-02_61716 leaf 12"}],
+      [oc_sols[7]["dir"], [c["dir"] for c in oc_sols[7][f.SOLUTION_COPIES]], oc_sols[8]["dir"],
+       oc_sols[8].get(f.SOLUTION_COPIES), oc_every[7]])
+# answers_only: the other copy's grid read (no VLM) where the linked one leaves a light blank; the reading leaving
+# fewer blank taken, the linked one on a tie or when it leaves none.
+real_ao, real_hf = f._answers_only, f.held_file
+oc_es = lambda *a: [{"number": i + 1, "direction": "across", "solution": a[i]} for i in range(len(a))]
+oc_reads = {"own": oc_es("A", None, None), "copy": oc_es("A", "B", None), "tie": oc_es(None, "B", None),
+            "unsure": oc_es("A", "B", None)}
+oc_asked = []
+def oc_fake(d, found, hit, sols, ask_vlm=True, crossed=True):
+    k = sols[7]["k"]
+    oc_asked.append((k, ask_vlm))
+    return ({"number": 7, "solutionFrom": k, "solution": {"cells": 100, "cellsSure": 80 if k == "unsure" else 90}},
+            {"entries": oc_reads[k]})
+f._answers_only = oc_fake
+f.held_file = lambda series, n: {"entries": oc_es(None, None, "C")}
+oc_d = f.Path("/x/GaleTimes1984UKEnglish/1984-05-01")
+oc_pick = [f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "tie"}, {"k": "copy"})}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "tie"},)}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "copy", f.SOLUTION_COPIES: ({"k": "own"},)}}),
+           f.answers_only(oc_d, {}, {}, {7: {"k": "own", f.SOLUTION_COPIES: ({"k": "unsure"},)}})]
+f._answers_only, f.held_file = real_ao, real_hf
+check("answers_only reads the other copy's grid without the VLM where its own leaves a light blank and takes "
+      "the reading leaving fewer; the linked one on a tie, or when the copy's reads under COPY_SURE of its cells sure",
+      [("copy", "own"), ("own", None), ("copy", None), ("own", None),
+       [("own", True), ("tie", False), ("copy", False), ("own", True), ("tie", False), ("copy", True),
+        ("own", True), ("unsure", False)]],
+      [(p[0]["solutionFrom"], p[0]["solution"].get("otherCopy")) for p in oc_pick] + [oc_asked])
 # held_recrossed: a blank light's VLM word against a held crossing stands, the crossing read again with its letter,
 # where that makes a listed word and the clue read with the crossing open gives the VLM word too.
 import numpy as np
