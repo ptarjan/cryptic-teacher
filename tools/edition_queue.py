@@ -758,6 +758,9 @@ def evidence_reason(reason):
             # A held puzzle short whose blank light's cached VLM reply, a letter long or short or a square unread,
             # mends to one listed word vlm_word takes (fa.mend_word), read before it did, once.
             or reason == fa.NEAR_WORD
+            # A held puzzle short whose blank light's cached VLM reply, the light's length, is one letter
+            # swapped off one listed word the classifier reads in every open cell (fa.swap_word), once.
+            or reason == fa.SWAP_WORD
             # A held puzzle short whose blank light's clue's anagram or hidden word is the one listed word its
             # held crossings allow (fa.held_wordplay), read before answers_only read clues' wordplay, once.
             or reason == fa.WORDPLAY_SHORT
@@ -1346,7 +1349,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
-              fa.CLUE_SOLVED)
+              fa.CLUE_SOLVED, fa.SWAP_WORD)
 
 
 def unproven_first(unit):
@@ -1422,7 +1425,7 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
            fa.REFUSED_GRID, fa.MATCHED_GRID, fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
-           fa.CLUE_SOLVED)
+           fa.CLUE_SOLVED, fa.SWAP_WORD)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

@@ -3609,6 +3609,15 @@ check("a VLM word the classifier reads every one of its 3+ open letters under VL
       (f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.3) for c in "RUMPLE"]),
        f.vlm_word("RUMPLE", "?U????", [6], [cell_p(c, 0.9 if i == 2 else 0.3) for i, c in enumerate("RUMPLE")]),
        f.vlm_word("RUMPLE", "RUM?L?", [6], [cell_p(c, 0.3) for c in "RUMPLE"])))
+check("a VLM reply of the light's length one letter off one listed word is mended where the classifier reads every "
+      "open letter of the mend (ELGHT for EIGHT; BUSY on a held S for BUSS); not where it reads the VLM's letter "
+      "(CORONEL's E), nor a listed reply that fits (no swap), nor one off two listed words",
+      ("EIGHT", "BUSS", None, None, None),
+      (f.vlm_word("ELGHT", "E?G?T", [5], [cell_p(c) for c in "EIGHT"]),
+       f.swap_word("BUSY", "?U?S", [4], [cell_p(c) for c in "BUSY"]),
+       f.swap_word("CORONEL", "C?R?N?L", [7], [cell_p(c) for c in "CORONEL"]),
+       f.swap_word("EIGHT", "E?G?T", [5], [cell_p(c) for c in "EIGHT"]),
+       f.swap_word("TOBB", "?O?B", [4], [cell_p(c) for c in "TOBB"])))
 # held_blank_unchecked: a word read for a held-blank light, its unchecked letters (no other light) read again.
 hu_real = tso.lights
 tso.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2), (0, 3)], (4, "down"): [(0, 3), (1, 3), (2, 3), (3, 3)]}
