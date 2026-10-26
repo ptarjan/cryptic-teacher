@@ -157,7 +157,7 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
   exec 7>&-
 }
 
-. "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
+[ -f "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh" ] && . "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
 . "$(dirname "${BASH_SOURCE[0]}")/unstage_unparsable.sh"
 . "$(dirname "${BASH_SOURCE[0]}")/commit_puzzles.sh"
 

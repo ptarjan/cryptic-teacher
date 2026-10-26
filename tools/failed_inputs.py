@@ -35,7 +35,7 @@ a throwaway worktree (tools/nightly_worktree.sh) that is reset to origin/master
 every night, and a run that exits before its commit (it does, when every
 annotation fails validation) would lose a tracked record with the rest.
 """
-import yield_cpu  # noqa: F401  (a nice-19 burn's session yields too)
+import yield_cpu  # a nice-19 burn's session yields too
 import argparse
 import ast
 import functools
@@ -52,6 +52,7 @@ import enumeration
 import puzzle_paths
 from groups import entry_id
 
+yield_cpu.yield_autogroup()  # idempotent; the import already did it
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
               or Path(os.environ.get("CT_MAIN_CHECKOUT") or ROOT) / ".failed_inputs.json")

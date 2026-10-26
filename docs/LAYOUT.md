@@ -1308,6 +1308,14 @@ tools/low_cpu.sh                               runs one command at nice 19 in a 
                                                own (setsid + /app/tools/deprioritize.sh), since
                                                plain nice does nothing in the container; the
                                                local index rebuilds go through it
+tools/yield_cpu.py                             raises a nice-19 process's autogroup to 19 on
+                                               import, so the burn's Bash-tool children
+                                               (annotate_check, apply_annotations,
+                                               failed_inputs) and its push and unit resets,
+                                               each a new session, yield to the bridge too
+tools/yield_cpu.sh                             sourced first by push_puzzle_commit.sh,
+                                               daily_update.sh and nightly_worktree.sh: runs
+                                               yield_cpu.py for the shell session
 tools/durable.sh                               sourced by a long job that files into git:
                                                commits and pushes what it filed every few
                                                minutes, and on SIGTERM ends the job and commits
@@ -3234,5 +3242,9 @@ tools/audit_updates.py                         audit the clue text each reread (
 tools/test_audit_updates.py                    does audit_updates class each reread change
                                                introduced, fixed or neutral, and alert on a new
                                                class?
+
+building and checking the site
+tools/test_overtype.js                         typing over a filled word keeps going through
+                                               its filled squares
 ```
 <!-- LAYOUT-END -->

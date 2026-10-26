@@ -13,7 +13,7 @@ raises the autogroup to 19 (lowering priority is always allowed). A group shared
 with pid 1 is the bridge's and is never touched. Where there is no
 /proc/self/autogroup nothing happens.
 
-    import yield_cpu  # noqa: F401   first import of a python entry point
+    import yield_cpu; yield_cpu.yield_autogroup()   # first import of an entry point
     python3 tools/yield_cpu.py        # from a shell: . tools/yield_cpu.sh
 """
 import os
