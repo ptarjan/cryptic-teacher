@@ -4706,6 +4706,13 @@ VLM_FLOOR = trove_solution_ocr.CLASS_FLOOR
 #: less; its right ones (PERSHORE, HARPAGON, DUNVEGAN, SPENNYMOOR) read every letter at 0.7+.
 VLM_UNLISTED_TOP = 0.7
 
+#: A VLM word with VLM_ALONE_OPEN or more open cells (no crossing holds them) the classifier reads
+#: every one of under VLM_ALONE_P is the VLM's read alone: refused. 10-26, a 3-5-short 1993 Times grid:
+#: RUMPLE for RUMPUS ("Strange cat lost tail in brawl", ?U????, its five open letters at 0.01-0.38);
+#: none of 99 VLM words vlm_word took that were right (56 known lights held out, 43 last lights of
+#: 1-2-short grids) was so (THESIS's 3 of 4 the most).
+VLM_ALONE_OPEN, VLM_ALONE_P = 3, 0.5
+
 
 def vlm_word(reply, pattern, sizes, probs, enum=None):
     """The word of the VLM's `reply` for a light whose crossings give `pattern` (a letter
@@ -4714,11 +4721,15 @@ def vlm_word(reply, pattern, sizes, probs, enum=None):
     least VLM_FLOOR likely in its cell by the classifier's `probs` (one list of 26 a cell)
     but for a word the classifier reads too (floor_word), and each piece is a listed word
     (trove_solution_ocr.piece_listed), or the whole is a name both readers agree on
-    (unlisted_word, by the light's enumeration `enum`)."""
+    (unlisted_word, by the light's enumeration `enum`); never one the classifier reads alone of every
+    open letter (VLM_ALONE_OPEN, VLM_ALONE_P)."""
     word = re.sub(r"[^A-Za-z?]", "", (reply or "").strip().splitlines()[0] if (reply or "").strip() else "").upper()
     if len(word) != len(pattern) or "?" in word:
         return None
     if any(p != "?" and p != ch for p, ch in zip(pattern, word)):
+        return None
+    opened = [i for i, p in enumerate(pattern) if p == "?"]
+    if len(opened) >= VLM_ALONE_OPEN and all(probs[i][trove_solution_ocr.AZ.index(word[i])] < VLM_ALONE_P for i in opened):
         return None
     low = [i for i, (p, ch) in enumerate(zip(probs, word)) if p[trove_solution_ocr.AZ.index(ch)] < VLM_FLOOR]
     if low and not floor_word(word, pattern, sizes, probs, low):
@@ -5267,7 +5278,9 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
     word stands only where the answers-only checks (checked_answers) keep it beside the rest. 10-25:
     192 Times puzzles of the 1970s-80s held 6+ short on a classified grid, 1,976 lights blank. Since
     10-26 (CLUE_SHORT) a grid left 1 to LATE_MAX short is read so too, asked only 1 to CANDIDATE_SLACK
-    short: 666 Times puzzles stood 1-2 short with no unit planned, their last lights never clue-read."""
+    short: 666 Times puzzles stood 1-2 short with no unit planned, their last lights never clue-read. Since
+    10-26 (CLUE_WIDE) a grid left 3 to LATE_MAX short is asked too once the clue read leaves it at most
+    CANDIDATE_SLACK short: 260 Times puzzles stood 3-5 short with no unit planned."""
     import base64
     import io
     from PIL import Image
@@ -5276,9 +5289,9 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
     left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
     if not left or crop is None or not crop.exists():
         return answers, info
-    # 3 to LATE_MAX left: the clue read alone (late_strips asked each light's strip); 1 to CANDIDATE_SLACK
-    # left (CLUE_SHORT) the picks too, each of which could complete the puzzle.
-    ask = ask and (len(left) > LATE_MAX or len(left) <= CANDIDATE_SLACK)
+    # 1 to LATE_MAX left: the picks only once the clue read leaves at most CANDIDATE_SLACK lights open (CLUE_SHORT,
+    # CLUE_WIDE), each of which could complete the puzzle; 3 to LATE_MAX the clue read alone till then (late_strips
+    # asked each light's strip).
     probs = crop_cell_probs(crop, grid)
     if not probs:
         return answers, info
@@ -5306,7 +5319,7 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
         open_ = [k for k in keys if k not in found]
         askable = [k for k in open_ if len(cands.get(k) or ()) >= 2 and (k, tuple(w for w, _ in cands[k][:CANDIDATE_OFFER])) not in tried]
         if not ask or not askable or len(open_) - len(askable) > CANDIDATE_SLACK or asks >= CANDIDATE_ASKS \
-                or not vlm.wanted():
+                or (len(left) <= LATE_MAX and len(open_) > CANDIDATE_SLACK) or not vlm.wanted():
             break
         held_letters = {rc: ch for k, w in {**known, **found}.items() for rc, ch in zip(lts[k], w)}
         strips = t.crop_strips(crop, grid, askable)
@@ -5485,6 +5498,8 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
     - with `crossed`, uncrossed: an answer with a letter no other answer checks goes when the classifier
       reads one such letter off `crop` (cell_probs) as another making a listed word (misread_rival), that
       word taken for it where rival_stands ("rivals"), or, with `every` (a held title, HELD_TITLE), whenever uncrossed names it ("uncrossed");
+      a word for a light the held file leaves blank goes when misread_rival reads a letter of it no other light
+      holds as another (held_blank_unchecked, "unchecked");
     - settle_held: a held answer the reading reads otherwise is settled light by light ("heldClash"),
       the held answers kept filed with the reading's; a blog's (`blog`) always stand.
     `enums` {(number, direction): enumeration}; `info` the reading's stats, returned with the checks'
@@ -5514,6 +5529,17 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
             info = {**info, "uncrossed": sorted(lone), "accepted": info.get("accepted", 0) - len(lone) + len(took)}
             if took:
                 info["rivals"] = took
+        # A word read for a light the held file (with answers) leaves blank goes where a letter of it on a cell
+        # no other light holds the classifier reads as another letter making a listed word (misread_rival):
+        # nothing checks that letter (10-26, a 1942 Times grid's last lights: DINE for PINE, "This apple
+        # doesn't grow on this tree", its D at 0.07 under P's 0.80). Left blank, no rival filed.
+        fresh = held_blank_unchecked(entries, answers, grid, set(lone or ()))
+        if fresh and not every and crop is not None and crop.exists():
+            got = crop_cell_probs(crop, grid)
+            gone = sorted(k for k, cells in fresh.items() if got and misread_rival(answers[k], cells, got))
+            if gone:
+                answers = {k: a for k, a in answers.items() if k not in gone}
+                info = {**info, "unchecked": gone, "accepted": info.get("accepted", 0) - len(gone)}
     # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
     # the read one replaces it when a listed word fitting every crossing, else the held one stands and
     # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
@@ -5522,6 +5548,29 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
         info = {**info, "heldClash": clash}
         answers = {**answers, **kept}
     return answers, info, clash
+
+
+def held_blank_unchecked(entries, answers, grid, skip=()):
+    """{light: [(index, cell, letter)]} of the answers in `answers` (but `skip`) for lights a held file's
+    `entries` leave blank, the file holding some answer, each light's letters on cells no other light of
+    `grid` holds, where a listed word lies one such letter off (trove_solution_ocr.one_change): the ones
+    checked_answers' misread_rival reads again."""
+    if not any(e.get("solution") for e in entries):
+        return {}
+    blank = {entry_id(e) for e in entries if not e.get("solution")}
+    lts = trove_solution_ocr.lights(grid)
+    on = {}
+    for key, cells in lts.items():
+        for rc in cells:
+            on[rc] = on.get(rc, 0) + 1
+    out = {}
+    for k, a in answers.items():
+        if k not in blank or k in skip:
+            continue
+        cells = [(i, rc, ch) for i, (rc, ch) in enumerate(zip(lts.get(_light_key(k), ()), a.upper())) if on[rc] == 1]
+        if cells and any(i in {j for j, _, _ in cells} for i, _ in trove_solution_ocr.one_change(a.upper())):
+            out[k] = cells
+    return out
 
 
 def crop_cell_probs(crop, grid):
@@ -8348,6 +8397,15 @@ REREAD_CLUE_SHORT = "2026-10-26T06:00:00+00:00"
 #: (TOTA for IOTA, PLAT for FLAT, UTTER for OTTER), each right by its clue. Once, answers-only.
 CLASH_SHORT = "solution short, its last lights' VLM reads against held crossings settled since"
 REREAD_CLASH_SHORT = "2026-10-26T07:00:00+00:00"
+#: The due reason of a Times row read before REREAD_CLUE_WIDE, due none of those above, whose held puzzle
+#: (every clue, from this page) leaves CANDIDATE_SLACK+1 to LATE_MAX lights blank as many_short's wide:
+#: candidate_reads has read such a grid's last lights by their clues' candidates only since CLUE_SHORT's
+#: code (10-26 04:49Z), and neither CANDIDATE_READS (6+) nor CLUE_SHORT (1-2) made one due; since this
+#: stamp it asks the VLM's picks (and clash_reads its strips) once the clue read leaves CANDIDATE_SLACK
+#: lights open. 10-26 05:40Z: 260 Times puzzles stood 3-5 short, grid linked, with no unit planned
+#: (1980s 117, 1940s 67), 240 read before 04:49Z. Once, as an answers-only reread (SOLUTION_FIXES).
+CLUE_WIDE = "solution short, its 3-5 last lights read by their clues' candidates since"
+REREAD_CLUE_WIDE = "2026-10-26T08:00:00+00:00"
 #: {(held path, reading path): ((held stamp, reading stamp), held_blanks' answer)}
 _MANY_SHORT = {}
 
@@ -8385,10 +8443,10 @@ def many_blank(series, number, sol_dir):
     return held_blanks(series, number, sol_dir) > LATE_MAX
 
 
-def many_short(row, paper, few=False):
+def many_short(row, paper, few=False, wide=False):
     """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a
     puzzle held with every clue from this page, more than LATE_MAX answers blank (many_blank); `few`:
-    1 to CANDIDATE_SLACK blank (held_blanks)."""
+    1 to CANDIDATE_SLACK blank (held_blanks); `wide`: CANDIDATE_SLACK+1 to LATE_MAX blank."""
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
@@ -8402,8 +8460,11 @@ def many_short(row, paper, few=False):
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
         sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
-        if (0 < held_blanks(paper.series, v.get("number"), sol_dir) <= CANDIDATE_SLACK) if few \
-                else many_blank(paper.series, v.get("number"), sol_dir):
+        if few or wide:
+            lo, hi = (1, CANDIDATE_SLACK) if few else (CANDIDATE_SLACK + 1, LATE_MAX)
+            if lo <= held_blanks(paper.series, v.get("number"), sol_dir) <= hi:
+                return True
+        elif many_blank(paper.series, v.get("number"), sol_dir):
             return True
     return False
 
@@ -8475,7 +8536,8 @@ def short_again(row):
     before REREAD_CANDIDATES, due none of those, whose held file leaves more than LATE_MAX lights blank
     (many_short); CLUE_SHORT for one read before REREAD_CLUE_SHORT, due none of those, whose held file
     leaves 1 to CANDIDATE_SLACK lights blank (many_short's few); CLASH_SHORT for such a row read since,
-    before REREAD_CLASH_SHORT."""
+    before REREAD_CLASH_SHORT; CLUE_WIDE for one read before REREAD_CLUE_WIDE, due none of those, whose
+    held file leaves CANDIDATE_SLACK+1 to LATE_MAX lights blank (many_short's wide)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -8492,6 +8554,8 @@ def short_again(row):
         return CLUE_SHORT
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLASH_SHORT)) and many_short(row, paper, few=True):
         return CLASH_SHORT
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_WIDE)) and many_short(row, paper, wide=True):
+        return CLUE_WIDE
     return why
 
 
@@ -9500,7 +9564,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fet
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -10011,7 +10075,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE)
 
 
 def keeps_vlm(why, row, unit=None):
