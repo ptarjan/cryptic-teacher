@@ -7988,7 +7988,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "c9df82853ceacd39": "8417cfb08f3a9706",
                   # rendered_cell (each cell rendered once a lattice), read_lattice's `blocks` and
                   # read_framed's framing kept for cell_probs: the same readings.
-                  "1ad8460cbd03ea2f": "8417cfb08f3a9706"}
+                  "1ad8460cbd03ea2f": "8417cfb08f3a9706",
+                  # read_framed's framing and cell probabilities kept on disk too (grid_ocr_cache
+                  # .keep_framing/keep_probs): the same readings.
+                  "d7af79af2ec8d286": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -8028,7 +8031,10 @@ _SOLVED_CODE = []
 _SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03",
                 # rendered_cell, read_lattice's `blocks`, read_framed's framing kept for cell_probs
                 # (10-26: one 1969 Times crop read alike, answers and stats).
-                "214418ebf47f6b5c": "07caaedc892a5b03"}
+                "214418ebf47f6b5c": "07caaedc892a5b03",
+                # read_framed's framing and cell probabilities kept on disk too (10-26: one 1980 Times
+                # crop's framing, probabilities and strips bitwise alike off disk).
+                "27b384ef2e72bdc4": "07caaedc892a5b03"}
 
 
 def input_hash(d):
