@@ -4795,7 +4795,10 @@
     };
     const OP_WORDS = { anagram: "anagram of", reversal: "reversal of", hidden: "hidden in", homophone: "sounds like",
       first: "first letter of", last: "last letter of", middle: "middle of", outer: "outer letters of",
-      alternate: "alternate letters of", regular: "regular letters of", nth: "regular letters of" };
+      alternate: "alternate letters of", regular: "regular letters of", nth: "regular letters of",
+      spoonerism: "spoonerism of", substitution: "swap in", cycling: "cycled", move: "moved letters of", palindrome: "palindrome of" };
+    // A whole-clue op has no fodder to name: the chip already labels it, and "cryptic of" is no prose.
+    const WHOLE_CLUE = ["cryptic", "rebus", "reverse"];
     const chipless = (p) => p && !p.op && !p.words && val(p) != null;
     const used = new Set();
     const walk = (node, top) => {
@@ -4820,7 +4823,7 @@
         if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
         else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "minus", kids[1]);
         else {
-          const lead = op === "charade" || op === "composite" ? [] : [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`];
+          const lead = op === "charade" || op === "composite" || WHOLE_CLUE.includes(op) ? [] : [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`];
           out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
         }
       }

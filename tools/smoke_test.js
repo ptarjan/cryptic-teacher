@@ -2763,7 +2763,13 @@ function blogSidecars() {
       // The blog badge's provisional note (blogHintsBadge in app.js).
       "ours to come",
       ...[...appSrc.slice(appSrc.indexOf("const DEVICE_RULES = {"), appSrc.indexOf("const SELECT_OPS"))
-        .matchAll(/"([^"]*)"/g)].map(m => m[1])]
+        .matchAll(/"([^"]*)"/g)].map(m => m[1]),
+      // The hint formula's fixed words (formulaOf in app.js): OP_WORDS, the
+      // cutWords phrases and the connectives, read from the source so a new
+      // label is covered at once.
+      ...[...appSrc.slice(appSrc.indexOf("const cutWords = "), appSrc.indexOf("const chipless = "))
+        .matchAll(/"([^"$]*)"|`([^`$]*)/g)].map(m => m[1] || m[2]),
+      "minus", "inside", "letter", "letters", "definition", "answer"]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
