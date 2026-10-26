@@ -970,6 +970,23 @@ ls_out = [f.late_strips(ls_es, {}, {"a": 1}, {}, [], {}, Path(__file__)),
 f.trove_solution_ocr.crop_strips = real_cs
 check("late_strips: 6 blank lights (over LATE_MAX), or every blank one's strip cut already, cuts nothing and keeps "
       "the reading", [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
+# cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
+# written again, or another grid, is framed again.
+import tempfile as _cf_tmp
+from PIL import Image as _CfImage
+_cf_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (40, 40), 255).save(_cf_png)
+_cf_calls = []
+_cf_real = f.trove_solution_ocr.framings
+f.trove_solution_ocr.framings = lambda gray, grid: _cf_calls.append(tuple(grid)) or []
+_cf_out = [f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), f.trove_solution_ocr.crop_strips(_cf_png, ["..", ".."], [(1, "across")]),
+           f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls),
+           f.trove_solution_ocr.cell_probs(_cf_png, ["...", "...", "..."]), len(_cf_calls)]
+_CfImage.new("L", (41, 40), 255).save(_cf_png)
+_cf_out += [f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls)]
+f.trove_solution_ocr.framings = _cf_real
+check("_crop_framed: one crop and grid framed once for cell_probs and crop_strips; another grid or the crop "
+      "written again framed anew", [None, {}, None, 1, None, 2, None, 3], _cf_out)
 # A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
 # until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
 f.filed_state = lambda series, n: (False, True)
