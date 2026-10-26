@@ -668,9 +668,10 @@ def width(arg=None, floor=1):
     w = width_for(runs_needed, mem, cpu, current, floor)
     busy = load_cap(read_load1(), os.cpu_count(), current)
     # A rush is Paul trading a slower box for the window spent now: the load cap
-    # stands down, and two runs a core (they mostly wait on the API) bound it.
+    # stands down to one run a core: two a core (10-26) left the bridge waiting
+    # 0.41 s of every second for a CPU.
     if rush_left(_read(home / RUSH), time.time()) and meter == "session":
-        busy = 2 * (os.cpu_count() or 1)
+        busy = os.cpu_count() or 1
     if busy is not None and w > busy:
         w = busy
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
