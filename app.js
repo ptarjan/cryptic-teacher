@@ -8635,14 +8635,14 @@
   // sentence would rewrite itself under you.
   let tallyDrawn = false;
 
-  // "What you needed help with": every device in a clue the solver took a hint or a
-  // letter on, with how many such clues, each linked to its lesson section, so
-  // the finish names what to go and read. Derived from the saved ladder state
-  // (hintsShown, hintsEarned, revealsUsed in ct:<id>), so it is there on a
-  // reopened finished puzzle and on every synced device without storing
+  // "Your hints by clue type": the hints in the tally line, grouped by the
+  // device of the clue they were spent on, each linked to its lesson section,
+  // so the finish names what to go and read. Derived from the saved ladder
+  // state (hintsShown, hintsEarned, revealsUsed in ct:<id>), so it is there on
+  // a reopened finished puzzle and on every synced device without storing
   // anything new. A clue counts once, under its most specific device (a charade
-  // that also has a container counts as the container), so the counts add up to
-  // the clues-with-hints figure in the tally line above.
+  // that also has a container counts as the container), so the hints add up to
+  // the tally's hint total and the clues to its clues-with-help figure.
   function recapCounts() {
     const used = {}, seen = {};
     entries.forEach((e) => {
@@ -8650,19 +8650,24 @@
       if (seen[key]) return;
       seen[key] = true;
       const ann = annOf(e);
-      if (!ann || !(hintsCharged(e) > 0 || revealsUsed[key] > 0)) return;
+      const hints = hintsCharged(e);
+      if (!ann || !(hints > 0 || revealsUsed[key] > 0)) return;
       const ts = (ann.type || []).filter((t) => DEVICE_RULES[t]);
       const t = ts.find((x) => x !== "charade") || ts[0];
-      if (t) used[t] = (used[t] || 0) + 1;
+      if (!t) return;
+      used[t] = used[t] || { hints: 0, clues: 0 };
+      used[t].hints += hints;
+      used[t].clues++;
     });
-    return Object.entries(used).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    return Object.entries(used).sort((a, b) => b[1].hints - a[1].hints || b[1].clues - a[1].clues || a[0].localeCompare(b[0]));
   }
   function recapHTML() {
     const used = recapCounts();
     if (!used.length) return "";
-    return `<div class="recap"><p class="recap-head">What you needed help with</p><ul>${used.map(([t, n]) =>
+    const n = (k, w) => `${k} ${w}${k === 1 ? "" : "s"}`;
+    return `<div class="recap"><p class="recap-head">Your hints by clue type</p><ul>${used.map(([t, u]) =>
       `<li><a class="learn-link" href="${learnHref(DEVICE_RULES[t].learn)}">${esc(TYPES[t].label)}</a>` +
-      ` <span class="muted">× ${n}</span></li>`).join("")}</ul></div>`;
+      ` <span class="muted">${n(u.hints, "hint")} · ${n(u.clues, "clue")}</span></li>`).join("")}</ul></div>`;
   }
 
   function celebrate(complete, earned) {
