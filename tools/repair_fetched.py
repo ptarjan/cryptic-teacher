@@ -2210,10 +2210,10 @@ def main(argv):
         return 0
     if args.crossing_fills:
         got = repair_crossing_fills(args.apply)
-        for pid, day, lid, word in got["filled"]:
-            print(f"{pid} ({day}) {lid}: blank -> {word}")
-        for pid, day, lid, word, why in got["refused"]:
-            print(f"{pid} ({day}) {lid}: {word} left: {why}")
+        for pid, dated, lid, word in got["filled"]:
+            print(f"{pid} ({dated}) {lid}: blank -> {word}")
+        for pid, dated, lid, word, why in got["refused"]:
+            print(f"{pid} ({dated}) {lid}: {word} left: {why}")
         decade = lambda day: f"{(day or '0000')[:3]}0s"
         verb = "filled" if args.apply else "would be filled"
         print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
@@ -2223,8 +2223,8 @@ def main(argv):
         return 0
     if args.clue_fills:
         got = repair_clue_fills(args.apply, define=args.define)
-        for pid, day, lid, word, tier in got["filled"]:
-            print(f"{pid} ({day}) {lid}: blank -> {word} [{tier}]")
+        for pid, dated, lid, word, tier in got["filled"]:
+            print(f"{pid} ({dated}) {lid}: blank -> {word} [{tier}]")
         verb = "filled" if args.apply else "would be filled"
         print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
               + ", ".join(f"{t} {n}" for t, n in sorted(Counter(r[4] for r in got["filled"]).items()))
