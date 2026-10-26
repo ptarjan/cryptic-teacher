@@ -1069,6 +1069,52 @@ check("cell_probs and _crop_framed kept on disk: framed and classified once a cr
        _fd_own[0].tobytes() == _fd_np.asarray(_CfImage.open(_fd_png).convert("L")).tobytes(),
        _fd_kept[0].tobytes() == _fd_patch.tobytes() and _fd_kept[0].shape == (4, 4),
        _fd_kept[1].tolist(), [type(x) for x in _fd_kept[2]], isinstance(_fd_kept[1], _fd_np.ndarray)])
+# crop_strips' own classifier batch is kept too (_strip_probs: memory, then grid_ocr_cache.strips_paths on
+# disk), as the batch it was: the classifier's rows move with their batch, so cell_probs' rows are not
+# taken. The same lights' strips asked again (late_strips, candidate_reads, clash_reads, a later reread)
+# classify nothing and come back alike; other lights are a batch of their own; a torn file is read again.
+_sp_png = Path(_cf_tmp.mkdtemp()) / "crop.png"
+_CfImage.new("L", (40, 40), 255).save(_sp_png)
+_sp_grid = ["...", "...", "..."]
+_sp_batches = []
+_sp_real = (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph,
+            _fd_tso.light_strip)
+
+
+def _sp_forget():
+    _fd_forget()
+    _fd_tso._STRIP_PROBS.clear()
+
+
+_fd_tso.framings = lambda gray, grid: [(gray, [0, 10, 20, 30], [0, 10, 20, 30])]
+_fd_tso.sure_framing = lambda framed, grid, fits: 0
+_fd_tso.block_agreement = lambda g, grid, lat: 1.0
+_fd_tso.glyph = lambda g, ys, xs, r, c: (r, c)
+_fd_tso.classified = lambda glyphs: _sp_batches.append(list(glyphs)) or {
+    k: _fd_np.array([0.1 * k[0] + 1e-7 * len(glyphs), 1 / 3 + k[1]], _fd_np.float32) for k in glyphs}
+_fd_tso.light_strip = lambda g, ys, xs, cells: "png"
+try:
+    _sp_forget()
+    _sp_keys = list(_fd_tso.lights(_sp_grid))
+    _sp_first = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_mem = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_forget()
+    _sp_disk = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+    _sp_other = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[2:3])
+    _sp_cells = list(dict.fromkeys(rc for k in _sp_keys[:2] for rc in _fd_tso.lights(_sp_grid)[k]))
+    _goc.strips_paths(_goc.framed_paths(_sp_png, _sp_grid), _sp_cells)[1].write_bytes(b"torn")
+    _sp_forget()
+    _sp_torn = _fd_tso.crop_strips(_sp_png, _sp_grid, _sp_keys[:2])
+finally:
+    (_fd_tso.framings, _fd_tso.sure_framing, _fd_tso.block_agreement, _fd_tso.classified, _fd_tso.glyph,
+     _fd_tso.light_strip) = _sp_real
+    _sp_forget()
+_sp_lts = _fd_tso.lights(_sp_grid)
+check("crop_strips: a strip batch classified once, kept in memory and on disk alike; other lights their own "
+      "batch; a torn file classified again",
+      [[_sp_cells, [rc for rc in _sp_lts[_sp_keys[2]]], _sp_cells], True, True, True, True],
+      [_sp_batches, _sp_first == _sp_mem, _sp_first == _sp_disk, _sp_first == _sp_torn,
+       sorted(_sp_first) == sorted(f"{k[0]}-{k[1]}" for k in _sp_keys[:2])])
 # A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
 # until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
 f.filed_state = lambda series, n: (False, True)

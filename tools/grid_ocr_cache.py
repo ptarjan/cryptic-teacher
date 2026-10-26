@@ -191,6 +191,18 @@ def framed_paths(image, grid):
     return FRAMED_CACHE / f"{sha}.{tail}.framing.npz", FRAMED_CACHE / f"{sha}.{tail}.probs.npz"
 
 
+def strips_paths(paths, cells):
+    """keep_probs/kept_probs paths, beside framed_paths' `paths`, of crop_strips' own classifier batch
+    over `cells` (in order): the classifier's float32 rows move with the batch they are read in (10-26:
+    3 in 4 rows of a light's cells read alone differ from cell_probs' whole-grid batch, up to 3e-7, 1-2
+    strips' rounded probabilities a crop), so a strip's cells are kept as the batch they were read."""
+    if paths is None:
+        return None
+    digest = hashlib.sha256(json.dumps([[int(r), int(c)] for r, c in cells]).encode()).hexdigest()[:16]
+    stem = paths[1].name[:-len(".probs.npz")]
+    return None, paths[1].with_name(f"{stem}.strips.{digest}.npz")
+
+
 def _scalar(x):
     # A rule's place as it was: a Python int or float, or a numpy scalar of its dtype, exactly.
     if isinstance(x, np.generic):

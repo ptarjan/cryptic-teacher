@@ -1140,13 +1140,43 @@ def crop_strips(image, grid, keys):
     g, ys, xs = got
     lts = lights(grid)
     keys = [k for k in keys if k in lts]
-    probs = classified({rc: glyph(g, ys, xs, *rc) for k in keys for rc in lts[k]})
+    probs = _strip_probs(image, grid, got, list(dict.fromkeys(rc for k in keys for rc in lts[k])))
     out = {}
     for k in keys:
         png = light_strip(g, ys, xs, lts[k])
         if png:
             out[f"{k[0]}-{k[1]}"] = {"png": png, "p": [[round(float(x), 5) for x in probs[rc]] for rc in lts[k]]}
     return out
+
+
+def _strip_probs(image, grid, framing, cells):
+    """classified() of `cells` (in order: one batch) on crop_strips' `framing` of crop `image`, kept: the
+    last STRIP_PROBS_KEPT batches in memory by _crop_key, and on disk beside cell_probs' file
+    (grid_ocr_cache.strips_paths). Not cell_probs' own rows: the classifier's float32 rows move with
+    the batch (10-26: 1-2 strips' rounded probabilities a crop differ), so only the same batch is
+    taken. 10-26 live: one batch of ~16 cells ~5 s of process CPU (numpy's 28 BLAS threads on a tiny
+    matrix), asked again by late_strips, each candidate_reads pass and clash_reads, and by each reread
+    of a puzzle still short."""
+    key = _crop_key(image, grid)
+    mk = (key, tuple(cells))
+    if key is not None:
+        for k, probs in _STRIP_PROBS.get("last", ()):
+            if k == mk:
+                return probs
+    disk = grid_ocr_cache.strips_paths(grid_ocr_cache.framed_paths(image, grid), cells) if key is not None else None
+    probs = grid_ocr_cache.kept_probs(disk)
+    if probs is None or list(probs) != list(cells):
+        g, ys, xs = framing
+        probs = classified({rc: glyph(g, ys, xs, *rc) for rc in cells})
+        grid_ocr_cache.keep_probs(disk, probs)
+    if key is not None:
+        _STRIP_PROBS["last"] = ((mk, probs), *_STRIP_PROBS.get("last", ())[:STRIP_PROBS_KEPT - 1])
+    return probs
+
+
+#: {"last": (((_crop_key, cells), {cell: probabilities}), ...)}: _strip_probs' last batches, newest first.
+_STRIP_PROBS = {}
+STRIP_PROBS_KEPT = 8
 
 
 def bounded_light(cells, direction, seen, word, wholes):
