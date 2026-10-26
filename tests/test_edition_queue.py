@@ -48,6 +48,11 @@ import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
 eq.idle_gate_reader = lambda: 1e6  # nor its idle cores
+# nor its free memory: mem_gate.room's real MemAvailable (3 GB floor + 600 MB a unit) held starts on a
+# loaded CI runner past the kill case's 300 s release (run 40388294193). Cases that test the gate set their own.
+eq.mem_gate_reader = lambda: 1 << 40
+os.environ["CT_UNIT_CEILING_FILE"] = "/nonexistent/unit_ceiling"  # nor a live ceiling override file
+os.environ["CT_VLM_SPOOL_MAX_FILE"] = "/nonexistent/vlm_spool_max"  # nor the live spool-depth file
 eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
 eq.desktop_mem_reader = lambda: None  # nor its free memory
 eq.vlm_gate_reader = lambda: True  # nor whether its VLM answers
@@ -2834,9 +2839,12 @@ push_file(seed, "tools/a.py", "3\n", "fix a tool in the closure")
 check("a push touching the closure reloads, and names only the files in it", (["tools/a.py"], ["tools/a.py"]),
       (lambda w: (w.check(), w.hit))(hr.Watcher(mine, closure={"tools/a.py"})))
 
+import traceback
+reload_crash = Path(_tmp) / "reload-crash.txt"
 def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
     """Fork a dispatch of long units, send SIGHUP (or let `watcher` fire); (rc, seconds to end, handoff pids, pids of the units)."""
     log.unlink(missing_ok=True)
+    reload_crash.unlink(missing_ok=True)
     fake(sleep={f"h{k}": hold for k in range(3)})
     eq.plan = units([], [(f"h{k}", []) for k in range(3)])
     if grace is not None:
@@ -2855,7 +2863,11 @@ def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
         sys.stdout = open(os.devnull, "w")
         if watcher:
             hr.Watcher = watcher
-        os._exit(eq.dispatch(["times"], cache, workers=3, replan=0.1, handoff=handoff))
+        try:
+            os._exit(eq.dispatch(["times"], cache, workers=3, replan=0.1, handoff=handoff))
+        except BaseException:  # its stderr is /dev/null: keep the cause for the FAIL line, never run on as the test
+            reload_crash.write_text(traceback.format_exc())
+            os._exit(1)
     os.environ["CT_AUTO_RELOAD"] = "0"
     os.environ.pop("CT_RELOAD_GRACE", None)
     # Wait for the first unit to actually start (a loaded box may take many seconds), not a fixed sleep.
@@ -2879,6 +2891,9 @@ def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
         os.waitpid(child, 0)
         rc = "hung"
     took = time.monotonic() - started
+    if reload_crash.exists():
+        rc = f"{rc}: {reload_crash.read_text().strip().splitlines()[-1]}"  # the dispatcher's own error, not a bare 1
+        print(reload_crash.read_text(), file=sys.stderr)
     pids = []
     if handoff and Path(handoff).exists():
         pids = [r["pid"] for r in json.loads(Path(handoff).read_text())]
