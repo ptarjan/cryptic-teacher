@@ -4816,7 +4816,71 @@ def vlm_word(reply, pattern, sizes, probs, enum=None):
     but for a word the classifier reads too (floor_word), and each piece is a listed word
     (trove_solution_ocr.piece_listed), or the whole is a name both readers agree on
     (unlisted_word, by the light's enumeration `enum`); never one the classifier reads alone of every
-    open letter (VLM_ALONE_OPEN, VLM_ALONE_P)."""
+    open letter (VLM_ALONE_OPEN, VLM_ALONE_P). A reply so refused that misreads one letter
+    stands mended where the classifier reads every open letter of the mend (swap_word)."""
+    word = _vlm_word(reply, pattern, sizes, probs, enum)
+    return word if word else swap_word(reply, pattern, sizes, probs)
+
+
+#: swap_word: the VLM replies of the light's length it mends (a letter swapped), and the word it mends to.
+SWAP_MAX = 1
+
+
+def swap_word(reply, pattern, sizes, probs):
+    """The one listed word (trove_solution_ocr.listed_of) of the light's length agreeing with every
+    crossing letter of `pattern` that is the VLM's `reply` with one letter swapped, where the reply is the
+    light's length but clashes a crossing letter or is no listed word, each piece of the mend is listed,
+    and the classifier's likeliest letter (`probs`, one list of 26 a cell) is the mend's in every open cell
+    (no crossing holds it): the print read twice, the VLM's other letters confirmed; else None. The VLM
+    reads a faint square as the letter its word expects or the next one (BUSY for BUSS on the held S,
+    ELGHT for EIGHT, BILLAGONG for BILLABONG). 10-26, cached replies on blank lights of 1,107 unplanned
+    1-5-short Times grids: 83 one swap off one listed word; 8 pass the classifier, each right by its clue
+    (BUSS, PHILANDER, EIGHT, DUPIN, BILLABONG, JUVENILIA, BADGERED, TURN THE TABLES). Every wrong mend
+    (DISS for OILS, WELL for HEEL, REFF for REEF; CORONAL, COEVAL, RHODA, ANNUM, JERKINS, GLOCK for the
+    VLM's right names) has an open cell the classifier reads otherwise (SWAP_WORD)."""
+    t = trove_solution_ocr
+    lines = (reply or "").strip().splitlines()
+    word = re.sub(r"[^A-Za-z]", "", lines[0]).upper() if lines else ""
+    n = len(pattern)
+    if len(word) != n or not n or len(probs) != n or "?" in (lines[0] if lines else "?"):
+        return None
+    clash = any(p != "?" and p != ch for p, ch in zip(pattern, word))
+    at, listed = 0, True
+    for size in sizes:
+        listed = listed and t.piece_listed(word[at:at + size], len(sizes) > 1)
+        at += size
+    if not clash and listed:
+        return None
+    import numpy as np
+    ws, arr = t.listed_of(n)
+    ok = np.ones(len(ws), bool)
+    for i, ch in enumerate(pattern):
+        if ch != "?":
+            ok &= arr[:, i] == t.AZ.index(ch)
+    idx = np.nonzero(ok)[0]
+    if not len(idx):
+        return None
+    off = (arr[idx] != np.array([t.AZ.index(ch) for ch in word])).sum(1)
+    near = [ws[i] for i, d in zip(idx, off) if d == SWAP_MAX]
+    if len(near) != 1:
+        return None
+    got = near[0]
+    at = 0
+    for size in sizes:
+        if not t.piece_listed(got[at:at + size], len(sizes) > 1):
+            return None
+        at += size
+    for p, cell, ch in zip(pattern, probs, got):
+        if p != "?":
+            continue
+        cell = [float(x) for x in cell]
+        if len(cell) != len(t.AZ) or max(range(len(cell)), key=cell.__getitem__) != t.AZ.index(ch):
+            return None
+    return got
+
+
+def _vlm_word(reply, pattern, sizes, probs, enum=None):
+    """vlm_word's word of `reply` but its swap_word mend."""
     word = re.sub(r"[^A-Za-z?]", "", (reply or "").strip().splitlines()[0] if (reply or "").strip() else "").upper()
     added = None
     if len(word) != len(pattern) or "?" in word:
@@ -9010,15 +9074,25 @@ REREAD_WORDPLAY = "2026-10-26T13:15:00+00:00"
 #: answers-only reread (SOLUTION_FIXES); it asks the VLM nothing.
 CLUE_SOLVED = "solution short, its last lights solved from their clues since"
 REREAD_CLUE_SOLVED = "2026-10-26T14:00:00+00:00"
-#: {(held path, reading path): ((held stamp, reading stamp), strip_near's answer)}
+#: The due reason of a Times row read before REREAD_SWAP_WORD, due none of those above, whose held puzzle
+#: (every clue, from this page) leaves blank a light whose strip its reading kept and whose cached VLM reply,
+#: the light's length but against a held crossing or no listed word, is one letter swapped off one listed
+#: word the classifier reads in every open cell (swap_word, strip_near's swap). 10-26 13:30Z: of 1,874
+#: unanswered Times with no unit planned, 847 stood 1-2 short (1970s-80s prints), their last lights the
+#: VLM's misreads. Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached, so it asks
+#: nothing new, and late strips (not kept in the reading) mend on any later reread.
+SWAP_WORD = "solution short, its VLM word a letter off its one listed word since"
+REREAD_SWAP_WORD = "2026-10-26T14:30:00+00:00"
+#: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
 
 
-def strip_near(series, number, sol_dir):
+def strip_near(series, number, sol_dir, swap=False):
     """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves blank a light
     whose strip its linked solution grid's reading (the solution page's edition dir name `sol_dir`) kept
-    and whose cached VLM reply (vlm_lights' ask on the held crossings) near_word mends; parsed again only
-    when either stat moves."""
+    and whose cached VLM reply (vlm_lights' ask on the held crossings) near_word mends (with `swap`:
+    swap_word mends, on the strip's kept classifier probabilities); parsed again only when either stat
+    moves."""
     p = _HELD_PATH.get((series, number))
     if p is None:
         return False
@@ -9026,13 +9100,13 @@ def strip_near(series, number, sol_dir):
     stamp = (_stat_stamp(p), _stat_stamp(q))
     if None in stamp:
         return False
-    hit = _NEAR_STRIPS.get((p, q))
+    hit = _NEAR_STRIPS.get((p, q, swap))
     if hit is None or hit[0] != stamp:
-        hit = _NEAR_STRIPS[p, q] = (stamp, _strip_near(p, q))
+        hit = _NEAR_STRIPS[p, q, swap] = (stamp, _strip_near(p, q, swap))
     return hit[1]
 
 
-def _strip_near(p, q):
+def _strip_near(p, q, swap=False):
     """strip_near of the held file at `p` and its reading at `q`."""
     import base64
     import io
@@ -9073,16 +9147,20 @@ def _strip_near(p, q):
         reply = path.read_text()
         word = re.sub(r"[^A-Za-z?]", "", reply.strip().splitlines()[0] if reply.strip() else "").upper()
         enum = (e.get("clue") or {}).get("enumeration")
-        if (len(word) != len(pattern) or "?" in word) and mend_word(word, pattern) \
-                and vlm_word(reply, pattern, sizes, strips[entry_id(e)].get("p") or (), enum):
+        probs = strips[entry_id(e)].get("p") or ()
+        if swap:
+            if not _vlm_word(reply, pattern, sizes, probs, enum) and swap_word(reply, pattern, sizes, probs):
+                return True
+        elif (len(word) != len(pattern) or "?" in word) and mend_word(word, pattern) \
+                and vlm_word(reply, pattern, sizes, probs, enum):
             return True
     return False
 
 
-def near_short(row, paper):
+def near_short(row, paper, swap=False):
     """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
     held with every clue and not every answer, from this page, a blank light's cached VLM reply mended by
-    near_word (strip_near)."""
+    near_word (strip_near; with `swap`, by swap_word)."""
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
@@ -9095,7 +9173,7 @@ def near_short(row, paper):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], swap=swap):
             return True
     return False
 
@@ -9345,7 +9423,8 @@ def short_again(row):
     (near_short); WORDPLAY_SHORT for one read before REREAD_WORDPLAY, due none of those, a blank light's
     clue's wordplay spelling one word on the held crossings (wordplay_short); CLUE_SOLVED for one read
     before REREAD_CLUE_SOLVED, due none of those, that word linked to its clue's definition too
-    (held_clue_solved)."""
+    (held_clue_solved); SWAP_WORD for one read before REREAD_SWAP_WORD, due none of those, a blank light's
+    cached VLM reply a letter off one listed word the classifier reads (near_short with swap)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -9371,6 +9450,8 @@ def short_again(row):
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_SOLVED)) \
             and wordplay_short(row, paper, defined=True):
         return CLUE_SOLVED
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_SWAP_WORD)) and near_short(row, paper, swap=True):
+        return SWAP_WORD
     return why
 
 
@@ -10442,7 +10523,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -11004,7 +11085,8 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
+                  SWAP_WORD)
 
 
 def keeps_vlm(why, row, unit=None):
