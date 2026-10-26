@@ -7985,7 +7985,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "2e75c9e00b077a82": "8417cfb08f3a9706",
                   # grid_ocr_cache (read_lights' recogniser outputs kept on disk by their input):
                   # the same readings.
-                  "c9df82853ceacd39": "8417cfb08f3a9706"}
+                  "c9df82853ceacd39": "8417cfb08f3a9706",
+                  # rendered_cell (each cell rendered once a lattice), read_lattice's `blocks` and
+                  # read_framed's framing kept for cell_probs: the same readings.
+                  "1ad8460cbd03ea2f": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -8022,7 +8025,10 @@ _SOLVED_CODE = []
 #: {_SOLVED_CODE of newer code: the one it stands in for}, for a change that reads the same: the
 #: readings kept under the old one stand. grid_ocr_cache (read_lights' recogniser outputs kept on
 #: disk by their input; outputs compared alike on cached crops, 10-26).
-_SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03"}
+_SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03",
+                # rendered_cell, read_lattice's `blocks`, read_framed's framing kept for cell_probs
+                # (10-26: one 1969 Times crop read alike, answers and stats).
+                "214418ebf47f6b5c": "07caaedc892a5b03"}
 
 
 def input_hash(d):

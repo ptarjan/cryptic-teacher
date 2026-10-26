@@ -539,23 +539,34 @@ VARIANTS = {
 }
 
 
-def read_lights(lts, crop):
+def read_lights(lts, crop, rendered=None):
     """(sure, full) for lights {key: [(row, col), ...]} whose cells crop(r, c)
     cuts out of the image: every light read in every rendering by every
     recogniser, a read counting only at the light's full length. sure is
     {cell: {letter: {(direction, rendering, recogniser)}}} for letters read at
     MIN_PROB; full is {light: every full-length word read for it}. Each recogniser output is
     kept by its cells, rendering and model (grid_ocr_cache): a crop read before reads no cell
-    again, its sessions not even loaded."""
+    again, its sessions not even loaded. A light's word image is made once a rendering for
+    every recogniser, and each cell's rendering once (`rendered`, see rendered_cell: shared
+    by read_lattice's plain and corner-blanked reads): the same pixels render alike."""
     sure, full, models = {}, {}, None
+    rendered = {} if rendered is None else rendered
+    renders = list(VARIANTS.values())
     for key, cells in lts.items():
         crops = [crop(r, c) for r, c in cells]
         if any(x.size == 0 for x in crops):
             continue
         models = models or rec_models()
-        for (vi, render), ri in itertools.product(enumerate(VARIANTS.values()), range(len(models))):
+        images = {}
+
+        def image(vi, crops=crops, images=images):
+            got = images.get(vi)
+            if got is None:
+                got = images[vi] = word_image([rendered_cell(rendered, vi, renders[vi], x) for x in crops])
+            return got
+        for vi, ri in itertools.product(range(len(renders)), range(len(models))):
             word, probs = grid_ocr_cache.recognised(
-                crops, vi, ri, models, lambda: read_word(word_image([render(x) for x in crops]), recognisers()[ri]))
+                crops, vi, ri, models, lambda: read_word(image(vi), recognisers()[ri]))
             if len(word) != len(cells):
                 continue
             full.setdefault(key, set()).add(word)
@@ -563,6 +574,19 @@ def read_lights(lts, crop):
                 if p >= MIN_PROB:
                     sure.setdefault(rc, {}).setdefault(ch, set()).add((key[1], vi, ri))
     return sure, full
+
+
+def rendered_cell(rendered, vi, render, x):
+    """render(x) (VARIANTS' `vi`th) of cell image `x`, kept in `rendered` by its pixels (bytes,
+    shape, dtype): a cell is in two lights, read by each recogniser, and a plain cell alike in
+    read_lattice's corner-blanked read; rendered once (10-26: 6,000+ renderings of ~1,100 cells
+    a grid's read, ~4 s of CPU). Never written to (word_image copies it)."""
+    a = np.asarray(x)
+    k = (vi, a.dtype.str, a.shape, a.tobytes())
+    got = rendered.get(k)
+    if got is None:
+        got = rendered[k] = render(x)
+    return got
 
 
 def sure_letters(sure):
@@ -848,6 +872,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     SURE_BLOCKS, or a heavy print's every block found (blocks_sure), the classifier checks every accepted light (vetoed()) and
     decodes the rest (classified_reads()). A `framing` (x0, y0, pitch_x, pitch_y) found
     outside, file_archive_org_puzzles.matched_box's, is one more lattice, read like the rest."""
+    crop_key = _crop_key(image, grid)
     gray = np.asarray(Image.open(image).convert("L"))
     framed = framings(gray, grid)
     if framing is not None:
@@ -875,7 +900,7 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         fits = [round(block_agreement(g, grid, (ys, xs)), 3) for g, ys, xs in framed]
         done, nlights = {}, len(lights(grid))
         for i in sorted(range(len(framed)), key=lambda i: -fits[i]):
-            done[i] = within(read_lattice(*framed[i], grid), i)
+            done[i] = within(read_lattice(*framed[i], grid, blocks=fits[i]), i)
             if len(done[i][0]) == nlights:
                 break
         reads = [done[i] for i in sorted(done)]
@@ -892,6 +917,11 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     at = sure_framing(framed, grid, fits)
     sure = at is not None
     clat = framed[at] if sure else lat
+    # framings() and its fits are _crop_framed's own, but for a matched lattice put first: the
+    # checks after the reading (cell_probs, crop_strips) take this framing, not framed again.
+    seen = framing is None and crop_key is not None and _crop_key(image, grid) == crop_key
+    if seen:
+        _keep_framed(crop_key, clat if sure else None)
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -934,6 +964,9 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         # decoded from its letters.
         g, ys, xs = clat
         probs = classified({rc: glyph(g, ys, xs, *rc) for cells in lts.values() for rc in cells})
+        if seen:
+            # cell_probs' very probabilities (the same framing's cells, in the same order).
+            _CELL_PROBS_SEEN["last"] = ((crop_key, dict(probs)), *_CELL_PROBS_SEEN.get("last", ())[:CROP_FRAMED_KEPT - 1])
         dropped = vetoed(lts, accepted, probs)
         accepted = {k: w for k, w in accepted.items() if k not in dropped}
         more = classified_reads(lts, accepted, probs)
@@ -1004,7 +1037,13 @@ def cell_probs(image, grid):
     the probabilities read_framed's classify step reads (its `lean` lattice). None when no
     framing's blocks are sure (blocks_sure: read_framed classifies nothing then) or no lattice
     lies on the image. Outside read_framed (solution_key stays the reader's): the uncrossed
-    check of file_archive_org_puzzles asks it only of the lights it would leave out."""
+    check of file_archive_org_puzzles asks it only of the lights it would leave out. Those
+    read_framed classified on this crop as it is (_CELL_PROBS_SEEN) are taken as they are."""
+    key = _crop_key(image, grid)
+    if key is not None:
+        for k, probs in _CELL_PROBS_SEEN.get("last", ()):
+            if k == key:
+                return dict(probs)
     got = _crop_framed(image, grid)
     if got is None:
         return None
@@ -1020,12 +1059,9 @@ def _crop_framed(image, grid):
     (checked_answers, late_strips, candidate_reads each pass, clash_reads) ask it of one crop up to
     ~6 times a title, and framings() alone is ~3 s of CPU (10-26 live: a title's late_strips ~19 s,
     its checks 20-30 s, at load 37 on 28 cores). The same image and grid frame alike: no reading
-    changes. Not read_framed's (solution_key stays the reader's)."""
-    try:
-        st = os.stat(image)
-        key = (os.fspath(image), st.st_size, st.st_mtime_ns, tuple("".join(r) for r in grid))
-    except (OSError, TypeError):
-        key = None
+    changes. read_framed keeps its own framing of the crop here (_keep_framed): the checks after a
+    fresh reading frame nothing again."""
+    key = _crop_key(image, grid)
     if key is not None:
         for k, got in _CROP_FRAMED.get("last", ()):
             if k == key:
@@ -1042,14 +1078,31 @@ def _crop_framed(image, grid):
         if at is not None:
             got = framed[at]
     if key is not None:
-        # One tuple, swapped whole: a worker thread reads it as one.
-        _CROP_FRAMED["last"] = ((key, got), *_CROP_FRAMED.get("last", ())[:CROP_FRAMED_KEPT - 1])
+        _keep_framed(key, got)
     return got
+
+
+def _crop_key(image, grid):
+    """_crop_framed's key of crop file `image` for `grid`: its path, size and time, and the grid;
+    None for an image that is no file."""
+    try:
+        st = os.stat(image)
+        return (os.fspath(image), st.st_size, st.st_mtime_ns, tuple("".join(r) for r in grid))
+    except (OSError, TypeError):
+        return None
+
+
+def _keep_framed(key, got):
+    # One tuple, swapped whole: a worker thread reads it as one.
+    _CROP_FRAMED["last"] = ((key, got), *_CROP_FRAMED.get("last", ())[:CROP_FRAMED_KEPT - 1])
 
 
 #: {"last": ((key, framing or None), ...)}: _crop_framed's last CROP_FRAMED_KEPT crops, newest first.
 _CROP_FRAMED = {}
 CROP_FRAMED_KEPT = 4
+#: {"last": ((key, {cell: probabilities}), ...)}: cell_probs of the last crops read_framed classified
+#: (_crop_framed's keys), newest first.
+_CELL_PROBS_SEEN = {}
 
 
 def crop_strips(image, grid, keys):
@@ -1275,12 +1328,13 @@ def mended_reads(lts, accepted, printeds):
     return out
 
 
-def read_lattice(gray, ys, xs, grid):
+def read_lattice(gray, ys, xs, grid, blocks=None):
     """(accepted, stats, sure letters, {key: whole reads}) for a grid image
     whose rules lie at ys and xs: each light accepted when every cell is read (the
     recogniser's sure letter, or for a cell with a clue number or no sure
     read, matched_letters, whole_reads, and in a grid printing its numbers
-    numbered_letters) and the word is known()."""
+    numbered_letters) and the word is known(). `blocks`: its block_agreement rounded to 3
+    places when the caller has it (read_framed's lean fits), else worked out."""
     lts = lights(grid)
     numbers = {cells[0]: n for (n, _), cells in lts.items()}
     marked = numbers_printed(gray, ys, xs, numbers, {rc for c in lts.values() for rc in c})
@@ -1291,7 +1345,8 @@ def read_lattice(gray, ys, xs, grid):
             h, w = a.shape
             a[:round(NUMBER_HIGH * h), :round(NUMBER_WIDE[min(len(str(numbers[(r, c)])), 2)] * w)] = 255
         return a
-    sure, full = read_lights(lts, lambda r, c: between(gray, ys, xs, r, c))
+    rendered = {}
+    sure, full = read_lights(lts, lambda r, c: between(gray, ys, xs, r, c), rendered)
     read = {rc: ch for rc, ch in sure_letters(sure).items() if rc not in numbers}
     # A cell's letter must be one some full-length read gave it, plain or
     # with its number's corner blanked, and no letter read surely there may
@@ -1299,7 +1354,8 @@ def read_lattice(gray, ys, xs, grid):
     # (with its number a T reads as a sure Y, a D as a sure B). Where the
     # grid prints no numbers (numbers_printed) the blanked read only adds
     # letters: blanking a bare corner makes a D a sure J, an A a sure K.
-    blanked, blanked_full = read_lights(lts, unmarked)
+    blanked, blanked_full = read_lights(lts, unmarked, rendered)
+    rendered = None
     glyphs = {rc: glyph(gray, ys, xs, *rc) for cells in lts.values() for rc in cells}
     # Letter models come from the plain cells alone: a numbered cell's
     # glyph, laid first, shifts every model of its letter.
@@ -1342,7 +1398,8 @@ def read_lattice(gray, ys, xs, grid):
     accepted.update(swapped_reads(lts, every, full, accepted, letters))
     stats = {"lights": len(lts), "fullReads": len(full), "accepted": len(accepted),
              "cellsRead": len(read), "cellsMatched": len(matched), "cells": len(glyphs),
-             "cellsSure": len(every), "blocks": round(block_agreement(gray, grid, (ys, xs)), 3)}
+             "cellsSure": len(every),
+             "blocks": blocks if blocks is not None else round(block_agreement(gray, grid, (ys, xs)), 3)}
     return accepted, stats, every, printed
 
 

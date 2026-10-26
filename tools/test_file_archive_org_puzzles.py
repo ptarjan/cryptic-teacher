@@ -987,6 +987,22 @@ _cf_out += [f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_call
 f.trove_solution_ocr.framings = _cf_real
 check("_crop_framed: one crop and grid framed once for cell_probs and crop_strips; another grid or the crop "
       "written again framed anew", [None, {}, None, 1, None, 2, None, 3], _cf_out)
+# rendered_cell renders a cell's pixels once a rendering (a view and a copy of them alike); cell_probs takes
+# the probabilities read_framed classified on the crop as it is (_CELL_PROBS_SEEN), framing nothing.
+_rc_np = f.trove_solution_ocr.np
+_rc_calls, _rc_kept = [], {}
+_rc_a = _rc_np.arange(16, dtype=_rc_np.uint8).reshape(4, 4)
+_rc_out = [f.trove_solution_ocr.rendered_cell(_rc_kept, vi, lambda a: _rc_calls.append(1) or a + 1, x).tolist()
+           for vi, x in ((0, _rc_a[:2]), (0, _rc_a[:2].copy()), (0, _rc_a[2:]), (1, _rc_a[:2]))]
+f.trove_solution_ocr._CELL_PROBS_SEEN["last"] = ((f.trove_solution_ocr._crop_key(_cf_png, ["..", ".."]), {(0, 0): "p"}),)
+f.trove_solution_ocr.framings = lambda gray, grid: _cf_calls.append(tuple(grid)) or []
+_rc_out += [len(_rc_calls), f.trove_solution_ocr.cell_probs(_cf_png, ["..", ".."]), len(_cf_calls)]
+f.trove_solution_ocr.framings = _cf_real
+f.trove_solution_ocr._CELL_PROBS_SEEN.clear()
+check("rendered_cell: each cell's pixels rendered once a rendering; cell_probs: read_framed's probabilities of the "
+      "crop taken, nothing framed", [[[1, 2, 3, 4], [5, 6, 7, 8]], [[1, 2, 3, 4], [5, 6, 7, 8]],
+                                     [[9, 10, 11, 12], [13, 14, 15, 16]], [[1, 2, 3, 4], [5, 6, 7, 8]],
+                                     3, {(0, 0): "p"}, 3], _rc_out)
 # A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
 # until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
 f.filed_state = lambda series, n: (False, True)
