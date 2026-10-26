@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Salt gathering in huge quarry",
     "enumeration": "6"
    },
-   "solution": "WHALER"
+   "solution": "WHALER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salt",
+      "at": 0,
+      "meaning": "an old salt is a seasoned sailor"
+     },
+     {
+      "text": "gathering in huge quarry",
+      "at": 5,
+      "meaning": "a hunter who brings in enormous prey, the great sea mammals hunted from ships"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collecting rock salt from a vast open quarry.",
+     "walkthrough": "'Salt' and 'quarry' both pretend to be about mining; quarry is really prey, and the huge prey is whales.",
+     "definitionFit": "A sailor on a ship hunting whales is a seaman, which is what salt means in nautical slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarry"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +72,55 @@
     "text": "Hospital job for cat lacking initial accommodation",
     "enumeration": "7"
    },
-   "solution": "HOUSING"
+   "solution": "HOUSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "accommodation",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hospital",
+       "at": 0,
+       "gives": "H"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking initial",
+         "at": 21,
+         "note": "lacking initial says the first letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "job for cat",
+         "at": 9,
+         "gives": "MOUSING",
+         "note": "catching mice, mousing, is a cat's traditional job"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital takes on a cat as a mouser but cannot give it lodgings.",
+     "definitionFit": "Housing is a general word for places where people live, i.e. accommodation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +134,31 @@
     "text": "Slimmer's bar",
     "enumeration": "5"
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slimmer's",
+      "at": 0,
+      "meaning": "low-calorie food is labelled ..., so it is a dieter's choice"
+     },
+     {
+      "text": "bar",
+      "at": 10,
+      "meaning": "the neighbourhood pub, the one nearest your home in British usage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain 'the local' is your nearby pub; 'lo-cal' is shorthand for low calorie.",
+     "definitionFit": "A pub near home is called the local in Britain, and lo-cal products suit dieters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +172,32 @@
     "text": "Calls to mind children in scripture group?",
     "enumeration": "9"
    },
-   "solution": "REMEMBERS"
+   "solution": "REMEMBERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calls to mind",
+      "at": 0,
+      "meaning": "recalls, brings back to memory"
+     },
+     {
+      "text": "children in scripture group?",
+      "at": 14,
+      "meaning": "pupils in a Religious Education class, RE in British schools, are its members"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher recalls the children in a Bible-study group.",
+     "walkthrough": "RE (Religious Education) is the British school subject; split the answer as RE MEMBERS for the second reading.",
+     "definitionFit": "To recall something is to bring it back into memory, the plain verb sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scripture"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +211,62 @@
     "text": "Challenging United in a cricket club chant",
     "enumeration": "8"
    },
-   "solution": "ACCUSING"
+   "solution": "ACCUSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Challenging",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in says one piece sits inside the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 22
+        },
+        {
+         "words": "cricket club",
+         "at": 24,
+         "gives": "CC"
+        },
+        {
+         "words": "chant",
+         "at": 37,
+         "gives": "SING",
+         "note": "to chant is to sing"
+        }
+       ]
+      },
+      {
+       "words": "United",
+       "at": 12,
+       "gives": "U",
+       "note": "U is the usual abbreviation for United in football team names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football fans hurl a provocative chant at a cricket club.",
+     "definitionFit": "Accusing someone means challenging them by charging them with wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +280,40 @@
     "text": "25 chose to be taken in",
     "enumeration": "7"
    },
-   "solution": "ADOPTED"
+   "solution": "ADOPTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taken in",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "25",
+       "at": 0,
+       "gives": "AD",
+       "note": "25 across is a commercial, abbreviated to ad"
+      },
+      {
+       "words": "chose",
+       "at": 3,
+       "gives": "OPTED",
+       "note": "chose means opted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chose to be taken in by an advertisement.",
+     "definitionFit": "A child taken in by a new family has been adopted, given a home as their own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +327,43 @@
     "text": "Sample of Muscat chardonnay in bag",
     "enumeration": "5"
    },
-   "solution": "CATCH"
+   "solution": "CATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bag",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Sample of",
+       "at": 0,
+       "note": "Sample of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Muscat chardonnay",
+       "at": 10,
+       "gives": "CATCH",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine taster carries a sample of two wines in a bag.",
+     "walkthrough": "The draft took 'in bag' as the definition, but 'in bag' cannot stand for the answer; 'bag' alone does (to bag a fish), and 'in' is a link word.",
+     "definitionFit": "To bag something is to capture or take it, as a hunter or fisherman does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sample"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +377,45 @@
     "text": "Bendy buses can't matter",
     "enumeration": "9"
    },
-   "solution": "SUBSTANCE"
+   "solution": "SUBSTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "matter",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Bendy",
+       "at": 0,
+       "note": "bendy suggests the letters are twisted into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "buses",
+       "at": 6
+      },
+      {
+       "words": "can't",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Articulated bendy buses, London's long jointed buses, are not important.",
+     "walkthrough": "'Bendy buses' were long articulated buses in London; 'Bendy' is the anagram signal for BUSES plus CANT.",
+     "definitionFit": "Substance and matter are synonyms for physical material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +429,32 @@
     "text": "They're employed making woolly ruffles",
     "enumeration": "7"
    },
-   "solution": "NEEDLES"
+   "solution": "NEEDLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're employed making woolly",
+      "at": 0,
+      "meaning": "knitting tools used to make a woolly jumper"
+     },
+     {
+      "text": "ruffles",
+      "at": 31,
+      "meaning": "irritates, annoys, gets under someone's skin"
+     }
+    ],
+    "explanation": {
+     "surface": "Knitters use something to make a woolly with frills.",
+     "walkthrough": "'woolly' is a noun here, a knitted garment, and 'ruffles' is a verb, not frills.",
+     "definitionFit": "Knitting is done with a pair of pointed rods, and to needle someone is to irritate them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ruffles"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +468,32 @@
     "text": "Embarrassed, being a bit tight perhaps",
     "enumeration": "13"
    },
-   "solution": "UNCOMFORTABLE"
+   "solution": "UNCOMFORTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Embarrassed",
+      "at": 0,
+      "meaning": "awkward and ill at ease"
+     },
+     {
+      "text": "being a bit tight perhaps",
+      "at": 13,
+      "meaning": "clothes that pinch feel unpleasant to wear"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone feels awkward, perhaps from being slightly drunk.",
+     "walkthrough": "'tight' suggests drunk, but it means clothes that fit too closely.",
+     "definitionFit": "Ill at ease socially and physically pinched by tight garments are both senses of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +507,42 @@
     "text": "One masters politics degree needs time",
     "enumeration": "8"
    },
-   "solution": "DIPLOMAT"
+   "solution": "DIPLOMAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One masters politics",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "degree",
+       "at": 21,
+       "gives": "DIPLOMA",
+       "note": "a diploma is a qualification, close to a degree"
+      },
+      {
+       "words": "time",
+       "at": 34,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A master's degree in politics requires time.",
+     "walkthrough": "'masters' looks like the degree, but it is a verb: someone who masters international politics.",
+     "definitionFit": "An envoy representing a country abroad is skilled in politics and negotiation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "masters"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +556,55 @@
     "text": "Places to stay from Carlisle to Harrogate when retired",
     "enumeration": "6"
    },
-   "solution": "HOTELS"
+   "solution": "HOTELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Places to stay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "when retired",
+       "at": 42,
+       "note": "when retired says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "from",
+         "at": 15,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Carlisle to Harrogate",
+         "at": 20,
+         "gives": "SLETOH",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired traveller looks for lodgings on the road between two northern English towns.",
+     "walkthrough": "'from' points to the letters inside 'Carlisle to Harrogate', SLETOH, which 'when retired' turns back to front. Carlisle and Harrogate are towns in northern England.",
+     "definitionFit": "Inns and similar lodgings are places where travellers stay overnight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +618,40 @@
     "text": "Pass over region in a storm",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pass over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in a storm",
+       "at": 17,
+       "note": "in a storm suggests the letters are tossed about and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "region",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aircraft flies over a region during a storm.",
+     "definitionFit": "To pass over something is to disregard it, leave it unmentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +665,52 @@
     "text": "Sour deviant trolls you and me",
     "enumeration": "9"
    },
-   "solution": "OURSELVES"
+   "solution": "OURSELVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "you and me",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deviant",
+         "at": 5,
+         "note": "deviant suggests the letters stray from their order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sour",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "trolls",
+       "at": 13,
+       "gives": "ELVES",
+       "note": "trolls and elves are both folklore creatures, taken here as elves"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grumpy, misbehaving trolls are compared to us.",
+     "walkthrough": "'deviant' rearranges SOUR to OURS.",
+     "definitionFit": "The first-person plural reflexive pronoun refers to the speaker and companions, you and me."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trolls"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +724,59 @@
     "text": "Rescue boat trapped between delta and cape in night-time",
     "enumeration": "8"
    },
-   "solution": "DARKNESS"
+   "solution": "DARKNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "night-time",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapped between",
+       "at": 12,
+       "note": "trapped between says one piece sits between the two others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "delta",
+         "at": 28,
+         "gives": "D",
+         "note": "D is delta in the NATO phonetic alphabet"
+        },
+        {
+         "words": "cape",
+         "at": 38,
+         "gives": "NESS",
+         "note": "a ness is a headland or cape, as in Scottish place names"
+        }
+       ]
+      },
+      {
+       "words": "Rescue boat",
+       "at": 0,
+       "gives": "ARK",
+       "note": "Noah's ark rescued the animals from the flood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lifeboat is caught between a river delta and a headland at night.",
+     "definitionFit": "The absence of light is what characterises the hours of night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delta"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +790,41 @@
     "text": "Picture commercial traveller posted again",
     "enumeration": "9"
    },
-   "solution": "REPRESENT"
+   "solution": "REPRESENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "commercial traveller",
+       "at": 8,
+       "gives": "REP",
+       "note": "a rep is a sales representative who travels"
+      },
+      {
+       "words": "posted again",
+       "at": 29,
+       "gives": "RESENT",
+       "note": "posted again means re-sent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph of a travelling salesman is mailed out again.",
+     "definitionFit": "To represent something is to depict or portray it, as a picture does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +838,59 @@
     "text": "Queen is surrounded by ticket sellers and trippers",
     "enumeration": "8"
    },
-   "solution": "TOURISTS"
+   "solution": "TOURISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trippers",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "at": 9,
+       "note": "surrounded by puts the first pieces inside the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ticket sellers",
+       "at": 23,
+       "gives": "TOUTS",
+       "note": "touts sell tickets unofficially outside venues"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Queen",
+         "at": 0,
+         "gives": "R",
+         "note": "R, for Regina, is the abbreviation for queen"
+        },
+        {
+         "words": "is",
+         "at": 6,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen is mobbed by ticket touts and day-trippers.",
+     "definitionFit": "Trippers are people on a day out or holiday excursion, sightseers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +904,51 @@
     "text": "Run musical show outside of Trieste",
     "enumeration": "7"
    },
-   "solution": "OPERATE"
+   "solution": "OPERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "musical show",
+       "at": 4,
+       "gives": "OPERA",
+       "note": "an opera is a musical stage work"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside of",
+         "at": 17,
+         "note": "outside of picks the outer letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trieste",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical show is staged outside an Italian city.",
+     "definitionFit": "To run a machine or business is to work or manage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +962,42 @@
     "text": "Where to have fun in the sun in London area, single?",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where to have fun in the sun",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "London area",
+       "at": 32,
+       "gives": "SE",
+       "note": "SE is the postcode for south-east London"
+      },
+      {
+       "words": "single?",
+       "at": 45,
+       "gives": "ASIDE",
+       "note": "the main track of a record single is its A-side"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a single person in a part of London can find summer fun.",
+     "walkthrough": "SE is the postal district for south-east London; a vinyl single's lead song was its A-side.",
+     "definitionFit": "The coast with its beaches is the classic holiday spot for sunbathing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +1011,44 @@
     "text": "Quite perfect — stay on odd occasions",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "on odd occasions",
+       "at": 21,
+       "note": "on odd occasions takes the first, third, fifth letters and so on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "perfect",
+       "at": 6
+      },
+      {
+       "words": "stay",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A perfect stay, though only now and then.",
+     "definitionFit": "Pretty used as an adverb, as in 'pretty good', means fairly or rather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perfect"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1062,57 @@
     "text": "Three twists to get to grips with at National?",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "National?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to get to grips with",
+       "at": 13,
+       "note": "to get to grips with means to hold, so the letters close round another piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "twists",
+         "at": 6,
+         "note": "twists says the letters are turned into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Three",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "at",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three plot twists to tackle in a play at the National.",
+     "walkthrough": "The anagram gives THERE, which opens after its first three letters. The National Theatre is the London playhouse on the South Bank, so 'National?' is a definition by example.",
+     "definitionFit": "The National is an example of a playhouse, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "National"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1126,48 @@
     "text": "Without a present, cancels and drives back",
     "enumeration": "6"
    },
-   "solution": "REPELS"
+   "solution": "REPELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drives back",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Without",
+       "at": 0,
+       "note": "without says a letter is taken out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cancels",
+       "at": 19,
+       "gives": "REPEALS",
+       "note": "to repeal a law is to cancel it"
+      },
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without a gift cancels a visit and drives home.",
+     "walkthrough": "'a present' means the letter A that is present in the word; take it away.",
+     "definitionFit": "To repel an attack is to force it back, beat it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1181,35 @@
     "text": "Two kinds of brush",
     "enumeration": "5"
    },
-   "solution": "SCRUB"
+   "solution": "SCRUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Two kinds of brush",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Two kinds of brush",
+       "at": 0,
+       "note": "low bushy vegetation is one kind, and a hard rub with a brush is another"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Brush as undergrowth and brush as the act of cleaning both share the one word.",
+     "definitionFit": "Stunted undergrowth is scrubland, and a vigorous clean with a bristled tool is a scrubbing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brush"
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1223,59 @@
     "text": "Times keeps nice refurbed offices",
     "enumeration": "8"
    },
-   "solution": "AGENCIES"
+   "solution": "AGENCIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "offices",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 6,
+       "note": "keeps, in the sense of holding or retaining, says the first word holds the jumbled letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Times",
+       "at": 0,
+       "gives": "AGES",
+       "note": "ages are long eras or times"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refurbed",
+         "at": 17,
+         "note": "refurbed, renovated, says the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Times newspaper keeps its offices nicely refurbished.",
+     "walkthrough": "'Times' is not the newspaper but eras; 'refurbed' gives NCIE, which sits inside.",
+     "definitionFit": "Agencies are business bureaux, and offices can mean such departments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1289,48 @@
     "text": "That man's involved in court case",
     "enumeration": "5"
    },
-   "solution": "CHEST"
+   "solution": "CHEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "case",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 11,
+       "note": "involved in places one piece inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "court",
+       "at": 23,
+       "gives": "CT"
+      },
+      {
+       "words": "That man's",
+       "at": 0,
+       "gives": "HES",
+       "note": "that man is means he's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is involved in a court case.",
+     "walkthrough": "'case' looks like the legal case of the surface; it is a box.",
+     "definitionFit": "A chest is a large box or trunk, a kind of case for storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1344,35 @@
     "text": "Plug from the telly?",
     "enumeration": "13"
    },
-   "solution": "ADVERTISEMENT"
+   "solution": "ADVERTISEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plug from the telly?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Plug from the telly?",
+       "at": 0,
+       "note": "a plug is a bit of promotion, and one broadcast on television is a commercial"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Plug' suggests the electrical plug of a TV set; it is a promotional mention.",
+     "definitionFit": "A plug is publicity, and a televised promotion is a commercial break spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plug"
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1386,44 @@
     "text": "Bursting in, be less coolheaded",
     "enumeration": "8"
    },
-   "solution": "SENSIBLE"
+   "solution": "SENSIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coolheaded",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Bursting",
+       "at": 0,
+       "note": "bursting suggests the letters are blown apart and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 9
+      },
+      {
+       "words": "be less",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice: when bursting into a room, keep calmer.",
+     "definitionFit": "A sensible person is level and rational, not swayed by emotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bursting"
+    }
+   }
   },
   {
    "number": 27,
@@ -408,7 +1437,54 @@
     "text": "Ranks Scrabble letters required in 'tango'? The opposite",
     "enumeration": "6"
    },
-   "solution": "TITLES"
+   "solution": "TITLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ranks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "required in",
+       "at": 23,
+       "note": "required in suggests one piece goes into another"
+      },
+      {
+       "text": "The opposite",
+       "at": 44,
+       "note": "The opposite reverses the stated order, so the second piece goes in the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scrabble letters",
+       "at": 6,
+       "gives": "TILES",
+       "note": "Scrabble letters are printed on small tiles"
+      },
+      {
+       "words": "tango",
+       "at": 36,
+       "gives": "T",
+       "note": "T is tango in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scrabble player needs certain letters to make the word tango.",
+     "walkthrough": "Read literally, the tiles go inside T; 'The opposite' flips it, so T goes inside TILES.",
+     "definitionFit": "Titles such as Lord or Duke are ranks of nobility or status."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   }
  ]
 }
