@@ -7550,7 +7550,10 @@ def shape_warnings(tag, ann, clue=None, answer=None):
                    f"the synonym joins the anagram's result in a charade")
     if k := misplaced_indicators(tree):
         out.append(f"{tag}: {k} {MISPLACED_INDICATOR}: file each indicator on the op it acts on "
-                   f"(a reversal's on rev<...>, a selection's on first/last<...>), not on the charade")
+                   f"(a reversal's on rev<...>, a selection's on first/last<...>), not on the charade. "
+                   f"If no op in the clue does what the word says, it is only a link: write it inside "
+                   f"the [words] of the leaf it touches ([Company introducing]CO), and if it really "
+                   f"inserts, build ins<word>(held, holder) around the pieces it joins")
     if k := bare_initials(tree):
         out.append(f"{tag}: {k} {BARE_INITIAL}: a first letter is picked by an op (first<...>(word)), "
                    f"not given by a leaf")

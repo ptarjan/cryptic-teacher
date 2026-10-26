@@ -545,6 +545,21 @@ new, used = F.repair_tree(mpt2, mpc2, "TOTD", MP)
 check("a one-letter leaf under the charade's pick word is wrapped in first", used == ["misplacedIndicator"]
       and new["parts"][1]["op"] == "first")
 
+# a link word on a charade with no op of its type inside folds into the one synonym leaf it touches
+mlc = "Company introducing various menus"
+mlt = {"op": "charade", "indicators": [{"text": "introducing", "at": 8}], "parts": [
+    {"words": "Company", "at": 0, "gives": "CO"},
+    {"op": "anagram", "indicators": [{"text": "various", "at": 20}], "parts": [{"words": "menus", "at": 28}]}]}
+new, used = F.repair_tree(mlt, mlc, "CONSUME", MP)
+check("a link word touching one synonym leaf joins its words", used == ["misplacedIndicator"]
+      and "indicators" not in new and new["parts"][0]["words"] == "Company introducing")
+mlc2 = "Company introducing ring various menus"
+mlt2 = {"op": "charade", "indicators": [{"text": "introducing", "at": 8}], "parts": [
+    {"words": "Company", "at": 0, "gives": "CO"}, {"words": "ring", "at": 20, "gives": "O"},
+    {"op": "anagram", "indicators": [{"text": "various", "at": 25}], "parts": [{"words": "menus", "at": 33}]}]}
+new, used = F.repair_tree(mlt2, mlc2, "COONSUME", MP)
+check("a link word between two leaves stays refused", used == [])
+
 # sharedIndicator, charade: the charade's word is also a leaf's words, so the charade drops it
 shc = "Notice following raised charges"
 sht = {"op": "charade", "indicators": [{"text": "following", "at": 7}], "parts": [
