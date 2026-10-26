@@ -19,7 +19,8 @@ def errors(ann, preamble=None):
     if preamble:
         puzzle["preamble"] = preamble
     return [e for e in v.validate_puzzle(puzzle_schema.order(puzzle))[1]
-            if "definition" in e or "Preamble" in e or "preamble" in e]
+            if "missing annotation field 'blocks'" not in e
+            and ("definition" in e or "Preamble" in e or "preamble" in e)]
 
 fails = 0
 def check(name, want_error, got):

@@ -379,14 +379,14 @@ assert len(days) == 1241, len(days)
 assert gf.times_listener_days({"TTDA/1991-03-23": {"why": "Gale has no issue that day"}})[0] == D(1991, 3, 30)
 assert gf.key("TTDA", D(2006, 8, 12), kind="listener") == "TTDA/listener/2006-08-12" != gf.key("TTDA", D(2006, 8, 12))
 assert gf.want("TTDA", D(2006, 8, 12), {}, set(), kind="listener") == [("TTDA", D(2006, 8, 12), None, None, False, "listener")]
-le = {"doc": "IF0502995194", "title": "The Listener Crossword 3890", "page": 70, "records": ["R"], "kind": "listener",
+le = {"doc": "IF0000000194", "title": "The Listener Crossword 3890", "page": 70, "records": ["R"], "kind": "listener",
       "matcher": gale_docs.MATCHER["listener"]}
 assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, set(), kind="listener") == \
     [("TTDA", D(2006, 8, 12), le, None, False, "listener")]
-assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, {"IF0502995194"}, kind="listener") == []
+assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, {"IF0000000194"}, kind="listener") == []
 # the daily page of that date is a different row, and a Listener entry does not make it superseded
 assert gf.want("TTDA", D(2006, 8, 12), {"TTDA/listener/2006-08-12": le}, set()) == [("TTDA", D(2006, 8, 12), None)]
-assert not gf.superseded(D(2006, 8, 12), [{"how": "fetched", "docId": "IF0502995194"}], {"TTDA/listener/2006-08-12": le})
+assert not gf.superseded(D(2006, 8, 12), [{"how": "fetched", "docId": "IF0000000194"}], {"TTDA/listener/2006-08-12": le})
 plan_all = gf.plan(set(), 0)
 tl = [r for r in plan_all if r[2:] and r[-1] == "listener"]
 assert len(tl) == len(days) and {r[0] for r in tl} == {"TTDA"}, len(tl)
@@ -406,8 +406,8 @@ real_put, real_ssh = gf.put, gf.ssh
 gf.put = lambda body, name, folder=gf.FETCHED_DIR: kept.append((name, folder))
 gale_inbox_lay = gale_inbox.lay_out_fetched
 gale_inbox.lay_out_fetched = lambda *a, **k: kept.append("laid out")
-gf.file_page(b"%PDF", "TTDA", D(2006, 8, 12), "IF0502995194", le)
-assert kept == [("GALE_IF0502995194.pdf", f"{gf.GALE_ROOT}/Listener/Times/Fetched")], kept
+gf.file_page(b"%PDF", "TTDA", D(2006, 8, 12), "IF0000000194", le)
+assert kept == [("GALE_IF0000000194.pdf", f"{gf.GALE_ROOT}/Listener/Times/Fetched")], kept
 gf.put, gale_inbox.lay_out_fetched = real_put, gale_inbox_lay
 for k, v in saved.items():
     setattr(gale_inbox, k, v)
