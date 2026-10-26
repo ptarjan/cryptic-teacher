@@ -47,6 +47,7 @@ session there is no model to read, so say who it was:
     python3 tools/apply_annotations.py 30098 ann.json --by human
     python3 tools/apply_annotations.py 30098 ann.json --by claude-opus-5-5
 """
+import yield_cpu  # noqa: F401  (a nice-19 burn's session yields too)
 import copy
 import json
 import os

@@ -35,6 +35,7 @@ a throwaway worktree (tools/nightly_worktree.sh) that is reset to origin/master
 every night, and a run that exits before its commit (it does, when every
 annotation fails validation) would lose a tracked record with the rest.
 """
+import yield_cpu  # noqa: F401  (a nice-19 burn's session yields too)
 import argparse
 import ast
 import functools
