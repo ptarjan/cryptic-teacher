@@ -43,63 +43,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRAUMATA",
-     "indicators": [
-      {
-       "text": "having suffered",
-       "note": "letters that have suffered are knocked about and come out in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TRAUMATA",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "short of",
-         "note": "being short of something means lacking it, so that letter is dropped"
+         "text": "having suffered",
+         "at": 42,
+         "note": "suffered in the sense of being damaged or knocked about, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
-         "words": "mature",
-         "note": "taken as written"
-        },
-        {
-         "op": "outer",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "extremely",
-           "note": "taking a word at its extremes keeps only its first and last letters"
+           "text": "short of",
+           "at": 25,
+           "note": "short of means lacking, so the letter for energy is dropped from mature"
           }
          ],
          "parts": [
           {
-           "words": "adult",
-           "note": "the outside letters of adult"
+           "words": "mature",
+           "at": 2
+          },
+          {
+           "words": "energy",
+           "at": 34,
+           "gives": "E",
+           "note": "E is the physics symbol for energy"
           }
          ]
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physics symbol for energy, and it is removed"
         }
        ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 15,
+         "note": "extremely picks the extreme letters, first and last, of adult"
+        }
+       ],
+       "parts": [
+        {
+         "words": "adult",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "A",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "surface": "A grown-up, worn out and lacking energy, has come away injured.",
-     "walkthrough": "Drop the E from A MATURE, add AT, then rearrange to get TRAUMATA, the classical plural of trauma.",
-     "definitionFit": "Trauma is a medical term for a bodily injury, and its Greek plural form names several such injuries."
+     "surface": "A grown-up adult, almost drained of energy, after enduring injuries.",
+     "walkthrough": "'short of energy' turns MATURE into MATUR; 'extremely' gives AT from adult; 'having suffered' scrambles A + MATUR + AT.",
+     "definitionFit": "This Greek-derived plural is the medical term for physical injuries, i.e. wounds."
     },
     "features": {
      "answerInScene": true,
