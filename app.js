@@ -2070,6 +2070,14 @@
     grid.innerHTML = "";
     grid.style.gridTemplateColumns = `repeat(${P.dimensions.cols}, var(--cellsize))`;
     grid.style.setProperty("--cols", P.dimensions.cols);
+    // The wide layout sizes the grid column off the puzzle's shape, and that
+    // column is a sibling of the grid, so the numbers live on their shared parent.
+    const lay = grid.closest && grid.closest(".layout");
+    if (lay) {
+      lay.style.setProperty("--cols", P.dimensions.cols);
+      lay.style.setProperty("--rows", P.dimensions.rows);
+    }
+    if (!layoutTracked) { layoutTracked = true; trackLayoutTop(); }
     for (let y = 0; y < P.dimensions.rows; y++) {
       for (let x = 0; x < P.dimensions.cols; x++) {
         const div = document.createElement("div");
@@ -2487,6 +2495,40 @@
       li.classList.toggle("no-hints", solved && noHintsSolve(e));
     });
     renderHiddenMessage();
+    keepActiveClueInView();
+  }
+
+  // The wide layout (style.css, "wide screens") gives each clue list its own
+  // scrollbar, so the page no longer carries the active clue into view. Move only
+  // that list's scroller, never the page; a no-op where the list does not scroll.
+  function keepActiveClueInView() {
+    const li = document.querySelector && document.querySelector(".clue-list li.active");
+    const box = li && li.closest && li.closest(".clue-list");
+    if (!box || box.scrollHeight <= box.clientHeight + 1) return;
+    const lt = li.offsetTop - box.offsetTop;
+    if (lt < box.scrollTop + 30) box.scrollTop = Math.max(0, lt - 30);
+    else if (lt + li.offsetHeight > box.scrollTop + box.clientHeight - 8) {
+      box.scrollTop = lt + li.offsetHeight - box.clientHeight + 8;
+    }
+  }
+
+  // Where the puzzle starts on the page, for the wide layout's height sum (CSS
+  // cannot know how tall the header and preamble above it are).
+  let layoutTracked = false;
+  function trackLayoutTop() {
+    const lay = document.querySelector && document.querySelector("#app .layout");
+    if (!lay || !lay.getBoundingClientRect) return;
+    const set = () => {
+      const r = lay.getBoundingClientRect();
+      const y = r.top + (window.pageYOffset || 0);
+      if (y > 0) document.documentElement.style.setProperty("--lay-top", Math.round(y) + "px");
+    };
+    set();
+    if (window.ResizeObserver) {
+      const head = document.querySelector(".puzzle-head");
+      if (head) new ResizeObserver(set).observe(head);
+    }
+    window.addEventListener("resize", set);
   }
 
   // A hidden-letter device (tools/hidden_messages.py): the letter a clue's
