@@ -9928,7 +9928,7 @@ def held_clash_file(series, number, sol_dir, gale):
         es = held.get("entries") or ()
         src = held.get("source") or {}
         bad = bool(es) and src.get("acquiredBy") == TOOL and src.get("gridOrigin") == "published" \
-            and ("go.gale.com" in str(src.get("url") or "")) == gale \
+            and ((urllib.parse.urlsplit(str(src.get("url") or "")).hostname or "") == "go.gale.com") == gale \
             and "blog" not in (held.get("solutions") or {}) and filled(held)[0] == len(es) \
             and not all(e.get("solution") for e in es) and slip_clash(held, read)
         hit = _HELD_CLASH[p, q, gale] = (stamp, bad)

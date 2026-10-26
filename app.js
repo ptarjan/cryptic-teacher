@@ -4272,7 +4272,7 @@
     if (!words.length) return "";
     const inRing = ring.words || {};
     return `<div class="ana-words">${words.map(([w, i]) =>
-      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" data-w="${w.toUpperCase()}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
+      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" data-w="${esc(w.toUpperCase())}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
   }
 
   // Add or remove a whole clue word. Removing drops that word's tiles and
