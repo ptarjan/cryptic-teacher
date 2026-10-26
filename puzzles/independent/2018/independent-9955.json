@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "No offspring? No problems!",
     "enumeration": "9"
    },
-   "solution": "ISSUELESS"
+   "solution": "ISSUELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No offspring",
+      "at": 0,
+      "meaning": "issue is a legal word for children, so a couple with none is without issue"
+     },
+     {
+      "text": "No problems",
+      "at": 14,
+      "meaning": "an issue is also a problem or point of dispute, so this reads as free of issues"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheerful remark that a childless life is a carefree one.",
+     "definitionFit": "Both senses rest on 'issue' plus the suffix meaning without: one for children, one for troubles or disputes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "offspring"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +78,49 @@
      }
     ]
    },
-   "solution": "ILLSAY"
+   "solution": "ILLSAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Damn straight!",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the top",
+       "at": 16,
+       "note": "at the top means placed above the other piece in a down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bad",
+       "at": 12,
+       "gives": "ILL",
+       "note": "ill means bad, as in ill will"
+      },
+      {
+       "words": "Authority",
+       "at": 0,
+       "gives": "SAY",
+       "note": "say means authority or influence, as in having the final say"
+      }
+     ]
+    },
+    "spelling": "I'LL SAY",
+    "explanation": {
+     "surface": "Someone emphatically agreeing that the management is rotten.",
+     "definitionFit": "An emphatic exclamation of agreement, like 'you bet' or 'absolutely'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Authority's"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +134,42 @@
     "text": "Private drug stash",
     "enumeration": "7"
    },
-   "solution": "SECRETE"
+   "solution": "SECRETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stash",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Private",
+       "at": 0,
+       "gives": "SECRET",
+       "note": "private means secret"
+      },
+      {
+       "words": "drug",
+       "at": 8,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer's hidden supply of narcotics.",
+     "walkthrough": "'Stash' looks like a noun; it is the verb to hide away.",
+     "definitionFit": "To secrete something is to conceal it or tuck it away, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stash"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +189,58 @@
      }
     ]
    },
-   "solution": "EDITSUITE"
+   "solution": "EDITSUITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "room for cuts?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 7,
+         "note": "up as in upset or in disorder, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Duties",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Italian",
+       "at": 13,
+       "gives": "IT"
+      },
+      {
+       "words": "energy",
+       "at": 21,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taxes rising on Italian power, with a question about budget cuts.",
+     "walkthrough": "'Cuts' suggests spending cuts; it means cuts made to film footage.",
+     "definitionFit": "Film and video are trimmed and assembled in a dedicated editing room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +254,73 @@
     "text": "Unopened ale, a gallon to be drunk … thirsty?",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thirsty",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be drunk",
+       "at": 23,
+       "note": "to be drunk means swallowed, so these letters go inside the beer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unopened",
+         "at": 0,
+         "note": "unopened means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ale",
+         "at": 9,
+         "gives": "BEER",
+         "note": "ale is a beer"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A"
+        },
+        {
+         "words": "gallon",
+         "at": 16,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sealed gallon of ale waiting to be drunk by someone parched.",
+     "walkthrough": "'Ale' becomes BEER and loses its opening letter, leaving EER.",
+     "definitionFit": "Thirsty can mean keen or longing for something, as in thirsty for knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +340,48 @@
      }
     ]
    },
-   "solution": "STEELGREY"
+   "solution": "STEELGREY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A shade",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "up on",
+       "at": 28,
+       "note": "up on means placed above the other piece in a down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Harden",
+       "at": 21,
+       "gives": "STEEL",
+       "note": "to steel is to harden, as in steel yourself"
+      },
+      {
+       "words": "wishy-washy",
+       "at": 8,
+       "gives": "GREY",
+       "note": "grey means dull or characterless"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to toughen up for being feeble.",
+     "definitionFit": "A bluish metallic grey colour is one shade among many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +395,53 @@
     "text": "Tory leader competent? That's one to dine out on!",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one to dine out on",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 5,
+         "note": "the leader of a word is its opening letter, here of Tory"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "competent",
+       "at": 12,
+       "gives": "ABLE",
+       "note": "competent means able"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boast that a capable Conservative chief makes a fine anecdote to dine out on.",
+     "walkthrough": "'Dine out on' suggests telling a good story at dinner parties; the definition takes it literally as furniture you eat at.",
+     "definitionFit": "A dining surface is the piece of furniture people sit around to eat a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dine"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +455,58 @@
     "text": "Experiment, but not with head of your fish",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but not with",
+       "at": 12,
+       "note": "not with means the letter is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Experiment",
+       "at": 0,
+       "gives": "TRYOUT",
+       "note": "a tryout is a test or experiment"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 25,
+         "note": "the head of a word is its first letter, here of your"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to experiment, but without the fish's head.",
+     "definitionFit": "A freshwater fish of the salmon family, a common example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Experiment"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +520,63 @@
     "text": "Fight to secure uncapped post and monetary relief",
     "enumeration": "7"
    },
-   "solution": "BAILOUT"
+   "solution": "BAILOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "monetary relief",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to secure",
+       "at": 6,
+       "note": "to secure means to hold inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fight",
+       "at": 0,
+       "gives": "BOUT",
+       "note": "a bout is a fight"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncapped",
+         "at": 16,
+         "note": "uncapped means the top letter is taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "at": 25,
+         "gives": "MAIL",
+         "note": "mail is post"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battle over a job ending in a financial rescue.",
+     "definitionFit": "A government rescue of a struggling firm or bank with money is a financial rescue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +590,59 @@
     "text": "Going by Greek's letter, glean changes coming about",
     "enumeration": "8"
    },
-   "solution": "ELAPSING"
+   "solution": "ELAPSING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Going by",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming about",
+       "at": 39,
+       "note": "coming about means surrounding the Greek letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 31,
+         "note": "changes means the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "glean",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "Greek's letter",
+       "at": 9,
+       "gives": "PSI",
+       "note": "psi is a letter of the Greek alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about a Greek letter whose meaning changes as one gleans it.",
+     "walkthrough": "'Changes' rearranges the five letters of glean to ELANG, and 'coming about' wraps them around the Greek letter.",
+     "definitionFit": "Time going by is passing, which is what lapsing time does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greek's"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +656,65 @@
     "text": "Missing family held by Charlie-snorting convict",
     "enumeration": "7"
    },
-   "solution": "LACKING"
+   "solution": "LACKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Missing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 15,
+       "note": "held by means the family word also sits inside the convict word"
+      },
+      {
+       "text": "snorting",
+       "at": 31,
+       "note": "snorting means taking something in through the nose, so the convict word takes the letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "convict",
+       "at": 40,
+       "gives": "LAG",
+       "note": "lag is slang for a convict, as in old lag"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Charlie",
+         "at": 23,
+         "gives": "C",
+         "note": "C is Charlie in the NATO phonetic alphabet"
+        },
+        {
+         "words": "family",
+         "at": 8,
+         "gives": "KIN",
+         "note": "kin means family"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news story of a convict on cocaine with his relatives caught up in it.",
+     "walkthrough": "Charlie is also slang for cocaine, which the surface uses; 'snorting' and 'held by' both put pieces inside the convict, Charlie first.",
+     "definitionFit": "Something missing is absent or not there, which is to say wanting or lacking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +728,59 @@
     "text": "Titillating stuff shot around island near California",
     "enumeration": "7"
    },
-   "solution": "EROTICA"
+   "solution": "EROTICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Titillating stuff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 23,
+         "note": "around means the word for shot is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shot",
+         "at": 18,
+         "gives": "TORE",
+         "note": "shot as in rushed or sped, like tore"
+        }
+       ]
+      },
+      {
+       "words": "island",
+       "at": 30,
+       "gives": "I"
+      },
+      {
+       "words": "California",
+       "at": 42,
+       "gives": "CA",
+       "note": "CA is the postal abbreviation for California"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Racy material filmed on location around an island off California.",
+     "walkthrough": "'Shot' suggests filming; it means dashed, and 'around' turns that word into EROT.",
+     "definitionFit": "Sexually arousing writing or pictures are a stimulating, risqué kind of material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +794,59 @@
     "text": "Turns away, shunning leader of The States",
     "enumeration": "5"
    },
-   "solution": "AVERS"
+   "solution": "AVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "States",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shunning",
+       "at": 12,
+       "note": "shunning means avoiding, so the letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Turns away",
+       "at": 0,
+       "gives": "AVERTS",
+       "note": "to avert something is to turn it away, as one averts one's eyes"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 21,
+         "note": "the leader of a word is its first letter, here of The"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turning their back on the head of the United States.",
+     "walkthrough": "'The States' looks like America; 'The' supplies its first letter and 'States' is the definition, a verb.",
+     "definitionFit": "To state something is to declare or assert it firmly, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "States"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +860,46 @@
     "text": "Tanned liar with notes for Congress",
     "enumeration": "9"
    },
-   "solution": "RELATIONS"
+   "solution": "RELATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Congress",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Tanned",
+       "at": 0,
+       "note": "tanned in the sense of beaten or thrashed, so the letters are knocked about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "liar",
+       "at": 7
+      },
+      {
+       "words": "notes",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sun-bronzed fibber passing memos to the US Congress.",
+     "walkthrough": "'Congress' looks like the American legislature; here it means sexual intercourse.",
+     "definitionFit": "Congress can mean sexual intercourse, and having relations is the polite euphemism for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Congress"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +913,48 @@
     "text": "Puzzle is uncivilised, having been written in drink",
     "enumeration": "8"
    },
-   "solution": "BEWILDER"
+   "solution": "BEWILDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having been written in",
+       "at": 23,
+       "note": "written in means put inside, so the wild word goes into the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 46,
+       "gives": "BEER",
+       "note": "beer is a drink"
+      },
+      {
+       "words": "uncivilised",
+       "at": 10,
+       "gives": "WILD",
+       "note": "wild means untamed or uncivilised"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle is barbaric after being scrawled inside a pub.",
+     "definitionFit": "To puzzle someone is to confuse or baffle them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "written"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +968,53 @@
     "text": "Out-and-out Conservative supporting Dutch 'have got'",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Out-and-out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 25,
+       "note": "supporting means underneath the other pieces in a down answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dutch",
+       "at": 36,
+       "gives": "D"
+      },
+      {
+       "words": "have got",
+       "at": 43,
+       "gives": "OWN",
+       "note": "to own is to have got"
+      },
+      {
+       "words": "Conservative",
+       "at": 12,
+       "gives": "RIGHT",
+       "note": "the right is the conservative side of politics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A staunch Tory backing a Dutch phrase.",
+     "definitionFit": "Out-and-out means complete or utter, as does downright, as in a downright lie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1028,59 @@
     "text": "Bar allowing in half-cut Tory gets stick",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "allowing in",
+       "at": 4,
+       "note": "allowing in means the ban word lets the other piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bar",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to bar is to ban"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half-cut",
+         "at": 16,
+         "note": "half-cut keeps half the word, here the first two letters of Tory"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tory",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub bars a drunk Conservative, who then gets told off.",
+     "walkthrough": "'Half-cut' means drunk in British slang; here it takes half of TORY, giving TO.",
+     "definitionFit": "A relay runner's or conductor's rod is a short stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1100,61 @@
      }
     ]
    },
-   "solution": "BRANCHOUT"
+   "solution": "BRANCHOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "go forth and multiply?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "after means this piece comes behind the church letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bishop",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "raced",
+       "at": 7,
+       "gives": "RAN",
+       "note": "raced means ran"
+      },
+      {
+       "words": "church",
+       "at": 24,
+       "gives": "CH"
+      },
+      {
+       "words": "away",
+       "at": 13,
+       "gives": "OUT",
+       "note": "out means away, as in out of the office"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop hurrying from church, with a nod to the biblical command to be fruitful.",
+     "walkthrough": "The definition plays on Genesis; to diversify into new areas is to spread and multiply.",
+     "definitionFit": "To expand into new fields is to diversify, spreading out like a tree's limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "multiply"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1168,61 @@
     "text": "Britain cut free from leader? Time for a drink!",
     "enumeration": "8"
    },
-   "solution": "BEVERAGE"
+   "solution": "BEVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Britain",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "free from leader",
+         "at": 12,
+         "note": "free from leader means the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 8,
+         "gives": "SEVER",
+         "note": "to sever is to cut"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "Time",
+       "at": 30,
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britain cutting loose from its leader, then a call for a drink.",
+     "definitionFit": "Any drink other than water is a beverage, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1236,43 @@
     "text": "Two different Europeans going west — to do this?",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to do this?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 24,
+       "note": "going west means read right to left in an across answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Two different Europeans",
+       "at": 0,
+       "gives": "EPOLE",
+       "note": "E is an abbreviation for European, and a Pole is a European too"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people from different countries heading west, with the clue asking why.",
+     "walkthrough": "The definition leans on the surface: two lovers from different lands running off together is what eloping is.",
+     "definitionFit": "Eloping is running away secretly to marry, which the scene of a couple heading off implies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1286,43 @@
     "text": "No man is unfamiliar with this",
     "enumeration": "7"
    },
-   "solution": "ONANISM"
+   "solution": "ONANISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No man is unfamiliar with this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unfamiliar",
+       "at": 10,
+       "note": "unfamiliar suggests the words are made strange, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No man is",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A wry claim that every man knows this practice.",
+     "walkthrough": "The whole clue is both wordplay and a sly definition of masturbation.",
+     "definitionFit": "The term means masturbation, which the clue suggests every man knows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unfamiliar"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1336,45 @@
     "text": "Reportedly much more than just pedestrian?",
     "enumeration": "8"
    },
-   "solution": "WAYFARER"
+   "solution": "WAYFARER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pedestrian",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WAYFARER",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly means the phrase is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "much more than just",
+       "at": 11,
+       "gives": "WAYFAIRER",
+       "note": "way means much, and fairer means more just, so this phrase is way fairer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claimed to be far from dull.",
+     "walkthrough": "'Pedestrian' wants to mean dull; it is the noun, a walker.",
+     "definitionFit": "A traveller on foot is a walker, someone going along the road by foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pedestrian"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1388,58 @@
     "text": "Scholarly earl getting naughty (sex involved)",
     "enumeration": "7"
    },
-   "solution": "ERUDITE"
+   "solution": "ERUDITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scholarly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "earl",
+       "at": 10,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involved",
+         "at": 36,
+         "note": "involved means placed inside the naughty word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "naughty",
+         "at": 23,
+         "gives": "RUDE",
+         "note": "rude means naughty"
+        },
+        {
+         "words": "sex",
+         "at": 32,
+         "gives": "IT",
+         "note": "it is slang for sex"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A learned aristocrat turning saucy in a scandal.",
+     "definitionFit": "Being learned and well-read is being scholarly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "earl"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1453,52 @@
     "text": "Small bar mounting lively celebrations",
     "enumeration": "6"
    },
-   "solution": "REVELS"
+   "solution": "REVELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lively celebrations",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "mounting",
+       "at": 10,
+       "note": "mounting means climbing upwards, so a down answer reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Small",
+         "at": 0,
+         "gives": "S"
+        },
+        {
+         "words": "bar",
+         "at": 6,
+         "gives": "LEVER",
+         "note": "a lever is a bar"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny pub getting set up for a party.",
+     "definitionFit": "Noisy merrymaking and festivities are revels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1512,46 @@
     "text": "In love with awful Unionist, dear me no!",
     "enumeration": "9"
    },
-   "solution": "ENAMOURED"
+   "solution": "ENAMOURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In love with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awful",
+       "at": 13,
+       "note": "awful suggests something badly done, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unionist",
+       "at": 19,
+       "gives": "U",
+       "note": "U is an abbreviation for Unionist, as in Northern Irish politics"
+      },
+      {
+       "words": "dear me no",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone appalled at the idea of falling for a dreadful Unionist politician.",
+     "definitionFit": "Being smitten or besotted with someone is the state of being in love with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1565,59 @@
     "text": "Old marriage that you must leave? A tear-jerker!",
     "enumeration": "5"
    },
-   "solution": "ONION"
+   "solution": "ONION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A tear-jerker",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "must leave",
+         "at": 22,
+         "note": "must leave means the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "marriage",
+         "at": 4,
+         "gives": "UNION",
+         "note": "a union is a marriage"
+        },
+        {
+         "words": "you",
+         "at": 18,
+         "gives": "U",
+         "note": "U is text-speak for you"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad old marriage you must walk out of.",
+     "definitionFit": "Chopping this vegetable makes the eyes water, so it literally jerks tears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tear-jerker"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1631,59 @@
     "text": "Fancy little drink, drop of ethanol in it",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in it",
+       "at": 36,
+       "note": "in it means the letter goes inside the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little drink",
+       "at": 6,
+       "gives": "DRAM",
+       "note": "a dram is a small measure of spirits"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "drop of",
+         "at": 20,
+         "note": "a drop of means just the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ethanol",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh little nip with a splash of alcohol in it.",
+     "walkthrough": "'Fancy' looks like an adjective; it is the noun meaning a whim or wish.",
+     "definitionFit": "A fancy is a wish or fantasy, which a dream also is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1697,56 @@
     "text": "Conservative prig, when out of head, is vulgar",
     "enumeration": "5"
    },
-   "solution": "CRUDE"
+   "solution": "CRUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vulgar",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when out of head",
+         "at": 19,
+         "note": "out of head means the opening letter of the word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prig",
+         "at": 13,
+         "gives": "PRUDE",
+         "note": "a prig is a prude"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stuffy Tory becomes coarse once he is out of his mind.",
+     "walkthrough": "'Out of head' suggests drunk; here it cuts the first letter of PRUDE.",
+     "definitionFit": "Crude manners or jokes are coarse and in poor taste, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1760,59 @@
     "text": "Enduring awful racket, a jumbo going over?",
     "enumeration": "7"
    },
-   "solution": "ABIDING"
+   "solution": "ABIDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Enduring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "going over",
+         "at": 31,
+         "note": "going over means placed around the noise word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jumbo",
+         "at": 25,
+         "gives": "BIG",
+         "note": "jumbo means big"
+        },
+        {
+         "words": "awful racket",
+         "at": 9,
+         "gives": "DIN",
+         "note": "a din is an awful racket"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting up with the roar of a jumbo jet passing overhead.",
+     "walkthrough": "'Jumbo' suggests a plane; it is just the adjective BIG.",
+     "definitionFit": "Something lasting or long-standing is enduring, as in an abiding memory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jumbo"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1826,60 @@
     "text": "Arousing feeling I have backing revolutionary book",
     "enumeration": "7"
    },
-   "solution": "EMOTIVE"
+   "solution": "EMOTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arousing feeling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "backing",
+       "at": 24,
+       "note": "backing means supporting from behind, so this piece follows the book"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 32,
+         "note": "revolutionary means turned round, so the book word is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 46,
+         "gives": "TOME",
+         "note": "a tome is a book"
+        }
+       ]
+      },
+      {
+       "words": "I have",
+       "at": 17,
+       "gives": "IVE",
+       "note": "I have shortens to I've"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs a radical book that stirs up feelings.",
+     "definitionFit": "An emotive issue is one that stirs strong emotion, which is to say it arouses feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1893,42 @@
     "text": "Oceanographer with some cheek, Mancunian?",
     "enumeration": "5"
    },
-   "solution": "EKMAN"
+   "solution": "EKMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Oceanographer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 19,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cheek, Mancunian",
+       "at": 24,
+       "gives": "EKMAN",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a scientist of the sea is a cheeky man from Manchester.",
+     "definitionFit": "Vagn Walfrid Ekman was a Swedish scientist who studied ocean currents; the Ekman spiral is named after him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mancunian"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1942,48 @@
     "text": "Very in thrall to short-contract workers (one's a siren)",
     "enumeration": "9"
    },
-   "solution": "TEMPTRESS"
+   "solution": "TEMPTRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one's a siren",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in thrall to",
+       "at": 5,
+       "note": "in thrall to means held captive, so very goes inside the workers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "short-contract workers",
+       "at": 18,
+       "gives": "TEMPS",
+       "note": "temps are workers on short contracts"
+      },
+      {
+       "words": "Very",
+       "at": 0,
+       "gives": "TRES",
+       "note": "tres is French for very"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office temps utterly captivated by one alluring colleague.",
+     "definitionFit": "A siren is a seductive woman who lures others, as is a seductress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrall"
+    }
+   }
   }
  ]
 }
