@@ -20,6 +20,7 @@
 # enough to accept "Cryptic Across" will read it as a section header and
 # throw away every clue above it. That failure is silent and looks like a
 # short puzzle, which is why it is asserted directly.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 from clue_text import tolerant_heading as ct_tolerant
 import sys

@@ -1226,9 +1226,9 @@ check("a held file short whose solution the same day's other scan links too, rea
 f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 0
 real_sn = f.strip_near
-f.strip_near = lambda series, n, sol_dir, swap=False: True
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: True
 nw_due = [f.short_again(vu_row("2026-10-26T11:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
-f.strip_near = lambda series, n, sol_dir, swap=False: False
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: False
 nw_due.append(f.short_again(vu_row("2026-10-26T11:30:00+00:00")))
 f.strip_near = real_sn
 f.held_blanks = real_hb
@@ -1245,7 +1245,7 @@ check("a held file short whose blank light's cached VLM reply mends to one liste
 f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 0
 real_sn, real_hw = f.strip_near, f.held_wordplay
-f.strip_near = lambda series, n, sol_dir, swap=False: False
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: False
 f.held_wordplay = lambda series, n, sol_dir, defined=False: True
 wp_due = [f.short_again(vu_row("2026-10-26T12:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
 f.held_wordplay = lambda series, n, sol_dir, defined=False: False

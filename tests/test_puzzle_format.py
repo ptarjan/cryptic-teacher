@@ -11,6 +11,7 @@
 # The puzzles here are tools/fixtures/format-puzzles (three Guardian cryptics
 # and a book puzzle, frozen copies of corpus files), edited in memory or in temp
 # dirs; nothing in the corpus is read or written.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
