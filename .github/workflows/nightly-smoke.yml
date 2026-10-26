@@ -21,7 +21,7 @@ jobs:
   smoke:
     name: smoke slice ${{ matrix.slice }}
     runs-on: ubuntu-latest
-    timeout-minutes: 50  # slices ran 18-30 min on 10-17 and the corpus grows; 30 cancelled half of them on 10-20
+    timeout-minutes: 75  # slices ran 18-30 min on 10-17, 28-50 on 10-26 (slice 7 cancelled at 50); 30 cancelled half of them on 10-20
     strategy:
       fail-fast: false
       max-parallel: 6  # the free plan runs ~20 jobs at once; leave runners for deploys and tests
