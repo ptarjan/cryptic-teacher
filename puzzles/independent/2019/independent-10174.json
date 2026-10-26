@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,52 @@
     "text": "So we're hurting ourselves with May still in charge (briefly) — chaos developing",
     "enumeration": "15"
    },
-   "solution": "MASOCHISTICALLY"
+   "solution": "MASOCHISTICALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "So we're hurting ourselves",
+      "at": 0,
+      "note": "an adverbial description: acting in a way that inflicts pain on ourselves"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "developing",
+       "at": 70,
+       "note": "something developing is still changing shape, so these letters are being worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "May still",
+       "at": 32
+      },
+      {
+       "words": "in charge",
+       "at": 42,
+       "gives": "IC",
+       "note": "IC is the standard abbreviation for in charge, which the bracketed 'briefly' asks for"
+      },
+      {
+       "words": "chaos",
+       "at": 64
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rueful Brexit-era complaint that the country keeps harming itself while Theresa May clings on amid chaos.",
+     "walkthrough": "'(briefly)' asks for the short form of 'in charge', IC. 'developing' rearranges MAY STILL, IC and CHAOS together.",
+     "definitionFit": "Doing something that hurts you, seemingly by choice, is behaving in the manner of someone who enjoys pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "developing"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +93,30 @@
     "text": "Various footballers cheating",
     "enumeration": "6"
    },
-   "solution": "DIVERS"
+   "solution": "DIVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Various",
+      "at": 0,
+      "meaning": "an old adjective meaning several or sundry"
+     },
+     {
+      "text": "footballers cheating",
+      "at": 8,
+      "meaning": "footballers who fall over theatrically to win a foul are said to dive"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that plenty of footballers cheat.",
+     "definitionFit": "The archaic adjective means several of different kinds; players who feign fouls are mocked as those who dive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +130,58 @@
     "text": "Largely avoid turning over channel",
     "enumeration": "4"
    },
-   "solution": "DAVE"
+   "solution": "DAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "channel",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning over",
+       "at": 14,
+       "note": "turning over flips the shortened word so it reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Largely",
+         "at": 0,
+         "note": "largely means most of it, so the last letter of the synonym is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "avoid",
+         "at": 8,
+         "gives": "EVADE",
+         "note": "to avoid something is to evade it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mostly avoids flicking to a TV channel.",
+     "walkthrough": "'Largely' trims EVADE to EVAD, which 'turning over' reverses. Dave is a British TV channel, and the name also nods to David Cameron, cross-referenced in 4.",
+     "definitionFit": "Dave is the name of a British television station showing comedy and repeats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +195,66 @@
     "text": "Official split stops union getting money? Blame 3 for it",
     "enumeration": "10"
    },
-   "solution": "REFERENDUM"
+   "solution": "REFERENDUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blame 3 for it",
+      "at": 42,
+      "note": "the vote David Cameron, the 3 answer, called and is blamed for"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Official",
+       "at": 0,
+       "gives": "REF",
+       "note": "REF is short for referee, a match official"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stops",
+         "at": 15,
+         "note": "REND stops, or plugs, the gap in the union and money letters, so it sits inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "union",
+         "at": 21,
+         "gives": "EU",
+         "note": "EU is the European Union"
+        },
+        {
+         "words": "split",
+         "at": 9,
+         "gives": "REND",
+         "note": "to rend is to tear or split"
+        }
+       ]
+      },
+      {
+       "words": "money",
+       "at": 35,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A referee splits up a union squabbling over money, with a pointed finger at Cameron.",
+     "walkthrough": "3 is DAVE, read as David Cameron, who called the 2016 vote on leaving the EU.",
+     "definitionFit": "Cameron called the 2016 public vote on EU membership, so that ballot is what he is blamed for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +268,58 @@
     "text": "Gross incompetence ultimately damaged 'bloody difficult woman' … ?",
     "enumeration": "6"
    },
-   "solution": "OGRESS"
+   "solution": "OGRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'bloody difficult woman'",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "damaged",
+       "at": 30,
+       "note": "damaged letters are broken up and put back in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Gross",
+       "at": 0
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 19,
+         "note": "ultimately points to the very end of the word incompetence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "incompetence",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sour verdict on a famously awkward woman whose gross incompetence has done the damage.",
+     "walkthrough": "Ken Clarke called Theresa May a 'bloody difficult woman'; she adopted the phrase.",
+     "definitionFit": "A female monster in fairy tales is the ultimate fearsome, difficult woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gross"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +343,43 @@
      }
     ]
    },
-   "solution": "PUTUPJOB"
+   "solution": "PUTUPJOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sham",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revealing",
+       "at": 2,
+       "gives": "PUTUP",
+       "note": "to put something up is to display it, and here it is also the order to turn the next letters upwards"
+      },
+      {
+       "words": "endlessly opportunistic politician",
+       "at": 12,
+       "gives": "JOB",
+       "note": "BOJO, Boris Johnson's nickname, cut short is BOJ; written upwards in this down light, as the preceding words instruct, those three letters run in reverse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing 5: exposing a self-serving politician as a fraud.",
+     "walkthrough": "The answer reads as an instruction for a down light: JOB put up, i.e. turned upwards, gives BOJ, which is BOJO (Boris Johnson) without its end, as 'revealing' and 'endlessly' say.",
+     "definitionFit": "A put-up job is a rigged or fraudulent arrangement, a sham dressed up as genuine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "revealing"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +403,37 @@
      }
     ]
    },
-   "solution": "WALLSTREETCRASH"
+   "solution": "WALLSTREETCRASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "start of depression",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "WALL STREET + CRASH",
+     "parts": [
+      {
+       "words": "Law letters",
+       "at": 0,
+       "note": "the letters of WALL STREET rearranged ('crash' as an anagram signal) spell these two words"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legal correspondence, or perhaps a fragment of a puzzle clue, kicks off a bout of gloom.",
+     "walkthrough": "Read the answer as a clue fragment: 'crash' is an anagram signal, so WALL STREET crashed gives LAW LETTERS, which is why the clue calls it 'bit of a clue, maybe'.",
+     "definitionFit": "The 1929 New York stock market collapse set off the Great Depression of the 1930s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Law"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +476,51 @@
    "group": [
     "9-across",
     "8-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go crazy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread",
+       "at": 27,
+       "note": "spread letters are scattered about and gathered again in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ha",
+       "at": 10
+      },
+      {
+       "words": "at",
+       "at": 14
+      },
+      {
+       "words": "5 as word",
+       "at": 17,
+       "gives": "FIVE",
+       "note": "the number 5 written out as a word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laughs and loses it at five o'clock as news gets around.",
+     "walkthrough": "'5' here is the number, not the cross-reference to OGRESS: 'as word' asks for FIVE.",
+     "definitionFit": "Throwing a tantrum or losing one's temper is an idiom for going mad with rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "5"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +534,64 @@
     "text": "Two people back on tail of big cheese",
     "enumeration": "5"
    },
-   "solution": "GOUDA"
+   "solution": "GOUDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail of",
+         "at": 19,
+         "note": "the tail of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "big",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 11,
+         "note": "back means this phrase is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Two people",
+         "at": 0,
+         "gives": "ADUO",
+         "note": "a duo is a pair of people"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of people return to back up the boss.",
+     "walkthrough": "'big cheese' looks like a phrase meaning boss, but 'big' only gives its tail.",
+     "definitionFit": "Gouda is a mild yellow Dutch variety of the dairy food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "big"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +605,51 @@
     "text": "Pressure on Transport Secretary at first",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pressure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 32,
+         "note": "at first takes the opening letter of Secretary and also places it at the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Secretary",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "Transport",
+       "at": 12,
+       "gives": "TRAIN",
+       "note": "a train is a means of transport"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure piling up on the minister in charge of transport.",
+     "definitionFit": "Strain is tension or stress put on something, the same as pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Transport"
+    }
+   }
   },
   {
    "number": 12,
@@ -230,7 +673,53 @@
    "group": [
     "12-across",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reactionary",
+         "at": 12,
+         "note": "reactionary suggests going backwards, so the service's letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "service",
+         "at": 4,
+         "gives": "RAF",
+         "note": "the RAF is the Royal Air Force, one of the armed services"
+        }
+       ]
+      },
+      {
+       "words": "dismissed",
+       "at": 24,
+       "gives": "OUT",
+       "note": "a batsman dismissed in cricket is out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange armed service sacks its backward-looking members.",
+     "definitionFit": "Far-out is slang for weird or unconventional, as odd means strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reactionary"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +739,48 @@
      }
     ]
    },
-   "solution": "OVERTHERE"
+   "solution": "OVERTHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not far away",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Obvious",
+       "at": 0,
+       "gives": "OVERT",
+       "note": "overt means open and obvious"
+      },
+      {
+       "words": "that female",
+       "at": 8,
+       "gives": "HER",
+       "note": "her refers to a female"
+      },
+      {
+       "words": "egghead's",
+       "at": 20,
+       "gives": "E",
+       "note": "the head of egg is its first letter, E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clearly that brainy woman is close by.",
+     "walkthrough": "'egghead' looks like an intellectual, but it is just the head of 'egg'.",
+     "definitionFit": "The phrase points at a place a short distance off, there rather than here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egghead's"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +794,58 @@
     "text": "English concern losing millions even",
     "enumeration": "5"
    },
-   "solution": "EQUAL"
+   "solution": "EQUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "even",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 16,
+         "note": "losing means a letter is taken away from the word for concern"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concern",
+         "at": 8,
+         "gives": "QUALM",
+         "note": "a qualm is a worry or concern"
+        },
+        {
+         "words": "millions",
+         "at": 23,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English business shedding millions breaks even.",
+     "walkthrough": "'concern' looks like a business, but it means a misgiving.",
+     "definitionFit": "Two things that are level or balanced are the same in amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +859,61 @@
     "text": "Ben's holding back idiot horsemen",
     "enumeration": "7"
    },
-   "solution": "HUSSARS"
+   "solution": "HUSSARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "horsemen",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 6,
+       "note": "holding means one word goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ben's",
+       "at": 0,
+       "gives": "HURS",
+       "note": "Ben-Hur is the chariot-racing hero, so Ben's surname gives HUR plus the S"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 14,
+         "note": "back reads the fool's word in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idiot",
+         "at": 19,
+         "gives": "ASS",
+         "note": "an ass is a fool"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ben keeps a fool of a horseman in check.",
+     "walkthrough": "Ben's surname is Hur, from the epic Ben-Hur.",
+     "definitionFit": "Hussars were light cavalry soldiers, mounted troops on horseback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ben's"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +927,60 @@
     "text": "Negotiating teams finally suggest deal but unable to make progress",
     "enumeration": "10"
    },
-   "solution": "STALEMATED"
+   "solution": "STALEMATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unable to make progress",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Negotiating",
+       "at": 0,
+       "note": "negotiating works things around, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teams",
+       "at": 12
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 18,
+         "note": "finally points to the last letter of suggest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suggest",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "deal",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Negotiators at last propose a deal but the talks are stuck.",
+     "definitionFit": "In chess a position with no legal move ends in deadlock, so the word means stuck without progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Negotiating"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +994,59 @@
     "text": "Drug, say, affected raven and another flier",
     "enumeration": "7"
    },
-   "solution": "EASYJET"
+   "solution": "EASYJET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another flier",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drug",
+       "at": 0,
+       "gives": "E",
+       "note": "E is ecstasy, a drug"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "affected",
+         "at": 11,
+         "note": "affected letters are altered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "raven",
+       "at": 20,
+       "gives": "JET",
+       "note": "raven and jet both describe a glossy black"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug has made a raven act oddly, and another bird too.",
+     "walkthrough": "'raven' looks like the bird, setting up 'another flier', but it is the colour.",
+     "definitionFit": "EasyJet is a budget airline, so it carries people through the air, another thing that flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raven"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1070,53 @@
      }
     ]
    },
-   "solution": "STRONGANDSTABLE"
+   "solution": "STRONGANDSTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in government, as was claimed",
+      "at": 31,
+      "note": "describes the governing promised by a slogan; the answer is that slogan"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "ST",
+       "note": "ST is short for street, a way"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "misbehaved",
+         "at": 20,
+         "note": "letters that misbehave are out of order, so these are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a strange blond",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd blond man behaving badly in office, contrary to promises.",
+     "walkthrough": "'strange blond' hints at Boris Johnson. The answer was Theresa May's 2017 election slogan.",
+     "definitionFit": "Theresa May promised firm, steady leadership in 2017, the phrase mocked once her government faltered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "blond"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1136,81 @@
      }
     ]
    },
-   "solution": "REESMOGG"
+   "solution": "REESMOGG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relic",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 41,
+         "note": "over in a down clue turns these letters upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old PM",
+           "at": 5,
+           "gives": "GOM",
+           "note": "GOM, the Grand Old Man, was Gladstone's nickname"
+          },
+          {
+           "words": "get",
+           "at": 22,
+           "gives": "SEE",
+           "note": "to get something is to see it"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "a little",
+             "at": 26,
+             "note": "a little takes just the first letter of ratty"
+            }
+           ],
+           "parts": [
+            {
+             "words": "ratty",
+             "at": 35
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "government",
+       "at": 46,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old prime minister gets a bit cross about a leftover from government.",
+     "walkthrough": "Gladstone was the Grand Old Man. 'initially' says GOM leads before 'over' turns it round. Jacob Rees-Mogg is mocked as a Victorian throwback.",
+     "definitionFit": "The Brexiteer MP is satirised as a survival from a past age, an old relic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ratty"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1224,41 @@
     "text": "State \"I want a break\"",
     "enumeration": "6"
    },
-   "solution": "TAIWAN"
+   "solution": "TAIWAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "break",
+       "at": 16,
+       "note": "break smashes the letters so they reform in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I want a",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares that they need a rest.",
+     "walkthrough": "'State' looks like a verb meaning declare, but it is a nation.",
+     "definitionFit": "Taiwan is an island nation in East Asia, a self-governing country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1272,52 @@
     "text": "Sketches I meticulously reviewed showing detail",
     "enumeration": "7"
    },
-   "solution": "ITEMISE"
+   "solution": "ITEMISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "detail",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reviewed",
+       "at": 24,
+       "note": "reviewed suggests looking back, so the run reads backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "showing",
+         "at": 33,
+         "note": "showing means the letters are on view inside the words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sketches I meticulously",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sketches carefully looked over reveal fine detail.",
+     "definitionFit": "To list things one by one is to set out their particulars, a verb sense of detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detail"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1331,42 @@
     "text": "Disregard region's suffering",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disregard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "suffering",
+       "at": 19,
+       "note": "suffering letters are distorted into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "region's",
+       "at": 10,
+       "gives": "REGION",
+       "note": "region's stands for region is, giving the letters of the word region"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A region is struggling and nobody cares.",
+     "definitionFit": "To pay no attention to something is to take no notice of it, a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1380,45 @@
     "text": "\"PM ashen,\" said policeman",
     "enumeration": "7"
    },
-   "solution": "MAIGRET"
+   "solution": "MAIGRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "policeman",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MAIGRET",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 12,
+       "note": "said means we hear the words spoken, not written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "PM ashen",
+       "at": 1,
+       "gives": "MAYGREY",
+       "note": "the prime minister May plus grey, meaning ashen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer remarks that the prime minister looks pale.",
+     "walkthrough": "MAIGRET is said 'may-gray' in French.",
+     "definitionFit": "Simenon's Inspector Maigret is a fictional French detective of the Paris police."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ashen"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1432,42 @@
     "text": "Change prison guard over",
     "enumeration": "6"
    },
-   "solution": "REDRAW"
+   "solution": "REDRAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 20,
+       "note": "over turns the guard's word upside down in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison guard",
+       "at": 7,
+       "gives": "WARDER",
+       "note": "a warder guards prisoners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The prison guard is being replaced.",
+     "definitionFit": "To draw again is to alter a boundary or plan, a change in shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1481,57 @@
     "text": "Member has a row about those running the show",
     "enumeration": "5"
    },
-   "solution": "ADMIN"
+   "solution": "ADMIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "those running the show",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 11
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "about means the noise word goes round the member's letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "row",
+         "at": 13,
+         "gives": "DIN",
+         "note": "a din is a noisy row"
+        },
+        {
+         "words": "Member",
+         "at": 0,
+         "gives": "M",
+         "note": "M is short for member, as in MP"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A member of a group argues with the people in charge.",
+     "definitionFit": "Admin is short for administration, the people who manage and run an organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1545,58 @@
     "text": "'Great leader' needing help virtually at end — blooming right!",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'Great leader'",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "help virtually",
+       "at": 23,
+       "gives": "ALEXA",
+       "note": "Alexa is Amazon's virtual assistant"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "blooming",
+         "at": 47,
+         "note": "blooming opens out and changes form, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 56,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-styled great leader needs help in the end; 'blooming right' is an exasperated exclamation.",
+     "walkthrough": "'blooming' also hints at the plant alexanders.",
+     "definitionFit": "Alexander the Great was the Macedonian king and conqueror, the original great leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1610,61 @@
     "text": "Leaving upsetting — wrong to sever relationship",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaving",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upsetting",
+       "at": 8,
+       "note": "upsetting tips the result upside down in a down entry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to sever",
+         "at": 26,
+         "note": "to sever is to cut through, so the cross mark goes inside the bond"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relationship",
+         "at": 35,
+         "gives": "TIE",
+         "note": "a tie is a bond or relationship"
+        },
+        {
+         "words": "wrong",
+         "at": 20,
+         "gives": "X",
+         "note": "X is the mark for wrong"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leaving is distressing when it cuts off a partnership.",
+     "walkthrough": "The surface nods to Brexit, cutting the tie with Europe.",
+     "definitionFit": "An exit is the act of leaving or departing, a noun use of the verb form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 28,
@@ -489,7 +1691,39 @@
     "text": "The French taking German drink",
     "enumeration": "5"
    },
-   "solution": "LAGER"
+   "solution": "LAGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The French",
+       "at": 0,
+       "gives": "LA",
+       "note": "la is French for the"
+      },
+      {
+       "words": "German",
+       "at": 18,
+       "gives": "GER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The French are drinking German beer.",
+     "definitionFit": "Lager is a light beer, an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +1737,61 @@
     "text": "Turned against, being taken in by fib — heinous",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heinous",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Turned",
+       "at": 0,
+       "note": "turned means the result is reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "being taken in by",
+         "at": 16,
+         "note": "being taken in by means the letter for against goes inside the fib"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fib",
+         "at": 34,
+         "gives": "LIE",
+         "note": "a lie is a fib"
+        },
+        {
+         "words": "against",
+         "at": 7,
+         "gives": "V",
+         "note": "V is short for versus, against"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone duped by a lie turns against it in outrage.",
+     "walkthrough": "'Turned against' reads as one phrase, but 'Turned' reverses and 'against' is V.",
+     "definitionFit": "Heinous acts are wicked, morally monstrous ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 31,
@@ -517,7 +1805,44 @@
     "text": "At sea — isn't following straightforward course taking back control (or why talking was difficult)",
     "enumeration": "4"
    },
-   "solution": "YAWS"
+   "solution": "YAWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "At sea — isn't following straightforward course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 55,
+       "note": "taking back reads the control word in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "control",
+       "at": 60,
+       "gives": "SWAY",
+       "note": "sway is power or control"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Brexit gibe: 'taking back control' leaves the country adrift.",
+     "walkthrough": "The brackets offer a second route: 'why talking' sounds like Y, and 'was difficult' rearranges WAS, giving Y plus AWS.",
+     "definitionFit": "A ship that yaws swings off its heading, unable to hold a steady line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "control"
+    }
+   }
   }
  ]
 }
