@@ -7237,6 +7237,10 @@ def squares(crop, box, above=False, at=None):
 #: The share of a matched lattice's cells (matched_box) kept in from its rules when its cells'
 #: paper is measured, and the pitch step (pixels) it is searched in.
 MATCH_MARGIN, MATCH_STEP = 0.2, 0.5
+#: Whether a matched grid is read on matched_box's own lattice too, not only on its crop's
+#: framings(). 10-26: Times grids refused "its blocks are not the puzzle's" though matched at
+#: SOLUTION_BLOCKS (times-13746: matched 1.0, its crop framed 3 rows short at 0.738).
+MATCHED_LATTICE = True
 
 
 def matched_box(window, grid, sides):
@@ -7351,7 +7355,7 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
     path.parent.mkdir(parents=True, exist_ok=True)
     best = None
 
-    def read(b):
+    def read(b, framing=None):
         # Cut afresh on every read, so the crop is always this code's cut.
         cut = window.crop(b)
         # The recogniser reads the ~23px cells far surer at three times the size.
@@ -7359,7 +7363,7 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
         # The crop is the grid, frame to frame: read on its own rules; a Times
         # print's cells by the cell classifier too, which was trained on them.
         return trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True, classify=classify,
-                                               lean=lean, enums=enums)
+                                               lean=lean, enums=enums, framing=framing)
     for b in boxes:
         answers, stats = read(b)
         if best is None or stats["blocks"] > best[1]["blocks"]:
@@ -7374,8 +7378,11 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
         if found and found[0] >= SOLUTION_BLOCKS:
             pad = int(round(found[2] / 4))
             x0, y0, x1, y1 = found[1]
-            answers, stats = read((max(0, x0 - pad), max(0, y0 - pad), min(window.width, x1 + pad),
-                                   min(window.height, y1 + pad)))
+            cut = (max(0, x0 - pad), max(0, y0 - pad), min(window.width, x1 + pad), min(window.height, y1 + pad))
+            # Its own lattice is read too (MATCHED_LATTICE), in the 3x crop's pixels: the crop's
+            # framings() may miss its rows (a broken frame, letters joined to the rules).
+            answers, stats = read(cut, (3 * (x0 - cut[0]), 3 * (y0 - cut[1]), 3 * found[2], 3 * found[2])
+                                  if MATCHED_LATTICE else None)
             # A matched grid's ink is read past what joined it, its letters less sure: an answer
             # stands only as a word, or words by its enumeration (1978's AQUALUNG read AGUALUNG).
             kept = {k: w for k, w in answers.items() if worded(w, (enums or {}).get(k))}
@@ -7836,7 +7843,9 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # read otherwise.
                   "707dd4b1636238eb": "8417cfb08f3a9706",
                   # championship_number and CHAMPIONSHIP_LAGS (_CHAMPIONSHIP_FIX): no grid is read otherwise.
-                  "fb1e89c48b881125": "8417cfb08f3a9706"}
+                  "fb1e89c48b881125": "8417cfb08f3a9706",
+                  # MATCHED_LATTICE (a matched grid read on its own lattice): due once as MATCHED_GRID.
+                  "476130221335c0fe": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -9398,6 +9407,13 @@ REFUSED_GRID = "solution short, its grid refused unmatched"
 #: Times puzzles stood so (1940s-90s), none planned. Once: the reread writes this solution_key.
 UNCLASSIFIED_HELD = "solution short, its cells unclassified, its puzzle held short"
 REREAD_REFUSED_GRID = "2026-10-24T22:00:00+00:00"
+#: The due reason of a Times edition whose linked solution grid was refused for its blocks after
+#: REFUSED_GRID's fix, before read_solution read a matched grid on matched_box's own lattice
+#: (MATCHED_LATTICE): matched_box found the grid (times-13746 at 1.0) yet its crop's framings()
+#: missed rows, so every read stayed under SOLUTION_BLOCKS. Rows read before REREAD_MATCHED_GRID,
+#: once. Paul 10-26: 64 Times puzzles held short stood refused so, none planned.
+MATCHED_GRID = "solution short, its matched grid read on its own lattice since"
+REREAD_MATCHED_GRID = "2026-10-26T14:00:00+00:00"
 #: The refusals matched_box may mend.
 GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading is ")
 
@@ -9447,10 +9463,10 @@ def renumbered(row):
     return None
 
 
-def refused_grid(row):
-    """Whether Times ledger `row`, read before REREAD_REFUSED_GRID, refused a linked solution grid
-    for its blocks or its ink's size (GRID_REFUSALS), for a puzzle held without every answer."""
-    if not scan_queue.read_before(row, scan_queue.when(REREAD_REFUSED_GRID)):
+def refused_grid(row, since=REREAD_REFUSED_GRID, refusals=GRID_REFUSALS):
+    """Whether Times ledger `row`, read before `since`, refused a linked solution grid for its
+    blocks or its ink's size (`refusals`), for a puzzle held without every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(since)):
         return False
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
@@ -9458,7 +9474,7 @@ def refused_grid(row):
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if not v.get("solutionFrom") or not v.get("id") or not isinstance(s, dict) \
-                or not str(s.get("refused") or "").startswith(GRID_REFUSALS):
+                or not str(s.get("refused") or "").startswith(refusals):
             continue
         filed = filed_state(paper.series, v.get("number"))
         if filed is not None and not filed[0]:
@@ -9783,6 +9799,8 @@ def fix_reason(row):
     # both are answers_only rereads (SOLUTION_FIXES), so the read is the same.
     if refused_grid(row):
         return REFUSED_GRID
+    if refused_grid(row, REREAD_MATCHED_GRID, GRID_REFUSALS[:1]):
+        return MATCHED_GRID
     if unenumerated_held(row):
         return "answers held back by a clue with no enumeration"
     if heavy_short(row):
@@ -10372,7 +10390,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
-         REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
+         REFUSED_GRID: 2, MATCHED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
@@ -10930,7 +10948,7 @@ BUG_READS = ("refused ", "unfiled before", "short Times page", "solution short",
 #: enumerations: no fitted read, no strip asked (no ledger verdict ever had "vlmLights").
 SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, read by other code",
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
-                  REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
+                  REFUSED_GRID, MATCHED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED)
 

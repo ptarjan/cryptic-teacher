@@ -783,7 +783,7 @@ def framings(gray, grid):
     return tried
 
 
-def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None):
+def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=None, framing=None):
     """read_answers for an image that is the grid, read on each of its
     framings(). The lattice reading the most cells surely fits best (blocks
     read alike on a lattice half a cell off; letters do not): its accepted
@@ -795,9 +795,14 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     SURE_BLOCKS keeps only its bounded() lights. With `classify` (a Times
     print, which the cell classifier was trained on) and blocks read at
     SURE_BLOCKS, or a heavy print's every block found (blocks_sure), the classifier checks every accepted light (vetoed()) and
-    decodes the rest (classified_reads())."""
+    decodes the rest (classified_reads()). A `framing` (x0, y0, pitch_x, pitch_y) found
+    outside, file_archive_org_puzzles.matched_box's, is one more lattice, read like the rest."""
     gray = np.asarray(Image.open(image).convert("L"))
     framed = framings(gray, grid)
+    if framing is not None:
+        # 10-26: framings() of a matched grid's crop missed 3 of 15 rows (times-13746: matched at
+        # 1.0, framed at 0.738); the matched lattice itself is the grid's.
+        framed = [(gray, *even(framing, len(grid)))] + framed
     if lean:
         # Each lattice read costs ~480 recogniser runs (~25 s of CPU). The lattice whose blocks
         # fit best is read first, and when it accepts every light the others can add none (take()
@@ -1649,17 +1654,17 @@ def vetoed(lts, accepted, probs):
     return out
 
 
-def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False, enums=None):
+def read_answers(image, grid, tight=False, bounded=False, classify=False, lean=False, enums=None, framing=None):
     """({(number, direction): answer} accepted, stats) for a solution image
     and the puzzle's grid (rows of "#" and ".").
 
     With `tight` (the image is the grid, frame to frame) it is read_framed
-    (`bounded` and `classify` passed on).
+    (`bounded`, `classify` and `framing` passed on).
     Else cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
     recogniser read the light itself as exactly that word, and the word is
     known()."""
     if tight:
-        return read_framed(image, grid, bounded, classify, lean, enums)
+        return read_framed(image, grid, bounded, classify, lean, enums, framing)
     gray = np.asarray(Image.open(image).convert("L"))
     lat = lattice(gray, len(grid), tight)
     lts = lights(grid)
