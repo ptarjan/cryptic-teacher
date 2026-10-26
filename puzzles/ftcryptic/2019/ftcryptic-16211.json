@@ -22,6 +22,9 @@
   "date": "2019-07-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "One drinks or one eats it",
     "enumeration": "6"
    },
-   "solution": "SUPPER"
+   "solution": "SUPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One drinks",
+      "at": 0,
+      "meaning": "someone who sups, taking liquid in small mouthfuls"
+     },
+     {
+      "text": "one eats it",
+      "at": 14,
+      "meaning": "the evening meal, a light late dinner"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle about whether a thing is the drinker or the dinner.",
+     "walkthrough": "The first reading invents a noun from the verb 'sup': one who sups.",
+     "definitionFit": "The noun built from 'sup' names a drinker, while the everyday word is an evening meal that is eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,52 @@
     "text": "Harsh, spiteful gossip's going around medical department",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Harsh",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going around",
+         "at": 25,
+         "note": "going around means the gossip letters are turned to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spiteful gossip's",
+         "at": 7,
+         "gives": "DIRTS",
+         "note": "spiteful gossip is dirt, and the 's stands for 'is', adding S"
+        }
+       ]
+      },
+      {
+       "words": "medical department",
+       "at": 38,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department of a hospital"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Malicious rumour does the rounds of a hospital ward.",
+     "definitionFit": "A strident voice or tone is loud, grating and harsh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +141,82 @@
      }
     ]
    },
-   "solution": "PUBCRAWL"
+   "solution": "PUBCRAWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It involves several locals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 27,
+         "note": "rising in a down clue means the word is read upwards, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up",
+         "at": 34,
+         "gives": "UP"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "housing",
+         "at": 46,
+         "note": "housing means the fight word holds the letter inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fight",
+         "at": 40,
+         "gives": "BRAWL",
+         "note": "a brawl is a fight"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 61,
+           "note": "primarily takes the first letter of the word before it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "costs",
+           "at": 54
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Neighbours rise up in protest against rising housing costs.",
+     "walkthrough": "'locals' are pubs, not residents; 'housing costs' looks like a phrase but splits.",
+     "definitionFit": "A tour of drinking at a series of bars, a local being a neighbourhood pub in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locals"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +230,44 @@
     "text": "Some make a stand — that's the point",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's the point",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "make a stand",
+       "at": 5,
+       "gives": "EAST",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few people take a firm position, and that is the whole idea.",
+     "walkthrough": "'point' is a compass point, not a purpose.",
+     "definitionFit": "Compass points are north, south, east and west, so this is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +281,60 @@
     "text": "This writer's wife breaks promise to provide trunks?",
     "enumeration": "8"
    },
-   "solution": "SWIMWEAR"
+   "solution": "SWIMWEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trunks?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaks",
+       "at": 19,
+       "note": "breaks means these pieces split the promise word open and sit inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "promise",
+       "at": 26,
+       "gives": "SWEAR",
+       "note": "to promise is to swear"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "This writer's",
+         "at": 0,
+         "gives": "IM",
+         "note": "this writer is the setter, so 'this writer is' gives I'M"
+        },
+        {
+         "words": "wife",
+         "at": 14,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter's wife goes back on her word to supply someone's luggage.",
+     "walkthrough": "'trunks' looks like luggage; the question mark flags swimming trunks as one example of the answer.",
+     "definitionFit": "Swimming trunks are an example of garments worn for bathing, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trunks"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +362,40 @@
      }
     ]
    },
-   "solution": "WILLOTHEWISP"
+   "solution": "WILLOTHEWISP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ghostly light",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 14,
+       "note": "turned means the letters are turned about into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pillows white",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spectral glow bleaches the bed linen.",
+     "definitionFit": "The phosphorescent glow seen over marshes, ignis fatuus, is folklore's ghostly light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +409,58 @@
     "text": "Paris district has more gripping books on market",
     "enumeration": "10"
    },
-   "solution": "MONTMARTRE"
+   "solution": "MONTMARTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paris district",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 24,
+       "note": "gripping means the word more holds the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more",
+       "at": 19,
+       "gives": "MORE"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "books",
+         "at": 33,
+         "gives": "NT",
+         "note": "NT is the New Testament, books of the Bible"
+        },
+        {
+         "words": "market",
+         "at": 42,
+         "gives": "MART",
+         "note": "a mart is a market"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian quarter boasts more enthralling volumes for sale.",
+     "definitionFit": "It is the hilltop quarter of Paris famed for artists and Sacré-Cœur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gripping"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +474,51 @@
     "text": "Old tune playing as they leave",
     "enumeration": "6"
    },
-   "solution": "EXEUNT"
+   "solution": "EXEUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they leave",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "EX",
+       "note": "EX means former or old"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 9,
+         "note": "playing means the letters are played about with, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tune",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old melody strikes up as people depart.",
+     "definitionFit": "The Latin stage direction for several actors leaving the stage means they go out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +532,49 @@
     "text": "Bishop pens articles more readily",
     "enumeration": "6"
    },
-   "solution": "RATHER"
+   "solution": "RATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more readily",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pens",
+       "at": 7,
+       "note": "pens means the bishop letters enclose the articles, as in a pen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bishop",
+       "at": 0,
+       "gives": "RR",
+       "note": "RR is Right Reverend, a bishop's title"
+      },
+      {
+       "words": "articles",
+       "at": 12,
+       "gives": "ATHE",
+       "note": "A and THE are the indefinite and definite articles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric writes newspaper pieces more willingly.",
+     "walkthrough": "'pens' looks like writing but means encloses.",
+     "definitionFit": "Saying you would sooner do something means doing it more readily or willingly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pens"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +588,40 @@
     "text": "Steal our belongings? Time to get tough!",
     "enumeration": "6"
    },
-   "solution": "ROBUST"
+   "solution": "ROBUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tough",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Steal our belongings",
+       "at": 0,
+       "gives": "ROBUS",
+       "note": "to steal our belongings is to rob us"
+      },
+      {
+       "words": "Time",
+       "at": 22,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A victim of burglary decides it is time to get hard on crime.",
+     "definitionFit": "Something sturdy and strong can be called tough or hardy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tough"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +635,48 @@
     "text": "Ringing works to gather information",
     "enumeration": "8"
    },
-   "solution": "PLANGENT"
+   "solution": "PLANGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ringing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to gather",
+       "at": 14,
+       "note": "to gather means the works word takes the information word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "works",
+       "at": 8,
+       "gives": "PLANT",
+       "note": "a plant is a factory, a works"
+      },
+      {
+       "words": "information",
+       "at": 24,
+       "gives": "GEN",
+       "note": "GEN is British slang for information"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A factory collects data.",
+     "definitionFit": "A resonant, mournful sound, like a bell tolling, is described as plangent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ringing"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +700,79 @@
      }
     ]
    },
-   "solution": "KEEPTHEPEACE"
+   "solution": "KEEPTHEPEACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prevent fighting",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 5,
+         "note": "around means the look word is turned round to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Look",
+         "at": 0,
+         "gives": "PEEK",
+         "note": "to peek is to look"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "struggles",
+         "at": 35,
+         "note": "struggles means the remaining letters thrash about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 25,
+           "note": "endlessly means the final letter of the two words is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "PE teacher",
+           "at": 14
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gym teacher has trouble breaking up a playground scrap.",
+     "walkthrough": "'endlessly' cuts the R from PE TEACHER, and 'struggles' rearranges PETEACHE.",
+     "definitionFit": "The idiom means to maintain order and stop disturbances or fighting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggles"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +786,34 @@
     "text": "River fish move rapidly",
     "enumeration": "4"
    },
-   "solution": "DART"
+   "solution": "DART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0,
+      "meaning": "a river in Devon, in south-west England"
+     },
+     {
+      "text": "fish",
+      "at": 6,
+      "meaning": "a small freshwater fish, related to the dace"
+     },
+     {
+      "text": "move rapidly",
+      "at": 11,
+      "meaning": "to dash or shoot forward"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish in a river moves quickly.",
+     "definitionFit": "The same word names a Devon river, a fish, and a verb meaning to dash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +827,59 @@
     "text": "Advocate, missing daughter, joins church to make new start",
     "enumeration": "10"
    },
-   "solution": "RECOMMENCE"
+   "solution": "RECOMMENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make new start",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 10,
+         "note": "missing means the daughter letter is dropped from the advocate word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Advocate",
+         "at": 0,
+         "gives": "RECOMMEND",
+         "note": "to advocate is to recommend"
+        },
+        {
+         "words": "daughter",
+         "at": 18,
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 34,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer whose daughter is gone takes to religion to begin again.",
+     "walkthrough": "'Advocate' looks like a lawyer but is the verb.",
+     "definitionFit": "To begin again after a pause is to make a new start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advocate"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +899,42 @@
      }
     ]
    },
-   "solution": "TAWNYEAGLE"
+   "solution": "TAWNYEAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flyer",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to circulate",
+       "at": 12,
+       "note": "to circulate means the letters move around into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Elegant way",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish way to distribute leaflets.",
+     "walkthrough": "'flyer' poses as a leaflet; it is a bird.",
+     "definitionFit": "This African bird of prey is something that flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyer"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +954,37 @@
      }
     ]
    },
-   "solution": "NEWHAMPSHIRE"
+   "solution": "NEWHAMPSHIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "NEW + HAMPSHIRE",
+     "parts": [
+      {
+       "words": "could lead to her mishap",
+       "at": 11,
+       "note": "read the first word of the answer as an anagram signal: the second word, rearranged anew, gives HER MISHAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A predicament that might bring about a woman's accident.",
+     "walkthrough": "A reverse clue: 'new' is taken as an instruction to rearrange the English county name that follows, which yields the clue's 'her mishap'.",
+     "definitionFit": "It is one of the six New England states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +998,58 @@
     "text": "Capital asset ultimately remains with county",
     "enumeration": "8"
    },
-   "solution": "TASHKENT"
+   "solution": "TASHKENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 14,
+         "note": "ultimately points to the final letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "asset",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "remains",
+       "at": 25,
+       "gives": "ASH",
+       "note": "ash is what remains after burning"
+      },
+      {
+       "words": "county",
+       "at": 38,
+       "gives": "KENT",
+       "note": "Kent is a county in south-east England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial holding's final value stays with a county.",
+     "walkthrough": "'Capital' suggests money beside 'asset'.",
+     "definitionFit": "It is the capital city of Uzbekistan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1063,40 @@
     "text": "College trainer is a novelist",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a novelist",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "College",
+       "at": 0,
+       "gives": "C"
+      },
+      {
+       "words": "trainer",
+       "at": 8,
+       "gives": "HANDLER",
+       "note": "a handler trains and controls animals such as dogs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university coach turns out to write fiction.",
+     "definitionFit": "Raymond Chandler was the American crime writer who created Philip Marlowe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trainer"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1120,46 @@
      }
     ]
    },
-   "solution": "ONTHEWARPATH"
+   "solution": "ONTHEWARPATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "looking for a fight",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 23,
+       "note": "upset means the letters are knocked over into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What on earth",
+       "at": 0
+      },
+      {
+       "words": "Penny",
+       "at": 15,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated cry as Penny gets upset and spoils for a fight.",
+     "walkthrough": "'What on earth?' reads as an exclamation but is the fodder.",
+     "definitionFit": "The idiom, from warriors heading to battle, describes someone angry and ready for confrontation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1173,57 @@
     "text": "Baseless assault with hard stick",
     "enumeration": "6"
    },
-   "solution": "ATTACH"
+   "solution": "ATTACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Baseless",
+         "at": 0,
+         "note": "baseless in a down clue removes the bottom, final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assault",
+         "at": 9,
+         "gives": "ATTACK",
+         "note": "an assault is an attack"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 22,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unfounded charge of assault with a heavy club.",
+     "walkthrough": "'stick' looks like a weapon but is the verb.",
+     "definitionFit": "To attach something is to stick or fasten it on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1237,40 @@
     "text": "Give most suitable expression of pain",
     "enumeration": "6"
    },
-   "solution": "BESTOW"
+   "solution": "BESTOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "most suitable",
+       "at": 5,
+       "gives": "BEST",
+       "note": "the best is the most suitable"
+      },
+      {
+       "words": "expression of pain",
+       "at": 19,
+       "gives": "OW",
+       "note": "ow is a cry of pain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Offer the ideal way to say it hurts.",
+     "definitionFit": "To bestow is to give or present formally, as an honour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1290,59 @@
      }
     ]
    },
-   "solution": "THETEMPEST"
+   "solution": "THETEMPEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "play",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in places the male and the agency worker inside the try-out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "try-out",
+       "at": 22,
+       "gives": "TEST",
+       "note": "a try-out is a test"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "HE",
+         "note": "HE is the male pronoun"
+        },
+        {
+         "words": "agency worker",
+         "at": 5,
+         "gives": "TEMP",
+         "note": "a temp is a temporary worker placed by an agency"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from a staffing agency undergoes a trial for a theatre role.",
+     "definitionFit": "It is Shakespeare's late drama featuring Prospero and his island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "try-out"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1356,31 @@
     "text": "Deliberately avoid attention!",
     "enumeration": "4"
    },
-   "solution": "SHUN"
+   "solution": "SHUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deliberately avoid",
+      "at": 0,
+      "meaning": "to keep away from on purpose"
+     },
+     {
+      "text": "attention!",
+      "at": 19,
+      "meaning": "the clipped military command for 'attention!' on the parade ground"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to steer clear of being noticed.",
+     "definitionFit": "The verb means to avoid on purpose, and the clipped drill-sergeant bark stands for 'attention!'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attention"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1394,41 @@
     "text": "Even I can be a fabulous creature",
     "enumeration": "4"
    },
-   "solution": "YETI"
+   "solution": "YETI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a fabulous creature",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Even",
+       "at": 0,
+       "gives": "YET",
+       "note": "yet can mean even, as in 'yet more'"
+      },
+      {
+       "words": "I",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts that even they can be a wonderful being.",
+     "walkthrough": "'fabulous' means of fable, not marvellous.",
+     "definitionFit": "The abominable snowman of Himalayan legend is a creature of myth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fabulous"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1442,46 @@
     "text": "Islander active in opposing the Second Amendment?",
     "enumeration": "8"
    },
-   "solution": "ANTIGUAN"
+   "solution": "ANTIGUAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the active letter inside the opposing phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opposing the Second Amendment?",
+       "at": 19,
+       "gives": "ANTIGUN",
+       "note": "the Second Amendment of the US Constitution protects the right to bear arms, so opposing it is being anti-gun"
+      },
+      {
+       "words": "active",
+       "at": 9,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone campaigning against American gun rights.",
+     "definitionFit": "A person from Antigua, a Caribbean island, is an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1495,58 @@
     "text": "Make invalid fight off overwhelming onset of apathy",
     "enumeration": "6"
    },
-   "solution": "REPEAL"
+   "solution": "REPEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make invalid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overwhelming",
+       "at": 23,
+       "note": "overwhelming means the fight-off word engulfs the letter, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fight off",
+       "at": 13,
+       "gives": "REPEL",
+       "note": "to fight off is to repel"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "onset of",
+         "at": 36,
+         "note": "onset of takes the opening letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "apathy",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beating back crushing indifference to cancel something.",
+     "definitionFit": "To revoke a law is to make it invalid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fight"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1566,59 @@
      }
     ]
    },
-   "solution": "HAWKEYED"
+   "solution": "HAWKEYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vigilant",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Husband",
+       "at": 0,
+       "gives": "H"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 17,
+         "note": "around means the fearful word is placed round the crib word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fearful",
+         "at": 9,
+         "gives": "AWED",
+         "note": "awed means filled with fear and reverence"
+        },
+        {
+         "words": "crib",
+         "at": 24,
+         "gives": "KEY",
+         "note": "a crib is a key, a translation used for cheating"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous husband keeps watch over a baby's cot.",
+     "walkthrough": "'crib' suggests a cot but is a student's key.",
+     "definitionFit": "Being sharp-sighted and watchful means being vigilant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crib"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1632,48 @@
     "text": "Arctic bird has no name",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arctic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "has no",
+       "at": 12,
+       "note": "has no means the name letter is taken away from the bird"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "at": 7,
+       "gives": "BITTERN",
+       "note": "the bittern is a wading bird of the heron family"
+      },
+      {
+       "words": "name",
+       "at": 19,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A polar bird lacks a name.",
+     "walkthrough": "'Arctic' seems to describe the bird but is the definition.",
+     "definitionFit": "Arctic weather is freezing cold, and bitter is used for piercing cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Arctic"
+    }
+   }
   }
  ]
 }
