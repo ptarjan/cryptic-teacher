@@ -333,6 +333,43 @@ PRIZE_SOLUTION = re.compile(r"^\W*(?:(\S{4,11})\s+(\S{1,3})\s+)?(\S{4,7})\s+(\S{
 #: The 2006-07 Gale Times Monday's heading of the Saturday prize's solution: "Competition Solution 23,450"
 #: (2006-11-27; no "Prize" word, so no PRIZE_SOLUTION): its words like "competition" and "solution".
 COMPETITION_SOLUTION = re.compile(r"^\W*(\S{9,13})\s+(\S{6,10})\W*\s+(\S{1,7}(?:\s\S{1,5}){0,2})$", re.IGNORECASE)
+#: How many titles before its host's a championship puzzle (WEEK_ON_SOLUTIONS) is: six a week on, seven
+#: eight days on (2011-14), nine eleven days on (1988-91's qualifiers).
+CHAMPIONSHIP_LAGS = (6, 7, 9)
+#: A championship puzzle's solution heading: "Solution to Eliminator Puzzle No 17,907", "Solution to the
+#: Qualifying Puzzle No 21,156", "Solution to Championship Qualifying Puzzle No 17,565", "Solution to Second
+#: Qualifying puzzle 25,786", "Solution to qualifier No 25,762", 1988-01-25's "Solution to The Times Collins" over
+#: "Dictionaries Crossword Champ-" over "ionship Qualifying Puzzle No 17,565" (when read joined: its lines set too tight for
+#: host_heading_lines and column_headings to join, 1988-01-25 and 1991-01-28 read none yet),
+#: 2012's "1st Qualifier 25,116" (no "Solution"): maybe "Solution to", up to eight words (the sponsor's name, an
+#: ordinal), the word (championship_number judges them), maybe "Puzzle", maybe "No", the number.
+CHAMPIONSHIP_SOLUTION = re.compile(r"^\W*(?:(\S{4,11})\s+(\S{1,3})\s+)?((?:\S+\s+){0,8}?)"
+                                   r"(\S{8,11})\s+(?:p\S{3,5}\s+)?(?:\S?n[o0]\W{0,2}\s*)?(\d\S{1,6}(?:\s\S{1,4})?)$",
+                                   re.IGNORECASE)
+#: The ordinal a CHAMPIONSHIP_SOLUTION with no "Solution" word must open on.
+CHAMPIONSHIP_ORDINAL = re.compile(r"^(?:1st|2nd|3rd|4th|first|second|third|fourth|final)$", re.IGNORECASE)
+
+
+def championship_number(text, expected):
+    """The number of `expected` (solution_number) heading `text` reads as a CHAMPIONSHIP_SOLUTION, or None:
+    its word like "eliminator", "qualifier" or "qualifying", opened by a word like "solution" or by an ordinal
+    alone (CHAMPIONSHIP_ORDINAL), no word between naming a day ("The solution to yesterday's eliminator puzzle
+    17,595 will appear", the next day's deferral, is none) or holding a digit (bar an ordinal), a number of four
+    digits or more. A word run into the next ("toQualifyingPuzzle23,357") is parted and a speck dropped
+    (unspecked) first."""
+    text = re.sub(r"(?<=[a-z])(?=[A-Z])|(?<=[A-Za-z])(?=\d)", " ", unspecked(text))
+    m = CHAMPIONSHIP_SOLUTION.match(text)
+    if not m or re.search(r"\d", m[4]) or not any(like(re.sub(r"[^a-z]", "", m[4].lower()), w)
+                                                  for w in ("eliminator", "qualifier", "qualifying")):
+        return None
+    lead, between = m[1], m[3].split()
+    if lead and (not like(lead, "solution") or re.search(r"\d", lead)) \
+            or not lead and not (len(between) == 1 and CHAMPIONSHIP_ORDINAL.match(between[0])):
+        return None
+    if any(re.search(r"day", w, re.IGNORECASE) or re.search(r"\d", w) and not CHAMPIONSHIP_ORDINAL.match(w)
+           for w in between) or len(re.findall(r"\d", m[5])) < 4:
+        return None
+    return solution_number(m[5], expected)
 
 
 def prize_words(m):
@@ -409,17 +446,21 @@ def solution_headings(lines, titles):
     itself, whose number is one SOLUTION_LAGS before a title
     (solution_number), or read clean as one HOLIDAY_LAGS before (a week
     short of an issue: linked_solutions keeps it only where the filed
-    dates say a prize was). With no title read, SOLUTION's exact headings."""
+    dates say a prize was), or one CHAMPIONSHIP_LAGS before (a championship
+    puzzle's, its heading's word read, or the plain "Solution to 25,451" of
+    2013-04-25 read clean: linked_solutions keeps it only where hosted
+    names it, WEEK_ON_SOLUTIONS or a prize Monday's). With no title read, SOLUTION's exact headings."""
     if not titles:
         return headings(lines, SOLUTION)
     expected = {t - lag for t in titles for lag in SOLUTION_LAGS}
-    clean = {t - lag for t in titles for lag in HOLIDAY_LAGS} - expected
+    champion = {t - lag for t in titles for lag in CHAMPIONSHIP_LAGS}
+    clean = ({t - lag for t in titles for lag in HOLIDAY_LAGS} | champion) - expected
     prize = {t - PRIZE_LAG for t in titles}
     found = []
     for ws in lines:
         k = 0
         while k < len(ws):
-            end = solution_at(ws, k, expected, clean, prize)
+            end = solution_at(ws, k, expected, clean, prize, champion)
             if end is None:
                 k += 1
                 continue
@@ -431,16 +472,21 @@ def solution_headings(lines, titles):
     return found + solutions_over(lines, expected)
 
 
-def solution_at(ws, k, expected, clean=(), prize=()):
+def solution_at(ws, k, expected, clean=(), prize=(), champion=()):
     """(number, last word's index) of the shortest LOOSE_SOLUTION heading
     opening at word `k` of a line whose number is one of `expected`
     (solution_number), or read digit for digit as one of `clean`, or a
-    PRIZE_SOLUTION heading numbered one of `prize`, or None. A line may hold two ("Solution to Puzzle
+    PRIZE_SOLUTION heading numbered one of `prize`, or a championship puzzle's
+    (championship_number) numbered one of `expected` or `champion`, or None. A line may hold two ("Solution to Puzzle
     No 19,243 Solution to Punk No 19.248"): solution_headings reads on past
     the first."""
     text = ""
     for j in range(k, len(ws)):
         text = (text + " " + ws[j][4]).strip()
+        if re.search(r"(?i)l[il1]m[il1]n|ual[il1]f", text):  # (a cheap test first: most lines name none)
+            n = championship_number(text, set(expected) | set(champion))
+            if n is not None:
+                return n, j
         if prize:
             p = PRIZE_SOLUTION.match(text)
             if p and prize_words(p) and not re.search(r"\d", "".join(g or "" for g in p.groups()[:4])):
@@ -7296,6 +7342,30 @@ for _paper, _pins in _DAY_HEADING_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before solution_at read a championship puzzle's
+#: heading ("Solution to Eliminator Puzzle No 17,907": championship_number) and solution_headings took a clean
+#: plain heading CHAMPIONSHIP_LAGS before a title ("Solution to 25,451"): both link only numbers hosted names
+#: (the week-later hosts WEEK_ON_SOLUTIONS names, a prize Monday's prize), so every scan stands, the Times's and
+#: the Gale Times's too; those hosts are
+#: read in their solution bands once more (HOST_WEEK_ON_RESCAN).
+_CHAMPIONSHIP_FIX = {
+    "ft": ("07726c4a4c88f8eb", "99308a07e894d553", "391b61202cf4b98c"),
+    "gale": ("b22cb4022147145e", "703728e92c4f4238", "f7bc7e3d45b2f88b"),
+    "galeft": ("fe8ad8a8474e675f", "bf4df2781492eefa", "40da4fc92dec169f"),
+    "galeindependent": ("efec33309a8a7e9a", "fda1135c455f6f03", "65a1b0940fbbdcb1"),
+    "galesundaytimes": ("6be8a305b502ea0d", "7e6ca02bc5e6c48d", "694d8019af4f768b"),
+    "galetelegraph": ("93c86242b7ba3542", "50523063fdf78799", "cff052255b09fe94"),
+    "galetls": ("f63e8c6f5679c7c7", "a3523a84b5c4a2f4", "28518bdf27085631"),
+    "guardian": ("360c98fc36e63266", "124343de01dfbe28", "fea632dc98d2de42"),
+    "telegraph": ("9e498503509faf7c", "4d0ff657e6e3d592", "e1178eb825e3b486"),
+    "times": ("516f28b9e031d6a9", "19b734a3b1119d68", "d28a5c5b09785679"),
+    "times1930": ("5d9d486af4b94a99", "e76cc5840bca1cd7", "25cfb6341d0da49f"),
+}
+for _paper, _pins in _CHAMPIONSHIP_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -7311,7 +7381,7 @@ def prize_rescan(paper, key, rel):
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
     return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
-                        _DAY_HEADING_FIX["gale"][2])
+                        _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -7396,7 +7466,9 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "7a7113210025b6ae": "8417cfb08f3a9706",
                   # COMPETITION_SOLUTION and a mark glued before a number (_DAY_HEADING_FIX): no grid is
                   # read otherwise.
-                  "707dd4b1636238eb": "8417cfb08f3a9706"}
+                  "707dd4b1636238eb": "8417cfb08f3a9706",
+                  # championship_number and CHAMPIONSHIP_LAGS (_CHAMPIONSHIP_FIX): no grid is read otherwise.
+                  "fb1e89c48b881125": "8417cfb08f3a9706"}
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -9653,9 +9725,15 @@ HOST_COLUMN_RESCAN = "solution host, its column headings unread"
 #: Once: a host whose solutions_only read is older than this is due (host_rescan_due); HOST_COLUMN_RESCAN when
 #: that read is newer than REREAD_HOST_GRIDS (host_rescan_reason).
 REREAD_HOST_COLUMNS = "2026-10-26T08:45:00+00:00"
+#: The reason of the same read of a championship puzzle's week-later host (WEEK_ON_SOLUTIONS) read before
+#: REREAD_HOST_WEEK_ON: solutions_only now reads its "Solution to Eliminator Puzzle No 17,907" (championship_number)
+#: and a plain heading CHAMPIONSHIP_LAGS before its titles. Paul 10-26: host_days named none of these hosts.
+HOST_WEEK_ON_RESCAN = "solution host a week on, its championship heading unread"
+#: Once: a WEEK_ON_SOLUTIONS host whose solutions_only read is older than this is due (host_rescan_due).
+REREAD_HOST_WEEK_ON = "2026-10-26T09:45:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
-HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -10086,11 +10164,34 @@ def host_day(day):
 HOST_REACH = 11
 
 
+#: {puzzle date: the date of the issue that printed its solution} of the Times National Crossword
+#: Championship's qualifying and eliminator puzzles, whose solution prints a week or more on, not in the
+#: next issue, as their own pages or the next day's say ("The solution of yesterday's Eliminator Puzzle
+#: No 17,907 will appear on Thursday, Feb 23"; 2011-14: "The solution to this puzzle will appear on
+#: Thursday, March 29") and the host's heading reads ("Solution to Eliminator Puzzle No 17,907",
+#: "Solution to Qualifier Puzzle No 17,877", "Solution toQualifyingPuzzle23,357", "1st Qualifier 25,116"):
+#: 1987-91 a January Thursday's qualifier on the Monday eleven days on, a February Thursday's eliminator a
+#: week on; 2006 a week on; 2011-14 a Wednesday's qualifier on the Thursday eight days on. Only dates
+#: whose host is so read: the championship ran other years too, its puzzles' days unread (1990, 1992,
+#: 2009-10). Paul 10-26: host_days named none of these hosts, so their puzzles stayed unanswered.
+WEEK_ON_SOLUTIONS = {datetime.date(*a): datetime.date(*b) for a, b in (
+    ((1987, 2, 19), (1987, 2, 26)), ((1988, 1, 14), (1988, 1, 25)), ((1988, 2, 18), (1988, 2, 25)),
+    ((1989, 1, 12), (1989, 1, 23)), ((1989, 2, 16), (1989, 2, 23)), ((1991, 1, 17), (1991, 1, 28)),
+    ((1999, 7, 15), (1999, 7, 23)),
+    ((2006, 7, 27), (2006, 8, 3)), ((2006, 8, 2), (2006, 8, 9)), ((2006, 8, 14), (2006, 8, 21)),
+    ((2011, 4, 6), (2011, 4, 14)), ((2011, 5, 4), (2011, 5, 12)), ((2011, 6, 1), (2011, 6, 9)),
+    ((2012, 3, 21), (2012, 3, 29)), ((2012, 4, 18), (2012, 4, 26)), ((2012, 5, 16), (2012, 5, 24)),
+    ((2013, 4, 17), (2013, 4, 25)), ((2013, 5, 15), (2013, 5, 23)), ((2013, 6, 12), (2013, 6, 20)),
+    ((2013, 7, 10), (2013, 7, 18)), ((2014, 4, 16), (2014, 4, 24)), ((2014, 5, 14), (2014, 5, 22)))}
+
+
 def host_days(day, on=None):
     """Every date that may print the solution of the puzzle of `day`: host_day, and for a Saturday
-    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG). A host that is
+    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG), and a championship
+    puzzle's week-later host (WEEK_ON_SOLUTIONS). A host that is
     maybe_no_paper and not in `on` (the dates on disk; None: unknown) has the next issue after it too."""
     more = [next_issue(day + datetime.timedelta(days=9))] if day.weekday() == 5 and day >= PRIZE_MONDAYS else []
+    more += [WEEK_ON_SOLUTIONS[day]] if day in WEEK_ON_SOLUTIONS else []
     out = []
     for h in (host_day(day), *more):
         gap = maybe_no_paper(h) and (on is None or h not in on)
@@ -10108,17 +10209,28 @@ def hosts_of(day):
 def host_rescan_due(paper, row):
     """Whether Gale Times ledger `row` of a solution host is due its solutions_only read once more
     (HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN): none made at or after REREAD_HOST_COLUMNS (a "solOnly"
-    with no "at" is older)."""
-    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_COLUMNS
+    with no "at" is older), or for a WEEK_ON_SOLUTIONS host (HOST_WEEK_ON_RESCAN) none at or after REREAD_HOST_WEEK_ON."""
+    at = str(((row or {}).get("solOnly") or {}).get("at") or "")
+    return paper is GALE and bool(row) and (at < REREAD_HOST_COLUMNS or at < REREAD_HOST_WEEK_ON and week_on_host(row))
+
+
+def week_on_host(row):
+    """Whether ledger `row`'s edition is the week-later host of a championship puzzle (WEEK_ON_SOLUTIONS)."""
+    day = _date_in(str(row.get("edition") or ""))
+    return day is not None and day in _WEEK_ON_HOSTS
+
+
+_WEEK_ON_HOSTS = frozenset(WEEK_ON_SOLUTIONS.values())
 
 
 def host_rescan_reason(row):
     """The reason a host_rescan_due ledger `row` is read: HOST_RESCAN when its solutions_only read is older
     than REREAD_HOST_HEADINGS (or there is none), HOST_GRID_RESCAN when older than REREAD_HOST_GRIDS (loose_bands
-    new to it), else HOST_COLUMN_RESCAN (only column_headings and named_day_headings are)."""
+    new to it), HOST_COLUMN_RESCAN when older than REREAD_HOST_COLUMNS (only column_headings and
+    named_day_headings are), else HOST_WEEK_ON_RESCAN (a championship puzzle's week-later host: week_on_host)."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
     return HOST_RESCAN if at < REREAD_HOST_HEADINGS else HOST_GRID_RESCAN if at < REREAD_HOST_GRIDS \
-        else HOST_COLUMN_RESCAN
+        else HOST_COLUMN_RESCAN if at < REREAD_HOST_COLUMNS else HOST_WEEK_ON_RESCAN
 
 
 def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
@@ -10282,6 +10394,8 @@ def solutions_only(d):
     lagged = {t - lag for t in voted for lag in SOLUTION_LAGS + HOLIDAY_LAGS}
     # A heading set in a narrow column beside another (column_headings): the numbers solution_headings expects.
     lags = {t - lag for t in voted for lag in SOLUTION_LAGS}
+    # A championship puzzle's heading so set ("Solution to Eliminator" over "Puzzle No 17,907"): a week or more on.
+    champs = {t - lag for t in voted for lag in CHAMPIONSHIP_LAGS}
     import ocr_remote
     with ocr_remote.local_slot():
         for leaf in leaves:
@@ -10303,7 +10417,7 @@ def solutions_only(d):
                 for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
                     sols.setdefault(n, b)
                 if paper.series == SERIES:
-                    for n, b in column_headings(lines, lines if pool is None else pool, lags, deferred) \
+                    for n, b in column_headings(lines, lines if pool is None else pool, lags, deferred, champs) \
                             + named_day_headings(lines, lagged):
                         columns.setdefault(n, b)
             for band in loose_bands(img, solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words])):
@@ -10512,7 +10626,7 @@ COLUMN_GAP = 1.5
 DEFERRED = re.compile(r"will|[a-z][pn]{2}[ec]ar", re.IGNORECASE)
 
 
-def column_headings(lines, pool, expected, deferred=None):
+def column_headings(lines, pool, expected, deferred=None, champion=()):
     """[(number, box)] of the headings in `lines` set in a narrow column, a band's line running on into the
     one beside it: from each solution_like word, the words on its line up to a gap of COLUMN_GAP heights,
     joined to the rows under it in `pool` (the page's or band's lines) whose words start within two
@@ -10571,7 +10685,7 @@ def column_headings(lines, pool, expected, deferred=None):
                 text += row
                 if not any(re.search(r"\d", v[4]) for v in text):
                     continue
-                end = solution_at(text, 0, expected)
+                end = solution_at(text, 0, expected, champion=champion)
                 if end is not None and not column_heading_like(text[:end[1] + 1], end[0]):
                     end = None
                 if end is not None:

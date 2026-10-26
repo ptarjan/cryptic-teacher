@@ -718,6 +718,9 @@ def evidence_reason(reason):
             # ... read before column_headings read a heading set in a narrow column beside another, its number on
             # the row under it, and named_day_headings the 2007-14 "Monday's Solution 23,792": once.
             or reason == fa.HOST_COLUMN_RESCAN
+            # ... a championship puzzle's week-later host (fa.WEEK_ON_SOLUTIONS) read before its "Solution to
+            # Eliminator Puzzle No 17,907" heading was read (fa.championship_number): once.
+            or reason == fa.HOST_WEEK_ON_RESCAN
             # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
             # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
             or reason == fa.RIGHT_FOREIGN_READ
