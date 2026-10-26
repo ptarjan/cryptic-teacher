@@ -612,7 +612,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "The King's hit",
+      "text": "The King's hit grog-blossomed Tyneside toper with this order?",
       "at": 0
      }
     ],
@@ -620,16 +620,18 @@
      "op": "charade",
      "parts": [
       {
-       "words": "with this order?",
+       "words": "hit",
+       "at": 11,
        "gives": "RETURN",
-       "note": "the instruction applied to the following letters is itself the first word of the solution"
+       "note": "to return a ball is to hit it back"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "this order",
-         "note": "the order meant is the answer's own opening instruction, to send something back the way it came"
+         "text": "with this order",
+         "at": 45,
+         "note": "the order printed on undeliverable post tells you to send it back, so the pieces are read backwards"
         }
        ],
        "parts": [
@@ -638,18 +640,21 @@
          "parts": [
           {
            "words": "grog-blossomed",
+           "at": 15,
            "gives": "RED",
-           "note": "a grog blossom is a drinker's red nose"
+           "note": "grog-blossoms are the red blotches on a heavy drinker's nose, so red"
           },
           {
            "words": "Tyneside",
+           "at": 30,
            "gives": "NE",
-           "note": "Tyneside is in the North East of England"
+           "note": "Tyneside is in the north-east of England, NE"
           },
           {
            "words": "toper",
+           "at": 39,
            "gives": "SOT",
-           "note": "a toper and a sot are both drunkards"
+           "note": "a toper is a drunkard, a sot"
           }
          ]
         }
@@ -657,15 +662,16 @@
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Elvis's song apparently struck a red-nosed Newcastle drunk.",
-     "walkthrough": "The clue is self-referential: obey the order RETURN on red, north-east and sot, and you get the rest of the title. The King is Elvis Presley.",
-     "definitionFit": "Return to Sender was a 1962 hit single for Elvis Presley, the King of rock and roll."
+     "surface": "Elvis's song seems to be aimed at a red-nosed Geordie drunk.",
+     "walkthrough": "'with this order' reverses RED, NE and SOT into TOSENDER; the order meant is the answer itself, written on post that cannot be delivered. Elvis Presley was 'the King'.",
+     "definitionFit": "A 1962 hit single for Elvis Presley, and also the instruction written on mail being sent back."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "hit"
     }
    }
