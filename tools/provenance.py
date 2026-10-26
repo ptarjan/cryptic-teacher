@@ -38,7 +38,11 @@ a self-consistent guess; both are 15x15 of capital letters. `origin` says which
 the claim: a write-up names its `blog` and `url`, a model solve its `model`, and
 both the `date` and the crossing `check`. A model solve of a scan that kept
 some of its answers lists them in `printed` (entry id -> answer): those stay
-the paper's, and check() refuses a grid that differs from one. An answer the
+the paper's, and check() refuses a grid that differs from one. That is also how
+a scanned Times grid records the few lights the print did not give and we
+solved from their clues (tools/file_archive_org_puzzles.py clue_solved_reads:
+the clue's wordplay and its WordNet definition): `model` names that solver,
+"clue-wordplay+wordnet", and every light outside `printed` is ours. An answer the
 annotator replaced because the clue gives another word is in `corrected`
 ({entry, was, now, date}), and one sent back to be solved again because no
 parse supported it is in `reopened` (entry id -> the answer that was there),

@@ -1846,6 +1846,85 @@ def clue_wordplay(text, n):
     return out
 
 
+#: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
+#: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
+_SYNSETS = []
+#: definition_linked: how far up the hypernyms each side climbs, and the most senses an answer may have
+#: (a word of many senses links to almost any definition).
+DEFINITION_DEPTH, DEFINITION_SENSES = 2, 8
+
+
+def _wordnet_synsets():
+    if not _SYNSETS:
+        with gzip.open(TOOLS / "data" / "wordnet.json.gz", "rt", encoding="utf-8") as f:
+            data = json.load(f)
+        _SYNSETS.append((data["words"], data["synsets"]))
+    return _SYNSETS[0]
+
+
+def definition_linked(word, clue):
+    """Whether answer `word` is linked in WordNet to clue text `clue`'s definition: one of its first or last
+    one to three words (a phrase, or its plural, -ed or -ing form) shares a synset with the answer's senses,
+    either side within DEFINITION_DEPTH hypernyms and a neighbour of the other's, or the two share a
+    neighbour. The answer must be a lemma (or its plural) of at most DEFINITION_SENSES senses, counting none
+    that is only an instance (a proper name); an end that opens the word (its first four letters) is not
+    its definition. 10-26, held out on Times grids' known lights that clue_wordplay's one fitting word
+    spelt: 1,656 right, 0 wrong (CHAMP, NOISE, LEWES all unlinked)."""
+    words, rows = _wordnet_synsets()
+
+    def senses(phrase, inflected):
+        for k in (phrase, phrase.replace(" ", "_"), phrase.replace(" ", "")):
+            if k in words:
+                return set(words[k])
+        if inflected:
+            for k in (re.sub(r"'s$", "", phrase), re.sub(r"s$", "", phrase), re.sub(r"es$", "", phrase),
+                      re.sub(r"ies$", "y", phrase), re.sub(r"ed$", "", phrase), re.sub(r"ed$", "e", phrase),
+                      re.sub(r"ing$", "", phrase), re.sub(r"ing$", "e", phrase)):
+                if k != phrase and k in words:
+                    return set(words[k])
+        return set()
+
+    def up(ids):
+        out, edge = set(ids), set(ids)
+        for _ in range(DEFINITION_DEPTH):
+            nxt = set()
+            for i in edge:
+                nxt |= set(rows[i][1]) | set(rows[i][2])
+            nxt -= out
+            out |= nxt
+            edge = nxt
+        return out
+
+    def near(ids):
+        out = set(ids)
+        for i in ids:
+            out |= set(rows[i][3])
+        return out
+
+    w = word.lower()
+    a = set(words.get(w, ()))
+    if not a and w.endswith("s"):
+        a = set(words.get(w[:-1], ())) or set(words.get(w[:-2], ()))
+    a = {i for i in a if not (rows[i][2] and not rows[i][1])}
+    if not a or len(a) > DEFINITION_SENSES:
+        return False
+    around = near(up(a))
+    toks = [x.strip("'-") for x in re.findall(r"[a-z][a-z'\-]*", re.sub(r"\(\s*[\d,\-\s.]+\s*\)\s*$", "",
+                                                                         (clue or "").lower()))]
+    toks = [x for x in toks if x]
+    for k in (1, 2, 3):
+        if len(toks) < k:
+            break
+        for phrase in (" ".join(toks[:k]), " ".join(toks[-k:])):
+            flat = re.sub(r"[ '\-]", "", phrase)
+            if flat[:4] in w or w[:4] in flat:
+                continue
+            b = senses(phrase, True)
+            if b and (around & b or near(up(b)) & a or near(a) & near(b)):
+                return True
+    return False
+
+
 def cells_sure(word, cells, probs, held):
     """Whether each cell of `cells` that `held` ({cell: letter}) does not hold reads its letter of
     `word` at least UNLISTED_TOP likely."""
