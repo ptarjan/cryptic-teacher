@@ -315,6 +315,12 @@ button:disabled:hover { border-color: var(--line); }
   border: 1px solid var(--line); border-radius: 7px; cursor: pointer;
 }
 .ana-tile:hover { border-color: var(--accent); }
+/* The clue's words under the free wheel: filled when their letters are in the ring. */
+.ana-words { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; }
+.ana-word { font: inherit; padding: 4px 9px; color: var(--fg); background: var(--card);
+  border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+.ana-word:hover { border-color: var(--accent); }
+.ana-word.on { color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); font-weight: 700; }
 /* Struck, not removed: what you have placed is still part of the count, and a
    tile that vanished would leave a gap the eye reads as a missing letter. */
 .ana-tile.struck { opacity: .5; text-decoration: line-through; font-weight: 400;
