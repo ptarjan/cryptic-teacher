@@ -9557,9 +9557,17 @@ HOST_SCAN = "scan stale, solution host"
 HOST_RESCAN = "solution host, its headings read before their fix"
 #: Once: a host whose solutions_only read ("solOnly" "at") is older than this is due (host_rescan_due).
 REREAD_HOST_HEADINGS = "2026-10-25T22:30:00+00:00"
+#: The reason of the same read of a host read since REREAD_HOST_HEADINGS, before REREAD_HOST_GRIDS: solutions_only
+#: now also reads a band over each near-square solution grid solution_shaped refuses (loose_bands). Paul 10-26:
+#: 133 unanswered Times puzzles' hosts were on disk and the right page, yet read no heading for them; the 1940s
+#: hosts (40) print theirs over a grid whose ink box reads 0.74-0.84 or 1.19-1.5 wide for its height.
+HOST_GRID_RESCAN = "solution host, its loose solution grids unread"
+#: Once: a host whose solutions_only read is older than this is due (host_rescan_due); HOST_GRID_RESCAN when
+#: that read is newer than REREAD_HOST_HEADINGS (host_rescan_reason).
+REREAD_HOST_GRIDS = "2026-10-26T07:45:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
-HOST_REASONS = (HOST_SCAN, HOST_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -9898,11 +9906,11 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
             if u["rel"] in hosts and u["reason"] in ("scan stale", "never scanned"):
                 u.update(reason=HOST_SCAN, rank=RANKS[HOST_SCAN], gain=hosts[u["rel"]])
         scan_units.sort(key=lambda u: u["reason"] != HOST_SCAN)  # stable: the order within each group stands
-    # Hosts whose scan stands but whose solution bands were read before REREAD_HOST_HEADINGS, ahead too.
+    # Hosts whose scan stands but whose solution bands were read before REREAD_HOST_GRIDS, ahead too.
     rescans = host_rescans(paper, dirs, rels, stale_set, solutions, held, known)
     if rescans:
         scan_units[:0] = [{"kind": "scan", "paper": paper.key, "rel": rels[d], "rank": RANKS[HOST_RESCAN], "date": day_of(d),
-                           "reason": HOST_RESCAN, "gain": rescans[rels[d]]}
+                           "reason": host_rescan_reason((known or {}).get(rels[d])), "gain": rescans[rels[d]]}
                           for d in sorted((d for d in dirs if rels[d] in rescans), key=newest, reverse=True)]
     # A scan no read waits on, of an edition whose last scan found only puzzles that will not file.
     scans_before = len(scan_units)
@@ -10011,8 +10019,15 @@ def hosts_of(day):
 
 def host_rescan_due(paper, row):
     """Whether Gale Times ledger `row` of a solution host is due its solutions_only read once more
-    (HOST_RESCAN): none made at or after REREAD_HOST_HEADINGS (a "solOnly" with no "at" is older)."""
-    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_HEADINGS
+    (HOST_RESCAN, HOST_GRID_RESCAN): none made at or after REREAD_HOST_GRIDS (a "solOnly" with no "at" is older)."""
+    return paper is GALE and bool(row) and str((row.get("solOnly") or {}).get("at") or "") < REREAD_HOST_GRIDS
+
+
+def host_rescan_reason(row):
+    """The reason a host_rescan_due ledger `row` is read: HOST_RESCAN when its solutions_only read is older
+    than REREAD_HOST_HEADINGS (or there is none), else HOST_GRID_RESCAN (only loose_bands is new to it)."""
+    return HOST_RESCAN if str(((row or {}).get("solOnly") or {}).get("at") or "") < REREAD_HOST_HEADINGS \
+        else HOST_GRID_RESCAN
 
 
 def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
@@ -10191,7 +10206,7 @@ def solutions_only(d):
                           if HEADING_START.match(ln[k][4]) or solution_like(ln[k][4])]
                 for n, b in {n: b for n, b in reversed(paper.headings(lines, voted)[1] + prize_headings(lines, prize))}.items():
                     sols.setdefault(n, b)
-            for band in solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words]):
+            for band in loose_bands(img, solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words])):
                 for which in READERS:
                     path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
                     judge(row_lines([(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]))
@@ -10204,6 +10219,35 @@ def solutions_only(d):
             found["solutions"] += [{"number": n, "leaf": leaf, "box": box} for n, box in sols.items()
                                    if n not in {s["number"] for s in found["solutions"]}]
     return found
+
+
+#: The width over height a solution grid's ink box may read at in loose_bands, past solution_shaped's
+#: 0.85-1.18: the 1940s Times's small solution grid, left of the puzzle's under the clue columns, thresholds
+#: to a box 0.74-0.84 (its heading's ink run into its top) or 1.19-1.5 (its foot rows broken off).
+LOOSE_GRID = (0.7, 1.55)
+
+
+def loose_bands(img, bands):
+    """`bands` (solution_bands) and one over each grid on page `img` as wide as a solution grid
+    (SOLUTION_GRID) whose box is near square (LOOSE_GRID) but not solution_shaped, reaching down by
+    as far as the box is taller than wide (the heading run into the grid's top lies inside it), where
+    no band of `bands` covers it already. Paul 10-26: the 1940s Times hosts' "Solution of Puzzle
+    No. 3,718" is set in type the whole-page reads lose, over a grid solution_shaped refuses, so no
+    band was cut and no heading read. solutions_only's alone: scan() reaches none of it."""
+    k = img.width / SCAN_WIDTH
+    left, right, pad, over = (int(v * k) for v in SOLUTION_BAND)
+    shaped, most = solution_shaped(img), SOLUTION_GRID[1] * max(1, img.width / SCAN_WIDTH)
+
+    def loose(box):
+        w, h = (box[2] - box[0]) / k, (box[3] - box[1]) / k
+        return SOLUTION_GRID[0] <= w <= most and LOOSE_GRID[0] <= w / max(h, 1) <= LOOSE_GRID[1] and not shaped(box)
+    out = list(bands)
+    for g in grids_on(img, shaped=loose):
+        band = (max(0, g[0] - left), max(0, g[1] - over), min(img.width, g[0] + right),
+                min(img.height, g[1] + max(0, (g[3] - g[1]) - (g[2] - g[0])) + pad // 5))
+        if not any(abs(band[0] - b[0]) < 2 * left and min(band[3], b[3]) > max(band[1], b[1]) for b in out):
+            out.append(band)
+    return out
 
 
 def cached_page_words(key):

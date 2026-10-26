@@ -712,6 +712,9 @@ def evidence_reason(reason):
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
             or reason == fa.UNREAD_TITLES
+            # A solution host of an unanswered Times puzzle read before loose_bands read the heading over a
+            # near-square solution grid (the 1940s'): once (fa.host_rescan_reason); a scan, kept as a host's.
+            or reason == fa.HOST_GRID_RESCAN
             # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
             # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
             or reason == fa.RIGHT_FOREIGN_READ
