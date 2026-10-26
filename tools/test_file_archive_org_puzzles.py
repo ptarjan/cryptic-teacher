@@ -542,6 +542,22 @@ refused = lambda cause, at: {"inputs": "h", "solutionsSeen": [], "vlm": "v", "re
 check("a title filed as another number than it read is not due again", None,
       f.due_reason({"inputs": "h", "solutionsSeen": [], "vlm": "v", "scan": {"puzzles": [{"number": 19453}]},
                     "verdicts": [{"number": 19458, "read_as": 19453}]}, "h", [], "v"))
+# 1930-07-30's title read "158", filed times-153 (read_as): 153's heading linked since makes it due (answers_only
+# reads it off 153's heading); titles alone never did. A row read so stands; one with no mended title is as before.
+misread = {"inputs": "h", "solutionsSeen": [], "vlm": "v", "scan": {"puzzles": [{"number": 158, "leaf": 4}]},
+           "verdicts": [{"number": 153, "read_as": 158, "id": "times-153"}]}
+seen = lambda row, sols, series=f.SERIES: f.seen_solutions(misread["scan"], row, sols, series)
+answered = {**misread, "verdicts": [{**misread["verdicts"][0], "solutionFrom": "x leaf 0"}]}
+check("a heading of a misread title's filed number is seen; its title's too; a plain title as before",
+      [[153], [158, 153], [], [158]],
+      [seen(misread, {153: {}}), seen(misread, {153: {}, 158: {}}), seen(misread, {}),
+       seen({"verdicts": [{"number": 158}]}, {153: {}, 158: {}})])
+check("not one whose answers were read off it (until seen so), nor another paper's (1984 FT read_as 5556 -> 5356)",
+      [[], [153], []], [seen(answered, {153: {}}), seen({**answered, "solutionsSeen": [153]}, {153: {}}),
+                        seen(misread, {153: {}}, "ftcryptic")])
+check("so a misread title's filed number linked since makes the edition due, once", [True, None],
+      [f.due_reason(misread, "h", seen(misread, {153: {}}), "v") is not None,
+       f.due_reason({**misread, "solutionsSeen": [153]}, "h", [153], "v")])
 # solution_title(): real headings on title-lost pages (1980-06-30 one-sided,
 # 1994-02-05 Saturday prize +6, 1977-05-02 "14,539" for 14,589), and the
 # mirror: a heading the neighbours' count does not fit is refused.

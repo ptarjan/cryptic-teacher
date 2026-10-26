@@ -155,13 +155,20 @@ def inputs(files_hash, reprints, series, numbers):
     return f"{files_hash}+{extra}" if extra else files_hash
 
 
-def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=None, solution_key=None):
+def row(rel, inputs_key, found, files_hash, scan_key, sol_seen, verdicts, vlm=None, solution_key=None,
+        sol_only=None):
     """An edition's ledger row after a read; `vlm` the VLM version it was
-    read with, `solution_key` its solution reader's code (solution_key())."""
+    read with, `solution_key` its solution reader's code (solution_key()),
+    `sol_only` the row's solutions_only read ("solOnly") before it, kept: a
+    host's own reread dropped the headings only that read found (fa.scan_of
+    takes them while it is current). 10-26: 41 links over 240 Gale Times
+    hosts lost so, 7 of them to unanswered puzzles."""
     import scan_queue
     out = {"edition": rel, "inputs": inputs_key, "scan": found, "filesHash": files_hash, "scanKey": scan_key,
            "solutionKey": solution_key, "solutionsSeen": sol_seen, "verdicts": verdicts,
            "readAt": scan_queue.now()}
+    if sol_only:
+        out["solOnly"] = sol_only
     if vlm:
         out["vlm"] = vlm
     else:
@@ -291,7 +298,7 @@ def main(spec):
             key = inputs(ctx["filesHash"], ctx["reprints"], series, [p["number"] for p in found["puzzles"]])
             seen_by = ctx["vlmVersion"] if vlm_up and got["vlm"] else None
             scan_queue.append(ledger, [row(rel, key, found, ctx["filesHash"], ctx["scanKey"], ctx["solutionsSeen"],
-                                           verdicts, seen_by, ctx.get("solutionKey"))])
+                                           verdicts, seen_by, ctx.get("solutionKey"), ctx.get("solOnly"))])
         finally:
             signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM})
         progress(read_line(rel, verdicts))
