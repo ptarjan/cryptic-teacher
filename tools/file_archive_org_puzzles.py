@@ -5077,6 +5077,54 @@ def rival_stands(word, rival, enum=None):
 
 
 def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
+    """_answers_only of the linked heading; for a Times puzzle whose reading leaves a light blank that the held
+    file does too and the same day's other copy of the paper prints the solution (SOLUTION_COPIES: the Gale
+    and archive.org scans of one Times issue), that copy's grid read too, no VLM asked, and the reading
+    leaving the fewest lights blank taken (the linked one on a tie). Each is checked whole as its own
+    (checked_answers, settle_held). 10-26: 140 Times puzzles stood 1+ short, no unit planned, their
+    solution printed in both scans; the other scan's grid read times-19292 whole (CLEMENTINE, held ALEM
+    read ALEC "Smart ___"), times-19191 (STAGECOACH, ARGUABLE; held GESTIC read CELTIC)."""
+    got = _answers_only(d, found, hit, solutions, ask_vlm=ask_vlm, crossed=crossed)
+    if got is None or got[1] is None:
+        return got
+    number = got[0]["number"]
+    copies = (solutions.get(number) or {}).get(SOLUTION_COPIES)
+    if not copies or paper_of(d).series != SERIES:
+        return got
+    held = held_file(SERIES, number) or {}
+    had = {entry_id(e) for e in held.get("entries") or () if e.get("solution")}
+    best, left = got, _left_blank(got[1], had)
+    for c in copies:
+        if not left:
+            break
+        alt = _answers_only(d, found, hit, {**solutions, number: c}, ask_vlm=False, crossed=crossed)
+        if alt is None or alt[1] is None:
+            continue
+        info = alt[0].get("solution") or {}
+        if info.get("cellsSure", 0) < COPY_SURE * info.get("cells", 1):
+            continue
+        n = _left_blank(alt[1], had)
+        if n < left:
+            best, left = alt, n
+    if best is not got:
+        best[0]["solution"] = {**best[0]["solution"], "otherCopy": got[0]["solutionFrom"]}
+    return best
+
+
+#: The share of its grid's cells another copy's reading must read sure (cellsSure) for answers_only to take
+#: it. 10-26 dry run, 11 Times 1980s-90s: times-17202's copy read 120/162 sure and filed ERGLE ("Standard,
+#: or two better?": EAGLE) and BRR ("Save pressure": BAR), its A's read as R; the 8 that read 0.90-1.0 gave
+#: only answers right by their clues (times-17131 at 0.81 too, left out with it).
+COPY_SURE = 0.85
+
+
+def _left_blank(puzzle, had):
+    """The lights answers_only's `puzzle` (its held file's entries, the reading's answers) leaves blank
+    that its held file leaves blank too (not in `had`, the held file's answered lights)."""
+    return sum(1 for e in puzzle["entries"] if not e.get("solution") and entry_id(e) not in had)
+
+
+def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     """(verdict, puzzle) of a title whose clues are already filed whole and
     whose solution grid is linked now, read from the solution grid alone, or
     None (the full read): no clue is OCR'd again, as the held file's clues
@@ -7900,15 +7948,33 @@ def solution_source(sol):
 def solution_sources(dirs, scans, rels, held, sister):
     """({number: the solution heading a read takes, its "dir" set}, {number:
     {solution_source} of every page linking it}): each of `dirs`' linked
-    headings, the first per number standing, over the `sister` ones."""
-    first, every = {}, {}
+    headings, the first per number standing, over the `sister` ones. A heading
+    the same day's other copy of the paper prints too (the Gale and archive.org
+    scans of one Times issue) carries those copies' headings under
+    SOLUTION_COPIES: answers_only reads one when its own grid leaves lights blank."""
+    first, every, also = {}, {}, {}
     for d in dirs:
         for s in _linked(d, scans[rels[d]], held):
+            if s["number"] in first:
+                also.setdefault(s["number"], []).append({**s, "dir": d})
             first.setdefault(s["number"], {**s, "dir": d})
             every.setdefault(s["number"], set()).add(solution_source({**s, "dir": d}))
     for n, s in sister.items():
         every.setdefault(n, set()).add(solution_source(s))
-    return {**sister, **first}, every
+        if n in first:
+            also.setdefault(n, []).append(s)
+    out = {**sister, **first}
+    for n, more in also.items():
+        s = out[n]
+        day = edition_date(s["dir"])
+        copies = tuple(c for c in more if c["dir"] != s["dir"] and day is not None and edition_date(c["dir"]) == day)
+        if copies:
+            out[n] = {**s, SOLUTION_COPIES: copies}
+    return out, every
+
+
+#: The key of a linked solution heading (solution_sources) holding the same day's other copies' headings of it.
+SOLUTION_COPIES = "copies"
 
 
 def _linked(d, scan, held, paper=None):
@@ -8557,6 +8623,46 @@ REREAD_CLASH_SHORT = "2026-10-26T07:00:00+00:00"
 #: (1980s 117, 1940s 67), 240 read before 04:49Z. Once, as an answers-only reread (SOLUTION_FIXES).
 CLUE_WIDE = "solution short, its 3-5 last lights read by their clues' candidates since"
 REREAD_CLUE_WIDE = "2026-10-26T08:00:00+00:00"
+#: The due reason of a Times row read before REREAD_OTHER_COPY, due none of those above, with a verdict
+#: whose held puzzle (every clue, from this page) leaves a light blank (held_blanks) and whose solution
+#: the same day's other scan of the paper prints too (due_reason's `sol_from`: the Gale and archive.org
+#: copies of one issue): since then answers_only reads that copy's grid as well where its own leaves a
+#: light blank (SOLUTION_COPIES). 10-26: 140 Times puzzles stood short so with no unit planned (1980s-90s).
+#: Once, as an answers-only reread (SOLUTION_FIXES).
+OTHER_COPY = "solution short, its solution's other scan read since"
+REREAD_OTHER_COPY = "2026-10-26T11:00:00+00:00"
+
+
+def other_copy_short(row, sol_from):
+    """Whether Times ledger `row`, read before REREAD_OTHER_COPY, has a verdict whose linked solution grid
+    it read for a puzzle held with every clue from this page and a light blank (held_blanks), its number
+    linked on another edition of the same day (`sol_from`: {number: {solution_source}})."""
+    if not sol_from or not scan_queue.read_before(row, scan_queue.when(REREAD_OTHER_COPY)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES or paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s, src = v.get("solution"), v.get("solutionFrom")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not src
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")):
+            continue
+        sol_dir = src.rsplit(" leaf ", 1)[0]
+        day = _date_in(sol_dir)
+        if day is None or not any(o.rsplit(" leaf ", 1)[0] != sol_dir and _date_in(o.rsplit(" leaf ", 1)[0]) == day
+                                  for o in sol_from.get(v.get("number"), ())):
+            continue
+        if filed_state(paper.series, v.get("number")) != (False, True):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        if held_blanks(paper.series, v.get("number"), sol_dir) >= 1:
+            return True
+    return False
 #: {(held path, reading path): ((held stamp, reading stamp), held_blanks' answer)}
 _MANY_SHORT = {}
 
@@ -9590,6 +9696,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     why = fix_reason(row)
     if why:
         return why
+    if other_copy_short(row, sol_from):
+        return OTHER_COPY
     if reread and scan_queue.read_before(row, reread):
         return "--reread"
     if vlm_up and row.get("vlm") != vlm_up:
@@ -9738,7 +9846,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -10293,7 +10401,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY)
 
 
 def keeps_vlm(why, row, unit=None):
