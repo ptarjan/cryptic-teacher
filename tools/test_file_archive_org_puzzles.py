@@ -2805,7 +2805,7 @@ with tempfile.TemporaryDirectory() as ht_dir:
           [[ht_hit], [ht_hit], 2, True, False],
           [f.held_titles(ht_row, ht_dir), f.held_titled(ht_row, ht_dir)["puzzles"], f.RANKS[f.HELD_TITLE],
            f.HELD_TITLE in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_TITLE, {}, {})])
-    ht_none = [f.held_titles({**ht_row, "readAt": "2026-10-25T07:00:00+00:00"}, ht_dir),
+    ht_none = [f.held_titles({**ht_row, "readAt": "2026-10-26T02:00:00+00:00"}, ht_dir),
                f.held_titles({**ht_row, "scanKey": "old"}, ht_dir),
                f.held_titles({**ht_row, "scan": {**ht_row["scan"], "puzzles": [{"number": 8235, "leaf": 0}]}}, ht_dir),
                f.held_titles({**ht_row, "verdicts": [{"number": 8236}]}, ht_dir),
@@ -2818,6 +2818,21 @@ with tempfile.TemporaryDirectory() as ht_dir:
           [[ht_hit], [ht_hit]],
           [f.held_titles({**ht_row, "verdicts": [{"number": 8235, "id": "times-8235"}]}, ht_dir),
            f.held_titles({**ht_row, "verdicts": [{"number": 9, "read_as": 8235}]}, ht_dir)])
+    # A row a held-title read wrote (its scan's one title the held one, heldTitle) is read again once more
+    # after REREAD_HELD_TITLE moves (10-26, held_proven).
+    check("an untitled page a held-title read wrote, its scan holding the held title, is read under it again",
+          [ht_hit], f.held_titles({**ht_row, "verdicts": [{"number": 8235}],
+                                   "scan": {**ht_row["scan"], "puzzles": [ht_hit]}}, ht_dir))
+    # held_proven: a held title's reading giving HELD_PROOF held answers alike, none another word, takes
+    # the titled read's uncrossed check (10-25: times-8025's TERRITORIALARMY left out on every-uncrossed).
+    hp_es = [{"number": n, "direction": "across", "solution": w}
+             for n, w in ((1, "ALPHA"), (2, "BRAVO"), (3, "DELTA"), (4, "ECHO"), (5, "GOLF"), (6, None))]
+    hp_four = {"1-across": "ALPHA", "2-across": "BRAVO", "3-across": "DELTA", "4-across": "ECHO", "6-across": "HOTEL"}
+    check("held_proven: 4 held answers read alike proves the grid; 3, or one held answer read as another word, does not",
+          [True, True, False, False],
+          [f.held_proven(hp_es, hp_four), f.held_proven(hp_es, {**hp_four, "5-across": "GOLD"}),
+           f.held_proven(hp_es, {k: v for k, v in hp_four.items() if k != "4-across"}),
+           f.held_proven(hp_es, {**hp_four, "5-across": "KILO"})])
     ht_state[0] = (True, True)
     ht_none.append(f.held_titles(ht_row, ht_dir))
     ht_state[0] = (False, False)
