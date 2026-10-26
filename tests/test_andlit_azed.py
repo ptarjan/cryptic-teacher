@@ -6,6 +6,7 @@
 #     python3 tests/test_andlit_azed.py
 #
 # Hand-built inputs only. Nothing here reads the network, the cache or the corpus.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import subprocess
 import sys
 from pathlib import Path

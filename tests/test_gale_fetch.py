@@ -12,6 +12,7 @@
 #
 # Gale, the Mac and the clock are stand-ins: nothing is asked of Gale or the
 # Mac, nobody is woken, nothing is written outside a temp dir.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 import atexit

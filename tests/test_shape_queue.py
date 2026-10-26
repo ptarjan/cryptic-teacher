@@ -4,6 +4,7 @@
 # leaves the list. The queue tier's ordering is in prereset_plan.py --self-test.
 #
 #     python3 tests/test_shape_queue.py
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

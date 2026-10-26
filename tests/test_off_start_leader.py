@@ -12,6 +12,7 @@
 # readers, collapse(), check_groups, the GROUP_ORDER pin and the length check
 # for that shape; then fetch_puzzle.PRINTED_COUNT_WRONG's write-time mend and
 # puzzle_integrity.check_printed_counts.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

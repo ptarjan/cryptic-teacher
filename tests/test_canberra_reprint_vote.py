@@ -9,6 +9,7 @@
 #
 # A synthetic Trove cache in a temp dir: no scan, no OCR, nothing written
 # outside it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 import atexit

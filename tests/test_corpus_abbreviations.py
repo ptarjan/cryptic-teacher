@@ -10,6 +10,7 @@
 # a thin pair are out, spans the table never holds are not counted, a
 # stripped leaf still counts. Then the committed file: Paul's D for deserted
 # is in the table, so its note now restates it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

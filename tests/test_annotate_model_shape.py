@@ -11,6 +11,7 @@
 # keeps a stored tree as it is, and refuses an old-prompt clue (type, blocks:
 # the view's keys) with a message naming `def`, `wp` and `notes`.
 # Everything is in memory except --patch, which works on a temp file.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

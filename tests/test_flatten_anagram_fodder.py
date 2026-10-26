@@ -3,6 +3,7 @@
 # a charade under it. The parser stores ana(x + y) that way, the validator counts
 # a charade directly under an anagram, and tools/flatten_anagram_fodder.py
 # rewrites the filed ones without changing what view() shows.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # When a clue's blocks are short by exactly the letters of a word filed under
 # linkWords, that word is fodder, and the warning says the edit to make.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

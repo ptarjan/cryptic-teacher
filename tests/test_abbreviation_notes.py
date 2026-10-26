@@ -10,6 +10,7 @@
 # from the corpus by strip_abbreviation_notes.py.
 # A note that adds anything (a domain, a source) stays. All in memory, on a
 # copy of quiptic-619 (11-across: [folio]F).
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -3,6 +3,7 @@
 # tools/data/setter_error.json names for that light passes, with a walkthrough
 # saying so, and every other mismatch still fails. A row is a whole-answer or a
 # partial anagram of what the clue prints, or it is refused.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

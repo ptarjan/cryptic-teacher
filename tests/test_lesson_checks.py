@@ -2,6 +2,7 @@
 # Findings read off clues two annotation runs filed differently
 # (tools/lesson_checks.py): a double definition that hides the answer, and an
 # answer with an apostrophe or accent filed without its spelling.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

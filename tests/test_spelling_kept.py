@@ -3,6 +3,7 @@
 # carries: book-26021 22D lost APERÇU in a shape re-annotation, and the
 # per-puzzle spelling.unsaid allowance left over from before it was filled let
 # the commit through. The run's own check against HEAD refuses it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

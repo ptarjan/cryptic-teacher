@@ -2,6 +2,7 @@
 # /abbreviations/ ranks every list by clue count and shows the count: the most
 # common list, the families and the members of each, and each A-to-Z row's
 # readings. A reading no clue uses keeps its place, last, with no count.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -7,6 +7,7 @@
 # cryptic-24447's ALL AND SUNDRY is four three-letter lights under "(3,3,6)":
 # every order of them cuts, so only the words say which is right. The groups
 # here are built so that the stored order spells a non-word.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

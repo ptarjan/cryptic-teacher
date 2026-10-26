@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # The near-certain hidden words of tools/hidden_mechanical.py and the annotation
 # tools/prefill_hidden.py builds from one.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import copy
 import os
 import sys

@@ -9,6 +9,7 @@
 # `selfClued` (tools/groups.py): they stay answers of their own, and are not
 # continuations. This pins the schema, the groups readers, the shape checks
 # and the length check for that case.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

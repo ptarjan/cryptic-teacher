@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # tools/clear_unchecked.py: the flag goes only from a tree that evaluates to the answer
 # without it; a tree with the wrong part count is failing, not crashed.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

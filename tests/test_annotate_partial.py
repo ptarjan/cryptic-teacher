@@ -8,6 +8,7 @@
 # those ids as `annotateOnly`, apply_annotations.py needs keys for them alone
 # and refuses to change any other annotation, and a run that started on the
 # whole puzzle stays on the whole puzzle.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

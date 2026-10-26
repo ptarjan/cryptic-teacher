@@ -4,6 +4,7 @@
 # The two clues a solver could not follow: times-8 56D (EWE: "may come to" sits
 # beyond "lamb", and the walkthrough never names it) and cryptic-21785 16D
 # (DOMINATE: the walkthrough explains DOME and never says ANTI makes INAT).
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

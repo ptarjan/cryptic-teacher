@@ -16,6 +16,7 @@
 #
 # Synthetic rows and words in a temp dir: no OCR, nothing asked of the Mac,
 # Gale or listenercrossword.com, nothing written outside it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 import atexit

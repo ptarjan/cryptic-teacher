@@ -6,6 +6,7 @@
 # reached the screen with a bought indicator half-erased.
 #
 #     python3 tests/test_link_words.py
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

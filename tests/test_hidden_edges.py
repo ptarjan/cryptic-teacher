@@ -13,6 +13,7 @@
 # setters almost never do that (2 of 2,578 forward hidden words start on a
 # boundary, 2 end on one), so our own clues may not. "Osprey swallows victim"
 # hides PREY inside one word; 267 of those published clues do that, and we don't.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

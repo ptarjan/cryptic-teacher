@@ -7,6 +7,7 @@
 # Offline: every source here is a stub, so nothing reads a cache or the
 # network. One case per rule, each built so that rule and no earlier one
 # decides it.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import subprocess
 import sys

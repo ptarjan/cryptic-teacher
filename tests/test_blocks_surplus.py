@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # When a clue's blocks give too many letters and none too few, the warning names
 # the single-block edits that take exactly the surplus away.
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

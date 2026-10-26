@@ -5,6 +5,7 @@
 # (type, answer, indicators' for, linkWords, blocks, assembly) from the tree?
 #
 #     python3 tests/test_wordplay.py
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

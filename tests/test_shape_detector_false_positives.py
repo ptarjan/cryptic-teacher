@@ -3,6 +3,7 @@
 re-annotation can clear: a spoonerism's sound leaf and a select leaf are unchecked by
 design, a word the clue says twice can be an indicator and sit in a leaf, and an
 unclued "*" is not a rebus. Each case also has its true positive, which must still fire."""
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
