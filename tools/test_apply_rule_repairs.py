@@ -61,4 +61,37 @@ new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
 check("anaCharade: an abbreviation piece does not join the anagram's parts",
       not any(n.get("op") == "anagram" and any(p.get("words") == "Doctor" for p in n.get("parts") or [])
               for n in F.V._walk(new)))
+# spanOverlap residue (10-26 audit, 9 first checks): the clue words one piece shares with another at its edge
+# NOTED (cryptic-27795 23d): the charade's "on top of" and the selection's "top of" -> the outer gives back "top of"
+wp = {"op": "charade", "indicators": [ind("on top of")], "parts": [leaf("Letter", "NOTE"),
+      {"op": "first", "indicators": [ind("top of")], "parts": [leaf("desk")]}]}
+entry = {"solution": "NOTED", "clue": {"text": "Letter on top of desk is prominent"}}
+check("spanOverlap fires on two indicators sharing 'top of'", counters["spanOverlap"](wp, {}, entry["clue"]["text"]) == 1)
+new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+check("spanOverlap: the outer indicator is cut back to 'on'", new["indicators"][0]["text"] == "on"
+      and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
+
+# GRAUNIAD (cryptic-27782 2d): the leaf "A place for learning" (UNI) swallows the leaf "A" before it
+wp = {"op": "charade", "parts": [leaf("A", "A"), leaf("A place for learning", "UNI")]}
+entry = {"solution": "AUNI", "clue": {"text": "A place for learning"}}
+new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+check("spanOverlap: the outer leaf gives its first word to the leaf before it",
+      new["parts"][1]["words"] == "place for learning" and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
+
+# NINJA (ftcryptic-16385 9a): "in#2" printed inside the hidden-word leaf, the clue prints "in" free before it
+wp = {"op": "hidden", "indicators": [ind("in")], "parts": [leaf("competition in Japan")]}
+entry = {"solution": "NINJA", "clue": {"text": "Martial art expert in competition in Japan"}}
+wp["indicators"][0]["at"] = 34
+new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
+check("spanOverlap: an indicator inside the leaf moves to its one free occurrence",
+      new["indicators"][0]["at"] == 19 and not counters["spanOverlap"](new, {}, entry["clue"]["text"]))
+
+# the refusal names the words: DODO (cryptic-27779 10a) uses "parties" as indicator and leaf
+import validate_annotations as V
+import wordplay
+wp = wordplay.locate({"op": "repeat", "indicators": [ind("parties")], "parts": [leaf("parties", "DO")]},
+                     "Old-fashioned person's parties")
+msgs = V.shape_warnings("10A", {"wordplay": wp})
+check("spanOverlap message names the shared words",
+      any("indicator 'parties' and leaf 'parties' both claim 'parties'" in m for m in msgs))
 sys.exit(1 if fails else 0)
