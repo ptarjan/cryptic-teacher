@@ -4209,8 +4209,51 @@
   function freeRingHTML(e, ann) {
     const key = "free|" + entryKey(e);
     if (!ring || ring.key !== key) ring = { key, letters: [], forbidden: [], order: [], struck: {} };
-    return ringDraw(ann, key) + (ring.letters.length ? ""
+    return ringDraw(ann, key) + ringWordChips(e) + (ring.letters.length ? ""
       : `<p class="muted">Type the letters you think are the anagram.</p>`);
+  }
+
+  // The clue's own words under the free wheel: tap one to add its letters to
+  // the ring, tap it again to take them out. A word that is in the ring is
+  // drawn filled, so the chip row reads as which words the ring is made of.
+  function ringWordChips(e) {
+    const words = clueText(e).split(/\s+/).map((w) => w.replace(/[^A-Za-z]/g, "")).map((w, i) => [w, i]).filter((p) => p[0]);
+    if (!words.length) return "";
+    const inRing = ring.words || {};
+    return `<div class="ana-words">${words.map(([w, i]) =>
+      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" data-w="${w.toUpperCase()}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
+  }
+
+  // Add or remove a whole clue word. Removing drops that word's tiles and
+  // renumbers the rest, since struck marks and the draw order are by position.
+  function toggleRingWord(wi, word) {
+    if (!ring) return;
+    const prevRects = ringTileRects();
+    ring.words = ring.words || {};
+    if (ring.words[wi]) {
+      const gone = new Set(ring.words[wi]);
+      const remap = {};
+      const letters = [];
+      ring.letters.forEach((ch, idx) => { if (!gone.has(idx)) { remap[idx] = letters.length; letters.push(ch); } });
+      ring.letters = letters;
+      ring.order = ring.order.filter((idx) => !gone.has(idx)).map((idx) => remap[idx]);
+      const struck = {};
+      Object.keys(ring.struck).forEach((k) => { if (remap[k] !== undefined && ring.struck[k]) struck[remap[k]] = true; });
+      ring.struck = struck;
+      Object.keys(ring.words).forEach((k) => {
+        ring.words[k] = k === String(wi) ? null : ring.words[k].map((idx) => remap[idx]);
+      });
+      delete ring.words[wi];
+    } else {
+      ring.words[wi] = word.split("").map((ch) => {
+        const idx = ring.letters.length;
+        ring.letters.push(ch);
+        ring.order.push(idx);
+        return idx;
+      });
+    }
+    renderHintPanel();
+    playRingFlip(prevRects);
   }
 
   function ringDraw(ann, key) {
@@ -6787,6 +6830,10 @@
           renderHintPanel();
         }
       };
+    });
+    panel.querySelectorAll("button.ana-word").forEach((b) => {
+      b.onmousedown = keepFocus;
+      b.onclick = () => toggleRingWord(b.getAttribute("data-aw"), b.getAttribute("data-w"));
     });
     const shuffle = document.getElementById("ana-shuffle");
     // Struck letters survive a shuffle: they are the ones already on the grid,
