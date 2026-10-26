@@ -4068,6 +4068,13 @@
   // that already hands over the fodder. The ring adds no letter the solver
   // hasn't bought; it only takes away the order.
   let ring = null;  // { key, order, struck } — one clue's worth, cleared by key
+  // `ring` is whichever ring was drawn last, which is what the tile, keyboard
+  // and chip handlers act on. The paid ring and the free wheel each keep their
+  // own state here as well, because one render can build both: the blocks
+  // rung's markup is assembled whether or not it ends up on screen, and if the
+  // two shared one slot that build would replace the free wheel's letters with
+  // the dealt fodder, and the free wheel would then start over empty.
+  const ringShelf = { paid: null, free: null };
   // The entryKey of the clue whose free wheel is open, or null. Free means the
   // wheel is offered on EVERY clue and costs nothing: a button on anagrams only
   // would give the clue type away, and the blocks rung above is what charges.
@@ -4193,11 +4200,12 @@
     // Three letters have six arrangements and you can see all of them at once,
     // so a ring is furniture rather than help.
     if (fodder.length < 4) return "";
-    if (!ring || ring.key !== key) {
+    if (!ringShelf.paid || ringShelf.paid.key !== key) {
       const letters = fodder.split("");
       const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
-      ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
+      ringShelf.paid = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
     }
+    ring = ringShelf.paid;
     return ringDraw(ann, key);
   }
 
@@ -4208,7 +4216,8 @@
   // annotation to compare against, only the clue it was opened on.
   function freeRingHTML(e, ann) {
     const key = "free|" + entryKey(e);
-    if (!ring || ring.key !== key) ring = { key, letters: [], forbidden: [], order: [], struck: {} };
+    if (!ringShelf.free || ringShelf.free.key !== key) ringShelf.free = { key, letters: [], forbidden: [], order: [], struck: {} };
+    ring = ringShelf.free;
     return ringDraw(ann, key) + ringWordChips(e) + (ring.letters.length ? ""
       : `<p class="muted">Type the letters you think are the anagram.</p>`);
   }
@@ -6672,17 +6681,21 @@
       + reportHTML() + blogLinkHTML(e, ann);
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = letterTap;
-      const hw = $("hx-wheel");
-      if (hw) hw.onclick = () => {
-        freeWheel = wheelOpen ? null : key;
-        // Focus first so the ring's focus outline is on the first draw and
-        // the solver can type straight away, as a tap on the disc does.
-        const ak = $("ana-kbd");
-        if (freeWheel && ak) focusHidden(ak);
-        renderHintPanel();
-      };
       bindReport();
     }
+    // Bound on EVERY render, not only when the row's markup changes: two
+    // unsolved clues draw the same row, so moving between them keeps the old
+    // button, and a handler bound once would still hold the first clue's key —
+    // the wheel would open on that clue instead of this one.
+    const hw = $("hx-wheel");
+    if (hw) hw.onclick = () => {
+      freeWheel = wheelOpen ? null : key;
+      // Focus first so the ring's focus outline is on the first draw and
+      // the solver can type straight away, as a tap on the disc does.
+      const ak = $("ana-kbd");
+      if (freeWheel && ak) focusHidden(ak);
+      renderHintPanel();
+    };
 
     if (!bodyWrote && !clueWrote && !voteWrote) return;
 
