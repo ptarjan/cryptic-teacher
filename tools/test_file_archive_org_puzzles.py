@@ -219,6 +219,55 @@ check("a host read since the headings fix, before loose_bands, is due as HOST_GR
       (True, f.HOST_GRID_RESCAN), (f.host_rescan_due(f.GALE, _between), f.host_rescan_reason(_between)))
 check("... one never read so, as HOST_RESCAN; both ranked and host reads", (f.HOST_RESCAN, True, True),
       (f.host_rescan_reason({"scan": {}}), f.HOST_GRID_RESCAN in f.RANKS, f.HOST_GRID_RESCAN in f.HOST_REASONS))
+# HOST_COLUMN_RESCAN: one read since REREAD_HOST_GRIDS, before REREAD_HOST_COLUMNS (column_headings), is due once more.
+_after = {"solOnly": {"at": f.REREAD_HOST_GRIDS.replace("07:45", "08:00")}}
+check("a host read since loose_bands, before column_headings, is due as HOST_COLUMN_RESCAN, ranked and a host read",
+      (True, f.HOST_COLUMN_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _after), f.host_rescan_reason(_after), f.HOST_COLUMN_RESCAN in f.RANKS,
+       f.HOST_COLUMN_RESCAN in f.HOST_REASONS))
+
+
+def _cols(lines, pool=None, expected=range(6000, 26000)):
+    deferred = set()
+    return sorted({n for n, _ in f.column_headings(lines, lines if pool is None else pool, set(expected), deferred)}), \
+        sorted(deferred)
+
+
+# column_headings: a heading set in a narrow column, the band's line run on into the column beside it, its
+# number on the row under it (1950-03-13: "SOLUTION OF PUZZLE" over "No. 6,235." beside an advertisement).
+_1950 = [line("Solution OF PUZZLE", x=935, y=4953) + line("DORKING-REIGATE, in pleasant, 2 miles", x=1277, y=4945),
+         line("No. 6,235.", x=997, y=4990) + line("of Boxhill and countryside :3 bed", x=1277, y=4990)]
+check("column_headings: a narrow column's heading over its number, the next column's words beside both",
+      ([6235], []), _cols(_1950))
+_1970 = [line("The Solution to Crossword", x=636, y=4305) + line("sive jet flight 44", x=979, y=4307),
+         line("12,475, the fourth entry", x=640, y=4340) + line("sailing/motor boat/car:", x=978, y=4336)]
+check("... 1970's 'The Solution to Crossword' over '12,475, the fourth entry'", ([12475], []), _cols(_1970))
+_1976 = [line("to Solution of Puzzle No", x=588, y=4833)]
+check("... its number on its own row in a line of its own (a band split the row, 1976-06-09)", ([14322], []),
+      _cols(_1976, _1976 + [line("14,322", x=836, y=4835)]))
+_1971 = [line("Solution of Puzzle", x=657, y=4838), line("No. 12,747", x=702, y=4866),
+         line("will appear on", x=682, y=4892), line("Wednesday, April 21", x=640, y=4918)]
+check("... none for a deferral ('will appear on Wednesday', 1971-04-19: no grid), its number deferred",
+      ([], [12747]), _cols(_1971))
+check("... nor its number with 'will appear' after it on its row (1981-01-10)", ([], [15419]),
+      _cols([line("The solution of Puzzle No 15.419 will appear", x=624, y=4831)]))
+check("... nor one read 'will annear' as '1 Bnnear'", ([], [12747]),
+      _cols(_1971[:2] + [line("1 Bnnear", x=705, y=4892)]))
+check("... nor a misread number with a speck under it read on ('3.24' over '7' is no 3,747: 1942-06-01)", ([], []),
+      _cols([line("Solution OF Puzzte No. 3.24", x=1113, y=4296), line("7", x=1300, y=4318)], expected=range(3500, 4100)))
+check("... nor a cut number read on into the next column's clue number ('4,14' then '5 A wooden-headed', 1943-06-09)",
+      ([], []), _cols([line("Solution of Puzzle No. 4,14", x=1103, y=4397) + line("5 A wooden-headed fellow", x=1381, y=4397)],
+                      expected=range(4000, 4200)))
+check("... nor junk after a 'Solution' word solution_at would repair ('Solution gto 4, (6' over '6', 1943-05-01)",
+      ([], []), _cols([line("Solution gto 4, (6", x=1067, y=4312), line("6", x=1200, y=4334)], expected=range(3900, 4200)))
+check("... nor a clue's words under a 'Solution' with no number in its column", ([], []),
+      _cols([line("the Solution (5).", x=332, y=4568), line("cuts a blunder ? Not 23 Sailor", x=333, y=4600)]))
+# named_day_headings: the 2007-14 "Monday's Solution 23,792" (2007-12-26), cut ("ay's") or glued.
+check("named_day_headings: a heading naming its day, cut or glued, its number read clean",
+      [[23792], [24105], [25814], [23775], [], []],
+      [[n for n, _ in f.named_day_headings([line(t)], set(range(23000, 26000)))]
+       for t in ("Monday's Solution 23,792", "ay's Solution 24,105 19 Radio PC lost", "Yesterday'ssolution25,814",
+                 "terday's solutlon 23,775", "Monday's Solution 23,79Z", "Monday's resolution 23,792")])
 
 
 def _lattice(img, x0, y0, w, h, step=24):
