@@ -5329,6 +5329,12 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     answers, info, recrossed = clash_reads(es, answers, info, grid, enums, solution_crop(sol, number), crossed=crossed,
                                            every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
     clash = {**clash, **recrossed}
+    # A Times grid still short after every read of the print: a blank light its clue's wordplay and
+    # definition solve (CLUE_SOLVED), last, so no read of the print leans on it. Ours, not the paper's:
+    # decide() records it so (mark_clue_solved).
+    if clue_solvable(old):
+        answers, info = clue_solved_reads(es, answers, info, grid, enums, solution_crop(sol, number),
+                                          crossed=crossed, every=every)
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again.
     letters = {}
@@ -5706,6 +5712,135 @@ def wordplay_reads(entries, answers, info, grid, enums, crop, crossed=True, ever
         return answers, info
     info = {**info, "wordplay": sorted(took), "accepted": info.get("accepted", 0) + len(took)}
     return {**answers, **took}, info
+
+
+#: solutions.model of a Times file whose blank lights clue_solved_reads filled: the answers are our solve
+#: of the clue, not the paper's print (provenance "model"; the paper's own in solutions.printed).
+CLUE_SOLVER = "clue-wordplay+wordnet"
+
+
+def clue_solvable(held):
+    """Whether held file `held` may take clue_solved_reads' words: a Times file of this tool with no
+    solution detail but ours (no blog's write-up, whose answers stand as printed, and no other solve)."""
+    detail = provenance.solution_detail(held)
+    return (held.get("series", SERIES) == SERIES and (held.get("source") or {}).get("acquiredBy") == TOOL
+            and (not detail or detail.get("model") == CLUE_SOLVER))
+
+
+def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False):
+    """(answers, info) of answers_only's reading `answers` of a held puzzle's `entries`, after every read of
+    the print (wordplay_reads, candidate_reads, clash_reads), with each light still blank that its clue
+    solves added: wordplay_fit's one word on the crossings (an anagram or hidden word of the clue, a listed
+    word of the light's enumeration, 2+ letters crossed) whose definition end WordNet links to it
+    (trove_solution_ocr.definition_linked), the classifier not asked; a word taken lends its letters to the
+    next. Every word stands only past checked_answers' misread guards. These are OUR answers, not the
+    print's: info["clueSolved"] {light: word} names them and decide() records them so (mark_clue_solved:
+    solutions origin "model", the paper's answers in solutions.printed). 10-26: held out on Times grids'
+    known lights 1,656 right, 0 wrong; on 1-5-short Times' blank lights 17 of 17 right by their clues
+    (TRINOMIAL, PAPERWORK, DESPERADO, CONFIDANTE), lights the classifier misreads (CLUE_SOLVED)."""
+    t = trove_solution_ocr
+    held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
+    left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
+    if not left or not held or crop is None or not crop.exists():
+        return answers, info
+    lts = t.lights(grid)
+    clue = {entry_id(e): (e.get("clue") or {}).get("text") if isinstance(e.get("clue"), dict) else e.get("clue")
+            for e in entries}
+    letters = {rc: ch for k, w in {**held, **answers}.items() for rc, ch in zip(lts.get(_light_key(k), ()), w)}
+    by = {}
+    while True:
+        new = False
+        for lid in left:
+            key = _light_key(lid)
+            cells = lts.get(key)
+            if lid in by or not cells or len(cells) < WORDPLAY_MIN or not clue.get(lid):
+                continue
+            word = wordplay_fit(clue[lid], "".join(letters.get(rc, "?") for rc in cells), enums.get(key))
+            if word and t.definition_linked(word, clue[lid]):
+                by[lid] = word
+                letters.update(zip(cells, word))
+                new = True
+        if not new:
+            break
+    if not by:
+        return answers, info
+    checked, _, _ = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed, every=every)
+    took = {k: w for k, w in by.items() if checked.get(k) == w}
+    if not took:
+        return answers, info
+    info = {**info, "clueSolved": took, "accepted": info.get("accepted", 0) + len(took)}
+    return {**answers, **took}, info
+
+
+def sync_printed(old, changed):
+    """Keep a model-solved held file's solutions.printed (and the count its `check` states) true after
+    merge_answers took a reading of the paper's grid into it: a light the reading answers is the print's,
+    one it dropped is nobody's. mark_clue_solved then takes our own lights back out."""
+    sol = old.get("solutions") or {}
+    if "model" not in provenance.solution_detail(old) or not changed:
+        return
+    printed = dict(sol.get("printed") or {})
+    for lid, now in changed.items():
+        if now:
+            printed[lid] = now
+        else:
+            printed.pop(lid, None)
+    _set_printed(sol, printed)
+
+
+def _set_printed(sol, printed):
+    if printed:
+        sol["printed"] = printed
+    else:
+        sol.pop("printed", None)
+    if isinstance(sol.get("check"), str):
+        sol["check"] = provenance.PRINTED_COUNT.sub(f"agrees with the {len(printed)} answers the paper printed",
+                                                    sol["check"])
+
+
+def clue_solved_for(old, puzzle, verdict):
+    """Reading `puzzle` as merge_answers may take it into held file `old`: clue_solved_reads' words
+    (verdict solution.clueSolved) left out where `old` is not clue_solvable (a blog's file, another solve's)."""
+    sol = verdict.get("solution") if isinstance(verdict.get("solution"), dict) else {}
+    ours = sol.get("clueSolved")
+    if not ours or old is None or clue_solvable(old):
+        return puzzle
+    puzzle = copy.deepcopy(puzzle)
+    for e in puzzle["entries"]:
+        if entry_id(e) in ours:
+            e["solution"] = None
+    return puzzle
+
+
+def mark_clue_solved(old, verdict, answered):
+    """Record in held file `old` (merged in place by merge_answers, `answered` its changes) which of
+    its answers are clue_solved_reads' (verdict solution.clueSolved), never the paper's: solutions
+    model CLUE_SOLVER, the date, a check, and the paper's own answers in solutions.printed (provenance:
+    every other answer is ours; the site badges the puzzle "unverified answers"). A file another solve
+    or a blog keyed (clue_solvable false) takes none of ours (clue_solved_for leaves them out of the
+    merge; any that got in go blank again)."""
+    ours = {k: w for k, w in ((verdict.get("solution") or {}).get("clueSolved") or {}).items()
+            if answered.get(k) == w}
+    if not ours:
+        return
+    if not clue_solvable(old):
+        for e in old["entries"]:
+            if entry_id(e) in ours:
+                e["solution"] = None
+                answered.pop(entry_id(e), None)
+        return
+    sol = old.setdefault("solutions", {})
+    if sol.get("model") != CLUE_SOLVER:
+        sol.update({"model": CLUE_SOLVER, "date": datetime.date.today().isoformat(),
+                    "check": f"{len(old['entries'])} entries; each light the paper's grid did not give solved "
+                             f"here from its clue's wordplay (an anagram or hidden word, the one listed word "
+                             f"fitting every crossing) and its definition (WordNet), agrees with the 0 "
+                             f"answers the paper printed"})
+        printed = {entry_id(e): e["solution"] for e in old["entries"] if e.get("solution") and entry_id(e) not in ours}
+    else:
+        printed = {k: w for k, w in (sol.get("printed") or {}).items() if k not in ours}
+    _set_printed(sol, printed)
+    verdict["clueSolved"] = sorted(ours)
 
 
 #: held_recrossed: the most held crossings one VLM word may re-read (WELL-PLACED over TEASE, NATO, ROPY).
@@ -8831,6 +8966,14 @@ REREAD_NEAR_WORD = "2026-10-26T12:00:00+00:00"
 #: (SOLUTION_FIXES); it asks the VLM nothing new.
 WORDPLAY_SHORT = "solution short, its last lights read by their clues' wordplay since"
 REREAD_WORDPLAY = "2026-10-26T13:15:00+00:00"
+#: The due reason of a Times row read before REREAD_CLUE_SOLVED, due none of those above, whose held puzzle
+#: (every clue, from this page, no blog's or other solve's answers) leaves 1 to LATE_MAX lights blank, one
+#: whose clue's anagram or hidden word is the one word its held crossings allow and WordNet links to its
+#: definition (held_clue_solved; clue_solved_reads files it as ours, solutions origin "model"). 10-26: the
+#: classifier refuses such lights' right words (TRINOMIAL, PAPERWORK, DESPERADO), its misreads. Once, as an
+#: answers-only reread (SOLUTION_FIXES); it asks the VLM nothing.
+CLUE_SOLVED = "solution short, its last lights solved from their clues since"
+REREAD_CLUE_SOLVED = "2026-10-26T14:00:00+00:00"
 #: {(held path, reading path): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
 
@@ -8921,28 +9064,34 @@ def near_short(row, paper):
     return False
 
 
-#: {held path: (held stamp, held_wordplay's answer)}
+#: {(held path, defined): (held stamp, held_wordplay's answer)}
 _WORDPLAY_HELD = {}
 
 
-def held_wordplay(series, number, sol_dir):
+def held_wordplay(series, number, sol_dir, defined=False):
     """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves 1 to LATE_MAX
     lights blank, one whose clue's wordplay spells one word on the held crossings (wordplay_fit; the read
     has the classifier confirm it), its linked solution grid's crop (the solution page's edition dir name `sol_dir`) kept; parsed again
-    only when the held file's stat moves."""
+    only when the held file's stat moves. With `defined` (held_clue_solved), a word WordNet also links to
+    its clue's definition (trove_solution_ocr.definition_linked), in a file clue_solvable."""
     p = _HELD_PATH.get((series, number))
     if p is None or not (CROPS / "solutions" / f"{sol_dir}_{number}.png").exists():
         return False
     stamp = _stat_stamp(p)
     if stamp is None:
         return False
-    hit = _WORDPLAY_HELD.get(p)
+    hit = _WORDPLAY_HELD.get((p, defined))
     if hit is None or hit[0] != stamp:
-        hit = _WORDPLAY_HELD[p] = (stamp, _held_wordplay(p))
+        hit = _WORDPLAY_HELD[(p, defined)] = (stamp, _held_wordplay(p, defined))
     return hit[1]
 
 
-def _held_wordplay(p):
+def held_clue_solved(series, number, sol_dir):
+    """held_wordplay with `defined`: a blank light clue_solved_reads would solve (CLUE_SOLVED)."""
+    return held_wordplay(series, number, sol_dir, defined=True)
+
+
+def _held_wordplay(p, defined=False):
     """held_wordplay of the held file at `p`."""
     t = trove_solution_ocr
     try:
@@ -8952,6 +9101,8 @@ def _held_wordplay(p):
         return False
     es = held.get("entries") or ()
     if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or filled(held)[0] != len(es):
+        return False
+    if defined and not clue_solvable(held):
         return False
     letters = {}
     for e in es:
@@ -8964,15 +9115,17 @@ def _held_wordplay(p):
         if e.get("solution") or not cells or len(cells) < WORDPLAY_MIN:
             continue
         clue = e.get("clue") or {}
-        if wordplay_fit(clue.get("text"), "".join(letters.get(rc, "?") for rc in cells), clue.get("enumeration")):
+        word = wordplay_fit(clue.get("text"), "".join(letters.get(rc, "?") for rc in cells), clue.get("enumeration"))
+        if word and (not defined or t.definition_linked(word, clue.get("text"))):
             return True
     return False
 
 
-def wordplay_short(row, paper):
+def wordplay_short(row, paper, defined=False):
     """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
     held with every clue and not every answer, from this page, a blank light's clue's wordplay spelling one
-    word on the held crossings (held_wordplay)."""
+    word on the held crossings (held_wordplay; with `defined`, one WordNet links to its definition:
+    held_clue_solved)."""
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
@@ -8985,7 +9138,7 @@ def wordplay_short(row, paper):
                 continue
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
-        if held_wordplay(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+        if held_wordplay(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], defined=defined):
             return True
     return False
 
@@ -9154,7 +9307,9 @@ def short_again(row):
     held file leaves CANDIDATE_SLACK+1 to LATE_MAX lights blank (many_short's wide); NEAR_WORD for one read
     before REREAD_NEAR_WORD, due none of those, a blank light's cached VLM reply mended by near_word
     (near_short); WORDPLAY_SHORT for one read before REREAD_WORDPLAY, due none of those, a blank light's
-    clue's wordplay spelling one word on the held crossings (wordplay_short)."""
+    clue's wordplay spelling one word on the held crossings (wordplay_short); CLUE_SOLVED for one read
+    before REREAD_CLUE_SOLVED, due none of those, that word linked to its clue's definition too
+    (held_clue_solved)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         return None
@@ -9177,6 +9332,9 @@ def short_again(row):
         return NEAR_WORD
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_WORDPLAY)) and wordplay_short(row, paper):
         return WORDPLAY_SHORT
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_SOLVED)) \
+            and wordplay_short(row, paper, defined=True):
+        return CLUE_SOLVED
     return why
 
 
@@ -10212,7 +10370,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -10774,7 +10932,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT)
+                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED)
 
 
 def keeps_vlm(why, row, unit=None):
@@ -11549,7 +11707,16 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
             puzzle = copy.deepcopy(puzzle)
             for e in puzzle["entries"]:
                 e["solution"] = None
-    commit(None, puzzle, verdict)
+    # The raw reading (a vote in cross_validate.py) is the print's: clue_solved_reads' words are ours.
+    ours = (verdict.get("solution") or {}).get("clueSolved") if isinstance(verdict.get("solution"), dict) else None
+    if ours:
+        raw = copy.deepcopy(puzzle)
+        for e in raw["entries"]:
+            if entry_id(e) in ours:
+                e["solution"] = None
+        commit(None, raw, verdict)
+    else:
+        commit(None, puzzle, verdict)
     mended = mend_held(puzzle, held_path) if held_path.exists() else None
     # A reading drops no held answer it gives none for, but by a named rule (held_drops): its misread and
     # uncrossed filters left out reads, not the held answers (10-22..25: 312 Times files lost 986 held
@@ -11560,7 +11727,8 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     drop = held_drops(verdict)
     if mended is not None:
         verdict["mended"] = mended[1]
-        answered = merge_answers(mended[0], puzzle, reread=reread, drop=drop)
+        answered = merge_answers(mended[0], clue_solved_for(mended[0], puzzle, verdict), reread=reread, drop=drop)
+        mark_clue_solved(mended[0], verdict, answered)
         if answered:
             verdict["answered"] = answered
         commit(held_at, mended[0], verdict)
@@ -11574,7 +11742,9 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     if dest is False:
         verdict["skip"] = "a clue is blank: only a puzzle with every clue goes to the corpus"
         old = json.loads(held_path.read_text()) if held_path.exists() else None
-        answered = old is not None and merge_answers(old, puzzle, reread=reread, drop=drop)
+        answered = old is not None and merge_answers(old, clue_solved_for(old, puzzle, verdict), reread=reread, drop=drop)
+        if answered:
+            mark_clue_solved(old, verdict, answered)
         if answered:
             verdict["answered"] = answered
             commit(held_at, old, verdict)
@@ -11607,7 +11777,9 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     old = json.loads(target.read_text()) if target.exists() and not better else None
     # An answers-only reading drops no held answer it did not read again (reread above; a stale short read
     # of times-16268 would have dropped 11), complete() or not.
-    answered = old is not None and merge_answers(old, puzzle, reread=reread, drop=drop)
+    answered = old is not None and merge_answers(old, clue_solved_for(old, puzzle, verdict), reread=reread, drop=drop)
+    if answered:
+        mark_clue_solved(old, verdict, answered)
     if answered:
         verdict["answered"] = answered
         commit(where, old, verdict)
@@ -12156,10 +12328,17 @@ def merge_answers(old, puzzle, tool=TOOL, reread=False, keep=False, drop=()):
     answers-only reading's named rules) this reading does not answer goes
     too. A light whose answer changes loses its
     annotation, written against the old answer. {} when `old` is not
-    `tool`'s or lies on another grid."""
+    `tool`'s or lies on another grid. A model-solved file's solutions.printed
+    follows the changes (sync_printed)."""
     if (old.get("source") or {}).get("acquiredBy") != tool \
             or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return {}
+    changed = _merge_answers(old, puzzle, reread, keep, drop)
+    sync_printed(old, changed)
+    return changed
+
+
+def _merge_answers(old, puzzle, reread, keep, drop):
     def cells(e):
         x, y, across = e["position"]["x"], e["position"]["y"], e["direction"] == "across"
         return [(x + i * across, y + i * (not across)) for i in range(e["length"])]

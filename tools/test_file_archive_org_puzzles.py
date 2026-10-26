@@ -1066,10 +1066,14 @@ f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 0
 real_sn, real_hw = f.strip_near, f.held_wordplay
 f.strip_near = lambda series, n, sol_dir: False
-f.held_wordplay = lambda series, n, sol_dir: True
+f.held_wordplay = lambda series, n, sol_dir, defined=False: True
 wp_due = [f.short_again(vu_row("2026-10-26T12:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
-f.held_wordplay = lambda series, n, sol_dir: False
+f.held_wordplay = lambda series, n, sol_dir, defined=False: False
 wp_due.append(f.short_again(vu_row("2026-10-26T12:30:00+00:00")))
+# CLUE_SOLVED: the wordplay word also linked to its clue's definition (held_wordplay defined), read before
+# REREAD_CLUE_SOLVED and due nothing else: due; read since: not.
+f.held_wordplay = lambda series, n, sol_dir, defined=False: defined
+cs_due = [f.short_again(vu_row("2026-10-26T13:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
 f.strip_near, f.held_wordplay = real_sn, real_hw
 f.held_blanks = real_hb
 f.filed_state = real_fs
@@ -1080,6 +1084,12 @@ check("a held file short whose blank light's clue's anagram or hidden word fits 
       wp_due + [f.RANKS[f.WORDPLAY_SHORT], f.WORDPLAY_SHORT in f.SOLUTION_FIXES, f.WORDPLAY_SHORT.startswith("solution short"),
                 f.WORDPLAY_SHORT in __import__("edition_queue").LOW_ASK, f.WORDPLAY_SHORT in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.WORDPLAY_SHORT)])
+check("a held file short whose blank light's wordplay word WordNet links to its clue's definition, read before "
+      "REREAD_CLUE_SOLVED: CLUE_SOLVED (rank 2, answers-only, evidence, LOW, a fix landed); read since: not",
+      [f.CLUE_SOLVED, None, 2, True, True, True, True, True],
+      cs_due + [f.RANKS[f.CLUE_SOLVED], f.CLUE_SOLVED in f.SOLUTION_FIXES, f.CLUE_SOLVED.startswith("solution short"),
+                f.CLUE_SOLVED in __import__("edition_queue").LOW_ASK, f.CLUE_SOLVED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.CLUE_SOLVED)])
 # solution_sources: a heading the same day's other scan prints too carries it (SOLUTION_COPIES); another day's not.
 oc_g, oc_n = f.Path("/x/GaleTimes1984UKEnglish/1984-05-02"), f.Path("/y/NewsUK1984UKEnglish/1984-05-02_61716")
 oc_o = f.Path("/x/GaleTimes1984UKEnglish/1984-05-09")
@@ -2953,6 +2963,30 @@ check("the last blank filled drops solutions.partial, the origin stays",
       (got, "partial" in held["solutions"], held["solutions"]["origin"]))
 check("another tool's filing takes no answers", {},
       f.merge_answers(answered([None] * 4, tool="other"), answered(["BAT", None, None, None])))
+# mark_clue_solved: a light clue_solved_reads filled is ours, never the print's: the file turns "model"
+# (CLUE_SOLVER) with every other answer in solutions.printed, the count its check states kept; a later
+# reading of the grid that answers our light moves it to printed (sync_printed). A blog's file takes none.
+held = answered(["BAT", None, "TOE", "DOE"])
+cs_verdict = {"solution": {"clueSolved": {"1-down": "BAD"}}}
+got = f.merge_answers(held, answered(["BAT", "BAD", "TOE", "DOE"]))
+f.mark_clue_solved(held, cs_verdict, got)
+cs_sol = dict(held["solutions"])
+check("a clue-solved light is recorded as ours: model CLUE_SOLVER, the paper's 3 answers in printed, the check's count 3",
+      ({"1-down": "BAD"}, f.CLUE_SOLVER, {"1-across": "BAT", "2-down": "TOE", "4-across": "DOE"}, "3", ["1-down"], "model"),
+      (got, cs_sol["model"], cs_sol["printed"], f.provenance.PRINTED_COUNT.search(cs_sol["check"])[1],
+       cs_verdict["clueSolved"], f.provenance.solution_origin_from_file(held)))
+got = f.merge_answers(held, answered(["BAT", "BID", "TOE", "DOE"]))
+check("a later grid reading of our light is the print's: it moves into printed, the count follows",
+      ({"1-down": "BID"}, "BID", "4"),
+      (got, held["solutions"]["printed"].get("1-down"), f.provenance.PRINTED_COUNT.search(held["solutions"]["check"])[1]))
+held = answered(["BAT", None, "TOE", "DOE"])
+held["solutions"] = {"origin": "writeup", "blog": "b", "partial": ["1-down"]}
+cs_verdict = {"solution": {"clueSolved": {"1-down": "BAD"}}}
+got = f.merge_answers(held, f.clue_solved_for(held, answered(["BAT", "BAD", "TOE", "DOE"]), cs_verdict))
+f.mark_clue_solved(held, cs_verdict, got)
+check("a blog-keyed file takes no clue-solved light: it stays blank and listed partial, the write-up's answers stand",
+      ({}, None, "writeup", ["1-down"]),
+      (got, held["entries"][1]["solution"], held["solutions"]["origin"], held["solutions"].get("partial")))
 
 # answers_only(): a title whose clues are filed whole and whose solution grid is
 # linked now is read from the solution grid alone (no clue OCR): the held file's
@@ -3516,6 +3550,15 @@ check("a blank light's wordplay fit: the one listed word on its crossings (DESPE
        f.wordplay_fit("What a striking suit!", "????S", "5"),
        f.wordplay_fit("Article in German", "?E?", "3"),
        f.wordplay_fit("Road speed potentially criminal", "D?S?E?A??", "4,6")])
+check("a wordplay word's definition link (clue_solved_reads): WordNet ties DESPERADO to \"criminal\", LOATHE to "
+      "\"abominate\", CRAMP to \"crush\"; not CHAMP (the hidden word the clue does not define), nor a clue whose "
+      "definition end is gone",
+      [True, True, True, False, False],
+      [tso.definition_linked("DESPERADO", "Road speed potentially criminal"),
+       tso.definition_linked("LOATHE", "Abominate alterations made to a hotel"),
+       tso.definition_linked("CRAMP", "Crush front of picnic hamper"),
+       tso.definition_linked("CHAMP", "Crush front of picnic hamper"),
+       tso.definition_linked("DESPERADO", "Road speed potentially")])
 wp_cells = [(0, i) for i in range(9)]
 check("a wordplay fit stands only where the printed grid confirms it: the classifier's likeliest letter is the "
       "word's in every open cell (DESPERADO, faint at 0.4); not where it reads one otherwise (DESPERADO's O as D)",
