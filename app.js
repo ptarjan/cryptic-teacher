@@ -4706,7 +4706,35 @@
     // family it deliberately leaves whole (the precise type is the blocks
     // rung's), so those formulas are just their pieces.
     const head = { anagram: "anagram of" }[tree.op];
-    const parts = outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
+    // Every operation in the tree is shown (a flat "A + B + C" dropped the
+    // reversal / container / anagram wrapped round some of the pieces): the
+    // tree is walked, each leaf is its chip, and a nested operation is
+    // bracketed. Given up (the flat reading below) when a leaf is not a chip.
+    const used = new Set();
+    const walk = (node, top) => {
+      if (!node) return null;
+      if (!node.op || !node.parts) {
+        const i = at(node);
+        if (i < 0 || used.has(i)) return null;
+        used.add(i);
+        return [i];
+      }
+      const kids = node.parts.map((p) => walk(p, false));
+      if (!kids.length || kids.some((k) => !k)) return null;
+      const op = node.op;
+      let out;
+      if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
+      else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "minus", kids[1]);
+      else {
+        const lead = op === "charade" || op === "composite" ? [] : [op === "anagram" ? "anagram of" : `${op.replace(/_/g, " ")} of`];
+        out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
+      }
+      return top || out.every((x) => typeof x === "number") && out.length === 1 ? out : ["("].concat(out, ")");
+    };
+    const walked = tree.op && tree.parts && blocks.length > 1 ? walk(tree, true) : null;
+    const treeParts = walked && used.size === blocks.length ? walked : null;
+    const parts = treeParts ? treeParts
+      : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
       : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "minus", cut]
       : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
