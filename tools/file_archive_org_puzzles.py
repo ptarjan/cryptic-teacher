@@ -4089,6 +4089,7 @@ def hosted(found, held):
         {d for h in on for d in hosts_of(h)}
     return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
         {t - PRIZE_LAG for t, d in days.items() if prize_monday(d)} | \
+        {t - CHRISTMAS_PRIZE_LAG for t, d in days.items() if christmas_prize_monday(d)} | \
         {m for d in prior for m in Held.of(held).on_day.get(d, ())}
 
 
@@ -4100,6 +4101,23 @@ def prize_monday(day):
     """Whether `day` is a Monday that prints the solution of the prize of the Saturday nine days
     before (PRIZE_LAG: the Gale Times from 2000)."""
     return day.weekday() == 0 and day >= PRIZE_MONDAYS
+
+
+#: How many titles before a Christmas prize Monday's (christmas_prize_monday) the prize it may print
+#: is: the Saturday's of sixteen days before, a week late (PRIZE_LAG and the five issues of that week).
+CHRISTMAS_PRIZE_LAG = PRIZE_LAG + 5
+#: The (month, day) span a christmas_prize_monday falls in.
+CHRISTMAS_PRIZE_SPAN = ((12, 27), (1, 10))
+
+
+def christmas_prize_monday(day):
+    """Whether `day` is a prize_monday after Christmas (CHRISTMAS_PRIZE_SPAN) that may print the prize
+    a week late: the Saturday's of sixteen days before (CHRISTMAS_PRIZE_LAG), not nine. Paul 10-26: 2007-01-01
+    printed 23,474 (2006-12-16) under its 23,486, 2007-12-31 23,785 (12-15) under 23,797, 2008-01-07 23,791
+    (12-22) under 23,803; linked_solutions dropped all three, so their puzzles stayed unanswered. Every
+    other Gale Times Monday of 27 Dec-10 Jan in 2000-14 printed the usual nine days' (or none)."""
+    return prize_monday(day) and ((day.month, day.day) >= CHRISTMAS_PRIZE_SPAN[0]
+                                  or (day.month, day.day) <= CHRISTMAS_PRIZE_SPAN[1])
 
 
 def hosted_window(paper, found):

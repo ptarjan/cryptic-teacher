@@ -601,6 +601,17 @@ check("a title read off a solution heading's own print does not keep the heading
       [{22264, 22269}, [22264, 22269], {22264}, [22264], set()],
       [f.heading_titles(sat), sorted(link(sat, held_sat, f.GALE)), f.heading_titles(sat_far),
        sorted(link(sat_far, held_sat, f.GALE)), f.heading_titles(edition("2003-02-08", [22269], [22269]))])
+# christmas_prize_monday(): 2007-01-01 printed 23,474 (2006-12-16's prize) under its 23,486, 2007-12-31 23,785
+# under 23,797, 2008-01-07 23,791 under 23,803: a week late, twelve titles back. A Monday of 27 Dec-10 Jan
+# links it; the usual nine days' still links; any other Monday's twelve-back heading is a stranger.
+check("a Christmas prize Monday links the prize of the Saturday sixteen days before, no other Monday",
+      [[23474], [23785], [23791], [23480], [], [True, True, True, False, False]],
+      [link(edition("2007-01-01", [23486], [23474]), {}, f.GALE),
+       link(edition("2007-12-31", [23797], [23785]), {}, f.GALE),
+       link(edition("2008-01-07", [23803], [23791]), {}, f.GALE),
+       link(edition("2007-01-08", [23492], [23480]), {}, f.GALE),
+       link(edition("2007-01-15", [23498], [23486]), {}, f.GALE),
+       [f.christmas_prize_monday(D(s)) for s in ("2007-12-31", "2008-01-07", "2001-12-31", "2007-12-24", "2008-01-14")]])
 # hosted(): a solution prints in the next issue, a Saturday prize's also in
 # the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
 # heading) and a heading a week after a puzzle whose next issue is missing
