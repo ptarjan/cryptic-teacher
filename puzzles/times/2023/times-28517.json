@@ -1085,49 +1085,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "limiting",
-       "note": "a limit is a boundary, so the pieces sit edge to edge, one bordering the other"
+       "at": 15,
+       "note": "limiting means confining, so the outer letters hold the disease abbreviation"
       }
      ],
      "parts": [
       {
-       "words": "A",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 9,
+           "note": "about signals that the slogan word turns round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slogan",
+           "at": 2,
+           "gives": "MOTTO",
+           "note": "a motto is a slogan or maxim"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "consumption",
+       "at": 24,
        "gives": "TB",
-       "note": "consumption is the old name for tuberculosis, TB"
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "about can mean turned round, as in about-face, so the word runs backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "slogan",
-         "gives": "MOTTO",
-         "note": "a motto is a slogan or maxim"
-        }
-       ]
+       "note": "TB, tuberculosis, was once called consumption"
       }
      ]
     },
     "explanation": {
-     "surface": "A public-health campaign slogan urging people to cut down on what they consume.",
-     "walkthrough": "Consumption is an old name for tuberculosis, so it gives the medical abbreviation, not eating.",
-     "definitionFit": "At bottom is an idiom meaning fundamentally or in essence, the same sense as the adverb."
+     "surface": "A campaign catchphrase about cutting down on what we eat, essentially.",
+     "walkthrough": "'consumption' looks like eating, but it is the old name for tuberculosis; 'limiting' has the reversed slogan with its A hold the disease letters.",
+     "definitionFit": "The phrase means fundamentally, at heart, which matches basically as an adverb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "consumption"
     }
    }
