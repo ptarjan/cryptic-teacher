@@ -1261,52 +1261,57 @@
      "parts": [
       {
        "words": "Nowadays",
+       "at": 0,
        "gives": "AD",
-       "note": "AD, anno domini, is the current era"
+       "note": "AD, anno domini, marks the present era of the calendar"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "onset",
-         "note": "an onset is the start, so only the first letter is kept"
+         "text": "onset of",
+         "at": 9,
+         "note": "onset of means the very start, so the first letter is taken"
         }
        ],
        "parts": [
         {
          "words": "diabetes",
-         "note": "the first letter of diabetes"
+         "at": 18
         }
        ]
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 27,
+       "gives": "IN"
       },
       {
-       "op": "middle",
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
          "text": "middle",
-         "note": "the middle of a word is its central letter"
+         "at": 30,
+         "note": "middle points at the central letter of the short word after it"
         }
        ],
        "parts": [
         {
          "words": "age",
-         "note": "the central letter of age"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A health warning that diabetes appearing in middle age is becoming more common.",
-     "walkthrough": "'Middle age' reads as a stage of life; it means the middle of the word age.",
-     "definitionFit": "Adding means augmenting or making larger, a synonym of increasing."
+     "surface": "These days, diabetes appearing in middle age is becoming more common.",
+     "walkthrough": "'Nowadays' gives AD as the era label, not a letter pick, even though those letters sit in the middle of the word itself.",
+     "definitionFit": "Putting more on makes a total grow, so adding is the same as increasing."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "middle"
     }

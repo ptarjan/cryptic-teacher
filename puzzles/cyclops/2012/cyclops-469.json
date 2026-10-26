@@ -1216,7 +1216,8 @@
        "indicators": [
         {
          "text": "returns",
-         "note": "returning means going back, so these letters run in the opposite direction"
+         "at": 15,
+         "note": "returns means goes back, so the trimmed bank and the nonsense word are read backwards"
         }
        ],
        "parts": [
@@ -1224,24 +1225,33 @@
          "op": "charade",
          "parts": [
           {
-           "op": "middle",
+           "op": "deletion",
            "indicators": [
             {
              "text": "Limitless",
-             "note": "with no limits, the word loses both ends and keeps only its middle"
+             "at": 0,
+             "note": "limitless means without its boundaries, so the first and last letters go"
             }
            ],
            "parts": [
             {
              "words": "bank",
-             "note": "the inner letters of the word"
+             "at": 10,
+             "gives": "BANK"
+            },
+            {
+             "gives": "B"
+            },
+            {
+             "gives": "K"
             }
            ]
           },
           {
-           "words": "Balls",
+           "words": "Balls'",
+           "at": 28,
            "gives": "ROT",
-           "note": "balls is slang for nonsense, as is rot"
+           "note": "balls is British slang for nonsense, as is rot"
           }
          ]
         }
@@ -1249,21 +1259,22 @@
       },
       {
        "words": "party",
+       "at": 35,
        "gives": "DO",
-       "note": "a do is a party"
+       "note": "a do is an informal word for a party"
       }
      ]
     },
     "explanation": {
-     "surface": "A bank's profits and Ed Balls's Labour Party are caught in a political whirlwind.",
-     "walkthrough": "'Balls' looks like Ed Balls, Labour's shadow chancellor at the time, but it is slang for nonsense.",
-     "definitionFit": "A twister is American slang for a tornado, from the spinning funnel of wind."
+     "surface": "A failing bank teams up with Ed Balls's party: what a whirlwind!",
+     "walkthrough": "'Limitless' leaves AN and 'returns' gives TORNA. In British slang balls means nonsense, like rot; Ed Balls is a former Labour minister, the figure the surface plays on.",
+     "definitionFit": "A violent funnel-shaped windstorm is popularly called a twister in the US."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Balls"
+     "misdirectedWord": "Balls'"
     }
    }
   },
