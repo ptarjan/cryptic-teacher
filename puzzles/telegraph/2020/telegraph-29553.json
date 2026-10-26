@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Extend time in jail",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extend",
+      "at": 0,
+      "meaning": "to pull something out longer or prolong it"
+     },
+     {
+      "text": "time in jail",
+      "at": 7,
+      "meaning": "a prison sentence, informally a spell inside"
+     }
+    ],
+    "explanation": {
+     "surface": "A judge lengthens a convict's sentence.",
+     "definitionFit": "Both senses are standard: to lengthen something, and informal slang for a term served in prison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extend"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,48 @@
     "text": "Ready to go after second drink",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 12,
+       "note": "after puts the ready-to-go word following the letter for second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 18,
+       "gives": "S"
+      },
+      {
+       "words": "Ready to go",
+       "at": 0,
+       "gives": "HANDY",
+       "note": "handy means close at hand and ready for use"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is set to leave after one more drink.",
+     "walkthrough": "A shandy is beer mixed with lemonade, a common British pub drink.",
+     "definitionFit": "It is a specific example of a drink: beer mixed with lemonade or ginger beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +125,30 @@
     "text": "Do not permit waste",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Do not permit",
+      "at": 0,
+      "meaning": "to decline or deny someone something"
+     },
+     {
+      "text": "waste",
+      "at": 14,
+      "meaning": "rubbish or discarded material, as a noun"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to disallow wastefulness.",
+     "definitionFit": "Two senses with different stress: the verb meaning decline, and the noun meaning rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +162,59 @@
     "text": "He slept terribly, interrupted by one's calls",
     "enumeration": "10"
    },
-   "solution": "TELEPHONES"
+   "solution": "TELEPHONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calls",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupted by",
+       "at": 19,
+       "note": "interrupted by means the shuffled letters are broken into by the word for one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 9,
+         "note": "terribly signals the letters of he slept are put in a bad, mixed order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He slept",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "one's",
+       "at": 34,
+       "gives": "ONE",
+       "note": "one gives ONE; the apostrophe-s reads as 'is', a link"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleeper rested poorly because someone kept disturbing them with calls.",
+     "walkthrough": "'Terribly' makes the anagram TELEPHS; the 's of 'one's' is just 'is', a link, so only the plain word goes inside.",
+     "definitionFit": "To telephone someone is to ring or call them, so the verb forms match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slept"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +228,49 @@
     "text": "Arab perhaps runs in socks",
     "enumeration": "5"
    },
-   "solution": "HORSE"
+   "solution": "HORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arab perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places the letter for runs inside the word for socks"
+      }
+     ],
+     "parts": [
+      {
+       "words": "socks",
+       "at": 21,
+       "gives": "HOSE",
+       "note": "hose is a word for stockings or socks"
+      },
+      {
+       "words": "runs",
+       "at": 13,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Arab runs about in his socks.",
+     "walkthrough": "'Arab' is a breed of horse, not a person; 'perhaps' marks an example.",
+     "definitionFit": "The Arab is a famous breed of horse, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Arab"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +284,49 @@
     "text": "Constraints limiting mother's stays",
     "enumeration": "7"
    },
-   "solution": "REMAINS"
+   "solution": "REMAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stays",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limiting",
+       "at": 12,
+       "note": "limiting means hemming in, so the constraints are placed around mother"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Constraints",
+       "at": 0,
+       "gives": "REINS",
+       "note": "reins are things that restrain or hold back"
+      },
+      {
+       "words": "mother's",
+       "at": 21,
+       "gives": "MA",
+       "note": "ma is mother; the apostrophe-s reads as 'is', a link"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restrictions imposed by a parent keep a child at home.",
+     "walkthrough": "The 's of 'mother's' is just 'is' joining wordplay to definition.",
+     "definitionFit": "As a verb, stays means continues or is left over, the same as remains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stays"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +340,63 @@
     "text": "Employer may want to read this new chapter in judge's grip",
     "enumeration": "9"
    },
-   "solution": "REFERENCE"
+   "solution": "REFERENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Employer may want to read this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 43,
+       "note": "in signals that the new chapter letters sit inside the judge word"
+      },
+      {
+       "text": "grip",
+       "at": 54,
+       "note": "grip pictures the judge word holding the other letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "judge's",
+       "at": 46,
+       "gives": "REFEREE",
+       "note": "a referee is a judge or arbiter; the apostrophe-s is possessive"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 31,
+         "gives": "N"
+        },
+        {
+         "words": "chapter",
+         "at": 35,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss wants to read a fresh chapter held by a judge.",
+     "walkthrough": "'In' and 'grip' together signal the insertion, with the judge holding the letters near its end.",
+     "definitionFit": "A prospective employer often asks for a written testimonial from a previous boss about a candidate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "judge's"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +410,40 @@
     "text": "I'm bereft without odd characters to make contact with",
     "enumeration": "4"
    },
-   "solution": "MEET"
+   "solution": "MEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make contact with",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "without odd characters",
+       "at": 11,
+       "note": "dropping the first, third, fifth and seventh letters leaves only the even ones of I'm bereft"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I'm bereft",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely person feels lost without strange people to talk to.",
+     "definitionFit": "To meet someone is to come face to face with them, a way of making contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +457,59 @@
     "text": "Bury chest, dismissing church's concern",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "concern",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bury",
+       "at": 0,
+       "gives": "INTER",
+       "note": "to inter is to bury a body"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissing",
+         "at": 12,
+         "note": "dismissing means sending away the church letters from the word chest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chest",
+         "at": 5,
+         "gives": "CHEST",
+         "note": "chest gives its own letters"
+        },
+        {
+         "words": "church's",
+         "at": 23,
+         "gives": "CH",
+         "note": "CH is the abbreviation for church"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bury the treasure chest, ignoring the church's worries.",
+     "definitionFit": "Interest can mean a stake or matter of concern, as in a business concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +523,49 @@
     "text": "How a crab moves, trapping fish in rocks",
     "enumeration": "8"
    },
-   "solution": "SIDEWAYS"
+   "solution": "SIDEWAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How a crab moves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapping",
+       "at": 18,
+       "note": "trapping means enclosing, so the rocks word goes around the fish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rocks",
+       "at": 35,
+       "gives": "SWAYS",
+       "note": "sways means rocks to and fro"
+      },
+      {
+       "words": "fish",
+       "at": 27,
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish, a crossword regular"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crab scuttles about, catching fish among the rocks.",
+     "walkthrough": "'Rocks' is a verb (sways), not the shore.",
+     "definitionFit": "Crabs famously scuttle laterally, moving to one side rather than forwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +579,50 @@
     "text": "Allowed to remove large pants",
     "enumeration": "5"
    },
-   "solution": "AWFUL"
+   "solution": "AWFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pants",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to remove",
+       "at": 8,
+       "note": "to remove signals that the letter for large is taken away from the synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Allowed",
+       "at": 0,
+       "gives": "LAWFUL",
+       "note": "lawful means permitted or allowed"
+      },
+      {
+       "words": "large",
+       "at": 18,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is given permission to take off oversized trousers.",
+     "walkthrough": "'Pants' is British slang for rubbish or terrible, not trousers here.",
+     "definitionFit": "British slang uses pants as an adjective meaning dreadful or very poor, a synonym of terrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +636,62 @@
     "text": "Thought about female and chose to scratch head",
     "enumeration": "9"
    },
-   "solution": "REFLECTED"
+   "solution": "REFLECTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thought",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      },
+      {
+       "words": "female",
+       "at": 14,
+       "gives": "F"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to scratch head",
+         "at": 31,
+         "note": "scratching the head means removing the opening letter of the word for chose"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chose",
+         "at": 25,
+         "gives": "ELECTED",
+         "note": "elected means chose or opted"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pondered a woman and decided to scratch their head in puzzlement.",
+     "walkthrough": "'To scratch head' drops the first E of ELECTED, leaving LECTED.",
+     "definitionFit": "To reflect is to ponder, so reflected is a past-tense synonym of pondered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratch"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +705,60 @@
     "text": "I'd returned with juice before fruit goes off",
     "enumeration": "10"
    },
-   "solution": "DISAPPEARS"
+   "solution": "DISAPPEARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "goes off",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 4,
+         "note": "returned means sent back, so the letters of I'd run in the opposite order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'd",
+         "at": 0,
+         "gives": "ID",
+         "note": "I'd gives its letters I and D"
+        }
+       ]
+      },
+      {
+       "words": "juice",
+       "at": 18,
+       "gives": "SAP",
+       "note": "sap is the juice of a plant"
+      },
+      {
+       "words": "fruit",
+       "at": 31,
+       "gives": "PEARS",
+       "note": "pears are a fruit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker comes back with juice before some fruit spoils.",
+     "walkthrough": "'Goes off' tempts as 'spoils', but here it means leaves or vanishes.",
+     "definitionFit": "To go off can mean to depart from view, which is what something does when it vanishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +772,41 @@
     "text": "Bow for wife",
     "enumeration": "4"
    },
-   "solution": "PROW"
+   "solution": "PROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "at": 4,
+       "gives": "PRO",
+       "note": "pro means for or in favour of"
+      },
+      {
+       "words": "wife",
+       "at": 8,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband bows in favour of his wife.",
+     "walkthrough": "'Bow' looks like a verb, but it is the front of a ship.",
+     "definitionFit": "The bow of a ship is its forward end, also called the stem or prow by sailors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bow"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +820,42 @@
     "text": "Trainers might leave these tips for not getting out of shape",
     "enumeration": "10"
    },
-   "solution": "FOOTPRINTS"
+   "solution": "FOOTPRINTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trainers might leave these",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "getting out of shape",
+       "at": 40,
+       "note": "getting out of shape means the letters of tips for not lose their form and rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tips for not",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fitness coaches hand out advice for those letting themselves go.",
+     "walkthrough": "'Trainers' are sports shoes, not coaches, misdirecting from the fitness surface.",
+     "definitionFit": "Trainers are sports shoes in British English, and shoes leave marks in mud or sand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trainers"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +869,51 @@
     "text": "Prisoner you insult badly without stopping",
     "enumeration": "12"
    },
-   "solution": "CONTINUOUSLY"
+   "solution": "CONTINUOUSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without stopping",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prisoner",
+       "at": 0,
+       "gives": "CON",
+       "note": "con is short for convict, a prisoner"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 20,
+         "note": "badly means the letters of you insult are put in a poor, jumbled order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you insult",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A convict hurls abuse at you nonstop.",
+     "walkthrough": "'Badly' is the anagram signal, rearranging the letters of YOU INSULT.",
+     "definitionFit": "Doing something without stopping means doing it unceasingly, without any break."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +927,47 @@
     "text": "So tense with present warning on course",
     "enumeration": "9"
    },
-   "solution": "THEREFORE"
+   "solution": "THEREFORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "So",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tense",
+       "at": 3,
+       "gives": "T",
+       "note": "T is the grammatical abbreviation for tense"
+      },
+      {
+       "words": "present",
+       "at": 14,
+       "gives": "HERE",
+       "note": "here means present, in attendance"
+      },
+      {
+       "words": "warning on course",
+       "at": 22,
+       "gives": "FORE",
+       "note": "fore is the shout a golfer gives on a golf course"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tense moment with a warning given on the golf course.",
+     "definitionFit": "Both words introduce a consequence, meaning accordingly or for that reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +981,66 @@
     "text": "Read new novel before mind finally strayed",
     "enumeration": "8"
    },
-   "solution": "WANDERED"
+   "solution": "WANDERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "strayed",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 9,
+         "note": "novel means new and different, so the letters of read and new take a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Read",
+         "at": 0
+        },
+        {
+         "words": "new",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 27,
+         "note": "finally picks the closing letter of mind"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mind",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reader's mind drifted after starting a new novel.",
+     "walkthrough": "'Novel' looks like a book; it is the anagram signal for READ NEW, giving WANDERE.",
+     "definitionFit": "To wander is to roam off course, so wandered matches strayed as a past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1054,57 @@
     "text": "Speaks as one about Republican in legislative assemblies",
     "enumeration": "8"
    },
-   "solution": "CHORUSES"
+   "solution": "CHORUSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speaks as one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 14,
+       "gives": "C",
+       "note": "C is short for circa, about"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 31,
+         "note": "in puts the Republican letter inside the word for legislative assemblies"
+        }
+       ],
+       "parts": [
+        {
+         "words": "legislative assemblies",
+         "at": 34,
+         "gives": "HOUSES",
+         "note": "houses, as in the Houses of Parliament"
+        },
+        {
+         "words": "Republican",
+         "at": 20,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legislators speak in unison about a Republican.",
+     "definitionFit": "A chorus says or sings things together, so to do this is to speak in unison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1118,40 @@
     "text": "Even a chemist develops triumphs",
     "enumeration": "12"
    },
-   "solution": "ACHIEVEMENTS"
+   "solution": "ACHIEVEMENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "triumphs",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "develops",
+       "at": 15,
+       "note": "develops suggests the letters of even a chemist evolve into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Even a chemist",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Even a pharmacist makes breakthroughs.",
+     "definitionFit": "Triumphs are notable successes or feats accomplished, the same as accomplishments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "develops"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1165,70 @@
     "text": "The short king's placed on one?",
     "enumeration": "6"
    },
-   "solution": "THRONE"
+   "solution": "THRONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The short king's placed on one?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "placed on",
+       "at": 17,
+       "note": "placed on puts the king letters ahead of the word one in a down clue"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 4,
+         "note": "short means cut off at the end, so the last letter of the is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The",
+         "at": 0
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "king's",
+       "at": 10,
+       "gives": "R",
+       "note": "R is from rex, Latin for king; the apostrophe-s reads as 'is'"
+      },
+      {
+       "words": "one",
+       "at": 27,
+       "gives": "ONE",
+       "note": "one gives its own letters"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A small monarch is seated on his royal chair.",
+     "walkthrough": "In a down clue 'placed on' means written above, and a king does sit on this seat, so the whole clue is also the definition.",
+     "definitionFit": "A monarch sits on a ceremonial chair of state, so the clue as a whole describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1242,40 @@
     "text": "Worries at university with cliques",
     "enumeration": "6"
    },
-   "solution": "UPSETS"
+   "solution": "UPSETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worries",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "at university",
+       "at": 8,
+       "gives": "UP",
+       "note": "up means in residence at university, in British usage"
+      },
+      {
+       "words": "cliques",
+       "at": 27,
+       "gives": "SETS",
+       "note": "sets are cliques or social circles"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Students fret about the social groups at college.",
+     "definitionFit": "To upset someone is to distress or trouble them, so it matches worries as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1289,57 @@
     "text": "Horrible day? That is about right",
     "enumeration": "4"
    },
-   "solution": "DIRE"
+   "solution": "DIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horrible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "day",
+       "at": 9,
+       "gives": "D"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "about here means surrounding, so the letters for that is go round right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "That is",
+         "at": 14,
+         "gives": "IE",
+         "note": "i.e. is the abbreviation for that is (id est)"
+        },
+        {
+         "words": "right",
+         "at": 28,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a horrible day is roughly correct.",
+     "definitionFit": "Dire describes something terrible or dreadful, a synonym of horrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1353,49 @@
     "text": "Control all those who peruse the newspaper with change of direction at the start?",
     "enumeration": "10"
    },
-   "solution": "LEADERSHIP"
+   "solution": "LEADERSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Control",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "with change of direction at the start",
+       "at": 43,
+       "note": "the opening letter, right, is switched to the opposite direction, left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "all those who peruse the newspaper",
+       "at": 8,
+       "gives": "READERSHIP",
+       "note": "a paper's readership is the whole body of its readers"
+      },
+      {
+       "gives": "R"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor ponders steering readers in a new direction.",
+     "walkthrough": "R (right) at the front becomes L (left), a change of direction.",
+     "definitionFit": "Leadership is the act of guiding or directing a group, a sense of control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1409,30 @@
     "text": "Runs game",
     "enumeration": "5"
    },
-   "solution": "DARTS"
+   "solution": "DARTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runs",
+      "at": 0,
+      "meaning": "... as a verb, dashes or rushes"
+     },
+     {
+      "text": "game",
+      "at": 5,
+      "meaning": "the pub game of throwing arrows at a board"
+     }
+    ],
+    "explanation": {
+     "surface": "A runs-based sporting contest.",
+     "definitionFit": "It means dashes quickly, and also names the British pub sport played at a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1446,40 @@
     "text": "Sailor caught enthralling sea creature",
     "enumeration": "4"
    },
-   "solution": "ORCA"
+   "solution": "ORCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "enthralling",
+       "at": 14,
+       "note": "enthralling means holding captive, so the words sailor caught contain the solution"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sailor caught",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mariner was caught spellbound by a creature of the deep.",
+     "definitionFit": "The killer whale is a large marine mammal, so it is an example of a sea creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1493,40 @@
     "text": "River rose, forming artificial lake",
     "enumeration": "9"
    },
-   "solution": "RESERVOIR"
+   "solution": "RESERVOIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "artificial lake",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "forming",
+       "at": 12,
+       "note": "forming suggests the letters of river rose are shaped into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "River rose",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising river created a man-made lake.",
+     "definitionFit": "A reservoir is a man-made body of water built to store supplies for a town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1546,48 @@
      }
     ]
    },
-   "solution": "NOONE"
+   "solution": "NOONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not a soul",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the energy letter following the word for midday"
+      }
+     ],
+     "parts": [
+      {
+       "words": "midday",
+       "at": 28,
+       "gives": "NOON",
+       "note": "noon is twelve o'clock midday"
+      },
+      {
+       "words": "energy",
+       "at": 15,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody has any energy left past lunchtime.",
+     "definitionFit": "Not a soul is an idiom meaning nobody at all, without a single person present."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soul"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1601,46 @@
     "text": "Complaint from Germany is moderate",
     "enumeration": "7"
    },
-   "solution": "DISEASE"
+   "solution": "DISEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Germany",
+       "at": 15,
+       "gives": "D",
+       "note": "D is the international vehicle code for Germany"
+      },
+      {
+       "words": "is",
+       "at": 23
+      },
+      {
+       "words": "moderate",
+       "at": 26,
+       "gives": "EASE",
+       "note": "to ease is to moderate or lessen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grievance from Berlin is toned down.",
+     "walkthrough": "'Complaint' looks like a grumble, but here it means an illness.",
+     "definitionFit": "A complaint in the medical sense is an ailment or illness affecting the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1654,52 @@
     "text": "Sky regularly checks networks",
     "enumeration": "7"
    },
-   "solution": "SYSTEMS"
+   "solution": "SYSTEMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "networks",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 4,
+         "note": "regularly means taking every other letter of sky, at regular intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sky",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "checks",
+       "at": 14,
+       "gives": "STEMS",
+       "note": "to stem is to check or halt a flow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster routinely inspects its broadcasting channels.",
+     "walkthrough": "Sky is a British satellite TV broadcaster, which feeds the surface.",
+     "definitionFit": "Networks are interconnected setups of parts working together, the same as organised structures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sky"
+    }
+   }
   }
  ]
 }
