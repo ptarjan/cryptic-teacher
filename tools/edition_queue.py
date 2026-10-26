@@ -769,6 +769,9 @@ def evidence_reason(reason):
             # a refused grid, so without this only_evidence dropped every one: Paul 10-24, ~650 Times
             # puzzles held short (1980s ~250, 1990s ~115, 1970s ~105) stood so, none planned.
             or reason == fa.REFUSED_GRID
+            # The same refused for its blocks after that fix, before read_solution read a matched grid on
+            # matched_box's own lattice (fa.MATCHED_LATTICE): its crop's framings missed rows, once.
+            or reason == fa.MATCHED_GRID
             # A held puzzle whose grid read short at blocks just under SURE_BLOCKS (a heavy print's inked
             # letters read as blocks) before the classifier read such grids (fa.heavy_short), once.
             or reason == fa.HEAVY_PRINT
@@ -1336,8 +1339,8 @@ def times_solution_work(unit):
 FIX_LANDED = ("short Times page, its third clue column read since", "solution short, read by other code",
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
-              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD,
-              fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
+              fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.MATCHED_GRID,
+              fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED)
@@ -1413,7 +1416,7 @@ CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.U
 #: (no batching) and not under the cpu-only cap (they would starve behind it).
 LOW_ASK = ("solution short, its cells unclassified", "solution short, read by other code",
            "answers held back by a clue with no enumeration", fa.SHORT_UNFITTED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE,
-           fa.REFUSED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
+           fa.REFUSED_GRID, fa.MATCHED_GRID, fa.UNCLASSIFIED_HELD, fa.HEAVY_PRINT, fa.SUSPECT_HELD, fa.UNFILED_HELD,
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
            fa.CLUE_SOLVED)

@@ -690,7 +690,18 @@ check("a grid refused unmatched is a rank 2 answers-only reread, once: a read af
       (2, True, False), (f.RANKS[f.REFUSED_GRID], f.REFUSED_GRID in f.SOLUTION_FIXES,
                          f.refused_grid({**part(0, "its blocks are not the puzzle's", None),
                                          "edition": "NewsUK1984UKEnglish/1984-05-01_61715"})))
-classified_part = {**part(20, None, "other"), "verdicts": [
+check("a grid refused for its blocks after matched_box is a rank 2 answers-only reread, once (MATCHED_GRID): "
+      "a read after REREAD_MATCHED_GRID is not due; an ink-size refusal is not its",
+      (2, True, True, True, False, False),
+      (f.RANKS[f.MATCHED_GRID], f.MATCHED_GRID in f.SOLUTION_FIXES, f.MATCHED_LATTICE,
+       f.REREAD_MATCHED_GRID > f.REREAD_REFUSED_GRID,
+       f.refused_grid({**part(0, "its blocks are not the puzzle's", None), "edition": "NewsUK1984UKEnglish/1984-05-01_61715"},
+                      f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1]),
+       f.refused_grid({**refused(None, "2026-10-25T01:00:00+00:00"), "edition": "NewsUK1984UKEnglish/1984-05-01_61715",
+                       "verdicts": [{"number": 1, "id": "times-1", "solutionFrom": "x leaf 1",
+                                     "solution": {"refused": "the ink under the heading is 88x30"}}]},
+                      f.REREAD_MATCHED_GRID, f.GRID_REFUSALS[:1])))
+classified_part ={**part(20, None, "other"), "verdicts": [
     {"number": 1, "solution": {"accepted": 20, "lights": 30, "classified": 3}}]}
 ft_part = lambda key: {**part(20, None, key), "edition": "FinancialTimes1985UKEnglish/1985-01-02"}
 check("a Times solution read short before the cell classifier is due as such, ranked 2; one it read, by other code; "
