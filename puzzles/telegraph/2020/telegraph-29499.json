@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,90 @@
     "text": "Enable me to return old whiskey in person? Just half!",
     "enumeration": "7"
    },
-   "solution": "EMPOWER"
+   "solution": "EMPOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Enable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to return",
+         "at": 10,
+         "note": "returning sends the word me back the other way, so it is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "me",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 32,
+         "note": "in puts the old-and-whiskey pair inside the shortened word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Just half",
+           "at": 43,
+           "note": "just half of a six-letter word keeps only its first three letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "person",
+           "at": 35
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "old",
+           "at": 20,
+           "gives": "O"
+          },
+          {
+           "words": "whiskey",
+           "at": 24,
+           "gives": "W",
+           "note": "W is whiskey in the NATO phonetic alphabet"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker pictures turning up with an old whiskey in person, but only managing half of the trip.",
+     "walkthrough": "'to return' and 'Just half' are the signals; 'in' puts the old-whiskey pair inside the halved word. 'whiskey' is W from the NATO phonetic alphabet, not a drink.",
+     "definitionFit": "To empower someone is to give them the authority or means to act, which is what enabling them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +130,57 @@
     "text": "Editor with religious book missing cover? It's ok to scoff",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ok to scoff",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Editor",
+       "at": 0,
+       "gives": "ED"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing cover",
+         "at": 27,
+         "note": "a cover sits on top, so the top letter of the book's name is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "religious book",
+         "at": 12,
+         "gives": "BIBLE",
+         "note": "the Bible is the holy book of Christianity"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor reads the Bible without its jacket and wonders whether mocking it is acceptable.",
+     "walkthrough": "'scoff' looks like mocking but is slang for eating greedily; 'missing cover' strips the B from BIBLE to give IBLE.",
+     "definitionFit": "Food that is fit to be eaten, safe to gobble down, is edible; scoff is British slang for eating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scoff"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +194,57 @@
     "text": "Dad left rook under a tree",
     "enumeration": "6"
    },
-   "solution": "POPLAR"
+   "solution": "POPLAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 14,
+       "note": "in a down clue, under means the rook's letter comes below the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dad",
+       "at": 0,
+       "gives": "POP",
+       "note": "pop is an informal word for a father"
+      },
+      {
+       "words": "left",
+       "at": 4,
+       "gives": "L"
+      },
+      {
+       "words": "a",
+       "at": 20
+      },
+      {
+       "words": "rook",
+       "at": 9,
+       "gives": "R",
+       "note": "R is the chess abbreviation for rook"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father abandons a chess rook beneath a tree.",
+     "definitionFit": "The poplar is a tall, fast-growing deciduous tree, so it is an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +258,45 @@
     "text": "Savage birds on southern wasteland",
     "enumeration": "10"
    },
-   "solution": "WILDERNESS"
+   "solution": "WILDERNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wasteland",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Savage",
+       "at": 0,
+       "gives": "WILD",
+       "note": "savage and wild both mean untamed or fierce"
+      },
+      {
+       "words": "birds",
+       "at": 7,
+       "gives": "ERNES",
+       "note": "ernes are sea eagles, crossword favourites"
+      },
+      {
+       "words": "southern",
+       "at": 16,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fierce birds descend on a barren stretch of land in the south.",
+     "definitionFit": "A wilderness is an uncultivated, uninhabited region, essentially a wasteland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +310,53 @@
     "text": "Australian animal on street picked up germs",
     "enumeration": "5"
    },
-   "solution": "ROOTS"
+   "solution": "ROOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "germs",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Australian animal",
+       "at": 0,
+       "gives": "ROO",
+       "note": "roo is short for kangaroo"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 28,
+         "note": "in a down clue, picking something up lifts it, so the street's letters are read upwards, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "street",
+         "at": 21,
+         "gives": "ST"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kangaroo on the road catches some infection.",
+     "walkthrough": "'germs' looks like microbes but means origins, as in the germ of an idea; 'picked up' turns ST into TS.",
+     "definitionFit": "Germs in the sense of beginnings or seeds of something are its roots, the sources from which it grows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "germs"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +370,47 @@
     "text": "Wanted something done about gentleman",
     "enumeration": "7"
    },
-   "solution": "DESIRED"
+   "solution": "DESIRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wanted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 22,
+       "note": "about means going around, so the deed's letters surround the gentleman's title"
+      }
+     ],
+     "parts": [
+      {
+       "words": "something done",
+       "at": 7,
+       "gives": "DEED",
+       "note": "a deed is an act, something that has been done"
+      },
+      {
+       "words": "gentleman",
+       "at": 28,
+       "gives": "SIR",
+       "note": "sir is the polite title for a gentleman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man was sought for some act involving a gentleman.",
+     "definitionFit": "Desired and wanted are synonyms, both describing something longed for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +424,69 @@
     "text": "Pants could fit if nothing's gone knotty",
     "enumeration": "9"
    },
-   "solution": "DIFFICULT"
+   "solution": "DIFFICULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knotty",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Pants",
+       "at": 0,
+       "note": "pants is British slang for rubbish or poor, so the letters are badly arranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "gone",
+         "at": 29,
+         "note": "gone says the nothing has left the word could"
+        }
+       ],
+       "parts": [
+        {
+         "words": "could",
+         "at": 6,
+         "gives": "COULD"
+        },
+        {
+         "words": "nothing's",
+         "at": 19,
+         "gives": "O",
+         "note": "nothing is zero, the letter O"
+        }
+       ]
+      },
+      {
+       "words": "fit",
+       "at": 12
+      },
+      {
+       "words": "if",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trousers that could fit if only there were nothing in the way have become tangled.",
+     "walkthrough": "'Pants' looks like trousers but is the anagram signal; 'gone' takes the O from COULD, leaving CULD to mix with FIT and IF.",
+     "definitionFit": "A knotty problem is a hard, complicated one, so knotty means hard to solve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pants"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +500,30 @@
     "text": "Lay off wine",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lay off",
+      "at": 0,
+      "meaning": "to dismiss a worker from a job"
+     },
+     {
+      "text": "wine",
+      "at": 8,
+      "meaning": "an old word for a dry white wine from Spain or the Canaries, as in Falstaff's favourite"
+     }
+    ],
+    "explanation": {
+     "surface": "Give up drinking wine.",
+     "definitionFit": "Firing staff is giving them the sack, and the old Spanish fortified wine was also called by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +537,47 @@
     "text": "Response from Royal Engineers before battle",
     "enumeration": "8"
    },
-   "solution": "REACTION"
+   "solution": "REACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 30,
+       "note": "in a down clue the engineers come first, ahead of the battle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Royal Engineers",
+       "at": 14,
+       "gives": "RE",
+       "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
+      },
+      {
+       "words": "battle",
+       "at": 37,
+       "gives": "ACTION",
+       "note": "action means fighting, as in killed in action"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Army engineers respond before going into battle.",
+     "definitionFit": "A reaction is a reply or answer to something that has happened, so it is a synonym of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +591,55 @@
     "text": "Good-looking person shedding last hair — misery!",
     "enumeration": "8"
    },
-   "solution": "DISTRESS"
+   "solution": "DISTRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "misery",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shedding last",
+         "at": 20,
+         "note": "shedding last drops the final letter of the word for the attractive person"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Good-looking person",
+         "at": 0,
+         "gives": "DISH",
+         "note": "a dish is slang for an attractive person"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "hair",
+       "at": 34,
+       "gives": "TRESS",
+       "note": "a tress is a lock of hair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beautiful person losing their hair is in despair.",
+     "definitionFit": "Distress is great suffering or anguish, which matches misery as a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +653,54 @@
     "text": "Drive Hillman, perhaps, with the Parisian in reverse",
     "enumeration": "5"
    },
-   "solution": "IMPEL"
+   "solution": "IMPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hillman, perhaps",
+       "at": 6,
+       "gives": "IMP",
+       "note": "the Hillman Imp was a small British car of the 1960s"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "in reverse",
+         "at": 42,
+         "note": "in reverse says the French article is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Parisian",
+         "at": 29,
+         "gives": "LE",
+         "note": "le is French for the"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Driving a Hillman car around Paris while backing up.",
+     "walkthrough": "'Drive' sits beside a car and looks like motoring, but it means to push someone on; 'in reverse' turns the French article round.",
+     "definitionFit": "To impel is to urge or force someone forward, just as to drive them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drive"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +714,70 @@
     "text": "Rotten and in charge, this person also removes ordinary administrators",
     "enumeration": "9"
    },
-   "solution": "OFFICIALS"
+   "solution": "OFFICIALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "administrators",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rotten",
+       "at": 0,
+       "gives": "OFF",
+       "note": "food that has gone off is rotten"
+      },
+      {
+       "words": "in charge",
+       "at": 11,
+       "gives": "IC"
+      },
+      {
+       "words": "this person",
+       "at": 22,
+       "gives": "I",
+       "note": "the setter refers to themselves as I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removes",
+         "at": 39,
+         "note": "removes says a letter is taken away from the word also"
+        }
+       ],
+       "parts": [
+        {
+         "words": "also",
+         "at": 34,
+         "gives": "ALSO"
+        },
+        {
+         "words": "ordinary",
+         "at": 47,
+         "gives": "O",
+         "note": "O is the abbreviation for ordinary, as in the old O level"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Corrupt and in charge, someone sacks ordinary managers too.",
+     "walkthrough": "'removes' takes O out of ALSO, leaving ALS.",
+     "definitionFit": "Officials are people holding posts of authority, who run and administer organisations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotten"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +791,39 @@
     "text": "What government needs desperately is help, dear",
     "enumeration": "10"
    },
-   "solution": "LEADERSHIP"
+   "solution": "LEADERSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What government needs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "desperately",
+       "at": 22,
+       "note": "desperately suggests wild, frantic action, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is help, dear",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to the authorities, dear, for help that is badly needed.",
+     "definitionFit": "Governing requires someone to guide and direct, the quality of leading people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +837,31 @@
     "text": "Leading performer's heavenly body",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leading performer",
+      "at": 0,
+      "meaning": "the headline act in a show or film"
+     },
+     {
+      "text": "heavenly body",
+      "at": 20,
+      "meaning": "a luminous sun in the night sky"
+     }
+    ],
+    "explanation": {
+     "surface": "The lead actor has a celestial physique.",
+     "definitionFit": "The top-billed actor is called this, and so are the glowing suns seen in the night sky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +875,41 @@
     "text": "Rubbish — spare me hot air",
     "enumeration": "10"
    },
-   "solution": "ATMOSPHERE"
+   "solution": "ATMOSPHERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "air",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Rubbish",
+       "at": 0,
+       "note": "rubbish as a verb means to trash, so the letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spare me hot",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests at nonsense, asking to be spared hot air.",
+     "walkthrough": "'hot air' looks like the definition, but only 'air' is; 'hot' is part of the letters to rearrange.",
+     "definitionFit": "The atmosphere is the mass of air surrounding the earth, and also a mood or feeling in a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +923,49 @@
     "text": "Rows after this month's orders",
     "enumeration": "12"
    },
-   "solution": "INSTRUCTIONS"
+   "solution": "INSTRUCTIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "orders",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 5,
+       "note": "after puts the rows at the end, following this month's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "this month's",
+       "at": 11,
+       "gives": "INST",
+       "note": "inst, short for instant, is old business-letter style for this month"
+      },
+      {
+       "words": "Rows",
+       "at": 0,
+       "gives": "RUCTIONS",
+       "note": "ructions are noisy quarrels"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arguments follow this month's commands.",
+     "walkthrough": "'inst' (instant) dated a letter to the current month, as in 'your letter of the 5th inst'.",
+     "definitionFit": "Instructions are directions telling someone what to do, which is what orders are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rows"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +979,73 @@
     "text": "Buy and sell endlessly — one into bad habit",
     "enumeration": "9"
    },
-   "solution": "TRADITION"
+   "solution": "TRADITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "habit",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 13,
+         "note": "endlessly drops the final letter of the word for buying and selling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Buy and sell",
+         "at": 0,
+         "gives": "TRADE",
+         "note": "to trade is to buy and sell goods"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 25,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 34,
+         "note": "bad suggests something gone wrong, so these letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to stop dealing slips back into a bad habit.",
+     "walkthrough": "'endlessly' cuts TRADE to TRAD; 'bad' rearranges I and INTO to make ITION.",
+     "definitionFit": "A tradition is a custom or practice handed down and repeated, a habitual way of doing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1059,53 @@
     "text": "China follows Eastern Standard Time, I guess",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "guess",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 6,
+       "note": "follows puts the friend's word after the time zone and the I"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eastern Standard Time",
+       "at": 14,
+       "gives": "EST",
+       "note": "EST is the abbreviation for Eastern Standard Time"
+      },
+      {
+       "words": "I",
+       "at": 37
+      },
+      {
+       "words": "China",
+       "at": 0,
+       "gives": "MATE",
+       "note": "china is rhyming slang for mate: china plate, mate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "China keeps to the American eastern time zone, the speaker supposes.",
+     "walkthrough": "'China' looks like the country, but is Cockney rhyming slang: 'china plate' rhymes with 'mate', a friend.",
+     "definitionFit": "To estimate is to make a rough calculation or judgement, which is to guess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1119,42 @@
     "text": "Jumpers maybe the least unravelled",
     "enumeration": "8"
    },
-   "solution": "ATHLETES"
+   "solution": "ATHLETES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jumpers maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unravelled",
+       "at": 24,
+       "note": "unravelled is undone, like knitting, so the letters are taken apart and remade"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the least",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sweaters, perhaps, that have come the least undone.",
+     "walkthrough": "'Jumpers' and 'unravelled' suggest knitted sweaters; here jumpers are sportspeople, and 'maybe' marks them as an example.",
+     "definitionFit": "High jumpers and long jumpers are examples of track and field sportspeople."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jumpers"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1168,58 @@
     "text": "Joy was placed next to single small group",
     "enumeration": "12"
    },
-   "solution": "SATISFACTION"
+   "solution": "SATISFACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Joy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "next to",
+       "at": 15,
+       "note": "next to says the pieces sit side by side"
+      }
+     ],
+     "parts": [
+      {
+       "words": "was placed",
+       "at": 4,
+       "gives": "SAT",
+       "note": "sat means was seated or set down"
+      },
+      {
+       "words": "single",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral one, a single"
+      },
+      {
+       "words": "small",
+       "at": 30,
+       "gives": "S"
+      },
+      {
+       "words": "group",
+       "at": 36,
+       "gives": "FACTION",
+       "note": "a faction is a group within a larger body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delight at being seated beside one small party.",
+     "definitionFit": "Satisfaction is the pleasure felt when a wish is fulfilled, akin to joy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1233,56 @@
     "text": "Confusion no good in story",
     "enumeration": "6"
    },
-   "solution": "TANGLE"
+   "solution": "TANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confusion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places the two abbreviations inside the word for story"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "at": 21,
+       "gives": "TALE",
+       "note": "a tale is a story"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 10,
+         "gives": "N"
+        },
+        {
+         "words": "good",
+         "at": 13,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddle with nothing good in the narrative.",
+     "definitionFit": "A tangle is a confused, jumbled state or muddle, so it means confusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1296,59 @@
     "text": "Snake about to be enthralled by alien's appearance",
     "enumeration": "6"
    },
-   "solution": "ASPECT"
+   "solution": "ASPECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "appearance",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Snake",
+       "at": 0,
+       "gives": "ASP",
+       "note": "an asp is a venomous snake"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to be enthralled by",
+         "at": 12,
+         "note": "enthralled by means held captive by, so the about letter is held within the alien"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alien",
+         "at": 32,
+         "gives": "ET",
+         "note": "ET is the alien from the Spielberg film"
+        },
+        {
+         "words": "about",
+         "at": 6,
+         "gives": "C",
+         "note": "C is circa, Latin for about"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake captivated by an alien's looks.",
+     "walkthrough": "'enthralled by' puts C inside ET to make ECT.",
+     "definitionFit": "An aspect is the look or outward appearance of something, as in a building's aspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1362,31 @@
     "text": "Python lay on one's oars",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Python",
+      "at": 0,
+      "meaning": "Eric, a member of the Monty Python comedy team"
+     },
+     {
+      "text": "lay on one's oars",
+      "at": 7,
+      "meaning": "an idiom meaning to stop working and rest"
+     }
+    ],
+    "explanation": {
+     "surface": "A snake lies on the rower's oars.",
+     "definitionFit": "Eric of Monty Python shares the surname, and resting on oars means doing nothing, being inactive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Python"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1400,39 @@
     "text": "Drunk, pa's despair vanishes",
     "enumeration": "10"
    },
-   "solution": "DISAPPEARS"
+   "solution": "DISAPPEARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vanishes",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Drunk",
+       "at": 0,
+       "note": "drunk suggests something reeling and unsteady, so the letters are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pa's despair",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father's misery when intoxicated simply fades away.",
+     "definitionFit": "To vanish is to go out of sight, which is exactly what something that disappears does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1446,48 @@
     "text": "Insist resistance cuts fever",
     "enumeration": "5"
    },
-   "solution": "ARGUE"
+   "solution": "ARGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cuts",
+       "at": 18,
+       "note": "cuts means slices into, so the resistance letter goes inside the fever"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fever",
+       "at": 23,
+       "gives": "AGUE",
+       "note": "ague is an old word for a malarial fever"
+      },
+      {
+       "words": "resistance",
+       "at": 7,
+       "gives": "R",
+       "note": "R is the physics symbol for resistance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demand that resistance lowers a temperature.",
+     "definitionFit": "To argue a point is to maintain or assert it firmly, so to insist on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1501,41 @@
     "text": "Climbing mountain for a bet",
     "enumeration": "4"
    },
-   "solution": "ANTE"
+   "solution": "ANTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bet",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Climbing",
+       "at": 0,
+       "note": "in a down clue climbing reads upwards, so the mountain's name is reversed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mountain",
+       "at": 9,
+       "gives": "ETNA",
+       "note": "Etna is the volcano in Sicily"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing a mountain on a wager.",
+     "definitionFit": "An ante is a stake put into the pot before cards are dealt in poker, a wager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1549,51 @@
     "text": "Taking part in a tango with tense conclusion",
     "enumeration": "9"
    },
-   "solution": "ATTENDING"
+   "solution": "ATTENDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Taking part in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "words": "tango",
+       "at": 17,
+       "gives": "T",
+       "note": "T is tango in the NATO phonetic alphabet"
+      },
+      {
+       "words": "tense",
+       "at": 28,
+       "gives": "T",
+       "note": "T is the grammatical abbreviation for tense"
+      },
+      {
+       "words": "conclusion",
+       "at": 34,
+       "gives": "ENDING",
+       "note": "an ending is a conclusion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Joining in a tango that ends tensely.",
+     "definitionFit": "Being present at an event, as in attending a class, means taking part in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1607,61 @@
     "text": "Not totally keen to catch large bird",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 17,
+       "note": "to catch means to hold inside, so the large letter is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not totally",
+         "at": 0,
+         "note": "not totally drops the last letter of the word for keen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "keen",
+         "at": 12,
+         "gives": "EAGER",
+         "note": "eager means keen"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "at": 26,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A not-quite-enthusiastic predator tries to catch a big bird.",
+     "definitionFit": "The eagle is a large bird of prey, an example of the general word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1675,40 @@
     "text": "Oriental festival name?",
     "enumeration": "7"
    },
-   "solution": "EASTERN"
+   "solution": "EASTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Oriental",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "festival",
+       "at": 9,
+       "gives": "EASTER",
+       "note": "Easter is the Christian spring festival"
+      },
+      {
+       "words": "name",
+       "at": 18,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What a spring holiday might be called.",
+     "definitionFit": "Oriental and eastern both describe things from the East, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oriental"
+    }
+   }
   },
   {
    "number": 28,
@@ -436,7 +1722,60 @@
     "text": "Base allowed to retain soldiers for a bit",
     "enumeration": "7"
    },
-   "solution": "ELEMENT"
+   "solution": "ELEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bit",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Base",
+       "at": 0,
+       "gives": "E",
+       "note": "e is the base of natural logarithms in mathematics"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to retain",
+         "at": 13,
+         "note": "to retain means to keep within, so the soldiers sit inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "allowed",
+         "at": 5,
+         "gives": "LET",
+         "note": "let means allowed"
+        },
+        {
+         "words": "soldiers",
+         "at": 23,
+         "gives": "MEN",
+         "note": "men is a common word for soldiers"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military base lets troops stay for a short while.",
+     "walkthrough": "'Base' looks like a military camp, but it is the mathematical constant e.",
+     "definitionFit": "An element is a component or small part of something, as in an element of truth, so a bit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Base"
+    }
+   }
   }
  ]
 }
