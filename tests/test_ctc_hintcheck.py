@@ -7,6 +7,7 @@ adds no class. A rung before the blocks that spells the answer is an
 early_giveaway, but one that only quotes the clue is not. A template word no
 solver says is jargon_unsaid.
 """
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import collections
 import sys
 
