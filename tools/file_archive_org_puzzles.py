@@ -8953,7 +8953,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   "1ad8460cbd03ea2f": "8417cfb08f3a9706",
                   # read_framed's framing and cell probabilities kept on disk too (grid_ocr_cache
                   # .keep_framing/keep_probs): the same readings.
-                  "d7af79af2ec8d286": "8417cfb08f3a9706"}
+                  "d7af79af2ec8d286": "8417cfb08f3a9706",
+                  # blocks_ranked (a grid whose blocks are its least-paper cells classified): only grids none
+                  # was classified on read otherwise; due once as RANKED_BLOCKS.
+                  "9c36c7b1f3d93f38": "f6a3d293c491a4b0"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -8992,14 +8995,27 @@ def solved(sol, grid, above=False, lean=False, enums=None):
     path = CROPS / "solution_reads" / f"{d.name}_{sol['number']}.json"
     if path.exists():
         kept = json.loads(path.read_text())
-        if kept.get("key") == key:
+        if kept.get("key") == key and not ranked_stale(kept, d, sol["number"], grid):
             return kept["answers"], kept["stats"]
     answers, stats = read_solution(page(d, leaf), sol, grid, above=above, lean=lean, enums=enums)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
-    tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats}))
+    tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats, "ranked": True}))
     tmp.replace(path)
     return answers, stats
+
+
+def ranked_stale(kept, d, number, grid):
+    """Whether solved()'s kept reading `kept` of edition dir `d`'s solution grid `number` was read before
+    blocks_ranked (no "ranked" mark), a Times grid read short with no cell classified whose crop the classifier
+    reads now (cell_probs: a framing's blocks ranked as the grid's): read again once, the kept code key the
+    same (_SOLVED_PINS)."""
+    st = kept.get("stats") or {}
+    if (kept.get("ranked") or "classified" in st or st.get("refused") or st.get("accepted", 0) >= st.get("lights", 0)
+            or paper_of(d).key not in CELLS_CLASSIFIED):
+        return False
+    crop = CROPS / "solutions" / f"{d.name}_{number}.png"
+    return crop.exists() and trove_solution_ocr.cell_probs(crop, grid) is not None
 
 
 _SOLVED_CODE = []
@@ -9012,7 +9028,10 @@ _SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03",
                 "214418ebf47f6b5c": "07caaedc892a5b03",
                 # read_framed's framing and cell probabilities kept on disk too (10-26: one 1980 Times
                 # crop's framing, probabilities and strips bitwise alike off disk).
-                "27b384ef2e72bdc4": "07caaedc892a5b03"}
+                "27b384ef2e72bdc4": "07caaedc892a5b03",
+                # blocks_ranked: only a reading with no cell classified reads otherwise, and solved() reads
+                # such a kept one again where the crop now frames sure (ranked_stale).
+                "e3edd31e4a0bdd8c": "33b18559064c9abc"}
 
 
 def input_hash(d):
@@ -11501,6 +11520,43 @@ def unsure_uncrossed(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_RANKED_BLOCKS whose linked solution grid read short
+#: with no cell classified (no framing blocks_sure), for a puzzle held short from that page: since then a
+#: framing on which the puzzle's blocks are exactly the image's most inked cells
+#: (trove_solution_ocr.blocks_ranked: a grey print's blocks holding paper over BLOCK_PAPER, a heavy print's letters
+#: inked past VERY_HEAVY_EXTRA) is sure, and the classifier reads it; solved() reads such a kept reading again
+#: (ranked_stale). 10-27: of 265 Times held short so (1970s-90s most), the cached crops of RANKED_PUZZLES frame
+#: so (39) or sure (26, read before sure_framing); due are those, not every unclassified row (1,233, framings()
+#: ~3 s a crop in the plan). answers_only, once.
+RANKED_BLOCKS = "solution short, its cells classified where its blocks rank as the grid's since"
+REREAD_RANKED_BLOCKS = "2026-10-27T10:30:00+00:00"
+RANKED_PUZZLES = frozenset((
+    12178, 13334, 14154, 14309, 14970, 15377, 15444, 15470, 15481, 15603, 16048, 16211, 16214, 16270, 16367, 16394,
+    16395, 16397, 16418, 16474, 16490, 16546, 16795, 16902, 17921, 18461, 18821, 22244, 22534, 22535, 22536, 22540,
+    22730, 22781, 22797, 5128, 5170, 6509, 6994, 16110, 21261))
+
+
+def ranked_short(row):
+    """Whether Times ledger `row`, read before REREAD_RANKED_BLOCKS, has a verdict (no held title's) of a linked
+    solution grid read short with no cell classified, not refused, for a puzzle of RANKED_PUZZLES held by this tool
+    from that page with every clue, not every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_RANKED_BLOCKS)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
+                or not isinstance(s, dict) or s.get("refused") or "classified" in s
+                or s.get("accepted", 0) >= s.get("lights", 0) or v["number"] not in RANKED_PUZZLES
+                or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
 #: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
 #: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
@@ -11765,6 +11821,8 @@ def fix_reason(row):
         return UNFILED_HELD
     if held_clash(row):
         return HELD_CLASH
+    if ranked_short(row):
+        return RANKED_BLOCKS
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -12341,7 +12399,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -12904,7 +12962,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, FULL_SHORT,
-                  STRAY_GRID, UNSURE_LONE)
+                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS)
 
 
 def keeps_vlm(why, row, unit=None):
