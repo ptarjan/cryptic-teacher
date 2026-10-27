@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,59 @@
     "text": "Food costing a lot, though not a soup",
     "enumeration": "7"
    },
-   "solution": "CHOWDER"
+   "solution": "CHOWDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Food",
+       "at": 0,
+       "gives": "CHOW",
+       "note": "chow is slang for food"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 27,
+         "note": "not tells us to leave out the letter a from the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "costing a lot",
+         "at": 5,
+         "gives": "DEAR",
+         "note": "dear means expensive"
+        },
+        {
+         "words": "a",
+         "at": 31,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner remarks that a dish is pricey, though at least it isn't soup.",
+     "walkthrough": "'Food' wants to be the definition, but the answer is the soup. 'not' removes A from DEAR, leaving DER.",
+     "definitionFit": "Chowder is a thick, chunky North American soup, often made with clams or fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Food"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +100,70 @@
     "text": "Quiet person, brought up to repress merest hint of enthusiasm, rose with difficulty",
     "enumeration": "9"
    },
-   "solution": "CLAMBERED"
+   "solution": "CLAMBERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rose with difficulty",
+      "at": 63
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quiet person",
+       "at": 0,
+       "gives": "CLAM",
+       "note": "a clam is someone who keeps quiet, clams up"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to repress",
+         "at": 25,
+         "note": "to repress means to hold something in, so the hint goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brought up",
+         "at": 14,
+         "gives": "BRED",
+         "note": "bred means raised or brought up"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "merest hint of",
+           "at": 36,
+           "note": "merest hint of picks only the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enthusiasm",
+           "at": 51
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy person, raised to suppress any enthusiasm, struggles to get up.",
+     "walkthrough": "'Quiet person' as CLAM comes from clamming up; 'to repress' tucks the E inside, giving BERED.",
+     "definitionFit": "To clamber is to climb awkwardly using hands and feet, rising with effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +177,48 @@
     "text": "Vessel offloading second-rate grain",
     "enumeration": "3"
    },
-   "solution": "OAT"
+   "solution": "OAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grain",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "offloading",
+       "at": 7,
+       "note": "offloading means the letter for second-rate is unloaded from the vessel word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vessel",
+       "at": 0,
+       "gives": "BOAT",
+       "note": "a boat is a vessel"
+      },
+      {
+       "words": "second-rate",
+       "at": 18,
+       "gives": "B",
+       "note": "B, as in B-grade or B-movie, means second-rate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship unloads a cargo of poor-quality grain.",
+     "definitionFit": "Oats are a cereal crop, a kind of grain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "offloading"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +232,60 @@
     "text": "Rodents, millions, coming in to attack grain",
     "enumeration": "7"
    },
-   "solution": "DORMICE"
+   "solution": "DORMICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rodents",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "attack",
+       "at": 32,
+       "gives": "DO",
+       "note": "to do someone is slang for attacking them"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming in to",
+         "at": 19,
+         "note": "coming in to means the millions letter enters the other words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "grain",
+         "at": 39,
+         "gives": "RICE",
+         "note": "rice is a cereal grain"
+        },
+        {
+         "words": "millions",
+         "at": 9,
+         "gives": "M",
+         "note": "M is the abbreviation for million"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rodents in their millions descend to attack a grain store.",
+     "walkthrough": "To 'do' someone is slang for beating them up; 'coming in to' places the M within the grain.",
+     "definitionFit": "Dormice are small rodents known for hibernating for long periods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attack"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +299,64 @@
     "text": "Some illumination around endless religious service? It's not often seen",
     "enumeration": "6"
    },
-   "solution": "RARITY"
+   "solution": "RARITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's not often seen",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "around means the light word wraps the shortened service word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Some illumination",
+       "at": 0,
+       "gives": "RAY",
+       "note": "a ray is a beam, a bit of light"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 25,
+         "note": "endless means the last letter of the service word is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "religious service",
+         "at": 33,
+         "gives": "RITE",
+         "note": "a rite is a religious ceremony"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Light streams round a rare religious service, something seldom seen.",
+     "walkthrough": "'endless' leaves RIT; 'around' puts the light around it.",
+     "definitionFit": "A rarity is something uncommon, encountered only seldom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "illumination"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +370,59 @@
     "text": "Have another try, but after rebuilding fortress",
     "enumeration": "7"
    },
-   "solution": "REDOUBT"
+   "solution": "REDOUBT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fortress",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the rebuilt letters behind the first piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Have another try",
+       "at": 0,
+       "gives": "REDO",
+       "note": "to redo something is to have another go at it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebuilding",
+         "at": 28,
+         "note": "rebuilding tells us the letters of but are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "but",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attacker resolves to try again, but only after the siege works are rebuilt.",
+     "walkthrough": "'but' looks like a link word but is the anagram fodder; 'rebuilding' gives UBT and 'after' sets it last.",
+     "definitionFit": "A redoubt is a small outlying fort or defensive stronghold, a kind of fortress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "but"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +436,60 @@
     "text": "Armed force keeps on ignoring hoax trains",
     "enumeration": "8"
    },
-   "solution": "RETINUES"
+   "solution": "RETINUES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trains",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Armed force",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a corps of the British Army"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 21,
+         "note": "ignoring means the hoax word is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "keeps on",
+         "at": 12,
+         "gives": "CONTINUES",
+         "note": "continues means keeps on"
+        },
+        {
+         "words": "hoax",
+         "at": 30,
+         "gives": "CON",
+         "note": "a con is a trick or hoax"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit persists with its work, ignoring a hoax about the trains.",
+     "walkthrough": "RE (Royal Engineers) is a British Army corps; 'ignoring' drops CON from CONTINUES, leaving TINUES.",
+     "definitionFit": "A retinue is the train of attendants following an important person, so trains in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trains"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +503,41 @@
     "text": "\"Suffocated, in a way\" medic admitted",
     "enumeration": "7"
    },
-   "solution": "DROWNED"
+   "solution": "DROWNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suffocated, in a way",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "medic",
+       "at": 23,
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
+      },
+      {
+       "words": "admitted",
+       "at": 29,
+       "gives": "OWNED",
+       "note": "owned, as in owned up to, means admitted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor confesses that someone was suffocated in some manner.",
+     "definitionFit": "Drowning is death by being unable to breathe under water, one particular way to suffocate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +551,40 @@
     "text": "Swirling nebula later having fixed form",
     "enumeration": "11"
    },
-   "solution": "UNALTERABLE"
+   "solution": "UNALTERABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having fixed form",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Swirling",
+       "at": 0,
+       "note": "swirling suggests the letters are churned into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nebula later",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swirling nebula later settles into a fixed shape.",
+     "definitionFit": "Something unalterable cannot be changed, so its form stays fixed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nebula"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +598,41 @@
     "text": "Affected depth in river",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Affected",
+       "at": 0,
+       "gives": "TWEE",
+       "note": "twee means affectedly quaint"
+      },
+      {
+       "words": "depth",
+       "at": 9,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets precious about how deep a river is.",
+     "walkthrough": "The Tweed is a river forming part of the border between England and Scotland.",
+     "definitionFit": "The Tweed is a river in the Scottish Borders, flowing into the North Sea at Berwick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Affected"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +646,63 @@
     "text": "A lot of concern about temperature in part of church",
     "enumeration": "5"
    },
-   "solution": "ALTAR"
+   "solution": "ALTAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of church",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "about means the shortened word goes around the letter for temperature"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of, not all, so the last letter of the word for concern is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concern",
+         "at": 9,
+         "gives": "ALARM",
+         "note": "alarm is a feeling of worried concern"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "temperature",
+       "at": 23,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets about temperature in a chilly part of a church.",
+     "walkthrough": "'A lot of' trims ALARM to ALAR, which goes 'about' T.",
+     "definitionFit": "The altar is the table at the east end of a church where communion is celebrated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +716,69 @@
     "text": "A lot of tax one applied to beer has some justification",
     "enumeration": "9"
    },
-   "solution": "RATIONALE"
+   "solution": "RATIONALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "justification",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of, not all, so the final letter of the word for tax is cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tax",
+         "at": 9,
+         "gives": "RATE",
+         "note": "a rate is a local tax"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "applied to",
+       "at": 17,
+       "gives": "ON",
+       "note": "on, as in a coat of paint put on a wall"
+      },
+      {
+       "words": "beer",
+       "at": 28,
+       "gives": "ALE",
+       "note": "ale is a type of beer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy duty on beer is said to have some justification behind it.",
+     "walkthrough": "'A lot of' cuts RATE to RAT; then come I, ON and ALE in order.",
+     "definitionFit": "A rationale is the reasoning or set of reasons offered to justify a decision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +792,43 @@
     "text": "Producer of counterfeit cash, say, ready to go in Gloucestershire village",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gloucestershire village",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Producer of counterfeit cash, say",
+       "at": 0,
+       "gives": "BADMINT",
+       "note": "a bad mint would be one turning out fake money"
+      },
+      {
+       "words": "ready to go",
+       "at": 35,
+       "gives": "ON",
+       "note": "on, as in a show that is on and ready to start"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forger, ready for action, is hiding out in a country village.",
+     "walkthrough": "BADMINTON is an English village in Gloucestershire, famous for its horse trials and as the namesake of the racket sport.",
+     "definitionFit": "Badminton is a real village in the county of Gloucestershire, home of Badminton House."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "counterfeit"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +848,61 @@
      }
     ]
    },
-   "solution": "DININGTABLE"
+   "solution": "DININGTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Board",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 17,
+       "note": "working implies the letters are worked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diligent",
+       "at": 7
+      },
+      {
+       "words": "an",
+       "at": 30
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening for",
+         "at": 33,
+         "note": "opening for picks the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "business",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diligent company board works on an opening for new business.",
+     "walkthrough": "'Board' looks like directors, but it is the table. 'working' rearranges DILIGENT, AN and B.",
+     "definitionFit": "Board is an old word for a table, especially one where meals are served, as in bed and board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +916,54 @@
     "text": "Rejected working with hooligan of repute",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of repute",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rejected",
+         "at": 0,
+         "note": "rejected means turned back, so the word for working is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "working",
+         "at": 9,
+         "gives": "ON",
+         "note": "on, as in a machine that is on and running"
+        }
+       ]
+      },
+      {
+       "words": "hooligan",
+       "at": 22,
+       "gives": "TED",
+       "note": "a Ted, short for Teddy boy, was a 1950s British youth often seen as a hooligan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker is turned away after working with a hooligan of some repute.",
+     "walkthrough": "'Rejected' turns ON into NO. A Teddy boy (TED) was a 1950s British youth-culture figure in Edwardian-style dress.",
+     "definitionFit": "Someone noted is well known or celebrated, which is to be of repute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rejected"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +977,32 @@
     "text": "Errand-boy who's done with escaping?",
     "enumeration": "6"
    },
-   "solution": "RUNNER"
+   "solution": "RUNNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Errand-boy",
+      "at": 0,
+      "meaning": "a lad sent to carry messages and run errands"
+     },
+     {
+      "text": "who's done with escaping?",
+      "at": 11,
+      "meaning": "British slang for fleeing, so one who has done that is described here"
+     }
+    ],
+    "explanation": {
+     "surface": "An errand-boy is suspected of having run off.",
+     "walkthrough": "'Do a runner' is British slang for leaving in a hurry, often without paying.",
+     "definitionFit": "A messenger who carries errands is a classic sense, and the slang phrase gives the second reading."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "done"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1016,59 @@
     "text": "Brought about stop before entering road",
     "enumeration": "8"
    },
-   "solution": "RENDERED"
+   "solution": "RENDERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brought about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 26,
+       "note": "entering means the words for stop and before go inside the road abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "road",
+       "at": 35,
+       "gives": "RD"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stop",
+         "at": 14,
+         "gives": "END",
+         "note": "an end is a stop or finish"
+        },
+        {
+         "words": "before",
+         "at": 19,
+         "gives": "ERE",
+         "note": "ere is an old word for before"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver comes to a stop before pulling onto the road.",
+     "walkthrough": "ERE is an archaic word for before; 'entering' places it and the stop word between the R and D.",
+     "definitionFit": "To render something is to cause it to become so, as in rendered helpless; brought about is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brought"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1088,36 @@
      }
     ]
    },
-   "solution": "DRESSCODE"
+   "solution": "DRESSCODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What determines whether a habit is good or bad?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What determines whether a habit is good or bad?",
+       "at": 0,
+       "note": "a habit is a garment as well as a custom, so the rules on acceptable clothing decide what is fit to wear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moralist asks what decides whether a habit is a good one.",
+     "walkthrough": "'habit' reads as a routine, but it is clothing, as in a nun's or riding habit.",
+     "definitionFit": "A dress code is a set of rules on what clothing is acceptable in a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1131,79 @@
     "text": "Locums: doctors, including one chasing rising amounts of money",
     "enumeration": "8"
    },
-   "solution": "STOPGAPS"
+   "solution": "STOPGAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Locums",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 31,
+       "note": "chasing means the doctors piece comes after the money piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 39,
+         "note": "rising, in a down clue, means the word is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "amounts of money",
+         "at": 46,
+         "gives": "POTS",
+         "note": "pots are large sums of money, as in pots of cash"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 17,
+         "note": "including means the doctors' letters hold the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctors",
+         "at": 8,
+         "gives": "GPS",
+         "note": "GPs are general practitioners, family doctors"
+        },
+        {
+         "words": "one",
+         "at": 27,
+         "gives": "A",
+         "note": "A, as in a single one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Locum doctors are seen chasing ever-increasing fees.",
+     "walkthrough": "'rising' turns POTS into STOP; GPS 'including' A gives GAPS, 'chasing' STOP.",
+     "definitionFit": "Locums are temporary stand-ins covering for absent doctors, which is what stopgaps are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Locums"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1217,55 @@
     "text": "Row with Government is followed by crazy characters",
     "enumeration": "8"
    },
-   "solution": "DINGBATS"
+   "solution": "DINGBATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "characters",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "is followed by",
+       "at": 20,
+       "note": "is followed by places the next word after what comes before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Row",
+       "at": 0,
+       "gives": "DIN",
+       "note": "a din is a noisy row"
+      },
+      {
+       "words": "Government",
+       "at": 9,
+       "gives": "G"
+      },
+      {
+       "words": "crazy",
+       "at": 35,
+       "gives": "BATS",
+       "note": "bats is slang for mad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy row with the Government is followed by some crazy people.",
+     "walkthrough": "'crazy' looks like it describes the characters, but it gives BATS.",
+     "definitionFit": "Dingbats are decorative typographic symbols, and also an informal term for silly people, so characters fits both."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crazy"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1279,59 @@
     "text": "Name hellish pit reprobate's seen around",
     "enumeration": "7"
    },
-   "solution": "BAPTISE"
+   "solution": "BAPTISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen around",
+       "at": 29,
+       "note": "seen around means the base word encloses the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reprobate's",
+       "at": 17,
+       "gives": "BASE",
+       "note": "a reprobate is base, morally low, with the 's standing for is"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hellish",
+         "at": 5,
+         "note": "hellish suggests the letters of pit are thrown into chaos"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pit",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked person is seen around a pit of hell, as if naming it.",
+     "walkthrough": "'hellish' gives PTI; 'reprobate's' is read as 'reprobate is', an adjective; 'seen around' wraps it.",
+     "definitionFit": "To baptise someone is to give them a name at a christening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Name"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1345,48 @@
     "text": "Out of practice, having to carry book to be sure",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sure",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having to carry",
+       "at": 17,
+       "note": "having to carry means the word for out of practice holds the book letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Out of practice",
+       "at": 0,
+       "gives": "STALE",
+       "note": "stale describes someone who has lost freshness through lack of practice"
+      },
+      {
+       "words": "book",
+       "at": 33,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rusty performer has to carry the script to be sure of the lines.",
+     "walkthrough": "STALE is 'having to carry' B, giving STA-B-LE.",
+     "definitionFit": "Stable means steady and secure, as sure footing is firm and dependable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1400,61 @@
     "text": "Couple taking up work on farm, appearing in book",
     "enumeration": "7"
    },
-   "solution": "TWOSOME"
+   "solution": "TWOSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing in",
+       "at": 31,
+       "note": "appearing in means the reversed farm word goes inside the book word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "book",
+       "at": 44,
+       "gives": "TOME",
+       "note": "a tome is a large book"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "taking up",
+         "at": 7,
+         "note": "taking up, in a down clue, means the word is read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "work on farm",
+         "at": 17,
+         "gives": "SOW",
+         "note": "to sow seed is farm work"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair take up farm work, and appear in a book about it.",
+     "walkthrough": "'taking up' turns SOW into WOS, 'appearing in' TOME.",
+     "definitionFit": "A twosome is a pair of people, a couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1468,40 @@
     "text": "Special equipment to make furniture",
     "enumeration": "6"
    },
-   "solution": "STOOLS"
+   "solution": "STOOLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "furniture",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Special",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "equipment",
+       "at": 8,
+       "gives": "TOOLS",
+       "note": "tools are equipment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Special equipment is needed to make a piece of furniture.",
+     "definitionFit": "Stools are simple seats without backs, items of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "equipment"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1521,59 @@
      }
     ]
    },
-   "solution": "ONTAP"
+   "solution": "ONTAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ready for deployment",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 5,
+       "note": "to keep means the work letters hold the others inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op, short for opus, is a work"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 13,
+         "gives": "N"
+        },
+        {
+         "words": "reservists",
+         "at": 17,
+         "gives": "TA",
+         "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A job is set up to keep new reserve soldiers ready to be sent out.",
+     "walkthrough": "OP is 'to keep' N and TA. The TA (Territorial Army) was Britain's army reserve.",
+     "definitionFit": "On tap means available whenever needed, like beer drawn from a cask."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1587,42 @@
     "text": "Australia has a specific beach attraction (supposedly)",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beach attraction (supposedly)",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Australia",
+       "at": 0,
+       "gives": "OZ",
+       "note": "Oz is a nickname for Australia"
+      },
+      {
+       "words": "a specific",
+       "at": 14,
+       "gives": "ONE",
+       "note": "one, as in one particular person or thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Australia has a particular beach attraction, or so people say.",
+     "walkthrough": "Sea air was popularly believed to be rich in this gas and good for health, hence 'supposedly'.",
+     "definitionFit": "Seaside air was traditionally thought to be full of a bracing gas, a supposed draw of the beach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "attraction"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1636,60 @@
     "text": "Way information is suppressed by large-scale promoters of disease",
     "enumeration": "9"
    },
-   "solution": "PATHOGENS"
+   "solution": "PATHOGENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "promoters of disease",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "PATH",
+       "note": "a path is a way"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is suppressed by",
+         "at": 16,
+         "note": "is suppressed by means the information is held down within the letters for large-scale"
+        }
+       ],
+       "parts": [
+        {
+         "words": "large-scale",
+         "at": 33,
+         "gives": "OS",
+         "note": "OS stands for outsize, very large"
+        },
+        {
+         "words": "information",
+         "at": 4,
+         "gives": "GEN",
+         "note": "gen is British slang for information"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Information on a way of spreading illness is suppressed by large-scale disease promoters.",
+     "walkthrough": "OS (outsize) is a clothing-size label; 'is suppressed by' holds the information word inside it.",
+     "definitionFit": "Pathogens are bacteria, viruses and other agents that cause illness, so they promote it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "promoters"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1703,40 @@
     "text": "Lab too big for change? It has to come through",
     "enumeration": "9"
    },
-   "solution": "OBBLIGATO"
+   "solution": "OBBLIGATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It has to come through",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for change",
+       "at": 12,
+       "note": "for change says these letters are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lab too big",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A laboratory is too large and needs changing, says someone pushing it through.",
+     "definitionFit": "An obbligato is an instrumental part that must not be omitted, so it has to be heard in performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lab"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1750,49 @@
     "text": "Name encountered in circles in part of New Zealand",
     "enumeration": "5"
    },
-   "solution": "OTAGO"
+   "solution": "OTAGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of New Zealand",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in tells us the name word sits inside the pair of rings"
+      }
+     ],
+     "parts": [
+      {
+       "words": "circles",
+       "at": 20,
+       "gives": "OO",
+       "note": "each O is the shape of a circle"
+      },
+      {
+       "words": "Name",
+       "at": 0,
+       "gives": "TAG",
+       "note": "a tag is a name or label"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A name is met in some circles somewhere in New Zealand.",
+     "walkthrough": "TAG sits 'in' two Os, the 'circles'.",
+     "definitionFit": "Otago is a region in the south of New Zealand's South Island, centred on Dunedin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circles"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1806,42 @@
     "text": "A description of fairly quiet music — not what you'd get from this!",
     "enumeration": "3"
    },
-   "solution": "AMP"
+   "solution": "AMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not what you'd get from this!",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "description of fairly quiet music",
+       "at": 2,
+       "gives": "MP",
+       "note": "mp, mezzo piano, is the musical marking for moderately soft"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical marking for fairly soft playing is the opposite of what this gadget gives.",
+     "walkthrough": "The device in question makes music loud, so quiet music is the last thing it delivers.",
+     "definitionFit": "An amplifier boosts volume, so a quiet sound is exactly what it does not produce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "description"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1855,67 @@
     "text": "Players avoiding weather around the old holes",
     "enumeration": "7"
    },
-   "solution": "EYELETS"
+   "solution": "EYELETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holes",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 25,
+       "note": "around means the shortened weather word is placed around the old article"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "avoiding",
+         "at": 8,
+         "note": "avoiding means the word for players is left out of the weather word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weather",
+         "at": 17,
+         "gives": "ELEMENTS",
+         "note": "the elements are the weather, wind and rain"
+        },
+        {
+         "words": "Players",
+         "at": 0,
+         "gives": "MEN",
+         "note": "men are the players in a team"
+        }
+       ]
+      },
+      {
+       "words": "the old",
+       "at": 32,
+       "gives": "YE",
+       "note": "ye is an old form of the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Players skip bad weather and head for the old holes, as at a golf course.",
+     "walkthrough": "'weather' is 'the elements'; 'avoiding' leaves ELETS, and 'around' wraps it round the archaic YE.",
+     "definitionFit": "Eyelets are small reinforced holes for laces or cords to pass through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holes"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1929,60 @@
     "text": "Expensive romance, though without one church feature",
     "enumeration": "7"
    },
-   "solution": "STEEPLE"
+   "solution": "STEEPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "church feature",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Expensive",
+       "at": 0,
+       "gives": "STEEP",
+       "note": "steep prices are high"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 26,
+         "note": "without means the letter for one is dropped from the word for romance"
+        }
+       ],
+       "parts": [
+        {
+         "words": "romance",
+         "at": 10,
+         "gives": "LIE",
+         "note": "to romance is to tell fanciful untruths, to lie"
+        },
+        {
+         "words": "one",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expensive love affair, though without a single church feature.",
+     "walkthrough": "'romance' as a verb means to embellish or fib, giving LIE; 'without' removes I, leaving LE.",
+     "definitionFit": "A steeple is the tall tower and spire of a church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "romance"
+    }
+   }
   }
  ]
 }
