@@ -1452,7 +1452,7 @@ def by_urgency(units, serves=frozenset()):
 
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
 #: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
-UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM)
+UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED)
 
 
 def times_solution_work(unit):
