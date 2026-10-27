@@ -141,6 +141,19 @@ check("doesNotGive: a hidden word reads & as AND ('Accident & Emergency' hides T
       mend("hid<in>([Accident & Emergency])", "Accident & Emergency in vehicle for two", "TANDEM") == "hid<in>([Accident & Emergency])")
 msg = mend("ins<occupying>([previous]LATE, [Military leader]CO)", "Previous occupying Military leader", "LOCATE")
 check("doesNotGive: a container that needs one argument reversed says which", "only with [Military leader]CO read backwards" in msg)
-msg = mend("rep<three times>(first<at first>([club], [held], [annually]))", "club held annually three times", "CHACHACHA")
+msg = mend("rep<three times>(first<at first>([club], [held], [annually]))", "club held annually at first three times", "CHACHACHA")
 check("doesNotGive: rep() doubles, so three copies are named as piece + rep(piece)", "never three times" in msg)
+# doesNotGive residue, 10-27 16:40Z (44 distinct refusals since f87cdcace3f; 6 mended here, most of the rest model slips)
+check("doesNotGive: the wrong end of the word is turned round (side of grass is the last letter, SWORDPLAY)",
+      mend("first<side of>([grass]) + [a joke]WORDPLAY", "Fencing by side of grass a joke?", "SWORDPLAY")
+      == "last<side of>([grass]) + [a joke]WORDPLAY")
+check("doesNotGive: a possessive spelt out is dropped from a filed piece (hostel's is INN, FINNISH)",
+      mend("ins<probing>([search]FISH, [hostel's]INNS)", "European hostel's probing search", "FINNISH")
+      == "ins<probing>([search]FISH, [hostel's]INN)")
+check("doesNotGive: a hidden word's leaf reaches the clue word its indicator swallowed (TASSO in print as Sordello)",
+      mend("hid<In print>([as 'Sordello'])", "In print as 'Sordello', Italian poet", "TASSO") == "hid<In>([print as 'Sordello'])")
+check("doesNotGive: a hidden word in a cross-reference or numeral reads the words it stands for",
+      mend("hid<Some>([70s]SEVENTIES)", "Some 70s occasion", "EVENT") == "hid<Some>([70s]SEVENTIES)")
+msg = mend("hid<in>([US state]IDAHO)", "Mountain in US state", "IDA")
+check("doesNotGive: a hidden word over a looked-up synonym says what to write instead", "no hidden word" in msg and "first(), last() or del()" in msg)
 sys.exit(1 if fails else 0)

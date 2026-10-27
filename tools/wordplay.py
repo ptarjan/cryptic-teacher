@@ -947,7 +947,10 @@ def values(node):
         text = letters(leaf.get("words"))
         # '&' is read AND by a hidden word as everywhere else ('Accident & Emergency' hides TANDEM)
         also = letters(str(leaf.get("words") or "").replace("&", " and ")) if "&" in str(leaf.get("words")) else ""
-        if "gives" in leaf:
+        if re.search(r"\d", str(leaf.get("words"))) and leaf.get("gives"):
+            # a cross-reference or numeral ('6', '70s'): the words it stands for are what hides the answer
+            text = letters(leaf["gives"])
+        elif "gives" in leaf:
             return {leaf["gives"]} if leaf["gives"] in text or leaf["gives"] in also else set()
         return {t[a:b] for t in (text, also) for a in range(len(t)) for b in range(a + 1, len(t) + 1)}
     if op == "homophone":
@@ -1363,6 +1366,23 @@ def _seam_hint(node, want):
     return None
 
 
+def _hidden_looked_up_hint(node, want):
+    """hid() over a leaf whose filed letters are a looked-up word ([US state]IDAHO): a hidden word reads the
+    clue's own printed letters, so the answer sits in no printed word and the hid() is the slip."""
+    parts = parts_of(node)
+    if node.get("op") != "hidden" or len(parts) != 1 or "op" in parts[0] or not parts[0].get("gives"):
+        return None
+    lf = parts[0]
+    if re.search(r"\d", str(lf.get("words"))) or letters(lf.get("words")) == letters(lf["gives"]):
+        return None
+    if lf["gives"] == want:
+        return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
+                f"hide it in the words the clue prints, or take it as a plain leaf ({render(lf)}) and drop the hid()")
+    return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
+            f"{lf['gives']} is a word you looked up, so no hidden word. Take {want} from {lf['gives']} with "
+            f"first(), last() or del() over {render(lf)}, or write the printed words in the hid() leaf")
+
+
 def diagnose(node, want):
     """The deepest node that fails to give its share of `want`, in words."""
     op = node.get("op")
@@ -1370,7 +1390,7 @@ def diagnose(node, want):
     if hint:
         return hint
     ls = lengths(node)
-    hint = _container_reversed_hint(node, want) or _repeat_count_hint(node, want)
+    hint = _container_reversed_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
     if hint:
         return hint
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
