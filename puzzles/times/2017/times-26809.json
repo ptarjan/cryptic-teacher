@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,77 @@
     "text": "Game birds initially put by kid into coop",
     "enumeration": "8"
    },
-   "solution": "CRIBBAGE"
+   "solution": "CRIBBAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 32,
+       "note": "the kid and bird letters are put into the coop word, so it surrounds them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coop",
+       "at": 37,
+       "gives": "CAGE",
+       "note": "a coop is a cage for poultry"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "put by",
+         "at": 21,
+         "note": "the first letter of birds is set beside the kid word, after it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kid",
+         "at": 28,
+         "gives": "RIB",
+         "note": "to kid is to tease, or rib"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 11,
+           "note": "initially picks just the opening letter of birds"
+          }
+         ],
+         "parts": [
+          {
+           "words": "birds",
+           "at": 5
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child shuts some birds into a hen coop.",
+     "walkthrough": "'initially' takes only the B of birds.",
+     "definitionFit": "Cribbage is a card game scored with pegs on a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 5,
@@ -44,7 +117,43 @@
     "text": "Lackey evidently revealing thighs?",
     "enumeration": "6"
    },
-   "solution": "MINION"
+   "solution": "MINION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lackey",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "revealing thighs",
+       "at": 17,
+       "gives": "MINI",
+       "note": "a miniskirt, a mini, is the garment that shows off the thighs"
+      },
+      {
+       "words": "evidently",
+       "at": 7,
+       "gives": "ON",
+       "note": "evidently, worn in plain view, is on, as a skirt you have on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant seems to be showing a lot of leg.",
+     "walkthrough": "The clue is a playful description: a short skirt is what shows the thighs, and 'evidently' gives the sense of being worn in view.",
+     "definitionFit": "A minion is a servile follower, a synonym for lackey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thighs"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +167,42 @@
     "text": "French fighting, something common or vulgar?",
     "enumeration": "8"
    },
-   "solution": "FRACTION"
+   "solution": "FRACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something common or vulgar?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "French",
+       "at": 0,
+       "gives": "FR"
+      },
+      {
+       "words": "fighting",
+       "at": 7,
+       "gives": "ACTION",
+       "note": "fighting is action, as in soldiers seeing action"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French combat that is crude or coarse in nature.",
+     "walkthrough": "'common' and 'vulgar' look like insults, but common and vulgar fractions are school arithmetic terms.",
+     "definitionFit": "A vulgar or common fraction is one written as numerator over denominator, so either kind is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vulgar"
+    }
+   }
   },
   {
    "number": 10,
@@ -72,7 +216,64 @@
     "text": "Assess company lacking leadership that's about to struggle",
     "enumeration": "6"
    },
-   "solution": "REVIEW"
+   "solution": "REVIEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 41,
+       "note": "about means the trimmed company word goes round the struggle word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking leadership",
+         "at": 15,
+         "note": "lacking its leader means the word for company loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "company",
+         "at": 7,
+         "gives": "CREW",
+         "note": "a crew is a company, as of a ship"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "struggle",
+       "at": 50,
+       "gives": "VIE",
+       "note": "to vie is to compete or struggle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Judging a firm with no boss that is about to fight on.",
+     "walkthrough": "'lacking leadership' drops the first letter of the company word; 'about' wraps the result round the struggle word. 'that's' and 'to' are link words.",
+     "definitionFit": "To review something is to evaluate or appraise it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +287,47 @@
     "text": "Odds in game of rugby slashed at the outset",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "slashed at the outset",
+       "at": 22,
+       "note": "cut at its start means the rugby game loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game of rugby",
+       "at": 8,
+       "gives": "SEVENS",
+       "note": "sevens is the seven-a-side form of rugby"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Betting odds on a rugby match that were cut right at the start.",
+     "walkthrough": "'Odds' looks like the opposite of the answer, but a bet at evens is still quoted odds.",
+     "definitionFit": "Evens is a betting price where the stake is matched, one to one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Odds"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +341,49 @@
     "text": "River bird cradling swallow",
     "enumeration": "5,4"
    },
-   "solution": "GREATOUSE"
+   "solution": "GREATOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cradling",
+       "at": 11,
+       "note": "cradling means the bird word holds the swallow word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bird",
+       "at": 6,
+       "gives": "GROUSE",
+       "note": "a grouse is a game bird"
+      },
+      {
+       "words": "swallow",
+       "at": 20,
+       "gives": "EAT",
+       "note": "to swallow food is to eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river bird holds a swallow it has caught.",
+     "walkthrough": "'swallow' looks like a second bird; here it is a verb. The Great Ouse is a river in eastern England.",
+     "definitionFit": "The Great Ouse is an English river flowing to the Wash, so it is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 14,
@@ -114,7 +397,58 @@
     "text": "Complete beginner on piccolo with desire for musical ability",
     "enumeration": "7,5"
    },
-   "solution": "PERFECTPITCH"
+   "solution": "PERFECTPITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical ability",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Complete",
+       "at": 0,
+       "gives": "PERFECT",
+       "note": "complete means perfect, as in a perfect stranger"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginner on",
+         "at": 9,
+         "note": "the beginner on piccolo is that word's opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "piccolo",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "desire",
+       "at": 34,
+       "gives": "ITCH",
+       "note": "an itch is a restless desire"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A total novice on the piccolo who longs to be musical.",
+     "walkthrough": "'Complete beginner' reads as one phrase, but 'Complete' and 'beginner on piccolo' do separate jobs.",
+     "definitionFit": "Perfect pitch is the rare talent of naming or singing a note with no reference tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beginner"
+    }
+   }
   },
   {
    "number": 18,
@@ -128,7 +462,46 @@
     "text": "Is act with iron man generated — using this?",
     "enumeration": "12"
    },
-   "solution": "ANIMATRONICS"
+   "solution": "ANIMATRONICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is act with iron man generated — using this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "generated",
+       "at": 21,
+       "note": "generated means these letters are produced in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is act",
+       "at": 0
+      },
+      {
+       "words": "iron man",
+       "at": 12
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A show with a robotic iron man is created by electronic puppetry.",
+     "walkthrough": "'with' just joins IS ACT and IRON MAN, whose letters are rearranged; the whole clue also describes how such a show is made.",
+     "definitionFit": "Animatronics is the technique of making lifelike moving figures with motors and electronics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 21,
@@ -142,7 +515,50 @@
     "text": "Sure to go after criminal, is one?",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sure to go after criminal, is one?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to go after",
+       "at": 5,
+       "note": "to go after means the sure word is placed behind the criminal word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criminal",
+       "at": 17,
+       "gives": "CON",
+       "note": "a con is a convict, a criminal"
+      },
+      {
+       "words": "Sure",
+       "at": 0,
+       "gives": "STABLE",
+       "note": "sure in the sense of steady or secure, stable"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A police officer is always certain to chase down a criminal.",
+     "walkthrough": "'go after' reads as pursue, but here it also places one piece behind the other.",
+     "definitionFit": "A constable is a police officer, someone whose job is to pursue lawbreakers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 23,
@@ -156,7 +572,70 @@
     "text": "Adopting principle at first, one head gives advice",
     "enumeration": "5"
    },
-   "solution": "INPUT"
+   "solution": "INPUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "advice",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 29,
+       "gives": "I",
+       "note": "one is I as a Roman numeral"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Adopting",
+         "at": 0,
+         "note": "adopting means the one-and-head letters take in the principle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "head",
+         "at": 33,
+         "gives": "NUT",
+         "note": "nut is slang for the head"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 19,
+           "note": "at first picks the opening letter of principle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "principle",
+           "at": 9
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes up a principle and offers counsel.",
+     "walkthrough": "'at first' selects P.",
+     "definitionFit": "Input is a contribution of ideas or opinion, much like advice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -170,7 +649,49 @@
     "text": "Newspaper slowing down is a problem for the Observer?",
     "enumeration": "6"
    },
-   "solution": "IRITIS"
+   "solution": "IRITIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a problem for the Observer?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Newspaper",
+       "at": 0,
+       "gives": "I",
+       "note": "the i is a British national newspaper"
+      },
+      {
+       "words": "slowing down",
+       "at": 10,
+       "gives": "RIT",
+       "note": "rit is the musical abbreviation of ritardando, slowing down"
+      },
+      {
+       "words": "is",
+       "at": 23,
+       "gives": "IS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper losing pace is troubling for its Sunday rival the Observer.",
+     "walkthrough": "'the Observer' looks like the British Sunday newspaper; here it is anyone who observes, with eyes.",
+     "definitionFit": "Iritis is inflammation of the iris, an eye complaint that would trouble someone watching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Observer"
+    }
+   }
   },
   {
    "number": 25,
@@ -184,7 +705,49 @@
     "text": "Team following champion, behind",
     "enumeration": "8"
    },
-   "solution": "BACKSIDE"
+   "solution": "BACKSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "behind",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 5,
+       "note": "following means the team word comes after the champion word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "champion",
+       "at": 15,
+       "gives": "BACK",
+       "note": "to champion a cause is to back it"
+      },
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "SIDE",
+       "note": "a side is a team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team trailing the title holder.",
+     "walkthrough": "'champion' looks like a noun; here it is the verb to support.",
+     "definitionFit": "Backside and behind are both informal words for the buttocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 26,
@@ -198,7 +761,30 @@
     "text": "One's eyed bait",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's eyed",
+      "at": 0,
+      "meaning": "something with an eye, the hole a sewing pin carries thread through"
+     },
+     {
+      "text": "bait",
+      "at": 11,
+      "meaning": "to bait someone is to provoke or goad them"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A sewing needle has an eye, and to needle someone is to tease or provoke them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eyed"
+    }
+   }
   },
   {
    "number": 27,
@@ -212,7 +798,36 @@
     "text": "Howl resulting when wise bird gets this gas?",
     "enumeration": "8"
    },
-   "solution": "HYDROGEN"
+   "solution": "HYDROGEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Howl resulting when wise bird gets this gas?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Howl resulting when wise bird gets this gas?",
+       "at": 0,
+       "note": "the wise bird is an owl; give it the chemical symbol of the gas in front and the word howl appears"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise old bird yelps after inhaling some gas.",
+     "walkthrough": "The gas's chemical symbol H placed before OWL makes HOWL.",
+     "definitionFit": "Hydrogen is the gaseous element whose chemical symbol is H."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Howl"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +841,58 @@
     "text": "Trunk call doesn't have everyone present",
     "enumeration": "6"
    },
-   "solution": "COFFER"
+   "solution": "COFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trunk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doesn't have",
+         "at": 11,
+         "note": "doesn't have means the word call loses the everyone word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "call",
+         "at": 6
+        },
+        {
+         "words": "everyone",
+         "at": 24,
+         "gives": "ALL",
+         "note": "everyone is all"
+        }
+       ]
+      },
+      {
+       "words": "present",
+       "at": 33,
+       "gives": "OFFER",
+       "note": "to present something is to offer it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long-distance phone call where not everyone is on the line.",
+     "walkthrough": "'Trunk call' is an old British term for a long-distance phone call; here 'Trunk' is the definition. CALL without ALL leaves C.",
+     "definitionFit": "A coffer is a strongbox or chest, as a trunk is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +906,45 @@
     "text": "One million years in pictures",
     "enumeration": "6"
    },
-   "solution": "IMAGES"
+   "solution": "IMAGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pictures",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "one is I as a Roman numeral"
+      },
+      {
+       "words": "million",
+       "at": 4,
+       "gives": "M"
+      },
+      {
+       "words": "years",
+       "at": 12,
+       "gives": "AGES",
+       "note": "ages means a very long time, years"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single rare event in a million years captured in photographs.",
+     "definitionFit": "Images are pictures or likenesses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -254,7 +958,48 @@
     "text": "Order novel academic award for the Queen Mother",
     "enumeration": "9"
    },
-   "solution": "BATHSHEBA"
+   "solution": "BATHSHEBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Queen Mother",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Order",
+       "at": 0,
+       "gives": "BATH",
+       "note": "the Order of the Bath is a British order of chivalry"
+      },
+      {
+       "words": "novel",
+       "at": 6,
+       "gives": "SHE",
+       "note": "She is a novel by H Rider Haggard"
+      },
+      {
+       "words": "academic award",
+       "at": 12,
+       "gives": "BA",
+       "note": "a BA, Bachelor of Arts, is a degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An honour, a book and a degree given to the late Queen Mother.",
+     "walkthrough": "'the Queen Mother' suggests Elizabeth, mother of Elizabeth II; here it is the biblical queen.",
+     "definitionFit": "In the Bible Bathsheba became King David's queen and was mother of Solomon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 4,
@@ -268,7 +1013,65 @@
     "text": "Stuff about English class attributed to performer from Lancashire",
     "enumeration": "6,6"
    },
-   "solution": "GEORGEFORMBY"
+   "solution": "GEORGEFORMBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "performer from Lancashire",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about means the stuff word goes round the English letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stuff",
+         "at": 0,
+         "gives": "GORGE",
+         "note": "to stuff oneself is to gorge"
+        },
+        {
+         "words": "English",
+         "at": 12,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "class",
+       "at": 20,
+       "gives": "FORM",
+       "note": "a form is a school class"
+      },
+      {
+       "words": "attributed",
+       "at": 26,
+       "gives": "BY",
+       "note": "attributed, as a work credited to an author, is marked by"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Filling a lesson on English, credited to a northern entertainer.",
+     "walkthrough": "George Formby was a ukulele-playing comic singer and film star from Lancashire, a county in north-west England.",
+     "definitionFit": "George Formby was a famous entertainer born in Wigan, Lancashire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 6,
@@ -282,7 +1085,60 @@
     "text": "Still batting, openers from England rarely tested",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "batting",
+       "at": 6,
+       "gives": "IN",
+       "note": "in cricket the side batting is in"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "openers from",
+         "at": 15,
+         "note": "the openers of these three words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England",
+         "at": 28
+        },
+        {
+         "words": "rarely",
+         "at": 36
+        },
+        {
+         "words": "tested",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "England's opening batsmen are still at the crease, seldom troubled.",
+     "walkthrough": "'openers' sounds like cricket's opening batsmen; here it means first letters.",
+     "definitionFit": "Inert means motionless, as still does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openers"
+    }
+   }
   },
   {
    "number": 7,
@@ -296,7 +1152,69 @@
     "text": "I've had enough stuffing in turkey finally — it's evil!",
     "enumeration": "8"
    },
-   "solution": "INIQUITY"
+   "solution": "INIQUITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evil",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "at": 16,
+       "note": "stuffing means the had-enough phrase fills the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "in",
+         "at": 25,
+         "gives": "IN"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 35,
+           "note": "finally takes the last letter of turkey"
+          }
+         ],
+         "parts": [
+          {
+           "words": "turkey",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "I've had enough",
+       "at": 0,
+       "gives": "IQUIT",
+       "note": "saying I've had enough is saying I quit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner fed up with stuffing in the Christmas turkey condemns it.",
+     "walkthrough": "'stuffing' looks like the turkey's filling but places I QUIT inside IN plus Y.",
+     "definitionFit": "Iniquity is wickedness or sin, evil conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 8,
@@ -310,7 +1228,58 @@
     "text": "We held tight entering Northern Ireland capital",
     "enumeration": "3,5"
    },
-   "solution": "NEWDELHI"
+   "solution": "NEWDELHI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 14,
+       "note": "entering means the rearranged letters go inside the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Northern Ireland",
+       "at": 23,
+       "gives": "NI"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "tight",
+         "at": 8,
+         "note": "tight means drunk, so the letters reel into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "We held",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We clung on hard as we came into Northern Ireland.",
+     "walkthrough": "'tight' looks like holding firmly but means drunk: EWDELH, an anagram of WE HELD, enters NI.",
+     "definitionFit": "New Delhi is the capital city of India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 11,
@@ -324,7 +1293,76 @@
     "text": "Sad about recent changes over new commemoration of time past",
     "enumeration": "12"
    },
-   "solution": "TERCENTENARY"
+   "solution": "TERCENTENARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commemoration of time past",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "about means the sad word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sad",
+       "at": 0,
+       "gives": "TEARY",
+       "note": "teary means tearful, sad"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 25,
+         "note": "in a down entry over means the rearranged letters sit above the new letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "changes",
+           "at": 17,
+           "note": "changes means recent is rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "recent",
+           "at": 10
+          }
+         ]
+        },
+        {
+         "words": "new",
+         "at": 30,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mourning recent changes rather than celebrating history.",
+     "walkthrough": "'changes' shuffles the clue word recent; 'over', in a down entry, sets those letters above N; 'about' wraps the sad word around everything.",
+     "definitionFit": "A tercentenary is a three-hundredth anniversary, marking events of long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sad"
+    }
+   }
   },
   {
    "number": 15,
@@ -338,7 +1376,43 @@
     "text": "One dining out as an art thief?",
     "enumeration": "9"
    },
-   "solution": "PICNICKER"
+   "solution": "PICNICKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One dining out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "art",
+       "at": 21,
+       "gives": "PIC",
+       "note": "a pic is a picture, a piece of art"
+      },
+      {
+       "words": "thief",
+       "at": 25,
+       "gives": "NICKER",
+       "note": "a nicker is someone who nicks, British slang for steals"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish eater out who doubles as a painting thief.",
+     "walkthrough": "'dining out' is eating in the open air, not at a restaurant.",
+     "definitionFit": "A picnicker eats a meal outdoors, literally dining out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1426,41 @@
     "text": "Order contains restrictive measure",
     "enumeration": "8"
    },
-   "solution": "SANCTION"
+   "solution": "SANCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restrictive measure",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Order",
+       "at": 0,
+       "note": "to order the letters is to arrange them afresh, so contains is reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "contains",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction that includes a limiting rule.",
+     "walkthrough": "'Order' looks like the definition; it is the signal to rearrange 'contains'.",
+     "definitionFit": "A sanction is a penalty such as a trade embargo imposed to restrict a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 17,
@@ -366,7 +1474,30 @@
     "text": "VIP report?",
     "enumeration": "3,5"
    },
-   "solution": "BIGNOISE"
+   "solution": "BIGNOISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "VIP",
+      "at": 0,
+      "meaning": "a very important person, a bigwig"
+     },
+     {
+      "text": "report?",
+      "at": 4,
+      "meaning": "a report is a loud bang, a large sound"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A big noise is slang for an important person, and literally a loud report."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 19,
@@ -380,7 +1511,28 @@
     "text": "Jump three months, approximately?",
     "enumeration": "6"
    },
-   "solution": "SPRING"
+   "solution": "SPRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jump",
+      "at": 0,
+      "meaning": "to leap"
+     },
+     {
+      "text": "three months, approximately?",
+      "at": 5,
+      "meaning": "a season of roughly a quarter of the year"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To spring is to jump, and spring is a season of about three months."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1546,57 @@
     "text": "Edited news report's outside broadcast",
     "enumeration": "6"
    },
-   "solution": "STREWN"
+   "solution": "STREWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "broadcast",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Edited",
+       "at": 0,
+       "note": "edited means these letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "news",
+       "at": 7
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 21,
+         "note": "the outside of report is its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "report",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revised news report was transmitted from an outside broadcast unit.",
+     "walkthrough": "'outside broadcast' reads as one TV phrase; 'outside' gives R and T of report, joining NEWS for the anagram.",
+     "definitionFit": "Broadcast in its old sense of sown widely means scattered, as strewn does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1610,56 @@
     "text": "Cabaret singer ends poorly in quaver",
     "enumeration": "5"
    },
-   "solution": "TRILL"
+   "solution": "TRILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quaver",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ends",
+         "at": 15,
+         "note": "the ends here are the last letters of cabaret and singer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cabaret",
+         "at": 0
+        },
+        {
+         "words": "singer",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "poorly",
+       "at": 20,
+       "gives": "ILL",
+       "note": "poorly means unwell, ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub vocalist finishes weakly, with a shaky voice.",
+     "walkthrough": "'quaver' suggests the musical note; here it is a warbling sound.",
+     "definitionFit": "A trill is a rapid wavering between two notes, a quaver in the voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quaver"
+    }
+   }
   }
  ]
 }
