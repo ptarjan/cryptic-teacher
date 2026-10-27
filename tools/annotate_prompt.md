@@ -105,7 +105,7 @@ words, indicator operations and pieces, so you write none of those.
 
 **Notes** are keyed by the words as written in `wp` or `def` (a repeat `#2`, a bare
 piece by its letters). Every indicator and every leaf with letters gets one, in the
-FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), abbreviations
+FIRST write (the link word of `+<after>` or `ins<in>` is an indicator: key it `"after"`): synonyms (`[depressed]SAD`: "depressed means sad"), abbreviations
 (`[small road]RD`, even if the dictionary table holds the pair: you cannot see it; add the
 domain when it helps, `C is the cricket abbreviation for caught`), names. A missing leaf
 note is the commonest first-check failure. Only a leaf that is its own letters (`[a]A`)
