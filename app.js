@@ -4088,9 +4088,11 @@
     const before = unlink(trim(c.slice(0, i)), false);
     const after = unlink(trim(c.slice(i + def.text.length).replace(/\s*\([^)]*\)\s*$/, "")), true);
     if (!before && !after) return " — which is the whole clue, and that is what makes this one unusual.";
-    if (!before) return `, so the clue opens with it and “${esc(after)}” is the wordplay.`;
-    if (!after) return `, right at the end — so “${esc(before)}” is the wordplay.`;
-    return `, sitting mid-clue, so the wordplay is “${esc(before)}” and “${esc(after)}” either side of it.`;
+    // The clue is on screen just above, so the wordplay is named by where it
+    // sits, never quoted back.
+    if (!before) return ", so the clue opens with it and the rest is wordplay.";
+    if (!after) return ", right at the end, so everything before it is wordplay.";
+    return ", sitting mid-clue, with wordplay either side of it.";
   }
 
   // ---------- doing the anagram ----------
