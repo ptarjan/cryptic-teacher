@@ -10076,6 +10076,60 @@ def old_blank(why):
     return any(ocr_clues.old_form(ocr_clues.plain(p)) or ocr_clues.gee_dropped(token, p) for p in pieces if p)
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
+#: wrote its puzzle unfiled with a clue blanked as "a stray letter": the Times set a word of emphasis
+#: letter-spaced, not in italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the guns",
+#: "C o u n t y people"), and OCR read each letter alone (ocr_clues.spaced_runs; unstrayed() now closes
+#: the word up and strays() passes its letters). 10-27: of the 88 never-filed Times side copies whose one
+#: blank was a stray letter, 30 have the clue's readings in the VLM corpus: 13 were such a word, and the
+#: rule closes up those the VLM spells alike, none otherwise; the rest are specks or a short word misread
+#: ("study o gambling", "has to r tate"), which still refuse. Across the corpus's clue readings the rule
+#: closes up ~70 distinct spaced words, each one the VLM prints alike (spaced or whole), and none it prints
+#: otherwise outside readings whose box took another clue's text (junk that refuses anyway). A verdict
+#: names only the letter, not its clue, so this rereads each such blank of SPACED_YEARS (94 editions,
+#: 67 one-blank puzzles, 13 of them with every answer); a speck's clue reads blank again. Its own
+#: reason, not "unfiled before its fix": CANARY_FAILED holds that one for the Times. Once each.
+LETTER_SPACED = "unfiled before its fix, a letter-spaced word"
+REREAD_LETTER_SPACED = "2026-10-27T15:45:00+00:00"
+#: The last year the Times set letter-spaced emphasis in its clues (spaced_worded): the VLM corpus's latest is 1967.
+SPACED_YEARS = 1969
+
+
+def spaced_worded(row):
+    """Whether Times ledger `row`, of SPACED_YEARS and read before REREAD_LETTER_SPACED, wrote a puzzle
+    unfiled (a verdict with an "unfiled" count or its id's copy in CROPS/unfiled, not held with every
+    clue) one of whose blank clues was a lone small letter (spaced_blank)."""
+    rel = row.get("edition") or ""
+    m = re.search(r"((?:19|20)\d\d)-\d\d-\d\d", rel)
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") or not m or int(m.group(1)) > SPACED_YEARS \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LETTER_SPACED)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any(spaced_blank(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+def spaced_blank(why):
+    """Whether blank reason `why` ("'o': a stray letter") names a lone small letter, as a letter-spaced
+    word's letters each were (ocr_clues.spaced_runs), which strays() no longer flags."""
+    m = re.fullmatch(r"(['\"].*['\"]): a stray letter", str(why or ""))
+    if not m:
+        return False
+    try:
+        token = ast.literal_eval(m.group(1))
+    except (ValueError, SyntaxError):
+        return False
+    return isinstance(token, str) and re.fullmatch(r"[a-z][.,;:!?]?", token) is not None \
+        and token[0] not in ocr_clues.LONE_LETTER_OK
+
+
 def unfiled_blank(row):
     """[(puzzle id, blank clues)] of the puzzles of ledger `row` its read wrote
     unfiled (not complete, written, its file in CROPS/unfiled), else []. The count is
@@ -12411,6 +12465,8 @@ def fix_reason(row):
     # Ahead of "unfiled before its fix", which CANARY_FAILED holds for the Times.
     if dash_joined(row):
         return DASH_JOINED
+    if spaced_worded(row):
+        return LETTER_SPACED
     if old_formed(row):
         return OLD_FORM
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
@@ -13038,7 +13094,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -13359,7 +13415,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
-                      if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM) else {}),
+                      if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

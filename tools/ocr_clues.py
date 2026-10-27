@@ -3845,6 +3845,143 @@ LETTER_PAIRS = {("e", "g"), ("i", "e"), ("s", "d")}
 #: The words before a lone small letter that make it a letter the clue
 #: names ("with a c", "the letter n").
 NAMES_LETTER = {"a", "an", "the", "letter", "letters"}
+#: The fewest one-letter pieces a letter-spaced word holds (spaced_runs): the
+#: Times of the 1930s-60s set a word of emphasis letter-spaced, not in
+#: italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the
+#: guns", "C o u n t y people"), and OCR reads each letter alone.
+SPACED_LETTERS = 3
+#: The fewest letters a letter-spaced word spells (spaced_runs).
+SPACED_WORD = 4
+#: One piece of a letter-spaced word: a letter or two (OCR closes up a pair,
+#: "de p a rt e d"), a possessive's 's on the last ("O m a r's"), with an
+#: opening mark on the first piece and a closing one on the last.
+SPACED_PIECE = re.compile(r"([\"'“‘(]*)([A-Za-z]{1,2})((?:['’]s)?)([.,;:!?)\"'”’]*)")
+#: What stands alone between a spaced word's letters: its hyphen ("P o s t - w a r")
+#: or its possessive's apostrophe ("W o r d s w o r t h ' s").
+SPACED_JOIN = re.compile(r"[-'’]")
+
+
+def spaced_runs(raw):
+    """[(i, j, word)] for each letter-spaced word in the whitespace tokens
+    `raw`: raw[i:j] are its pieces (SPACED_PIECE; an opening mark only on the
+    first, a closing mark or 's only on the last, a lone hyphen or apostrophe
+    between, SPACED_JOIN), SPACED_LETTERS of them a single letter, and closed
+    up they spell `word` (its marks kept): each hyphened part a dictionary
+    word, SPACED_WORD letters in all, in lower case or with a capital first
+    (spaced capitals are a solution grid's letters spilt into the clue,
+    "B A R B E C U E S B U S T S"). A clue prints no run of lone letters
+    that spells a word but as its emphasis; a reading's speck ("study o
+    gambling", "to r tate") spells none. The word is the whole stretch of
+    such pieces, less only a short word at either end ("in l i t t l e"):
+    a part of it is no word the print set ("M a d a m e" is no "adam",
+    "C o u n t y" no "Count"). A stretch that spells a word two ways ("A
+    l i g h t - w e i g h t" is "A light-weight" or "Alight-weight", "a b
+    o u t") is left alone."""
+    found = []
+    if sum(len(r.strip(EDGE)) == 1 for r in raw) < SPACED_LETTERS:
+        return found
+    k = 0
+    while k < len(raw):
+        j = k
+        while j < len(raw) and spaced_shape(raw[k:j + 1]):
+            j += 1
+        while j > k and SPACED_JOIN.fullmatch(raw[j - 1]):
+            j -= 1
+        if j - k < SPACED_LETTERS:
+            k += 1
+            continue
+        tries = sorted(((a, b) for a in range(k, k + 3) for b in range(j, j - 3, -1)
+                        if all(shed(raw[c]) for c in range(k, a)) and all(shed(raw[c]) for c in range(b, j))),
+                       key=lambda ab: ab[0] - ab[1])
+        spelt = [(a, b, w) for a, b in tries for w in [spaced_word(raw[a:b])] if w]
+        if len(spelt) == 1:
+            found.append(spelt[0])
+        k = j
+    return found
+
+
+def shed(token):
+    """Whether `token`, at an end of a letter-spaced stretch, may be a short word of its own beside
+    the spaced word ("in", "to", "a", "I"), not one of its letters."""
+    s = token.strip(EDGE)
+    return s in ("a", "A", "I") or len(s) == 2 and s.isalpha() and is_word(s.lower())
+
+
+def spaced_shape(pieces):
+    """Whether `pieces` are laid out as a letter-spaced word's (spaced_spelt), spelling aside: an
+    opening mark only on the first, a closing mark or 's only on the last, a lone hyphen or
+    apostrophe only between two pieces."""
+    for n, p in enumerate(pieces):
+        if SPACED_JOIN.fullmatch(p):
+            if n == 0 or SPACED_JOIN.fullmatch(pieces[n - 1]):
+                return False
+            continue
+        m = SPACED_PIECE.fullmatch(p)
+        if not m or m.group(1) and n or (m.group(3) or m.group(4)) and n != len(pieces) - 1:
+            return False
+    return True
+
+
+def spaced_word(pieces):
+    """The word the letter-spaced `pieces` spell (spaced_runs), or None; None
+    too when OCR closed up a pair among them and the run less its first or
+    last lone letter spells one: its spacing is no guide ("t ho u g h t" is
+    "though" and a speck as well as "thought")."""
+    word = spaced_spelt(pieces)
+    if word is None:
+        return None
+    if any(len(p.strip(EDGE)) == 2 and p.strip(EDGE).isalpha() for p in pieces):
+        for lone, less in ((pieces[0], pieces[1:]), (pieces[-1], pieces[:-1])):
+            if len(lone.strip(EDGE)) == 1 and spaced_spelt(less, 1):
+                return None
+    return word
+
+
+def spaced_spelt(pieces, fewer=0):
+    """spaced_word's spelling, without its ambiguity test: `fewer` lone letters may be missing."""
+    out, lone = [], 0
+    for n, p in enumerate(pieces):
+        first, last = n == 0, n == len(pieces) - 1
+        if SPACED_JOIN.fullmatch(p):
+            if first or last or SPACED_JOIN.fullmatch(pieces[n - 1]):
+                return None
+            out.append(p)
+            continue
+        m = SPACED_PIECE.fullmatch(p)
+        if not m or m.group(1) and not first or (m.group(3) or m.group(4)) and not last:
+            return None
+        lone += len(m.group(2)) == 1
+        out.append(p)
+    if lone < SPACED_LETTERS - fewer:
+        return None
+    word = "".join(out)
+    m = re.fullmatch(r"([\"'“‘(]*)(.*?)((?:['’]s?)?[.,;:!?)\"'”’]*)", word)
+    core = m.group(2)
+    letters = re.sub(r"[^A-Za-z]", "", core)
+    if len(letters) < SPACED_WORD or not re.fullmatch(r"[A-Za-z]+(?:-[A-Za-z]+)*", core) \
+            or not (letters.islower() or letters[0].isupper() and letters[1:].islower()):
+        return None
+    if not all(is_word(part.lower()) for part in core.split("-")):
+        return None
+    return word
+
+
+def spaced_joined(text):
+    """`text` with each letter-spaced word (spaced_runs) closed up:
+    "There's l i t t l e among" is "There's little among"; a lone hyphen
+    after it joins the next word ("S e l f - propelled" is "Self-propelled")."""
+    raw = (text or "").split()
+    runs = spaced_runs(raw)
+    if not runs:
+        return text
+    out, k = [], 0
+    for i, j, word in runs:
+        out += raw[k:i] + [word]
+        k = j
+        if j + 1 < len(raw) and raw[j] == "-" and word[-1:].isalpha() and raw[j + 1][:1].isalpha():
+            out[-1] += "-" + raw[j + 1]
+            k = j + 2
+    return " ".join(out + raw[k:])
 
 
 def strays(text):
@@ -3877,6 +4014,7 @@ def strays(text):
         if a.isalpha() and len(a) > 1 and a.lower() == b.lower() and raw[k - 1] == a and raw[k].startswith(b) \
                 and pair().get(f"{a.lower()} {a.lower()}", 0) < DOUBLE_FLOOR:
             out.append((k, "a word doubled"))
+    spaced = {k for i, j, _ in spaced_runs(raw) for k in range(i, j)}
     seen = set()
     for k, w in enumerate(bare):
         heads = tokens(raw[k + 1]) if k + 1 < len(raw) else []
@@ -3888,7 +4026,7 @@ def strays(text):
                 out.append((k, "an earlier word repeated inside the clue"))
         seen.update(t.lower() for t in tokens(raw[k]))
     for k, s in enumerate(bare):
-        if len(s) != 1 or not s.islower() or s in LONE_LETTER_OK \
+        if len(s) != 1 or not s.islower() or s in LONE_LETTER_OK or k in spaced \
                 or re.search("['\u2019\u2018\"\u201c\u201d\\-\u2014\u2013]", raw[k]):
             continue
         prev = bare[k - 1].lower() if k else ""
@@ -3912,7 +4050,7 @@ def unstrayed(text, theirs):
     prints the words either side of it together, or set in capitals where
     one prints it so ("Brand X"); a flag no reading mends stands, for the
     caller to file the clue blank."""
-    text = unspecked(text or "")
+    text = spaced_joined(unspecked(text or ""))
     seqs = [[w.lower() for w in tokens(t)] for t in theirs]
     caps = [tokens(t) for t in theirs]
 
