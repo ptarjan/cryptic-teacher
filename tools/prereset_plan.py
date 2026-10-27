@@ -11,7 +11,14 @@ machine has free once everything else on it is counted: memory over the size
 of a run, and idle cores over a run's measured CPU.
 
 Which meter is paced is the mode. Weekly, the default: the weekly meter, to
-the weekly reset; a five-hour lockout is napped through by
+the weekly reset, but never faster than the five-hour window can take: the
+width is the smaller of the weekly need and the five-hour need (paced_need on
+the "session" meter, aimed at its own reset and HEADROOM ceiling), so the
+window lasts to its reset and the weekly need governs whenever it is lower
+(Paul 2026-10-26: "But it burned the whole five hours so fast": weekly need
+107, memory cap 30, the window spent in 2h and the rooms locked out for 3).
+The `width N: need ...` line names the meter that bound it. --rush is
+unchanged: flat out. Any five-hour lockout is still napped through by
 prereset_backfill.sh. Five-hour, for when Paul has weekly resets to spend:
 each five-hour window to its own reset, with no weekly pacing, since he resets
 the week by hand. `--five-hour` writes FIVE_HOUR holding the current weekly
@@ -308,6 +315,16 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0):
         return need
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
+
+
+def bind_need(weekly, session):
+    """(need, meter that bound it): the smaller of the weekly and five-hour
+    needs; the weekly one on a tie. An unread (None) need is left out."""
+    if session is None:
+        return weekly, "weekly"
+    if weekly is None or session < weekly:
+        return session, "five-hour"
+    return weekly, "weekly"
 
 
 def aim_hours(meter, hours_left):
@@ -693,6 +710,7 @@ def width(arg=None, floor=1):
     current = current_width(arg, lines)
     runs_needed = bridge = ratio = pct = hours_left = None
     meter = "weekly"
+    bound = None  # the meter whose need set the width; None: the mode's own
     rushing = False
     week_pct = None
     try:
@@ -718,6 +736,18 @@ def width(arg=None, floor=1):
                 rushing = rush_active(meter, stamp, pct, week_pct, now)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
                                  len(burn_rss_kb()))
+        if meter == "weekly" and not rushing:
+            # Weekly mode also spends the five-hour window only to its own reset
+            # (Paul 2026-10-26 "But it burned the whole five hours so fast"): the
+            # smaller of the two needs sets the width.
+            s_pct = weekly_usage.usage_pct("session")
+            s_left, _ = weekly_usage.resets_in_hours("session")
+            s_rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
+            s_need = paced_need("session", s_pct, s_left, s_rate, bridge or 0.0, 1.0,
+                                len(burn_rss_kb()))
+            runs_needed, bound = bind_need(runs_needed, s_need)
+            if bound == "five-hour":
+                pct, hours_left = s_pct, s_left
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
         print(f"width: meter unread: {type(exc).__name__}: {exc}", file=sys.stderr)
     rss = burn_rss_kb()
@@ -738,12 +768,13 @@ def width(arg=None, floor=1):
              if load else "cores unread")
     per = (f", {ratio:.2f} five-hour pts per weekly" if ratio else ", ratio unread"
            ) if meter == "weekly" else ""
-    name = "five-hour" if meter == "session" else "weekly"
-    at = (f"{pct:g}% now, {hours_left:.1f}h to its reset"
+    name = bound or ("five-hour" if meter == "session" else "weekly")
+    top_meter = "session" if name == "five-hour" else meter
+    at =(f"{pct:g}% now, {hours_left:.1f}h to its reset"
           if pct is not None and hours_left is not None else "meter unread")
-    aim = (f", aiming {aim_hours(meter, hours_left):.2f}h out"
+    aim = (f", aiming {aim_hours(top_meter, hours_left):.2f}h out"
            if hours_left is not None and hours_left > 0 else "")
-    print(f"width {w}: need {runs_needed} for {name} {ceiling(meter, rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
+    print(f"width {w}: need {runs_needed} for {name} {ceiling(top_meter, rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
           f"bridge {shown}{per}), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
     return w
@@ -855,6 +886,17 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     # reset passed: a fresh 5h window, 99 over 5h at 2 a run-hour
     ((97, -0.05, 2.0, 0, 1.0), 10),
 ]]
+# (weekly need, five-hour need) -> (need, the meter that bound it)
+BIND_CASES = [
+    ((107, 8), (8, "five-hour")),    # 2026-10-26: weekly 107, the window takes 8
+    ((3, 8), (3, "weekly")),         # the weekly need is the lower
+    ((5, 5), (5, "weekly")),         # a tie stays weekly
+    ((12, 0), (0, "five-hour")),     # the window is spent: nothing new starts
+    ((0, 8), (0, "weekly")),
+    ((107, None), (107, "weekly")),  # five-hour meter unread
+    ((None, 8), (8, "five-hour")),
+    ((None, None), (None, "weekly")),
+]
 # Replays of a window paced every 5 minutes, where the bridge spends less than
 # projected and a cap holds the width: (meter, its pct, hours left, per-run
 # rate, ratio, bridge projected, bridge real, width cap, share of the width
@@ -984,6 +1026,7 @@ def width_self_test():
     bad = 0
     checks = ([(width_for, a, w) for a, w in WIDTH_CASES]
               + [(paced_need, a, w) for a, w in NEED_CASES]
+              + [(bind_need, a, w) for a, w in BIND_CASES]
               + [(mode, (st, r), w) for st, r, w in MODE_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
