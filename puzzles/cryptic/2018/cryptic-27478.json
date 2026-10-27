@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "More open as a poker player?",
     "enumeration": "7"
    },
-   "solution": "BLUFFER"
+   "solution": "BLUFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More open",
+      "at": 0,
+      "meaning": "bluff as an adjective means frank and outspoken, so the comparative is more candid"
+     },
+     {
+      "text": "poker player",
+      "at": 15,
+      "meaning": "someone at the card table who bets heavily on a weak hand to fool the others"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether a card player is more candid than others, when the opposite is the point.",
+     "definitionFit": "Comparative of the adjective meaning hearty and frank, and also the noun for a card player who pretends to hold strong cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,62 @@
     "text": "Buxom little Maureen's turning into lad",
     "enumeration": "6"
    },
-   "solution": "BOSOMY"
+   "solution": "BOSOMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Buxom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 31,
+       "note": "into says the turned name goes inside the lad"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lad",
+       "at": 36,
+       "gives": "BOY",
+       "note": "a lad is a boy"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 23,
+         "note": "turning says the short name and its S are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "little Maureen's",
+         "at": 6,
+         "gives": "MOS",
+         "note": "Mo is a short form of Maureen, with the possessive S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Curvy little Maureen turns into a boy.",
+     "walkthrough": "'turning' looks like a change of state for Maureen, but it is the reversal signal; 'into' places the result inside the lad.",
+     "definitionFit": "Both words describe a woman with a large, full chest: buxom and well-endowed are near synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +141,44 @@
     "text": "Ready for service, nuns gambolled every now and then",
     "enumeration": "6"
    },
-   "solution": "USABLE"
+   "solution": "USABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ready for service",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every now and then",
+       "at": 34,
+       "note": "every now and then takes every other letter of nuns gambolled, starting with the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nuns",
+       "at": 19
+      },
+      {
+       "words": "gambolled",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nuns, prepared for church, frolic from time to time.",
+     "definitionFit": "Fit to be put to work or employed, which is being ready for service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +192,54 @@
     "text": "Amicably finish with girl after 24 hours",
     "enumeration": "10"
    },
-   "solution": "FRIENDLILY"
+   "solution": "FRIENDLILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Amicably",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "after puts the finish and the girl behind the day"
+      }
+     ],
+     "parts": [
+      {
+       "words": "24 hours",
+       "at": 32,
+       "gives": "FRI",
+       "note": "a day of 24 hours, here Friday, abbreviated Fri"
+      },
+      {
+       "words": "finish",
+       "at": 9,
+       "gives": "END",
+       "note": "finish means end"
+      },
+      {
+       "words": "girl",
+       "at": 21,
+       "gives": "LILY",
+       "note": "Lily is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking up with a girlfriend nicely a day later.",
+     "definitionFit": "In a friendly, warm way: an adverb of manner synonymous with amicably."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +253,60 @@
     "text": "Regret eating extremely purgative Indian bread",
     "enumeration": "5"
    },
-   "solution": "RUPEE"
+   "solution": "RUPEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indian bread",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 7,
+       "note": "eating says the regret word swallows the letters taken from purgative"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Regret",
+       "at": 0,
+       "gives": "RUE",
+       "note": "to rue is to regret"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 14,
+         "note": "extremely takes the extreme letters, first and last, of purgative"
+        }
+       ],
+       "parts": [
+        {
+         "words": "purgative",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets eating a strongly laxative Indian loaf.",
+     "walkthrough": "'bread' is slang for money, so 'Indian bread' is the currency, not naan.",
+     "definitionFit": "Bread is slang for money, and the rupee is India's currency unit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +320,52 @@
     "text": "Stay with the wretched Daniel, say",
     "enumeration": "7"
    },
-   "solution": "PROPHET"
+   "solution": "PROPHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daniel, say",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stay",
+       "at": 0,
+       "gives": "PROP",
+       "note": "a stay is a support or prop"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wretched",
+         "at": 14,
+         "note": "wretched suggests the word 'the' is in a sorry, mangled state"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to remain with the miserable Daniel.",
+     "walkthrough": "'wretched' turns THE into HET.",
+     "definitionFit": "Daniel is one of the Old Testament seers, an example of a biblical foreteller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stay"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +385,49 @@
      }
     ]
    },
-   "solution": "PROSECUTE"
+   "solution": "PROSECUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "do legal work",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dons",
+       "at": 14,
+       "note": "dons means wears, so the faceted piece puts the exercise around itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "at": 19,
+       "gives": "PE",
+       "note": "PE is physical exercise"
+      },
+      {
+       "words": "Multi-faceted",
+       "at": 0,
+       "gives": "ROSECUT",
+       "note": "rose-cut describes a gem cut with many triangular facets"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Versatile university dons work out and also practise law.",
+     "walkthrough": "'dons' looks like academics but is the verb wear. A rose-cut diamond has many facets.",
+     "definitionFit": "To bring a case in a court of law against someone, a lawyer's or state's job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +441,59 @@
     "text": "Curse love, a source of troubled hearts",
     "enumeration": "4"
    },
-   "solution": "OATH"
+   "solution": "OATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "love",
+       "at": 6,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      },
+      {
+       "words": "a",
+       "at": 12
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 14,
+         "note": "source of takes the opening letters of troubled and hearts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "troubled",
+         "at": 24
+        },
+        {
+         "words": "hearts",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Damning love as the cause of broken hearts.",
+     "definitionFit": "A swear word or profanity; an expletive can be called a curse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +507,40 @@
     "text": "They are frequent visitors, but he is a vagrant",
     "enumeration": "8"
    },
-   "solution": "HABITUES"
+   "solution": "HABITUES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They are frequent visitors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "vagrant",
+       "at": 40,
+       "note": "vagrant means wandering, so the letters of but he is a roam into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "but he is a",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regulars, though one of them is a tramp.",
+     "definitionFit": "Regulars who habitually go to a place such as a cafe or bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +554,40 @@
     "text": "Very French attempt to seduce is wrong, legally",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wrong, legally",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very French",
+       "at": 0,
+       "gives": "TRES",
+       "note": "tres is the French word for very"
+      },
+      {
+       "words": "attempt to seduce",
+       "at": 12,
+       "gives": "PASS",
+       "note": "to make a pass is to try to seduce someone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very French advance is against the law.",
+     "definitionFit": "In law a tort or wrongdoing, especially entering land without permission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +601,51 @@
     "text": "Did butterfly, perhaps, lead to illumination for mystic?",
     "enumeration": "5"
    },
-   "solution": "SWAMI"
+   "solution": "SWAMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mystic",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Did butterfly, perhaps",
+       "at": 0,
+       "gives": "SWAM",
+       "note": "butterfly is a swimming stroke, so doing it is swimming in the past tense"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead to",
+         "at": 24,
+         "note": "the lead of a word is its first letter, here of illumination"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illumination",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a butterfly's flight brought a holy man enlightenment.",
+     "definitionFit": "A Hindu religious teacher, a spiritual master who seeks union with the divine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butterfly"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +665,57 @@
      }
     ]
    },
-   "solution": "POOLTABLE"
+   "solution": "POOLTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leisure facility",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kitty",
+       "at": 0,
+       "gives": "POOL",
+       "note": "a kitty is a pool of money put in by several people"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 6,
+         "note": "finally takes the last letter of the word got"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "fit",
+       "at": 18,
+       "gives": "ABLE",
+       "note": "fit means capable or able"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat at last got into shape at a sports centre.",
+     "definitionFit": "A table for playing snooker-like games, a piece of recreational equipment in pubs and clubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kitty"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +729,76 @@
     "text": "Mum and daughter collect underwear I dropped and put it on",
     "enumeration": "10"
    },
-   "solution": "MALINGERED"
+   "solution": "MALINGERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put it on",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collect",
+       "at": 17,
+       "note": "Mum and daughter gather up the underwear between them, one at each side"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Mum",
+         "at": 0,
+         "gives": "MA",
+         "note": "mum is mother, MA"
+        },
+        {
+         "words": "daughter",
+         "at": 8,
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropped",
+         "at": 37,
+         "note": "dropped says the letter I is let fall from the underwear word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "underwear",
+         "at": 25,
+         "gives": "LINGERIE",
+         "note": "lingerie is women's underwear"
+        },
+        {
+         "words": "I",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother and daughter gather up underwear; one drops something and then puts on an item.",
+     "walkthrough": "'put it on' looks like dressing in the underwear, but it means faking; 'dropped' signals the lost I and 'collect' the surrounding.",
+     "definitionFit": "To put it on is an idiom for faking, here pretending to be ill to shirk duty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +812,43 @@
     "text": "Blue-eyed boy's rebellious action",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "action",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rebellious",
+       "at": 16,
+       "note": "rebellious, revolting, suggests the favourite's letters turn over"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Blue-eyed boy's",
+       "at": 0,
+       "gives": "PETS",
+       "note": "a blue-eyed boy is a favourite or pet, with the possessive S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A favoured lad does something defiant.",
+     "walkthrough": "'rebellious' turns PETS round.",
+     "definitionFit": "A step is a measure or move taken, as in taking steps against something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebellious"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +872,59 @@
      }
     ]
    },
-   "solution": "INANYEVENT"
+   "solution": "INANYEVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regardless of what happens",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "puts on",
+         "at": 7,
+         "note": "puts on says the Yankee letter is dressed in the silly word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silly",
+         "at": 15,
+         "gives": "INANE",
+         "note": "silly means inane"
+        },
+        {
+         "words": "Yankee",
+         "at": 0,
+         "gives": "Y",
+         "note": "Y is Yankee in the NATO alphabet"
+        }
+       ]
+      },
+      {
+       "words": "voice",
+       "at": 21,
+       "gives": "VENT",
+       "note": "to vent is to voice feelings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American adopts a daft way of speaking come what may.",
+     "definitionFit": "A phrase meaning whatever the outcome, an idiom of the same sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +944,40 @@
      }
     ]
    },
-   "solution": "ALECGUINNESS"
+   "solution": "ALECGUINNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "representing",
+       "at": 6,
+       "note": "representing suggests the letters of genuine class are presented in another form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "genuine class",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer who plays genuine class on stage.",
+     "walkthrough": "ALEC GUINNESS was a celebrated British actor, star of The Bridge on the River Kwai and Star Wars.",
+     "definitionFit": "Sir Alec Guinness was a famous English stage and film performer, so an example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +997,61 @@
      }
     ]
    },
-   "solution": "CRIMEWAVE"
+   "solution": "CRIMEWAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surge of naughtiness",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seized by",
+       "at": 15,
+       "note": "seized by says the setter's cry is held inside the desire word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "desire",
+       "at": 25,
+       "gives": "CRAVE",
+       "note": "to crave is to desire"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Arachne",
+         "at": 0,
+         "gives": "I",
+         "note": "the setter, Arachne, refers to herself as I"
+        },
+        {
+         "words": "cries",
+         "at": 8,
+         "gives": "MEW",
+         "note": "mew is a cat's cry"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter weeps, gripped by a longing for a spell of mischief.",
+     "walkthrough": "Arachne is the setter, so she is I, and her cry is MEW.",
+     "definitionFit": "A sudden rise in law-breaking, here wittily softened to mischief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Arachne"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1065,48 @@
     "text": "Mescal made skipping maidens go up the wall",
     "enumeration": "8"
    },
-   "solution": "ESCALADE"
+   "solution": "ESCALADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "go up the wall",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "skipping",
+       "at": 12,
+       "note": "skipping says the maidens are passed over, removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mescal made",
+       "at": 0
+      },
+      {
+       "words": "maidens",
+       "at": 21,
+       "gives": "MM",
+       "note": "M is the cricket abbreviation for a maiden over, so maidens are two Ms"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mezcal drove some young women round the bend.",
+     "walkthrough": "'go up the wall' looks like getting angry, but it is literal scaling.",
+     "definitionFit": "To climb a fortress rampart with ladders, a literal scaling of a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wall"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1120,52 @@
     "text": "Massive column with rope around",
     "enumeration": "8"
    },
-   "solution": "COLOSSAL"
+   "solution": "COLOSSAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Massive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "column",
+       "at": 8,
+       "gives": "COL"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 25,
+         "note": "around says the rope word turns round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rope",
+         "at": 20,
+         "gives": "LASSO",
+         "note": "a lasso is a rope with a noose"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge pillar with a rope wound round it.",
+     "walkthrough": "'around' looks like the rope encircling the column, but it signals the rope word read backwards.",
+     "definitionFit": "Huge or gigantic, a synonym for massive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1185,69 @@
      }
     ]
    },
-   "solution": "STOOLPIGEONS"
+   "solution": "STOOLPIGEONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grasses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "break up",
+         "at": 8,
+         "note": "break up tells us to smash the word topsoil into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "topsoil",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "at": 25,
+         "note": "at last picks the final letter of the word taking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "taking",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "ages",
+       "at": 41,
+       "gives": "EONS",
+       "note": "ages are long periods, eons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lawn plants take a long time to break up the topsoil.",
+     "walkthrough": "'Grasses' is a verb here, not plants; 'break up' rearranges TOPSOIL into STOOLPI.",
+     "definitionFit": "Grasses as a plural noun in slang means police informers, which is exactly what this decoy-bird term means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grasses"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1261,42 @@
     "text": "I hoard bananas in beehive, perhaps",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beehive, perhaps",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bananas",
+       "at": 8,
+       "note": "bananas means crazy, so the letters of I hoard go wild"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I hoard",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stashes bananas in a beehive.",
+     "walkthrough": "A beehive is a tall rounded 1960s hairstyle.",
+     "definitionFit": "The beehive is an example of a styled coiffure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "beehive"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1310,54 @@
     "text": "Worships alto and soprano after quarter of an octave",
     "enumeration": "6"
    },
-   "solution": "ADORES"
+   "solution": "ADORES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worships",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "after places the octave fragment behind the alto letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alto",
+       "at": 9,
+       "gives": "A",
+       "note": "A is the musical abbreviation for alto"
+      },
+      {
+       "words": "quarter of an octave",
+       "at": 32,
+       "gives": "DORE",
+       "note": "an octave has eight notes, do re mi fa so la ti do; two of them make a quarter"
+      },
+      {
+       "words": "soprano",
+       "at": 18,
+       "gives": "S",
+       "note": "S is the musical abbreviation for soprano"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choir singers giving praise after a bit of a scale.",
+     "walkthrough": "Sol-fa names the scale's notes do, re, mi and so on; two notes, DO RE, are a quarter of eight. The alto A comes first, with S closing.",
+     "definitionFit": "To revere or idolise, verbs in the third person like worships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1371,58 @@
     "text": "Adolescent's first kiss touching a bit of a nerve",
     "enumeration": "4"
    },
-   "solution": "AXON"
+   "solution": "AXON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bit of a nerve",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 13,
+         "note": "first takes the opening letter of Adolescent's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Adolescent's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "kiss",
+       "at": 19,
+       "gives": "X",
+       "note": "X is the kiss written at the end of a letter"
+      },
+      {
+       "words": "touching",
+       "at": 24,
+       "gives": "ON",
+       "note": "touching means on, against"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager's first kiss strikes a nerve.",
+     "definitionFit": "This is the long fibre of a nerve cell that carries impulses, so a part of a nerve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nerve"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1436,63 @@
     "text": "Stroke heads of beagles eagerly advancing in anticipation",
     "enumeration": "10"
    },
-   "solution": "BEFOREHAND"
+   "solution": "BEFOREHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in anticipation",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "advancing",
+       "at": 32,
+       "note": "advancing says those letters go forward, in front of the stroke"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heads of",
+         "at": 7,
+         "note": "heads of takes the opening letters of beagles and eagerly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beagles",
+         "at": 16
+        },
+        {
+         "words": "eagerly",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "Stroke",
+       "at": 0,
+       "gives": "FOREHAND",
+       "note": "a forehand is a tennis stroke"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pats eager hounds as they surge forward.",
+     "walkthrough": "'Stroke' looks like the verb pat; it is the tennis shot.",
+     "definitionFit": "Done in advance, ahead of time, is what in anticipation means as an adverb phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stroke"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1506,39 @@
     "text": "Scotsman's armpit bitten by fox terrier",
     "enumeration": "5"
    },
-   "solution": "OXTER"
+   "solution": "OXTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scotsman's armpit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bitten by",
+       "at": 18,
+       "note": "bitten by says the word sits within the jaws of fox terrier"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fox terrier",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot is nipped under the arm by a terrier.",
+     "definitionFit": "A Scottish and northern English dialect word for the armpit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1552,53 @@
     "text": "Roots of St Ignatius Loyola, soldier and absolutist",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "absolutist",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Roots of",
+       "at": 0,
+       "note": "in a down clue the roots of words are their bottoms, their last letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "St",
+       "at": 9
+      },
+      {
+       "words": "Ignatius",
+       "at": 12
+      },
+      {
+       "words": "Loyola",
+       "at": 21
+      },
+      {
+       "words": "soldier",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The origins of the Jesuit founder, a soldier and a hardliner.",
+     "walkthrough": "'Roots' looks like origins, but in a down clue it means the bottom letters of each word. Ignatius Loyola was indeed a soldier.",
+     "definitionFit": "A Russian emperor was an autocrat with unlimited power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roots"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1612,68 @@
     "text": "One helping Turkey and half of Uzbekistan start to thrive",
     "enumeration": "9"
    },
-   "solution": "ASSISTANT"
+   "solution": "ASSISTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One helping",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Turkey",
+       "at": 12,
+       "gives": "ASS",
+       "note": "a turkey is a fool, an ass"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 23,
+         "note": "half of takes the latter five letters of Uzbekistan"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Uzbekistan",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 42,
+         "note": "start to takes the opening letter of thrive"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thrive",
+         "at": 51
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aid worker helps Turkey and part of Uzbekistan begin to prosper.",
+     "walkthrough": "'Turkey' looks like the country beside Uzbekistan; it is a fool.",
+     "definitionFit": "A helper or aide, someone who gives support to another in their work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1687,69 @@
     "text": "Conclusion of movie, Three Kings, skirting over inaccuracy",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inaccuracy",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Conclusion of",
+         "at": 0,
+         "note": "conclusion of takes the final letter of movie"
+        }
+       ],
+       "parts": [
+        {
+         "words": "movie",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "skirting",
+         "at": 34,
+         "note": "skirting says the kings surround the over letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Three Kings",
+         "at": 21,
+         "gives": "RRR",
+         "note": "R stands for rex, king, so three kings are three Rs"
+        },
+        {
+         "words": "over",
+         "at": 43,
+         "gives": "O",
+         "note": "O is the cricket abbreviation for over"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The end of the film Three Kings skims over a factual slip.",
+     "definitionFit": "A mistake, a slip from what is correct, the same thing as an inaccuracy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kings"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1763,55 @@
     "text": "Expand section of integral network retrospectively",
     "enumeration": "7"
    },
-   "solution": "ENLARGE"
+   "solution": "ENLARGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "retrospectively",
+       "at": 35,
+       "note": "retrospectively says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "section of",
+         "at": 7,
+         "note": "section of says a stretch of letters lies within the words integral network"
+        }
+       ],
+       "parts": [
+        {
+         "words": "integral network",
+         "at": 18,
+         "gives": "EGRALNE",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to extend part of a vital network after the fact.",
+     "walkthrough": "The draft took 'Expand section' as the definition, but 'section of' is the indicator for the hidden letters and 'Expand' alone is the definition.",
+     "definitionFit": "To make bigger or extend, a straight synonym of expand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1825,48 @@
     "text": "The Spanish shunning sex and food",
     "enumeration": "7"
    },
-   "solution": "RATIONS"
+   "solution": "RATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shunning",
+       "at": 12,
+       "note": "shunning says the Spanish article is avoided, removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sex",
+       "at": 21,
+       "gives": "RELATIONS",
+       "note": "relations is a polite word for sex"
+      },
+      {
+       "words": "The Spanish",
+       "at": 0,
+       "gives": "EL",
+       "note": "el is the Spanish word for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spaniards avoiding sex and food, an odd austerity.",
+     "definitionFit": "Fixed allowances of provisions, as handed out to soldiers, so food supplies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sex"
+    }
+   }
   }
  ]
 }
