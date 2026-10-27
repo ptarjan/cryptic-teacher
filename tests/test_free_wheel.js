@@ -34,6 +34,8 @@ const meter = reg["hint-meter"].innerHTML, score = reg["scorebar"].innerHTML;
 reg["hx-wheel"].onclick();
 check(reg["hint-body"].innerHTML.includes("anagram-ring"), "opening it draws the ring");
 check(tiles().length === 0, "which starts empty");
+check(reg["hint-clue"].innerHTML.includes("data-aw=") && !reg["hint-body"].innerHTML.includes("ana-word"),
+  "the clue's own words are the picker, with no second row of chips");
 check(reg["hint-meter"].innerHTML === meter, "the hint count is unchanged: " + reg["hint-meter"].innerHTML);
 check(reg["scorebar"].innerHTML === score, "and so is the score");
 
