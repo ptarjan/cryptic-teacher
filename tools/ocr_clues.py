@@ -4009,6 +4009,14 @@ PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]
 UNLEXICONED_ABBREVS = {"ven", "jnr", "snr"}
 
 
+def aitch_dropped(raw, p):
+    """Whether token `raw` opens (past any '"', '“' or '(') with a quote mark then piece `p`, as
+    re.match(r"[\\"“(]*['‘’]" + re.escape(p), raw) would: a string test, as a pattern
+    per word cost a plan ~177k regex compiles (each evicting the module's own patterns from re's cache)."""
+    rest = raw.lstrip("\"“(")
+    return rest[:1] in ("'", "‘", "’") and rest.startswith(p, 1)
+
+
 def suspect(text, vouched=(), printed=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which
@@ -4050,7 +4058,7 @@ def suspect(text, vouched=(), printed=()):
                 break
             if flat.lower() in vouched:
                 continue
-            if (re.match(r"[\"\u201c(]*['\u2018\u2019]" + re.escape(p), raw)
+            if (aitch_dropped(raw, p)
                     and not known(flat) and known("h" + flat.lower())):
                 continue  # the setter's dropped aitch: "'ow 'iggins", "'igher"
             if known(flat) or formed(plain(p).lower()) or any(

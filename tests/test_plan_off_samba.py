@@ -93,5 +93,29 @@ check("page_url answers pages.json's url", ["https://gale.example/p1"] * 5, got[
 check("... and 6 asks read pages.json once", 1, len(reads))
 check("the answer is kept for the next process", True, str(ed) in f._PAGES_FACTS)
 
+# A held file's suspect verdict (complete() over every clue) is kept for the next process while its stat,
+# the code and the lexicon stand; under another version it is judged again.
+held = tmp / "held-99999.json"
+held.write_text(json.dumps({"source": {"acquiredBy": f.TOOL}, "entries": [
+    {"number": 1, "direction": "across", "clue": {"text": "A c4t sat", "enumeration": "3"}, "solution": ""},
+    {"number": 2, "direction": "down", "clue": {"text": "Hound", "enumeration": "3"}, "solution": "CUR"}]}))
+f._HELD_PATH["times", 99999] = held
+want = f.suspect_held_file("times", 99999)
+check("a held file's verdict is kept in this process", True, held in f._SUSPECT)
+f._PAGES_FACTS.clear()
+f.save_likely(tmp / "likely.pickle")
+f._SUSPECT.clear()
+f.load_likely(tmp / "likely.pickle")
+orig_complete = f.complete
+f.complete = lambda *a, **k: (_ for _ in ()).throw(AssertionError("judged again"))
+try:
+    check("... and the next process takes it without judging the file again", want, f.suspect_held_file("times", 99999))
+finally:
+    f.complete = orig_complete
+f._SUSPECT.clear()
+f._SUSPECT_VERSION[:] = ["other code"]
+f.load_likely(tmp / "likely.pickle")
+check("... but not under other code or another lexicon", False, held in f._SUSPECT)
+
 print("test_plan_off_samba: " + ("failed" if fails else "all passed"))
 sys.exit(1 if fails else 0)
