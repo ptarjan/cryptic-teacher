@@ -991,6 +991,19 @@ def only_evidence(paper, scans, reads, out=None):
     return scans, reads
 
 
+#: Seconds a plan waits out a hold on a paper's ledger before it leaves the paper out. Every unit's
+#: row (scan_queue.append) takes the same lock for its write, so with ~20 units running a wait of 0
+#: met one now and then: 10-27 08:37:55 a plan left all of gale out ("a run holds filed-gale.lock"),
+#: ~9,250 Gale Times reads with every DASH_JOINED/OLD_FORM and ~1,280 lost-write reread, and that
+#: plan was kept (plan_file) and run from. A batch run holding it throughout outlasts this.
+PLAN_HOLD_WAIT = 20
+
+
+def ledger_held(ledger):
+    """Whether a batch run holds `ledger` (scan_queue.held after PLAN_HOLD_WAIT), not a unit's write."""
+    return bool(scan_queue.held(ledger, PLAN_HOLD_WAIT))
+
+
 def plan_inputs(papers, cache, reread, asked):
     """(key, stamps, extra): what a plan of `papers` is made of, each cheap to
     read (stats, one listing per series, one VLM probe). `key` is the request
@@ -1005,13 +1018,14 @@ def plan_inputs(papers, cache, reread, asked):
             continue
         paper = fa.FILERS[k]
         stamp = fa.plan_stamp(paper, cache, reread, asked.get(k, ()))
-        stamps[k] = None if stamp is None else (stamp, bool(scan_queue.held(fa.ledger_of(cache, paper))))
+        stamps[k] = None if stamp is None else (stamp, ledger_held(fa.ledger_of(cache, paper)))
     extra = {}
     if "listener" in papers:
         extra["listener"] = gale_listener.plan()
     if "trove" in papers:
         led = media_manifest.trove_ledger(ftp.CACHE)
-        extra["trove"] = (bool(scan_queue.held(led)), None if scan_queue.held(led) else trove_plan(reread, asked.get("trove", ())))
+        trove_held = ledger_held(led)
+        extra["trove"] = (trove_held, None if trove_held else trove_plan(reread, asked.get("trove", ())))
     return key, stamps, extra
 
 
@@ -1058,7 +1072,7 @@ def _plan(papers, cache, reread, out, asked=None):
             continue
         if key == "trove":
             led = media_manifest.trove_ledger(ftp.CACHE)
-            if scan_queue.held(led):
+            if ledger_held(led):
                 if out is not None:
                     out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
                 continue
@@ -1068,7 +1082,7 @@ def _plan(papers, cache, reread, out, asked=None):
             reads += [(u["rank"], k, n, u) for n, u in enumerate(tr)]
             continue
         paper = fa.FILERS[key]
-        if scan_queue.held(fa.ledger_of(cache, paper)):
+        if ledger_held(fa.ledger_of(cache, paper)):
             if out is not None:
                 out.append(f"{key}: a run holds {fa.ledger_of(cache, paper).with_suffix('.lock')}; left out")
             continue

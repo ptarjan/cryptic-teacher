@@ -730,11 +730,27 @@ check("each a scan too, ranked just laid out (0), ahead of the never read",
 check("a fresh read needs its own scan and the fresh days after it", [f"{gi}/1990-01-02", f"{gi}/1990-01-03"],
       fr[1]["needs"])
 check("nothing once past FRESH", ([], []), eq.fresh(["gale", "times"], fc, now + f.FRESH + 60))
+was_hold, eq.PLAN_HOLD_WAIT = eq.PLAN_HOLD_WAIT, 0.5  # a batch run's hold outlasts it
 with q.lock(cache / "filed-gale.jsonl"):
     notes = []
     scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
     check("a paper whose ledger a batch run holds is left out, and said", (False, True),
           (any(u["paper"] == "gale" for u in reads), "gale: a run holds" in notes[0]))
+# A unit's row write (q.append) takes the same lock for a moment: 10-27 a plan met one with no wait and
+# left all of gale out (~9,250 Gale Times reads), and that plan was kept and run from.
+eq.PLAN_HOLD_WAIT = 30
+import fcntl
+import threading
+brief = open(q.lock_path(cache / "filed-gale.jsonl"), "w")
+fcntl.flock(brief, fcntl.LOCK_EX)
+threading.Timer(0.3, lambda: fcntl.flock(brief, fcntl.LOCK_UN)).start()
+notes = []
+t0 = time.monotonic()
+scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
+check("a unit's moment on the ledger is waited out: the paper is planned, no note", (True, [], True),
+      (any(u["paper"] == "gale" for u in reads), [n for n in notes if "a run holds" in n], time.monotonic() - t0 < 30))
+brief.close()
+eq.PLAN_HOLD_WAIT = was_hold
 notes = []
 eq.plan(["gale", "times"], cache, before, out=notes)
 check("a quick plan adds no timing note", [], [n for n in notes if n.startswith("slow plan")])
