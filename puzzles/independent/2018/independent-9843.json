@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Part of golf course where below par?",
     "enumeration": "5"
    },
-   "solution": "ROUGH"
+   "solution": "ROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of golf course",
+      "at": 0,
+      "meaning": "the long grass bordering the fairway on a golf course"
+     },
+     {
+      "text": "below par?",
+      "at": 26,
+      "meaning": "feeling below par means feeling unwell, a bit off-colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer asks which part of the course you are in when your score is under par.",
+     "walkthrough": "'Below par' looks like golf scoring (a good score), but here it means feeling poorly.",
+     "definitionFit": "Both senses fit: the unmown grass off the fairway, and the adjective for feeling unwell or out of sorts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "par"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,43 @@
     "text": "Crude, annoyingly stubborn person sounded harsh and loud",
     "enumeration": "7"
    },
-   "solution": "RAUCOUS"
+   "solution": "RAUCOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "harsh and loud",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RAUCOUS",
+     "indicators": [
+      {
+       "text": "sounded",
+       "at": 34,
+       "note": "sounded means said aloud, so the spelling follows the spoken words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crude, annoyingly stubborn person",
+       "at": 0,
+       "gives": "RAWCUSS",
+       "note": "crude means raw, and a cuss is an awkward, cantankerous person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rough, obstinate person spoke in a grating, noisy voice.",
+     "definitionFit": "The adjective means unpleasantly loud and grating, like a raven's cry or a rowdy crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crude"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +123,41 @@
     "text": "Essentially, Seoul's a \"nice\" city in S Korea",
     "enumeration": "5"
    },
-   "solution": "ULSAN"
+   "solution": "ULSAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "city in S Korea",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Essentially",
+       "at": 0,
+       "note": "essentially means at the core, so the letters lie within the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Seoul's a \"nice\"",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that Seoul is basically a pleasant South Korean city.",
+     "walkthrough": "'Seoul' and 'city' tempt the solver to think of the capital, but the answer is a different city hidden across the words.",
+     "definitionFit": "It is a large industrial port on South Korea's south-east coast, home to Hyundai's main plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Seoul's"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +181,73 @@
      }
     ]
    },
-   "solution": "HEBATES"
+   "solution": "HEBATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 34,
+       "note": "holding means the jumble contains the book's letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "at": 29,
+         "note": "shot means ruined or broken up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 22,
+           "note": "mostly means not quite all, so the last letter is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the East",
+           "at": 12
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "book",
+       "at": 42,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author from the Orient was mostly shot while clutching a volume.",
+     "walkthrough": "'Mostly' cuts THEEAST to THEEAS, 'shot' rearranges it, and 'holding' puts B inside. 'From the East' looks like origin but 'the East' is fodder.",
+     "definitionFit": "Herbert Ernest Bates was an English novelist and short-story writer, author of The Darling Buds of May."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +261,49 @@
     "text": "Current movements of cricket team — shortly after losing, that is",
     "enumeration": "5"
    },
-   "solution": "WINDS"
+   "solution": "WINDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Current movements",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after losing",
+       "at": 44,
+       "note": "after losing means the following letters are dropped from the team's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cricket team — shortly",
+       "at": 21,
+       "gives": "WINDIES",
+       "note": "the Windies is the short, informal name for the West Indies cricket team"
+      },
+      {
+       "words": "that is",
+       "at": 58,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation for id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on a cricket team's fortunes after a defeat.",
+     "walkthrough": "The West Indies team are known for short as the Windies; 'after losing' removes the IE.",
+     "definitionFit": "Air currents moving across the land are the weather's flows of air, so current movements describes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +317,48 @@
     "text": "Grouse or carp, with joint that's beef",
     "enumeration": "6"
    },
-   "solution": "WHINGE"
+   "solution": "WHINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Grouse or carp",
+      "at": 0,
+      "meaning": "to grouse or carp is to grumble"
+     },
+     {
+      "text": "beef",
+      "at": 34,
+      "meaning": "a beef is a complaint"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "with",
+       "at": 16,
+       "gives": "W"
+      },
+      {
+       "words": "joint",
+       "at": 21,
+       "gives": "HINGE",
+       "note": "a hinge is a joint, as on a door"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Game bird or fish served with a joint of beef.",
+     "walkthrough": "'Grouse', 'carp', 'joint' and 'beef' all suggest food; every one means complaining except 'joint'.",
+     "definitionFit": "Grumbling peevishly is complaining, and a beef is a gripe; the word covers both verb and noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grouse"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +372,61 @@
     "text": "One looking to reach settlement saw Scotsman in the Seine?",
     "enumeration": "9"
    },
-   "solution": "NEGOTIANT"
+   "solution": "NEGOTIANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One looking to reach settlement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 45,
+       "note": "in means the two pieces go inside the fishing net"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Seine",
+       "at": 52,
+       "gives": "NET",
+       "note": "a seine is a large fishing net"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "saw",
+         "at": 32,
+         "gives": "GOT",
+         "note": "to have seen it is to have got it, understood it"
+        },
+        {
+         "words": "Scotsman",
+         "at": 36,
+         "gives": "IAN",
+         "note": "Ian is a typical Scottish man's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot seen in the French river, perhaps a diplomat seeking a deal.",
+     "walkthrough": "'Seine' looks like the Paris river but is a fishing net.",
+     "definitionFit": "A rare word for a negotiator, someone who bargains in order to reach an agreed settlement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Seine"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +446,56 @@
      }
     ]
    },
-   "solution": "SHUTEYE"
+   "solution": "SHUTEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sleep",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "novelist",
+       "at": 11,
+       "gives": "SHUTE",
+       "note": "Nevil Shute was the English novelist who wrote A Town Like Alice"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 26,
+         "note": "briefly means cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yes",
+         "at": 21,
+         "gives": "YES"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether one sleeps with a novelist, answered with a curt yes.",
+     "definitionFit": "This is informal slang for a nap or a spell of slumber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "novelist"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +515,62 @@
      }
     ]
    },
-   "solution": "BREEZETHROUGH"
+   "solution": "BREEZETHROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Easily deal with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "80% of 4A",
+       "at": 17,
+       "gives": "BREEZE",
+       "note": "4A is the air currents; a light one, not at full strength, is a breeze"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 29,
+         "note": "initially takes the first letters of the two words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "they're",
+         "at": 39
+        },
+        {
+         "words": "hardly",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "words": "1A",
+       "at": 54,
+       "gives": "ROUGH",
+       "note": "1A is the golf-course grass, also meaning unwell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting through rough conditions easily, since the winds are mostly light.",
+     "walkthrough": "'80% of 4A' is a gentler wind, not a letter count of 4A.",
+     "definitionFit": "To do something with ease and no effort, like a test passed effortlessly, is this idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "80%"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +584,50 @@
     "text": "Bloomers, potentially, as friends die away",
     "enumeration": "4"
    },
-   "solution": "BUDS"
+   "solution": "BUDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bloomers, potentially",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "at": 38,
+       "note": "die away means the word die is taken out of the friends"
+      }
+     ],
+     "parts": [
+      {
+       "words": "friends",
+       "at": 26,
+       "gives": "BUDDIES",
+       "note": "buddies are friends or pals"
+      },
+      {
+       "words": "die",
+       "at": 34,
+       "gives": "DIE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Undergarments, perhaps, are a thing of the past now that one's mates have passed on.",
+     "walkthrough": "'Bloomers' suggests knickers, but it means things that will flower.",
+     "definitionFit": "Flower shoots are not yet open but will bloom, so they are potential bloomers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomers"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +647,37 @@
      }
     ]
    },
-   "solution": "BURNINGOUT"
+   "solution": "BURNINGOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "getting exhausted through overwork",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "BURN + ING OUT",
+     "parts": [
+      {
+       "words": "Consume gin",
+       "at": 0,
+       "note": "split the answer as BURN, to consume, then ING OUT, read as ING rearranged, which gives the clue's gin; 'perhaps' flags the trick"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drinking gin as a way of coping when worn down by too much work.",
+     "walkthrough": "A reverse clue: the answer, read as a cryptic instruction, means consume plus ING jumbled ('out'), which is gin, the 'perhaps' admitting the playfulness.",
+     "definitionFit": "The phrase is the everyday idiom for collapsing from stress after working too hard for too long."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +691,65 @@
     "text": "One of the Bard's works TV screens, showing before noon",
     "enumeration": "6"
    },
-   "solution": "SONNET"
+   "solution": "SONNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of the Bard's works",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "screens",
+       "at": 27,
+       "note": "screens means hides or contains, so the TV holds the next letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "TV",
+       "at": 24,
+       "gives": "SET",
+       "note": "a TV is a television set"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "before",
+         "at": 44,
+         "note": "before puts the showing ahead of the noon"
+        }
+       ],
+       "parts": [
+        {
+         "words": "showing",
+         "at": 36,
+         "gives": "ON",
+         "note": "a film that is showing is on"
+        },
+        {
+         "words": "noon",
+         "at": 51,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Shakespeare work broadcast on television in a morning slot.",
+     "definitionFit": "Shakespeare, the Bard, wrote 154 fourteen-line poems of this form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screens"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +763,60 @@
     "text": "A number tee-heeing inanely after dropping ecstasy",
     "enumeration": "8"
    },
-   "solution": "EIGHTEEN"
+   "solution": "EIGHTEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A number",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "inanely",
+       "at": 20,
+       "note": "inanely means foolishly, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after dropping",
+         "at": 28,
+         "note": "after dropping means the drug's letter is removed first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tee-heeing",
+         "at": 9
+        },
+        {
+         "words": "ecstasy",
+         "at": 43,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone giggling stupidly once they have given up drugs.",
+     "walkthrough": "Removing an E from TEEHEEING leaves TEHEEING, which 'inanely' rearranges.",
+     "definitionFit": "It is a cardinal numeral, ten plus eight, so it is one example of a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +830,44 @@
     "text": "Rip-off female moneylenders exploit your sorry state initially, we hear",
     "enumeration": "9"
    },
-   "solution": "USURESSES"
+   "solution": "USURESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rip-off female moneylenders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "USURESSES",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 64,
+       "note": "we hear means the words are spoken, and the spelling follows the sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exploit your sorry state initially",
+       "at": 28,
+       "gives": "USEYOURESSES",
+       "note": "exploit is USE, then YOUR, then the first letters of sorry and state, two S letters, said as 'esses'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greedy women lenders take advantage of your plight from the start.",
+     "walkthrough": "Said aloud, USE YOUR S S sounds like the answer; 'initially' gives the two S letters from 'sorry state'.",
+     "definitionFit": "A usurer lends at extortionate interest; the -ess ending makes the word feminine, and such lenders rip off borrowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploit"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +881,41 @@
     "text": "Gets back from playing with a train set",
     "enumeration": "9"
    },
-   "solution": "REATTAINS"
+   "solution": "REATTAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gets back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing with",
+       "at": 15,
+       "note": "playing with means toying with, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a train set",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child gets back from playing with a toy train set.",
+     "walkthrough": "'Gets back from' looks like returning home; 'from' is only a link.",
+     "definitionFit": "To regain or recover something once lost is to reach it again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 14,
@@ -282,7 +942,42 @@
     "text": "Former prostitute poet recalled",
     "enumeration": "4"
    },
-   "solution": "DRAB"
+   "solution": "DRAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Former prostitute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "recalled",
+       "at": 23,
+       "note": "recalled means called back, so the poet is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poet",
+       "at": 18,
+       "gives": "BARD",
+       "note": "a bard is a poet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet remembers a woman who once worked the streets.",
+     "definitionFit": "This is an archaic word for a slattern or harlot, hence a former term for a prostitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +991,48 @@
     "text": "Bottle crossing large river",
     "enumeration": "7"
    },
-   "solution": "DARLING"
+   "solution": "DARLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 7,
+       "note": "crossing means spanning around, so the bottle holds the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bottle",
+       "at": 0,
+       "gives": "DARING",
+       "note": "bottle is British slang for nerve or courage"
+      },
+      {
+       "words": "large",
+       "at": 16,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle floating across a big river.",
+     "walkthrough": "'Bottle' is British slang for courage, not a container.",
+     "definitionFit": "This is the longest river in Australia, a tributary of the Murray."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 16,
@@ -324,7 +1060,57 @@
    "group": [
     "16-across",
     "14-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "at": 28,
+       "note": "taking in means the jumble holds the extra letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 24,
+         "note": "out means wild or wrong, so the letters before it are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "met Meg, a night",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 38
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After meeting Meg, a night on the town that included a movie.",
+     "walkthrough": "'Out' rearranges METMEGANIGHT, and 'taking in' adds one more A. 'Night out' looks like a phrase but splits at 'out'.",
+     "definitionFit": "This is a 1959 American romantic comedy starring Debbie Reynolds, so it is an example of a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 17,
@@ -338,7 +1124,51 @@
     "text": "Stubborn beast regularly tears matadors' capes",
     "enumeration": "7"
    },
-   "solution": "MULETAS"
+   "solution": "MULETAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "matadors' capes",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stubborn beast",
+       "at": 0,
+       "gives": "MULE",
+       "note": "a mule is proverbially stubborn"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 15,
+         "note": "regularly takes every other letter, the odd ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tears",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn animal rips the red cloths of bullfighters.",
+     "definitionFit": "This is the Spanish name for the small red cloth a bullfighter uses in the final stage of a fight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 18,
@@ -352,7 +1182,59 @@
     "text": "Very unpleasant love lives in Alaskan city",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very unpleasant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in means the first two pieces go inside the city name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Alaskan city",
+       "at": 30,
+       "gives": "NOME",
+       "note": "Nome is a city in Alaska, famous for gold rush days"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "love",
+         "at": 16,
+         "gives": "O",
+         "note": "love is zero in tennis, written as O"
+        },
+        {
+         "words": "lives",
+         "at": 21,
+         "gives": "IS",
+         "note": "lives means exists, is"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's beloved lives in Nome, Alaska, a horrible place.",
+     "definitionFit": "The adjective means offensive or disgusting, especially of smells, so it describes something deeply disagreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 19,
@@ -372,7 +1254,67 @@
      }
     ]
    },
-   "solution": "FRYUPS"
+   "solution": "FRYUPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unhealthy meals?",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "high",
+         "at": 21,
+         "note": "high in a down entry means at the top, so the word's top letter is taken and placed above"
+        },
+        {
+         "text": "primarily",
+         "at": 36,
+         "note": "primarily takes the first letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fructose",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Sort of",
+         "at": 0,
+         "note": "sort of means a kind of, a rearranged version of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "syrup",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of syrup rich in fructose might go into junk food.",
+     "walkthrough": "'High-fructose' looks like one adjective, but 'high' and 'primarily' take only the F of fructose, which sits on top of the rearranged SYRUP.",
+     "definitionFit": "Fried breakfasts of bacon, egg and sausage are a British treat, typically greasy and unhealthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 20,
@@ -386,7 +1328,42 @@
     "text": "Work as public speaker at Number Ten",
     "enumeration": "8"
    },
-   "solution": "ORATORIO"
+   "solution": "ORATORIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "public speaker",
+       "at": 8,
+       "gives": "ORATOR",
+       "note": "an orator is a public speaker"
+      },
+      {
+       "words": "Number Ten",
+       "at": 26,
+       "gives": "IO",
+       "note": "ten written as figures is 1 0, which looks like the letters I and O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A job as a speechmaker at 10 Downing Street, the Prime Minister's residence.",
+     "walkthrough": "'Number Ten' suggests 10 Downing Street, the British Prime Minister's home, but is just the digits 1 and 0.",
+     "definitionFit": "A large musical work for choir and orchestra on a sacred theme, like Handel's Messiah, is a composition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1377,48 @@
     "text": "Winger — one with name for \"linesman\"",
     "enumeration": "6"
    },
-   "solution": "LARKIN"
+   "solution": "LARKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "linesman",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Winger",
+       "at": 0,
+       "gives": "LARK",
+       "note": "a lark is a bird, something with wings"
+      },
+      {
+       "words": "one",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "name",
+       "at": 18,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer on the wing, known for being a 'linesman'.",
+     "walkthrough": "'Winger' and 'linesman' suggest football, but the winger is a bird and the 'linesman' a man of lines of verse.",
+     "definitionFit": "Philip Larkin was an English poet, and a poet is a man who writes lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Winger"
+    }
+   }
   },
   {
    "number": 22,
@@ -414,7 +1432,44 @@
     "text": "Some drum and bass dance music",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance music",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "some means only part of these letters survive, the rest being dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drum and bass",
+       "at": 5
+      },
+      {
+       "gives": "DANDSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of drum and bass, the dance-music genre.",
+     "walkthrough": "Only some of the letters of 'drum and bass' are kept: RUM from the first word and BA from the last, with D, AND and SS dropped.",
+     "definitionFit": "This Cuban ballroom dance and the music for it go together, so it is dance music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bass"
+    }
+   }
   },
   {
    "number": 23,
@@ -434,7 +1489,50 @@
      }
     ]
    },
-   "solution": "MINIBUDGET"
+   "solution": "MINIBUDGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Special measure in fiscal emergency",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 66,
+       "note": "on means the money comes after the car"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small car",
+       "at": 69,
+       "gives": "MINI",
+       "note": "the Mini is a famous small British car"
+      },
+      {
+       "words": "money to be spent",
+       "at": 48,
+       "gives": "BUDGET",
+       "note": "a budget is the money set aside to be spent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emergency government measure, joking that it means the money is spent on a little car.",
+     "walkthrough": "The UK's 2022 mini-budget caused a market crisis; the clue imagines the term as a budget for a Mini car.",
+     "definitionFit": "It names an emergency fiscal statement made outside the usual annual Budget, as in the UK in 2022."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suggesting"
+    }
+   }
   },
   {
    "number": 24,
@@ -448,7 +1546,40 @@
     "text": "Low temperature? That's debatable",
     "enumeration": "4"
    },
-   "solution": "MOOT"
+   "solution": "MOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "debatable",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Low",
+       "at": 0,
+       "gives": "MOO",
+       "note": "to low is to make a cow's sound, so low is moo"
+      },
+      {
+       "words": "temperature",
+       "at": 4,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone queries whether the temperature is low, and another says that's arguable.",
+     "definitionFit": "A point that is open to argument and unresolved is a debatable point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Low"
+    }
+   }
   },
   {
    "number": 25,
@@ -462,7 +1593,49 @@
     "text": "Some 1A 4A found in bend in intestines",
     "enumeration": "5"
    },
-   "solution": "GUSTS"
+   "solution": "GUSTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some 1A 4A",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 11,
+       "note": "found in means the bend is placed inside the intestines"
+      }
+     ],
+     "parts": [
+      {
+       "words": "intestines",
+       "at": 28,
+       "gives": "GUTS",
+       "note": "the guts are the intestines"
+      },
+      {
+       "words": "bend",
+       "at": 20,
+       "gives": "S",
+       "note": "an S-bend is a bend shaped like the letter S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some sort of disturbance turns up in a bend of the gut.",
+     "walkthrough": "1A and 4A together give rough winds; 'Some' signals examples of them.",
+     "definitionFit": "Sudden blasts of air are strong, irregular breezes, examples of turbulent air currents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 26,
@@ -476,7 +1649,46 @@
     "text": "Wave upset small swimmer",
     "enumeration": "5"
    },
-   "solution": "SHAKE"
+   "solution": "SHAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0,
+      "meaning": "to brandish, as one does a fist"
+     },
+     {
+      "text": "upset",
+      "at": 5,
+      "meaning": "to unsettle or disturb someone"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 11,
+       "gives": "S"
+      },
+      {
+       "words": "swimmer",
+       "at": 17,
+       "gives": "HAKE",
+       "note": "a hake is a fish, a swimmer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone waves goodbye to a little fish that is upset.",
+     "definitionFit": "One brandishes a fist by moving it to and fro, and a bad shock leaves you rattled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimmer"
+    }
+   }
   }
  ]
 }
