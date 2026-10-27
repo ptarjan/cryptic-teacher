@@ -8458,7 +8458,7 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
-#: `import rapidocr_onnxruntime  # noqa` became `__import__(...)`) moved the raw key d7af79af2ec8d286
+#: the lint-suppressed `import rapidocr_onnxruntime` became `__import__(...)`) moved the raw key d7af79af2ec8d286
 #: (pinned to 8417cfb08f3a9706) to f6a3d293c491a4b0, unpinned. Every short Times row read before its deploy
 #: then stood "solution short, read by other code", a blanket reason only_evidence drops unless likely()
 #: predicts a gain (a gap within SHORT_GAP): 10-27 00:05Z, 404 of 408 rows due WIDE_AGREED, 87 of 200 due
