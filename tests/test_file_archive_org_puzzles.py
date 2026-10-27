@@ -1438,9 +1438,9 @@ check("a held file short whose VLM name its checks dropped as a misread, read be
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: named
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: named
 nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1455,9 +1455,9 @@ check("a held file short whose blank light's cached VLM name a surname alone lie
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: argmax
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: argmax
 am_due = [f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 am_due.append(f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1473,9 +1473,9 @@ check("a held file short whose blank light's cached VLM reply is one letter unde
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: paired
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: paired
 pw_due = [f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 pw_due.append(f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1491,9 +1491,9 @@ check("a held file short whose blank light's cached VLM reply is one letter off 
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: spelt
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: spelt
 sp_due = [f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 sp_due.append(f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1521,9 +1521,9 @@ check("spelt_word takes a reply the clue's anagram (ZAMBESI) or hidden word (THO
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: filed
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: filed
 fn_due = [f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 fn_due.append(f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1538,9 +1538,9 @@ check("a held file short whose blank light's cached VLM reply another puzzle's f
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: late
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: late
 lj_due = [f.short_again(vu_row("2026-10-27T06:55:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 lj_due.append(f.short_again(vu_row("2026-10-27T06:55:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1555,9 +1555,9 @@ check("a held file 1-2 short whose late strip's cached VLM reply vlm_word takes 
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: rivaled
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: rivaled
 vr_due = [f.short_again(vu_row("2026-10-27T08:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False, late=False, rivaled=False, far=False, tied=False, lengthy=False: False
 vr_due.append(f.short_again(vu_row("2026-10-27T08:25:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1638,6 +1638,42 @@ check("tied_word mends CUTER to CIDER (CYDER defined too, the classifier reads I
        f.tied_word("AMEND", "??E?D", [5], "So let it be a copper to put matters right", "5", td_p("EMEND")),
        f.tied_word("CUTER", "C???R", [5], None, "5", td_p("CIDER"))])
 f.trove_solution_ocr.filed_words = td_filed
+# LONG_FLOOR: a row read before REREAD_LONG_FLOOR whose blank light's cached long VLM reply every other mend refuses
+# and long_word takes (near_short with lengthy), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("lengthy"))
+lf_due = [f.short_again(vu_row("2026-10-27T09:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+lf_due.append(f.short_again(vu_row("2026-10-27T09:25:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached long VLM reply long_word takes, read before REREAD_LONG_FLOOR: "
+      "LONG_FLOOR (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LONG_FLOOR, None, None, 2, True, True, True, True, True],
+      lf_due + [f.RANKS[f.LONG_FLOOR], f.LONG_FLOOR in f.SOLUTION_FIXES, f.LONG_FLOOR.startswith("solution short"),
+                f.LONG_FLOOR in __import__("edition_queue").LOW_ASK, f.LONG_FLOOR in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LONG_FLOOR)])
+# long_word: a long listed reply fitting every crossing, vouched for, that the classifier ranks first of the light's
+# listed words by LONG_MARGIN though it reads one letter under the floor (CAPTIOUS, its T at 0.005); not a short light
+# (LUNAR), not a coin flip between two listed words (DETECTABLE, DELECTABLE), not one no print vouches for.
+lf_filed, lf_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"CAPTIOUS", "LUNAR", "DETECTABLE", "DELECTABLE"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset()
+lf_p = lambda w, at=None, alt=None, odds=(0.005, 0.995): [
+    [(odds[0] if c == ch else odds[1] if c == alt else 0.0) if i == at else 1.0 if c == ch else 0.0
+     for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for i, ch in enumerate(w)]
+lf_got = [f.long_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R")),
+          f.vlm_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R"), "8", "Skipper, having debts, is touchy"),
+          f.long_word("LUNAR", "L?N?R", [5], lf_p("LUNAR", 1, "O")),
+          f.long_word("DETECTABLE", "DE?E?T?B?E", [10], lf_p("DETECTABLE", 2, "L", (0.5, 0.5)))]
+f.trove_solution_ocr.filed_words = lambda: frozenset()
+lf_got.append(f.long_word("CAPTIOUS", "?A???O?S", [8], lf_p("CAPTIOUS", 3, "R")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = lf_filed, lf_corpus
+check("long_word takes CAPTIOUS (its T under the floor, the classifier's likeliest listed word), vlm_word too; not "
+      "LUNAR (short), DETECTABLE (DELECTABLE as likely), nor CAPTIOUS unvouched",
+      ["CAPTIOUS", "CAPTIOUS", None, None, None], lf_got)
 # LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
 # short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
 # (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
