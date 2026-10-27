@@ -8369,6 +8369,22 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # read_framed's framing and cell probabilities kept on disk too (grid_ocr_cache
                   # .keep_framing/keep_probs): the same readings.
                   "d7af79af2ec8d286": "8417cfb08f3a9706"}
+#: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
+#: that no pin caught before rows were written under the new key (a pin now would move solution_key()
+#: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
+#: `import rapidocr_onnxruntime  # noqa` became `__import__(...)`) moved the raw key d7af79af2ec8d286
+#: (pinned to 8417cfb08f3a9706) to f6a3d293c491a4b0, unpinned. Every short Times row read before its deploy
+#: then stood "solution short, read by other code", a blanket reason only_evidence drops unless likely()
+#: predicts a gain (a gap within SHORT_GAP): 10-27 00:05Z, 404 of 408 rows due WIDE_AGREED, 87 of 200 due
+#: FULL_SHORT and 8 of 10 due AGREED_HELD were so, the 6+ short ones never planned.
+_SOLUTION_SAME = {"8417cfb08f3a9706": "f6a3d293c491a4b0", "d7af79af2ec8d286": "f6a3d293c491a4b0"}
+
+
+def solution_current(row):
+    """Whether ledger `row` was read by this solution code: its solutionKey solution_key(), or one
+    _SOLUTION_SAME reads alike."""
+    key = row.get("solutionKey")
+    return key == solution_key() or _SOLUTION_SAME.get(key) == solution_key()
 
 
 def solved(sol, grid, above=False, lean=False, enums=None):
@@ -9286,7 +9302,7 @@ def short_unfitted(row):
     """Whether Times ledger `row`, read before REREAD_SHORT_FITTED by this solution code, linked a
     solution grid it read but for 1 to trove_solution_ocr.STRIP_MAX lights, not by answers_only, for
     a puzzle filed with every clue and not every answer (filed_state)."""
-    if row.get("solutionKey") != solution_key() or not scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED)):
+    if not solution_current(row) or not scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED)):
         return False
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
@@ -10691,7 +10707,7 @@ def fix_reason(row):
         return UNFILED_HELD
     if held_clash(row):
         return HELD_CLASH
-    if row.get("solutionKey") != solution_key():
+    if not solution_current(row):
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
             s = v.get("solution")
@@ -10816,7 +10832,7 @@ def short_cause(series, row, v, solutions):
     # code's full read left at most STRIP_MAX lights short, never read fitted (SHORT_UNFITTED).
     if paper_of(row.get("edition", "")).key not in CELLS_CLASSIFIED or gap <= 0:
         return None
-    if row.get("solutionKey") != solution_key():
+    if not solution_current(row):
         return LIKELY[4] if gap <= SHORT_GAP and s.get("blocks", 0) >= trove_solution_ocr.SURE_BLOCKS else None
     if (gap <= trove_solution_ocr.STRIP_MAX and not v.get("answersOnly")
             and scan_queue.read_before(row, scan_queue.when(REREAD_SHORT_FITTED))):
