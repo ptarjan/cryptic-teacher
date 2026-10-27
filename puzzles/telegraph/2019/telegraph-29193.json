@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "Change on-off device",
     "enumeration": "6"
    },
-   "solution": "SWITCH"
+   "solution": "SWITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0,
+      "meaning": "to change or swap one thing for another"
+     },
+     {
+      "text": "on-off device",
+      "at": 7,
+      "meaning": "the control flicked to turn a light or machine on or off"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads as a request to replace a broken power control.",
+     "definitionFit": "The word is both a verb for exchanging things and a noun for an electrical control that opens or closes a circuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +70,47 @@
     "text": "Perhaps wife needs support after blowing top",
     "enumeration": "6"
    },
-   "solution": "SPOUSE"
+   "solution": "SPOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps wife",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after blowing top",
+       "at": 27,
+       "note": "losing one's top here means the first letter of the word for support is knocked off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "support",
+       "at": 19,
+       "gives": "ESPOUSE",
+       "note": "to support a cause is to espouse it"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband says his wife needs backing after she loses her temper.",
+     "walkthrough": "'Blowing top' suggests an angry outburst; here it removes the first letter, E, from ESPOUSE.",
+     "definitionFit": "A wife is one example of a married partner, which 'Perhaps' signals as a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blowing"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +124,41 @@
     "text": "Break tile under ground",
     "enumeration": "9"
    },
-   "solution": "INTERLUDE"
+   "solution": "INTERLUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 17,
+       "note": "something ground has been crushed and broken up, so these letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tile under",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tile cracks when something is pressed down on top of it.",
+     "walkthrough": "'ground' looks like the floor beneath the tile, but it is the past tense of grind and signals the anagram of TILE UNDER.",
+     "definitionFit": "An interval or pause between parts of a performance is a short break in proceedings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +172,57 @@
     "text": "Material in river, short rectangular building block",
     "enumeration": "7"
    },
-   "solution": "CAMBRIC"
+   "solution": "CAMBRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "river",
+       "at": 12,
+       "gives": "CAM",
+       "note": "the Cam is the river through Cambridge"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 19,
+         "note": "short means the last letter of the word is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rectangular building block",
+         "at": 25,
+         "gives": "BRICK",
+         "note": "a brick is a rectangular block used in building"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes some building material in or by a river.",
+     "walkthrough": "'Material' looks like building stuff to match the brick, but it means fabric; the Cam is the river through Cambridge.",
+     "definitionFit": "Cambric is a fine, closely woven linen or cotton fabric, a type of cloth or material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +246,31 @@
      }
     ]
    },
-   "solution": "ONEBYONE"
+   "solution": "ONEBYONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How eleven may appear",
+      "at": 0,
+      "meaning": "the number 11 is written as a 1 next to a 1, a single digit beside another single digit"
+     },
+     {
+      "text": "individually",
+      "at": 22,
+      "meaning": "separately, each in turn"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks whether the members of a team of eleven turn up separately.",
+     "definitionFit": "Doing things singly, each in its own turn, is to do them individually, a set phrase for separately."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +290,41 @@
      }
     ]
    },
-   "solution": "NAMEDROPPER"
+   "solution": "NAMEDROPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one trying to impress others",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Remarkably",
+       "at": 0,
+       "note": "remarkably suggests something done in a striking, unusual way, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modern paper",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A show-off reads a strikingly up-to-date newspaper to impress people.",
+     "walkthrough": "'Remarkably' signals the anagram of MODERN PAPER.",
+     "definitionFit": "Someone who casually mentions famous acquaintances is seeking to impress listeners with their connections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remarkably"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +338,49 @@
     "text": "Doorman runs after Bob?",
     "enumeration": "7"
    },
-   "solution": "BOUNCER"
+   "solution": "BOUNCER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doorman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 13,
+       "note": "after places the runs letter behind the word for bob"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bob",
+       "at": 19,
+       "gives": "BOUNCE",
+       "note": "to bob up and down is to bounce"
+      },
+      {
+       "words": "runs",
+       "at": 8,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doorman chases after someone called Bob.",
+     "walkthrough": "'Bob' looks like a name; it is the verb, meaning bounce.",
+     "definitionFit": "A man employed at a club door to keep out or eject troublemakers is a kind of doorman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +394,43 @@
     "text": "Love very good Greek character",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is nil in tennis, the letter O"
+      },
+      {
+       "words": "very good",
+       "at": 5,
+       "gives": "MEGA",
+       "note": "mega is slang for excellent or very good"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic praises a fine man from Greece.",
+     "walkthrough": "'Greek character' looks like a person; it is a letter of the Greek alphabet.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, a character in the written sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +450,59 @@
      }
     ]
    },
-   "solution": "ENTRYFEE"
+   "solution": "ENTRYFEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Admission",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 33,
+       "note": "tucking into means placing these letters inside the dish word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dish",
+       "at": 46,
+       "gives": "ENTREE",
+       "note": "an entree is a dish served at a meal"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "unknown",
+         "at": 18,
+         "gives": "Y",
+         "note": "Y is an algebraic unknown"
+        },
+        {
+         "words": "female",
+         "at": 26,
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unidentified woman confesses while eating a meal.",
+     "walkthrough": "'tucking into' suggests eating; here it puts Y and F inside ENTREE.",
+     "definitionFit": "The charge paid to get into a venue is the price of admission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +522,41 @@
      }
     ]
    },
-   "solution": "ONTIME"
+   "solution": "ONTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sharp",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "in means the letters lie inside the run of clue words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "front, I'm extremely",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of being very keen-witted when out in front.",
+     "walkthrough": "'In' signals letters concealed in 'front, I'm extremely'.",
+     "definitionFit": "Arriving at six sharp means arriving punctually at exactly the stated hour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sharp"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +570,60 @@
     "text": "Unwise dropping rugby's foremost forward",
     "enumeration": "8"
    },
-   "solution": "IMPUDENT"
+   "solution": "IMPUDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "forward",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping",
+       "at": 7,
+       "note": "dropping means a letter is let go from the word for unwise"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unwise",
+       "at": 0,
+       "gives": "IMPRUDENT",
+       "note": "imprudent means unwise"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "at": 24,
+         "note": "foremost means the first letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rugby's",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby team drops a reckless player from the front row.",
+     "walkthrough": "'forward' looks like a rugby position, but it is the definition, meaning cheeky.",
+     "definitionFit": "A forward child is bold and presumptuous, which is cheeky or disrespectful behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +637,41 @@
     "text": "Caught unawares, Spurs dire, out of form",
     "enumeration": "9"
    },
-   "solution": "SURPRISED"
+   "solution": "SURPRISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caught unawares",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out of form",
+       "at": 29,
+       "note": "letters out of their proper form are rearranged, which signals the anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spurs dire",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tottenham Hotspur play badly and are caught out.",
+     "walkthrough": "Spurs is the nickname of Tottenham Hotspur, a London football club; 'out of form' signals the anagram of SPURS DIRE.",
+     "definitionFit": "Being taken off guard by something unexpected is to be startled or astonished by it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +685,41 @@
     "text": "Show as claret cup, erroneously",
     "enumeration": "11"
    },
-   "solution": "SPECTACULAR"
+   "solution": "SPECTACULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "erroneously",
+       "at": 20,
+       "note": "erroneously means wrongly, so the letters are set out in the wrong order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as claret cup",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows off a drink, mistakenly calling it claret cup.",
+     "walkthrough": "Claret cup is a punch made with red wine; 'erroneously' signals the anagram of AS CLARET CUP.",
+     "definitionFit": "A lavish theatrical production or display can be called a show, used as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +733,52 @@
     "text": "Cautious, cleaner close to canary",
     "enumeration": "5"
    },
-   "solution": "CHARY"
+   "solution": "CHARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cautious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cleaner",
+       "at": 10,
+       "gives": "CHAR",
+       "note": "a char is a cleaning woman"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 18,
+         "note": "close to means the end letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canary",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaning lady is wary of getting near the pet bird.",
+     "walkthrough": "CHAR (charlady) is British for a woman employed to clean houses.",
+     "definitionFit": "Being wary and reluctant to take risks is the same as being careful or hesitant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +798,58 @@
      }
     ]
    },
-   "solution": "QUICHELORRAINE"
+   "solution": "QUICHELORRAINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Question",
+       "at": 0,
+       "gives": "Q"
+      },
+      {
+       "words": "university",
+       "at": 9,
+       "gives": "U"
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "words": "revolutionary",
+       "at": 35,
+       "gives": "CHE",
+       "note": "Che Guevara was the famous Argentine revolutionary"
+      },
+      {
+       "words": "girl",
+       "at": 20,
+       "gives": "LORRAINE",
+       "note": "Lorraine is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student is quizzed over a radical meal.",
+     "walkthrough": "'about' is a link word meaning 'concerning', with the girl's name set after the other pieces.",
+     "definitionFit": "This savoury egg-and-bacon tart from north-eastern France is a classic baked dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +863,52 @@
     "text": "Word for 'improper behaviour' coined abroad by eccentric",
     "enumeration": "9"
    },
-   "solution": "INDECORUM"
+   "solution": "INDECORUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Word for 'improper behaviour'",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abroad",
+         "at": 37,
+         "note": "abroad means widely scattered, so the letters of the word are spread out in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coined",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "eccentric",
+       "at": 47,
+       "gives": "RUM",
+       "note": "rum is old British slang for odd or eccentric"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddball overseas has invented a term for bad conduct.",
+     "walkthrough": "'abroad' signals the anagram of COINED, giving INDECO; 'coined' looks like the verb for inventing a word.",
+     "definitionFit": "Indecorum means a lack of propriety or good manners, which is improper conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coined"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +928,32 @@
      }
     ]
    },
-   "solution": "PIECHART"
+   "solution": "PIECHART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diagram",
+      "at": 0,
+      "meaning": "a circular graph cut into slices showing proportions"
+     },
+     {
+      "text": "of interest to Desperate Dan!",
+      "at": 8,
+      "meaning": "Desperate Dan, the strongman of the British comic The Dandy, loved huge cow pies, so a menu of pies would suit him"
+     }
+    ],
+    "explanation": {
+     "surface": "A comic-strip glutton studies a drawing.",
+     "walkthrough": "Desperate Dan is a character in the British comic The Dandy famous for eating enormous cow pies.",
+     "definitionFit": "A circle divided into sectors to show shares of a total is a common statistical diagram."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Diagram"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +973,49 @@
      }
     ]
    },
-   "solution": "IDENTITYPARADE"
+   "solution": "IDENTITYPARADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "line-up",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 4,
+       "note": "after puts the word for row behind the word for character"
+      }
+     ],
+     "parts": [
+      {
+       "words": "character",
+       "at": 10,
+       "gives": "IDENTITY",
+       "note": "one's character is one's identity"
+      },
+      {
+       "words": "Row",
+       "at": 0,
+       "gives": "PARADE",
+       "note": "a parade is a row, as of shops"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel follows when a personality turns up in a queue.",
+     "walkthrough": "'Row' looks like a quarrel; it is a line of shops, a parade.",
+     "definitionFit": "A police line-up places a suspect among others for a witness to pick out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1029,52 @@
     "text": "Agency worker set off in violent storm",
     "enumeration": "7"
    },
-   "solution": "TEMPEST"
+   "solution": "TEMPEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "violent storm",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Agency worker",
+       "at": 0,
+       "gives": "TEMP",
+       "note": "a temp is a temporary worker supplied by an agency"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 18,
+         "note": "off means gone wrong or awry, so the letters of the next word are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary employee sets out in terrible weather.",
+     "walkthrough": "'off' signals the anagram of SET, giving EST.",
+     "definitionFit": "A tempest is a strong windy storm, often with rain, the classic word for a gale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1088,57 @@
     "text": "Managed to attract endless resentment",
     "enumeration": "7"
    },
-   "solution": "RANCOUR"
+   "solution": "RANCOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resentment",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Managed",
+       "at": 0,
+       "gives": "RAN",
+       "note": "ran a business means managed it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 19,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attract",
+         "at": 11,
+         "gives": "COURT",
+         "note": "to court danger is to attract it"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone succeeded in drawing never-ending bitterness.",
+     "walkthrough": "'endless' takes the T off COURT, leaving COUR.",
+     "definitionFit": "Bitter, long-lasting ill feeling is a deep-seated grudge or resentment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attract"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1152,49 @@
     "text": "Failing to sidetrack learner leaving",
     "enumeration": "6"
    },
-   "solution": "DEFECT"
+   "solution": "DEFECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Failing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 29,
+       "note": "leaving means the learner letter goes away from the word for sidetrack"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sidetrack",
+       "at": 11,
+       "gives": "DEFLECT",
+       "note": "to deflect is to turn something aside"
+      },
+      {
+       "words": "learner",
+       "at": 21,
+       "gives": "L",
+       "note": "L is the learner plate on a British car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver is departing after failing to steer aside.",
+     "walkthrough": "'Failing' looks like a verb; it is the noun meaning a flaw.",
+     "definitionFit": "A fault or flaw in character or a product is a shortcoming or failing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Failing"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1208,41 @@
     "text": "Win over church member",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Win over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 9,
+       "gives": "CH"
+      },
+      {
+       "words": "member",
+       "at": 16,
+       "gives": "ARM",
+       "note": "an arm is a limb, a member of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recruiter gains a new member of the congregation.",
+     "walkthrough": "'member' looks like a congregant; it is a limb.",
+     "definitionFit": "To beguile or delight someone so they come round to you is to win them over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1256,53 @@
     "text": "Anguish in New York following a turn",
     "enumeration": "5"
    },
-   "solution": "AGONY"
+   "solution": "AGONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Anguish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 20,
+       "note": "following places the city letters behind the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 30,
+       "gives": "A"
+      },
+      {
+       "words": "turn",
+       "at": 32,
+       "gives": "GO",
+       "note": "a go is a turn in a game"
+      },
+      {
+       "words": "New York",
+       "at": 11,
+       "gives": "NY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Distress in Manhattan after a spell of something.",
+     "walkthrough": "'turn' is a go, as in having your go at a game.",
+     "definitionFit": "Agony is extreme physical or mental suffering, the same as anguish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1316,42 @@
     "text": "Dreadful, the French record",
     "enumeration": "9"
    },
-   "solution": "CHRONICLE"
+   "solution": "CHRONICLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "record",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dreadful",
+       "at": 0,
+       "gives": "CHRONIC",
+       "note": "in British slang chronic means very bad or dreadful"
+      },
+      {
+       "words": "the French",
+       "at": 10,
+       "gives": "LE",
+       "note": "le is French for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French judgement on an awful recording.",
+     "walkthrough": "CHRONIC as 'awful' is informal British usage.",
+     "definitionFit": "A chronicle is a factual written account of events in order, a kind of record."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1371,75 @@
      }
     ]
    },
-   "solution": "ABOVEALL"
+   "solution": "ABOVEALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Notably",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9,
+       "gives": "A"
+      },
+      {
+       "words": "black",
+       "at": 11,
+       "gives": "B",
+       "note": "B is the abbreviation for black, as on pencils"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "discarded",
+         "at": 38,
+         "note": "discarded means the chosen letter is thrown out of the word for smock"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smock",
+         "at": 17,
+         "gives": "OVERALL",
+         "note": "an overall is a loose protective smock"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 30,
+           "note": "finally means the end letter of the painter's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Renoir",
+           "at": 23
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art writer notes that Renoir finally threw away his black painting smock.",
+     "walkthrough": "'discarded' removes R from OVERALL, leaving OVEALL.",
+     "definitionFit": "Saying something matters most of all is to single it out as especially or notably so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smock"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1453,44 @@
     "text": "Reportedly dressing well",
     "enumeration": "6"
    },
-   "solution": "SOURCE"
+   "solution": "SOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "well",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SOURCE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly signals that the word for dressing is heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dressing",
+       "at": 11,
+       "gives": "SAUCE",
+       "note": "a sauce is a dressing for food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Word has it that someone dresses smartly.",
+     "walkthrough": "In British speech, without a sounded R, the word for dressing and the answer sound the same; 'well' is the noun, a spring.",
+     "definitionFit": "A spring or well is where water rises, so it is the origin of a stream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1510,43 @@
      }
     ]
    },
-   "solution": "TOYSTORY"
+   "solution": "TOYSTORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Plays",
+       "at": 0,
+       "gives": "TOYS",
+       "note": "to toy with something is to play with it"
+      },
+      {
+       "words": "blue",
+       "at": 11,
+       "gives": "TORY",
+       "note": "blue is the colour of the UK Conservative party, whose members are Tories"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stage plays and an adult movie are paired.",
+     "walkthrough": "'blue film' suggests something racy; 'blue' is the Conservative colour, and 'film' alone is the definition.",
+     "definitionFit": "Toy Story is the 1995 Pixar animated feature film about toys that come alive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1560,48 @@
     "text": "Quick pint on seafront",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 11,
+       "note": "on means the pint letters are attached after the seafront word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "seafront",
+       "at": 14,
+       "gives": "PROM",
+       "note": "a prom is a promenade along a seafront"
+      },
+      {
+       "words": "pint",
+       "at": 6,
+       "gives": "PT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has a swift beer by the seaside.",
+     "walkthrough": "'Quick' looks like it describes the pint; it means punctual.",
+     "definitionFit": "A prompt reply is one made without delay, so it is fast or immediate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quick"
+    }
+   }
   }
  ]
 }
