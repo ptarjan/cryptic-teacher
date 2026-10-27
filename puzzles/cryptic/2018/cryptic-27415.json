@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,67 @@
     "text": "Drug dealer and pacifist? Not if nursing wound",
     "enumeration": "10"
    },
-   "solution": "PHARMACIST"
+   "solution": "PHARMACIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug dealer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 33,
+       "note": "to nurse is to hold close, so the shortened word holds the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 26,
+         "note": "'Not if' tells us the two letters spelling 'if' are dropped from the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pacifist",
+         "at": 16,
+         "gives": "PACIFIST",
+         "note": "taken as written"
+        },
+        {
+         "words": "if",
+         "at": 30,
+         "gives": "IF"
+        }
+       ]
+      },
+      {
+       "words": "wound",
+       "at": 41,
+       "gives": "HARM",
+       "note": "to wound someone is to harm them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peaceful protester is questioned about whether they would deal drugs while tending an injury.",
+     "walkthrough": "'Not if' and 'nursing' are the two signals: the first takes letters away, the second holds the wound inside after the P. 'Drug dealer' sounds criminal but is a legitimate chemist.",
+     "definitionFit": "A chemist dispenses medicines, so in a playful sense they deal in drugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dealer"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +108,69 @@
     "text": "Plans day writing about one Asian city",
     "enumeration": "8"
    },
-   "solution": "DIAGRAMS"
+   "solution": "DIAGRAMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plans",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "the first pair of pieces goes around the rest, as about means surrounding"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "day",
+         "at": 6,
+         "gives": "D"
+        },
+        {
+         "words": "writing",
+         "at": 10,
+         "gives": "MS",
+         "note": "MS, short for manuscript, is a piece of writing"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 24,
+         "gives": "I",
+         "note": "the Roman numeral I is one"
+        },
+        {
+         "words": "Asian city",
+         "at": 28,
+         "gives": "AGRA",
+         "note": "Agra is the Indian city of the Taj Mahal"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's travel plans include a day spent writing about an Indian city.",
+     "definitionFit": "Diagrams are drawn plans, as an architect's or engineer's layouts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +184,41 @@
     "text": "What's applied during period in ER",
     "enumeration": "6"
    },
-   "solution": "IODINE"
+   "solution": "IODINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's applied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 15,
+       "note": "during means within the span of, so the letters sit inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "period in ER",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what treatment is given while a patient spends time in the emergency room.",
+     "walkthrough": "ER is the American term for a hospital's emergency room, which suits the antiseptic in the surface.",
+     "definitionFit": "The antiseptic tincture of this element is painted onto cuts and grazes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +232,46 @@
     "text": "Plant on its own, name missing",
     "enumeration": "4"
    },
-   "solution": "ALOE"
+   "solution": "ALOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 23,
+       "note": "missing means lacking, so a letter is taken away from the phrase before"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on its own",
+       "at": 6,
+       "gives": "ALONE",
+       "note": "on its own means alone, unaccompanied"
+      },
+      {
+       "words": "name",
+       "at": 18,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone plant stands without a label on it.",
+     "definitionFit": "The aloe is a succulent plant, well known for its soothing gel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +285,47 @@
     "text": "What infidels do beside evil rebels",
     "enumeration": "10"
    },
-   "solution": "DISBELIEVE"
+   "solution": "DISBELIEVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What infidels do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rebels",
+       "at": 29,
+       "note": "rebels is a verb here: the letters rise up against their order and rearrange"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beside",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "evil",
+       "at": 24,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unbelievers are pictured siding with wicked insurgents.",
+     "walkthrough": "'rebels' reads as a noun but is the verb that reworks BESIDE plus EVIL.",
+     "definitionFit": "Infidels are unbelievers, so refusing to believe is precisely what they do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rebels"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +339,40 @@
     "text": "Ringmaster is keen to employ star",
     "enumeration": "8"
    },
-   "solution": "ASTERISK"
+   "solution": "ASTERISK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "star",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to employ",
+       "at": 19,
+       "note": "to employ is to take in and use, so the words before hold the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ringmaster is keen",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus ringmaster is eager to hire a headline performer.",
+     "definitionFit": "The printed symbol * is called a star, and that is this typographical mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +386,68 @@
     "text": "Scruffy artillerymen joke about origin of tanks",
     "enumeration": "6"
    },
-   "solution": "RAGTAG"
+   "solution": "RAGTAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scruffy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artillerymen",
+       "at": 8,
+       "gives": "RA",
+       "note": "RA is the Royal Artillery, the British Army's gunners"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 26,
+         "note": "the joke goes around the letter, as about means surrounding"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joke",
+         "at": 21,
+         "gives": "GAG",
+         "note": "a gag is a joke"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "origin of",
+           "at": 32,
+           "note": "origin is the start, so only the first letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tanks",
+           "at": 42
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gunners tell a joke about their tanks, with a scruffy air.",
+     "definitionFit": "Ragtag describes something untidy and disreputable, like a ragtag band of followers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +461,54 @@
     "text": "It's on board primarily for everyone to appreciate",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's on board",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 14,
+       "note": "primarily means first of all, so each word gives its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for",
+       "at": 24
+      },
+      {
+       "words": "everyone",
+       "at": 28
+      },
+      {
+       "words": "to",
+       "at": 37
+      },
+      {
+       "words": "appreciate",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something displayed for everyone to admire, like a notice on a board.",
+     "walkthrough": "The board is a cheeseboard.",
+     "definitionFit": "This Greek cheese is served on a cheeseboard among others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +528,83 @@
      }
     ]
    },
-   "solution": "HOIPOLLOI"
+   "solution": "HOIPOLLOI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Masses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "at": 10,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 34,
+         "note": "the scrambled letters lie over and around the river"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "sprinkled",
+           "at": 18,
+           "note": "sprinkled means scattered about, so the letters are mixed up"
+          }
+         ],
+         "parts": [
+          {
+           "op": "repeat",
+           "indicators": [
+            {
+             "text": "twice",
+             "at": 28,
+             "note": "twice means the word is used two times over"
+            }
+           ],
+           "parts": [
+            {
+             "words": "oil",
+             "at": 14,
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "words": "river",
+         "at": 39,
+         "gives": "PO",
+         "note": "the Po is Italy's longest river"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook sprinkles hot oil twice over food beside a river.",
+     "walkthrough": "'twice' doubles the oil, 'sprinkled' reorders those six letters into OILLOI, and 'over' wraps them around the Italian river.",
+     "definitionFit": "The Greek phrase means 'the many', the common people as a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Masses"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +618,32 @@
     "text": "Literary Dick, one in a black suit",
     "enumeration": "5"
    },
-   "solution": "SPADE"
+   "solution": "SPADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Literary Dick",
+      "at": 0,
+      "meaning": "Sam, the private detective (a dick) of Dashiell Hammett's The Maltese Falcon"
+     },
+     {
+      "text": "one in a black suit",
+      "at": 15,
+      "meaning": "a card in the black suit of playing cards that is not clubs"
+     }
+    ],
+    "explanation": {
+     "surface": "A famous fictional detective dressed in a dark suit.",
+     "walkthrough": "Dick is old slang for a detective.",
+     "definitionFit": "Hammett's private eye is Sam of that surname, and one of the four card suits is black with that name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +657,40 @@
     "text": "Music paper accompanying magazine",
     "enumeration": "7"
    },
-   "solution": "RAGTIME"
+   "solution": "RAGTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "paper",
+       "at": 6,
+       "gives": "RAG",
+       "note": "a rag is a disparaging word for a newspaper"
+      },
+      {
+       "words": "magazine",
+       "at": 25,
+       "gives": "TIME",
+       "note": "Time is the American news magazine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper comes with a magazine and a music supplement.",
+     "definitionFit": "A syncopated piano style made famous by Scott Joplin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +704,39 @@
     "text": "Greek region once booted out rival every so often",
     "enumeration": "7"
    },
-   "solution": "BOEOTIA"
+   "solution": "BOEOTIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek region once",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every so often",
+       "at": 35,
+       "note": "every so often means at intervals, so every other letter is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "booted out rival",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Greek region expelled a rival from time to time.",
+     "definitionFit": "The district around Thebes in ancient Greece, famed for its rivalry with Athens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +750,47 @@
     "text": "Wide open space in hospital department",
     "enumeration": "5"
    },
-   "solution": "AGAPE"
+   "solution": "AGAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wide open",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the space within the department's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital department",
+       "at": 19,
+       "gives": "AE",
+       "note": "A and E, accident and emergency, is the British hospital casualty department"
+      },
+      {
+       "words": "space",
+       "at": 10,
+       "gives": "GAP",
+       "note": "a gap is a space"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An open area found inside a hospital ward.",
+     "definitionFit": "Agape, as in a mouth hanging open in astonishment, means wide open."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +810,42 @@
      }
     ]
    },
-   "solution": "HOLDINGUP"
+   "solution": "HOLDINGUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's Turpin's job",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Land",
+       "at": 0,
+       "gives": "HOLDING",
+       "note": "a holding is a piece of land held, such as a smallholding"
+      },
+      {
+       "words": "in the saddle",
+       "at": 5,
+       "gives": "UP",
+       "note": "a rider in the saddle is up, on horseback"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Owning land and riding a horse: the life of a famous highwayman.",
+     "walkthrough": "Dick Turpin was an 18th-century English highwayman who robbed travellers on horseback.",
+     "definitionFit": "Highwaymen made their living by stopping and robbing coaches, a hold-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +859,41 @@
     "text": "He got merry playing instrument in greenhouse, maybe",
     "enumeration": "10"
    },
-   "solution": "HYGROMETER"
+   "solution": "HYGROMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument in greenhouse, maybe",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 13,
+       "note": "playing means fooling around, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "He got merry",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy man plays a musical instrument in a greenhouse.",
+     "walkthrough": "'instrument' suggests music, but it is a measuring device.",
+     "definitionFit": "A device that measures humidity, useful where plants are grown under glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +907,58 @@
     "text": "Amazing chap with Roman name visits friend",
     "enumeration": "10"
    },
-   "solution": "PHENOMENAL"
+   "solution": "PHENOMENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Amazing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "visits",
+       "at": 29,
+       "note": "to visit is to go into, so the pieces go inside the friend"
+      }
+     ],
+     "parts": [
+      {
+       "words": "friend",
+       "at": 36,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "chap",
+         "at": 8,
+         "gives": "HE",
+         "note": "he is a pronoun for a chap"
+        },
+        {
+         "words": "Roman name",
+         "at": 18,
+         "gives": "NOMEN",
+         "note": "the nomen was a Roman's family name, as Julius in Gaius Julius Caesar"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a Roman name calls on a friend, which is amazing.",
+     "definitionFit": "Phenomenal means extraordinary, remarkable to an astonishing degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +990,56 @@
      }
     ]
    },
-   "solution": "ITSALLGREEKTOME"
+   "solution": "ITSALLGREEKTOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that I can't grasp",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 9,
+         "note": "terribly means badly, so the letters are mangled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "It galls",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "smell",
+       "at": 21,
+       "gives": "REEK",
+       "note": "to reek is to smell strongly"
+      },
+      {
+       "words": "book",
+       "at": 27,
+       "gives": "TOME",
+       "note": "a tome is a large book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is irritated that a book has a bad smell, and doesn't understand it.",
+     "definitionFit": "The idiom says something is incomprehensible, as Greek was to Shakespeare's Casca."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1053,60 @@
     "text": "Paisley goes in to bless worried Aegean islanders",
     "enumeration": "8"
    },
-   "solution": "LESBIANS"
+   "solution": "LESBIANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aegean islanders",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "goes in to",
+       "at": 8,
+       "note": "goes in to says the name is placed inside the following word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 25,
+         "note": "worried means agitated, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bless",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Paisley",
+       "at": 0,
+       "gives": "IAN",
+       "note": "Ian Paisley was the Northern Irish Protestant preacher and politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Revd Ian Paisley goes in to bless anxious islanders.",
+     "walkthrough": "'worried' reorders the five letters into LESBS, and 'goes in to' puts the Paisley first name before the final S.",
+     "definitionFit": "The inhabitants of Lesbos, a Greek island in the Aegean Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paisley"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1120,60 @@
     "text": "Godlike, round, soft-spoken Scotsman",
     "enumeration": "8"
    },
-   "solution": "OLYMPIAN"
+   "solution": "OLYMPIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Godlike",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "round",
+       "at": 9,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LYMP",
+       "indicators": [
+        {
+         "text": "spoken",
+         "at": 21,
+         "note": "spoken signals the word for soft is heard, not spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soft",
+         "at": 16,
+         "gives": "LIMP",
+         "note": "limp means soft and floppy"
+        }
+       ]
+      },
+      {
+       "words": "Scotsman",
+       "at": 28,
+       "gives": "IAN",
+       "note": "Ian is a typically Scottish first name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A godlike Scotsman, round and quiet in his speech.",
+     "definitionFit": "Like the gods of Mount Olympus, majestic and aloof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft-spoken"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1187,30 @@
     "text": "With which to see stars become smaller",
     "enumeration": "9"
    },
-   "solution": "TELESCOPE"
+   "solution": "TELESCOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With which to see stars",
+      "at": 0,
+      "meaning": "an optical instrument for viewing the heavens"
+     },
+     {
+      "text": "become smaller",
+      "at": 24,
+      "meaning": "to collapse in sections, shortening, like a folding instrument"
+     }
+    ],
+    "explanation": {
+     "surface": "Stargazing and something shrinking.",
+     "definitionFit": "The noun is the astronomer's instrument; the verb means shorten by sliding sections into one another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1224,47 @@
     "text": "Where Lucy did the twist with me?",
     "enumeration": "6"
    },
-   "solution": "LYCEUM"
+   "solution": "LYCEUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where Lucy did the twist with me?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "did the twist",
+       "at": 11,
+       "note": "doing the twist is dancing about, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lucy",
+       "at": 6
+      },
+      {
+       "words": "me",
+       "at": 30
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone recalls where they danced the twist with Lucy.",
+     "walkthrough": "The Lyceum was a common name for dance halls, such as the famous London ballroom.",
+     "definitionFit": "A dance hall or theatre bearing that name, like London's Lyceum Ballroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1284,36 @@
      }
     ]
    },
-   "solution": "SAYSO"
+   "solution": "SAYSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Authority",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "SAYS + O",
+     "parts": [
+      {
+       "words": "keeps quiet",
+       "at": 10,
+       "note": "one who keeps quiet says nothing, and O is nothing (zero)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official stays silent.",
+     "definitionFit": "Someone's say-so is their authorisation or permission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1327,51 @@
     "text": "Indy's edited by Conservative business agent",
     "enumeration": "6"
    },
-   "solution": "SYNDIC"
+   "solution": "SYNDIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "business agent",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "edited",
+         "at": 7,
+         "note": "edited means revised, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Indy's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Conservative",
+       "at": 17,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Independent newspaper is edited by a Tory business representative.",
+     "walkthrough": "'Indy' is the nickname of The Independent, a British newspaper.",
+     "definitionFit": "A syndic is an agent appointed to manage the affairs of a corporation or university."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Indy's"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1385,43 @@
     "text": "Expert writer's record collection",
     "enumeration": "7"
    },
-   "solution": "ARCHIVE"
+   "solution": "ARCHIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "record collection",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Expert",
+       "at": 0,
+       "gives": "ARCH",
+       "note": "arch means pre-eminent, chief, a master of a craft"
+      },
+      {
+       "words": "writer's",
+       "at": 7,
+       "gives": "IVE",
+       "note": "the writer is the setter, I, and writer's is I have, contracted to I've"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist author owns a collection of records.",
+     "walkthrough": "'record collection' suggests vinyl, but it is a store of documents.",
+     "definitionFit": "An archive is a store of historical papers and public records."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1435,47 @@
     "text": "Expert goes over minutes for summit",
     "enumeration": "4"
    },
-   "solution": "ACME"
+   "solution": "ACME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "summit",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "goes over",
+       "at": 7,
+       "note": "goes over means covers, so the expert wraps around the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expert",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is an expert"
+      },
+      {
+       "words": "minutes",
+       "at": 17,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert reviews the minutes of a summit meeting.",
+     "definitionFit": "The highest point or peak, the top of a mountain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1489,50 @@
     "text": "Gap in head painlessly fixed, I'll set out",
     "enumeration": "7"
    },
-   "solution": "SYNAPSE"
+   "solution": "SYNAPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gap in head",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "fixed",
+       "at": 23,
+       "note": "fixed means rearranged into a new order, as letters are reworked"
+      },
+      {
+       "text": "set out",
+       "at": 35,
+       "note": "set out means put aside, so the letters of I'll are removed from the pool"
+      }
+     ],
+     "parts": [
+      {
+       "words": "painlessly",
+       "at": 12
+      },
+      {
+       "words": "I'll",
+       "at": 30
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gap in someone's head was fixed without pain, and they'll head off.",
+     "walkthrough": "Remove I, L, L from PAINLESSLY and rearrange what is left.",
+     "definitionFit": "The junction between two nerve cells, across which signals pass in the brain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1546,49 @@
     "text": "Cryptic concerning Shed faction",
     "enumeration": "4"
    },
-   "solution": "SECT"
+   "solution": "SECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "faction",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Shed",
+       "at": 19,
+       "note": "to shed is to cast off, so letters are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cryptic",
+       "at": 0,
+       "gives": "SECRET",
+       "note": "cryptic means secret, hidden"
+      },
+      {
+       "words": "concerning",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means concerning, about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling remark about a shed and a breakaway group.",
+     "walkthrough": "'Shed' looks like a noun (a garden building) but is the verb meaning cast off.",
+     "definitionFit": "A sect is a breakaway religious or political group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shed"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1602,48 @@
     "text": "Wear black uniform during early hours",
     "enumeration": "5"
    },
-   "solution": "MOURN"
+   "solution": "MOURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wear black",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 19,
+       "note": "during means within, so the letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "early hours",
+       "at": 26,
+       "gives": "MORN",
+       "note": "morn is the morning, the early hours"
+      },
+      {
+       "words": "uniform",
+       "at": 11,
+       "gives": "U",
+       "note": "U is Uniform in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wearing a black uniform in the small hours.",
+     "definitionFit": "To grieve, traditionally while dressed in black."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1657,66 @@
     "text": "Father abandons French car carrying one dish",
     "enumeration": "9"
    },
-   "solution": "ENCHILADA"
+   "solution": "ENCHILADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandons",
+         "at": 7,
+         "note": "abandons means leaves, so those letters are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French",
+         "at": 16,
+         "gives": "FRENCH",
+         "note": "taken as written"
+        },
+        {
+         "words": "Father",
+         "at": 0,
+         "gives": "FR",
+         "note": "Fr is the abbreviation for Father, a priest"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 36,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "car carrying",
+       "at": 23,
+       "gives": "LADA",
+       "note": "the Lada is a Russian make of car, here carrying the one ahead of it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest leaves a French car that holds a dish.",
+     "walkthrough": "'carrying' only joins the car to the one it bears in front; 'Father' is the abbreviation Fr, removed from the start of French.",
+     "definitionFit": "A Mexican dish of a tortilla rolled around a filling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   }
  ]
 }
