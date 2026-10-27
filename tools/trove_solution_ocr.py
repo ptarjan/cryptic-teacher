@@ -2069,14 +2069,17 @@ def _wordnet_synsets():
     return _SYNSETS[0]
 
 
-def definition_linked(word, clue):
+def definition_linked(word, clue, names=False):
     """Whether answer `word` is linked in WordNet to clue text `clue`'s definition: one of its first or last
     one to three words (a phrase, or its plural, -ed or -ing form) shares a synset with the answer's senses,
     either side within DEFINITION_DEPTH hypernyms and a neighbour of the other's, or the two share a
     neighbour. The answer must be a lemma (or its plural) of at most DEFINITION_SENSES senses, counting none
-    that is only an instance (a proper name); an end that opens the word (its first four letters) is not
-    its definition. 10-26, held out on Times grids' known lights that clue_wordplay's one fitting word
-    spelt: 1,656 right, 0 wrong (CHAMP, NOISE, LEWES all unlinked)."""
+    that is only an instance (a proper name) unless `names` (ETNA a volcano, IRAN in the Middle East); an end
+    that opens the word (its first four letters) is not its definition. 10-26, held out on Times grids' known
+    lights that clue_wordplay's one fitting word spelt: 1,656 right, 0 wrong (CHAMP, NOISE, LEWES all
+    unlinked). Telling a true answer from a listed word one letter off it, alone, it is wrong 1 in 20 (10-27,
+    400 held Times files: 14,528 right, 726 wrong; with names 15,383 and 752): THYME for THEME, ALDER for
+    ELDER, the definition at the other end."""
     words, rows = _wordnet_synsets()
 
     def senses(phrase, inflected):
@@ -2112,7 +2115,8 @@ def definition_linked(word, clue):
     a = set(words.get(w, ()))
     if not a and w.endswith("s"):
         a = set(words.get(w[:-1], ())) or set(words.get(w[:-2], ()))
-    a = {i for i in a if not (rows[i][2] and not rows[i][1])}
+    if not names:
+        a = {i for i in a if not (rows[i][2] and not rows[i][1])}
     if not a or len(a) > DEFINITION_SENSES:
         return False
     around = near(up(a))

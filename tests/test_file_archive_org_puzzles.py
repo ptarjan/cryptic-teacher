@@ -1437,9 +1437,9 @@ check("a held file short whose VLM name its checks dropped as a misread, read be
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: named
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: named
 nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: False
 nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1454,9 +1454,9 @@ check("a held file short whose blank light's cached VLM name a surname alone lie
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: argmax
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: argmax
 am_due = [f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: False
 am_due.append(f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1467,6 +1467,24 @@ check("a held file short whose blank light's cached VLM reply is one letter unde
       am_due + [f.RANKS[f.ARGMAX_SHORT], f.ARGMAX_SHORT in f.SOLUTION_FIXES, f.ARGMAX_SHORT.startswith("solution short"),
                 f.ARGMAX_SHORT in __import__("edition_queue").LOW_ASK, f.ARGMAX_SHORT in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.ARGMAX_SHORT)])
+# PAIRED_SHORT: a row read before REREAD_PAIRED_SHORT whose blank light's cached VLM reply paired_word alone takes
+# (near_short with paired), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: paired
+pw_due = [f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False: False
+pw_due.append(f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply is one letter off the classifier's word the clue "
+      "settles, read before REREAD_PAIRED_SHORT: PAIRED_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); "
+      "read since, or none so: not",
+      [f.PAIRED_SHORT, None, None, 2, True, True, True, True, True],
+      pw_due + [f.RANKS[f.PAIRED_SHORT], f.PAIRED_SHORT in f.SOLUTION_FIXES, f.PAIRED_SHORT.startswith("solution short"),
+                f.PAIRED_SHORT in __import__("edition_queue").LOW_ASK, f.PAIRED_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.PAIRED_SHORT)])
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
@@ -4145,6 +4163,30 @@ check("...not for a listed reply (CAMEL over CAMES), the VLM's letter at 0.01+ (
        f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_p(c, 0.5 if i == 4 else 0.9) for i, c in enumerate("ASCHAM")], "6"),
        f.argmax_word("TIRRA", "T?R?A", [5], [cell_p(c) for c in "TIRIA"], "5"),
        f.argmax_word("ESCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6")))
+check("a listed VLM reply one open letter under the floor off the classifier's listed word stands as that word where "
+      "the clue's definition links it alone, proper names counted (ETNA over ELNA, IRAN over PRAN)", ("ETNA", "IRAN"),
+      (f.vlm_word("ELNA", "E?N?", [4], [cell_p(c) for c in "ETNA"], "4", "Nothing less than a fiver, say, to back this mount"),
+       f.vlm_word("PRAN", "?R?N", [4], [cell_p(c) for c in "IRAN"], "4", "Confession of cowardice in the Middle East?")))
+check("...not where the clue links both (SEEMS/SEEKS), the VLM's letter is at the floor, or no clue is given",
+      (None, None, None),
+      (f.paired_word("SEEMS", "S?E?S", [5], [cell_p(c) for c in "SEEKS"], "5", "Looks for certain Indians, say"),
+       f.paired_word("ELNA", "E?N?", [4], [cell_two(c, 0.9, "L", 0.05) if i == 1 else cell_p(c) for i, c in enumerate("ETNA")],
+                     "4", "Nothing less than a fiver, say, to back this mount"),
+       f.paired_word("ELNA", "E?N?", [4], [cell_p(c) for c in "ETNA"], "4")))
+check("a name the classifier spells in every cell at PAIRED_TOP+, one listed word one open letter off it, stands over "
+      "the VLM's unlisted misread where the clue names something past its first word (OXTED for OTTED, \"John Bull\"), "
+      "and checked_answers' misread_word spares it (paired_name)", ("OXTED", True),
+      (f.vlm_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of John Bull ?"),
+       f.paired_name("OXTED", "OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of John Bull ?")))
+check("...not with no capitalised word past the clue's first, an open letter under PAIRED_TOP, a crossing the "
+      "classifier reads otherwise, or no enumeration", (None, None, None, None),
+      (f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], "5", "Surrey relative of bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.9) for c in "OXTED"], "5", "Surrey relative of John Bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p("R" if i == 2 else c, 0.99) for i, c in enumerate("OXTED")], "5",
+                     "Surrey relative of John Bull ?"),
+       f.paired_word("OTTED", "O?T?D", [5], [cell_p(c, 0.99) for c in "OXTED"], None, "Surrey relative of John Bull ?")))
+check("definition_linked counts a proper name's senses only with names (ETNA, \"this mount\")", (False, True),
+      (tso.definition_linked("ETNA", "to back this mount"), tso.definition_linked("ETNA", "to back this mount", names=True)))
 check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.38)", None,
       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c, 0.38 if i == 6 else 0.9) for i, c in enumerate("PERSHORE")], "8"))
 check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
