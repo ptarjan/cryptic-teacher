@@ -4028,6 +4028,34 @@ check("lettered_stale: an unmarked short unclassified Times reading of LETTERED_
        f.lettered_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
        f.lettered_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _lp),
        f.lettered_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
+# classed_clash: a VLM read against a held crossing stands where the classifier's likeliest letter is the VLM's on
+# every open cell and the clashing one (held_recrossed's only check with `wide`, a grid 3-5 short).
+_cc_p = [hr_probs[rc] for rc in hr_lts[(1, "across")]]
+_cc_off = [hr_cell("P", 0.6, "F", 0.3)] + _cc_p[1:]
+check("classed_clash: the classifier reads FOUR's F where PLAT's P was held, so FOUR stands (wide too); read P, "
+      "it does not, and wide re-reads nothing",
+      [True, False, False, {(1, "down"): "FLAT"}],
+      [f.classed_clash("FOUR", "??UR", _cc_p), f.classed_clash("FOUR", "??UR", _cc_off),
+       f.classed_clash("FOUR", "???", _cc_p),
+       f.held_recrossed("FOUR", (1, "across"), hr_lts, {(1, "down"): "PLAT"}, {(1, "down")}, hr_probs, hr_enums,
+                        wide=True)])
+check("CLASSED_CLASH is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.CLASSED_CLASH], f.CLASSED_CLASH in f.SOLUTION_FIXES, f.CLASSED_CLASH.startswith("solution short"),
+       f.CLASSED_CLASH in __import__("edition_queue").LOW_ASK, f.CLASSED_CLASH in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.CLASSED_CLASH)))
+_cp = min(f.CLASSED_PUZZLES)
+check("classed_short: a row read since REREAD_CLASSED_CLASH, no Times paper's, a refused grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.classed_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_cp}", "solutionFrom": "x leaf 3", "number": _cp,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
