@@ -435,29 +435,36 @@ jobs:
       - name: Unpack the puzzle pages
         if: needs.scope.outputs.deploy == 'true'
         run: bash tools/cache_tar.sh unpack .page-cache.tar
-      # A cold render of the ~42k puzzle pages is ~175s of one step, which a 160s
-      # budget cannot hold and a bigger one would only hide. So the pages are
-      # rendered in 4 shards, one step each (`--shard i/n`: pages whose id
-      # hashes to i), and the step after them (`--assemble 4`) checks every
+      # A cold render of the ~54k puzzle pages is ~380s of steps (4 shards of 93-100s,
+      # runs 40538287341, 40533163510), which a 90s budget cannot hold per quarter and a
+      # bigger one would only hide. So the pages are
+      # rendered in 6 shards, one step each (`--shard i/n`: pages whose id
+      # hashes to i), and the step after them (`--assemble 6`) checks every
       # page was rendered by exactly one shard, then writes the hub, listings
       # and sitemaps from what the shards left in .page-shards/. Same files,
       # byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
-      - name: Generate the crawlable pages, shard 1 of 4
+      - name: Generate the crawlable pages, shard 1 of 6
         if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
-        run: python3 tools/build_seo_pages.py --shard 0/4
-      - name: Generate the crawlable pages, shard 2 of 4
+        run: python3 tools/build_seo_pages.py --shard 0/6
+      - name: Generate the crawlable pages, shard 2 of 6
         if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
-        run: python3 tools/build_seo_pages.py --shard 1/4
-      - name: Generate the crawlable pages, shard 3 of 4
+        run: python3 tools/build_seo_pages.py --shard 1/6
+      - name: Generate the crawlable pages, shard 3 of 6
         if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
-        run: python3 tools/build_seo_pages.py --shard 2/4
-      - name: Generate the crawlable pages, shard 4 of 4
+        run: python3 tools/build_seo_pages.py --shard 2/6
+      - name: Generate the crawlable pages, shard 4 of 6
         if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
-        run: python3 tools/build_seo_pages.py --shard 3/4
+        run: python3 tools/build_seo_pages.py --shard 3/6
+      - name: Generate the crawlable pages, shard 5 of 6
+        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        run: python3 tools/build_seo_pages.py --shard 4/6
+      - name: Generate the crawlable pages, shard 6 of 6
+        if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
+        run: python3 tools/build_seo_pages.py --shard 5/6
       - name: Assemble the crawlable pages
         id: pages
         if: ${{ needs.scope.outputs.deploy == 'true' && (steps.scope.outputs.fast != 'true') }}
-        run: python3 tools/build_seo_pages.py --assemble 4
+        run: python3 tools/build_seo_pages.py --assemble 6
       # The puzzle fast path's one step in place of the shards and the
       # assemble: the same build as `python3 tools/build_seo_pages.py`, whose
       # first pass reuses the stored pages in this process and sends only the
