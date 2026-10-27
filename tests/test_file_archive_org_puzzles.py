@@ -1703,6 +1703,41 @@ f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = lf_filed, 
 check("long_word takes CAPTIOUS (its T under the floor, the classifier's likeliest listed word), vlm_word too; not "
       "LUNAR (short), DETECTABLE (DELECTABLE as likely), nor CAPTIOUS unvouched",
       ["CAPTIOUS", "CAPTIOUS", None, None, None], lf_got)
+# SHIFTED_WORD: a row read before REREAD_SHIFTED_WORD whose blank light's cached VLM reply a letter long or short
+# every other mend refuses and shifted_word mends (near_short with shifted), due nothing else: due; read since, or
+# none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us = f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: bool(kw.get("shifted"))
+sw_due = [f.short_again(vu_row("2026-10-27T11:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, **kw: False
+sw_due.append(f.short_again(vu_row("2026-10-27T11:25:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short = real_ns, real_as, real_ms, real_near, real_us
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply a letter long or short shifted_word mends, read before "
+      "REREAD_SHIFTED_WORD: SHIFTED_WORD (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.SHIFTED_WORD, None, None, 2, True, True, True, True, True],
+      sw_due + [f.RANKS[f.SHIFTED_WORD], f.SHIFTED_WORD in f.SOLUTION_FIXES, f.SHIFTED_WORD.startswith("solution short"),
+                f.SHIFTED_WORD in __import__("edition_queue").LOW_ASK, f.SHIFTED_WORD in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.SHIFTED_WORD)])
+# shifted_word: a phrase reply a letter short mended to the classifier's reading (BOTAILNAG, BOBTAIL NAG), vlm_word
+# too; a one-piece word a letter long only where a print vouches for it (LOTUS, LOTS); never where the classifier
+# reads a letter of the VLM's own otherwise (ANS for ONUS: not ANUS).
+sw_filed, sw_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"LOTS"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset()
+sw_p = lambda w: [[1.0 if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"] for ch in w]
+sw_got = [f.shifted_word("BOTAILNAG", "?O?T?I?N?G", [3, 4, 3], sw_p("BOBTAILNAG")),
+          f.vlm_word("BOTAILNAG", "?O?T?I?N?G", [3, 4, 3], sw_p("BOBTAILNAG"), "3-4,3", "It carries my money on the five-mile race-track"),
+          f.shifted_word("LOTUS", "L?T?", [4], sw_p("LOTS")),
+          f.shifted_word("ANS", "?N?S", [4], sw_p("ONUS"))]
+f.trove_solution_ocr.filed_words = lambda: frozenset()
+sw_got.append(f.shifted_word("LOTUS", "L?T?", [4], sw_p("LOTS")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = sw_filed, sw_corpus
+check("shifted_word mends BOTAILNAG to BOBTAIL NAG, vlm_word too; LOTUS to LOTS vouched; not ANS to ANUS (the "
+      "classifier reads O), nor LOTS unvouched",
+      ["BOBTAILNAG", "BOBTAILNAG", "LOTS", None, None], sw_got)
 # LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
 # short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
 # (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
