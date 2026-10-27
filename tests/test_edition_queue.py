@@ -274,6 +274,20 @@ check("not after the fix, not another era, not a page with nothing unfiled", [No
       [f.fix_reason({**_morow, "readAt": _after}),
        f.fix_reason({**_morow, "edition": "GaleTimes1999UKEnglish/1999-04-06"}),
        f.fix_reason({**_morow, "verdicts": [{**_mo, "unfiled": 0}]})])
+# ---- a Times page written unfiled for a blank the print's close-set dash made ("Beat,—with") is due once
+# (fa.DASH_JOINED): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_dj = {"id": "times-9999996", "number": 9999996, "complete": False, "wrote": True, "unfiled": 1, "clues": 31,
+       "lights": 32, "blank": {"15-across": "'Beat,—with': a stray mark inside a word"}}
+_djrow = {"edition": "GaleTimes1943UKEnglish/1943-09-18", "verdicts": [_dj], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a close-set dash is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.DASH_JOINED, 2, True, True, None, None],
+      [f.fix_reason(_djrow), f.RANKS[f.DASH_JOINED], eq.evidence_reason(f.DASH_JOINED), f.DASH_JOINED in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.DASH_JOINED, "date": "1943-09-18"}),
+       eq.canary_failed({"paper": "times", "reason": f.DASH_JOINED, "date": "1978-11-04"})])
+check("not after the fix, nor for a stray mark the dash rule leaves ('wor,d'), nor another paper", [False] * 3,
+      [f.dash_joined({**_djrow, "readAt": _after}),
+       f.dash_joined({**_djrow, "verdicts": [{**_dj, "blank": {"15-across": "'wor,d': a stray mark inside a word"}}]}),
+       f.dash_joined({**_djrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
