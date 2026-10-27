@@ -4143,8 +4143,23 @@ def letter_put_back(text):
 #: Times pages whose one blank was one of these (the VLM printed it alike).
 PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]-[A-Za-z]+(?:-[A-Za-z]+)*"
                        r"|[A-Z]+(?:[—–]{1,2}[A-Z]+)+|\d+(?:cwt|lbs?|oz|yds?|mph|kg|mm|cm|km)\.?")
-#: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.").
-UNLEXICONED_ABBREVS = {"ven", "jnr", "snr"}
+#: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.", "Messrs.
+#: Gog and Magog"). unspellable() read "Messrs" as a name that lost a letter ("ssr").
+UNLEXICONED_ABBREVS = {"ven", "jnr", "snr", "messrs"}
+#: A Scots or Irish surname: "Mc" or "Mac" before its capital ("McTavish", "McNeile", "MacGregor").
+#: unspellable() reads the "^mc" of "Mc" + consonant as a letter lost; mc_named() judges the rest.
+MC_NAME = re.compile(r"(?:Mc|Mac)([A-Z][a-z]{2,})")
+
+
+def mc_named(word):
+    """Whether `word` is "Mc" or "Mac" before a capitalised name of three
+    letters or more that unspellable() passes alone ("McTavish", "McNeile").
+    Across the VLM corpus's clue readings, of the tokens suspect() refused as
+    "a letter lost from a name" that this passes, the VLM prints each one alike
+    or the reading is page text bled into the clue (a real surname there too);
+    none it prints otherwise."""
+    m = MC_NAME.fullmatch(word)
+    return bool(m) and not unspellable(m.group(1))
 #: A dash the print sets close up between two words, after a word's own stop
 #: or quote ("Beat,—with", 'cow"—did', "It's--hard", "no---I'd"): an em or en
 #: dash, or two or three hyphens. The 1940s-70s Times prints ",—" so; the VLM
@@ -4268,7 +4283,7 @@ def suspect(text, vouched=(), printed=()):
                 out.append((raw, "a word misread as a name"))
                 break
             if (bare == flat and not flat.rstrip("s").isupper() and not closed_compound(flat.lower())
-                    and unspellable(flat)):
+                    and not mc_named(flat) and unspellable(flat)):
                 out.append((raw, "a letter lost from a name"))  # an accent the reader dropped
                 break
     # A bracket the clue never closes, or never opened, is a letter or a
