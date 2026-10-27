@@ -6427,8 +6427,17 @@
     return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}. Our own full hint replaces them once we write it.">hints via ${name} · ours to come</span>`;
   }
 
+  // The selected clue on one line above the grid, for a phone, where the panel
+  // that carries it is below the fold. CSS shows it only at phone width.
+  function renderClueStrip(e) {
+    const el = $("clue-strip");
+    if (!el) return;
+    setHTML(el, e && !jigsaw ? `<b>${e.offGrid ? "" : esc(tag(e))}</b> ${plainClueHTML(holderOf(e))}` : "");
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
+    renderClueStrip(e);
     const panel = $("hint-panel");
     if (!e) {
       // A square only an unclued light covers has no clue to hint at, but it
