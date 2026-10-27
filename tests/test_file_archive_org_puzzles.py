@@ -30,6 +30,7 @@ import json, os
 from pathlib import Path
 import file_archive_org_puzzles as f
 f.HELD_SERIES_CACHE = None  # no on-disk snapshot leaking in from ~/.cache; the snapshot case sets its own
+f.trove_solution_ocr.filed_words = lambda: frozenset()  # no repo answer vouches for a test's reply; filed_word's cases set their own
 import grid_ocr_cache as _goc
 _goc.FRAMED_CACHE = Path(os.environ["TMP"]) / "framed"  # crop framings kept by tests' crops stay in TMP
 import ocr_clues
@@ -1437,9 +1438,9 @@ check("a held file short whose VLM name its checks dropped as a misread, read be
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: named
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: named
 nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: False
 nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1454,9 +1455,9 @@ check("a held file short whose blank light's cached VLM name a surname alone lie
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: argmax
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: argmax
 am_due = [f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: False
 am_due.append(f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1472,9 +1473,9 @@ check("a held file short whose blank light's cached VLM reply is one letter unde
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: paired
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: paired
 pw_due = [f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: False
 pw_due.append(f.short_again(vu_row("2026-10-27T05:50:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1490,9 +1491,9 @@ check("a held file short whose blank light's cached VLM reply is one letter off 
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: spelt
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: spelt
 sp_due = [f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: False
 sp_due.append(f.short_again(vu_row("2026-10-27T06:20:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1515,6 +1516,41 @@ check("spelt_word takes a reply the clue's anagram (ZAMBESI) or hidden word (THO
        f.spelt_word("ZAMBESI", "Z?M?E?A", sp_p("ZAMBESI"), "7", "Current size Mab adjusted"),
        f.spelt_word("ZAMBES?", "Z?M?E??", sp_p("ZAMBESI"), "7", "Current size Mab adjusted"),
        f.spelt_word("SEWIAL", "?E?I?L", sp_p("BELIAL"), "6", "Eli was father to his sons")])
+# FILED_NAME: a row read before REREAD_FILED_NAME whose blank light's cached VLM reply another puzzle's filed answer
+# alone vouches for (near_short with filed), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: filed
+fn_due = [f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False: False
+fn_due.append(f.short_again(vu_row("2026-10-27T06:40:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply another puzzle's filed answer spells, read before "
+      "REREAD_FILED_NAME: FILED_NAME (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.FILED_NAME, None, None, 2, True, True, True, True, True],
+      fn_due + [f.RANKS[f.FILED_NAME], f.FILED_NAME in f.SOLUTION_FIXES, f.FILED_NAME.startswith("solution short"),
+                f.FILED_NAME in __import__("edition_queue").LOW_ASK, f.FILED_NAME in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.FILED_NAME)])
+# filed_word: an unlisted reply as read where another puzzle's filed answer spells it, fitting every crossing, the
+# classifier reading every open letter at the floor; not one no puzzle filed (TINEE), a listed reply, one under
+# FILED_MIN letters, one with a "?", nor one whose open letter the classifier reads under the floor.
+fn_real = f.trove_solution_ocr.filed_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"ANNAM", "QUILP", "TINGE", "IRU", "HERTFORD"})
+check("filed_word takes an unlisted reply another puzzle filed (ANNAM, QUILP) and vlm_word with it, misread_word "
+      "sparing it (paired_name); not TINEE, a listed TINGE, IRU, a '?', nor a letter under the floor",
+      ["ANNAM", "QUILP", "ANNAM", True, None, None, None, None, None],
+      [f.filed_word("ANNAM\n", "A?N?M", [5], sp_p("ANNAM")),
+       f.filed_word("QUILP", "Q?I?P", [5], sp_p("QUILP")),
+       f.vlm_word("ANNAM", "A?N?M", [5], sp_p("ANNAM"), "5"),
+       f.paired_name("ANNAM", "ANNAM", "A?N?M", [5], sp_p("ANNAM"), "5"),
+       f.filed_word("TINEE", "T?N?E", [5], sp_p("TINEE")),
+       f.filed_word("TINGE", "T?N?E", [5], sp_p("TINGE")),
+       f.filed_word("IRU", "I??", [3], sp_p("IRU")),
+       f.filed_word("QUIL?", "Q?I??", [5], sp_p("QUILP")),
+       f.filed_word("HERTFORD", "?E?T?O?D", [8], sp_p("HERTEORD"))])
+f.trove_solution_ocr.filed_words = fn_real
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle

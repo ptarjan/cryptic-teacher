@@ -2383,6 +2383,76 @@ def corpus_words():
     return _CORPUS[key]
 
 
+#: {CORPUS_ROOT: filed_words()'s set}
+_FILED = {}
+
+
+def _filed_answers(body):
+    """The answers, space-separated, of a puzzle file's bytes, whatever its source and origin (filed_words)."""
+    try:
+        pz = json.loads(body)
+    except ValueError:
+        return ""
+    return " ".join(sorted({re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())
+                            for e in pz.get("entries") or [] if isinstance(e, dict)} - {""}))
+
+
+def filed_words():
+    """The answers of every committed puzzle file of CORPUS_ROOT, upper case, whatever its channel or
+    solution origin: corpus_words() and the answers the readers filed off printed pages too (an OCR'd
+    grid's, a model's). A misread filed once is here, so it vouches for no read alone; the VLM's strip
+    reply that two readers spell alike and that another puzzle's answer spells too stands on it
+    (file_archive_org_puzzles.filed_word). Cached as corpus_words() is, by blob, in the git common dir."""
+    key = str(CORPUS_ROOT)
+    if key in _FILED:
+        return _FILED[key]
+    git = ["git", "-C", str(CORPUS_ROOT)]
+    listed = subprocess.run(git + ["ls-files", "-s", "-z", "--", "puzzles"], capture_output=True, text=True,
+                            check=False)
+    common = subprocess.run(git + ["rev-parse", "--path-format=absolute", "--git-common-dir"],
+                            capture_output=True, text=True, check=False)
+    if listed.returncode or common.returncode:
+        _FILED[key] = frozenset()
+        return _FILED[key]
+    blobs = {rec.split("\t", 1)[0].split()[1] for rec in listed.stdout.split("\0")
+             if "\t" in rec and _PUZZLE_FILE.fullmatch(rec.split("\t", 1)[1])}
+    store = Path(common.stdout.strip()) / "ct-filed-answers.pickle"
+    merged = store.with_name("ct-filed-answers.txt")
+    digest = hashlib.sha1(" ".join(sorted(blobs)).encode()).hexdigest()
+    try:
+        with open(merged, encoding="utf-8") as f:
+            if f.readline().strip() == digest:
+                _FILED[key] = frozenset(f.read().split())
+                return _FILED[key]
+    except OSError:
+        pass
+    try:
+        with open(store, "rb") as f:
+            cached = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError):
+        cached = {}
+    fresh = sorted(blobs - cached.keys())
+    if fresh:
+        out = subprocess.run(git + ["cat-file", "--batch"], input="\n".join(fresh).encode() + b"\n",
+                             capture_output=True, check=True).stdout
+        pos = 0
+        while pos < len(out):
+            nl = out.index(b"\n", pos)
+            sha, _, size = out[pos:nl].split()
+            cached[sha.decode()] = _filed_answers(out[nl + 1:nl + 1 + int(size)])
+            pos = nl + 2 + int(size)
+    if fresh or cached.keys() - blobs:
+        cached = {b: cached[b] for b in blobs}
+        with tempfile.NamedTemporaryFile("wb", dir=store.parent, delete=False) as f:
+            pickle.dump(cached, f)
+        os.replace(f.name, store)
+    _FILED[key] = frozenset(" ".join(cached[b] for b in blobs).split())
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=store.parent, delete=False) as f:
+        f.write(digest + "\n" + "\n".join(sorted(_FILED[key])))
+    os.replace(f.name, merged)
+    return _FILED[key]
+
+
 # ------------------------------------------------------------ pairing
 
 def _day(text):
