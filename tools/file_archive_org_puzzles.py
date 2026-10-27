@@ -11652,7 +11652,37 @@ def ranked_short(row):
 SUSPECT_HELD = "solution short, its answers kept from a held file with a suspect clue"
 REREAD_SUSPECT = "2026-10-25T13:30:00+00:00"
 #: {held path: ((mtime_ns, size), whether this tool's, every clue filled, an answer short and not complete())}
+#: save_likely and load_likely keep it between processes under suspect_version(). 10-27: a fresh
+#: process's plan judged ~1,900 held Times files again (complete(): ocr_clues.suspect on every clue),
+#: 30-100 s of a hot reload's first plan.
 _SUSPECT = {}
+#: [suspect_version()], once a process.
+_SUSPECT_VERSION = []
+#: The data files ocr_clues.suspect and complete() judge a clue's words by (the lexicon, the
+#: language model, compounds), each by name, size and mtime in suspect_version().
+SUSPECT_DATA = ("lexicon.tsv", "clue_lm.tsv.gz", "clue_compounds.tsv", "cmudict.txt.gz", "wordnet.json.gz",
+                "lexicons")
+
+
+def suspect_version():
+    """What a kept _SUSPECT verdict stands on beyond its held file's stat: the code suspect_held_file
+    reaches (code_reach.key) and SUSPECT_DATA's stats. Taken once a process, at its first plan's
+    load_likely: the code the process runs, not a later checkout's."""
+    if not _SUSPECT_VERSION:
+        import code_reach
+        data = []
+        for name in SUSPECT_DATA:
+            path = TOOLS / "data" / name
+            for q in sorted(path.glob("*")) if path.is_dir() else [path]:
+                try:
+                    st = q.stat()
+                except OSError:
+                    data.append((q.name, None))
+                    continue
+                data.append((q.name, st.st_size, st.st_mtime_ns))
+        _SUSPECT_VERSION.append(_slug(json.dumps([code_reach.key("file_archive_org_puzzles", {"suspect_held_file"}),
+                                                  data])))
+    return _SUSPECT_VERSION[0]
 
 
 def suspect_held_file(series, number):
@@ -11668,6 +11698,7 @@ def suspect_held_file(series, number):
     stamp = (st.st_mtime_ns, st.st_size)
     hit = _SUSPECT.get(p)
     if hit is None or hit[0] != stamp:
+        _LIKELY_MOVED.append(True)
         try:
             held = json.loads(p.read_text())
         except (OSError, ValueError):
@@ -12111,7 +12142,8 @@ def text_headings(d, deadline=None):
 
 
 def save_likely(path):
-    """Write _HEADINGS, _WHOLE, _HEADINGS_STAT and _PAGES_FACTS to `path` when one moved since the last save."""
+    """Write _HEADINGS, _WHOLE, _HEADINGS_STAT, _PAGES_FACTS and _SUSPECT (under suspect_version()) to
+    `path` when one moved since the last save."""
     if not _LIKELY_MOVED:
         return
     _LIKELY_MOVED.clear()
@@ -12119,7 +12151,8 @@ def save_likely(path):
     os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
     with open(tmp, "wb") as f:
         pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE), "stat": dict(_HEADINGS_STAT),
-                     "pages": dict(_PAGES_FACTS)}, f,
+                     "pages": dict(_PAGES_FACTS),
+                     "suspect": (suspect_version(), dict(_SUSPECT)) if _SUSPECT else None}, f,
                     protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
@@ -12144,6 +12177,11 @@ def load_likely(path):
     # pages.json's url and edition stand while the edition's input_hash does (pages_facts).
     for k, v in (snap.get("pages") or {}).items():
         _PAGES_FACTS.setdefault(k, v)
+    # A held file's suspect verdict stands while its stat does, under the same code and lexicon.
+    kept = snap.get("suspect")
+    if kept and kept[0] == suspect_version():
+        for k, v in kept[1].items():
+            _SUSPECT.setdefault(k, v)
 
 
 def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fhs=None, hosting=()):
