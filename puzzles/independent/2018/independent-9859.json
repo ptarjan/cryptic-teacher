@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,75 @@
     "text": "City somewhere between Uzbekistan and Bulgaria",
     "enumeration": "8"
    },
-   "solution": "ISTANBUL"
+   "solution": "ISTANBUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 34,
+       "note": "and simply sets the second country's letters after the first's, in the order the clue names them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "somewhere",
+         "at": 5,
+         "note": "somewhere says only part of the first country's name is used, its opening stretch dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Uzbekistan",
+         "at": 23
+        },
+        {
+         "gives": "UZBEK"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "between",
+         "at": 15,
+         "note": "between, said of the second country, says only part of its name is used, its tail dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bulgaria",
+         "at": 38
+        },
+        {
+         "gives": "GARIA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geography question placing a city on the map between two countries.",
+     "walkthrough": "The letters are the tail of Uzbekistan (losing UZBEK) and the head of Bulgaria (losing GARIA); 'and' just joins them. The surface is also true: the city lies between those countries.",
+     "definitionFit": "Istanbul is the largest city in Turkey, straddling Europe and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "between"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +116,47 @@
     "text": "Merciful Pope left out material used for bonding",
     "enumeration": "6"
    },
-   "solution": "CEMENT"
+   "solution": "CEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "material used for bonding",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 19,
+       "note": "out says the letter for left is removed from the pope's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Merciful Pope",
+       "at": 0,
+       "gives": "CLEMENT",
+       "note": "clement means merciful, and Clement is the name of several popes"
+      },
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly pontiff being excluded from something, followed by a builder's material.",
+     "definitionFit": "Cement is the binding powder that sets to hold bricks, stone and aggregate together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Merciful"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +170,51 @@
     "text": "Initial sighting of submarine missile — quite aggressive!",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quite aggressive",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initial",
+         "at": 0,
+         "note": "initial asks for only the opening letter of the word sighting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sighting",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "submarine missile",
+       "at": 20,
+       "gives": "TRIDENT",
+       "note": "Trident is the ballistic missile launched from British and American submarines"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval warning on first spotting a sub-launched missile, with an exclamation at its hostility.",
+     "definitionFit": "A strident voice or manner is harsh and forceful, assertive to the point of aggression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Initial"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +228,50 @@
     "text": "Weather permitting, wearing garment created from recycled material made in Jersey?",
     "enumeration": "6"
    },
-   "solution": "COWPAT"
+   "solution": "COWPAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recycled material made in Jersey?",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 20,
+       "note": "wearing places the abbreviation inside the garment, as if dressed in it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "garment",
+       "at": 28,
+       "gives": "COAT",
+       "note": "a coat is an outer garment"
+      },
+      {
+       "words": "Weather permitting",
+       "at": 0,
+       "gives": "WP",
+       "note": "WP is the standard abbreviation for weather permitting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fashion copy about an eco-friendly garment of recycled fabric made on the island of Jersey.",
+     "walkthrough": "Jersey is a Channel Island and also a breed of dairy cow; the recycled material is dung, used as fertiliser or fuel.",
+     "definitionFit": "A cowpat is a dropping produced by a cow, and a Jersey cow is one breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jersey"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +285,58 @@
     "text": "Mother cradling head of science teacher",
     "enumeration": "6"
    },
-   "solution": "MASTER"
+   "solution": "MASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "teacher",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cradling",
+       "at": 7,
+       "note": "cradling means holding the next letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "MATER",
+       "note": "mater is Latin, and old public-school slang, for mother"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 16,
+         "note": "head of picks the first letter of science"
+        }
+       ],
+       "parts": [
+        {
+         "words": "science",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother holding the head of the school's science teacher.",
+     "definitionFit": "Master is an old-fashioned title for a schoolteacher, especially a male one in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cradling"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +350,63 @@
     "text": "Tummy upset? Stupid, led astray!",
     "enumeration": "6"
    },
-   "solution": "MIDDLE"
+   "solution": "MIDDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tummy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 6,
+         "note": "in a down clue upset turns the word for stupid upside down, reading it upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stupid",
+         "at": 13,
+         "gives": "DIM",
+         "note": "dim means stupid"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "astray",
+         "at": 25,
+         "note": "led astray means the letters of led wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "led",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with stomach trouble, dismissed as a fool who has been led astray.",
+     "definitionFit": "The middle is an informal word for the waist or belly area of the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +420,32 @@
     "text": "Hit a bloke sticking his oar in",
     "enumeration": "6"
    },
-   "solution": "STROKE"
+   "solution": "STROKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0,
+      "meaning": "a blow, as in a ... of the bat"
+     },
+     {
+      "text": "a bloke sticking his oar in",
+      "at": 4,
+      "meaning": "in rowing, the oarsman nearest the stern who sets the pace for the crew"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone striking a man who keeps interfering in others' business.",
+     "walkthrough": "'Sticking his oar in' means meddling in the surface, but here it is literal: the rower who sets the rhythm.",
+     "definitionFit": "A stroke is a blow, and also the name of the rower who sets the crew's rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "oar"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +459,51 @@
     "text": "English fiancée regularly crashed motor",
     "enumeration": "6"
    },
-   "solution": "ENGINE"
+   "solution": "ENGINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "motor",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "ENG"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 16,
+         "note": "regularly takes every other letter, here the second, fourth and sixth of fiancée"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fiancée",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English bride-to-be whose car has crashed.",
+     "walkthrough": "'crashed' looks like an anagram signal but nothing is rearranged; it only colours the surface.",
+     "definitionFit": "An engine is the motor that powers a vehicle or machine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crashed"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +517,40 @@
     "text": "Plastic syringe can't have sharpness",
     "enumeration": "11"
    },
-   "solution": "ASTRINGENCY"
+   "solution": "ASTRINGENCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sharpness",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Plastic",
+       "at": 0,
+       "note": "plastic means mouldable, so these letters are reshaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "syringe can't",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a plastic syringe cannot be sharp enough.",
+     "definitionFit": "Astringency is sharpness or severity of tone or taste, a biting quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plastic"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +564,55 @@
     "text": "Commercial program sampling a review of Google raw data",
     "enumeration": "6"
    },
-   "solution": "ADWARE"
+   "solution": "ADWARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Commercial program",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "review of",
+       "at": 30,
+       "note": "review of says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "sampling",
+         "at": 19,
+         "note": "sampling takes a small run of letters from within the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Google raw data",
+         "at": 40,
+         "gives": "ERAWDA",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Software that sifts through a search giant's raw data.",
+     "walkthrough": "The draft put 'sampling' in the definition, but it is the signal for the hidden letters; the definition is 'Commercial program' alone. 'review of' reads the hidden run backwards.",
+     "definitionFit": "Adware is software that displays advertisements, a program existing for commercial ends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +626,54 @@
     "text": "Miss knocking back lager with lad at wedding",
     "enumeration": "8"
    },
-   "solution": "SLIPPAGE"
+   "solution": "SLIPPAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocking back",
+         "at": 5,
+         "note": "knocking back means the lager's name is read in reverse, with a hint of drinking"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lager",
+         "at": 19,
+         "gives": "PILS",
+         "note": "pils is a pale Pilsner-style lager"
+        }
+       ]
+      },
+      {
+       "words": "lad at wedding",
+       "at": 30,
+       "gives": "PAGE",
+       "note": "a page is a boy attendant at a wedding"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman drinking lager with a lad at a wedding reception.",
+     "walkthrough": "'Miss' is a noun here, a shortfall, not a young woman.",
+     "definitionFit": "Slippage is a falling short of a target, a miss in schedule or value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +687,39 @@
     "text": "Facile government politician",
     "enumeration": "4"
    },
-   "solution": "GLIB"
+   "solution": "GLIB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Facile",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "government",
+       "at": 7,
+       "gives": "G"
+      },
+      {
+       "words": "politician",
+       "at": 18,
+       "gives": "LIB",
+       "note": "a Lib is a Liberal politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dismissive verdict on a smooth-talking member of the government.",
+     "definitionFit": "Glib and facile both describe speech that is fluent but shallow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +733,59 @@
     "text": "Held in Italian city, earl gets thinner",
     "enumeration": "10"
    },
-   "solution": "TURPENTINE"
+   "solution": "TURPENTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thinner",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in puts the word for held inside the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian city",
+         "at": 8,
+         "gives": "TURIN",
+         "note": "Turin is a city in northern Italy"
+        },
+        {
+         "words": "Held",
+         "at": 0,
+         "gives": "PENT",
+         "note": "pent, as in pent up, means held in"
+        }
+       ]
+      },
+      {
+       "words": "earl",
+       "at": 22,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An earl detained in an Italian city and losing weight there.",
+     "walkthrough": "'thinner' reads as a comparative adjective but is a noun: a solvent for paint.",
+     "definitionFit": "Turpentine is a solvent used to dilute oil paints, a paint thinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +805,48 @@
      }
     ]
    },
-   "solution": "CLOSINGTIME"
+   "solution": "CLOSINGTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "When the pub shuts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "hammered",
+       "at": 30,
+       "note": "hammered means beaten out of shape, and drunk, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scot",
+       "at": 20
+      },
+      {
+       "words": "gin",
+       "at": 44
+      },
+      {
+       "words": "lime",
+       "at": 52
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman getting drunk on gin and lime at the pub.",
+     "definitionFit": "Closing time is the hour at which a bar must stop serving and shut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +866,71 @@
      }
     ]
    },
-   "solution": "SNOWTYRE"
+   "solution": "SNOWTYRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aid for 17 to avoid 10",
+      "at": 42,
+      "note": "uses the answers to 17 and 10, one steering and a miss or skid"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admits",
+         "at": 16,
+         "note": "admits means letting the word for nothing in between the two letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Southern",
+           "at": 0,
+           "gives": "S"
+          },
+          {
+           "words": "Yankee",
+           "at": 9,
+           "gives": "Y",
+           "note": "Y is Yankee in the NATO phonetic alphabet"
+          }
+         ]
+        },
+        {
+         "words": "nothing",
+         "at": 23,
+         "gives": "NOWT",
+         "note": "nowt is northern English dialect for nothing"
+        }
+       ]
+      },
+      {
+       "words": "concerning",
+       "at": 31,
+       "gives": "RE",
+       "note": "re means concerning, as in a letter heading"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Southerner from the US letting nothing in, followed by a cross-referenced puzzle phrase.",
+     "walkthrough": "The definition points at two other answers: 17 is the motorist, 10 a skid.",
+     "definitionFit": "Winter tyres with deep tread help a motorist keep grip and not skid on icy roads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +956,40 @@
      }
     ]
    },
-   "solution": "MAGICEYE"
+   "solution": "MAGICEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It helps tune in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broadcast",
+       "at": 28,
+       "note": "broadcast means scattered widely, so these letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "my Ice Age",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tuning the radio to catch a programme about the Ice Age.",
+     "definitionFit": "A magic eye was a glowing valve on old radios that showed when a station was correctly tuned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1003,31 @@
     "text": "Digital whisky measure?",
     "enumeration": "6"
    },
-   "solution": "FINGER"
+   "solution": "FINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Digital",
+      "at": 0,
+      "meaning": "a digit of the hand, read as a noun"
+     },
+     {
+      "text": "whisky measure",
+      "at": 8,
+      "meaning": "a depth of spirit gauged by a digit's width against the glass"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Digital' reads as an adjective about the measure, but it is its own definition: a digit of the hand.",
+     "definitionFit": "A digit of the hand, and also a tot of spirits as deep as one digit is wide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Digital"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1041,49 @@
     "text": "One steering French bank takes on debtor",
     "enumeration": "6"
    },
-   "solution": "DRIVER"
+   "solution": "DRIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One steering",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes on",
+       "at": 25,
+       "note": "takes on means the bank's word goes inside the debtor's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "debtor",
+       "at": 34,
+       "gives": "DR",
+       "note": "DR is the accounting abbreviation for debtor"
+      },
+      {
+       "words": "French bank",
+       "at": 13,
+       "gives": "RIVE",
+       "note": "rive is French for a river bank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French bank taking on a debtor as a client.",
+     "walkthrough": "'bank' suggests money, not a riverside, and 'Rive Gauche' is the Left Bank of Paris.",
+     "definitionFit": "A driver is the person who steers a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1103,59 @@
      }
     ]
    },
-   "solution": "HIGHCOMEDY"
+   "solution": "HIGHCOMEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "witty banter",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stoned",
+       "at": 0,
+       "gives": "HIGH",
+       "note": "high means intoxicated on drugs"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring",
+         "at": 23,
+         "note": "touring means going round, so the showman's surname surrounds the state abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Buffalo Bill's",
+         "at": 8,
+         "gives": "CODY",
+         "note": "Buffalo Bill was the showman William Cody"
+        },
+        {
+         "words": "Maine",
+         "at": 31,
+         "gives": "ME",
+         "note": "ME is the postal abbreviation for Maine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug-addled Wild West showman touring New England, playing it for laughs.",
+     "definitionFit": "High comedy is sophisticated comedy of wit and clever dialogue rather than slapstick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stoned"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1169,50 @@
     "text": "Hour-old over-the-counter hot grog",
     "enumeration": "6"
    },
-   "solution": "HOOTCH"
+   "solution": "HOOTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grog",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hour",
+       "at": 0,
+       "gives": "H"
+      },
+      {
+       "words": "old",
+       "at": 5,
+       "gives": "O"
+      },
+      {
+       "words": "over-the-counter",
+       "at": 9,
+       "gives": "OTC",
+       "note": "OTC is the abbreviation for over-the-counter, used of medicines"
+      },
+      {
+       "words": "hot",
+       "at": 26,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stale hot toddy bought from a counter.",
+     "definitionFit": "Hootch is slang for alcoholic liquor, especially cheap or illicit spirit, as is grog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1226,55 @@
     "text": "Annual Yuletide vacation on Australian Railway",
     "enumeration": "6"
    },
-   "solution": "YEARLY"
+   "solution": "YEARLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Annual",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacation",
+         "at": 16,
+         "note": "vacation means emptying the word, leaving only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yuletide",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "Australian",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "words": "Railway",
+       "at": 39,
+       "gives": "RLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A yearly Christmas holiday taken on an Australian train.",
+     "definitionFit": "Yearly and annual both mean happening once every year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1288,31 @@
     "text": "It's bloody Al …",
     "enumeration": "4"
    },
-   "solution": "GORE"
+   "solution": "GORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's bloody",
+      "at": 0,
+      "meaning": "blood that has been shed, which is literally bloody"
+     },
+     {
+      "text": "Al",
+      "at": 12,
+      "meaning": "Al ..., the former US vice-president"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ellipsis runs into the next clue only for the surface.",
+     "definitionFit": "Gore is spilt blood, and Al Gore served as American vice-president under Clinton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloody"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1326,42 @@
     "text": "… acting so strangely, without any creative conviction",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without any creative conviction",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "strangely",
+       "at": 12,
+       "note": "strangely says the letters are behaving oddly, in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "acting so",
+       "at": 2
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from the last clue, a politician acting oddly and without belief.",
+     "walkthrough": "'creative' means creating, as in a Creator: the belief lacking is in a god.",
+     "definitionFit": "An agnostic holds no firm belief in a deity, neither affirming nor denying one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "creative"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1375,53 @@
     "text": "Bay on American lake a secluded area once",
     "enumeration": "6"
    },
-   "solution": "ALCOVE"
+   "solution": "ALCOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a secluded area once",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 4,
+       "note": "in an across clue on means placed after the letters that follow it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "words": "lake",
+       "at": 16,
+       "gives": "L"
+      },
+      {
+       "words": "Bay",
+       "at": 0,
+       "gives": "COVE",
+       "note": "a cove is a small sheltered bay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bay beside an American lake, described as an old hideaway.",
+     "walkthrough": "'Bay' looks like the definition, but it is the inlet COVE; the definition is the old sense at the end.",
+     "definitionFit": "Alcove once meant a garden bower or summerhouse, a secluded retreat; today it means a recess in a room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bay"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1435,48 @@
     "text": "Embarrassed about my previous career",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "previous career",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about means the colour word goes around the exclamation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Embarrassed",
+       "at": 0,
+       "gives": "RED",
+       "note": "red, as in red-faced, means embarrassed"
+      },
+      {
+       "words": "my",
+       "at": 18,
+       "gives": "COR",
+       "note": "cor and my are both exclamations of surprise; cor is British slang"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blushing about their past career.",
+     "definitionFit": "A record is a person's history, such as a track record of past performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1490,61 @@
     "text": "Sportsperson first in park, exercising early",
     "enumeration": "6"
    },
-   "solution": "PLAYER"
+   "solution": "PLAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sportsperson",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "at": 13,
+         "note": "first in takes the opening letter of park"
+        }
+       ],
+       "parts": [
+        {
+         "words": "park",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exercising",
+         "at": 28,
+         "note": "exercising means putting the letters through their paces, rearranging them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "early",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete who is first to the park for an early workout.",
+     "definitionFit": "A player is someone who takes part in a sport or game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   }
  ]
 }
