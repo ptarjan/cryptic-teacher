@@ -5234,7 +5234,13 @@ def spelt_word(reply, pattern, probs, enum=None, clue=None):
     lights of Times grids left 1-5 short: 40 lights so spelt, 39 right by their clue; the one wrong, SEWIAL for
     BELIAL ("Eli was father to his sons", an anagram by chance), the classifier reads BELIAL at 0.00 for S and W:
     the floor refuses it, and no right one reads under 0.07. None of the replies refused as misreads one letter
-    off (FLAA, KYDE, TINEE, PLETITUDE) is spelt (SPELT_SHORT)."""
+    off (FLAA, KYDE, TINEE, PLETITUDE) is spelt (SPELT_SHORT). So too a reply one clue word spells
+    (trove_solution_ocr.word_spells: an anagram of one word, or hidden or reversed inside one). 10-27 (r34), cached
+    strip replies on blank lights of 616 unplanned 1-2-short Times grids: 129 names the VLM and the classifier
+    spell alike stood refused for a listed word one open letter off (rival_away), ~20 of them misreads (TINEE,
+    OVSTER, CHEAR, KYDE, OUTDAGE, BECANTED); 15 are so spelt and each right by its clue (ANCRE "Crane in a river",
+    ARCOT "Displaced Croat", HATTA "from Manhattan", ODETS, MOYNE, ALDE, NOHS, LACIE, TIB, ASSUR); no misread is
+    (ONE_WORD_SHORT)."""
     lines = (reply or "").strip().splitlines()
     if not lines or "?" in lines[0] or not clue:
         return None
@@ -5251,7 +5257,8 @@ def spelt_word(reply, pattern, probs, enum=None, clue=None):
             return None
     except (IndexError, TypeError, ValueError):  # a cell with no 26 probabilities
         return None
-    return word if trove_solution_ocr.clue_spells(word, clue) else None
+    t = trove_solution_ocr
+    return word if t.clue_spells(word, clue) or t.word_spells(word, clue) else None
 
 
 def defined_word(reply, pattern, sizes, clue, enum=None, probs=None):
@@ -11883,6 +11890,39 @@ def lettered_short(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_ONE_WORD whose linked solution grid read short for a puzzle
+#: of ONE_WORD_PUZZLES held short from that page: a blank light's cached VLM reply, a name no list holds that fits
+#: every crossing, one clue word spells (trove_solution_ocr.word_spells, through spelt_word), so vlm_word takes it
+#: and paired_name spares it misread_word. 10-27 (r34): of 664 cached replies on blank lights of 616 unplanned 1-2
+#: short Times grids that fit every held crossing yet stood refused, the biggest bucket (129) is unlisted_word's
+#: rival_away; 15 of them are so spelt (ANCRE x4, ARCOT x3, ASSUR, HATTA, ODETS, MOYNE, ALDE, NOHS, LACIE, TIB), each
+#: right by its clue, no misread among them. answers_only on the cache keeps all 15; 11 puzzles go whole. Once.
+ONE_WORD_SHORT = "solution short, its VLM names one clue word spells kept since"
+REREAD_ONE_WORD = "2026-10-27T13:50:00+00:00"
+ONE_WORD_PUZZLES = frozenset((10110, 10224, 10428, 10483, 10722, 10756, 11156, 11321, 11545, 11799, 12238, 12471, 12944,
+                              15137, 15455))
+
+
+def one_word_short(row):
+    """Whether Times ledger `row`, read before REREAD_ONE_WORD, has a verdict (no held title's) of a linked solution
+    grid read short, not refused, for a puzzle of ONE_WORD_PUZZLES held by this tool from that page with every clue,
+    not every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_ONE_WORD)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
+                or not isinstance(s, dict) or s.get("refused") or v["number"] not in ONE_WORD_PUZZLES
+                or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -12220,6 +12260,8 @@ def fix_reason(row):
         return LETTERED_BLOCKS
     if classed_short(row):
         return CLASSED_CLASH
+    if one_word_short(row):
+        return ONE_WORD_SHORT
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -12803,7 +12845,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -13366,7 +13408,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, FULL_SHORT,
-                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH)
+                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT)
 
 
 def keeps_vlm(why, row, unit=None):

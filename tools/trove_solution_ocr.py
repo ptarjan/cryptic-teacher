@@ -2220,6 +2220,35 @@ def clue_spells(word, text):
     return None
 
 
+#: word_spells: the fewest letters of a word one clue word anagrams; of one hidden or reversed inside a longer clue word.
+ONE_WORD_ANAGRAM, ONE_WORD_HIDDEN = 3, 4
+
+
+def word_spells(word, text):
+    """How one word of clue `text` spells `word` (capitals) where clue_spells needs two or more or a word break:
+    "anagram1", one clue word's letters, not as they stand (ARCOT "Displaced Croat", ODETS "dotes on cooking",
+    MOYNE "Money is hidden in Ireland"); "inword", in a row inside a longer clue word (HATTA "Looking-glass messenger
+    from Manhattan", ASSUR "City first in the assurance business"); "revword", so read backwards; else None.
+    clue_wordplay leaves these out (a clue word's own anagram is its definition's as often as its fodder: SHRUB
+    for "brush"), but for a word another reader already spells (spelt_word: the VLM's strip) it is the setter's
+    fodder. ONE_WORD_ANAGRAM and ONE_WORD_HIDDEN letters or more."""
+    n = len(word)
+    if n < ONE_WORD_ANAGRAM:
+        return None
+    key = sorted(word)
+    for tok in clue_words(text):
+        if len(tok) == n and tok != word and sorted(tok) == key:
+            return "anagram1"
+    if n < ONE_WORD_HIDDEN:
+        return None
+    for tok in clue_words(text):
+        if len(tok) > n and word in tok:
+            return "inword"
+        if len(tok) > n and word[::-1] in tok:
+            return "revword"
+    return None
+
+
 #: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
 #: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
 _SYNSETS = []
