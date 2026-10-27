@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,69 @@
     "text": "Poor cadet welcoming unlimited offer is not genuine",
     "enumeration": "8"
    },
-   "solution": "AFFECTED"
+   "solution": "AFFECTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not genuine",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 11,
+       "note": "welcoming means taking in a guest, so one set of letters goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Poor",
+         "at": 0,
+         "note": "poor suggests something done badly, so the letters of cadet are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cadet",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 21,
+         "note": "unlimited means without its limits, the first and last letters of offer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offer",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cadet's offer is dismissed as insincere.",
+     "walkthrough": "'Poor' looks like a judgement on the cadet, but it signals the rearrangement; the trimmed offer sits after the first letter of that new order.",
+     "definitionFit": "Affected behaviour is put on or artificial, so it is not sincere or real."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +109,71 @@
     "text": "Animal worker before eastern European uprising",
     "enumeration": "8"
    },
-   "solution": "ANTELOPE"
+   "solution": "ANTELOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 14,
+       "note": "before means coming first, so the worker leads"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worker",
+       "at": 7,
+       "gives": "ANT",
+       "note": "the worker ant is a crossword staple for worker"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uprising",
+         "at": 38,
+         "note": "uprising means going up, which in a down clue reads the word from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "eastern",
+           "at": 21,
+           "gives": "E"
+          },
+          {
+           "words": "European",
+           "at": 29,
+           "gives": "POLE",
+           "note": "a Pole is a European from Poland"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer goes ahead of an east European revolt.",
+     "walkthrough": "'uprising' turns E and POLE together into ELOPE.",
+     "definitionFit": "An antelope is a swift horned grazing mammal, an example of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +187,41 @@
     "text": "Tight son refuses to eat",
     "enumeration": "5"
    },
-   "solution": "FASTS"
+   "solution": "FASTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "refuses to eat",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tight",
+       "at": 0,
+       "gives": "FAST",
+       "note": "fast means tight or firmly fixed, as in 'hold fast'"
+      },
+      {
+       "words": "son",
+       "at": 6,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy son will not eat.",
+     "walkthrough": "'Tight' seems to mean mean, but is firm.",
+     "definitionFit": "A person who fasts goes without food by choice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tight"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +241,45 @@
      }
     ]
    },
-   "solution": "CHECKIN"
+   "solution": "CHECKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "register",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shortly",
+       "at": 9,
+       "note": "shortly means cut short, so the last letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stopping",
+       "at": 0,
+       "gives": "CHECKING",
+       "note": "checking means halting or stopping, as in checking an advance"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stops briefly to sign in.",
+     "definitionFit": "To check in at a hotel or airport is to report your arrival and sign on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +293,41 @@
     "text": "Flush from corporate venture",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flush",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 6,
+       "note": "from means taken out of the words that follow, which conceal the letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corporate venture",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone comes out of a business venture with cash.",
+     "walkthrough": "'Flush' suggests rich, but here means level.",
+     "definitionFit": "Flush can mean level or flat with a surface, the same as even."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flush"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +341,57 @@
     "text": "Humiliated by answer when caught in bed",
     "enumeration": "6"
    },
-   "solution": "ABASED"
+   "solution": "ABASED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Humiliated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "answer",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught in",
+         "at": 26,
+         "note": "caught in means held inside, so one word is placed within the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bed",
+         "at": 36,
+         "gives": "BED"
+        },
+        {
+         "words": "when",
+         "at": 21,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is shamed when caught out in bed.",
+     "definitionFit": "To be abased is to be lowered in dignity, a synonym for humbled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +405,47 @@
     "text": "Extent of suspicion about Democrat",
     "enumeration": "7"
    },
-   "solution": "BREADTH"
+   "solution": "BREADTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means going round, so the word for suspicion goes around the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "suspicion",
+       "at": 10,
+       "gives": "BREATH",
+       "note": "a breath of scandal is a hint or suspicion"
+      },
+      {
+       "words": "Democrat",
+       "at": 26,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How far suspicion about a Democrat stretches.",
+     "definitionFit": "Breadth is width or scope, the range or extent of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspicion"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +459,58 @@
     "text": "Rogue doctor accepted by newly-trained counsel",
     "enumeration": "9"
    },
-   "solution": "SCOUNDREL"
+   "solution": "SCOUNDREL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rogue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "at": 13,
+       "note": "accepted by means taken in, so the doctor goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "newly-trained",
+         "at": 25,
+         "note": "newly-trained suggests reshaped, so the letters of counsel are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "counsel",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "words": "doctor",
+       "at": 6,
+       "gives": "DR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue medic is taken on by a freshly qualified barrister.",
+     "walkthrough": "'newly-trained' rearranges COUNSEL into SCOUNEL, with DR inserted.",
+     "definitionFit": "A scoundrel is a dishonest villain, a synonym for rogue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counsel"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +524,65 @@
     "text": "Spinner sees heroic exploit cut short in front of bird",
     "enumeration": "6"
    },
-   "solution": "DEEJAY"
+   "solution": "DEEJAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spinner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 38,
+       "note": "in front of means coming first, so the shortened word leads"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut short",
+         "at": 28,
+         "note": "cut short means losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heroic exploit",
+         "at": 13,
+         "gives": "DEED",
+         "note": "a deed is a heroic act or exploit"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "bird",
+       "at": 50,
+       "gives": "JAY",
+       "note": "a jay is a bird of the crow family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees a brave feat curtailed before a bird.",
+     "walkthrough": "'Spinner' suggests cricket bowling or a top, but is someone who spins records.",
+     "definitionFit": "A deejay, or DJ, spins records, so a spinner in the slang sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spinner"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +596,48 @@
     "text": "Vulgar predilections absorbing the French",
     "enumeration": "9"
    },
-   "solution": "TASTELESS"
+   "solution": "TASTELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vulgar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbing",
+       "at": 21,
+       "note": "absorbing means soaking up, so the second piece goes inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "predilections",
+       "at": 7,
+       "gives": "TASTES",
+       "note": "predilections are likings or tastes"
+      },
+      {
+       "words": "the French",
+       "at": 31,
+       "gives": "LES",
+       "note": "les is the French for 'the' in the plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coarse tastes take in some French culture.",
+     "definitionFit": "Something lacking refinement or good judgment is vulgar, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absorbing"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +651,40 @@
     "text": "Brine causing wet areas to be redeveloped",
     "enumeration": "8"
    },
-   "solution": "SEAWATER"
+   "solution": "SEAWATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be redeveloped",
+       "at": 24,
+       "note": "redeveloped means rebuilt in a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wet areas",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Salt water floods damp land that is to be rebuilt.",
+     "definitionFit": "Brine is salty water, and the ocean's water is salty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "redeveloped"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +698,63 @@
     "text": "Call to mind almost always covering fine",
     "enumeration": "5"
    },
-   "solution": "EVOKE"
+   "solution": "EVOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call to mind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 27,
+       "note": "covering means wrapping round, so the shortened word goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 13,
+         "note": "almost means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "always",
+         "at": 20,
+         "gives": "EVER",
+         "note": "ever means always, as in 'for ever'"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "fine",
+       "at": 36,
+       "gives": "OK",
+       "note": "OK means fine or all right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remembering something almost always works out fine.",
+     "definitionFit": "To evoke a memory is to summon or bring it back into the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +768,46 @@
     "text": "Liberal American needing alias for capital",
     "enumeration": "6"
    },
-   "solution": "LUSAKA"
+   "solution": "LUSAKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Liberal",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "American",
+       "at": 8,
+       "gives": "US"
+      },
+      {
+       "words": "alias",
+       "at": 25,
+       "gives": "AKA",
+       "note": "aka, 'also known as', introduces an alias"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-leaning American uses a false name for funds.",
+     "walkthrough": "'capital' looks like money but means a capital city.",
+     "definitionFit": "Lusaka is the capital city of Zambia, an example of a capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +821,58 @@
     "text": "A scented flower forest, one in Georgia",
     "enumeration": "8"
    },
-   "solution": "GARDENIA"
+   "solution": "GARDENIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A scented flower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in means placed inside, so the forest and one sit within the state's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Georgia",
+       "at": 32,
+       "gives": "GA",
+       "note": "GA is the abbreviation for the US state of Georgia"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "forest",
+         "at": 17,
+         "gives": "ARDEN",
+         "note": "Arden is the forest in Shakespeare's As You Like It, and a real English woodland"
+        },
+        {
+         "words": "one",
+         "at": 25,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a fragrant bloom from a forest in Georgia.",
+     "definitionFit": "The gardenia is a shrub with heavily perfumed white blooms, an example of a scented flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +886,31 @@
     "text": "Dancing shoes for people who trip?",
     "enumeration": "8"
    },
-   "solution": "SLIPPERS"
+   "solution": "SLIPPERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dancing shoes",
+      "at": 0,
+      "meaning": "soft ballet shoes are called ballet ..."
+     },
+     {
+      "text": "people who trip?",
+      "at": 18,
+      "meaning": "those who slip or lose their footing, the question mark flagging the playful sense"
+     }
+    ],
+    "explanation": {
+     "surface": "Footwear designed for clumsy dancers.",
+     "definitionFit": "Slippers are light shoes, including those for dance, and also people who slip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +930,70 @@
      }
     ]
    },
-   "solution": "PATENTLEATHER"
+   "solution": "PATENTLEATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shiny material",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "in means placed inside, so the shelter goes within the word for white"
+        }
+       ],
+       "parts": [
+        {
+         "words": "white",
+         "at": 40,
+         "gives": "PALE",
+         "note": "pale means white or wan"
+        },
+        {
+         "words": "shelter",
+         "at": 29,
+         "gives": "TENT",
+         "note": "a tent is a simple shelter"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "should be scattered",
+         "at": 6,
+         "note": "scattered means thrown about, so the letters of Earth are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Earth",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soil gets strewn by a shelter onto something white and glossy.",
+     "walkthrough": "'Earth' looks like soil or the planet, but it is only fodder for 'should be scattered'; the shelter sits inside the word for white.",
+     "definitionFit": "Patent leather is leather given a hard glossy varnished finish, a kind of shiny material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Earth"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1007,70 @@
     "text": "Best friend will eat one cold, in current fashion",
     "enumeration": "9"
    },
-   "solution": "TOPICALLY"
+   "solution": "TOPICALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in current fashion",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will eat",
+       "at": 12,
+       "note": "eating means taking inside, so the second pieces go within the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Best",
+         "at": 0,
+         "gives": "TOP",
+         "note": "top means best, as in top marks"
+        },
+        {
+         "words": "friend",
+         "at": 5,
+         "gives": "ALLY",
+         "note": "an ally is a friend or supporter"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 21,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "cold",
+         "at": 25,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A best friend will eat a cold dish in the latest style.",
+     "definitionFit": "Topically means in a way relating to current events, so in present-day fashion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1084,60 @@
     "text": "Caught Weasley maybe, pinching old Scottish pot",
     "enumeration": "8"
    },
-   "solution": "CAULDRON"
+   "solution": "CAULDRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "at": 22,
+       "note": "pinching means grabbing and holding, so the Scottish word goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Caught",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        },
+        {
+         "words": "Weasley maybe",
+         "at": 7,
+         "gives": "RON",
+         "note": "Ron Weasley is Harry Potter's friend, one example of a Weasley"
+        }
+       ]
+      },
+      {
+       "words": "old Scottish",
+       "at": 31,
+       "gives": "AULD",
+       "note": "auld is Scots for old"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Harry Potter character steals an old Scottish pot.",
+     "walkthrough": "The definition fits the Potter world of potions brewed in a large pot.",
+     "definitionFit": "A cauldron is a large cooking pot, often pictured with witches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1151,57 @@
     "text": "Fixed a paper handrail with no end of aid and equipment",
     "enumeration": "13"
    },
-   "solution": "PARAPHERNALIA"
+   "solution": "PARAPHERNALIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "equipment",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Fixed",
+       "at": 0,
+       "note": "fixed means repaired or rearranged, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a paper handrail",
+       "at": 6
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 28,
+         "note": "no end of means without the final letter of aid, which is removed from the pool"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aid",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paper handrail is fixed up with some aid and kit.",
+     "walkthrough": "Take the last letter of AID, D, out of A PAPER HANDRAIL and rearrange the rest.",
+     "definitionFit": "Paraphernalia are the miscellaneous items and gear needed for an activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fixed"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1215,29 @@
     "text": "Tale of chivalry in court",
     "enumeration": "7"
    },
-   "solution": "ROMANCE"
+   "solution": "ROMANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tale of chivalry",
+      "at": 0,
+      "meaning": "a medieval story of knights and their deeds"
+     },
+     {
+      "text": "court",
+      "at": 20,
+      "meaning": "to court is to woo someone"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A medieval romance tells of knightly adventures, and to romance someone is to woo them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1251,46 @@
     "text": "Switch leaders of ill-defined industry such as this",
     "enumeration": "7"
    },
-   "solution": "NUCLEAR"
+   "solution": "NUCLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "industry such as this",
+      "at": 30,
+      "note": "the definition is an adjective naming a kind of industry"
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "Switch leaders of",
+       "at": 0,
+       "note": "switching leaders means swapping the first two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ill-defined",
+       "at": 18,
+       "gives": "UNCLEAR",
+       "note": "unclear means vague or ill-defined"
+      },
+      {
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping the heads of an ill-defined industry like this one.",
+     "definitionFit": "The atomic power industry is described as the nuclear industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1304,29 @@
     "text": "Refuse fights",
     "enumeration": "6"
    },
-   "solution": "SCRAPS"
+   "solution": "SCRAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0,
+      "meaning": "leftover rubbish, especially food waste"
+     },
+     {
+      "text": "fights",
+      "at": 7,
+      "meaning": "brawls or scuffles"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Scraps are both leftovers thrown away and informal fights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1340,67 @@
     "text": "Honour given to copper twice right for being as cool as this",
     "enumeration": "8"
    },
-   "solution": "CUCUMBER"
+   "solution": "CUCUMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as cool as this",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "given to",
+       "at": 7,
+       "note": "given to means added onto, so the honour follows the copper"
+      }
+     ],
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 23,
+         "note": "twice means the piece appears two times in a row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "copper",
+         "at": 16,
+         "gives": "CU",
+         "note": "Cu is the chemical symbol for copper"
+        }
+       ]
+      },
+      {
+       "words": "Honour",
+       "at": 0,
+       "gives": "MBE",
+       "note": "the MBE, Member of the Order of the British Empire, is a British honour"
+      },
+      {
+       "words": "right",
+       "at": 29,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A double copper is awarded an honour for keeping cool.",
+     "walkthrough": "The definition completes the phrase 'as cool as a cucumber', meaning very calm.",
+     "definitionFit": "The idiom 'cool as a cucumber' makes the salad vegetable the standard of composure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1414,39 @@
     "text": "Write quickly seeing son move like a baby",
     "enumeration": "6"
    },
-   "solution": "SCRAWL"
+   "solution": "SCRAWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Write quickly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "son",
+       "at": 21,
+       "gives": "S"
+      },
+      {
+       "words": "move like a baby",
+       "at": 25,
+       "gives": "CRAWL",
+       "note": "babies crawl before they walk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent jots something down while watching a son crawl.",
+     "definitionFit": "To scrawl is to write hastily and untidily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1460,41 @@
     "text": "Area with intimate dwelling",
     "enumeration": "5"
    },
-   "solution": "ABODE"
+   "solution": "ABODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dwelling",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Area",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "intimate",
+       "at": 10,
+       "gives": "BODE",
+       "note": "to intimate is to hint at, and to bode is to foreshadow or signal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy home with a small area.",
+     "walkthrough": "'intimate' looks like an adjective meaning cosy, but is the verb to hint.",
+     "definitionFit": "An abode is a home or place of residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intimate"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1508,51 @@
     "text": "Transport military arm, thinking originally",
     "enumeration": "4"
    },
-   "solution": "RAFT"
+   "solution": "RAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "military arm",
+       "at": 10,
+       "gives": "RAF",
+       "note": "the RAF, Royal Air Force, is an arm of the British military"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 33,
+         "note": "originally means at the start, so the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thinking",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Air Force is thinking of moving supplies.",
+     "definitionFit": "A raft is a flat floating structure used to carry goods or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Transport"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1572,48 @@
      }
     ]
    },
-   "solution": "ALLIN"
+   "solution": "ALLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exhausted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 19,
+       "note": "endlessly means without its ends, so the first and last letters go"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ringing",
+       "at": 11,
+       "gives": "CALLING",
+       "note": "ringing someone is calling them on the phone"
+      },
+      {
+       "gives": "C"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is worn out by a phone that keeps ringing.",
+     "definitionFit": "All in is an informal phrase for completely tired out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1633,59 @@
      }
     ]
    },
-   "solution": "STAGEDOOR"
+   "solution": "STAGEDOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "actor's way in",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mounted",
+       "at": 0,
+       "gives": "STAGED",
+       "note": "to mount a play is to stage it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 17,
+         "note": "covering means going around, so the soldiers surround old"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldiers",
+         "at": 8,
+         "gives": "OR",
+         "note": "OR, other ranks, means ordinary soldiers"
+        },
+        {
+         "words": "old",
+         "at": 26,
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cavalry shield an elderly actor as he arrives.",
+     "walkthrough": "'Mounted' suggests horseback, but means put on as a production.",
+     "definitionFit": "Performers enter a theatre by the stage door, the backstage entrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mounted"
+    }
+   }
   },
   {
    "number": 28,
@@ -446,7 +1699,51 @@
     "text": "Designated fashion centre of Windsor",
     "enumeration": "6"
    },
-   "solution": "STYLED"
+   "solution": "STYLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Designated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fashion",
+       "at": 11,
+       "gives": "STYLE",
+       "note": "a style is a fashion or mode"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 19,
+         "note": "centre of means the middle letter of Windsor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Windsor",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal title is chosen in the heart of Windsor.",
+     "definitionFit": "To be styled is to be formally named or given a title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 29,
@@ -460,7 +1757,58 @@
     "text": "Operator will guzzle starter of these fish",
     "enumeration": "8"
    },
-   "solution": "STURGEON"
+   "solution": "STURGEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will guzzle",
+       "at": 9,
+       "note": "to guzzle is to swallow greedily, so one letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Operator",
+       "at": 0,
+       "gives": "SURGEON",
+       "note": "a surgeon performs operations"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter of",
+         "at": 21,
+         "note": "starter of means the first letter of these"
+        }
+       ],
+       "parts": [
+        {
+         "words": "these",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon tucks into a starter of fish.",
+     "definitionFit": "The sturgeon is a large fish famed as the source of caviar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Operator"
+    }
+   }
   }
  ]
 }
