@@ -1518,7 +1518,7 @@ fi
 # this sentence is the exception, appended to every prompt of that kind.
 SHAPE_EXCEPTION=" One exception to that: if python3 tools/annotate_check.py --view @ writes tools/_puzzle_@.json with entries under \`flagged\`, those hints are already marked for a rewrite (a wrongly shaped wordplay tree): write a new annotation for each as the view says, in this same run, so the puzzle is not redone for them later."
 
-ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Your annotations go in tools/_ann_@.json, which does not exist yet: create it with Write, do not Read it first. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.
