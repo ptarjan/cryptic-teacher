@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Dog food",
     "enumeration": "4"
    },
-   "solution": "CHOW"
+   "solution": "CHOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0,
+      "meaning": "a fluffy Chinese breed of dog with a blue-black tongue"
+     },
+     {
+      "text": "food",
+      "at": 4,
+      "meaning": "informal slang for grub or a meal"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: a Chinese dog breed, and slang for something to eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 4,
@@ -45,7 +70,56 @@
     "text": "Rotten firm, some say, operating abroad",
     "enumeration": "8"
    },
-   "solution": "OFFSHORE"
+   "solution": "OFFSHORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "operating abroad",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rotten",
+       "at": 0,
+       "gives": "OFF",
+       "note": "food gone off is rotten"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SHORE",
+       "indicators": [
+        {
+         "text": "some say",
+         "at": 13,
+         "note": "signals that the word for firm is to be heard spoken, giving a word that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "firm",
+         "at": 7,
+         "gives": "SURE",
+         "note": "firm in the sense of certain or settled: sure"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt company that runs its business from overseas.",
+     "walkthrough": "'firm' looks like the company in the story but means certain; 'some say' marks that its word is heard, not spelt.",
+     "definitionFit": "Offshore describes a business based or trading in another country, often for tax reasons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 8,
@@ -59,7 +133,60 @@
     "text": "Situated on a major route, lake popular in US state",
     "enumeration": "8"
    },
-   "solution": "MAINLINE"
+   "solution": "MAINLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Situated on a major route",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 40,
+       "note": "the lake-plus-popular letters are placed in the state's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "US state",
+       "at": 43,
+       "gives": "MAINE",
+       "note": "Maine is a New England state"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lake",
+         "at": 27,
+         "gives": "L",
+         "note": "L is the standard map abbreviation for lake"
+        },
+        {
+         "words": "popular",
+         "at": 32,
+         "gives": "IN",
+         "note": "in fashion or popular means in"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a lakeside property on a main road somewhere in America.",
+     "walkthrough": "'in' is the containment signal, while 'popular' gives IN by the common convention of being 'in' fashion.",
+     "definitionFit": "A main line is a principal railway route, so the compound word describes something lying on one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lake"
+    }
+   }
   },
   {
    "number": 9,
@@ -73,7 +200,41 @@
     "text": "50 had a meal, long delayed",
     "enumeration": "4"
    },
-   "solution": "LATE"
+   "solution": "LATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "long delayed",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "50",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      },
+      {
+       "words": "had a meal",
+       "at": 3,
+       "gives": "ATE",
+       "note": "ate is the past tense of eat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty people finally got their dinner after a long wait.",
+     "definitionFit": "Something long overdue or held up beyond its time is said to be late."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "50"
+    }
+   }
   },
   {
    "number": 10,
@@ -87,7 +248,40 @@
     "text": "Collide with small three-wheeler",
     "enumeration": "6"
    },
-   "solution": "STRIKE"
+   "solution": "STRIKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collide with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 13,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      },
+      {
+       "words": "three-wheeler",
+       "at": 19,
+       "gives": "TRIKE",
+       "note": "a trike is a tricycle, a three-wheeled cycle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor road accident involving a little tricycle.",
+     "definitionFit": "To strike something is to hit or crash into it, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -101,7 +295,59 @@
     "text": "Watches wife pocketing a yo-yo",
     "enumeration": "6"
    },
-   "solution": "SEESAW"
+   "solution": "SEESAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yo-yo",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pocketing",
+       "at": 13,
+       "note": "the watches-and-wife letters hold the a inside them like a pocket"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Watches",
+         "at": 0,
+         "gives": "SEES",
+         "note": "to watch is to see, so watches gives sees"
+        },
+        {
+         "words": "wife",
+         "at": 8,
+         "gives": "W",
+         "note": "W is the genealogical abbreviation for wife"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman stealing a child's toy while her husband looks on.",
+     "walkthrough": "'pocketing' puts A between SEES and W.",
+     "definitionFit": "Both verbs mean to swing back and forth between two positions, like a fluctuating price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "yo-yo"
+    }
+   }
   },
   {
    "number": 12,
@@ -115,7 +361,43 @@
     "text": "Point of land facing tornado? It's hard to say",
     "enumeration": "6-7"
    },
-   "solution": "TONGUETWISTER"
+   "solution": "TONGUETWISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's hard to say",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Point of land",
+       "at": 0,
+       "gives": "TONGUE",
+       "note": "a tongue is a narrow strip of land jutting into water"
+      },
+      {
+       "words": "tornado",
+       "at": 21,
+       "gives": "TWISTER",
+       "note": "twister is the American informal name for a tornado"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headland in the path of an approaching storm, with no telling what will happen.",
+     "walkthrough": "'It's hard to say' reads as a shrug of uncertainty but is the definition: a phrase difficult to pronounce.",
+     "definitionFit": "A phrase like 'red lorry, yellow lorry' is notoriously difficult to pronounce quickly; that is the whole point of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 16,
@@ -129,7 +411,48 @@
     "text": "Insect the Parisian found on crop plant",
     "enumeration": "6"
    },
-   "solution": "BEETLE"
+   "solution": "BEETLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found on",
+       "at": 20,
+       "note": "in an across clue, one piece placed on another means it follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crop plant",
+       "at": 29,
+       "gives": "BEET",
+       "note": "beet is a root crop grown for sugar or as beetroot"
+      },
+      {
+       "words": "the Parisian",
+       "at": 7,
+       "gives": "LE",
+       "note": "le is a French word for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French bug spotted on a farmer's crop.",
+     "walkthrough": "'found on' is the placement signal: in an across answer, a piece on another comes after it.",
+     "definitionFit": "A beetle is a kind of insect with hard wing cases, so the clue defines by category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -143,7 +466,56 @@
     "text": "Country, first in Scandinavia we study",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "at": 9,
+         "note": "only the opening letter of the next word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scandinavia",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "we",
+       "at": 30,
+       "gives": "WE"
+      },
+      {
+       "words": "study",
+       "at": 33,
+       "gives": "DEN",
+       "note": "a den is a private room for work or study"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student saying where they will go first on a Nordic study trip.",
+     "definitionFit": "Sweden is a nation of Scandinavia, an example of a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 19,
@@ -157,7 +529,39 @@
     "text": "Confront female expert",
     "enumeration": "4"
    },
-   "solution": "FACE"
+   "solution": "FACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confront",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "at": 9,
+       "gives": "F"
+      },
+      {
+       "words": "expert",
+       "at": 16,
+       "gives": "ACE",
+       "note": "an ace is a highly skilled person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to stand up to a woman who knows her stuff.",
+     "definitionFit": "To face a problem or person is to meet it head-on, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -171,7 +575,60 @@
     "text": "A racket, commotion, back where animals are slaughtered",
     "enumeration": "8"
    },
-   "solution": "ABATTOIR"
+   "solution": "ABATTOIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where animals are slaughtered",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "racket",
+       "at": 2,
+       "gives": "BAT",
+       "note": "a bat, as in table tennis, is a kind of racket"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 21,
+         "note": "the word for commotion is read from end to start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commotion",
+         "at": 10,
+         "gives": "RIOT",
+         "note": "a riot is a noisy disturbance"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy, chaotic scene at the rear of a slaughterhouse.",
+     "walkthrough": "'back' turns RIOT into TOIR. 'racket' looks like noise but is the bat.",
+     "definitionFit": "An abattoir is a slaughterhouse, the building where livestock is killed for meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 21,
@@ -185,7 +642,58 @@
     "text": "Intensive course, held initially in Notts town",
     "enumeration": "8"
    },
-   "solution": "WORKSHOP"
+   "solution": "WORKSHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intensive course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "that opening letter is placed inside the town's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Notts town",
+       "at": 36,
+       "gives": "WORKSOP",
+       "note": "Worksop is a market town in Nottinghamshire, an English county abbreviated Notts"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 23,
+         "note": "just the opening letter of the word held is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "held",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A training course run in a town in the English Midlands.",
+     "walkthrough": "'in' is the containment signal; Worksop is a market town in Nottinghamshire, the county shortened to Notts.",
+     "definitionFit": "A workshop is a short, concentrated training session on a particular subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -199,7 +707,42 @@
     "text": "Sounds like authentic Scottish dance",
     "enumeration": "4"
    },
-   "solution": "REEL"
+   "solution": "REEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scottish dance",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "REEL",
+     "indicators": [
+      {
+       "text": "Sounds like",
+       "at": 0,
+       "note": "says that the word for authentic is heard rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "authentic",
+       "at": 12,
+       "gives": "REAL",
+       "note": "something authentic is genuine or real"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genuine Highland dance, as opposed to an imitation.",
+     "definitionFit": "A reel is a lively traditional dance from Scotland, done in sets of couples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -213,7 +756,53 @@
     "text": "Listen to trombone at first, then organ",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "organ",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Listen to",
+       "at": 0,
+       "gives": "HEAR",
+       "note": "to listen to something is to hear it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 19,
+         "note": "only the opening letter of trombone is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trombone",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert programme: a trombone solo first, then an organ piece.",
+     "walkthrough": "'organ' looks musical, beside the trombone, but means the body part.",
+     "definitionFit": "The heart is a vital body organ that pumps blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 3,
@@ -227,7 +816,42 @@
     "text": "Successful run up to race",
     "enumeration": "7,6"
    },
-   "solution": "WINNINGSTREAK"
+   "solution": "WINNINGSTREAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Successful run",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "up",
+       "at": 15,
+       "gives": "WINNING",
+       "note": "a team that is up is ahead in the game, in front and on course to take it"
+      },
+      {
+       "words": "to race",
+       "at": 18,
+       "gives": "STREAK",
+       "note": "to streak is to move very fast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A good run of form leading up to a big race.",
+     "walkthrough": "'up' means ahead in a contest, as in two goals up.",
+     "definitionFit": "A series of consecutive victories is an unbroken successful run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -241,7 +865,39 @@
     "text": "Express a point of view in shop in Edinburgh",
     "enumeration": "5"
    },
-   "solution": "OPINE"
+   "solution": "OPINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Express a point of view",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the letters sit inside the following words, spanning their gaps"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shop in Edinburgh",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving one's opinion in a Scottish shop.",
+     "definitionFit": "To opine is to state an opinion, a somewhat formal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -255,7 +911,43 @@
     "text": "In fog, spotted cutter",
     "enumeration": "7"
    },
-   "solution": "FRETSAW"
+   "solution": "FRETSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cutter",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fog",
+       "at": 3,
+       "gives": "FRET",
+       "note": "fret is a sea mist or fog on the English north-east coast"
+      },
+      {
+       "words": "spotted",
+       "at": 8,
+       "gives": "SAW",
+       "note": "spotted in the sense of seen: saw"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glimpsing a boat through the mist.",
+     "walkthrough": "'cutter' suggests a boat in the fog but is a tool; 'spotted' is past tense, not dotted.",
+     "definitionFit": "A fretsaw is a fine saw for cutting curved shapes in wood, an example of a cutting tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cutter"
+    }
+   }
   },
   {
    "number": 6,
@@ -269,7 +961,28 @@
     "text": "Slide headlong",
     "enumeration": "6-7"
    },
-   "solution": "HELTERSKELTER"
+   "solution": "HELTERSKELTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slide",
+      "at": 0,
+      "meaning": "a tall spiral slide at a funfair, ridden down on a mat"
+     },
+     {
+      "text": "headlong",
+      "at": 6,
+      "meaning": "in disorderly haste, pell-mell"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The compound names both a fairground spiral chute and a confused rush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -283,7 +996,50 @@
     "text": "Artist above suspicion in fiercely competitive struggle",
     "enumeration": "3,4"
    },
-   "solution": "RATRACE"
+   "solution": "RATRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fiercely competitive struggle",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "above",
+       "at": 7,
+       "note": "in a down clue the first piece sits above the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Artist",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a member of the Royal Academy of Arts"
+      },
+      {
+       "words": "suspicion",
+       "at": 13,
+       "gives": "TRACE",
+       "note": "a suspicion of something is a slight trace of it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter of unblemished character caught up in a cut-throat contest.",
+     "walkthrough": "'above suspicion' reads as the idiom for blameless, but here means RA placed over TRACE.",
+     "definitionFit": "The rat race is the exhausting competitive scramble of modern working life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suspicion"
+    }
+   }
   },
   {
    "number": 10,
@@ -297,7 +1053,28 @@
     "text": "Established group",
     "enumeration": "3"
    },
-   "solution": "SET"
+   "solution": "SET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Established",
+      "at": 0,
+      "meaning": "fixed or settled"
+     },
+     {
+      "text": "group",
+      "at": 12,
+      "meaning": "a collection of things that belong together"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The short word means both fixed in place and a collection, such as a set of chairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -311,7 +1088,52 @@
     "text": "Seasoning used when cooking duck with orange, possibly",
     "enumeration": "7"
    },
-   "solution": "OREGANO"
+   "solution": "OREGANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seasoning",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "duck",
+       "at": 28,
+       "gives": "O",
+       "note": "a duck is a score of nothing in cricket, giving the zero-shaped O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cooking",
+         "at": 20,
+         "note": "cooking means something being concocted, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "orange",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herb added when preparing the classic dish duck a l'orange.",
+     "walkthrough": "'cooking' rearranges O plus ORANGE.",
+     "definitionFit": "Oregano is a herb of the mint family, an example of a seasoning used in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 14,
@@ -325,7 +1147,53 @@
     "text": "Rot seen in elm, primarily, and two other types of tree",
     "enumeration": "7"
    },
-   "solution": "EYEWASH"
+   "solution": "EYEWASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 17,
+         "note": "only the opening letter of elm is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "elm",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "two other types of tree",
+       "at": 32,
+       "gives": "YEWASH",
+       "note": "the yew and the ash are two common trees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Decay found in an elm tree and in two other species.",
+     "walkthrough": "'Rot' looks like tree decay, but is the definition meaning nonsense.",
+     "definitionFit": "Eyewash is informal for nonsense or humbug, as is rot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rot"
+    }
+   }
   },
   {
    "number": 15,
@@ -339,7 +1207,47 @@
     "text": "Ladder having step short",
     "enumeration": "3"
    },
-   "solution": "RUN"
+   "solution": "RUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ladder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "short",
+       "at": 19,
+       "note": "the word for step is cut by its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "step",
+       "at": 14,
+       "gives": "RUNG",
+       "note": "a rung is a step on a ladder"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ladder missing one of its steps.",
+     "walkthrough": "'Ladder' looks like the climbing tool but means a ladder in a stocking or tights.",
+     "definitionFit": "A ladder in tights is a line of unravelled stitches, also called a run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ladder"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1261,49 @@
     "text": "Inundate exchange handling millions",
     "enumeration": "5"
    },
-   "solution": "SWAMP"
+   "solution": "SWAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inundate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "handling",
+       "at": 18,
+       "note": "the word for exchange takes hold of the letter for millions, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exchange",
+       "at": 9,
+       "gives": "SWAP",
+       "note": "to exchange is to swap"
+      },
+      {
+       "words": "millions",
+       "at": 27,
+       "gives": "M",
+       "note": "M is the abbreviation for million"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial exchange dealing in vast sums and flooding the market.",
+     "walkthrough": "'handling' puts M between SWA and P.",
+     "definitionFit": "To swamp is to overwhelm or flood, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 18,
@@ -367,7 +1317,39 @@
     "text": "Best English, low in calories",
     "enumeration": "5"
    },
-   "solution": "ELITE"
+   "solution": "ELITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 5,
+       "gives": "E"
+      },
+      {
+       "words": "low in calories",
+       "at": 14,
+       "gives": "LITE",
+       "note": "lite is the marketing spelling for a low-calorie product"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a fine English diet food.",
+     "definitionFit": "The elite are the best or choicest members of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
