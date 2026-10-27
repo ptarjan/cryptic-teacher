@@ -303,6 +303,23 @@ check("not after the fix, nor for a misread ('sanotimonious'), nor another paper
       [f.old_formed({**_ofrow, "readAt": _after}),
        f.old_formed({**_ofrow, "verdicts": [{**_of, "blank": {"4-down": "'sanotimonious': not a word"}}]}),
        f.old_formed({**_ofrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a 1969-or-older Times page written unfiled for a stray letter, a letter-spaced word's ("l i t t l e"), is
+# due once (fa.LETTER_SPACED): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_ls = {"id": "times-9999994", "number": 9999994, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"9-down": "'l': a stray letter"}}
+_lsrow = {"edition": "GaleTimes1965UKEnglish/1965-04-09", "verdicts": [_ls], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a letter-spaced word's letter is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.LETTER_SPACED, 2, True, True, None, None, True],
+      [f.fix_reason(_lsrow), f.RANKS[f.LETTER_SPACED], eq.evidence_reason(f.LETTER_SPACED), f.LETTER_SPACED in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.LETTER_SPACED, "date": "1965-04-09"}),
+       eq.canary_failed({"paper": "times", "reason": f.LETTER_SPACED, "date": "1970-12-31"}),
+       f.spaced_blank("'e,': a stray letter")])
+check("not after the fix, nor for 'a' or a capital, nor after the spaced years, nor another paper", [False] * 5,
+      [f.spaced_worded({**_lsrow, "readAt": _after}),
+       f.spaced_worded({**_lsrow, "verdicts": [{**_ls, "blank": {"9-down": "'a': a stray letter"}}]}),
+       f.spaced_worded({**_lsrow, "verdicts": [{**_ls, "blank": {"9-down": "'X': a stray letter"}}]}),
+       f.spaced_worded({**_lsrow, "edition": "GaleTimes1991UKEnglish/1991-02-15"}),
+       f.spaced_worded({**_lsrow, "edition": "FinancialTimes1960UKEnglish/1960-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

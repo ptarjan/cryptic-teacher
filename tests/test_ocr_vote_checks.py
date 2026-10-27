@@ -1204,6 +1204,26 @@ check("suspect: a known word's old or spoken form stands ('loveth\"', 'smilest',
        oc.suspect("punctuated dottily"), oc.suspect("incomprehensibly in the soup"),
        oc.suspect("Huntin' shootin' and fishin' bore,"), oc.suspect("a sanotimonious beast"),
        oc.suspect("a fightin man"), oc.suspect("öboth")])
+check("unstrayed: a letter-spaced word of emphasis is closed up ('l i t t l e', \"W o r d s w o r t h ' s\", "
+      "\"O m a r's\", 'de p a rt e d', 'S e l f - propelled'); a speck or a word misread is still flagged",
+      ["There's little among the guns", "Wordsworth's standard of loneliness", "Omar's chest (anag.)",
+       "Ornithological departed spirits?", "Self-propelled vehicle", '"Nobly, nobly Cape St. Vincent',
+       'embodied in " I remember, I remember"', "Madame D'Arblay's character", "County people"],
+      [oc.unstrayed(t, []) for t in ("There's l i t t l e among the guns", "W o r d s w o r t h ' s standard of loneliness",
+                                     "O m a r's chest (anag.)", "Ornithological de p a rt e d spirits?",
+                                     "S e l f - propelled vehicle", '"N o b l y, nobly Cape St. Vincent',
+                                     'embodied in " I r e m e m b e r, I remember"', "M a d a m e D'Arblay's character",
+                                     "C o u n t y people")])
+check("strays: letter-spaced emphasis passes; a speck ('study o gambling', 'to r tate'), spaced capitals "
+      "(a grid's letters), a run that spells two words ('t ho u g h t') and a dictionary-less join ('u p th e') do not",
+      [[], [("o", "a stray letter")], [("r", "a stray letter")], [],
+       [(t, "a stray letter") for t in "tught"], [(t, "a stray letter") for t in "upe"]],
+      [oc.stray("C o u n t y people"), oc.stray("a dramatic study o gambling"), oc.stray("has to r tate no end"),
+       oc.spaced_runs("B A R B E C U E S".split()), oc.stray("Long, t ho u g h t father ?"),
+       oc.stray("nothing to do u p th e country")])
+check("spaced_runs: a stretch that spells a word two ways ('A light-weight' / 'Alight-weight') is left alone",
+      [[], [(1, 7, "little")]],
+      [oc.spaced_runs("A l i g h t - w e i g h t beast".split()), oc.spaced_runs("in l i t t l e time".split())])
 
 # Times asPrinted: readers sharing a detector share misreads, so only a word
 # every reading (three or more) spells alike, no one letter from a known
