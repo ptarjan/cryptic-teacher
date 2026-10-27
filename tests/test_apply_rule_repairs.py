@@ -118,4 +118,29 @@ msg = mend("[Perfect]HONEY + rev<brought about>([team]PARTY)", "Perfect team bro
 check("doesNotGive: a letter doubled at the join is named, not mended", msg.startswith("REFUSED") and "one letter too many" in msg and "extra Y" in msg)
 msg = mend("[Question]Q + [concerned with]IN + [church]CE", "Question concerned with church", "QUINCE")
 check("doesNotGive: a letter missing at the join is named, not mended", "one letter short of QUINCE: U is missing at letter 2" in msg)
+# doesNotGive residue, 10-27 audit (123 distinct refusals left after the earlier mends; 33 were one edit from the answer)
+check("doesNotGive: a container that is really a charade (ADRIFT is AD + RIFT) is mended, its container word dropped",
+      mend("ins<in>([marketing industry]AD, [dispute]RIFT)", "Marketing industry in dispute", "ADRIFT")
+      == "[Marketing industry]AD + [dispute]RIFT")
+check("doesNotGive: that charade is spliced flat into the charade it sits in, in the order the answer needs",
+      mend("[Popular]IN + ins<entertaining>([turn]ACT, [former partner]EX)", "Popular entertaining turn former partner", "INEXACT")
+      == "[Popular]IN + [former partner]EX + [turn]ACT")
+check("doesNotGive: a charade piece that sits outside the container is pulled out of it (MALBEC is ME round ALB, then C)",
+      mend("ins<keeping>([Kairos]ME, [robe]ALB + [cape]C)", "Kairos keeping robe cape", "MALBEC")
+      == "ins<keeping>([Kairos]ME, [robe]ALB) + [cape]C")
+check("doesNotGive: a two-piece charade with an indicator of its own is put in the order the answer needs",
+      mend("[Reason]MOTIVE +<to support> [European]E", "Reason to support European", "EMOTIVE")
+      == "[European]E +<to support> [Reason]MOTIVE")
+check("doesNotGive: a leaf under rev() already filed reversed is turned round",
+      mend("ins<in><packaging>([new]RECENT, rev<returned>([it's]TI))", "in packaging new returned it's", "RETICENT")
+      .endswith("rev<returned>([it's]IT))"))
+check("doesNotGive: a container no single edit fixes (LIT round M is not LIMIT) stays refused, naming the lengths",
+      mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT").startswith("REFUSED")
+      and "4 letters against 5" in mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT"))
+check("doesNotGive: a hidden word reads & as AND ('Accident & Emergency' hides TANDEM)",
+      mend("hid<in>([Accident & Emergency])", "Accident & Emergency in vehicle for two", "TANDEM") == "hid<in>([Accident & Emergency])")
+msg = mend("ins<occupying>([previous]LATE, [Military leader]CO)", "Previous occupying Military leader", "LOCATE")
+check("doesNotGive: a container that needs one argument reversed says which", "only with [Military leader]CO read backwards" in msg)
+msg = mend("rep<three times>(first<at first>([club], [held], [annually]))", "club held annually three times", "CHACHACHA")
+check("doesNotGive: rep() doubles, so three copies are named as piece + rep(piece)", "never three times" in msg)
 sys.exit(1 if fails else 0)
