@@ -7516,7 +7516,11 @@ def shape_warnings(tag, ann, clue=None, answer=None):
         out.append(f"{tag}: {k} {REPEATED_SELECTION}: one selection over a multi-word leaf")
     if single_leaf(tree):
         out.append(f"{tag}: {SINGLE_LEAF}: a synonym for the answer is no wordplay; parse it, "
-                   f"or it is a cryptic or double definition")
+                   f"or it is a cryptic or double definition. Write exactly one: (1) a mechanism: the clue words that "
+                   f"are not the definition split into pieces (charade/ins/ana/hid/rev...), each piece "
+                   f"a leaf with its own clue words; (2) a double definition: two `def`s covering "
+                   f"the whole clue and NO `wp`; (3) a cryptic definition: one `def` over the whole "
+                   f"clue and NO `wp`")
     if k := bare_in_charade(tree, ann):
         out.append(f"{tag}: {k} {BARE_IN_CHARADE}: put the clue word that supplies them in a leaf")
     if k := anagram_of_container(tree):
