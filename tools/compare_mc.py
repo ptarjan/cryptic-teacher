@@ -92,10 +92,10 @@ def def_place(clue, d):
     if not before and not after:
         return " — which is the whole clue, and that is what makes this one unusual."
     if not before:
-        return f", so the clue opens with it and \"{after}\" is the wordplay."
+        return ", so the clue opens with it and the rest is wordplay."
     if not after:
-        return f", right at the end — so \"{before}\" is the wordplay."
-    return f", sitting mid-clue, so the wordplay is \"{before}\" and \"{after}\" either side of it."
+        return ", right at the end, so everything before it is wordplay."
+    return ", sitting mid-clue, with wordplay either side of it."
 
 
 def _whole_word(s):
