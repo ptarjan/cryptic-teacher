@@ -1191,6 +1191,11 @@ check("a stop before a lone 'a' is the words' space, not closed up ('fora')", "f
       oc.agree("for\u00b7a child", [["#", "for", "a", "child", "#"]] * 2)[0])
 check("suspect: a stop glued before a capitalised word is a speck ('by.Churchill'), not initials",
       ([("by.Churchill", "a stray mark inside a word")], []), (oc.suspect("by.Churchill"), oc.suspect("J.R.R. Tolkien")))
+check("suspect: the print's close-set dash between words stands, each word judged on its own; a dash inside one "
+      "word ('some—thing') is still a stray mark",
+      [[], [], [], [("wtih", "not a word")], [("some—thing", "a stray mark inside a word")]],
+      [oc.suspect("Beat,—with a shaving brush?"), oc.suspect('Bull-dog run"—quite'), oc.suspect("It's--hard to be"),
+       oc.suspect("Beat,—wtih"), oc.suspect("some—thing")])
 
 # Times asPrinted: readers sharing a detector share misreads, so only a word
 # every reading (three or more) spells alike, no one letter from a known

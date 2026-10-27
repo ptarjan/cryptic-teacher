@@ -4007,6 +4007,27 @@ PRINT_OWN = re.compile(r"(?:[A-Za-z]{1,3}\.?-)+[A-Za-z]{1,3}\.|[A-Za-z]+-o['’]
                        r"|[A-Z]+(?:[—–]{1,2}[A-Z]+)+|\d+(?:cwt|lbs?|oz|yds?|mph|kg|mm|cm|km)\.?")
 #: Abbreviations the lexicon lacks that a clue prints ("Mer. of Ven.", "Ven. Bede", "jnr.").
 UNLEXICONED_ABBREVS = {"ven", "jnr", "snr"}
+#: A dash the print sets close up between two words, after a word's own stop
+#: or quote ("Beat,—with", 'cow"—did', "It's--hard", "no---I'd"): an em or en
+#: dash, or two or three hyphens. The 1940s-70s Times prints ",—" so; the VLM
+#: reads those pages' clues alike ("Terrier,—or bull-dog? (4,5)").
+DASH_JOIN = re.compile(r"(?<=[A-Za-z.,;:?!)\"'”’])(?:[—–]{1,2}|-{2,3})(?=[\"'(“‘]?[A-Za-z])")
+
+
+def dash_parted(raws, keep=()):
+    """The tokens `raws` with each one DASH_JOIN joins cut at its dashes, so
+    suspect() judges each word on its own ("Beat,—with" is "Beat," and
+    "with"). A dash that joins what reads as one word ("some—thing") is a
+    reader's hyphen and stays, for MARK_IN_WORD to judge, as does a token in
+    `keep` (suspect's `printed`)."""
+    out = []
+    for raw in raws:
+        parts = [] if raw in keep else DASH_JOIN.split(raw)
+        if len(parts) > 1 and not known(plain("".join(re.sub(r"[^A-Za-z]", "", p) for p in parts)).lower()):
+            out += [p for p in parts if p]
+        else:
+            out.append(raw)
+    return out
 
 
 def aitch_dropped(raw, p):
@@ -4023,7 +4044,7 @@ def suspect(text, vouched=(), printed=()):
     stand though the lexicon lacks them (a rare word, a name); `printed`
     holds tokens of the text the clue's `asPrinted` keeps (printed_alike)."""
     out = []
-    for raw in (text or "").split():
+    for raw in dash_parted((text or "").split(), printed):
         s = raw.strip(EDGE)
         if not s or raw in printed or PRINT_OWN.fullmatch(raw.rstrip(",;:)\"'”")):
             continue

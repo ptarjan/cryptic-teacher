@@ -9983,6 +9983,51 @@ def unfiled_modern(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled
+#: with a clue blanked as "a stray mark inside a word" that was the print's close-set dash: "Beat,—with",
+#: 'cow"—did', "It's--hard" (ocr_clues.DASH_JOIN; suspect() now judges the words either side). 10-27:
+#: of the 775 never-filed Times side copies (CROPS/unfiled) with one blank clue, 45 had such a blank (8 of
+#: them with every answer); of the 125 such tokens in the ledger, the VLM's own reading printed 65 alike
+#: and none otherwise (the rest never asked). Its own reason, not "unfiled before its fix": CANARY_FAILED
+#: holds that one for the Times. Once each; only verdicts whose blank token now passes suspect().
+DASH_JOINED = "unfiled before its fix, a close-set dash"
+REREAD_DASH_JOINED = "2026-10-27T14:45:00+00:00"
+
+
+def dash_joined(row):
+    """Whether Times ledger `row`, read before REREAD_DASH_JOINED, wrote a puzzle unfiled (a verdict
+    with an "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) one of whose
+    blank clues was "a stray mark inside a word" on a token ocr_clues.DASH_JOIN joins and suspect()
+    now passes."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_DASH_JOINED)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any(dash_blank(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+def dash_blank(why):
+    """Whether blank reason `why` ("'Beat,—with': a stray mark inside a word") names a token the
+    print's close-set dash joins (ocr_clues.DASH_JOIN) that suspect() now passes."""
+    m = re.fullmatch(r"(['\"].*['\"]): a stray mark inside a word", str(why or ""))
+    if not m:
+        return False
+    try:
+        token = ast.literal_eval(m.group(1))
+    except (ValueError, SyntaxError):
+        return False
+    return isinstance(token, str) and bool(ocr_clues.DASH_JOIN.search(token)) and not ocr_clues.suspect(token)
+
+
 def unfiled_blank(row):
     """[(puzzle id, blank clues)] of the puzzles of ledger `row` its read wrote
     unfiled (not complete, written, its file in CROPS/unfiled), else []. The count is
@@ -12315,6 +12360,9 @@ def fix_reason(row):
         return "short Times page, its third clue column read since"
     if right_foreign_held(row):
         return RIGHT_FOREIGN_READ
+    # Ahead of "unfiled before its fix", which CANARY_FAILED holds for the Times.
+    if dash_joined(row):
+        return DASH_JOINED
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -12940,7 +12988,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -13261,7 +13309,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    "date": day_of(d), "needs": needs(d), "force": reads[d] == "annotation asked",
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
-                      if reads[d] in ("unfiled before its fix", UNFILED_MODERN) else {}),
+                      if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
