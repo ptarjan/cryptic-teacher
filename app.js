@@ -4260,24 +4260,14 @@
     const key = "free|" + entryKey(e);
     if (!ringShelf.free || ringShelf.free.key !== key) ringShelf.free = { key, letters: [], forbidden: [], order: [], struck: {} };
     ring = ringShelf.free;
-    return ringDraw(ann, key) + ringWordChips(e) + (ring.letters.length ? ""
+    return ringDraw(ann, key) + (ring.letters.length ? ""
       : `<p class="muted">Type the letters you think are the anagram.</p>`);
   }
 
-  // The clue's own words under the free wheel: tap one to add its letters to
-  // the ring, tap it again to take them out. A word that is in the ring is
-  // drawn filled, so the chip row reads as which words the ring is made of.
-  function clueWords(e) {
-    return clueText(e).split(/\s+/).map((w) => w.replace(/[^A-Za-z]/g, "")).map((w, i) => [w, i]).filter((p) => p[0]);
-  }
-
-  function ringWordChips(e) {
-    const words = clueWords(e);
-    if (!words.length) return "";
-    const inRing = ring.words || {};
-    return `<div class="ana-words">${words.map(([w, i]) =>
-      `<button type="button" class="ana-word${inRing[i] ? " on" : ""}" data-aw="${i}" aria-pressed="${inRing[i] ? "true" : "false"}">${esc(w)}</button>`).join("")}</div>`;
-  }
+  // The clue's own words, already on screen in #hint-clue, are the wheel's
+  // picker (pickableClueHTML draws them as buttons while it is open): tap one
+  // to add its letters to the ring, tap it again to take them out. A word in
+  // the ring is drawn selected, keyed by its token index in the clue.
 
   // Add or remove a whole clue word. Removing drops that word's tiles and
   // renumbers the rest, since struck marks and the draw order are by position.
@@ -5692,7 +5682,7 @@
   // starting to tap it would reflow the whole line under the solver's eye.
   // The box is always there; only its border's colour and its element's
   // interactivity change with the state.
-  function pickableClueHTML(e, ask, picked, rung) {
+  function pickableClueHTML(e, ask, picked, rung, wheel) {
     const marks = clueMarks(e);
     const italics = italicsOf(e);
     // markUp clips its own cut points to the slice and asks only whether a range
@@ -5708,8 +5698,13 @@
     tokens.forEach((t, i) => {
       const settled = ask && ask.known.indexOf(i) >= 0;
       const inner = slice(t.i, t.i + t.text.length);
+      // While the free wheel is open the resting clue's words are its picker:
+      // a word in the ring is drawn selected (.on), a tap toggles it.
+      const lit = wheel && wheel[i] ? " on" : "";
       out += slice(at, t.i) + (!ask
-        ? `<span class="gw still">${inner}</span>`
+        ? (wheel && t.text.replace(/[^A-Za-z]/g, "")
+          ? `<button type="button" class="gw still${lit}" data-aw="${i}" aria-pressed="${lit ? "true" : "false"}">${inner}</button>`
+          : `<span class="gw still">${inner}</span>`)
         : settled
         ? `<span class="gw known">${inner}</span>`
         : `<button type="button" id="gw-${i}" class="gw${
@@ -6717,7 +6712,7 @@
     // border round each word.
     clueLine += tapping
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
-      : pickableClueHTML(holder, null, [], null);
+      : pickableClueHTML(holder, null, [], null, wheelOpen && holder === e ? (ring.words || {}) : null);
     // The marks fade in, which is an arrival: it must play when a mark arrives
     // and at no other time. Picking words rewrites the clue too — the picked
     // word's class is in the markup — so every <mark> comes back as a new element
@@ -6934,13 +6929,14 @@
         }
       };
     });
-    panel.querySelectorAll("button.ana-word").forEach((b) => {
+    $("hint-clue").querySelectorAll("button.gw[data-aw]").forEach((b) => {
       b.onmousedown = keepFocus;
       b.onclick = () => {
         // The word comes from the clue itself, not read back out of the DOM.
         const cur = currentEntry();
-        const hit = cur && clueWords(cur).find((p) => String(p[1]) === b.getAttribute("data-aw"));
-        if (hit) toggleRingWord(String(hit[1]), hit[0].toUpperCase());
+        const t = cur && tokensOfClue(cur)[Number(b.getAttribute("data-aw"))];
+        const w = t && t.text.replace(/[^A-Za-z]/g, "");
+        if (w) toggleRingWord(b.getAttribute("data-aw"), w.toUpperCase());
       };
     });
     const shuffle = document.getElementById("ana-shuffle");
