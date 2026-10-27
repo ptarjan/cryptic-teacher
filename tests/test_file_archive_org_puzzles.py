@@ -1235,9 +1235,9 @@ check("a held file short whose solution the same day's other scan links too, rea
 f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 0
 real_sn = f.strip_near
-f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: True
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: True
 nw_due = [f.short_again(vu_row("2026-10-26T11:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
-f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: False
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: False
 nw_due.append(f.short_again(vu_row("2026-10-26T11:30:00+00:00")))
 f.strip_near = real_sn
 f.held_blanks = real_hb
@@ -1254,7 +1254,7 @@ check("a held file short whose blank light's cached VLM reply mends to one liste
 f.filed_state = lambda series, n: (False, True)
 f.held_blanks = lambda series, n, sol_dir: 0
 real_sn, real_hw = f.strip_near, f.held_wordplay
-f.strip_near = lambda series, n, sol_dir, swap=False, defined=False: False
+f.strip_near = lambda series, n, sol_dir, swap=False, defined=False, **kw: False
 f.held_wordplay = lambda series, n, sol_dir, defined=False: True
 wp_due = [f.short_again(vu_row("2026-10-26T12:30:00+00:00")), f.short_again(vu_row("2026-10-27T12:00:00+00:00"))]
 f.held_wordplay = lambda series, n, sol_dir, defined=False: False
@@ -1437,9 +1437,9 @@ check("a held file short whose VLM name its checks dropped as a misread, read be
 f.filed_state = lambda series, n: (False, True)
 real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
 f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
-f.near_short = lambda row, paper, swap=False, defined=False, named=False: named
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: named
 nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
-f.near_short = lambda row, paper, swap=False, defined=False, named=False: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: False
 nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
 f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
 f.filed_state = real_fs
@@ -1449,6 +1449,24 @@ check("a held file short whose blank light's cached VLM name a surname alone lie
       nr_due + [f.RANKS[f.NAME_RIVALS], f.NAME_RIVALS in f.SOLUTION_FIXES, f.NAME_RIVALS.startswith("solution short"),
                 f.NAME_RIVALS in __import__("edition_queue").LOW_ASK, f.NAME_RIVALS in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.NAME_RIVALS)])
+# ARGMAX_SHORT: a row read before REREAD_ARGMAX_SHORT whose blank light's cached VLM reply argmax_word alone takes
+# (near_short with argmax), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: argmax
+am_due = [f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False, argmax=False: False
+am_due.append(f.short_again(vu_row("2026-10-27T05:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM reply is one letter under the floor off the classifier's sure "
+      "word, read before REREAD_ARGMAX_SHORT: ARGMAX_SHORT (rank 2, answers-only, evidence, LOW, a fix landed); read "
+      "since, or none so: not",
+      [f.ARGMAX_SHORT, None, None, 2, True, True, True, True, True],
+      am_due + [f.RANKS[f.ARGMAX_SHORT], f.ARGMAX_SHORT in f.SOLUTION_FIXES, f.ARGMAX_SHORT.startswith("solution short"),
+                f.ARGMAX_SHORT in __import__("edition_queue").LOW_ASK, f.ARGMAX_SHORT in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.ARGMAX_SHORT)])
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
@@ -4110,6 +4128,23 @@ check("...nor for a surname alone one open letter off (CORUNNA, cmudict's CORINN
       (f.vlm_word("CORUNNA", "C?R?N?A", [7], [cell_p(c) for c in "CORUNNA"], "7"),
        f.vlm_word("TINEE", "T?N?E", [5], [cell_p(c) for c in "TINEE"], "5"),
        f.rival_away("CORUNNA", "C?R?N?A", "7", names=False), f.rival_away("CORUNNA", "C?R?N?A", "7")))
+def cell_two(ch, p, other, q):
+    v = [(1 - p - q) / 24] * 26
+    v[tso.AZ.index(ch)], v[tso.AZ.index(other)] = p, q
+    return v
+check("a VLM reply no list holds, one open letter off the classifier's word where the VLM's letter is under the "
+      "floor and the classifier's 0.6+, stands as the classifier's word: a name (ASCHEM, ASCHAM) or one listed word "
+      "among several (BONALD: DONALD, not RONALD)", ("ASCHAM", "DONALD"),
+      (f.vlm_word("ASCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6"),
+       f.vlm_word("BONALD", "?O?A?D", [6], [cell_p(c) for c in "DONALD"], "6")))
+check("...not for a listed reply (CAMEL over CAMES), the VLM's letter at 0.01+ (HERTFORD), the classifier's under "
+      "ARGMAX_TOP, a misread (TIRIA for TIBIA), nor a reply two letters off", (None, None, None, None, None),
+      (f.argmax_word("CAMEL", "C?M??", [5], [cell_p(c) for c in "CAMES"], "5"),
+       f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_two(c, 0.9, "E", 0.02) if i == 4 else cell_p(c)
+                                                for i, c in enumerate("ASCHAM")], "6"),
+       f.argmax_word("ASCHEM", "?S?H?M", [6], [cell_p(c, 0.5 if i == 4 else 0.9) for i, c in enumerate("ASCHAM")], "6"),
+       f.argmax_word("TIRRA", "T?R?A", [5], [cell_p(c) for c in "TIRIA"], "5"),
+       f.argmax_word("ESCHEM", "?S?H?M", [6], [cell_p(c) for c in "ASCHAM"], "6")))
 check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.38)", None,
       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c, 0.38 if i == 6 else 0.9) for i, c in enumerate("PERSHORE")], "8"))
 check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
