@@ -4207,6 +4207,34 @@ def old_form(word):
     return any(w.endswith(end) and len(w) - len(end) >= 3 and known(w[:-len(end)] + put) for end, put in ADVERB_FORMS)
 
 
+#: The doer or the doing of a known "-ise"/"-ize" verb ("immortaliser", "characterizer",
+#: "collectivization", "industrialization"), and "-ically" on a lexicon noun
+#: ("encephalographically", "cymbalically"): real print the lexicon lacks. The
+#: verb must be known whole, so "vertiser" ("vert" + "ise") and "advertizer"
+#: still refuse; a bare "-er" is left out, as formed() leaves it ("scater").
+AGENT_FORMS = (("iser", "ise"), ("isers", "ise"), ("izer", "ize"), ("izers", "ize"), ("isation", "ise"),
+               ("isations", "ise"), ("ization", "ize"), ("izations", "ize"))
+NOUN_ADVERB = "ically"
+#: The fewest letters before a derived_form() ending.
+DERIVED_STEM = 4
+
+
+def derived_form(word):
+    """Whether `word` (plain, any case) is the doer or the doing of a known
+    "-ise"/"-ize" verb (AGENT_FORMS: "immortaliser", "collectivization") or a
+    lexicon noun's "-ically" adverb ("encephalographically"), the stem
+    DERIVED_STEM letters at least. Across the VLM corpus's clue readings, the
+    tokens suspect() refused as "not a word" that this passes the VLM prints
+    alike, none otherwise; only suspect() takes these, not formed()'s vote."""
+    w = word.lower()
+    if not w.isalpha():
+        return False
+    if any(w.endswith(end) and len(w) - len(end) >= DERIVED_STEM and known(w[:-len(end)] + put)
+           for end, put in AGENT_FORMS):
+        return True
+    return w.endswith(NOUN_ADVERB) and len(w) - len(NOUN_ADVERB) >= DERIVED_STEM and is_word(w[:-len(NOUN_ADVERB)])
+
+
 def gee_dropped(raw, p):
     """Whether token `raw` ends (past its closing marks) in piece `p` and the
     apostrophe of a dropped g, the known word's "-ing" ("fishin'", "workin',",
@@ -4272,8 +4300,8 @@ def suspect(text, vouched=(), printed=()):
             if known(flat) or formed(plain(p).lower()) or any(
                     known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
                 continue  # a ligature is its word's ("mediæval")
-            if old_form(flat) or gee_dropped(raw, p.strip("'")):
-                continue  # "loveth", "smilest", "dottily"; "fishin'"
+            if old_form(flat) or gee_dropped(raw, p.strip("'")) or derived_form(flat):
+                continue  # "loveth", "smilest", "dottily"; "fishin'"; "immortaliser"
             if flat.isupper() and len(flat) <= 4 or flat.lower() in UNLEXICONED_ABBREVS:
                 continue  # an abbreviation: "RN", "TUC", "Ven."
             if flat[0].islower():

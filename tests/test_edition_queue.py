@@ -338,6 +338,24 @@ check("not after the fix, nor for a name that lost its accent ('Mnchen'), nor a 
        f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Mnchen': a letter lost from a name"}}]}),
        f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Murat': a word misread as a name"}}]}),
        f.cluster_named({**_ncrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a derived word the lexicon lacks ("immortaliser") read as no word is due
+# once (fa.DERIVED_FORM), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_df = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"28-across": "'immortaliser': not a word"}}
+_dfrow = {"edition": "GaleTimes1991UKEnglish/1991-07-17", "verdicts": [_df], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a derived word is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.DERIVED_FORM, 2, True, True, True, None, None, True],
+      [f.fix_reason(_dfrow), f.RANKS[f.DERIVED_FORM], eq.evidence_reason(f.DERIVED_FORM), f.DERIVED_FORM in eq.FIX_LANDED,
+       f.DERIVED_FORM in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DERIVED_FORM, "date": "1991-07-17"}),
+       eq.canary_failed({"paper": "times", "reason": f.DERIVED_FORM, "date": "1984-12-31"}),
+       f.derived_blank("'collectivization': not a word")])
+check("not after the fix, nor for a verb unknown whole ('vertiser'), nor an old form's reason, nor another paper",
+      [False] * 4,
+      [f.derived_formed({**_dfrow, "readAt": _after}),
+       f.derived_formed({**_dfrow, "verdicts": [{**_df, "blank": {"28-across": "'vertiser': not a word"}}]}),
+       f.old_formed(_dfrow),
+       f.derived_formed({**_dfrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

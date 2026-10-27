@@ -1231,6 +1231,12 @@ check("suspect: a Mc or Mac surname ('McTavish', 'McNeile', 'MacGregor') and 'Me
       [oc.suspect("the clan McTavish"), oc.suspect("McNeile among them"), oc.suspect("MacGregor says"),
        oc.suspect("Messrs. Gog and Magog"), oc.suspect("met in Mnchen"), oc.suspect("the McKrlea clan"),
        oc.suspect("Murat upset by convulsion")])
+check("suspect: a known -ise/-ize verb's doer or doing ('immortaliser', 'collectivization') and a noun's -ically "
+      "('encephalographically') stand; a verb unknown whole ('vertiser', 'advertizer') and a bare -er ('starver') do not",
+      [[], [], [], [("vertiser", "not a word")], [("advertizer", "not a word")], [("starver", "not a word")]],
+      [oc.suspect("Helen's immortaliser"), oc.suspect("Busy with collectivization?"),
+       oc.suspect("Idea recorded encephalographically"), oc.suspect("a vertiser"), oc.suspect("an advertizer"),
+       oc.suspect("a starver")])
 
 # Times asPrinted: readers sharing a detector share misreads, so only a word
 # every reading (three or more) spells alike, no one letter from a known
