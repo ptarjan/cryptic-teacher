@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,60 @@
     "text": "Keep mum at home? Isn't to be kept in",
     "enumeration": "8"
    },
-   "solution": "MAINTAIN"
+   "solution": "MAINTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to be kept in",
+         "at": 24,
+         "note": "to be kept in says the contraction is held inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mum",
+         "at": 5,
+         "gives": "MA",
+         "note": "mum is a mother, informally MA"
+        },
+        {
+         "words": "Isn't",
+         "at": 18,
+         "gives": "AINT",
+         "note": "the colloquial contraction ain't stands for isn't"
+        }
+       ]
+      },
+      {
+       "words": "at home",
+       "at": 9,
+       "gives": "IN",
+       "note": "at home is IN, as in 'staying in'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether a mother should stay at home and keep the children indoors.",
+     "walkthrough": "AIN'T is colloquial for isn't; it sits after the M of MAIN.",
+     "definitionFit": "To maintain something is to preserve or keep it going, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +100,75 @@
     "text": "Lady needing end of wall hidden has installed screen, as recommended",
     "enumeration": "8"
    },
-   "solution": "ADVISORY"
+   "solution": "ADVISORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as recommended",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has installed",
+       "at": 32,
+       "note": "has installed says the screen is fitted inside what is left of Lady"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hidden",
+         "at": 25,
+         "note": "hidden says that letter is put out of sight, removed from the word Lady"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lady",
+         "at": 0
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 13,
+           "note": "end of picks the final letter of the word wall"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wall",
+           "at": 20
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "screen",
+       "at": 46,
+       "gives": "VISOR",
+       "note": "a visor is a screen shading the eyes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with a wall partly obscured puts up a screen, following advice.",
+     "walkthrough": "'hidden' looks like a hidden-word signal, but here it removes the last letter of 'wall' from Lady.",
+     "definitionFit": "Advisory means giving recommendations rather than binding orders, so it describes what is done as recommended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +188,31 @@
      }
     ]
    },
-   "solution": "OFFLINE"
+   "solution": "OFFLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not connected",
+      "at": 0,
+      "meaning": "not linked to a network or the internet"
+     },
+     {
+      "text": "like the one that got away?",
+      "at": 15,
+      "meaning": "the angler's lost fish slipped free of the fishing line"
+     }
+    ],
+    "explanation": {
+     "surface": "An angler's rueful remark about the lost fish, linked to being cut off.",
+     "definitionFit": "Offline means disconnected from a network, and literally describes a fish no longer hooked on the line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "connected"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +226,42 @@
     "text": "Instrument in my bag",
     "enumeration": "6"
    },
-   "solution": "CORNET"
+   "solution": "CORNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "my",
+       "at": 14,
+       "gives": "COR",
+       "note": "cor is a British exclamation of surprise, like 'my!'"
+      },
+      {
+       "words": "bag",
+       "at": 17,
+       "gives": "NET",
+       "note": "to net is to catch or bag"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they keep a musical instrument in their bag.",
+     "walkthrough": "'my' is an exclamation here, not a possessive: COR is British slang for 'gosh' or 'my!'.",
+     "definitionFit": "A cornet is a brass instrument similar to a trumpet, an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +275,41 @@
     "text": "Pet that may be on lead in front — gosh!",
     "enumeration": "6"
    },
-   "solution": "BOWWOW"
+   "solution": "BOWWOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pet that may be on lead",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "front",
+       "at": 27,
+       "gives": "BOW",
+       "note": "the bow is the front of a ship"
+      },
+      {
+       "words": "gosh",
+       "at": 35,
+       "gives": "WOW",
+       "note": "wow and gosh are both exclamations of surprise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog walked on a lead out front prompts an exclamation of surprise.",
+     "definitionFit": "Bow-wow is childish language for a dog, a pet that is walked on a leash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +333,31 @@
      }
     ]
    },
-   "solution": "GUARDOFHONOUR"
+   "solution": "GUARDOFHONOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group of soldiers",
+      "at": 0,
+      "meaning": "a ceremonial body of troops lining a route for a dignitary"
+     },
+     {
+      "text": "that may protect judge in fiery situation?",
+      "at": 18,
+      "meaning": "a fireguard protects against flames, and a judge is addressed as 'Your Honour', so this guard would shield His Honour"
+     }
+    ],
+    "explanation": {
+     "surface": "Soldiers who might shield a judge caught in a fire.",
+     "definitionFit": "A ceremonial escort of troops honouring a dignitary; read literally, a screen protecting a judge addressed by that title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +371,45 @@
     "text": "Merry and deranged drunk gets manipulated politically",
     "enumeration": "13"
    },
-   "solution": "GERRYMANDERED"
+   "solution": "GERRYMANDERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "manipulated politically",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 19,
+       "note": "drunk suggests the letters reel about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Merry",
+       "at": 0
+      },
+      {
+       "words": "deranged",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful, unhinged drunk is being used by politicians.",
+     "walkthrough": "'drunk' rearranges MERRY and DERANGED together; 'and' and 'gets' only link.",
+     "definitionFit": "Gerrymandering is redrawing electoral boundaries for party advantage, a form of political manipulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deranged"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +429,35 @@
      }
     ]
    },
-   "solution": "RIVERTERRACES"
+   "solution": "RIVERTERRACES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rows after areas have dried up due to climate change?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Rows after areas have dried up due to climate change?",
+       "at": 0,
+       "note": "terraces are rows, and these are the step-like banks left beside a watercourse whose flow has shrunk or cut down over time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rows of something appearing after drought caused by a changing climate.",
+     "definitionFit": "Geological benches left above a valley floor when a stream's former level falls, often linked to past climatic shifts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rows"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +471,47 @@
     "text": "British character of old sent to India or another country",
     "enumeration": "6"
    },
-   "solution": "BRUNEI"
+   "solution": "BRUNEI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another country",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "words": "character of old",
+       "at": 8,
+       "gives": "RUNE",
+       "note": "a rune is a letter of an ancient Germanic alphabet"
+      },
+      {
+       "words": "India",
+       "at": 33,
+       "gives": "I",
+       "note": "I is India in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Briton of old is posted to India or some other foreign land.",
+     "walkthrough": "'British character' looks like a person, but character here is a written letter.",
+     "definitionFit": "Brunei is a small sultanate on Borneo, simply an example of a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +531,41 @@
      }
     ]
    },
-   "solution": "LONGWAVE"
+   "solution": "LONGWAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Means of communicating",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "protracted",
+       "at": 23,
+       "gives": "LONG",
+       "note": "protracted means drawn out, long"
+      },
+      {
+       "words": "greeting",
+       "at": 34,
+       "gives": "WAVE",
+       "note": "a wave of the hand is a greeting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawn-out hello as a way of getting a message across.",
+     "definitionFit": "A radio frequency band used for broadcasting, hence a way of transmitting messages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "greeting"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +579,48 @@
     "text": "Slide or jump, but not quietly",
     "enumeration": "3"
    },
-   "solution": "SKI"
+   "solution": "SKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "but not",
+       "at": 15,
+       "note": "but not says the following letter is left out of the word before"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jump",
+       "at": 9,
+       "gives": "SKIP",
+       "note": "to skip is to jump lightly"
+      },
+      {
+       "words": "quietly",
+       "at": 23,
+       "gives": "P",
+       "note": "P is piano, the musical marking for quietly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to slide or leap, but without making noise.",
+     "definitionFit": "To ski is to glide over snow, a kind of sliding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +634,45 @@
     "text": "Someone full of energy needs to eat a bit reportedly",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Someone full of energy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DYNAMO",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 42,
+       "note": "reportedly says the phrase is to be heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to eat a bit",
+       "at": 29,
+       "gives": "DINEAMO",
+       "note": "to eat is to dine, and a bit is a mo (a moment), giving dine a mo"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic person has to grab a snack.",
+     "walkthrough": "MO is British slang for a moment, as in 'wait a mo'.",
+     "definitionFit": "A dynamo is figuratively a tireless, energetic person, by analogy with the generator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +696,31 @@
      }
     ]
    },
-   "solution": "NOTAWORD"
+   "solution": "NOTAWORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Objection to solution to clue?",
+      "at": 0,
+      "meaning": "a solver's complaint that the entry is not in any dictionary"
+     },
+     {
+      "text": "Please say nothing!",
+      "at": 31,
+      "meaning": "a plea for silence, asking that nothing at all be said"
+     }
+    ],
+    "explanation": {
+     "surface": "A solver complains about an answer, then someone begs for silence.",
+     "definitionFit": "The phrase is both a solver's protest that the entry doesn't exist and a request to keep quiet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Objection"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +734,40 @@
     "text": "Drink Aileen's regularly taken",
     "enumeration": "3"
    },
-   "solution": "ALE"
+   "solution": "ALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly taken",
+       "at": 15,
+       "note": "regularly taken means every other letter of the name is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Aileen's",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Aileen has a drink at regular intervals.",
+     "definitionFit": "Ale is a type of beer, an example of an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +781,63 @@
     "text": "Report of joints at back of pub creating rows",
     "enumeration": "7"
    },
-   "solution": "BARNEYS"
+   "solution": "BARNEYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rows",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at back of",
+       "at": 17,
+       "note": "at back of says the joints come after the pub"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 28,
+       "gives": "BAR",
+       "note": "a bar is a pub"
+      },
+      {
+       "op": "homophone",
+       "spelt": "NEYS",
+       "indicators": [
+        {
+         "text": "Report of",
+         "at": 0,
+         "note": "Report of says the joints' name is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joints",
+         "at": 10,
+         "gives": "KNEES",
+         "note": "knees are leg joints"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of cannabis cigarettes behind a pub leads to quarrels.",
+     "walkthrough": "BARNEY is British slang for a noisy argument; 'joints' misleads toward cannabis.",
+     "definitionFit": "Rows in the quarrelling sense are arguments, which British slang calls barneys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joints"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +851,30 @@
     "text": "Greek character in separatist organisation",
     "enumeration": "3"
    },
-   "solution": "ETA"
+   "solution": "ETA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0,
+      "meaning": "the seventh letter of the Greek alphabet"
+     },
+     {
+      "text": "separatist organisation",
+      "at": 19,
+      "meaning": "the Basque separatist group in Spain"
+     }
+    ],
+    "explanation": {
+     "surface": "A Greek man is a member of a breakaway movement.",
+     "definitionFit": "It is both a Greek letter and the acronym of the Basque nationalist armed group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +888,59 @@
     "text": "There's rumbling — fifty will go inside refuge",
     "enumeration": "7"
    },
-   "solution": "SHELTER"
+   "solution": "SHELTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "refuge",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will go inside",
+       "at": 25,
+       "note": "will go inside says the numeral sits within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rumbling",
+         "at": 8,
+         "note": "rumbling suggests the letters are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "There's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "fifty",
+       "at": 19,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thunder rumbles and fifty people crowd into a shelter.",
+     "walkthrough": "'rumbling' rearranges THERE'S into SHETER, and 'will go inside' puts L within it.",
+     "definitionFit": "A shelter and a refuge are both places of safety, plain synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rumbling"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +960,29 @@
      }
     ]
    },
-   "solution": "HOTSPOTS"
+   "solution": "HOTSPOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Popular nightclubs",
+      "at": 0,
+      "meaning": "fashionable venues for nightlife"
+     },
+     {
+      "text": "potentially dangerous places",
+      "at": 20,
+      "meaning": "areas of conflict or danger"
+     }
+    ],
+    "explanation": {
+     "surface": "Busy clubs that might be risky spots.",
+     "definitionFit": "The phrase covers both lively entertainment venues and trouble zones where violence may flare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +996,47 @@
     "text": "'Look!', you and I call, sinking",
     "enumeration": "8"
    },
-   "solution": "LOWERING"
+   "solution": "LOWERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sinking",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look!",
+       "at": 1,
+       "gives": "LO",
+       "note": "lo is an old word for look!"
+      },
+      {
+       "words": "you and I",
+       "at": 9,
+       "gives": "WE",
+       "note": "you and I together are we"
+      },
+      {
+       "words": "call",
+       "at": 19,
+       "gives": "RING",
+       "note": "to ring is to call on the telephone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people shout 'Look!' as something goes under.",
+     "definitionFit": "Lowering means letting down or descending, which matches sinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1050,41 @@
     "text": "Pounds obtained for working found out",
     "enumeration": "7"
    },
-   "solution": "LEARNED"
+   "solution": "LEARNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "found out",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pounds",
+       "at": 0,
+       "gives": "L",
+       "note": "L (from libra) is the abbreviation for pounds sterling"
+      },
+      {
+       "words": "obtained for working",
+       "at": 7,
+       "gives": "EARNED",
+       "note": "earned means gained in return for work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money gained from a job is discovered.",
+     "definitionFit": "To have learned something is to have discovered it, so learned can mean found out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pounds"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1098,52 @@
     "text": "Wandering round abroad, the Parisian is charming",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "charming",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wandering round",
+         "at": 0,
+         "note": "wandering round suggests the letters roam into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "abroad",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "the Parisian",
+       "at": 24,
+       "gives": "LE",
+       "note": "le is French for the, as a Parisian would say it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman wandering overseas proves delightful.",
+     "walkthrough": "'Wandering round' together signal the rearrangement; 'the Parisian' means the French article.",
+     "definitionFit": "Adorable describes something delightful to look at, a near synonym of charming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1157,54 @@
     "text": "The German turned up to take part and prepare for presentation",
     "enumeration": "6"
    },
-   "solution": "REDACT"
+   "solution": "REDACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prepare for presentation",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 11,
+         "note": "turned up in a down clue means the letters are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The German",
+         "at": 0,
+         "gives": "DER",
+         "note": "der is German for the"
+        }
+       ]
+      },
+      {
+       "words": "take part",
+       "at": 24,
+       "gives": "ACT",
+       "note": "to act is to take part in a play"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German man shows up to join in and get ready for a show.",
+     "walkthrough": "'turned up' reverses DER to RED in this down entry.",
+     "definitionFit": "To redact is to edit text into a form fit for publication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "presentation"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1218,47 @@
     "text": "Like something pungent? Crooner captures it",
     "enumeration": "6"
    },
-   "solution": "BITING"
+   "solution": "BITING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like something pungent?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captures",
+       "at": 32,
+       "note": "captures says the singer's name holds the next word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crooner",
+       "at": 24,
+       "gives": "BING",
+       "note": "Bing Crosby was the famous American crooner"
+      },
+      {
+       "words": "it",
+       "at": 41,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smooth singer grabs hold of something strong-smelling.",
+     "definitionFit": "Biting describes a sharp, stinging taste or smell, as a pungent thing has."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crooner"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1272,31 @@
     "text": "Approaching sign within hospital?",
     "enumeration": "6"
    },
-   "solution": "TOWARD"
+   "solution": "TOWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approaching",
+      "at": 0,
+      "meaning": "moving nearer to, in the direction of"
+     },
+     {
+      "text": "sign within hospital?",
+      "at": 12,
+      "meaning": "a direction sign in a hospital reads '...'"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting near a sign posted inside a hospital.",
+     "definitionFit": "Toward means in the direction of, so approaching; split, it is a hospital direction sign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1310,45 @@
     "text": "Idiot in religious service losing head",
     "enumeration": "3"
    },
-   "solution": "ASS"
+   "solution": "ASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Idiot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "at": 27,
+       "note": "losing head says the first letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "religious service",
+       "at": 9,
+       "gives": "MASS",
+       "note": "Mass is the Catholic Eucharistic service"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool at church loses his head.",
+     "definitionFit": "Ass is a common insult for a stupid person, a synonym of idiot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1362,56 @@
     "text": "Endless lament by newspaper employee, one wanting money",
     "enumeration": "8"
    },
-   "solution": "CREDITOR"
+   "solution": "CREDITOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one wanting money",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "Endless says the final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lament",
+         "at": 8,
+         "gives": "CRY",
+         "note": "to cry is to lament"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "newspaper employee",
+       "at": 18,
+       "gives": "EDITOR",
+       "note": "an editor works on a newspaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unending complaint from a journalist who wants paying.",
+     "definitionFit": "A creditor is someone owed money, who therefore wants it repaid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lament"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1425,54 @@
     "text": "Returning in flashy car, I propose unauthorised activity",
     "enumeration": "6"
    },
-   "solution": "PIRACY"
+   "solution": "PIRACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unauthorised activity",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Returning",
+       "at": 0,
+       "note": "Returning says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 10,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flashy car, I propose",
+         "at": 13,
+         "gives": "YCARIP",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone coming back in a showy car makes a suggestion about illicit dealings.",
+     "definitionFit": "Piracy covers unlicensed copying or broadcasting, a kind of unauthorised activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Returning"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1486,35 @@
     "text": "They may help folk get things off their chest",
     "enumeration": "13"
    },
-   "solution": "DECONGESTANTS"
+   "solution": "DECONGESTANTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They may help folk get things off their chest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They may help folk get things off their chest",
+       "at": 0,
+       "note": "the idiom means confessing worries, but here it is literal: medicines that clear catarrh from the lungs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things that help people unburden themselves of secrets.",
+     "definitionFit": "Medicines that relieve congestion clear mucus from the airways, literally freeing the chest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chest"
+    }
+   }
   }
  ]
 }
