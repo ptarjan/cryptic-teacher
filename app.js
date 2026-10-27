@@ -8633,6 +8633,11 @@
     const checkable = canCheck();
     ["chk-letter", "chk-entry", "chk-grid"].forEach((id2) => { $(id2).disabled = !checkable; });
     refreshAll();
+    // A link that named a clue came for its hints: on a phone the panel is below
+    // the grid, so bring it up with the rungs in reach.
+    const panel = asked && tag(first) === asked ? $("hint-panel") : null;
+    if (panel && panel.scrollIntoView && isTouchPrimary())
+      panel.scrollIntoView({ block: "center" });
   }
 
   // Finishing a puzzle is celebrated, not just a scorebar number going from 27 to 28.

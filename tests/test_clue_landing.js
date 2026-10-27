@@ -51,7 +51,7 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   const window = {
     scrollY, innerHeight: 800,
     addEventListener: (t, f) => { (listeners[t] = listeners[t] || []).push(f); },
-    gtag: (_e, name) => gtagged.push(name),
+    gtag: (_e, name, opts) => { gtagged.push(name); assert(!opts || opts.transport_type === "beacon", "gtag uses beacon transport"); },
   };
   const document = {
     currentScript: script, referrer, readyState: "complete",
@@ -60,6 +60,7 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
     getElementById: (id) => arts.find((a) => a.id === id) || null,
     createElement: (t) => new El(t),
     createTextNode: (data) => ({ data }),
+    addEventListener: (t, f) => { (listeners['doc-' + t] = listeners['doc-' + t] || []).push(f); },
   };
   const sandbox = {
     window, document,
@@ -77,7 +78,8 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   new Function(...Object.keys(sandbox), SRC)(...Object.values(sandbox));
   const landed = arts.filter((a) => a.getAttribute("data-landed"));
   const hint = landed.length && landed[0].children.find((c) => c.className === "s-hint");
-  return { arts, landed, hint, sent, gtagged };
+  const rowClick = () => (listeners["doc-click"] || []).forEach((f) => f({ target: { closest: () => ({}) } }));
+  return { arts, landed, hint, sent, gtagged, rowClick };
 }
 
 // Text fragment from Google: page scrolled so 5-across (900..1150) spans the middle (scrollY 600 -> mid at 1000).
@@ -93,6 +95,14 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   assert(r.gtagged.join() === "clue_landed", "and tells GA: " + r.gtagged);
   link && link.handlers.click();
   assert(r.sent.map((s) => s[1]).join() === "clue-landed,clue-hint", "following the line sends clue-hint: " + JSON.stringify(r.sent));
+}
+// Every row's Hint link beacons clue-hint through one delegated listener, landed or not,
+// and GA gets it by beacon transport so the navigation cannot cancel it.
+{
+  const r = run({ scrollY: 0 });
+  r.rowClick();
+  assert(r.sent.map((x) => x[1]).join() === "clue-hint", "a row Hint click sends clue-hint without any landing: " + JSON.stringify(r.sent));
+  assert(r.gtagged.join() === "clue_hint", "and tells GA: " + r.gtagged);
 }
 // A #3-down anchor marks that clue whatever the referrer.
 {
@@ -132,6 +142,17 @@ print(B.puzzle_page(puz, None, None, None))
 `], { env: { ...process.env, PYTHONPATH: path.join(ROOT, "tools") }, encoding: "utf8" });
 assert(/<script src="[^"]*landing\.js\?v=[^"]*" data-p="everyman-4172" defer><\/script>/.test(page),
   "a puzzle page loads stamped landing.js with its id");
+
+// Every clue row on an answer page carries its own nofollow Hint link into the solver.
+const rows = execFileSync("python3", ["-c", `
+import build_seo_pages as B
+for n, d, t, a in ((5, "across", "Test clue (4)", "TEST"), (3, "down", "Other clue (3)", "CAT")):
+    print(B.clue_html({"number": n, "direction": d, "clue": {"text": t}, "solution": a}, pid="everyman-4172"))
+`], { env: { ...process.env, PYTHONPATH: path.join(ROOT, "tools") }, encoding: "utf8" });
+for (const ref of ["5A", "3D"])
+  assert(new RegExp('<a rel="nofollow" href="[^"]*\\?p=everyman-4172&amp;c=' + ref + '">Hint</a></h3>').test(rows),
+    "clue " + ref + " has its own Hint link");
+assert(/<b>TEST<\/b>/.test(rows), "answers stay visible beside the link");
 
 if (fails.length) { console.error(fails.join("\n")); process.exit(1); }
 console.log("ok");

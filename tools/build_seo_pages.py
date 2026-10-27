@@ -490,7 +490,7 @@ def listed(names):
     return ", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else "".join(names)
 
 
-def clue_html(e, blog_note=True):
+def clue_html(e, blog_note=True, pid=None):
     """One clue: text, answer, and whatever explanation exists for it.
 
     blog_note=False when the page says once, above the clues, that every
@@ -508,7 +508,11 @@ def clue_html(e, blog_note=True):
     # under .s-list, because this runs once per clue on the site and a class on
     # each piece was the bulk of what the pages weighed.
     bits = [f'<article id="{esc(entry_id(e))}">',
-            f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b></h3>',
+            f'<h3><span>{esc(num)}</span> <b>{esc(answer)}</b>'
+            # The way to the hint ladder for this clue, on every row: most search
+            # visitors cannot be told which clue they came for.
+            + (f' <a rel="nofollow" href="{solve_url(pid, entry_id(e))}">Hint</a>' if pid else "")
+            + '</h3>',
             f'<p>{clue_html_text(e["clue"])}</p>']
 
     # A definition, type or indicators tools/letter_facts.py read off the letters are not the blogger's.
@@ -833,7 +837,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
                     + "; our own explanations are not written yet.</p>")
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')
-        body.extend(clue_html(e, blog_note=not blog_only) for e in entries)
+        body.extend(clue_html(e, blog_note=not blog_only, pid=puz["id"]) for e in entries)
         body.append("</section>")
 
     if nav:
