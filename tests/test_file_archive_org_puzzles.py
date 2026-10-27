@@ -1394,6 +1394,44 @@ check("a held file short whose cached strip reply spells a misread-dropped word,
       ah_due + [f.RANKS[f.AGREED_HELD], f.AGREED_HELD in f.SOLUTION_FIXES, f.AGREED_HELD.startswith("solution short"),
                 f.AGREED_HELD in __import__("edition_queue").LOW_ASK, f.AGREED_HELD in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.AGREED_HELD)])
+# vlm_named: a VLM name misread_word would drop (DEDLOCK, WEDLOCK one letter off) stands where that letter's cell is
+# crossed and the crossing word with WEDLOCK's letter is no corpus answer (DUO: WUO); a crossing that so becomes one
+# (DOE: WOE, the held crossing the misread the VLM copied), an open cell there, or a listed word: not.
+vn_grid = ["DEDLOCK", ".######", ".######"]
+vn_en = {(1, "across"): "7", (1, "down"): "3"}
+check("vlm_named: a name one crossed letter off a listed word stands; that crossing a corpus answer swapped, the "
+      "letter on an open cell, a listed word: not; held_agreed joins agreedHeld and vlmNamed",
+      [{"1-across"}, set(), set(), set(), {"1-down", "2-across"}],
+      [f.vlm_named({"1-across": "DEDLOCK"}, {"1-down": "DUO"}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "DEDLOCK"}, {"1-down": "DOE"}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "DEDLOCK"}, {}, vn_grid, vn_en),
+       f.vlm_named({"1-across": "WEDLOCK"}, {"1-down": "WUO"}, vn_grid, vn_en),
+       f.held_agreed({"agreedHeld": ["1-down"], "vlmNamed": ["2-across"]})])
+# checked_answers spares a vlm_named light from misread_word (agreed); without it the name goes as a misread.
+vn_es = [{"number": 1, "direction": "across", "solution": None}, {"number": 1, "direction": "down", "solution": "DUO"}]
+vn_kept = f.checked_answers(vn_es, {"1-across": "DEDLOCK", "1-down": "DUO"}, vn_grid, vn_en, {}, crossed=False,
+                            agreed={"1-across"})[0]
+vn_gone = f.checked_answers(vn_es, {"1-across": "DEDLOCK", "1-down": "DUO"}, vn_grid, vn_en, {}, crossed=False)[0]
+check("checked_answers keeps a vlm_named name (agreed), drops it otherwise", ["DEDLOCK", None],
+      [vn_kept.get("1-across"), vn_gone.get("1-across")])
+# VLM_NAMED: a row read before REREAD_VLM_NAMED whose verdict took a VLM word then dropped it as a misread, the light
+# still blank (named_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms = f.named_short, f.agreed_short, f.misread_short
+f.misread_short = lambda row, paper: False
+f.agreed_short = lambda row, paper: False
+f.named_short = lambda row, paper: True
+vn_due = [f.short_again(vu_row("2026-10-26T23:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.named_short = lambda row, paper: False
+vn_due.append(f.short_again(vu_row("2026-10-26T23:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short = real_ns, real_as, real_ms
+f.filed_state = real_fs
+check("a held file short whose VLM name its checks dropped as a misread, read before REREAD_VLM_NAMED: VLM_NAMED "
+      "(rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.VLM_NAMED, None, None, 2, True, True, True, True, True],
+      vn_due + [f.RANKS[f.VLM_NAMED], f.VLM_NAMED in f.SOLUTION_FIXES, f.VLM_NAMED.startswith("solution short"),
+                f.VLM_NAMED in __import__("edition_queue").LOW_ASK, f.VLM_NAMED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.VLM_NAMED)])
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
