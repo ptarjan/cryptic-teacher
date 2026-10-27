@@ -5151,8 +5151,8 @@ def unlisted_word(word, pattern, probs, enum):
     want of a list holding the word. The classifier reads each letter at least VLM_UNLISTED_TOP likely, the light's
     enumeration `enum` counts its letters (a linked light's "See 8" has none), and no listed
     word, of the light or of a piece of its enumeration, differs from it in one letter no
-    crossing holds (trove_solution_ocr.one_away; answers_only's misread_word drops such a
-    word anyway). A piece of a phrase is so tried only when it is no word itself (piece_listed) and
+    crossing holds (rival_away; answers_only's misread_word drops such a word anyway), a
+    surname alone not counted (word_away). A piece of a phrase is so tried only when it is no word itself (piece_listed) and
     longer than PIECE_SHORT: a listed piece is one letter off another as often as any listed word is,
     which vlm_word takes outright, and nearly every string of 1-3 letters lies one off some word.
     10-25: 12 Times phrase strips stood refused so after their rereads, the classifier reading every
@@ -5164,18 +5164,54 @@ def unlisted_word(word, pattern, probs, enum):
     if any(p[trove_solution_ocr.AZ.index(ch)] < VLM_UNLISTED_TOP for p, ch in zip(probs, word)) \
             and not agreed_word(word, probs):
         return False
+    return not rival_away(word, pattern, enum, names=False)
+
+
+def rival_away(word, pattern, enum, names=True):
+    """Whether a listed word lies one open letter (no crossing of `pattern` holds it) off `word`, or off a
+    piece of its enumeration `enum` (not listed itself, longer than PIECE_SHORT): unlisted_word's refusal.
+    Without `names` such a word counts only when it is no surname alone (word_away): a name the VLM and the
+    classifier both spell one letter off another name (CORUNNA, CORINNA) is no misread of a word."""
     held = {i: ch for i, ch in enumerate(pattern) if ch != "?"}
-    if trove_solution_ocr.one_away(word, list(range(len(word))), held):
-        return False
+    away = trove_solution_ocr.one_away if names else word_away
+    if away(word, list(range(len(word))), held):
+        return True
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
     at = 0
-    for size in (parts if len(parts) > 1 else ()):
+    for size in (parts if len(parts) > 1 and sum(parts) == len(word) else ()):
         span, piece = list(range(at, at + size)), word[at:at + size]
         at += size
         if size <= PIECE_SHORT or trove_solution_ocr.piece_listed(piece, True):
             continue
-        if trove_solution_ocr.one_away(piece, span, held):
-            return False
-    return True
+        if away(piece, span, held):
+            return True
+    return False
+
+
+def word_away(word, cells, held):
+    """trove_solution_ocr.one_away counting only a listed word that is no surname alone (not name_only: a
+    dictionary's, the lexicon's or a corpus answer): a listed word of `word`'s length agreeing with `held`
+    ({index: letter}) and one letter off it on `cells` held does not hold. cmudict spells ~60,000 surnames
+    and names, so nearly any name lies one letter off one of them. 10-27 05:00Z, cached strip replies on
+    blank lights of 1,378 unplanned 1-2-short Times grids: 136 names the VLM and the classifier spell alike
+    (every letter 0.7+, or each cell's likeliest) stood refused for a listed word one open letter off. The 28
+    whose every such word is a surname alone are each right by their clue (CORUNNA/CORINNA, CARNERA/CARRERA,
+    DEWET/DEWIT, SELIMA/SELINA, RIMMON/RIMSON, KEIGHLEY, HELSTON, SORDELLO, TULGEY); each of the 15 wrong
+    has a dictionary word there (TINEE/TINGE, FLAA/FLEA, JJMPOFF/JUMP, KYDE/HYDE, ELINT/FLINT) (NAME_RIVALS)."""
+    t = trove_solution_ocr
+    ws, arr = t.listed_of(len(word))
+    if not len(ws):
+        return False
+    import numpy as np
+    mine = np.array([t.AZ.index(ch) for ch in word], np.int8)
+    ok = np.ones(len(ws), bool)
+    diff = np.zeros(len(ws), np.int16)
+    for i, rc in enumerate(cells):
+        if rc in held:
+            ok &= arr[:, i] == mine[i]
+        else:
+            diff += arr[:, i] != mine[i]
+    return any(not t.name_only(ws[i]) for i in np.nonzero(ok & (diff == 1))[0])
 
 
 #: unlisted_word: the longest piece of a phrase not tried one letter off a listed word.
@@ -9586,6 +9622,14 @@ REREAD_WIDE_AGREED = "2026-10-26T21:45:00+00:00"
 #: (SOLUTION_FIXES); the strip replies are cached.
 VLM_NAMED = "solution short, its VLM names one crossed letter off a listed word kept since"
 REREAD_VLM_NAMED = "2026-10-27T00:30:00+00:00"
+#: The due reason of a Times row read before REREAD_NAME_RIVALS, due none of those above, whose held puzzle
+#: leaves blank a light whose kept strip's cached VLM reply vlm_word now takes: a name no list holds that the
+#: VLM and the classifier spell alike, refused before for a listed word one open letter off that is a surname
+#: alone (near_short with named; unlisted_word's word_away). 10-27 05:00Z: of 1,378 unanswered Times 1-2 short
+#: with no unit planned, 30 such lights (28 rows, 25 on their last blank): CORUNNA, CARNERA, SELIMA, RIMMON,
+#: KEIGHLEY, each right by its clue. Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached.
+NAME_RIVALS = "solution short, its VLM names one letter off a surname alone kept since"
+REREAD_NAME_RIVALS = "2026-10-27T05:15:00+00:00"
 #: {log path: (stat, {edition: {light: [reply key prefix]}})} of vlm_asks.log's solution asks (ask_replies).
 _ASK_REPLIES = {}
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
@@ -9754,12 +9798,14 @@ def named_short(row, paper):
     return False
 
 
-def strip_near(series, number, sol_dir, swap=False, defined=False):
+def strip_near(series, number, sol_dir, swap=False, defined=False, named=False):
     """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves blank a light
     whose strip its linked solution grid's reading (the solution page's edition dir name `sol_dir`) kept
     and whose cached VLM reply (vlm_lights' ask on the held crossings) near_word mends (with `swap`:
     swap_word mends, on the strip's kept classifier probabilities; with `defined`: vlm_word refuses and
-    defined_word settles by the light's clue); parsed again only when either stat moves."""
+    defined_word settles by the light's clue; with `named`: vlm_word takes a name no list holds that a
+    surname alone lies one open letter off, which rival_away refused before word_away); parsed again only
+    when either stat moves."""
     p = _HELD_PATH.get((series, number))
     if p is None:
         return False
@@ -9767,13 +9813,13 @@ def strip_near(series, number, sol_dir, swap=False, defined=False):
     stamp = (_stat_stamp(p), _stat_stamp(q))
     if None in stamp:
         return False
-    hit = _NEAR_STRIPS.get((p, q, swap, defined))
+    hit = _NEAR_STRIPS.get((p, q, swap, defined, named))
     if hit is None or hit[0] != stamp:
-        hit = _NEAR_STRIPS[p, q, swap, defined] = (stamp, _strip_near(p, q, swap, defined))
+        hit = _NEAR_STRIPS[p, q, swap, defined, named] = (stamp, _strip_near(p, q, swap, defined, named))
     return hit[1]
 
 
-def _strip_near(p, q, swap=False, defined=False):
+def _strip_near(p, q, swap=False, defined=False, named=False):
     """strip_near of the held file at `p` and its reading at `q`."""
     import base64
     import io
@@ -9815,7 +9861,11 @@ def _strip_near(p, q, swap=False, defined=False):
         word = re.sub(r"[^A-Za-z?]", "", reply.strip().splitlines()[0] if reply.strip() else "").upper()
         enum = (e.get("clue") or {}).get("enumeration")
         probs = strips[entry_id(e)].get("p") or ()
-        if defined:
+        if named:
+            got = _vlm_word(reply, pattern, sizes, probs, enum)
+            if got and not _pieces_listed(got, sizes) and rival_away(got, pattern, enum):
+                return True
+        elif defined:
             clue = (e.get("clue") or {}).get("text")
             if not vlm_word(reply, pattern, sizes, probs, enum) and defined_word(reply, pattern, sizes, clue, enum, probs):
                 return True
@@ -9828,10 +9878,11 @@ def _strip_near(p, q, swap=False, defined=False):
     return False
 
 
-def near_short(row, paper, swap=False, defined=False):
+def near_short(row, paper, swap=False, defined=False, named=False):
     """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
     held with every clue and not every answer, from this page, a blank light's cached VLM reply mended by
-    near_word (strip_near; with `swap`, by swap_word; with `defined`, by defined_word)."""
+    near_word (strip_near; with `swap`, by swap_word; with `defined`, by defined_word; with `named`, a name
+    vlm_word takes now that a surname alone lies one letter off: word_away)."""
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
@@ -9845,7 +9896,7 @@ def near_short(row, paper, swap=False, defined=False):
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
         if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], swap=swap,
-                      defined=defined):
+                      defined=defined, named=named):
             return True
     return False
 
@@ -10103,7 +10154,9 @@ def short_again(row):
     one read before REREAD_AGREED_HELD, due none of those, a misread-dropped word a cached VLM strip reply spells
     alike, its light still blank (agreed_short); WIDE_AGREED for one read before REREAD_WIDE_AGREED, due none of
     those, whose held file leaves more than LATE_MAX lights blank (many_short); VLM_NAMED for one read before
-    REREAD_VLM_NAMED, due none of those, a VLM word its checks dropped as a misread still blank (named_short); FULL_SHORT for
+    REREAD_VLM_NAMED, due none of those, a VLM word its checks dropped as a misread still blank (named_short); NAME_RIVALS
+    for one read before REREAD_NAME_RIVALS, due none of those, a blank light's cached VLM name refused for a surname one
+    letter off (near_short with named); FULL_SHORT for
     one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
     not try first (full_short)."""
     paper = paper_of(row.get("edition", ""))
@@ -10144,6 +10197,8 @@ def short_again(row):
         return WIDE_AGREED
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_VLM_NAMED)) and named_short(row, paper):
         return VLM_NAMED
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_NAME_RIVALS)) and near_short(row, paper, named=True):
+        return NAME_RIVALS
     if why is None and full_short(row, paper):
         return FULL_SHORT
     return why
@@ -11280,7 +11335,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -11843,7 +11898,8 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, FULL_SHORT, STRAY_GRID)
+                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, FULL_SHORT,
+                  STRAY_GRID)
 
 
 def keeps_vlm(why, row, unit=None):
