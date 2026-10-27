@@ -4030,6 +4030,40 @@ def dash_parted(raws, keep=()):
     return out
 
 
+#: A known word's ending a clue's quotation or dialect prints that the
+#: lexicon lacks, with what the known word ends in instead: an old verb's
+#: "loveth", "walketh", "smilest", "couldst", "seest", and an adverb of a
+#: known word ("dottily", "incomprehensibly", "encephalographically").
+#: "-th" takes only a stem ending in e ("lanceth", "dieth"): "öboth" is no
+#: "obo" + "th". Only suspect() takes these, not formed()'s vote.
+OLD_FORMS = (("eth", ""), ("th", ""), ("est", ""), ("st", ""))
+ADVERB_FORMS = (("ily", "y"), ("ibly", "ible"), ("ically", "ic"), ("ically", "ical"))
+
+
+def old_form(word):
+    """Whether `word` (plain, any case) is a lexicon word with an old verb
+    ending (OLD_FORMS: "loveth", "smilest", "couldst") or a known word's
+    adverb (ADVERB_FORMS: "dottily"), the stem three letters at least."""
+    w = word.lower()
+    if not w.isalpha():
+        return False
+    for end, put in OLD_FORMS:
+        stem = w[:-len(end)]
+        if w.endswith(end) and len(stem) >= 3 and (end != "th" or stem.endswith("e")) and is_word(stem + put):
+            return True
+    return any(w.endswith(end) and len(w) - len(end) >= 3 and known(w[:-len(end)] + put) for end, put in ADVERB_FORMS)
+
+
+def gee_dropped(raw, p):
+    """Whether token `raw` ends (past its closing marks) in piece `p` and the
+    apostrophe of a dropped g, the known word's "-ing" ("fishin'", "workin',",
+    "implyin'?"). suspect() strips that apostrophe with the token's edge, so
+    formed()'s own "overtakin'" test never sees it."""
+    tail = raw.rstrip(",.;:!?)\"”")
+    return (tail[-1:] in ("'", "’") and p.endswith("in") and tail[:-1].endswith(p)
+            and not known(p) and known(plain(p).lower() + "g"))
+
+
 def aitch_dropped(raw, p):
     """Whether token `raw` opens (past any '"', '“' or '(') with a quote mark then piece `p`, as
     re.match(r"[\\"“(]*['‘’]" + re.escape(p), raw) would: a string test, as a pattern
@@ -4085,6 +4119,8 @@ def suspect(text, vouched=(), printed=()):
             if known(flat) or formed(plain(p).lower()) or any(
                     known(f) for f in {flat.translate(LIGATURES), flat.translate(LIGATURE_E)} - {flat}):
                 continue  # a ligature is its word's ("mediæval")
+            if old_form(flat) or gee_dropped(raw, p.strip("'")):
+                continue  # "loveth", "smilest", "dottily"; "fishin'"
             if flat.isupper() and len(flat) <= 4 or flat.lower() in UNLEXICONED_ABBREVS:
                 continue  # an abbreviation: "RN", "TUC", "Ven."
             if flat[0].islower():

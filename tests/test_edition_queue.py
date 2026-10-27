@@ -288,6 +288,21 @@ check("not after the fix, nor for a stray mark the dash rule leaves ('wor,d'), n
       [f.dash_joined({**_djrow, "readAt": _after}),
        f.dash_joined({**_djrow, "verdicts": [{**_dj, "blank": {"15-across": "'wor,d': a stray mark inside a word"}}]}),
        f.dash_joined({**_djrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a word's old or spoken form read as no word ("loveth", "fishin'") is due
+# once (fa.OLD_FORM): its own reason, so CANARY_FAILED's Times "unfiled before its fix" row does not hold it.
+_of = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"4-down": "'smilest': not a word"}}
+_ofrow = {"edition": "GaleTimes1968UKEnglish/1968-05-03", "verdicts": [_of], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for an old verb form is due as such, ranked, evidence, fix-landed, never canary-held",
+      [f.OLD_FORM, 2, True, True, None, None, True],
+      [f.fix_reason(_ofrow), f.RANKS[f.OLD_FORM], eq.evidence_reason(f.OLD_FORM), f.OLD_FORM in eq.FIX_LANDED,
+       eq.canary_failed({"paper": "gale", "reason": f.OLD_FORM, "date": "1968-05-03"}),
+       eq.canary_failed({"paper": "times", "reason": f.OLD_FORM, "date": "1984-12-31"}),
+       f.old_blank("\"workin'\": not a word")])
+check("not after the fix, nor for a misread ('sanotimonious'), nor another paper", [False] * 3,
+      [f.old_formed({**_ofrow, "readAt": _after}),
+       f.old_formed({**_ofrow, "verdicts": [{**_of, "blank": {"4-down": "'sanotimonious': not a word"}}]}),
+       f.old_formed({**_ofrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
