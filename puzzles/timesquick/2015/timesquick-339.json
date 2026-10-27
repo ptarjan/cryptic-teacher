@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,59 @@
     "text": "Sour beer served by temp in centre",
     "enumeration": "8"
    },
-   "solution": "EMBITTER"
+   "solution": "EMBITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "served by",
+       "at": 10,
+       "note": "served by puts the beer after the piece from temp, which comes first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in centre",
+         "at": 25,
+         "note": "in centre asks for the middle letters of the word temp"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temp",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "beer",
+       "at": 5,
+       "gives": "BITTER",
+       "note": "bitter is a type of British ale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker complains that the beer brought by a temporary barman tasted off.",
+     "walkthrough": "'Sour' looks like a description of the beer but it is a verb, the definition. Bitter is a British pale ale.",
+     "definitionFit": "To sour someone is to make them resentful, a synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sour"
+    }
+   }
   },
   {
    "number": 5,
@@ -45,7 +100,30 @@
     "text": "Succeed in exam? I don't know",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Succeed in exam",
+      "at": 0,
+      "meaning": "to get through a test successfully"
+     },
+     {
+      "text": "I don't know",
+      "at": 17,
+      "meaning": "what a quiz contestant says to decline a question"
+     }
+    ],
+    "explanation": {
+     "surface": "A student asked about exam success shrugs and admits ignorance.",
+     "definitionFit": "Getting through an exam and declining a quiz question are both expressed by the same one-word verb or interjection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -59,7 +137,41 @@
     "text": "Minstrel booed playing instrument",
     "enumeration": "5,8"
    },
-   "solution": "SLIDETROMBONE"
+   "solution": "SLIDETROMBONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 15,
+       "note": "playing suggests the letters of minstrel booed are performed in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Minstrel booed",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering musician is jeered while performing on stage.",
+     "walkthrough": "'playing' signals an anagram of MINSTREL BOOED.",
+     "definitionFit": "This brass instrument with a sliding tube is an example of a musical instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 10,
@@ -73,7 +185,64 @@
     "text": "Miss mostly seen round copper's place",
     "enumeration": "5"
    },
-   "solution": "LOCUS"
+   "solution": "LOCUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen round",
+       "at": 12,
+       "note": "seen round means the shortened word wraps around the copper symbol"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means the word for miss loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Miss",
+         "at": 0,
+         "gives": "LOSE",
+         "note": "to miss out on something is to lose it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "copper's",
+       "at": 23,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper; the 's stands for is and joins"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is spotted near a police officer's station.",
+     "walkthrough": "'Miss' looks like a young woman and 'copper' like a police officer. 'mostly' cuts LOSE to LOS, and 'seen round' puts it around CU, copper's chemical symbol.",
+     "definitionFit": "A locus is a precise position or site, a formal synonym for a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper's"
+    }
+   }
   },
   {
    "number": 11,
@@ -87,7 +256,41 @@
     "text": "Digital recording of case by actors",
     "enumeration": "7"
    },
-   "solution": "PODCAST"
+   "solution": "PODCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Digital recording",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "case",
+       "at": 21,
+       "gives": "POD",
+       "note": "a pod is the case holding peas or seeds"
+      },
+      {
+       "words": "actors",
+       "at": 29,
+       "gives": "CAST",
+       "note": "the cast is the set of actors in a production"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an audio file of a court case made by a troupe of performers.",
+     "definitionFit": "A downloadable audio or video series episode is a kind of digital recording."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 12,
@@ -101,7 +304,48 @@
     "text": "Slip up in attempt to produce a fortified wine",
     "enumeration": "6"
    },
-   "solution": "SHERRY"
+   "solution": "SHERRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fortified wine",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "in places the mistake inside the word for an attempt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attempt",
+       "at": 11,
+       "gives": "SHY",
+       "note": "a shy is a throw or try, as at a coconut shy"
+      },
+      {
+       "words": "Slip up",
+       "at": 0,
+       "gives": "ERR",
+       "note": "to err is to slip up or make a mistake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy effort at winemaking turns out a fortified wine after all.",
+     "walkthrough": "A shy is an attempt, as at a fairground coconut shy, where people throw balls at coconuts.",
+     "definitionFit": "This Spanish wine from Jerez, strengthened with brandy, is a classic example of a fortified wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -115,7 +359,69 @@
     "text": "Street guide (centre of Doncaster) in pub in marketplace",
     "enumeration": "6"
    },
-   "solution": "BAZAAR"
+   "solution": "BAZAAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "marketplace",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "in tells us the guide and letter go inside the pub word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 38,
+       "gives": "BAR",
+       "note": "a bar is a pub or the counter in one"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Street guide",
+         "at": 0,
+         "gives": "AZ",
+         "note": "the A-Z is the classic British book of street maps"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centre of",
+           "at": 14,
+           "note": "centre of picks the middle letter of the word Doncaster"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Doncaster",
+           "at": 24
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone consults a street map in a Doncaster pub while looking for the market.",
+     "walkthrough": "The A-Z is a British street atlas, written AZ here. 'centre of' takes A, the middle letter of 'Doncaster' (a town in Yorkshire), and both go 'in' BAR.",
+     "definitionFit": "A bazaar is an oriental market or a fund-raising sale, a type of marketplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -129,7 +435,45 @@
     "text": "Lecture a daughter in connection with clothes",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lecture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "words": "daughter",
+       "at": 10,
+       "gives": "D",
+       "note": "D is the standard abbreviation for daughter, as in genealogies"
+      },
+      {
+       "words": "clothes",
+       "at": 38,
+       "gives": "DRESS",
+       "note": "dress means clothing, as in formal dress"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent lectures their daughter about what she wears.",
+     "definitionFit": "A formal talk or speech to an audience is a near-synonym of a lecture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lecture"
+    }
+   }
   },
   {
    "number": 18,
@@ -143,7 +487,59 @@
     "text": "Page well-informed about trendy page-three girl?",
     "enumeration": "3-2"
    },
-   "solution": "PINUP"
+   "solution": "PINUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "page-three girl?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means the first two pieces surround the trendy word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Page",
+         "at": 0,
+         "gives": "P"
+        },
+        {
+         "words": "well-informed",
+         "at": 5,
+         "gives": "UP",
+         "note": "to be up on a subject is to be well-informed about it"
+        }
+       ]
+      },
+      {
+       "words": "trendy",
+       "at": 25,
+       "gives": "IN",
+       "note": "in means fashionable or trendy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A page reporter knows all about the fashionable topless model.",
+     "walkthrough": "A page-three girl was a glamour model pictured on page three of The Sun, a British tabloid; the question mark marks her as one example.",
+     "definitionFit": "A glamour model whose photo is pinned to a wall is an example, signalled by the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -157,7 +553,32 @@
     "text": "Show trial",
     "enumeration": "13"
    },
-   "solution": "DEMONSTRATION"
+   "solution": "DEMONSTRATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0,
+      "meaning": "a display or exhibition of how something works"
+     },
+     {
+      "text": "trial",
+      "at": 5,
+      "meaning": "a test run, as in a product being tried out in front of buyers"
+     }
+    ],
+    "explanation": {
+     "surface": "A political show trial, staged for propaganda.",
+     "walkthrough": "'Show trial' reads as one phrase but splits into two definitions.",
+     "definitionFit": "Both a public display and a practical test run are senses of the same noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 21,
@@ -171,7 +592,39 @@
     "text": "Only minutes before",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Only",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "minutes",
+       "at": 5,
+       "gives": "M"
+      },
+      {
+       "words": "before",
+       "at": 13,
+       "gives": "ERE",
+       "note": "ere is a poetic word for before"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Just a few minutes earlier, someone says.",
+     "definitionFit": "As an adjective, 'only' and this word both mean nothing more than, as in a mere child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -185,7 +638,69 @@
     "text": "Stormy debates involving head of his chapel",
     "enumeration": "8"
    },
-   "solution": "BETHESDA"
+   "solution": "BETHESDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chapel",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 15,
+       "note": "involving means the rearranged letters take in the extra one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Stormy",
+         "at": 0,
+         "note": "stormy suggests the letters of debates are thrown about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "debates",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 25,
+         "note": "head of picks the first letter of the word his"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heated arguments break out with a minister at the head of his congregation.",
+     "walkthrough": "'Stormy' rearranges DEBATES, and 'involving' puts H, the first letter of 'his' ('head of'), into it.",
+     "definitionFit": "This biblical pool name was often given to Nonconformist places of worship, especially in Wales, so it names a chapel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stormy"
+    }
+   }
   },
   {
    "number": 1,
@@ -199,7 +714,49 @@
     "text": "Rest for artist? After rest, left",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rest for artist?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 17,
+       "note": "after places the left letter at the end, behind the word for rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rest",
+       "at": 23,
+       "gives": "EASE",
+       "note": "to ease is to rest or relax"
+      },
+      {
+       "words": "left",
+       "at": 29,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter, after a break, goes home.",
+     "walkthrough": "The first 'Rest' is a noun, a stand that supports a canvas; the second means to relax.",
+     "definitionFit": "A painter's frame that supports a canvas is literally a stand or prop for the artist's work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 2,
@@ -213,7 +770,66 @@
     "text": "Nothing cold and hot in cheese roll",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places the three single letters within the cheese word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cheese",
+       "at": 24,
+       "gives": "BRIE",
+       "note": "Brie is a soft French cheese"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Nothing",
+         "at": 0,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        },
+        {
+         "words": "cold",
+         "at": 8,
+         "gives": "C",
+         "note": "C is the abbreviation for cold, as on taps"
+        },
+        {
+         "words": "hot",
+         "at": 17,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on taps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese roll is described as containing nothing, served either cold or hot.",
+     "walkthrough": "The 'roll' looks like part of a cheese roll, but it is the definition.",
+     "definitionFit": "This rich French bread made with butter and eggs is often baked as a small roll or bun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 3,
@@ -227,7 +843,36 @@
     "text": "One who can get a box, say, back into shape?",
     "enumeration": "4,7"
    },
-   "solution": "TREESURGEON"
+   "solution": "TREESURGEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who can get a box, say, back into shape?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who can get a box, say, back into shape?",
+       "at": 0,
+       "note": "box is an evergreen shrub, so one who restores it is a tree specialist, not a boxer's trainer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who can repair a battered cardboard box, or train a boxer back to fitness.",
+     "walkthrough": "A 'box' seems like a container or boxing, but box is a hedge plant pruned into shapes.",
+     "definitionFit": "An arborist who prunes and treats trees and shrubs, including box, restores their form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 4,
@@ -241,7 +886,41 @@
     "text": "Thrown into ecstasy, pet ran wild",
     "enumeration": "6"
    },
-   "solution": "ENRAPT"
+   "solution": "ENRAPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thrown into ecstasy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wild",
+       "at": 29,
+       "note": "wild says the letters of pet ran run riot into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pet ran",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet animal ran about madly, overjoyed.",
+     "walkthrough": "'wild' signals an anagram of PET RAN.",
+     "definitionFit": "Being rapt or spellbound means being carried away with delight, a literary synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 6,
@@ -255,7 +934,58 @@
     "text": "A second artist lifted bouquet",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bouquet",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "lifted",
+       "at": 16,
+       "note": "lifted in a down clue means the whole string is read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "second",
+         "at": 2,
+         "gives": "MO",
+         "note": "a mo is a moment or second, as in 'half a mo'"
+        },
+        {
+         "words": "artist",
+         "at": 9,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, an artist"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist quickly snatched a bunch of flowers.",
+     "walkthrough": "'lifted' turns A + MO + RA upwards, as this is a down clue. 'Bouquet' is a wine's scent, not flowers.",
+     "definitionFit": "A bouquet is the characteristic smell of a wine, a synonym for scent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bouquet"
+    }
+   }
   },
   {
    "number": 7,
@@ -269,7 +999,72 @@
     "text": "Jersey: rainier, reportedly, after start of September",
     "enumeration": "7"
    },
-   "solution": "SWEATER"
+   "solution": "SWEATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jersey",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "after sets the sound-alike piece behind the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 35,
+         "note": "start of takes the first letter of September"
+        }
+       ],
+       "parts": [
+        {
+         "words": "September",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "WEATER",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 17,
+         "note": "reportedly means a word heard, spelt differently from how it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rainier",
+         "at": 8,
+         "gives": "WETTER",
+         "note": "rainier weather is wetter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wrap up: it gets rainier once September begins.",
+     "walkthrough": "'reportedly' gives a homophone of WETTER (rainier), spelt WEATER; 'after' puts it behind S, from 'start of September'. Jersey looks like the Channel Island.",
+     "definitionFit": "A jersey is a knitted pullover, a synonym of this garment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jersey"
+    }
+   }
   },
   {
    "number": 9,
@@ -283,7 +1078,30 @@
     "text": "Maybe what a diver did gained recognition?",
     "enumeration": "4,1,6"
    },
-   "solution": "MADEASPLASH"
+   "solution": "MADEASPLASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe what a diver did",
+      "at": 0,
+      "meaning": "a diver entering water literally created a splash"
+     },
+     {
+      "text": "gained recognition",
+      "at": 23,
+      "meaning": "to become noticed or famous suddenly"
+     }
+    ],
+    "explanation": {
+     "surface": "A diver's spectacular entry earned them fame.",
+     "definitionFit": "The idiom for a sensational debut is taken literally for a diver hitting the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -297,7 +1115,41 @@
     "text": "Smart do organised for celebrity",
     "enumeration": "7"
    },
-   "solution": "STARDOM"
+   "solution": "STARDOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "celebrity",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 9,
+       "note": "organised suggests the letters of smart do are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Smart do",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart party was arranged for a famous person.",
+     "walkthrough": "'organised' signals an anagram of SMART DO.",
+     "definitionFit": "Celebrity as a state of fame is a synonym of being a star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 14,
@@ -311,7 +1163,49 @@
     "text": "Relatives, for instance, to admit free",
     "enumeration": "7"
    },
-   "solution": "AUNTIES"
+   "solution": "AUNTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relatives",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to admit",
+       "at": 25,
+       "note": "to admit means the instance word lets the freeing word in"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for instance",
+       "at": 11,
+       "gives": "AS",
+       "note": "as means for instance, as in 'cities such as Rome'"
+      },
+      {
+       "words": "free",
+       "at": 34,
+       "gives": "UNTIE",
+       "note": "to untie is to set free"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Family members, for example, are let in without charge.",
+     "walkthrough": "'free' looks like an adjective (no charge) but is the verb, to release.",
+     "definitionFit": "Sisters of one's parents are an example of relatives, family members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 15,
@@ -325,7 +1219,42 @@
     "text": "Fly, being part of jet set's entourage",
     "enumeration": "6"
    },
-   "solution": "TSETSE"
+   "solution": "TSETSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "being part of",
+       "at": 5,
+       "note": "being part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jet set's entourage",
+       "at": 19,
+       "gives": "TSETSE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flies off, joining the jet set's hangers-on.",
+     "definitionFit": "This African bloodsucking insect that spreads sleeping sickness is a species of fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1268,46 @@
     "text": "Slightly reduced, modest object",
     "enumeration": "5"
    },
-   "solution": "DEMUR"
+   "solution": "DEMUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "object",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Slightly reduced",
+       "at": 0,
+       "note": "slightly reduced means the modest word loses just its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modest",
+       "at": 18,
+       "gives": "DEMURE",
+       "note": "demure means modest or reserved"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small, unpretentious item has been marked down a little.",
+     "walkthrough": "'object' looks like a noun, but it is the verb, to protest.",
+     "definitionFit": "To raise an objection or protest is a formal synonym of the verb object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1321,49 @@
     "text": "Mountain-dweller also described by father",
     "enumeration": "5"
    },
-   "solution": "PANDA"
+   "solution": "PANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mountain-dweller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "described by",
+       "at": 22,
+       "note": "described by means the also word is drawn around, enclosed, by the father word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "father",
+       "at": 35,
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "also",
+       "at": 17,
+       "gives": "AND",
+       "note": "and means also, in addition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father describes someone else who lives in the mountains.",
+     "walkthrough": "'described by' is used in the geometric sense, as a circle is described around a shape.",
+     "definitionFit": "The giant bear of central China lives in mountain bamboo forests, an example of a mountain-dweller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "described"
+    }
+   }
   }
  ]
 }
