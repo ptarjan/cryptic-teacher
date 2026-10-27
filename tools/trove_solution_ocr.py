@@ -462,9 +462,10 @@ def opened(a, k):
     return win(np.pad(eroded, ((p, q), (p, q)), constant_values=0), (k, k)).max((2, 3))
 
 
-def blocks_read(gray, lat, n):
-    """{(row, col): True where the solution image has a block} for n x n,
-    on lattice `lat` (x0, y0, pitch_x, pitch_y) or rules (ys, xs)."""
+def cell_paper(gray, lat, n):
+    """{(row, col): the share of the cell's middle that is open paper (patches wider than a speck),
+    None for a cell off the image} for n x n, on lattice `lat` (x0, y0, pitch_x, pitch_y) or rules
+    (ys, xs)."""
     ys, xs = lat if len(lat) == 2 else even(lat, n)
     paper = (gray >= trove_grid.otsu(gray)).astype(np.uint8)
     paper = opened(paper, max(2, round(min(ys[-1] - ys[0], xs[-1] - xs[0]) / n / 12)))
@@ -472,8 +473,14 @@ def blocks_read(gray, lat, n):
     for r in range(n):
         for c in range(n):
             a = between(paper, ys, xs, r, c, 0.15)
-            out[(r, c)] = None if a.size == 0 else float(a.mean()) < BLOCK_PAPER
+            out[(r, c)] = None if a.size == 0 else float(a.mean())
     return out
+
+
+def blocks_read(gray, lat, n):
+    """{(row, col): True where the solution image has a block} for n x n,
+    on lattice `lat` (x0, y0, pitch_x, pitch_y) or rules (ys, xs)."""
+    return {rc: None if p is None else p < BLOCK_PAPER for rc, p in cell_paper(gray, lat, n).items()}
 
 
 def block_agreement(gray, grid, lat):
@@ -510,7 +517,27 @@ def blocks_sure(gray, grid, lat, agreement=None):
     cells = [(seen[(r, c)], ch == "#") for r, row in enumerate(grid) for c, ch in enumerate(row)]
     if sum(s == b for s, b in cells) >= SURE_BLOCKS * len(cells):
         return True
-    return all(s for s, b in cells if b) and sum(1 for s, b in cells if s and not b) <= VERY_HEAVY_EXTRA
+    if all(s for s, b in cells if b) and sum(1 for s, b in cells if s and not b) <= VERY_HEAVY_EXTRA:
+        return True
+    return blocks_ranked(gray, grid, lat)
+
+
+def blocks_ranked(gray, grid, lat):
+    """Whether, on lattice `lat` of `gray`, `grid`'s blocks are exactly the cells with the least open paper
+    (cell_paper), every block's share under every light's: the grid's, whatever BLOCK_PAPER's cut makes of
+    its cells. 10-27: of 265 Times grids read short with no cell classified (1970s-90s most), ~150 read
+    every light a light but missed 3+ blocks (a grey print's blocks hold paper over BLOCK_PAPER), ~35 found
+    every block with 25-40 inked letters read as blocks too; 39 frame so. Their classifier decodes (cached
+    readings) filled ~460 blank lights, every letter crossing a held answer the held one (590 of 590, 433
+    of them at a gap under 0.05), no held answer vetoed; the one held answer read otherwise held wrong
+    (times-15603 PLEACIRCUS, read FLEACIRCUS). A lattice off the grid shares a block's ink between two
+    cells, a block's and a light's: little or no gap."""
+    paper = cell_paper(gray, lat, len(grid))
+    if None in paper.values():
+        return False
+    blocks = [paper[(r, c)] for r, row in enumerate(grid) for c, ch in enumerate(row) if ch == "#"]
+    lit = [paper[(r, c)] for r, row in enumerate(grid) for c, ch in enumerate(row) if ch != "#"]
+    return bool(blocks) and bool(lit) and min(lit) > max(blocks)
 
 
 def sure_framing(framed, grid, fits):

@@ -2654,6 +2654,16 @@ check("an inked print with every block found is sure, a framing missing a block 
       [fits5, tso.blocks_sure(inked, grid5, rules5, fits5[1]), tso.blocks_sure(lost, grid5, rules5, fits5[0]),
        tso.sure_framing([(lost, *rules5), (inked, *rules5)], grid5, fits5),
        tso.sure_framing([(lost, *rules5)], grid5, fits5[:1])])
+# blocks_ranked: a grey print's block (its ink a coarse mesh, paper over BLOCK_PAPER) is read a light, but it
+# holds less paper than every light: the framing is sure; for a grid with the block elsewhere it is not.
+grey5 = gray.copy()
+for y in range(66, 120, 12):
+    grey5[y:y + 5, 66:120] = 230
+grey5[129:171, 129:171] = np.where(grey5[129:171, 129:171] < 100, 230, grey5[129:171, 129:171])
+check("a grey block read as a light, yet the least paper of all cells, is a sure framing; not for another grid",
+      [False, True, True, False],
+      [tso.blocks_read(grey5, rules5, 5)[(1, 1)], tso.blocks_ranked(grey5, grid5, rules5), tso.blocks_sure(grey5, grid5, rules5),
+       tso.blocks_ranked(grey5, [".....", "...#.", ".....", ".....", "....."], rules5)])
 
 # improves(): a reading replaces a file this tool filed when it beats it.
 pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
@@ -3850,6 +3860,25 @@ check("unsure_uncrossed: a row read since REREAD_UNSURE_LONE, or no Times paper'
       [f.unsure_uncrossed({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
                            "verdicts": []}),
        f.unsure_uncrossed({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []})])
+check("RANKED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.RANKED_BLOCKS], f.RANKED_BLOCKS in f.SOLUTION_FIXES, f.RANKED_BLOCKS.startswith("solution short"),
+       f.RANKED_BLOCKS in __import__("edition_queue").LOW_ASK, f.RANKED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.RANKED_BLOCKS)))
+check("ranked_short: a row read since REREAD_RANKED_BLOCKS, no Times paper's, or a classified grid's is not due",
+      [False, False, False],
+      [f.ranked_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                       "verdicts": []}),
+       f.ranked_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.ranked_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                     "solution": {"accepted": 2, "lights": 30, "classified": 0}}]})])
+check("ranked_stale: a kept reading marked ranked, classified, whole or refused is not read again",
+      [False, False, False, False],
+      [f.ranked_stale({"ranked": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
+       f.ranked_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), 1, [])])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
