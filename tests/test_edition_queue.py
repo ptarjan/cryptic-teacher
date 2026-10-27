@@ -320,6 +320,24 @@ check("not after the fix, nor for 'a' or a capital, nor after the spaced years, 
        f.spaced_worded({**_lsrow, "verdicts": [{**_ls, "blank": {"9-down": "'X': a stray letter"}}]}),
        f.spaced_worded({**_lsrow, "edition": "GaleTimes1991UKEnglish/1991-02-15"}),
        f.spaced_worded({**_lsrow, "edition": "FinancialTimes1960UKEnglish/1960-01-21_0"})])
+# ---- a Times page written unfiled for a Mc surname or "Messrs." read as a name that lost a letter is due once
+# (fa.NAME_CLUSTER), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_nc = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"17-down": "'McTavish': a letter lost from a name"}}
+_ncrow = {"edition": "GaleTimes1963UKEnglish/1963-11-26", "verdicts": [_nc], "readAt": "2026-10-25T17:27:19+00:00"}
+check("a Times page blanked for a Mc surname is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.NAME_CLUSTER, 2, True, True, True, None, None, True],
+      [f.fix_reason(_ncrow), f.RANKS[f.NAME_CLUSTER], eq.evidence_reason(f.NAME_CLUSTER), f.NAME_CLUSTER in eq.FIX_LANDED,
+       f.NAME_CLUSTER in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.NAME_CLUSTER, "date": "1963-11-26"}),
+       eq.canary_failed({"paper": "times", "reason": f.NAME_CLUSTER, "date": "1984-12-31"}),
+       f.cluster_blank("'Messrs.': a letter lost from a name")])
+check("not after the fix, nor for a name that lost its accent ('Mnchen'), nor a word misread as a name, nor another paper",
+      [False] * 4,
+      [f.cluster_named({**_ncrow, "readAt": _after}),
+       f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Mnchen': a letter lost from a name"}}]}),
+       f.cluster_named({**_ncrow, "verdicts": [{**_nc, "blank": {"17-down": "'Murat': a word misread as a name"}}]}),
+       f.cluster_named({**_ncrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

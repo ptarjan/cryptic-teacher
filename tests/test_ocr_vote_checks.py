@@ -1224,6 +1224,13 @@ check("strays: letter-spaced emphasis passes; a speck ('study o gambling', 'to r
 check("spaced_runs: a stretch that spells a word two ways ('A light-weight' / 'Alight-weight') is left alone",
       [[], [(1, 7, "little")]],
       [oc.spaced_runs("A l i g h t - w e i g h t beast".split()), oc.spaced_runs("in l i t t l e time".split())])
+check("suspect: a Mc or Mac surname ('McTavish', 'McNeile', 'MacGregor') and 'Messrs.' stand; a name that lost "
+      "its accent ('Mnchen'), a Mc before one ('McKrlea') and a word misread as a name ('Murat') do not",
+      [[], [], [], [], [("Mnchen", "a letter lost from a name")], [("McKrlea", "a letter lost from a name")],
+       [("Murat", "a word misread as a name")]],
+      [oc.suspect("the clan McTavish"), oc.suspect("McNeile among them"), oc.suspect("MacGregor says"),
+       oc.suspect("Messrs. Gog and Magog"), oc.suspect("met in Mnchen"), oc.suspect("the McKrlea clan"),
+       oc.suspect("Murat upset by convulsion")])
 
 # Times asPrinted: readers sharing a detector share misreads, so only a word
 # every reading (three or more) spells alike, no one letter from a known
