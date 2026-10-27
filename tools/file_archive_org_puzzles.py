@@ -10120,7 +10120,7 @@ def old_blank(why):
         return False
     if not isinstance(token, str) or ocr_clues.suspect(token):
         return False
-    pieces = [p.strip("'") for p in re.split(r"[-./&]", token.strip(ocr_clues.EDGE).replace("’", "'"))]
+    pieces = [p.strip("'") for p in re.split(r"[-./&]", quotes.straight(token.strip(ocr_clues.EDGE)))]
     return any(ocr_clues.old_form(ocr_clues.plain(p)) or ocr_clues.gee_dropped(token, p) for p in pieces if p)
 
 
