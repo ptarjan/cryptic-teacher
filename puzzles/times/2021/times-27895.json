@@ -1955,31 +1955,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "secured by",
-       "at": 9,
-       "note": "secured by means the headgear is fastened onto the male, set right beside him"
-      }
-     ],
      "parts": [
       {
-       "words": "male",
-       "at": 20,
-       "gives": "MAN",
-       "note": "a man is a male"
-      },
-      {
-       "words": "Headgear",
-       "at": 0,
-       "gives": "HAT",
-       "note": "a hat is headgear"
-      },
-      {
-       "words": "volunteers",
-       "at": 25,
-       "gives": "TA",
-       "note": "TA is the Territorial Army, Britain's volunteer reserve"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "secured by",
+         "at": 9,
+         "note": "something secured by others is held between them"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "male",
+           "at": 20,
+           "gives": "MAN",
+           "note": "a man is a male"
+          },
+          {
+           "words": "volunteers",
+           "at": 25,
+           "gives": "TA",
+           "note": "TA is the Territorial Army, Britain's volunteer reserve"
+          }
+         ]
+        },
+        {
+         "words": "Headgear",
+         "at": 0,
+         "gives": "HAT",
+         "note": "a hat is headgear"
+        }
+       ]
       },
       {
        "op": "last",
@@ -1987,7 +1997,7 @@
         {
          "text": "finally",
          "at": 36,
-         "note": "finally takes the last letter of on"
+         "note": "finally picks the closing letter of the word on"
         }
        ],
        "parts": [
@@ -2000,14 +2010,14 @@
      ]
     },
     "explanation": {
-     "surface": "A man's hat is fastened as volunteers land at last on an island.",
-     "walkthrough": "The TA (Territorial Army) is Britain's volunteer army reserve.",
-     "definitionFit": "Manhattan is the island at the heart of New York City."
+     "surface": "A man's hat is held fast by volunteers on an island posting.",
+     "walkthrough": "HAT is 'secured by' MAN and TA (the Territorial Army, Britain's volunteer reserve); 'finally' takes N from 'on'.",
+     "definitionFit": "Manhattan is the island borough at the heart of New York City."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "volunteers"
+     "misdirectedWord": "secured"
     }
    }
   }

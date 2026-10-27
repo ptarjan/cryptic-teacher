@@ -442,41 +442,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PATHETIC",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "way",
+       "at": 8,
+       "gives": "PATH",
+       "note": "a path is a way"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "turns up"
+         "text": "in",
+         "at": 24,
+         "note": "in places the turned word inside the postcode letters"
         }
        ],
        "parts": [
         {
-         "words": "way",
-         "gives": "PATH",
-         "note": "a path is a way"
+         "words": "City district",
+         "at": 27,
+         "gives": "EC",
+         "note": "EC is the postcode district of the City of London"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "the reversed IT goes inside the City district"
+           "text": "turns up",
+           "at": 15,
+           "note": "in a down clue turning up means the word it is read from the bottom upwards"
           }
          ],
          "parts": [
           {
-           "words": "City district",
-           "gives": "EC",
-           "note": "EC = the City of London's postcode district; it holds TI"
-          },
-          {
            "words": "it",
-           "gives": "TI",
-           "note": "IT reversed"
+           "at": 12,
+           "gives": "IT"
           }
          ]
         }
@@ -485,14 +488,14 @@
      ]
     },
     "explanation": {
-     "surface": "Some pitiful route appears in a district of the City.",
-     "walkthrough": "The City (capital C) is the financial district of London, whose postcodes begin EC.",
-     "definitionFit": "Pathetic and pitiful both mean arousing pity or contempt."
+     "surface": "A sorry route through the City is the picture, with something turning up in a London district.",
+     "walkthrough": "EC is the City of London postcode; 'turns up' sends IT backwards to TI, which goes 'in' EC.",
+     "definitionFit": "Pitiful and pathetic are synonyms for something arousing pity or contempt."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "turns"
+     "misdirectedWord": "way"
     }
    }
   },
