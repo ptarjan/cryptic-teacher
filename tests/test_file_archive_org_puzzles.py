@@ -2743,6 +2743,24 @@ check("a dot-screened block blurred is the darkest cell: its framing read; anoth
       [tso.blurred_misses(screen, grid5, rules5), tso.blurred_misses(screen, other5, rules5) > tso.BLURRED_MISS,
        tso.blurred_framing([("stub", *rules5), (screen, *rules5)], grid5, [0.9, 0.9]),
        tso.blurred_framing([(screen, *rules5)], other5, [0.9]), tso.blurred_framing([("stub", *rules5)], grid5, [0.9])])
+# lettered_framing: of framings no block test judges, the one whose classifier letters are the reading's own
+# (LETTERED_AGREE of LETTERED_MIN or more) is read; one cut a half cell off (other letters), a stub framing's, or a
+# reading of too few letters is not. Stub classifier: a framing of ones reads the reading's letters, zeros "Z".
+grid7 = ["." * 7] * 7
+_lt_letters = {(r, c): "ABCDEFG"[c] for r in range(7) for c in range(7)}
+_lt_real = tso.classified, tso.glyph
+tso.glyph = lambda g, ys, xs, r, c: (int(g[0, 0]), r, c)
+tso.classified = lambda glyphs: {rc: np.eye(26)[tso.AZ.index(_lt_letters[rc] if v[0] else "Z")] for rc, v in glyphs.items()}
+try:
+    _lt_on, _lt_off, _lt_lat = np.ones((2, 2), int), np.zeros((2, 2), int), (list(range(8)), list(range(8)))
+    _lt_got = [tso.lettered_framing([("stub", *_lt_lat), (_lt_off, *_lt_lat), (_lt_on, *_lt_lat)], grid7, _lt_letters),
+               tso.lettered_framing([(_lt_off, *_lt_lat)], grid7, _lt_letters),
+               tso.lettered_framing([(_lt_on, *_lt_lat)], grid7, dict(list(_lt_letters.items())[:tso.LETTERED_MIN - 1])),
+               tso.lettered_framing([("stub", *_lt_lat)], grid7, _lt_letters)]
+finally:
+    tso.classified, tso.glyph = _lt_real
+check("lettered_framing: the framing reading the reading's letters is read; another's, a stub's or a thin reading's not",
+      [2, None, None, None], [_lt_got[0] and _lt_got[0][0], *_lt_got[1:]])
 
 # improves(): a reading replaces a file this tool filed when it beats it.
 pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
@@ -3984,6 +4002,32 @@ check("blurred_stale: an unmarked short unclassified Times reading of BLURRED_PU
        f.blurred_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
        f.blurred_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _bp),
        f.blurred_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
+check("LETTERED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.LETTERED_BLOCKS], f.LETTERED_BLOCKS in f.SOLUTION_FIXES, f.LETTERED_BLOCKS.startswith("solution short"),
+       f.LETTERED_BLOCKS in __import__("edition_queue").LOW_ASK, f.LETTERED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.LETTERED_BLOCKS)))
+_lp = min(f.LETTERED_PUZZLES)
+check("lettered_short: a row read since REREAD_LETTERED_BLOCKS, no Times paper's, a classified grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                         "verdicts": []}),
+       f.lettered_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": f"times-{_lp}", "solutionFrom": "x leaf 3", "number": _lp,
+                                       "solution": {"accepted": 2, "lights": 30, "classified": 0}}]}),
+       f.lettered_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                       "solution": {"accepted": 2, "lights": 30}}]})])
+check("lettered_stale: an unmarked short unclassified Times reading of LETTERED_PUZZLES is read again; marked, "
+      "classified, whole, refused or another puzzle's is not",
+      [True, False, False, False, False, False],
+      [f.lettered_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"lettered": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _lp),
+       f.lettered_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
