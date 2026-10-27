@@ -13,7 +13,7 @@
 name: Build and deploy the site
 
 # A push that only added or edited puzzle files (tools/ci_scope.py, against the
-# push's own parent) runs the annotation check and
+# push's own parent and everything since the live deploy) runs the annotation check and
 # nothing else: about a minute. Building and deploying the site is ~5 minutes of
 # work, so those puzzles go live from this workflow's own 15-minute clock: the
 # scope job lets a tick build only when master has moved since the last deploy
@@ -121,7 +121,27 @@ jobs:
           git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE" || yes "could not fetch $BEFORE"
           verdict=$(python3 tools/ci_scope.py decide "$BEFORE") || yes "could not diff against $BEFORE"
           [ "$verdict" = fast ] || yes "$verdict"
-          echo "puzzle-only push since its parent $BEFORE: validate only, the scheduled tick deploys it"
+          # Puzzle-only against its parent is not enough: a code push whose
+          # build was cancelled (a pending build is replaced by a newer queued
+          # one even with cancel-in-progress: false, run 40532982428) leaves
+          # code the live site never got, and every later puzzle push would
+          # say "not needed" about it. So count every non-puzzle change since
+          # the commit the site was deployed from. A build already running
+          # will deploy the code, so only then the fast path stands.
+          live=$(python3 tools/last_deploy.py "$REPO") || live=""
+          if [ -n "$live" ] && git fetch --no-tags --depth=1 --filter=blob:none origin "$live"; then
+            undeployed=$(python3 tools/ci_scope.py decide "$live") || undeployed="full could not diff against $live"
+            if [ "$undeployed" != fast ]; then
+              running=$(gh api "repos/$REPO/actions/workflows/pages.yml/runs?status=in_progress&per_page=30" \
+                          --jq '.workflow_runs[].id' | while read -r id; do
+                  [ "$id" != "$RUN_ID" ] || continue
+                  gh api "repos/$REPO/actions/runs/$id/jobs?per_page=100" \
+                    --jq '[.jobs[] | select(.name == "build" and .status == "in_progress")] | length'
+                done | grep -c '^[1-9]' || true)
+              [ "${running:-0}" -gt 0 ] || yes "code not deployed since ${live:0:8}: $undeployed"
+            fi
+          fi
+          echo "puzzle-only push since its parent $BEFORE and the live deploy: validate only, the scheduled tick deploys it"
           echo "deploy=false" >> "$GITHUB_OUTPUT"
 
   build:
