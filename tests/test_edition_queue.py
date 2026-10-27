@@ -599,6 +599,12 @@ ts = [rr("t-wide", "1990", f.SHORT_WIDE), gr("g-unlisted", "1980", f.UNLISTED), 
 check("eq.by_urgency: Times solution rereads, then Times never-read, then the Listener, then others (Paul 10-24)",
       ["t-wide", "g-unlisted", "g-grid", "t-linked", "g-never", "l-new", "tg-never"],
       [u["rel"] for u in eq.by_urgency(ts)])
+check("eq.by_urgency: a Times lost write's reread (rank 2) goes with the Times never-read, ahead of the Listener (10-27)",
+      ["t-wide", "g-lost", "g-never", "l-new", "g-changed"],
+      [u["rel"] for u in eq.by_urgency([gr("g-changed", "2020", "inputs changed"), gr("g-lost", "2007", f.LOST_WRITE),
+                                        rr("t-wide", "1990", f.SHORT_WIDE), lu("l-new", 0, "never read (Gale fetch)"),
+                                        (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0,
+                                                   "reason": "never read (Gale fetch)"})])])
 sc = lambda rel, rank, reason, paper="gale": (rank, 0, 0, {"rel": rel, "date": "1990", "paper": paper, "rank": rank,
                                                          "kind": "scan", "reason": reason})
 check("eq.by_urgency: a Times stale scan a solution reread waits on (serves) goes ahead of never-scanned pages",

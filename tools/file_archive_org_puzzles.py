@@ -12744,7 +12744,11 @@ def blanket_or_fix(row, blanket):
     their rows' solutionsSeen (or stored titles) no longer the planner's links, so due_reason answered
     the blanket reason before fix_reason was asked. Not for a row whose scan lost a verdict's title
     (answers_only reads only a title the scan holds, so the reread files nothing) unless the lost title
-    is its held puzzle's (held_titles: HELD_TITLE reads it under that number; 10-25, 82 Times rows)."""
+    is its held puzzle's (held_titles: HELD_TITLE reads it under that number; 10-25, 82 Times rows).
+    A lost write (LOST_WRITE) stands too: its page's puzzle is held by no file, as good as never read.
+    10-27: 817 Gale Times pages stood so (2000-08 329, 1970s 234), due LOST_WRITE by fix_reason yet
+    planned "inputs changed" (353), "scan stale, answers missing" (279) or "read without the VLM"
+    (172), which only_evidence drops; LOST_WRITE rereads since 10-25 filed 64% of their pages, 33% whole."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         return blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
@@ -12752,7 +12756,7 @@ def blanket_or_fix(row, blanket):
             and not held_titles(row):
         return blanket
     why = fix_reason(row)
-    return why if why in SOLUTION_FIXES else blanket
+    return why if why in SOLUTION_FIXES or why == LOST_WRITE else blanket
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
