@@ -1567,6 +1567,56 @@ check("a held file short whose blank light's cached VLM word a classifier rival 
       vr_due + [f.RANKS[f.VLM_RIVALED], f.VLM_RIVALED in f.SOLUTION_FIXES, f.VLM_RIVALED.startswith("solution short"),
                 f.VLM_RIVALED in __import__("edition_queue").LOW_ASK, f.VLM_RIVALED in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.VLM_RIVALED)])
+# LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
+# short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
+# (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
+# FULL_SHORT reaches a TIMES_1930 page's full read too.
+lu_dir = Path(__import__("tempfile").mkdtemp())
+lu_held = lu_dir / "times-99999991.json"
+lu_held.write_text(json.dumps({"source": {"url": "u"}, "entries": [
+    {"number": 1, "direction": "across", "solution": None}, {"number": 2, "direction": "down", "solution": None},
+    {"number": 3, "direction": "across", "solution": "ABC"}]}))
+(lu_dir / "solution_reads").mkdir()
+lu_read = lu_dir / "solution_reads" / "1984-05-02_99999991.json"
+lu_read.write_text(json.dumps({"stats": {"strips": {"1-across": {}}}}))
+real_hp, real_pu, real_ar, real_hb, real_crops = dict(f._HELD_PATH), f.page_url, f.ask_replies, f.held_blanks, f.CROPS
+f.CROPS = lu_dir
+f._HELD_PATH[("times", 99999991)] = lu_held
+f.page_url = lambda d, found, leaf: "u"
+f.filed_state = lambda series, n: (False, True)
+f.held_blanks = lambda series, n, sol_dir: 2
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+
+
+def lu_row(at, late=False, edition="NewsUK1984UKEnglish/1984-05-01_61715", ao=True):
+    row = {**vu_row(at, gap=2, ao=ao), "edition": edition, "scan": {"puzzles": [{"number": 99999991}]}}
+    row["verdicts"][0]["leaf"] = 3
+    if late:
+        row["verdicts"][0]["solution"]["lateStrips"] = ["1-across"]
+    return row
+
+
+f.ask_replies = lambda: {"NewsUK1984UKEnglish/1984-05-01_61715": {"1-across": ["k1"]}}
+lu_due = [f.short_again(lu_row("2026-10-27T07:00:00+00:00")), f.short_again(lu_row("2027-01-01T00:00:00+00:00")),
+          f.short_again(lu_row("2026-10-27T07:00:00+00:00", late=True))]
+f.ask_replies = lambda: {"NewsUK1984UKEnglish/1984-05-01_61715": {"2-down": ["k2"]}}
+lu_due.append(f.short_again(lu_row("2026-10-27T07:00:00+00:00")))
+lu_due.append(f.short_again(lu_row("2027-01-01T00:00:00+00:00", ao=False,
+                                   edition="per_times_the-times_1930-02-19_45441/per_times_the-times_1930-02-19_45441")))
+f._HELD_PATH.clear()
+f._HELD_PATH.update(real_hp)
+f.page_url, f.ask_replies, f.held_blanks, f.CROPS = real_pu, real_ar, real_hb, real_crops
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("an answers-only held file 1-5 short with no late strip and a blank light never asked, read before "
+      "REREAD_LATE_UNASKED: LATE_UNASKED (rank 2, answers-only, evidence, LOW, a fix landed); read since, a late "
+      "strip cut, or every blank asked: not; a TIMES_1930 page's full read: FULL_SHORT",
+      [f.LATE_UNASKED, None, None, None, f.FULL_SHORT, 2, True, True, True, True, True],
+      lu_due + [f.RANKS[f.LATE_UNASKED], f.LATE_UNASKED in f.SOLUTION_FIXES, f.LATE_UNASKED.startswith("solution short"),
+                f.LATE_UNASKED in __import__("edition_queue").LOW_ASK, f.LATE_UNASKED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LATE_UNASKED)])
 # filed_word: an unlisted reply as read where another puzzle's filed answer spells it, fitting every crossing, the
 # classifier reading every open letter at the floor; not one no puzzle filed (TINEE), a listed reply, one under
 # FILED_MIN letters, one with a "?", nor one whose open letter the classifier reads under the floor.
