@@ -3441,7 +3441,9 @@ def r_does_not_give(node, parent, ctx):
     only when ONE edit makes it give it and no other single edit does: a container whose two arguments
     are the wrong way round (`ins<worn by>(ALL, COW)` for CALLOW: the outer is the second argument), or a
     charade whose pieces stand in the wrong order (a charade with no indicator of its own, up to four
-    pieces). Two edits that both work, or none, stay refused. Run once, at the root, on the unevaluated tree."""
+    pieces; a container that is really a charade, a piece that belongs outside it, a leaf filed reversed under rev()
+    and a charade with its own indicator in the wrong order: _does_not_give_edits). Two edits that both work, or none,
+    stay refused. Run once, at the root, on the unevaluated tree."""
     answer = ctx.get("answer")
     if parent is not None or not answer or node.get("unchecked"):
         return None
@@ -3452,24 +3454,85 @@ def r_does_not_give(node, parent, ctx):
         pass
     except (W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
         return None
-    found = []
-    for k, (n, _p) in enumerate(list(walk(node))):
-        parts = n.get("parts") or []
-        edits = []
-        if n.get("op") == "container" and len(parts) == 2:
-            edits.append(list(reversed(range(2))))
-        elif n.get("op") == "charade" and 2 <= len(parts) <= 4 and not n.get("indicators"):
-            edits += [list(o) for o in itertools.permutations(range(len(parts))) if list(o) != list(range(len(parts)))]
-        for order in edits:
-            new = copy.deepcopy(node)
-            target = list(walk(new))[k][0]
-            target["parts"] = [target["parts"][i] for i in order]
+    found, seen = [], set()
+    for k in range(len(list(walk(node)))):
+        for new in _does_not_give_edits(node, k):
             try:
                 W.evaluate(copy.deepcopy(new), answer)
             except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
                 continue
-            found.append(new)
+            key = json.dumps(new, sort_keys=True)
+            if key not in seen:
+                seen.add(key)
+                found.append(new)
     return found[0] if len(found) == 1 else None
+
+
+def _does_not_give_edits(node, k):
+    """Every single-edit copy of `node` the doesNotGive mend tries at its k-th node: a container's
+    arguments swapped, or a container written as the charade of its two arguments (either order: ADRIFT
+    is AD + RIFT, 'in' only linking them); a charade's pieces in another order (an indicator of its own,
+    like 'to support', stays); a container argument that is a charade whose end pieces sit outside the
+    container (MALBEC is ME round ALB, then C); a reversal over a leaf whose letters are already reversed."""
+    out = []
+    def fresh():
+        new = copy.deepcopy(node)
+        return new, list(walk(new))[k][0]
+    n = list(walk(node))[k][0]
+    parts = n.get("parts") or []
+    if n.get("op") == "container" and len(parts) == 2:
+        for order in ([1, 0], ):
+            new, t = fresh()
+            t["parts"] = [t["parts"][i] for i in order]
+            out.append(new)
+        for order in ([0, 1], [1, 0]):
+            new, t = fresh()
+            t["op"] = "charade"
+            t["parts"] = [t["parts"][i] for i in order]
+            t.pop("indicators", None)   # a container word between two plain pieces is a link, not a charade's
+            out.append(new)
+        for j in (0, 1):
+            arg = parts[j]
+            sub = arg.get("parts") or []
+            if arg.get("op") != "charade" or arg.get("indicators") or len(sub) < 2 or len(sub) > 4:
+                continue
+            for a in range(len(sub)):
+                for b in range(a + 1, len(sub) + 1):
+                    if b - a == len(sub):
+                        continue
+                    new, t = fresh()
+                    mid = t["parts"][j]["parts"][a:b]
+                    t["parts"][j] = mid[0] if len(mid) == 1 else dict(t["parts"][j], parts=mid)
+                    inner = dict(t)
+                    pre, post = parts[j]["parts"][:a], parts[j]["parts"][b:]
+                    pre, post = copy.deepcopy(pre), copy.deepcopy(post)
+                    inner_node = {key: v for key, v in inner.items()}
+                    t.clear()
+                    t.update({"op": "charade", "parts": [*pre, inner_node, *post]})
+                    out.append(new)
+    elif n.get("op") == "charade" and 2 <= len(parts) <= (4 if not n.get("indicators") else 3):
+        for o in itertools.permutations(range(len(parts))):
+            if list(o) != list(range(len(parts))):
+                new, t = fresh()
+                t["parts"] = [t["parts"][i] for i in o]
+                out.append(new)
+    elif n.get("op") == "reversal" and len(parts) == 1 and leaf(parts[0]) and parts[0].get("gives"):
+        new, t = fresh()
+        t["parts"][0]["gives"] = t["parts"][0]["gives"][::-1]
+        out.append(new)
+    return [_flat_charades(new) for new in out]
+
+
+def _flat_charades(tree):
+    """A charade with no indicator inside another with none is spliced into it (a + (b + c) is a + b + c)."""
+    for n, _p in reversed(list(walk(tree))):
+        if n.get("op") == "charade" and not n.get("indicators"):
+            kids = []
+            for p in n.get("parts") or []:
+                same = isinstance(p, dict) and p.get("op") == "charade" and not p.get("indicators")
+                kids += p["parts"] if same else [p]
+            n["parts"] = kids
+    return tree
 
 
 RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,

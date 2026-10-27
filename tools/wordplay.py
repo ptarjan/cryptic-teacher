@@ -945,9 +945,11 @@ def values(node):
     if op == "hidden":
         leaf = parts[0]
         text = letters(leaf.get("words"))
+        # '&' is read AND by a hidden word as everywhere else ('Accident & Emergency' hides TANDEM)
+        also = letters(str(leaf.get("words") or "").replace("&", " and ")) if "&" in str(leaf.get("words")) else ""
         if "gives" in leaf:
-            return {leaf["gives"]} if leaf["gives"] in text else set()
-        return {text[a:b] for a in range(len(text)) for b in range(a + 1, len(text) + 1)}
+            return {leaf["gives"]} if leaf["gives"] in text or leaf["gives"] in also else set()
+        return {t[a:b] for t in (text, also) for a in range(len(t)) for b in range(a + 1, len(t) + 1)}
     if op == "homophone":
         return {node["spelt"]}
     if op == "spoonerism":
@@ -1368,6 +1370,9 @@ def diagnose(node, want):
     if hint:
         return hint
     ls = lengths(node)
+    hint = _container_reversed_hint(node, want) or _repeat_count_hint(node, want)
+    if hint:
+        return hint
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
         sizes = [next(iter(lengths(p))) for p in parts_of(node)]
         if sum(sizes) == len(want):
@@ -1425,6 +1430,41 @@ def diagnose(node, want):
     elif ls is not None and len(want) not in ls:
         msg += f" ({'/'.join(map(str, sorted(ls)))} letters against {len(want)})"
     return msg
+
+
+def _container_reversed_hint(node, want):
+    """ins(LATE, CO) for LOCATE: one argument reads backwards in the answer (LATE round OC), which
+    only rev<indicator>(...) round it can say. Named only when exactly one argument, reversed, makes the
+    container give `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "container" or len(parts) != 2:
+        return None
+    ok = []
+    for i in (0, 1):
+        new = copy.deepcopy(node)
+        new["parts"][i] = {"op": "reversal", "parts": [new["parts"][i]]}
+        try:
+            if match(new, want) is not None:
+                ok.append(i)
+        except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError):
+            pass
+    if len(ok) != 1:
+        return None
+    arg = render(parts[ok[0]])
+    return (f"{render(node)} gives the answer {want} only with {arg} read backwards: write "
+            f"rev<indicator>({arg}) as that argument, with a reversal word from the clue as its indicator")
+
+
+_TIMES = re.compile(r"\b(three|thrice|triple|treble|trebled|tripled|four|quadruple|five)\b", re.I)
+
+
+def _repeat_count_hint(node, want):
+    """rep<three times>(CHA) is CHA twice: rep() doubles its piece and no more. A piece written three or
+    more times is the piece, then rep<again>(piece), the doubling after it."""
+    if node.get("op") != "repeat" or not any(_TIMES.search(str(i.get("text", ""))) for i in node.get("indicators") or []):
+        return None
+    return (f"{render(node)} doubles its piece, one copy short of {want}: rep() writes a piece twice, never "
+            f"three times; write the piece once, then + rep<indicator>(piece) after it")
 
 
 def _gives_nothing(node):
