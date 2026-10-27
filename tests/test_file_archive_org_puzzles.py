@@ -952,11 +952,16 @@ f.fix_reason = lambda row: "refused unparsed before its fix"
 bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
 f.fix_reason = lambda row: None
 bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, "inputs changed"))
+# A lost write stands over the blanket reason too (10-27: 817 Gale Times pages planned blanket, never read again).
+f.fix_reason = lambda row: f.LOST_WRITE
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2007UKEnglish/2007-01-03"}, "scan stale, answers missing"))
+bf.append(f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"))
 f.fix_reason = real_fr
-check("blanket_or_fix: a Times row's answers-only fix stands over inputs/titles changed; another paper's row, "
-      "a row whose scan lost a verdict's title (not its held puzzle's), another fix, or none keeps the blanket reason",
+check("blanket_or_fix: a Times row's answers-only fix or lost write stands over inputs/titles changed; another "
+      "paper's row, a row whose scan lost a verdict's title (not its held puzzle's), another fix, or none keeps the "
+      "blanket reason",
       [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE, "inputs changed",
-       "inputs changed"],
+       "inputs changed", f.LOST_WRITE, "inputs changed"],
       bf)
 check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
       "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "

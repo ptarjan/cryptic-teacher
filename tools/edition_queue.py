@@ -1420,7 +1420,10 @@ def by_urgency(units, serves=frozenset()):
     solution = [u for u in others if u.get("paper") in named
                 and (times_solution_work(u) or (u.get("paper"), u.get("rel")) in serves)]
     first = {id(u) for u in solution}
-    new = [u for u in others if u.get("paper") in named and id(u) not in first and u.get("rank", 9) <= 1]
+    # A lost write's reread (fa.LOST_WRITE, rank 2) is as good as never read: it goes with the never-read.
+    # 10-27: the 247 planned stood at 9,309+ of 22,373, behind the Listener, two days after REREAD_LOST.
+    new = [u for u in others if u.get("paper") in named and id(u) not in first
+           and (u.get("rank", 9) <= 1 or u.get("reason") == fa.LOST_WRITE)]
     first |= {id(u) for u in new}
     return solution + new + listener_order + [u for u in others if id(u) not in first]
 
