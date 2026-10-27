@@ -1625,6 +1625,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .left-col { flex: 1 1 640px; }
 }
 
+.clue-strip { display: none; }
 @media (max-width: 700px) {
   body { padding: 0 8px 40px; }
   /* Six touch-sized buttons do not fit one phone line, and once the row wraps
@@ -1634,6 +1635,11 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      different lines, which is the same job done by the wrap. */
   .toolbar-gap { margin: 0 3px; }
   .layout { gap: 10px; }
+  /* The clue panel is below the grid and the fold; this line is the selected
+     clue where the eye already is. */
+  .clue-strip { display: block; margin: 0 0 6px; font-size: 1.05rem; line-height: 1.3; }
+  .clue-strip:empty { display: none; }
+  .clue-strip b { margin-right: .3em; color: var(--accent); }
 }
 
 /* ---------- wide screens: one fixed frame, no page scroll ----------
