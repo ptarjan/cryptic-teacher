@@ -103,3 +103,20 @@ class Wiring(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PagesPushScope(unittest.TestCase):
+    """pages.yml: a puzzle-only push still builds while earlier code is undeployed."""
+
+    def test_push_scope_also_diffs_against_the_live_deploy(self):
+        text = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        push = text[text.index('[ "$EVENT" = push ] || yes'):text.index("validate only, the scheduled tick")]
+        self.assertIn('tools/last_deploy.py "$REPO"', push)
+        self.assertIn('tools/ci_scope.py decide "$live"', push)
+        self.assertIn('yes "code not deployed since', push)
+        self.assertIn('"build" and .status == "in_progress"', push)
+
+    def test_code_since_the_deploy_is_full_even_when_the_last_push_is_puzzles(self):
+        since_deploy = [("M", "tools/ci_scope.py"), ("M", P)]
+        self.assertEqual(verdict(since_deploy), "full")
+        self.assertEqual(verdict([("M", P)]), "fast")
