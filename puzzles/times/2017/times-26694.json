@@ -21,6 +21,9 @@
   "date": "2017-04-15",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,30 @@
     "text": "Prisoner's place of internment",
     "enumeration": "5"
    },
-   "solution": "OFLAG"
+   "solution": "OFLAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prisoner's",
+      "at": 0,
+      "meaning": "read cryptically as '...', a lag being British slang for a convict"
+     },
+     {
+      "text": "place of internment",
+      "at": 11,
+      "meaning": "a German camp for captured officers in wartime"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Prisoner's' is split as 'of' plus LAG, British slang for a convict, so the possessive spells the camp's name.",
+     "definitionFit": "The word was the German name for a prisoner-of-war camp holding captured officers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prisoner's"
+    }
+   }
   },
   {
    "number": 1,
@@ -66,7 +92,31 @@
      }
     ]
    },
-   "solution": "ONTOPOFTHEWORLD"
+   "solution": "ONTOPOFTHEWORLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One Pole is so",
+      "at": 0,
+      "meaning": "the North Pole sits at the very top of the globe"
+     },
+     {
+      "text": "ecstatic",
+      "at": 15,
+      "meaning": "overjoyed, elated beyond measure"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'One Pole' looks like a Polish person; it is the North Pole, literally sitting at the summit of the globe.",
+     "definitionFit": "The idiom describes someone feeling elated, as if perched at the peak of everything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 2,
@@ -80,7 +130,42 @@
     "text": "Some cruel, ungentlemanly attack",
     "enumeration": "5"
    },
-   "solution": "LUNGE"
+   "solution": "LUNGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cruel, ungentlemanly",
+       "at": 5,
+       "gives": "LUNGE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a brutish, unsporting assault.",
+     "definitionFit": "A sudden forward thrust, as in fencing, is a kind of attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +179,49 @@
     "text": "Awarded sum of money, teachers' leaders accepted",
     "enumeration": "7"
    },
-   "solution": "GRANTED"
+   "solution": "GRANTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awarded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted",
+       "at": 40,
+       "note": "accepted means taken in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sum of money",
+       "at": 8,
+       "gives": "GRAND",
+       "note": "a grand is a thousand pounds"
+      },
+      {
+       "words": "teachers' leaders",
+       "at": 22,
+       "gives": "TE",
+       "note": "the leading letters, the first two, of the word teachers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cash award is announced, with the heads of the teaching staff going along with it.",
+     "walkthrough": "'leaders' here takes the first two letters, not just one. 'Accepted' looks like a second definition but is the container signal.",
+     "definitionFit": "Something granted has been bestowed or conferred, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +235,75 @@
     "text": "Pregnant partner no longer has therapy wearing short trousers",
     "enumeration": "9"
    },
-   "solution": "EXPECTANT"
+   "solution": "EXPECTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pregnant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "partner no longer",
+       "at": 9,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 39,
+         "note": "wearing means having on, so the therapy goes inside the clothing"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 47,
+           "note": "short means cut, so the last letter of the word goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trousers",
+           "at": 53,
+           "gives": "PANTS",
+           "note": "pants is an informal word for trousers"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "therapy",
+         "at": 31,
+         "gives": "ECT",
+         "note": "ECT is electroconvulsive therapy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother-to-be's former partner is in therapy dressed in shorts.",
+     "walkthrough": "'short' trims the trousers by one letter, giving PANT, and 'wearing' puts the therapy inside.",
+     "definitionFit": "An expectant mother is one awaiting a baby, a common euphemism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 4,
@@ -122,7 +317,46 @@
     "text": "No introduction for brief broadcast",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "broadcast",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No introduction for",
+       "at": 0,
+       "note": "no introduction means the opening letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brief",
+       "at": 20,
+       "gives": "REMIT",
+       "note": "a remit is a brief, a set of instructions"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short programme goes out without any opening announcement.",
+     "walkthrough": "'No introduction for' removes the R from REMIT. 'Brief' looks like an adjective meaning short, but is the noun.",
+     "definitionFit": "To emit is to send out or transmit, as a signal is sent out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 5,
@@ -136,7 +370,60 @@
     "text": "Ambassador having only women admitted into China? That's incredible",
     "enumeration": "10"
    },
-   "solution": "PHENOMENAL"
+   "solution": "PHENOMENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "incredible",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitted into",
+       "at": 29,
+       "note": "admitted into means placed inside, so these go within the friend"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China",
+       "at": 43,
+       "gives": "PAL",
+       "note": "china is Cockney rhyming slang for mate (china plate), so a pal"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Ambassador",
+         "at": 0,
+         "gives": "HE",
+         "note": "HE is His Excellency, an ambassador's title"
+        },
+        {
+         "words": "only women",
+         "at": 18,
+         "gives": "NOMEN",
+         "note": "only women means no men"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy lets only women into China, an astonishing policy.",
+     "walkthrough": "China is Cockney rhyming slang: china plate means mate. HE stands for His Excellency.",
+     "definitionFit": "Phenomenal means extraordinary, beyond belief, a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 6,
@@ -156,7 +443,50 @@
      }
     ]
    },
-   "solution": "COPSHOP"
+   "solution": "COPSHOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0,
+      "note": "British slang for a police station"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penned by",
+       "at": 17,
+       "note": "penned by means enclosed by, so the works go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hack",
+       "at": 27,
+       "gives": "CHOP",
+       "note": "to hack is to chop"
+      },
+      {
+       "words": "minor works",
+       "at": 5,
+       "gives": "OPS",
+       "note": "ops, opuses, are works; small ones in this sense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small-time thief steals minor items and a journalist writes it up.",
+     "walkthrough": "'Nick' looks like a verb meaning steal; in British slang it is a police station.",
+     "definitionFit": "The nick is British slang for a police station, also called a cop shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 7,
@@ -170,7 +500,45 @@
     "text": "Dispute stated intention of Petruchio?",
     "enumeration": "9"
    },
-   "solution": "ALTERCATE"
+   "solution": "ALTERCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dispute",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ALTERCATE",
+     "indicators": [
+      {
+       "text": "stated",
+       "at": 8,
+       "note": "stated means spoken, so we want what the words sound like"
+      }
+     ],
+     "parts": [
+      {
+       "words": "intention of Petruchio",
+       "at": 15,
+       "gives": "ALTERKATE",
+       "note": "in The Taming of the Shrew, Petruchio aims to change Kate, to alter Kate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument about what Shakespeare's Petruchio meant to do.",
+     "walkthrough": "Petruchio sets out to tame the shrewish Kate in The Taming of the Shrew: 'alter Kate', which said aloud gives the answer.",
+     "definitionFit": "To altercate is to argue heatedly, to quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "intention"
+    }
+   }
   },
   {
    "number": 8,
@@ -194,7 +562,66 @@
      }
     ]
    },
-   "solution": "TOABSENTFRIENDS"
+   "solution": "TOABSENTFRIENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "toast",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "What could make you",
+       "at": 0,
+       "note": "the answer's letters could be made, rearranged, from these pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fitter",
+       "at": 20
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 28,
+         "note": "extremely means taking the outermost letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delicious",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "beans",
+       "at": 48
+      },
+      {
+       "words": "on",
+       "at": 54
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about getting fit, then a breakfast of tasty beans on toast.",
+     "walkthrough": "'toast' looks like the bread under the beans; it is a raised-glass salute. The anagram is of FITTER, DS (the ends of 'delicious'), BEANS and ON.",
+     "definitionFit": "A traditional salute raised in memory of companions who cannot be present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 9,
@@ -208,7 +635,57 @@
     "text": "Provisional accommodation this setter's found after a time",
     "enumeration": "9"
    },
-   "solution": "TENTATIVE"
+   "solution": "TENTATIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provisional",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found after",
+       "at": 40,
+       "note": "found after says the setter's piece follows the a-and-time piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "accommodation",
+       "at": 12,
+       "gives": "TENT",
+       "note": "a tent is camping accommodation"
+      },
+      {
+       "words": "a",
+       "at": 52
+      },
+      {
+       "words": "time",
+       "at": 54,
+       "gives": "T"
+      },
+      {
+       "words": "this setter's",
+       "at": 26,
+       "gives": "IVE",
+       "note": "the setter speaking in the first person: I have, shortened"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter has found some temporary lodging after a while.",
+     "walkthrough": "'This setter's' stands for I'VE, the compiler saying 'I have'.",
+     "definitionFit": "Tentative means provisional, not yet final, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -222,7 +699,47 @@
     "text": "Odd sections of 11 road in old city",
     "enumeration": "5"
    },
-   "solution": "PETRA"
+   "solution": "PETRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old city",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Odd sections of",
+       "at": 0,
+       "note": "odd sections are the first, third and fifth letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "11",
+       "at": 16,
+       "gives": "PRETTY",
+       "note": "the answer to 11 across, meaning quite"
+      },
+      {
+       "words": "road",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strange stretches of a road in an ancient city.",
+     "walkthrough": "'11' points to the answer to 11 across; take its odd letters, then those of 'road'.",
+     "definitionFit": "Petra is the ancient rock-cut city in Jordan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +753,49 @@
     "text": "Quite dry inside quarry",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 10,
+       "note": "inside means placed within the hunted animal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quarry",
+       "at": 17,
+       "gives": "PREY",
+       "note": "quarry is the hunted animal, the prey"
+      },
+      {
+       "words": "dry",
+       "at": 6,
+       "gives": "TT",
+       "note": "TT means teetotal, not drinking alcohol"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quarry that is fairly dry.",
+     "walkthrough": "'quarry' looks like a stone pit; it is hunted prey.",
+     "definitionFit": "Pretty can mean fairly or rather, as in pretty good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarry"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +809,49 @@
     "text": "Divers fish in schools",
     "enumeration": "8"
    },
-   "solution": "POCHARDS"
+   "solution": "POCHARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in puts the fish inside the schools"
+      }
+     ],
+     "parts": [
+      {
+       "words": "schools",
+       "at": 15,
+       "gives": "PODS",
+       "note": "pods are schools of whales or dolphins"
+      },
+      {
+       "words": "fish",
+       "at": 7,
+       "gives": "CHAR",
+       "note": "char is a fish of the trout family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swimmers hunting fish among schools of them.",
+     "walkthrough": "'Divers' looks like people; they are diving ducks.",
+     "definitionFit": "The pochard is a diving duck, so pochards are examples of divers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Divers"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +865,69 @@
     "text": "Mike accompanies one foreign gent around a group of islands",
     "enumeration": "10"
    },
-   "solution": "MICRONESIA"
+   "solution": "MICRONESIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of islands",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mike",
+       "at": 0,
+       "gives": "MIC",
+       "note": "mike and mic are both short for microphone"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 34,
+         "note": "around means the one-and-gent pair is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 17,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          },
+          {
+           "words": "foreign gent",
+           "at": 21,
+           "gives": "SENOR",
+           "note": "senor is Spanish for a gentleman"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 41
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Mike travels with a foreign gentleman around an archipelago.",
+     "walkthrough": "'Mike' looks like the NATO letter M; it is a microphone. 'around' turns one + gent into RONESI.",
+     "definitionFit": "Micronesia is a Pacific region made up of thousands of small islands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +947,56 @@
      }
     ]
    },
-   "solution": "FRIEDRICE"
+   "solution": "FRIEDRICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ultimately rejected",
+         "at": 16,
+         "note": "the last letter is thrown out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maybe Nietzsche",
+         "at": 0,
+         "gives": "FRIEDRICH",
+         "note": "Nietzsche's first name was Friedrich, so he is one example of it"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 36,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The philosopher Nietzsche turned down English cooking in the end.",
+     "walkthrough": "'ultimately rejected' drops the final H of FRIEDRICH.",
+     "definitionFit": "Fried rice is a dish, a familiar example of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +1010,41 @@
     "text": "Doctor in Lima is a member of religious sect",
     "enumeration": "9"
    },
-   "solution": "ISMAILIAN"
+   "solution": "ISMAILIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member of religious sect",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor is to tamper with, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in Lima is a",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician in Peru's capital belongs to a religious group.",
+     "walkthrough": "'Doctor' looks like a physician; it is a verb, to tamper.",
+     "definitionFit": "The Ismailis are a branch of Shia Islam; an Ismailian is a follower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1058,55 @@
     "text": "The reverse of mountain home here?",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The reverse of mountain home here?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "The reverse of",
+         "at": 0,
+         "note": "the reverse of means the mountain word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mountain",
+         "at": 15,
+         "gives": "ALP",
+         "note": "an alp is a high mountain"
+        }
+       ]
+      },
+      {
+       "words": "home",
+       "at": 24,
+       "gives": "IN",
+       "note": "in means at home"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A puzzle about where to live: the opposite of a mountain home.",
+     "walkthrough": "Read whole, a flat expanse is the opposite of a mountain, and somewhere people make a home.",
+     "definitionFit": "A plain is flat land, the opposite of a mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +1120,48 @@
     "text": "Honour received by female poet",
     "enumeration": "5"
    },
-   "solution": "HOMER"
+   "solution": "HOMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "received by",
+       "at": 7,
+       "note": "received by means taken inside the female word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "female",
+       "at": 19,
+       "gives": "HER",
+       "note": "her refers to a female"
+      },
+      {
+       "words": "Honour",
+       "at": 0,
+       "gives": "OM",
+       "note": "OM is the Order of Merit, a British honour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman writer accepts an honour.",
+     "walkthrough": "OM is the Order of Merit.",
+     "definitionFit": "Homer is the ancient Greek epic writer of the Iliad and Odyssey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1175,70 @@
     "text": "Admonish salesman about promoting first of remnants",
     "enumeration": "7"
    },
-   "solution": "REPROVE"
+   "solution": "REPROVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Admonish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "salesman",
+       "at": 9,
+       "gives": "REP",
+       "note": "a rep is a sales representative"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "promoting",
+         "at": 24,
+         "note": "promoting means moving up, so a letter is shifted forward"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 18,
+         "gives": "OVER",
+         "note": "over can mean about, as in a row over money"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 34,
+           "note": "first of takes the opening letter of remnants"
+          }
+         ],
+         "parts": [
+          {
+           "words": "remnants",
+           "at": 43
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss tells off a salesman for pushing leftover stock.",
+     "walkthrough": "'promoting' moves R, the first of 'remnants', to the front of OVER, giving ROVE.",
+     "definitionFit": "To reprove is to rebuke or scold, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "promoting"
+    }
+   }
   },
   {
    "number": 19,
@@ -360,7 +1258,42 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feature of Sunday lunch?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pan",
+       "at": 0,
+       "gives": "ROAST",
+       "note": "to pan is to criticise harshly, to roast"
+      },
+      {
+       "words": "grouse",
+       "at": 9,
+       "gives": "BEEF",
+       "note": "to grouse is to complain, to beef"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frying pan and a game bird for a Sunday meal.",
+     "walkthrough": "'Pan' and 'grouse' look like cookware and game; both are verbs for criticising and complaining.",
+     "definitionFit": "A traditional British Sunday lunch is often centred on a roasted joint of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1313,70 @@
      }
     ]
    },
-   "solution": "TWOSTEP"
+   "solution": "TWOSTEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a dance",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 43,
+       "note": "up in a down answer means the pieces are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dear",
+         "at": 0,
+         "gives": "PET",
+         "note": "pet is a term of endearment, like dear"
+        },
+        {
+         "words": "Miss Piggy perhaps",
+         "at": 5,
+         "gives": "SOW",
+         "note": "Miss Piggy is a pig, a female one being a sow"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 35,
+           "note": "finally takes the last letter of Kermit"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Kermit",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Muppets Miss Piggy and Kermit get up to dance.",
+     "walkthrough": "'up' reverses PET + SOW + T in a down entry.",
+     "definitionFit": "The two-step is a ballroom dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dear"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1390,64 @@
     "text": "Child of the '60s briefly joins in faction striking",
     "enumeration": "8"
    },
-   "solution": "WHIPPING"
+   "solution": "WHIPPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "striking",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "joins in",
+       "at": 26,
+       "note": "joins in means goes inside the faction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "faction",
+       "at": 35,
+       "gives": "WING",
+       "note": "a wing is a faction of a party"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 18,
+         "note": "briefly means cut short, losing the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Child of the '60s",
+         "at": 0,
+         "gives": "HIPPY",
+         "note": "a hippy is a member of the 1960s counterculture"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A 1960s flower child joins a faction on strike.",
+     "walkthrough": "'striking' looks like taking industrial action; it means hitting.",
+     "definitionFit": "Whipping is striking with a lash or cane, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1461,58 @@
     "text": "Plant, one a pretentious sort brought from the east",
     "enumeration": "6"
    },
-   "solution": "BONSAI"
+   "solution": "BONSAI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "brought from the east",
+       "at": 30,
+       "note": "in an across answer, from the east means read right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 7,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "a",
+         "at": 11
+        },
+        {
+         "words": "pretentious sort",
+         "at": 13,
+         "gives": "SNOB",
+         "note": "a snob is a pretentious person"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snob imports a plant from the East.",
+     "walkthrough": "'brought from the east' reverses I + A + SNOB.",
+     "definitionFit": "A bonsai is a miniature tree grown in a pot, a type of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1526,40 @@
     "text": "Small supermarket supplying some ice cream",
     "enumeration": "5"
    },
-   "solution": "SCOOP"
+   "solution": "SCOOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "some ice cream",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "supermarket",
+       "at": 6,
+       "gives": "COOP",
+       "note": "the Co-op is a British supermarket chain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little shop sells ice cream.",
+     "walkthrough": "The Co-op is a British cooperative supermarket chain.",
+     "definitionFit": "A portion of ice cream served with a rounded spoon is a measure of some."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1573,39 @@
     "text": "Unruly lord of the Caribbean?",
     "enumeration": "4"
    },
-   "solution": "WILD"
+   "solution": "WILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unruly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Caribbean",
+       "at": 19,
+       "gives": "WI",
+       "note": "WI is the West Indies, the Caribbean islands"
+      },
+      {
+       "words": "lord",
+       "at": 7,
+       "gives": "LD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An undisciplined aristocrat in the Caribbean.",
+     "definitionFit": "Unruly and wild both mean uncontrolled, synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -450,7 +1619,45 @@
     "text": "Thick-skinned type sounding witty? Wrong",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thick-skinned type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RHINO",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 19,
+       "note": "sounding means we want words that sound like these"
+      }
+     ],
+     "parts": [
+      {
+       "words": "witty? Wrong",
+       "at": 28,
+       "gives": "WRYNO",
+       "note": "wry means drily witty, and 'no' answers the question by saying it is wrong"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a thick-skinned person witty? No.",
+     "walkthrough": "WRY NO said aloud gives the answer.",
+     "definitionFit": "A rhinoceros has very tough hide, an animal example of thick skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1677,68 @@
      }
     ]
    },
-   "solution": "SAINTJOAN"
+   "solution": "SAINTJOAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drama",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 23,
+       "note": "nursing means holding, so these go inside the hospital"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old hospital",
+       "at": 9,
+       "gives": "SAN",
+       "note": "san is short for sanatorium"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "broken",
+           "at": 33,
+           "note": "broken means the letters are smashed and reassembled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "joint",
+           "at": 40
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical drama set in an old hospital treating a broken joint.",
+     "walkthrough": "'broken' rearranges the joint into INTJO, and 'nursing' puts A and that inside the sanatorium.",
+     "definitionFit": "Saint Joan is a play by George Bernard Shaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nursing"
+    }
+   }
   },
   {
    "number": 27,
@@ -490,7 +1758,70 @@
      }
     ]
    },
-   "solution": "DANCEBAND"
+   "solution": "DANCEBAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musicians",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertained by",
+       "at": 26,
+       "note": "entertained by means held inside the father"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pop",
+       "at": 41,
+       "gives": "DAD",
+       "note": "pop is an informal word for a father"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 8,
+           "note": "regularly takes every other letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Snacked",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "bar",
+         "at": 21,
+         "gives": "BAN",
+         "note": "to bar is to ban"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians snacked at a bar while their father hosted.",
+     "walkthrough": "'regularly' takes the even letters, NCE. 'pop' looks like music; it is father.",
+     "definitionFit": "A dance band is a group of musicians playing for dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 28,
@@ -504,7 +1835,44 @@
     "text": "Writer looks for an audience",
     "enumeration": "5"
    },
-   "solution": "PEPYS"
+   "solution": "PEPYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PEPYS",
+     "indicators": [
+      {
+       "text": "for an audience",
+       "at": 13,
+       "note": "for an audience means spoken aloud to listeners"
+      }
+     ],
+     "parts": [
+      {
+       "words": "looks",
+       "at": 7,
+       "gives": "PEEPS",
+       "note": "peeps are quick looks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author seeks readers.",
+     "walkthrough": "Samuel Pepys was the 17th-century English diarist.",
+     "definitionFit": "Pepys wrote the famous diary of Restoration London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   }
  ]
 }
