@@ -41,12 +41,20 @@
 
   function beacon(name) {
     try { if (localStorage.getItem("ct-internal")) return; } catch (e) { /* counted */ }
-    try { if (window.gtag) window.gtag("event", name.replace(/-/g, "_")); } catch (e) { /* never worth throwing */ }
+    // transport_type beacon: the click that sends this leaves the page at once,
+    // and gtag's default transport is cancelled by the navigation.
+    try { if (window.gtag) window.gtag("event", name.replace(/-/g, "_"), { transport_type: "beacon" }); } catch (e) { /* never worth throwing */ }
     try {
       if (navigator.sendBeacon)
         navigator.sendBeacon(SYNC_ENDPOINT + "/e", new Blob([name], { type: "text/plain" }));
     } catch (e) { /* never worth throwing */ }
   }
+
+  // Every row's Hint link (build_seo_pages.clue_html), not only the landed clue's.
+  if (document.addEventListener) document.addEventListener("click", function (ev) {
+    var t = ev.target, a = t && t.closest && t.closest(".s-list h3 > a");
+    if (a) beacon("clue-hint");
+  });
 
   function clues() {
     return Array.prototype.slice.call(document.querySelectorAll(".s-list article[id]"));
