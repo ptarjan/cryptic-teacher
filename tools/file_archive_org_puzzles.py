@@ -5847,6 +5847,14 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
                                            every=every, blog="blog" in (old.get("solutions") or {}), ask=ask_vlm)
     clash = {**clash, **recrossed}
     t0 = _stage("clash_reads", t0)
+    # A grid more than LATE_MAX short at late_strips that the reads since left 1 to LATE_MAX short: its last
+    # lights' strips asked now (LATE_UNASKED; 10-27: 73 blank lights of 1940s-80s Times read 6-32 short were
+    # left so, never asked).
+    if ask_vlm and "lateStrips" not in info:
+        answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
+                                    crossed=crossed, every=every,
+                                    blog="blog" in (old.get("solutions") or {}), read=read)
+    t0 = _stage("late_strips_again", t0)
     # A Times grid still short after every read of the print: a blank light its clue's wordplay and
     # definition solve (CLUE_SOLVED), last, so no read of the print leans on it. Ours, not the paper's:
     # decide() records it so (mark_clue_solved).
@@ -10013,6 +10021,53 @@ REREAD_LATE_JUDGED = "2026-10-27T07:00:00+00:00"
 #: whole. Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached.
 VLM_RIVALED = "solution short, its VLM words a classifier rival dropped judged again since"
 REREAD_VLM_RIVALED = "2026-10-27T08:30:00+00:00"
+#: The due reason of a Times row read before REREAD_LATE_UNASKED, due none of those above, whose answers-only
+#: verdict cut no late strip ("lateStrips") and whose held puzzle (every clue, from this page, cells classified,
+#: crop kept) leaves 1 to LATE_MAX lights blank, one of them never asked (no solution ask of it for this edition
+#: in vlm_asks.log: ask_replies) (unasked_short). late_strips ran before wordplay_reads, candidate_reads and
+#: clash_reads: a puzzle 6+ short there was not asked (LATE_MAX), and those reads then left it 1-5 short, its
+#: last lights' strips never asked (answers_only now runs late_strips again after them). 10-27 07:00Z, 471 blank
+#: lights of unplanned 1-5-short Times had a strip and no reply: 268 held titles (HELD_ASKED), 110 full reads
+#: (FULL_SHORT, 1930's now too), 81 so (73 of them read 6-32 short, 1940s-80s), 12 asked. Once, as an answers-only
+#: reread (SOLUTION_FIXES).
+LATE_UNASKED = "solution short, its last lights' never-asked strips asked since"
+REREAD_LATE_UNASKED = "2026-10-27T08:15:00+00:00"
+
+
+def unasked_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has an answers-only verdict, no held title's, that cut no late strip
+    ("lateStrips") of a puzzle held with every clue from this page that leaves 1 to LATE_MAX lights blank
+    (held_blanks: its grid's cells classified, its crop kept), one of them neither a strip the grid's reading kept
+    (vlm_lights asks those) nor one a solution ask of which is logged for the row's edition (ask_replies)."""
+    if any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+        return False
+    logged = None
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
+                or s.get("refused") or s.get("lateStrips") or v.get("wrongGrid") or v.get("heldTitle")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
+        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+            kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
+                    .get("stats") or {}).get("strips") or {}
+        except (KeyError, OSError, ValueError):
+            continue
+        if logged is None:
+            logged = ask_replies().get(row.get("edition"), {})
+        # Never asked: no strip the reading kept (vlm_lights asks those), none late_strips cut, no ask logged.
+        if any(entry_id(e) not in logged and entry_id(e) not in kept
+               for e in held.get("entries") or () if not e.get("solution")):
+            return True
+    return False
+
+
 #: {log path: (stat, {edition: {light: [reply key prefix]}})} of vlm_asks.log's solution asks (ask_replies).
 _ASK_REPLIES = {}
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
@@ -10734,12 +10789,17 @@ def short_again(row):
     read before REREAD_LATE_JUDGED, due none of those, 1 to STRIP_MAX blank, a light the reading kept no strip
     of whose late strip's cached reply vlm_word takes now (near_short with late); VLM_RIVALED for one read before
     REREAD_VLM_RIVALED, due none of those, 1 to LATE_MAX blank, a blank light's cached VLM word misread_rival's rival
-    dropped that vlm_stands keeps (near_short with rivaled); FULL_SHORT for
+    dropped that vlm_stands keeps (near_short with rivaled); LATE_UNASKED for one read before REREAD_LATE_UNASKED,
+    due none of those, an answers-only verdict with no late strip, 1 to LATE_MAX blank, a blank light never asked
+    (unasked_short); FULL_SHORT for
     one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
-    not try first (full_short)."""
+    not try first (full_short), a paper whose cells are not classified (TIMES_1930) included."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
-        return None
+        # A Times page of another item (TIMES_1930's archive.org pages) whose linked grid a classified print holds
+        # (held_blanks: its cells classified): answers_only reads it so since 10-26, but its full reads before that
+        # stood short with nothing due (10-27: 30 puzzles of 1930, 1-5 short, 59 blank lights never asked).
+        return FULL_SHORT if paper.series == SERIES and full_short(row, paper) else None
     why = _short_again(row, paper)
     if (why is None and scan_queue.read_before(row, scan_queue.when(REREAD_WIDE_STRIPS))
             and not scan_queue.read_before(row, scan_queue.when(REREAD_UNLISTED)) and late_short(row, paper, LATE_MAX)):
@@ -10789,6 +10849,8 @@ def short_again(row):
         return LATE_JUDGED
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_VLM_RIVALED)) and near_short(row, paper, rivaled=True):
         return VLM_RIVALED
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_LATE_UNASKED)) and unasked_short(row, paper):
+        return LATE_UNASKED
     if why is None and full_short(row, paper):
         return FULL_SHORT
     return why
@@ -11928,7 +11990,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -12491,7 +12553,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, FULL_SHORT,
+                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FULL_SHORT,
                   STRAY_GRID)
 
 
