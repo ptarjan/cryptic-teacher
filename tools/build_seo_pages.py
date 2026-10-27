@@ -758,7 +758,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         *(f'<p class="s-reprint">Reprinted in the {esc(series_meta.publisher(r["series"], r["number"]))}'
           f' as No {r["number"]:,}' + (f', {date.fromisoformat(r["date"]):%A %-d %B %Y}' if r.get("date") else "")
           + '.</p>' for r in puz.get("source", {}).get("reprintedIn", ())),
-        f'<p class="s-cta"><a class="cta" href="{solve_url(puz["id"])}">Solve it yourself, '
+        f'<p class="s-cta"><a class="cta" rel="nofollow" href="{solve_url(puz["id"])}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',
     ]
     # A page that prints answers has to say where the answers came from. For a
@@ -797,7 +797,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
             body.append("<p>The clue types in this puzzle:</p><ul class=\"s-types\">"
                         + "".join(f"<li>{esc(t)}</li>" for t in types) + "</ul>")
         body.append(
-            f'<p>Want to solve it first? <a href="{solve_url(puz["id"])}">Open it in the '
+            f'<p>Want to solve it first? <a rel="nofollow" href="{solve_url(puz["id"])}">Open it in the '
             "solver</a>: it gives the same explanation one hint at a time, so you see only "
             "as much as you need.</p>")
     else:
@@ -904,9 +904,13 @@ def hub_row(p, note=None):
     # 30,000s) don't explain themselves and an unbadged row reads as one we
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
     series = series_badge(p.get("series") or "cryptic")
+    # An archive row's own link is the canonical answer page, which is what a
+    # crawler should follow and index; a small nofollow link opens the app. A
+    # showcase row (note) is a reader page and opens the app directly.
     answers = ("" if note is not None else
-               f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
-    return (f'<li><a href="{solve_url(p["id"])}">'
+               f'<a class="p-answers" rel="nofollow" href="{solve_url(p["id"])}">solve</a>')
+    main = solve_url(p["id"]) if note is not None else f'{BASE}/puzzles/{p["id"]}/'
+    return (f'<li><a href="{main}">'
             f'<span class="p-num">{esc(title)}</span>'
             f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
@@ -1216,7 +1220,7 @@ def series_page(series, years, today):
         body += [
             f"<h2>{'Today' if day == today else 'Latest'}: {esc(named(latest))}</h2>",
             f'<ul class="s-index">{hub_row(latest)}</ul>',
-            f'<p class="s-cta"><a class="cta" href="{solve_url(latest["id"])}">Solve it yourself, '
+            f'<p class="s-cta"><a class="cta" rel="nofollow" href="{solve_url(latest["id"])}">Solve it yourself, '
             "with hints one step at a time &rarr;</a></p>",
             blurb,
             difficulty_strip(name, every),
@@ -2542,9 +2546,10 @@ def sitemap_urls(idx, pages=()):
     for s, years in listings(idx).items():
         newest = next(iter(years.values()))[0]
         recent.append((site_url(series_path(s)), "daily", "0.9",
-                       None if series_meta.is_book(s) else datestr(newest, "%Y-%m-%d") or None))
-        for y in years:
-            recent.append((site_url(listing_path(s, y)), "weekly", "0.6", None))
+                       datestr(newest, "%Y-%m-%d") or None))
+        for y, ps_y in years.items():
+            recent.append((site_url(listing_path(s, y)), "weekly", "0.6",
+                           datestr(ps_y[0], "%Y-%m-%d") or None))
     solved = [p for p in idx["puzzles"] if p.get("hasSolutions")]
     days = [d for p in solved if "year" not in p and (d := series_meta.puzzle_day(p))]
     since = max(days) - timedelta(days=RECENT_DAYS) if days else None
@@ -2617,10 +2622,10 @@ def homepage_latest(idx, today):
         by = f" by {esc(setter)}" if setter and setter != kind(p) else ""
         title, when = ((row_date(p), "") if number_day(p)
                        else (display_number(p), row_date(p)))
-        parts = [hub, f'<a href="{solve_url(p["id"])}">{esc(title)}</a>{by}']
+        parts = [hub, f'<a href="{BASE}/puzzles/{p["id"]}/">{esc(title)}</a>{by}']
         if when:
             parts.append(esc(when))
-        parts.append(f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
+        parts.append(f'<a class="p-answers" rel="nofollow" href="{solve_url(p["id"])}">solve</a>')
         lines.append(f"<li>{build_abbreviations.LIST_SEP.join(parts)}</li>")
     return lines, others
 
@@ -3214,8 +3219,9 @@ def assert_no_answer_links(path, text):
     small "answers" link beside it, and nothing more."""
     if path.suffix != ".html":
         return
+    reader = path.parent.parent == ROOT / "showcase"
     bad = [h for rows in ROW_LIST.findall(text) for h in ROW_LINK.findall(rows)
-           if "?p=" not in h]
+           if reader and "?p=" not in h or not reader and "?p=" in h]
     if path.name == "index.html" and (
             path.parent.name in READER_PAGES and path.parent.parent == ROOT
             or path.parent.parent == ROOT / "showcase"):

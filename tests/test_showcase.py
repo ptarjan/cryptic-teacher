@@ -120,9 +120,9 @@ check("the hub and series links are not answer pages",
       not refused("showcase/index.html", f'<a href="{B.BASE}/puzzles/">x</a>'
                   f'<a href="{B.BASE}/puzzles/series/cryptic/">y</a>'))
 row = B.hub_row(meta["cryptic-8"])
-check("an archive row opens the app and links the answer page beside it",
-      row.startswith(f'<li><a href="{B.BASE}/?p=cryptic-8">')
-      and f'<a class="p-answers" href="{B.BASE}/puzzles/cryptic-8/">answers</a></li>' in row, row)
+check("an archive row links the answer page and a nofollow solve link beside it",
+      row.startswith(f'<li><a href="{B.BASE}/puzzles/cryptic-8/">')
+      and f'<a class="p-answers" rel="nofollow" href="{B.BASE}/?p=cryptic-8">solve</a></li>' in row, row)
 import re
 check("an archive row dates itself in the app list's short form",
       re.search(r'<span class="p-meta">(\w{3} \d{1,2} \w{3} \d{4}|\d{4})</span>', row), row)

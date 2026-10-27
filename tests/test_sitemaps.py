@@ -54,7 +54,8 @@ results["NOPICKS"] = answers(hub) == set()
 # The homepage links each printing paper's newest puzzle (solver first, then
 # its answer page) and every series page; a back archive is a series link only.
 results["LATEST"] = (answers(home) == {"cryptic-30200", "everyman-4171"}
-                     and f'{B.BASE}/?p=cryptic-30200">' in home
+                     and f'{B.BASE}/puzzles/cryptic-30200/">' in home
+                     and f'rel="nofollow" href="{B.BASE}/?p=cryptic-30200">' in home
                      and all(f'{B.BASE}/puzzles/series/{s}/"' in home for s in ("cryptic", "everyman", "canberra"))
                      and "canberra-720630" not in home)
 
@@ -68,9 +69,29 @@ page = B.puzzle_page(puz, ps[1], newer, older)
 results["PAGERHTML"] = ('rel="prev"' in page and 'rel="next"' in page
                         and f'{B.BASE}/puzzles/series/cryptic/">All Guardian Cryptic puzzles' in page)
 
+# Static pages link puzzles at their canonical page; ?p= appears only as a
+# nofollow "solve" link. Each series root links its year pages; the sitemap
+# carries every series root and year page, each with a lastmod.
+lst = B.listings(idx)
+today = top
+def plain_p(page):
+    return [m for m in re.findall(r'<a ([^>]*)>', page)
+            if "?p=" in m and 'rel="nofollow"' not in m]
+pages_out = [B.series_page(s, y, today) for s, y in lst.items()] + [
+    B.listing_page(s, y, ps_y, None, None) for s, yrs in lst.items() for y, ps_y in yrs.items()]
+results["CANON"] = (not any(plain_p(t) for t in pages_out + [home, hub])
+                    and all(f'href="{B.BASE}/puzzles/cryptic-30199/"' in t
+                            for t in [B.series_page("cryptic", lst["cryptic"], today)]))
+results["YEARS"] = all(f'href="{B.site_url(B.listing_path(s, y))}"' in B.series_page(s, yrs, today)
+                       for s, yrs in lst.items() for y in yrs)
+sm = {u[0]: u[3] for u in B.sitemap_urls(idx)[0]}
+results["SMAP"] = all(sm.get(B.site_url(B.series_path(s)))
+                      and all(sm.get(B.site_url(B.listing_path(s, y))) for y in yrs)
+                      for s, yrs in lst.items())
+
 for k, v in results.items():
     print(k, v)
-for k in ("INDEX", "ONCE", "SPLIT", "DAILY", "NOPICKS", "LATEST", "PAGER", "PAGERHTML"):
+for k in ("INDEX", "ONCE", "SPLIT", "DAILY", "NOPICKS", "LATEST", "PAGER", "PAGERHTML", "CANON", "YEARS", "SMAP"):
     if results[k] is not True:
         print(f"FAIL: {k}")
         sys.exit(1)
