@@ -4869,7 +4869,8 @@ def vlm_word(reply, pattern, sizes, probs, enum=None, clue=None):
     light's `clue` text, where the mend is the one near word and its clue defines it (defined_word), or, on
     the classifier's sure letter where the VLM's is under the floor, the classifier's own word (argmax_word),
     or that word where the clue settles it (paired_word); else the reply as read where the clue's wordplay
-    spells it letter for letter (spelt_word), or where another puzzle's filed answer spells it (filed_word); else
+    spells it letter for letter (spelt_word), or where another puzzle's filed answer spells it (filed_word), or
+    where both readers spelled it alike on two puzzles or more (twice_word); else
     the one word two open letters off the clue defines (far_word), or the classifier's likeliest of several
     (tied_word); else a long reply as read that the classifier ranks first of the light's listed words
     (long_word); else a reply a letter long or short mended to the word the classifier reads (shifted_word)."""
@@ -4892,6 +4893,8 @@ def _mended_word(reply, pattern, sizes, probs, enum=None, clue=None):
         word = spelt_word(reply, pattern, probs, enum, clue)
     if not word:
         word = filed_word(reply, pattern, sizes, probs)
+    if not word:
+        word = twice_word(reply, pattern, sizes, probs, enum)
     if not word and clue:
         word = far_word(reply, pattern, sizes, clue, enum, probs)
     if not word and clue:
@@ -5220,6 +5223,58 @@ def filed_word(reply, pattern, sizes, probs):
     if any(x < VLM_FLOOR for x in got) or (len(got) >= VLM_ALONE_OPEN and all(x < VLM_ALONE_P for x in got)):
         return None
     return word if word in t.filed_words() else None
+
+
+#: twice_word: names the VLM's strip reply and the cell classifier's likeliest letters spelled alike, fitting
+#: every crossing, on blank lights of two or more separate Times puzzles (cached replies, 10-27 r35), each copy
+#: right by its clue; none yet filed anywhere, so filed_word cannot vouch for the first. Built off 2,026
+#: refused cached replies on 1-2, 3-5 and 6+ short Times grids (r34 fits.pkl): 19 words so read on 2+ puzzles,
+#: 49 lights, none wrong by its clue; the misreads unlisted_word refuses (TINEE, FLAA, KYDE, PLETITUDE, OVSTER,
+#: CHEAR, OUTDAGE, BECANTED) are each read on one puzzle only. The VLM alone repeats words (MISCHIEF on five
+#: puzzles, the classifier reading other letters each time), so a copy counts only where the classifier agrees.
+#: Three-letter ones (MUS, TIB) are left out, as filed_word leaves them (FILED_MIN). Names read twice with the
+#: classifier agreeing on one copy only (LAURIER, FONTHILL) are left out too.
+TWICE_NAMES = frozenset((
+    "ASPERN", "AULIS", "MOMUS", "ASSUR", "CROME", "ILION", "LADIN", "LACIE", "GARGERY", "GLASSE", "MURAT",
+    "HATTA", "CLEON", "BIGOD", "LURGAN", "ANCRE", "ARCOT"))
+
+
+def twice_word(reply, pattern, sizes, probs, enum=None):
+    """The VLM's `reply` as read for a light whose crossings give `pattern`, where it is no listed word (a piece of
+    `sizes` unlisted) but a name of TWICE_NAMES, read alike by the VLM and the classifier on two or more separate
+    puzzles, and the cell classifier (`probs`, one list of 26 a cell) reads it here too: its likeliest letter in
+    every open cell the reply's, at VLM_FLOOR or more; else None. FILED_MIN+ letters, the light's length, no "?",
+    agreeing with every crossing, counted by the enumeration `enum` where it has numbers. unlisted_word refuses
+    these for a dictionary word one open letter off (rival_away: ASPERN/ASPEN, MOMUS/MOMES, LADIN/LADEN), a
+    guard that a misread one letter off a word needs, but no misread read alike on two puzzles came up: 10-27
+    (r35), cached replies on 1-2-short Times grids, the 129 rival_away refusals hold ~20 misreads, none read
+    twice; the 35 still blank lights so taken are each right by their clue (ASPERN "Papers James wrote on", MOMUS "Mocking
+    old Greek who returns money order", LADIN "The boy's at home in the language of Romance") (TWICE_READ)."""
+    t = trove_solution_ocr
+    lines = (reply or "").strip().splitlines()
+    if not lines or "?" in lines[0]:
+        return None
+    word = re.sub(r"[^A-Za-z]", "", lines[0]).upper()
+    n = len(pattern)
+    if word not in TWICE_NAMES or n < FILED_MIN or len(word) != n or len(probs or ()) != n \
+            or any(p != "?" and p != ch for p, ch in zip(pattern, word)):
+        return None
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    if parts and sum(parts) != n:
+        return None
+    if _pieces_listed(word, sizes):
+        return None
+    try:
+        for i, (p, ch) in enumerate(zip(pattern, word)):
+            if p != "?":
+                continue
+            row = [float(x) for x in probs[i]]
+            k = t.AZ.index(ch)
+            if row[k] < VLM_FLOOR or max(range(26), key=row.__getitem__) != k:
+                return None
+    except (IndexError, TypeError, ValueError):  # a cell with no 26 probabilities
+        return None
+    return word
 
 
 def spelt_word(reply, pattern, probs, enum=None, clue=None):
@@ -5800,11 +5855,13 @@ def paired_name(word, reply, pattern, sizes, probs, enum=None, clue=None):
     one letter off it, as unlisted_word's refusal had it. Like vlm_named's names, misread_word spares it
     (agreed, "vlmNamed") (PAIRED_SHORT). So too a name the clue's wordplay spells as the VLM read it
     (spelt_word: THIERS, misread_word's THIEFS one letter off) (SPELT_SHORT), or one another puzzle's filed
-    answer spells, clue or none (filed_word: ANNAM, ANNUM one letter off) (FILED_NAME)."""
+    answer spells, clue or none (filed_word: ANNAM, ANNUM one letter off) (FILED_NAME), or one both readers
+    spelled alike on two puzzles or more (twice_word: ASPERN, ASPEN one letter off) (TWICE_READ)."""
     return bool(word and misread_word(word, enum)
                 and ((clue and (paired_word(reply, pattern, sizes, probs, enum, clue) == word
                                 or spelt_word(reply, pattern, probs, enum, clue) == word))
-                     or filed_word(reply, pattern, sizes, probs) == word))
+                     or filed_word(reply, pattern, sizes, probs) == word
+                     or twice_word(reply, pattern, sizes, probs, enum) == word))
 
 
 def uncrossed(answers, grid, enums=None, probs=None, rivals=None, seen=None):
@@ -11923,6 +11980,40 @@ def one_word_short(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_TWICE_READ whose linked solution grid read short for a
+#: puzzle of TWICE_PUZZLES held short from that page: a blank light's cached VLM reply, a name no list holds that
+#: fits every crossing and that the VLM and the classifier spelled alike on two puzzles or more (TWICE_NAMES), so
+#: vlm_word takes it (twice_word) and paired_name spares it misread_word. 10-27 (r35): of 2,026 refused cached
+#: replies fitting their crossings on short Times grids, 17 names of 4+ letters were so read on 2+ puzzles (49
+#: lights), none wrong by its clue; on the cache answers_only keeps all 35 still blank lights (ASPERN x4, MOMUS,
+#: LADIN, CROME, ILION, AULIS x3...), 22 puzzles go whole. Once.
+TWICE_READ = "solution short, its VLM names read alike on other puzzles kept since"
+REREAD_TWICE_READ = "2026-10-27T13:45:00+00:00"
+TWICE_PUZZLES = frozenset((9958, 10129, 10184, 10220, 10238, 10594, 10693, 10698, 10804, 10837, 10862, 10944, 11047,
+                           11096, 11102, 11170, 11353, 11387, 11693, 11860, 11915, 12161, 12247, 12284, 12544, 12603,
+                           12659, 12746, 13152, 13778, 13849, 13861, 14301, 15819))
+
+
+def twice_short(row):
+    """Whether Times ledger `row`, read before REREAD_TWICE_READ, has a verdict (no held title's) of a linked solution
+    grid read short, not refused, for a puzzle of TWICE_PUZZLES held by this tool from that page with every clue,
+    not every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_TWICE_READ)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
+                or not isinstance(s, dict) or s.get("refused") or v["number"] not in TWICE_PUZZLES
+                or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -12262,6 +12353,8 @@ def fix_reason(row):
         return CLASSED_CLASH
     if one_word_short(row):
         return ONE_WORD_SHORT
+    if twice_short(row):
+        return TWICE_READ
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -12845,7 +12938,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -13408,7 +13501,8 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, FULL_SHORT,
-                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT)
+                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
+                  TWICE_READ)
 
 
 def keeps_vlm(why, row, unit=None):

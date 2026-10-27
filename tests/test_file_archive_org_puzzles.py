@@ -4088,6 +4088,39 @@ check("one_word_short: a row read since REREAD_ONE_WORD, no Times paper's, a ref
        f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2000-01-01T00:00:00+00:00",
                          "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                        "solution": {"accepted": 2, "lights": 30}}]})])
+# TWICE_READ: twice_word takes an unlisted VLM name of TWICE_NAMES (read alike by the VLM and the classifier on two
+# puzzles or more) where the classifier reads it here too, each open cell's likeliest letter the reply's.
+_tw_p = sp_p("ASPERN")
+_tw_p[0] = [0.3 if c == "A" else 0.6 if c == "E" else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+check("twice_word takes a TWICE_NAMES reply the classifier reads (ASPERN, MOMUS); not a name read once (TINEE), "
+      "nor one the classifier reads otherwise, against a crossing, with a '?', or off its enumeration",
+      ["ASPERN", "MOMUS", None, None, None, None, None],
+      [f.twice_word("ASPERN\n", "?S?E?N", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("MOMUS", "M?M?S", [5], sp_p("MOMUS"), "5"),
+       f.twice_word("TINEE", "T?N?E", [5], sp_p("TINEE"), "5"),
+       f.twice_word("ASPERN", "?S?E?N", [6], _tw_p, "6"),
+       f.twice_word("ASPERN", "?S?E?T", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("ASPER?", "?S?E??", [6], sp_p("ASPERN"), "6"),
+       f.twice_word("ASPERN", "?S?E?N", [6], sp_p("ASPERN"), "3,4")])
+check("vlm_word takes a TWICE_NAMES reply as read (LADIN, refused for LADEN one letter off)", "LADIN",
+      f.vlm_word("LADIN", "L?D?N", [5], sp_p("LADIN"), "5", "Boy at home in a manner of speaking"))
+check("TWICE_READ is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.TWICE_READ], f.TWICE_READ in f.SOLUTION_FIXES, f.TWICE_READ.startswith("solution short"),
+       f.TWICE_READ in __import__("edition_queue").LOW_ASK, f.TWICE_READ in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.TWICE_READ)))
+_tw = min(f.TWICE_PUZZLES)
+check("twice_short: a row read since REREAD_TWICE_READ, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2099-01-01T00:00:00+00:00",
+                      "verdicts": []}),
+       f.twice_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2000-01-01T00:00:00+00:00",
+                      "verdicts": [{"id": f"times-{_tw}", "solutionFrom": "x leaf 3", "number": _tw,
+                                    "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2000-01-01T00:00:00+00:00",
+                      "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                    "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
