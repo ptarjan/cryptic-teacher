@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,57 @@
     "text": "Turned white and pained after a lot of lost blood",
     "enumeration": "8"
    },
-   "solution": "BLEACHED"
+   "solution": "BLEACHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turned white",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 30,
+         "note": "a lot of a word, but not all of it, so the last letter of the synonym for lost blood is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lost blood",
+         "at": 39,
+         "gives": "BLED",
+         "note": "to have lost blood is to have bled"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "pained",
+       "at": 17,
+       "gives": "ACHED",
+       "note": "pained means hurt, ached"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone went pale and felt ill after a heavy loss of blood.",
+     "walkthrough": "'a lot of' signals that the synonym for lost blood loses its final letter.",
+     "definitionFit": "Synonym: hair or cloth that has been whitened with chemicals has been made pale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pained"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +98,45 @@
     "text": "God heard supplication for support",
     "enumeration": "7"
    },
-   "solution": "BACCHUS"
+   "solution": "BACCHUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BACCHUS",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 4,
+       "note": "heard means the words are taken as spoken, a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "supplication for support",
+       "at": 10,
+       "gives": "BACKUS",
+       "note": "a plea for backing: back us!"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deity listens to a prayer asking for help.",
+     "walkthrough": "The plea 'back us' is said like the name of the Roman god of wine.",
+     "definitionFit": "Example: the Roman god of wine and revelry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +150,57 @@
     "text": "He goes in heart of USA heading off to their A&E",
     "enumeration": "7"
    },
-   "solution": "ENTERER"
+   "solution": "ENTERER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He goes in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 24,
+         "note": "heading off means the first letter is cut away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heart of USA",
+         "at": 11,
+         "gives": "CENTER",
+         "note": "the American spelling of centre, a heart or core"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "their A&E",
+       "at": 39,
+       "gives": "ER",
+       "note": "ER, the emergency room, is the American name for a hospital's A&E department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man walks into an American hospital's emergency department.",
+     "walkthrough": "'heading off' drops the C of CENTER; A&E is the British name for a hospital casualty department, ER in the US.",
+     "definitionFit": "Literal noun: one who walks into a place is an entrant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +214,72 @@
     "text": "Fabricated swindle with last month put back and this one included",
     "enumeration": "9"
    },
-   "solution": "CONCOCTED"
+   "solution": "CONCOCTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fabricated",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "swindle",
+       "at": 11,
+       "gives": "CON",
+       "note": "a con is a swindle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included",
+         "at": 57,
+         "note": "included means placed inside, so the current month goes into the reversed one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "put back",
+           "at": 35,
+           "note": "put back means turned round, so the letters of the month are reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "last month",
+           "at": 24,
+           "gives": "DEC",
+           "note": "Dec is short for December, the year's last month"
+          }
+         ]
+        },
+        {
+         "words": "this one",
+         "at": 48,
+         "gives": "OCT",
+         "note": "this month, the month of publication, October, abbreviated Oct"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faked scam involving a clock-change of the calendar.",
+     "walkthrough": "'last month' is December, not the month before; 'this one' is October, when the puzzle ran. 'put back' makes CED, and OCT is 'included'.",
+     "definitionFit": "Synonym: made up, invented, as a story or excuse can be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +293,43 @@
     "text": "It's a condition of old people; seeing where to source one wild fruit and another",
     "enumeration": "9"
    },
-   "solution": "ELDERSHIP"
+   "solution": "ELDERSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's a condition of old people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "where to source one wild fruit",
+       "at": 39,
+       "gives": "ELDERS",
+       "note": "elders are the trees that bear elderberries"
+      },
+      {
+       "words": "another",
+       "at": 74,
+       "gives": "HIP",
+       "note": "another wild fruit: the hip of the wild rose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old age, and foraging for hedgerow fruit.",
+     "walkthrough": "The definition plays on 'elders' as senior people of a community.",
+     "definitionFit": "Literal: the state of being one of the senior members of a church or tribe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +343,72 @@
     "text": "Shot dead protecting heartless traitor — it's all over",
     "enumeration": "6"
    },
-   "solution": "DARTED"
+   "solution": "DARTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "it's all over",
+       "at": 41,
+       "note": "something all over is turned head over heels, so the built letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "protecting",
+         "at": 10,
+         "note": "protecting means wrapping round, so the word for dead goes outside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead",
+         "at": 5,
+         "gives": "DEAD",
+         "note": "taken as written"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "heartless",
+           "at": 21,
+           "note": "heartless removes all the inner letters of traitor, leaving its first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "traitor",
+           "at": 31
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traitor's death in a shooting, and that's the end of the matter.",
+     "walkthrough": "'it's all over' (turned head over heels) reverses the whole container once built. 'Shot' is a past-tense verb, darted, not a gunshot.",
+     "definitionFit": "Synonym: to have shot across a room is to have moved very fast, to have darted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shot"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +422,41 @@
     "text": "Further Away win",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Further",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Away",
+       "at": 8,
+       "gives": "A",
+       "note": "A is the abbreviation for away in football results"
+      },
+      {
+       "words": "win",
+       "at": 13,
+       "gives": "GAIN",
+       "note": "to gain is to win"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan hopes for another away victory.",
+     "definitionFit": "Synonym: furthermore, besides, in addition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Away"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +476,60 @@
      }
     ]
    },
-   "solution": "TOPGEAR"
+   "solution": "TOPGEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "probably the Fifth",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included",
+       "at": 31,
+       "note": "included means placed inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Rattle",
+         "at": 4,
+         "note": "to rattle something is to shake it about, so its letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "great",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "musical work",
+       "at": 18,
+       "gives": "OP",
+       "note": "op is short for opus, a numbered musical work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conductor Simon Rattle's choice of a great symphony, likely Beethoven's Fifth.",
+     "walkthrough": "Sir Simon Rattle is a famous conductor, so 'the Fifth' suggests a symphony; it is a car's fifth gear.",
+     "definitionFit": "Example: in a five-speed car the fifth gear is usually the highest one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rattle"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +543,59 @@
     "text": "Royal bonkers used such when partly out of uniform",
     "enumeration": "7"
    },
-   "solution": "DUCHESS"
+   "solution": "DUCHESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Royal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bonkers",
+       "at": 6,
+       "note": "bonkers means crazy, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "partly out of",
+         "at": 29,
+         "note": "partly out of means only part of what is there is removed: one of the two letters for uniform goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "used such",
+         "at": 14
+        },
+        {
+         "words": "uniform",
+         "at": 43,
+         "gives": "U",
+         "note": "U is uniform in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mad royal wore such things when half out of uniform.",
+     "walkthrough": "USED SUCH has two Us; only one goes, hence 'partly'.",
+     "definitionFit": "Example: the wife of a duke, a title in the British royal family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +609,46 @@
     "text": "Where to work out the boundaries in geometry maths",
     "enumeration": "4"
    },
-   "solution": "GYMS"
+   "solution": "GYMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where to work out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "outer",
+     "indicators": [
+      {
+       "text": "the boundaries in",
+       "at": 18,
+       "note": "the boundaries are the edges, so the first and last letters of each word are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "geometry",
+       "at": 36
+      },
+      {
+       "words": "maths",
+       "at": 45
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where to solve problems at the edges of geometry and maths.",
+     "walkthrough": "'work out' looks like solving sums but means exercise.",
+     "definitionFit": "Example: fitness centres where people exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +672,29 @@
      }
     ]
    },
-   "solution": "CUTANDDRY"
+   "solution": "CUTANDDRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What hairdresser might do",
+      "at": 0,
+      "meaning": "a stylist trims the hair and then blow-dries it"
+     },
+     {
+      "text": "decided in advance",
+      "at": 29,
+      "meaning": "an idiom for a matter already settled, with no argument left"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Idiom: a cut-and-dried result was settled beforehand, like pre-cut timber ready to use; the other reading is a salon's trim and blow-dry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +708,43 @@
     "text": "Game might be set in this? Like a shot",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game might be set in this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like",
+       "at": 27,
+       "gives": "AS",
+       "note": "like means as, in comparisons"
+      },
+      {
+       "words": "a shot",
+       "at": 32,
+       "gives": "PIC",
+       "note": "a shot is a photograph, a pic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's question about a game pie, then a quick comparison.",
+     "walkthrough": "'Game' is meat such as pheasant or venison, not a sport.",
+     "definitionFit": "Example: savoury jelly in which cold meats such as game are set and served."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +758,59 @@
     "text": "A length of time to hang around rowdy bar in refuge",
     "enumeration": "7"
    },
-   "solution": "HARBOUR"
+   "solution": "HARBOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "refuge",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hang around",
+       "at": 17,
+       "note": "to hang around something is to surround it, so the time word goes outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A length of time",
+       "at": 0,
+       "gives": "HOUR",
+       "note": "sixty minutes, an hour"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rowdy",
+         "at": 32,
+         "note": "rowdy suggests disorder, so the letters of bar are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spending an hour loitering near a noisy pub as a place of shelter.",
+     "walkthrough": "'bar' looks like a pub but is anagram fodder for 'rowdy'.",
+     "definitionFit": "Synonym: a sheltered port is a refuge for ships, and the word also means a safe haven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +824,42 @@
     "text": "Honest following scriptural instruction",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Honest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "following",
+       "at": 7,
+       "gives": "SINCE",
+       "note": "since means after, following on from"
+      },
+      {
+       "words": "scriptural instruction",
+       "at": 17,
+       "gives": "RE",
+       "note": "RE is religious education, a school subject"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone truthful because they obey the Bible's teachings.",
+     "walkthrough": "RE (religious education) is a British school subject.",
+     "definitionFit": "Synonym: someone genuine and truthful in what they say and feel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +873,60 @@
     "text": "Sweden outside right gets hold of the ball and scores",
     "enumeration": "9"
    },
-   "solution": "SCRATCHES"
+   "solution": "SCRATCHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scores",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sweden",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the international vehicle code for Sweden"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 7,
+         "note": "outside means the next word goes round the letter for right"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gets hold of the ball",
+         "at": 21,
+         "gives": "CATCHES",
+         "note": "a fielder who takes hold of the ball catches it"
+        },
+        {
+         "words": "right",
+         "at": 15,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Swedish outside-right winger takes the ball and nets goals.",
+     "walkthrough": "'outside right' looks like a football position; 'outside' puts CATCHES round R.",
+     "definitionFit": "Synonym: scores as a verb means marks with lines, scrapes a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scores"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +940,73 @@
     "text": "Building impacted mostly on pasture after the initial step",
     "enumeration": "9"
    },
-   "solution": "STRUCTURE"
+   "solution": "STRUCTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 18,
+         "note": "mostly means not all, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "impacted",
+         "at": 9,
+         "gives": "STRUCK",
+         "note": "impacted means struck, hit"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after the initial",
+         "at": 36,
+         "note": "after the initial means what follows the opening portion, so the first part is cut away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pasture",
+         "at": 28
+        },
+        {
+         "words": "step",
+         "at": 54,
+         "gives": "PAS",
+         "note": "pas is a step in ballet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building collided with grazing land after the first stage.",
+     "walkthrough": "'step' is the ballet term pas, which opens 'pasture'; 'after the initial step' keeps what comes after it.",
+     "definitionFit": "Synonym: something constructed, an edifice or building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1020,49 @@
     "text": "This man has got round the old taxman and employs workers",
     "enumeration": "5"
    },
-   "solution": "HIRES"
+   "solution": "HIRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "employs workers",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "got round",
+       "at": 13,
+       "note": "got round means surrounded, so the contraction for this man has goes outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "This man has",
+       "at": 0,
+       "gives": "HES",
+       "note": "he's, short for he has"
+      },
+      {
+       "words": "the old taxman",
+       "at": 23,
+       "gives": "IR",
+       "note": "IR is the Inland Revenue, the former British tax authority"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man dodges the tax inspector and takes on staff.",
+     "walkthrough": "'got round' looks like evasion but signals a container. The Inland Revenue was Britain's tax office until 2005.",
+     "definitionFit": "Synonym: a firm that takes on staff for pay engages, recruits, and employs them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1076,45 @@
     "text": "A top-level cover-up — does it follow mad March days say?",
     "enumeration": "9"
    },
-   "solution": "HAIRPIECE"
+   "solution": "HAIRPIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A top-level cover-up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HAIRPIECE",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 53,
+       "note": "say means as spoken, a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "does it follow mad March days",
+       "at": 23,
+       "gives": "HAREPEACE",
+       "note": "after the March madness of hares comes calm: hare peace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wig, and whether calm follows the madness of March.",
+     "walkthrough": "Hares are said to go 'mad in March'; the peace afterwards would be 'hare peace'.",
+     "definitionFit": "Cryptic: a wig or toupee covers the top of the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "top-level"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1128,44 @@
     "text": "Style of construction as advertised on radio?",
     "enumeration": "5"
    },
-   "solution": "BUILD"
+   "solution": "BUILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Style of construction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BUILD",
+     "indicators": [
+      {
+       "text": "on radio",
+       "at": 36,
+       "note": "on the radio a word is heard, not seen, so it is a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advertised",
+       "at": 25,
+       "gives": "BILLED",
+       "note": "advertised means billed, announced on a poster"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a building style is being promoted in a radio commercial.",
+     "definitionFit": "Synonym: the make or physique of something, how it is put together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "advertised"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1179,29 @@
     "text": "Most daring underwear",
     "enumeration": "7"
    },
-   "solution": "BRAVEST"
+   "solution": "BRAVEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most daring",
+      "at": 0,
+      "meaning": "the most courageous, bold and fearless"
+     },
+     {
+      "text": "underwear",
+      "at": 12,
+      "meaning": "a bra and a vest, both worn under clothes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Superlative of a word for courageous; read as two words it names two undergarments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1221,60 @@
      }
     ]
    },
-   "solution": "ICECUBE"
+   "solution": "ICECUBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a frozen block",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "caught inside",
+         "at": 37,
+         "note": "caught inside means held within, so the young animal goes into the letter name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "see",
+         "at": 2,
+         "gives": "CEE",
+         "note": "see is how the letter C is pronounced, its name spelt cee"
+        },
+        {
+         "words": "polar bear's offspring perhaps",
+         "at": 6,
+         "gives": "CUB",
+         "note": "a young bear is a cub; 'perhaps' because any bear has cubs"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spotting a polar bear cub trapped in a block of ice.",
+     "walkthrough": "'I see' reads as an exclamation, but it is I followed by CEE, the name of the letter C.",
+     "definitionFit": "Literal: a small frozen cube of water used to chill drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1288,85 @@
     "text": "Roughly peels second bit of orange skin (left over) for zest",
     "enumeration": "9"
    },
-   "solution": "PERKINESS"
+   "solution": "PERKINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "zest",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Roughly",
+       "at": 0,
+       "note": "roughly means not precisely arranged, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 46,
+         "note": "over here means finished, gone, so the letter for left is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "peels",
+           "at": 8
+          },
+          {
+           "op": "nth",
+           "n": 2,
+           "indicators": [
+            {
+             "text": "second bit of",
+             "at": 14,
+             "note": "second bit of picks the second letter of orange"
+            }
+           ],
+           "parts": [
+            {
+             "words": "orange",
+             "at": 28
+            }
+           ]
+          },
+          {
+           "words": "skin",
+           "at": 35
+          }
+         ]
+        },
+        {
+         "words": "left",
+         "at": 41,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peeling an orange carelessly and keeping the rind aside for its zest.",
+     "walkthrough": "'zest' looks like citrus rind but means liveliness. PEELS, R and SKIN lose L ('left over'), and 'Roughly' rearranges the rest.",
+     "definitionFit": "Synonym: zest is lively enthusiasm, a bouncy cheerful energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "zest"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1380,59 @@
     "text": "Seeing only Mr Bean's 'oddities', therefore all round restraint required",
     "enumeration": "7"
    },
-   "solution": "EMBARGO"
+   "solution": "EMBARGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "restraint",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "all round",
+       "at": 44,
+       "note": "all round means surrounding, so the word for therefore goes outside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "therefore",
+       "at": 34,
+       "gives": "ERGO",
+       "note": "ergo is Latin for therefore"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddities",
+         "at": 23,
+         "note": "oddities are the odd-numbered letters, first, third and fifth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mr Bean",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing just Mr Bean's quirks, a ban on such things is needed.",
+     "walkthrough": "Mr Bean is a British TV comedy character played by Rowan Atkinson; 'oddities' takes his name's odd letters.",
+     "definitionFit": "Synonym: an official ban on trade, a restriction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddities"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1446,33 @@
     "text": "How pointy bit of church rises?",
     "enumeration": "7"
    },
-   "solution": "STEEPLY"
+   "solution": "STEEPLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How pointy bit of church rises?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How pointy bit of church rises?",
+       "at": 0,
+       "note": "the spire of a church is a steeple; in a sharp ascent, the adverb jokingly built from it"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Adverb: rising sharply, at a sharp angle, as a church spire does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1486,43 @@
     "text": "One more 25; he helps you in trouble",
     "enumeration": "7"
    },
-   "solution": "ABETTER"
+   "solution": "ABETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he helps you in trouble",
+      "at": 13,
+      "note": "someone who assists another, especially in wrongdoing"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "A",
+       "note": "one means a, the indefinite article"
+      },
+      {
+       "words": "more 25",
+       "at": 4,
+       "gives": "BETTER",
+       "note": "25 across means competent; more competent is better"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One more able person comes to your aid when things go wrong.",
+     "walkthrough": "'25' refers to 25 across, CAPABLE, so 'more 25' is 'more capable': BETTER.",
+     "definitionFit": "Literal: an accomplice who assists or encourages someone, usually in wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1536,52 @@
     "text": "Those things leading to end of mice? (as seen in this crossword)",
     "enumeration": "5"
    },
-   "solution": "THEME"
+   "solution": "THEME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as seen in this crossword",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Those things",
+       "at": 0,
+       "gives": "THEM",
+       "note": "them, those things"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 24,
+         "note": "end of picks out the last letter of mice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mice",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things that lead to the death of mice, as found in this puzzle.",
+     "walkthrough": "'Those things leading to end of mice' hints at the long-running play 27 across, the puzzle's subject.",
+     "definitionFit": "Literal: the subject running through the puzzle, its unifying topic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1595,47 @@
     "text": "The president's no leader, a butt",
     "enumeration": "4"
    },
-   "solution": "RUMP"
+   "solution": "RUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a butt",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no leader",
+       "at": 16,
+       "note": "no leader means the first letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The president",
+       "at": 0,
+       "gives": "TRUMP",
+       "note": "Donald Trump, the US president"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The president is no leader, just a figure of ridicule.",
+     "walkthrough": "'butt' looks like a target of jokes but means backside.",
+     "definitionFit": "Synonym: the backside, the hindquarters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butt"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1649,48 @@
     "text": "Competent dad put in some wiring",
     "enumeration": "7"
    },
-   "solution": "CAPABLE"
+   "solution": "CAPABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Competent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 14,
+       "note": "put in means placed inside, so the word for dad goes into the wiring word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some wiring",
+       "at": 21,
+       "gives": "CABLE",
+       "note": "a cable is a length of wiring"
+      },
+      {
+       "words": "dad",
+       "at": 10,
+       "gives": "PA",
+       "note": "pa is an informal word for dad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled father installed a bit of electrical wiring.",
+     "definitionFit": "Synonym: someone able, skilled enough to do the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1704,65 @@
     "text": "Avoid opening of concert piece, giving piano runs a miss",
     "enumeration": "5"
    },
-   "solution": "ELUDE"
+   "solution": "ELUDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Avoid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "giving",
+       "at": 32,
+       "note": "giving something a miss means leaving it out, so the letters for piano and runs go"
+      },
+      {
+       "text": "a miss",
+       "at": 50,
+       "note": "a miss is the second half of giving something a miss, leaving out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opening of concert piece",
+       "at": 6,
+       "gives": "PRELUDE",
+       "note": "a prelude is an opening piece of music"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "piano",
+         "at": 39,
+         "gives": "P",
+         "note": "P is the musical abbreviation for piano, softly"
+        },
+        {
+         "words": "runs",
+         "at": 45,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skipping the overture of a concert by not bothering with the piano part.",
+     "walkthrough": "'giving ... a miss' removes P and R from PRELUDE.",
+     "definitionFit": "Synonym: to dodge or evade, to escape from something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1776,41 @@
     "text": "Opera must beat long-running play",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "long-running play",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "beat",
+       "at": 11,
+       "note": "beat as in battered, so the letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Opera must",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opera has to outdo a play with a long run.",
+     "walkthrough": "'beat' looks like 'outdo' but signals the rearrangement of OPERA MUST.",
+     "definitionFit": "Example: Agatha Christie's murder mystery, running in London's West End since 1952."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1824,52 @@
     "text": "Research papers — the ones on hand surgery primarily",
     "enumeration": "6"
    },
-   "solution": "THESES"
+   "solution": "THESES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Research papers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the ones on hand",
+       "at": 18,
+       "gives": "THESE",
+       "note": "these means the ones here, close at hand"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 43,
+         "note": "primarily means first of all, so the opening letter of surgery is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "surgery",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Academic papers about operations on the hand.",
+     "walkthrough": "'hand surgery' reads as a medical topic; 'the ones on hand' is THESE.",
+     "definitionFit": "Synonym: dissertations written for a degree, papers presenting research."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1883,70 @@
     "text": "Formal act put Spain in credit with money all over the place",
     "enumeration": "8"
    },
-   "solution": "CEREMONY"
+   "solution": "CEREMONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Formal act",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "in places the Spain letter inside the credit abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "credit",
+         "at": 24,
+         "gives": "CR",
+         "note": "CR is the accounting abbreviation for credit"
+        },
+        {
+         "words": "Spain",
+         "at": 15,
+         "gives": "E",
+         "note": "E is the international vehicle code for Spain (España)"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "all over the place",
+         "at": 42,
+         "note": "all over the place means scattered, so the letters of money are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "money",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting Spain in the black with cash spread everywhere.",
+     "walkthrough": "'put' is part of the container signal with 'in'.",
+     "definitionFit": "Synonym: a ritual, a formal observance or occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
+    }
+   }
   }
  ]
 }
