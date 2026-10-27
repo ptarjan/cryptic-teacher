@@ -861,6 +861,50 @@ try:
 finally:
     tso.corpus_words = cf_saved
 
+# repair_crossing_misreads: a held crossing answer judged misread at the one cell a blank light's VLM word
+# crosses it is replaced, and the light then takes the VLM word.
+cm_dir = Path(tempfile.mkdtemp())
+cm_io = (rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file)
+try:
+    cm_path = cm_dir / "times-1.json"
+    rf.puzzle_paths.find = lambda pid: cm_path
+    rf.fetcher.read_puzzle_file = lambda path: json.loads(Path(path).read_text())
+    rf.fetcher.write_puzzle_file = lambda path, puzzle: Path(path).write_text(json.dumps(puzzle, indent=1) + "\n")
+    # AN over TO, held with 3-across's T misread S and 1-down blank; the VLM read 1-down AT.
+    cm_row = ("times-1", "1-down", "AT", "3-across", "SO", "TO")
+    cm_put = lambda sols: cm_path.write_text(json.dumps(cf_puzzle(sols), indent=1) + "\n")
+    cm_sols = lambda: [e["solution"] for e in json.loads(cm_path.read_text())["entries"]]
+    cm_put(["AN", None, "NO", "SO"])
+    cm_dry = rf.repair_crossing_misreads(rows=[cm_row])
+    same("(dry run) the misread crossing and the light it frees are named; nothing written",
+         [cm_dry["replaced"], cm_dry["filled"], cm_sols()],
+         [[("times-1", "1990-01-01", "3-across", "SO", "TO")], [("times-1", "1990-01-01", "1-down", "AT")],
+          ["AN", None, "NO", "SO"]])
+    cm_done = rf.repair_crossing_misreads(apply_it=True, rows=[cm_row])
+    same("--apply replaces the crossing and fills the light; the puzzle is whole",
+         [cm_sols(), cm_done["whole"]], [["AN", "AT", "NO", "TO"], ["times-1"]])
+    same("(mirror) run again, the crossing no longer holds the misread: nothing changes",
+         [rf.repair_crossing_misreads(apply_it=True, rows=[cm_row])["replaced"], cm_sols()],
+         [[], ["AN", "AT", "NO", "TO"]])
+    cm_blog = cf_puzzle(["AN", None, "NO", "SO"])
+    cm_blog["solutions"] = {"origin": "writeup", "blog": "timesforthetimes"}
+    cm_path.write_text(json.dumps(cm_blog, indent=1) + "\n")
+    same("(mirror) a blog-keyed file is never touched",
+         [rf.repair_crossing_misreads(apply_it=True, rows=[cm_row])["left"], cm_sols()],
+         [[("times-1", "3-across", "TO", "not the archive filer's, or blog-keyed")], ["AN", None, "NO", "SO"]])
+    cm_put(["AN", None, "NO", "SO"])
+    same("(mirror) a correction away from the cell the VLM word crosses is left",
+         [rf.repair_crossing_misreads(apply_it=True, rows=[("times-1", "1-down", "AT", "3-across", "SO", "SX")])["left"],
+          cm_sols()],
+         [[("times-1", "3-across", "SX", "not the one letter the VLM word gives the crossing")], ["AN", None, "NO", "SO"]])
+    cm_put(["EN", None, "NO", "SO"])
+    same("(mirror) the crossing is replaced but a light another held crossing contradicts stays blank",
+         [rf.repair_crossing_misreads(apply_it=True, rows=[cm_row])["left"], cm_sols()],
+         [[("times-1", "1-down", "AT", "a held crossing letter is not its own")], ["EN", None, "NO", "TO"]])
+finally:
+    rf.puzzle_paths.find, rf.fetcher.read_puzzle_file, rf.fetcher.write_puzzle_file = cm_io
+    shutil.rmtree(cm_dir, ignore_errors=True)
+
 # clue_fills / repair_clue_fills: a blank light of a held Times file 1-2 short that its clue's wordplay (a
 # hidden word) spells on the held crossings, WordNet linking the definition, is filed as our solve.
 def cl_puzzle(sols, clue2="Singer in poet enormously"):

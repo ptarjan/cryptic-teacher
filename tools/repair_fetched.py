@@ -1919,6 +1919,122 @@ def repair_crossing_fills(apply_it=False, paths=None):
     return out
 
 
+#: Held Times answers misread at the one cell a blank light's VLM strip reading crosses them, each judged
+#: right by its clue (10-27, FORCED_WORD study r41u: listed VLM word, the grid classifier reading its
+#: letter at the crossed cell and its own on every open one; the held crossing unlisted after the change,
+#: so settle_held/CLASSED_CLASH kept it): (id, blank light, VLM word, crossing light, held, corrected).
+#: Left, the one-letter change still wrong: CALASH/AETON (AFTON), HORNBILL/BAMROD, ANTIBES/BOBIN (ROBIN),
+#: RIBGRASS/LONGRORE (LONG ROBE), SHUCK/KENTIEDGE (KENTLEDGE), FACELESS/SADS (SAPS); blog-keyed:
+#: NOGOAREAS/DONNE (23975), SPINSTER/RUBUNDI (25048, BURUNDI).
+CROSSING_MISREADS = (
+    ("times-9462", "19-across", "DECANAL", "20-down", "DHILLON", "CHILLON"),  # "- ! thy prison..." (Byron)
+    ("times-9800", "24-across", "OWING", "25-down", "ANDRE", "INDRE"),  # hidden in tamarIND REdwood
+    ("times-9920", "1-down", "TROUBLE", "11-across", "MULTITUDE", "BULTITUDE"),  # Vice Versa; M to B, a cold
+    ("times-10329", "1-down", "HARDWORDS", "14-across", "PISCA", "RISCA"),  # town that does not play safe
+    ("times-10353", "29-across", "TOPBOOTS", "20-down", "RECLASS", "RECLASP"),  # "Scalper" anagram
+    ("times-11245", "10-down", "PROTECTORATE", "9-across", "OERSTED", "OERSTEP"),  # Hamlet: o'erstep not
+    ("times-11265", "5-down", "LORDSANDLADIES", "25-across", "BONWELL", "DONWELL"),  # Knightley's Abbey
+    ("times-12000", "18-across", "INDEPENDENCE", "17-down", "ANAMITES", "ADAMITES"),  # "Tea-maids" anagram
+    ("times-12446", "25-across", "MANDOLINE", "25-down", "ASS", "MSS"),  # MISS less I: my writings
+)
+
+
+def repair_crossing_misreads(apply_it=False, rows=CROSSING_MISREADS):
+    """{"replaced": [(id, date, crossing light, held, corrected)], "filled": [(id, date, light, word)],
+    "whole": [ids], "left": [(id, light, word, why)]} for each of `rows` (CROSSING_MISREADS) whose file
+    still holds that crossing answer: a held archive filer's file, no blog's write-up keying it, the
+    corrected word one letter off the held one at the one cell the blank light crosses it, that letter
+    the VLM word's there. The crossing answer is replaced. The blank light then takes the VLM word when
+    it is blank still and the word stands as answers-only rereads' would: listed to the clue's count
+    (file_archive_org_puzzles._pieces_listed), the count fitting the light, no other light's held answer,
+    every held crossing letter its own. Written through fetch_puzzle.write_puzzle_file, a file
+    provenance.check faults left unwritten. With `apply_it` False nothing is written."""
+    import file_archive_org_puzzles as archive
+    import provenance
+    import trove_solution_ocr as tso
+    out = {"replaced": [], "filled": [], "whole": [], "left": []}
+    by_pid = {}
+    for row in rows:
+        by_pid.setdefault(row[0], []).append(row[1:])
+    for pid, items in sorted(by_pid.items(), key=lambda kv: int(kv[0].split("-")[1])):
+        path = puzzle_paths.find(pid)
+        if path is None:
+            out["left"] += [(pid, r[2], r[4], "no file") for r in items]
+            continue
+        held = fetcher.read_puzzle_file(path)
+        if (held.get("source") or {}).get("acquiredBy") != archive.TOOL or "blog" in (held.get("solutions") or {}):
+            out["left"] += [(pid, r[2], r[4], "not the archive filer's, or blog-keyed") for r in items]
+            continue
+        new = copy.deepcopy(held)
+        es = new["entries"]
+        by_lid = {entry_id(e): e for e in es}
+        lts = tso.lights(tso.puzzle_grid(new))
+        cells = lambda lid: lts.get(archive._light_key(lid), ())
+        replaced, filled = [], []
+        for blank, word, cross, was, fixed in items:
+            e, c = by_lid.get(blank), by_lid.get(cross)
+            if e is None or c is None or (c.get("solution") or "").upper() != was:
+                out["left"].append((pid, cross, fixed, "the crossing no longer holds " + was))
+                continue
+            shared = [rc for rc in cells(cross) if rc in cells(blank)]
+            off = [i for i, (a, b) in enumerate(zip(was, fixed)) if a != b]
+            if (len(shared) != 1 or len(was) != len(fixed) or len(off) != 1
+                    or cells(cross)[off[0]] != shared[0] or word[cells(blank).index(shared[0])] != fixed[off[0]]):
+                out["left"].append((pid, cross, fixed, "not the one letter the VLM word gives the crossing"))
+                continue
+            c["solution"] = fixed
+            c.pop("annotation", None)
+            replaced.append((cross, was, fixed))
+        for blank, word, cross, was, fixed in items:
+            e = by_lid.get(blank)
+            if e is None or e.get("solution") or not any(r[0] == cross for r in replaced):
+                continue
+            at = cells(blank)
+            parts = count_parts((e.get("clue") or {}).get("enumeration")) or [len(word)]
+            letters = {}
+            for o in es:
+                if o is not e and o.get("solution"):
+                    for rc, ch in zip(cells(entry_id(o)), o["solution"].upper()):
+                        letters.setdefault(rc, set()).add(ch)
+            if len(at) != len(word) or sum(parts) != len(word):
+                why = "the clue's count is not the light's length"
+            elif not archive._pieces_listed(word, parts):
+                why = "not listed to the clue's count"
+            elif any((o.get("solution") or "").upper() == word for o in es):
+                why = "another light's held answer"
+            elif any(rc in letters and letters[rc] != {ch} for rc, ch in zip(at, word)):
+                why = "a held crossing letter is not its own"
+            else:
+                e["solution"] = word
+                filled.append((blank, word))
+                continue
+            out["left"].append((pid, blank, word, why))
+        if not replaced:
+            continue
+        before = provenance.check(held)
+        try:
+            stamped = provenance.stamp(copy.deepcopy(new), held["source"]["acquiredBy"])
+        except ValueError as err:
+            out["left"] += [(pid, k, w, f"provenance: {err}") for k, _, w in replaced]
+            continue
+        faults = [f for f in provenance.check(stamped) if f not in before]
+        if faults:
+            out["left"] += [(pid, k, w, f"provenance: {faults[0]}") for k, _, w in replaced]
+            continue
+        if apply_it:
+            try:
+                fetcher.write_puzzle_file(path, new)
+            except Exception as err:  # the write gate's refusal: the file stands as held
+                out["left"] += [(pid, k, w, f"write refused: {type(err).__name__}: {err}") for k, _, w in replaced]
+                continue
+        day = held.get("date")
+        out["replaced"] += [(pid, day, k, was, w) for k, was, w in replaced]
+        out["filled"] += [(pid, day, k, w) for k, w in filled]
+        if all(e.get("solution") for e in es):
+            out["whole"].append(pid)
+    return out
+
+
 #: clue_fills: the most blank lights a held Times file may have to be looked at (rereads of 1-2 short
 #: files came back "already held": their last lights are the VLM's refused misreads of old prints).
 CLUE_FILLS_BLANK = 2
@@ -2142,6 +2258,10 @@ def main(argv):
                     help="only fill each blank light of a held Times file whose every cell its crossing answers "
                          "give, where those letters make a listed word (or listed words to the clue's count) that "
                          "no other light holds (crossing_fills); --apply writes")
+    ap.add_argument("--crossing-misreads", action="store_true",
+                    help="only replace the held Times answers CROSSING_MISREADS judged misread at the cell a "
+                         "blank light's VLM word crosses, and fill that light with the word where it then "
+                         "stands (repair_crossing_misreads); never a blog-keyed file; --apply writes")
     ap.add_argument("--clue-fills", action="store_true",
                     help="only fill the blank lights of each held Times file 1-2 short that their clues solve on the "
                          "held crossings (clue_fills: one wordplay word WordNet links to the definition), recorded "
@@ -2220,6 +2340,18 @@ def main(argv):
               + ", ".join(f"{d} {n}" for d, n in sorted(Counter(decade(r[1]) for r in got["filled"]).items()))
               + f"), {len(got['whole'])} made fully answered; left "
               + ", ".join(f"{why} {n}" for why, n in Counter(r[4] for r in got["refused"]).most_common()))
+        return 0
+    if args.crossing_misreads:
+        got = repair_crossing_misreads(args.apply)
+        for pid, dated, lid, was, word in got["replaced"]:
+            print(f"{pid} ({dated}) {lid}: {was} -> {word}")
+        for pid, dated, lid, word in got["filled"]:
+            print(f"{pid} ({dated}) {lid}: blank -> {word}")
+        for pid, lid, word, why in got["left"]:
+            print(f"{pid} {lid}: {word} left: {why}")
+        verb = "" if args.apply else "would be "
+        print(f"{len(got['replaced'])} held answer(s) {verb}replaced, {len(got['filled'])} blank(s) {verb}filled, "
+              f"{len(got['whole'])} puzzle(s) made fully answered, {len(got['left'])} left")
         return 0
     if args.clue_fills:
         got = repair_clue_fills(args.apply, define=args.define)
