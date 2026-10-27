@@ -1442,10 +1442,17 @@ def by_urgency(units, serves=frozenset()):
     first = {id(u) for u in solution}
     # A lost write's reread (fa.LOST_WRITE, rank 2) is as good as never read: it goes with the never-read.
     # 10-27: the 247 planned stood at 9,309+ of 22,373, behind the Listener, two days after REREAD_LOST.
+    # So do UNFILED_FIRST's (a puzzle held back unfiled by one blank a fix since reads): each files a new
+    # puzzle, and the 60 close-set dash ones stood at 10,076+ of 22,814 behind the Listener (10-27).
     new = [u for u in others if u.get("paper") in named and id(u) not in first
-           and (u.get("rank", 9) <= 1 or u.get("reason") == fa.LOST_WRITE)]
+           and (u.get("rank", 9) <= 1 or u.get("reason") in UNFILED_FIRST)]
     first |= {id(u) for u in new}
     return solution + new + listener_order + [u for u in others if id(u) not in first]
+
+
+#: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
+#: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
+UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM)
 
 
 def times_solution_work(unit):
