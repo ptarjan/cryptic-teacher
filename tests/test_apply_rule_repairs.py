@@ -156,4 +156,26 @@ check("doesNotGive: a hidden word in a cross-reference or numeral reads the word
       mend("hid<Some>([70s]SEVENTIES)", "Some 70s occasion", "EVENT") == "hid<Some>([70s]SEVENTIES)")
 msg = mend("hid<in>([US state]IDAHO)", "Mountain in US state", "IDA")
 check("doesNotGive: a hidden word over a looked-up synonym says what to write instead", "no hidden word" in msg and "first(), last() or del()" in msg)
+# indicators.note (10-27 audit, 6 sessions): the link word of `+<after>` / `ins<in>` filed with no note is given
+# the sentence for its operation; an operation with no sentence (a spoonerism) stays refused.
+def noted(wp_text, clue, ans, notes):
+    tree = wordplay.translate({"wp": wp_text, "notes": notes}, clue, ans)
+    entry = {"solution": ans, "clue": {"text": clue}}
+    return A.repair_pool_gap({"wordplay": tree}, entry)["wordplay"]
+tree = noted("[sign of grief]SOB +<after> rev<to be upset>([About]RE)", "Sign of grief after to be upset about", "SOBER",
+             {"sign of grief": "a sob shows grief", "About": "re means about", "to be upset": "upset means turned over, so reversed"})
+inds = [i for n, _ in F.walk(tree) for i in n.get("indicators") or []]
+check("indicatorNote: a charade link word with no note gets the joining sentence",
+      all(i.get("note") for i in inds) and any(i["text"] == "after" and "joins" in i["note"] for i in inds))
+tree = noted("ins<in>([cast]SHED, last<back>([Actors]))", "Actors back in cast", "SHEDS",
+             {"cast": "to cast off skin is to shed it", "back": "the back of the word is its final letter"})
+check("indicatorNote: a container word with no note gets the container sentence, and the counter reads 0",
+      all(i.get("note") for n, _ in F.walk(tree) for i in n.get("indicators") or [])
+      and not counters["indicatorNote"](tree, {}, "") )
+sp = {"op": "spoonerism", "indicators": [{"text": "swapped"}], "parts": [leaf("a b")]}
+check("indicatorNote: an operation with no sentence is left for the model",
+      F.RULE_REPAIRS["indicatorNote"](sp, None, {}) is None and counters["indicatorNote"](sp, {}, "") == 1)
+check("indicatorNote: the refusal says where the note goes",
+      any("under the clue's `notes`" in m for m in (lambda w: (V.check_indicators("1A", {"indicators": [{"text": "after", "for": "charade"}],
+          "wordplay": {"op": "charade", "parts": []}}, "x after y", [], w), w)[1])([])))
 sys.exit(1 if fails else 0)

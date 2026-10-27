@@ -3436,6 +3436,46 @@ def r_ana_flatten(node, parent, ctx):
     return new
 
 
+# What each op's indicator does, for an indicator the model filed with no note (indicators.note,
+# 6 of 249 sessions 10-27: the link word of `+<after>` and `ins<in>` above all). Every sentence
+# says the job and names no letters, so the indicators rung stays clear of the blocks; an op not
+# listed (a substitution, a move, a spoonerism...) is the model's to word.
+INDICATOR_JOBS = {
+    "charade": "this word only joins the neighbouring pieces: it says which one stands next to which in the answer",
+    "container": "this word is a container marker: it says one piece is placed inside the other, and the clue words of the pieces show which way round",
+    "anagram": "this word means the letters it governs are mixed up, so they are rearranged into a new order",
+    "reversal": "this word means the letters it governs are turned round, so they are read backwards",
+    "hidden": "this word says the answer sits inside the words it governs, as a run of their own consecutive letters",
+    "homophone": "this word says the answer is heard rather than seen: it sounds like the word it governs",
+    "deletion": "this word says some letters are taken away from the word it governs",
+    "first": "this word picks out the opening letter, or opening letters, of the words it governs",
+    "last": "this word picks out the closing letter, or closing letters, of the words it governs",
+    "middle": "this word picks out the central letter, or central letters, of the word it governs",
+    "outer": "this word picks out the outside letters of the word it governs, leaving its middle",
+    "alternate": "this word picks out every other letter of the word it governs",
+    "repeat": "this word says the piece it governs is written out more than once"}
+
+
+def unnoted_indicators(tree):
+    """How many of `tree`'s indicators carry no note (the first check's indicators.note)."""
+    return sum(1 for n, _ in walk(tree) for i in n.get("indicators") or [] if isinstance(i, dict) and not i.get("note"))
+
+
+def r_indicator_note(node, parent, ctx):
+    """indicatorNote: an operation whose indicator has no note (the first check's indicators.note
+    refusal, a charade's `+<after>` or a container's `ins<in>` the commonest) gets the sentence for
+    what that operation's indicator does (INDICATOR_JOBS). Ops without a sentence stay refused."""
+    job = INDICATOR_JOBS.get(node.get("op"))
+    inds = [i for i in node.get("indicators") or [] if isinstance(i, dict)]
+    if not job or not any(not i.get("note") for i in inds):
+        return None
+    new = copy.deepcopy(node)
+    for i in new["indicators"]:
+        if isinstance(i, dict) and not i.get("note"):
+            i["note"] = job
+    return new
+
+
 def r_does_not_give(node, parent, ctx):
     """doesNotGive: a tree that does not give the answer (the first check's commonest refusal), mended
     only when ONE edit makes it give it and no other single edit does: a container whose two arguments
@@ -3596,7 +3636,8 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
-                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give}
+                "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give,
+                "indicatorNote": r_indicator_note}
 
 
 def note_deletions(tree):
@@ -4108,7 +4149,8 @@ _DETECTOR_RULES = {"unchecked_leaf": lambda wp, full, clue: "unchecked_leaf" in 
                    "del_single": lambda wp, full, clue: V.del_single(wp),
                    "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
                    "arity_other": lambda wp, full, clue: V.arity_other(wp),
-                   "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue)}
+                   "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue),
+                   "indicatorNote": lambda wp, full, clue: unnoted_indicators(wp)}
 
 
 def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):

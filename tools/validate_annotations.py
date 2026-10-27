@@ -1427,13 +1427,16 @@ def check_indicators(tag, ann, clue, errors, warnings):
     if no_for:
         warnings.append(f"{tag}: indicator(s) {no_for!r} lack `for` — name the type "
                         f"each one signals, one of the clue's own {own!r}")
+    where = (" Write it under the clue's `notes`, keyed by those clue words: "
+             "{\"after\": \"...\"}; a charade's `+<after>` and a container's `ins<in>` link word "
+             "are indicators too, and its note says which piece goes where")
     if no_note and len(no_note) == len(texts):
         warnings.append(f"{tag}: no indicator notes — give every indicator a `note`. "
-                        f"{INDICATOR_NOTE_HOW}")
+                        f"{INDICATOR_NOTE_HOW}.{where}")
     else:
         for text in no_note:
             warnings.append(f"{tag}: indicator {text!r} has no note — every indicator "
-                            f"gets one. {INDICATOR_NOTE_HOW}")
+                            f"gets one. {INDICATOR_NOTE_HOW}.{where}")
 
 
 SOUND_TYPES = ("homophone", "spoonerism")
