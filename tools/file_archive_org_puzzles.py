@@ -5503,7 +5503,7 @@ def paired_name(word, reply, pattern, sizes, probs, enum=None, clue=None):
                      or filed_word(reply, pattern, sizes, probs) == word))
 
 
-def uncrossed(answers, grid, enums=None, probs=None, rivals=None):
+def uncrossed(answers, grid, enums=None, probs=None, rivals=None, seen=None):
     """The lights of `answers` ({"12-across": word}) holding a cell another light of `grid` crosses
     with no answer of the grid's reading: a letter only its own word gives. A listed word read a
     letter off there stands on nothing (Times 8,564's 6-across BATES for PATES, "They're made of
@@ -5520,7 +5520,8 @@ def uncrossed(answers, grid, enums=None, probs=None, rivals=None):
     It is called only when an answer would be left out that a listed word lies one lone letter off
     (no other can be read as one: with none, every answer stands); with no reading, every one is left
     out. `rivals` (a dict) gets {light: word} of those left out whose rival word stands in their place
-    (rival_stands: AGHASI's lone I read as T, AGHAST)."""
+    (rival_stands: AGHASI's lone I read as T, AGHAST); `seen` (a dict) {light: rival word} of every one left
+    out so (vlm_stands judges a VLM word's)."""
     lts = trove_solution_ocr.lights(grid)
     on = {}
     for (n, dr), cells in lts.items():
@@ -5544,6 +5545,8 @@ def uncrossed(answers, grid, enums=None, probs=None, rivals=None):
     if got:
         named = {k: misread_rival(answers[k], lone[k], got) for k in near}
         out = {k for k, rival in named.items() if rival}
+        if seen is not None:
+            seen.update({k: rival for k, rival in named.items() if rival})
         if rivals is not None:
             rivals.update({k: rival for k, rival in named.items()
                            if rival and rival_stands(answers[k], rival, (enums or {}).get(_light_key(k)))})
@@ -5599,6 +5602,52 @@ def rival_stands(word, rival, enum=None):
     if rival.upper() in corpus:
         return True
     return worded(rival, enum) and not worded(word, enum)
+
+
+#: vlm_stands: the least probability the cell classifier gives the VLM's own letter where it reads the rival's.
+VLM_RIVAL_OWN = 0.2
+
+
+def vlm_stands(word, rival, own, clue=None):
+    """Whether a VLM word `word` (vlm_word took it off its strip) that misread_rival reads as listed word `rival`
+    on a letter nothing checks (uncrossed, held_blank_unchecked) stands as the VLM read it, not left blank: the
+    classifier gives the VLM's letter `own` VLM_RIVAL_OWN or more (torn, not sure of its rival), `word` is a corpus
+    answer or another puzzle's filed one (trove_solution_ocr.filed_words), and `rival` no corpus answer, or the
+    clue text `clue` favours `word`: its definition linked (definition_linked) or its wordplay spelling it
+    (clue_spells), the rival's not. 10-27, cached strip replies of 1,829 unplanned 1-5-short Times: of 30 VLM
+    words the checks so dropped, 19 right by their clues, 11 wrong (BALMS for PALMS, BRUNELLO, PUFFER for BUFFER,
+    TESS for LESS, NAILBAGS, TANYARD for LANYARD...), each its letter at .137 or under; their rival's probability
+    tells nothing (MANGO's .956, right; TANYARD's .549). This takes 13, all right (OBI, FIRING, OPEN, COSTERS, MUM,
+    INTERJECT, ODDS, KIND, GARTER, ROOM, RETREAD, AMBIT, EASED); on 1,500 whole held Times grids the corpus and
+    clue tests alone keep 3.2% of a lone letter's listed misreads over the filed answer (VLM_RIVALED)."""
+    t = trove_solution_ocr
+    w, r = (word or "").upper(), (rival or "").upper()
+    if not w or not r or own is None or float(own) < VLM_RIVAL_OWN:
+        return False
+    if w not in t.corpus_words() and w not in t.filed_words():
+        return False
+    if r not in t.corpus_words():
+        return True
+    if not clue:
+        return False
+    return bool((t.definition_linked(w, clue, names=True) and not t.definition_linked(r, clue, names=True))
+                or (t.clue_spells(w, clue) and not t.clue_spells(r, clue)))
+
+
+def rival_own(word, rival, cells, probs):
+    """The classifier's probability (`probs` {cell: 26}) of `word`'s own letter at the one cell of `cells` (its
+    light's, in order) where listed word `rival` differs from it, or None."""
+    w, r = (word or "").upper(), (rival or "").upper()
+    diff = [i for i in range(min(len(w), len(r), len(cells))) if w[i] != r[i]]
+    if len(diff) != 1 or len(w) != len(r) or not probs or w[diff[0]] not in trove_solution_ocr.AZ:
+        return None
+    p = probs.get(cells[diff[0]]) if isinstance(probs, dict) else (probs[diff[0]] if diff[0] < len(probs) else None)
+    if p is None:
+        return None
+    try:
+        return float(p[trove_solution_ocr.AZ.index(w[diff[0]])])
+    except (IndexError, TypeError, ValueError):
+        return None
 
 
 def answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
@@ -5768,7 +5817,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
                        grid, enums) | (paired & set(by_vlm))) if by_vlm else set()
     answers, info, clash = checked_answers(es, answers, grid, enums, info, solution_crop(sol, number),
                                            crossed=crossed, every=every,
-                                           blog="blog" in (old.get("solutions") or {}), agreed=named)
+                                           blog="blog" in (old.get("solutions") or {}), agreed=named, vlm=set(by_vlm))
     if any(answers.get(k) for k in named):
         info = {**info, "vlmNamed": sorted(k for k in named if answers.get(k))}
     t0 = _stage("checked", t0)
@@ -5888,7 +5937,7 @@ def rejudged(entries, answers, info, asked, strips, grid, enums, crop, crossed=T
         return answers, info
     named = vlm_named(by, known, grid, enums) | paired
     checked, _, _ = checked_answers(entries, {**answers, **by}, grid, enums, {}, crop, crossed=crossed,
-                                    every=every, blog=blog, agreed=held_agreed(info) | named)
+                                    every=every, blog=blog, agreed=held_agreed(info) | named, vlm=set(by))
     took = {k: w for k, w in by.items() if checked.get(k) == w}
     if not took:
         return answers, info
@@ -5959,7 +6008,7 @@ def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True,
         return answers, info
     named = vlm_named(by, known, grid, enums) | (paired & set(by))
     checked, _, _ = checked_answers(entries, {**answers, **by, **agreed}, grid, enums, {}, crop, crossed=crossed,
-                                    every=every, blog=blog, agreed=set(agreed) | named | held_agreed(info))
+                                    every=every, blog=blog, agreed=set(agreed) | named | held_agreed(info), vlm=set(by))
     took = {k: w for k, w in {**by, **agreed}.items() if checked.get(k) == w}
     if not took:
         return answers, info
@@ -6655,7 +6704,8 @@ def solution_crop(sol, number):
     return CROPS / "solutions" / f"{Path(sol['dir']).name}_{sol.get('number', number)}.png"
 
 
-def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True, every=False, blog=False, agreed=()):
+def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True, every=False, blog=False, agreed=(),
+                    vlm=()):
     """(answers, info, clash) of a solution grid's reading `answers` ({"12-across": word}) of a puzzle
     whose held file's `entries` (or, with none held, the reading's own, answerless) lie on `grid`, past
     the checks every answer read off a grid takes before it files, answers_only's and the full read's
@@ -6672,7 +6722,9 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
     `enums` {(number, direction): enumeration}; `info` the reading's stats, returned with the checks'
     keys added. Each held answer the reading gives none for stands (decide: merge_answers with no reread
     drop), but by held_drops. The lights of `agreed` (late_strips' agreed_held: the grid's reader and the VLM
-    spell the word alike) skip misread_word; every other check stands."""
+    spell the word alike) skip misread_word; every other check stands. A word of `vlm` (lights whose words vlm_word
+    took off the VLM's strips) that uncrossed or held_blank_unchecked would drop for misread_rival's rival stands
+    where vlm_stands keeps it ("vlmStood", VLM_RIVALED)."""
     # An answer no word (worded) that one letter's change makes one is a misread, not a name: dropped.
     misread = {k for k, a in answers.items() if k not in agreed and misread_word(a, enums.get(_light_key(k)))}
     if misread:
@@ -6689,8 +6741,14 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
         # rest go only as the classifier reads them another word (misread_rival), that word filed in
         # their place where it stands (rival_stands: AGHASI read AGHAST), not left blank.
         rivals = {}
+        seen = {}
         lone = uncrossed(answers, grid, enums, probs=None if every else (
-            lambda: crop_cell_probs(crop, grid) if crop is not None and crop.exists() else None), rivals=rivals)
+            lambda: crop_cell_probs(crop, grid) if crop is not None and crop.exists() else None), rivals=rivals,
+            seen=seen)
+        stood = set()
+        if lone and vlm and seen:
+            stood = _vlm_stood({k: seen[k] for k in lone if k in vlm and k in seen}, answers, entries, grid, crop)
+            lone = set(lone) - stood
         if lone:
             took = {k: rivals[k] for k in sorted(lone) if k in rivals}
             answers = {**{k: a for k, a in answers.items() if k not in lone}, **took}
@@ -6704,10 +6762,17 @@ def checked_answers(entries, answers, grid, enums, info, crop=None, crossed=True
         fresh = held_blank_unchecked(entries, answers, grid, set(lone or ()))
         if fresh and not every and crop is not None and crop.exists():
             got = crop_cell_probs(crop, grid)
-            gone = sorted(k for k, cells in fresh.items() if got and misread_rival(answers[k], cells, got))
+            named = {k: misread_rival(answers[k], cells, got) for k, cells in fresh.items()} if got else {}
+            gone = sorted(k for k, rival in named.items() if rival)
+            if gone and vlm:
+                kept = _vlm_stood({k: named[k] for k in gone if k in vlm}, answers, entries, grid, crop)
+                stood |= kept
+                gone = [k for k in gone if k not in kept]
             if gone:
                 answers = {k: a for k, a in answers.items() if k not in gone}
                 info = {**info, "unchecked": gone, "accepted": info.get("accepted", 0) - len(gone)}
+        if stood:
+            info = {**info, "vlmStood": sorted(stood)}
     # A held answer the reading reads otherwise no longer refuses the whole reading (settle_held):
     # the read one replaces it when a listed word fitting every crossing, else the held one stands and
     # the read answers crossing it on another letter go; the held answers kept are filed with the reading's.
@@ -6739,6 +6804,21 @@ def held_blank_unchecked(entries, answers, grid, skip=()):
         if cells and any(i in {j for j, _, _ in cells} for i, _ in trove_solution_ocr.one_change(a.upper())):
             out[k] = cells
     return out
+
+
+def _vlm_stood(named, answers, entries, grid, crop):
+    """The lights of `named` ({light: misread_rival's rival}, VLM words of `answers`) vlm_stands keeps, on the
+    classifier's probabilities of `crop` (crop_cell_probs) and each light's clue in `entries`."""
+    if not named or crop is None or not crop.exists():
+        return set()
+    got = crop_cell_probs(crop, grid)
+    if not got:
+        return set()
+    lts = trove_solution_ocr.lights(grid)
+    clues = clue_texts(entries)
+    return {k for k, rival in named.items()
+            if rival and vlm_stands(answers[k], rival, rival_own(answers[k], rival, lts.get(_light_key(k), ()), got),
+                                    clues.get(k))}
 
 
 def crop_cell_probs(crop, grid):
@@ -9892,6 +9972,14 @@ REREAD_FILED_NAME = "2026-10-27T06:45:00+00:00"
 #: answers-only reread (SOLUTION_FIXES); the replies are cached.
 LATE_JUDGED = "solution short, its late strips' VLM words judged again since"
 REREAD_LATE_JUDGED = "2026-10-27T07:00:00+00:00"
+#: The due reason of a Times row read before REREAD_VLM_RIVALED, due none of those above, whose held puzzle leaves
+#: 1 to LATE_MAX lights blank, one of whose strips (the reading's kept one, else cut again as late_strips cuts it)
+#: has a cached VLM reply vlm_word takes that a letter nothing else holds lets misread_rival read as another
+#: listed word, vlm_stands keeping it (near_short with rivaled): uncrossed and held_blank_unchecked dropped such
+#: words before. 10-27 07:00Z, 1,829 unplanned 1-5-short Times: 13 so kept, all right by their clues, 4 puzzles
+#: whole. Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached.
+VLM_RIVALED = "solution short, its VLM words a classifier rival dropped judged again since"
+REREAD_VLM_RIVALED = "2026-10-27T08:30:00+00:00"
 #: {log path: (stat, {edition: {light: [reply key prefix]}})} of vlm_asks.log's solution asks (ask_replies).
 _ASK_REPLIES = {}
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
@@ -10061,12 +10149,14 @@ def named_short(row, paper):
 
 
 def strip_near(series, number, sol_dir, swap=False, defined=False, named=False, argmax=False, paired=False,
-               spelt=False, filed=False, late=False):
+               spelt=False, filed=False, late=False, rivaled=False):
     """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves blank a light
     whose strip its linked solution grid's reading (the solution page's edition dir name `sol_dir`) kept
     (with `late`: 1 to STRIP_MAX blank, a light whose strip the reading did not keep, cut again as late_strips
     cuts it off the grid's crop, whose cached VLM reply vlm_word takes now, misread_word not dropping it
-    but for a name paired_name spares) and whose cached VLM reply (vlm_lights' ask on the held crossings) near_word mends (with `swap`:
+    but for a name paired_name spares; with `rivaled`: 1 to LATE_MAX blank, a light whose strip, kept or cut again
+    so, has a cached VLM reply vlm_word takes that misread_rival reads as a rival on a letter no held answer
+    checks and vlm_stands keeps, _rival_near) and whose cached VLM reply (vlm_lights' ask on the held crossings) near_word mends (with `swap`:
     swap_word mends, on the strip's kept classifier probabilities; with `defined`: vlm_word refuses and
     defined_word settles by the light's clue; with `named`: vlm_word takes a name no list holds that a
     surname alone lies one open letter off, which rival_away refused before word_away; with `argmax`: every
@@ -10081,14 +10171,15 @@ def strip_near(series, number, sol_dir, swap=False, defined=False, named=False, 
     stamp = (_stat_stamp(p), _stat_stamp(q))
     if None in stamp:
         return False
-    if late:
+    if late or rivaled:
         crop = CROPS / "solutions" / f"{sol_dir}_{number}.png"
         stamp = (*stamp, _stat_stamp(crop))
         if None in stamp:
             return False
-        hit = _NEAR_STRIPS.get((p, q, "late"))
+        mode = "rivaled" if rivaled else "late"
+        hit = _NEAR_STRIPS.get((p, q, mode))
         if hit is None or hit[0] != stamp:
-            hit = _NEAR_STRIPS[p, q, "late"] = (stamp, _late_near(p, q, crop))
+            hit = _NEAR_STRIPS[p, q, mode] = (stamp, _rival_near(p, q, crop) if rivaled else _late_near(p, q, crop))
         return hit[1]
     hit = _NEAR_STRIPS.get((p, q, swap, defined, named, argmax, paired, spelt, filed))
     if hit is None or hit[0] != stamp:
@@ -10150,6 +10241,74 @@ def _late_near(p, q, crop):
         probs = strip.get("p") or ()
         word = vlm_word(reply, pattern, sizes, probs, enum, clue)
         if word and (not misread_word(word, enum) or paired_name(word, reply, pattern, sizes, probs, enum, clue)):
+            return True
+    return False
+
+
+def _rival_near(p, q, crop):
+    """strip_near with `rivaled` of the held file at `p`, its reading at `q` and its crop at `crop`: the held
+    puzzle's blank lights (1 to LATE_MAX of them), each one's strip the reading's kept one or else cut again as
+    late_strips cuts it (trove_solution_ocr.crop_strips), whose cached reply to vlm_lights' ask on the held
+    crossings vlm_word takes (misread_word not dropping it but for a paired_name) where, on the strip's kept
+    classifier probabilities, misread_rival reads a letter no held answer checks (lone_cells) as a rival word
+    and vlm_stands keeps the VLM's."""
+    import base64
+    import io
+    from PIL import Image
+    try:
+        held, read = json.loads(p.read_text()), json.loads(q.read_text())
+    except (OSError, ValueError):
+        return False
+    es = held.get("entries") or ()
+    if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or filled(held)[0] != len(es):
+        return False
+    strips = dict(((read.get("stats") or {}).get("strips")) or {})
+    blank = [e for e in es if not e.get("solution")]
+    if not 1 <= len(blank) <= LATE_MAX:
+        return False
+    try:
+        grid = trove_solution_ocr.puzzle_grid(held)
+        lts = trove_solution_ocr.lights(grid)
+        want = [(e.get("number"), e.get("direction")) for e in blank if entry_id(e) not in strips]
+        if want:
+            strips.update(trove_solution_ocr.crop_strips(crop, grid, want) or {})
+    except (KeyError, IndexError, TypeError, ValueError, OSError):  # a grid or crop the reader cannot lay
+        return False
+    answers = {entry_id(e): re.sub(r"[^A-Z]", "", e["solution"].upper()) for e in es if e.get("solution")}
+    letters = {}
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    for lid, w in answers.items():
+        letters.update(zip(lts.get(_light_key(lid), ()), w))
+    prompt = SOLUTION_PROMPT.read_text()
+    for e in blank:
+        lid = entry_id(e)
+        strip = strips.get(lid)
+        cells = lts.get((e.get("number"), e.get("direction")))
+        if not strip or not cells:
+            continue
+        pattern = "".join(letters.get(rc, "?") for rc in cells)
+        enum = (e.get("clue") or {}).get("enumeration")
+        clue = (e.get("clue") or {}).get("text")
+        sizes = trove_solution_ocr.pieces_of(enum, len(cells))
+        try:
+            data = vlm.png(Image.open(io.BytesIO(base64.b64decode(strip["png"]))))
+        except (KeyError, TypeError, ValueError, OSError):
+            continue
+        path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
+        if not path.exists():
+            continue
+        reply = path.read_text()
+        probs = strip.get("p") or ()
+        word = vlm_word(reply, pattern, sizes, probs, enum, clue)
+        if not word or len(word) != len(cells) or len(probs) != len(cells) \
+                or (misread_word(word, enum) and not paired_name(word, reply, pattern, sizes, probs, enum, clue)):
+            continue
+        by_cell = dict(zip(cells, probs))
+        rival = misread_rival(word, lone_cells(lid, lts, on, {**answers, lid: word}), by_cell)
+        if rival and vlm_stands(word, rival, rival_own(word, rival, cells, by_cell), clue):
             return True
     return False
 
@@ -10244,7 +10403,7 @@ def _strip_near(p, q, swap=False, defined=False, named=False, argmax=False, pair
 
 
 def near_short(row, paper, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False,
-               filed=False, late=False):
+               filed=False, late=False, rivaled=False):
     """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
     held with every clue and not every answer, from this page, a blank light's cached VLM reply mended by
     near_word (strip_near; with `swap`, by swap_word; with `defined`, by defined_word; with `named`, a name
@@ -10253,7 +10412,7 @@ def near_short(row, paper, swap=False, defined=False, named=False, argmax=False,
     clue settles it: paired_word; with `spelt`, the reply as read where the clue's wordplay spells it:
     spelt_word; with `filed`, the reply as read where another puzzle's filed answer spells it: filed_word;
     with `late`, a light 1 to STRIP_MAX short whose strip the reading kept none of, late_strips' cached
-    reply vlm_word takes now)."""
+    reply vlm_word takes now; with `rivaled`, a VLM word misread_rival's rival dropped that vlm_stands keeps)."""
     for v in row.get("verdicts", ()):
         s = v.get("solution")
         if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
@@ -10271,7 +10430,8 @@ def near_short(row, paper, swap=False, defined=False, named=False, argmax=False,
         except (KeyError, OSError, ValueError):
             pass  # no pages.json or held file to tell (a test's row): answers_only judges
         if strip_near(paper.series, v.get("number"), v["solutionFrom"].rsplit(" leaf ", 1)[0], swap=swap,
-                      defined=defined, named=named, argmax=argmax, paired=paired, spelt=spelt, filed=filed, late=late):
+                      defined=defined, named=named, argmax=argmax, paired=paired, spelt=spelt, filed=filed, late=late,
+                      rivaled=rivaled):
             return True
     return False
 
@@ -10539,7 +10699,9 @@ def short_again(row):
     (near_short with spelt); FILED_NAME for one read before REREAD_FILED_NAME, due none of those, a blank light's
     cached VLM reply another puzzle's filed answer spells as read (near_short with filed); LATE_JUDGED for one
     read before REREAD_LATE_JUDGED, due none of those, 1 to STRIP_MAX blank, a light the reading kept no strip
-    of whose late strip's cached reply vlm_word takes now (near_short with late); FULL_SHORT for
+    of whose late strip's cached reply vlm_word takes now (near_short with late); VLM_RIVALED for one read before
+    REREAD_VLM_RIVALED, due none of those, 1 to LATE_MAX blank, a blank light's cached VLM word misread_rival's rival
+    dropped that vlm_stands keeps (near_short with rivaled); FULL_SHORT for
     one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
     not try first (full_short)."""
     paper = paper_of(row.get("edition", ""))
@@ -10592,6 +10754,8 @@ def short_again(row):
         return FILED_NAME
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_LATE_JUDGED)) and near_short(row, paper, late=True):
         return LATE_JUDGED
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_VLM_RIVALED)) and near_short(row, paper, rivaled=True):
+        return VLM_RIVALED
     if why is None and full_short(row, paper):
         return FULL_SHORT
     return why
@@ -11728,7 +11892,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -12291,7 +12455,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, FULL_SHORT,
+                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, FULL_SHORT,
                   STRAY_GRID)
 
 
