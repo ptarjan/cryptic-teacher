@@ -5747,8 +5747,8 @@ def uncrossed(answers, grid, enums=None, probs=None, rivals=None, seen=None):
     off is left out (misread_rival): the check alone left out 6,909 of the 97,685 Times answers
     filed 10-22..25, nearly all right (a partial grid's MILOMETER, HEZEKIAH, BETSEYTROTWOOD).
     It is called only when an answer would be left out that a listed word lies one lone letter off
-    (no other can be read as one: with none, every answer stands); with no reading, every one is left
-    out. `rivals` (a dict) gets {light: word} of those left out whose rival word stands in their place
+    (no other can be read as one: with none, every answer stands); with no reading (`probs` giving
+    None), those near ones but a corpus answer are left out (unsure_lone). `rivals` (a dict) gets {light: word} of those left out whose rival word stands in their place
     (rival_stands: AGHASI's lone I read as T, AGHAST); `seen` (a dict) {light: rival word} of every one left
     out so (vlm_stands judges a VLM word's)."""
     lts = trove_solution_ocr.lights(grid)
@@ -5779,7 +5779,22 @@ def uncrossed(answers, grid, enums=None, probs=None, rivals=None, seen=None):
         if rivals is not None:
             rivals.update({k: rival for k, rival in named.items()
                            if rival and rival_stands(answers[k], rival, (enums or {}).get(_light_key(k)))})
+    elif got is None:
+        out = unsure_lone(answers, near)
     return out
+
+
+def unsure_lone(answers, near):
+    """The lights of `near` (uncrossed's: an answer of `answers` a listed word lies one lone letter off) left out
+    of a grid the classifier has no reading of (cell_probs None: no framing's blocks sure, a 1970s-80s heavy or
+    grey print): each but a corpus answer. Every other uncrossed answer stands, as on a classified grid. Before
+    10-27 every uncrossed answer went: 223 Times held 6+ short so (8417cfb08f3a9706 and since), their grids'
+    readings 2,837 lights, 907 kept. On the cached readings of such grids of puzzles filed since, the crossed
+    answers all right: 2,527 of 2,559 plain uncrossed answers right (the 32 another light's length, a cached
+    grid not the held one's), and of the near ones 2,212 of 2,228 corpus answers (the 16 whole other words, none
+    a letter off), 144 of 152 filed-only words and 0 of 27 unlisted (HEELTADS, BAGAN, DULLOVER: misreads)."""
+    corpus = trove_solution_ocr.corpus_words()
+    return {k for k in near if re.sub(r"[^A-Z]", "", answers[k].upper()) not in corpus}
 
 
 def lone_cells(k, lts, on, answers):
@@ -11437,6 +11452,55 @@ def stray_grid(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_UNSURE_LONE whose linked solution grid, no cell
+#: classified (no framing's blocks sure: cell_probs None), read short, the uncrossed check dropping every
+#: answer a crossing left unread: since then only a near one (a listed word one lone letter off) but a corpus
+#: answer goes there (unsure_lone). Due where the cached reading (solution_reads) gives a light the held file
+#: leaves blank that uncrossed now keeps. Not a solution_key move: these rows' keys (8417cfb08f3a9706, read as
+#: current: _SOLUTION_SAME) read the same grids, and a reread under the old checks would drop the same words.
+#: 10-27: 223 Times held short so (215 6+ short, 1970s-80s most), ~1,050 more lights on 125 of them.
+#: answers_only, once.
+UNSURE_LONE = "solution short, its uncrossed words on a grid the classifier cannot read kept since"
+REREAD_UNSURE_LONE = "2026-10-27T09:20:00+00:00"
+
+
+def unsure_uncrossed(row):
+    """Whether Times ledger `row`, read before REREAD_UNSURE_LONE, has a verdict (no held title's) of a linked
+    solution grid read short with no cell classified and some answer left out uncrossed, for a puzzle held by
+    this tool from that page with every clue, not every answer, whose cached reading gives a blank light an
+    answer uncrossed keeps now (unsure_lone)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_UNSURE_LONE)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in CELLS_CLASSIFIED:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
+                or not isinstance(s, dict) or s.get("refused") or "classified" in s or not s.get("uncrossed")
+                or s.get("accepted", 0) >= s.get("lights", 0)
+                or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        held = held_file(paper.series, v["number"]) or {}
+        es = held.get("entries") or ()
+        if (held.get("source") or {}).get("acquiredBy") != TOOL:
+            continue
+        sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
+        try:
+            read = json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
+            grid = trove_solution_ocr.puzzle_grid(held)
+        except (OSError, ValueError):
+            continue
+        if "classified" in (read.get("stats") or {}) or not read.get("answers"):
+            continue
+        enums = {(e["number"], e["direction"]): (e.get("clue") or {}).get("enumeration") for e in es}
+        answers = {k: a for k, a in read["answers"].items() if not misread_word(a, enums.get(_light_key(k)))}
+        gone = uncrossed(answers, grid, enums, probs=lambda: None)
+        if any(entry_id(e) in answers and entry_id(e) not in gone for e in es if not e.get("solution")):
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_SUSPECT whose linked solution grid gave answers
 #: (accepted > 0, not refused) for a puzzle held from its page with every clue, not every answer, but
 #: not complete(): a clue holding a word OCR made up (ocr_clues.suspect). decide() sent such a held
@@ -11701,6 +11765,8 @@ def fix_reason(row):
         return UNFILED_HELD
     if held_clash(row):
         return HELD_CLASH
+    if unsure_uncrossed(row):
+        return UNSURE_LONE
     if not solution_current(row):
         paper = paper_of(row.get("edition", "")).key
         for v in row.get("verdicts", ()):
@@ -12275,7 +12341,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -12838,7 +12904,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, FULL_SHORT,
-                  STRAY_GRID)
+                  STRAY_GRID, UNSURE_LONE)
 
 
 def keeps_vlm(why, row, unit=None):
