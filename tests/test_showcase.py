@@ -114,6 +114,8 @@ def refused(rel, text):
 answer = f'<a href="{B.BASE}/puzzles/cryptic-8/#21-across">x</a>'
 for rel in ("showcase", "abbreviations", "indicators", "learn", "difficulty"):
     check(f"/{rel}/ may not link an answer page", refused(f"{rel}/index.html", answer))
+check("the showcase's own rows, which open the app, pass",
+      not refused("showcase/index.html", page))
 check("a relative answer link is refused too",
       refused("indicators/index.html", '<a href="../puzzles/cryptic-8/">x</a>'))
 check("the hub and series links are not answer pages",

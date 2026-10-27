@@ -3223,12 +3223,12 @@ def assert_no_answer_links(path, text):
     small "answers" link beside it, and nothing more."""
     if path.suffix != ".html":
         return
-    reader = path.parent.parent == ROOT / "showcase"
+    reader = path.parent == ROOT / "showcase" or path.parent.parent == ROOT / "showcase"
     bad = [h for rows in ROW_LIST.findall(text) for h in ROW_LINK.findall(rows)
            if reader and "?p=" not in h or not reader and "?p=" in h]
     if path.name == "index.html" and (
             path.parent.name in READER_PAGES and path.parent.parent == ROOT
-            or path.parent.parent == ROOT / "showcase"):
+            or reader):
         bad += ANSWER_LINK.findall(text)
     if bad:
         raise SystemExit(f"{path.relative_to(ROOT)} links puzzles to their answer pages; "
