@@ -9311,6 +9311,39 @@ def held_strips(row, cache=None):
     return False
 
 
+#: The due reason of a Times row held_strips missed: a held title read again under HELD_TITLE (no VLM ask) after
+#: REREAD_HELD_STRIPS, so never due HELD_STRIPS (fix_reason asks held_titles first, and REREAD_HELD_TITLE's rows
+#: were read so after HELD_STRIPS' time), its held puzzle 1 to LATE_MAX short, its blank lights' strips never
+#: asked. 10-27 07:00Z: 131 Times puzzles (1950s 106, 1960s 15, 1980s 9) stood so with no unit planned; only 4
+#: held titles ever had a strip asked. Read before REREAD_HELD_ASKED, once, as HELD_STRIPS reads (_HELD_ASK).
+HELD_ASKED = "solution short, its held title's never-asked strips asked since"
+REREAD_HELD_ASKED = "2026-10-27T07:45:00+00:00"
+
+
+def held_asked(row, cache=None):
+    """Whether Times ledger `row` is due HELD_ASKED: a held title (held_titles, read before REREAD_HELD_ASKED)
+    of a puzzle held 1 to LATE_MAX answers short whose linked grid's crop is kept, its verdict's reading
+    showing no strip asked (no "lateStrips", no "vlmLights")."""
+    hits = held_titles(row, cache, REREAD_HELD_ASKED)
+    if not hits:
+        return False
+    paper = paper_of(row.get("edition", ""))
+    for v in row.get("verdicts", ()):
+        if not v.get("solutionFrom") or v.get("wrongGrid") or v.get("number") != hits[0]["number"]:
+            continue
+        info = v.get("solution") if isinstance(v.get("solution"), dict) else {}
+        if info.get("lateStrips") or info.get("vlmLights"):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, hits[0]["number"])].read_text())
+        except (KeyError, OSError, ValueError):
+            continue
+        blank = sum(1 for e in held.get("entries") or () if not e.get("solution"))
+        if 0 < blank <= LATE_MAX and (CROPS / "solutions" / f"{v['solutionFrom'].rsplit(' leaf ', 1)[0]}_{v['number']}.png").exists():
+            return True
+    return False
+
+
 def held_titles(row, cache=None, before=REREAD_HELD_TITLE):
     """[{"number", "leaf", "box": None, "heldTitle": True}] for Times ledger `row` (HELD_TITLE): its scan by
     current scan code holds no title and it has no verdict but one (not refused) of the held puzzle's
@@ -11278,6 +11311,9 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
         return NO_TITLE_RESCAN
+    # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
+    if held_asked(row):
+        return HELD_ASKED
     if held_titles(row):
         return HELD_TITLE
     if held_strips(row):
@@ -11892,7 +11928,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
@@ -12454,7 +12490,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   "answers held back by a clue with no enumeration", SHORT_UNFITTED, UNMERGED, UNLISTED, VLM_UNLISTED, SHORT_WIDE,
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
-                  HELD_STRIPS, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
+                  HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, FULL_SHORT,
                   STRAY_GRID)
 
@@ -13123,8 +13159,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         sol_seen = seen_solutions(scans[rel], known[rel], solutions, paper.series)
         why =due_reason(known[rel], h, sol_seen, seen_by, reread, sources)
         titled = held_titled(known[rel], cache) if why == HELD_TITLE else \
-            held_titled(known[rel], cache, REREAD_HELD_STRIPS) if why == HELD_STRIPS else None
-        if titled and why == HELD_STRIPS:
+            held_titled(known[rel], cache, REREAD_HELD_STRIPS) if why == HELD_STRIPS else \
+            held_titled(known[rel], cache, REREAD_HELD_ASKED) if why == HELD_ASKED else None
+        if titled and why in (HELD_STRIPS, HELD_ASKED):
             held_ask.add(d.name)
         if titled:
             # Read under its held puzzle's title (held_titles), answers-only; the row keeps that scan, so

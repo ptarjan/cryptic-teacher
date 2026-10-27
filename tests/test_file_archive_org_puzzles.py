@@ -3952,6 +3952,19 @@ with tempfile.TemporaryDirectory() as ht_dir:
               f.HELD_STRIPS in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_STRIPS, {}, {}), f.HELD_STRIPS.startswith("solution short")]
     hs_not = [f.held_strips({**hs_row, "readAt": "2026-10-26T05:00:00+00:00"}, ht_dir),
               f.held_strips({**hs_row, "verdicts": [{**hs_row["verdicts"][0], "wrongGrid": "x"}]}, ht_dir)]
+    # held_asked(): such a row a HELD_TITLE reread read again after REREAD_HELD_STRIPS with no strip asked (no
+    # lateStrips, no vlmLights) is read again asking them (HELD_ASKED), once: not after REREAD_HELD_ASKED.
+    ha_row = {**hs_row, "readAt": "2026-10-27T03:20:00+00:00"}
+    ha_due = [f.held_asked(ha_row, ht_dir), f.held_strips(ha_row, ht_dir), f.RANKS[f.HELD_ASKED],
+              f.HELD_ASKED in f.SOLUTION_FIXES, f.keeps_vlm(f.HELD_ASKED, {}, {}), f.HELD_ASKED.startswith("solution short")]
+    ha_not = [f.held_asked({**ha_row, "readAt": "2026-10-27T09:00:00+00:00"}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "solution": {"lateStrips": ["1-across"]}}]}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "solution": {"vlmLights": ["1-across"]}}]}, ht_dir),
+              f.held_asked({**ha_row, "verdicts": [{**ha_row["verdicts"][0], "wrongGrid": "x"}]}, ht_dir)]
+    check("a held title read after REREAD_HELD_STRIPS, 1-5 short, no strip asked, is due HELD_ASKED (rank 2, answers-only)",
+          [True, False, 2, True, False, True], ha_due)
+    check("... not read after REREAD_HELD_ASKED, its strips asked (late or kept), or of another puzzle's grid",
+          [False] * 4, ha_not)
     ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(6)}))
     hs_not.append(f.held_strips(hs_row, ht_dir))
     ht_file.write_text(json.dumps({**ht_held, "entries": hs_es(2)}))
