@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,50 @@
     "text": "Nick's hesitancy to leave Delaware",
     "enumeration": "8"
    },
-   "solution": "INCISION"
+   "solution": "INCISION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick's",
+      "at": 0,
+      "note": "a nick is a small cut; the 's stands for 'is', joining definition to wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to leave",
+       "at": 17,
+       "note": "to leave says the state's letters must go out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hesitancy",
+       "at": 7,
+       "gives": "INDECISION",
+       "note": "hesitancy is a failure to make up one's mind"
+      },
+      {
+       "words": "Delaware",
+       "at": 26,
+       "gives": "DE",
+       "note": "DE is the postal abbreviation of the US state of Delaware"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Nick is so dithering that he cannot bring himself to depart from Delaware.",
+     "walkthrough": "'Nick's' reads as a man's name with a possessive, but it is the noun nick plus 'is'.",
+     "definitionFit": "Synonym: a nick is a small cut, and a surgeon's cut into flesh is called an incision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Nick's"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +90,41 @@
     "text": "Man, perhaps, is secure",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man, perhaps,",
+      "at": 0,
+      "note": "the Isle of Man is one example of a piece of land surrounded by sea"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "secure",
+       "at": 17,
+       "gives": "LAND",
+       "note": "to land a contract or a fish is to secure it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that some man is safe and secure.",
+     "walkthrough": "The Isle of Man lies in the Irish Sea between Britain and Ireland; 'perhaps' marks it as an example.",
+     "definitionFit": "Example: the Isle of Man is one instance of a landmass ringed by water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +138,40 @@
     "text": "His rector ordered one will perform in church",
     "enumeration": "9"
    },
-   "solution": "CHORISTER"
+   "solution": "CHORISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one will perform in church",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ordered",
+       "at": 11,
+       "note": "ordered means the letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "His rector",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar instructs someone that they will sing in his church.",
+     "definitionFit": "Description: a member of a church choir sings in services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +185,42 @@
     "text": "I dust ma's mixing bowl",
     "enumeration": "7"
    },
-   "solution": "STADIUM"
+   "solution": "STADIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bowl",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixing",
+       "at": 12,
+       "note": "mixing says the letters before it are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I dust ma",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen scene: I dust while mum stirs her mixing bowl.",
+     "walkthrough": "The 's of ma's is 'is', a link; 'mixing bowl' looks like one kitchen item but splits into indicator and definition.",
+     "definitionFit": "Synonym: a large sports arena with tiered sides is often called a bowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +234,51 @@
     "text": "Strangely overdrawn — delay with regular withdrawals",
     "enumeration": "5"
    },
-   "solution": "ODDLY"
+   "solution": "ODDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strangely",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "overdrawn",
+       "at": 10,
+       "gives": "OD",
+       "note": "OD is the bank-statement abbreviation for overdrawn"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "with regular withdrawals",
+         "at": 28,
+         "note": "regular withdrawals means every other letter of delay is taken away, keeping the first, third and fifth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delay",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank account is mysteriously overdrawn, the money delayed by repeated withdrawals.",
+     "definitionFit": "Synonym: something done strangely is done in a peculiar or unusual way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawals"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +292,57 @@
     "text": "Editor defaced book? It's ok to scoff",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ok to scoff",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Editor",
+       "at": 0,
+       "gives": "ED"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "defaced",
+         "at": 7,
+         "note": "defaced means the front, or face, of the word is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "book",
+         "at": 15,
+         "gives": "BIBLE",
+         "note": "the Bible is the book above all others"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor has vandalised a book and asks whether eating it is acceptable.",
+     "walkthrough": "'Scoff' is British slang for eating greedily.",
+     "definitionFit": "Synonym: food that is fit to be eaten is safe to wolf down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "defaced"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +356,48 @@
     "text": "Freak to propose entering river",
     "enumeration": "7"
    },
-   "solution": "DEVOTEE"
+   "solution": "DEVOTEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freak",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 17,
+       "note": "entering says one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 26,
+       "gives": "DEE",
+       "note": "the Dee is a river in Scotland and another between England and Wales"
+      },
+      {
+       "words": "to propose",
+       "at": 6,
+       "gives": "VOTE",
+       "note": "to vote that something be done is to propose it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd character suggests going into the river.",
+     "definitionFit": "Synonym: a fitness freak is an enthusiast, a keen follower of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Freak"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +411,55 @@
     "text": "Put a stop to almost everything trivial",
     "enumeration": "5"
    },
-   "solution": "BANAL"
+   "solution": "BANAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trivial",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Put a stop to",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to ban something is to put a stop to it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost says the word is cut short by its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 21,
+         "gives": "ALL",
+         "note": "all means everything"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to halt nearly every unimportant matter.",
+     "definitionFit": "Synonym: something trivial is commonplace, trite and lacking originality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +473,81 @@
     "text": "I'm taken aback after European initially gave cost to settle abroad",
     "enumeration": "8"
    },
-   "solution": "EMIGRATE"
+   "solution": "EMIGRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "settle abroad",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after puts the turned letters behind the European abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "European",
+       "at": 22,
+       "gives": "E"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "taken aback",
+         "at": 4,
+         "note": "taken aback means the two letters are turned round, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 0,
+         "gives": "IM"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 31,
+         "note": "initially means only the first letter of gave is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gave",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "words": "cost",
+       "at": 46,
+       "gives": "RATE",
+       "note": "a rate is a charge or cost"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surprised that a European gave them the price of moving overseas.",
+     "walkthrough": "'Taken aback' reads as surprise, but it turns I'M round.",
+     "definitionFit": "Synonym: to leave one's own country to live in another is to settle abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aback"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +561,48 @@
     "text": "Lovely, talented, enthralling girl",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enthralling",
+       "at": 18,
+       "note": "enthralling means holding captive, so the first word holds the girl inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "talented",
+       "at": 8,
+       "gives": "ABLE",
+       "note": "able means skilled or talented"
+      },
+      {
+       "words": "girl",
+       "at": 30,
+       "gives": "DORA",
+       "note": "Dora is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a lovely, gifted and captivating young woman.",
+     "definitionFit": "Synonym: something adorable is delightful and charming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralling"
+    }
+   }
   },
   {
    "number": 10,
@@ -180,7 +626,42 @@
      }
     ]
    },
-   "solution": "LEONARDODAVINCI"
+   "solution": "LEONARDODAVINCI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rolls",
+       "at": 25,
+       "note": "rolls means the letters tumble into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dali craved onion",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The painter Dali longed for onion bread rolls.",
+     "walkthrough": "'Artist' and 'Dali' both point to a painter; Dali is fodder, the definition is 'Artist'.",
+     "definitionFit": "Example: the Renaissance painter of the Mona Lisa is an artist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rolls"
+    }
+   }
   },
   {
    "number": 11,
@@ -194,7 +675,81 @@
     "text": "Bins occasionally taken in by brave person going round yard far from quietly",
     "enumeration": "7"
    },
-   "solution": "NOISILY"
+   "solution": "NOISILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "far from quietly",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taken in by",
+         "at": 18,
+         "note": "taken in by means the picked letters go inside the turned word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "going round",
+           "at": 43,
+           "note": "going round says the word is turned to read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "brave person",
+           "at": 30,
+           "gives": "LION",
+           "note": "a brave person is a lion, as in lion-hearted"
+          }
+         ]
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "occasionally",
+           "at": 5,
+           "note": "occasionally means only some letters of Bins are used, the second and fourth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bins",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "yard",
+       "at": 55,
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy scene of bins being collected by a hero circling a yard.",
+     "walkthrough": "'brave person' and 'going round' read as a hero circling, but the lion is simply turned backwards; 'Bins' looks like rubbish yet only lends two letters.",
+     "definitionFit": "Opposite: doing something far from quietly means doing it with lots of noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bins"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +763,42 @@
     "text": "Snake upset rook",
     "enumeration": "7"
    },
-   "solution": "RATTLER"
+   "solution": "RATTLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "upset",
+       "at": 6,
+       "gives": "RATTLE",
+       "note": "to rattle someone is to upset them"
+      },
+      {
+       "words": "rook",
+       "at": 12,
+       "gives": "R",
+       "note": "R is the chess abbreviation for rook"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake has disturbed a crow-like bird.",
+     "walkthrough": "'Upset' looks like an anagram signal but is a synonym.",
+     "definitionFit": "Informal name: a rattlesnake is often called by this shortened word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +818,53 @@
      }
     ]
    },
-   "solution": "ATOMBOMB"
+   "solution": "ATOMBOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it could cause immense damage",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 5,
+       "note": "after puts the rushing word behind the cat"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "words": "cat",
+       "at": 13,
+       "gives": "TOM",
+       "note": "a tom is a male cat"
+      },
+      {
+       "words": "Rush",
+       "at": 0,
+       "gives": "BOMB",
+       "note": "to bomb along is to rush at speed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashing after a cat, which could cause great destruction.",
+     "definitionFit": "Description: a nuclear fission weapon devastates whole cities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rush"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +878,58 @@
     "text": "Musical piece coming from speaker on bottom of hi-fi? Ordinary",
     "enumeration": "8"
    },
-   "solution": "ORATORIO"
+   "solution": "ORATORIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "speaker",
+       "at": 26,
+       "gives": "ORATOR",
+       "note": "an orator is a public speaker"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "bottom of",
+         "at": 37,
+         "note": "in a down answer the bottom of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hi-fi",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "words": "Ordinary",
+       "at": 54,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music playing through a speaker on a hi-fi system.",
+     "walkthrough": "'speaker' and 'hi-fi' suggest audio equipment, but the speaker is a person who makes speeches.",
+     "definitionFit": "Example: a large-scale sacred work for voices and orchestra, such as Handel's Messiah."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "speaker"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +943,43 @@
     "text": "Some sober up then throw up",
     "enumeration": "5"
    },
-   "solution": "ERUPT"
+   "solution": "ERUPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "throw up",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sober up then",
+       "at": 5,
+       "gives": "ERUPT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a drunk: sober up, and then be sick.",
+     "definitionFit": "Synonym: a volcano that erupts throws up lava and ash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +993,41 @@
     "text": "Liberal rings up an eccentric",
     "enumeration": "9"
    },
-   "solution": "UNSPARING"
+   "solution": "UNSPARING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Liberal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "eccentric",
+       "at": 20,
+       "note": "eccentric means odd, so the letters are put in an odd new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rings up an",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician phones an oddball.",
+     "walkthrough": "'Liberal' reads as a political party, but here it means generous.",
+     "definitionFit": "Synonym: someone liberal with praise is lavish and generous, holding nothing back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1041,59 @@
     "text": "Plant laid off unfortunately about 500",
     "enumeration": "8"
    },
-   "solution": "DAFFODIL"
+   "solution": "DAFFODIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about means the jumbled letters go round the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 15,
+         "note": "unfortunately suggests things gone wrong, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laid off",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "500",
+       "at": 35,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A factory has unhappily sacked around five hundred staff.",
+     "definitionFit": "Example: a yellow spring-flowering bulb is a kind of plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1107,54 @@
     "text": "American politician not ultimately giving consent",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "consent",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not ultimately",
+         "at": 20,
+         "note": "not ultimately says the final letter of the word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politician",
+         "at": 9,
+         "gives": "GREEN",
+         "note": "a Green is a member of an environmentalist party"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US politician who in the end refuses to give approval.",
+     "definitionFit": "Synonym: to consent to something is to say yes to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1168,54 @@
     "text": "Discharge from outlet an American partly picked up",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 41,
+       "note": "picked up in a down clue means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "partly",
+         "at": 34,
+         "note": "partly says only some of the letters of these words are used, a run inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outlet an American",
+         "at": 15,
+         "gives": "ETANAME"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fluid leaking from a drain, picked up by an American.",
+     "walkthrough": "'partly' takes ETANAME from outlET AN AMErican and 'picked up' turns it round.",
+     "definitionFit": "Synonym: to emanate is to flow out or issue from a source."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1229,58 @@
     "text": "A contemptuous person imbibing what alcohol is sold here",
     "enumeration": "8"
    },
-   "solution": "ALEHOUSE"
+   "solution": "ALEHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "alcohol is sold here",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "imbibing",
+         "at": 22,
+         "note": "imbibing means drinking in, so one piece takes the other inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "contemptuous person",
+         "at": 2,
+         "gives": "LOUSE",
+         "note": "a louse is a contemptible person"
+        },
+        {
+         "words": "what",
+         "at": 31,
+         "gives": "EH",
+         "note": "eh is an exclamation meaning what, as in asking for a repeat"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneering drinker swallowing whatever booze is on sale.",
+     "walkthrough": "'contemptuous person' is a loose way of saying contemptible person.",
+     "definitionFit": "Description: an old word for a pub, a place serving beer and spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "what"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1294,60 @@
     "text": "One caught in grasp of tender policeman",
     "enumeration": "7"
    },
-   "solution": "OFFICER"
+   "solution": "OFFICER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "policeman",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in grasp of",
+       "at": 11,
+       "note": "in grasp of means held inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tender",
+       "at": 23,
+       "gives": "OFFER",
+       "note": "to tender is to offer"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "caught",
+         "at": 4,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone captured in the clutches of a gentle constable.",
+     "walkthrough": "'tender' looks like an adjective meaning gentle, but is a verb.",
+     "definitionFit": "Synonym: a police officer is a constable or policeman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1361,48 @@
     "text": "Nasty piece of work that is below average",
     "enumeration": "6"
    },
-   "solution": "MEANIE"
+   "solution": "MEANIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nasty piece of work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "below",
+       "at": 28,
+       "note": "below in a down clue puts the second piece underneath the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "average",
+       "at": 34,
+       "gives": "MEAN",
+       "note": "the mean is the average"
+      },
+      {
+       "words": "that is",
+       "at": 20,
+       "gives": "IE",
+       "note": "ie is the abbreviation of id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unpleasant person who is not up to the ordinary standard.",
+     "definitionFit": "Informal synonym: a mean, unkind person is a horrible individual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "average"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1416,53 @@
     "text": "Artist to leave after much chaos",
     "enumeration": "7"
    },
-   "solution": "FARRAGO"
+   "solution": "FARRAGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chaos",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after puts the artist and leaving behind the word for much"
+      }
+     ],
+     "parts": [
+      {
+       "words": "much",
+       "at": 22,
+       "gives": "FAR",
+       "note": "far means much, as in far better"
+      },
+      {
+       "words": "Artist",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, an artist"
+      },
+      {
+       "words": "to leave",
+       "at": 7,
+       "gives": "GO",
+       "note": "to go is to leave"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter departs after a great deal of disorder.",
+     "definitionFit": "Synonym: a jumble or confused mixture is a muddle, a state of disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1476,56 @@
     "text": "Wrong to follow king round — it's essential to bow",
     "enumeration": "5"
    },
-   "solution": "ROSIN"
+   "solution": "ROSIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "essential to bow",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to follow",
+       "at": 6,
+       "note": "to follow puts the wrong after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "king",
+       "at": 16,
+       "gives": "R",
+       "note": "R is the abbreviation for rex, king"
+      },
+      {
+       "words": "round",
+       "at": 21,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "words": "Wrong",
+       "at": 0,
+       "gives": "SIN",
+       "note": "a sin is a wrong"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courtier is told it is wrong to trail around after the king, and must bow.",
+     "walkthrough": "'bow' suggests bending before a king but is the bow of a violin.",
+     "definitionFit": "Function: string players rub resin on a violin bow so it grips the strings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1539,40 @@
     "text": "Excite stylish sweetheart",
     "enumeration": "7"
    },
-   "solution": "INFLAME"
+   "solution": "INFLAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stylish",
+       "at": 7,
+       "gives": "IN",
+       "note": "in means fashionable or stylish"
+      },
+      {
+       "words": "sweetheart",
+       "at": 15,
+       "gives": "FLAME",
+       "note": "an old flame is a former sweetheart"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A command to thrill a fashionable lover.",
+     "definitionFit": "Synonym: to arouse strong feelings is to stir up or excite them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1586,61 @@
     "text": "At home, female starts to enjoy regular work out",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "work out",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "At home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "female",
+       "at": 9,
+       "gives": "F"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 16,
+         "note": "starts to means the first letters of the next two words are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enjoy",
+         "at": 26
+        },
+        {
+         "words": "regular",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman at home starting to enjoy a regular exercise routine.",
+     "walkthrough": "'work out' reads as exercise but means deduce.",
+     "definitionFit": "Synonym: to infer is to deduce or reason out from evidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1654,62 @@
     "text": "Finds waistcoat is tight? Losing weight at first creates frustration",
     "enumeration": "15"
    },
-   "solution": "DISSATISFACTION"
+   "solution": "DISSATISFACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "frustration",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "tight",
+       "at": 19,
+       "note": "tight means drunk, so the letters lurch into a new order"
+      },
+      {
+       "text": "Losing",
+       "at": 26,
+       "note": "Losing says a letter is shed from the jumbled pool"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Finds waistcoat is",
+       "at": 0
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 40,
+         "note": "at first means only the initial letter of weight"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weight",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man finds his waistcoat too snug, and losing weight first brings annoyance.",
+     "walkthrough": "'tight' reads as snug but signals the anagram; the letters minus W rearrange.",
+     "definitionFit": "Synonym: discontent at not getting what one wants is frustration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1723,42 @@
     "text": "Golfer left to tee off",
     "enumeration": "6"
    },
-   "solution": "LANGER"
+   "solution": "LANGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Golfer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      },
+      {
+       "words": "to tee off",
+       "at": 12,
+       "gives": "ANGER",
+       "note": "to tee off, American slang, is to annoy or anger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer quits so he can take his opening drive.",
+     "walkthrough": "Bernhard Langer is a German golfer, twice Masters champion; 'tee off' points to golf but means annoy.",
+     "definitionFit": "Example: Bernhard Langer is a famous German professional golfer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tee"
+    }
+   }
   },
   {
    "number": 28,
@@ -452,7 +1772,41 @@
     "text": "Reason for mischief-maker to postpone session",
     "enumeration": "8"
    },
-   "solution": "PROROGUE"
+   "solution": "PROROGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "postpone session",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Reason for",
+       "at": 0,
+       "gives": "PRO",
+       "note": "a pro is an argument in favour, as in pros and cons"
+      },
+      {
+       "words": "mischief-maker",
+       "at": 11,
+       "gives": "ROGUE",
+       "note": "a rogue is a rascal or mischief-maker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks why a troublemaker should delay a meeting.",
+     "definitionFit": "Parliamentary term: to discontinue a session of parliament without dissolving it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reason"
+    }
+   }
   }
  ]
 }
