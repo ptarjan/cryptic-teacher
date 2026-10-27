@@ -1432,6 +1432,23 @@ check("a held file short whose VLM name its checks dropped as a misread, read be
       vn_due + [f.RANKS[f.VLM_NAMED], f.VLM_NAMED in f.SOLUTION_FIXES, f.VLM_NAMED.startswith("solution short"),
                 f.VLM_NAMED in __import__("edition_queue").LOW_ASK, f.VLM_NAMED in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.VLM_NAMED)])
+# NAME_RIVALS: a row read before REREAD_NAME_RIVALS whose blank light's cached VLM name a surname alone lies one letter
+# off (near_short with named), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near = f.named_short, f.agreed_short, f.misread_short, f.near_short
+f.misread_short = f.agreed_short = f.named_short = lambda row, paper: False
+f.near_short = lambda row, paper, swap=False, defined=False, named=False: named
+nr_due = [f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.near_short = lambda row, paper, swap=False, defined=False, named=False: False
+nr_due.append(f.short_again(vu_row("2026-10-27T01:00:00+00:00", ao=True)))
+f.named_short, f.agreed_short, f.misread_short, f.near_short = real_ns, real_as, real_ms, real_near
+f.filed_state = real_fs
+check("a held file short whose blank light's cached VLM name a surname alone lies one letter off, read before "
+      "REREAD_NAME_RIVALS: NAME_RIVALS (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.NAME_RIVALS, None, None, 2, True, True, True, True, True],
+      nr_due + [f.RANKS[f.NAME_RIVALS], f.NAME_RIVALS in f.SOLUTION_FIXES, f.NAME_RIVALS.startswith("solution short"),
+                f.NAME_RIVALS in __import__("edition_queue").LOW_ASK, f.NAME_RIVALS in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.NAME_RIVALS)])
 # read_puzzle: a full read after answers_only held the title's held file is marked "answersTried"; one answers_only
 # never got that far (no held file) is not, nor an answers-only verdict.
 real_rp_inner = f._read_puzzle
@@ -4088,6 +4105,11 @@ check("a name no list holds, its letters the classifier's too and its count the 
       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c) for c in "PERSHORE"], "8"))
 check("...even with BALINITY's count: SALINITY lies one open letter off", None,
       f.vlm_word("BALINITY", "?ALINITY", [8], [cell_p(c) for c in "BALINITY"], "8"))
+check("...nor for a surname alone one open letter off (CORUNNA, cmudict's CORINNA); a dictionary word so "
+      "refuses it (TINEE, TINGE)", ("CORUNNA", None, False, True),
+      (f.vlm_word("CORUNNA", "C?R?N?A", [7], [cell_p(c) for c in "CORUNNA"], "7"),
+       f.vlm_word("TINEE", "T?N?E", [5], [cell_p(c) for c in "TINEE"], "5"),
+       f.rival_away("CORUNNA", "C?R?N?A", "7", names=False), f.rival_away("CORUNNA", "C?R?N?A", "7")))
 check("...not with a letter the classifier reads unsure (STROGONOFF, its O at 0.38)", None,
       f.vlm_word("PERSHORE", "?E?S?O?E", [8], [cell_p(c, 0.38 if i == 6 else 0.9) for i, c in enumerate("PERSHORE")], "8"))
 check("...nor with no count of its own (a linked light's \"See 8\") or a count it does not fill", (None, None),
