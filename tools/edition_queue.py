@@ -889,6 +889,9 @@ def evidence_reason(reason):
             # A blank light's VLM name the VLM and the classifier spelled alike on two puzzles or more
             # (fa.TWICE_NAMES), taken by twice_word: the puzzles of fa.TWICE_PUZZLES, once.
             or reason == fa.TWICE_READ
+            # A blank light's VLM reply one crossing letter off, mended to that letter where the classifier
+            # spells the mend and a print vouches for it (fa.crossed_word): the puzzles of fa.FORCED_PUZZLES, once.
+            or reason == fa.FORCED_WORD
             # A puzzle filed a number off its title and renumbered to it since: its answers were read off
             # the wrong number's grid (fa.renumbered). Ranked and answers-only (SOLUTION_FIXES) since 10-25,
             # but no evidence reason, so only_evidence dropped every one (33 Times puzzles, 2001-02), once.
@@ -1479,7 +1482,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM)
+              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM)
 
 
 def unproven_first(unit):
@@ -1556,7 +1559,7 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.HELD_ASKED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
            fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ)
+           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).

@@ -4126,6 +4126,49 @@ check("twice_short: a row read since REREAD_TWICE_READ, no Times paper's, a refu
        f.twice_short({"edition": "GaleTimes1962UKEnglish/1962-04-07", "readAt": "2000-01-01T00:00:00+00:00",
                       "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                     "solution": {"accepted": 2, "lights": 30}}]})])
+# FORCED_WORD: crossed_word mends a VLM reply clashing one crossing letter to that letter, where the classifier spells
+# the mend in every cell and a print vouches for it (KILOMETER read for the held N of NILOMETER).
+cw_filed, cw_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"CHILLON"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"NILOMETER", "GUARDIANSHIP"})
+check("crossed_word mends a one-clash reply the classifier spells and a print vouches for (NILOMETER, CHILLON); not "
+      "an unvouched mend (UNDIE), one the classifier reads otherwise, two clashes, none, a '?', or off its enumeration",
+      ["NILOMETER", "CHILLON", None, None, None, None, None, None],
+      [f.crossed_word("KILOMETER\n", "N?L?M?T?R", sp_p("NILOMETER"), "9"),
+       f.crossed_word("CHILTON", "C?I?L?N", sp_p("CHILLON"), "7"),
+       f.crossed_word("UNBIE", "U?D?E", sp_p("UNDIE"), "5"),
+       f.crossed_word("KILOMETER", "N?L?M?T?R", sp_p("KILOMETER"), "9"),
+       f.crossed_word("KILOMETRR", "N?L?M?T?E", sp_p("NILOMETER"), "9"),
+       f.crossed_word("NILOMETER", "N?L?M?T?R", sp_p("NILOMETER"), "9"),
+       f.crossed_word("KILOMETE?", "N?L?M?T??", sp_p("NILOMETER"), "9"),
+       f.crossed_word("KILOMETER", "N?L?M?T?R", sp_p("NILOMETER"), "4,4")])
+check("crossed_word takes an unvouched mend its clue's wordplay spells (LANCS, an anagram of Clans); not without it",
+      ["LANCS", None],
+      [f.crossed_word("LANCE", "L?N?S", sp_p("LANCS"), "5", "Clans come south to their confusion"),
+       f.crossed_word("LANCE", "L?N?S", sp_p("LANCS"), "5", "Lancers ride south")])
+check("vlm_word takes the crossing's mend (NILOMETER for KILOMETER) and paired_name spares it misread_word",
+      ("NILOMETER", True),
+      (f.vlm_word("KILOMETER", "N?L?M?T?R", [9], sp_p("NILOMETER"), "9", "Nothing, love, on the clock for the river"),
+       f.paired_name("NILOMETER", "KILOMETER", "N?L?M?T?R", [9], sp_p("NILOMETER"), "9")
+       or not f.misread_word("NILOMETER", "9")))
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = cw_filed, cw_corpus
+check("FORCED_WORD is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.FORCED_WORD], f.FORCED_WORD in f.SOLUTION_FIXES, f.FORCED_WORD.startswith("solution short"),
+       f.FORCED_WORD in __import__("edition_queue").LOW_ASK, f.FORCED_WORD in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.FORCED_WORD)))
+_fw = min(f.FORCED_PUZZLES)
+check("forced_short: a row read since REREAD_FORCED_WORD, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                       "verdicts": []}),
+       f.forced_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": f"times-{_fw}", "solutionFrom": "x leaf 3", "number": _fw,
+                                     "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                       "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                     "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
