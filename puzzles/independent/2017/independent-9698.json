@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,70 @@
     "text": "Claim actress arranged to have head of casting dismissed",
     "enumeration": "6"
    },
-   "solution": "ASSERT"
+   "solution": "ASSERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Claim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "arranged",
+       "at": 14,
+       "note": "arranged signals that the remaining letters of actress are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissed",
+         "at": 47,
+         "note": "dismissed says the casting's leading letter is sent out of the word actress"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actress",
+         "at": 6,
+         "note": "the word actress is the fodder; any backward run of the answer's letters across these words is a coincidence, not a hiding place"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 31,
+           "note": "head of picks the first letter of casting"
+          }
+         ],
+         "parts": [
+          {
+           "words": "casting",
+           "at": 39
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress rearranges matters so that the casting director gets the sack.",
+     "walkthrough": "'dismissed' takes C (from 'head of casting') out of ACTRESS, leaving ATRESS, which 'arranged' reorders.",
+     "definitionFit": "To claim something is to state it firmly as true, which is a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +111,67 @@
     "text": "Welcome legislation enshrining central European parliament's principal elements",
     "enumeration": "6"
    },
-   "solution": "ACCEPT"
+   "solution": "ACCEPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Welcome",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "enshrining",
+       "at": 20,
+       "note": "enshrining means holding something within, so the initials go inside the word for legislation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "legislation",
+       "at": 8,
+       "gives": "ACT",
+       "note": "an act is a piece of legislation passed by parliament"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principal elements",
+         "at": 61,
+         "note": "principal elements are the leading letters of the three words central, European and parliament's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "central",
+         "at": 31
+        },
+        {
+         "words": "European",
+         "at": 39
+        },
+        {
+         "words": "parliament's",
+         "at": 48
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legislator welcomes a law that is built into the EU parliament's core principles.",
+     "walkthrough": "'enshrining' splits the word for legislation so the three initials sit inside it, after its first two letters.",
+     "definitionFit": "To welcome something can mean to receive it willingly, the verb sense of agreeing to take it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +185,63 @@
     "text": "Endurance of running man is boosted by cheers",
     "enumeration": "7"
    },
-   "solution": "STAMINA"
+   "solution": "STAMINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Endurance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boosted by",
+       "at": 28,
+       "note": "boosted by says a further piece is added into the mix, lifting the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 13,
+         "note": "running suggests the letters of man and is are set loose and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 21
+        },
+        {
+         "words": "is",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "cheers",
+       "at": 39,
+       "gives": "TA",
+       "note": "ta is British slang for thanks, which cheers also means"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner's endurance gets a lift from the crowd cheering.",
+     "walkthrough": "'running' reorders MANIS to SMINA, and 'boosted by' puts TA inside after the S. Cheers and ta are both informal British ways of saying thank you.",
+     "definitionFit": "Endurance is the power to keep going over a long effort, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +255,61 @@
     "text": "Withdraw pamphlet supporting monarch's return",
     "enumeration": "7"
    },
-   "solution": "RETRACT"
+   "solution": "RETRACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 18,
+       "note": "in a down clue the supporting piece sits below, so the pamphlet comes after"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "at": 39,
+         "note": "return means the monarch's letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monarch's",
+         "at": 29,
+         "gives": "ER",
+         "note": "ER is the royal cipher, Elizabeth Regina, standing for the monarch"
+        }
+       ]
+      },
+      {
+       "words": "pamphlet",
+       "at": 9,
+       "gives": "TRACT",
+       "note": "a tract is a short pamphlet, often religious or political"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pulls a leaflet that backed the king's restoration.",
+     "walkthrough": "'return' turns ER into RE, and 'supporting' places TRACT underneath it in this down entry.",
+     "definitionFit": "To withdraw a statement is to take it back, the usual meaning of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +323,32 @@
     "text": "One gets floored in minor road rage incident!",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One gets floored",
+      "at": 0,
+      "meaning": "something laid across a floor as a covering"
+     },
+     {
+      "text": "minor road rage incident",
+      "at": 20,
+      "meaning": "read in two parts: a car plus a pet, a petty fit of temper, a small fury on the road"
+     }
+    ],
+    "explanation": {
+     "surface": "A tabloid line about someone knocked down in a small road rage spat.",
+     "walkthrough": "The second reading splits the answer: CAR, then PET in its old sense of a sulk or fit of pique.",
+     "definitionFit": "A floor covering is laid down on the floor, so it is literally the thing that gets floored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floored"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +362,57 @@
     "text": "What editor did perhaps is read half of letter out",
     "enumeration": "7"
    },
-   "solution": "ALTERED"
+   "solution": "ALTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What editor did perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 47,
+       "note": "out suggests the letters are put out of order and reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "read",
+       "at": 27
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 32,
+         "note": "half of takes the first three of the six letters in letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "letter",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor reads out part of a letter.",
+     "walkthrough": "'half of' gives LET, and 'out' rearranges READ with LET.",
+     "definitionFit": "An editor changes copy, so having amended a text is an example of what an editor did."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +426,53 @@
     "text": "Palate titillated by university's high table?",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high table?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "titillated",
+         "at": 7,
+         "note": "titillated suggests the palate is stirred up, so its letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Palate",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "university's",
+       "at": 21,
+       "gives": "U",
+       "note": "U is the standard abbreviation for university"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A don's palate is pampered at the college high table.",
+     "walkthrough": "'titillated' reorders PALATE to PLATEA, then U is added. High table is the dons' dining table at a British college.",
+     "definitionFit": "A tableland is a raised flat area of ground, so a high table is a playful description of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +486,65 @@
     "text": "Military exercises eradicating country's borders as well",
     "enumeration": "6"
    },
-   "solution": "TATTOO"
+   "solution": "TATTOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Military exercises",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "eradicating",
+         "at": 19,
+         "note": "eradicating means wiping out, here applied to the edges of the word for country"
+        },
+        {
+         "text": "borders",
+         "at": 41,
+         "note": "borders are the first and last letters, the ones taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "country's",
+         "at": 31,
+         "gives": "STATE",
+         "note": "a state is a country"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "as well",
+       "at": 49,
+       "gives": "TOO",
+       "note": "too means as well, also"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Army manoeuvres that wipe out a nation's frontiers too.",
+     "walkthrough": "'eradicating' and 'borders' remove the outer letters of STATE, leaving TAT. A tattoo is an evening military display, like the Edinburgh one.",
+     "definitionFit": "A tattoo is a show of drill and marching by troops, so military exercises describe it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +564,77 @@
      }
     ]
    },
-   "solution": "INTERESTRATES"
+   "solution": "INTERESTRATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charges for borrowing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "south of",
+       "at": 57,
+       "note": "south of means below in this down entry, so this piece follows the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bury",
+       "at": 66,
+       "gives": "INTER",
+       "note": "to inter is to bury, especially a body"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 43,
+         "note": "in signals that the letter goes inside the word for properties"
+        }
+       ],
+       "parts": [
+        {
+         "words": "properties",
+         "at": 46,
+         "gives": "ESTATES",
+         "note": "estates are landed properties"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead to",
+           "at": 22,
+           "note": "lead to picks the leading letter of repossession"
+          }
+         ],
+         "parts": [
+          {
+           "words": "repossession",
+           "at": 30
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mortgage costs that lead to homes being repossessed in a town in Lancashire.",
+     "walkthrough": "'Bury' looks like the Lancashire town but is the verb INTER. 'lead to' gives R, set 'in' ESTATES as ESTRATES.",
+     "definitionFit": "Interest is the price paid for a loan, so the rates set it are the charges for borrowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +648,52 @@
     "text": "With substance abuse sensed feeling of satisfaction",
     "enumeration": "13"
    },
-   "solution": "CONTENTEDNESS"
+   "solution": "CONTENTEDNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feeling of satisfaction",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "substance",
+       "at": 5,
+       "gives": "CONTENT",
+       "note": "content is the substance of something, what it contains"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abuse",
+         "at": 15,
+         "note": "abuse suggests the word sensed is misused and mangled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sensed",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who abused drugs senses a sort of contentment.",
+     "walkthrough": "'With substance' looks like the start of the phrase, but 'With' is only a link; 'abuse' is the anagram signal.",
+     "definitionFit": "Being happy with one's lot is the state of satisfaction the noun names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "substance"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +707,40 @@
     "text": "Discipline conservative press",
     "enumeration": "7"
    },
-   "solution": "CHASTEN"
+   "solution": "CHASTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discipline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "conservative",
+       "at": 11,
+       "gives": "C"
+      },
+      {
+       "words": "press",
+       "at": 24,
+       "gives": "HASTEN",
+       "note": "to press on is to hurry, which hasten also means"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory government disciplines the newspapers.",
+     "definitionFit": "To discipline someone is to correct them, and the verb means to humble or rebuke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +754,41 @@
     "text": "Reveal secrets of company in exile",
     "enumeration": "7"
    },
-   "solution": "OUTCAST"
+   "solution": "OUTCAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in exile",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Reveal secrets of",
+       "at": 0,
+       "gives": "OUT",
+       "note": "to out someone is to expose their secrets publicly"
+      },
+      {
+       "words": "company",
+       "at": 18,
+       "gives": "CAST",
+       "note": "a cast is the company of actors in a production"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whistleblower spills a firm's secrets from abroad.",
+     "definitionFit": "Someone cast out and rejected by society is banished, like a person living in exile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +806,59 @@
    "group": [
     "12-across",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One pays for letting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 42,
+       "note": "into says the letters go inside the camping shelter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "camp",
+       "at": 47,
+       "gives": "TENT",
+       "note": "a tent is a camping shelter, what one pitches to camp"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 30,
+         "note": "on vacation means emptied, leaving only the outer letters of American"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American holidaymaker pays to be let into a campsite.",
+     "walkthrough": "'on vacation' empties American to AN, which goes 'into' TENT.",
+     "definitionFit": "Letting is renting out property, and the person paying rent for it is the occupier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +872,60 @@
     "text": "Perhaps man's prudish friend married only once",
     "enumeration": "7"
    },
-   "solution": "PRIMATE"
+   "solution": "PRIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps man's",
+      "at": 0,
+      "note": "read as perhaps man is: humans are one example of the order of apes and monkeys"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "only once",
+       "at": 37,
+       "note": "only once means the doubled letter for married is kept just one time"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "prudish",
+         "at": 14,
+         "gives": "PRIM",
+         "note": "prim means prudish, stiffly proper"
+        },
+        {
+         "words": "friend",
+         "at": 22,
+         "gives": "MATE",
+         "note": "a mate is a friend"
+        }
+       ]
+      },
+      {
+       "words": "married",
+       "at": 29,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prudish friend who has wed only once.",
+     "walkthrough": "PRIM and MATE meet with two Ms; 'only once' says the married M appears once, dropping one.",
+     "definitionFit": "Humans belong to the order of apes, monkeys and lemurs, so man is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +939,77 @@
     "text": "Wreck theatre that's brought forward start of play during performance",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wreck",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 51,
+       "note": "during places the theatre piece inside the fuss"
+      }
+     ],
+     "parts": [
+      {
+       "words": "performance",
+       "at": 58,
+       "gives": "TODO",
+       "note": "a to-do is a performance in the sense of a fuss or commotion"
+      },
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "brought forward",
+         "at": 21,
+         "note": "brought forward means a letter moves nearer the front of the word for theatre"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre",
+         "at": 6,
+         "gives": "REP",
+         "note": "rep is repertory theatre"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "start of",
+           "at": 37,
+           "note": "start of picks the first letter of play"
+          }
+         ],
+         "parts": [
+          {
+           "words": "play",
+           "at": 46
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre ruined by moving the opening of a play during the show.",
+     "walkthrough": "'brought forward' moves P (from 'start of play') up in REP to make RPE, which goes 'during' TODO.",
+     "definitionFit": "To wreck a plan or ship is to sink it, the verb sense of firing an underwater missile at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1033,45 @@
      }
     ]
    },
-   "solution": "WATTLEANDDAUB"
+   "solution": "WATTLEANDDAUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "building material",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WATTLEANDDAUB",
+     "indicators": [
+      {
+       "text": "Heard",
+       "at": 0,
+       "note": "heard signals that the phrase is spoken and the entry matches its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "speculation about female painter's future work",
+       "at": 6,
+       "gives": "WHATLANDAUB",
+       "note": "asking what Ann, a woman painter, will daub next: what'll Ann daub?"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about an artist's next canvas, and also some building stuff.",
+     "walkthrough": "Spoken quickly, \"What'll Ann daub?\" sounds like the answer; daub is a dismissive word for painting.",
+     "definitionFit": "Woven twigs plastered with clay or mud form walls in old cottages, a traditional construction material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "painter's"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1089,50 @@
    "group": [
     "16-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "develop cutting edge",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "underpinning",
+       "at": 8,
+       "note": "underpinning puts the article beneath the golf support in this down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "support for course",
+       "at": 21,
+       "gives": "TEE",
+       "note": "a tee is the peg supporting a ball on a golf course"
+      },
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news piece backing a golf course's bid to become state of the art.",
+     "walkthrough": "'underpinning' sets THE below TEE in the down light.",
+     "definitionFit": "A baby cutting its first teeth grows a biting edge, so the verb fits this playful phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1169,66 @@
      }
     ]
    },
-   "solution": "QUEERTHEPITCH"
+   "solution": "QUEERTHEPITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Upset business",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beforehand",
+       "at": 45,
+       "note": "beforehand puts the question letter at the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "question",
+       "at": 36,
+       "gives": "Q"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 30,
+         "note": "about signals the letters of heretic het up are turned around and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heretic",
+         "at": 15
+        },
+        {
+         "words": "het",
+         "at": 23
+        },
+        {
+         "words": "up",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heretic gets het up about a question raised in advance and disrupts affairs.",
+     "walkthrough": "'about' rearranges HERETICHETUP after Q. Het up is British slang for agitated.",
+     "definitionFit": "The idiom means to spoil someone's plans or prospects, so it upsets their business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1242,45 @@
     "text": "Being in ideal place to sort pain out",
     "enumeration": "7"
    },
-   "solution": "UTOPIAN"
+   "solution": "UTOPIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being in ideal place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sort",
+       "at": 24,
+       "note": "sort means arrange in order, so the letters of pain out are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pain",
+       "at": 29
+      },
+      {
+       "words": "out",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being in a perfect place to clear up some pain.",
+     "walkthrough": "'sort' rearranges PAINOUT; the clue's 'out' looks like part of the phrase sort out but is fodder.",
+     "definitionFit": "Utopia is an imagined perfect land, so something being in or of it is idealistic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1294,62 @@
     "text": "Distinguished artist who stayed in bed starting broadcast late",
     "enumeration": "7"
    },
-   "solution": "EMINENT"
+   "solution": "EMINENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distinguished",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist who stayed in bed",
+       "at": 14,
+       "gives": "EMIN",
+       "note": "Tracey Emin, the British artist known for My Bed, the unmade bed she had lain in"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "starting",
+         "at": 39,
+         "note": "starting refers to the opening letter of the word for broadcast"
+        },
+        {
+         "text": "late",
+         "at": 58,
+         "note": "late here means that the start is missing, as if it had not yet arrived"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broadcast",
+         "at": 48,
+         "gives": "VENT",
+         "note": "to vent opinions is to air or broadcast them"
+        },
+        {
+         "gives": "V"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist known for staying in bed starts their programme late.",
+     "walkthrough": "'starting' and 'late' drop the V from VENT. Tracey Emin's My Bed was shortlisted for the Turner Prize in 1999.",
+     "definitionFit": "An eminent person stands out in their field, a straightforward synonym for distinguished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1363,58 @@
     "text": "Entering missing name changes nothing?",
     "enumeration": "7"
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changes",
+       "at": 22,
+       "note": "changes signals that the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 9,
+         "note": "missing means the abbreviation for name is lost from entering"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Entering",
+         "at": 0
+        },
+        {
+         "words": "name",
+         "at": 17,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Typing in a missing name alters nothing.",
+     "walkthrough": "'missing' drops one N from ENTERING to leave ETERING, which 'changes' reorders. The question mark marks nothing as an example: zero is a whole number.",
+     "definitionFit": "Zero is a whole number, so nothing, read as nought, is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1428,31 @@
     "text": "It's something I could stand for now",
     "enumeration": "7"
    },
-   "solution": "CURRENT"
+   "solution": "CURRENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's something I could stand for",
+      "at": 0,
+      "meaning": "in physics the symbol I stands for the flow of electricity"
+     },
+     {
+      "text": "now",
+      "at": 33,
+      "meaning": "now means present, of the moment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In physics formulas the letter I is the symbol for an electrical flow, as in V = IR.",
+     "definitionFit": "Something of the present moment is up to date, the adjective sense matching now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1466,58 @@
     "text": "Playing this in the second half of June isn't unusual",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Playing this in the second half of June isn't unusual",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 46,
+       "note": "unusual signals the letters are put into a strange new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "second half of",
+         "at": 20,
+         "note": "second half of takes the last two of the four letters of June"
+        }
+       ],
+       "parts": [
+        {
+         "words": "June",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "isn't",
+       "at": 40
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Playing this game in late June is quite normal, thanks to Wimbledon.",
+     "walkthrough": "'second half of' gives NE, and 'unusual' rearranges NE with ISNT. Wimbledon, the London grass-court championship, starts in late June.",
+     "definitionFit": "The Wimbledon championships are played in the last weeks of June, so the sport is commonly played then."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1531,29 @@
     "text": "One's gripped by this part of transmission",
     "enumeration": "6"
    },
-   "solution": "CLUTCH"
+   "solution": "CLUTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's gripped by this",
+      "at": 0,
+      "meaning": "a grip or tight hold is what a person is held in"
+     },
+     {
+      "text": "part of transmission",
+      "at": 22,
+      "meaning": "the pedal-operated coupling between engine and gearbox in a car"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A grip on something and the device that engages a car's gears share this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gripped"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1567,49 @@
     "text": "Heather wraps books in blue material",
     "enumeration": "7"
    },
-   "solution": "EROTICA"
+   "solution": "EROTICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blue material",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wraps",
+       "at": 8,
+       "note": "wraps means surrounds, so the plant name goes round the books"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Heather",
+       "at": 0,
+       "gives": "ERICA",
+       "note": "erica is the botanical name for heather"
+      },
+      {
+       "words": "books",
+       "at": 14,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a set of books of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heather wraps her books in blue paper.",
+     "walkthrough": "Heather looks like a woman's name but is the plant. Blue here means risqué or sexually explicit.",
+     "definitionFit": "Blue in the sense of smutty describes sexually explicit writing or art."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1623,31 @@
     "text": "This could be accidental or innate",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This could be accidental",
+      "at": 0,
+      "meaning": "in music an accidental is a sign altering a note's pitch, and the sign cancelling a sharp or flat is one"
+     },
+     {
+      "text": "innate",
+      "at": 28,
+      "meaning": "innate means inborn, there from birth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'accidental' is the musical term for a sharp, flat or the sign that cancels them.",
+     "definitionFit": "The sign restoring a note's normal pitch is a musical accidental, and inborn qualities are those not acquired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accidental"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1674,36 @@
     "text": "Author's innate simplicity",
     "enumeration": "7"
    },
-   "solution": "NAIVETE"
+   "solution": "NAIVETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "simplicity",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "rebus",
+     "reading": "I'VE in NATE",
+     "parts": [
+      {
+       "words": "Author's innate",
+       "at": 0,
+       "note": "the author's is I've, the setter saying I have; innate is read as in plus nate, singular of nates, the buttocks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's inborn lack of guile.",
+     "walkthrough": "The word 'innate' does two jobs once split: its 'in' is the container signal, and 'nate' (singular of nates, the buttocks) is what is filled.",
+     "definitionFit": "Artless innocence or unworldliness is what simplicity means here, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "innate"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1717,57 @@
     "text": "Guests beginning to get drunk and intimate",
     "enumeration": "7"
    },
-   "solution": "SUGGEST"
+   "solution": "SUGGEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intimate",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 24,
+       "note": "drunk signals the letters are staggered about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Guests",
+       "at": 0
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 7,
+         "note": "beginning to picks the first letter of get"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guests begin to get drunk and cosy.",
+     "walkthrough": "'beginning to' gives G, and 'drunk' rearranges GUESTS with G. Intimate is the verb here, not the adjective.",
+     "definitionFit": "To intimate something is to hint at it indirectly, the same as to imply it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "intimate"
+    }
+   }
   },
   {
    "number": 30,
@@ -483,7 +1781,49 @@
     "text": "Reason fool is taken in for example",
     "enumeration": "6"
    },
-   "solution": "SANITY"
+   "solution": "SANITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reason",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in",
+       "at": 15,
+       "note": "taken in means the fool is held inside the word for example"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for example",
+       "at": 24,
+       "gives": "SAY",
+       "note": "say is used to introduce an example, like for example"
+      },
+      {
+       "words": "fool",
+       "at": 7,
+       "gives": "NIT",
+       "note": "a nit is a fool, a nitwit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rationalist argues that a fool is easily duped, for instance.",
+     "walkthrough": "'taken in' looks like fooled, which suits the fool, but it is the container signal.",
+     "definitionFit": "Reason in the sense of a sound mind, as in losing one's reason, means mental health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reason"
+    }
+   }
   },
   {
    "number": 31,
@@ -497,7 +1837,45 @@
     "text": "Miserable git recounted gag",
     "enumeration": "6"
    },
-   "solution": "WRETCH"
+   "solution": "WRETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miserable git",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WRETCH",
+     "indicators": [
+      {
+       "text": "recounted",
+       "at": 14,
+       "note": "recounted means told out loud, so the entry matches the sound of the word for gag"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gag",
+       "at": 24,
+       "gives": "RETCH",
+       "note": "to gag is to retch, to heave as if about to vomit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy man tells an old joke again.",
+     "walkthrough": "'gag' looks like a joke, but it is the verb meaning to heave.",
+     "definitionFit": "A wretch is a contemptible or unhappy person, close to the British insult for an unpleasant man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gag"
+    }
+   }
   }
  ]
 }
