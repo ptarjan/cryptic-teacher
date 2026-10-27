@@ -613,6 +613,8 @@ for k in KEYS:
 
 print("the prompt no longer names the blog, and the run's inputs no longer carry it")
 same("the run reads the copy", str(sum(1 for ln in Path("tools/prereset_backfill.sh").read_text().split("\n") if ln.startswith("ANNOTATE_PROMPT=") and re.search(r"tools/_puzzle_@\.json", ln))), "1")
+for sh, var in (("tools/prereset_backfill.sh", "ANNOTATE_PROMPT="), ("tools/daily_update.sh", "ann_prompt=")):
+    same("the prompt in %s says the _ann file does not exist yet" % sh, str(sum(1 for ln in Path(sh).read_text().split("\n") if ln.strip().startswith(var) and "does not exist yet: create it with Write" in ln)), "1")
 same("the nightly reads the copy",
      count(r"ann_file=\$\(python3 tools/annotate_check.py --view", "tools/daily_update.sh"), "1")
 same("the worker hands the prompt over in the system prompt",

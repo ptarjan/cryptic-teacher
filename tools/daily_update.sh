@@ -819,7 +819,7 @@ unit_annotate() {  # id [solve]
           rm -f "$view_err" ;;
       esac
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
-      ann_prompt="$ann_task Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
+      ann_prompt="$ann_task Your annotations go in tools/_ann_<ID>.json, which does not exist yet: create it with Write, do not Read it first. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
       # The conversation is fixed before the first attempt and named in
       # $sidfile, because a run that dies has already been paid for: a retry
       # resumes it.
