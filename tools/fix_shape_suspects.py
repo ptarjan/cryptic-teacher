@@ -3456,7 +3456,7 @@ def r_does_not_give(node, parent, ctx):
         return None
     found, seen = [], set()
     for k in range(len(list(walk(node)))):
-        for new in _does_not_give_edits(node, k):
+        for new in _does_not_give_edits(node, k, ctx.get("clue")):
             try:
                 W.evaluate(copy.deepcopy(new), answer)
             except (W.WordplayError, W._NeedTarget, IndexError, KeyError, TypeError, ValueError):
@@ -3468,7 +3468,7 @@ def r_does_not_give(node, parent, ctx):
     return found[0] if len(found) == 1 else None
 
 
-def _does_not_give_edits(node, k):
+def _does_not_give_edits(node, k, clue=None):
     """Every single-edit copy of `node` the doesNotGive mend tries at its k-th node: a container's
     arguments swapped, or a container written as the charade of its two arguments (either order: ADRIFT
     is AD + RIFT, 'in' only linking them); a charade's pieces in another order (an indicator of its own,
@@ -3520,7 +3520,57 @@ def _does_not_give_edits(node, k):
         new, t = fresh()
         t["parts"][0]["gives"] = t["parts"][0]["gives"][::-1]
         out.append(new)
+    elif n.get("op") in ("first", "last"):
+        # the wrong end of the word: 'side of grass' for SWORDPLAY takes the last letter, not the first
+        new, t = fresh()
+        t["op"] = "last" if n["op"] == "first" else "first"
+        out.append(new)
+    elif n.get("op") == "hidden" and len(parts) == 1 and leaf(parts[0]) and clue:
+        out += _hidden_reaches(fresh, parts[0], clue)
+    if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
+            and len(n["gives"]) > 3 and n["gives"].upper().endswith("S"):
+        # the possessive spelt out ('hostel's' is INN, not INNS)
+        new, t = fresh()
+        t["gives"] = t["gives"][:-1]
+        out.append(new)
     return [_flat_charades(new) for new in out]
+
+
+def _hidden_reaches(fresh, lf, clue):
+    """A hidden word whose fodder stops short of the clue word it starts in ('In print as Sordello'
+    hides TASSO in print + as + Sordello): the leaf reaches one clue word further left or right, and the
+    indicator gives that word up."""
+    out = []
+    at = lf.get("at")
+    if at is None:
+        return out
+    words = [(m.start(), m.end()) for m in re.finditer(r"[\w'’]+", clue)]
+    for side in ("left", "right"):
+        new, t = fresh()
+        h = next(x for x, _ in walk(new) if x.get("op") == "hidden")
+        l = h["parts"][0]
+        if side == "left":
+            prev = [w for w in words if w[1] <= at]
+            if not prev:
+                continue
+            a, b = prev[-1][0], at + len(l["words"])
+            hit = [i for i in h.get("indicators") or [] if clue[a:prev[-1][1]].lower() == str(i.get("text", "")).split()[-1:][0].lower()]
+        else:
+            nxt = [w for w in words if w[0] >= at + len(l["words"])]
+            if not nxt:
+                continue
+            a, b = at, nxt[0][1]
+            hit = [i for i in h.get("indicators") or [] if clue[nxt[0][0]:nxt[0][1]].lower() == str(i.get("text", "")).split()[0].lower()]
+        if len(hit) != 1 or len(str(hit[0]["text"]).split()) < 2:
+            continue
+        ind = hit[0]
+        ind["text"] = " ".join(str(ind["text"]).split()[:-1] if side == "left" else str(ind["text"]).split()[1:])
+        if side == "right" and "at" in ind:
+            ind["at"] = ind["at"] + len(clue[ind["at"]:].split()[0]) + 1
+        l["words"], l["at"] = clue[a:b], a
+        l.pop("gives", None)
+        out.append(new)
+    return out
 
 
 def _flat_charades(tree):
