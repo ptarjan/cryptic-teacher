@@ -22,6 +22,9 @@
   "date": "2016-01-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Phone somewhere in Alabama",
     "enumeration": "6"
    },
-   "solution": "MOBILE"
+   "solution": "MOBILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Phone",
+      "at": 0,
+      "meaning": "a cellphone, in British usage a portable handset"
+     },
+     {
+      "text": "somewhere in Alabama",
+      "at": 6,
+      "meaning": "a port city on the Gulf coast of Alabama, USA"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks where a phone is and is told it is somewhere in the state of Alabama.",
+     "definitionFit": "The British name for a cellphone is the same word as the Alabama port city, so both senses fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somewhere"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +75,40 @@
     "text": "Male due for lawn maintenance",
     "enumeration": "6"
    },
-   "solution": "MOWING"
+   "solution": "MOWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lawn maintenance",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Male",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "words": "due",
+       "at": 5,
+       "gives": "OWING",
+       "note": "money due is money owing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is overdue to do some work on his lawn.",
+     "definitionFit": "Cutting the grass is the main task of keeping a lawn in order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "due"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +122,43 @@
     "text": "Polish worker's increase",
     "enumeration": "7"
    },
-   "solution": "BEESWAX"
+   "solution": "BEESWAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "worker's",
+       "at": 7,
+       "gives": "BEES",
+       "note": "a worker is a worker bee in crosswords, so the possessive gives a bee's"
+      },
+      {
+       "words": "increase",
+       "at": 16,
+       "gives": "WAX",
+       "note": "to wax is to grow, as the moon does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An employee's pay rise, with a stray 'Polish' suggesting a nationality.",
+     "walkthrough": "'Polish' looks like the nationality but is the furniture product.",
+     "definitionFit": "Bees' secretion is used as a furniture and floor polish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +172,44 @@
     "text": "Girl likely to lose heart",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to lose heart",
+       "at": 12,
+       "note": "the heart of a word is its middle, so the central pair of letters of likely is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "likely",
+       "at": 5
+      },
+      {
+       "gives": "KE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman who will probably become discouraged.",
+     "walkthrough": "'to lose heart' removes KE, the middle of LIKELY.",
+     "definitionFit": "A common female first name, so an example of a girl's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +223,43 @@
     "text": "King of Rome heard in ruins",
     "enumeration": "6"
    },
-   "solution": "WRECKS"
+   "solution": "WRECKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ruins",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WRECKS",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 13,
+       "note": "heard tells us to take the sound of the Latin word, not its spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "King of Rome",
+       "at": 0,
+       "gives": "REX",
+       "note": "rex is Latin for king, as Romans said it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman king is to be found among ancient ruins.",
+     "definitionFit": "Ruins and wrecks are both remains of something destroyed; the plural noun matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rome"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +273,48 @@
     "text": "Game allowed to block road",
     "enumeration": "8"
    },
-   "solution": "ROULETTE"
+   "solution": "ROULETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to block",
+       "at": 13,
+       "note": "something placed in the middle of a road blocks it, so these letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "road",
+       "at": 22,
+       "gives": "ROUTE",
+       "note": "a route is a road or way"
+      },
+      {
+       "words": "allowed",
+       "at": 5,
+       "gives": "LET",
+       "note": "to let is to allow, and let is its past tense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is permitted to play a game in the street, stopping the traffic.",
+     "definitionFit": "A casino gambling game played with a spinning wheel and a ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "allowed"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +328,48 @@
     "text": "Manage to enclose small group of trees",
     "enumeration": "5"
    },
-   "solution": "COPSE"
+   "solution": "COPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "group of trees",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to enclose",
+       "at": 7,
+       "note": "to enclose is to surround, so one piece goes around the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Manage",
+       "at": 0,
+       "gives": "COPE",
+       "note": "to cope is to manage"
+      },
+      {
+       "words": "small",
+       "at": 18,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to fence in a little clump of trees.",
+     "definitionFit": "A small wood or thicket is exactly a small cluster of trees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Manage"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +383,42 @@
     "text": "Muddled priest showing little spirit",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "little spirit",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Muddled",
+       "at": 0,
+       "note": "muddled means confused or jumbled, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "priest",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused clergyman showing only a little enthusiasm.",
+     "walkthrough": "'little spirit' suggests low morale, but it means a small supernatural being.",
+     "definitionFit": "An elf or fairy, a small spirit of folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +438,40 @@
      }
     ]
    },
-   "solution": "LEADINGLADY"
+   "solution": "LEADINGLADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "star",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Playing",
+       "at": 0,
+       "note": "playing suggests the names are being toyed with, so their letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lydia, Glenda",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress named Glenda, cast as Lydia, is the headliner.",
+     "definitionFit": "The principal actress in a production is its female star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +485,59 @@
     "text": "Small fib about hard stunt by cyclist",
     "enumeration": "7"
    },
-   "solution": "WHEELIE"
+   "solution": "WHEELIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stunt by cyclist",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 10,
+         "note": "about means around, so one piece surrounds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Small",
+         "at": 0,
+         "gives": "WEE",
+         "note": "wee is Scottish for small"
+        },
+        {
+         "words": "hard",
+         "at": 16,
+         "gives": "H",
+         "note": "H is the pencil-grade abbreviation for hard"
+        }
+       ]
+      },
+      {
+       "words": "fib",
+       "at": 6,
+       "gives": "LIE",
+       "note": "a fib is a lie"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor untruth told about a difficult cycling trick.",
+     "definitionFit": "A trick where the rider balances on the back wheel with the front one raised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +551,47 @@
     "text": "Superior meal with no starter",
     "enumeration": "5"
    },
-   "solution": "UPPER"
+   "solution": "UPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Superior",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no starter",
+       "at": 14,
+       "note": "the starter here is the first letter, which is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal",
+       "at": 9,
+       "gives": "SUPPER",
+       "note": "supper is an evening meal"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine dinner served without a first course.",
+     "walkthrough": "'starter' looks like a first course but means the first letter.",
+     "definitionFit": "Higher in rank or position, as in the upper class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +605,31 @@
     "text": "Reports from all quarters",
     "enumeration": "4"
    },
-   "solution": "NEWS"
+   "solution": "NEWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reports",
+      "at": 0,
+      "meaning": "accounts of recent events"
+     },
+     {
+      "text": "all quarters",
+      "at": 13,
+      "meaning": "the four compass points north, east, west and south"
+     }
+    ],
+    "explanation": {
+     "surface": "Reports arriving from every direction.",
+     "walkthrough": "The initials of the four points of the compass spell the answer.",
+     "definitionFit": "Information about recent events is what reports carry; folk etymology links it to the compass points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quarters"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +643,42 @@
     "text": "Stick found by National Trust supporter",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "supporter",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stick",
+       "at": 0,
+       "gives": "ADHERE",
+       "note": "to adhere is to stick"
+      },
+      {
+       "words": "National Trust",
+       "at": 15,
+       "gives": "NT",
+       "note": "NT is the abbreviation for the National Trust, the British heritage charity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walking stick discovered by a member of a heritage charity.",
+     "walkthrough": "The National Trust is the British charity that looks after historic houses and land.",
+     "definitionFit": "A follower or backer of a cause or person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +698,40 @@
      }
     ]
    },
-   "solution": "ALLCLEAR"
+   "solution": "ALLCLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "air raid warden's signal",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Everyone",
+       "at": 0,
+       "gives": "ALL",
+       "note": "all means everyone"
+      },
+      {
+       "words": "understood",
+       "at": 9,
+       "gives": "CLEAR",
+       "note": "if something is clear it is understood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody grasped the wartime warden's alert.",
+     "definitionFit": "The siren sounded when danger from a bombing raid had passed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +745,51 @@
     "text": "Former scheme a politician is clarifying",
     "enumeration": "11"
    },
-   "solution": "EXPLANATORY"
+   "solution": "EXPLANATORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clarifying",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former"
+      },
+      {
+       "words": "scheme",
+       "at": 7,
+       "gives": "PLAN",
+       "note": "a plan is a scheme"
+      },
+      {
+       "words": "a",
+       "at": 14,
+       "gives": "A"
+      },
+      {
+       "words": "politician",
+       "at": 16,
+       "gives": "TORY",
+       "note": "a Tory is a British Conservative politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time plan of a politician is helping make things plain.",
+     "definitionFit": "Something that serves to explain makes matters clear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +803,57 @@
     "text": "Massage required by bishop having no work? What rot!",
     "enumeration": "7"
    },
-   "solution": "RUBBISH"
+   "solution": "RUBBISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What rot!",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Massage",
+       "at": 0,
+       "gives": "RUB",
+       "note": "to rub is to massage"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having no",
+         "at": 27,
+         "note": "having no means lacking, so the letters for work are taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bishop",
+         "at": 20
+        },
+        {
+         "words": "work",
+         "at": 37,
+         "gives": "OP",
+         "note": "op is short for opus, a work"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A massage is needed by an idle bishop, and someone scoffs at the idea.",
+     "definitionFit": "An exclamation dismissing something as nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +867,69 @@
     "text": "Slow movement of a soldier gatecrashing a party",
     "enumeration": "6"
    },
-   "solution": "ADAGIO"
+   "solution": "ADAGIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slow movement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 40,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gatecrashing",
+         "at": 27,
+         "note": "a gatecrasher gets inside a party uninvited, so these letters go within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 42,
+         "gives": "DO",
+         "note": "a do is a party"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 17,
+           "gives": "A"
+          },
+          {
+           "words": "soldier",
+           "at": 19,
+           "gives": "GI",
+           "note": "GI is an American soldier"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier slowly moves into a party he was not invited to.",
+     "walkthrough": "'Slow movement' sounds like walking but is a musical movement.",
+     "definitionFit": "A musical piece or section played at a leisurely tempo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +943,29 @@
     "text": "Insult hardly worth mentioning",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insult",
+      "at": 0,
+      "meaning": "a snub or affront"
+     },
+     {
+      "text": "hardly worth mentioning",
+      "at": 7,
+      "meaning": "minor or trivial"
+     }
+    ],
+    "explanation": {
+     "surface": "An insult so minor it is barely worth bringing up.",
+     "definitionFit": "As a noun it means a snub; as an adjective it means slender or trivial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +979,61 @@
     "text": "I'm laid back in easily managed home",
     "enumeration": "8"
    },
-   "solution": "DOMICILE"
+   "solution": "DOMICILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "home",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "easily managed",
+       "at": 17,
+       "gives": "DOCILE",
+       "note": "a docile animal or person is easy to manage"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "laid back",
+         "at": 4,
+         "note": "laid back means set backwards, so the two letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 0,
+         "gives": "IM"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relaxing in a home that runs smoothly.",
+     "walkthrough": "'laid back' looks like relaxed but reverses IM to MI.",
+     "definitionFit": "A formal or legal word for a person's dwelling place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "laid"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1047,39 @@
     "text": "Average temperature, as intended",
     "enumeration": "5"
    },
-   "solution": "MEANT"
+   "solution": "MEANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "intended",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Average",
+       "at": 0,
+       "gives": "MEAN",
+       "note": "the mean is an average"
+      },
+      {
+       "words": "temperature",
+       "at": 8,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report giving the average temperature, as planned.",
+     "definitionFit": "If something was done on purpose, it was designed or planned that way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1093,52 @@
     "text": "First murder victim in Lincoln and first in Leicester",
     "enumeration": "4"
    },
-   "solution": "ABEL"
+   "solution": "ABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First murder victim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lincoln",
+       "at": 23,
+       "gives": "ABE",
+       "note": "Abe is Abraham Lincoln's familiar name"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "at": 35,
+         "note": "the first letter in the word Leicester is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leicester",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A murder in the English city of Lincoln, followed by one in Leicester.",
+     "walkthrough": "Lincoln and Leicester read as English cities, but Lincoln is the US president.",
+     "definitionFit": "In Genesis, Cain killed his brother, the first murder in the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lincoln"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1152,42 @@
     "text": "Headlight, as it were, forming part of such a lorry",
     "enumeration": "4"
    },
-   "solution": "HALO"
+   "solution": "HALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Headlight, as it were",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "forming part of",
+       "at": 23,
+       "note": "the letters form part of the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "such a lorry",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headlamp on a big truck.",
+     "walkthrough": "'Headlight' looks like a lamp but is a light around the head.",
+     "definitionFit": "A saint's ring of light round the head, playfully called a light for the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Headlight"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1201,30 @@
     "text": "Serious plot in churchyard",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0,
+      "meaning": "solemn or weighty"
+     },
+     {
+      "text": "plot in churchyard",
+      "at": 8,
+      "meaning": "a burial place"
+     }
+    ],
+    "explanation": {
+     "surface": "A sombre burial plot in a churchyard.",
+     "definitionFit": "The adjective means solemn; the noun is a place where someone is buried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1238,52 @@
     "text": "Dutch capital and London area doing business",
     "enumeration": "7"
    },
-   "solution": "DEALING"
+   "solution": "DEALING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "doing business",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital",
+         "at": 6,
+         "note": "a capital letter heads a word, so the opening letter of Dutch is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dutch",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "London area",
+       "at": 18,
+       "gives": "EALING",
+       "note": "Ealing is a district in west London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Amsterdam and a London suburb trading together.",
+     "walkthrough": "'Dutch capital' suggests Amsterdam but is just D, the head of Dutch. Ealing is a borough of west London.",
+     "definitionFit": "Trading or transacting is engaging in commerce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1297,40 @@
     "text": "Animals prepared to rest",
     "enumeration": "6"
    },
-   "solution": "OTTERS"
+   "solution": "OTTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "prepared",
+       "at": 8,
+       "note": "prepared means made ready or worked up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to rest",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animals made ready for a sleep.",
+     "definitionFit": "River mammals of the weasel family, an example of animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1350,41 @@
      }
     ]
    },
-   "solution": "SOWHAT"
+   "solution": "SOWHAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who cares",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pig",
+       "at": 13,
+       "gives": "SOW",
+       "note": "a sow is a female pig"
+      },
+      {
+       "words": "cover for head",
+       "at": 21,
+       "gives": "HAT",
+       "note": "a hat covers the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs at the idea of a pig wearing a hat.",
+     "definitionFit": "A dismissive phrase meaning it does not matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   }
  ]
 }
