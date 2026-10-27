@@ -3841,6 +3841,15 @@ check("sure_page: the page's date only for a grid read at SURE_BLOCKS (times-182
        f.sure_page("1990-03-29_63666", {"blocks": 0.911}), f.sure_page("src", {"blocks": 1.0})])
 check("STRAY_GRID is a rank 2 answers-only fix reason", (2, True, True),
       (f.RANKS[f.STRAY_GRID], f.STRAY_GRID in f.SOLUTION_FIXES, f.STRAY_GRID.startswith("solution short")))
+check("UNSURE_LONE is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.UNSURE_LONE], f.UNSURE_LONE in f.SOLUTION_FIXES, f.UNSURE_LONE.startswith("solution short"),
+       f.UNSURE_LONE in __import__("edition_queue").LOW_ASK, f.UNSURE_LONE in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.UNSURE_LONE)))
+check("unsure_uncrossed: a row read since REREAD_UNSURE_LONE, or no Times paper's, is not due", [False, False],
+      [f.unsure_uncrossed({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                           "verdicts": []}),
+       f.unsure_uncrossed({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
@@ -4197,13 +4206,22 @@ def uc_reads(rows, at=None):
 uc_rows = ["BAT", "O#A", "GUN"]
 uc_part = {"1-across": "BAT", "1-down": "BOG", "3-across": "GUN"}
 check("... unless the classifier reads its lone letters as filed: one read as another letter making a listed word "
-      "(8,564's BATES, its B read .035 under P: PATES) is left out, one read as no word is not; "
-      "no crop read leaves every one out",
-      [set(), {"1-across"}, set(), {"1-across", "3-across"}],
+      "(8,564's BATES, its B read .035 under P: PATES) is left out, one read as no word is not",
+      [set(), {"1-across"}, set()],
       [f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows)),
        f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "I"})),
-       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "X"})),
-       f.uncrossed(uc_part, ht_grid, probs=lambda: None)])
+       f.uncrossed(uc_part, ht_grid, probs=lambda: uc_reads(uc_rows, {(0, 1): "X"}))])
+# unsure_lone (10-27): no crop read (no framing's blocks sure) leaves out only a near answer (a listed word a lone
+# letter off) that is no corpus answer; with none near, every one stands.
+uc_corpus = tso.corpus_words
+try:
+    tso.corpus_words = lambda: {"GUN"}
+    check("no crop read leaves out a near answer but a corpus answer (BAT out, GUN kept); none near, none out",
+          [{"1-across"}, set()],
+          [f.uncrossed(uc_part, ht_grid, probs=lambda: None),
+           f.uncrossed({"1-across": "BXQ", "1-down": "BOG", "3-across": "GUN"}, ht_grid, probs=lambda: None)])
+finally:
+    tso.corpus_words = uc_corpus
 check("misread_rival names the word", ["BIT", None],
       [f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows, {(0, 1): "I"})),
        f.misread_rival("BAT", [(1, (0, 1), "A")], uc_reads(uc_rows))])
