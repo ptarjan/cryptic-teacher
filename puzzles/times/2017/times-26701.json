@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,49 @@
     "text": "Anything done to hide details of case is closely questioned",
     "enumeration": "9"
    },
-   "solution": "DEBRIEFED"
+   "solution": "DEBRIEFED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "closely questioned",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hide",
+       "at": 14,
+       "note": "one word is made to hide the other, so the second piece sits inside the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anything done",
+       "at": 0,
+       "gives": "DEED",
+       "note": "anything done is a deed, an act"
+      },
+      {
+       "words": "details of case",
+       "at": 22,
+       "gives": "BRIEF",
+       "note": "a brief is the summary of a legal case given to a barrister"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's handling of a legal case is so secretive that they get grilled about it.",
+     "walkthrough": "'details of case' sounds like evidence, but it is the barrister's brief.",
+     "definitionFit": "Being questioned closely after a mission or event is exactly what a debriefing involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 6,
@@ -44,7 +89,57 @@
     "text": "Race leaders from separate clubs on the scene",
     "enumeration": "5"
    },
-   "solution": "SCOTS"
+   "solution": "SCOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Race",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leaders from",
+       "at": 5,
+       "note": "the leaders of the five words are their opening letters, taken in order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "separate",
+       "at": 18
+      },
+      {
+       "words": "clubs",
+       "at": 27
+      },
+      {
+       "words": "on",
+       "at": 33
+      },
+      {
+       "words": "the",
+       "at": 36
+      },
+      {
+       "words": "scene",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Runners leading a race come from various different clubs at the event.",
+     "walkthrough": "'Race' looks like a running event; it means a people or nation.",
+     "definitionFit": "Race in its sense of a people or nation; the people of Scotland are one such group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Race"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +153,64 @@
     "text": "Affliction mainly related to bee keeping experiences",
     "enumeration": "7"
    },
-   "solution": "APHASIA"
+   "solution": "APHASIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Affliction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 33,
+       "note": "one piece keeps the other within it, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 11,
+         "note": "mainly means most of the word, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "related to bee",
+         "at": 18,
+         "gives": "APIAN",
+         "note": "apian is the adjective meaning of or relating to bees"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "experiences",
+       "at": 41,
+       "gives": "HAS",
+       "note": "to have something is to experience it, so experiences gives has"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an affliction they picked up through beekeeping.",
+     "walkthrough": "'bee keeping' tempts you to read beekeeping as one idea; 'keeping' is the containment signal and 'mainly' trims the bee adjective.",
+     "definitionFit": "Aphasia is a medical condition, the loss of ability to use or understand language, so an affliction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keeping"
+    }
+   }
   },
   {
    "number": 10,
@@ -72,7 +224,56 @@
     "text": "He's commissioned no pit closure in future",
     "enumeration": "7"
    },
-   "solution": "NOMINEE"
+   "solution": "NOMINEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He's commissioned",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "no",
+       "at": 18,
+       "gives": "NO"
+      },
+      {
+       "words": "pit",
+       "at": 21,
+       "gives": "MINE",
+       "note": "a pit is a mine, as in a coal pit"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closure in",
+         "at": 25,
+         "note": "the closure of a word is its final letter, so the end of future is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "future",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician states there will be no more pit closures from now on.",
+     "definitionFit": "Someone nominated or appointed to a role has been commissioned to do it; a person put forward is a nominee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "commissioned"
+    }
+   }
   },
   {
    "number": 11,
@@ -86,7 +287,65 @@
     "text": "Note Indian opener caught chasing century",
     "enumeration": "5"
    },
-   "solution": "TONIC"
+   "solution": "TONIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 26,
+       "note": "chasing means coming after, so the opener and the catch follow the century"
+      }
+     ],
+     "parts": [
+      {
+       "words": "century",
+       "at": 34,
+       "gives": "TON",
+       "note": "a ton is a hundred, a century in cricket"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener",
+         "at": 12,
+         "note": "the opener of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Indian",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "caught",
+       "at": 19,
+       "gives": "C",
+       "note": "C is the cricket scorecard abbreviation for caught"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: an Indian opening batsman was caught while pursuing his hundred.",
+     "walkthrough": "The cricket scene misleads: the tonic is the first note of a musical scale, the keynote.",
+     "definitionFit": "In music the tonic is the keynote, the first degree of a scale, so it is a note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 12,
@@ -100,7 +359,31 @@
     "text": "One committing urban crime? Or theft of sheep?",
     "enumeration": "3,6"
    },
-   "solution": "RAMRAIDER"
+   "solution": "RAMRAIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One committing urban crime",
+      "at": 0,
+      "meaning": "a criminal who drives a vehicle through a shop window to loot it, a British urban crime"
+     },
+     {
+      "text": "theft of sheep",
+      "at": 31,
+      "meaning": "read as one carrying out a raid on rams, i.e. sheep stealing; the question mark admits it is a noun standing for the person who does it"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question about whether a crime is a city offence or rustling livestock.",
+     "walkthrough": "A ram raid, in Britain, is smashing a car into a shop front to steal goods. The second reading splits the phrase as a raider of rams.",
+     "definitionFit": "Both senses name a kind of thief: a smash-and-grab criminal using a car, or someone raiding male sheep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -114,7 +397,55 @@
     "text": "Retirement of American computer man involved in stitch-up?",
     "enumeration": "8"
    },
-   "solution": "SUTURING"
+   "solution": "SUTURING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stitch-up",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retirement of",
+         "at": 0,
+         "note": "retirement is a going back, so the letters are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American",
+         "at": 14,
+         "gives": "US",
+         "note": "US is short for American, as in the US"
+        }
+       ]
+      },
+      {
+       "words": "computer man",
+       "at": 23,
+       "gives": "TURING",
+       "note": "Alan Turing was the British pioneer of computer science"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was a famous American computer scientist forced out in some kind of conspiracy?",
+     "walkthrough": "'stitch-up' suggests a frame-up; here it is literal stitching of a wound.",
+     "definitionFit": "Surgeons close a wound with sutures, so stitching up a cut is the act described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stitch-up"
+    }
+   }
   },
   {
    "number": 14,
@@ -128,7 +459,40 @@
     "text": "Hillside barrage blocked from time to time",
     "enumeration": "4"
    },
-   "solution": "BRAE"
+   "solution": "BRAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hillside",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "blocked from time to time",
+       "at": 17,
+       "note": "every other letter of the word is blocked out, leaving the alternate ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barrage",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barrage on a hillside was occasionally obstructed.",
+     "definitionFit": "A Scottish word for a steep slope or bank of a hill, used widely in place names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barrage"
+    }
+   }
   },
   {
    "number": 17,
@@ -142,7 +506,29 @@
     "text": "Constant flush",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0,
+      "meaning": "unchanging or steady"
+     },
+     {
+      "text": "flush",
+      "at": 9,
+      "meaning": "level with a surface, as when two edges are made level"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are plain synonyms: steady and unvarying, and level or flat with something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flush"
+    }
+   }
   },
   {
    "number": 18,
@@ -156,7 +542,42 @@
     "text": "Subject to ignore tender steak",
     "enumeration": "8"
    },
-   "solution": "UNDERCUT"
+   "solution": "UNDERCUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tender steak",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Subject to",
+       "at": 0,
+       "gives": "UNDER",
+       "note": "under means subject to, as under orders"
+      },
+      {
+       "words": "ignore",
+       "at": 11,
+       "gives": "CUT",
+       "note": "to cut someone is to ignore them deliberately"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to disregard a soft piece of beef.",
+     "walkthrough": "'tender' looks like a bid, pointing at the verb sense of undercutting a price; it is an adjective on the steak.",
+     "definitionFit": "The undercut is the British name for the tenderloin, the soft fillet beneath the sirloin of beef."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 21,
@@ -170,7 +591,42 @@
     "text": "Very little acknowledgment for kitchen equipment?",
     "enumeration": "9"
    },
-   "solution": "MICROWAVE"
+   "solution": "MICROWAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kitchen equipment?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very little",
+       "at": 0,
+       "gives": "MICRO",
+       "note": "micro means very small"
+      },
+      {
+       "words": "acknowledgment",
+       "at": 12,
+       "gives": "WAVE",
+       "note": "a wave of the hand is a way of acknowledging someone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets barely a nod of thanks for supplying kitchen gear.",
+     "definitionFit": "This oven is a common appliance in kitchens; the question mark flags the punning build."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "acknowledgment"
+    }
+   }
   },
   {
    "number": 22,
@@ -184,7 +640,77 @@
     "text": "Rook's last seen on stick, not good place for bird",
     "enumeration": "5"
    },
-   "solution": "CLINK"
+   "solution": "CLINK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place for bird",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "seen on",
+       "at": 12,
+       "note": "seen on means placed next to, so the final letter of rook follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 27,
+         "note": "not good says the letter for good is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "at": 20,
+         "gives": "CLING",
+         "note": "to cling is to stick fast"
+        },
+        {
+         "words": "good",
+         "at": 31,
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 7,
+         "note": "the last of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rook's",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rook perches on a stick, which is no good place for a bird.",
+     "walkthrough": "'bird' is British slang for a prison sentence (from rhyming slang bird-lime, time), so a place for bird is a jail.",
+     "definitionFit": "Slang for a prison, where someone doing bird (a sentence) is held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 24,
@@ -198,7 +724,41 @@
     "text": "Crew completed teacher's instruction",
     "enumeration": "5,2"
    },
-   "solution": "HANDSUP"
+   "solution": "HANDSUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "teacher's instruction",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Crew",
+       "at": 0,
+       "gives": "HANDS",
+       "note": "a ship's crew are its hands"
+      },
+      {
+       "words": "completed",
+       "at": 5,
+       "gives": "UP",
+       "note": "up means finished, as in time is up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crew finished what the teacher told them to do.",
+     "definitionFit": "A teacher asking for a show of raised arms gives this command to the class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Crew"
+    }
+   }
   },
   {
    "number": 25,
@@ -212,7 +772,59 @@
     "text": "Incorporated in garbled text with no valid claimant",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with no valid claimant",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "one piece goes in the other, set inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "garbled",
+         "at": 16,
+         "note": "garbled text is jumbled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "text",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "Incorporated",
+       "at": 0,
+       "gives": "INC",
+       "note": "Inc is the abbreviation for incorporated, used after company names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something has been incorporated into a muddled document.",
+     "walkthrough": "'garbled' rearranges the word text to EXTT, which then holds the company abbreviation. A peerage with no heir is called extinct.",
+     "definitionFit": "A title or peerage with no surviving heir is said to be extinct, having died out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Incorporated"
+    }
+   }
   },
   {
    "number": 26,
@@ -226,7 +838,50 @@
     "text": "Way to fill pastry dish, creating cold course?",
     "enumeration": "5"
    },
-   "solution": "PISTE"
+   "solution": "PISTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cold course?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "at": 4,
+       "note": "one piece fills the other, going inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pastry dish",
+       "at": 12,
+       "gives": "PIE",
+       "note": "a pie is a dish made with pastry"
+      },
+      {
+       "words": "Way",
+       "at": 0,
+       "gives": "ST",
+       "note": "St is short for street, a way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe tip on filling a pastry dish to make a chilled course of a meal.",
+     "walkthrough": "'course' suggests a meal; the cold course is a ski run on snow.",
+     "definitionFit": "A prepared ski run on snow is a cold track, the punning course here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 27,
@@ -240,7 +895,32 @@
     "text": "What those last at court might enjoy on the side?",
     "enumeration": "9"
    },
-   "solution": "LATERALLY"
+   "solution": "LATERALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What those last at court might enjoy",
+      "at": 0,
+      "meaning": "players trailing in a tennis match might enjoy a ..., a comeback near the end"
+     },
+     {
+      "text": "on the side",
+      "at": 37,
+      "meaning": "sideways, from or towards the side"
+     }
+    ],
+    "explanation": {
+     "surface": "A tennis player who is losing might enjoy a little something on the side.",
+     "walkthrough": "Split the answer as LATE RALLY to see the first reading.",
+     "definitionFit": "The adverb means sideways or at the side, the plain sense of the closing words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 1,
@@ -254,7 +934,46 @@
     "text": "Delivered large amount ahead of time",
     "enumeration": "5"
    },
-   "solution": "DEALT"
+   "solution": "DEALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delivered",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "ahead of",
+       "at": 23,
+       "note": "ahead of means placed before, so the large amount comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "large amount",
+       "at": 10,
+       "gives": "DEAL",
+       "note": "a great deal is a large amount"
+      },
+      {
+       "words": "time",
+       "at": 32,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big consignment was delivered early.",
+     "definitionFit": "Cards dealt are handed out, and a blow dealt is delivered; the past tense matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -268,7 +987,31 @@
     "text": "Where support staff are usually responsible for commotion?",
     "enumeration": "6,3,6"
    },
-   "solution": "BEHINDTHESCENES"
+   "solution": "BEHINDTHESCENES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where support staff are usually",
+      "at": 0,
+      "meaning": "stagehands and crew work offstage, out of public view"
+     },
+     {
+      "text": "responsible for commotion",
+      "at": 32,
+      "meaning": "a scene is a fuss or commotion, so one behind it caused it"
+     }
+    ],
+    "explanation": {
+     "surface": "Support staff are typically out of view and are often blamed for a fuss.",
+     "definitionFit": "Offstage or out of public view, where crew work; and in a punning reading, causing scenes or rows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "commotion"
+    }
+   }
   },
   {
    "number": 3,
@@ -282,7 +1025,46 @@
     "text": "In due course, eccentric duo's left anxious",
     "enumeration": "8"
    },
-   "solution": "INSECURE"
+   "solution": "INSECURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "anxious",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "eccentric",
+       "at": 15,
+       "note": "eccentric means odd or irregular, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In due course",
+       "at": 0
+      },
+      {
+       "words": "duo",
+       "at": 25,
+       "note": "the letters of duo are the ones that have left the mix"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd couple have departed, and someone is left uneasy.",
+     "walkthrough": "'eccentric' rearranges IN DUE COURSE, and 'duo's left' says D, U, O are removed from the mix, leaving the eight letters needed.",
+     "definitionFit": "Feeling unsure and lacking confidence is being anxious, a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eccentric"
+    }
+   }
   },
   {
    "number": 4,
@@ -296,7 +1078,48 @@
     "text": "Brazen old lady given accommodation?",
     "enumeration": "8"
    },
-   "solution": "FLAGRANT"
+   "solution": "FLAGRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brazen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "given",
+       "at": 16,
+       "note": "the old lady is given the accommodation, so she goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "accommodation",
+       "at": 22,
+       "gives": "FLAT",
+       "note": "a flat is an apartment, a form of accommodation"
+      },
+      {
+       "words": "old lady",
+       "at": 7,
+       "gives": "GRAN",
+       "note": "gran is an informal word for a grandmother, an old lady"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bold elderly woman has been housed.",
+     "definitionFit": "Flagrant behaviour is shamelessly obvious, i.e. brazen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodation"
+    }
+   }
   },
   {
    "number": 5,
@@ -310,7 +1133,61 @@
     "text": "Generator complete with a lot of switching internally",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Generator",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "internally",
+       "at": 43,
+       "note": "internally places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "complete",
+       "at": 10,
+       "gives": "DO",
+       "note": "to do a task is to complete it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "switching",
+         "at": 33,
+         "note": "switching turns the word around so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a lot",
+         "at": 24,
+         "gives": "MANY",
+         "note": "many means a lot of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A generator comes fully fitted with lots of internal switches.",
+     "walkthrough": "'switching' turns the word for a lot of round, and 'internally' places the result within the word for complete.",
+     "definitionFit": "A machine converting mechanical energy into electricity is a type of generator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "switching"
+    }
+   }
   },
   {
    "number": 6,
@@ -324,7 +1201,56 @@
     "text": "Mum's rejected one sort of vessel for another",
     "enumeration": "6"
    },
-   "solution": "SAMPAN"
+   "solution": "SAMPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another",
+      "at": 38,
+      "note": "another vessel, i.e. a different sort of vessel from the pan"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 6,
+         "note": "rejected means thrown back, so the letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mum's",
+         "at": 0,
+         "gives": "MAS",
+         "note": "ma is mum, so mum's gives ma's"
+        }
+       ]
+      },
+      {
+       "words": "one sort of vessel",
+       "at": 15,
+       "gives": "PAN",
+       "note": "a pan is a cooking vessel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother has refused one type of container in favour of a different one.",
+     "walkthrough": "'vessel' plays on its two senses: the pan is a cooking vessel; the definition 'another' is a boat.",
+     "definitionFit": "This light flat-bottomed boat of China and the Far East is a vessel of a different sort to the pan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 7,
@@ -338,7 +1264,41 @@
     "text": "Doctor, I'm in alien ground, going all over the place",
     "enumeration": "15"
    },
-   "solution": "OMNIDIRECTIONAL"
+   "solution": "OMNIDIRECTIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going all over the place",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 21,
+       "note": "ground means crushed and broken up, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Doctor, I'm in alien",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient tells their doctor they are on foreign soil.",
+     "walkthrough": "'ground' looks like a noun (alien ground, foreign soil); it is the past tense of grind.",
+     "definitionFit": "Acting or reaching in every direction at once is going all over the place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 8,
@@ -352,7 +1312,40 @@
     "text": "Most marked armies set off",
     "enumeration": "9"
    },
-   "solution": "SMEARIEST"
+   "solution": "SMEARIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most marked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 23,
+       "note": "off means going wrong, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "armies set",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers departed, the most distinguished among them.",
+     "definitionFit": "Smeared means stained or blotched, so the superlative is the most stained or marked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marked"
+    }
+   }
   },
   {
    "number": 13,
@@ -366,7 +1359,67 @@
     "text": "Vessel's joint crew coming aboard first",
     "enumeration": "9"
    },
-   "solution": "STEAMSHIP"
+   "solution": "STEAMSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 34,
+       "note": "first says this part comes before the joint"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming",
+         "at": 20,
+         "note": "coming aboard puts a piece inside the ship's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "aboard",
+         "at": 27,
+         "gives": "SS",
+         "note": "aboard means on a ..., SS, so a piece goes between its letters"
+        },
+        {
+         "words": "crew",
+         "at": 15,
+         "gives": "TEAM",
+         "note": "a team is a crew working together"
+        }
+       ]
+      },
+      {
+       "words": "joint",
+       "at": 9,
+       "gives": "HIP",
+       "note": "the hip is a joint of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel's shared crew joined the ship first.",
+     "walkthrough": "SS, the prefix for a steamship, is the usual crossword ship, so 'aboard' means inside those letters.",
+     "definitionFit": "A ship powered by steam is a kind of vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 15,
@@ -380,7 +1433,53 @@
     "text": "Essential higher education cut, following ruling",
     "enumeration": "8"
    },
-   "solution": "INHERENT"
+   "solution": "INHERENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Essential",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 32,
+       "note": "following means coming after, so these pieces follow the ruling one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ruling",
+       "at": 42,
+       "gives": "IN",
+       "note": "in means in power, as the party in"
+      },
+      {
+       "words": "higher education",
+       "at": 10,
+       "gives": "HE"
+      },
+      {
+       "words": "cut",
+       "at": 27,
+       "gives": "RENT",
+       "note": "a rent is a tear or cut"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruling has led to cuts in the essential funding of universities.",
+     "definitionFit": "A quality that is inherent is intrinsic, part of the essential nature of a thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 16,
@@ -394,7 +1493,61 @@
     "text": "Man known for drawing list up with posh car at top",
     "enumeration": "8"
    },
-   "solution": "MERCATOR"
+   "solution": "MERCATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man known for drawing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at top",
+       "at": 44,
+       "note": "in a down answer at the top means coming first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posh car",
+       "at": 35,
+       "gives": "MERC",
+       "note": "a Merc is a Mercedes, an upmarket car"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 27,
+         "note": "up in a down clue means the letters read upward, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "list",
+         "at": 22,
+         "gives": "ROTA",
+         "note": "a rota is a list of duties"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone draws up a list that features a luxury car at its head.",
+     "walkthrough": "Gerardus Mercator, 16th-century Flemish cartographer, devised the map projection named after him.",
+     "definitionFit": "Mercator was famous for drawing maps, so a man known for drawing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 19,
@@ -408,7 +1561,31 @@
     "text": "Lock-keeper's dessert?",
     "enumeration": "6"
    },
-   "solution": "MOUSSE"
+   "solution": "MOUSSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lock-keeper",
+      "at": 0,
+      "meaning": "styling foam keeps hair locks in place"
+     },
+     {
+      "text": "dessert",
+      "at": 14,
+      "meaning": "a light whipped pudding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lock-keeper' suggests a canal worker; the locks are hair.",
+     "definitionFit": "Both are senses of one word: a hair-styling foam and a light airy pudding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lock-keeper's"
+    }
+   }
   },
   {
    "number": 20,
@@ -422,7 +1599,54 @@
     "text": "Pole practically holding up part of plant",
     "enumeration": "6"
    },
-   "solution": "CARPEL"
+   "solution": "CARPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of plant",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 25,
+       "note": "up in a down clue means the letters read upward, reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 17,
+         "note": "the words hold the answer inside them, spanning both"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pole practically",
+         "at": 0,
+         "gives": "LEPRAC"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pole is almost supporting a plant.",
+     "walkthrough": "'holding up' does two jobs: 'holding' hides the letters in 'Pole practically' and 'up' reverses them.",
+     "definitionFit": "The female reproductive organ of a flower is a carpel, a part of the plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 23,
@@ -436,7 +1660,32 @@
     "text": "Source of funds for queen, potentially",
     "enumeration": "5"
    },
-   "solution": "KITTY"
+   "solution": "KITTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of funds",
+      "at": 0,
+      "meaning": "a shared pool of money, as in a pot"
+     },
+     {
+      "text": "queen, potentially",
+      "at": 20,
+      "meaning": "a queen is a female cat, so a young cat could become one"
+     }
+    ],
+    "explanation": {
+     "surface": "A source of money for the monarch, possibly.",
+     "walkthrough": "'queen' is a breeding female cat, not a monarch.",
+     "definitionFit": "A shared fund is the money sense; a kitten, which may grow into a breeding female cat, is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "queen"
+    }
+   }
   }
  ]
 }
