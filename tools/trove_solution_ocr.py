@@ -2053,6 +2053,39 @@ def clue_wordplay(text, n):
     return out
 
 
+def clue_spells(word, text):
+    """How clue `text` spells `word` (capitals) as clue_wordplay spells listed words, for one given word, listed
+    or not: "anagram", the letters of two or more of its words in a row, not as they stand; "hidden", letters in
+    a row across a word break, not whole words; "reversed", those read backwards; else None."""
+    n = len(word)
+    if not n:
+        return None
+    toks = clue_words(text)
+    key = sorted(word)
+    for i in range(len(toks)):
+        run = toks[i]
+        for j in range(i + 1, len(toks)):
+            run += toks[j]
+            if len(run) > n:
+                break
+            if len(run) == n and run != word and sorted(run) == key:
+                return "anagram"
+    joined, ends = "", []
+    for x in toks:
+        joined += x
+        ends.append(len(joined))
+    starts = {0, *ends[:-1]}
+    for a in range(len(joined) - n + 1):
+        b = a + n
+        if not any(a < k < b for k in ends) or (a in starts and b in ends):
+            continue
+        if joined[a:b] == word:
+            return "hidden"
+        if joined[a:b][::-1] == word:
+            return "reversed"
+    return None
+
+
 #: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
 #: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
 _SYNSETS = []
