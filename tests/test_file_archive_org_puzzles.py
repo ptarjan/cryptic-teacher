@@ -4056,6 +4056,38 @@ check("classed_short: a row read since REREAD_CLASSED_CLASH, no Times paper's, a
        f.classed_short({"edition": "GaleTimes1966UKEnglish/1966-07-06", "readAt": "2000-01-01T00:00:00+00:00",
                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                       "solution": {"accepted": 2, "lights": 30}}]})])
+# ONE_WORD_SHORT: word_spells spells a word from one clue word (anagram, or hidden/reversed inside a longer one), which
+# clue_spells leaves out; spelt_word takes such a VLM reply (ARCOT "Displaced Croat", HATTA "from Manhattan").
+_tso = __import__("trove_solution_ocr")
+check("word_spells: one clue word's anagram, or a word hidden or reversed inside one; not the word itself, not 3 "
+      "letters hidden, not two words' letters",
+      ["anagram1", "inword", "revword", "anagram1", None, None, None],
+      [_tso.word_spells("ARCOT", "Displaced Croat"), _tso.word_spells("HATTA", "Looking-glass messenger from Manhattan"),
+       _tso.word_spells("REVEL", "Leverage gained"), _tso.word_spells("TIB", "Kitty has a bit on the way up"),
+       _tso.word_spells("CROAT", "Displaced Croat"), _tso.word_spells("ARD", "Nail seen on railway hoarding?"),
+       _tso.word_spells("ZAMBESI", "Current size Mab adjusted")])
+check("spelt_word takes a reply one clue word spells (ARCOT, ODETS); not a misread no clue word spells (TINEE)",
+      ["ARCOT", "ODETS", None],
+      [f.spelt_word("ARCOT", "A?C?T", sp_p("ARCOT"), "5", "Mad Croat defended by Clive"),
+       f.spelt_word("ODETS", "O?E?S", sp_p("ODETS"), "5", "American playwright dotes on cooking"),
+       f.spelt_word("TINEE", "T?N?E", sp_p("TINEE"), "5", "Suspicion can upset say")])
+check("ONE_WORD_SHORT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.ONE_WORD_SHORT], f.ONE_WORD_SHORT in f.SOLUTION_FIXES, f.ONE_WORD_SHORT.startswith("solution short"),
+       f.ONE_WORD_SHORT in __import__("edition_queue").LOW_ASK, f.ONE_WORD_SHORT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.ONE_WORD_SHORT)))
+_ow = min(f.ONE_WORD_PUZZLES)
+check("one_word_short: a row read since REREAD_ONE_WORD, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2099-01-01T00:00:00+00:00",
+                         "verdicts": []}),
+       f.one_word_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": f"times-{_ow}", "solutionFrom": "x leaf 3", "number": _ow,
+                                       "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.one_word_short({"edition": "GaleTimes1962UKEnglish/1962-10-03", "readAt": "2000-01-01T00:00:00+00:00",
+                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                       "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
