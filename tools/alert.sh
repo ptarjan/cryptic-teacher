@@ -122,7 +122,9 @@ alert() {
   echo "ALERT: $*"
   ALERT_CLAIMED="${ALERT_CLAIMED:-}$*"$'\n'
   local stamp
-  stamp="$ALERT_STATE_DIR/$(printf '%s' "$*" | shasum | cut -c1-16)"
+  # shasum is macOS's; Linux hosts have sha1sum. Same digest either way.
+  local sum=sha1sum; command -v sha1sum >/dev/null || sum=shasum
+  stamp="$ALERT_STATE_DIR/$(printf '%s' "$*" | $sum | cut -c1-16)"
   mkdir -p "$ALERT_STATE_DIR" 2>/dev/null || true
   if [ -f "$stamp" ] &&
      [ -z "$(find "$stamp" -mmin "+$((ALERT_REPEAT_HOURS * 60))" 2>/dev/null)" ]
