@@ -131,9 +131,9 @@ check("an archive row dates itself in the app list's short form",
 listing = f'<ul class="s-index">{row}</ul>'
 check("the archive listings may link answer pages beside the row, their crawl path",
       not refused("puzzles/series/cryptic/2020/index.html", listing))
-check("an archive row whose own link is the answer page is refused",
+check("an archive row whose own link opens the app is refused",
       refused("puzzles/series/cryptic/2020/index.html",
-              f'<ul class="s-index"><li><a href="{B.BASE}/puzzles/cryptic-8/">x</a></li></ul>'))
+              f'<ul class="s-index"><li><a href="{B.BASE}/?p=cryptic-8">x</a></li></ul>'))
 check("the old-number chooser may link the answer pages it replaced",
       not refused("puzzles/30000/index.html",
                   f'<ul><li><a href="{B.BASE}/puzzles/cryptic-30000/">x</a></li></ul>'))
