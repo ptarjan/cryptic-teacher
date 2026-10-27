@@ -2456,28 +2456,39 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "secured by",
        "at": 22,
-       "note": "the space is held next to and after the first letter"
+       "note": "secured by means held in place by the outer letters, which enclose the space word"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "primarily",
-         "at": 34,
-         "note": "primarily picks the first letter of bargaining"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "bargaining",
-         "at": 45
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 34,
+           "note": "primarily means first of all, so only the opening letter of bargaining is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bargaining",
+           "at": 45
+          }
+         ]
+        },
+        {
+         "words": "power",
+         "at": 56,
+         "gives": "STICK",
+         "note": "stick can mean force or clout, as in wielding the big stick"
         }
        ]
       },
@@ -2485,24 +2496,18 @@
        "words": "space",
        "at": 16,
        "gives": "ROOM",
-       "note": "room means space"
-      },
-      {
-       "words": "power",
-       "at": 56,
-       "gives": "STICK",
-       "note": "stick is a means of force, as in carrot and stick"
+       "note": "room means space, as in room to move"
       }
      ]
     },
     "explanation": {
-     "surface": "A negotiator secures office space using bargaining power.",
-     "walkthrough": "B, then ROOM, then STICK.",
-     "definitionFit": "A broomstick is the long handle of a broom, the sweeping implement."
+     "surface": "A negotiation where clout matters most, with space reserved, oddly mentioning a cleaner.",
+     "walkthrough": "'cleaner' is the sweeping tool, not a person who cleans; 'secured by' means held between the letters on either side.",
+     "definitionFit": "A broom's handle is the long pole of a sweeping tool, one component of a cleaning implement."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "cleaner"
     }
    }

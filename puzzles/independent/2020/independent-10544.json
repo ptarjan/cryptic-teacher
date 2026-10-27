@@ -862,36 +862,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
       {
        "text": "out of order",
        "at": 14,
-       "note": "out of order means the two pieces appear in the clue the other way round from the answer"
+       "note": "out of order means the two pieces are not in the sequence the clue gives, so the first goes last"
       }
      ],
      "parts": [
       {
-       "words": "nerve",
-       "at": 8,
-       "gives": "BOTTLE",
-       "note": "bottle is British slang for nerve or courage"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Jugular",
+         "at": 0,
+         "gives": "NECK",
+         "note": "the jugular, a vein in the throat, stands for the neck"
+        },
+        {
+         "words": "nerve",
+         "at": 8,
+         "gives": "BOTTLE",
+         "note": "bottle is British slang for nerve or courage"
+        }
+       ]
       },
       {
-       "words": "Jugular",
-       "at": 0,
-       "gives": "NECK",
-       "note": "the jugular is the great vein of the neck, so the neck stands for it"
+       "gives": "NECK"
       }
      ]
     },
     "explanation": {
-     "surface": "A medical note on a disordered nerve in the throat that narrows it.",
-     "walkthrough": "'out of order' says the clue gives NECK and BOTTLE swapped. BOTTLE is British for courage.",
-     "definitionFit": "A bottleneck is a narrow point that holds up flow, like the slim neck of a bottle."
+     "surface": "A medical note: a jugular nerve disorder causing narrowing.",
+     "walkthrough": "BOTTLE for courage is British slang. 'out of order' moves NECK from the front of NECKBOTTLE to the end.",
+     "definitionFit": "A bottleneck is a narrow point that restricts flow, literally a narrowing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nerve"
     }

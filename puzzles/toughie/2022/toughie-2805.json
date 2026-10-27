@@ -888,54 +888,58 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "feeding",
        "at": 16,
-       "note": "feeding places the food store into the run after popular"
+       "note": "feeding means going into, so the shop is placed inside the other letters"
       }
      ],
      "parts": [
       {
-       "words": "popular",
-       "at": 24,
-       "gives": "IN",
-       "note": "in means fashionable or popular"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "popular",
+         "at": 24,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 38,
+           "note": "regularly takes every other letter of belle, starting from the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "belle",
+           "at": 32
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "food store",
        "at": 5,
        "gives": "DELI",
-       "note": "a deli is a delicatessen, a food shop"
-      },
-      {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "regularly",
-         "at": 38,
-         "note": "regularly takes every other letter of the following word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "belle",
-         "at": 32
-        }
-       ]
+       "note": "a deli, short for delicatessen, sells food"
       }
      ]
     },
     "explanation": {
-     "surface": "A fast-food outlet feeding a popular beauty at regular intervals.",
-     "walkthrough": "'Fast food' reads as one phrase; 'Fast' alone is the definition. 'regularly' takes BLE from BELLE.",
-     "definitionFit": "A fast dye is permanent, so indelible, unable to be washed out."
+     "surface": "A fast-food outlet serving a well-liked beauty on a regular basis.",
+     "walkthrough": "'Fast food' reads as one phrase, but 'Fast' is the definition, in the sense of colourfast.",
+     "definitionFit": "Fast as in a fast dye that will not wash out; indelible marks cannot be erased."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Fast"
     }
    }
