@@ -598,6 +598,39 @@ def blurred_framing(framed, grid, fits):
     return None if best is None else best[1]
 
 
+#: lettered_framing: the fewest letters of the reading's own accepted lights a framing's classifier reading is
+#: judged on, and the share of them its likeliest letters must be.
+LETTERED_MIN, LETTERED_AGREE = 30, 0.9
+
+
+def lettered_framing(framed, grid, letters):
+    """(index, probabilities) of the framing of `framed` ([(gray, ys, xs)], framings()) whose cells the
+    classifier reads when no framing's blocks are sure or blurred (sure_framing, blurred_framing None): the one
+    whose likeliest letter is the reading's own (`letters`, {cell: letter} of the lights read_framed accepted
+    off its lattices, at least LETTERED_MIN) in LETTERED_AGREE of those cells or more, the most so; with its
+    classified() probabilities over every light's cell; None when none is. A lattice a half cell off cuts each
+    letter in two (the classifier reads a third of them, if that); another grid's lights read no word of this
+    one's. 10-27 (r32): of 145 cached crops of unplanned Times rows held short with no cell classified (1970s-90s
+    most: grey or uneven prints, blocks a block test misses), 79 frame so (agreement 0.90-1.0; the rest under
+    0.90 or fewer than LETTERED_MIN letters read). The classifier decode (vetoed, classified_reads, fitted_reads,
+    unlisted_reads) on their cached readings fills 955 of their 1,255 blank lights, 17 puzzles whole; every letter
+    crossing a held answer is the held one (1,594) but 3, each a held answer the clue proves wrong and the
+    classifier vetoes: times-16283 SUNNING (RUNNING, "May walking races be won thus in succession?"), times-15655
+    BITCH (DITCH, "Drop in the ocean"), times-14816 HORTENSIA (HORTENSIO, "Wild hero is not seen in Padua")."""
+    if len(letters) < LETTERED_MIN:
+        return None
+    cells = list(dict.fromkeys(rc for cs in lights(grid).values() for rc in cs))
+    best = None
+    for i, (g, ys, xs) in enumerate(framed):
+        if not isinstance(g, np.ndarray):
+            continue
+        probs = classified({rc: glyph(g, ys, xs, *rc) for rc in cells})
+        agree = sum(AZ[int(np.argmax(probs[rc]))] == ch for rc, ch in letters.items() if rc in probs) / len(letters)
+        if agree >= LETTERED_AGREE and (best is None or agree > best[0]):
+            best = (agree, i, probs)
+    return None if best is None else best[1:]
+
+
 def sure_framing(framed, grid, fits):
     """The index of the framing of `framed` ([(gray, ys, xs)], framings()) whose cells the classifier
     reads: the best-fitting one by `fits` (each one's block_agreement) when blocks_sure, else the
@@ -1004,16 +1037,6 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     # (blurred_framing). Here only, not in sure_framing: framed_version (grid_ocr_cache) stays, and the
     # framing kept below is the one cell_probs takes.
     blurred = at is None and classify and (at := blurred_framing(framed, grid, fits)) is not None
-    sure = at is not None
-    clat = framed[at] if sure else lat
-    # framings() and its fits are _crop_framed's own, but for a matched lattice put first: the
-    # checks after the reading (cell_probs, crop_strips) take this framing, not framed again.
-    seen = framing is None and crop_key is not None and _crop_key(image, grid) == crop_key
-    disk = grid_ocr_cache.framed_paths(image, grid) if seen else None
-    if seen:
-        _keep_framed(crop_key, clat if sure else None)
-        # On disk too (grid_ocr_cache.keep_framing): a later unit whose reading solved() kept frames nothing.
-        grid_ocr_cache.keep_framing(disk, clat if sure else None, sure and clat[0] is gray)
     reads.sort(key=lambda r: -r[1]["cellsSure"])
     lts = lights(grid)
     accepted, stats, every, _ = reads[0]
@@ -1045,6 +1068,23 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         accepted.update(mended)
         if len(accepted) == before and not mended:
             break
+    # A grid no framing's blocks judge (neither sure nor blurred): the framing whose classifier letters are the
+    # reading's own (lettered_framing). Here only, as blurred_framing: framed_version stays.
+    lettered = None
+    if at is None and classify:
+        lettered = lettered_framing(framed, grid, {rc: ch for key, w in accepted.items() for rc, ch in zip(lts[key], w)})
+        if lettered is not None:
+            at = lettered[0]
+    sure = at is not None
+    clat = framed[at] if sure else lat
+    # framings() and its fits are _crop_framed's own, but for a matched lattice put first: the
+    # checks after the reading (cell_probs, crop_strips) take this framing, not framed again.
+    seen = framing is None and crop_key is not None and _crop_key(image, grid) == crop_key
+    disk = grid_ocr_cache.framed_paths(image, grid) if seen else None
+    if seen:
+        _keep_framed(crop_key, clat if sure else None)
+        # On disk too (grid_ocr_cache.keep_framing): a later unit whose reading solved() kept frames nothing.
+        grid_ocr_cache.keep_framing(disk, clat if sure else None, sure and clat[0] is gray)
     if bounded and blocks < SURE_BLOCKS:
         seen = blocks_read(lat[0], lat[1:], len(grid))
         accepted = {key: w for key, w in accepted.items()
@@ -1055,7 +1095,8 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
         # light it surely reads otherwise is dropped, and the lights left are
         # decoded from its letters.
         g, ys, xs = clat
-        probs = classified({rc: glyph(g, ys, xs, *rc) for cells in lts.values() for rc in cells})
+        probs = lettered[1] if lettered is not None else classified(
+            {rc: glyph(g, ys, xs, *rc) for cells in lts.values() for rc in cells})
         if seen:
             # cell_probs' very probabilities (the same framing's cells, in the same order).
             _CELL_PROBS_SEEN["last"] = ((crop_key, dict(probs)), *_CELL_PROBS_SEEN.get("last", ())[:CROP_FRAMED_KEPT - 1])
@@ -1071,6 +1112,8 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
             stats["sureFraming"] = at
         if blurred:
             stats["blurred"] = True
+        if lettered is not None:
+            stats["lettered"] = True
         if enums is not None:
             fit = fitted_reads(lts, accepted, probs, enums)
             accepted.update(fit)
