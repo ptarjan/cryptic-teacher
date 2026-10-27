@@ -2728,6 +2728,21 @@ check("a grey block read as a light, yet the least paper of all cells, is a sure
       [False, True, True, False],
       [tso.blocks_read(grey5, rules5, 5)[(1, 1)], tso.blocks_ranked(grey5, grid5, rules5), tso.blocks_sure(grey5, grid5, rules5),
        tso.blocks_ranked(grey5, [".....", "...#.", ".....", ".....", "....."], rules5)])
+# blurred_framing: a dot-screened block blurred to a tone is darker than every light, lettered or not: the
+# framing is read; not for a grid with its blocks elsewhere, nor a stub framing's (tests' string grays).
+screen = np.full((300, 300), 250, np.uint8)
+for k in range(6):
+    screen[k * 60:k * 60 + 6, :] = 0
+    screen[:, k * 60:k * 60 + 6] = 0
+screen[66:120, 66:120] = np.where((np.add.outer(np.arange(54), np.arange(54)) % 2) == 0, 0, 250)
+for r, c in [(0, 2), (2, 2), (3, 4)]:
+    screen[r * 60 + 20:r * 60 + 46, c * 60 + 30:c * 60 + 36] = 0   # a letter's stroke
+other5 = ["#...#", ".....", "..#..", ".....", "#...#"]
+check("a dot-screened block blurred is the darkest cell: its framing read; another grid's or a stub's is not",
+      [0, True, 1, None, None],
+      [tso.blurred_misses(screen, grid5, rules5), tso.blurred_misses(screen, other5, rules5) > tso.BLURRED_MISS,
+       tso.blurred_framing([("stub", *rules5), (screen, *rules5)], grid5, [0.9, 0.9]),
+       tso.blurred_framing([(screen, *rules5)], other5, [0.9]), tso.blurred_framing([("stub", *rules5)], grid5, [0.9])])
 
 # improves(): a reading replaces a file this tool filed when it beats it.
 pz = Path(os.environ["TMP"]) / "pz"; pz.mkdir()
@@ -3943,6 +3958,32 @@ check("ranked_stale: a kept reading marked ranked, classified, whole or refused 
        f.ranked_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
        f.ranked_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1, []),
        f.ranked_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), 1, [])])
+check("BLURRED_BLOCKS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.BLURRED_BLOCKS], f.BLURRED_BLOCKS in f.SOLUTION_FIXES, f.BLURRED_BLOCKS.startswith("solution short"),
+       f.BLURRED_BLOCKS in __import__("edition_queue").LOW_ASK, f.BLURRED_BLOCKS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.BLURRED_BLOCKS)))
+_bp = min(f.BLURRED_PUZZLES)
+check("blurred_short: a row read since REREAD_BLURRED_BLOCKS, no Times paper's, a classified grid's or another "
+      "puzzle's is not due", [False, False, False, False],
+      [f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.blurred_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_bp}", "solutionFrom": "x leaf 3", "number": _bp,
+                                      "solution": {"accepted": 2, "lights": 30, "classified": 0}}]}),
+       f.blurred_short({"edition": "NewsUK1982UKEnglish/1982-03-24_61190", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
+check("blurred_stale: an unmarked short unclassified Times reading of BLURRED_PUZZLES is read again; marked, "
+      "classified, whole, refused or another puzzle's is not",
+      [True, False, False, False, False, False],
+      [f.blurred_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"blurred": True, "stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 30, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"refused": "x"}}, Path("/x/NewsUK1982UKEnglish"), _bp),
+       f.blurred_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"), 1)])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",

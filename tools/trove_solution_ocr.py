@@ -540,6 +540,64 @@ def blocks_ranked(gray, grid, lat):
     return bool(blocks) and bool(lit) and min(lit) > max(blocks)
 
 
+#: The most cells blurred_misses lets lie on the wrong side of a framing's cut (blurred_framing).
+BLURRED_MISS = 3
+
+
+def blurred_misses(gray, grid, lat):
+    """The fewest of `grid`'s cells on the wrong side of one cut of their mean grey (the middle of each cell,
+    between()'s 0.15 in, read as the print blurred to a tone) on lattice `lat` (ys, xs) of `gray`: blocks
+    above it or lights under it, over the cells' own grey and over each one's grey against its 5 x 5
+    neighbourhood's (its 75th percentile: a scan darker on one side), the fewer; None for a cell off the
+    image."""
+    n = len(grid)
+    ys, xs = lat
+    grey = np.zeros((n, n))
+    for r in range(n):
+        for c in range(n):
+            a = between(gray, ys, xs, r, c, 0.15)
+            if a.size == 0:
+                return None
+            grey[r, c] = float(a.mean())
+    local = np.array([[grey[r, c] / max(1.0, float(np.percentile(grey[max(0, r - 2):r + 3, max(0, c - 2):c + 3], 75)))
+                       for c in range(n)] for r in range(n)])
+    isb = np.array([[ch == "#" for ch in row[:n]] for row in grid[:n]]).ravel()
+    if not isb.any() or isb.all():
+        return None
+    best = None
+    for vals in (grey.ravel(), local.ravel()):
+        b = isb[np.argsort(vals, kind="stable")]
+        # A cut after the k darkest cells: the lights among them and the blocks past them.
+        miss = int((np.cumsum(~b)[:-1] + (b.sum() - np.cumsum(b)[:-1])).min())
+        best = miss if best is None else min(best, miss)
+    return best
+
+
+def blurred_framing(framed, grid, fits):
+    """The index of the framing of `framed` ([(gray, ys, xs)], framings()) whose cells the classifier reads
+    when no framing's blocks are sure (sure_framing None): the one with the fewest blurred_misses, at most
+    BLURRED_MISS (the best-fitting by `fits` of those alike); None when none is. A grey or screened print's
+    blocks are a mid grey or a dot screen whose open paper cell_paper counts (Otsu's cut), and a 1980s scan
+    brighter on one side holds lights darker than another side's blocks; blurred to a tone each block is
+    darker than the lights about it. 10-27: of 239 cached crops of Times rows held short with no cell classified,
+    59 not sure by blocks_ranked frame so (7 with no miss, 52 with 1-3). Their classifier decodes (vetoed,
+    classified_reads, fitted_reads, unlisted_reads on the cached readings) fill 601 blank lights, every letter
+    crossing a held answer the held one (891) but 3 where the held answer was wrong (ETHER, REVISER,
+    PACEWORDS); one held light read otherwise on an unchecked cell (times-14534 TEAN, printed JEAN, held LEAN).
+    At 4-6 misses two decodes cross a held answer otherwise (RESOURCE, MERCHANTS), unchecked. A lattice a
+    half cell off splits every block between two cells (dozens of misses)."""
+    best = None
+    for i, (g, ys, xs) in enumerate(framed):
+        if not isinstance(g, np.ndarray):
+            continue
+        miss = blurred_misses(g, grid, (ys, xs))
+        if miss is None or miss > BLURRED_MISS:
+            continue
+        if best is None or (miss, -fits[i]) < best[0]:
+            best = ((miss, -fits[i]), i)
+    return None if best is None else best[1]
+
+
 def sure_framing(framed, grid, fits):
     """The index of the framing of `framed` ([(gray, ys, xs)], framings()) whose cells the classifier
     reads: the best-fitting one by `fits` (each one's block_agreement) when blocks_sure, else the
@@ -942,6 +1000,10 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
     # inked letters read as blocks; on the best-fitting framing that is so (sure_framing), the
     # best one when it is.
     at = sure_framing(framed, grid, fits)
+    # A grey print's blocks, none sure by their paper: the framing whose blocks are its darkest cells blurred
+    # (blurred_framing). Here only, not in sure_framing: framed_version (grid_ocr_cache) stays, and the
+    # framing kept below is the one cell_probs takes.
+    blurred = at is None and classify and (at := blurred_framing(framed, grid, fits)) is not None
     sure = at is not None
     clat = framed[at] if sure else lat
     # framings() and its fits are _crop_framed's own, but for a matched lattice put first: the
@@ -1007,6 +1069,8 @@ def read_framed(image, grid, bounded=False, classify=False, lean=False, enums=No
             stats["heavy"] = True
         if at != best:
             stats["sureFraming"] = at
+        if blurred:
+            stats["blurred"] = True
         if enums is not None:
             fit = fitted_reads(lts, accepted, probs, enums)
             accepted.update(fit)
