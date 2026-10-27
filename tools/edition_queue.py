@@ -718,6 +718,8 @@ def evidence_reason(reason):
             or reason == fa.UNFILED_MODERN
             # A Times page written unfiled for a blank the print's close-set dash made ("Beat,—with"; fa.dash_joined).
             or reason == fa.DASH_JOINED
+            # A Times page written unfiled for a word's old or spoken form read as no word ("loveth", "fishin'"; fa.old_formed).
+            or reason == fa.OLD_FORM
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
@@ -1450,7 +1452,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.DASH_JOINED)
+              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.DASH_JOINED, fa.OLD_FORM)
 
 
 def unproven_first(unit):

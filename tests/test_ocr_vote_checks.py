@@ -1196,6 +1196,14 @@ check("suspect: the print's close-set dash between words stands, each word judge
       [[], [], [], [("wtih", "not a word")], [("some—thing", "a stray mark inside a word")]],
       [oc.suspect("Beat,—with a shaving brush?"), oc.suspect('Bull-dog run"—quite'), oc.suspect("It's--hard to be"),
        oc.suspect("Beat,—wtih"), oc.suspect("some—thing")])
+check("suspect: a known word's old or spoken form stands ('loveth\"', 'smilest', 'couldst', 'dottily', "
+      "'incomprehensibly', \"fishin'\"); a misread or one with its apostrophe lost does not",
+      [[], [], [], [], [], [], [("sanotimonious", "not a word")], [("fightin", "not a word")],
+       [("öboth", "not a word")]],
+      [oc.suspect('yea he loveth" (L. L. L.)'), oc.suspect("Thou smilest and art still"), oc.suspect("thou couldst!"),
+       oc.suspect("punctuated dottily"), oc.suspect("incomprehensibly in the soup"),
+       oc.suspect("Huntin' shootin' and fishin' bore,"), oc.suspect("a sanotimonious beast"),
+       oc.suspect("a fightin man"), oc.suspect("öboth")])
 
 # Times asPrinted: readers sharing a detector share misreads, so only a word
 # every reading (three or more) spells alike, no one letter from a known
