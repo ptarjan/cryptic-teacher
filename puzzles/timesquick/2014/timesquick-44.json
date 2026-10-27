@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Quite good-looking",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0,
+      "meaning": "as an adverb, ... well means fairly, as in ... good"
+     },
+     {
+      "text": "good-looking",
+      "at": 6,
+      "meaning": "attractive in appearance, especially in a delicate way"
+     }
+    ],
+    "explanation": {
+     "surface": "A grudging compliment: someone is quite good-looking.",
+     "definitionFit": "The word serves both as an adverb meaning fairly and as an adjective meaning attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quite"
+    }
+   }
   },
   {
    "number": 4,
@@ -45,7 +71,52 @@
     "text": "Cold sparkling cider for this fellow",
     "enumeration": "6"
    },
-   "solution": "CEDRIC"
+   "solution": "CEDRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this fellow",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the standard abbreviation for cold, as on taps"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sparkling",
+         "at": 5,
+         "note": "sparkling suggests fizz and agitation, so the letters of cider are stirred into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cider",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A glass of chilled fizzy cider is offered to a particular man.",
+     "walkthrough": "'sparkling' looks like a description of the drink, but it signals the anagram; the leftover single letter stands before the shuffle.",
+     "definitionFit": "A man's given name, so any male bearer of it can be called this fellow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sparkling"
+    }
+   }
   },
   {
    "number": 9,
@@ -59,7 +130,41 @@
     "text": "Greek character not in favour of Italian wine",
     "enumeration": "7"
    },
-   "solution": "CHIANTI"
+   "solution": "CHIANTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian wine",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek character",
+       "at": 0,
+       "gives": "CHI",
+       "note": "chi is a letter of the Greek alphabet"
+      },
+      {
+       "words": "not in favour of",
+       "at": 16,
+       "gives": "ANTI",
+       "note": "opposed to something means being anti it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek person dislikes Italian wine.",
+     "definitionFit": "A red wine from the Tuscany region of Italy, a well-known example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 10,
@@ -73,7 +178,57 @@
     "text": "Soldiers volunteering to protect a politician in Florida location",
     "enumeration": "5"
    },
-   "solution": "TAMPA"
+   "solution": "TAMPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Florida location",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to protect",
+       "at": 22,
+       "note": "protecting something means surrounding it, so the soldiers go round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Soldiers volunteering",
+       "at": 0,
+       "gives": "TA",
+       "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 33
+        },
+        {
+         "words": "politician",
+         "at": 35,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Volunteer troops guard a politician on a visit to Florida.",
+     "definitionFit": "A city on Florida's Gulf coast, a place in that state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protect"
+    }
+   }
   },
   {
    "number": 11,
@@ -87,7 +242,45 @@
     "text": "Musical instrument storyteller mentioned",
     "enumeration": "4"
    },
-   "solution": "LYRE"
+   "solution": "LYRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LYRE",
+     "indicators": [
+      {
+       "text": "mentioned",
+       "at": 31,
+       "note": "something mentioned is spoken, so the word is judged by how it sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "storyteller",
+       "at": 19,
+       "gives": "LIAR",
+       "note": "telling stories can mean telling lies, so a storyteller is a liar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bard mentions the instrument he plays.",
+     "walkthrough": "'storyteller' looks innocent but means a fibber, in the sense of telling stories.",
+     "definitionFit": "A small harp-like stringed instrument of ancient Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "storyteller"
+    }
+   }
   },
   {
    "number": 12,
@@ -101,7 +294,41 @@
     "text": "Reject type of steak on display",
     "enumeration": "5,3"
    },
-   "solution": "CHUCKOUT"
+   "solution": "CHUCKOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reject",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "type of steak",
+       "at": 7,
+       "gives": "CHUCK",
+       "note": "chuck is a cut of beef from the shoulder"
+      },
+      {
+       "words": "on display",
+       "at": 21,
+       "gives": "OUT",
+       "note": "something out is visible, as flowers are out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's counter displays a steak nobody wants.",
+     "definitionFit": "A phrasal verb meaning to throw away or discard, a synonym of reject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steak"
+    }
+   }
   },
   {
    "number": 14,
@@ -115,7 +342,43 @@
     "text": "Plant book by Laurel's partner?",
     "enumeration": "5,6"
    },
-   "solution": "HARDYANNUAL"
+   "solution": "HARDYANNUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Laurel's partner",
+       "at": 14,
+       "gives": "HARDY",
+       "note": "Oliver Hardy partnered Stan Laurel in the comedy double act"
+      },
+      {
+       "words": "book",
+       "at": 6,
+       "gives": "ANNUAL",
+       "note": "an annual is a book published yearly, often for children"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book written by the partner of the comedian Laurel.",
+     "walkthrough": "'Plant' is the definition; Laurel also looks like a plant but is Stan Laurel.",
+     "definitionFit": "A plant that completes its life cycle in one year and survives frost, a gardening term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Laurel's"
+    }
+   }
   },
   {
    "number": 18,
@@ -129,7 +392,58 @@
     "text": "Helpers include American and British mates",
     "enumeration": "8"
    },
-   "solution": "HUSBANDS"
+   "solution": "HUSBANDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mates",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "include",
+       "at": 8,
+       "note": "one word including others means it holds them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Helpers",
+       "at": 0,
+       "gives": "HANDS",
+       "note": "hands are workers or helpers, as farm hands"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 16,
+         "gives": "US",
+         "note": "US is short for United States, so American"
+        },
+        {
+         "words": "British",
+         "at": 29,
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team of helpers includes friends from both sides of the Atlantic.",
+     "definitionFit": "A mate can be a spouse, and married men are spouses of their wives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mates"
+    }
+   }
   },
   {
    "number": 20,
@@ -143,7 +457,45 @@
     "text": "Perhaps Othello extra speaking?",
     "enumeration": "4"
    },
-   "solution": "MOOR"
+   "solution": "MOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps Othello",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MOOR",
+     "indicators": [
+      {
+       "text": "speaking",
+       "at": 22,
+       "note": "speaking says the word is judged by its sound rather than spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra",
+       "at": 16,
+       "gives": "MORE",
+       "note": "extra means additional, more"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a stage production of Othello needs another walk-on actor.",
+     "walkthrough": "'extra' suggests a film or stage extra, fitting the Othello scene, but means more.",
+     "definitionFit": "Shakespeare's tragic hero is described as a North African Muslim, an example of that people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 22,
@@ -157,7 +509,41 @@
     "text": "Selected a hundred socks",
     "enumeration": "5"
    },
-   "solution": "CHOSE"
+   "solution": "CHOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Selected",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a hundred",
+       "at": 9,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "words": "socks",
+       "at": 19,
+       "gives": "HOSE",
+       "note": "hose is an old word for stockings and socks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picked out a hundred pairs of socks.",
+     "definitionFit": "Past tense of choose, a synonym for picked or selected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "socks"
+    }
+   }
   },
   {
    "number": 23,
@@ -171,7 +557,48 @@
     "text": "Country folk taking part in operatic song",
     "enumeration": "7"
    },
-   "solution": "ARMENIA"
+   "solution": "ARMENIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking part in",
+       "at": 13,
+       "note": "taking part in something means being within it, so these letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "operatic song",
+       "at": 28,
+       "gives": "ARIA",
+       "note": "an aria is a solo song in an opera"
+      },
+      {
+       "words": "folk",
+       "at": 8,
+       "gives": "MEN",
+       "note": "folk means people, so men"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Country people join in singing an opera aria.",
+     "definitionFit": "A nation in the Caucasus region, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 24,
@@ -185,7 +612,71 @@
     "text": "Perceptive, like half of tutors and head of Eton",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perceptive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "like",
+       "at": 12,
+       "gives": "AS",
+       "note": "as means like, in comparisons"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 17,
+         "note": "half of keeps the front three of the six letters of tutors, dropping the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tutors",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 36,
+         "note": "head of keeps only the opening letter of the word Eton, dropping the rest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eton",
+         "at": 44
+        },
+        {
+         "gives": "TON"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever pupil is as sharp as half the tutors and the headmaster of Eton.",
+     "walkthrough": "Eton is a famous English private school, so 'head of Eton' looks like its headmaster.",
+     "definitionFit": "Shrewd and quick to see how things are, a synonym of perceptive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 25,
@@ -199,7 +690,48 @@
     "text": "Cycle accessory theology student found in auction",
     "enumeration": "6"
    },
-   "solution": "SADDLE"
+   "solution": "SADDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cycle accessory",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 33,
+       "note": "found in says these letters sit inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "auction",
+       "at": 42,
+       "gives": "SALE",
+       "note": "an auction is a sale of goods"
+      },
+      {
+       "words": "theology student",
+       "at": 16,
+       "gives": "DD",
+       "note": "DD, Doctor of Divinity, is a degree in theology"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divinity student picks up a bike part at an auction.",
+     "definitionFit": "The seat on a bicycle is a part fitted to it, hence an accessory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 1,
@@ -213,7 +745,31 @@
     "text": "Vegetable preserved in jam?",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable preserved",
+      "at": 0,
+      "meaning": "a vegetable kept in vinegar or brine"
+     },
+     {
+      "text": "jam",
+      "at": 23,
+      "meaning": "a jam is a predicament or tight spot"
+     }
+    ],
+    "explanation": {
+     "surface": "Vegetables preserved in a jar of jam.",
+     "definitionFit": "One sense is food kept in vinegar; the other is a fix or difficult situation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 2,
@@ -227,7 +783,52 @@
     "text": "African country makes our queen terribly irate",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "our queen",
+       "at": 22,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the British queen's cipher"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 32,
+         "note": "terribly suggests disorder, so the letters of irate are thrown into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "irate",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An African nation makes the Queen terribly angry.",
+     "walkthrough": "'terribly' reads as an intensifier for irate but is the anagram signal; 'makes' is only a link.",
+     "definitionFit": "A nation on the Red Sea coast of the Horn of Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 3,
@@ -241,7 +842,29 @@
     "text": "Acting award for Curtis, say",
     "enumeration": "4"
    },
-   "solution": "TONY"
+   "solution": "TONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Acting award",
+      "at": 0,
+      "meaning": "a prize for Broadway theatre achievement"
+     },
+     {
+      "text": "Curtis, say",
+      "at": 17,
+      "meaning": "... Curtis was a Hollywood actor, an example bearer of the name"
+     }
+    ],
+    "explanation": {
+     "surface": "An acting prize goes to the film star Curtis.",
+     "definitionFit": "The Broadway theatre prize and the first name of actor Tony Curtis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -255,7 +878,42 @@
     "text": "Very attractive part of hospital? Topping",
     "enumeration": "8"
    },
-   "solution": "ENTICING"
+   "solution": "ENTICING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very attractive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "part of hospital",
+       "at": 16,
+       "gives": "ENT",
+       "note": "ENT, ear nose and throat, is a hospital department"
+      },
+      {
+       "words": "Topping",
+       "at": 34,
+       "gives": "ICING",
+       "note": "icing is a topping on a cake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wing of a hospital is praised as topping, old slang for excellent.",
+     "walkthrough": "'Topping' looks like dated British slang for splendid but is a cake covering.",
+     "definitionFit": "Tempting and alluring, so very attractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Topping"
+    }
+   }
   },
   {
    "number": 6,
@@ -269,7 +927,54 @@
     "text": "Rewound part of Bob Marley film",
     "enumeration": "5"
    },
-   "solution": "RAMBO"
+   "solution": "RAMBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Rewound",
+       "at": 0,
+       "note": "Rewound says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "part of",
+         "at": 8,
+         "note": "part of says the answer is a run of letters hidden inside the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bob Marley",
+         "at": 16,
+         "gives": "OBMAR",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tape of the reggae singer Bob Marley is rewound to replay part of it.",
+     "definitionFit": "The Sylvester Stallone action film series about a commando, one example of a movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rewound"
+    }
+   }
   },
   {
    "number": 7,
@@ -283,7 +988,40 @@
     "text": "Reformed cheats, far from corrupt",
     "enumeration": "6"
    },
-   "solution": "CHASTE"
+   "solution": "CHASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "far from corrupt",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reformed",
+       "at": 0,
+       "note": "reformed means formed again, so the letters of cheats are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cheats",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheats who have reformed are now far from corrupt.",
+     "definitionFit": "Pure and virtuous, the opposite of corrupt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reformed"
+    }
+   }
   },
   {
    "number": 8,
@@ -297,7 +1035,31 @@
     "text": "Porter's work covering a twenty-four hour period?",
     "enumeration": "5,3,3"
    },
-   "solution": "NIGHTANDDAY"
+   "solution": "NIGHTANDDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Porter's work",
+      "at": 0,
+      "meaning": "a song by Cole Porter, the American songwriter"
+     },
+     {
+      "text": "covering a twenty-four hour period?",
+      "at": 14,
+      "meaning": "a full day comprises both its dark and light hours, hence round the clock"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel porter works round the clock.",
+     "definitionFit": "A Cole Porter song title and a phrase for all the time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Porter's"
+    }
+   }
   },
   {
    "number": 13,
@@ -311,7 +1073,51 @@
     "text": "Near a record player a small coin is found",
     "enumeration": "8"
    },
-   "solution": "ADJACENT"
+   "solution": "ADJACENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Near",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 5
+      },
+      {
+       "words": "record player",
+       "at": 7,
+       "gives": "DJ",
+       "note": "a DJ, disc jockey, plays records"
+      },
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "small coin",
+       "at": 23,
+       "gives": "CENT",
+       "note": "a cent is a coin of small value"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record player and a small coin are found close by.",
+     "walkthrough": "'record player' suggests a gramophone but means a disc jockey.",
+     "definitionFit": "Lying next to or close by, a synonym of near."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 15,
@@ -325,7 +1131,58 @@
     "text": "Loved keeping rear of kitchen decorated",
     "enumeration": "7"
    },
-   "solution": "ADORNED"
+   "solution": "ADORNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "decorated",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 6,
+       "note": "keeping means holding inside, so a letter is placed within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Loved",
+       "at": 0,
+       "gives": "ADORED",
+       "note": "adored means loved deeply"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "rear of",
+         "at": 14,
+         "note": "rear of takes the final letter of kitchen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kitchen",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loved home kept its kitchen back wall decorated.",
+     "definitionFit": "Embellished or ornamented, a synonym of decorated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 16,
@@ -339,7 +1196,58 @@
     "text": "More than once fellow fails to finish dance",
     "enumeration": "3-3"
    },
-   "solution": "CHACHA"
+   "solution": "CHACHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "repeat",
+     "indicators": [
+      {
+       "text": "More than once",
+       "at": 0,
+       "note": "more than once says the shortened word appears twice"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "fails to finish",
+         "at": 22,
+         "note": "failing to finish means the word is cut short at its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellow",
+         "at": 15,
+         "gives": "CHAP",
+         "note": "chap is informal for a fellow or man"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man repeatedly fails to complete a dance.",
+     "walkthrough": "'fails to finish' trims CHAP to CHA, which 'More than once' repeats.",
+     "definitionFit": "A Latin American ballroom dance of Cuban origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fails"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1261,47 @@
     "text": "In Greek island there's a forge",
     "enumeration": "6"
    },
-   "solution": "CREATE"
+   "solution": "CREATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "forge",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In places the letter inside the island's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Greek island",
+       "at": 3,
+       "gives": "CRETE",
+       "note": "Crete is the largest Greek island"
+      },
+      {
+       "words": "a",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a Greek island there's a blacksmith's forge.",
+     "walkthrough": "'forge' looks like a noun, a smithy, but is the verb meaning make.",
+     "definitionFit": "To forge something is to make or bring it into being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forge"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1315,30 @@
     "text": "Film attempt to score goal",
     "enumeration": "5"
    },
-   "solution": "SHOOT"
+   "solution": "SHOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0,
+      "meaning": "to film is to record on camera"
+     },
+     {
+      "text": "attempt to score goal",
+      "at": 5,
+      "meaning": "in football, to kick at the goal"
+     }
+    ],
+    "explanation": {
+     "surface": "A camera crew films a striker trying to score.",
+     "definitionFit": "Both shooting a movie and shooting at goal use the same verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Film"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1352,54 @@
     "text": "Girl with no heart for exam, getting degree",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no heart for",
+         "at": 10,
+         "note": "no heart says the middle two letters of exam are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exam",
+         "at": 23
+        },
+        {
+         "gives": "XA"
+        }
+       ]
+      },
+      {
+       "words": "degree",
+       "at": 37,
+       "gives": "MA",
+       "note": "MA, Master of Arts, is a degree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with no enthusiasm for an exam still gets her degree.",
+     "definitionFit": "A girl's name, as in Jane Austen's heroine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   }
  ]
 }
