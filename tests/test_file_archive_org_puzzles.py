@@ -1641,8 +1641,21 @@ f.many_short = lambda row, paper, few=False, wide=False: not few and not wide
 wd_due = [f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
 f.many_short = lambda row, paper, few=False, wide=False: False
 wd_due.append(f.short_again(vu_row("2026-10-26T21:00:00+00:00", ao=True)))
+# A row read under a key _SOLUTION_SAME reads alike (8417cfb08f3a9706, before c69c4949fce's lint edit moved the
+# key unpinned) is this code's: fix_reason gives WIDE_AGREED, not the blanket "read by other code" only_evidence
+# drops (10-26: 404 of 408 such rows never planned); another key is not this code's.
+f.many_short = lambda row, paper, few=False, wide=False: not few and not wide
+same_key = [f.solution_current({"solutionKey": f.solution_key()}),
+            f.solution_current({"solutionKey": "other"}), f.solution_current({}),
+            f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": f.solution_key()}),
+            f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": "other"}) == f.WIDE_AGREED]
+same_key += [f.fix_reason({**vu_row("2026-10-26T21:00:00+00:00", ao=True), "solutionKey": k}) == f.WIDE_AGREED
+             for k, v in f._SOLUTION_SAME.items() if v == f.solution_key()]
 f.many_short = real_mny
 f.filed_state = real_fs
+check("a row read under a key _SOLUTION_SAME reads as the current one is this code's (WIDE_AGREED due); "
+      "another key, or none, is not",
+      [True, False, False, f.WIDE_AGREED, False] + [True] * (len(same_key) - 5), same_key)
 check("a held file more than LATE_MAX short read before REREAD_WIDE_AGREED: WIDE_AGREED (rank 2, answers-only, "
       "evidence, LOW, a fix landed); read since, or not so short: not",
       [f.WIDE_AGREED, None, None, 2, True, True, True, True, True],
