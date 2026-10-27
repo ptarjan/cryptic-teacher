@@ -1121,6 +1121,35 @@ check("crop_strips: a strip batch classified once, kept in memory and on disk al
       [[_sp_cells, [rc for rc in _sp_lts[_sp_keys[2]]], _sp_cells], True, True, True, True],
       [_sp_batches, _sp_first == _sp_mem, _sp_first == _sp_disk, _sp_first == _sp_torn,
        sorted(_sp_first) == sorted(f"{k[0]}-{k[1]}" for k in _sp_keys[:2])])
+# strip_near's image work is kept between plans (NEAR_CACHE): a strip's VLM ask bytes (_strip_png) are its PNG
+# itself where png() makes it again byte for byte (kept by sha1, so no plan encodes it again), else png() of it;
+# a late strip cut off a crop (_cut_strips) is cut once for the same crop, grid and lights.
+_nc_real = (f.NEAR_CACHE, f.trove_solution_ocr.crop_strips)
+f.NEAR_CACHE = Path(_cf_tmp.mkdtemp()) / "near"
+f._SAME_PNGS.clear()
+f._OTHER_PNGS.clear()
+_nc_img = _CfImage.new("L", (30, 12), 200)
+_nc_own = f.vlm.png(_nc_img)
+_nc_buf = __import__("io").BytesIO()
+_nc_info = __import__("PIL.PngImagePlugin").PngImagePlugin.PngInfo()
+_nc_info.add_text("by", "another encoder")  # png() writes no text chunk: other bytes, the same pixels
+_nc_img.save(_nc_buf, "PNG", pnginfo=_nc_info)
+_nc_b64 = __import__("base64").b64encode
+_nc_cuts = []
+try:
+    _nc_got = [f._strip_png(_nc_b64(_nc_own).decode()) == _nc_own,
+               f._strip_png(_nc_b64(_nc_buf.getvalue()).decode()) == _nc_own != _nc_buf.getvalue()]
+    _nc_kept = (f.NEAR_CACHE / f"same.{f._slug(f._near_encoder())}.txt").read_text().split()
+    f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: _nc_cuts.append(keys) or {"1-across": {"png": "x", "p": [[0.5]]}}
+    _nc_strips = [f._cut_strips(_sp_png, _sp_grid, [(1, "across")]), f._cut_strips(_sp_png, _sp_grid, [(1, "across")]),
+                  f._cut_strips(_sp_png, _sp_grid, [(4, "across")])]
+finally:
+    f.NEAR_CACHE, f.trove_solution_ocr.crop_strips = _nc_real
+    f._SAME_PNGS.clear()
+check("strip_near's image work kept: a strip png() remakes alike is its own ask bytes, kept by sha1; another "
+      "encoding is png()'s; the same late strips cut once off a crop, other lights cut again",
+      [True, True, [__import__("hashlib").sha1(_nc_own).hexdigest()], [[(1, "across")], [(4, "across")]], True],
+      _nc_got + [_nc_kept, _nc_cuts, _nc_strips[0] == _nc_strips[1] == {"1-across": {"png": "x", "p": [[0.5]]}}])
 # A held file 1-2 short, a blank light's strip kept, read since REREAD_LATE_STRIPS (due nothing else): VLM_REJUDGED
 # until REREAD_VLM_REJUDGED; with no such strip, or 3+ short, nothing.
 f.filed_state = lambda series, n: (False, True)

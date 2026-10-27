@@ -10360,6 +10360,101 @@ def unasked_short(row, paper):
 _ASK_REPLIES = {}
 #: {(held path, reading path, swap): ((held stamp, reading stamp), strip_near's answer)}
 _NEAR_STRIPS = {}
+#: Where strip_near keeps its image work between processes (_strip_png, _cut_strips). 10-27: a plan's
+#: fix_reason over the 19,657 Times rows of filed-gale.jsonl spent 12-18 ms a row (4-6 min, 25+ after a
+#: reload) re-encoding each kept strip's PNG for its VLM cache key (~10k PNG saves) and cutting late strips
+#: again off their crops (framings, light_strip): the same bytes every plan.
+NEAR_CACHE = Path(os.path.expanduser("~/.cache/archive_org_crops")) / "near_strips"
+#: {vlm.encoder(): set of sha1s of strip PNGs vlm.png() makes again byte for byte}, read off NEAR_CACHE.
+_SAME_PNGS = {}
+#: {strip PNG sha1: vlm.png() of it} of the few png() makes other bytes of, this process.
+_OTHER_PNGS = {}
+_NEAR_VERSION = []
+
+
+def _strip_png(b64):
+    """vlm.png() of the image a strip's base64 PNG `b64` holds (its VLM ask's bytes, vlm.ask_key): the PNG
+    itself where png() makes it again byte for byte (a strip light_strip cut with this Pillow and zlib: the
+    same pixels encode alike), kept by its sha1 in NEAR_CACHE per vlm.encoder(), so a plan decodes and
+    encodes none again. Raises as base64.b64decode, Image.open and png() raise."""
+    import base64
+    import io
+    from PIL import Image
+    raw = base64.b64decode(b64)
+    digest = hashlib.sha1(raw).hexdigest()
+    enc = _near_encoder()
+    same = _SAME_PNGS.get(enc)
+    if same is None:
+        try:
+            same = set((NEAR_CACHE / f"same.{_slug(enc)}.txt").read_text().split())
+        except OSError:
+            same = set()
+        _SAME_PNGS[enc] = same
+    if digest in same:
+        return raw
+    got = _OTHER_PNGS.get(digest)
+    if got is not None:
+        return got
+    data = vlm.png(Image.open(io.BytesIO(raw)))
+    if data == raw:
+        same.add(digest)
+        try:
+            NEAR_CACHE.mkdir(parents=True, exist_ok=True)
+            with open(NEAR_CACHE / f"same.{_slug(enc)}.txt", "a") as f:
+                f.write(digest + "\n")  # one short append: whole lines between processes
+        except OSError:
+            pass
+    elif len(_OTHER_PNGS) < 4096:
+        _OTHER_PNGS[digest] = data
+    return data
+
+
+def _slug(text):
+    return hashlib.sha1(text.encode()).hexdigest()[:16]
+
+
+def _near_encoder():
+    if not _NEAR_VERSION:
+        _NEAR_VERSION.append(vlm.encoder())
+    return _NEAR_VERSION[0]
+
+
+def _cut_version():
+    """What crop_strips' strips are made of beyond the crop's bytes and grid (grid_ocr_cache.framed_paths'
+    key: the framing code, classifier weights, numpy): its own code and Pillow's encoder."""
+    if len(_NEAR_VERSION) < 2:
+        import code_reach
+        _near_encoder()
+        _NEAR_VERSION.append(_slug(json.dumps([code_reach.key("trove_solution_ocr", {"crop_strips"}),
+                                               _NEAR_VERSION[0]])))
+    return _NEAR_VERSION[1]
+
+
+def _cut_strips(crop, grid, keys):
+    """trove_solution_ocr.crop_strips(crop, grid, keys), kept in NEAR_CACHE by the crop's bytes, the grid,
+    the lights and _cut_version: _late_near and _rival_near cut the same strips off the same crop each plan."""
+    import grid_ocr_cache
+    keys = [tuple(k) for k in keys]
+    paths = grid_ocr_cache.framed_paths(crop, grid)
+    if paths is None:
+        return trove_solution_ocr.crop_strips(crop, grid, keys)
+    stem = paths[0].name[:-len(".framing.npz")]
+    path = NEAR_CACHE / f"{stem}.{_slug(json.dumps([_cut_version(), keys]))}.cut.json"
+    try:
+        return json.loads(path.read_text())
+    except (OSError, ValueError):
+        pass
+    got = trove_solution_ocr.crop_strips(crop, grid, keys)
+    try:
+        NEAR_CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(f"{path.name}.{os.getpid()}.{threading.get_ident()}.part")
+        tmp.write_text(json.dumps(got))
+        tmp.replace(path)
+    except (OSError, TypeError, ValueError):
+        pass
+    return got
+
+
 #: The due reason of a Times row, due none of those above, whose last read of a puzzle held with every clue
 #: from this page, an answer short (held_blanks: its grid's cells classified, its crop kept), was a full read
 #: (no "answersOnly" verdict) that answers_only did not try first ("answersTried": read_puzzle marks a full
@@ -10573,9 +10668,6 @@ def _late_near(p, q, crop):
     blank lights (1 to STRIP_MAX of them) the reading kept no strip of (`strips`) cut again as late_strips cuts
     them (trove_solution_ocr.crop_strips, the same lights in the same order: its kept probabilities), each one's
     cached reply to vlm_lights' ask on the held crossings judged by vlm_word as it stands."""
-    import base64
-    import io
-    from PIL import Image
     try:
         held, read = json.loads(p.read_text()), json.loads(q.read_text())
     except (OSError, ValueError):
@@ -10593,7 +10685,7 @@ def _late_near(p, q, crop):
     try:
         grid = trove_solution_ocr.puzzle_grid(held)
         lts = trove_solution_ocr.lights(grid)
-        cut = trove_solution_ocr.crop_strips(crop, grid, [(e.get("number"), e.get("direction")) for e in want])
+        cut = _cut_strips(crop, grid, [(e.get("number"), e.get("direction")) for e in want])
     except (KeyError, IndexError, TypeError, ValueError, OSError):  # a grid or crop the reader cannot lay
         return False
     letters = {}
@@ -10611,7 +10703,7 @@ def _late_near(p, q, crop):
         clue = (e.get("clue") or {}).get("text")
         sizes = trove_solution_ocr.pieces_of(enum, len(cells))
         try:
-            data = vlm.png(Image.open(io.BytesIO(base64.b64decode(strip["png"]))))
+            data = _strip_png(strip["png"])
         except (TypeError, ValueError, OSError):
             continue
         path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
@@ -10635,9 +10727,6 @@ def _rival_near(p, q, crop, far=False, tied=False, lengthy=False):
     far_word's, the word its clue defines two open letters off the reply; with `tied`, tied_word's, the
     classifier's likeliest of the near words its clue defines; with `lengthy`, long_word's, every other mend
     refusing the reply."""
-    import base64
-    import io
-    from PIL import Image
     try:
         held, read = json.loads(p.read_text()), json.loads(q.read_text())
     except (OSError, ValueError):
@@ -10654,7 +10743,7 @@ def _rival_near(p, q, crop, far=False, tied=False, lengthy=False):
         lts = trove_solution_ocr.lights(grid)
         want = [(e.get("number"), e.get("direction")) for e in blank if entry_id(e) not in strips]
         if want:
-            strips.update(trove_solution_ocr.crop_strips(crop, grid, want) or {})
+            strips.update(_cut_strips(crop, grid, want) or {})
     except (KeyError, IndexError, TypeError, ValueError, OSError):  # a grid or crop the reader cannot lay
         return False
     answers = {entry_id(e): re.sub(r"[^A-Z]", "", e["solution"].upper()) for e in es if e.get("solution")}
@@ -10677,7 +10766,7 @@ def _rival_near(p, q, crop, far=False, tied=False, lengthy=False):
         clue = (e.get("clue") or {}).get("text")
         sizes = trove_solution_ocr.pieces_of(enum, len(cells))
         try:
-            data = vlm.png(Image.open(io.BytesIO(base64.b64decode(strip["png"]))))
+            data = _strip_png(strip["png"])
         except (KeyError, TypeError, ValueError, OSError):
             continue
         path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
@@ -10706,9 +10795,6 @@ def _rival_near(p, q, crop, far=False, tied=False, lengthy=False):
 
 def _strip_near(p, q, swap=False, defined=False, named=False, argmax=False, paired=False, spelt=False, filed=False):
     """strip_near of the held file at `p` and its reading at `q`."""
-    import base64
-    import io
-    from PIL import Image
     try:
         held, read = json.loads(p.read_text()), json.loads(q.read_text())
     except (OSError, ValueError):
@@ -10736,7 +10822,7 @@ def _strip_near(p, q, swap=False, defined=False, named=False, argmax=False, pair
         pattern = "".join(letters.get(rc, "?") for rc in cells)
         sizes = trove_solution_ocr.pieces_of((e.get("clue") or {}).get("enumeration"), len(cells))
         try:
-            data = vlm.png(Image.open(io.BytesIO(base64.b64decode(strips[entry_id(e)]["png"]))))
+            data = _strip_png(strips[entry_id(e)]["png"])
         except (KeyError, TypeError, ValueError, OSError):  # a strip that does not decode was never asked
             continue
         path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
