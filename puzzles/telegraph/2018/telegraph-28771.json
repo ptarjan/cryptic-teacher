@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Learned person, one in form?",
     "enumeration": "7"
    },
-   "solution": "SCHOLAR"
+   "solution": "SCHOLAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Learned person",
+      "at": 0,
+      "meaning": "an academic, someone of great learning"
+     },
+     {
+      "text": "one in form?",
+      "at": 16,
+      "meaning": "a pupil in a school form, or class"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the erudite figure in good form today?",
+     "walkthrough": "A form is a British school class, so 'one in form' is a pupil.",
+     "definitionFit": "An academic expert is a synonym; a schoolchild is an older sense of the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,49 @@
     "text": "Army officer in fine house",
     "enumeration": "7"
    },
-   "solution": "SHELTER"
+   "solution": "SHELTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "house",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "placed inside, so the officer goes within the word for fine"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fine",
+       "at": 16,
+       "gives": "SHEER",
+       "note": "sheer fabric is fine and thin"
+      },
+      {
+       "words": "Army officer",
+       "at": 0,
+       "gives": "LT",
+       "note": "Lt is the abbreviation for lieutenant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military officer lives in a fine residence.",
+     "walkthrough": "'house' is a verb here, to give cover.",
+     "definitionFit": "To house refugees is to give them a roof, a verb synonym for providing refuge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +138,29 @@
      }
     ]
    },
-   "solution": "HAVEAGO"
+   "solution": "HAVEAGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criticise",
+      "at": 0,
+      "meaning": "an informal British idiom for laying into someone verbally"
+     },
+     {
+      "text": "attempt",
+      "at": 10,
+      "meaning": "to try something, as in a go at it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone attacks another's effort.",
+     "definitionFit": "The phrase means both to try and, in British slang, to attack someone verbally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +174,48 @@
     "text": "City poorly covered in French article",
     "enumeration": "5"
    },
-   "solution": "LILLE"
+   "solution": "LILLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 12,
+       "note": "wrapped round, so the article encloses the word for unwell"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French article",
+       "at": 23,
+       "gives": "LE",
+       "note": "le is the French masculine word for the"
+      },
+      {
+       "words": "poorly",
+       "at": 5,
+       "gives": "ILL",
+       "note": "poorly in British English means unwell, ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick city reported in a French newspaper.",
+     "definitionFit": "It is a large city in northern France near the Belgian border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +229,66 @@
     "text": "Shocking representation of Penn and Teller making Nag's Head disappear",
     "enumeration": "9"
    },
-   "solution": "REPELLENT"
+   "solution": "REPELLENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shocking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "representation of",
+       "at": 9,
+       "note": "a new rendering, so the letters of the magicians' names are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Penn",
+         "at": 27
+        },
+        {
+         "words": "Teller",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head",
+         "at": 56,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nag's",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magic act in which the famous duo make a horse's head vanish.",
+     "walkthrough": "'making ... disappear' removes N, the first letter of Nag's, from PENNTELLER before the rearrangement. Penn and Teller are an American magic double act.",
+     "definitionFit": "Repulsive and disgusting, so shocking in the sense of offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representation"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +302,53 @@
     "text": "Two coppers regularly ask me for bakery item",
     "enumeration": "7"
    },
-   "solution": "CUPCAKE"
+   "solution": "CUPCAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bakery item",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two coppers",
+       "at": 0,
+       "gives": "CUPC",
+       "note": "two different coppers: Cu, the chemical symbol for the metal, and PC, a police constable"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 12,
+         "note": "taking every other letter of the words ask me, starting with the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ask me",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of police officers keep ordering pastries at the counter.",
+     "walkthrough": "'Two coppers' gives two different coppers: the metal (CU) and the police officer (PC).",
+     "definitionFit": "A small iced sponge baked in a paper case is an example of something sold at a baker's."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coppers"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +362,72 @@
     "text": "IT worker set up green screens over days",
     "enumeration": "5"
    },
-   "solution": "CODER"
+   "solution": "CODER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "IT worker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "screens",
+       "at": 23,
+       "note": "hides behind, so the reversed word encloses the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 10,
+         "note": "in a down clue, set up means written upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "green",
+         "at": 17,
+         "gives": "REC",
+         "note": "a village green is a recreation ground, rec for short"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "over",
+         "at": 31,
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
+        },
+        {
+         "words": "days",
+         "at": 36,
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An IT worker installs green screens over several days.",
+     "walkthrough": "'set up' turns REC into CER, which holds OD.",
+     "definitionFit": "A programmer who writes software is a computing worker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screens"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +441,73 @@
     "text": "Finally happy, getting in terribly popular preschool club",
     "enumeration": "9"
    },
-   "solution": "PLAYGROUP"
+   "solution": "PLAYGROUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "preschool club",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "placed inside the rearranged word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terribly",
+         "at": 26,
+         "note": "done badly, so the letters of popular are muddled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "popular",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Finally",
+         "at": 0,
+         "note": "the last letters of the words happy and getting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "happy",
+         "at": 8
+        },
+        {
+         "words": "getting",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular nursery group ends up being a happy one.",
+     "walkthrough": "'terribly' makes PLAROUP from POPULAR; Y and G go inside.",
+     "definitionFit": "A group where under-fives play together before school is a preschool club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +521,30 @@
     "text": "Friendly question from self-doubter?",
     "enumeration": "7"
    },
-   "solution": "AMIABLE"
+   "solution": "AMIABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Friendly",
+      "at": 0,
+      "meaning": "pleasant and good-natured in manner"
+     },
+     {
+      "text": "question from self-doubter?",
+      "at": 9,
+      "meaning": "someone unsure of their abilities might ask whether they can manage, split as three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An insecure person asks whether they are likeable.",
+     "definitionFit": "Good-natured and agreeable means friendly; split into three words it is a self-doubting question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +558,58 @@
     "text": "Stops supporting unlimited texts as offers",
     "enumeration": "7"
    },
-   "solution": "EXTENDS"
+   "solution": "EXTENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "offers",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 6,
+       "note": "in a down clue the supporting part sits underneath"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unlimited",
+         "at": 17,
+         "note": "without its limits, the first and last letters of texts are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "texts",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "Stops",
+       "at": 0,
+       "gives": "ENDS",
+       "note": "something that stops ends"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quits backing a plan for unlimited texts on a phone deal.",
+     "definitionFit": "To extend a hand or an invitation is to offer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stops"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +623,45 @@
     "text": "Cloak is article that's stamped reduced",
     "enumeration": "7"
    },
-   "solution": "ENVELOP"
+   "solution": "ENVELOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cloak",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "reduced",
+       "at": 32,
+       "note": "cut short, so the final letter of the stamped article is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "article that's stamped",
+       "at": 9,
+       "gives": "ENVELOPE",
+       "note": "a letter's paper cover carries the postage stamp"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment that bears a stamp has been marked down in price.",
+     "definitionFit": "To cloak something is to wrap or cover it completely, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cloak"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +675,59 @@
     "text": "Writer is one infiltrating Triads in disguise",
     "enumeration": "7"
    },
-   "solution": "DIARIST"
+   "solution": "DIARIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infiltrating",
+       "at": 14,
+       "note": "getting inside, so the numeral goes into the rearranged gang name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in disguise",
+         "at": 34,
+         "note": "a disguise changes appearance, so the letters of Triads are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Triads",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An undercover writer joins Chinese criminal gangs in disguise.",
+     "walkthrough": "'in disguise' makes DIARST from TRIADS; I goes inside it.",
+     "definitionFit": "Someone who keeps a daily journal is a particular kind of writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Triads"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +741,42 @@
     "text": "Tell raver to be composed, one on a trip",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one on a trip",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be composed",
+       "at": 11,
+       "note": "composing means arranging parts into a new piece, so the letters of Tell raver are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tell raver",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone advises a partygoer to calm down while out of their mind on drugs.",
+     "walkthrough": "'composed' looks like 'calm'; here it means put together in a new order. 'on a trip' suggests drugs but means a journey.",
+     "definitionFit": "A person on a journey is a voyager, one who travels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +790,40 @@
     "text": "State that vagabond's hiding",
     "enumeration": "5"
    },
-   "solution": "GABON"
+   "solution": "GABON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 22,
+       "note": "the letters sit concealed within the word vagabond, with 's standing for has"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vagabond's",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp is concealing which country they come from.",
+     "definitionFit": "It is a country in west-central Africa, and a country is a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +837,44 @@
     "text": "Reportedly feel sorry for yours truly being sizable",
     "enumeration": "5"
    },
-   "solution": "ROOMY"
+   "solution": "ROOMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sizable",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROOMY",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "as people report it in speech, so what is said aloud matches the entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "feel sorry for yours truly",
+       "at": 11,
+       "gives": "RUEME",
+       "note": "to rue is to regret, and yours truly is me: rue me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims self-pity for growing large.",
+     "definitionFit": "A spacious room or car has plenty of space, so sizable is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reportedly"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +888,34 @@
     "text": "Part of the country where there's more than one riding",
     "enumeration": "9"
    },
-   "solution": "YORKSHIRE"
+   "solution": "YORKSHIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of the country where there's more than one riding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Part of the country where there's more than one riding",
+       "at": 0,
+       "note": "the English county was historically divided into three administrative districts called ridings, rather than many horse riders"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "This northern English county was split into North, East and West Ridings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "riding"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +929,51 @@
     "text": "Businesses from East developed polymers",
     "enumeration": "9"
    },
-   "solution": "EMPLOYERS"
+   "solution": "EMPLOYERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Businesses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "East",
+       "at": 16,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developed",
+         "at": 21,
+         "note": "something developed has changed form, so the letters of polymers are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polymers",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eastern companies have developed new plastics.",
+     "definitionFit": "Firms that hire staff are companies, so businesses is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +987,41 @@
     "text": "Peak rates upset flyers",
     "enumeration": "9"
    },
-   "solution": "PARAKEETS"
+   "solution": "PARAKEETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flyers",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 11,
+       "note": "knocked over, so the letters of Peak rates are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Peak rates",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frequent flyers are annoyed by the highest fares.",
+     "definitionFit": "Small parrots are birds, which are flyers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyers"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1035,59 @@
     "text": "A-lister informs Republican American to retire",
     "enumeration": "9"
    },
-   "solution": "SUPERSTAR"
+   "solution": "SUPERSTAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A-lister",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to retire",
+       "at": 37,
+       "note": "retiring means drawing back, so the joined pieces run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "informs",
+         "at": 9,
+         "gives": "RATS",
+         "note": "to rat on someone is to inform on them"
+        },
+        {
+         "words": "Republican",
+         "at": 17,
+         "gives": "REP"
+        },
+        {
+         "words": "American",
+         "at": 28,
+         "gives": "US",
+         "note": "US is short for American, as in US forces"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity tells the press that an American politician is stepping down.",
+     "walkthrough": "'to retire' reverses the whole string RATSREPUS.",
+     "definitionFit": "An A-list name is one of the top celebrities, a megastar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1101,40 @@
     "text": "Repositioned as steed relaxes",
     "enumeration": "7"
    },
-   "solution": "SEDATES"
+   "solution": "SEDATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relaxes",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Repositioned",
+       "at": 0,
+       "note": "moved into a new place, so the letters of as steed are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as steed",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse calms down when moved to a new stall.",
+     "definitionFit": "To calm someone with a drug is to relax them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steed"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1148,48 @@
     "text": "Police station in settlement makes you anxious",
     "enumeration": "7"
    },
-   "solution": "PANICKY"
+   "solution": "PANICKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "anxious",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "placed inside, so the slang word goes within the word for settlement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "settlement",
+       "at": 18,
+       "gives": "PAY",
+       "note": "paying up is the settlement of a debt"
+      },
+      {
+       "words": "Police station",
+       "at": 0,
+       "gives": "NICK",
+       "note": "the nick is British slang for a police station"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being taken to a police station during a dispute leaves you on edge.",
+     "definitionFit": "Nervous and in a state of fright, so anxious is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settlement"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1203,32 @@
     "text": "Times for one set of exam questions?",
     "enumeration": "5"
    },
-   "solution": "PAPER"
+   "solution": "PAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Times for one",
+      "at": 0,
+      "meaning": "The Times is an example of a newspaper"
+     },
+     {
+      "text": "set of exam questions?",
+      "at": 14,
+      "meaning": "an examination sheet, as in a maths exam"
+     }
+    ],
+    "explanation": {
+     "surface": "Times are listed for a single sitting of an exam.",
+     "walkthrough": "'Times' is the London newspaper, not a timetable.",
+     "definitionFit": "Both a daily newspaper and a written examination are called by this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1242,54 @@
     "text": "Obtain advantage over scoundrel with ecstasy",
     "enumeration": "7"
    },
-   "solution": "PROCURE"
+   "solution": "PROCURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obtain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 17,
+       "note": "in a down clue, over means placed above"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advantage",
+       "at": 7,
+       "gives": "PRO",
+       "note": "a pro is a point in favour, an advantage"
+      },
+      {
+       "words": "scoundrel",
+       "at": 22,
+       "gives": "CUR",
+       "note": "a cur is a contemptible man"
+      },
+      {
+       "words": "ecstasy",
+       "at": 37,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gain an edge over a villain who deals drugs.",
+     "definitionFit": "To get hold of something, often with effort, is to acquire it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1303,31 @@
     "text": "They support people going via water",
     "enumeration": "7"
    },
-   "solution": "RAFTERS"
+   "solution": "RAFTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They support",
+      "at": 0,
+      "meaning": "roof beams hold up the roof"
+     },
+     {
+      "text": "people going via water",
+      "at": 13,
+      "meaning": "those travelling downriver on log platforms"
+     }
+    ],
+    "explanation": {
+     "surface": "Supporters of a cause travel by river.",
+     "definitionFit": "Both roof beams and those on floating platforms are called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1341,61 @@
     "text": "Has food from India included in mail coming west",
     "enumeration": "5"
    },
-   "solution": "DINES"
+   "solution": "DINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Has food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "coming west",
+       "at": 37,
+       "note": "in an across clue, heading west means reading right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included in",
+         "at": 20,
+         "note": "put inside, so the letter for India goes within the word for mail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mail",
+         "at": 32,
+         "gives": "SEND",
+         "note": "to mail a letter is to send it"
+        },
+        {
+         "words": "India",
+         "at": 14,
+         "gives": "I",
+         "note": "I is India in the NATO phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian meal arrives by post from the east.",
+     "walkthrough": "SEIND, with I inside SEND, is read backwards.",
+     "definitionFit": "To eat a meal, especially dinner, is to have food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1415,41 @@
      }
     ]
    },
-   "solution": "MAKINGOFF"
+   "solution": "MAKINGOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Running away",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 13,
+       "note": "the letters are taken out of the run of words asylum, a king of France"
+      }
+     ],
+     "parts": [
+      {
+       "words": "asylum, a king of France",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French monarch flees after seeking refuge.",
+     "walkthrough": "'asylum' sounds like refuge but supplies only its final M.",
+     "definitionFit": "To escape hurriedly is an idiom for fleeing, as in making off with the loot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "asylum"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1463,44 @@
     "text": "Events being those vegetarians eschew vocally",
     "enumeration": "5"
    },
-   "solution": "MEETS"
+   "solution": "MEETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Events",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MEETS",
+     "indicators": [
+      {
+       "text": "vocally",
+       "at": 38,
+       "note": "spoken out loud, so the sound is what counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "those vegetarians eschew",
+       "at": 13,
+       "gives": "MEATS",
+       "note": "flesh foods such as beef and lamb are avoided by vegetarians"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vegetarians speak out against events where flesh is served.",
+     "definitionFit": "Sporting gatherings such as athletics fixtures are events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vocally"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1520,45 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unacceptable",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Half-hearted",
+       "at": 0,
+       "note": "of the two central letters of the idea word, one is lost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "idea",
+       "at": 13,
+       "gives": "NOTION",
+       "note": "a notion is an idea"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lukewarm proposal is not good enough.",
+     "definitionFit": "A British idiom: something out of order or not allowed is unacceptable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Half-hearted"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1572,48 @@
     "text": "Physical feat to split slab",
     "enumeration": "7"
    },
-   "solution": "TACTILE"
+   "solution": "TACTILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Physical",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to split",
+       "at": 14,
+       "note": "breaking a thing apart so the deed sits inside the tile"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slab",
+       "at": 23,
+       "gives": "TILE",
+       "note": "a tile is a flat slab of stone or ceramic"
+      },
+      {
+       "words": "feat",
+       "at": 9,
+       "gives": "ACT",
+       "note": "an act is a deed or feat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A martial-arts feat of breaking a slab with bare hands.",
+     "definitionFit": "Relating to touch is physical in the sense of bodily contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1627,70 @@
     "text": "Inspire knight to get involved in the tricky exploit",
     "enumeration": "7"
    },
-   "solution": "ENTHUSE"
+   "solution": "ENTHUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inspire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to get involved in",
+         "at": 15,
+         "note": "becoming involved means going inside, so the knight's letter enters the rearranged word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "tricky",
+           "at": 38,
+           "note": "something tricky twists about, so the letters of the are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 34
+          }
+         ]
+        },
+        {
+         "words": "knight",
+         "at": 8,
+         "gives": "N",
+         "note": "N is the chess notation for a knight"
+        }
+       ]
+      },
+      {
+       "words": "exploit",
+       "at": 45,
+       "gives": "USE",
+       "note": "to exploit something is to use it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight is urged to join a cunning scheme.",
+     "walkthrough": "'tricky' rearranges THE into ETH, which 'to get involved in' opens to take N.",
+     "definitionFit": "To fill others with eager excitement is to inspire them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1704,63 @@
     "text": "Craft starts to speed leaving unknown headland",
     "enumeration": "7"
    },
-   "solution": "SLYNESS"
+   "solution": "SLYNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Craft",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 6,
+         "note": "the opening letters of the words speed and leaving"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speed",
+         "at": 16
+        },
+        {
+         "words": "leaving",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "unknown",
+       "at": 30,
+       "gives": "Y",
+       "note": "in algebra Y is an unknown quantity"
+      },
+      {
+       "words": "headland",
+       "at": 38,
+       "gives": "NESS",
+       "note": "a ness is a promontory, as in Loch Ness's neighbour Sheerness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat picks up speed as it leaves an uncharted cape.",
+     "walkthrough": "'Craft' suggests a boat but means cunning.",
+     "definitionFit": "Craft in the sense of guile or cunning is a synonym for deviousness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Craft"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +1774,48 @@
     "text": "Ship infiltrated by hidden evil-doers",
     "enumeration": "7"
    },
-   "solution": "SINNERS"
+   "solution": "SINNERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evil-doers",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infiltrated by",
+       "at": 5,
+       "note": "having something get inside, so the hidden part sits within the ship's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ship",
+       "at": 0,
+       "gives": "SS",
+       "note": "SS stands for steamship"
+      },
+      {
+       "words": "hidden",
+       "at": 20,
+       "gives": "INNER",
+       "note": "inner feelings are hidden ones"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Villains have stowed away on a vessel.",
+     "definitionFit": "Wrongdoers who offend against morality are evil-doers, a plural synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   }
  ]
 }
