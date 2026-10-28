@@ -2896,7 +2896,15 @@
     if (jigsaw) focusKbd(); else keepKbd();
     hintFocus = jigsaw ? hintFocus : null;
     refreshAll();
-    if (!jigsaw && currentEntry()) scrollToHintPanel();
+    if (!jigsaw && currentEntry()) followPick();
+  }
+  // A touch screen has to be taken to the clue and its letter strip, because
+  // that strip is where a soft keyboard is summoned. With a mouse and a
+  // keyboard the letters go straight into the grid (the document keydown
+  // handler), so a pick leaves the page where it is. CT_PANEL_SCROLL: test
+  // harnesses that predate this keep the old behaviour (tools/fake_dom.js).
+  function followPick() {
+    if (isTouchPrimary() || window.CT_PANEL_SCROLL) scrollToHintPanel();
   }
 
   // Picking a clue off the list. A jigsaw's clue, and an off-grid one, stays off the grid.
@@ -2924,7 +2932,7 @@
       cur.x = c0.x; cur.y = c0.y;
     }
     refreshAll();
-    scrollToHintPanel();
+    followPick();
   }
 
   const cellAt = (e, i) => cells[e.position.y + (e.direction === "down" ? i : 0)][e.position.x + (e.direction === "across" ? i : 0)];

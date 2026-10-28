@@ -289,6 +289,9 @@ function boot(opts) {
     // Harnesses climb the ladder with one call per rung; app.js's two-tap
     // confirm (confirmBlock) steps aside unless a test asks for it: twoTap.
     CT_ONE_TAP: !options.twoTap,
+    // app.js only scrolls to the hint panel on a pick for a touch screen; the
+    // harness keeps the old behaviour unless a test says it is a desktop: fine.
+    CT_PANEL_SCROLL: !options.fine,
     addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
     // An iPad in portrait, roughly: tall enough that the grid and the hint panel
     // cannot both be on screen, which is the whole reason picking a clue scrolls.
