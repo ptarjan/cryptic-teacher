@@ -2209,6 +2209,21 @@ check("columns read left then right, a row joined, a copy dropped, cut at the so
       f.column_text(f.columns(lines, grid)))
 far = [line("ACROSS", 100, 820), line("1 Nymph (8)", 100, 840), line("9 Gap (5)", 100, 840 + f.GAP + 40)]
 check("a gap ends a column", "ACROSS\n1 Nymph (8)", f.column_text(f.columns(far, grid)))
+# The 1981-86 Times' DOWN heading alone at the foot of the across column, 81-87 px under the last across
+# clue, its first down clues under it (1983-03-02's 1-3 down, lost to the gap): the column goes on to it.
+low = 840 + 16 + f.GAP + 5
+foot = [line("ACROSS", 100, 820), line("29 Sailor red or white (7).", 100, 840), line("DOWN", 100, low),
+        line("1 Display reorganized (5-4).", 100, low + 30), line("2 Many in Bucks (7).", 100, low + 50)]
+check("a DOWN heading set low in the across column, past a gap, goes on the column",
+      "ACROSS\n29 Sailor red or white (7).\nDOWN\n1 Display reorganized (5-4).\n2 Many in Bucks (7).",
+      f.column_text(f.columns(foot, grid)))
+check("(mirror) not past a wider gap, nor with a second DOWN heading, nor in a column opened by no ACROSS",
+      ["ACROSS\n29 Sailor red or white (7).", "ACROSS\n29 Sailor red or white (7).",
+       "28 Such a girl (7).\n29 Sailor red or white (7)."],
+      [f.column_text(f.columns([foot[0], foot[1]] + [[(w[0], w[1] + 45, w[2], w[3] + 45, w[4]) for w in ws]
+                                                     for ws in foot[2:]], grid)),
+       f.column_text(f.columns(foot + [line("DOWN", 470, 820), line("4 Hairy type (4).", 470, 840)], grid)[:1]),
+       f.column_text(f.columns([line("28 Such a girl (7).", 100, 800)] + foot[1:], grid)[:1])])
 # A clue's run-on line that opens on a STOP word ends nothing; the notice does.
 run_on = [line("DOWN", 100, 820), line("1 See last stages of Le Mans", 100, 840),
           line("championship, possibly (4).", 130, 860), line("2 Impressive maiden (7).", 100, 880),
