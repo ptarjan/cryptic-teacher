@@ -506,14 +506,39 @@ def lost_opening(text, pos, start):
     return None
 
 
-def clues(text):
+#: The words a "See N" clue's own text runs on from N with: a preposition or conjunction joining the clue it
+#: names to the rest of its wordplay ("See 16 about", "See 10 with", "See 5 for"). A content word after a bare
+#: "See 5" is a neighbour column's tail the reader set beside it ("28 See 5 / purple damask (4)", Times 1944-12-15).
+SEE_RUN_WORDS = ("about|above|after|against|along|among|and|around|as|at|before|behind|below|beside|between|beyond|but|"
+                 "by|for|from|if|in|inside|into|less|like|minus|near|nor|of|off|on|or|out|over|perhaps|plus|round|so|"
+                 "than|then|through|to|too|under|until|up|upon|with|within|without|yet")
+#: Words a "See N" clue's own text runs on in ("19 See 16 about covering Australian port (9).", "16 See 10
+#: with reference to current affairs (9)."): a SEE_RUN_WORDS word, at least one more word, no figure, its count.
+SEE_RUN_ON = re.compile(rf"\s+(?:{SEE_RUN_WORDS})\b[.,;:]?(?:\s+[.,;:]?[A-Za-z][a-z'\-]*[.,;:!?]?){{1,12}}"
+                        r"\s*\(\d{1,2}(?:[,\-]\s?\d{1,2})*\)")
+#: A text holding such a clue: "See N" (no stop after it), then SEE_RUN_ON.
+SEE_RUN_TEXT = re.compile(r"\b[Ss][ec]e\s+\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?" + SEE_RUN_ON.pattern)
+
+
+def see_runs_on(rest, tail):
+    """Whether the "See N" `tail` opening a clue's `rest` is the start of that clue's own text, not a bare
+    continuation: printed with no stop after its number, it runs on with a joining word and more words to
+    a count (SEE_RUN_ON). Failure shapes r14, 10-28: "19 See 16 about covering Australian port (9)" was
+    closed at "See 16", and the list stopped parsing at "about" (Times 1983-11-05, 1974-12-12)."""
+    if not tail or tail.group(0).endswith("."):
+        return False
+    return bool(SEE_RUN_ON.match(rest, tail.end()))
+
+
+def clues(text, see=True):
     """The clues of one list in printed order: [{"tokens": [number readings
     of each light it names], "text", "enums": {readings}, "see": n}].
 
     A clue starts at a number token at the start of the list or after the
     previous clue's enumeration; its text runs to its own enumeration. A
     "See N" continuation carries no enumeration and ends where the next
-    number starts."""
+    number starts; one its words run on from is the clue's own text
+    (see_runs_on), but with `see` False (the list as read: the vote's ranking)."""
     start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
                        re.IGNORECASE)
     text = clue_text.mend_between_clues(text)
@@ -548,13 +573,13 @@ def clues(text):
         links = re.sub(r"(?:across|down|and|ac|dn)\b", " ", m.group(1)[lead.end():], flags=re.IGNORECASE)
         tokens = [readings(lead.group(0))] + [readings(t) for t in re.findall(NUM, links)]
         rest = text[body_from:]
-        see = SEE_RE.match(rest)
-        if see:
+        see_ref = SEE_RE.match(rest)
+        tail = see_ref and re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?" + SEE_LINKED + r"\.?",
+                                rest, re.IGNORECASE)
+        if see_ref and not (see and see_runs_on(rest, tail)):
             # "See 12" (and maybe "Across."), then the next clue's number.
-            tail = re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?" + SEE_LINKED + r"\.?",
-                            rest, re.IGNORECASE)
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
-                        "enums": set(), "see": see_number(see.group(1))})
+                        "enums": set(), "see": see_number(see_ref.group(1))})
             pos = body_from + tail.end()
             # The 1950s Times prints a count after its See ("3 See 27 (4)."): not the
             # next clue's number, so it is passed over (the list then stopped there).
