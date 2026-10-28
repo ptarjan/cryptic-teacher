@@ -485,6 +485,20 @@ import file_trove_puzzles as F
 print(F.sections('X\\nACROSS\\n1 A b (3).\\nDOWN\\n2 C d (3). (Solution Monday).\\nPlain crossword 59\\nACROSS 1 Hill.\\n25 Pen.')['down'])")
 check "the list ends at a solution note mid-line" "2 C d (3)." "$got"
 
+# A wrapped clue line opening "solution" or "yesterday" in lower case, under a
+# clue with no count yet, is that clue's (Gale Times 2009-05-09: "solution in
+# Cluedo mystery" cut 3-22 down); after a count it still ends the list.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+print(F.sections('ACROSS\\n1 A b (3).\\nDOWN\\n2 Its\\nsolution in Cluedo mystery (3).\\n3 Was it\\nyesterday (3, 6).\\n4 E f (3).')['down'])
+print(F.sections('ACROSS\\n1 A b (3).\\nDOWN\\n2 C d (3).\\nsolution to No. 5\\n9 X y (3).')['down'])
+print(F.sections('ACROSS\\n1 A b (3).\\nDOWN\\n2 C d\\nsolution tomorrow\\n9 X y (3).')['down'])
+print(F.sections(\"ACROSS\\n1 A b (3).\\nDOWN\\n2 C d\\nsolution of\\nSaturday's Prize Puzzle (3)\\n9 X y (3).\")['down'])")
+check "a lower-case solution line under a count-less clue is the clue's" "2 Its solution in Cluedo mystery (3). 3 Was it yesterday (3, 6). 4 E f (3).
+2 C d (3).
+2 C d
+2 C d" "$got"
+
 # The vote's segmentation: a word other readings spaced out letter by letter,
 # a number in the clue's own text, a mark misread as a digit glued to a word,
 # a speck beside or between words, and "1" for an opening "I".

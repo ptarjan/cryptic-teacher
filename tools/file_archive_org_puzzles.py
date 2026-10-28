@@ -11336,6 +11336,68 @@ def linked_lead_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page written unfiled with Down lights lost because
+#: ftp.sections ended the Down list at a wrapped clue line opening "solution" or "yesterday" in lower case
+#: ("solution in Cluedo mystery", "yesterday (3, 6).", "solution (4, 3)."), read as the solution's heading:
+#: every clue after it was lost ("no reading laid a clue on it"; 2009-05-09 lost 3-22 down). sections() now
+#: takes such a line as that clue's when the clue has no closing count yet and a count closes on the line
+#: or the next. Failure shapes r6: 12 unfiled Gale rows (1945-2009) first due for this reason, 15 more
+#: due for an earlier one. Offline, old vs new sections(): of 18,629 Trove ocr.txt texts and 7,032 zone
+#: readings, 2 parse differently, both a wrapped clue kept ("alkaline / solution (3)", "five-letter /
+#: solutions is a tragedy (10)"), neither filed either way; the captured 2009-05-09 column texts keep
+#: 3-22 down; RapidOCR clue windows differ only on wrapped clues ("yesterday in France (9)"). A first try
+#: that skipped any lower-case line under a count-less clue unfiled a filed Trove article (110874302) and
+#: ran lists on past "solution to yesterday's Cryptic", "The / solution of Saturday's Prize Puzzle" and
+#: "solution 24,933"; those still end the list. Due by the ledger and the cached readings
+#: (down_cut_lost). Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that for the
+#: Times). Once each.
+DOWN_CUT = "unfiled before its fix, a clue line its Down list ended at"
+REREAD_DOWN_CUT = "2026-10-28T11:50:00+00:00"
+#: A RapidOCR word that can open a line sections() once ended the Down list at, though in lower case. A
+#: word, not a line: the window's rows (printed_lines) join what its column breaks ("dis- / solution is
+#: provoked", 1965-03-22; "extremely / solutionthan", 1958-02-04).
+DOWN_CUT_LINE = re.compile(r"\W{0,2}(solution|yesterday)")
+
+
+@functools.lru_cache(maxsize=4096)
+def down_cut_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds a word
+    opening "solution" or "yesterday" in lower case (DOWN_CUT_LINE)."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            words = held["words"] if isinstance(held, dict) else held
+        except (OSError, ValueError, KeyError, TypeError):
+            continue
+        if any(len(w) >= 5 and DOWN_CUT_LINE.match(str(w[4])) for w in words or ()):
+            return True
+    return False
+
+
+def down_cut_lost(row):
+    """Whether Times ledger `row`, read before REREAD_DOWN_CUT, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a Down light
+    blank as "no reading laid a clue on it" while a cached reading holds a lower-case "solution ..." or
+    "yesterday ..." line (down_cut_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_DOWN_CUT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any("no reading laid a clue" in str(why) and lid.endswith("-down") for lid, why in v["blank"].items()):
+            continue
+        if not down_cut_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
 #: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
 #: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
@@ -14013,6 +14075,8 @@ def fix_reason(row):
         return CLOSED_GRID
     if linked_lead_lost(row):
         return LINKED_LEAD
+    if down_cut_lost(row):
+        return DOWN_CUT
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14656,7 +14720,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -14982,7 +15046,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

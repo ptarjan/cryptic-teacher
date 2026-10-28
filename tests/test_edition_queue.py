@@ -375,6 +375,31 @@ check("not after the fix, nor for another reason, nor three blanks, nor another 
        f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {**_nt["blank"], "1-across": "starts mid-clue",
                                                                      "2-down": "starts mid-clue"}}]}),
        f.neighbour_tailed({**_ntrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for Down lights lost after a wrapped clue line opening "solution" in lower case
+# ("solution in Cluedo mystery"; 2009-05-09), where ftp.sections once ended the Down list, is due once
+# (fa.DOWN_CUT), ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_dc = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"3-down": "no reading laid a clue on it", "22-down": "no reading laid a clue on it"}}
+_dcrow = {"edition": "GaleTimes2009UKEnglish/2009-05-09", "verdicts": [_dc], "readAt": "2026-10-22T01:26:02+00:00"}
+_dc_read = f.down_cut_read
+f.down_cut_read = lambda key: True
+check("a Times page whose Down list a lower-case 'solution' line cut is due as such, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held",
+      [f.DOWN_CUT, 2, True, True, True, None, None],
+      [f.fix_reason(_dcrow), f.RANKS[f.DOWN_CUT], eq.evidence_reason(f.DOWN_CUT), f.DOWN_CUT in eq.FIX_LANDED,
+       f.DOWN_CUT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DOWN_CUT, "date": "2009-05-09"}),
+       eq.canary_failed({"paper": "times", "reason": f.DOWN_CUT, "date": "1984-12-31"})])
+check("not after the fix, nor for an Across light, nor another paper",
+      [False] * 3,
+      [f.down_cut_lost({**_dcrow, "readAt": _after}),
+       f.down_cut_lost({**_dcrow, "verdicts": [{**_dc, "blank": {"3-across": "no reading laid a clue on it"}}]}),
+       f.down_cut_lost({**_dcrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.down_cut_read = lambda key: False
+check("nor with no reading holding such a line", False, f.down_cut_lost(_dcrow))
+f.down_cut_read = _dc_read
+check("a lower-case 'solution' line opens a cached reading's line", [True, False],
+      [bool(f.DOWN_CUT_LINE.match("solution in Cluedo mystery")), bool(f.DOWN_CUT_LINE.match("SOLUTION OF PUZZLE"))])
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
