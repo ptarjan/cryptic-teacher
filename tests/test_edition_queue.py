@@ -686,6 +686,13 @@ try:
            f.alone_lost({**_alrow, "verdicts": [{**_al, "blank": {"25-down": "'lui': not a word"}}]}),
            f.alone_lost({**_alrow, "verdicts": [{**_al, "readAlone": [25]}]}),
            f.alone_lost({**_alrow, "edition": "FinancialTimes1955UKEnglish/1955-12-16_0"})])
+    # Its number read only as a count on a line of its own ("(25).", 1961-05-11's "(4).." under 16 across) or
+    # bare ("25."): no clue line, so still due (fa.CLUE_OPENING).
+    for _day, _w in (("1955-12-19", "(25)."), ("1955-12-20", "25.")):
+        (f.CROPS / "rapid" / f"{_day}_9999988.ch.json").write_text(json.dumps(
+            {"box": [142, 3965, 1251, 5534], "words": _al_words + [[824, 4801, 900, 4830, _w]]}))
+    check("a lost line whose number some reading prints only as a count, or bare, is due all the same",
+          [True, True], [f.alone_lost({**_alrow, "edition": f"GaleTimes1955UKEnglish/{_day}"}) for _day in ("1955-12-19", "1955-12-20")])
 finally:
     shutil.rmtree(f.CROPS, ignore_errors=True)
     f.CROPS = _al_crops
