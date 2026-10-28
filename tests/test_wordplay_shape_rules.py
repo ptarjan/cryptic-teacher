@@ -307,7 +307,7 @@ check("an ambiguous word (about) is never counted", 0, v.wrong_role_indicators(r
 check("a reversal word on the container beside a reversal that has its own indicator is not", 0,
       v.wrong_role_indicators(role_tree("returned", "back")))
 
-sesame = {"op": "charade", "parts": [{"words": "Sesame", "gives": "S"}, {"words": "street", "gives": "TREET"}]}
+sesame = {"op": "charade", "parts": [{"words": "Zzyzxville", "gives": "Z"}, {"words": "street", "gives": "TREET"}]}  # a word no lexicon will ever give as one letter
 check("a first letter given by a leaf, with no selection above it, is counted", 1, v.bare_initials(sesame))
 check("under a first-letter selection it is not", 0, v.bare_initials({"op": "first", "parts": [sesame["parts"][0]]}))
 check("a flagged selection leaf is not", 0, v.bare_initials({"op": "charade", "parts": [{**sesame["parts"][0], "select": True}]}))
