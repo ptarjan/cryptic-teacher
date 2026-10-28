@@ -11995,6 +11995,34 @@ def run_on_tail_lost(row):
     return False
 
 
+#: The reason, and its time, of a Times page written unfiled (or its write refused) whose blank lights an
+#: in-process replay of the current reader's vote lays over its cached clue windows (VLM off), a page no other
+#: reason makes due: its blanks were fixed by code whose own reason's ledger test does not see them. Failure
+#: shapes r12, 10-28: r11's replay of the 165 unplanned Gale Times pages laid 59 lights "no reading laid a
+#: clue on it" on 23; 10 of those had a reason blanket_or_fix masked (BLANKET_PASSES now passes it), 1 an
+#: answers-only one, 12 none: these, LAID_PUZZLES. A later replay adds its puzzles here and moves the time.
+LAID_BLANKS = "unfiled before its fix, its blank lights laid by the reader now"
+REREAD_LAID_BLANKS = "2026-10-28T14:20:00+00:00"
+#: The Times numbers of the pages LAID_BLANKS is for (r12: 1942-01-01 3,697 ... 1974-12-07 13,862).
+LAID_PUZZLES = frozenset((3697, 3856, 4340, 4613, 4705, 4992, 5387, 12559, 13247, 13559, 13734, 13862))
+
+
+def laid_blanks_due(row):
+    """Whether Times ledger `row`, read before REREAD_LAID_BLANKS, holds a verdict of a LAID_PUZZLES number,
+    not complete nor refused, whose puzzle the corpus does not hold with every clue."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LAID_BLANKS)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("number") not in LAID_PUZZLES or v.get("complete") or v.get("refused") or v.get("skip") \
+                or not v.get("id"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
 #: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
 #: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
@@ -14745,6 +14773,8 @@ def fix_reason(row):
         return OPENING_GUTTER
     if run_on_tail_lost(row):
         return RUN_ON_TAIL
+    if laid_blanks_due(row):
+        return LAID_BLANKS
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -15178,8 +15208,16 @@ def unread_titles(row):
 
 
 #: The fix_reason answers blanket_or_fix lets stand past a blanket reason besides SOLUTION_FIXES: pages whose
-#: puzzle no file holds.
-BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES)
+#: puzzle no file holds. That is every reason edition_queue.UNFILED_FIRST orders with the never-read work
+#: (a page written unfiled, or refused, for a cause a reader fix since reads) and the plain unfiled ones:
+#: 10-28, 181 Times rows due so (DASH_JOINED, LEAD_RETRY, ALONE_READ, EDGE_LETTERS, UNFILED_MODERN, ...)
+#: stood unplanned as "inputs changed" (126), "scan stale, answers missing" (45), "read without the VLM"
+#: (9) or "titles changed" (1), their rows' inputs or links moved since their read (a neighbour fetched).
+BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled before its fix", UNFILED_MODERN,
+                  DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM, NEIGHBOUR_TAIL, EDGE_LETTERS,
+                  ALONE_READ, BAND_GRID, LEFT_SPLIT, SCALED_GRID, LEFT_LATE, SCALED_EARLY, LEAD_RETRY, BAND_LATE,
+                  SMALL_PAGE, RIGHT_ADS, FIFTIES_LEFT, CLOSED_GRID, LINKED_LEAD, DOWN_CUT, DOWN_FOOT, INSET_GRID,
+                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS)
 
 
 def blanket_or_fix(row, blanket):
@@ -15388,7 +15426,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15586,9 +15624,10 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
         return hit[2]
     if stale:
         # Its files moved, or only the scan code: the latter is every
-        # edition at once, a whole-corpus re-read.
+        # edition at once, a whole-corpus re-read. Files moved, a fix due still stands (blanket_or_fix, as
+        # due_reason's): 10-28, 17 Times pages written unfiled with such a fix due stood "inputs changed".
         why = ("never read" if "inputs" not in row else
-               "inputs changed" if row.get("filesHash") != fh else
+               blanket_or_fix(row, "inputs changed") if row.get("filesHash") != fh else
                THREE_COLUMNS if third_column_first(row) else
                blanket_or_fix(row, STALE_SCAN[0]) if any(n in answerless or n in answerless_own and has_host(d)
                                                          for n in nums) else
@@ -15716,7 +15755,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL) else {}),
+                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

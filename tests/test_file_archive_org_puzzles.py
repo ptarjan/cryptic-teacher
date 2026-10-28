@@ -958,13 +958,21 @@ bf.append(f.blanket_or_fix({"edition": "NewsUK1984UKEnglish/1984-05-01_61715"}, 
 f.fix_reason = lambda row: f.LOST_WRITE
 bf.append(f.blanket_or_fix({"edition": "GaleTimes2007UKEnglish/2007-01-03"}, "scan stale, answers missing"))
 bf.append(f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"))
+# So does a page written unfiled for a cause a reader fix since reads (10-28: 181 Times rows planned blanket so).
+f.fix_reason = lambda row: f.LEAD_RETRY
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "inputs changed"))
+f.fix_reason = lambda row: "unfiled before its fix"
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "scan stale, answers missing"))
 f.fix_reason = real_fr
-check("blanket_or_fix: a Times row's answers-only fix or lost write stands over inputs/titles changed; another "
-      "paper's row, a row whose scan lost a verdict's title (not its held puzzle's), another fix, or none keeps the "
-      "blanket reason",
+check("blanket_or_fix: a Times row's answers-only fix, lost write or unfiled page's fix stands over inputs/titles "
+      "changed; another paper's row, a row whose scan lost a verdict's title (not its held puzzle's), another fix, or "
+      "none keeps the blanket reason",
       [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE, "inputs changed",
-       "inputs changed", f.LOST_WRITE, "inputs changed"],
+       "inputs changed", f.LOST_WRITE, "inputs changed", f.LEAD_RETRY, "unfiled before its fix"],
       bf)
+import edition_queue as _eq_bp
+check("every reason edition_queue.UNFILED_FIRST orders first passes blanket_or_fix (BLANKET_PASSES)",
+      set(), set(_eq_bp.UNFILED_FIRST) - set(f.BLANKET_PASSES))
 check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
       "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "
       "VLM_FLOOR_SHORT where that is due, nothing with every blank light's strip cut",
