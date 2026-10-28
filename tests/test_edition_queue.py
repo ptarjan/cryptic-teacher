@@ -543,6 +543,28 @@ check("not after REREAD_LAID_BLANKS, nor complete, refused, another number or an
 f.LAID_PUZZLES = _lb_was
 check("nor with no reading printing them after a count", False, f.run_on_tail_lost(_rtrow))
 f.run_on_tail_read = _rt_read
+# ---- a Times page written unfiled while a reading of its clue window ends a line on a count whose 1 was read as i
+# ("gatherer (i1).", Times 1974-12-07) is due once (fa.ONES_COUNT), ordered with never-read pages, never canary-held.
+_oc = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"4-down": "no reading laid a clue on it"}}
+_ocrow = {"edition": "GaleTimes1974UKEnglish/1974-12-07", "verdicts": [_oc], "readAt": "2026-10-25T07:19:26+00:00",
+          "scan": {"item": "GaleTimes1974UKEnglish", "date": "1974-12-07", "puzzles": [{"number": 9999993}]}}
+_oc_read = f.ones_count_read
+f.ones_count_read = lambda key: key == "1974-12-07_9999993"
+check("a Times page whose window reads a count's 1 as i is due as ONES_COUNT, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held, passing a blanket reason",
+      [f.ONES_COUNT, 2, True, True, True, None, f.ONES_COUNT],
+      [f.fix_reason(_ocrow), f.RANKS[f.ONES_COUNT], eq.evidence_reason(f.ONES_COUNT),
+       f.ONES_COUNT in eq.FIX_LANDED, f.ONES_COUNT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.ONES_COUNT, "date": "1974-12-07"}),
+       f.blanket_or_fix(_ocrow, "inputs changed")])
+check("not after REREAD_ONES_COUNT, nor with no blank, another window or another paper",
+      [False] * 4,
+      [f.ones_count_lost({**_ocrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.ones_count_lost({**_ocrow, "verdicts": [{**_oc, "blank": {}}]}),
+       f.ones_count_lost({**_ocrow, "edition": "GaleTimes1974UKEnglish/1974-12-08"}),
+       f.ones_count_lost({**_ocrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.ones_count_read = _oc_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,

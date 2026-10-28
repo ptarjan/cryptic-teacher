@@ -356,10 +356,46 @@ _COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])(?<![Ss]ee)\s?\(?(\d{1,2}(?:[,.\-]
 _COUNT_OPEN_END = re.compile(r"\((\d{1,2})[^\d)\s]?$")
 
 
-def count_closed(line):
+#: A closed count ending a line whose figures may hold an i, I or l for a 1 ("gatherer (i1).", "(1i)", "(il)"); not
+#: one a figure touches ("blotting7(i0).", Times 1974-01-09): that spot of the line is read garbled.
+_COUNT_WITH_I = re.compile(r"(?<!\d)\((\s*[\dIli]{1,2}(?:\s*[,.\-]\s*[\dIli]{1,2})*\s*)\)(?=\W{0,2}$)")
+
+
+def ones_in_count(line):
+    """`line` with a two-figure group of the count ending it read as 10-15
+    where a lower-case i stood for a 1 in it ("Suspense of the samphire-
+    gatherer (i1)." is "(11)"), the rest of the count already figures.
+    COUNT_BODY takes I and l for 1 but not i, so the line ended on no count
+    and its clue ran on into the next. A lone "i" ("(i)", "(4, i)"), a group
+    past 15 ("(i6)"), a group with another letter, or such a count inside a
+    line is left alone."""
+    m = _COUNT_WITH_I.search(line)
+    if not m or "i" not in m[1]:
+        return line
+    groups = re.split(r"(\s*[,.\-]\s*)", m[1].strip())
+    out = []
+    for k, g in enumerate(groups):
+        if k % 2:
+            out.append(g)
+            continue
+        if "i" in g:
+            if len(g) != 2:
+                return line
+            g = g.translate(str.maketrans("Ili", "111"))
+            if not 10 <= int(g) <= 15:
+                return line
+        elif not g.isdigit():
+            return line
+        out.append(g)
+    return line[:m.start(1)] + "".join(out) + line[m.end(1):]
+
+
+def count_closed(line, ones=True):
     """`line` with a count ending it mended: its ")" read as j or J, or its "("
     lost ("hair 8j" is "hair (8)"), and the specks after a whole count dropped
-    ("(8)'" is "(8)")."""
+    ("(8)'" is "(8)"); with `ones`, an i read for a count's 1 (ones_in_count)."""
+    if ones:
+        line = ones_in_count(line)
     line = _COUNT_CLOSE_MISREAD.sub(r" (\1)", line)
     # A linked clue's long count, its spaces closed ("(6, 5, 2, 3, 5)" is 13 characters, past the
     # 12 file_trove_puzzles.BRACKET takes as a count, so the clue ran on into the next: Gale 1952-10-15's 1, 9).
@@ -819,7 +855,7 @@ def _line_slips(line):
 
 
 def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=None, line_hook=None,
-                   torn_counts="mend", cells=None, lights=()):
+                   torn_counts="mend", cells=None, lights=(), ones=True):
     """The one tidy-up every OCR reader sends its clue text through, so a fix
     found on one source reaches all of them. Stages run in this fixed order,
     each on what the one before left; every stage is safe on any source's
@@ -869,7 +905,10 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
     to hold running heads (a book's leaf) sets it. `extra_headings` maps a
     publisher's own heading word, upper-case letters only, to "ACROSS" or
     "DOWN". `line_hook(line)` is a source's own last say on a clue line (a
-    lexicon check the pipeline cannot make)."""
+    lexicon check the pipeline cannot make). `ones` False (column) leaves a
+    count's i for 1 unread (ones_in_count): the vote ranks its readings on
+    the print as read, so the mend only ever adds clues to the list that
+    leads, never makes a noisier reading lead."""
     if scope == "run":
         return mend_scan_text(text)
     if scope == "lines":
@@ -893,7 +932,7 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
     # count before it is mended; a count closed gains its space), so the
     # column goes round until it stops changing, three times at most.
     for _ in range(3):
-        again = _column_pass(text, running_head, extra_headings, line_hook)
+        again = _column_pass(text, running_head, extra_headings, line_hook, ones)
         if again == text:
             break
         text = again
@@ -902,7 +941,7 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
     return foreign_tail_cut(text)
 
 
-def _column_pass(text, running_head, extra_headings, line_hook):
+def _column_pass(text, running_head, extra_headings, line_hook, ones=True):
     """One pass of tidy_ocr_clues' column stages 1 to 4, in order."""
     out, prev = [], ""
     for line in _split_headings(text):
@@ -930,7 +969,7 @@ def _column_pass(text, running_head, extra_headings, line_hook):
         if line_hook:
             line = line_hook(line)
         line = _line_slips(line)
-        line = count_closed(line)
+        line = count_closed(line, ones)
         if (ended or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
         out.append(line)
