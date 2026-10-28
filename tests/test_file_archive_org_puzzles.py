@@ -5698,6 +5698,19 @@ check("a linked clue laid on the lights its numbers name when one count fills th
       (("Linked words", "3,3", ["1-across", "4-across"]), "See 1"), (laid.get("1-across"), laid.get("4-across", ("",))[0]))
 laid, _ = f.lay_loose(f.parse("ACROSS\n1 & 4 Linked words (7)\nDOWN\n1 Down (3)")[0], g)
 check("a linked clue whose count does not fill its lights is not laid", None, laid.get("1-across"))
+# Gale 1966-12-24: "26, 30 Women who ..." in the down list over 26 down and 30 across.
+g = ["...", ".#.", "..."]
+laid, _ = f.lay_loose(f.parse("ACROSS\n1 Top (3)\n3 See 1 down\nDOWN\n1, 3 Linked across the lists (3,3)\n2 Right (3)")[0], g)
+check("a linked clue's tail its list does not number is the other list's light",
+      (("Linked across the lists", "3,3", ["1-down", "3-across"]), "See 1"),
+      (laid.get("1-down"), laid.get("3-across", ("",))[0]))
+check("a linked head with no space after a count is the next clue's numbers, not a speck",
+      [[{1}], [{5}, {20}], [{9}]],
+      [c["tokens"] for c in ftp.clues("1 Flower of the field (5) 5,20 How to make brash yet (4, 5) 9 Big cat roars (4)")[0]])
+check("ACROSS lost before a linked head opening on a figure (Gale 1954-07-05)",
+      ["ACROSS", "1, 10 8 sailors hate (3, 6)"],
+      ftp.heads(["1, 10 8 sailors hate (3, 6)", "11 What the doctor (8)", "12 What should (6)", "13 There's (4)",
+                 "DOWN", "2 Changes (8)", "3 Subject (8)", "4 See 26 (9)"])[:2])
 got, _ = ocr_clues.reconcile({"15-down": ("Entice Fortune, but provoke Nemesis? (5,4) - . 18 & 25 The point of", "9",
                                           ["15-down", "24-down"])},
                          ["15 & 24 Entice Fortune, but provoke Nemesis? (5,4)"], {"15-down": 5, "24-down": 4, "25-down": 5})
