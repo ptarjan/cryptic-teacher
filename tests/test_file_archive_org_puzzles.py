@@ -2288,6 +2288,13 @@ f.parse, f.clue_repair.repaired, f.ftp.renumber, f.ftp.match = _ll_was
 _ll_lists = f.loose_lists([], {"ch": _ll_text + "\nDOWN\n1 Beginning (6)", "en5": "ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)"})
 check("loose lists as read, then the mended apart", [[("ch",), ("en5",)], [("ch",)]],
       [[o for o, _ in group] for group in _ll_lists])
+# A See clue's run-on words (ftp.see_runs_on) are a mend too: as read the list stops at "about" (Times 1983-11-05),
+# so a reading parsed only so never leads over one that parses as read (Times 1946-08-14's stray quotes).
+_sr_text = "ACROSS\n18 Medicine I needed (5)\n19 See 16 about covering Australian port (9)\nDOWN\n1 Fish (4)"
+check("a See clue run on parses mended only, and reads mended; a plain list does not",
+      [False, True, True, False],
+      [f.parse(_sr_text, ones=False)[0] is not None, f.parse(_sr_text)[0] is not None, f.reads_mended(_sr_text),
+       f.reads_mended("ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)")])
 
 # Page text after the list's last count: a speck after the count ("(5). _")
 # is no text, so the footer after it is dropped, not read as a clue.
@@ -3360,6 +3367,21 @@ check("a See clue naming a linked answer's later numbers, a count after them, pa
       [(c["tokens"][0], c["text"]) for c in see_linked[0]])
 check("a See N then a comma and a new clue (no count after it) keeps its own number only",
       [({14}, "See 4"), ({9}, "Foo")], [(c["tokens"][0], c["text"]) for c in ftp.clues("14 See 4 9 Foo (5)")[0]])
+import re
+# Times 1983-11-05 (16,279): a clue whose own text opens on a cross-reference ("19 See 16 about covering
+# Australian port (9).") was closed at "See 16" and the list stopped at "about", in every reading alike.
+see_run = ftp.clues("18 Medicine I needed between centuries (5). 19 See 16 about covering Australian port (9). "
+                    "20 Transfer duke (6). 22 See 3. 23 Go home (4). 24 See 1 down 25 Bird (4).")
+check("a See N its words run on from is the clue's own text, to its count; a stopped or bare See N is not",
+      [({18}, "Medicine I needed between centuries", {"5"}, None), ({19}, "See 16 about covering Australian port", {"9"}, None),
+       ({20}, "Transfer duke", {"6"}, None), ({22}, "See 3", set(), 3), ({23}, "Go home", {"4"}, None),
+       ({24}, "See 1 down", set(), 1), ({25}, "Bird", {"4"}, None)],
+      [(c["tokens"][0], c["text"], c["enums"], c["see"]) for c in see_run[0]])
+# Times 1944-12-15: "28 See 5" with a neighbour column's "purple damask (4)" set after it is no run-on.
+check("a See N run on only by a joining word then more words to a count, not a neighbour column's tail",
+      [False, False, True],
+      [ftp.see_runs_on(r, re.match(r"See \d+", r))
+       for r in ("See 3 territory (5).", "See 5 purple damask (4).", "See 3 in the territory (5).")])
 # 1940-41 Gale Times grids scanned at twice the others' size (crops 1,040-1,340px): trove_grid finds too few
 # white cells at full size; scaled_grid reads the crop shrunk to GRID_WIDTHS, never a crop that reads as is.
 _sg_dir = Path(tempfile.mkdtemp())

@@ -565,6 +565,32 @@ check("not after REREAD_ONES_COUNT, nor with no blank, another window or another
        f.ones_count_lost({**_ocrow, "edition": "GaleTimes1974UKEnglish/1974-12-08"}),
        f.ones_count_lost({**_ocrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 f.ones_count_read = _oc_read
+# ---- a Times page refused "no reading parses" (or written unfiled) while a reading of its clue window holds a clue
+# opening on "See 16" and running on ("19 See 16 about covering Australian port (9).", Times 1983-11-05) is due once
+# (fa.SEE_RUNS_ON), ordered with never-read pages, never canary-held.
+_sr = {"number": 9999992, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' about covering'"}}
+_srrow = {"edition": "GaleTimes1983UKEnglish/1983-11-05", "verdicts": [_sr], "readAt": "2026-10-21T17:24:29+00:00",
+          "scan": {"item": "GaleTimes1983UKEnglish", "date": "1983-11-05", "puzzles": [{"number": 9999992}]}}
+_sr_read = f.see_run_read
+f.see_run_read = lambda key: key == "1983-11-05_9999992"
+check("a Times page whose window holds a See clue run on is due as SEE_RUNS_ON, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held, passing a blanket reason",
+      [f.SEE_RUNS_ON, 2, True, True, True, None, f.SEE_RUNS_ON],
+      [f.fix_reason(_srrow), f.RANKS[f.SEE_RUNS_ON], eq.evidence_reason(f.SEE_RUNS_ON),
+       f.SEE_RUNS_ON in eq.FIX_LANDED, f.SEE_RUNS_ON in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SEE_RUNS_ON, "date": "1983-11-05"}),
+       f.blanket_or_fix(_srrow, "inputs changed")])
+_sr_unfiled = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 1,
+               "blank": {"19-across": "no reading laid a clue on it"}}
+check("written unfiled with a blank too; not after REREAD_SEE_RUNS_ON, nor another refusal, window or paper",
+      [True, False, False, False, False],
+      [f.see_run_lost({**_srrow, "verdicts": [_sr_unfiled]}),
+       f.see_run_lost({**_srrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.see_run_lost({**_srrow, "verdicts": [{**_sr, "cause": "not-a-grid"}]}),
+       f.see_run_lost({**_srrow, "edition": "GaleTimes1983UKEnglish/1983-11-07"}),
+       f.see_run_lost({**_srrow, "edition": "FinancialTimes1983UKEnglish/1983-11-05_0"})])
+f.see_run_read = _sr_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,

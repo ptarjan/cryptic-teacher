@@ -2490,7 +2490,8 @@ PARSED_KEEP = 64
 def parse(text, ones=True):
     """({"across": [...], "down": [...]}, None) or (None, why) for a column text.
     Each call has its own copy, as the parse made afresh would be: callers edit it.
-    `ones` False leaves a count's i for 1 unread (clue_text.ones_in_count; led_list)."""
+    `ones` False parses the list as read (led_list): a count's i for 1 unread (clue_text.ones_in_count),
+    a "See N" its words run on from closed at N (ftp.see_runs_on)."""
     key = text if ones else (text,)
     got = _PARSED.get(key)
     if got is None:
@@ -2507,10 +2508,16 @@ def parse_text(text, ones=True):
         return None, "no ACROSS and DOWN lists under the grid"
     parsed = {}
     for direction, t in secs.items():
-        parsed[direction], why = ftp.clues(t)
+        parsed[direction], why = ftp.clues(t, see=ones)
         if why:
             return None, f"{direction} clues do not parse: {why}"
     return clue_repair.split_run_on(parsed)[0], None
+
+
+def reads_mended(text):
+    """Whether column text `text` parses otherwise mended than as read (parse's `ones`): its tidied text
+    moves (a count's i for 1) or it holds a See clue its words run on from (ftp.SEE_RUN_TEXT)."""
+    return tidy(text) != tidy(text, ones=False) or bool(ftp.SEE_RUN_TEXT.search(text))
 
 
 def led_list(text, others, g, ones=False):
@@ -2521,7 +2528,9 @@ def led_list(text, others, g, ones=False):
     The list is parsed with a count's i for 1 unread (ones_in_count), so the
     mend never ranks a reading the vote would not have led with: mended,
     a noisier reading parses whole, leads, and its own slips blank clues the
-    agreeing readers had (Times 1977-06-07's 19 across and 15 down). Only a
+    agreeing readers had (Times 1977-06-07's 19 across and 15 down). So too
+    a See clue's run-on words (ftp.see_runs_on): mended, Times 1946-08-14's
+    noisier first reading parsed and led, its stray quotes kept. Only a
     list that lies on the grid as read is laid again mended, and taken so
     when that lies on it too (`ones` True: mended from the start)."""
     parsed, why = parse(text, ones)
@@ -2530,7 +2539,7 @@ def led_list(text, others, g, ones=False):
     parsed, _ = clue_repair.repaired(parsed, others)
     parsed, _ = ftp.renumber(parsed)
     laid, why = ftp.match(parsed, g) if g else (None, None)
-    if laid is not None and not ones and tidy(text) != tidy(text, ones=False):
+    if laid is not None and not ones and reads_mended(text):
         mended, mlaid, mwhy = led_list(text, others, g, ones=True)
         if mlaid is not None:
             return mended, mlaid, mwhy
@@ -2540,8 +2549,8 @@ def led_list(text, others, g, ones=False):
 def loose_lists(tried, texts):
     """([(order, parsed)] as read, [(order, parsed)] mended): the lists the vote lays clue by clue when none lay
     whole, in the order they take lights: the vote's tried lists (led_list's, as read), then each other reading
-    of `texts` parsed as read; then, apart, each reading a count's i for 1 (ones_in_count) parses otherwise,
-    mended. Laid after every list as read (by number and by place), a mended list only fills the lights those
+    of `texts` parsed as read; then, apart, each reading a count's i for 1 (ones_in_count) or a See clue's
+    run-on words (ftp.see_runs_on) parse otherwise (reads_mended), mended. Laid after every list as read (by number and by place), a mended list only fills the lights those
     left free: listed ahead, a reading parsed only once mended took Times 1976-10-27's 4 down with its own
     slips ("Educate..-native") from the agreeing readings, and the vote blanked it."""
     lists = [(o, p) for _, _, _, _, o, p, _, _ in tried]
@@ -2552,7 +2561,7 @@ def loose_lists(tried, texts):
                 lists.append(((k,), ftp.renumber(p)[0]))
     mended = []
     for k in texts:
-        if texts[k].strip() and tidy(texts[k]) != tidy(texts[k], ones=False):
+        if texts[k].strip() and reads_mended(texts[k]):
             p, _ = parse(texts[k])
             if p is not None:
                 mended.append(((k,), ftp.renumber(p)[0]))
@@ -8923,17 +8932,25 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     named = {k for o in pairs for k in o}
     rest = [(k, next((o for o in texts if o != k), k)) for k in texts if k not in named]
     tried = []
-    for order in pairs + rest:
-        if order in rest and tried:
+    # Each reading as read first (led_list); only when none parses so, each mended (a See clue's run-on
+    # words, Times 1983-11-05's "19 See 16 about covering Australian port (9)", parse in no reading as read).
+    for ones in (False, True):
+        if tried:
             break
-        parsed, laid, why = led_list(texts[order[0]], [texts[k] for k in [order[1]] + [k for k in texts if k not in order]], g)
-        if parsed is None:
-            verdict.setdefault("unparsed", {})[order[0]] = why
-            continue
-        tried.append((laid is not None, clue_repair.complete(parsed),
-                      sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
-        if laid is not None:
-            break
+        for order in pairs + rest:
+            if order in rest and tried:
+                break
+            if ones and not reads_mended(texts[order[0]]):
+                continue
+            parsed, laid, why = led_list(texts[order[0]], [texts[k] for k in [order[1]] + [k for k in texts if k not in order]], g,
+                                         ones=ones)
+            if parsed is None:
+                verdict.setdefault("unparsed", {})[order[0]] = why
+                continue
+            tried.append((laid is not None, clue_repair.complete(parsed),
+                          sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
+            if laid is not None:
+                break
     if not tried:
         return refuse(verdict, "no-reading-parses", "no reading parses"), None
     ok, done, count, _, order, parsed, laid, why = max(tried, key=lambda t: t[:4])
@@ -12107,6 +12124,63 @@ def ones_count_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page refused "no reading parses" or written unfiled while a
+#: RapidOCR reading of its clue window holds a clue whose own text opens on a cross-reference ("19 See 16 about
+#: covering Australian port (9).", "16 See 10 with reference to current affairs (9)."): file_trove_puzzles.clues
+#: closed the clue at "See 16" as a bare continuation and the list stopped parsing at "about", in every reading
+#: alike. ftp.see_runs_on now reads such a "See N" (no stop after it, lower-case words to a count) as the clue's
+#: text. Failure shapes r14, 10-28. Its own reason, not "unfiled before its fix". Once each.
+SEE_RUNS_ON = "unfiled before its fix, a See clue's own text read"
+REREAD_SEE_RUNS_ON = "2026-10-28T15:30:00+00:00"
+#: A reading's line holding a "See N" its own words run on after (ftp.SEE_RUN_WORDS' word then another, no stop
+#: after N), or ending on a "See N" the next line runs on from with such a word.
+SEE_RUN_LINE = re.compile(rf"\b[Ss][ec]e\s+\d{{1,2}}(?:\s*(?:across|down|ac|dn)\b)?\s+(?:{ftp.SEE_RUN_WORDS})\b[.,;:]?\s+[A-Za-z]")
+SEE_LINE_END = re.compile(r"\b[Ss][ec]e\s+\d{1,2}\s*$")
+SEE_LINE_ON = re.compile(rf"\s*(?:{ftp.SEE_RUN_WORDS})\b[.,;:]?\s+[A-Za-z]")
+
+
+@functools.lru_cache(maxsize=4096)
+def see_run_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}", each of its
+    windows) holds a "See N" clue whose own text runs on (SEE_RUN_LINE, or SEE_LINE_END then SEE_LINE_ON)."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+            for o in wins:
+                lines = [str(w[4]) for w in o["words"]]
+                if any(SEE_RUN_LINE.search(t) for t in lines) or any(
+                        SEE_LINE_END.search(a) and SEE_LINE_ON.match(b) for a, b in zip(lines, lines[1:])):
+                    return True
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+    return False
+
+
+def see_run_lost(row):
+    """Whether Times ledger `row`, read before REREAD_SEE_RUNS_ON, holds a verdict refused "no reading parses"
+    or written unfiled with a blank clue (an "unfiled" count or its id's copy in CROPS/unfiled), its puzzle not
+    since held with every clue, whose clue window a RapidOCR reading holds a See clue run on (see_run_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SEE_RUNS_ON)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("skip") or v.get("number") is None:
+            continue
+        if v.get("refused"):
+            if v.get("cause") != "no-reading-parses":
+                continue
+        elif not v.get("id") or not isinstance(v.get("blank"), dict) or not v["blank"] \
+                or (not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists()):
+            continue
+        if not see_run_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state("times", v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
 #: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
 #: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
@@ -14759,6 +14833,9 @@ def fix_reason(row):
     its grids. Due
     whether its scan stands or not, so a stale scan never sinks it to the
     whole-corpus rank."""
+    # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
+    if see_run_lost(row):
+        return SEE_RUNS_ON
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
@@ -15303,7 +15380,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM, NEIGHBOUR_TAIL, EDGE_LETTERS,
                   ALONE_READ, BAND_GRID, LEFT_SPLIT, SCALED_GRID, LEFT_LATE, SCALED_EARLY, LEAD_RETRY, BAND_LATE,
                   SMALL_PAGE, RIGHT_ADS, FIFTIES_LEFT, CLOSED_GRID, LINKED_LEAD, DOWN_CUT, DOWN_FOOT, INSET_GRID,
-                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT)
+                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT, SEE_RUNS_ON)
 
 
 def blanket_or_fix(row, blanket):
@@ -15512,7 +15589,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15841,7 +15918,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT) else {}),
+                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
+                                      SEE_RUNS_ON) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
