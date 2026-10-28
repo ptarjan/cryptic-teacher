@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,48 @@
     "text": "Insect seen in August, maybe — name not given",
     "enumeration": "4"
    },
-   "solution": "MOTH"
+   "solution": "MOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not given",
+       "at": 36,
+       "note": "a name not given is a letter withheld, so it comes out of the word before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "August, maybe",
+       "at": 15,
+       "gives": "MONTH",
+       "note": "August is an example of a month"
+      },
+      {
+       "words": "name",
+       "at": 31,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An entomologist spots an unidentified bug during the summer holidays.",
+     "walkthrough": "'August' looks like a time setting, but with 'maybe' it is an example of a month; 'not given' drops the N.",
+     "definitionFit": "A moth is a winged insect, close kin of the butterfly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +88,32 @@
     "text": "Prime team?",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prime",
+      "at": 0,
+      "meaning": "a prime number: ... divides only by itself and one"
+     },
+     {
+      "text": "team?",
+      "at": 6,
+      "meaning": "a football or cricket side fields ... players"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports writer hails a side at its peak.",
+     "walkthrough": "'Prime' reads as 'in its prime', but here it means a prime number.",
+     "definitionFit": "Both senses rest on the number: it is prime, and it is the size of a football or cricket side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Prime"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +127,40 @@
     "text": "Kept in garage, a rare car component?",
     "enumeration": "4"
    },
-   "solution": "GEAR"
+   "solution": "GEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "car component?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Kept in",
+       "at": 0,
+       "note": "the letters sought are kept inside the run of words that follows, spanning garage and a rare"
+      }
+     ],
+     "parts": [
+      {
+       "words": "garage, a rare",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector stores an unusual car part in the garage.",
+     "definitionFit": "A gear is a toothed wheel in a car's gearbox, one part of the vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garage"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +174,59 @@
     "text": "Vehicle encountered going north and getting in the way",
     "enumeration": "6"
    },
-   "solution": "TANDEM"
+   "solution": "TANDEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in the way",
+       "at": 36,
+       "note": "something getting in the way sits between, so the word and is placed inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going north",
+         "at": 20,
+         "note": "in a down clue, going north means read upwards, so the piece is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "encountered",
+         "at": 8,
+         "gives": "MET",
+         "note": "encountered means met"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle met on the road heading north turns out to be an obstruction.",
+     "walkthrough": "In a down clue 'going north' means reading upwards, giving TEM; 'getting in the way' is the insertion signal, not part of the definition.",
+     "definitionFit": "A tandem is a bicycle built for two riders, a kind of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +240,40 @@
     "text": "Second teacher — one won't let everything go through",
     "enumeration": "8"
    },
-   "solution": "STRAINER"
+   "solution": "STRAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one won't let everything go through",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "teacher",
+       "at": 7,
+       "gives": "TRAINER",
+       "note": "a trainer is someone who teaches a skill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deputy teacher is described as one who blocks pupils from getting through.",
+     "definitionFit": "A sieve or colander holds back solids while liquid passes, so it lets only some things through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "teacher"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +287,55 @@
     "text": "Compromise is trick, meeting heard",
     "enumeration": "10"
    },
-   "solution": "CONCESSION"
+   "solution": "CONCESSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compromise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trick",
+       "at": 14,
+       "gives": "CON",
+       "note": "to con is to trick, and a con is a trick"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CESSION",
+       "indicators": [
+        {
+         "text": "heard",
+         "at": 29,
+         "note": "heard says the word for meeting is taken by its sound, spelt differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meeting",
+         "at": 21,
+         "gives": "SESSION",
+         "note": "a session is a meeting or sitting"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A negotiator suspects the meeting's compromise is a trick.",
+     "walkthrough": "SESSION and CESSION sound the same; cession is the act of giving something up.",
+     "definitionFit": "A concession is something yielded in bargaining, the giving ground that a compromise needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +349,66 @@
     "text": "US President, first to consider dreadful lie 'good'",
     "enumeration": "8"
    },
-   "solution": "COOLIDGE"
+   "solution": "COOLIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US President",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "at": 14,
+         "note": "first to marks only the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "consider",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dreadful",
+         "at": 32,
+         "note": "a dreadful version of the words is a mangled one, so their letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lie",
+         "at": 41
+        },
+        {
+         "words": "good",
+         "at": 46
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A president's adviser first weighs whether a terrible lie can be called good.",
+     "walkthrough": "The quotes around 'good' make it look like a quoted word, but 'dreadful' simply mixes its letters with the lie, giving OOLIDGE.",
+     "definitionFit": "Calvin Coolidge was the thirtieth president of the United States, in office 1923 to 1929."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dreadful"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +422,40 @@
     "text": "Girl's outburst creates revulsion",
     "enumeration": "7"
    },
-   "solution": "DISGUST"
+   "solution": "DISGUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revulsion",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl's",
+       "at": 0,
+       "gives": "DIS",
+       "note": "Di is a girl's name, so the possessive gives Di's"
+      },
+      {
+       "words": "outburst",
+       "at": 7,
+       "gives": "GUST",
+       "note": "a gust is a sudden outburst, of wind or feeling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's angry outburst causes revulsion.",
+     "definitionFit": "Disgust is strong distaste, a synonym for revulsion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +469,45 @@
     "text": "Process I discovered in part of west London",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Process",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "discovered in",
+       "at": 10,
+       "note": "something discovered in a place is found inside it, so the letter goes within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of west London",
+       "at": 24,
+       "gives": "ACTON",
+       "note": "Acton is a district of west London"
+      },
+      {
+       "words": "I",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes finding a process while in a London suburb.",
+     "definitionFit": "In law a process or suit is an action, as in bringing an action against someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +521,40 @@
     "text": "Plants offering a hundred places for bees",
     "enumeration": "6"
    },
-   "solution": "CHIVES"
+   "solution": "CHIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plants",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a hundred",
+       "at": 16,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      },
+      {
+       "words": "places for bees",
+       "at": 26,
+       "gives": "HIVES",
+       "note": "bees live in hives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's plants offer a hundred homes for bees.",
+     "definitionFit": "Chives are small onion-like herbs, so they are plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +568,56 @@
     "text": "Glowing quality of artist can die out",
     "enumeration": "8"
    },
-   "solution": "RADIANCE"
+   "solution": "RADIANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Glowing quality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "artist",
+       "at": 19,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, a crossword artist"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 34,
+         "note": "out here means disordered, so the letters of can and die are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 26
+        },
+        {
+         "words": "die",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's glow may fade and die out.",
+     "walkthrough": "'out' reads as 'die out' but is the anagram signal, making DIANCE; RA (Royal Academician) is the usual crossword artist.",
+     "definitionFit": "Radiance is brightness or a warm shining glow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +631,70 @@
     "text": "They perhaps will join chaps in awful sect making declarations",
     "enumeration": "14"
    },
-   "solution": "PRONOUNCEMENTS"
+   "solution": "PRONOUNCEMENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "declarations",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "They perhaps",
+       "at": 0,
+       "gives": "PRONOUN",
+       "note": "they is an example of a pronoun"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "in puts the word for chaps inside the jumbled sect"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "awful",
+           "at": 32,
+           "note": "awful suggests a mess, so the letters of sect are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sect",
+           "at": 38
+          }
+         ]
+        },
+        {
+         "words": "chaps",
+         "at": 23,
+         "gives": "MEN",
+         "note": "chaps are men"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recruiter warns that they will draw chaps into a dreadful cult that issues decrees.",
+     "walkthrough": "'awful' makes CETS, and 'in' splits it to give CEMENTS; 'They' is not the subject but an example of a part of speech.",
+     "definitionFit": "Pronouncements are formal statements, the same as declarations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "They"
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +708,40 @@
     "text": "Had to worry, travelling — fit for the journey?",
     "enumeration": "10"
    },
-   "solution": "ROADWORTHY"
+   "solution": "ROADWORTHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fit for the journey?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "travelling",
+       "at": 14,
+       "note": "travelling letters move about, so these are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Had to worry",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous motorist fretted on the road over whether the car was up to the trip.",
+     "definitionFit": "A roadworthy vehicle is in fit condition to be driven safely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 14,
@@ -212,7 +755,31 @@
     "text": "Counters for fast food?",
     "enumeration": "5"
    },
-   "solution": "CHIPS"
+   "solution": "CHIPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Counters",
+      "at": 0,
+      "meaning": "gambling tokens used at a casino table"
+     },
+     {
+      "text": "fast food?",
+      "at": 13,
+      "meaning": "fried potato strips sold at takeaways"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks for serving counters at a takeaway.",
+     "definitionFit": "The word covers both poker tokens and fried potato sticks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Counters"
+    }
+   }
   },
   {
    "number": 15,
@@ -226,7 +793,57 @@
     "text": "Ardent leader of men behind struggle",
     "enumeration": "4"
    },
-   "solution": "WARM"
+   "solution": "WARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ardent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind",
+       "at": 21,
+       "note": "the leading letter of men comes behind the word for struggle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "struggle",
+       "at": 28,
+       "gives": "WAR",
+       "note": "a war is a struggle"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 7,
+         "note": "leader of takes just the opening letter of men"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passionate commander leads troops at the rear of the fighting.",
+     "definitionFit": "A warm or ardent supporter is an enthusiastic, passionate one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -240,7 +857,42 @@
     "text": "What some women wear going to bash in government department",
     "enumeration": "8"
    },
-   "solution": "MINISTRY"
+   "solution": "MINISTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "government department",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "What some women wear",
+       "at": 0,
+       "gives": "MINIS",
+       "note": "minis are miniskirts"
+      },
+      {
+       "words": "bash",
+       "at": 30,
+       "gives": "TRY",
+       "note": "to have a bash is to have a try"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women in short skirts head to a party at a government office.",
+     "walkthrough": "'bash' looks like a party, but here it means an attempt.",
+     "definitionFit": "A ministry is a department of state headed by a minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bash"
+    }
+   }
   },
   {
    "number": 17,
@@ -254,7 +906,45 @@
     "text": "Colour to hide a blemish",
     "enumeration": "5"
    },
-   "solution": "TAINT"
+   "solution": "TAINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blemish",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to hide",
+       "at": 7,
+       "note": "to hide something is to cover it up, so the word colour wraps around the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Colour",
+       "at": 0,
+       "gives": "TINT",
+       "note": "a tint is a colour or shade"
+      },
+      {
+       "words": "a",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Makeup tinted to cover a skin flaw.",
+     "definitionFit": "A taint is a trace of contamination, a mark or stain like a blemish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -274,7 +964,30 @@
      }
     ]
    },
-   "solution": "TURNOFF"
+   "solution": "TURNOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Access to service station possibly",
+      "at": 0,
+      "meaning": "a slip road leaving the main road, as to a motorway services"
+     },
+     {
+      "text": "something truly unexciting",
+      "at": 36,
+      "meaning": "a thing that kills interest or desire"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver finds the motorway services exit the dullest thing imaginable.",
+     "definitionFit": "The phrase is both a road branching off and a thing that repels interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -288,7 +1001,58 @@
     "text": "Short log about military operation",
     "enumeration": "4"
    },
-   "solution": "RAID"
+   "solution": "RAID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "military operation",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means turned round, so the letters are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word lacks its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "log",
+         "at": 6,
+         "gives": "DIARY",
+         "note": "a diary is a daily log"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief logbook entry records a military mission.",
+     "walkthrough": "'Short' cuts DIARY to DIAR, and 'about' turns it round.",
+     "definitionFit": "A raid is a sudden attack, a typical military operation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "log"
+    }
+   }
   },
   {
    "number": 20,
@@ -308,7 +1072,41 @@
      }
     ]
    },
-   "solution": "WINDINSTRUMENT"
+   "solution": "WINDINSTRUMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thing to have in orchestra",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bad",
+       "at": 19,
+       "note": "bad suggests spoiled, so the letters of the preceding words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New tin drum isn't",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A percussionist insists a brand-new tin drum is no bad thing for an orchestra.",
+     "walkthrough": "'New' looks like the anagram signal but is fodder; 'bad' is the signal.",
+     "definitionFit": "Flutes, oboes and horns are blown instruments found in every orchestra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1130,30 @@
      }
     ]
    },
-   "solution": "INAJAM"
+   "solution": "INAJAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Processed fruit may be this",
+      "at": 0,
+      "meaning": "fruit boiled with sugar ends up inside a preserve"
+     },
+     {
+      "text": "awkwardly placed",
+      "at": 28,
+      "meaning": "stuck in a difficult situation"
+     }
+    ],
+    "explanation": {
+     "surface": "Preserved fruit seems to be in a tricky spot.",
+     "definitionFit": "The idiom means in trouble; literally, fruit made into preserve sits inside one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1167,64 @@
     "text": "Church service, shortened one with money collected",
     "enumeration": "6"
    },
-   "solution": "MATINS"
+   "solution": "MATINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Church service",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collected",
+       "at": 41,
+       "note": "collected means gathered in, so the word for money is held inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 16,
+         "note": "shortened means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 26,
+         "gives": "MASS",
+         "note": "one stands for a church service, here the Mass"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "money",
+       "at": 35,
+       "gives": "TIN",
+       "note": "tin is slang for money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short service where a collection of money is taken.",
+     "walkthrough": "'one' stands for another church service, and 'shortened' trims it to MAS before 'collected' takes in the money.",
+     "definitionFit": "Matins is the morning prayer service of the Anglican church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collected"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1238,47 @@
     "text": "Transgress with long hair? Dad's intervening",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Transgress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervening",
+       "at": 33,
+       "note": "intervening means coming between, so the father's piece sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "long hair",
+       "at": 16,
+       "gives": "TRESS",
+       "note": "a tress is a long lock of hair"
+      },
+      {
+       "words": "Dad's",
+       "at": 27,
+       "gives": "PAS",
+       "note": "pa is dad, so the possessive gives pa's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father steps in when his child misbehaves with long hair.",
+     "definitionFit": "To trespass is to sin or break a rule, as in the Lord's Prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1292,42 @@
     "text": "God of love upset and angry",
     "enumeration": "4"
    },
-   "solution": "SORE"
+   "solution": "SORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "angry",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 12,
+       "note": "upset in a down clue means turned upside down, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "God of love",
+       "at": 0,
+       "gives": "EROS",
+       "note": "Eros is the Greek god of love"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cupid's counterpart is upset and cross.",
+     "definitionFit": "Sore is informal for annoyed or resentful, especially in American English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1341,40 @@
     "text": "Component of fuel to be abandoned at once",
     "enumeration": "6"
    },
-   "solution": "OCTANE"
+   "solution": "OCTANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Component of fuel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abandoned",
+       "at": 24,
+       "note": "abandoned means wild and unrestrained, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at once",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fuel ingredient must be ditched immediately.",
+     "definitionFit": "Octane is a hydrocarbon in petrol, used to rate fuel quality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1388,53 @@
     "text": "Number of Leninists turning up",
     "enumeration": "4"
    },
-   "solution": "NINE"
+   "solution": "NINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning up",
+       "at": 20,
+       "note": "turning up in a down clue means reading the letters upwards, so they are reversed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 7,
+         "note": "of means taken from within the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leninists",
+         "at": 10,
+         "gives": "ENIN"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Communist followers are turning up in large numbers.",
+     "definitionFit": "Nine is a whole number, one more than eight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1448,60 @@
     "text": "Hindu law expressed in notice about restricting damage",
     "enumeration": "6"
    },
-   "solution": "DHARMA"
+   "solution": "DHARMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hindu law",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "restricting",
+       "at": 36,
+       "note": "restricting means confining, so the reversed notice encloses the damage"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 30,
+         "note": "about means turned round, so the letters of notice are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "notice",
+         "at": 23,
+         "gives": "AD",
+         "note": "an ad is a notice or advertisement"
+        }
+       ]
+      },
+      {
+       "words": "damage",
+       "at": 48,
+       "gives": "HARM",
+       "note": "harm is damage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal principle stated in a public notice on limiting harm.",
+     "walkthrough": "'about' gives DA, and 'restricting' means it holds the damage inside; 'expressed in' only links.",
+     "definitionFit": "Dharma is the moral and cosmic order, the duty or law in Hindu teaching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1515,40 @@
     "text": "It's improving — fine grin is spreading",
     "enumeration": "8"
    },
-   "solution": "REFINING"
+   "solution": "REFINING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "improving",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spreading",
+       "at": 30,
+       "note": "spreading means the letters are spread about and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fine grin",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broad smile is spreading over someone's face as things get better.",
+     "definitionFit": "Refining is making purer or more polished, a synonym of bettering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spreading"
+    }
+   }
   }
  ]
 }
