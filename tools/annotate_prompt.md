@@ -86,7 +86,9 @@ words, indicator operations and pieces, so you write none of those.
 **Parsing.**
 - Every clue word has one job: in `def`, in a `[leaf]`, or in an `<indicator>` right
   after the operation it signals. Leftover words are link words, worked out for you; an
-  indicator you leave out becomes a link word the check questions. Copy clue words
+  indicator you leave out becomes a link word the check questions: every `ins`, `hid`, `move`
+  and `del` names its own word (a container's "in", "outside", "circling"; a hidden word's
+  "in" or its "'s" for "has"), so write `ins<in>`, not a bare `ins`. Copy clue words
   exactly; `[in#2]` is the second "in". Each `[leaf]`, `<indicator>`, `def` and note key
   is one unbroken run of the clue as printed, neighbouring words with nothing between:
   words that are in order but have other words between them ("takes" ... "for" in
