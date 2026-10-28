@@ -638,6 +638,24 @@ check("not after the fix, nor what PUNCT_MENDED rereads, nor an apostrophes faul
        f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv["refusedWrite"] + "; SHAPE 4-down: holds "
                                                                     "the page's text: 'x (3) 5 Y'; cut it"}]}),
        f.gap_vote_due({**_gvrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled with every blank clue "not a word" (a word every reading spells alike, "Nil
+# nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
+_sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"23-across": "'bonum': not a word"}}
+_swrow = {"edition": "GaleTimes1970UKEnglish/1970-05-25", "verdicts": [_sw], "readAt": "2026-10-27T03:06:10+00:00"}
+check("a Times page unfiled over a word its readings spell alike is due as SHARED_WORD, ranked, evidence, "
+      "fix-landed, unfiled-first, blanket-passing",
+      [f.SHARED_WORD, 2, True, True, True, None, True],
+      [f.fix_reason(_swrow), f.RANKS[f.SHARED_WORD], eq.evidence_reason(f.SHARED_WORD), f.SHARED_WORD in eq.FIX_LANDED,
+       f.SHARED_WORD in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SHARED_WORD, "date": "1970-05-25"}),
+       f.blanket_or_fix(_swrow, "inputs changed") == f.SHARED_WORD])
+check("not after the fix, nor beside another blank, nor the vote's 'both read', nor another paper",
+      [False] * 4,
+      [f.shared_worded({**_swrow, "readAt": _after}),
+       f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {**_sw["blank"], "1-down": "no reading laid a clue on it"}}]}),
+       f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {"23-across": "both read 'felt,a', not a word"}}]}),
+       f.shared_worded({**_swrow, "edition": "FinancialTimes1970UKEnglish/1970-05-25_0"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
