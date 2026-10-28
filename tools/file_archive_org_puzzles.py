@@ -289,12 +289,13 @@ NUMBER = r"(\d{1,2}[,.\s]?\d{3})"
 #: "I he l imes"), puts a mark before or after it ("Crossword . No."), runs
 #: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), garbles
 #: "Puzzle" before a "No" ("Pnzzle No", "Pu/zle No"), splits "Crossword" ("Or ossword"), drops "No",
+#: triples its s (1983-01-12's "The Times Crosssword Puzzle No 16,025", so printed: Gale's text reads it so too),
 #: splits the number ("1 8,862", "17,1 11"),
 #: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543"); the
 #: number is four digits before No 10,000 (1962: "No. 8,565");
 #: read_puzzle checks the number against the date.
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
-                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}[co0]r\s?ossword\W{0,3}"
+                   r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}[co0]r\s?os{2,3}word\W{0,3}"
                    r"(?:puzzle\W{0,3}|[^\s\d]{4,7}?\s*(?=n[o0]\b))?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d(?:\s?\d)?)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
@@ -3354,11 +3355,27 @@ def ocr_headings(img, paper, key, day=None):
     # With titles voted, solution_headings reads only a number SOLUTION_LAGS before one, so one
     # reader's read of it stands (the thin band RapidOCR drops the number from, Tesseract keeps:
     # 1971-09-09's "Solution of Puzzle No 12,869"): read_solution checks the grid against the
-    # puzzle's (blocks, lengths, crossings) before any answer files.
-    sols = {n: reads for n, reads in sols.items() if len(reads) >= (1 if voted else least)}
+    # puzzle's (blocks, lengths, crossings) before any answer files. With none voted, a title fewer
+    # read, near the date's number, and the solution heading of the puzzle before it, read on its own
+    # line, stand together (paired_titles).
+    paired = set() if voted else paired_titles(titles, sols, paper, day)
+    sols = {n: reads for n, reads in sols.items() if len(reads) >= (1 if voted else least) or n + 1 in paired}
     found = [(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
              if len(reads) >= least or n - 1 in sols] or near
     return gale_headings(img, paper, key, day, found, [(n, reads[0][1]) for n, reads in sols.items()])
+
+
+def paired_titles(titles, sols, paper, day):
+    """{number} of the titles ocr_headings' readers read (`titles`, {number: reads}) that a solution
+    heading read on the page (`sols`, {number: reads}, any reader's) numbers the puzzle before, each
+    within the paper's slack of the number `day` implies (any, with no day): two lines of the page
+    agree on it where no reader read either for half of READERS. A 1940 Gale page's title runs past
+    its grid's band, its whole-page read alone holding the number, by one reader of three
+    (1940-03-08: RapidOCR ch's "THETIMESCROSSWORDPUZZLENo.3,134", en5's "No. 3,I34"), and its
+    solution heading by another (en5's "Solution Of Puzzle No. 3,133", ch's "SoLuTIoN. Or"): neither
+    stood, so the page filed nothing."""
+    return {n for n in titles if n - 1 in sols
+            and (day is None or abs(n - paper.expected(day)) <= paper.slack)}
 
 
 def gale_headings(img, paper, key, day, titles, sols):
@@ -9739,6 +9756,32 @@ for _paper, _pins in _INSET_GRID_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before ocr_headings stood a title one reader
+#: read by the solution heading of the puzzle before it (paired_titles: only where no title had half the
+#: readers) and TITLE read "Crosssword": a page with a voted title, or none so spelt, finds the same, so
+#: every scan stands; the Gale Times's untitled pages are scanned again (lone_rescan, LONE_TITLE).
+_LONE_TITLE_FIX = {
+    "ft": ("4c119d3dff5e63ad", "b17760f8942c9901", "af0bb70f1d31431e"),
+    "gale": ("208f2e5e7a97366c", "8fd3f279859001d6", "d8b652256c2e5591"),
+    "galeft": ("13bf04e15d2e268d", "a8f625cdbf1ee815", "088566af00dc0064"),
+    "galeindependent": ("8c894b5e3a229298", "aa100ca6aae3be4f", "b3fad67147027ed5"),
+    "galesundaytimes": ("b7e768f16d5390b7", "230840a4b1300991", "5f265760af18773c"),
+    "galetelegraph": ("1dee7704edb95099", "b050ff9ec5610a07", "0f463a6d003b7493"),
+    "galetls": ("6277dc4cc2c855ca", "8a6290bfc1446840", "23a1a125d635721f"),
+    "guardian": ("01427cb1c3fade69", "2d774c5f63aaa825", "a7d68e9af3ecb1e7"),
+    "telegraph": ("1b80c5bb69577e3a", "db50d8e474af9aa2", "5d52892451a6ff78"),
+    "times": ("d0d2f468f4295b4f", "4ef21132bf60d3ca", "bc1d5aae4839c12c"),
+    "times1930": ("e234c4bcbd44e712", "515785824e63df73", "3fb4569dbcf8dec0"),
+}
+#: The Gale Times scan keys a scan stood under before paired_titles (lone_rescan): the old key, its sized
+#: twin, and every corpus-wide key then standing for it (those before inset_grid among them).
+_LONE_OLD = frozenset({*_LONE_TITLE_FIX["gale"][:2],
+                       *(k for k, v in CORPUS_KEYS.items() if v.get("gale") == _LONE_TITLE_FIX["gale"][0])})
+for _paper, _pins in _LONE_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -9791,7 +9834,7 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and inset_rescan(r)):
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r))):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -9867,7 +9910,9 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # lettered_framing (a Times grid no block test judged, read on the framing whose classifier
                   # letters are its reading's): only grids none was classified on read otherwise; due once as
                   # LETTERED_BLOCKS.
-                  "3a7f18bdfc55e513": "f6a3d293c491a4b0"}
+                  "3a7f18bdfc55e513": "f6a3d293c491a4b0",
+                  # paired_titles and TITLE's "Crosssword" (a scan's titles; no solution's reading moves).
+                  "3c3bcd251675e071": "f6a3d293c491a4b0"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -9877,7 +9922,8 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
 #: predicts a gain (a gap within SHORT_GAP): 10-27 00:05Z, 404 of 408 rows due WIDE_AGREED, 87 of 200 due
 #: FULL_SHORT and 8 of 10 due AGREED_HELD were so, the 6+ short ones never planned.
 _SOLUTION_SAME = {"8417cfb08f3a9706": "f6a3d293c491a4b0", "d7af79af2ec8d286": "f6a3d293c491a4b0",
-                  "4b0a439613b63f74": "f6a3d293c491a4b0", "3a7f18bdfc55e513": "f6a3d293c491a4b0"}
+                  "4b0a439613b63f74": "f6a3d293c491a4b0", "3a7f18bdfc55e513": "f6a3d293c491a4b0",
+                  "3c3bcd251675e071": "f6a3d293c491a4b0"}
 
 
 def solution_current(row):
@@ -10504,6 +10550,36 @@ def inset_rescan(row):
         return False
     key = row.get("scanKey")
     return key in _INSET_OLD or key not in current_keys(GALE)
+
+
+#: The reason of a Gale Times page of LONE_YEARS whose scan found no title (no puzzle, no verdict) under
+#: scan code before ocr_headings stood a title one reader read by the solution heading of the puzzle before
+#: it (paired_titles) and TITLE read "Crosssword", or, outside INSET_YEARS, before grid-first read titles
+#: round a grid grid_lined (not only grid_ruled) passes: rekey_scans carried those scans to each key since,
+#: so none is scanned again. 10-28: of the 469 refetched Times dates whose page we found no title on, 66
+#: 1940-66 pages wider than SCAN_WIDTH hold a puzzle grid solution_shaped takes (all due INSET_GRID; the
+#: current scan titles 1951-04-24's 6,581 and 1958-03-01's 8,686), ~25 of them 1940-41 pages whose title
+#: runs past its grid's band, read by one reader with the solution heading by another (1940-03-08's 3,134,
+#: paired_titles); and 44 are of 1970-2014, outside INSET_YEARS, 21 under a key pinned from before
+#: grid_lined: the current scan titles 1982-07-21's 15,887, 1985-06-04's 16,754 and 2014-03-05's 25,726
+#: (the day before's solution with each), and 1983-01-12's 16,025 with the triple s.
+LONE_TITLE = "untitled page, scanned before a lone reader's title stood by its solution heading"
+#: The (first, last) years of the Gale Times whose untitled pages are scanned again for LONE_TITLE.
+LONE_YEARS = ("1930", "2014")
+
+
+def lone_rescan(row):
+    """Whether Gale Times ledger `row` is due LONE_TITLE: an edition of LONE_YEARS read with no title found
+    (no puzzle in its scan, no verdict) under a scan key from before paired_titles (_LONE_OLD, or one no
+    longer current), and not due INSET_GRID. Its scan is stale (scan_current) and rekey_scans leaves it, so
+    it is scanned again by this code once."""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and LONE_YEARS[0] <= year <= LONE_YEARS[1]
+            and "inputs" in row and not scan.get("puzzles") and not row.get("verdicts") and not scan.get("failed")):
+        return False
+    key = row.get("scanKey")
+    return (key in _LONE_OLD or key not in current_keys(GALE)) and not inset_rescan(row)
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -14203,6 +14279,8 @@ def fix_reason(row):
         return NO_TITLE_RESCAN
     if inset_rescan(row):
         return INSET_GRID
+    if lone_rescan(row):
+        return LONE_TITLE
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -14917,7 +14995,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -14954,7 +15032,7 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and inset_rescan(row))
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row)))
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of

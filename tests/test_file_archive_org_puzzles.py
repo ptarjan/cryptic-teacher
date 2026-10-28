@@ -445,7 +445,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._DOT_LEADER_FIX[gt.key][:2],
                                                                       *f._DAY_HEADING_FIX[gt.key][:2],
                                                                       *f._CHAMPIONSHIP_FIX[gt.key][:2],
-                                                                      *f._INSET_GRID_FIX[gt.key][:2]},
+                                                                      *f._INSET_GRID_FIX[gt.key][:2],
+                                                                      *f._LONE_TITLE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3035,7 +3036,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._INSET_GRID_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._LONE_TITLE_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -3047,35 +3048,72 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
       "pins over, its pinned key the one the dot-leader fix pins over, its the one the day-heading fix pins "
-      "over, its the one the championship fix pins over, its the one the inset-grid fix pins over, whose pinned "
-      "key is its real scan key, and the six fixes' old keys stand under it",
-      [True, True, True, True, True, True, True],
+      "over, its the one the championship fix pins over, its the one the inset-grid fix pins over, its the one "
+      "the lone-title fix pins over, whose pinned key is its real scan key, and the seven fixes' old keys stand "
+      "under it",
+      [True, True, True, True, True, True, True, True],
       [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
        all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
        all(v[2] == f._DAY_HEADING_FIX[k][0] for k, v in f._DOT_LEADER_FIX.items()),
        all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
        all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
+       all(v[2] == f._LONE_TITLE_FIX[k][0] for k, v in f._INSET_GRID_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._INSET_GRID_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._INSET_GRID_FIX[k][2]}
+           for k, v in f._LONE_TITLE_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._LONE_TITLE_FIX[k][2]}
            for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
-                     f._INSET_GRID_FIX)
+                     f._INSET_GRID_FIX, f._LONE_TITLE_FIX)
            for k, v in t.items() for o in v[:2])])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
-# one with a title, a verdict, of 1975, or scanned by the new code stands.
+# one with a title, a verdict, or scanned by the new code stands; a 1975 one is not INSET_GRID's (LONE_TITLE's).
 _ik = f._INSET_GRID_FIX["gale"]
 _inset = {"edition": "GaleTimes1941UKEnglish/1941-01-27", "scanKey": _ik[0], "filesHash": "h", "inputs": "h",
           "verdicts": [], "scan": {"date": "1941-01-27", "item": "GaleTimes1941UKEnglish", "puzzles": [], "solutions": []}}
+_i1975 = {**_inset, "edition": "GaleTimes1975UKEnglish/1975-01-27",
+          "scan": {**_inset["scan"], "date": "1975-01-27", "item": "GaleTimes1975UKEnglish"}}
 check("an untitled 1941 Gale Times scan made before inset_grid is due again (INSET_GRID, its scan stale); a titled "
-      "one, one with a verdict, a 1975 one and a scan by the new code stand",
-      [False, f.INSET_GRID, True, True, True, True, None],
+      "one, one with a verdict and a scan by the new code stand; a 1975 one is due LONE_TITLE, not INSET_GRID",
+      [False, f.INSET_GRID, True, True, False, f.LONE_TITLE, True, None],
       [f.scan_current(_inset, "h"), f.fix_reason(_inset),
        f.scan_current({**_inset, "scan": {**_inset["scan"], "puzzles": [{"number": 3409, "leaf": 0}]}}, "h"),
        f.scan_current({**_inset, "verdicts": [{"number": 3409}]}, "h"),
-       f.scan_current({**_inset, "edition": "GaleTimes1975UKEnglish/1975-01-27",
-                       "scan": {**_inset["scan"], "date": "1975-01-27", "item": "GaleTimes1975UKEnglish"}}, "h"),
+       f.inset_rescan(_i1975), f.fix_reason(_i1975),
        f.scan_current({**_inset, "scanKey": f.scan_key(f.GALE)}, "h"),
        f.fix_reason({**_inset, "scanKey": f.scan_key(f.GALE)})])
+# An untitled Gale Times page scanned before paired_titles (the key the lone-title fix pins over, of any year
+# 1930-2014): its scan stale, due LONE_TITLE once (an INSET_YEARS one under a pre-inset key stays INSET_GRID's);
+# a titled one, one with a verdict, a Gale Telegraph one and a scan by the new code stand; rekey_scans leaves it.
+_lk = f._LONE_TITLE_FIX["gale"]
+_lone = {"edition": "GaleTimes1982UKEnglish/1982-07-21", "scanKey": _lk[0], "filesHash": "h", "inputs": "h",
+         "verdicts": [], "scan": {"date": "1982-07-21", "item": "GaleTimes1982UKEnglish", "puzzles": [],
+                                  "solutions": [{"number": 15886, "leaf": 0}]}}
+_l1940 = {**_lone, "edition": "GaleTimes1940UKEnglish/1940-03-08",
+          "scan": {**_lone["scan"], "date": "1940-03-08", "item": "GaleTimes1940UKEnglish"}}
+check("an untitled 1982 or 1940 Gale Times scan made before paired_titles is due LONE_TITLE (its scan stale); a "
+      "titled one, one with a verdict, a Gale Telegraph one and a scan by the new code stand",
+      [False, f.LONE_TITLE, False, f.LONE_TITLE, True, True, False, True, None, 2],
+      [f.scan_current(_lone, "h"), f.fix_reason(_lone), f.scan_current(_l1940, "h"), f.fix_reason(_l1940),
+       f.scan_current({**_lone, "scan": {**_lone["scan"], "puzzles": [{"number": 15887, "leaf": 0}]}}, "h"),
+       f.scan_current({**_lone, "verdicts": [{"number": 15887}]}, "h"),
+       f.lone_rescan({**_lone, "edition": "GaleTelegraph1982UKEnglish/1982-07-21",
+                      "scan": {**_lone["scan"], "item": "GaleTelegraph1982UKEnglish"}}),
+       f.scan_current({**_lone, "scanKey": f.scan_key(f.GALE)}, "h"),
+       f.fix_reason({**_lone, "scanKey": f.scan_key(f.GALE)}), f.RANKS[f.LONE_TITLE]])
+# paired_titles: with no title voted, one reader's title stands by the solution heading of the puzzle before it,
+# near the date's number; a title with no such heading, or one far off the date's number, does not.
+_day = datetime.date(1940, 3, 8)
+_exp = f.GALE.expected(_day)
+check("paired_titles: a lone title stands by the heading of the puzzle before it, near the date's number; "
+      "one whose heading is another puzzle's, or far off the date's number, does not",
+      [{_exp}, set(), set(), {_exp + 900}],
+      [f.paired_titles({_exp: [("ch", None, None)]}, {_exp - 1: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp: [("ch", None, None)]}, {_exp - 3: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp + 900: [("ch", None, None)]}, {_exp + 899: [("en5", None)]}, f.GALE, _day),
+       f.paired_titles({_exp + 900: [("ch", None, None)]}, {_exp + 899: [("en5", None)]}, f.GALE, None)])
+check("TITLE reads the 1983 Times's triple-s \"Crosssword\", not a fourth s",
+      [16025, None],
+      [f.number_digits(f.TITLE.match("The Times Crosssword Puzzle No 16,025")[1]),
+       f.TITLE.match("The Times Crossssword Puzzle No 16,025")])
 # inset_grid: a frame whose inner rules and blocks stand apart is a grid when its box is ruled evenly both ways;
 # a frame round a photograph (no rules inside) or round a column of type is not.
 _grid = np.zeros((300, 300), np.uint8)
