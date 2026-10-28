@@ -951,6 +951,36 @@ def touching_grid(img, title, box):
     return None
 
 
+#: The last year whose Gale Times pages a grid under its title is the puzzle's however wide
+#: the page (scaled_under): from 1968 the clue columns move, and the 2004-06 pages print
+#: a solution grid under the title of a grid left of it.
+SCALED_UNDER_YEARS = ("1939", "1967")
+
+
+def scaled_under(img, title):
+    """The grid under `title` that locate_grid() passed over as a solution grid, or None:
+    solution_shaped() grows its cap with the page's width (the 2004-06 pages' wide solution
+    grids), so on a 4000px 1955-67 Times page the puzzle's own 720px grid (586 at SCAN_WIDTH, the cap 590)
+    measured as one; locate_grid() then cropped under it, found nothing, and took ink over
+    the title or beside it for the grid (1961-04-25: an advert's frame over the title, the
+    lead clue column and the two under the grid read as one window; no list parsed). The ink
+    under the title must be grid-shaped, clear the title's line, straddle its middle, and be
+    wider at SCAN_WIDTH than an unscaled solution grid (SOLUTION_GRID): read-time only, the
+    scan's own locate_grid() is unchanged."""
+    x0, y0, x1, y1 = title
+    span = int(1.3 * (x1 - x0)) + 80
+    crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + span))
+    if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
+        return None
+    box = footed(img, ink_in(img, crop, ("top",)))
+    if box is None or not shaped_on(img, box) or not box[0] < (x0 + x1) / 2 < box[2]:
+        return None
+    if not (box[1] > crop[1] + 2 or starts_under(img, box, crop[1])):
+        return None
+    wide = (box[2] - box[0]) * SCAN_WIDTH / img.width
+    return box if wide > SOLUTION_GRID[1] and solution_shaped(img)(box) else None
+
+
 def grid_under_clues(img, title):
     """Where the grid is when the clues are printed over it: the largest ink
     in the CLUES_ABOVE_SPAN under the title, which is the left column's
@@ -7869,6 +7899,25 @@ SATURDAY_RIGHT = ("2009", "2013")
 #: (PROBE_HEADING).
 REREAD_PARSES_ERAS = ((SATURDAY_RIGHT[0], SATURDAY_RIGHT[1], True, "2026-10-28T06:45:00+00:00"),
                       ("1980", "1989", False, "2026-10-28T06:45:00+00:00"))
+#: The same for the pages whose grid under the title measured as a solution grid (scaled_under),
+#: refused "no reading parses" or "not a grid" for the ink under the title (1939-12-20: "the ink
+#: under the title is 466x60") and read before the time (scaled_due): only the 1939-41 pages
+#: ~5150px wide and the 1955-67 ones ~4000px (1961-04-25 read whole, 32/32 lights). The
+#: 3296px (SCAN_WIDTH) pages of 1940-41 and the 1942-54 pages keep the cap unscaled: not due.
+SCALED_UNDER_ERAS = (("1939", "1941", False, "2026-10-28T07:45:00+00:00"),
+                     ("1955", SCALED_UNDER_YEARS[1], False, "2026-10-28T07:45:00+00:00"))
+
+
+def scaled_due(row):
+    """Whether ledger `row` is a SCALED_UNDER_ERAS Gale Times page read before its time
+    whose crossword page is wider than SCAN_WIDTH (its pages.json), as scaled_under() needs."""
+    if not parses_era_due(row, SCALED_UNDER_ERAS):
+        return False
+    try:
+        pages = json.loads((Path(CACHE) / row["edition"] / "pages.json").read_text())
+        return max(int(p.get("width") or 0) for p in pages["crossword_pages"]) > SCAN_WIDTH
+    except (KeyError, OSError, TypeError, ValueError):
+        return False
 
 
 def parses_era_due(row, eras=REREAD_PARSES_ERAS):
@@ -8040,6 +8089,13 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"], paper.key in GRID_RIGHT)
+    # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
+    if side != "below" and paper.key == "gale" and not paper.clues_above and not paper.four \
+            and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1]:
+        under = scaled_under(img, hit["box"])
+        if under is not None:
+            gbox, side = under, "below"
+            verdict["gridBox"] = "under its title, solution-sized"
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
@@ -12919,7 +12975,10 @@ def fix_reason(row):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
             return f"refused {v['cause']} before its fix"
-        if v.get("cause") == "no-reading-parses" and parses_era_due(row):
+        if v.get("cause") == "no-reading-parses" and (parses_era_due(row) or scaled_due(row)):
+            return f"refused {v['cause']} before its fix"
+        if v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ") \
+                and scaled_due(row):
             return f"refused {v['cause']} before its fix"
         t = REREAD_WRITE_FAILED.get(v.get("writeFailed"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
