@@ -280,6 +280,28 @@ assert ct.foreign_tail_cut("8 Change to author church sup-\nports (5).\n141 Litt
                            "having noble rank (9). Nireland..\n16 Priest removing") \
     == "8 Change to author church sup-\nports (5).\n141 Little girl's sort of upper-class,\nhaving noble rank (9).\n16 Priest removing"
 assert "Walks" not in ct.tidy_ocr_clues("DOWN\n7 Princess of minor note (7). Walks\n8 Some batsman assaulted in\nWest Indies (6).")
+# times-23760 (Gale 2007-11-16): the clue window's left edge caught the line-end
+# letters of the column to its left, before clue numbers and alone on a line, so
+# 10, 11 and 12 across opened in no reading (edge_letter_cut, EDGE_LETTER_LINE).
+_t = ct.tidy_ocr_clues("ACROSS\n9 Man with no end of criminal\ne record keeping the law? (10)\nS\n10 Bet placed about start"
+                       " of National\n(4)\nS\ne 11 Office worker, former model (8)\nn 12 Eugene still below the limit after\n"
+                       "this? (6)\nblue (4)\ne\nst\n24 Show disapproval").split("\n")
+assert _t == ["ACROSS", "9 Man with no end of criminal", "e record keeping the law? (10)", "10 Bet placed about start of National",
+              "(4)", "11 Office worker, former model (8)", "12 Eugene still below the limit after", "this? (6)", "blue (4)",
+              "24 Show disapproval"], _t
+assert ct.edge_letter_cut("a 10 Pained expression") == "10 Pained expression"
+assert ct.edge_letter_cut("T 21 Important, grinding") == "21 Important, grinding"
+# Not A or I (words), nor a figure's lookalike (I, l, Z: "l 5" may be 15), nor
+# before anything but a number and a capital, nor a word (the printer's imprint
+# "at 1 Virginia Street" is no clue 1).
+for _s in ("A 1 over the eight (5)", "I 5 More", "l 5 More", "Z 1 Fish", "e record keeping", "e 11 office", "ON 5 Fish",
+           "at 1 Virginia Street, London"):
+    assert ct.edge_letter_cut(_s) == _s, _s
+# A letter alone is dropped only where a clue opens (after a count or heading),
+# and never A, I or a lookalike; mid-clue it is the clue's.
+assert ct.tidy_ocr_clues("DOWN\n7 Fish (5)\nI\n9 Bird (4)").split("\n")[2] == "I"
+assert ct.tidy_ocr_clues("DOWN\n7 Fish (5)\nA\n9 Bird (4)").split("\n")[2] == "A"
+assert ct.tidy_ocr_clues("DOWN\n7 Fish clubs mis-\ns\ntakenly (5)").split("\n")[2] == "s"
 assert ct.space_before_quote("in\u201cThe sire?(anag.)") == "in \u201cThe sire? (anag.)"
 assert ct.mend_numbered_run("i Emma 2 Orgasm") == "1 Emma 2 Orgasm"
 assert ct.mend_numbered_run("12Ethelred 18Hess_20 Clever 6/20d Ken 22.Panorama") == "12 Ethelred 18 Hess 20 Clever 6/20 Ken 22 Panorama"
