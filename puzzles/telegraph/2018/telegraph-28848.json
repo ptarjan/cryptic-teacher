@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,69 @@
     "text": "News hits out about married poet, perhaps",
     "enumeration": "9"
    },
-   "solution": "WORDSMITH"
+   "solution": "WORDSMITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "poet, perhaps",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "News",
+       "at": 0,
+       "gives": "WORD",
+       "note": "word in the sense of tidings, as in 'send word'"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 14,
+         "note": "about means the rearranged letters go around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "out",
+           "at": 10,
+           "note": "out signals that the letters of hits are knocked out of order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hits",
+           "at": 5
+          }
+         ]
+        },
+        {
+         "words": "married",
+         "at": 20,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report knocking a married poet.",
+     "walkthrough": "'out' turns HITS into SITH, and 'about' wraps that around M to give SMITH.",
+     "definitionFit": "A poet is one example of a skilled crafter of language, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +109,30 @@
     "text": "Clean coat used by painter",
     "enumeration": "4"
    },
-   "solution": "WASH"
+   "solution": "WASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0,
+      "meaning": "to clean with water is to give it a rinse"
+     },
+     {
+      "text": "coat used by painter",
+      "at": 6,
+      "meaning": "a thin layer of diluted paint or ink spread over a surface"
+     }
+    ],
+    "explanation": {
+     "surface": "Cleaning up after painting.",
+     "definitionFit": "Both senses fit: a verb meaning to rinse clean, and a painter's thin translucent layer of colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +146,45 @@
     "text": "Fear losing head for study",
     "enumeration": "4"
    },
-   "solution": "READ"
+   "solution": "READ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "study",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "at": 5,
+       "note": "losing head means the first letter of the word for fear is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fear",
+       "at": 0,
+       "gives": "DREAD",
+       "note": "dread is great fear"
+      },
+      {
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious student afraid of losing their head over study.",
+     "definitionFit": "To study a text is to pore over it, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +198,61 @@
     "text": "Hurried up after house discussion group",
     "enumeration": "7"
    },
-   "solution": "SEMINAR"
+   "solution": "SEMINAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discussion group",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "after places the reversed piece behind the word for house"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house",
+       "at": 17,
+       "gives": "SEMI",
+       "note": "a semi is a semi-detached house, a common British type sharing one wall"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 8,
+         "note": "in a down clue, up means the word is read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hurried",
+         "at": 0,
+         "gives": "RAN",
+         "note": "hurried means ran"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushing upstairs after arriving home to a study group.",
+     "walkthrough": "In a down clue 'up' means read upwards; a semi-detached house is a common British home, giving the convention that house can be SEMI.",
+     "definitionFit": "A seminar is a small academic class where students discuss a topic together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +266,29 @@
     "text": "Contentious topic for children",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contentious topic",
+      "at": 0,
+      "meaning": "a matter in dispute, a point of debate"
+     },
+     {
+      "text": "children",
+      "at": 22,
+      "meaning": "offspring, as in 'died without ...'"
+     }
+    ],
+    "explanation": {
+     "surface": "Raising children as a hot-button debate.",
+     "definitionFit": "Two senses: a disputed matter, and a legal word for one's offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +302,51 @@
     "text": "Some armour needed for the man with a daughter and gun in America",
     "enumeration": "9"
    },
-   "solution": "HEADPIECE"
+   "solution": "HEADPIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some armour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the man",
+       "at": 23,
+       "gives": "HE",
+       "note": "he is the pronoun for a man"
+      },
+      {
+       "words": "a",
+       "at": 36,
+       "gives": "A"
+      },
+      {
+       "words": "daughter",
+       "at": 38,
+       "gives": "D",
+       "note": "D is the genealogical abbreviation for daughter"
+      },
+      {
+       "words": "gun in America",
+       "at": 51,
+       "gives": "PIECE",
+       "note": "piece is American slang for a handgun"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man and his daughter in the USA, needing armour and a gun.",
+     "definitionFit": "A headpiece is a helmet, one item in a suit of armour, hence 'Some'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +360,48 @@
     "text": "Detectives ought to arrest leading matchmaker",
     "enumeration": "5"
    },
-   "solution": "CUPID"
+   "solution": "CUPID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "matchmaker",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "arrest",
+       "at": 20,
+       "note": "to arrest is to hold, so the detectives' letters hold the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Detectives",
+       "at": 0,
+       "gives": "CID",
+       "note": "CID is the Criminal Investigation Department of British police"
+      },
+      {
+       "words": "leading",
+       "at": 27,
+       "gives": "UP",
+       "note": "up means ahead, as in a team two goals up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police should catch the chief matchmaker.",
+     "definitionFit": "The Roman god of love whose arrows make people fall for each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "arrest"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +415,53 @@
     "text": "English weakness after credit for crack",
     "enumeration": "7"
    },
-   "solution": "CREVICE"
+   "solution": "CREVICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crack",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "after puts the English and weakness pieces behind the credit abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "credit",
+       "at": 23,
+       "gives": "CR",
+       "note": "CR is the accounting abbreviation for credit"
+      },
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "weakness",
+       "at": 8,
+       "gives": "VICE",
+       "note": "a vice is a moral failing or weakness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English failing that follows from taking on credit.",
+     "definitionFit": "A crevice is a narrow fissure or crack in rock or a wall, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +475,74 @@
     "text": "Rewarding suitable answer in endless puzzle",
     "enumeration": "10"
    },
-   "solution": "PROFITABLE"
+   "solution": "PROFITABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rewarding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in places the next pieces inside the shortened word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 29,
+         "note": "endless drops the final letter of the word for puzzle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "puzzle",
+         "at": 37,
+         "gives": "PROBLEM",
+         "note": "a problem is something to puzzle over"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "suitable",
+         "at": 10,
+         "gives": "FIT",
+         "note": "fit means suitable"
+        },
+        {
+         "words": "answer",
+         "at": 19,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting the right answer to a never-ending puzzle is satisfying.",
+     "walkthrough": "'endless' acts on a synonym, not on the printed word: the puzzle becomes a problem shorn of its final letter before 'in' takes the other pieces.",
+     "definitionFit": "Something profitable yields a return, so it is rewarding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +556,56 @@
     "text": "Insulting doctor or aged Conservative",
     "enumeration": "10"
    },
-   "solution": "DEROGATORY"
+   "solution": "DEROGATORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insulting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "doctor",
+         "at": 10,
+         "note": "to doctor is to tamper with, so the letters of or and aged are altered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 17
+        },
+        {
+         "words": "aged",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "Conservative",
+       "at": 25,
+       "gives": "TORY",
+       "note": "a Tory is a member of the UK Conservative Party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insulting remark about a doctor or an elderly Tory.",
+     "walkthrough": "'doctor' looks like a noun but is the verb that rearranges OR AGED into DEROGA.",
+     "definitionFit": "Derogatory remarks belittle someone, so they are insulting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +619,40 @@
     "text": "Small and friendly crowd on the move",
     "enumeration": "5"
    },
-   "solution": "SWARM"
+   "solution": "SWARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crowd on the move",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "friendly",
+       "at": 10,
+       "gives": "WARM",
+       "note": "warm means cordial and friendly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small, friendly crowd moving along together.",
+     "definitionFit": "A swarm is a large moving mass, as of bees or people, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +672,41 @@
      }
     ]
    },
-   "solution": "STAGEDOOR"
+   "solution": "STAGEDOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dares to go out of the theatre this way?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 12,
+       "note": "out means the letters of dares to go are put out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dares to go",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Bold performers sneak out of the theatre by this exit.",
+     "walkthrough": "'out' rearranges DARES TO GO. The whole clue is also the definition: performers and their admirers leave a theatre by this back exit.",
+     "definitionFit": "The stage door is the theatre's back entrance used by actors, a way out of the building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +720,41 @@
     "text": "Go in using jemmy, being resourceful",
     "enumeration": "12"
    },
-   "solution": "ENTERPRISING"
+   "solution": "ENTERPRISING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being resourceful",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Go in",
+       "at": 0,
+       "gives": "ENTER",
+       "note": "to go in is to enter"
+      },
+      {
+       "words": "using jemmy",
+       "at": 6,
+       "gives": "PRISING",
+       "note": "a jemmy is a burglar's crowbar, used for prising things open"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar breaking in with a crowbar, showing initiative.",
+     "definitionFit": "Enterprising people show initiative and resourcefulness, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +768,57 @@
     "text": "Leaders seeing behaviour with soldiers on last of manoeuvres",
     "enumeration": "10"
    },
-   "solution": "CONDUCTORS"
+   "solution": "CONDUCTORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "behaviour",
+       "at": 15,
+       "gives": "CONDUCT",
+       "note": "conduct means behaviour"
+      },
+      {
+       "words": "soldiers",
+       "at": 30,
+       "gives": "OR",
+       "note": "OR stands for Other Ranks, ordinary soldiers"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 42,
+         "note": "last of picks the final letter of manoeuvres"
+        }
+       ],
+       "parts": [
+        {
+         "words": "manoeuvres",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commanders judging troops' behaviour at the end of exercises.",
+     "definitionFit": "Conductors lead orchestras, so they are leaders in music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +832,64 @@
     "text": "The achievement of a teetotaller isn't commonly welcoming people",
     "enumeration": "10"
    },
-   "solution": "ATTAINMENT"
+   "solution": "ATTAINMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The achievement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 19,
+       "gives": "A"
+      },
+      {
+       "words": "teetotaller",
+       "at": 21,
+       "gives": "TT",
+       "note": "TT is the abbreviation for teetotal, someone who abstains from alcohol"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "welcoming",
+         "at": 48,
+         "note": "welcoming means the colloquial contraction takes in the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "isn't commonly",
+         "at": 33,
+         "gives": "AINT",
+         "note": "ain't is the colloquial form of isn't"
+        },
+        {
+         "words": "people",
+         "at": 58,
+         "gives": "MEN",
+         "note": "men means people"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A non-drinker's triumph is not usually friendly to others.",
+     "definitionFit": "An attainment is something accomplished, an achievement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcoming"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +903,59 @@
     "text": "Exposed rock group's work around criminal court",
     "enumeration": "7"
    },
-   "solution": "OUTCROP"
+   "solution": "OUTCROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exposed rock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 26,
+       "note": "around means the work's two letters enclose the rearranged ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "group's work",
+       "at": 13,
+       "gives": "OP",
+       "note": "op, short for opus, is a numbered work, here a band's"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 33,
+         "note": "criminal suggests wrongdoing, so the letters of court are bent out of shape"
+        }
+       ],
+       "parts": [
+        {
+         "words": "court",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band's song about a dodgy court case.",
+     "walkthrough": "'criminal' looks like an adjective for the court but is the anagram signal; 'around' then wraps the opus abbreviation about the result.",
+     "definitionFit": "An outcrop is rock showing at the surface, exposed above the soil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +969,59 @@
     "text": "Tramping around nursing a grouse",
     "enumeration": "9"
    },
-   "solution": "PTARMIGAN"
+   "solution": "PTARMIGAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grouse",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 16,
+       "note": "nursing means holding the next letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 9,
+         "note": "around means the letters of tramping are turned about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tramping",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker walking about while nursing a grievance.",
+     "walkthrough": "'around' rearranges TRAMPING, and 'nursing' holds A within it. 'grouse' looks like a complaint but is the bird.",
+     "definitionFit": "The ptarmigan is a species of grouse of mountain and Arctic regions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1035,69 @@
     "text": "Simple and effective angle developed in case of export",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simple and effective",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 37,
+       "note": "in places the rearranged letters inside the outer ones"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 40,
+         "note": "case of means the outside letters of export"
+        }
+       ],
+       "parts": [
+        {
+         "words": "export",
+         "at": 48
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developed",
+         "at": 27,
+         "note": "developed means the letters of angle are worked into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "angle",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neat new approach to export packaging.",
+     "walkthrough": "'developed' rearranges the angle letters, and 'in' sets them inside the outer pair of export, which 'case of' supplies.",
+     "definitionFit": "An elegant solution is neat and economical, simple yet effective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1111,49 @@
     "text": "Habitual response to gum without protection?",
     "enumeration": "3"
    },
-   "solution": "TIC"
+   "solution": "TIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Habitual response",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without protection",
+       "at": 25,
+       "note": "without protection strips the outer letters, the covering, from the word for gum"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gum",
+       "at": 21,
+       "gives": "STICK",
+       "note": "to gum is to stick things together"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reflex reaction to chewing gum with no guard.",
+     "walkthrough": "'without protection' removes the outer S and K from STICK, its protective casing.",
+     "definitionFit": "A tic is an involuntary repeated twitch or habit, a habitual response."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1173,58 @@
      }
     ]
    },
-   "solution": "DEADSEA"
+   "solution": "DEADSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lake",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "planted in",
+         "at": 8,
+         "note": "planted in means the notices go inside the river"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 19,
+         "gives": "DEE",
+         "note": "the Dee is a river in Scotland and in Wales"
+        },
+        {
+         "words": "Notices",
+         "at": 0,
+         "gives": "ADS",
+         "note": "ads are advertisements, notices"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 25,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Signs posted beside a river, an area and a lake.",
+     "definitionFit": "The Dead Sea is a salt lake between Israel and Jordan, despite its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planted"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1244,49 @@
      }
     ]
    },
-   "solution": "SLIPSON"
+   "solution": "SLIPSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dons",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "after means the working piece follows the mistakes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mistakes",
+       "at": 26,
+       "gives": "SLIPS",
+       "note": "slips are small mistakes"
+      },
+      {
+       "words": "may be working",
+       "at": 5,
+       "gives": "ON",
+       "note": "on means working, as with a machine switched on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "University fellows go on working after their errors.",
+     "definitionFit": "To don clothes is to put them on quickly; the plain verb is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dons"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1306,53 @@
      }
     ]
    },
-   "solution": "ETAILER"
+   "solution": "ETAILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Modern entrepreneur",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 22,
+       "gives": "E"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TAILER",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 40,
+         "note": "reportedly means the word for fashion is given as it is heard"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fashion",
+         "at": 31,
+         "gives": "TAILOR",
+         "note": "to tailor is to fashion or shape clothes"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European businessman said to be in the fashion trade.",
+     "definitionFit": "An online retailer selling over the internet is a typical modern business person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1366,59 @@
     "text": "Early Christian job in sales discovered",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Early Christian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in places the job word inside the uncovered word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 29,
+         "note": "discovered means the word sales loses its outer cover letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sales",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "job",
+       "at": 16,
+       "gives": "POST",
+       "note": "a post is a job or position"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-century believer finding work in retail.",
+     "walkthrough": "'discovered' means uncovered, stripping the outer letters from sales; 'in' then houses the job inside what remains.",
+     "definitionFit": "The apostles were the twelve original followers of Jesus, the earliest Christians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1432,58 @@
     "text": "Company people must welcome company getting verification",
     "enumeration": "12"
    },
-   "solution": "CONFIRMATION"
+   "solution": "CONFIRMATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "verification",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Company",
+       "at": 0,
+       "gives": "CO",
+       "note": "a firm is a company"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "must welcome",
+         "at": 15,
+         "note": "must welcome means the people take the next word in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "people",
+         "at": 8,
+         "gives": "NATION",
+         "note": "a nation is a people"
+        },
+        {
+         "words": "company",
+         "at": 28,
+         "gives": "FIRM",
+         "note": "a firm is a company"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business taking on new staff and seeking proof of who they are.",
+     "definitionFit": "Confirmation is proof or validation that something is true, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1497,53 @@
     "text": "Symbol of bear market's origin",
     "enumeration": "5"
    },
-   "solution": "TOTEM"
+   "solution": "TOTEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Symbol",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bear",
+       "at": 10,
+       "gives": "TOTE",
+       "note": "to tote is to carry or bear"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "origin",
+         "at": 24,
+         "note": "origin means the first letter of market's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "market's",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The emblem of a falling stock market.",
+     "walkthrough": "'bear' is the carrying verb, not the falling market.",
+     "definitionFit": "A totem is an emblem or object revered as a symbol of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1557,41 @@
     "text": "Agents must have nothing for so long",
     "enumeration": "4"
    },
-   "solution": "CIAO"
+   "solution": "CIAO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "so long",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Agents",
+       "at": 0,
+       "gives": "CIA",
+       "note": "the CIA is the American intelligence agency"
+      },
+      {
+       "words": "nothing",
+       "at": 17,
+       "gives": "O",
+       "note": "O is the figure zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spies with nothing left to do for ages.",
+     "definitionFit": "An informal Italian farewell, the same as saying goodbye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1605,47 @@
     "text": "Fit is imprecise, very lacking",
     "enumeration": "4"
    },
-   "solution": "AGUE"
+   "solution": "AGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacking",
+       "at": 23,
+       "note": "lacking means the word for very is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "imprecise",
+       "at": 7,
+       "gives": "VAGUE",
+       "note": "vague means imprecise"
+      },
+      {
+       "words": "very",
+       "at": 18,
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judgement on whether something fits, vague and short of detail.",
+     "definitionFit": "An ague is a fever with shivering; a fit of shaking is one sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1659,28 @@
     "text": "Lapse in supervision",
     "enumeration": "9"
    },
-   "solution": "OVERSIGHT"
+   "solution": "OVERSIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lapse",
+      "at": 0,
+      "meaning": "an error made by not noticing something"
+     },
+     {
+      "text": "supervision",
+      "at": 9,
+      "meaning": "watching over and being in charge of something"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both an unintentional omission and management or superintendence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1694,50 @@
     "text": "Slim girl's first obsession",
     "enumeration": "5"
    },
-   "solution": "THING"
+   "solution": "THING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obsession",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Slim",
+       "at": 0,
+       "gives": "THIN",
+       "note": "thin means slim"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 12,
+         "note": "first picks the opening letter of girl's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl's",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's first fixation with staying slim.",
+     "definitionFit": "To have a thing about something is an idiom for being obsessed with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1751,31 @@
     "text": "Material that acted as substitute?",
     "enumeration": "5"
    },
-   "solution": "SATIN"
+   "solution": "SATIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0,
+      "meaning": "a smooth glossy fabric"
+     },
+     {
+      "text": "acted as substitute?",
+      "at": 14,
+      "meaning": "to sit in is to deputise for someone; the past tense is two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Fabric used as a stand-in.",
+     "walkthrough": "The second reading splits the word into two: a stand-in has sat in for someone.",
+     "definitionFit": "Satin is a glossy woven fabric, a material for clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1795,39 @@
      }
     ]
    },
-   "solution": "NUMBERONE"
+   "solution": "NUMBERONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naval officer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 29,
+       "note": "drunk suggests staggering, so the letters of been on rum are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "been on rum",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor who has been on the rum ration and is now intoxicated.",
+     "definitionFit": "In the Royal Navy, this is the nickname for the first lieutenant, a ship's second-in-command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
