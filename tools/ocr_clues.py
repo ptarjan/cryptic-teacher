@@ -1893,6 +1893,75 @@ def remarked(clue, text):
 
 def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
           counted=True):
+    """agreed(): the vote of `clue` against `others`; one that still breaks a punctuation rule past its
+    certain mends (punctuation.faults) with the marks at each faulty word gap the other readings print
+    there instead (gap_voted), when that clears it."""
+    got = agreed(clue, others, keep_known, families, rates, clues, number, count, counted)
+    if got[0] is None or keep_known or not punctuation.faults(punctuation.mended(got[0]), capitals=False):
+        return got
+    voted = gap_voted(got[0], [others] if others and isinstance(others[0], str) else others)
+    return (voted, got[1]) if voted else got
+
+
+#: A word gap holding marks (".:", ";,", " ,"), the words either side of it: "Measure.:associated".
+GAP_MARKS = re.compile(r"(?P<a>[A-Za-z]+(?:'[A-Za-z]+)?)(?P<gap>\s*[.,;:](?:\s*[.,;:])*\s*)(?=(?P<b>[A-Za-z]+))")
+
+
+def gap_voted(clue, others):
+    """`clue` with the marks of each word gap punctuation.faults() flags (once mended: "Measure.:associated",
+    "pounds, we ,are told", "by.:everyone") put as most of the other readings (`others`: marked() token lists,
+    each bounded by its numbers) print them between those two words, the fewer marks on a tie ("Measure
+    associated" from "3.Measure associated" against "3,Measure. :associated"); None unless every faulty gap
+    has a reading that prints its two words side by side and the clue then passes punctuation.faults(). A
+    reading's print of the clue is its stretch between two numbers most alike the clue (relay()'s RELAY_LIKE).
+    10-28 census (failure shapes): ~100 unfiled Times pages, the write refused whole over one clue whose
+    readers each read a speck as a different mark there."""
+    words = " ".join(w.lower() for w in marked(clue) if w not in MARKS)
+    parts = []
+    for theirs in others:
+        stretches = [list(g) for brk, g in itertools.groupby(theirs, lambda t: t == BREAK) if not brk]
+        scored = max(((SequenceMatcher(None, words, " ".join(w.lower() for w in p if w not in MARKS)).ratio(), i)
+                      for i, p in enumerate(stretches)), default=None)
+        if scored and scored[0] >= RELAY_LIKE:
+            parts.append(stretches[scored[1]])
+    out, last = [], 0
+    now = len(punctuation.faults(punctuation.mended(clue), capitals=False))
+    for m in GAP_MARKS.finditer(clue):
+        a, b = m["a"], m["b"]
+        # Faulty in the clue's own context: a quotation's spaced comma mends to its dash ("the —, my").
+        bare = clue[:m.start("gap")] + " " + clue[m.end("gap"):]
+        if len(punctuation.faults(punctuation.mended(bare), capitals=False)) >= now:
+            continue
+        votes = collections.Counter()
+        for p in parts:
+            for i, t in enumerate(p):
+                j = i + 1
+                while j < len(p) and p[j] in MARKS:
+                    j += 1
+                if t.lower() == a.lower() and j < len(p) and p[j].lower() == b.lower():
+                    votes[tuple(p[i + 1:j])] += 1
+                    break
+        if not votes and m["gap"] == ".":
+            # A letter read as a stop ("avo.d", "taki.g"): the word a reading prints with one letter there.
+            whole = re.compile(re.escape(a) + "[a-z]" + re.escape(b), re.IGNORECASE)
+            found = collections.Counter(t for p in parts for t in p if whole.fullmatch(t))
+            if found:
+                out.append(clue[last:m.start("a")] + found.most_common(1)[0][0])
+                last = m.end("gap") + len(b)
+                continue
+        if not votes:
+            return None
+        marks = max(votes, key=lambda k: (votes[k], -len(k)))
+        out.append(clue[last:m.start("gap")] + "".join(marks) + " ")
+        last = m.end("gap")
+    if not out:
+        return None
+    text = "".join(out) + clue[last:]
+    return None if punctuation.faults(punctuation.mended(text)) else text
+
+
+def agreed(clue, others, keep_known=False, families=None, rates=None, clues=(), number=None, count=None,
+           counted=True):
     """vote() of `clue` against `others`; when that holds and relay() finds
     the clue most other readings print, that print put to the rest and to
     this reading instead, with the laid clue's hyphens, brackets and quotes

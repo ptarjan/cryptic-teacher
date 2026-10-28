@@ -615,6 +615,29 @@ check("not after the fix, nor a fault no mend clears, nor beside another refusal
        f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]}),
        f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_other}]}),
        f.punct_mended({**_pmrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page whose write the gate refused over speck marks at a clue's word gap the mends leave (".:",
+# " ,") is due once (fa.GAP_VOTED: agree() takes the marks other readings print there), unfiled-first.
+_gv = {**_pm, "refusedWrite": "refusing to write times-9999991: SHAPE 3-down: clue 'Measure.:associated with "
+                              "lobsters' holds two marks in a row ('Measure.:associated'): file the reading that prints "
+                              "it right (punctuation.faults)"}
+_gvrow = {**_pmrow, "verdicts": [_gv]}
+check("a Times page refused over a gap's speck marks is due as GAP_VOTED, ranked, evidence, fix-landed, unfiled-first",
+      [f.GAP_VOTED, 2, True, True, True, None, True, True],
+      [f.fix_reason(_gvrow), f.RANKS[f.GAP_VOTED], eq.evidence_reason(f.GAP_VOTED), f.GAP_VOTED in eq.FIX_LANDED,
+       f.GAP_VOTED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.GAP_VOTED, "date": "1987-02-11"}),
+       f.blanket_or_fix(_gvrow, "inputs changed") == f.GAP_VOTED,
+       f.gap_vote_due({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]})])
+_gv_quote = "refusing to write times-9999991: SHAPE 2-down: clue \"Reading munitions ''dump\" holds two apostrophes " \
+            "for a double quote (\"nitions ''dump\"): file the reading that prints it right (punctuation.faults)"
+check("not after the fix, nor what PUNCT_MENDED rereads, nor an apostrophes fault, nor beside another refusal, nor FT",
+      [False] * 5,
+      [f.gap_vote_due({**_gvrow, "readAt": "2026-10-29T06:00:00+00:00"}),
+       f.gap_vote_due(_pmrow),
+       f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv_quote}]}),
+       f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv["refusedWrite"] + "; SHAPE 4-down: holds "
+                                                                    "the page's text: 'x (3) 5 Y'; cut it"}]}),
+       f.gap_vote_due({**_gvrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,

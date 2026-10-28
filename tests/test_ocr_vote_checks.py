@@ -1580,6 +1580,25 @@ check("a reading differing in a mark, or in a word, besides its quotes is none",
       [oc.requoted("One of four champions fierce' who strive", ["One of 'four champions, fierce' who 'strive'."]),
        oc.requoted("One of four champions fierce' who strive", ["One of 'four champion fierce' who 'strive'."])])
 
+# 10-28 r18: a vote left holding two marks or a spaced comma at a word gap (each reader read a speck as another
+# mark there) takes the marks most other readings print between those two words, fewer on a tie (gap_voted).
+check("a gap's speck marks are the marks other readings print there, fewer on a tie",
+      ["Measure associated with lobsters", "Singer's disc several pounds, we are told"],
+      [oc.gap_voted("Measure.:associated with lobsters", [mark("2 x 3 Measure associated with lobsters (9) 4 y"),
+                                                          mark("3 Measure: associated with lobsters (9) 4")]),
+       oc.gap_voted("Singer's disc several pounds, we ,are told",
+                    [mark("5 Singer's disc several pounds, we are told (4) 6"), mark("5 Singers disc several pounds we are told (4) 6")])])
+check("no reading printing the two words side by side, or one printing the same fault, mends nothing (mirror)",
+      [None, None, None],
+      [oc.gap_voted("Theologian taki.g in one shilling fee", [mark("3 Theologian takes in one shilling fee (5)")]),
+       oc.gap_voted("Measure.:associated with lobsters", [mark("3 Measure;: associated with lobsters (9) 4")]),
+       oc.gap_voted("Measure.:associated with lobsters", [mark("3 Something else entirely here (9) 4")])])
+check("a letter read as a stop is the word a reading prints with one letter there",
+      "They need pulling up to avoid slackness",
+      oc.gap_voted("They need pulling up to avo.d slackness", [mark("4 They need pulling up to avoid slackness (5) 5")]))
+check("agree() puts a faulty vote's gap to the other readings",
+      "Measure associated with lobsters",
+      oc.agree("Measure.:associated with lobsters", [mark("2 x 3 Measure associated with lobsters (9) 4 y")] * 2)[0])
 print(f"FAILS {fails}")
 if fails:
     print("test_ocr_vote_checks: failed")

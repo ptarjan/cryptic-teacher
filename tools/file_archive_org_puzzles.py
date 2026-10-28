@@ -11300,6 +11300,45 @@ def punct_clean(refused):
     return True
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose write the gate refused over a
+#: clue's punctuation the mends leave at a word gap: two marks ("Measure.:associated", "by.:everyone"), a
+#: spaced comma ("we ,are told", "percussion , player") or a stop glued to the next word, each reader having
+#: read a speck there as a different mark. agree() now takes the marks most other readings print between those
+#: two words (ocr_clues.gap_voted). 10-28 census (failure shapes): ~100 unplanned unfiled Times pages refused
+#: so, the whole write lost over one clue. Once each; only verdicts every refused clue of which is a
+#: punctuation one with such a fault, the puzzle not held whole.
+GAP_VOTED = "write refused before its fix, a clue's marks voted at its word gap"
+REREAD_GAP_VOTED = "2026-10-28T17:30:00+00:00"
+#: The faults gap_voted can clear.
+GAP_FAULTS = ("two marks in a row", "a space before a comma", "a stop glued to the next word")
+
+
+def gap_vote_due(row):
+    """Whether Times ledger `row`, read before REREAD_GAP_VOTED, has a verdict whose write the gate refused
+    only over clues' punctuation ("(punctuation.faults)", one per SHAPE), one of GAP_FAULTS left in each once
+    mended and punct_clean not clearing them, its puzzle not held whole."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_GAP_VOTED)):
+        return False
+    for v in row.get("verdicts", ()):
+        refused = str(v.get("refusedWrite") or "")
+        clues = list(_PUNCT_CLUE.finditer(refused))
+        if not v.get("id") or not clues or len(clues) != refused.count("SHAPE ") \
+                or refused.count("(punctuation.faults)") != len(clues) or punct_clean(refused):
+            continue
+        try:
+            texts = [ast.literal_eval(m.group(1)) for m in clues]
+        except (ValueError, SyntaxError):
+            continue
+        if not all(isinstance(t, str) and any(why in GAP_FAULTS for why, _ in punctuation.faults(punctuation.mended(t)))
+                   for t in texts):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 def derived_blank(why):
     """Whether blank reason `why` ("'immortaliser': not a word") names a token suspect() now passes, one
     of its words a known verb's "-iser"/"-ization" or a noun's "-ically" (ocr_clues.derived_form)."""
@@ -14949,6 +14988,8 @@ def fix_reason(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
         return PUNCT_MENDED
+    if gap_vote_due(row):
+        return GAP_VOTED
     if strip_tailed(row):
         return STRIP_TAIL
     if edge_lettered(row):
@@ -15442,7 +15483,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # rereads of a page no file holds: 35 RIGHT_FOREIGN_READ, 10 NO_TITLE_RESCAN, 1 TOUCHING_GRID.
                   RIGHT_FOREIGN_READ, NO_TITLE_RESCAN, TOUCHING_GRID,
                   # 10-28 r16: a page a grid-first rescan left untitled, read whole now (gf_rescan).
-                  GF_TITLE)
+                  GF_TITLE,
+                  # 10-28 r18: a write refused over a clue's speck marks at a word gap (gap_vote_due).
+                  GAP_VOTED)
 
 
 def refusal_passes(why):
@@ -15667,7 +15710,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
