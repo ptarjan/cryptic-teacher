@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,61 @@
     "text": "US politician's annoyed comment about rebuffed advance",
     "enumeration": "8"
    },
-   "solution": "DEMOCRAT"
+   "solution": "DEMOCRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US politician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 32,
+       "note": "the exclamation sits about, i.e. around, the turned word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "annoyed comment",
+       "at": 16,
+       "gives": "DRAT",
+       "note": "drat is an exclamation of mild annoyance"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rebuffed",
+         "at": 38,
+         "note": "rebuffed means pushed back, so the word for advance is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advance",
+         "at": 47,
+         "gives": "COME",
+         "note": "to advance is to come forward"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble from an American politician whose overture was turned down.",
+     "walkthrough": "The definition is only 'US politician'; the 's is a link word, read as 'has'. 'about' is the container signal and 'rebuffed' the reversal.",
+     "definitionFit": "A member of one of the two main American parties is a politician of that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +102,43 @@
     "text": "Met up, getting less potent drink",
     "enumeration": "5"
    },
-   "solution": "DECAF"
+   "solution": "DECAF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "less potent drink",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 4,
+       "note": "in a down clue, up means the word is written from bottom to top, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Met",
+       "at": 0,
+       "gives": "FACED",
+       "note": "met, as in confronted, is faced"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People met up and chose a weaker drink.",
+     "walkthrough": "'up' turns FACED into the answer.",
+     "definitionFit": "Coffee with the caffeine removed is a drink with less kick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Met"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +152,51 @@
     "text": "Japanese writer, male — his aim is astray",
     "enumeration": "7"
    },
-   "solution": "MISHIMA"
+   "solution": "MISHIMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Japanese writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "male",
+       "at": 17,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "astray",
+         "at": 35,
+         "note": "going astray means wandering off course, so the letters of his aim wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his aim",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Japanese author, a man, whose goal has gone off target.",
+     "walkthrough": "'astray' is the anagram signal for 'his aim'; 'is' is a link word. Yukio Mishima wrote The Sea of Fertility.",
+     "definitionFit": "Yukio Mishima was a celebrated twentieth-century Japanese novelist and playwright."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aim"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +210,72 @@
     "text": "Beethoven work? Tough work, almost (not quite entirely)",
     "enumeration": "6"
    },
-   "solution": "CHORAL"
+   "solution": "CHORAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beethoven work?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 28,
+         "note": "almost means the word stops one letter short"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tough work",
+         "at": 16,
+         "gives": "CHORE",
+         "note": "a chore is an onerous task"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 36,
+         "note": "not quite means the word for entirely loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entirely",
+         "at": 46,
+         "gives": "ALL",
+         "note": "all means entirely, as in all alone"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a piece by Beethoven is hard labour, nearly but not totally.",
+     "walkthrough": "'almost' cuts CHORE to CHOR and 'not quite' cuts ALL to AL. The question mark flags a definition by example: the Choral Symphony is Beethoven's Ninth.",
+     "definitionFit": "Beethoven's Ninth Symphony is nicknamed the Choral, so the name serves as one of his pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +289,59 @@
     "text": "What erotica may do in a ploy securing love",
     "enumeration": "6"
    },
-   "solution": "AROUSE"
+   "solution": "AROUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What erotica may do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 23,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "securing",
+         "at": 30,
+         "note": "securing means holding fast, so the letters for a ploy hold the zero inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ploy",
+         "at": 25,
+         "gives": "RUSE",
+         "note": "a ruse is a ploy or trick"
+        },
+        {
+         "words": "love",
+         "at": 39,
+         "gives": "O",
+         "note": "love is zero in tennis, written O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Erotic writing as a crafty means of winning someone's affection.",
+     "walkthrough": "'securing' puts O inside A RUSE, after its R.",
+     "definitionFit": "Racy material is meant to excite desire, which is to stir or stimulate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +355,43 @@
     "text": "Some reconsideration is sensible for military designer",
     "enumeration": "6"
    },
-   "solution": "NISSEN"
+   "solution": "NISSEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "military designer",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reconsideration is sensible",
+       "at": 5,
+       "gives": "NISSEN",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thinking again would be wise for someone designing for the army.",
+     "walkthrough": "The draft's definition took in 'for'; 'for' is only a link word, so the definition is 'military designer'. Peter Nissen designed the corrugated-iron Nissen hut used by the army.",
+     "definitionFit": "Peter Nissen was the engineer behind the semicircular hut used widely by armed forces in both world wars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designer"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +405,72 @@
     "text": "Mathematical quantity: some number in it turning huge",
     "enumeration": "8"
    },
-   "solution": "INTEGRAL"
+   "solution": "INTEGRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mathematical quantity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 35,
+         "note": "in means the letter for a number goes inside the word it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 38,
+         "gives": "IT",
+         "note": "taken as written"
+        },
+        {
+         "words": "some number",
+         "at": 23,
+         "gives": "N",
+         "note": "N stands for an unspecified number in mathematics"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 41,
+         "note": "turning means the word for huge is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "huge",
+         "at": 49,
+         "gives": "LARGE",
+         "note": "large means huge"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maths quantity, where some figure grows enormous.",
+     "walkthrough": "'some number' is N, the algebraic stand-in for any number; 'in' and 'turning' are the container and reversal signals.",
+     "definitionFit": "In calculus the result of integrating a function is itself a quantity with that name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +484,41 @@
     "text": "Nut, alas, misrepresents this form of fruit",
     "enumeration": "7"
    },
-   "solution": "SULTANA"
+   "solution": "SULTANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this form of fruit",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "misrepresents",
+       "at": 11,
+       "note": "to misrepresent is to present wrongly, so the letters of nut and alas are presented in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Nut, alas",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sigh that a nut is wrongly portrayed as some kind of fruit.",
+     "walkthrough": "'misrepresents' rearranges NUTALAS; 'this' points back to the anagram's result.",
+     "definitionFit": "A sultana is a dried seedless grape, a kind of dried fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nut"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +538,52 @@
      }
     ]
    },
-   "solution": "NEWSSTAND"
+   "solution": "NEWSSTAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of information",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abroad",
+         "at": 9,
+         "note": "abroad here means scattered widely, so the letters of was sent are spread into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Was sent",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Midwest state",
+       "at": 18,
+       "gives": "ND",
+       "note": "ND is the postal abbreviation for North Dakota, a Midwestern US state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was posted overseas, to a Midwestern state, to find out what is going on.",
+     "walkthrough": "'abroad' signals the anagram of 'Was sent'; North Dakota supplies the last two letters.",
+     "definitionFit": "A kiosk selling papers and magazines is where people get their news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +597,48 @@
     "text": "Awful time getting away from secure locations",
     "enumeration": "7"
    },
-   "solution": "HIDEOUS"
+   "solution": "HIDEOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "getting away from",
+       "at": 11,
+       "note": "getting away from means the letter for time escapes from the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secure locations",
+       "at": 29,
+       "gives": "HIDEOUTS",
+       "note": "hideouts are safe places to lie low"
+      },
+      {
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful period spent escaping from safe houses.",
+     "walkthrough": "'getting away from' removes T from HIDEOUTS.",
+     "definitionFit": "Both words describe something dreadful or very ugly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +652,66 @@
     "text": "Universal expert is confounded with gloom, beset by expense",
     "enumeration": "11"
    },
-   "solution": "COSMOLOGIST"
+   "solution": "COSMOLOGIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Universal expert",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "beset by",
+       "at": 43,
+       "note": "beset by means surrounded by, so the word for expense goes round the jumble"
+      }
+     ],
+     "parts": [
+      {
+       "words": "expense",
+       "at": 52,
+       "gives": "COST",
+       "note": "an expense is a cost"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "confounded",
+         "at": 20,
+         "note": "confounded means thrown into confusion, so the letters of is and gloom are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 17,
+         "note": "taken as written"
+        },
+        {
+         "words": "gloom",
+         "at": 36,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist is miserably low-spirited and swamped by costs.",
+     "walkthrough": "'Universal' looks like an adjective of scope but means 'of the universe'. 'confounded' is the anagram signal and 'beset by' the container.",
+     "definitionFit": "Someone who studies the origin and structure of the universe is an expert in all things universal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Universal"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +725,46 @@
     "text": "Underhand punch, knocking head off",
     "enumeration": "3"
    },
-   "solution": "LOW"
+   "solution": "LOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Underhand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "knocking head off",
+       "at": 17,
+       "note": "knocking the head off removes the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "punch",
+       "at": 10,
+       "gives": "BLOW",
+       "note": "a blow is a punch"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneaky punch that knocks someone's head off.",
+     "walkthrough": "'knocking head off' takes B from BLOW.",
+     "definitionFit": "Low as in a low trick means mean or devious, the same as underhand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Underhand"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +778,47 @@
     "text": "Hot food? Safer with ices, possibly",
     "enumeration": "9"
    },
-   "solution": "FRICASSEE"
+   "solution": "FRICASSEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hot food?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 27,
+       "note": "possibly means the letters might be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Safer",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "words": "ices",
+       "at": 21,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether hot food is less risky when served with ice creams.",
+     "walkthrough": "'possibly' rearranges SAFERICES.",
+     "definitionFit": "A stew of meat in a white sauce, served warm, is a hot dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ices"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +832,59 @@
     "text": "Mirror left amidst vapour (sulphur)",
     "enumeration": "5"
    },
-   "solution": "GLASS"
+   "solution": "GLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mirror",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amidst",
+         "at": 12,
+         "note": "amidst means the letter for left sits inside the word for vapour"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vapour",
+         "at": 19,
+         "gives": "GAS",
+         "note": "gas is a vapour"
+        },
+        {
+         "words": "left",
+         "at": 7,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "sulphur",
+       "at": 27,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mirror on the left in sulphurous fumes.",
+     "walkthrough": "'amidst' puts L inside GAS, after its G, and S follows.",
+     "definitionFit": "A looking glass is a mirror, and glass alone is used in the same sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vapour"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +898,49 @@
     "text": "One brought in by rigged constituency",
     "enumeration": "4"
    },
-   "solution": "SEAT"
+   "solution": "SEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "constituency",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in by",
+       "at": 4,
+       "note": "brought in by means the letter for one is placed inside the word for rigged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rigged",
+       "at": 18,
+       "gives": "SET",
+       "note": "set, as in fixed or set up, means rigged"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "A",
+       "note": "a means one, as in a single"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single candidate elected thanks to a fixed electoral district.",
+     "walkthrough": "'brought in by' puts A inside SET.",
+     "definitionFit": "A parliamentary seat is the constituency an MP represents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rigged"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +954,42 @@
     "text": "Dismiss clergy making show of repentance?",
     "enumeration": "9"
    },
-   "solution": "SACKCLOTH"
+   "solution": "SACKCLOTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "show of repentance?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dismiss",
+       "at": 0,
+       "gives": "SACK",
+       "note": "to sack is to dismiss from a job"
+      },
+      {
+       "words": "clergy",
+       "at": 8,
+       "gives": "CLOTH",
+       "note": "the cloth is the clergy collectively"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wonders whether firing the clergy counts as repenting.",
+     "walkthrough": "'The cloth' means the clergy. Wearing sackcloth and ashes is the traditional sign of penitence.",
+     "definitionFit": "A rough garment worn as a sign of penitence, as in the phrase sackcloth and ashes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dismiss"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1003,63 @@
     "text": "Vegetable i.e. a bit of broccoli between furrow and stove",
     "enumeration": "8"
    },
-   "solution": "RUTABAGA"
+   "solution": "RUTABAGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "between furrow",
+       "at": 33,
+       "gives": "RUT",
+       "note": "a rut is a groove or furrow"
+      },
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 17,
+         "note": "a bit of the word broccoli is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broccoli",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "stove",
+       "at": 52,
+       "gives": "AGA",
+       "note": "an Aga is a make of cast-iron cooking stove"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable described as a piece of broccoli sitting between a ditch and the cooker.",
+     "walkthrough": "An Aga is a heavy cast-iron range cooker found in many British country kitchens. 'i.e.' is a link word, and 'between' sets the middle pieces inside the outer two.",
+     "definitionFit": "The rutabaga is the American name for the swede, a root vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broccoli"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1073,49 @@
     "text": "Flowering plant, a symbol of love aboard the Underground",
     "enumeration": "8"
    },
-   "solution": "TUBEROSE"
+   "solution": "TUBEROSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flowering plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 34,
+       "note": "aboard means riding on, so the symbol of love comes on after the Underground"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Underground",
+       "at": 41,
+       "gives": "TUBE",
+       "note": "the Tube is London's Underground railway"
+      },
+      {
+       "words": "a symbol of love",
+       "at": 17,
+       "gives": "ROSE",
+       "note": "a red rose is the classic token of love"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carries a romantic flower on the London Underground.",
+     "walkthrough": "The TUBE is the popular name for the London Underground.",
+     "definitionFit": "The tuberose is a fragrant white-flowered plant grown for perfume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Underground"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1129,61 @@
     "text": "Politician, one investing in evasive business",
     "enumeration": "7"
    },
-   "solution": "COMPANY"
+   "solution": "COMPANY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "business",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "investing in",
+       "at": 16,
+       "note": "investing means surrounding, so the politician and one go inside the word for evasive"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evasive",
+       "at": 29,
+       "gives": "COY",
+       "note": "coy means reluctant to give details, evasive"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Politician",
+         "at": 0,
+         "gives": "MP",
+         "note": "MP is a Member of Parliament"
+        },
+        {
+         "words": "one",
+         "at": 12,
+         "gives": "AN",
+         "note": "an means one, as in an apple"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician puts money into a business that is cagey about its affairs.",
+     "walkthrough": "'investing in' reads like finance but is the container signal: to invest is also to surround.",
+     "definitionFit": "A company is a commercial firm, a business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "investing"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1203,54 @@
      }
     ]
    },
-   "solution": "COMEUPON"
+   "solution": "COMEUPON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in possession of",
+       "at": 13,
+       "note": "in possession of seems to put the voucher inside the writer's word"
+      },
+      {
+       "text": "Just the reverse",
+       "at": 42,
+       "note": "just the reverse flips the containment, so the writer's word goes inside the voucher instead"
+      }
+     ],
+     "parts": [
+      {
+       "words": "voucher",
+       "at": 5,
+       "gives": "COUPON",
+       "note": "a coupon is a voucher"
+      },
+      {
+       "words": "the writer",
+       "at": 30,
+       "gives": "ME",
+       "note": "the writer is the setter, referring to himself as me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Locate a voucher that the setter owns, or rather the opposite.",
+     "walkthrough": "'in possession of' would put the voucher inside the writer; 'Just the reverse' tells you to swap which piece holds which.",
+     "definitionFit": "To come upon something is to find it by chance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "possession"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1264,69 @@
     "text": "Worker in health club post mostly regrets turning up",
     "enumeration": "7"
    },
-   "solution": "MASSEUR"
+   "solution": "MASSEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worker in health club",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "at": 22,
+         "gives": "MAST",
+         "note": "a mast is a tall post"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 42,
+         "note": "in a down clue, turning up means the word is written backwards, bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regrets",
+         "at": 34,
+         "gives": "RUES",
+         "note": "rues means regrets"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spa employee regrets nearly every arriving letter.",
+     "walkthrough": "'mostly' cuts MAST to MAS; 'turning up' makes SEUR from RUES.",
+     "definitionFit": "A person who gives massages works at spas and gyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1340,48 @@
     "text": "Hackneyed thought millions ignored",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hackneyed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignored",
+       "at": 27,
+       "note": "ignored means the letter for millions is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thought",
+       "at": 10,
+       "gives": "MUSED",
+       "note": "mused means thought or pondered"
+      },
+      {
+       "words": "millions",
+       "at": 18,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idea is stale and the millions it involves are overlooked.",
+     "walkthrough": "'ignored' takes M from MUSED.",
+     "definitionFit": "Something overused and worn out is hackneyed, like a stale phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thought"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1395,54 @@
     "text": "Intellectual discipline that is presented in different ways — note church following",
     "enumeration": "7"
    },
-   "solution": "SCIENCE"
+   "solution": "SCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Intellectual discipline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 74,
+       "note": "following means the church abbreviation comes after the note"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that is presented in different ways",
+       "at": 24,
+       "gives": "SCIE",
+       "note": "that is can be shortened two ways, sc from Latin scilicet and ie from Latin id est, and both are given"
+      },
+      {
+       "words": "note",
+       "at": 62,
+       "gives": "N"
+      },
+      {
+       "words": "church",
+       "at": 67,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field of study offered in assorted forms, with a musical note and a church to follow.",
+     "walkthrough": "'that is' is given in two abbreviations, SC (scilicet) and IE (id est), joined as SCIE. CE is the Church of England.",
+     "definitionFit": "A systematic field of study, such as physics or chemistry, is an intellectual discipline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1456,29 @@
     "text": "Substantial protection against collisions",
     "enumeration": "6"
    },
-   "solution": "BUMPER"
+   "solution": "BUMPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Substantial",
+      "at": 0,
+      "meaning": "... means very large, as in a ... harvest"
+     },
+     {
+      "text": "protection against collisions",
+      "at": 12,
+      "meaning": "a car's bar at front and back that absorbs knocks"
+     }
+    ],
+    "explanation": {
+     "surface": "Solid, heavy-duty crash protection.",
+     "definitionFit": "A bumper crop is a big one, and the car part guards against impacts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1492,57 @@
     "text": "Old Mexican almost informed Private Eye",
     "enumeration": "6"
    },
-   "solution": "TOLTEC"
+   "solution": "TOLTEC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old Mexican",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "informed",
+         "at": 19,
+         "gives": "TOLD",
+         "note": "told means informed"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "Private Eye",
+       "at": 28,
+       "gives": "TEC",
+       "note": "a private eye is a detective, shortened to tec"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Mexican nearly briefed a private investigator.",
+     "walkthrough": "'almost' cuts TOLD to TOL. 'Private Eye' looks like the British satirical magazine but means a detective.",
+     "definitionFit": "The Toltecs were a people who dominated central Mexico before the Aztecs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eye"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1556,81 @@
     "text": "Class and so on backed accepting a school's head",
     "enumeration": "5"
    },
-   "solution": "CASTE"
+   "solution": "CASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 23,
+       "note": "accepting means taking in, so the reversed letters hold the a and the school's first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backed",
+         "at": 16,
+         "note": "backed means moved backwards, so the abbreviation is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and so on",
+         "at": 6,
+         "gives": "ETC",
+         "note": "etc means and so on"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 33,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 44,
+           "note": "the head of the word school is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "school's",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school class, its head taken on, and so forth.",
+     "walkthrough": "'backed' turns ETC into CTE, and 'accepting' puts AS inside it after the C.",
+     "definitionFit": "A caste is a hereditary social class, especially in Hindu society."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1644,68 @@
     "text": "Underworld attack with gun mostly shocked nation",
     "enumeration": "9"
    },
-   "solution": "PLUTONIAN"
+   "solution": "PLUTONIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Underworld",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 27,
+         "note": "mostly means the slang word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "attack with gun",
+         "at": 11,
+         "gives": "PLUG",
+         "note": "to plug someone is slang for shooting them"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shocked",
+         "at": 34,
+         "note": "shocked means jolted into disorder, so the letters of nation are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nation",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangland shooting leaves the country stunned.",
+     "walkthrough": "'mostly' cuts PLUG to PLU, and 'shocked' turns NATION into TONIAN.",
+     "definitionFit": "Pluto ruled the Roman underworld, so things belonging to the infernal regions take his name as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Underworld"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1719,61 @@
     "text": "Poor of Parisian, gripped by desire, to pop up",
     "enumeration": "5"
    },
-   "solution": "NEEDY"
+   "solution": "NEEDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to pop up",
+       "at": 37,
+       "note": "in a down clue, popping up means the letters are read from the bottom upward, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "gripped by",
+         "at": 18,
+         "note": "gripped by means the French word is held inside the word for desire"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desire",
+         "at": 29,
+         "gives": "YEN",
+         "note": "a yen is a longing or desire"
+        },
+        {
+         "words": "of Parisian",
+         "at": 5,
+         "gives": "DE",
+         "note": "de is French for of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor Frenchman, gripped by longing, keeps appearing.",
+     "walkthrough": "'gripped by' makes YDEEN, which 'to pop up' reverses, as a down entry is read upward.",
+     "definitionFit": "Being poor means being in want, lacking the necessities of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1787,59 @@
     "text": "Poetic form and style not initially mastered",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poetic form",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 22,
+       "note": "not means the letter that follows is left out of the word for style"
+      }
+     ],
+     "parts": [
+      {
+       "words": "style",
+       "at": 16,
+       "gives": "MODE",
+       "note": "a mode is a style or manner"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 26,
+         "note": "initially means the first letter of mastered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mastered",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of verse whose style has not yet been perfected.",
+     "walkthrough": "'initially' gives M, which 'not' removes from MODE.",
+     "definitionFit": "An ode is a lyric poem addressed to a subject, a recognised form of verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mastered"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1853,47 @@
     "text": "Great influence? I cope not with men, sadly",
     "enumeration": "11"
    },
-   "solution": "OMNIPOTENCE"
+   "solution": "OMNIPOTENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great influence?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sadly",
+       "at": 38,
+       "note": "sadly, as in badly or poorly, says these letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I cope not",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "men",
+       "at": 33,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of being unable to deal with men, sadly.",
+     "walkthrough": "'sadly' rearranges ICOPENOTMEN. The question mark marks the definition as an understatement.",
+     "definitionFit": "Unlimited power is the greatest influence one could have, so the definition understates it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1907,57 @@
     "text": "Woman's particular individuals, nameless objects of reverence",
     "enumeration": "6"
    },
-   "solution": "HEROES"
+   "solution": "HEROES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "objects of reverence",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Woman's",
+       "at": 0,
+       "gives": "HER",
+       "note": "her means belonging to a woman"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nameless",
+         "at": 32,
+         "note": "nameless means without the N that stands for name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "particular individuals",
+         "at": 8,
+         "gives": "ONES",
+         "note": "ones, as in the little ones, means particular individuals"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's specific people, unnamed, whom she reveres.",
+     "walkthrough": "'nameless' removes N, the abbreviation for name; 'particular individuals' means ones, as in 'the ones I meant'.",
+     "definitionFit": "Admired champions are revered and looked up to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 30,
@@ -477,7 +1971,52 @@
     "text": "Dishes Capability's first element of garden design",
     "enumeration": "8"
    },
-   "solution": "CROCKERY"
+   "solution": "CROCKERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dishes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 20,
+         "note": "first means the opening letter of Capability"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Capability's",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "element of garden design",
+       "at": 26,
+       "gives": "ROCKERY",
+       "note": "a rockery is a garden feature of stones and plants"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dishes as the first element in a Capability Brown garden design.",
+     "walkthrough": "'Capability' suggests Capability Brown, the famous English landscape gardener, but supplies only its first letter.",
+     "definitionFit": "Plates, cups and bowls are collectively the dishes or crockery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capability's"
+    }
+   }
   }
  ]
 }
