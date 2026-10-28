@@ -196,6 +196,18 @@ check("doesNotGive: hid() over a rev() of the clue words is mended into rev(hid(
       == "rev<getting upset>(hid<to some extent>([Now then]))")
 check("doesNotGive: hid() over a rev() of a looked-up word stays refused",
       mend("hid<in>(rev<back>([Inverting]GNITREVNI))", "Inverting back in", "NITRE").startswith("REFUSED"))
+# doesNotGive residue, 10-28 (36 refusals): a repeat or a first<>(a, b) put "in" a word is the scattered insertion
+# (TREBLE with U twice in it is TRUEBLUE), and a word hidden backwards under a bare hid() names rev(hid())
+check("doesNotGive: a repeated letter cutting a word is scattered into it (TRUEBLUE)",
+      not mend("ins<over>([thrice]TREBLE, rep<twice>([Unionist]U))", "Loyal Tory Unionist, twice and thrice over", "TRUEBLUE").startswith("REFUSED"))
+check("doesNotGive: the first letters of two words punctuating a word are scattered into it (THETA)",
+      not mend("ins<punctuated by>([Meal]TEA, first<suggestions of>([hilarity], [tomfoolery]))",
+               "Meal punctuated by suggestions of hilarity and tomfoolery in letter from abroad", "THETA").startswith("REFUSED"))
+check("doesNotGive: a single-letter inner is not scattered (still refused when it fits nowhere)",
+      mend("ins<in>([Meal]TEA, first<of>([hilarity]))", "Meal in hilarity", "TEAH").startswith("REFUSED"))
+msg = mend("hid<returning>([Foreman at factory])", "Foreman at factory returning loose clothing", "CAFTAN")
+check("doesNotGive: a word hidden backwards under a bare hid() is told to write rev(hid())",
+      "hidden BACKWARDS" in msg and "rev<reversal word>(hid<" in msg)
 
 # blockNote (annotate audit: 139 sessions refused "missing blocks.note"; 106 were the palindrome's definition leaf,
 # 48 the second leaf of a repeated clue word, 37 the leaf under sound()): the three shapes with one right sentence
