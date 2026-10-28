@@ -7158,6 +7158,18 @@ check("a linked clue read across the gutter is cut at its first number, a speck 
 check("a linked clue just left of the gutter is never cut at its later number (it is the next column's, whole)",
       [(770, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")],
       f.split_across([(760, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")], [770]))
+# Gale 1963-07-20: the column rule read as a mark glued to the next column's number (MARKED_NEXT); ch's
+# line stayed whole, so 22 down was lost into the clue before it.
+check("a clue number read with the gutter's rule glued before it cuts the row there, the mark dropped",
+      ["gripping  show", "22 Noisome to us, the good earth ?(5)."],
+      [w[4] for w in f.split_across([(524, 0, 1216, 20, "gripping  show '22 Noisome to us, the good earth ?(5).")], [777])])
+check("but not where the rest of the line is no whole clue (no count closes it), nor after a colon",
+      [1, 1],
+      [len(f.split_across([(226, 0, 920, 20, "are taken for protection (6, '20 Rotter for whom a young")], [600])),
+       len(f.split_across([(300, 0, 900, 20, "20 Sort of theatre the Spanish reject :9: Platre (7.2.5).")], [640]))])
+check("a rule read as a 1 before a digit stays the number's (NEXT_CLUE's '|5' is 15)",
+      "|5 Grotesque insect I caught",
+      f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). |5 Grotesque insect I caught")], [400])[-1][4])
 # A 3x3 grid: 1 across and down, 2 down, 3 across.
 _g3 = ["...", ".#.", "..."]
 check("a light number no reading opens a clue on is unread",

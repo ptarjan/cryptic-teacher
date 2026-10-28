@@ -1293,6 +1293,30 @@ NEXT_CLUE = re.compile(r"(?<=[\s\-.])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[
 #: The solution box's heading ("SOLUTION OF PUZZLE No. 7,091", read "SoLUTioN'orPuzzLB"), which the
 #: 1950s Times sets in the row of the clue beside it: a cut like a clue's number (Gale 1952-12-13's 8 down).
 SOLUTION_HEAD = re.compile(r"(?<=[\s.\-])s[o0]l[ui]t[il1]?[o0]n\W*[o0]\w?\W*p[uv]zz", re.IGNORECASE)
+#: A clue's number in a line read across a gutter with the column's rule (or a speck in the gutter) read
+#: as a mark glued to it, after a space: "gripping show '22 Noisome to us, the good earth ? (5).", "3 She
+#: would put off ·21 Hades as a home of the arts (6).", "5 The party in defeat '25 Not very friendly, this
+#: cactus (5).". NEXT_CLUE wants a space, dash or stop before the number, so split_across left the line
+#: whole: the next column's clue was lost into the one before, and with one reader of two splitting it no
+#: vote laid it (failure shapes r26, 10-28: Gale 1961-64's last down clues, "no reading laid a clue on
+#: it", the biggest blank on unplanned unfiled Times pages). Only a rule's marks (an
+#: apostrophe, a middle dot, a bar), the number then a space, and only where the rest of the line is a
+#: whole clue, its count closing it (MARKED_CLOSE): a fragment cut so ("(6, '20 Rotter for whom a young",
+#: "'17 Ruth uses a book of"), a colon, star or quote mark (":9: Platre (7.2.5).", "\"19 Ostensible slight
+#: (7).") moved other clues in the vote (A/B over 451 pages: 26 lights lost). The mark is cut off with the
+#: left half.
+MARKED_NEXT = re.compile(r"(?<=\s)['‘’·|](?=\d{1,2}\.?\s+[A-Z\"'‘“])")
+MARKED_CLOSE = re.compile(r"\(\s*\d{1,2}(?:\s*[,.\-]\s*\d{1,2})*\s*\)\W*$")
+
+
+def marked_starts(text):
+    """{a clue number's place in `text`: its mark's} for each MARKED_NEXT start NEXT_CLUE does not read
+    (a bar it reads as a number's 1, "|5 Clue", stays its), the rest of the line closed by a count."""
+    plain = {m.start() for m in NEXT_CLUE.finditer(text)}
+    return {m.start() + 1: m.start() for m in MARKED_NEXT.finditer(text)
+            if m.start() not in plain and MARKED_CLOSE.search(text, m.end())}
+
+
 #: A line's opening as far as a linked clue's last number: a speck, then its numbers ("1 25, ").
 LINKED_HEAD = re.compile(r"(\W*(?:\S\s+)?)\d{1,2}\s?,\s?(?:\d{1,2}\s?,\s?)*")
 #: How far, in pixels, from a gutter a clue's number in a line read across
@@ -1324,8 +1348,11 @@ def split_across(ws, gutters, height=None):
                 continue
             text, width = w[4], w[2] - w[0]
             starts = []
-            for m in [*NEXT_CLUE.finditer(text), *SOLUTION_HEAD.finditer(text)]:
-                s = m.start()
+            plain = {m.start() for m in [*NEXT_CLUE.finditer(text), *SOLUTION_HEAD.finditer(text)]}
+            # A number after a rule's mark (marked_starts) is cut there, the mark left with the half
+            # before it and dropped from it.
+            marked = {s: at for s, at in marked_starts(text).items() if at not in plain}
+            for s in [*sorted(plain), *sorted(marked)]:
                 head = LINKED_HEAD.fullmatch(text[:s])
                 if head:
                     # A linked clue's later number ("25, 21 Hamlet"): its clue opens at the list's
@@ -1353,7 +1380,7 @@ def split_across(ws, gutters, height=None):
                     # drifted over the straight gutter.
                     w, tall = (x,) + w[1:], (x,) + tall[1:]
                 continue
-            out.append((w[0], tall[1], x - 1, tall[3], text[:near[1]].rstrip()))
+            out.append((w[0], tall[1], x - 1, tall[3], text[:marked.get(near[1], near[1])].rstrip()))
             w = tall = (x, tall[1], w[2], tall[3], text[near[1]:])
         out.append(w)
     return out
@@ -11540,6 +11567,58 @@ def marked_worded(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled with
+#: a light blank as "no reading laid a clue on it" whose number a cached RapidOCR reading of the page holds
+#: inside a line read across a gutter, after the column's rule read as a mark ("gripping show '22 Noisome to
+#: us, the good earth ? (5).", Gale 1963-07-20's 22 down; "3 She would put off ·21 Hades as a home of the
+#: arts (6).", 1961-09-14): split_across now cuts such a line there (MARKED_NEXT). Failure shapes r26,
+#: 10-28. Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that for the Times). Once each.
+MARKED_NEXT_READ = "unfiled before its fix, a clue number its gutter's rule hid"
+REREAD_MARKED_NEXT = "2026-10-28T20:30:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def marked_numbers(key):
+    """The clue numbers the RapidOCR readings (ch, en5) of every window CROPS/rapid caches for `key`
+    ("{edition}_{number}") read after a mark inside a line (MARKED_NEXT, where NEXT_CLUE reads none)."""
+    seen = set()
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+        except (OSError, ValueError):
+            continue
+        boxes = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+        for o in boxes:
+            for w in (o.get("words") if isinstance(o, dict) else None) or ():
+                text = str(w[4])
+                for s in marked_starts(text):
+                    seen.add(int(re.match(r"\d{1,2}", text[s:]).group()))
+    return frozenset(seen)
+
+
+def marked_next_due(row):
+    """Whether Times ledger `row`, read before REREAD_MARKED_NEXT, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) with a light blank as "no
+    reading laid a clue on it" whose number marked_numbers() finds in its page's cached readings."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_MARKED_NEXT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or v.get("number") is None:
+            continue
+        unlaid = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
+                  if "no reading laid a clue" in str(why) and lid.split("-")[0].isdigit()}
+        if not unlaid or not unlaid & marked_numbers(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) whose write the gate refused over a
 #: clue's punctuation (puzzle_integrity's "(punctuation.faults)") that punctuation.mended now mends clean:
 #: a comma read with a speck beside it (";," ",:" after a word: "an odd cove;, quietly") is the comma, and
@@ -15494,6 +15573,8 @@ def fix_reason(row):
         return SHARED_WORD
     if marked_worded(row):
         return MARKED_WORD
+    if marked_next_due(row):
+        return MARKED_NEXT_READ
     if neighbour_tailed(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
@@ -16002,7 +16083,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-28 r22: a page unfiled over a word its readings spell alike (shared_worded).
                   SHARED_WORD,
                   # 10-28 r23: a page unfiled over a mark the print sets in a word (marked_worded).
-                  MARKED_WORD)
+                  MARKED_WORD,
+                  # 10-28 r26: a page unfiled over a clue number a gutter's rule hid (marked_next_due).
+                  MARKED_NEXT_READ)
 
 
 def refusal_passes(why):
@@ -16227,7 +16310,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -16558,7 +16641,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
-                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD) else {}),
+                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
