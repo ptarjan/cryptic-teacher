@@ -515,6 +515,46 @@ check("not after the fix, nor another refusal, nor a reading stopped otherwise, 
        f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {**_ls["unparsed"], "times": "across clues do not parse: clue 3 has no count"}}]}),
        f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1944-02-13", "item": "GaleTimes1944UKEnglish"}}),
        f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1948-02-13", "item": "GaleTimes1948UKEnglish"}})])
+# ---- a 1940-41 Gale Times page pending for a grid trove_grid could not read at its scan's size (too few white
+# cells) is due once (fa.SCALED_GRID), ordered with never-read pages, never canary-held.
+_sg = {"number": 9999985, "leaf": 0, "clues": 30, "complete": False, "readings": ["ch", "en5"],
+       "imageUnread": "too few neighbouring white cells to measure the lattice", "pending": "no grid: the search found no grid"}
+_sgrow = {"edition": "GaleTimes1941UKEnglish/1941-08-14", "verdicts": [_sg], "readAt": "2026-10-26T09:34:44+00:00",
+          "scan": {"date": "1941-08-14", "item": "GaleTimes1941UKEnglish", "puzzles": [{"number": 9999985, "leaf": 0}]}}
+check("a 1940-41 Gale Times page pending for a grid unread at its scan's size is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.SCALED_GRID, 2, True, True, True, None, True],
+      [f.fix_reason(_sgrow), f.RANKS[f.SCALED_GRID], eq.evidence_reason(f.SCALED_GRID), f.SCALED_GRID in eq.FIX_LANDED,
+       f.SCALED_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.SCALED_GRID, "date": "1941-08-14"}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{**_sg, "imageUnread": "only 12 white cells found",
+                                                  "pending": "no grid: the search ran out of budget"}]})])
+check("not after the fix, nor a grid unread otherwise, nor one not pending, nor 1939 or 1942, nor News UK",
+      [False] * 6,
+      [f.scaled_grid_due({**_sgrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{**_sg, "imageUnread": "the lights are not one connected patch"}]}),
+       f.scaled_grid_due({**_sgrow, "verdicts": [{k: v for k, v in _sg.items() if k != "pending"}]}),
+       f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1939-08-14", "item": "GaleTimes1939UKEnglish"}}),
+       f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1942-08-14", "item": "GaleTimes1942UKEnglish"}}),
+       f.scaled_grid_due({**_sgrow, "edition": "NewsUK1941UKEnglish/1941-08-14_1",
+                          "scan": {**_sgrow["scan"], "item": "NewsUK1941UKEnglish"}})])
+# ---- a 1948-54 Gale Times page refused "no reading parses" at a bare count (two clue columns left of the grid
+# read as one line) before lead_split's LEAD_TWO landed is due once (fa.LEFT_LATE), never canary-held.
+_ll = {"number": 9999984, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: \" (8) 17 He's never fully satisfied by an\"",
+                    "times": "down clues do not parse: cannot find a clue number at: ' (4, 8) 9 A case for a wig'",
+                    "en5": "no ACROSS and DOWN lists under the grid"}}
+_llrow = {"edition": "GaleTimes1950UKEnglish/1950-11-01", "verdicts": [_ll], "readAt": "2026-10-19T12:10:00+00:00",
+          "scan": {"date": "1950-11-01", "item": "GaleTimes1950UKEnglish", "puzzles": [{"number": 9999984, "leaf": 0}]}}
+check("a 1948-54 Gale Times page refused at a bare count before LEAD_TWO is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.LEFT_LATE, 2, True, True, True, None],
+      [f.fix_reason(_llrow), f.RANKS[f.LEFT_LATE], eq.evidence_reason(f.LEFT_LATE), f.LEFT_LATE in eq.FIX_LANDED,
+       f.LEFT_LATE in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LEFT_LATE, "date": "1950-11-01"})])
+check("not read after LEAD_TWO, nor a stop at words (not a count), nor every reading listless, nor 1947 or 1955",
+      [False] * 5,
+      [f.left_late_due({**_llrow, "readAt": "2026-10-20T01:00:00+00:00"}),
+       f.left_late_due({**_llrow, "verdicts": [{**_ll, "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: 'his flashing eyes we read'"}}]}),
+       f.left_late_due({**_llrow, "verdicts": [{**_ll, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.left_late_due({**_llrow, "scan": {**_llrow["scan"], "date": "1947-11-01", "item": "GaleTimes1947UKEnglish"}}),
+       f.left_late_due({**_llrow, "scan": {**_llrow["scan"], "date": "1955-11-01", "item": "GaleTimes1955UKEnglish"}})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

@@ -3166,6 +3166,37 @@ check("a See clue naming a linked answer's later numbers, a count after them, pa
       [(c["tokens"][0], c["text"]) for c in see_linked[0]])
 check("a See N then a comma and a new clue (no count after it) keeps its own number only",
       [({14}, "See 4"), ({9}, "Foo")], [(c["tokens"][0], c["text"]) for c in ftp.clues("14 See 4 9 Foo (5)")[0]])
+# 1940-41 Gale Times grids scanned at twice the others' size (crops 1,040-1,340px): trove_grid finds too few
+# white cells at full size; scaled_grid reads the crop shrunk to GRID_WIDTHS, never a crop that reads as is.
+_sg_dir = Path(tempfile.mkdtemp())
+_sg_seen = []
+
+
+def _sg_fake(src):
+    from PIL import Image as _SgImage
+    width = _SgImage.open(src).width
+    _sg_seen.append(width)
+    return (["." * 15] * 15, None) if width <= 720 else (None, "too few neighbouring white cells to measure the lattice")
+
+
+_sg_real = f.trove_grid.read_grid
+f.trove_grid.read_grid = _sg_fake
+try:
+    from PIL import Image as _SgImage
+    _SgImage.new("L", (1200, 1240), 255).save(_sg_dir / "big.png")
+    _SgImage.new("L", (700, 720), 255).save(_sg_dir / "small.png")
+    _sg_big = f.scaled_grid(_sg_dir / "big.png")
+    _sg_big_seen = list(_sg_seen)
+    _sg_seen.clear()
+    _sg_small = f.scaled_grid(_sg_dir / "small.png")
+    _sg_small_seen = list(_sg_seen)
+    f.trove_grid.read_grid = lambda src: (None, "only 9 white cells found")
+    _sg_none = f.scaled_grid(_sg_dir / "big.png")
+finally:
+    f.trove_grid.read_grid = _sg_real
+check("a big grid crop unread as is reads shrunk to 720px; a crop that reads is read once; failing all, the full-size why",
+      [(15, None), [1200, 720], (15, None), [700], (None, "only 9 white cells found")],
+      [(len(_sg_big[0]), _sg_big[1]), _sg_big_seen, (len(_sg_small[0]), _sg_small[1]), _sg_small_seen, _sg_none])
 # 1984-01-02, RapidOCR: the grid's crop took ACROSS; DOWN is there.
 times_16324 = """1 Meaningless sounds occur in nis
 brig. perhaps (9).
