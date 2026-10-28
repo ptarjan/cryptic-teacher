@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,7 +48,31 @@
      }
     ]
    },
-   "solution": "FROMLEFTTORIGHT"
+   "solution": "FROMLEFTTORIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How we read",
+      "at": 0,
+      "meaning": "English text runs across the page starting at the left-hand margin"
+     },
+     {
+      "text": "the shift in world politics",
+      "at": 12,
+      "meaning": "a political swing from the left wing over to the right wing"
+     }
+    ],
+    "explanation": {
+     "surface": "A wry question about how to interpret a change in global politics.",
+     "definitionFit": "The direction of English reading, and also a rightward movement in political allegiance, are both described by this phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +92,69 @@
      }
     ]
    },
-   "solution": "OPENWIDE"
+   "solution": "OPENWIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Let's see those teeth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to contain it",
+       "at": 61,
+       "note": "to contain says the shuffled letters hold the piece just named, the start of decay"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "failing",
+         "at": 53,
+         "note": "failing suggests the words I weep on collapse into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I weep on",
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 22,
+         "note": "beginning to picks the opening letter of the word decay"
+        }
+       ],
+       "parts": [
+        {
+         "words": "decay",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist asks to look at teeth, while a patient frets about decay and sobs.",
+     "walkthrough": "'failing' rearranges I WEEP ON into OPENWIE, which wraps D, the first letter of 'decay'.",
+     "definitionFit": "A dentist's instruction to a patient, asking them to part their jaws so the teeth can be inspected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +181,61 @@
     "text": "End rise of deficit in drop",
     "enumeration": "8"
    },
-   "solution": "DISSOLVE"
+   "solution": "DISSOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in says one piece is placed within the word for drop"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drop",
+       "at": 23,
+       "gives": "DIVE",
+       "note": "to dive is to drop sharply"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise of",
+         "at": 4,
+         "note": "rise of, in a down clue, means the word for deficit is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deficit",
+         "at": 12,
+         "gives": "LOSS",
+         "note": "a deficit is a loss"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A budget deficit finally climbs after a fall.",
+     "walkthrough": "'drop' looks like the definition but is the container; 'End' is a verb, as when a parliament is wound up.",
+     "definitionFit": "Verb sense: to bring formally to a close, as one would wind up a parliament or a partnership."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +249,81 @@
     "text": "Shown up, Paul's clothes embarrassing ultimately, a poser",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "poser",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Shown up",
+         "at": 0,
+         "note": "shown up, in a down clue, means the built piece is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "clothes",
+           "at": 17,
+           "note": "clothes means the setter's possessive wraps around the next letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Paul's",
+           "at": 10,
+           "gives": "MINE",
+           "note": "Paul is the setter, so Paul's means belonging to me: mine"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ultimately",
+             "at": 38,
+             "note": "ultimately picks the final letter of the word embarrassing"
+            }
+           ],
+           "parts": [
+            {
+             "words": "embarrassing",
+             "at": 25
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 50
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is caught in awkward clothing, which poses a puzzle.",
+     "walkthrough": "MINE wraps G (the end of 'embarrassing') to give MGINE; 'Shown up' turns that into ENIGM, then A follows.",
+     "definitionFit": "A poser is a puzzling question, a mystery or riddle that is hard to solve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +337,42 @@
     "text": "Web designer's tool present in labouring",
     "enumeration": "9"
    },
-   "solution": "SPINNERET"
+   "solution": "SPINNERET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Web designer's tool",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "labouring",
+       "at": 31,
+       "note": "labouring suggests the words present in are worked hard into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "present in",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tool used by a website designer sits within someone's working life.",
+     "walkthrough": "The web designer is a spider, not a website builder.",
+     "definitionFit": "A spider produces silk thread through this organ, its means of weaving a web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Web"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +392,40 @@
      }
     ]
    },
-   "solution": "INTOTO"
+   "solution": "INTOTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as a whole",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "popular things are in"
+      },
+      {
+       "words": "Wizard of Oz role",
+       "at": 8,
+       "gives": "TOTO",
+       "note": "Toto is Dorothy's dog in The Wizard of Oz"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-loved part from The Wizard of Oz, considered in full.",
+     "definitionFit": "Latin phrase meaning completely or in its entirety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +449,103 @@
      }
     ]
    },
-   "solution": "BEDANDBREAKFAST"
+   "solution": "BEDANDBREAKFAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Offer of accommodation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 44,
+       "note": "in says the fine and holiday pieces sit within the shortened city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 55,
+         "note": "lacking means the capital goes without the letter that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 47,
+         "gives": "BELFAST",
+         "note": "Belfast is the capital of Northern Ireland"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 71,
+           "note": "initially picks the first letter of the word luxury"
+          }
+         ],
+         "parts": [
+          {
+           "words": "luxury",
+           "at": 63
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 28,
+           "note": "mostly means the word for fine loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fine",
+           "at": 23,
+           "gives": "DANDY",
+           "note": "dandy means fine or excellent"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        },
+        {
+         "words": "holiday",
+         "at": 36,
+         "gives": "BREAK",
+         "note": "a break is a short holiday"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guesthouse offer: fine, mostly, a city break without luxury.",
+     "walkthrough": "'lacking luxury, initially' drops only the L from the capital, Northern Ireland's chief city.",
+     "definitionFit": "A lodging arrangement offering a room for the night plus a morning meal, as in a guesthouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +559,59 @@
     "text": "Contemptible to hammer it through back",
     "enumeration": "9"
    },
-   "solution": "REPTILIAN"
+   "solution": "REPTILIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contemptible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 34,
+       "note": "back means the whole run of pieces is read in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "to hammer",
+         "at": 13,
+         "gives": "NAIL",
+         "note": "to hammer something in is to nail it"
+        },
+        {
+         "words": "it",
+         "at": 23,
+         "gives": "IT"
+        },
+        {
+         "words": "through",
+         "at": 26,
+         "gives": "PER",
+         "note": "per means through, as in by way of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to drive something home with a hammer, through the back.",
+     "walkthrough": "NAIL IT PER reads backwards as the answer.",
+     "definitionFit": "Applied to a person, reptile-like means cold, sly and despicable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +625,32 @@
     "text": "Trump's vice, money",
     "enumeration": "5"
    },
-   "solution": "PENCE"
+   "solution": "PENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trump's vice",
+      "at": 0,
+      "meaning": "Mike ... was Donald Trump's vice president"
+     },
+     {
+      "text": "money",
+      "at": 14,
+      "meaning": "plural of penny, the British coin"
+     }
+    ],
+    "explanation": {
+     "surface": "Donald Trump's weakness is money.",
+     "walkthrough": "'vice' reads as a failing but means vice president.",
+     "definitionFit": "Mike Pence served as Trump's deputy, and pennies are small British coins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vice"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +664,42 @@
     "text": "Bishop, say, tries fruit",
     "enumeration": "7"
    },
-   "solution": "MANGOES"
+   "solution": "MANGOES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bishop, say",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a bishop is an example of a chess man"
+      },
+      {
+       "words": "tries",
+       "at": 13,
+       "gives": "GOES",
+       "note": "has a go, so goes means tries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop sampling some fruit.",
+     "walkthrough": "The bishop is a chess piece, a man on the board.",
+     "definitionFit": "These are tropical stone fruits with sweet orange flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +713,58 @@
     "text": "Perform in a long kind of boat",
     "enumeration": "7"
    },
-   "solution": "GONDOLA"
+   "solution": "GONDOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "the clue word that signals this step"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "kind of",
+         "at": 18,
+         "note": "kind of suggests a loose version of the words a long, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a long",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "Perform",
+       "at": 0,
+       "gives": "DO",
+       "note": "to perform is to do"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to perform inside a long sort of vessel.",
+     "walkthrough": "'in' puts DO inside GONLA, the rearrangement of A LONG.",
+     "definitionFit": "Venetian flat-bottomed rowing craft propelled by a standing oarsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +778,43 @@
     "text": "Change in current switched over",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "switched over",
+       "at": 18,
+       "note": "switched over means the word for current is turned back to front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "current",
+       "at": 10,
+       "gives": "TIDE",
+       "note": "a tide is a current of the sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrical current is switched over, a change.",
+     "walkthrough": "'current' looks electrical but is the sea's tide.",
+     "definitionFit": "To revise or alter a text is to make changes to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +842,33 @@
    "group": [
     "14-across",
     "16-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Request to caller in telephone hell, said to infuriate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Request to caller in telephone hell, said to infuriate",
+       "at": 0,
+       "note": "the phrase an operator or automated system uses when making someone wait on a call, famously exasperating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The words that greet someone stuck in an endless phone queue are known to enrage.",
+     "definitionFit": "A polite instruction asking someone on the phone to wait without hanging up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +888,46 @@
      }
     ]
    },
-   "solution": "BILLODDIE"
+   "solution": "BILLODDIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "comedic ornithologist",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beak",
+       "at": 0,
+       "gives": "BILL",
+       "note": "a bird's beak is its bill"
+      },
+      {
+       "words": "funny",
+       "at": 5,
+       "gives": "ODD",
+       "note": "funny in the sense of odd or strange"
+      },
+      {
+       "words": "that is",
+       "at": 12,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strangely shaped bird's beak, fitting for a comic birdwatcher.",
+     "definitionFit": "Bill Oddie was one of The Goodies, a British comedy trio, and later a TV birdwatcher and naturalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +960,53 @@
     "text": "New student, person who's bound to return with that woman",
     "enumeration": "7"
    },
-   "solution": "FRESHER"
+   "solution": "FRESHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New student",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to return",
+         "at": 32,
+         "note": "to return means the word for a bound person is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "person who's bound",
+         "at": 13,
+         "gives": "SERF",
+         "note": "a serf was bound to the land"
+        }
+       ]
+      },
+      {
+       "words": "that woman",
+       "at": 47,
+       "gives": "HER",
+       "note": "her refers to that woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bonded servant comes back with a woman.",
+     "definitionFit": "British term for a university first-year undergraduate, like American freshman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1020,41 @@
     "text": "Ripple of waves less rigid",
     "enumeration": "8"
    },
-   "solution": "FLOPPIER"
+   "solution": "FLOPPIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "less rigid",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "waves",
+       "at": 10,
+       "note": "waves suggests the letters of ripple of are tossed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ripple of",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ripple in the waves is softer.",
+     "walkthrough": "'Ripple of waves' reads as a phrase, but 'waves' is the anagram signal.",
+     "definitionFit": "Comparative adjective: more limp, hanging more loosely, so less stiff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1068,47 @@
     "text": "Love for sale, a great deal secured by prince",
     "enumeration": "8"
    },
-   "solution": "HARLOTRY"
+   "solution": "HARLOTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Love for sale",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secured by",
+       "at": 28,
+       "note": "secured by says the word for a great deal is held inside the prince"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prince",
+       "at": 39,
+       "gives": "HARRY",
+       "note": "Prince Harry of the British royal family"
+      },
+      {
+       "words": "a great deal",
+       "at": 15,
+       "gives": "LOT",
+       "note": "a lot is a great deal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prince pays a fortune for love.",
+     "definitionFit": "Prostitution, the selling of sexual favours, echoing the Cole Porter song title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1122,41 @@
     "text": "Performance of coital nous in close contact",
     "enumeration": "10"
    },
-   "solution": "OSCULATION"
+   "solution": "OSCULATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close contact",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Performance of",
+       "at": 0,
+       "note": "performance of suggests the letters coital nous are put through their paces in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coital nous",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sexual know-how displayed in intimacy.",
+     "definitionFit": "A formal word for kissing, which involves lips in close contact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Performance"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1170,58 @@
     "text": "Function is elevated in solid figure",
     "enumeration": "6"
    },
-   "solution": "COSINE"
+   "solution": "COSINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Function",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in says the raised piece goes within the solid figure"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solid figure",
+       "at": 24,
+       "gives": "CONE",
+       "note": "a cone is a solid geometric figure"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevated",
+         "at": 12,
+         "note": "elevated, in a down clue, means the word is is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry note: some function rises within a solid shape.",
+     "walkthrough": "'elevated' works as a reversal because this is a down clue.",
+     "definitionFit": "A trigonometric function, the ratio of adjacent side to hypotenuse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1241,69 @@
      }
     ]
    },
-   "solution": "TURNTO"
+   "solution": "TURNTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Address",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 26,
+         "note": "not means the city goes without the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "European city",
+         "at": 11,
+         "gives": "TURIN",
+         "note": "Turin is a city in northern Italy"
+        },
+        {
+         "words": "in",
+         "at": 30,
+         "gives": "IN"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 41,
+         "note": "out suggests the letters of not are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 37
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's address in a European city, neither home nor away.",
+     "walkthrough": "'not in' means remove the letters of in from the city; 'not out' means scramble the word not.",
+     "definitionFit": "To address a task is to turn your attention to it, to set about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Address"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1327,62 @@
    "group": [
     "22-across",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stars",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old city",
+       "at": 0,
+       "gives": "UR",
+       "note": "Ur was an ancient Sumerian city"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 9,
+         "note": "leader in picks the opening letter of the word sadistic"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sadistic",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "dictator",
+       "at": 28,
+       "gives": "AMIN",
+       "note": "Idi Amin was Uganda's dictator"
+      },
+      {
+       "words": "gold",
+       "at": 43,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient city chief, a sadistic tyrant, is awarded gold medals.",
+     "definitionFit": "The Little Bear constellation, the group of stars containing Polaris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1396,30 @@
     "text": "Swimmer looking miserable",
     "enumeration": "5"
    },
-   "solution": "BLEAK"
+   "solution": "BLEAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0,
+      "meaning": "a small silvery European freshwater fish"
+     },
+     {
+      "text": "miserable",
+      "at": 16,
+      "meaning": "dreary, cheerless and without hope"
+     }
+    ],
+    "explanation": {
+     "surface": "A swimmer looks downcast.",
+     "definitionFit": "Both a small river fish of the carp family and an adjective for desolate or gloomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1433,42 @@
     "text": "Pub drink reportedly for member",
     "enumeration": "7"
    },
-   "solution": "INSIDER"
+   "solution": "INSIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "member",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "INSIDER",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 10,
+       "note": "reportedly says the words are said aloud to give a word with the same sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pub drink",
+       "at": 0,
+       "gives": "INNCIDER",
+       "note": "an inn is a pub and cider is a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub drink served to a member.",
+     "definitionFit": "Someone within an organisation or group, one of its people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1488,29 @@
      }
     ]
    },
-   "solution": "PULLOFF"
+   "solution": "PULLOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0,
+      "meaning": "to succeed in achieving something difficult"
+     },
+     {
+      "text": "detach",
+      "at": 10,
+      "meaning": "to remove by tugging"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions on handling a separation.",
+     "definitionFit": "Phrasal verb meaning both to succeed at something tricky and to tug something away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1524,63 @@
     "text": "Capital city in island close to Bangladesh, looking westward",
     "enumeration": "5"
    },
-   "solution": "HANOI"
+   "solution": "HANOI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "looking westward",
+       "at": 44,
+       "note": "looking westward in an across clue means reading the pieces from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "island",
+         "at": 16,
+         "gives": "IONA",
+         "note": "Iona is an island in the Scottish Hebrides"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "close to",
+           "at": 23,
+           "note": "close to picks the last letter of the word Bangladesh"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bangladesh",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Asian capital on an island near Bangladesh, facing west.",
+     "walkthrough": "IONA plus H reversed gives the answer.",
+     "definitionFit": "Vietnam's capital, in South-East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +1594,49 @@
     "text": "Reference that chap's found in house",
     "enumeration": "9"
    },
-   "solution": "THESAURUS"
+   "solution": "THESAURUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reference",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 22,
+       "note": "found in means the possessive pronoun sits within the house"
+      }
+     ],
+     "parts": [
+      {
+       "words": "house",
+       "at": 31,
+       "gives": "TAURUS",
+       "note": "Taurus is a house of the zodiac in astrology"
+      },
+      {
+       "words": "that chap's",
+       "at": 10,
+       "gives": "HES",
+       "note": "that chap is is contracted to he's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference to a man found in a house.",
+     "walkthrough": "The house is an astrological one, a zodiac sign.",
+     "definitionFit": "A reference book listing synonyms, as Roget's does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   }
  ]
 }
