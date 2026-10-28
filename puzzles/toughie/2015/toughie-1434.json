@@ -22,6 +22,9 @@
   "date": "2015-07-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,29 @@
     "text": "It's a bore to smoke",
     "enumeration": "4"
    },
-   "solution": "DRAG"
+   "solution": "DRAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bore",
+      "at": 7,
+      "meaning": "something tedious, as in the idiom it's a real nuisance"
+     },
+     {
+      "text": "smoke",
+      "at": 15,
+      "meaning": "to draw on a cigarette, take a puff"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses: a tedious chore is called this in slang, and the same word is the verb for inhaling on a cigarette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +93,76 @@
      }
     ]
    },
-   "solution": "OPENSECRET"
+   "solution": "OPENSECRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Everyone knows this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivated by",
+       "at": 29,
+       "note": "held captive inside, so the writer's letters sit within the jumbled group"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 43,
+         "note": "something awful is a mess, so the remaining letters of coterie are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "won't be part of",
+           "at": 59,
+           "note": "the letter I declines to belong, so it is removed from coterie"
+          }
+         ],
+         "parts": [
+          {
+           "words": "coterie",
+           "at": 49
+          },
+          {
+           "words": "I",
+           "at": 57,
+           "gives": "I"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "writer's",
+       "at": 20,
+       "gives": "PENS",
+       "note": "a pen is a writer, and the 's adds an S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at a ghastly clique they refuse to join, and everybody knows it.",
+     "walkthrough": "'won't be part of' removes the I from the clique; 'awful' rearranges the remaining six letters into O and ECRET, and 'captivated by' puts the writer's letters between them.",
+     "definitionFit": "A fact that is supposedly confidential but in practice is common knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "captivated"
+    }
+   }
   },
   {
    "number": 4,
@@ -82,7 +176,43 @@
     "text": "Service provided for big rock group?",
     "enumeration": "6"
    },
-   "solution": "MASSIF"
+   "solution": "MASSIF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big rock group?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Service",
+       "at": 0,
+       "gives": "MASS",
+       "note": "Mass is a church service"
+      },
+      {
+       "words": "provided",
+       "at": 8,
+       "gives": "IF",
+       "note": "provided means if, as in provided that"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service laid on for a famous rock band.",
+     "walkthrough": "'big rock group' suggests a band; it is a group of mountains.",
+     "definitionFit": "Geological term for a compact cluster of mountains, a large group of rocky peaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 5,
@@ -96,7 +226,57 @@
     "text": "Navy vessels almost all kept in readiness, not like the fastest jets",
     "enumeration": "8"
    },
-   "solution": "SUBSONIC"
+   "solution": "SUBSONIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not like the fastest jets",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Navy vessels",
+       "at": 0,
+       "gives": "SUBS",
+       "note": "subs are submarines"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost all",
+         "at": 13,
+         "note": "nearly the whole phrase, so its last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kept in readiness",
+         "at": 24,
+         "gives": "ONICE",
+         "note": "on ice means held in reserve, kept ready"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The navy holds most of its craft on standby, unlike the speediest aircraft.",
+     "walkthrough": "'almost all' removes the final E of ON ICE.",
+     "definitionFit": "Slower than sound, whereas the quickest jets are supersonic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "all"
+    }
+   }
   },
   {
    "number": 6,
@@ -110,7 +290,54 @@
     "text": "Something troubling your eye, primarily",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something troubling your eye, primarily",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "primarily",
+       "at": 30,
+       "note": "in the first place, so the opening letter of each of the four words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Something",
+       "at": 0
+      },
+      {
+       "words": "troubling",
+       "at": 10
+      },
+      {
+       "words": "your",
+       "at": 20
+      },
+      {
+       "words": "eye",
+       "at": 25
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Mainly, it is something bothering your eye.",
+     "walkthrough": "The whole clue both defines and, via 'primarily', supplies the initials of its first four words.",
+     "definitionFit": "An inflamed swelling on the eyelid, which is an irritation to the eye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +357,42 @@
      }
     ]
    },
-   "solution": "DROPKICK"
+   "solution": "DROPKICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attempt to get ball airborne",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Give up",
+       "at": 0,
+       "gives": "DROP",
+       "note": "drop means abandon or give up"
+      },
+      {
+       "words": "repeated",
+       "at": 8,
+       "gives": "KICK",
+       "note": "say give up again with a second word: kick, as in quitting a habit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Abandoning a second effort to get a ball into the air.",
+     "walkthrough": "'repeated' asks for give up a second time, by another synonym.",
+     "definitionFit": "In rugby, a kick made as the dropped ball bounces, used to send it up toward goal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repeated"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +406,54 @@
     "text": "Druid-supporting poster put up in effort to influence public opinion",
     "enumeration": "10"
    },
-   "solution": "PROPAGANDA"
+   "solution": "PROPAGANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "effort to influence public opinion",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Druid-supporting",
+       "at": 0,
+       "gives": "PROPAGAN",
+       "note": "pro means in favour of, and a Druid is a pagan"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put up",
+         "at": 24,
+         "note": "in a down clue, raised means read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poster",
+         "at": 17,
+         "gives": "AD",
+         "note": "an ad, an advertisement"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A placard backing the Druids is hung up as part of a campaign for hearts and minds.",
+     "walkthrough": "'put up' turns AD into DA.",
+     "definitionFit": "Information, often biased, spread to sway how people think."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poster"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +467,61 @@
     "text": "Go over summit after moment of hesitation's rejected",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 15,
+       "note": "the summit comes behind the turned hesitation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 44,
+         "note": "sent back, so the hesitation reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "moment of hesitation's",
+         "at": 21,
+         "gives": "ER",
+         "note": "er is the sound of a pause in speech"
+        }
+       ]
+      },
+      {
+       "words": "summit",
+       "at": 8,
+       "gives": "CAP",
+       "note": "a cap is a top"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone revisits a summit after their wavering is overruled.",
+     "walkthrough": "'rejected' turns ER into RE.",
+     "definitionFit": "Short for recapitulate: to run through the main points again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +535,46 @@
     "text": "Dater involved with breaking rule?",
     "enumeration": "9"
    },
-   "solution": "ADULTERER"
+   "solution": "ADULTERER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dater involved with breaking rule?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "involved with breaking",
+       "at": 6,
+       "note": "both words are mixed up: involved and breaking are each signals of rearrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dater",
+       "at": 0
+      },
+      {
+       "words": "rule",
+       "at": 29
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Is someone who dates while breaking the rules a cheat?",
+     "walkthrough": "The letters of DATER and RULE are mixed together, and the whole clue describes the cheating spouse.",
+     "definitionFit": "A married person who takes up with someone else, breaking the marital rule of fidelity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +588,29 @@
     "text": "Sediment surrounding garden",
     "enumeration": "7"
    },
-   "solution": "GROUNDS"
+   "solution": "GROUNDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sediment",
+      "at": 0,
+      "meaning": "dregs settling at the bottom, as of coffee"
+     },
+     {
+      "text": "surrounding garden",
+      "at": 9,
+      "meaning": "the land and gardens around a building"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Coffee dregs are one sense; the estate around a house is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surrounding"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +630,65 @@
      }
     ]
    },
-   "solution": "SWEEPUP"
+   "solution": "SWEEPUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "the small dog follows the final letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 23,
+         "note": "the final letter of the dog show's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Crufts",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "little",
+       "at": 6,
+       "gives": "WEE",
+       "note": "wee is Scottish for small"
+      },
+      {
+       "words": "dog",
+       "at": 13,
+       "gives": "PUP",
+       "note": "a pup is a young dog"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small dog is washed once the dog show is over.",
+     "walkthrough": "Crufts is Britain's best-known dog show.",
+     "definitionFit": "Phrasal verb for tidying up by brushing debris together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clean"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +702,50 @@
     "text": "Own about a pound then make 50p?",
     "enumeration": "5"
    },
-   "solution": "HALVE"
+   "solution": "HALVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make 50p?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 4,
+       "note": "around, so possess wraps the pound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Own",
+       "at": 0,
+       "gives": "HAVE",
+       "note": "to have is to possess"
+      },
+      {
+       "words": "a pound",
+       "at": 10,
+       "gives": "L",
+       "note": "L is the abbreviation for a pound, from Latin libra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a pound and then turns it into fifty pence.",
+     "walkthrough": "50p is half of a pound.",
+     "definitionFit": "To cut into two equal parts, as fifty pence is half a pound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +759,30 @@
     "text": "What riders require, and publicans are required to do",
     "enumeration": "10"
    },
-   "solution": "HANDLEBARS"
+   "solution": "HANDLEBARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What riders require",
+      "at": 0,
+      "meaning": "the steering grips of a bicycle"
+     },
+     {
+      "text": "publicans are required to do",
+      "at": 25,
+      "meaning": "pub landlords have to manage, run their bars"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Cyclists grip the steering bar; read as two words it says publicans must manage the bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "riders"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +806,85 @@
    "group": [
     "14-across",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Polish girls here maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "detained by",
+       "at": 49,
+       "note": "held inside, so the jumble sits within the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "heartless",
+           "at": 61,
+           "note": "losing its heart, the middle letter, so one N goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nordic",
+           "at": 71,
+           "gives": "FINNISH",
+           "note": "Finnish describes Finland, a Nordic land"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "words": "lecturer",
+         "at": 78,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foolishly",
+         "at": 24,
+         "note": "done in a foolish, muddled way, so the letters of choosing are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choosing",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some silly girls choose to be held back by a Scandinavian teacher.",
+     "walkthrough": "'Polish' looks like the nationality; it is the verb, refine. The jumbled letters of 'choosing' go just before the lecturer's L.",
+     "definitionFit": "A private college where young women were taught social graces, a place to refine girls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +898,82 @@
     "text": "Male wearing item of clothing mostly seen on female causes scuffles",
     "enumeration": "10"
    },
-   "solution": "SKIRMISHES"
+   "solution": "SKIRMISHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scuffles",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "seen on",
+       "at": 37,
+       "note": "in a down clue, sitting on top means coming first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 30,
+         "note": "most of the garment, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "item of clothing",
+         "at": 13,
+         "gives": "SKIRT",
+         "note": "a skirt is a garment"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 5,
+         "note": "having on, so the clothing and title surround the male"
+        }
+       ],
+       "parts": [
+        {
+         "words": "female",
+         "at": 45,
+         "gives": "MISS",
+         "note": "Miss is a title for a woman"
+        },
+        {
+         "words": "Male",
+         "at": 0,
+         "gives": "HE",
+         "note": "he is the male pronoun"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a woman's garment provokes some fights.",
+     "walkthrough": "'wearing' reads as dressed in, but here the male pronoun sits inside the female title, after the shortened garment.",
+     "definitionFit": "Brief fights or minor clashes, synonyms for small scraps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +997,30 @@
      }
     ]
    },
-   "solution": "NOSPRINGCHICKEN"
+   "solution": "NOSPRINGCHICKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0,
+      "meaning": "no longer young"
+     },
+     {
+      "text": "bird out of bounds?",
+      "at": 4,
+      "meaning": "a fowl that has lost its bounce, unable to leap"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The idiom means past one's youth; read literally it is a hen without bounce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bounds"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1034,34 @@
     "text": "Wisdom of Storyville?",
     "enumeration": "8"
    },
-   "solution": "SAGACITY"
+   "solution": "SAGACITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wisdom of Storyville?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Wisdom of Storyville?",
+       "at": 0,
+       "note": "split the answer in two: a saga is a story and a city is a ville, a town"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Sound judgement or shrewdness, a synonym for wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Storyville"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1075,49 @@
     "text": "Stops working, coming into category of those with no job or training, extremely deserving",
     "enumeration": "8"
    },
-   "solution": "NEEDIEST"
+   "solution": "NEEDIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremely deserving",
+      "at": 70
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming into",
+       "at": 15,
+       "note": "entering, so the breakdown sits inside the category"
+      }
+     ],
+     "parts": [
+      {
+       "words": "category of those with no job or training",
+       "at": 27,
+       "gives": "NEET",
+       "note": "NEET stands for not in education, employment or training"
+      },
+      {
+       "words": "Stops working",
+       "at": 0,
+       "gives": "DIES",
+       "note": "a machine dies when it breaks down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breakdown hits the unemployed group, making them the most deserving.",
+     "walkthrough": "NEET is a UK label for a young person not in education, employment or training.",
+     "definitionFit": "Superlative of needy: the most in want, the most deserving of help."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1137,61 @@
      }
     ]
    },
-   "solution": "LIGHTYEAR"
+   "solution": "LIGHTYEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A long way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 35,
+         "note": "the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home for soldiers",
+         "at": 16,
+         "gives": "BLIGHTY",
+         "note": "Blighty is soldiers' slang for Britain, home"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "eastern",
+       "at": 50,
+       "gives": "E"
+      },
+      {
+       "words": "Arabia",
+       "at": 58,
+       "gives": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers far from home head off to the Arabian east.",
+     "walkthrough": "BLIGHTY, troops' slang for Britain, loses its B.",
+     "definitionFit": "The distance light travels in twelve months, an enormous span."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1205,48 @@
     "text": "Animal home amid rubbish",
     "enumeration": "6"
    },
-   "solution": "RODENT"
+   "solution": "RODENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "at": 12,
+       "note": "in the middle of, so the lair sits inside the nonsense"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rubbish",
+       "at": 17,
+       "gives": "ROT",
+       "note": "rot means nonsense"
+      },
+      {
+       "words": "home",
+       "at": 7,
+       "gives": "DEN",
+       "note": "a den is an animal's lair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature makes its lair among the litter.",
+     "definitionFit": "A gnawing mammal such as a rat or mouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1260,48 @@
     "text": "Mother packs key for Mediterranean island",
     "enumeration": "5"
    },
-   "solution": "MALTA"
+   "solution": "MALTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mediterranean island",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "packs",
+       "at": 7,
+       "note": "holds within, so mother encloses the key"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is mum"
+      },
+      {
+       "words": "key",
+       "at": 13,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum puts a key in her luggage before going to the Med.",
+     "definitionFit": "An island nation lying south of Sicily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "packs"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1315,59 @@
     "text": "Fire head of accounts just after start of meal",
     "enumeration": "6"
    },
-   "solution": "LAUNCH"
+   "solution": "LAUNCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "just after start of",
+       "at": 22,
+       "note": "placed directly behind the first letter, so it goes inside next to the opening"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal",
+       "at": 42,
+       "gives": "LUNCH",
+       "note": "lunch is a midday meal"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 5,
+         "note": "the first letter of accounts"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accounts",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss sacks the head of accounts right after the meal begins.",
+     "walkthrough": "'Fire' suggests sacking; it is shooting off a rocket.",
+     "definitionFit": "To send off a missile or rocket, synonyms for discharge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fire"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1381,51 @@
     "text": "Germs in second-rate air-conditioning bringing misfortune to island",
     "enumeration": "7"
    },
-   "solution": "BACILLI"
+   "solution": "BACILLI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Germs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second-rate",
+       "at": 9,
+       "gives": "B",
+       "note": "B is second class"
+      },
+      {
+       "words": "air-conditioning",
+       "at": 21,
+       "gives": "AC"
+      },
+      {
+       "words": "misfortune",
+       "at": 47,
+       "gives": "ILL",
+       "note": "ill means trouble, harm"
+      },
+      {
+       "words": "island",
+       "at": 61,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor air-conditioning spreads germs that bring trouble to an island.",
+     "definitionFit": "Rod-shaped bacteria, some of which cause disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bringing"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1439,40 @@
     "text": "Laugh out loud with a senorita?",
     "enumeration": "4"
    },
-   "solution": "LOLA"
+   "solution": "LOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "senorita?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Laugh out loud",
+       "at": 0,
+       "gives": "LOL",
+       "note": "LOL is texting shorthand for laugh out loud"
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laughing heartily with a young Spanish woman.",
+     "definitionFit": "A Spanish girl's name, so an example of a senorita."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Laugh"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1486,40 @@
     "text": "Treat disrespectfully and swear in debate",
     "enumeration": "7"
    },
-   "solution": "DISCUSS"
+   "solution": "DISCUSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "debate",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Treat disrespectfully",
+       "at": 0,
+       "gives": "DIS",
+       "note": "dis is slang for insult"
+      },
+      {
+       "words": "swear",
+       "at": 26,
+       "gives": "CUSS",
+       "note": "cuss means curse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Insulting and cursing during an argument.",
+     "definitionFit": "To talk over or argue about a matter, a synonym for debate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1533,44 @@
     "text": "Drop agreement made verbally",
     "enumeration": "4"
    },
-   "solution": "SINK"
+   "solution": "SINK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SINK",
+     "indicators": [
+      {
+       "text": "made verbally",
+       "at": 15,
+       "note": "spoken, so the word is heard rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agreement",
+       "at": 5,
+       "gives": "SYNC",
+       "note": "in sync means in agreement, in step"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Withdrawing a deal that was only spoken.",
+     "walkthrough": "'Drop' suggests abandoning the deal; it means fall downward.",
+     "definitionFit": "To fall or go down, as a stone does in water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1590,41 @@
      }
     ]
    },
-   "solution": "RATTLESON"
+   "solution": "RATTLESON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "won't stop chattering",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Toy for baby",
+       "at": 0,
+       "gives": "RATTLE",
+       "note": "a rattle is an infant's toy"
+      },
+      {
+       "words": "boy",
+       "at": 15,
+       "gives": "SON",
+       "note": "a son is a boy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baby's toy for a lad who talks nonstop.",
+     "definitionFit": "Phrasal verb meaning talks at length without pause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1644,30 @@
      }
     ]
    },
-   "solution": "EXCON"
+   "solution": "EXCON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old time-server",
+      "at": 0,
+      "meaning": "a former prisoner who did time"
+     },
+     {
+      "text": "political turncoat perhaps",
+      "at": 19,
+      "meaning": "a former Conservative who switched party"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A released prisoner, or read differently someone who left the Tories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "time-server"
+    }
+   }
   }
  ]
 }
