@@ -2519,13 +2519,20 @@ def parse(text, ones=True):
     Each call has its own copy, as the parse made afresh would be: callers edit it.
     `ones` False parses the list as read (led_list): a count's i for 1 unread (clue_text.ones_in_count),
     a "See N" its words run on from closed at N (ftp.see_runs_on)."""
-    key = text if ones else (text,)
-    got = _PARSED.get(key)
-    if got is None:
+    # Kept apart with the linked-clue mends on and off (clue_text.set_linked_mends): each parses the text its
+    # own way, and a kept parse notes again the mends it would have made (clue_text.linked_missed).
+    key = (text, ones, clue_text.linked_mends())
+    held = _PARSED.get(key)
+    if held is None:
         if len(_PARSED) >= PARSED_KEEP:
             _PARSED.pop(next(iter(_PARSED)))
-        got = _PARSED[key] = parse_text(text, ones)
-    return copy.deepcopy(got)
+        was = clue_text.linked_missed()
+        got = parse_text(text, ones)
+        held = _PARSED[key] = (got, clue_text.linked_missed() - was)
+    else:
+        for _ in range(held[1]):
+            clue_text.linked_missed(True)
+    return copy.deepcopy(held[0])
 
 
 def parse_text(text, ones=True):
@@ -8741,7 +8748,14 @@ VLM_WINDOWS = int(os.environ.get("CT_VLM_WINDOWS") or 3)
 
 
 def read_page(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
-    """read_puzzle's one read: `vlm_for` False asks the VLM nothing; None
+    """read_puzzle's one read (_read_best), the chosen window's lights no reading laid then filled by the
+    linked-clue mends (linked_read)."""
+    verdict, puzzle = _read_best(d, found, hit, solutions, vlm_for, first, dead)
+    return linked_read(d, found, hit, solutions, verdict, puzzle)
+
+
+def _read_best(d, found, hit, solutions, vlm_for=False, first=None, dead=()):
+    """read_page's windows read and the best chosen: `vlm_for` False asks the VLM nothing; None
     asks it every column; a list of lights, the columns holding them.
 
     A crop that did not hold the clue columns (crop_window.poor(): refused
@@ -8856,7 +8870,123 @@ def lend_laid(laid, blank, lent):
 
 
 def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
-    """read_page's one read from a window: `alt` is (kind, x) and moves the
+    """read_page's one read from a window (_read_window), with the linked-clue mends (clue_text.set_linked_mends:
+    a count torn over a line break joined, a linked head's later number never split off it) off: they only
+    fill the lights the chosen window's read left with no clue laid (linked_read). With them on for the whole
+    read they changed which reading led the vote, and every light it laid with that reading's misreads (failure
+    shapes r27b: Gale 1942-12-29's "before 3 Balkan city", 1954-04-01's "groat"): what the read without them
+    lays stands as it was. A read where a mend would have changed a text is marked "_linked" (its window)."""
+    was = clue_text.set_linked_mends(False)
+    try:
+        verdict, puzzle = _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=lent, defer=defer)
+        missed = clue_text.linked_missed()
+    finally:
+        clue_text.set_linked_mends(was)
+    if was and missed and puzzle is not None and not verdict.get("refused"):
+        verdict["_linked"] = {"alt": alt}  # read_page fills the window it chooses (linked_read)
+    return verdict, puzzle
+
+
+def linked_read(d, found, hit, solutions, verdict, puzzle):
+    """(verdict, puzzle) of the window read_page chose, its lights left unlaid filled by linked_filled from
+    that window read again with the linked-clue mends (VLM off), where its read without them would have
+    mended a text (_read_page's "_linked"). After the choice, never in it: a window the fill scored higher
+    won over the layout's, and every light it laid with its own readings' words (failure shapes r27b, Gale
+    1982-09-30: "secure advance?" for "secure in advance?")."""
+    stash = verdict.pop("_linked", None)
+    if stash is None or puzzle is None or not clue_text.linked_mends() or not any(
+            LINKED_UNLAID in str(why) for why in (verdict.get("blank") or {}).values()):
+        return verdict, puzzle
+    fixed, fixed_puzzle = _read_window(d, found, hit, solutions, False, stash["alt"], None)
+    return linked_filled(verdict, puzzle, fixed, fixed_puzzle)
+
+
+#: The blank reason of a light no reading laid a clue on (lay_blank's), the lights linked_filled fills.
+LINKED_UNLAID = "no reading laid a clue"
+
+
+def linked_filled(verdict, puzzle, fixed, fixed_puzzle):
+    """(verdict, puzzle) with each light `verdict` left blank as no reading laying a clue on it (LINKED_UNLAID)
+    that the read with the linked-clue mends (`fixed`, `fixed_puzzle`: the same window, the same grid) laid
+    filled as that read filed it, with every other light of its linked group: a light the first read also left
+    blank so, or one it laid with the same words (only its count and group taken: a linked head's long count
+    torn over a line, "interchanges (1, 4, 2," "3, 6)."). A group's head the first read laid with other
+    words keeps them, the group's count taken (Gale 1954-06-19: "But'are there talking, pictures"). Nothing
+    else the first read laid changes: no other light's words, no reading that led its vote."""
+    blank = verdict.get("blank") or {}
+    unlaid = {lid for lid, why in blank.items() if LINKED_UNLAID in str(why)}
+    if not unlaid or fixed_puzzle is None or fixed.get("refused") or fixed.get("grid") != verdict.get("grid") \
+            or fixed_puzzle.get("dimensions") != puzzle.get("dimensions"):
+        return verdict, puzzle
+
+    def eid(e):
+        return f"{e['number']}-{e['direction']}"
+
+    def words(e):
+        return ((e or {}).get("clue") or {}).get("text") or ""
+
+    mine = {eid(e): e for e in puzzle["entries"]}
+    theirs = {eid(e): e for e in fixed_puzzle["entries"]}
+    if set(mine) != set(theirs) or any(mine[k].get("position") != theirs[k].get("position")
+                                       or mine[k].get("length") != theirs[k].get("length") for k in mine):
+        return verdict, puzzle
+    their_blank = fixed.get("blank") or {}
+    head_of = {m: lid for lid, e in theirs.items() for m in e.get("group") or ()}
+    my_head = {m: lid for lid, e in mine.items() for m in e.get("group") or ()}
+    took = {}
+    for lid in sorted(unlaid):
+        if lid in took or lid in their_blank or not words(theirs[lid]).strip():
+            continue
+        head = head_of.get(lid)
+        group = list(theirs[head]["group"]) if head else [lid]
+        take = {}
+        for m in group:
+            if m in their_blank or m not in theirs or not words(theirs[m]).strip():
+                take = None
+                break
+            # A light of the first read's own linked group: its group is not the one taken (the light would keep
+            # the first read's "See N" of another head), unless the very group.
+            if m in my_head and list(mine[my_head[m]]["group"]) != group:
+                take = None
+                break
+            if m in unlaid:
+                take[m] = copy.deepcopy(theirs[m])
+            elif m in blank:
+                take = None  # blank for another reason: not the mends' to fill
+                break
+            elif words(mine[m]) == words(theirs[m]):
+                take[m] = copy.deepcopy(theirs[m])
+            elif m == head:
+                e = copy.deepcopy(theirs[m])
+                e["clue"] = {k: v for k, v in e["clue"].items() if k not in ("asPrinted", "italics")}
+                e["clue"]["text"] = words(mine[m])
+                for k in ("asPrinted", "italics"):
+                    if k in (mine[m].get("clue") or {}):
+                        e["clue"][k] = copy.deepcopy(mine[m]["clue"][k])
+                take[m] = e
+            else:
+                take = None
+                break
+        if take and lid in take:
+            took.update(take)
+    filled = sorted(m for m in took if m in unlaid)
+    if not filled:
+        return verdict, puzzle
+    puzzle = {**puzzle, "entries": [took.get(eid(e), e) for e in puzzle["entries"]]}
+    verdict = dict(verdict)
+    verdict["blank"] = {k: v for k, v in blank.items() if k not in took}
+    if not verdict["blank"]:
+        del verdict["blank"]
+    verdict["agreed"] = (verdict.get("agreed") or 0) + len(filled)
+    if "answers" in verdict:
+        verdict["answers"] = (verdict["answers"] or 0) + sum(
+            1 for m in took if took[m].get("solution") and not mine[m].get("solution"))
+    verdict["linkedFilled"] = filled
+    return verdict, puzzle
+
+
+def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
+    """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
     right clue columns' far edge; "over": the third column's; "under": the
     gutter between the two columns under the grid) to x, or ("plain", None)
@@ -11611,6 +11741,63 @@ def marked_next_due(row):
         unlaid = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
                   if "no reading laid a clue" in str(why) and lid.split("-")[0].isdigit()}
         if not unlaid or not unlaid & marked_numbers(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled with
+#: a light blank as "no reading laid a clue on it" whose number a cached RapidOCR reading of the page holds in
+#: a linked clue's head ("1, 9 A revolutionary story, with capital interchanges (1, 4, 2," then "3, 6)."):
+#: the head's long count torn over a line break now reads whole (clue_text.torn_counts_joined), and a number
+#: the head links is never split off it as a clue the list lost (clue_repair.split_lost: "1, 9 But are there
+#: talking pictures in the gallery ? (8, 8)" lost its words to a clue 9). Both mends fill only the lights a
+#: window's read without them left unlaid (_read_page, linked_filled): every light that read laid stands.
+#: Failure shapes r27/r27b, 10-28: Gale 1951-56, 1966. Its own reason, not "unfiled before its fix"
+#: (CANARY_FAILED holds that for the Times).
+LINKED_COUNT_READ = "unfiled before its fix, a linked clue's count or number lost"
+REREAD_LINKED_COUNT = "2026-10-28T21:45:00+00:00"
+#: A cached reader word opening on a linked clue's head: its numbers, then words ("1, 9 A", "[1, 9 What").
+LINKED_OPENING = re.compile(r"[^\w(]{0,3}(\d{1,2}(?:\s?[,&]\s?\d{1,2})+)\.?\s+[\"'‘“]?[A-Za-z]")
+
+
+@functools.lru_cache(maxsize=4096)
+def linked_numbers(key):
+    """Every number of each linked head (LINKED_OPENING) a RapidOCR reading (ch, en5) of a window CROPS/rapid
+    caches for `key` ("{edition}_{number}") opens a word on."""
+    seen = set()
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+        except (OSError, ValueError):
+            continue
+        boxes = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+        for o in boxes:
+            for w in (o.get("words") if isinstance(o, dict) else None) or ():
+                m = LINKED_OPENING.match(str(w[4]))
+                if m:
+                    seen.update(int(n) for n in re.findall(r"\d{1,2}", m.group(1)))
+    return frozenset(seen)
+
+
+def linked_count_due(row):
+    """Whether Times ledger `row`, read before REREAD_LINKED_COUNT, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) with a light blank as "no
+    reading laid a clue on it" whose number linked_numbers() finds in its page's cached readings."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LINKED_COUNT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or v.get("number") is None:
+            continue
+        unlaid = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
+                  if "no reading laid a clue" in str(why) and lid.split("-")[0].isdigit()}
+        if not unlaid or not unlaid & linked_numbers(f"{Path(rel).name}_{v['number']}"):
             continue
         if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
@@ -15575,6 +15762,8 @@ def fix_reason(row):
         return MARKED_WORD
     if marked_next_due(row):
         return MARKED_NEXT_READ
+    if linked_count_due(row):
+        return LINKED_COUNT_READ
     if neighbour_tailed(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
@@ -16085,7 +16274,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-28 r23: a page unfiled over a mark the print sets in a word (marked_worded).
                   MARKED_WORD,
                   # 10-28 r26: a page unfiled over a clue number a gutter's rule hid (marked_next_due).
-                  MARKED_NEXT_READ)
+                  MARKED_NEXT_READ,
+                  # 10-28 r27: a page unfiled over a linked clue's torn count or split-off number (linked_count_due).
+                  LINKED_COUNT_READ)
 
 
 def refusal_passes(why):
@@ -16310,7 +16501,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -16641,7 +16832,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
-                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ) else {}),
+                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

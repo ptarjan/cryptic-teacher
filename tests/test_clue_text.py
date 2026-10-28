@@ -105,6 +105,21 @@ assert ct.count_closed("some hair 8j") == "some hair (8)" and ct.count_closed("h
 assert ct.count_closed("hair (3,4)._") == "hair (3,4)" and ct.count_closed("no count here") == "no count here"
 assert ct.count_closed_open("a word (5r") == "a word (5)" and ct.count_closed_open("a word (5") == "a word (5)"
 assert ct.count_closed_open("a word (5)") == "a word (5)"
+# A linked head's long count torn over a line break at a comma (Gale 1955-07-01): one line, its spaces closed.
+assert ct.torn_counts_joined(["interchanges (1, 4, 2,", "3, 6).", "10 He moves men in a"]) == \
+    ["interchanges (1,4,2,3,6)", "10 He moves men in a"]
+assert ct.torn_counts_joined(["A culinary result (4,", "2, 3, 5, 4, 2)."]) == ["A culinary result (4,2,3,5,4,2)."]
+# Not a line that ends on a closed count, nor one whose next line is a clue's number and words.
+for _lines in (["word (5, 4).", "3, 6)."], ["word (5,", "3 Clue words (6)."], ["word (5)", "6)."]):
+    assert ct.torn_counts_joined(_lines) == _lines, _lines
+# With the linked-clue mends off (a window's first read, fa._read_page): the lines as read, the join noted.
+_was = ct.set_linked_mends(False)
+assert ct.torn_counts_joined(["interchanges (1, 4, 2,", "3, 6)."]) == ["interchanges (1, 4, 2,", "3, 6)."]
+assert ct.linked_missed() == 1
+ct.set_linked_mends(_was)
+assert ct.linked_mends() and ct.linked_missed() == 0
+assert "(1,4,2,3,6)" in ct.tidy_ocr_clues("ACROSS\n1, 9 A revolutionary\nstory, with capital\ninterchanges (1, 4, 2,\n3, 6).\n"
+                                          "10 He moves men in a\nbig way (10).")
 # A count's 1 read as a lower-case i (Times 1974-12-07's "gatherer (i1)."): a two-figure group read 10-15.
 assert ct.ones_in_count("gatherer (i1).") == "gatherer (11)." and ct.ones_in_count("a word (1i)") == "a word (11)"
 assert ct.ones_in_count("a word (il)") == "a word (11)" and ct.ones_in_count("a word (4, i0)") == "a word (4, 10)"
