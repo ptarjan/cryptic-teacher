@@ -202,7 +202,20 @@ WIDTH_LINE = re.compile(r"^--- pool of (\d+):")
 RATE_LINES = 60
 RATE_MIN_LINES = 10
 # Runs in flight on average under which an interval says nothing about a run's rate.
-MIN_RATE_WIDTH = 2.0
+MIN_RATE_WIDTH = 1.0
+# 10-28 undershoot (Paul: "You didn't use the whole five hour window. Come on."):
+# the transcript split found 1.13 run-hours where the runs flew far longer, so it
+# read 17.4 pts/run-hour against the ~5 the meter lines measure; the need came
+# out 1, and at width 1 every interval was under the old MIN_RATE_WIDTH of 2, so
+# the loop could not see itself falling behind (21% with 2.9h left). The
+# transcript rate may now be at most RATE_CAP_FACTOR times the log's rate, and
+# width-1 intervals count. A window behind the straight line to the ceiling by
+# BEHIND_PTS (after BEHIND_MIN_H hours in) steps the need to one over the runs
+# now in flight, so a miss is closed while there is still time; ahead of the line
+# nothing changes (Paul also does not want the window spent early).
+RATE_CAP_FACTOR = 1.0
+BEHIND_PTS = 8.0
+BEHIND_MIN_H = 0.75
 
 
 def ceiling(meter, rushing=False):
@@ -286,7 +299,24 @@ def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES, min_width=MIN_RAT
     return points / run_hours
 
 
-def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0):
+def capped_rate(measured, log_rate):
+    """The transcript-split burn rate, held to RATE_CAP_FACTOR times the meter
+    lines' rate; the log's rate when there is no transcript one."""
+    if not measured:
+        return log_rate
+    return min(measured, log_rate * RATE_CAP_FACTOR)
+
+
+def behind_pace(pct, hours_left, window=WINDOW_HOURS["session"]):
+    """True when the five-hour meter sits BEHIND_PTS under the straight line
+    from 0 at the window's start to the ceiling at its reset."""
+    elapsed = window - hours_left
+    if pct is None or hours_left <= 0 or elapsed < BEHIND_MIN_H:
+        return False
+    return pct < ceiling("session") * elapsed / window - BEHIND_PTS
+
+
+def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0, current=0):
     """Runs that would spend, by the meter's reset, what it has left up to
     ceiling(meter) after the bridge's projected spend, 0 when the bridge alone spends
     it. meter is "weekly" or "session" (the five-hour window); pct and
@@ -310,6 +340,8 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0):
             return 0
         left = (top - pct) * ratio - bridge
         need = max(0, round(left / (hours * rate)))
+        if meter == "session" and current and behind_pace(pct, hours_left):
+            need = max(need, int(current) + 1)
         if meter == "session" and need < FLOOR_RUNS and pct + FLOOR_RUNS * hours * rate / ratio < HEADROOM_PCT:
             return FLOOR_RUNS
         return need
@@ -718,7 +750,7 @@ def width(arg=None, floor=1):
         meter = mode(_read(home / FIVE_HOUR),
                      now + weekly_usage.resets_in_hours("weekly")[0] * 3600)
         bridge, rate = bridge_spend()
-        rate = rate or per_run_rate(lines)
+        rate = capped_rate(rate, per_run_rate(lines))
         if meter == "session":
             rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
         ratio = (1.0 if meter == "session" else
@@ -735,7 +767,7 @@ def width(arg=None, floor=1):
             else:
                 rushing = rush_active(meter, stamp, pct, week_pct, now)
         runs_needed = paced_need(meter, pct, hours_left, rate, bridge or 0.0, ratio,
-                                 len(burn_rss_kb()))
+                                 len(burn_rss_kb()), current)
         if meter == "weekly" and not rushing:
             # Weekly mode also spends the five-hour window only to its own reset
             # (Paul 2026-10-26 "But it burned the whole five hours so fast"): the
@@ -744,7 +776,7 @@ def width(arg=None, floor=1):
             s_left, _ = weekly_usage.resets_in_hours("session")
             s_rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
             s_need = paced_need("session", s_pct, s_left, s_rate, bridge or 0.0, 1.0,
-                                len(burn_rss_kb()))
+                                len(burn_rss_kb()), current)
             runs_needed, bound = bind_need(runs_needed, s_need)
             if bound == "five-hour":
                 pct, hours_left = s_pct, s_left
@@ -1043,6 +1075,18 @@ def width_self_test():
         if fn(*args) != want:
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
             bad += 1
+    # 10-28 checkpoint: five-hour 21% with 2.91h left, bridge 5.5 pts/h, the log's rate
+    # 5.2 and a transcript split of 17.4 (1.13 run-hours): the capped rate needs 4,
+    # not 1; behind the straight line with 1 in flight never goes under 2
+    got = paced_need("session", 21, 2.91, capped_rate(17.4, 5.2), 5.5, 1.0, 1, 1)
+    if got < 4:
+        print(f"FAIL 10-28 paced_need = {got} (want 4 or more)", file=sys.stderr)
+        bad += 1
+    if (capped_rate(None, 5.2) != 5.2 or capped_rate(3.0, 5.2) != 3.0
+            or not behind_pace(21, 2.91) or behind_pace(45, 2.91)
+            or behind_pace(0, 4.5) or behind_pace(None, 2.0)):
+        print("FAIL capped_rate/behind_pace", file=sys.stderr)
+        bad += 1
     for args in REPLAY_CASES:
         if replay(*args) < ceiling(args[0]) - REPLAY_SLACK:
             print(f"FAIL replay{args}: short of {ceiling(args[0]):g}% at the reset", file=sys.stderr)
