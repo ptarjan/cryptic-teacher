@@ -679,6 +679,30 @@ check("not after the fix, nor a shared misread ('der.sory'), nor beside another 
        f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {"16-down": "'der.sory': a stray mark inside a word"}}]}),
        f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {**_mw["blank"], "1-down": "no reading laid a clue on it"}}]}),
        f.marked_worded({**_mwrow, "edition": "FinancialTimes1973UKEnglish/1973-10-13_0"})])
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds after the
+# gutter's rule read as a mark ("gripping show '22 Noisome") is due once (fa.MARKED_NEXT_READ), unfiled-first.
+_mn = {"id": "times-9999978", "number": 9999978, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"22-down": "no reading laid a clue on it"}}
+_mnrow = {"edition": "GaleTimes1963UKEnglish/1963-07-20", "verdicts": [_mn], "readAt": "2026-10-26T23:21:07+00:00",
+          "scan": {"date": "1963-07-20", "item": "GaleTimes1963UKEnglish", "puzzles": [{"number": 9999978, "leaf": 0}]}}
+_mn_real = f.marked_numbers
+f.marked_numbers = lambda key: frozenset({22}) if key == "1963-07-20_9999978" else frozenset()
+try:
+    check("a Times page unfiled over a clue number its gutter's rule hid is due as MARKED_NEXT_READ, ranked, "
+          "evidence, fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.marked_next_due(_mnrow), f.RANKS[f.MARKED_NEXT_READ], eq.evidence_reason(f.MARKED_NEXT_READ),
+           f.MARKED_NEXT_READ in eq.FIX_LANDED, f.MARKED_NEXT_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.MARKED_NEXT_READ, "date": "1963-07-20"}),
+           f.MARKED_NEXT_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.marked_next_due({**_mnrow, "readAt": _after}),
+           f.marked_next_due({**_mnrow, "verdicts": [{**_mn, "blank": {"21-down": "no reading laid a clue on it"}}]}),
+           f.marked_next_due({**_mnrow, "verdicts": [{**_mn, "blank": {"22-down": "'Noisorne': not a word"}}]}),
+           f.marked_next_due({**_mnrow, "edition": "FinancialTimes1963UKEnglish/1963-07-20_0"})])
+finally:
+    f.marked_numbers = _mn_real
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
