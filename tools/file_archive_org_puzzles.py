@@ -12874,6 +12874,8 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
         return NO_TITLE_RESCAN
+    if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
+        return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
     if held_asked(row):
         return HELD_ASKED
@@ -13320,6 +13322,12 @@ def read_unconfigured(row):
 #: before, a blanket reason no plan keeps. Paul 10-25: ~430 Times pages stood so, unfiled (Gale 2000
 #: 181, 2001 20, 2006 46, 2008-11 ~150, 1957 22; read 10-12..13 with an empty verdict list).
 UNREAD_TITLES = "titles found, never read"
+#: due_reason asked unread_titles only for a row whose files or titles moved; one whose stood fell to the
+#: blanket "--reread" and stayed unread. 10-28 census (failure shapes): 138 unfiled Times pages so (Gale
+#: 2005-09 45, 2000-04 38, 1955-59 21, 2010-14 17; News UK 1974-99 ~12), read 10-06..12. Past reads of such
+#: a row filed 1,179 of 1,407 pages, 818 whole; 18 read empty again. fix_reason now asks it of a row read
+#: before REREAD_UNREAD_TITLES, so an empty reread is not due again.
+REREAD_UNREAD_TITLES = "2026-10-28T06:50:00+00:00"
 
 
 def unread_titles(row):
@@ -13331,6 +13339,11 @@ def unread_titles(row):
     series = paper_of(Path(row["edition"])).series
     _held_list(series)
     return all(filed_state(series, p.get("number")) is None for p in pz)
+
+
+#: The fix_reason answers blanket_or_fix lets stand past a blanket reason besides SOLUTION_FIXES: pages whose
+#: puzzle no file holds.
+BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES)
 
 
 def blanket_or_fix(row, blanket):
@@ -13345,8 +13358,9 @@ def blanket_or_fix(row, blanket):
     10-27: 817 Gale Times pages stood so (2000-08 329, 1970s 234), due LOST_WRITE by fix_reason yet
     planned "inputs changed" (353), "scan stale, answers missing" (279) or "read without the VLM"
     (172), which only_evidence drops; LOST_WRITE rereads since 10-25 filed 64% of their pages, 33% whole.
-    So does a write the gate refused over punctuation a mend since clears (PUNCT_MENDED): nothing holds
-    its puzzle either."""
+    So does each of BLANKET_PASSES' (a write the gate refused over punctuation a mend since clears, a
+    1940-44 page's down tail, a found title never read): nothing holds its puzzle either. 10-28: 23 Gale
+    pages whose titles were never read planned "scan stale, answers missing" so."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         return blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
@@ -13354,7 +13368,7 @@ def blanket_or_fix(row, blanket):
             and not held_titles(row):
         return blanket
     why = fix_reason(row)
-    return why if why in SOLUTION_FIXES or why in (LOST_WRITE, PUNCT_MENDED) else blanket
+    return why if why in SOLUTION_FIXES or why in BLANKET_PASSES else blanket
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):

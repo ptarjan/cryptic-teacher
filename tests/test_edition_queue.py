@@ -475,6 +475,10 @@ try:
     # Its files fetched again since (the 2009-11 Gale Saturdays' wrong pages): still unread work, not
     # the blanket "inputs changed"; a row with a verdict whose files moved is.
     _ut_moved = [f.due_reason(_ut, "h2", [], "v"), f.due_reason({**_ut, "verdicts": [{"number": 9999997}]}, "h2", [], "v")]
+    # A stale-scan row (fix_reason's turn, 10-28: 125 Gale pages planned "scan stale") read before the fix
+    # is due so once; after it, not again.
+    _ut_fix = [f.fix_reason({**_ut, "readAt": "2026-10-12T02:57:56+00:00"}), f.fix_reason({**_ut, "readAt": _after}),
+               f.blanket_or_fix({**_ut, "readAt": "2026-10-12T02:57:56+00:00"}, "scan stale, answers missing")]
     _ut_file = Path(tempfile.mkdtemp()) / "times-9999997.json"
     _ut_file.write_text(json.dumps({"entries": []}))
     f._HELD_PATH[("times", 9999997)] = _ut_file
@@ -488,6 +492,8 @@ check("a title with no verdict is never-read work; a solutions-only read, anothe
       [f.UNREAD_TITLES, "titles changed", "titles changed", "titles changed"], _ut_due + [_ut_held])
 check("a never-read title whose files moved is still never-read work; a read one is 'inputs changed'",
       [f.UNREAD_TITLES, "inputs changed"], _ut_moved)
+check("fix_reason names a never-read title read before REREAD_UNREAD_TITLES, blanket_or_fix keeps it",
+      [f.UNREAD_TITLES, None, f.UNREAD_TITLES], _ut_fix)
 check("the reason is evidence and ranked with never-read work", (True, f.RANKS["never read"]),
       (eq.evidence_reason(f.UNREAD_TITLES), f.rank_of_reason(f.UNREAD_TITLES)))
 # ---- A Times solution grid refused before matched_box is planned though likely() predicts it nothing (10-24)
