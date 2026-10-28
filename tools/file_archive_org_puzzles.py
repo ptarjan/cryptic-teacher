@@ -11428,11 +11428,22 @@ REREAD_ALONE = "2026-10-28T07:50:00+00:00"
 ALONE_BLANKS = ("no reading laid a clue on it", "starts mid-clue")
 
 
+#: A clue line's opening number as alone_lost asks it of a cached window: ALONE_OPENING's, but not a count
+#: on a line of its own ("(4).." under 16 across, "5)." of a count broken "(5- / 5).") nor a number with no
+#: words after it. Taken for clue lines, they hid the lost clue of their number, so alone_lost never made
+#: its page due (Gale 1961-05-11, read 10-26: 4 down "The strength of the Houyhnhnms ? (5-5)." blank under
+#: 16 across' "(4).."; reread now, it files whole). Failure shapes r17, 10-28: 58 unplanned Times rows due so
+#: (Gale 1939-93, News UK 1974-93). The reader's unread_numbers keeps ALONE_OPENING: taking this pattern,
+#: the tiles read more lines and a control page (1965-05-17) lost 2 down to the vote.
+CLUE_OPENING = re.compile(r"[^\w(]{0,3}(\d{1,2}(?:\s?,\s?\d{1,2})*)(?!\d|\s*\)|[\-–]\d|\W*$)")
+
+
 @functools.lru_cache(maxsize=4096)
 def window_numbers(key):
     """The clue numbers the RapidOCR readings of clue window `key` (CROPS/rapid, "{edition}_{number}":
     the window last read, not the other windows its cache keeps, which the read did not settle on) open
-    a line on or read as a clue's inside one (unread_numbers' test), or None when none is cached."""
+    a line on (CLUE_OPENING) or read as a clue's inside one (unread_numbers' test), or None when none is
+    cached."""
     seen, any_read = set(), False
     for which in ("ch", "en5"):
         try:
@@ -11443,7 +11454,7 @@ def window_numbers(key):
         any_read = True
         for w in words or ():
             text = str(w[4])
-            opening = ALONE_OPENING.match(text)
+            opening = CLUE_OPENING.match(text)
             if opening:
                 seen.update(int(x) for x in re.findall(r"\d+", opening.group(1)))
             for m in NEXT_CLUE.finditer(text):
