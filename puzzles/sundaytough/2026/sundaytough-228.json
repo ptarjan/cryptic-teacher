@@ -1209,31 +1209,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "half-heartedly",
-       "note": "with half the heart missing: the heart of CUSSED is SS, and one S goes"
-      },
-      {
        "text": "after",
-       "note": "one thing after another is behind it"
+       "at": 31,
+       "note": "after places the swearing word behind the account abbreviation"
       }
      ],
      "parts": [
       {
        "words": "account",
-       "gives": "AC",
-       "note": "a/c = account"
+       "at": 37,
+       "gives": "AC"
       },
       {
-       "words": "swore",
-       "gives": "CUSED",
-       "note": "CUSSED with one of its middle S's gone"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-heartedly",
+         "at": 10,
+         "note": "half-heartedly says one of the two middle letters of the word for swore is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "swore",
+         "at": 25,
+         "gives": "CUSSED",
+         "note": "to swear is to cuss, so swore gives cussed"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A defendant mutters oaths without conviction after giving evidence.",
-     "walkthrough": "'Account' sounds like testimony in court, but it is the banking abbreviation.",
-     "definitionFit": "Legal usage: the accused is the person charged in a trial, the defendant."
+     "surface": "A defendant mutters a weak oath after hearing the charges set out.",
+     "walkthrough": "'half-heartedly' turns CUSSED into CUSED by losing one of its central S's.",
+     "definitionFit": "The accused is the person charged in a criminal trial, the one defending against the case."
     },
     "features": {
      "answerInScene": true,

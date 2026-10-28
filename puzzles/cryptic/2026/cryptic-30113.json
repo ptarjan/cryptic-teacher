@@ -507,52 +507,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Will the author",
-      "at": 0,
-      "note": "The definition names a man instead of describing a thing: given his first name and his trade, the answer is the surname that completes him."
+      "text": "the author",
+      "at": 5
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "incomplete",
-       "note": "Something incomplete stops before it should, so the word is written out a letter short."
-      }
-     ],
      "parts": [
       {
-       "words": "flog",
-       "gives": "SEL",
-       "note": "to flog something is to sell it, cut short of its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 21,
+         "note": "incomplete says the word for flog loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flog",
+         "at": 16,
+         "gives": "SELL",
+         "note": "to flog goods is to sell them"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "bit of",
-         "note": "A bit of a word is a fragment of it, and the fragment a clue takes without further explanation is the letter it starts with."
+         "at": 32,
+         "note": "a bit of the word fiction is taken here as its opening letter only"
         }
        ],
        "parts": [
         {
          "words": "fiction",
-         "note": "the letter fiction begins with"
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether the writer intends to sell off an unfinished piece of made-up work.",
-     "walkthrough": "The opening word looks like the auxiliary that starts any question, and it is a first name: Will Self is a London novelist, and the question mark is the setter pointing at him.",
-     "definitionFit": "Will Self is a British novelist, so naming him by first name and calling leaves the surname for the solver to supply."
+     "surface": "A question about whether a writer will hawk an unfinished story.",
+     "walkthrough": "'incomplete' cuts SELL to SEL; 'bit of' takes the F of 'fiction'.",
+     "definitionFit": "A writer refers to their own person as the self, the one doing the writing."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Will"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flog"
     }
    }
   },
