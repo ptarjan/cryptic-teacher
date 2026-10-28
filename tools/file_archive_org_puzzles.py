@@ -1178,6 +1178,8 @@ NEXT_CLUE = re.compile(r"(?<=[\s\-.])(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[
 #: The solution box's heading ("SOLUTION OF PUZZLE No. 7,091", read "SoLUTioN'orPuzzLB"), which the
 #: 1950s Times sets in the row of the clue beside it: a cut like a clue's number (Gale 1952-12-13's 8 down).
 SOLUTION_HEAD = re.compile(r"(?<=[\s.\-])s[o0]l[ui]t[il1]?[o0]n\W*[o0]\w?\W*p[uv]zz", re.IGNORECASE)
+#: A line's opening as far as a linked clue's last number: a speck, then its numbers ("1 25, ").
+LINKED_HEAD = re.compile(r"(\W*(?:\S\s+)?)\d{1,2}\s?,\s?(?:\d{1,2}\s?,\s?)*")
 #: How far, in pixels, from a gutter a clue's number in a line read across
 #: it may be placed by its share of the line's characters.
 SPLIT_SLACK = 80
@@ -1206,8 +1208,17 @@ def split_across(ws, gutters, height=None):
             if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
                 continue
             text, width = w[4], w[2] - w[0]
-            at = [(abs(w[0] + width * m.start() / len(text) - x), m.start())
-                  for m in [*NEXT_CLUE.finditer(text), *SOLUTION_HEAD.finditer(text)] if m.start()]
+            starts = []
+            for m in [*NEXT_CLUE.finditer(text), *SOLUTION_HEAD.finditer(text)]:
+                s = m.start()
+                head = LINKED_HEAD.fullmatch(text[:s])
+                if head:
+                    # A linked clue's later number ("25, 21 Hamlet"): its clue opens at the list's
+                    # first, after a speck at most ("1 25, 21": Gale 1963-07-01's 25 down).
+                    s = len(head.group(1))
+                if s:
+                    starts.append(s)
+            at = [(abs(w[0] + width * s / len(text) - x), s) for s in starts]
             near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
             if near is None and w[0] < x - ACROSS_GUTTER and w[2] - x <= SPLIT_SPILL * (x - w[0]) and " " in text:
                 # A row's end that spilled over a narrow gutter ("(25 and part back (4,3,4) up!",
@@ -2030,6 +2041,144 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
 
 #: How many other windows' readings a reader's cache file keeps besides the last.
 MORE_WINDOWS = 8
+
+
+#: A clue line the whole crop's read missed. RapidOCR scales an image's longer side down to
+#: ocr_clues.RAPID_MAX_SIDE, so the crop under a 1950s-60s Times grid (~1100x1570, read at twice
+#: that) is read at under two thirds of UPSCALE, and its detector can lose a line: the third
+#: column's last down clue between 24 down and the solution box ("25 A position in the building
+#: world (4).", Gale 1955-12-16), or glue a speck to it so it starts left of the gutter ("1 25, 21
+#: Hamlet ...", 1963-07-01) and is cut at "21". Every reading missed it, and the page was written
+#: unfiled, "no reading laid a clue on it". Read alone, the clue window is cut in tiles under
+#: ALONE_TILE pixels tall (ALONE_STEP apart: a line on a tile's edge is whole in the next), each
+#: read at UPSCALE, and the line is read. Only a read whose readings open no clue on at most
+#: ALONE_MOST of the grid's light numbers (unread_numbers) reads its windows so.
+ALONE_TILE, ALONE_STEP, ALONE_MOST = 900, 780, 4
+#: A tile's line overlapping a reading's word over this share of the smaller box is that word's.
+ALONE_SAME = 0.5
+#: How far left of its window's edge a column is cropped: a clue's number may stand left of the
+#: gutter the readings put there (1961-03-10's "25 Mock at", 38 px), as far as columns() still
+#: takes a line lying mostly right of it for that column's (split_across).
+ALONE_PAD = ACROSS_GUTTER
+#: A line opening on an unread number, then the lines under it within this many of its heights
+#: (its clue's rest: "g East", "t (4).") that overlap no word of the reading, join the reading.
+ALONE_REST = 3
+#: A clue line's opening number, or a linked clue's numbers ("25, 21 Hamlet"), after marks.
+ALONE_OPENING = re.compile(r"\W{0,3}(\d{1,2}(?:\s?,\s?\d{1,2})*)")
+
+
+def unread_numbers(grid, cols):
+    """The light numbers of `grid` (a read grid's rows) no reading of `cols` ({reader: [[(y0, y1,
+    x0, x1, text)] per column]}, columns()) opens a clue line on, nor reads as a clue's number
+    inside one (NEXT_CLUE: two columns' rows read as one line)."""
+    want = {n for n, _ in rg.light_cells(grid)}
+    seen = set()
+    for reading in cols.values():
+        for col in reading:
+            for line in col:
+                text = str(line[4])
+                opening = ALONE_OPENING.match(text)
+                if opening:
+                    seen.update(int(x) for x in re.findall(r"\d+", opening.group(1)))
+                for m in NEXT_CLUE.finditer(text):
+                    number = re.match(r"\d{1,2}", m.group())
+                    if number:
+                        seen.add(int(number.group()))
+    return want - seen
+
+
+def _overlap(a, b):
+    """The share of the smaller of boxes `a` and `b` ((x0, y0, x1, y1, ...)) that both cover."""
+    w = min(a[2], b[2]) - max(a[0], b[0])
+    h = min(a[3], b[3]) - max(a[1], b[1])
+    if w <= 0 or h <= 0:
+        return 0.0
+    least = min((a[2] - a[0]) * (a[3] - a[1]), (b[2] - b[0]) * (b[3] - b[1]))
+    return w * h / least if least > 0 else 0.0
+
+
+def tiled_words(img, box, which):
+    """[(x0, y0, x1, y1, word)] reader `which` reads in `box` of `img` (page pixels), read in
+    tiles ALONE_TILE pixels tall at most, ALONE_STEP apart: a word of a later tile that is an
+    earlier tile's (ALONE_SAME) is that one."""
+    x0, top, x1, bottom = box
+    out = []
+    y = top
+    while y < bottom:
+        foot = min(bottom, y + ALONE_TILE)
+        for w in numbers_joined([(w[0] + x0, w[1] + y, w[2] + x0, w[3] + y, w[4])
+                                 for w in read_words(img.crop((x0, y, x1, foot)), which)]):
+            if not any(_overlap(w, o) > ALONE_SAME for o in out):
+                out.append(w)
+        if foot >= bottom:
+            break
+        y += ALONE_STEP
+    return out
+
+
+#: A clue number read alone ("25"), and how far past its box the line it opens may start.
+CLUE_NUMBER_ALONE, NUMBER_GAP = re.compile(r"\W*(\d{1,2})\W*"), 40
+
+
+def numbers_joined(words):
+    """`words` (x0, y0, x1, y1, text) with each clue number read as a box of its own joined to the
+    line it opens (level with it, starting at most NUMBER_GAP past it), the line's own copy of the
+    number's last figures dropped: RapidOCR read 1961-03-10's 25 down, alone, as "25" over "5 Mock
+    at 'the Rock, going East (4).", which opens no clue 25."""
+    out, used = [], set()
+    for i, n in enumerate(words):
+        bare = CLUE_NUMBER_ALONE.fullmatch(str(n[4]))
+        if not bare or i in used:
+            continue
+        mid = (n[1] + n[3]) / 2
+        beside = [j for j, w in enumerate(words) if j != i and j not in used and w[1] <= mid <= w[3]
+                  and n[0] < w[0] <= n[2] + NUMBER_GAP and not CLUE_NUMBER_ALONE.fullmatch(str(w[4]))]
+        if not beside:
+            continue
+        j = min(beside, key=lambda j: words[j][0])
+        digits, text = bare.group(1), str(words[j][4]).lstrip()
+        for k in range(len(digits), 0, -1):
+            if text.startswith(digits[-k:]) and not text[k:k + 1].isdigit():
+                text = text[k:].lstrip()
+                break
+        w = words[j]
+        out.append((n[0], min(n[1], w[1]), w[2], max(n[3], w[3]), f"{digits} {text}"))
+        used.update((i, j))
+    return out + [w for i, w in enumerate(words) if i not in used]
+
+
+def alone_words(img, wins, foot, which, rapid, lost):
+    """`rapid` (rapid_lines(): [[word]]) with the clue lines reader `which` reads in each clue
+    window of `wins` (windows(): its own foot, else `foot`) alone, in tiles (tiled_words), that
+    open a clue on a number of `lost` (unread_numbers): each takes the place of the reading's
+    words it overlaps (ALONE_SAME), and the lines under it in its window that overlap none join
+    it (ALONE_REST). `rapid` itself when no line was added."""
+    words = [w for ws in rapid for w in ws]
+    added = False
+    for x0, x1, right, top, *own in wins:
+        # The column alone: to its gutter (a window under the grid reaches its right edge, so its
+        # crop would hold the next column's rows beside its own, read as one line again).
+        box = (max(0, int(x0) - ALONE_PAD), max(0, int(top)), min(img.width, int(x1) + RIGHT_REACH),
+               min(img.height, int(own[0] if own else foot)))
+        if box[2] - box[0] < MIN_TILE or box[3] - box[1] < MIN_TILE:
+            continue
+        opened = []
+        for w in sorted(tiled_words(img, box, which), key=lambda w: (w[1], w[0])):
+            opening = ALONE_OPENING.match(str(w[4]))
+            numbers = {int(x) for x in re.findall(r"\d+", opening.group(1))} if opening else set()
+            if numbers & lost and re.search(r"[A-Za-z]{2}", str(w[4])):
+                words = [o for o in words if _overlap(w, o) <= ALONE_SAME]
+                words.append(w)
+                opened.append(w)
+                added = True
+            elif any(a[1] <= w[1] <= a[3] + ALONE_REST * (a[3] - a[1]) for a in opened) \
+                    and not any(_overlap(w, o) > ALONE_SAME for o in words):
+                words.append(w)
+    return [[w] for w in words] if added else rapid
+
+
+#: The narrowest crop (pixels) alone_words reads.
+MIN_TILE = 16
 
 
 def glued_a(line):
@@ -8252,8 +8401,21 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right, strip)}
         for which in READERS:
             cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right, strip)
-        texts = {k: column_text(c) for k, c in cols.items()}
         wins = windows(gbox, third, m, above, left, split, lead, right, strip)
+        # A light number no reading opened a clue on: each clue window is read alone, in
+        # tiles, for the line the whole crop's read lost (alone_words).
+        lost = unread_numbers(g, cols) if g else set()
+        if lost and len(lost) <= ALONE_MOST:
+            foot = gbox[1] - 3 if above else right[2] if right else left[2] if left else gbox[3] + 1.8 * gw
+            for which in READERS:
+                if which in ocr_clues.TESS_MODELS:
+                    continue
+                more = alone_words(img, wins, foot, which, rapid[which], lost)
+                if more is not rapid[which]:
+                    rapid[which] = more
+                    cols[which] = columns(more, gbox, third, m, above, left, split, lead, right, strip)
+                    verdict["readAlone"] = sorted(lost)
+        texts = {k: column_text(c) for k, c in cols.items()}
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
     if not paper.four and vlm_on and vlm.wanted():
@@ -10555,6 +10717,73 @@ def edge_lettered(row):
         if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
         if not edge_lettered_window(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled
+#: with a light blank as "no reading laid a clue on it" whose clue line no RapidOCR reading of its crop
+#: (CROPS/rapid, the window last read) opens: the whole crop, scaled down to RapidOCR's longest side, lost
+#: the line (the 1950s-60s third column's last down clue over the solution box: Gale 1955-12-16's "25 A
+#: position in the building world (4).", 1961-03-10's 25 down; or a speck glued on, "1 25, 21 Hamlet",
+#: 1963-07-01). alone_words now reads each clue window alone, in tiles, when a light number is unread.
+#: 10-28: 179 unfiled Times rows come due (Gale 1940s 67, 1950s 40, 1960s 24, 1970s 12, 1980s 13,
+#: 1990s 4, 2000s 15, 2010s 4; News UK among them); 39 more such rows are due under an earlier reason.
+#: Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that for the Times). Once each.
+ALONE_READ = "unfiled before its fix, a clue line its crop's read lost"
+REREAD_ALONE = "2026-10-28T07:50:00+00:00"
+#: The blanks that can be such a lost line.
+ALONE_BLANKS = ("no reading laid a clue on it", "starts mid-clue")
+
+
+@functools.lru_cache(maxsize=4096)
+def window_numbers(key):
+    """The clue numbers the RapidOCR readings of clue window `key` (CROPS/rapid, "{edition}_{number}":
+    the window last read, not the other windows its cache keeps, which the read did not settle on) open
+    a line on or read as a clue's inside one (unread_numbers' test), or None when none is cached."""
+    seen, any_read = set(), False
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            words = held["words"] if isinstance(held, dict) else held
+        except (OSError, ValueError, KeyError, TypeError):
+            continue
+        any_read = True
+        for w in words or ():
+            text = str(w[4])
+            opening = ALONE_OPENING.match(text)
+            if opening:
+                seen.update(int(x) for x in re.findall(r"\d+", opening.group(1)))
+            for m in NEXT_CLUE.finditer(text):
+                number = re.match(r"\d{1,2}", m.group())
+                if number:
+                    seen.add(int(number.group()))
+    return frozenset(seen) if any_read else None
+
+
+def alone_lost(row):
+    """Whether Times ledger `row`, read before REREAD_ALONE, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a light blank
+    as ALONE_BLANKS whose number no cached RapidOCR reading of its window opens a clue on
+    (window_numbers), ALONE_MOST such lights at most (alone_words reads no more)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_ALONE)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None or v.get("readAlone"):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        seen = window_numbers(f"{Path(rel).name}_{v['number']}")
+        if seen is None:
+            continue
+        lost = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
+                if str(why) in ALONE_BLANKS and lid.split("-")[0].isdigit()} - seen
+        if not lost or len(lost) > ALONE_MOST:
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -13027,6 +13256,8 @@ def fix_reason(row):
         return STRIP_TAIL
     if edge_lettered(row):
         return EDGE_LETTERS
+    if alone_lost(row):
+        return ALONE_READ
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -13670,7 +13901,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -13996,7 +14227,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

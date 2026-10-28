@@ -444,6 +444,35 @@ try:
 finally:
     shutil.rmtree(f.CROPS, ignore_errors=True)
     f.CROPS = _el_crops
+# ---- a Times page written unfiled for a clue line the whole crop's read lost (Gale 1955-12-16's "25 A position in
+# the building world (4).", read by no reading) is due once (fa.ALONE_READ), ordered with never-read pages, never canary-held.
+_al = {"id": "times-9999988", "number": 9999988, "complete": False, "wrote": True, "unfiled": 1, "clues": 32,
+       "lights": 32, "blank": {"25-down": "no reading laid a clue on it"}}
+_alrow = {"edition": "GaleTimes1955UKEnglish/1955-12-16", "verdicts": [_al], "readAt": "2026-10-27T03:06:10+00:00"}
+_al_crops = f.CROPS
+f.CROPS = Path(tempfile.mkdtemp())
+(f.CROPS / "rapid").mkdir()
+_al_words = [[782, 4698, 1228, 4736, "23 Just the painter to silence a verbose"], [824, 4732, 955, 4760, "speaker (5)."],
+             [782, 4764, 1168, 4797, "24 Informers break the ranks (5)."], [496, 5154, 748, 5186, "21. See 25."]]
+(f.CROPS / "rapid" / "1955-12-16_9999988.ch.json").write_text(json.dumps({"box": [142, 3965, 1251, 5534], "words": _al_words}))
+# A reading that opens the clue: its blank is some other fault's.
+(f.CROPS / "rapid" / "1955-12-17_9999988.ch.json").write_text(json.dumps(
+    {"box": [142, 3965, 1251, 5534], "words": _al_words + [[782, 4801, 1189, 4838, "25 A position in the building world"]]}))
+try:
+    check("a Times page whose crop's read lost a clue line is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+          [f.ALONE_READ, 2, True, True, True, None],
+          [f.fix_reason(_alrow), f.RANKS[f.ALONE_READ], eq.evidence_reason(f.ALONE_READ), f.ALONE_READ in eq.FIX_LANDED,
+           f.ALONE_READ in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.ALONE_READ, "date": "1955-12-16"})])
+    check("not after the fix, nor a line some reading opens, nor another blank, nor read alone already, nor another paper",
+          [False] * 5,
+          [f.alone_lost({**_alrow, "readAt": _after}),
+           f.alone_lost({**_alrow, "edition": "GaleTimes1955UKEnglish/1955-12-17"}),
+           f.alone_lost({**_alrow, "verdicts": [{**_al, "blank": {"25-down": "'lui': not a word"}}]}),
+           f.alone_lost({**_alrow, "verdicts": [{**_al, "readAlone": [25]}]}),
+           f.alone_lost({**_alrow, "edition": "FinancialTimes1955UKEnglish/1955-12-16_0"})])
+finally:
+    shutil.rmtree(f.CROPS, ignore_errors=True)
+    f.CROPS = _al_crops
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
