@@ -8448,6 +8448,23 @@ def _warning_only(field):
     return field.startswith("wordplay.") and field.split(".", 1)[1] in shape_queue.WARN_ONLY
 
 
+def _block_note_example(warnings):
+    """The sentence's last clause: the first unnoted block quoted as the `notes` entry to write.
+    (Palindrome, repeated-word and sound() leaves are noted by code before the check; what is left
+    is a leaf whose words nobody explained, and only the model can say why they give those letters.)"""
+    for w in warnings:
+        m = re.search(r"(\d+[AD]): block (.+?) > '(\w+)' " + re.escape(BLOCK_NO_NOTE), w)
+        if m:
+            import ast
+            try:
+                frag = json.dumps(ast.literal_eval(m.group(2)), ensure_ascii=False)
+            except (ValueError, SyntaxError):
+                frag = m.group(2)
+            return (f" For {m.group(1)} write `\"notes\": {{{frag}: \"<why those words give {m.group(3)}, "
+                    f"e.g. 'a rogue is a villain'>\"}}` inside that clue's annotation, one such entry per block named.")
+    return ""
+
+
 def backlog_errors(stem, warnings, allowed=None):
     """The ratchet's ERRORs for one puzzle: it may be short exactly as many
     notes as the backlog file records for it, and a puzzle absent from the file
@@ -8466,7 +8483,8 @@ def backlog_errors(stem, warnings, allowed=None):
                 f"{n} clue(s) missing {field}, and this puzzle is allowed {cap} — "
                 f"{field} is required on everything annotated since it was added. "
                 f"The warnings above name them and say what to write."
-                + (f" Missing: {'; '.join(named)}." if field in ("blocks.note", "wordplay.noIndicator") else ""))
+                + (f" Missing: {'; '.join(named)}." if field in ("blocks.note", "wordplay.noIndicator") else "")
+                + (_block_note_example(warnings) if field == "blocks.note" else ""))
     return errors
 
 

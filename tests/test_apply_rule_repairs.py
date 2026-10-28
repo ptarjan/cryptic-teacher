@@ -196,4 +196,35 @@ check("doesNotGive: hid() over a rev() of the clue words is mended into rev(hid(
       == "rev<getting upset>(hid<to some extent>([Now then]))")
 check("doesNotGive: hid() over a rev() of a looked-up word stays refused",
       mend("hid<in>(rev<back>([Inverting]GNITREVNI))", "Inverting back in", "NITRE").startswith("REFUSED"))
+
+# blockNote (annotate audit: 139 sessions refused "missing blocks.note"; 106 were the palindrome's definition leaf,
+# 48 the second leaf of a repeated clue word, 37 the leaf under sound()): the three shapes with one right sentence
+# are noted in place; a synonym leaf nobody explained stays refused (the model's to word).
+bare = lambda w, g: {"words": w, "gives": g}
+def noted(tree, clue, answer):
+    out = A.repair_pool_gap({"wordplay": tree}, {"solution": answer, "clue": {"text": clue}})["wordplay"]
+    return out, [n for n, _ in F.walk(out) if "op" not in n and n.get("gives") and not n.get("note")]
+pal = {"op": "palindrome", "indicators": [ind("up and down")], "parts": [bare("Built", "PUTUP")]}
+new, left = noted(pal, "Built up and down", "PUTUP")
+check("blockNote: the palindrome's definition leaf is noted, without naming the answer",
+      not left and "PUTUP" not in new["parts"][0]["note"].upper())
+twin = {"op": "charade", "parts": [{**bare("blokes", "AL"), "note": "Al and Bert are men's names"}, bare("blokes", "BERT")]}
+new, left = noted(twin, "blokes", "ALBERT")
+check("blockNote: the second leaf of a repeated clue word takes the first leaf's note",
+      not left and new["parts"][1]["note"] == "Al and Bert are men's names")
+two = {"op": "charade", "parts": [{**bare("blokes", "AL"), "note": "a name"}, {**bare("blokes", "BERT"), "note": "another"}]}
+check("blockNote: two different notes on the twin words are left alone",
+      noted({"op": "charade", "parts": [two["parts"][0], bare("blokes", "BERT"), two["parts"][1]]}, "blokes", "ALBERTBERT")[1] != [])
+snd = {"op": "homophone", "spelt": "U", "indicators": [ind("heard")], "parts": [bare("you", "YOU")]}
+wp = {"op": "charade", "parts": [snd, {**bare("wood", "PINE"), "note": "pine is a wood"}]}
+new, left = noted(wp, "you heard wood", "UPINE")
+check("blockNote: the leaf under sound() says the letters it sounds like when they are not the answer",
+      not left and new["parts"][0]["parts"][0]["note"] == "said aloud, these words sound like U")
+snd = {"op": "homophone", "spelt": "EYESORE", "indicators": [ind("Reportedly")], "parts": [{"words": "I saw"}]}
+new, left = noted(snd, "I saw Reportedly", "EYESORE")
+check("blockNote: sound() of the whole answer names no letters",
+      "EYESORE" not in new["parts"][0]["note"].upper() and new["parts"][0].get("note"))
+syn = {"op": "charade", "parts": [bare("Dad", "POP"), {**bare("rush", "HASTE"), "note": "haste is rush"}]}
+new, left = noted(syn, "Dad rush", "POPHASTE")
+check("blockNote: a synonym leaf with no note stays refused", len(left) == 1 and left[0]["words"] == "Dad")
 sys.exit(1 if fails else 0)
