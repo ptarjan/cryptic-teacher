@@ -606,6 +606,14 @@ check("an untitled 1941 Gale Times page scanned before inset_grid is due INSET_G
       [f.RANKS[f.INSET_GRID], eq.evidence_reason(f.INSET_GRID), f.INSET_GRID in eq.FIX_LANDED,
        f.INSET_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.INSET_GRID, "date": "1941-01-27"}),
        eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.INSET_GRID, "date": "1941-01-27"})])
+# ---- an untitled Gale Times page scanned before paired_titles (fa.LONE_TITLE): ranked, evidence, fix-landed,
+# unfiled-first, never canary-held, first tier.
+check("an untitled 1982 Gale Times page scanned before paired_titles is due LONE_TITLE, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held, first tier",
+      [2, True, True, True, None, 0],
+      [f.RANKS[f.LONE_TITLE], eq.evidence_reason(f.LONE_TITLE), f.LONE_TITLE in eq.FIX_LANDED,
+       f.LONE_TITLE in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LONE_TITLE, "date": "1982-07-21"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.LONE_TITLE, "date": "1982-07-21"})])
 # ---- a 1948-54 Gale Times page refused "no reading parses" at a bare count (two clue columns left of the grid
 # read as one line) before lead_split's LEAD_TWO landed is due once (fa.LEFT_LATE), never canary-held.
 _ll = {"number": 9999984, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
