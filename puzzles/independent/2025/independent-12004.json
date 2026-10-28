@@ -1374,30 +1374,48 @@
      "indicators": [
       {
        "text": "following",
-       "note": "following puts the piece named before it second, after the piece named afterwards"
+       "at": 25,
+       "note": "following puts the argument after the other piece"
       }
      ],
      "parts": [
       {
-       "words": "shortfall",
-       "gives": "FAL",
-       "note": "read as two words, a fall made short by losing its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "?",
+         "at": 44,
+         "note": "the question mark flags the split reading, short fall, so the drop loses its tail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shortfall",
+         "at": 35,
+         "gives": "FALL",
+         "note": "read as two words, a fall or drop that comes up short"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
        "words": "argument",
+       "at": 16,
        "gives": "SETTO",
-       "note": "a set-to is a quarrel"
+       "note": "a set-to is a brief fight or argument"
       }
      ]
     },
     "explanation": {
-     "surface": "Voices are raised in a row after money falls short.",
-     "walkthrough": "Shortfall must be split: short fall gives FAL. 'Raised voice' sounds like shouting, but it is singing pitched high.",
-     "definitionFit": "Falsetto is a male singer's artificially high register, a voice pitched above its natural range."
+     "surface": "A heated row about a deficit, with voices going up.",
+     "walkthrough": "The question mark tells you to read 'shortfall' as a fall cut short, docking its last letter; SET-TO is a hyphenated word for a quarrel.",
+     "definitionFit": "A singing voice pitched above the natural range, a raised voice."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "shortfall"
     }
