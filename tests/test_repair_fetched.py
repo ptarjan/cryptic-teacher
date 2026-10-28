@@ -952,5 +952,31 @@ try:
 finally:
     shutil.rmtree(cl_dir, ignore_errors=True)
 
+print("--annotated-mends: the scan's slips an annotator's note names are mended; the paper's own misprints stay")
+am_words = {"what", "a", "cat", "does", "docs", "in", "stable", "yard", "law", "of", "modes", "medes", "and",
+            "persians", "administers", "corporal", "punishment", "on", "off", "she's", "pillar", "the"}
+am_listed = lambda w: w.lower() in am_words
+def am_entry(n, text, note):
+    return {"number": n, "direction": "down", "clue": {"text": text, "enumeration": "4"},
+            "annotation": {"definitions": [{"text": text.split()[-1], "at": text.rindex(text.split()[-1])}],
+                           "explanation": {"walkthrough": note}}}
+am = {"id": "times-1", "entries": [
+    am_entry(1, "What a cat docs in a stable yard", "docs is a misprint for does"),
+    am_entry(2, "Law of Modes and Persians", "'Modes' is a misprint for Medes"),
+    am_entry(3, "Administers corporal pun- punishment on and off", "the scan repeats pun- across a line break"),
+    am_entry(4, "She's 9 pillar of the", "The '9' is a misprint for 'a'"),
+    am_entry(5, "Stable yard of the", "The scan of this clue is garbled after the opening words.")]}
+am_edits, am_answers, am_asks, am_left = rf.annotated_mends(am, am_listed)
+same("a c/e trade, a line-break repeat and a digit for a letter are mended",
+     {k: v[0] for k, v in am_edits.items()},
+     {"1-down": "What a cat does in a stable yard", "3-down": "Administers corporal punishment on and off",
+      "4-down": "She's a pillar of the"})
+same("Modes/Medes (two listed words, no glyph trade) is left as printed; a garbled note is asked again",
+     [[r[0] for r in am_left], sorted(am_asks)], [["2-down", "5-down"], ["5-down"]])
+same("glyph_confusion: c/e, l/t and digits are the OCR's; o/e and a lost letter are not",
+     [rf.glyph_confusion(b, g) for b, g in (("docs", "does"), ("labs", "tabs"), ("10", "to"),
+                                             ("Modes", "Medes"), ("overhead", "overheard"))],
+     [True, True, True, False, False])
+
 print("repair_fetched: all checks passed" if fails == 0 else f"repair_fetched: {fails} FAILED")
 sys.exit(1 if fails else 0)

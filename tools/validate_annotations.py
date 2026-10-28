@@ -3319,7 +3319,9 @@ def check_clue_unchanged(puzzle, path, errors):
         filed = corrected_clue(puzzle.get("id"), entry_id(e))
         ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
         if filed is not None and clue_words(filed) == clue_words(e["clue"].get("text")):
-            misread = ocr_misread_edits(was[entry_id(e)], filed)
+            # Measured on the committed clue's text, as the row's printed words are: its count's digits
+            # are no letter the correction changes ("Pnde" for "Pride" under (6,4) is 2, not 4).
+            misread = ocr_misread_edits(committed[entry_id(e)]["clue"].get("text") or was[entry_id(e)], filed)
             if not ocr or misread <= OCR_MISREAD_EDITS or scan_read(puzzle.get("id"), entry_id(e)):
                 continue
             errors.append(

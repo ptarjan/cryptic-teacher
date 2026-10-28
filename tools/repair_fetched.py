@@ -2194,6 +2194,466 @@ def repair_clue_fills(apply_it=False, paths=None, define=False):
     return out
 
 
+#: --annotated-mends. The annotation's prose fields read for notes on the clue's text.
+ANNOTATED_PROSE = ("note", "meaning", "walkthrough", "definitionFit", "surface")
+#: A note that blames the scan or its OCR for the text (not the paper): "the scan reads sca", "OCR misread".
+SCAN_BLAMED = re.compile(r"(?i:\bscan(?:'s|ned|ning)?\b|\bmisread)|\bOCR\b")
+#: A note that says the paper itself printed it: "the page prints", "The paper printed", "printed slop".
+PAPER_PRINTED = re.compile(r"(?i)\b(?:paper|page|newspaper)\b[^.;]{0,20}\b(?:printed|prints)\b|newspaper misprint"
+                           r"|\b(?:printed|prints) '?\w")
+#: A note naming the clue text broken in a way only the page can settle (a scan-blamed note none of the
+#: patterns below turns into an edit is a reread).
+SCAN_DEFECT = re.compile(r"(?i)garble|\blost\b|merged|run on|spliced|unreadable|corrupt|unreliable|repeat"
+                         r"|misread|misprint|split|fragment|neighbouring|in place of")
+#: Only a note naming the scan or its OCR asks for a reread ("Pilots misread their chart" is the clue's own).
+SCAN_NAMED = re.compile(r"(?i:\bscan(?:'s|ned|ning)?\b)|\bOCR\b")
+#: A definition's or part's note saying its own words are not the clue's: they are cut.
+NOTE_HOLDER_DEBRIS = re.compile(r"(?i)not clue words|debris from|run on by the scan|not part of this clue")
+
+
+def _note_q(name):
+    """A note's quoted ('x' or "x") or bare word, captured as `name`1/2/3."""
+    return (rf"(?:'(?P<{name}0>\w+'\w{{1,2}})'|'(?P<{name}1>[^']{{1,40}}?)'|\"(?P<{name}2>[^\"]{{1,40}}?)\""
+            rf"|(?P<{name}3>[^\s'\"]+))")
+
+
+_B, _G = _note_q("b"), _note_q("g")
+#: (bad -> good) one-span swaps the notes state.
+NOTE_SWAPS = tuple(re.compile(p, re.I) for p in (
+    rf"{_B} is (?:an? )?(?:\w+ )?(?:misprint|misreading|misread|split)(?: or misreading)? (?:for|of) (?:the word )?{_G}",
+    rf"scan(?:'s text)? (?:reads|shows|prints|has) {_B}(?: here)?(?:,| where| but)(?:(?!OCR)[^.;]){{0,40}}?\b(?:printed"
+    rf"|prints|read|reads|misread of|misreading of|misprint for|misprint of|must be|needs)"
+    rf"(?: clue (?:read|reads|had)| word (?:must be|was))? (?:the word |word )?{_G}",
+    rf"scan's {_B} must be {_G}",
+    rf"misreads the printed word {_G} as {_B}",
+    rf"garbles {_G} as {_B}",
+    rf"printed {_B} should read {_G}",
+    rf"(?:printed|prints) {_B},? (?:an? )?(?:\w+ )?misprint (?:for|of) {_G}",
+    rf"in {_B} is (?:scan |scanning )?debris for {_G}",
+    rf"{_B} is {_G} with the \w+ lost",
+))
+#: A misprint note on a definition or part whose own one word is the bad span: "a misprint for automaton".
+NOTE_HOLDER_SWAP = re.compile(rf"(?:misprint|misreading|misread) (?:for|of) {_G}", re.I)
+#: Spans the notes call debris or a neighbour's words: dropped.
+NOTE_DROPS = tuple(re.compile(p, re.I) for p in (
+    rf"(?:stray |word |the ){_B} (?:is|are) (?:scan |scanning )?debris(?! for)",
+    rf"trailing {_B} is the next clue",
+))
+NOTE_REPEAT = re.compile(rf"(?:repeats|repeated) {_B}", re.I)
+NOTE_APOSTROPHE = re.compile(rf"apostrophe after {_B} is (?:scan |scanning )?debris", re.I)
+#: The clue's words as the note says the page prints them: "the clue reads 'Town to write about in French?'".
+NOTE_TARGET = re.compile(r"(?:clue|definition|; it(?= reads)) (?:as printed |almost certainly |simply )*(?:reads|read|is) "
+                         r"'(?P<g1>[^']{3,80}?)'(?=[.,;: ]|$)", re.I)
+#: The answer a note names where the file holds its misread: "The answer is HEIR APPARENT; the stored grid's
+#: HETRAPPARENT is an OCR misreading".
+NOTE_ANSWER = re.compile(r"\banswer is ([A-Z][A-Z' -]*[A-Z])\b")
+#: Glyph pairs a scan's OCR trades (bad -> good, both ways): c/e, rn/m, li/h, h/b, l/t, v/y...
+GLYPH_SWAPS = frozenset(
+    p for a, b in (("c", "e"), ("rn", "m"), ("in", "m"), ("ni", "m"), ("li", "h"), ("h", "b"), ("l", "i"),
+                   ("l", "t"), ("f", "t"), ("n", "u"), ("cl", "d"), ("ri", "n"), ("v", "y"), ("ii", "u"),
+                   ("o", "u"))
+    for p in ((a, b), (b, a)))
+#: The most letters a mend may change (validate_annotations.OCR_MISREAD_EDITS: more is not the OCR's to mend).
+ANNOTATED_EDITS = 3
+
+
+def _picked(m, name):
+    """The quoted or bare word a NOTE_* match captured as `name`, trailing punctuation off a bare word."""
+    for i in (0, 1, 2):
+        if m.groupdict().get(f"{name}{i}"):
+            return m.group(f"{name}{i}")
+    bare = m.groupdict().get(f"{name}3")
+    return bare.rstrip(".,;:)") if bare else None
+
+
+def glyph_confusion(bad, good):
+    """Whether `good` is `bad` with only glyphs a scan's OCR trades (GLYPH_SWAPS) or digits read for letters
+    ("10" for "to", "9" for "a") changed, at least one."""
+    bad, good = bad.lower(), good.lower()
+    seen = {(0, 0, False)}
+    todo = [(0, 0, False)]
+    while todo:
+        i, j, changed = todo.pop()
+        if i == len(bad) and j == len(good):
+            if changed:
+                return True
+            continue
+        steps = []
+        if i < len(bad) and j < len(good):
+            if bad[i] == good[j]:
+                steps.append((i + 1, j + 1, changed))
+            elif bad[i].isdigit() and good[j].isalpha():
+                steps.append((i + 1, j + 1, True))
+        for x, y in GLYPH_SWAPS:
+            if bad.startswith(x, i) and good.startswith(y, j):
+                steps.append((i + len(x), j + len(y), True))
+        for s in steps:
+            if s not in seen:
+                seen.add(s)
+                todo.append(s)
+    return False
+
+
+def _span_at(text, span):
+    """[start] of each place `span` stands in `text` with no word character either side."""
+    return [m.start() for m in re.finditer(r"(?<!\w)" + re.escape(span) + r"(?!\w)", text)]
+
+
+def _note_strings(ann):
+    """[(holder dict, prose)] of each ANNOTATED_PROSE string in annotation `ann`."""
+    out = []
+
+    def walk(x):
+        if isinstance(x, dict):
+            for k, v in x.items():
+                if k in ANNOTATED_PROSE and isinstance(v, str):
+                    out.append((x, v))
+                else:
+                    walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+    walk(ann)
+    return out
+
+
+def _target_window(text, target, is_word):
+    """(start, end) of the shortest run of `text`'s words that is `target` with at most ANNOTATED_EDITS letters
+    and any punctuation more (debris or a repeat the note names cut out of it), or None."""
+    want = fetcher.clue_words(target)
+    words = re.findall(r"[A-Za-z]+", target)
+    if len(target.split()) < 2 or not want or not all(is_word(w) for w in words):
+        return None
+    toks = list(re.finditer(r"\S+", text))
+    best = None
+    for i in range(len(toks)):
+        for j in range(i, len(toks)):
+            have = fetcher.clue_words(text[toks[i].start():toks[j].end()])
+            if len(have) - len(want) > ANNOTATED_EDITS:
+                break
+            it = iter(have)
+            if (len(have) >= len(want) and all(c in it for c in want)
+                    and have.startswith(fetcher.clue_words(target.split()[0])[:1])
+                    and (best is None or toks[j].end() - toks[i].start() < best[1] - best[0])):
+                best = (toks[i].start(), toks[j].end())
+    return best
+
+
+def annotated_mends(puzzle, is_word):
+    """What the annotation's notes on each clue of `puzzle` say its text should be:
+    ({light: [(was, now, kind, note)]}, {light: (held answer, corrected, note)},
+    {light: note} to read again, [(light, was, now, why, note)] left).
+
+    The edits made, in each clue's text: a swap the note states ("docs is a misprint for does", "the scan
+    reads sca where the paper printed sea", "The scanned first word 'Pnde' is a misprint of 'Pride'") whose
+    corrected words are listed (ocr_clues.is_word) and whose bad word is not, or is a glyph the OCR trades
+    (glyph_confusion: c/e, rn/m, a digit for a letter) or, on a note blaming the scan, a few letters off; a
+    repeat across a line break ("pun- punishment", "golfing ing", "dis disconcerting"); a span the note
+    calls debris or the next clue run on ("110>", "hai"); the clue's words the note quotes, where the clue
+    is them with a few letters or marks more ("to-write -about"). None changes more than ANNOTATED_EDITS
+    letters. A swap the note says the paper printed (or calls a misprint without blaming the scan) between
+    two listed words that is no glyph trade ("Modes" for "Medes", "overhead" for "overheard") is the
+    paper's misprint, left as printed. A note blaming the scan that gives no such edit is a reread.
+    An answer a note names ("The answer is HEIR APPARENT; the stored grid's HETRAPPARENT ...") where the
+    file holds a word that many letters of it off (validate_annotations' TYPO_LETTERS) is the corrected
+    answer, the crossings checked by the caller."""
+    edits, answers, asks, left = {}, {}, {}, []
+    for e in puzzle.get("entries") or ():
+        ann = e.get("annotation")
+        clue = e.get("clue") if isinstance(e.get("clue"), dict) else None
+        if not isinstance(ann, dict) or not clue or not isinstance(clue.get("text"), str):
+            continue
+        lid = entry_id(e)
+        text = clue["text"]
+        found, unsettled = [], []
+        for holder, note in _note_strings(ann):
+            scan = bool(SCAN_BLAMED.search(note))
+            paper = bool(PAPER_PRINTED.search(note)) and not scan
+            sol = (e.get("solution") or "").upper()
+            m = NOTE_ANSWER.search(note)
+            if m and sol and sol in note:
+                good = re.sub(r"[^A-Z]", "", m.group(1))
+                off = sum(a != b for a, b in zip(sol, good))
+                if len(good) == len(sol) and 0 < off <= 2:
+                    answers[lid] = (sol, good, note)
+            pairs = [(_picked(m, "b"), _picked(m, "g"), "swap") for p in NOTE_SWAPS for m in p.finditer(note)]
+            if not pairs:
+                own = holder.get("text") or holder.get("words")
+                pairs = [(own, _picked(m, "g"), "swap") for m in NOTE_HOLDER_SWAP.finditer(note)
+                         if isinstance(own, str) and len(own.split()) == 1]
+            pairs += [(_picked(m, "b"), "", "debris") for p in NOTE_DROPS for m in p.finditer(note)]
+            own = holder.get("text") or holder.get("words")
+            if NOTE_HOLDER_DEBRIS.search(note) and isinstance(own, str) and own.strip():
+                pairs.append((own.strip(), "", "debris"))
+            pairs += [(_picked(m, "b"), "", "repeat") for m in NOTE_REPEAT.finditer(note)]
+            pairs += [(_picked(m, "b") + "'", _picked(m, "b"), "apostrophe") for m in NOTE_APOSTROPHE.finditer(note)]
+            pairs += [(None, m.group("g1"), "target") for m in NOTE_TARGET.finditer(note) if SCAN_NAMED.search(note)]
+            named = False
+            for bad, good, kind in pairs:
+                if kind == "target":
+                    span = _target_window(text, good, is_word)
+                    if span is None:
+                        continue
+                    good = _cased(text[span[0]:span[1]], good)
+                    if text[span[0]:span[1]] == good:
+                        continue
+                    found.append((text[span[0]:span[1]], good, kind, note, span))
+                    named = True
+                    continue
+                if not bad or bad == good:
+                    continue
+                if kind == "repeat":
+                    bad = bad.rstrip("-")
+                    hits = ([(m.start(), m.end()) for m in re.finditer(
+                        r"(?<!\w)" + re.escape(bad) + r"-?\s+(?=" + re.escape(bad) + ")", text)]
+                        + [(m.start(), m.end()) for m in re.finditer(
+                            r"(?<=\w" + re.escape(bad) + r")\s+" + re.escape(bad) + r"(?!\w)", text)])
+                    if len(hits) == 1:
+                        found.append((text[hits[0][0]:hits[0][1]], "", kind, note, hits[0]))
+                        named = True
+                    continue
+                at = _span_at(text, bad)
+                if not at:
+                    named = named or bool(good and _span_at(text, good))   # mended already
+                    continue
+                named = True
+                if len(at) != 1:
+                    unsettled.append((lid, bad, good, "the span stands more than once", note))
+                    continue
+                start, end = at[0], at[0] + len(bad)
+                if kind == "debris":
+                    if start and text[start - 1] in " -":
+                        start -= 1
+                    elif end < len(text) and text[end] == " ":
+                        end += 1
+                    found.append((text[start:end], "", kind, note, (start, end)))
+                    continue
+                if kind == "apostrophe":
+                    found.append((bad, good, kind, note, (start, end)))
+                    continue
+                good = _cased(bad, good)
+                words = re.findall(r"[A-Za-z]+", good)
+                listed = bool(words) and all(is_word(w) for w in words)
+                bad_listed = (not re.search(r"\d", bad) and all(
+                    is_word(w) for w in (t.strip(".,;:!?\"()") for t in bad.split()) if w))
+                glyph = glyph_confusion(bad, good)
+                letters = V_edit_distance(fetcher.clue_words(bad), fetcher.clue_words(good))
+                if not listed:
+                    why = "the corrected word is not listed"
+                elif letters > ANNOTATED_EDITS:
+                    why = f"{letters} letters change"
+                elif scan and bad_listed and not glyph and abs(len(bad) - len(good)) > 1:
+                    why = "a listed word read for another of a different length: a lost word, not a misread"
+                elif glyph or scan or not (bad_listed or paper):
+                    found.append((bad, good, kind, note, (start, end)))
+                    continue
+                else:
+                    left.append((lid, bad, good, "the paper's misprint: " + (
+                        "both listed words" if bad_listed else "the note says the page prints it")
+                        + ", no glyph trade", note))
+                    continue
+                if scan:
+                    unsettled.append((lid, bad, good, why, note))
+                else:                 # a misprint the scan is not blamed for: a reread reads the same
+                    left.append((lid, bad, good, why + "; the note does not blame the scan", note))
+            if (not named and not m and SCAN_NAMED.search(note) and SCAN_DEFECT.search(note)
+                    and fetcher.corrected_clue(puzzle.get("id"), lid) != text):
+                unsettled.append((lid, None, None, "the note gives no edit", note))
+        if any(r[0] == lid and r[3].startswith("the paper's misprint") for r in left):
+            unsettled = []            # the paper printed it: a reread reads the same
+        # Apply right to left so each span's offsets stand; overlapping edits keep the first found.
+        taken, cuts = [], []
+        for was, now, kind, note, (s, t) in found:
+            if any(s < t2 and s2 < t for s2, t2 in cuts):
+                continue
+            cuts.append((s, t))
+            taken.append((s, t, was, now, kind, note))
+        if taken:
+            new = text
+            for s, t, was, now, kind, note in sorted(taken, reverse=True):
+                new = new[:s] + now + new[t:]
+            new = re.sub(r" {2,}", " ", new).strip()
+            letters = V_edit_distance(fetcher.clue_words(text), fetcher.clue_words(new))
+            if letters > ANNOTATED_EDITS:
+                unsettled += [(lid, was, now, f"{letters} letters change in all", note)
+                              for s, t, was, now, kind, note in taken]
+            else:
+                edits[lid] = (new, [(was, now, kind, note) for s, t, was, now, kind, note in sorted(taken)])
+                unsettled = []        # the note's own edit made: what is left of it the annotators see
+        if unsettled:
+            asks[lid] = unsettled[0][4]
+            left += unsettled
+    once = {}
+    for row in left:
+        once.setdefault(row[:3], row)
+    left = list(once.values())
+    return edits, answers, asks, left
+
+
+def _cased(was, now):
+    """`now` opening in the case `was` opens in ("Recants" -> "Recruits", not "recruits")."""
+    if was[:1].isalpha() and now[:1].isalpha() and was[:1].isupper() != now[:1].isupper():
+        return (now[:1].upper() if was[:1].isupper() else now[:1].lower()) + now[1:]
+    return now
+
+
+def V_edit_distance(a, b):
+    """Levenshtein distance (validate_annotations.edit_distance, without importing it here)."""
+    row = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        prev, row[0] = row[0], i
+        for j, cb in enumerate(b, 1):
+            prev, row[j] = row[j], min(row[j] + 1, row[j - 1] + 1, prev + (ca != cb))
+    return row[-1]
+
+
+#: The filers whose Times clue text is a scan's OCR (pre-2015 prints), the only files --annotated-mends touches.
+OCR_TEXT_FILERS = ("tools/file_archive_org_puzzles.py", "tools/file_trove_puzzles.py")
+ANNOTATED_BEFORE = "2015"
+#: The table a clue correction is filed in, so every re-fetch writes it and validate_annotations lets the
+#: annotation stand beside it (check_clue_unchanged, check_clue_rows_held).
+CLUE_ROWS = Path(fetcher.__file__).resolve().parent / "data" / "source_clue_wrong.json"
+
+
+def _drop_emptied(ann):
+    """Take out of annotation `ann` the definitions and wordplay leaves a mend left quoting nothing."""
+    if isinstance(ann.get("definitions"), list):
+        ann["definitions"] = [d for d in ann["definitions"] if not (isinstance(d, dict) and d.get("text") == "")]
+
+    def walk(node):
+        if isinstance(node, dict):
+            if isinstance(node.get("parts"), list):
+                node["parts"] = [p for p in node["parts"] if not (isinstance(p, dict) and p.get("words") == ""
+                                                                   and not p.get("parts"))]
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+    walk(ann.get("wordplay"))
+
+
+def repair_annotated_mends(apply_it=False, paths=None, request=True):
+    """Mend the clue text (and an answer) the annotation's notes say the scan broke (annotated_mends), in each
+    Times file an OCR filer (OCR_TEXT_FILERS) filed for a print before ANNOTATED_BEFORE, no blog's write-up
+    keying it. Each clue mend is written through enumeration.rewrite_entry, so every annotation `at` after
+    the edit moves by its length change and a phrase quoting the bad span becomes the mended words (one
+    left quoting nothing goes), and filed as a source_clue_wrong.json row [as served, as printed, "OCR
+    misread: ..."], so a re-fetch writes it and validate_annotations lets the annotation stand. A mend
+    that leaves validate_annotations an error the held file lacked is not made. A named answer is taken
+    only at its light's length, every held crossing letter its own (solutions.printed follows it where it
+    held the misread). The lights whose notes blame the scan and give no edit are asked of the scan queue
+    again (scan_queue.request_reread, why "annotatorNote") when `apply_it` and `request`. With `apply_it`
+    False nothing is written.
+    {"mended": [(id, light, was, now, kind)], "answers": [(id, light, was, now)], "asked": [(id, light,
+    note)], "left": [(id, light, was, now, why)], "refused": [(id, light, error)], "requests": n}"""
+    import clue_repair
+    import corroborate
+    import provenance
+    import validate_annotations as V
+    from json_merge import dump_lines
+    is_word, _ = clue_repair.lexicon()
+    if paths is None:
+        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+    out = {"mended": [], "answers": [], "asked": [], "left": [], "refused": [], "requests": 0}
+    rows = json.loads(CLUE_ROWS.read_text(encoding="utf-8"))
+    rows_added = False
+    for path in paths:
+        if path.parent.name.isdigit() and path.parent.name >= ANNOTATED_BEFORE:
+            continue
+        try:
+            held = fetcher.read_puzzle_file(path)
+        except (OSError, ValueError):
+            continue
+        source = held.get("source") or {}
+        if (source.get("acquiredBy") not in OCR_TEXT_FILERS or (held.get("date") or "9") >= ANNOTATED_BEFORE
+                or "blog" in (held.get("solutions") or {})
+                or not any(isinstance(e.get("annotation"), dict) for e in held.get("entries") or ())):
+            continue
+        edits, answers, asks, left = annotated_mends(held, is_word)
+        pid = held["id"]
+        out["left"] += [(pid, lid, was, now, why) for lid, was, now, why, _note in left if lid not in asks]
+        if not (edits or answers or asks):
+            continue
+        new = copy.deepcopy(held)
+        by_lid = {entry_id(e): e for e in new["entries"]}
+        base = set(V.run_errors(path, held))
+        mended, new_rows = [], {}
+        for lid, (fixed, steps) in sorted(edits.items()):
+            e = by_lid[lid]
+            text = e["clue"]["text"]
+            trial = copy.deepcopy(e)
+            enumeration.rewrite_entry(trial, lambda t, fixed=fixed: (fixed, offsets(t, fixed)))
+            _drop_emptied(trial["annotation"])
+            key = f"{pid}/{lid}"
+            served = rows[key][0] if key in rows else text
+            said = "; ".join(f"{was.strip()!r} cut" if not now else f"{was.strip()!r} read for {now!r}"
+                             for was, now, *_ in steps)
+            row = [served, fixed, f"OCR misread: the annotator's note on the scan: {said}"
+                                  f" ({steps[0][3][:160]})"]
+            saved = fetcher.SOURCE_CLUE_WRONG.get((pid, lid))
+            fetcher.SOURCE_CLUE_WRONG[(pid, lid)] = tuple(row)
+            idx = new["entries"].index(e)
+            new["entries"][idx] = trial
+            errs = [x for x in V.run_errors(path, new) if x not in base]
+            if errs:
+                new["entries"][idx] = e
+                if saved is None:
+                    fetcher.SOURCE_CLUE_WRONG.pop((pid, lid), None)
+                else:
+                    fetcher.SOURCE_CLUE_WRONG[(pid, lid)] = saved
+                out["refused"].append((pid, lid, errs[0]))
+                asks.setdefault(lid, steps[0][3])
+                continue
+            by_lid[lid] = trial
+            new_rows[key] = row
+            mended += [(pid, lid, was, now, kind) for was, now, kind, _note in steps]
+        took = []
+        for lid, (was, now, note) in sorted(answers.items()):
+            e = by_lid[lid]
+            mine = corroborate.cells(e)
+            clash = [o for o in new["entries"] if o is not e and o.get("solution")
+                     and len(o["solution"]) == o.get("length")
+                     for cell, ch in zip(corroborate.cells(o), o["solution"].upper())
+                     if cell in mine and now[mine.index(cell)] != ch]
+            if len(now) != e.get("length") or clash:
+                out["left"].append((pid, lid, was, now, "the corrected answer does not fit its light and crossings"))
+                continue
+            e["solution"] = now
+            printed = (new.get("solutions") or {}).get("printed")
+            if isinstance(printed, dict) and (printed.get(lid) or "").upper() == was:
+                printed[lid] = now
+            took.append((pid, lid, was, now))
+        if mended or took:
+            errs = [x for x in V.run_errors(path, new) if x not in base]
+            faults = [f for f in provenance.check(new) if f not in provenance.check(held)]
+            if errs or faults:
+                out["refused"] += [(pid, lid, (errs or faults)[0]) for lid in {r[1] for r in mended + took}]
+                mended, took = [], []
+            elif apply_it:
+                try:
+                    fetcher.write_puzzle_file(path, new)
+                except Exception as err:  # the write gate's refusal: the file stands as held
+                    out["refused"] += [(pid, lid, f"write refused: {type(err).__name__}: {err}")
+                                       for lid in {r[1] for r in mended + took}]
+                    mended, took = [], []
+        if mended:
+            rows.update(new_rows)
+            rows_added = True
+        out["mended"] += mended
+        out["answers"] += took
+        ask = {lid: note for lid, note in asks.items() if lid not in {r[1] for r in mended}}
+        out["asked"] += [(pid, lid, note) for lid, note in sorted(ask.items())]
+        if ask and apply_it and request:
+            import scan_queue
+            clues = [(lid, by_lid[lid]["clue"]["text"]) for lid in sorted(ask)]
+            if scan_queue.request_reread(held, clues, ["annotatorNote"]):
+                out["requests"] += 1
+    if apply_it and rows_added:
+        CLUE_ROWS.write_text(dump_lines(rows), encoding="utf-8")
+    return out
+
+
 def grown(held, now):
     """Whether the clue text `now` is the held `held` with a few words added
     and none lost: a reread laying neighbouring print in a clue. A run of
@@ -2266,6 +2726,12 @@ def main(argv):
                     help="only fill the blank lights of each held Times file 1-2 short that their clues solve on the "
                          "held crossings (clue_fills: one wordplay word WordNet links to the definition), recorded "
                          "as our solve (mark_clue_solved); --apply writes")
+    ap.add_argument("--annotated-mends", action="store_true",
+                    help="only mend the pre-2015 OCR'd Times clue text (and answers) the annotation's notes say the "
+                         "scan broke ('docs is a misprint for does', 'the scan repeats pun-', \"'110>' is scan "
+                         "debris\"), filed as source_clue_wrong.json rows, annotation offsets moved; the paper's "
+                         "own misprints left; notes giving no edit asked of the scan queue again "
+                         "(repair_annotated_mends); --apply writes")
     ap.add_argument("--define", action="store_true",
                     help="with --clue-fills, also the definition-only tier: crossings give all but one letter, "
                          "one listed word fits, WordNet links it (unchecked: it found none on 10-26)")
@@ -2352,6 +2818,23 @@ def main(argv):
         verb = "" if args.apply else "would be "
         print(f"{len(got['replaced'])} held answer(s) {verb}replaced, {len(got['filled'])} blank(s) {verb}filled, "
               f"{len(got['whole'])} puzzle(s) made fully answered, {len(got['left'])} left")
+        return 0
+    if args.annotated_mends:
+        got = repair_annotated_mends(args.apply)
+        for pid, lid, was, now, kind in got["mended"]:
+            print(f"{pid} {lid} [{kind}]: {was!r} -> {now!r}")
+        for pid, lid, was, now in got["answers"]:
+            print(f"{pid} {lid} [answer]: {was} -> {now}")
+        for pid, lid, err in got["refused"]:
+            print(f"{pid} {lid}: refused: {err}")
+        for pid, lid, note in got["asked"]:
+            print(f"{pid} {lid}: reread: {note[:140]}")
+        for pid, lid, was, now, why in got["left"]:
+            print(f"{pid} {lid}: left {was!r} -> {now!r}: {why}")
+        verb = "" if args.apply else "would be "
+        print(f"{len({r[:2] for r in got['mended']})} clue(s) {verb}mended ({len(got['mended'])} edits), "
+              f"{len(got['answers'])} answer(s) {verb}corrected, {len(got['asked'])} light(s) {verb}asked again "
+              f"({got['requests']} request(s) filed), {len(got['refused'])} refused, {len(got['left'])} left")
         return 0
     if args.clue_fills:
         got = repair_clue_fills(args.apply, define=args.define)
