@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,71 @@
     "text": "Who mostly takes in a son's laundry?",
     "enumeration": "4"
    },
-   "solution": "WASH"
+   "solution": "WASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "laundry",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes in",
+       "at": 11,
+       "note": "takes in means the shortened word holds the next pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 4,
+         "note": "mostly means not quite all of the word Who, so its final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Who",
+         "at": 0
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20
+        },
+        {
+         "words": "son's",
+         "at": 22,
+         "gives": "S",
+         "note": "S is the standard abbreviation for son"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who handles a boy's dirty clothes.",
+     "walkthrough": "'Who mostly' gives WH (WHO less its last letter, O).",
+     "definitionFit": "A wash is a batch of clothes being cleaned, just as laundry is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Who"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +111,61 @@
     "text": "Victory — before Germany just beat European airline",
     "enumeration": "8"
    },
-   "solution": "WINDPIPE"
+   "solution": "WINDPIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "airline",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 10,
+       "note": "before places the word for victory ahead of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Victory",
+       "at": 0,
+       "gives": "WIN",
+       "note": "a victory is a win"
+      },
+      {
+       "words": "Germany",
+       "at": 17,
+       "gives": "D",
+       "note": "D is the international vehicle code for Germany"
+      },
+      {
+       "words": "just beat",
+       "at": 25,
+       "gives": "PIP",
+       "note": "to pip is to beat narrowly"
+      },
+      {
+       "words": "European",
+       "at": 35,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: a narrow win over Germany, then a business note about a European carrier.",
+     "walkthrough": "'airline' is not an airline company here but the passage that carries air to the lungs.",
+     "definitionFit": "The windpipe, or trachea, is the tube conducting breath to the lungs, a literal air line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "airline"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +179,45 @@
     "text": "Shortness of supply of organised trips, say",
     "enumeration": "8"
    },
-   "solution": "SPARSITY"
+   "solution": "SPARSITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shortness of supply",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "organised",
+       "at": 23,
+       "note": "organised suggests the letters of the fodder being put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trips",
+       "at": 33
+      },
+      {
+       "words": "say",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holiday trips, once organised, turn out to be in short supply.",
+     "walkthrough": "'organised' rearranges TRIPS SAY.",
+     "definitionFit": "Sparsity is scarcity or thinness, a shortage of something being available."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +231,59 @@
     "text": "Pays off one pound during evening shifts",
     "enumeration": "10"
    },
-   "solution": "LIQUIDATES"
+   "solution": "LIQUIDATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pays off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 19,
+       "note": "during means the following pieces sit inside the word for evening shifts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "evening shifts",
+       "at": 26,
+       "gives": "LATES",
+       "note": "lates are late shifts worked in the evening"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 9,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "pound",
+         "at": 13,
+         "gives": "QUID",
+         "note": "a quid is British slang for a pound sterling"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker clears a debt a pound at a time while on evening shifts.",
+     "definitionFit": "To liquidate a debt is to settle it in full, paying it off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shifts"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +297,42 @@
     "text": "Freezing from anaesthetic in general?",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Freezing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 9,
+       "note": "from tells us to take the letters out of the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "anaesthetic in general",
+       "at": 14,
+       "gives": "ICING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical question: is the numbing from a general anaesthetic a kind of freezing?",
+     "walkthrough": "The answer sits across 'anaesthetIC IN General'.",
+     "definitionFit": "Icing is the forming of ice on a surface, the process of freezing over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "anaesthetic"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +346,60 @@
     "text": "Provide cover for quiet house in province",
     "enumeration": "9"
    },
-   "solution": "UPHOLSTER"
+   "solution": "UPHOLSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provide cover for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in places the quiet and house pieces inside the province"
+      }
+     ],
+     "parts": [
+      {
+       "words": "province",
+       "at": 33,
+       "gives": "ULSTER",
+       "note": "Ulster is the historic Irish province, largely Northern Ireland"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "at": 18,
+         "gives": "P",
+         "note": "P (piano) is the musical marking for quiet"
+        },
+        {
+         "words": "house",
+         "at": 24,
+         "gives": "HO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging insurance cover for a peaceful house in Northern Ireland.",
+     "walkthrough": "ULSTER is one of Ireland's four provinces, mostly the UK's Northern Ireland.",
+     "definitionFit": "To upholster furniture is to give it padding and a fabric covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +413,65 @@
     "text": "Spain alerted to change after last month and slowed down",
     "enumeration": "11"
    },
-   "solution": "DECELERATED"
+   "solution": "DECELERATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slowed down",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 24,
+       "note": "after puts the Spain piece and the rearranged word behind the month"
+      }
+     ],
+     "parts": [
+      {
+       "words": "last month",
+       "at": 30,
+       "gives": "DEC",
+       "note": "December, abbreviated DEC, is the last month of the year"
+      },
+      {
+       "words": "Spain",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain (Espana)"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to change",
+         "at": 14,
+         "note": "to change asks for the letters of the word alerted to be rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alerted",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After December, Spain was warned to change course and the economy slowed.",
+     "walkthrough": "'to change' makes LERATED from ALERTED.",
+     "definitionFit": "To decelerate is to reduce speed, so decelerated means slowed down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alerted"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +485,64 @@
     "text": "Stumps politician taken in by endless nonsense",
     "enumeration": "6"
    },
-   "solution": "TRAMPS"
+   "solution": "TRAMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stumps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 18,
+       "note": "taken in by means the politician goes inside the shortened word for nonsense"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 30,
+         "note": "endless means the word for nonsense loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nonsense",
+         "at": 38,
+         "gives": "TRASH",
+         "note": "trash is rubbish or nonsense"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "politician",
+       "at": 7,
+       "gives": "MP",
+       "note": "MP, Member of Parliament, is a politician"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician fooled by rubbish talk on the hustings.",
+     "walkthrough": "'Stumps' is a verb, walk heavily; 'endless' makes TRAS from TRASH.",
+     "definitionFit": "To tramp is to walk with heavy, plodding steps, just as one stumps along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stumps"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +556,48 @@
     "text": "Uses dispatches to seize power",
     "enumeration": "6"
    },
-   "solution": "SPENDS"
+   "solution": "SPENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to seize",
+       "at": 16,
+       "note": "to seize means the word for dispatches grabs the power letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dispatches",
+       "at": 5,
+       "gives": "SENDS",
+       "note": "to dispatch something is to send it"
+      },
+      {
+       "words": "power",
+       "at": 25,
+       "gives": "P",
+       "note": "P is the physics symbol for power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messages sent to stage a grab for power, like a coup.",
+     "definitionFit": "To spend something such as time or energy is to use it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dispatches"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +611,63 @@
     "text": "Orderly approach needing time for leader of remainers",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Orderly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 30,
+       "note": "needing one letter for another means a swap, the time letter replacing the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "approach",
+       "at": 8,
+       "gives": "NEAR",
+       "note": "to near a place is to approach it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 34,
+         "note": "leader of points to the first letter of remainers"
+        }
+       ],
+       "parts": [
+        {
+         "words": "remainers",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 25,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political note: a tidy approach that the Remain campaign's leader needs time to devise.",
+     "definitionFit": "Neat describes something tidy and well arranged, which is what orderly means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remainers"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +687,41 @@
      }
     ]
    },
-   "solution": "HIGHOCTANE"
+   "solution": "HIGHOCTANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Powerful and dynamic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worried",
+       "at": 35,
+       "note": "worried suggests the letters are disturbed and shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "he got China",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forceful and energetic has made China anxious.",
+     "walkthrough": "'worried' rearranges HE GOT CHINA.",
+     "definitionFit": "High-octane fuel is powerful, and figuratively the term means intense and energetic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +735,41 @@
     "text": "Letters seeing job secure?",
     "enumeration": "7"
    },
-   "solution": "POSTBAG"
+   "solution": "POSTBAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Letters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "job",
+       "at": 15,
+       "gives": "POST",
+       "note": "a post is a position or job"
+      },
+      {
+       "words": "secure",
+       "at": 19,
+       "gives": "BAG",
+       "note": "to bag something is to secure it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Letters of application for a job one hopes to secure.",
+     "definitionFit": "A postbag is the collection of mail a newspaper or person receives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +783,54 @@
     "text": "Drug counter snapped on universal charge",
     "enumeration": "11"
    },
-   "solution": "BARBITURATE"
+   "solution": "BARBITURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "counter",
+       "at": 5,
+       "gives": "BAR",
+       "note": "a bar is a counter where drinks are served"
+      },
+      {
+       "words": "snapped",
+       "at": 13,
+       "gives": "BIT",
+       "note": "bit, as in a dog snapped or bit"
+      },
+      {
+       "words": "universal",
+       "at": 24,
+       "gives": "U",
+       "note": "U is the film-certificate abbreviation for universal"
+      },
+      {
+       "words": "charge",
+       "at": 34,
+       "gives": "RATE",
+       "note": "a rate is a price or charge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman snapped about a blanket charge at the counter.",
+     "walkthrough": "U is the British film rating for universal (suitable for all).",
+     "definitionFit": "A barbiturate is a sedative drug acting on the nervous system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snapped"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +850,69 @@
      }
     ]
    },
-   "solution": "LILYPAD"
+   "solution": "LILYPAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Floating leaf",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "L"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about means the rearranged letters go around the pressure letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 25,
+           "note": "upset means the word daily is knocked into a different order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "daily",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "pressure",
+         "at": 37,
+         "gives": "P",
+         "note": "P is the physics symbol for pressure"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves the daily paper upset about pressure.",
+     "walkthrough": "'upset' turns DAILY into ILYAD, which goes 'about' P.",
+     "definitionFit": "A lily pad is the broad leaf of a water lily resting on the pond surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +926,58 @@
     "text": "A seabird seen in advertisement for a lift",
     "enumeration": "11"
    },
-   "solution": "PATERNOSTER"
+   "solution": "PATERNOSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 10,
+       "note": "seen in places the A and seabird inside the word for an advertisement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "advertisement",
+       "at": 18,
+       "gives": "POSTER",
+       "note": "a poster is a printed advertisement"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "seabird",
+         "at": 2,
+         "gives": "TERN",
+         "note": "a tern is a seabird"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seabird pictured in an advertisement for an elevator.",
+     "walkthrough": "'for' is a link word here.",
+     "definitionFit": "A paternoster is a lift of open cars moving continuously in a loop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +991,63 @@
     "text": "Thing of beauty initially on meeting",
     "enumeration": "9"
    },
-   "solution": "OBSESSION"
+   "solution": "OBSESSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 26,
+       "note": "in a down clue on means placed above, so these letters come first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 16,
+         "note": "initially takes the opening letters of the words of and beauty"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "at": 6
+        },
+        {
+         "words": "beauty",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "meeting",
+       "at": 29,
+       "gives": "SESSION",
+       "note": "a session is a meeting or sitting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beautiful object first encountered at a meeting.",
+     "walkthrough": "'Thing of beauty' wants to be the definition; only 'Thing' defines, as in having a thing about something.",
+     "definitionFit": "Having a thing about someone is a fixation, a preoccupation of the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1061,58 @@
     "text": "Irritating new air base must secure victory",
     "enumeration": "8"
    },
-   "solution": "ABRASIVE"
+   "solution": "ABRASIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irritating",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must secure",
+       "at": 24,
+       "note": "must secure means the rearranged letters hold the victory letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 11,
+         "note": "new signals the letters of air base made into something fresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air base",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "victory",
+       "at": 36,
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new air base must win something, a military planning note.",
+     "walkthrough": "'new' rearranges AIR BASE around V.",
+     "definitionFit": "Something abrasive grates on people, rubbing them up the wrong way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1126,49 @@
     "text": "Come round to describe museum's material",
     "enumeration": "8"
    },
-   "solution": "RELEVANT"
+   "solution": "RELEVANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "material",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to describe",
+       "at": 11,
+       "note": "to describe here means to draw around, so the museum sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Come round",
+       "at": 0,
+       "gives": "RELENT",
+       "note": "to relent is to soften and come round"
+      },
+      {
+       "words": "museum's",
+       "at": 23,
+       "gives": "VA",
+       "note": "the V and A is the Victoria and Albert Museum in London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Visitors come round to describing a museum's fabric collection.",
+     "walkthrough": "'material' is an adjective, pertinent, not cloth.",
+     "definitionFit": "Material evidence is evidence that is pertinent and bears on the matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1182,41 @@
     "text": "Reshuffled cabinet's URL is difficult to understand",
     "enumeration": "11"
    },
-   "solution": "INSCRUTABLE"
+   "solution": "INSCRUTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficult to understand",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Reshuffled",
+       "at": 0,
+       "note": "reshuffled, like a cabinet, means the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cabinet's URL",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The government's web address after a reshuffle is baffling.",
+     "walkthrough": "'Reshuffled' rearranges CABINETS URL.",
+     "definitionFit": "Something inscrutable is impenetrable, its meaning impossible to read."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reshuffled"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1230,47 @@
     "text": "Speak at length about right to develop",
     "enumeration": "6"
    },
-   "solution": "SPROUT"
+   "solution": "SPROUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "develop",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "about means the speaking word goes around the right letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Speak at length",
+       "at": 0,
+       "gives": "SPOUT",
+       "note": "to spout is to hold forth at length"
+      },
+      {
+       "words": "right",
+       "at": 22,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talks on and on about the right way to develop.",
+     "definitionFit": "To sprout is to start growing, as a seed or shoot does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1284,42 @@
     "text": "German trader's oft repeated stock phrase?",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "oft repeated stock phrase",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "'s",
+       "at": 13,
+       "note": "the possessive says the answer belongs to, lies within, the words German trader"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German trader",
+       "at": 0,
+       "gives": "MANTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German salesman's well-worn slogan.",
+     "walkthrough": "The answer sits across 'gerMAN TRAder's'.",
+     "definitionFit": "A mantra is a slogan or saying repeated over and over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1333,29 @@
     "text": "Pittance made from comic strip",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pittance",
+      "at": 0,
+      "meaning": "a tiny sum of money, as in being paid next to nothing"
+     },
+     {
+      "text": "comic strip",
+      "at": 19,
+      "meaning": "Charles Schulz's strip featuring Charlie Brown and Snoopy"
+     }
+    ],
+    "explanation": {
+     "surface": "Low pay earned from drawing cartoons.",
+     "definitionFit": "Peanuts is slang for a trivial sum and also the name of Schulz's comic strip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1369,59 @@
     "text": "Contemplate missing first of these once will be moderate",
     "enumeration": "7"
    },
-   "solution": "MEDIATE"
+   "solution": "MEDIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moderate",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 12,
+       "note": "missing means a letter is dropped from the word for contemplate"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Contemplate",
+       "at": 0,
+       "gives": "MEDITATE",
+       "note": "to meditate is to contemplate"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 20,
+         "note": "first of picks the opening letter of these"
+        }
+       ],
+       "parts": [
+        {
+         "words": "these",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Contemplation, once some distractions are removed, becomes moderation.",
+     "walkthrough": "'moderate' is a verb, to act as go-between.",
+     "definitionFit": "To mediate is to step in between parties as a neutral moderator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moderate"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1435,57 @@
     "text": "Fruit that's no good to be eaten by Chinese leader",
     "enumeration": "5"
    },
-   "solution": "MANGO"
+   "solution": "MANGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to be eaten by",
+       "at": 21,
+       "note": "to be eaten by puts these letters inside the leader's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Chinese leader",
+       "at": 36,
+       "gives": "MAO",
+       "note": "Mao Zedong led communist China"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no",
+         "at": 13,
+         "gives": "N"
+        },
+        {
+         "words": "good",
+         "at": 16,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit gone bad, eaten anyway by the Chairman.",
+     "definitionFit": "The mango is a tropical stone fruit with sweet orange flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1505,58 @@
      }
     ]
    },
-   "solution": "OUTPATIENT"
+   "solution": "OUTPATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hospital case",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unpopular",
+       "at": 0,
+       "gives": "OUT",
+       "note": "out, as in out of favour, means unpopular"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "in puts the international letter inside the word for obvious"
+        }
+       ],
+       "parts": [
+        {
+         "words": "obvious",
+         "at": 27,
+         "gives": "PATENT",
+         "note": "patent means plain or obvious"
+        },
+        {
+         "words": "international",
+         "at": 10,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unpopular foreign player turns out to be an obvious hospital case.",
+     "definitionFit": "An outpatient is treated at a hospital without being admitted, one of its cases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1570,41 @@
     "text": "Manipulate American capital in Europe",
     "enumeration": "4"
    },
-   "solution": "RIGA"
+   "solution": "RIGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "capital in Europe",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Manipulate",
+       "at": 0,
+       "gives": "RIG",
+       "note": "to rig something is to manipulate it dishonestly"
+      },
+      {
+       "words": "American",
+       "at": 11,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rigging the movement of American money into Europe.",
+     "walkthrough": "'capital' looks like money but is a city.",
+     "definitionFit": "Riga is the capital city of Latvia on the Baltic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1624,42 @@
      }
     ]
    },
-   "solution": "TRADEUNION"
+   "solution": "TRADEUNION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Equity is one such",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disturbingly",
+       "at": 33,
+       "note": "disturbingly suggests the letters being stirred up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "idea on turn",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fairness, as an idea, has disturbingly been turned around.",
+     "walkthrough": "'Equity' looks like fairness or shares; it is the British actors' union. 'disturbingly' rearranges IDEA ON TURN.",
+     "definitionFit": "Equity is the UK's performers' union, an example of a labour organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Equity"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1673,29 @@
     "text": "Run in rain",
     "enumeration": "4"
    },
-   "solution": "PELT"
+   "solution": "PELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0,
+      "meaning": "to dash along at speed"
+     },
+     {
+      "text": "rain",
+      "at": 7,
+      "meaning": "to pour down hard"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone running through a downpour.",
+     "definitionFit": "Pelt means both to hurry along fast and to fall heavily, as rain does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
