@@ -988,6 +988,12 @@ OFFSET_UNDER_SHARE = 0.5
 OFFSET_UNDER_GAP = 0.1
 #: The years whose Gale Times pages band_grid() reads (surveyed 10-28: 1940-49).
 OFFSET_UNDER_YEARS = ("1939", "1949")
+#: The later years whose Gale Times pages band_grid() reads only where the page would be refused "the
+#: ink under the title is WxH, not a grid" (no touching_grid either): the 1950s grid's top frame inside
+#: its title's line, the crop under the title's foot cutting it off (1959-06-09: 720x694 under the title,
+#: the grid 720x718 from 24px up). 10-28 offline: band_grid takes a grid-shaped 720px box on 11 of the 14
+#: such 1950-67 rows (BAND_LATE).
+BAND_LATE_YEARS = ("1950", "1967")
 
 
 def offset_under(title, box):
@@ -8432,10 +8438,19 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     if side is None or not (wide_shaped if paper.key in GRID_RIGHT else shaped_on)(img, gbox):
         touched = touching_grid(img, hit["box"], gbox) \
             if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
-        if touched is None:
+        # A 1950-67 Gale Times grid whose top lies within its title's line (band_grid's shape past
+        # OFFSET_UNDER_YEARS), taken only where the page would be refused: BAND_LATE.
+        band = band_grid(img, hit["box"], None) if touched is None and paper.key == "gale" \
+            and not paper.clues_above and not paper.four \
+            and BAND_LATE_YEARS[0] <= d.name[:4] <= BAND_LATE_YEARS[1] else None
+        if band is not None:
+            gbox, side = band, "below"
+            verdict["gridBox"] = "under its title, top in its line"
+        elif touched is None:
             return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
-        gbox, side, backsolve = touched, "below", True
-        verdict["gridBox"] = "touching its title"
+        else:
+            gbox, side, backsolve = touched, "below", True
+            verdict["gridBox"] = "touching its title"
         gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
@@ -11090,6 +11105,32 @@ def band_due(row):
     return False
 
 
+#: The reason, and its fix's time, of a 1950-67 Gale Times page (BAND_LATE_YEARS) refused "the ink under
+#: the title is WxH, not a grid": its grid's top frame inside the title's line, the crop under the title's
+#: foot cut it (720x668-700 of a 720px grid), and band_grid ran for 1939-49 only. 10-28 census (failure
+#: shapes): 14 such 1950-67 rows unfiled, none due; band_grid takes a 720px grid on 11 offline. Readers
+#: only, offline: 1959-06-09 (No 9,080) refused -> written, 31 of 32 agreed (one misread the VLM settles);
+#: 1952-07-02 refused -> pending, its clues parsed and its grid unread. 32 rows come due (1950-54); the
+#: 1955-67 ones are due as "refused not-a-grid before its fix" already. Due by the ledger alone
+#: (band_late_due): such a refusal, its puzzle not held. Once each.
+BAND_LATE = "a 1950s grid in its title's line, refused before its fix"
+REREAD_BAND_LATE = "2026-10-28T09:45:00+00:00"
+
+
+def band_late_due(row):
+    """Whether Gale Times ledger `row` of BAND_LATE_YEARS, read before REREAD_BAND_LATE, refused a title
+    "not a grid" for the ink under it, its puzzle not held (BAND_LATE)."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not BAND_LATE_YEARS[0] <= day[:4] <= BAND_LATE_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_LATE)):
+        return False
+    series = paper_of(row.get("edition", "")).series
+    return any(v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ")
+               and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
+
+
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
 #: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
 #: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
@@ -13678,6 +13719,8 @@ def fix_reason(row):
         return ALONE_READ
     if band_due(row):
         return BAND_GRID
+    if band_late_due(row):
+        return BAND_LATE
     if left_split_due(row):
         return LEFT_SPLIT
     if scaled_grid_due(row):
@@ -14331,7 +14374,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
