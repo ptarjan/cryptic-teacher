@@ -1198,9 +1198,10 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         top, split, right, x0 = (above + (gx0 - margin,))[:4]
         return [(x0, split, split, top), (split, right, right, top)]
     if isinstance(split, tuple):
-        # Three columns under the grid, the last overhanging it (over_gutters()).
-        g1, g2, x1 = split
-        return [(gx0 - margin, g1, g1, gy1 - 5), (g1, g2, g2, gy1 - 5), (g2, x1, x1, gy1 - 5)]
+        # Three columns under the grid, the last overhanging it (over_gutters()), or four (under_quarters()):
+        # the gutters, then the last column's right edge.
+        edges = [gx0 - margin] + list(split)
+        return [(a, b, b, gy1 - 5) for a, b in zip(edges, edges[1:])]
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if lead:
@@ -1639,6 +1640,29 @@ UNDER_SPAN = 0.1
 #: narrower (the 1957-03-04 page: text to 0.33, the second from 0.39 of 720px),
 #: so the usual window about the grid's middle began inside the second.
 UNDER_FIFTIES = (0.25, 0.45)
+
+
+#: The Gale Times days (QUARTER_DAYS, inclusive) whose clues stand under the grid in four columns, ACROSS in
+#: the first two and DOWN in the last two, each a quarter of the grid's width: Aug-Dec 1939, scanned at
+#: twice the others' size (SCALED_EARLY). Read as two columns split at the grid's middle, each window held
+#: two clue columns, read as one line ("1 One must just shut | 18 Might he be des-", 1939-10-21), and every
+#: reading stopped "cannot find a clue number" (27 rows, 10-28 census).
+QUARTER_DAYS = ("1939-08-01", "1939-12-31")
+#: The least grid width (px) of such a page: the wide scans (1939-10-21's grid is 1,318px). A page of those
+#: days scanned at the usual size (its grid ~720px) is read in two columns, as before.
+QUARTER_WIDTH = 1000
+#: Where, as shares of the grid's width from its left edge, each of the four columns' three gutters may lie.
+QUARTER_SPANS = ((0.15, 0.35), (0.4, 0.6), (0.65, 0.85))
+
+
+def under_quarters(lines, grid):
+    """(first, second, third gutter, right edge) of four clue columns under the grid (QUARTER_DAYS): each
+    gutter where the fewest words (`lines`, every reading's) cross in its QUARTER_SPANS share."""
+    gx0, _, gx1, gy1 = grid
+    width = gx1 - gx0
+    bottom = gy1 + 1.8 * width
+    return tuple(gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 + lo * width, gx0 + hi * width)
+                 for lo, hi in QUARTER_SPANS) + (gx1 + 15,)
 
 
 def under_gutter(lines, grid, shares=None):
@@ -8472,8 +8496,11 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         right = right_gutter(every, gbox, right)
     if not paper.four:
         split = over_gutters(every, gbox, over) if over else \
-            under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None) if above is None and left is None and not right else None
-        if split is not None and not over:
+            (under_quarters(every, gbox) if paper.key == "gale" and QUARTER_DAYS[0] <= d.name[:10] <= QUARTER_DAYS[1]
+             and gbox[2] - gbox[0] >= QUARTER_WIDTH else
+             under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None)) \
+            if above is None and left is None and not right else None
+        if split is not None and not over and not isinstance(split, tuple):
             if kind == "under":
                 split = alt_x
             elif alts is not None:
@@ -11012,15 +11039,14 @@ SCALED_GRID_YEARS = ("1940", "1941")
 SCALED_GRID_UNREAD = ("too few neighbouring white cells", "only ")
 
 
-def scaled_grid_due(row):
-    """Whether Gale Times ledger `row` of SCALED_GRID_YEARS, read before REREAD_SCALED_GRID, holds a verdict
-    pending for no grid whose grid image trove_grid found too few white cells in, its puzzle not held
-    (SCALED_GRID)."""
+def scaled_grid_due(row, years=SCALED_GRID_YEARS, cutoff=REREAD_SCALED_GRID):
+    """Whether Gale Times ledger `row` of `years`, read before `cutoff`, holds a verdict pending for no
+    grid whose grid image trove_grid found too few white cells in, its puzzle not held (SCALED_GRID)."""
     scan = row.get("scan") or {}
     day = str(scan.get("date") or "")
     if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
-            or not SCALED_GRID_YEARS[0] <= day[:4] <= SCALED_GRID_YEARS[1] \
-            or not scan_queue.read_before(row, scan_queue.when(REREAD_SCALED_GRID)):
+            or not years[0] <= day[:4] <= years[1] \
+            or not scan_queue.read_before(row, scan_queue.when(cutoff)):
         return False
     series = paper_of(row.get("edition", "")).series
     for v in row.get("verdicts", ()):
@@ -11030,6 +11056,23 @@ def scaled_grid_due(row):
                 and filed_state(series, v.get("number")) is None:
             return True
     return False
+
+
+#: SCALED_GRID's shape on 1939 Gale Times pages (SCALED_EARLY_YEARS): Aug-Dec 1939 grid crops are as wide
+#: (up to 1,340px) and pend as "no grid" the same way. Census 10-28: 27 such rows; of their cached crops, 24
+#: read as a 15x15 grid shrunk (scaled_grid). Other years' unread crops barely do (2 of ~60), so they are
+#: not due. Their clues stand in four columns under the grid, each window of two read as one line, so every
+#: reading also stopped "cannot find a clue number": read in four since (under_quarters, QUARTER_DAYS).
+#: Due by the ledger alone (scaled_early_due), once each.
+SCALED_EARLY = "a 1939 grid unread at its scan's size and its four clue columns, read since"
+REREAD_SCALED_EARLY = "2026-10-28T09:45:00+00:00"
+SCALED_EARLY_YEARS = ("1939", "1939")
+
+
+def scaled_early_due(row):
+    """Whether Gale Times ledger `row` of SCALED_EARLY_YEARS, read before REREAD_SCALED_EARLY, pends for a
+    grid trove_grid found too few white cells in, its puzzle not held (SCALED_EARLY)."""
+    return scaled_grid_due(row, SCALED_EARLY_YEARS, REREAD_SCALED_EARLY)
 
 
 #: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
@@ -13508,6 +13551,8 @@ def fix_reason(row):
         return SCALED_GRID
     if left_late_due(row):
         return LEFT_LATE
+    if scaled_early_due(row):
+        return SCALED_EARLY
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14151,7 +14196,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,

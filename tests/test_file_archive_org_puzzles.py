@@ -3194,6 +3194,15 @@ try:
     _sg_none = f.scaled_grid(_sg_dir / "big.png")
 finally:
     f.trove_grid.read_grid = _sg_real
+# Gale 1939-10-21 (wide scan, grid 3634-4952): four clue columns under the grid, split at three gutters
+# (under_quarters); three gutters' tuple windows stay as they were (over_gutters).
+_q_words = [[(3640 + 330 * k, 5700 + 40 * r, 3640 + 330 * k + 280, 5730 + 40 * r) for k in range(4)] for r in range(10)]
+_q = f.under_quarters(_q_words, (3634, 4241, 4952, 5619))
+check("four columns under a wide 1939 grid: three gutters in the words' gaps, four windows from the grid's margin",
+      [3, True, [(3594, _q[0], _q[0], 5614), (_q[0], _q[1], _q[1], 5614), (_q[1], _q[2], _q[2], 5614), (_q[2], 4967, 4967, 5614)],
+       [(60, 300, 300, 495), (300, 600, 600, 495), (600, 720, 720, 495)]],
+      [len(_q) - 1, all(3640 + 330 * k + 280 <= g <= 3640 + 330 * (k + 1) for k, g in enumerate(_q[:3])),
+       f.windows_of((3634, 4241, 4952, 5619), split=_q), f.windows_of((100, 100, 600, 500), split=(300, 600, 720))])
 check("a big grid crop unread as is reads shrunk to 720px; a crop that reads is read once; failing all, the full-size why",
       [(15, None), [1200, 720], (15, None), [700], (None, "only 9 white cells found")],
       [(len(_sg_big[0]), _sg_big[1]), _sg_big_seen, (len(_sg_small[0]), _sg_small[1]), _sg_small_seen, _sg_none])
