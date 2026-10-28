@@ -6908,7 +6908,12 @@ check("a clue number its list's order refuses is left for the grid to place (Tim
 import datetime
 tfix = Path("fixtures/archive-org-titles")
 tcases = json.loads((tfix / "cases.json").read_text())
-band_words = f.band_words
+band_words, shaped_on = f.band_words, f.shaped_on
+# Each image is a crop (cases.json's "region") of a SCAN_WIDTH page, so its grid
+# is measured at that page's scale: ocr_titles' shaped_on would scale the crop
+# up to SCAN_WIDTH as if it were the whole page, and lose the grid (FT 5607's
+# 1760px crop then took a 300px patch under it for its grid).
+f.shaped_on = lambda img, box: f.grid_shaped(box)
 for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the grid's left"),
                    ("ftcryptic-9705", "FT 1998-06-11, its number line unread"),
                    ("ftcryptic-7869", "FT 1992-06-10, a column rule beside its title"),
@@ -6921,7 +6926,7 @@ for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the gr
     want = int(name.split("-")[1])
     check(f"a title archive.org's text lacks is read by ours: {what}", ([want], True),
           ([t[0] for t in got], bool(got) and abs(got[0][0] - paper.expected(day)) <= f.NUMBER_SLACK))
-f.band_words = band_words
+f.band_words, f.shaped_on = band_words, shaped_on
 
 # A grid at the page's top edge has a title band over it with no height
 # (title_bands clips it to the page): it reads as no words, it does not
