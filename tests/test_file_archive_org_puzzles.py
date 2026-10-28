@@ -2241,6 +2241,11 @@ for head in ("cotution of Puzzle No 13.682", "^j^on D f Puzzle No 13,682"):
           "DOWN\n22 Bird dives back into the\niceberg (5).", f.column_text(f.columns(col, grid)))
 check("a clue ending on a number is no solution heading",
       [False, False], [f.stops(t) for t in ("puzzle no 1 (5).", "a business combine (8).")])
+check("a clue's last line opening on a STOP word, closed by its count, is no notice (Gale 1982-12-15's 5 down); "
+      "the notices still stop",
+      [False, False, True, True, True],
+      [f.stops(t) for t in ("Jumbo?(6.3.6).", "Solution? (8)", "Jumbo crossword", "Concise crossword, page 11",
+                            "Solution to Puzzle No 17,503")])
 
 # tidy(): OCR's slips in the print's shape.
 check("braces and square brackets read as round ones", "1 Poet's way (5)\n2 Talks (3,2)",

@@ -584,12 +584,18 @@ CONTINUED = re.compile(r"\W*[a-z]{4,}\b")
 #: Puzzle No 13.682", "^j^on D f Puzzle No 13.682", 1974): no clue's line
 #: ends on a puzzle's number.
 PUZZLE_NO = re.compile(r"\bp[uo]\S{2,4}\s+n[o0]\.?\s*\d{1,2}\s?[.,]?\s?\d{3}\W{0,2}$", re.I)
+#: A clue's count closing a line ("(6.3.6).", "(4-4)"): the line is a clue's last, never a notice's.
+#: Gale 1982-12-15's 5 down, "Producers of the original / Jumbo?(6.3.6).", read as a STOP line, ended
+#: the down column there: no reading laid 6-21 down.
+CLUE_COUNT_END = re.compile(r"\(\s*\d{1,2}(?:\s*[,.\-]\s*\d{1,2})*\s*\)\W{0,2}$")
 
 
 def stops(text):
     """Whether a column line ends the clues: a STOP line, never a clue's
-    run-on line, or one ending on a puzzle's number."""
-    return bool(STOP.match(text)) and not CONTINUED.match(text) or bool(PUZZLE_NO.search(text))
+    run-on line nor one closed by a clue's count, or one ending on a
+    puzzle's number."""
+    return bool(STOP.match(text)) and not CONTINUED.match(text) and not CLUE_COUNT_END.search(text) \
+        or bool(PUZZLE_NO.search(text))
 
 
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
@@ -11683,6 +11689,60 @@ def down_foot_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page written unfiled with lights "no reading laid a clue on
+#: it" after a clue's last line opening on a STOP word ended its column: "Producers of the original /
+#: Jumbo?(6.3.6)." (Gale 1982-12-15's 5 down; no reading laid 6-21 down), "Jumbo jet ? (6).", "Crossword
+#: (4).", "Concise (5).", "Championship of the right (5).". A clue's count closing the line now keeps the
+#: column going (stops(), CLUE_COUNT_END). Every such line in the 36,123 cached ch/en5 readings (76) is a
+#: clue's. Failure shapes r9, 10-28: the census's "bare number" lights (56) were mostly a weather table's
+#: number or a count matched; re-tallied, of the unplanned lost lights 216 have a reading holding the
+#: number as a box apart, nearly all joined already by merge_rows; 14 are in no reading (a crop's read
+#: ending short, garbled NewsUK pages); the rest are layout one-offs. Due by the ledger and the cached
+#: readings (stop_tail_read). Its own reason, not "unfiled before its fix". Once each.
+STOP_TAIL = "unfiled before its fix, a clue's last line read as its column's end"
+REREAD_STOP_TAIL = "2026-10-28T12:35:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def stop_tail_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}"), any window of
+    its cache, holds a line stops() took for a STOP line before a clue's count closing it kept it a clue's."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+            texts = [str(w[4]) for o in wins for w in o["words"]]
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+        if any(STOP.match(t) and not CONTINUED.match(t) and CLUE_COUNT_END.search(t) for t in texts):
+            return True
+    return False
+
+
+def stop_tail_lost(row):
+    """Whether Times ledger `row`, read before REREAD_STOP_TAIL, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a light blank
+    as "no reading laid a clue on it" while a cached reading holds a clue's last line once taken for a
+    STOP line (stop_tail_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_STOP_TAIL)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not stop_tail_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
 #: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
 #: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
@@ -14427,6 +14487,8 @@ def fix_reason(row):
         return DOWN_FOOT
     if speck_mended_lost(row):
         return SPECK_MENDED
+    if stop_tail_lost(row):
+        return STOP_TAIL
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -15070,7 +15132,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15398,7 +15460,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED) else {}),
+                                      SPECK_MENDED, STOP_TAIL) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

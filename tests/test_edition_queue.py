@@ -448,6 +448,29 @@ check("which blank tokens the mends now clear: a glued comma, a quote glued to i
                                   "\"F.'s\": a stray mark inside a word", "'hrute': not a word",
                                   "'linguae': not a word", "'Beat,—with': a stray mark inside a word",
                                   "both read 'felt,a', not a word")])
+# ---- a Times page written unfiled for lights no reading laid after a clue's last line opening on a STOP word ended
+# the column (Gale 1982-12-15: 5 down's "Jumbo?(6.3.6)."; 6-21 down unlaid) is due once (fa.STOP_TAIL), ordered
+# with never-read pages, never canary-held.
+_cl = {"id": "times-9999994", "number": 9999994, "complete": False, "wrote": True, "unfiled": 2, "clues": 30,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("7-down", "8-down")}}
+_clrow = {"edition": "GaleTimes1982UKEnglish/1982-12-15", "verdicts": [_cl], "readAt": "2026-10-22T01:26:02+00:00"}
+_cl_read = f.stop_tail_read
+f.stop_tail_read = lambda key: key == "1982-12-15_9999994"
+check("a Times page whose column a clue's STOP-word last line ended is due as such, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held",
+      [f.STOP_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_clrow), f.RANKS[f.STOP_TAIL], eq.evidence_reason(f.STOP_TAIL),
+       f.STOP_TAIL in eq.FIX_LANDED, f.STOP_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.STOP_TAIL, "date": "1982-12-15"}),
+       eq.canary_failed({"paper": "times", "reason": f.STOP_TAIL, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper, nor with no light no reading laid",
+      [False] * 3,
+      [f.stop_tail_lost({**_clrow, "readAt": _after}),
+       f.stop_tail_lost({**_clrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.stop_tail_lost({**_clrow, "verdicts": [{**_cl, "blank": {"7-down": "'hrute': not a word"}}]})])
+f.stop_tail_read = lambda key: False
+check("nor with no reading holding such a line", False, f.stop_tail_lost(_clrow))
+f.stop_tail_read = _cl_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
