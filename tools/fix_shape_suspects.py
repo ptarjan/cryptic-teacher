@@ -3567,6 +3567,55 @@ def r_indicator_note(node, parent, ctx):
     return new
 
 
+def _block_note_for(leaf_node, parent, tree, answer):
+    """The note a letters-giving leaf with none gets, or None when its shape is the model's to word.
+    Three shapes have exactly one right sentence (the annotate audit's 139 'missing blocks.note'
+    sessions: palindrome 106 since fill_palindrome_fodder, a repeated clue word's second leaf 48,
+    the leaf under sound() 37; the rest, a synonym leaf nobody explained, stays refused):
+      - the definition's words under pal<ind>(): the palindrome is the whole answer;
+      - a leaf whose words a sibling leaf already explains (`[blokes]AL + [blokes]BERT`: one note is
+        keyed by those words, so it lands on the first only): that note;
+      - the one leaf under sound(): the words said aloud (the letters only when they are not the answer)."""
+    if not leaf(leaf_node) or leaf_node.get("note") or leaf_node.get("unchecked") or not leaf_node.get("words"):
+        return None
+    words = leaf_node["words"]
+    # What the block shows: the spelt of a sound() over this leaf, else the leaf's own letters. The
+    # validator needs a note unless the fragment is its own letters (`in` > IN).
+    sounded = parent is not None and parent.get("op") == "homophone" and len(parent.get("parts") or []) == 1
+    shown = W.letters((parent.get("spelt") if sounded else leaf_node.get("gives")) or "")
+    if not shown or shown.lower() == W.letters(words).lower():
+        return None
+    if parent is not None and parent.get("op") == "palindrome" and len(parent.get("parts") or []) == 1:
+        return ("these definition words give the whole answer, and the answer is itself the palindrome: "
+                "it reads the same from either end")
+    if sounded:
+        spelt = shown.upper()
+        if answer and spelt != W.letters(answer).upper():
+            return f"said aloud, these words sound like {spelt}"
+        return "these words are said aloud, and what is heard is the sound this part of the answer needs"
+    fold = lambda t: " ".join(re.findall(r"\w+", str(t).lower()))
+    twins = {str(n["note"]) for n, _ in walk(tree) if leaf(n) and n is not leaf_node and n.get("note")
+             and fold(n.get("words")) == fold(words)}
+    if len(twins) == 1:
+        return next(iter(twins))
+    return None
+
+
+def unnoted_blocks(tree, answer=None):
+    """How many leaves `r_block_note` could give a note (the first check's blocks.note, mendable shapes)."""
+    return sum(1 for node, parent in walk(tree) if leaf(node) and _block_note_for(node, parent, tree, answer))
+
+
+def r_block_note(node, parent, ctx):
+    """blockNote: a leaf that gives letters and has no note (the first check's blocks.note refusal)
+    takes the one sentence its shape fixes (_block_note_for); any other leaf stays refused."""
+    tree = ctx.get("tree")
+    if tree is None:
+        return None
+    note = _block_note_for(node, parent, tree, ctx.get("answer"))
+    return {**node, "note": note} if note else None
+
+
 def r_does_not_give(node, parent, ctx):
     """doesNotGive: a tree that does not give the answer (the first check's commonest refusal), mended
     only when ONE edit makes it give it and no other single edit does: a container whose two arguments
@@ -3755,7 +3804,7 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 or r_container_gap(n, p, c) or r_hidden_possessive(n, p, c) or r_unindicated_move(n, p, c, V.unindicated_ops) or r_unindicated_spare(n, p, c, V.unindicated_ops), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
                 "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give,
-                "indicatorNote": r_indicator_note}
+                "indicatorNote": r_indicator_note, "blockNote": r_block_note}
 
 
 def note_deletions(tree):
@@ -4268,7 +4317,8 @@ _DETECTOR_RULES = {"unchecked_leaf": lambda wp, full, clue: "unchecked_leaf" in 
                    "arity_ins": lambda wp, full, clue: V.arity_ins(wp),
                    "arity_other": lambda wp, full, clue: V.arity_other(wp),
                    "ind_in_leaf": lambda wp, full, clue: V.ind_in_leaf(wp, clue),
-                   "indicatorNote": lambda wp, full, clue: unnoted_indicators(wp)}
+                   "indicatorNote": lambda wp, full, clue: unnoted_indicators(wp),
+                   "blockNote": lambda wp, full, clue: unnoted_blocks(wp, full.get("_answer"))}
 
 
 def run_rule(rule, apply, n_examples, seed, limit, jobs, ids=None):
