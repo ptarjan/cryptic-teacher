@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Way through a predicament",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way through",
+      "at": 0,
+      "meaning": "a mountain route that crosses a ridge, as in a col"
+     },
+     {
+      "text": "a predicament",
+      "at": 12,
+      "meaning": "a difficult situation, as in 'things have come to a sorry ...'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone looking for an escape route out of a tight spot.",
+     "definitionFit": "Both senses are standard: a mountain gap you cross, and a sorry state of affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Way"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,42 @@
     "text": "Mean to cover the interior starting point, comparatively",
     "enumeration": "8"
    },
-   "solution": "BASELINE"
+   "solution": "BASELINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "starting point, comparatively",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mean",
+       "at": 0,
+       "gives": "BASE",
+       "note": "mean in the sense of low or ignoble gives base"
+      },
+      {
+       "words": "to cover the interior",
+       "at": 5,
+       "gives": "LINE",
+       "note": "to line something is to cover its inside surface, as with a coat lining"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction about covering the inside of something, oddly mixed with an average.",
+     "walkthrough": "'Mean' looks like an average or a verb, but here it is the adjective for ignoble.",
+     "definitionFit": "A reference level against which later figures are compared is called a baseline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +120,66 @@
     "text": "Dessert not right after second scotch",
     "enumeration": "6"
    },
-   "solution": "STIFLE"
+   "solution": "STIFLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scotch",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "after places the shortened dessert behind the abbreviation for second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 24,
+       "gives": "S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 8,
+         "note": "not tells us the word for right is to be left out of the dessert"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dessert",
+         "at": 0,
+         "gives": "TRIFLE",
+         "note": "a trifle is a layered British pudding of sponge, custard and cream"
+        },
+        {
+         "words": "right",
+         "at": 12,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner skipping pudding and having a second glass of Scotch whisky instead.",
+     "walkthrough": "'not right' removes R from TRIFLE, leaving TIFLE. 'scotch' is the verb meaning suppress, not the whisky.",
+     "definitionFit": "To scotch a rumour or plan is to suppress or put an end to it, a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scotch"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +193,59 @@
     "text": "Red shift within British queen's range",
     "enumeration": "8"
    },
-   "solution": "ARDENNES"
+   "solution": "ARDENNES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 10,
+       "note": "within places the rearranged letters inside the queen's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British queen's",
+       "at": 17,
+       "gives": "ANNES",
+       "note": "Queen Anne was a British monarch, so her possessive is Anne's"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shift",
+         "at": 4,
+         "note": "shift tells us the letters of red are to be moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Red",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colour change seen somewhere in a royal's mountain territory, or perhaps astronomy's red shift.",
+     "walkthrough": "'Red shift' reads as the astronomical term, but 'shift' is the anagram signal; the shuffled letters sit just after the A of Anne's.",
+     "definitionFit": "The Ardennes is a range of forested hills spanning Belgium, Luxembourg and France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +259,68 @@
     "text": "Very cowardly, not quite returning gunfire",
     "enumeration": "6"
    },
-   "solution": "VOLLEY"
+   "solution": "VOLLEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gunfire",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very",
+       "at": 0,
+       "gives": "V"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 25,
+         "note": "returning means the shortened word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not quite",
+           "at": 15,
+           "note": "not quite means the colour word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cowardly",
+           "at": 5,
+           "gives": "YELLOW",
+           "note": "yellow is slang for cowardly"
+          },
+          {
+           "gives": "W"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craven soldier fleeing as the guns open up.",
+     "walkthrough": "Yellow as slang for cowardly is a crossword staple; 'not quite' drops its last letter before 'returning' turns it round.",
+     "definitionFit": "A volley is a simultaneous discharge of many guns, so a burst of gunfire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +334,49 @@
     "text": "Hard drinker, externally wrecked",
     "enumeration": "4"
    },
-   "solution": "SHOT"
+   "solution": "SHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wrecked",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "externally",
+       "at": 14,
+       "note": "externally says the drinker's word sits outside the letter for hard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drinker",
+       "at": 5,
+       "gives": "SOT",
+       "note": "a sot is a habitual drunkard"
+      },
+      {
+       "words": "Hard",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy drinker who looks a ruin from the outside.",
+     "walkthrough": "'externally' wraps SOT around H.",
+     "definitionFit": "Shot is informal for worn out or ruined, as in 'my nerves are shot'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "externally"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +390,58 @@
     "text": "Jail like Tijuana lacks interior for game",
     "enumeration": "7"
    },
-   "solution": "CANASTA"
+   "solution": "CANASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Jail",
+       "at": 0,
+       "gives": "CAN",
+       "note": "can is slang for prison"
+      },
+      {
+       "words": "like",
+       "at": 5,
+       "gives": "AS",
+       "note": "as means like, in comparisons"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "lacks interior",
+         "at": 18,
+         "note": "lacks interior keeps only the outside letters of the Mexican city's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tijuana",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison in the style of Tijuana's, with its innards missing.",
+     "walkthrough": "'lacks interior' keeps just the T and A of Tijuana.",
+     "definitionFit": "Canasta is a rummy-style card game that originated in Uruguay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jail"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +455,49 @@
     "text": "I've run out of patience stuffing cheese roll",
     "enumeration": "7"
    },
-   "solution": "BRIOCHE"
+   "solution": "BRIOCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffing",
+       "at": 25,
+       "note": "stuffing puts the exclamation inside the cheese"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cheese",
+       "at": 34,
+       "gives": "BRIE",
+       "note": "brie is a soft French cheese"
+      },
+      {
+       "words": "I've run out of patience",
+       "at": 0,
+       "gives": "OCH",
+       "note": "och is a Scots exclamation of impatience or annoyance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated cook giving up on filling a cheese roll.",
+     "walkthrough": "The whole phrase 'I've run out of patience' stands for the exclamation OCH, which goes inside BRIE.",
+     "definitionFit": "A brioche is a soft, rich French bread, often baked as a small bun or roll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "patience"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +511,70 @@
     "text": "What was that about following a second US sportsman?",
     "enumeration": "4"
    },
-   "solution": "ASHE"
+   "solution": "ASHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US sportsman",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "following",
+         "at": 20,
+         "note": "following places the letter for second after the a"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 30,
+         "gives": "A"
+        },
+        {
+         "words": "second",
+         "at": 32,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 14,
+         "note": "about means the exclamation is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What was that",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh is what you say when you didn't catch something"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking to hear again a remark about a runner-up.",
+     "walkthrough": "'about' turns the query round; Arthur Ashe was an American tennis champion, fitting the puzzle's tennis theme.",
+     "definitionFit": "Arthur Ashe, Wimbledon winner in 1975, was a celebrated American tennis player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +588,73 @@
     "text": "George Orwell and Colette finally breaking even, which produces a high note",
     "enumeration": "9"
    },
-   "solution": "FLAGEOLET"
+   "solution": "FLAGEOLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which produces a high note",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 34,
+       "note": "breaking says the other letters split the word for even apart"
+      }
+     ],
+     "parts": [
+      {
+       "words": "even",
+       "at": 43,
+       "gives": "FLAT",
+       "note": "flat means level or even"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "George",
+         "at": 0,
+         "gives": "GEO"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 26,
+           "note": "finally takes the last letter of each of the two writers' names"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Orwell",
+           "at": 7
+          },
+          {
+           "words": "Colette",
+           "at": 18
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two famous writers getting level, and someone hitting a high note as a result.",
+     "walkthrough": "'breaking' splits the word for even between its A and T; 'finally' applies to both writers' names.",
+     "definitionFit": "A flageolet is a small fipple flute with a high, piping tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +668,53 @@
     "text": "Publicity vehicle takes time to get on edge",
     "enumeration": "9"
    },
-   "solution": "ADVANTAGE"
+   "solution": "ADVANTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "edge",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Publicity",
+       "at": 0,
+       "gives": "AD",
+       "note": "an ad is an advertisement, a piece of publicity"
+      },
+      {
+       "words": "vehicle",
+       "at": 10,
+       "gives": "VAN",
+       "note": "a van is a road vehicle"
+      },
+      {
+       "words": "time",
+       "at": 24,
+       "gives": "T"
+      },
+      {
+       "words": "to get on",
+       "at": 29,
+       "gives": "AGE",
+       "note": "to get on in years is to age"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising van that takes its time to start, making someone edgy.",
+     "walkthrough": "'to get on' means to grow older, not to board.",
+     "definitionFit": "Having the edge over someone means having an advantage over them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +728,40 @@
     "text": "Whack southern pests",
     "enumeration": "5"
    },
-   "solution": "SLICE"
+   "solution": "SLICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Whack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "southern",
+       "at": 6,
+       "gives": "S"
+      },
+      {
+       "words": "pests",
+       "at": 15,
+       "gives": "LICE",
+       "note": "lice are parasitic insect pests"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to swat insects in the south.",
+     "definitionFit": "A slice is a cutting stroke in tennis or golf, a kind of hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whack"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +775,60 @@
     "text": "Hood's after the sheriff's head — look annoyed!",
     "enumeration": "5"
    },
-   "solution": "SCOWL"
+   "solution": "SCOWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "look annoyed",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 7,
+       "note": "after places the hood word behind that first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head",
+         "at": 27,
+         "note": "head means the first letter of the lawman's title"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheriff's",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "Hood's",
+       "at": 0,
+       "gives": "COWL",
+       "note": "a cowl is a monk's hood; the 's stands for 'is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Robin Hood pursuing the Sheriff of Nottingham's head, to the sheriff's fury.",
+     "walkthrough": "'Hood' reads as Robin Hood but is a garment.",
+     "definitionFit": "To scowl is to frown in anger or displeasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hood's"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +842,42 @@
     "text": "Drive any convertible — red, say, from here",
     "enumeration": "8"
    },
-   "solution": "VINEYARD"
+   "solution": "VINEYARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "red, say, from here",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "convertible",
+       "at": 10,
+       "note": "convertible signals that the letters of the first words can be changed into another form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Drive any",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to take any open-top car for a spin.",
+     "walkthrough": "'convertible' looks like a car, but it rearranges DRIVE ANY.",
+     "definitionFit": "Red wine, for example, comes from grapes grown on a vineyard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "convertible"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +891,44 @@
     "text": "Sir Walter casually said: \"Convention\"",
     "enumeration": "5"
    },
-   "solution": "RALLY"
+   "solution": "RALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Convention",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RALLY",
+     "indicators": [
+      {
+       "text": "casually said",
+       "at": 11,
+       "note": "casually said means the surname is pronounced in a relaxed, slurred way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sir Walter",
+       "at": 0,
+       "gives": "RALEIGH",
+       "note": "Sir Walter Raleigh was an Elizabethan explorer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Elizabethan courtier offhandedly mentioning a gathering.",
+     "walkthrough": "The explorer's surname, said loosely, sounds like the answer.",
+     "definitionFit": "A rally is a mass gathering or meeting, as is a convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Convention"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +942,40 @@
     "text": "In full, oven-ready relish",
     "enumeration": "4"
    },
-   "solution": "LOVE"
+   "solution": "LOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relish",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In says the answer sits inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "full, oven-ready",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook enjoying an oven-ready meal to the full.",
+     "definitionFit": "To relish something is to enjoy it greatly, a close synonym of adore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relish"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +989,46 @@
     "text": "Premium book about the country",
     "enumeration": "5"
    },
-   "solution": "BONUS"
+   "solution": "BONUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Premium",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "book",
+       "at": 8,
+       "gives": "B"
+      },
+      {
+       "words": "about",
+       "at": 13,
+       "gives": "ON",
+       "note": "on means about, as in a talk on a subject"
+      },
+      {
+       "words": "the country",
+       "at": 19,
+       "gives": "US",
+       "note": "US, the United States, is a country"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A high-quality book about the nation.",
+     "definitionFit": "A premium can be an extra payment or reward, like a bonus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Premium"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1042,41 @@
     "text": "Sloped writing support aid",
     "enumeration": "8"
    },
-   "solution": "BACKHAND"
+   "solution": "BACKHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sloped writing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "support",
+       "at": 15,
+       "gives": "BACK",
+       "note": "to back someone is to support them"
+      },
+      {
+       "words": "aid",
+       "at": 23,
+       "gives": "HAND",
+       "note": "a hand is help, as in lending a hand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handwriting that leans as if needing support.",
+     "definitionFit": "Backhand is handwriting slanting to the left; it is also a tennis stroke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1090,61 @@
     "text": "Name Will shortly after Bill's rejected",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "after places the contraction behind the turned bill"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 31,
+         "note": "rejected means the bill's letters are turned back"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bill's",
+         "at": 24,
+         "gives": "AC",
+         "note": "AC, for account, is a bill"
+        }
+       ]
+      },
+      {
+       "words": "Will shortly",
+       "at": 5,
+       "gives": "LL",
+       "note": "will shortened is the contraction 'll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naming Will in a will once Bill has been cut out.",
+     "walkthrough": "'rejected' turns AC into CA.",
+     "definitionFit": "To call someone something is to name them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1158,52 @@
     "text": "Dog has a temperature? Setter has remedy!",
     "enumeration": "8"
    },
-   "solution": "CURATIVE"
+   "solution": "CURATIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "remedy",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dog",
+       "at": 0,
+       "gives": "CUR",
+       "note": "a cur is a mongrel dog"
+      },
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "words": "temperature",
+       "at": 10,
+       "gives": "T"
+      },
+      {
+       "words": "Setter has",
+       "at": 23,
+       "gives": "IVE",
+       "note": "the setter says I have, contracted to I've"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog with a fever, and the crossword setter offering a cure.",
+     "walkthrough": "'Setter' looks like a dog breed alongside 'Dog', but means the crossword's compiler.",
+     "definitionFit": "A curative is a medicine or treatment that heals, so a remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1217,35 @@
     "text": "Which comes as no shock to those who have it",
     "enumeration": "8"
    },
-   "solution": "ALOPECIA"
+   "solution": "ALOPECIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Which comes as no shock to those who have it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Which comes as no shock to those who have it",
+       "at": 0,
+       "note": "shock is a thick head of hair; those with this condition have no shock because their hair has fallen out"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something that doesn't surprise the people experiencing it.",
+     "definitionFit": "Alopecia is the medical term for hair loss, leaving no shock of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1259,42 @@
     "text": "Tragedy of trail map-making body",
     "enumeration": "6"
    },
-   "solution": "PATHOS"
+   "solution": "PATHOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tragedy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trail",
+       "at": 11,
+       "gives": "PATH",
+       "note": "a path is a trail"
+      },
+      {
+       "words": "map-making body",
+       "at": 17,
+       "gives": "OS",
+       "note": "OS is the Ordnance Survey, Britain's national mapping agency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad story about a map-maker and a trail.",
+     "walkthrough": "The OS (Ordnance Survey) publishes Britain's official maps.",
+     "definitionFit": "Pathos is the quality in a tragedy that stirs pity and sorrow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1308,31 @@
     "text": "Mason's fermented juice?",
     "enumeration": "5"
    },
-   "solution": "PERRY"
+   "solution": "PERRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mason's",
+      "at": 0,
+      "meaning": "... Mason, the fictional lawyer, has this first name"
+     },
+     {
+      "text": "fermented juice",
+      "at": 8,
+      "meaning": "an alcoholic drink made from fermented pears"
+     }
+    ],
+    "explanation": {
+     "surface": "A stonemason's homebrew.",
+     "definitionFit": "Perry is pear cider, and Perry Mason is Erle Stanley Gardner's courtroom hero."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mason's"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1346,48 @@
     "text": "Under river, youth finds illegal drink",
     "enumeration": "6"
    },
-   "solution": "POTEEN"
+   "solution": "POTEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "illegal drink",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Under",
+       "at": 0,
+       "note": "Under, in a down clue, puts the young person below the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 6,
+       "gives": "PO",
+       "note": "the Po is Italy's longest river"
+      },
+      {
+       "words": "youth",
+       "at": 13,
+       "gives": "TEEN",
+       "note": "a teen is a young person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young person found drinking moonshine beneath a river bridge.",
+     "definitionFit": "Poteen is Irish moonshine, a spirit illicitly distilled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Under"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1401,57 @@
     "text": "Water collection difficulty: pieces start to tear",
     "enumeration": "9"
    },
-   "solution": "CATCHMENT"
+   "solution": "CATCHMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Water collection",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "difficulty",
+       "at": 17,
+       "gives": "CATCH",
+       "note": "a catch is a hidden snag or difficulty"
+      },
+      {
+       "words": "pieces",
+       "at": 29,
+       "gives": "MEN",
+       "note": "chess or draughts pieces are called men"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 36,
+         "note": "start to takes the opening letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tear",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Problems with a water tank whose parts begin to rip.",
+     "definitionFit": "A catchment is the area from which rainfall drains into a river or reservoir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1465,31 @@
     "text": "Johnny's ready?",
     "enumeration": "4"
    },
-   "solution": "CASH"
+   "solution": "CASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Johnny's",
+      "at": 0,
+      "meaning": "Johnny ... was the American country singer"
+     },
+     {
+      "text": "ready",
+      "at": 9,
+      "meaning": "ready is informal for money, as in readies"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether Johnny is prepared.",
+     "definitionFit": "Ready money is cash; Johnny Cash was the Man in Black of country music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1503,59 @@
     "text": "Before Elton's first hit record",
     "enumeration": "4"
    },
-   "solution": "TAPE"
+   "solution": "TAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "record",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "Before says the word for hit goes ahead of that letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hit",
+       "at": 21,
+       "gives": "TAP",
+       "note": "to tap is to hit lightly"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 15,
+         "note": "first takes the opening letter of the singer's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elton's",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An early Elton John hit single.",
+     "walkthrough": "'hit record' reads as a chart success but splits: 'hit' is wordplay, 'record' the definition.",
+     "definitionFit": "To tape something is to record it, as on cassette."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1569,29 @@
     "text": "Cram cards",
     "enumeration": "4"
    },
-   "solution": "PACK"
+   "solution": "PACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cram",
+      "at": 0,
+      "meaning": "to stuff full, as when filling a suitcase"
+     },
+     {
+      "text": "cards",
+      "at": 5,
+      "meaning": "a full deck of playing cards"
+     }
+    ],
+    "explanation": {
+     "surface": "Stuffing playing cards in.",
+     "definitionFit": "Both senses are standard: stuff tightly, and a deck of playing cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1605,41 @@
     "text": "Texas to undergo housing shock",
     "enumeration": "7"
    },
-   "solution": "ASTOUND"
+   "solution": "ASTOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 17,
+       "note": "housing means the first words contain the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Texas to undergo",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The state of Texas about to go through a housing crisis.",
+     "walkthrough": "'housing' looks like property, but it signals the answer is inside 'Texas to undergo'.",
+     "definitionFit": "To astound someone is to amaze or stun them, a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1653,58 @@
     "text": "Cerise rocks without volume/mass?",
     "enumeration": "7"
    },
-   "solution": "SERVICE"
+   "solution": "SERVICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mass",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 13,
+       "note": "without, in its old sense of outside, puts the jumbled colour around the letter for volume"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rocks",
+         "at": 7,
+         "note": "rocks means the letters of the colour are shaken up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cerise",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "volume",
+       "at": 21,
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cherry-red stones with no size or weight, a puzzle of physics.",
+     "walkthrough": "'rocks' rearranges CERISE to SERICE, which wraps V. 'mass' is the church service, not weight.",
+     "definitionFit": "Mass is the central Catholic act of worship, a church service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   }
  ]
 }
