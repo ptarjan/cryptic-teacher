@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Next X-ray should be here in hospital directory",
     "enumeration": "10"
    },
-   "solution": "AFTERWARDS"
+   "solution": "AFTERWARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Next",
+      "at": 0,
+      "meaning": "next means coming later, subsequently"
+     },
+     {
+      "text": "X-ray should be here in hospital directory",
+      "at": 5,
+      "meaning": "an alphabetical hospital directory lists X-ray straight after the wards, since X follows W"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told the X-ray department comes next, as shown on the hospital's signboard.",
+     "walkthrough": "The second reading splits the answer as AFTER WARDS: in an A-to-Z list of departments, X-ray comes after Wards.",
+     "definitionFit": "Both words mean later on, following what came before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "directory"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,68 @@
     "text": "Most of capital area is upwardly mobile too",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "too",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upwardly mobile",
+       "at": 24,
+       "note": "in a down clue, moving upwards means the letters are read from the bottom back to the top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Most of",
+           "at": 0,
+           "note": "most of a word means it loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "capital",
+           "at": 8,
+           "gives": "OSLO",
+           "note": "Oslo is the capital of Norway"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        },
+        {
+         "words": "area",
+         "at": 16,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city district is said to be socially aspiring as well.",
+     "walkthrough": "'Most of' trims OSLO to OSL; adding A gives OSLA, and 'upwardly mobile' turns it round.",
+     "definitionFit": "Both words are adverbs meaning as well, in addition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +147,64 @@
     "text": "Hoards made by 29 ground squirrels, oddly",
     "enumeration": "9"
    },
-   "solution": "TREASURES"
+   "solution": "TREASURES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hoards",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "at": 18,
+         "note": "ground is the past participle of grind, so the letters are crushed and reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "29",
+         "at": 15,
+         "gives": "RATE",
+         "note": "the answer to 29 across, meaning velocity"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 36,
+         "note": "oddly picks the first, third, fifth and following odd-numbered letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "squirrels",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Squirrels gather their nut stores on the ground, behaving a little strangely.",
+     "walkthrough": "'ground' rearranges RATE into TREA; the odd letters of squirrels, SURES, follow unchanged.",
+     "definitionFit": "Hoards are precious stockpiles, valued collections kept hidden — a synonym in the plural noun sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +218,61 @@
     "text": "After artist died, half of score is set to be heard",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set to be heard",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after tells us the remaining piece follows the first two in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "artist",
+         "at": 6,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, a crossword stock artist"
+        },
+        {
+         "words": "died",
+         "at": 13,
+         "gives": "D",
+         "note": "D is the abbreviation for died, as in family trees"
+        }
+       ]
+      },
+      {
+       "words": "half of score",
+       "at": 19,
+       "gives": "IO",
+       "note": "a score is twenty, half is ten, and the figures 10 look like the letters I and O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a painter's death, half of a piece of music is to be performed.",
+     "walkthrough": "'score' looks musical but is the number twenty; half of it, written as figures, is 10, read as IO.",
+     "definitionFit": "A wireless set is the household device that you listen to rather than watch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +286,55 @@
     "text": "Norm is too old, rejecting one blood type after another",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Norm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "rejecting",
+       "at": 17,
+       "note": "rejecting one thing after another means it is thrown out and a replacement put in its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "too old",
+       "at": 8,
+       "gives": "OVERAGE",
+       "note": "overage means beyond the age limit, too old"
+      },
+      {
+       "words": "one blood type",
+       "at": 27,
+       "gives": "O",
+       "note": "O is one of the blood groups"
+      },
+      {
+       "words": "another",
+       "at": 48,
+       "gives": "A",
+       "note": "A is another blood group"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A transfusion rule: someone is past the age limit, refusing one blood group after another.",
+     "walkthrough": "In OVERAGE the O becomes A.",
+     "definitionFit": "A norm is the typical or middling standard, the usual level — a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Norm"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +348,49 @@
     "text": "Nuisance, having to shore up river that's most low",
     "enumeration": "7"
    },
-   "solution": "DEEPEST"
+   "solution": "DEEPEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "most low",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "having to shore up",
+       "at": 10,
+       "note": "to shore up is to support from beneath, so in a down clue this piece sits below the river"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 29,
+       "gives": "DEE",
+       "note": "the Dee is a river in Wales, England and Scotland"
+      },
+      {
+       "words": "Nuisance",
+       "at": 0,
+       "gives": "PEST",
+       "note": "a pest is an annoying person or thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An annoying task: propping up a river bank at its lowest point.",
+     "walkthrough": "In a down clue PEST goes under DEE, as if propping it up.",
+     "definitionFit": "Deepest is the superlative of deep, the furthest down, matching the superlative of low."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shore"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +404,36 @@
     "text": "Sport where players change clubs with no transfer fee",
     "enumeration": "4"
    },
-   "solution": "GOLF"
+   "solution": "GOLF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sport where players change clubs with no transfer fee",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sport where players change clubs with no transfer fee",
+       "at": 0,
+       "note": "footballers change clubs for transfer fees; in this game players swap one club for another on every hole for nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sport where footballers move teams for free.",
+     "walkthrough": "'clubs' means teams in the football reading, but here the clubs are the sticks used to hit the ball.",
+     "definitionFit": "Players pick a different iron or wood for each shot from the bag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +447,47 @@
     "text": "Being seen by water getting more warm, going topless",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being seen by water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "going topless",
+       "at": 39,
+       "note": "topless in a down clue means the top letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more warm",
+       "at": 28,
+       "gives": "HOTTER",
+       "note": "hotter means warmer"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbather by the lake, warming up, takes off a top.",
+     "walkthrough": "'going topless' removes the H from HOTTER.",
+     "definitionFit": "The otter is a creature found along rivers, a creature living by the riverbank — an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +501,42 @@
     "text": "Ladies — maybe diverting if it's Alice, or maddening if it's Celia?",
     "enumeration": "10"
    },
-   "solution": "FACILITIES"
+   "solution": "FACILITIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ladies — maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "diverting",
+       "at": 15,
+       "note": "diverting means turning aside, so these letters are turned into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if it's Alice",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke about toilets: amusing if Alice is there, infuriating if Celia is.",
+     "walkthrough": "'or maddening if it's Celia' is a second anagram of the same letters, 'maddening' its indicator, rearranging IF IT'S CELIA to the same answer.",
+     "definitionFit": "The ladies is a women's public toilet, one of the amenities a building offers — an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "diverting"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +550,29 @@
     "text": "Take and squander?",
     "enumeration": "5"
    },
-   "solution": "SPEND"
+   "solution": "SPEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0,
+      "meaning": "to take time over something is to use it up"
+     },
+     {
+      "text": "squander",
+      "at": 9,
+      "meaning": "to squander is to waste money freely"
+     }
+    ],
+    "explanation": {
+     "surface": "Seize and waste?",
+     "definitionFit": "Both senses are uses of using up time or cash, either as passing it or wasting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +586,45 @@
     "text": "Plastic egret — nice, should be animated",
     "enumeration": "9"
    },
-   "solution": "ENERGETIC"
+   "solution": "ENERGETIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "animated",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Plastic",
+       "at": 0,
+       "note": "plastic means mouldable, so the letters are reshaped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "egret",
+       "at": 8
+      },
+      {
+       "words": "nice",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plastic garden bird should look lifelike.",
+     "walkthrough": "'animated' looks like a cartoon-style description of the ornament, but it is the definition.",
+     "definitionFit": "Animated means lively and full of vigour, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plastic"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +638,51 @@
     "text": "Step-by-step rag for playing as a pair",
     "enumeration": "7"
    },
-   "solution": "GRADUAL"
+   "solution": "GRADUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Step-by-step",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 21,
+         "note": "playing about with letters means they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rag",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "as a pair",
+       "at": 29,
+       "gives": "DUAL",
+       "note": "dual means double, in two parts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a ragtime piece played as a duet.",
+     "definitionFit": "Gradual means progressing by small degrees, a synonym of step-by-step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rag"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +696,61 @@
     "text": "Cabinet perhaps goes off to the Left — maturity comes later?",
     "enumeration": "7"
    },
-   "solution": "STORAGE"
+   "solution": "STORAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cabinet perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "comes later",
+       "at": 48,
+       "note": "comes later places this piece after the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the Left",
+         "at": 25,
+         "note": "in an across clue, going to the left means reading backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "goes off",
+         "at": 16,
+         "gives": "ROTS",
+         "note": "food that goes off rots"
+        }
+       ]
+      },
+      {
+       "words": "maturity",
+       "at": 39,
+       "gives": "AGE",
+       "note": "age means maturity, being grown up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political Cabinet moves leftward and wisdom follows with time.",
+     "walkthrough": "'Cabinet' suggests politics, but it is a cupboard; ROTS read leftwards is STOR.",
+     "definitionFit": "A cabinet is a piece of furniture for keeping things in, an example of a place for keeping things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cabinet"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +764,51 @@
     "text": "Rambling pair left for thirty days",
     "enumeration": "5"
    },
-   "solution": "APRIL"
+   "solution": "APRIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thirty days",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Rambling",
+         "at": 0,
+         "note": "rambling means wandering, so the letters stray into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pair",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple go walking, departing for a month away.",
+     "walkthrough": "From the rhyme 'Thirty days hath September, April, June and November'.",
+     "definitionFit": "This spring month has thirty days, so the clue defines it by its length — an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rambling"
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +822,49 @@
     "text": "School captain's striking effort, blocked by post …",
     "enumeration": "10"
    },
-   "solution": "HEADMASTER"
+   "solution": "HEADMASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School captain",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocked by",
+       "at": 34,
+       "note": "blocked by something means having it stuck in the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "striking effort",
+       "at": 17,
+       "gives": "HEADER",
+       "note": "a header is a football shot struck with the head"
+      },
+      {
+       "words": "post",
+       "at": 45,
+       "gives": "MAST",
+       "note": "a mast is a tall post"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school team captain's shot is stopped by the goalpost.",
+     "walkthrough": "'School captain' looks like a head pupil, but here it is the person running the school; the ellipsis leads into 16 down.",
+     "definitionFit": "The head of a school is the person in charge of it, figuratively its captain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "captain"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +878,43 @@
     "text": "Taking part in sportswear, a cheat reveals something wrong in the head",
     "enumeration": "7"
    },
-   "solution": "EARACHE"
+   "solution": "EARACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reveals something wrong in the head",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Taking part in",
+       "at": 0,
+       "note": "Taking part in says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sportswear, a cheat",
+       "at": 15,
+       "gives": "EARACHE",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheat is exposed wearing kit at a sports event.",
+     "walkthrough": "'reveals' is a link word here; the definition is 'something wrong in the head'.",
+     "definitionFit": "A pain in the ear is an ailment of the head, so it is described loosely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +928,42 @@
     "text": "… roughly misses — he sets up these sessions",
     "enumeration": "7"
    },
-   "solution": "CLASSES"
+   "solution": "CLASSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he sets up these sessions",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "roughly",
+       "at": 2,
+       "gives": "C",
+       "note": "C stands for circa, Latin for about or roughly"
+      },
+      {
+       "words": "misses",
+       "at": 10,
+       "gives": "LASSES",
+       "note": "misses are girls, lasses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from 14: the head misses badly, then arranges lessons.",
+     "walkthrough": "'he' is the headmaster of 14 down, carried over by the ellipsis.",
+     "definitionFit": "A head draws up the timetable of lessons, the teaching periods of a school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "misses"
+    }
+   }
   },
   {
    "number": 17,
@@ -268,7 +977,42 @@
     "text": "Proclaim as leader of the Americans and French",
     "enumeration": "7"
    },
-   "solution": "TRUMPET"
+   "solution": "TRUMPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proclaim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "leader of the Americans",
+       "at": 12,
+       "gives": "TRUMP",
+       "note": "Donald Trump is the US president"
+      },
+      {
+       "words": "and French",
+       "at": 36,
+       "gives": "ET",
+       "note": "et is French for and"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US president makes an announcement alongside the French.",
+     "walkthrough": "'leader of the Americans' could suggest a first letter A, but it is the president.",
+     "definitionFit": "To trumpet is to announce loudly, as if blowing a horn — a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 18,
@@ -282,7 +1026,34 @@
     "text": "Projection that water won't quite go round",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Projection that water won't quite go round",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Projection that water won't quite go round",
+       "at": 0,
+       "note": "a stretch of land jutting out into the sea, surrounded by water on all sides but one; the Latin means almost an island"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headland that the sea does not fully encircle.",
+     "definitionFit": "Paene insula is Latin for almost an island, land with sea on nearly every side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Projection"
+    }
+   }
   },
   {
    "number": 19,
@@ -296,7 +1067,64 @@
     "text": "Lose heart, having endless need to accommodate dad …",
     "enumeration": "7"
    },
-   "solution": "DESPAIR"
+   "solution": "DESPAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lose heart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accommodate",
+       "at": 32,
+       "note": "to accommodate is to give room to, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 19,
+         "note": "endless means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "need",
+         "at": 27,
+         "gives": "DESIRE",
+         "note": "desire means want or need"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "dad",
+       "at": 47,
+       "gives": "PA",
+       "note": "pa is a familiar word for father"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives up hope, needing endlessly to put up their father.",
+     "walkthrough": "'endless' cuts the last letter of the synonym for need, and 'to accommodate' puts dad's two letters inside what remains.",
+     "definitionFit": "To despair is to give up all hope, a verb synonym of losing heart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodate"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1138,60 @@
     "text": "Commander's tracked vehicle reversed over animal",
     "enumeration": "7"
    },
-   "solution": "RACCOON"
+   "solution": "RACCOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 28,
+         "note": "reversed means the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tracked vehicle",
+         "at": 12,
+         "gives": "CAR",
+         "note": "a car is a carriage running on a railway track"
+        }
+       ]
+      },
+      {
+       "words": "Commander's",
+       "at": 0,
+       "gives": "CO",
+       "note": "CO is commanding officer"
+      },
+      {
+       "words": "over",
+       "at": 37,
+       "gives": "ON",
+       "note": "on means over, as in a lid on a box"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer's tank is backed over a creature.",
+     "walkthrough": "CAR backwards gives RAC; then CO and ON.",
+     "definitionFit": "This ring-tailed North American mammal is an example of a creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tracked"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1205,60 @@
     "text": "… following grasping half-idle mum",
     "enumeration": "7"
    },
-   "solution": "SILENCE"
+   "solution": "SILENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mum",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "at": 12,
+       "note": "grasping means holding inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "following",
+       "at": 2,
+       "gives": "SINCE",
+       "note": "since means following, after"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 21,
+         "note": "half here takes the back half of the word idle, its last two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idle",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from 19: despair follows a lazy mother's greed.",
+     "walkthrough": "'mum' looks like a mother but is the old word for silent, as in 'keep mum'.",
+     "definitionFit": "Mum, as in mum's the word, means quiet or the absence of speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1272,29 @@
     "text": "Improvised score",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Improvised",
+      "at": 0,
+      "meaning": "a ... team or meal is put together hastily from whatever is at hand"
+     },
+     {
+      "text": "score",
+      "at": 11,
+      "meaning": "to score a surface is to mark it with a line"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: an impromptu thrown-together thing, and making a mark with a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1308,48 @@
     "text": "One's trapping in river areas",
     "enumeration": "5"
    },
-   "solution": "ACRES"
+   "solution": "ACRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "areas",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapping",
+       "at": 6,
+       "note": "trapping means holding inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One's",
+       "at": 0,
+       "gives": "ACES",
+       "note": "an ace is a one in cards, so one's plural gives aces"
+      },
+      {
+       "words": "river",
+       "at": 18,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fishing with a trap in river regions.",
+     "walkthrough": "'in' is a link word here.",
+     "definitionFit": "Acres are units of land measurement, so they stand for areas of ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trapping"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1363,41 @@
     "text": "Engineers show what chemicals may do",
     "enumeration": "5"
    },
-   "solution": "REACT"
+   "solution": "REACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what chemicals may do",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Engineers",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British Army corps"
+      },
+      {
+       "words": "show",
+       "at": 10,
+       "gives": "ACT",
+       "note": "an act is a show or performance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers stage a demonstration of chemistry.",
+     "definitionFit": "Chemicals undergo a change when they combine, a chemical response."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1411,48 @@
     "text": "Funny thing, there's nothing in packet",
     "enumeration": "7"
    },
-   "solution": "CARTOON"
+   "solution": "CARTOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Funny thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "packet",
+       "at": 32,
+       "gives": "CARTON",
+       "note": "a carton is a cardboard packet"
+      },
+      {
+       "words": "nothing",
+       "at": 21,
+       "gives": "O",
+       "note": "O is zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joke about opening a packet and finding it empty.",
+     "definitionFit": "A cartoon is a humorous drawing, an example of something comic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Funny"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1466,49 @@
     "text": "Sulphur used in crop driers",
     "enumeration": "5"
    },
-   "solution": "OASTS"
+   "solution": "OASTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "driers",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "used in",
+       "at": 8,
+       "note": "used in means placed inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crop",
+       "at": 16,
+       "gives": "OATS",
+       "note": "oats are a cereal crop"
+      },
+      {
+       "words": "Sulphur",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sulphur is applied in machines that dry harvested grain.",
+     "walkthrough": "Oast houses are the kilns used for drying hops in Kent.",
+     "definitionFit": "An oast is a kiln for drying hops, so these buildings are dryers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crop"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1522,42 @@
     "text": "Small Korean ruler over-the-top scoop!",
     "enumeration": "4"
    },
-   "solution": "SKIM"
+   "solution": "SKIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "over-the-top scoop",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "Korean ruler",
+       "at": 6,
+       "gives": "KIM",
+       "note": "Kim is the family name of North Korea's leaders"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid exclusive about a tiny North Korean leader, exaggerated.",
+     "walkthrough": "'over-the-top' looks like hype about a news scoop, but it means scooping from the surface.",
+     "definitionFit": "To skim is to lift off the surface layer, such as cream from milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scoop"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1571,59 @@
     "text": "Schools with no one left to get bus, say",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bus, say",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 8,
+         "note": "with no means the letter for one is removed from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Schools",
+         "at": 0,
+         "gives": "TRAINS",
+         "note": "to school is to train"
+        },
+        {
+         "words": "one",
+         "at": 16,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 20,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Schools with no pupils remaining need to arrange a bus.",
+     "definitionFit": "A bus is an example of a means of getting people about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 28,
@@ -436,7 +1637,50 @@
     "text": "King being shown in reduced one's rank, having stripes",
     "enumeration": "5"
    },
-   "solution": "SKUNK"
+   "solution": "SKUNK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one's rank, having stripes",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being shown in",
+       "at": 5,
+       "note": "being shown in means placed inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reduced",
+       "at": 20,
+       "gives": "SUNK",
+       "note": "sunk means brought low, reduced"
+      },
+      {
+       "words": "King",
+       "at": 0,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king is demoted and loses his military rank and stripes.",
+     "walkthrough": "'rank' looks like a military grade, but it means foul-smelling.",
+     "definitionFit": "This striped mammal is known for its strong smell, so it is a creature that is rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rank"
+    }
+   }
   },
   {
    "number": 29,
@@ -450,7 +1694,28 @@
     "text": "Assess velocity",
     "enumeration": "4"
    },
-   "solution": "RATE"
+   "solution": "RATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assess",
+      "at": 0,
+      "meaning": "to assess is to judge the value of"
+     },
+     {
+      "text": "velocity",
+      "at": 7,
+      "meaning": "velocity is speed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: to evaluate, and speed as a measured pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -464,7 +1729,60 @@
     "text": "This person tucking into meat shuns prepared relish",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIASM"
+   "solution": "ENTHUSIASM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relish",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 12,
+       "note": "tucking into means going inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "at": 36,
+         "note": "prepared means made ready, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meat shuns",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "This person",
+       "at": 0,
+       "gives": "I",
+       "note": "this person is the writer, I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner eats meat while avoiding a prepared sauce.",
+     "walkthrough": "'relish' looks like a condiment, but it means zest.",
+     "definitionFit": "Relish means keen enjoyment, the same as eagerness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relish"
+    }
+   }
   }
  ]
 }
