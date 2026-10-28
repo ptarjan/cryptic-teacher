@@ -105,7 +105,8 @@ check("a 5150px 1939 page refused not a grid for the ink under its title is due 
 check("not once read since", None, f.fix_reason({**_39, "readAt": "2026-10-29T00:00:00+00:00"}))
 _40 = {**_39, "edition": "GaleTimes1940UKEnglish/1940-01-24", "scan": {"item": "GaleTimes1940UKEnglish", "date": "1940-01-24"}}
 laid(_40["edition"], f.SCAN_WIDTH)
-check("nor a 1940 page SCAN_WIDTH wide: its cap is unscaled", None, f.fix_reason(_40))
+check("nor a 1940 page SCAN_WIDTH wide: its cap is unscaled", False, f.scaled_due(_40))
+check("such a page is due as a broken grid instead (CLOSED_GRID)", f.CLOSED_GRID, f.fix_reason(_40))
 check("the reasons are ranked", (2, 2), (f.RANKS.get("refused not-a-grid before its fix"),
                                          f.RANKS.get("refused no-reading-parses before its fix")))
 
