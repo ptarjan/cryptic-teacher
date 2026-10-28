@@ -656,6 +656,29 @@ check("not after the fix, nor beside another blank, nor the vote's 'both read', 
        f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {**_sw["blank"], "1-down": "no reading laid a clue on it"}}]}),
        f.shared_worded({**_swrow, "verdicts": [{**_sw, "blank": {"23-across": "both read 'felt,a', not a word"}}]}),
        f.shared_worded({**_swrow, "edition": "FinancialTimes1970UKEnglish/1970-05-25_0"})])
+# ---- a Times page written unfiled over a mark the print sets in a word ("(under)world", "kissin'-cousin",
+# "end,—or") is due once (fa.MARKED_WORD), unfiled-first.
+_mw = {"id": "times-9999979", "number": 9999979, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"27-across": "'(under)world': a stray mark inside a word"}}
+_mwrow = {"edition": "GaleTimes1973UKEnglish/1973-10-13", "verdicts": [_mw], "readAt": "2026-10-26T20:58:00+00:00",
+          "scan": {"date": "1973-10-13", "item": "GaleTimes1973UKEnglish", "puzzles": [{"number": 9999979, "leaf": 0}]}}
+check("a Times page unfiled over a mark the print sets in a word is due as MARKED_WORD, ranked, evidence, "
+      "fix-landed, unfiled-first, blanket-passing",
+      [f.MARKED_WORD, 2, True, True, True, None, True],
+      [f.fix_reason(_mwrow), f.RANKS[f.MARKED_WORD], eq.evidence_reason(f.MARKED_WORD), f.MARKED_WORD in eq.FIX_LANDED,
+       f.MARKED_WORD in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.MARKED_WORD, "date": "1973-10-13"}),
+       f.blanket_or_fix(_mwrow, "inputs changed") == f.MARKED_WORD])
+check("a stopped dash whose words join into one ('end,—or') and a not-a-word beside it are due too",
+      [True, True],
+      [f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {"28-across": "'end,—or': a stray mark inside a word"}}]}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {**_mw["blank"], "1-down": "'bonum': not a word"}}]})])
+check("not after the fix, nor a shared misread ('der.sory'), nor beside another blank, nor another paper",
+      [False] * 4,
+      [f.marked_worded({**_mwrow, "readAt": _after}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {"16-down": "'der.sory': a stray mark inside a word"}}]}),
+       f.marked_worded({**_mwrow, "verdicts": [{**_mw, "blank": {**_mw["blank"], "1-down": "no reading laid a clue on it"}}]}),
+       f.marked_worded({**_mwrow, "edition": "FinancialTimes1973UKEnglish/1973-10-13_0"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
