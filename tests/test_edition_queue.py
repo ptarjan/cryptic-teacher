@@ -495,6 +495,31 @@ check("not after the fix, nor for another paper, nor with no light no reading la
 f.opening_gutter_read = lambda key: False
 check("nor with no reading so cut", False, f.opening_gutter_lost(_ogrow))
 f.opening_gutter_read, f.stop_tail_read = _og_read, _og_tail
+# ---- a Times page written unfiled for a clue the vote blanked on words read on past its count (the noise under a
+# list's last clue: Gale 1946-03-22's "taken in by them (5). ir th tb ca") is due once (fa.RUN_ON_TAIL), ordered
+# with never-read pages, never canary-held.
+_rt = {"id": "times-9999996", "number": 9999996, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"25-down": "no other reading has 'th'"}}
+_rtrow = {"edition": "GaleTimes1946UKEnglish/1946-03-22", "verdicts": [_rt], "readAt": "2026-10-18T09:12:40+00:00"}
+_rt_read = f.run_on_tail_read
+f.run_on_tail_read = lambda key, word: key == "1946-03-22_9999996" and word == "th"
+check("a Times page whose clue the vote blanked on words run on past its count is due as such, ranked, "
+      "evidence, fix-landed, unfiled-first, never canary-held",
+      [f.RUN_ON_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_rtrow), f.RANKS[f.RUN_ON_TAIL], eq.evidence_reason(f.RUN_ON_TAIL),
+       f.RUN_ON_TAIL in eq.FIX_LANDED, f.RUN_ON_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.RUN_ON_TAIL, "date": "1946-03-22"}),
+       eq.canary_failed({"paper": "times", "reason": f.RUN_ON_TAIL, "date": "1984-12-31"})])
+check("the words of 'readings differ' count too",
+      True, f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "readings differ: th / tb"}}]}))
+check("not after the fix, nor for another paper, nor with a blank that names no refused words",
+      [False] * 3,
+      [f.run_on_tail_lost({**_rtrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.run_on_tail_lost({**_rtrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "no reading laid a clue on it"}}]})])
+f.run_on_tail_read = lambda key, word: False
+check("nor with no reading printing them after a count", False, f.run_on_tail_lost(_rtrow))
+f.run_on_tail_read = _rt_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
