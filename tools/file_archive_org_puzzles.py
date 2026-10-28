@@ -10471,10 +10471,17 @@ def shared_printed(laid, blank, read, parse):
     lacks, so the page stood unfiled over one clue (SHARED_WORD)."""
     laid, printed = dict(laid), {}
     for lid, (text, enum, group) in list(laid.items()):
-        if not text or lid in blank or not any(why == "not a word" for _, why in ocr_clues.suspect(text)):
+        if not text or lid in blank:
+            continue
+        sus = ocr_clues.suspect(text)
+        worded = any(why == "not a word" for _, why in sus)
+        # A mark the print sets inside a word ("(under)world", "kissin'-cousin": ocr_clues.marked_word,
+        # MARKED_WORD) is held as the print's the same way.
+        if not worded and not any(why == "a stray mark inside a word" and ocr_clues.marked_word(raw)
+                                  for raw, why in sus):
             continue
         theirs = [r for r, _ in ocr_clues.readings_for(read, lid, parse)]
-        apart = ocr_clues.run_apart(text, [t for t in theirs if t])
+        apart = ocr_clues.run_apart(text, [t for t in theirs if t]) if worded else text
         if apart != text:
             laid[lid] = (apart, enum, group)
             text = apart
@@ -11475,6 +11482,56 @@ def shared_worded(row):
         if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
             continue
         if not v["blank"] or not all(shared_blank(why) for why in v["blank"].values()):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled
+#: with a blank clue refused as "a stray mark inside a word" over a mark the print sets there: letters in
+#: brackets inside a word ("The (under)world his oyster?", "(C)ox", "(Combat)ant?", "light(e)ning"), a
+#: hyphened compound with an elision ("nor'-nor'-west", "kissin'-cousin", "coffin-'eaded",
+#: "Will-o'-the-Wisp's", "Ex-M.P.'s"), or a dash set close after a comma whose two words' letters join
+#: into a known one ("end,—or": "endor"). The vote now holds such a token as the print's where every
+#: reading of the clue prints it so (shared_printed, ocr_clues.marked_word), and parts a stopped dash
+#: (ocr_clues.STOPPED_DASH). Failure shapes r23, 10-28: "stray mark" is the biggest word-level blank on
+#: unfiled Times pages (63 unplanned; shared misreads "der.sory", "T:U.C.", "tw.sted" stay refused).
+#: Once each; only verdicts every blank of which is such a token or SHARED_WORD's, the puzzle not held whole.
+MARKED_WORD = "unfiled before its fix, a marked word its readings print alike"
+REREAD_MARKED_WORD = "2026-10-28T19:45:00+00:00"
+
+
+def marked_blank(why):
+    """Whether blank reason `why` ("'(under)world': a stray mark inside a word") names a token the vote now
+    takes as print: ocr_clues.marked_word's, or a stopped dash's two words ("end,—or") whose letters join
+    into a known word, which suspect() now parts (ocr_clues.STOPPED_DASH)."""
+    m = re.fullmatch(r"(['\"])(.*)\1: a stray mark inside a word", str(why or ""))
+    if not m:
+        return False
+    tok = m.group(2)
+    if ocr_clues.marked_word(tok):
+        return True
+    return bool(ocr_clues.STOPPED_DASH.search(tok)) and not ocr_clues.suspect(tok) \
+        and ocr_clues.known(re.sub(r"[^A-Za-z]", "", tok).lower())
+
+
+def marked_worded(row):
+    """Whether Times ledger `row`, read before REREAD_MARKED_WORD, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) whose blank clues are each
+    a marked_blank() token or a shared_blank() word, one at least marked."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_MARKED_WORD)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        whys = list(v["blank"].values())
+        if not any(marked_blank(why) for why in whys) \
+                or not all(marked_blank(why) or shared_blank(why) for why in whys):
             continue
         if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
@@ -15304,6 +15361,8 @@ def fix_reason(row):
         return DERIVED_FORM
     if shared_worded(row):
         return SHARED_WORD
+    if marked_worded(row):
+        return MARKED_WORD
     if neighbour_tailed(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
@@ -15810,7 +15869,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # verdict-less page its grid-first scan never read whole (gf_unread).
                   FAILED_SCAN, GF_UNREAD,
                   # 10-28 r22: a page unfiled over a word its readings spell alike (shared_worded).
-                  SHARED_WORD)
+                  SHARED_WORD,
+                  # 10-28 r23: a page unfiled over a mark the print sets in a word (marked_worded).
+                  MARKED_WORD)
 
 
 def refusal_passes(why):
@@ -16035,7 +16096,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -16366,7 +16427,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
-                                      SEE_RUNS_ON, SHARED_WORD) else {}),
+                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

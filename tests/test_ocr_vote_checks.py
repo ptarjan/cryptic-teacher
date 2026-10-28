@@ -1276,6 +1276,20 @@ check("every: a line end's half after a hyphen is no word of the print ('Shake- 
 tle = "Bat or tle (4, 3, 6)."
 check("every: a word under EVERY_SHORTEST all readings share is a lost half ('Bat or tle')", [],
       oc.printed_alike(tle, [tle, tle, tle], every=True))
+# A mark the print sets in a word (MARKED_WORD, r23): bracketed letters, an elided compound, a stopped dash.
+check("marked_word: bracketed letters whose whole and rest are words, elided compounds; not shared misreads",
+      [True, True, True, True, True, True, True, False, False, False, False, False],
+      [oc.marked_word(t) for t in ("(under)world", "(C)ox", "(Combat)ant?", "light(e)ning", "nor'-nor'-west",
+                                   "kissin'-cousin", "coffin-'eaded", "t(r)epical", "will'-the-wisp", "der.sory",
+                                   "T:U.C.", "thousand.-")])
+und = "27 The (under)world his oyster? (7)."
+check("every: a marked word all readings print is the print's; not where one reads it otherwise",
+      [True, False],
+      ["(under)world" in oc.printed_alike(und, [und, und, und], every=True),
+       "(under)world" in oc.printed_alike(und, [und, und, und.replace("(under)", "(undcr)")], every=True)])
+check("a dash set close after a comma parts two words whose letters join into one ('end,—or')", [[], [], True],
+      [oc.suspect("A different end,—or is it? (5)."), oc.suspect("Beat,—with"),
+       bool(oc.suspect("a—in"))])
 # One reader closed the print's word gaps up: the gaps another reading prints are put back.
 check("run_apart: words another reading prints apart are parted ('thewordsof', 'bya'); not into non-words",
       ["In the words of Mr. Kipling", "Drawing produced by a", "formal floverbeds (8)"],

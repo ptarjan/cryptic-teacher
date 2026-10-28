@@ -4221,6 +4221,41 @@ UNLEXICONED_ABBREVS = {"ven", "jnr", "snr", "messrs"}
 #: A Scots or Irish surname: "Mc" or "Mac" before its capital ("McTavish", "McNeile", "MacGregor").
 #: unspellable() reads the "^mc" of "Mc" + consonant as a letter lost; mc_named() judges the rest.
 MC_NAME = re.compile(r"(?:Mc|Mac)([A-Z][a-z]{2,})")
+#: A word with letters a clue sets in brackets ("(under)world", "(C)ox", "light(e)ning"): the word whole
+#: and the word without them must both be known ("t(r)epical" is neither).
+BRACKET_PART = re.compile(r"([A-Za-z]*)\(([A-Za-z]+)\)([A-Za-z]*)")
+#: The words a print elides at their end before a hyphen ("nor'-nor'-west", "will-o'-the-wisp"); else only
+#: a dropped g ("kissin'-cousin"). "will'-the-wisp" is a misread of "will-o'-the-wisp", not print.
+ELIDED_ENDS = ("nor", "sou", "o")
+
+
+def marked_word(raw):
+    """Whether token `raw`, which suspect() refuses as "a stray mark inside a word", is a word the print
+    itself sets with that mark: letters in brackets inside a word whose whole and rest are both known
+    (BRACKET_PART), or a hyphened compound whose every part suspect() passes alone, an apostrophe at a
+    part's edge only a dropped aitch ("coffin-'eaded"), a dropped g ("kissin'-cousin") or ELIDED_ENDS
+    ("nor'-nor'-west"), and initials ("Ex-M.P.'s"). printed_alike() takes such a token as the print's
+    only where the readings hold it letter for letter. Failure shapes r23, 10-28: of the 63 unplanned
+    "stray mark" blanks on unfiled Times pages, "(under)world", "(land)lord", "(Combat)ant?", "(C)ox",
+    "light(e)ning", "nor'-nor'-west", "kissin'-cousin", "coffin-'eaded", "Will-o'-the-Wisp's" were
+    print every reader spelt alike; shared misreads ("der.sory", "T:U.C.", "tw.sted") are refused."""
+    core = (raw or "").lstrip("\"“‘").rstrip("\"”’.,;:!?")
+    m = BRACKET_PART.fullmatch(core)
+    if m:
+        head, inside, tail = m.groups()
+        rest = head + tail
+        return len(rest) >= 2 and known((head + inside + tail).lower()) and known(rest.lower())
+    parts = core.split("-")
+    if len(parts) < 2 or not all(re.search(r"[A-Za-z]", p) for p in parts):
+        return False
+    for p in parts:
+        if suspect(p):
+            return False
+        if p[-1:] in ("'", "’") and not (p[:-1].lower() in ELIDED_ENDS or gee_dropped(p, p[:-1])):
+            return False
+        if p[:1] in ("'", "’") and not (aitch_dropped(p, p[1:]) and known("h" + p[1:].lower())):
+            return False
+    return True
 
 
 def mc_named(word):
@@ -4237,6 +4272,8 @@ def mc_named(word):
 #: dash, or two or three hyphens. The 1940s-70s Times prints ",—" so; the VLM
 #: reads those pages' clues alike ("Terrier,—or bull-dog? (4,5)").
 DASH_JOIN = re.compile(r"(?<=[A-Za-z.,;:?!)\"'”’])(?:[—–]{1,2}|-{2,3})(?=[\"'(“‘]?[A-Za-z])")
+#: A DASH_JOIN dash after a word's comma or stop ("end,—or"): never inside one word.
+STOPPED_DASH = re.compile(r"[A-Za-z][.,;:?!](?:[—–]{1,2}|-{2,3})(?=[\"'(“‘]?[A-Za-z])")
 
 
 def dash_parted(raws, keep=()):
@@ -4244,11 +4281,13 @@ def dash_parted(raws, keep=()):
     suspect() judges each word on its own ("Beat,—with" is "Beat," and
     "with"). A dash that joins what reads as one word ("some—thing") is a
     reader's hyphen and stays, for MARK_IN_WORD to judge, as does a token in
-    `keep` (suspect's `printed`)."""
+    `keep` (suspect's `printed`). A dash after a stop parts two words even
+    where their letters join into one ("end,—or" is no "endor": r23)."""
     out = []
     for raw in raws:
         parts = [] if raw in keep else DASH_JOIN.split(raw)
-        if len(parts) > 1 and not known(plain("".join(re.sub(r"[^A-Za-z]", "", p) for p in parts)).lower()):
+        if len(parts) > 1 and (STOPPED_DASH.search(raw) or
+                               not known(plain("".join(re.sub(r"[^A-Za-z]", "", p) for p in parts)).lower())):
             out += [p for p in parts if p]
         else:
             out.append(raw)
@@ -4663,7 +4702,8 @@ def printed_alike(text, readings, unanimous=False, every=False):
     pairs that at least two hold before the same word and none closes (No
     15's 22 down, "slang (from Hollywood meaning ...", its bracket never
     shut). The clue's `asPrinted`: what a misprint looks like to the vote.
-    A reading that lost the words votes neither way.
+    A reading that lost the words votes neither way. A "stray mark" token the
+    print sets so (marked_word: "(under)world", "nor'-nor'-west") is held so too.
     Readers that share a detector share its misreads, so with `unanimous`
     a word stands only where every reading (UNANIMOUS_READINGS at least)
     holds it and no one letter's change makes it a known word: "ignis",
@@ -4682,7 +4722,9 @@ def printed_alike(text, readings, unanimous=False, every=False):
     for raw, why in suspect(text):
         word = raw.strip(EDGE).lower()
         holds = sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r)) for r in low)
-        if why != "not a word":
+        # A mark the print sets inside a word ("(under)world", "kissin'-cousin": marked_word) stands as a
+        # word no lexicon has does: the readings must hold it so.
+        if why != "not a word" and not (why == "a stray mark inside a word" and marked_word(raw)):
             continue
         if every:
             half = re.compile(r"[a-z]-\s*" + re.escape(word) + r"(?![a-z])")
