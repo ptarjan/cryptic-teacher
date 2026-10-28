@@ -68,7 +68,22 @@ for was, want in [("Caught by.clever message", "Caught by clever message"),
                   ("In the Middle East,.it makes", "In the Middle East, it makes"),
                   ("Made up song,, got tea", "Made up song, got tea"),
                   ("Good shot., Monsieur Noah", "Good shot, Monsieur Noah"),
+                  # A comma read with a speck beside it after a word is the comma (10-28: times-17277 25A,
+                  # times-20543 22A, times-13557 12A).
+                  ("Sweden;, say", "Sweden, say"),
+                  ("Emperor's returned, an odd cove;, quietly spoken", "Emperor's returned, an odd cove, quietly spoken"),
+                  ("Concerned with water,: perhaps, or a spirit", "Concerned with water, perhaps, or a spirit"),
+                  ("Gang-leader about:,at large", "Gang-leader about, at large"),
+                  # A quotation's spaced comma is its left-out word's dash lost before it (times-7202 1951-08-21).
+                  ("You've got the key of the , my friend\" (Dickens)", "You've got the key of the —, my friend\" (Dickens)"),
+                  ('" Call me ,call me Chloris" (Coleridge)', '" Call me —, call me Chloris" (Coleridge)'),
+                  ("Take thy beak from out my , and take thy form (Poe)", "Take thy beak from out my —, and take thy form (Poe)"),
                   # Not certain: left for a re-read.
+                  # In a quotation a pair may be the lost dash and its own mark ("bold, and —; laugh").
+                  ('" Be bloody, bold and,; laugh to scorn" (Macbeth)', '" Be bloody, bold and,; laugh to scorn" (Macbeth)'),
+                  ("Sweden;: say", "Sweden;: say"),
+                  ("heartless .,:version", "heartless .,:version"),
+                  ("Sad ,Maori (anag.)", "Sad ,Maori (anag.)"),
                   ("Wiped floor wi.h woollen fabric", "Wiped floor wi.h woollen fabric"),
                   ("Big cat girl found in.Carroll's garden", "Big cat girl found in.Carroll's garden"),
                   # A "''" paired with a single "'" (book-28026 1A, book-28043 5D, book-27022 17D).
@@ -88,7 +103,6 @@ for was, want in [("Caught by.clever message", "Caught by clever message"),
                   ("Mature Indo.European heard", "Mature Indo.European heard"),
                   ("In retrospect.America 5", "In retrospect.America 5"),
                   ("Stop.Then go", "Stop.Then go"),
-                  ("Sweden;, say", "Sweden;, say"),
                   ("Store.,gruel", "Store.,gruel"),
                   ("Gaping , mouth", "Gaping , mouth")]:
     check(f"mend {was!r}", want, p.mended(was))
@@ -130,7 +144,7 @@ check("not with spaces=False (the held path mends it)", set(), edition_commit.st
 check("mend_puzzle reports the light", {"1-across": "Caught by clever message"}, p.mend_puzzle(copy.deepcopy(held)))
 # A mend that leaves its clue one the gate refuses as new is not made: the held words pass as they are, and the
 # write that merges answers into the file stands (10-25: times-18300 "one . , owner", times-17709 "·at ... time;,").
-for was in ("Composure of the number one . , owner", "Anxious about, ·at one time;, King Edward"):
+for was in ("Composure of the number one . , owner", "Anxious about, ·at one time;: King Edward"):
     half = puzzle("newspaper", was)
     check(f"mend_puzzle leaves {was!r} as held", ({}, was), (p.mend_puzzle(half), half["entries"][0]["clue"]["text"]))
 check("gate_refuses a clue the gate would", (True, False, True),
@@ -151,7 +165,7 @@ check("corrects refuses a reading with a fault", False, fa.corrects("Frontier ca
 
 # The vote's relay doubts a print with a fault the laid clue lacks.
 check("relay_doubt names a new fault", "a punctuation fault the laid clue lacks",
-      oc.relay_doubt("Sweden, say", "Sweden;, say", "Sweden;, say", {"sweden": 3, "say": 3}))
+      oc.relay_doubt("Sweden, say", "Sweden;: say", "Sweden;: say", {"sweden": 3, "say": 3}))
 
 # Specks a reader made that the 16-18 Oct 2026 "Update times-" rereads cut:
 # a middle dot, a stop alone between words, the stop after a lone "a", and

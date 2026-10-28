@@ -23,10 +23,13 @@ due). An unpaired bracket is ocr_clues.bled's, not this module's.
   - two marks in a row (",,", ",.", ";:", "boxer.,"), save an ellipsis and
     an abbreviation's stop ("etc.,"): a doubled mark mended to one, a stop
     after a comma, semicolon or colon (or after a word's own stop before
-    one) dropped; two different marks of , ; : stand for the re-read;
+    one) dropped; a comma read with a ; or : beside it (";," ",:") mended
+    to the comma; two different marks of ; : stand for the re-read;
   - a comma with a space before it and none of the words' marks around it
-    ("Gaping , mouth", "the ,message"): no mend, the comma may stand for a
-    lost dash.
+    ("Gaping , mouth", "the ,message"): the comma may stand for a lost
+    dash, so in a quotation clue (quotation: '"', "(Milton)") it is the
+    left-out word's dash lost before its comma ("the key of the , my
+    friend" to "the key of the —, my friend"); elsewhere no mend.
 
 A space before ? ! ; : is the old Times's own setting, and an odd count of
 double quotes is a quote spanning clues or a seconds mark (4'33"): neither
@@ -67,6 +70,16 @@ MIDDLE_DOT = re.compile(r" ?· ?")
 LONE_STOP = re.compile(r"(?<=\S) \.(?= \S)")
 DOUBLE_STOP = re.compile(r"^\.\.(?![.…])|(?<![.…])\.\.$")
 ARTICLE_STOP = re.compile(r"(?<![\w.])[Aa]\.(?= [a-z])")
+
+
+#: A quotation's source closing a clue: '(Dickens)', "(M. for M.)", '(Henry V )'; not "(anag.)".
+ATTRIBUTION = re.compile(r"\((?!anag)[A-Z][^()]*\)[\s:;,.\-—]*$")
+
+
+def quotation(text):
+    """Whether the clue `text` quotes a work: a double quote in it, or a
+    source in brackets at its end ("(Milton)")."""
+    return '"' in text or "“" in text or "”" in text or bool(ATTRIBUTION.search(text))
 
 
 def _glued(m):
@@ -213,6 +226,21 @@ def _edits(text):
             out.append((m.start() + 1, m.end(), " " if glued else ""))
         elif s[1] == ".":
             out.append((m.start() + 1, m.end(), " " if glued else ""))
+        elif "," in s and m.start() and text[m.start() - 1].isalnum() and not quotation(text):
+            # A comma read with a speck beside it (";," ",:") after a word:
+            # the print's mark is the comma (10-28: every hand-read Times
+            # clue so, "an odd cove;, quietly", "him,; I'd pass", "water,:
+            # perhaps"). Not in a quotation, whose left-out word's dash
+            # reads as a mark beside its own ("bold and,; laugh to scorn"
+            # for "bold, and —; laugh").
+            out.append((m.start(), m.end(), ", " if glued else ","))
+    if quotation(text):
+        # A quotation clue's word left out for the answer is printed as a
+        # dash ("the key of the —, my friend"); a reader that loses the
+        # dash leaves its comma spaced ("the key of the , my friend").
+        for m in SPACED_COMMA.finditer(text):
+            glued = m.end() < len(text) and text[m.end()].isalnum()
+            out.append((m.start() + 1, m.end(), "—," + (" " if glued else "")))
     for m in MIDDLE_DOT.finditer(text):
         lone = m.start() == 0 or m.end() == len(text) or text[m.end()] in "?!,.;:)"
         out.append((m.start(), m.end(), "" if lone else " "))

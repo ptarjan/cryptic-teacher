@@ -10308,6 +10308,54 @@ def derived_formed(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose write the gate refused over a
+#: clue's punctuation (puzzle_integrity's "(punctuation.faults)") that punctuation.mended now mends clean:
+#: a comma read with a speck beside it (";," ",:" after a word: "an odd cove;, quietly") is the comma, and
+#: a quotation clue's spaced comma ("the key of the , my friend" (Dickens)) is its left-out word's dash
+#: lost before it ("the —, my"; held quotation clues write that blank "—" 4,129 times). 10-28 census
+#: (failure shapes): 228 unfiled Times pages refused so, none ever filed (a reread prints the same marks);
+#: the mends clear every listed clue of 120 (1940s-70s Gale quotation clues the most). Its own reason, not
+#: "unfiled before its fix": CANARY_FAILED holds that one for the Times. Once each; only verdicts every
+#: punctuation-refused clue of which now mends clean, the puzzle not held whole.
+PUNCT_MENDED = "write refused before its fix, a clue's punctuation mended"
+REREAD_PUNCT_MENDED = "2026-10-28T03:00:00+00:00"
+#: A clue the gate's "(punctuation.faults)" refusal names: SHAPE <light>: clue <repr> holds <fault> (<snippet>).
+_PUNCT_CLUE = re.compile(r"SHAPE [\w-]+: clue ('(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\") holds [a-z ]+? \(")
+
+
+def punct_mended(row):
+    """Whether Times ledger `row`, read before REREAD_PUNCT_MENDED, has a verdict whose write the gate
+    refused only over clues' punctuation (punct_clean), its puzzle not held whole."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_PUNCT_MENDED)):
+        return False
+    for v in row.get("verdicts", ()):
+        if not v.get("id") or not punct_clean(v.get("refusedWrite")):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+def punct_clean(refused):
+    """Whether write refusal `refused` names only clues the gate refused over punctuation
+    ("(punctuation.faults)", one per SHAPE), each of which punctuation.mended now mends clean."""
+    refused = str(refused or "")
+    shapes = refused.count("SHAPE ")
+    clues = list(_PUNCT_CLUE.finditer(refused))
+    if not shapes or len(clues) != shapes or refused.count("(punctuation.faults)") != shapes:
+        return False
+    for m in clues:
+        try:
+            text = ast.literal_eval(m.group(1))
+        except (ValueError, SyntaxError):
+            return False
+        if not isinstance(text, str) or punctuation.faults(punctuation.mended(text)):
+            return False
+    return True
+
+
 def derived_blank(why):
     """Whether blank reason `why` ("'immortaliser': not a word") names a token suspect() now passes, one
     of its words a known verb's "-iser"/"-ization" or a noun's "-ically" (ocr_clues.derived_form)."""
@@ -12819,6 +12867,8 @@ def fix_reason(row):
         return DERIVED_FORM
     if neighbour_tailed(row):
         return NEIGHBOUR_TAIL
+    if punct_mended(row):
+        return PUNCT_MENDED
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -13256,7 +13306,9 @@ def blanket_or_fix(row, blanket):
     A lost write (LOST_WRITE) stands too: its page's puzzle is held by no file, as good as never read.
     10-27: 817 Gale Times pages stood so (2000-08 329, 1970s 234), due LOST_WRITE by fix_reason yet
     planned "inputs changed" (353), "scan stale, answers missing" (279) or "read without the VLM"
-    (172), which only_evidence drops; LOST_WRITE rereads since 10-25 filed 64% of their pages, 33% whole."""
+    (172), which only_evidence drops; LOST_WRITE rereads since 10-25 filed 64% of their pages, 33% whole.
+    So does a write the gate refused over punctuation a mend since clears (PUNCT_MENDED): nothing holds
+    its puzzle either."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         return blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
@@ -13264,7 +13316,7 @@ def blanket_or_fix(row, blanket):
             and not held_titles(row):
         return blanket
     why = fix_reason(row)
-    return why if why in SOLUTION_FIXES or why == LOST_WRITE else blanket
+    return why if why in SOLUTION_FIXES or why in (LOST_WRITE, PUNCT_MENDED) else blanket
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
@@ -13448,7 +13500,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,

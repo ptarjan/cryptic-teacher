@@ -375,6 +375,30 @@ check("not after the fix, nor for another reason, nor three blanks, nor another 
        f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {**_nt["blank"], "1-across": "starts mid-clue",
                                                                      "2-down": "starts mid-clue"}}]}),
        f.neighbour_tailed({**_ntrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
+# quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
+_pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
+       "refusedWrite": "refusing to write times-9999991: SHAPE 25-across: clue \"Emperor's returned, an odd cove;, quietly "
+                       "spoken\" holds two marks in a row ('odd cove;, quietly'): file the reading that prints it right "
+                       "(punctuation.faults); SHAPE 3-down: clue 'You\\'ve got the key of the , my friend\" (Dickens)' holds "
+                       "a space before a comma ('the , my'): file the reading that prints it right (punctuation.faults)"}
+_pmrow = {"edition": "GaleTimes1987UKEnglish/1987-02-11", "verdicts": [_pm], "readAt": "2026-10-25T19:14:00+00:00",
+          "scan": {"item": "GaleTimes1987UKEnglish", "date": "1987-02-11", "puzzles": [{"number": 9999991}]}}
+check("a Times page refused over punctuation now mended is due as such, ranked, evidence, fix-landed, unfiled-first",
+      [f.PUNCT_MENDED, 2, True, True, True, None, True],
+      [f.fix_reason(_pmrow), f.RANKS[f.PUNCT_MENDED], eq.evidence_reason(f.PUNCT_MENDED), f.PUNCT_MENDED in eq.FIX_LANDED,
+       f.PUNCT_MENDED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.PUNCT_MENDED, "date": "1987-02-11"}),
+       f.blanket_or_fix(_pmrow, "inputs changed") == f.PUNCT_MENDED])
+_pm_left = "refusing to write times-9999991: SHAPE 2-down: clue 'Sad ,Maori (anag.)' holds a space before a comma " \
+           "('Sad ,Maori (a'): file the reading that prints it right (punctuation.faults)"
+_pm_other = _pm["refusedWrite"] + "; SHAPE 4-down: holds the page's text: 'x (3) 5 Y'; cut it (ocr_clues.run_in) or file the clue blank"
+check("not after the fix, nor a fault no mend clears, nor beside another refusal, nor another paper",
+      [False] * 4,
+      [f.punct_mended({**_pmrow, "readAt": _after}),
+       f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]}),
+       f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_other}]}),
+       f.punct_mended({**_pmrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
