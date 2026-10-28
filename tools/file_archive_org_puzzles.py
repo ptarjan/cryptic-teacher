@@ -10128,10 +10128,30 @@ def unfit_blanked(laid, blank, lengths, printed=None):
             # across, filed with the footer until the VLM's column read it clean).
             laid[lid] = (cut[0], cut[1], group)
             continue
+        if why and (mended := speck_mended(text, enum, cells, printed.get(lid, ()))):
+            laid[lid] = (mended, enum, group)
+            continue
         if why:
             laid[lid] = ("", None if why.startswith("its count") else enum, group)
             blank[lid] = why
     return laid, blank
+
+
+def speck_mended(text, enum, cells, printed=()):
+    """The text clue_repair.mend_text makes of a laid clue `text` that
+    ocr_clues.unfit refuses only for a stray mark or a word no lexicon has,
+    when unfit() then passes it; else None. tail() mends every laid clue
+    so, but only after the vote's unfit_blanked() had blanked these: "never
+    felt,a" (Gale 1941-06-16), "Such a light sleep by.his", 'saint provoke"(Pope)'
+    (punctuation's spacing mends), "hrute" for "brute" (mend_words). 10-28: of
+    the unfiled Times lights blanked so, 25 the other readers printed spaced."""
+    why = ocr_clues.unfit(text, enum, cells, printed)
+    if not text or not why or not re.search(r"a stray mark inside a word|not a word$", why):
+        return None
+    mended = clue_repair.mend_text(text, enum)
+    if mended == text or ocr_clues.unfit(mended, enum, cells, printed):
+        return None
+    return mended
 
 
 def faults(puzzle):
@@ -11661,6 +11681,63 @@ def down_foot_lost(row):
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
     return False
+
+
+#: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
+#: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
+#: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
+#: print's spacing a reader lost beside a comma or a closing quote ("never felt,a", 'provoke"(Pope)',
+#: 'smooth,"he'; the other readers printed it spaced), now punctuation's GLUED_COMMA / GLUED_SOURCE /
+#: GLUED_CLOSER; (b) a slip mend_text already mends ("by.his", "an.Italian", "hrute") but only after the
+#: vote's unfit_blanked() had blanked the clue, now mended there first (speck_mended); (c) a stopped
+#: abbreviation's possessive ("1 ac.'s missile", "Mr. F.'s", "a Rev.'s"), print, now INITIALS_OWN. The
+#: rest: foreign and dialect words, words run together, garbled pages; no one rule. Due by the ledger
+#: (speck_blank on the blank's token). Its own reason, not "unfiled before its fix". Once each.
+SPECK_MENDED = "unfiled before its fix, a clue's stray mark mended"
+REREAD_SPECK_MENDED = "2026-10-28T12:40:00+00:00"
+
+
+def speck_mended_lost(row):
+    """Whether Times ledger `row`, read before REREAD_SPECK_MENDED, wrote a puzzle unfiled (a verdict
+    with an "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) one of whose
+    blank clues names a token speck_blank() now clears."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SPECK_MENDED)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any(speck_blank(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+@functools.lru_cache(maxsize=4096)
+def speck_blank(why):
+    """Whether blank reason `why` ("'felt,a': a stray mark inside a word", "'hrute': not a word": an
+    unfit() reason, not the vote's "both read") names a token suspect() now passes as it stands
+    (INITIALS_OWN: "ac.'s") or once clue_repair.mend_text has mended it ("felt, a", "brute"), past a
+    bracket the token alone cuts ('tiger"(Hen')."""
+    m = re.fullmatch(r"(['\"].*['\"]): (?:a stray mark inside a word|not a word)", str(why or ""))
+    if not m:
+        return False
+    try:
+        token = ast.literal_eval(m.group(1))
+    except (ValueError, SyntaxError):
+        return False
+    if not isinstance(token, str):
+        return False
+    if not ocr_clues.suspect(token):
+        # Passed as it stands by INITIALS_OWN, not by an earlier fix's own test (DASH_JOINED's, OLD_FORM's).
+        return bool(ocr_clues.INITIALS_OWN.fullmatch(token.strip(ocr_clues.EDGE)))
+    # Behind a word, as in its clue: mend_words leaves a clue's first word be, and joins no capital's piece.
+    mended = clue_repair.mend_text("The " + token)
+    return mended != "The " + token and not any("bracket" not in odd for _, odd in ocr_clues.suspect(mended))
 
 
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
@@ -14348,6 +14425,8 @@ def fix_reason(row):
         return DOWN_CUT
     if down_foot_lost(row):
         return DOWN_FOOT
+    if speck_mended_lost(row):
+        return SPECK_MENDED
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14991,7 +15070,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15318,7 +15397,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
+                                      SPECK_MENDED) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

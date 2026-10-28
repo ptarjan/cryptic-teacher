@@ -3727,8 +3727,11 @@ MARK_IN_WORD = re.compile(r"[^\W\d_][^\w\s'\u2019\-&/.]+[^\W\d_]|[^\W\d_]['\u201
 #: A capital after small letters, the word's last letter or inside a word
 #: no dictionary knows ("bacK", "RcbufT", "ofTer"); not "McX" or "O'X".
 CAPS_IN_WORD = re.compile(r"[a-z][A-Z]")
-#: Initials' possessive, which clues print: "P.M.'s", "N.C.O.'s".
-INITIALS_OWN = re.compile(r"(?:[A-Z]\.){2,}['\u2019]s")
+#: Initials' possessive, which clues print: "P.M.'s", "N.C.O.'s"; one initial's
+#: ("Mr. F.'s", "R. L. S.'s") and a stopped cross-reference's or title's ("1 ac.'s
+#: missile", "18dn.'s desperate", "a Rev.'s"). 10-28: the Gale Times clues blanked
+#: "a stray mark inside a word" so, every reader of each spelling it alike.
+INITIALS_OWN = re.compile(r"(?:[A-Z]\.)+['\u2019]s|(?:\d{1,2})?(?:ac|dn|Rev)\.['\u2019]s")
 #: OCR's commonest letter slips, both ways, for the misread-name test.
 NAME_SLIPS = SLIPS + (("v", "y"),)
 #: Characters stripped off a token's ends before it is judged.
