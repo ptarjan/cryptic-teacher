@@ -2468,14 +2468,14 @@ def glued_a(line):
     return line
 
 
-def tidy(text):
+def tidy(text, ones=True):
     """A column text with OCR's commonest slips in the print's shape undone
     (clue_text.tidy_ocr_clues, the one pipeline every OCR source shares): a
     brace or square bracket read for a round one, a clue number run into
     its first word, and a number lost altogether (a line starting a word
     straight after a line that ended on a count) marked "?", which
     file_trove_puzzles.match places by the grid alone."""
-    return clue_text.tidy_ocr_clues(text, line_hook=glued_a)
+    return clue_text.tidy_ocr_clues(text, line_hook=glued_a, ones=ones)
 
 
 #: {column text: its parse's answer}: the readers' vote asks parse of the same few
@@ -2487,20 +2487,22 @@ _PARSED = {}
 PARSED_KEEP = 64
 
 
-def parse(text):
+def parse(text, ones=True):
     """({"across": [...], "down": [...]}, None) or (None, why) for a column text.
-    Each call has its own copy, as the parse made afresh would be: callers edit it."""
-    got = _PARSED.get(text)
+    Each call has its own copy, as the parse made afresh would be: callers edit it.
+    `ones` False leaves a count's i for 1 unread (clue_text.ones_in_count; led_list)."""
+    key = text if ones else (text,)
+    got = _PARSED.get(key)
     if got is None:
         if len(_PARSED) >= PARSED_KEEP:
             _PARSED.pop(next(iter(_PARSED)))
-        got = _PARSED[text] = parse_text(text)
+        got = _PARSED[key] = parse_text(text, ones)
     return copy.deepcopy(got)
 
 
-def parse_text(text):
+def parse_text(text, ones=True):
     """parse() made afresh."""
-    secs = ftp.sections(tidy(text))
+    secs = ftp.sections(tidy(text, ones))
     if secs is None:
         return None, "no ACROSS and DOWN lists under the grid"
     parsed = {}
@@ -2509,6 +2511,52 @@ def parse_text(text):
         if why:
             return None, f"{direction} clues do not parse: {why}"
     return clue_repair.split_run_on(parsed)[0], None
+
+
+def led_list(text, others, g, ones=False):
+    """(parsed, laid, why) of the reading `text` as the vote's list: parsed, a
+    clue it lost taken from each of `others` (texts) in turn, numbers its
+    order refuses ("12" after 19) left for the grid to place, laid on the
+    scan's grid `g`; (None, None, why) when it does not parse.
+    The list is parsed with a count's i for 1 unread (ones_in_count), so the
+    mend never ranks a reading the vote would not have led with: mended,
+    a noisier reading parses whole, leads, and its own slips blank clues the
+    agreeing readers had (Times 1977-06-07's 19 across and 15 down). Only a
+    list that lies on the grid as read is laid again mended, and taken so
+    when that lies on it too (`ones` True: mended from the start)."""
+    parsed, why = parse(text, ones)
+    if parsed is None:
+        return None, None, why
+    parsed, _ = clue_repair.repaired(parsed, others)
+    parsed, _ = ftp.renumber(parsed)
+    laid, why = ftp.match(parsed, g) if g else (None, None)
+    if laid is not None and not ones and tidy(text) != tidy(text, ones=False):
+        mended, mlaid, mwhy = led_list(text, others, g, ones=True)
+        if mlaid is not None:
+            return mended, mlaid, mwhy
+    return parsed, laid, why
+
+
+def loose_lists(tried, texts):
+    """([(order, parsed)] as read, [(order, parsed)] mended): the lists the vote lays clue by clue when none lay
+    whole, in the order they take lights: the vote's tried lists (led_list's, as read), then each other reading
+    of `texts` parsed as read; then, apart, each reading a count's i for 1 (ones_in_count) parses otherwise,
+    mended. Laid after every list as read (by number and by place), a mended list only fills the lights those
+    left free: listed ahead, a reading parsed only once mended took Times 1976-10-27's 4 down with its own
+    slips ("Educate..-native") from the agreeing readings, and the vote blanked it."""
+    lists = [(o, p) for _, _, _, _, o, p, _, _ in tried]
+    for k in texts:
+        if k not in {o[0] for o, _ in lists} and texts[k].strip():
+            p, _ = parse(texts[k], ones=False)
+            if p is not None:
+                lists.append(((k,), ftp.renumber(p)[0]))
+    mended = []
+    for k in texts:
+        if texts[k].strip() and tidy(texts[k]) != tidy(texts[k], ones=False):
+            p, _ = parse(texts[k])
+            if p is not None:
+                mended.append(((k,), ftp.renumber(p)[0]))
+    return lists, mended
 
 
 def merge_rows(col):
@@ -8878,17 +8926,10 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     for order in pairs + rest:
         if order in rest and tried:
             break
-        parsed, why = parse(texts[order[0]])
+        parsed, laid, why = led_list(texts[order[0]], [texts[k] for k in [order[1]] + [k for k in texts if k not in order]], g)
         if parsed is None:
             verdict.setdefault("unparsed", {})[order[0]] = why
             continue
-        # A clue this list lost is taken from each other reading in turn.
-        parsed, _ = clue_repair.repaired(
-            parsed, [texts[k] for k in [order[1]] + [k for k in texts if k not in order]])
-        # A number its list's order refuses ("12" after 19) is left for the
-        # grid to place, never handed to the rebuild as read.
-        parsed, _ = ftp.renumber(parsed)
-        laid, why = ftp.match(parsed, g) if g else (None, None)
         tried.append((laid is not None, clue_repair.complete(parsed),
                       sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
         if laid is not None:
@@ -8909,24 +8950,19 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         # Each light takes the first reading whose clue lies on it, and is
         # checked against another reading than its own.
         # The readings no pair tried (the VLM's, Tesseract's) come last.
-        lists = [(o, p) for _, _, _, _, o, p, _, _ in tried]
-        for k in texts:
-            if k not in {o[0] for o, _ in lists} and texts[k].strip():
-                p, _ = parse(texts[k])
-                if p is not None:
-                    lists.append(((k,), ftp.renumber(p)[0]))
-        loose, src = {}, {}
-        for o, p in lists:
-            for lid, v in lay_loose(p, g)[0].items():
-                if lid not in loose:
-                    loose[lid], src[lid] = v, o
-        # Then the clues whose number was lost, into the lights no reading
-        # laid by number.
-        by_number = set(loose)
-        for o, p in lists:
-            for lid, v in lay_loose(p, g, by_number)[0].items():
-                if lid not in loose:
-                    loose[lid], src[lid] = v, o
+        lists, loose, src = loose_lists(tried, texts), {}, {}
+        for group in lists:
+            for o, p in group:
+                for lid, v in lay_loose(p, g)[0].items():
+                    if lid not in loose:
+                        loose[lid], src[lid] = v, o
+            # Then the clues whose number was lost, into the lights no reading
+            # laid by number.
+            by_number = set(loose)
+            for o, p in group:
+                for lid, v in lay_loose(p, g, by_number)[0].items():
+                    if lid not in loose:
+                        loose[lid], src[lid] = v, o
         verdict["looseLaid"] = len(loose)
         if len(loose) >= LOOSE_SHARE * len(rg.light_cells(g)) and not backsolve:
             grid, how, laid = g, "image", loose
@@ -12023,6 +12059,54 @@ def laid_blanks_due(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page written unfiled while a RapidOCR reading of its clue window
+#: ends a line on a count whose 1 was read as a lower-case i ("Suspense of the samphire- / gatherer (i1).",
+#: "(i0)", "(1i)", "(il)"): COUNT_BODY took I and l for 1 but not i, so the line ended on no count and its clue
+#: ran on into the next and was lost. Failure shapes r12-13, 10-28: 874 such lines in the cached windows of
+#: 574 Times pages. clue_text.ones_in_count now reads the count (10-15), and led_list ranks the vote's
+#: readings as read (loose_lists lays them as read first), so the mend only adds clues to the list that
+#: leads or lights none laid (r12's mend alone let a noisier reading lead and blank three clues the agreeing
+#: readers had). Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that for the Times). Once each.
+ONES_COUNT = "unfiled before its fix, a count's 1 read as i"
+REREAD_ONES_COUNT = "2026-10-28T14:55:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def ones_count_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}", each of its
+    windows) holds a line clue_text.ones_in_count mends."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+            if any(clue_text.ones_in_count(str(w[4])) != str(w[4]) for o in wins for w in o["words"]):
+                return True
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+    return False
+
+
+def ones_count_lost(row):
+    """Whether Times ledger `row`, read before REREAD_ONES_COUNT, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, with a blank clue, not since held with every clue)
+    whose clue window a RapidOCR reading holds a count's 1 read as i in (ones_count_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_ONES_COUNT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not ones_count_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
 #: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
 #: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
@@ -14775,6 +14859,8 @@ def fix_reason(row):
         return RUN_ON_TAIL
     if laid_blanks_due(row):
         return LAID_BLANKS
+    if ones_count_lost(row):
+        return ONES_COUNT
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -15217,7 +15303,7 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM, NEIGHBOUR_TAIL, EDGE_LETTERS,
                   ALONE_READ, BAND_GRID, LEFT_SPLIT, SCALED_GRID, LEFT_LATE, SCALED_EARLY, LEAD_RETRY, BAND_LATE,
                   SMALL_PAGE, RIGHT_ADS, FIFTIES_LEFT, CLOSED_GRID, LINKED_LEAD, DOWN_CUT, DOWN_FOOT, INSET_GRID,
-                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS)
+                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT)
 
 
 def blanket_or_fix(row, blanket):
@@ -15426,7 +15512,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15755,7 +15841,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS) else {}),
+                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

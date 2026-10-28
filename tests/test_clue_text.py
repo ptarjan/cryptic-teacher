@@ -105,6 +105,14 @@ assert ct.count_closed("some hair 8j") == "some hair (8)" and ct.count_closed("h
 assert ct.count_closed("hair (3,4)._") == "hair (3,4)" and ct.count_closed("no count here") == "no count here"
 assert ct.count_closed_open("a word (5r") == "a word (5)" and ct.count_closed_open("a word (5") == "a word (5)"
 assert ct.count_closed_open("a word (5)") == "a word (5)"
+# A count's 1 read as a lower-case i (Times 1974-12-07's "gatherer (i1)."): a two-figure group read 10-15.
+assert ct.ones_in_count("gatherer (i1).") == "gatherer (11)." and ct.ones_in_count("a word (1i)") == "a word (11)"
+assert ct.ones_in_count("a word (il)") == "a word (11)" and ct.ones_in_count("a word (4, i0)") == "a word (4, 10)"
+assert ct.count_closed("gatherer (i1).") == "gatherer (11)" and ct.count_closed("gatherer (i1).", ones=False) == "gatherer (i1)."
+# Not a lone i, a group past 15, another letter, a figure touching the bracket, or a count inside the line.
+for _left in ("a word (i)", "a word (4, i)", "a word (i6)", "a word (ix)", "blotting7(i0).", "a (i1) word here",
+              "a word (11)"):
+    assert ct.ones_in_count(_left) == _left, _left
 assert ct.clue_number_opening("I7 More") == "17 More" and ct.clue_number_opening("IA fruitful") == "1A fruitful"
 assert ct.clue_number_opening(". 1 Miss") == "1 Miss" and ct.clue_number_opening("*1 Land") == "1 Land"
 assert ct.clue_number_opening("IPheasant") == "1 Pheasant" and ct.clue_number_opening("JTool") == "1 Tool"

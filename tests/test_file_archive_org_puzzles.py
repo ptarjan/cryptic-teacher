@@ -2264,6 +2264,30 @@ check("a number lost after a count marked for the grid", "10 Nurse (7)\n? Holds 
 check("a number lost after the heading marked", "ACROSS\n? Nymph (8)", f.tidy("ACROSS\nNymph (8)"))
 check("a wrapped line is not marked", "10 Nurse holding\nNote (7)", f.tidy("10 Nurse holding\nNote (7)"))
 check("a count with a broken close read as one", "19 Stole pig (3)", f.tidy("19 Stole pig off3j".replace(" off", "")))
+# A count's 1 read as i (Times 1974-12-07's "gatherer (i1)."): read, so the clue after it, its number lost, opens.
+_ll_text = "ACROSS\n5 Suspense of the samphire-\ngatherer (i1).\nSign of grace (5)"
+check("a count's 1 read as i read as a count, the next line marked", "gatherer (11)\n? Sign of grace (5)",
+      "\n".join(f.tidy(_ll_text).splitlines()[2:]))
+check("left as read with ones off", _ll_text, f.tidy(_ll_text, ones=False))
+# led_list ranks a reading as read: the mend only lays again a list that lay so (Times 1977-06-07, mended, a
+# noisier reading led and blanked 19 across and 15 down).
+_ll_was = f.parse, f.clue_repair.repaired, f.ftp.renumber, f.ftp.match
+f.parse = lambda text, ones=True: ({"across": [], "down": [], "mended": ones}, None)
+f.clue_repair.repaired = lambda parsed, others: (parsed, [])
+f.ftp.renumber = lambda parsed: (parsed, [])
+f.ftp.match = lambda parsed, g: ({"1-across": ("x", "4", None)}, None)
+check("a list laid as read is laid mended", True, f.led_list(_ll_text, [], "g")[0]["mended"])
+check("nor mended where the mend changes nothing", False, f.led_list("ACROSS\n1 Fish (4)", [], "g")[0]["mended"])
+f.ftp.match = lambda parsed, g: (None, "mended refused") if parsed["mended"] else ({"1-across": ("x", "4", None)}, None)
+check("its read laid when the mended list does not lie", False, f.led_list(_ll_text, [], "g")[0]["mended"])
+f.ftp.match = lambda parsed, g: ({"1-across": ("x", "4", None)}, None) if parsed["mended"] else (None, "as read")
+check("a list only its mend lays is not laid: it never leads", [None, "as read"], list(f.led_list(_ll_text, [], "g")[1:]))
+f.parse, f.clue_repair.repaired, f.ftp.renumber, f.ftp.match = _ll_was
+# loose_lists: every reading as read first; a reading the mend reads otherwise again after them, mended, so it only
+# fills the lights they left free (Times 1976-10-27's 4 down, taken by a reading parsed only once mended).
+_ll_lists = f.loose_lists([], {"ch": _ll_text + "\nDOWN\n1 Beginning (6)", "en5": "ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)"})
+check("loose lists as read, then the mended apart", [[("ch",), ("en5",)], [("ch",)]],
+      [[o for o, _ in group] for group in _ll_lists])
 
 # Page text after the list's last count: a speck after the count ("(5). _")
 # is no text, so the footer after it is dropped, not read as a clue.
