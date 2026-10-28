@@ -1018,6 +1018,37 @@ def small_grid(width, title, box):
         and SMALL_GRID_SHARE[0] <= gw / tw <= SMALL_GRID_SHARE[1] and box[0] < (title[0] + title[2]) / 2 < box[2]
 
 
+#: The gaps (pixels) closed_grid() closes in a 1940-41 page's ink before it looks for the grid.
+CLOSED_GAP = 3
+
+
+def closed_grid(img, title):
+    """The grid under `title` on a 1940-41 Gale Times page (SMALL_PAGE_YEARS) whose scan broke its frame
+    and rules into pieces (CLOSED_GRID), or None: the largest ink under the title, as locate_grid's crop
+    grows it (ink_in), in the page's ink with gaps of CLOSED_GAP pixels closed, footed on the page as it
+    is; taken when grid-shaped (shaped_on) or a small-printed page's (small_grid), its top under the
+    title's line and its left edge within locate_grid's reach of the title's right."""
+    import numpy as np
+    from PIL import Image
+    x0, y0, x1, y1 = title
+    span = int(1.3 * (x1 - x0)) + 80
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    ink = (gray < trove_grid.otsu(gray)).astype(np.uint8)
+    cv2 = ocr_clues.capped_cv2()
+    ink = cv2.morphologyEx(ink, cv2.MORPH_CLOSE, np.ones((CLOSED_GAP, CLOSED_GAP), np.uint8)) > 0
+    closed = Image.fromarray(np.where(ink, 0, 255).astype(np.uint8))
+    crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + span))
+    if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
+        return None
+    box = ink_in(closed, crop, ("top",))
+    if box is None:
+        return None
+    box = footed(img, box)
+    if box[1] < y1 - TITLE_OVERLAP or box[0] > x1 + 120:
+        return None
+    return box if shaped_on(img, box) or small_grid(img.width, title, box) else None
+
+
 def offset_under(title, box):
     """`box` when it is the grid under `title` though locate_grid() did not take it so, else None:
     its top lies within the title's line (box[1] at or under the title's top, at most
@@ -8471,6 +8502,11 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         if band is None and touched is None and paper.key == "gale" and not paper.clues_above and not paper.four \
                 and SMALL_PAGE_YEARS[0] <= d.name[:4] <= SMALL_PAGE_YEARS[1] and small_grid(img.width, hit["box"], gbox):
             band, label = gbox, "under its title, printed small"
+        # A 1940-41 Gale Times grid the scan broke into pieces (CLOSED_GRID): found in the page's ink closed.
+        if band is None and touched is None and paper.key == "gale" and not paper.clues_above and not paper.four \
+                and SMALL_PAGE_YEARS[0] <= d.name[:4] <= SMALL_PAGE_YEARS[1]:
+            band = closed_grid(img, hit["box"])
+            label = "under its title, frame closed"
         if band is not None:
             gbox, side = band, "below"
             verdict["gridBox"] = label
@@ -11198,6 +11234,34 @@ def small_page_due(row):
     return False
 
 
+#: The reason, and its fix's time, of a 1940-41 Gale Times page (SMALL_PAGE_YEARS) refused "the ink under the
+#: title is WxH, not a grid" for a grid its scan broke into pieces: frame and rules parted by 1-2px gaps, the
+#: largest ink under the title one cell block (40x110 to 250px) that touched no edge of locate_grid's crop,
+#: so the crop never grew to the grid, which most often stands right of the title's middle (the clue column
+#: left of it under the title). closed_grid finds it in the page's ink with CLOSED_GAP closed, only where the
+#: page would be refused. 10-28 census (failure shapes r4): 23 unfiled 1940-41 rows so on 3,296px pages,
+#: planned by no reason; closed_grid takes a square 400-770px box on 19 (1941-01-13: 116x114 -> 526x529;
+#: 1940-05-15: 56x182 -> 530x531). Offline, readers only, VLM off: 1941-01-13 (No 3,397) refused -> written
+#: whole; 1940-05-15 (No 3,191) refused -> written, 3 blank. Due by the ledger alone (closed_grid_due): such
+#: a refusal, its puzzle not held. Once each.
+CLOSED_GRID = "a 1940-41 grid its scan broke into pieces, refused before its fix"
+REREAD_CLOSED_GRID = "2026-10-28T10:35:00+00:00"
+
+
+def closed_grid_due(row):
+    """Whether Gale Times ledger `row` of SMALL_PAGE_YEARS, read before REREAD_CLOSED_GRID, refused a title
+    "not a grid" for the ink under it, its puzzle not held (CLOSED_GRID)."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not SMALL_PAGE_YEARS[0] <= day[:4] <= SMALL_PAGE_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_CLOSED_GRID)):
+        return False
+    series = paper_of(row.get("edition", "")).series
+    return any(v.get("cause") == "not-a-grid" and _INK_UNDER.fullmatch(str(v.get("refused") or ""))
+               and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
+
+
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
 #: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
 #: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
@@ -13871,6 +13935,8 @@ def fix_reason(row):
         return RIGHT_ADS
     if fifties_left_due(row):
         return FIFTIES_LEFT
+    if closed_grid_due(row):
+        return CLOSED_GRID
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14514,7 +14580,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
