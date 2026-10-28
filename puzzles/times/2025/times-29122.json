@@ -604,49 +604,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "for the most part",
-       "note": "most of the word, so the last letter goes"
-      }
-     ],
      "parts": [
       {
-       "words": "game",
-       "gives": "CHEQUER",
-       "note": "CHEQUERS, the board game, minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 14,
+         "note": "for the most part means all of the word except its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "game",
+         "at": 9,
+         "gives": "CHEQUERS",
+         "note": "chequers is a board game, another name for draughts"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 38,
+       "gives": "E"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "heading for",
-         "note": "the head, first letter, of 'defeat'"
+         "at": 46,
+         "note": "heading for means the first letter of defeat"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "note": "E = English"
+         "words": "defeat",
+         "at": 58
         }
        ]
-      },
-      {
-       "words": "defeat",
-       "gives": "D",
-       "note": "first letter of defeat"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports report: England lose a lively match.",
-     "walkthrough": "Chequers is the British name for checkers (draughts).",
-     "definitionFit": "Idiom: a history of mixed fortunes, ups and downs, is called this, like a board of light and dark squares."
+     "surface": "A match report: an eventful game, with England heading for defeat most of the way.",
+     "walkthrough": "CHEQUERS is the British name for draughts (checkers); 'for the most part' drops its last letter.",
+     "definitionFit": "A career full of ups and downs is called varied, marked by many events."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "game"
+     "misdirectedWord": "English"
     }
    }
   },
