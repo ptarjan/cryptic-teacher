@@ -857,9 +857,18 @@ _SCATTER = {"separately", "variously", "individually", "scattered", "spread", "d
 
 def _scatters(node):
     """True when a container's indicators say the inner letters go in one by one
-    ("variously interrupting", "separately within")."""
+    ("variously interrupting", "separately within"), or when the inner argument is itself
+    several separate letters: a repeat (rep<twice>(U) cutting TREBLE is TRUEBLUE) or a selection
+    over a comma list of words (first<bits of>(Hong, Kong) in PACINO is PACHINKO)."""
     toks = re.findall(r"[a-z]+", " ".join(i.get("text", "") for i in node.get("indicators") or []).lower())
-    return any(t in _SCATTER for t in toks)
+    if any(t in _SCATTER for t in toks):
+        return True
+    inner = (node.get("parts") or [None, None])[-1]
+    if node.get("op") == "container" and len(node.get("parts") or []) == 2 and isinstance(inner, dict):
+        if inner.get("op") == "repeat":
+            return True
+        return inner.get("op") in SELECT and len(inner.get("parts") or []) >= 2
+    return False
 
 
 def _spread_in(o, i):
@@ -1348,6 +1357,11 @@ def _hint(node, want):
         said = _hid_over_reversal_hint(node, want)
         if said:
             return said
+        if len(parts) == 1 and "op" not in parts[0] and not parts[0].get("gives") and len(want) > 2 \
+                and want in letters(parts[0].get("words"))[::-1] and want not in letters(parts[0].get("words")):
+            return (f"hid() reads forwards only: {want} is hidden BACKWARDS in these words, so write "
+                    f"rev<reversal word>(hid<hidden-word indicator>([those words])), the reversal word as "
+                    f"rev()'s indicator (hid() has no reading of its own for it)")
     if op in SELECT + ("hidden",) and len(parts) == 1 and parts[0].get("op") == "charade":
         pieces = parts_of(parts[0])
         name = NAMES[op]
