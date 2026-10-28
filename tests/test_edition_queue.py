@@ -495,6 +495,26 @@ check("not after the fix, nor a title over its grid alone, nor another unparsed 
        f.band_due({**_bgrow, "verdicts": [{**_bg, "unparsed": {**_bg_nolist, "ch": "down clues do not parse: cannot find a clue number"}}]}),
        f.band_due({**_bgngrow, "scan": {**_bgngrow["scan"], "date": "1941-03-10", "item": "GaleTimes1941UKEnglish"}}),
        f.band_due({**_bgrow, "scan": {**_bgrow["scan"], "date": "1953-09-07", "item": "GaleTimes1953UKEnglish"}})])
+# ---- a 1945-47 Gale Times page refused "no reading parses" for its two clue columns left of the grid (read as one
+# window, its rows glued across both before lead_split's LEAD_TWO; or stopped at "See 4 across, 9") is due once
+# (fa.LEFT_SPLIT), ordered with never-read pages, never canary-held.
+_ls = {"number": 9999986, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' (4) 28 Part party wear and'",
+                    "en5": "no ACROSS and DOWN lists under the grid"}}
+_lsrow = {"edition": "GaleTimes1945UKEnglish/1945-02-13", "verdicts": [_ls], "readAt": "2026-10-20T09:51:00+00:00",
+          "scan": {"date": "1945-02-13", "item": "GaleTimes1945UKEnglish", "puzzles": [{"number": 9999986, "leaf": 0}]}}
+check("a 1945-47 Gale Times page refused for clue columns left of its grid is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.LEFT_SPLIT, 2, True, True, True, None],
+      [f.fix_reason(_lsrow), f.RANKS[f.LEFT_SPLIT], eq.evidence_reason(f.LEFT_SPLIT), f.LEFT_SPLIT in eq.FIX_LANDED,
+       f.LEFT_SPLIT in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LEFT_SPLIT, "date": "1945-02-13"})])
+check("not after the fix, nor another refusal, nor a reading stopped otherwise, nor every reading listless (1947-04-10), nor 1944 or 1948",
+      [False] * 6,
+      [f.left_split_due({**_lsrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "cause": "not-a-grid"}]}),
+       f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {**_ls["unparsed"], "times": "across clues do not parse: clue 3 has no count"}}]}),
+       f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1944-02-13", "item": "GaleTimes1944UKEnglish"}}),
+       f.left_split_due({**_lsrow, "scan": {**_lsrow["scan"], "date": "1948-02-13", "item": "GaleTimes1948UKEnglish"}})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

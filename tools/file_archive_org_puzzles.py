@@ -10898,6 +10898,42 @@ def band_due(row):
     return False
 
 
+#: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
+#: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
+#: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
+#: before lead_split's LEAD_TWO split (7a0796c690d, 10-19), every reading was refused, and the rows read
+#: in the days after it stayed so: REREAD_REFUSED's no-reading-parses cutoff (10-19 01:44) is before it,
+#: so none was read again. A See clue naming a linked answer ("14 See 4 across, 9 (4).") stopped the list
+#: at its comma (ftp.SEE_LINKED). Offline, readers only, 10-28: 1945-02-03, -02-13, -02-23, -03-10, -03-28
+#: and 1946-05-10 now read (28-36 lights each); 1947-04-10, whose every reading found "no ACROSS and DOWN
+#: lists" (its window right of the grid), still does not, so such rows are not due. Due by the ledger
+#: alone (left_split_due): a no-reading-parses verdict, its puzzle not held, a reading of which stopped
+#: "cannot find a clue number" and every other found "no ACROSS and DOWN lists" at most. Once each.
+LEFT_SPLIT = "clue columns left of a 1945-47 grid, refused before their fix"
+REREAD_LEFT_SPLIT = "2026-10-28T08:45:00+00:00"
+LEFT_SPLIT_YEARS = ("1945", "1947")
+
+
+def left_split_due(row):
+    """Whether Gale Times ledger `row` of LEFT_SPLIT_YEARS, read before REREAD_LEFT_SPLIT, refused a title
+    "no reading parses", its puzzle not held, a reading stopped "cannot find a clue number" and every
+    other so or finding "no ACROSS and DOWN lists" (LEFT_SPLIT)."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not LEFT_SPLIT_YEARS[0] <= day[:4] <= LEFT_SPLIT_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LEFT_SPLIT)):
+        return False
+    series = paper_of(row.get("edition", "")).series
+    for v in row.get("verdicts", ()):
+        stops = [str(s) for s in (v.get("unparsed") or {}).values()]
+        if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
+                and any("cannot find a clue number" in s for s in stops) \
+                and all(s.startswith("no ACROSS and DOWN lists") or "cannot find a clue number" in s for s in stops):
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
 #: wrote its puzzle unfiled with a clue blanked as "a stray letter": the Times set a word of emphasis
 #: letter-spaced, not in italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the guns",
@@ -13368,6 +13404,8 @@ def fix_reason(row):
         return ALONE_READ
     if band_due(row):
         return BAND_GRID
+    if left_split_due(row):
+        return LEFT_SPLIT
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14011,7 +14049,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,

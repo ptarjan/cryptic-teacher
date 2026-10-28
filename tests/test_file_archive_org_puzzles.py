@@ -3158,6 +3158,14 @@ check("a clue tail with its number lost parses as a clue of no number",
       [(set(), "way"), ({2}, "and 15: They deceive the pupils"), ({10}, "Ex-prime minister badly led by the clergy"),
        (set(), "scattered"), ({15}, "See 2 down"), ({17}, "Rude tot")],
       [(c["tokens"][0], " ".join(c["text"].split())) for c in ft_lost[0]])
+# Gale 1945-02-03 (Times 4,656): a See clue naming a linked answer's two numbers, then a count
+# ("14 See 4 across, 9 (4)."): the list stopped at the comma, "no reading parses".
+see_linked = ftp.clues("13 He was locked up (7). 14 See 4 across, 9 (4). 16 The 17 was (4). 3 See 27 and 28 (4, 5) 4 Bar (5)")
+check("a See clue naming a linked answer's later numbers, a count after them, parses",
+      [({13}, "He was locked up"), ({14}, "See 4 across, 9"), ({16}, "The 17 was"), ({3}, "See 27 and 28"), ({4}, "Bar")],
+      [(c["tokens"][0], c["text"]) for c in see_linked[0]])
+check("a See N then a comma and a new clue (no count after it) keeps its own number only",
+      [({14}, "See 4"), ({9}, "Foo")], [(c["tokens"][0], c["text"]) for c in ftp.clues("14 See 4 9 Foo (5)")[0]])
 # 1984-01-02, RapidOCR: the grid's crop took ACROSS; DOWN is there.
 times_16324 = """1 Meaningless sounds occur in nis
 brig. perhaps (9).

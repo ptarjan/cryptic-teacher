@@ -205,6 +205,10 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 #: A clue number OCR turned to junk ("f About to surround"): it is placed by
 #: the grid alone, in the one slot its neighbours leave; so is one whose
 #: digit it read as a dash ("1- Ask" for 12).
+#: The later numbers of a "See" clue naming a linked answer ("14 See 4 across, 9 (4).", "3 See 27
+#: and 28 (4, 5)": the 1945-52 Times), taken only when a count follows them: the list stopped at
+#: the comma (Gale 1945-02-03, 1946-08-12, 1947-12-11, 1951-05-12, refused "no reading parses").
+SEE_LINKED = r"(?:(?:\s*(?:,|;|&|and)\s*\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?)+(?=\s*\(\d))?"
 JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
                      r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1([1-9])\)\s*\.?"
@@ -523,7 +527,8 @@ def clues(text):
         see = SEE_RE.match(rest)
         if see:
             # "See 12" (and maybe "Across."), then the next clue's number.
-            tail = re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?\.?", rest, re.IGNORECASE)
+            tail = re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?" + SEE_LINKED + r"\.?",
+                            rest, re.IGNORECASE)
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
                         "enums": set(), "see": see_number(see.group(1))})
             pos = body_from + tail.end()
