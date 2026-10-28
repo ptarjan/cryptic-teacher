@@ -2278,6 +2278,18 @@ check("a grid with room under it for clues has none right of it", None, f.right_
 _gale = types.SimpleNamespace(key="gale")
 check("a 1947 Gale page's clues are not read right of the grid", False, f.clues_may_be_right(_gale, Path("GaleTimes1947UKEnglish/1947-05-17")))
 check("a 2014 Gale page's clues may be right of the grid", True, f.clues_may_be_right(_gale, Path("GaleTimes2014UKEnglish/2014-03-01")))
+# The 2009-13 Saturday prize page: the grid at the spread's foot, the clue columns right of it
+# (2009-10-24, No 24,365, refused "no reading parses" when the blurb under it was read as clues).
+check("a 2009 Gale Saturday's clues may be right of the grid", True, f.clues_may_be_right(_gale, Path("GaleTimes2009UKEnglish/2009-10-24")))
+check("a 2009 Gale weekday's are not", False, f.clues_may_be_right(_gale, Path("GaleTimes2009UKEnglish/2009-10-23")))
+check("nor a 2003 Gale Saturday's", False, f.clues_may_be_right(_gale, Path("GaleTimes2003UKEnglish/2003-05-03")))
+_sat = {"scan": {"item": "GaleTimes2009UKEnglish", "date": "2009-10-24"}, "readAt": "2026-10-25T08:17:27+00:00",
+        "verdicts": [{"number": 24365, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a 2009 Saturday refused no reading parses before the fix is due again", True, f.parses_era_due(_sat))
+check("as that refusal's fix", "refused no-reading-parses before its fix", f.fix_reason(_sat))
+check("not once read since", False, f.parses_era_due({**_sat, "readAt": "2026-10-29T00:00:00+00:00"}))
+check("nor a weekday's", False, f.parses_era_due({**_sat, "scan": {"item": "GaleTimes2009UKEnglish", "date": "2009-10-23"}}))
+check("nor the Sunday Times'", False, f.parses_era_due({**_sat, "scan": {"item": "GaleSundayTimes2009UKEnglish", "date": "2009-10-24"}}))
 check("a blank strip right of the grid holds no clues", None,
       f.right_columns(Image.new("L", (3296, 2849), 255), (196, 1598, 916, 2316)))
 page2 = Image.new("L", (3296, 2849), 255)
@@ -6610,6 +6622,19 @@ check("the one clue column left of a Saturday prize grid is read, ACROSS to the 
 c = clue_cases["times-16136"]
 check("(mirror) a grid whose clues are under it has no column left of it (Times 16,136)", None,
       f.left_column([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
+# The Gale 1987-02-21 prize page's RapidOCR probe read its heading "EACROSS." (No 17,286).
+probe = [[(542, 2996, 630, 3028, "The Ti")], [(248, 3040, 269, 3060, "1")], [(248, 3048, 368, 3073, "EACROSS.")],
+         [(258, 3072, 602, 3098, ": 1 Musican's disc has the exact")], [(292, 3096, 408, 3119, "words (7-5).")]]
+pgrid = (631, 3053, 1300, 3800)
+check("a probe heading read with a letter glued on is no heading by HEADING_ALONE", None, f.left_column(probe, pgrid))
+check("but places the column by PROBE_HEADING", (188, None, 3800 + f.COLUMN_DROP * 747),
+      f.left_column(probe, pgrid, heading=f.PROBE_HEADING))
+check("PROBE_HEADING still takes a plain heading, not a clue's word", (True, True, False, False),
+      tuple(bool(f.PROBE_HEADING.match(t)) for t in (". ACROSS", "Down", "Sundown", "ACROSS 5")))
+_80s = {"scan": {"item": "GaleTimes1987UKEnglish", "date": "1987-02-21"}, "readAt": "2026-10-21T19:29:37+00:00",
+        "verdicts": [{"number": 17286, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a 1987 Gale page refused no reading parses before the probe's fix is due again, any day", True, f.parses_era_due(_80s))
+check("a 1995 one is not", False, f.parses_era_due({**_80s, "scan": {"item": "GaleTimes1995UKEnglish", "date": "1995-02-21"}}))
 check("a centred notice with no clue number near the gutter still spans it",
       [(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")],
       f.split_across([(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")], [400]))

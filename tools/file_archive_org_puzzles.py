@@ -1592,7 +1592,13 @@ def left_columns(lines, grid):
 COLUMN_DROP = 1.1
 
 
-def left_column(lines, grid, margin=60):
+#: A heading as the Gale 1987 prize page's RapidOCR strip may read it: a speck or the
+#: number line beside it glued on as one letter ("EACROSS.", 1987-02-21, No 17,286:
+#: HEADING_ALONE found no heading, the column went unread, "no reading parses").
+PROBE_HEADING = re.compile(r"\W*(?:[A-Z]?(?:ACROSS|DOWN)|[Aa]cross|[Dd]own)\W*$")
+
+
+def left_column(lines, grid, margin=60, heading=HEADING_ALONE):
     """(x0, None, bottom) of the one clue column left of a grid whose title
     is over it (the 1987 Times Saturday prize: ACROSS level with the grid's
     top, DOWN running on under its foot, the last puzzles' solutions under
@@ -1603,7 +1609,7 @@ def left_column(lines, grid, margin=60):
     under it)."""
     gx0, gy0, gx1, gy1 = grid
     gh = gy1 - gy0
-    heads = [ws[0] for ws in lines if len(ws) == 1 and HEADING_ALONE.match(ws[0][4])
+    heads = [ws[0] for ws in lines if len(ws) == 1 and heading.match(ws[0][4])
              and gx0 - (gx1 - gx0) <= ws[0][0] and ws[0][2] < gx0
              and gy0 - LEFT_RISE <= ws[0][1] < gy1]
     if not heads:
@@ -7845,9 +7851,48 @@ def two_columns_only(paper, d):
     return paper.key == "ft" and d is not None and "1982" <= d.name[:4] <= "1986"
 
 
+#: The years whose Gale Times Saturday prize page sets its clue columns right of the grid, as the
+#: 2014 pages do every day: the grid at the foot of a two-page spread, its title over it, the
+#: competition blurb and the imprint under it. Gated off, overhang() read that blurb as a third
+#: column under the grid (no lists): 84 of the 2009-11 Saturdays' 156 stood refused "no reading
+#: parses" (Paul 10-28, "ones like" the 1987 prize's column left of the grid).
+SATURDAY_RIGHT = ("2009", "2013")
+
+
+#: (first year, last year, Saturdays only, ISO time): a Gale Times row of that era refused "no
+#: reading parses" and read before that time is read again as that refusal's fix (fix_reason),
+#: the rest of the cause's rows (REREAD_REFUSED's time) not. SATURDAY_RIGHT's Saturdays, and
+#: the 1980s pages whose left_column() probe now takes a heading read with a letter glued on
+#: (PROBE_HEADING).
+REREAD_PARSES_ERAS = ((SATURDAY_RIGHT[0], SATURDAY_RIGHT[1], True, "2026-10-28T06:45:00+00:00"),
+                      ("1980", "1989", False, "2026-10-28T06:45:00+00:00"))
+
+
+def parses_era_due(row, eras=REREAD_PARSES_ERAS):
+    """Whether ledger `row` is a Gale Times page of a REREAD_PARSES_ERAS era read before its time."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")):
+        return False
+    try:
+        saturday = datetime.date.fromisoformat(day[:10]).weekday() == 5
+    except ValueError:
+        return False
+    return any(first <= day[:4] <= last and (saturday or not sat_only)
+               and scan_queue.read_before(row, scan_queue.when(t)) for first, last, sat_only, t in eras)
+
+
 def clues_may_be_right(paper, d):
-    """False for a Gale edition before 2014: its clues never lie right of the grid."""
-    return not (paper.key == "gale" and d.name[:4] < "2014")
+    """False for a Gale edition before 2014: its clues never lie right of the grid,
+    but on a SATURDAY_RIGHT Saturday (right_columns() still checks the page's room
+    under the grid and the ink beside it)."""
+    if paper.key != "gale" or d.name[:4] >= "2014":
+        return True
+    try:
+        saturday = datetime.date.fromisoformat(d.name[:10]).weekday() == 5
+    except ValueError:
+        return False
+    return saturday and SATURDAY_RIGHT[0] <= d.name[:4] <= SATURDAY_RIGHT[1]
 
 
 #: The windows (the layout's, the readers' settled one, the gutters near its edge) a page's VLM
@@ -8025,7 +8070,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
             and side == "below" and top is None and not paper.four:
         probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
                             (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
-        column = left_column(probe, gbox)
+        column = left_column(probe, gbox, heading=PROBE_HEADING)
     crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
@@ -12732,6 +12777,8 @@ def fix_reason(row):
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
+            return f"refused {v['cause']} before its fix"
+        if v.get("cause") == "no-reading-parses" and parses_era_due(row):
             return f"refused {v['cause']} before its fix"
         t = REREAD_WRITE_FAILED.get(v.get("writeFailed"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
