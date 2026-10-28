@@ -435,6 +435,12 @@ check("hyphens run into a non-word stay (mirror)",
 check("a recogniser's ideograph one is the dash",
       "in chains \u2014 on the Bounty?", oc.agree("in chains \u4e00on the Bounty?", [mark("2 in chains on the Bounty ? (5). 3")])[0])
 check("initials' possessive is printed, no stray mark", [], oc.suspect("The P.M.'s house"))
+# One initial's, a stopped cross-reference's or a Rev.'s too (Gale 1942-08-10 6D, 1968-12-24 12A, 1958-01-14 2D,
+# 1963-01-02 8D: every reader of each spelt it alike); not a word's stop before "'s".
+check("one initial's, a cross-reference's or a Rev.'s possessive is printed",
+      [[], [], [], [], [], [("wor.'s", "a stray mark inside a word")]],
+      [oc.suspect(t) for t in ("Mr. F.'s relation", "R. L. S.'s new nights", "1 ac.'s missile destroys the plant",
+                               "2 18dn.'s desperate", "Object of a Rev.'s", "Old wor.'s end")])
 check("a dropped aitch is the setter's (times-21281 28A)", [],
       oc.suspect("'aving moved 'e 'astened 'ome 'ere? 'ow 'iggins at 'igher"))
 check("an apostrophe before a word no aitch makes is still no word", [("'austic", "not a word")],

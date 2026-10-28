@@ -423,6 +423,31 @@ check("not after the fix, nor for an Across light, nor another paper",
 f.down_foot_read = lambda key: False
 check("nor with no reading holding such a heading", False, f.down_foot_lost(_dfrow))
 f.down_foot_read = _df_read
+# ---- a Times page written unfiled for a clue blanked on a stray mark the mends now clear ("never felt,a", Gale
+# 1941-06-16's 25 down) or a stopped abbreviation's possessive ("Mr. F.'s") is due once (fa.SPECK_MENDED),
+# ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_sm = {"id": "times-9999993", "number": 9999993, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"25-down": "'felt,a': a stray mark inside a word"}}
+_smrow = {"edition": "GaleTimes1941UKEnglish/1941-06-16", "verdicts": [_sm], "readAt": "2026-10-22T01:26:02+00:00"}
+check("a Times page with a clue blanked on a glued comma is due as such, ranked, evidence, fix-landed, "
+      "unfiled-first, never canary-held",
+      [f.SPECK_MENDED, 2, True, True, True, None, None],
+      [f.fix_reason(_smrow), f.RANKS[f.SPECK_MENDED], eq.evidence_reason(f.SPECK_MENDED), f.SPECK_MENDED in eq.FIX_LANDED,
+       f.SPECK_MENDED in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.SPECK_MENDED, "date": "1941-06-16"}),
+       eq.canary_failed({"paper": "times", "reason": f.SPECK_MENDED, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper",
+      [False] * 2,
+      [f.speck_mended_lost({**_smrow, "readAt": _after}),
+       f.speck_mended_lost({**_smrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+check("which blank tokens the mends now clear: a glued comma, a quote glued to its source, 'Mr. F.'s', a known "
+      "slip; not a foreign word, a close-set dash another fix passes, nor the vote's 'both read'",
+      [True, True, True, True, False, False, False],
+      [f.speck_blank(w) for w in ("'felt,a': a stray mark inside a word",
+                                  "'provoke\"(Pope)': a stray mark inside a word",
+                                  "\"F.'s\": a stray mark inside a word", "'hrute': not a word",
+                                  "'linguae': not a word", "'Beat,—with': a stray mark inside a word",
+                                  "both read 'felt,a', not a word")])
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,

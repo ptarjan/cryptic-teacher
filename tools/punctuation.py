@@ -70,6 +70,15 @@ MIDDLE_DOT = re.compile(r" ?· ?")
 LONE_STOP = re.compile(r"(?<=\S) \.(?= \S)")
 DOUBLE_STOP = re.compile(r"^\.\.(?![.…])|(?<![.…])\.\.$")
 ARTICLE_STOP = re.compile(r"(?<![\w.])[Aa]\.(?= [a-z])")
+#: A space a reader lost after a mark no print sets against the next word: a comma
+#: after a word ("saw I,never felt,a", "No,I'm"; not figures, "1,000", nor letters, "A,B"), a closing double
+#: quote before its source's bracket ('howling"(Hamlet)', 'provoke"(Pope)'), and a
+#: double quote closed after a mark, its opener before it ('"... policemen,"or'). 10-28: the
+#: unfiled Gale Times clues blanked "a stray mark inside a word" so, the other
+#: readers of each printing the space ("felt, a", 'provoke" (Pope)').
+GLUED_COMMA = re.compile(r"(?<=[A-Za-z]{2}),(?=[A-Za-z])|(?<=[A-Za-z]),(?=[A-Za-z]{2})")
+GLUED_SOURCE = re.compile(r"(?<=[A-Za-z.,;:!?])[\"”](?=\([A-Z])")
+GLUED_CLOSER = re.compile(r"(?<=[A-Za-z][,.;:!?])[\"”](?=[A-Za-z])")
 
 
 #: A quotation's source closing a clue: '(Dickens)', "(M. for M.)", '(Henry V )'; not "(anag.)".
@@ -250,6 +259,12 @@ def _edits(text):
         out.append((m.start(), m.end(), "…"))
     for m in ARTICLE_STOP.finditer(text):
         out.append((m.end() - 1, m.end(), ""))
+    for rule in (GLUED_COMMA, GLUED_SOURCE, GLUED_CLOSER):
+        for m in rule.finditer(text):
+            # A closer only after its opener: 'of."My Fair Lady"' opens one (filed FT 1981 29A).
+            if rule is GLUED_CLOSER and sum(text[:m.start()].count(q) for q in '"“”') % 2 == 0:
+                continue
+            out.append((m.end(), m.end(), " "))
     out.sort()
     kept = []
     for e in out:

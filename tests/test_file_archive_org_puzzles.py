@@ -2484,6 +2484,16 @@ laid, blank = f.unfit_blanked({"1-across": ("Like ignis fatuus", "6", None), "3-
 check("a word the clue's asPrinted keeps is filed; the same word unvouched is not (mirror)",
       ({"1-across": ("Like ignis fatuus", "6", None), "3-across": ("", "6", None)}, ["3-across"]),
       (laid, sorted(blank)))
+# A clue refused only for a stray mark or a no-word slip the mends clear is laid mended, not blanked first and so
+# never mended (Gale 1941-06-16's 25 down "Ne'er saw I,never felt,a"; Gale 1943-01-01's 21 down).
+laid, blank = f.unfit_blanked({"25-down": ("Ne'er saw I,never felt,a calm", "6", None),
+                               "21-down": ('"And a saint provoke"(Pope)', "6", None),
+                               "1-across": ("Lingua linguae", "6", None), "3-across": ("Stop to0 late", "6", None)},
+                              {}, {"25-down": 6, "21-down": 6, "1-across": 6, "3-across": 6})
+check("a glued comma or quote is laid mended; a foreign word or a digit inside a word is still blank",
+      ({"25-down": ("Ne'er saw I, never felt, a calm", "6", None), "21-down": ('"And a saint provoke" (Pope)', "6", None),
+        "1-across": ("", "6", None), "3-across": ("", "6", None)}, ["1-across", "3-across"]),
+      (laid, sorted(blank)))
 check("a dash or comma run into the words either side is spaced",
       ["Hang play \u2014 change", "Two elements \u2014 somewhat", "now \u2014 then", "Good rum, as do, too",
        "usage: acceptable", "1,000 men", "self-made", "Why? Yes!"],
