@@ -120,6 +120,17 @@ ct.set_linked_mends(_was)
 assert ct.linked_mends() and ct.linked_missed() == 0
 assert "(1,4,2,3,6)" in ct.tidy_ocr_clues("ACROSS\n1, 9 A revolutionary\nstory, with capital\ninterchanges (1, 4, 2,\n3, 6).\n"
                                           "10 He moves men in a\nbig way (10).")
+# A linked head whose comma a speck read as a stop (failure shapes r28, Gale 1951-12-27, 1954-04-02): "M, N".
+assert ct.stray_link_stop('25. 26 " For a good local,"') == '25, 26 " For a good local,"'
+assert ct.stray_link_stop("12, .14 Celestial cavalry") == "12, 14 Celestial cavalry"
+assert ct.stray_link_stop("1. 5 ac. If you don't") == "1, 5 ac. If you don't"
+# Not a time, a lower number after the stop, a lower-case word, nor a plain clue.
+for _line in ("3.15p.m., 19 May", "26. 4 Some", "14. 17 down the road", "12 Words here", "9.30 to 1.30"):
+    assert ct.stray_link_stop(_line) == _line, _line
+_was = ct.set_linked_mends(False)
+assert ct.stray_link_stop("14. 17 It's not half") == "14. 17 It's not half" and ct.linked_missed() == 1
+ct.set_linked_mends(_was)
+assert "14, 17 It's not half" in ct.tidy_ocr_clues("ACROSS\n11 Some words (5).\n14. 17 It's not half\nas good (4, 5).")
 # A count's 1 read as a lower-case i (Times 1974-12-07's "gatherer (i1)."): a two-figure group read 10-15.
 assert ct.ones_in_count("gatherer (i1).") == "gatherer (11)." and ct.ones_in_count("a word (1i)") == "a word (11)"
 assert ct.ones_in_count("a word (il)") == "a word (11)" and ct.ones_in_count("a word (4, i0)") == "a word (4, 10)"

@@ -6437,6 +6437,26 @@ try:
     check("the mends are back in force after the read", True, f.clue_text.linked_mends())
 finally:
     f._read_window = _lf_real
+
+
+# A head whose comma was read as a stop ("25. 26 \" For a good local,\"", Gale 1951-12-27, failure shapes r28): the
+# first read laid 25 with words led by 26; the fill takes the mended words for it, not only the group's count.
+def _sl_e(n, text, **k):
+    return {"number": n, "direction": "across", "position": {"x": n, "y": 0}, "length": 7,
+            "clue": {"text": text, **k} if text else {"missing": True}, "solution": None}
+
+
+_sl_v, _sl_p = f.linked_filled(
+    {"grid": "image", "agreed": 1, "blank": {"26-across": "no reading laid a clue on it"}},
+    {"dimensions": {"cols": 15}, "entries": [_sl_e(25, '26 " For a good local," said Tommy', enumeration="7"),
+                                             _sl_e(26, "")]},
+    {"grid": "image", "agreed": 2},
+    {"dimensions": {"cols": 15}, "entries": [{**_sl_e(25, '" For a good local," said Tommy', enumeration="3,4,7"),
+                                              "group": ["25-across", "26-across"]}, _sl_e(26, "See 25")]})
+check("a stop-linked head's words led by its tail's number take the mended words; its tail is filled",
+      (['" For a good local," said Tommy', "3,4,7", "See 25"], ["26-across"], None),
+      ([_sl_p["entries"][0]["clue"]["text"], _sl_p["entries"][0]["clue"]["enumeration"], _sl_p["entries"][1]["clue"]["text"]],
+       _sl_v.get("linkedFilled"), _sl_v.get("blank")))
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
     return {"number": 1, "cause": "not-a-grid"}, None
