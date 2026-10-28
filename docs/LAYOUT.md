@@ -2074,6 +2074,11 @@ tools/file_archive_org_puzzles.py              files the daily Times, FT, Guardi
                                                every reading kept for cross_validate.py's
                                                archiveorg adapter; names the Times puzzle each
                                                canberra file reprints
+tests/test_touching_grid.py                    does tools/file_archive_org_puzzles.py find a
+                                               grid whose heavy ink runs up into its title
+                                               (touching_grid), which locate_grid refuses as
+                                               not a grid, and make such refused Times pages
+                                               due once (touching_refused)?
 tests/test_file_archive_org_puzzles.py         does tools/file_archive_org_puzzles.py find the
                                                Times cryptic's title and not its neighbours',
                                                read the clue columns in order, keep only the

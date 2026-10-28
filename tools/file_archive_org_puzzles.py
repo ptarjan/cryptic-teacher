@@ -909,6 +909,48 @@ def grid_box(img, title):
     return locate_grid(img, title)[0]
 
 
+#: How far, in pixels, from its title's foot a grid whose ink runs up into the
+#: title may start (touching_grid).
+TOUCH_GAP = 12
+
+
+def touching_grid(img, title, box):
+    """The grid under `title` that locate_grid() refused (its `box`, the ink
+    under the title) because its ink runs up into the title, or None: heavy
+    print joins the frame to the title's letters, so the ink never clears the
+    title's line (the 1950s-80s Times: 1982-07-06's No 15,874 and 1953-58's
+    grids start at their title's very foot, and were refused "not a grid").
+    Tried in turn: `box` itself; the largest ink between the title and a
+    solution-shaped grid locate_grid() took in its place (1950-52: the
+    solution grid at the page's foot); the top square of a box taller than
+    wide (the grid fused to the solution grid under it, 1950-06-19). Each must
+    be grid-shaped, start within TOUCH_GAP of the title's foot and straddle
+    its middle. Its ink is not trusted for blocks: _read_page files such a
+    grid only when every clue lies on it as read, or the clue list's numbers
+    and counts fix one grid alone (ftp.rebuild with no scan to pick by)."""
+    if box is None:
+        return None
+    x0, _, x1, y1 = title
+    cx = (x0 + x1) / 2
+
+    def under(b):
+        return b is not None and abs(b[1] - y1) <= TOUCH_GAP and b[0] < cx < b[2] and shaped_on(img, b)
+    if under(box):
+        return box
+    if box[1] > y1 and solution_shaped(img)(box):
+        crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), box[1] - 4)
+        if crop[3] - crop[1] > 2 and crop[2] - crop[0] > 2:
+            b = ink_box(img.crop(crop))
+            b = b and (crop[0] + b[0], crop[1] + b[1], crop[0] + b[2], crop[1] + b[3])
+            if under(b):
+                return b
+    if box[3] - box[1] > box[2] - box[0]:
+        top = (box[0], box[1], box[2], box[1] + box[2] - box[0])
+        if under(top):
+            return top
+    return None
+
+
 def grid_under_clues(img, title):
     """Where the grid is when the clues are printed over it: the largest ink
     in the CLUES_ABOVE_SPAN under the title, which is the left column's
@@ -7953,8 +7995,18 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
+    # A grid whose heavy ink runs up into its title (touching_grid) places the clue
+    # crops; its blocks are backsolved from the clue list unless every clue lies on
+    # it as read (backsolve: no scan grid stands, picks or screens).
+    backsolve = False
     if side is None or not (wide_shaped if paper.key in GRID_RIGHT else shaped_on)(img, gbox):
-        return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
+        touched = touching_grid(img, hit["box"], gbox) \
+            if not paper.clues_above and not paper.four and paper.key not in GRID_RIGHT else None
+        if touched is None:
+            return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
+        gbox, side, backsolve = touched, "below", True
+        verdict["gridBox"] = "touching its title"
+        gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
     m = paper.margin
@@ -8118,7 +8170,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     # back (ocr_clues.worn), so the readers agree on it.
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
-    texts, dropped = screened(texts, g)
+    texts, dropped = screened(texts, None if backsolve else g)
     if dropped:
         verdict["dropped"] = dropped
     # Each reading in turn is the list, repaired from the other: archive.org's
@@ -8187,14 +8239,14 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
                 if lid not in loose:
                     loose[lid], src[lid] = v, o
         verdict["looseLaid"] = len(loose)
-        if len(loose) >= LOOSE_SHARE * len(rg.light_cells(g)):
+        if len(loose) >= LOOSE_SHARE * len(rg.light_cells(g)) and not backsolve:
             grid, how, laid = g, "image", loose
             verdict["readings"] = sorted({o[0] for o in src.values()})
             stream = [{lid: t for lid, o in src.items() if k != o[0]}
                       for k, t in texts.items() if t.strip()]
     if grid is None:
-        g, why = ftp.rebuild(parsed, image)
-        if g is None and image:
+        g, why = ftp.rebuild(parsed, None if backsolve else image)
+        if g is None and image and not backsolve:
             # No grid fits the clues, so the misreads are the clues': the
             # scan's grid stands, its unlaid lights blank for the clue
             # re-read.
@@ -11859,6 +11911,27 @@ GRID_REFUSALS = ("its blocks are not the puzzle's", "the ink under the heading i
 #: (26 of 29 lights at 0.849), 22719, 22730, 15538, 20683, 16144, 268, 229 stood refused so.
 NEAR_GRID = "solution short, its grid read near the blocks bar since"
 REREAD_NEAR_GRID = "2026-10-26T13:45:00+00:00"
+#: The due reason of a Times page refused "not a grid" for the ink under its title, read before
+#: touching_grid found a grid whose heavy ink runs up into its title and _read_page backsolved its
+#: blocks from the clue list (Paul 10-28: "If you can't get the grid just backsolve the parts you
+#: can't read"): rows read before REREAD_TOUCHING_GRID, of a puzzle not held, in TOUCHING_YEARS
+#: (the years touching_grid found such grids in), once. 10-28: 272 Times verdicts refused so, 208
+#: unheld (1950s 67, 2000s 64, 1940s 46, 1960s 35, 1980s 28).
+TOUCHING_GRID = "refused not a grid, its grid touching its title read since"
+REREAD_TOUCHING_GRID = "2026-10-28T06:50:00+00:00"
+TOUCHING_YEARS = ("1950", "1999")
+
+
+def touching_refused(row):
+    """Whether Times ledger `row`, read before REREAD_TOUCHING_GRID in TOUCHING_YEARS, refused a title
+    "not a grid" for the ink under it (touching_grid's case), its puzzle not held."""
+    paper = paper_of(row.get("edition", ""))
+    if paper.key not in (TIMES.key, GALE.key) \
+            or not TOUCHING_YEARS[0] <= row.get("edition", "").rsplit("/", 1)[-1][:4] <= TOUCHING_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TOUCHING_GRID)):
+        return False
+    return any(v.get("cause") == "not-a-grid" and str(v.get("refused") or "").startswith("the ink under the title is ")
+               and filed_state(paper.series, v.get("number")) is None for v in row.get("verdicts", ()))
 
 
 def near_refused(row):
@@ -12667,6 +12740,8 @@ def fix_reason(row):
         return REFUSED_GRID
     if near_refused(row):
         return NEAR_GRID
+    if touching_refused(row):
+        return TOUCHING_GRID
     if MATCHED_LATTICE and refused_grid(row, REREAD_MATCHED_GRID, GRID_REFUSALS[:1]):
         return MATCHED_GRID
     if unenumerated_held(row):
@@ -13287,7 +13362,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
-         REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
+         REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
