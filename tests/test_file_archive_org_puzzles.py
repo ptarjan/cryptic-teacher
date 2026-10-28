@@ -2288,6 +2288,37 @@ cols = f.columns(words, grid, split=split)
 check("the gutter lies between the columns", True, 2569 < split < 2577)
 check("a right-hand clue left of the grid's middle stays in its column",
       ["1 Graduate teachers object to", "28 Take part of case for leisure"], [l[4] for l in cols[0]])
+# Gale 1963-10-07: the second column under the grid opens at ~777 px, left of the grid's middle fifth
+# (785-929) where the gutter was sought (856): its lines fell in the first column's window, and a line
+# read across both ("of the Alpine shep-  26 Is about ...", "26" past SPLIT_SLACK) ended it as a notice.
+# The gutter is sought where the second column's clue lines open (opening_gutter()).
+_og_grid = (508, 3998, 1226, 4718)
+_og_ch = [(508, 4727, 1136, 4761, "6 Beetle that : 23 Mechanical astronaut ? (6)."),
+          (534, 4755, 760, 4777, "answers the call"),
+          (528, 4770, 1227, 4808, "of the Alpine shep-  26 Is about to study good pictures (5)."),
+          (531, 4799, 680, 4827, "herd ? (8)."), (776, 4813, 1231, 4851, "27 The Archbishop's upset in the river."),
+          (505, 4838, 760, 4871, "7 This was what a"), (532, 4865, 758, 4891, "spinner did to in-"),
+          (532, 4891, 669, 4916, "spire a royal"), (531, 4913, 674, 4940, "observer (9)."),
+          (506, 4952, 760, 4983, "8 Poshed up in these"), (533, 4979, 680, 5006, "surplices (6)."),
+          (533, 5017, 758, 5042, "9 Stop a hole ? The"), (535, 5040, 764, 5067, "biggest, we are told!"),
+          (519, 5061, 575, 5091, "(9)."), (495, 5098, 760, 5130, "14 An agreeable noise"),
+          (533, 5124, 573, 5151, "(9)."), (495, 5159, 755, 5188, "16 Alias Candida ? (4-5).")]
+_og_en5 = [(779, 4773, 1224, 4808, "26 Is about to study good pictures (5)."),
+            (777, 4814, 1231, 4851, "27 The Archbishop's upset in the river.")]
+_og_split = f.under_gutter([[w] for w in _og_ch + _og_en5], _og_grid)
+_og_cols = f.columns([[w] for w in _og_ch], _og_grid, split=_og_split)
+check("the gutter is sought where the second column's clue lines open, left of the grid's middle fifth",
+      True, 760 < _og_split < 777)
+check("so the line read across both columns is cut at its clue, and neither column ends there",
+      [["6 Beetle that :", "16 Alias Candida ? (4-5)."],
+       ["23 Mechanical astronaut ? (6).", "26 Is about to study good pictures (5).",
+        "27 The Archbishop's upset in the river."]],
+      [[_og_cols[0][0][4], _og_cols[0][-1][4]], [l[4] for l in _og_cols[1]]])
+check("a second column start further right (four columns, a grid guessed wrong) keeps the gutter", None,
+      f.column_start([[w] for w in _og_ch + _og_en5 + [(1100, 4900, 1200, 4930, "12 Other column")]],
+                     508 + 0.2 * 718, 508 + 0.8 * 718, 4718, 6010, 1226))
+check("one row of openings is no column start", None,
+      f.column_start([[w] for w in _og_ch], 508 + 0.2 * 718, 508 + 0.8 * 718, 4718, 6010, 1226))
 
 # The 2014 Times (Gale): the grid at the page's foot, the two clue columns right
 # of it, "Yesterday's solution" under the first; the third column is not read.

@@ -1748,11 +1748,69 @@ def under_gutter(lines, grid, shares=None):
     columns need not split at the grid's middle, and a right-hand clue
     whose number starts left of it is read into the left column's row."""
     gx0, _, gx1, gy1 = grid
-    mid, span = gx0 + (gx1 - gx0) / 2 - 10, UNDER_SPAN * (gx1 - gx0)
+    gw = gx1 - gx0
+    mid, span = gx0 + gw / 2 - 10, UNDER_SPAN * gw
     if shares:
-        mid, span = gx0 + (gx1 - gx0) * sum(shares) / 2, (gx1 - gx0) * (shares[1] - shares[0]) / 2
-    bottom = gy1 + 1.8 * (gx1 - gx0)
-    return gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
+        mid, span = gx0 + gw * sum(shares) / 2, gw * (shares[1] - shares[0]) / 2
+    bottom = gy1 + 1.8 * gw
+    split = gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
+    moved = opening_gutter(lines, grid, split)
+    return split if moved is None else moved
+
+
+def opening_gutter(lines, grid, split):
+    """The gutter under the grid sought where the second clue column's lines open (column_start()), when
+    they open over OPEN_MISS px left of `split` (the gutter under_gutter() found); else None."""
+    gx0, _, gx1, gy1 = grid
+    gw = gx1 - gx0
+    bottom = gy1 + 1.8 * gw
+    start = column_start(lines, gx0 + OPEN_SPAN[0] * gw, gx0 + OPEN_SPAN[1] * gw, gy1, bottom, gx1)
+    if start is None or split <= start + OPEN_MISS:
+        return None
+    return gutter(lines, (gx0, bottom, gx1, bottom), gy1, start - OPEN_REACH, start)
+
+
+#: A clue line's opening, as one word box: its number, then its first word's capital ("23 Mechanical").
+CLUE_OPENING = re.compile(r"\W{0,3}\d{1,2}\W{0,2}\s*[A-Z\"'‘“]")
+#: The second clue column under a grid opens where at least OPEN_ROWS of its rows' clue openings
+#: (CLUE_OPENING) start within OPEN_ALIGN px of each other, OPEN_SPAN (shares of the grid's width from
+#: its left edge) along; rows OPEN_ROW px apart are two. When the gutter under_gutter() found lies over
+#: OPEN_MISS px right of it, the second column's lines start inside the first column's window, and a line
+#: read across both ("of the Alpine shep-  26 Is about to study good pictures (5).", its "26" 83 px from
+#: the gutter, past SPLIT_SLACK) is taken for a notice that ends the column: the gutter is sought in the
+#: OPEN_REACH px left of the openings instead. Gale 1963-10-07: printed gutter ~770 px, sought in the
+#: grid's middle fifth (785-929) at 864, so no reading laid 14-22 down. A page of more columns (the
+#: 1939-47 Times' four, or a window under a grid guessed wrong) shows openings further right too, and
+#: keeps its gutter.
+OPEN_ROWS, OPEN_ALIGN, OPEN_ROW, OPEN_SPAN, OPEN_MISS, OPEN_REACH = 2, 15, 12, (0.2, 0.8), 60, 60
+
+
+def column_start(lines, lo, hi, top, bottom, far):
+    """The x where the second clue column's lines open (`lines`, every reading's words, from `top` to
+    `bottom`): the middle opening of the one run of clue openings, in [lo, hi), on OPEN_ROWS or more rows
+    within OPEN_ALIGN px of each other; None when there is none, or another column's opening stands
+    right of it, short of `far` (the grid's right edge)."""
+    starts = [(w[0], (w[1] + w[3]) / 2) for ws in lines for w in ws
+              if top <= w[1] < bottom and lo <= w[0] < hi and CLUE_OPENING.match(str(w[4]))]
+    found = []
+    for x, _ in starts:
+        near = sorted((s for s in starts if abs(s[0] - x) <= OPEN_ALIGN), key=lambda s: s[1])
+        rows = []
+        for s in near:
+            if not rows or s[1] - rows[-1] > OPEN_ROW:
+                rows.append(s[1])
+        if len(rows) >= OPEN_ROWS:
+            xs = sorted(s[0] for s in near)
+            found.append((len(rows), xs[len(xs) // 2]))
+    if not found:
+        return None
+    best = max(found)[1]
+    if any(abs(x - best) > 3 * OPEN_ALIGN for _, x in found):
+        return None
+    if any(best + 3 * OPEN_ALIGN < w[0] < far and top <= w[1] < bottom and CLUE_OPENING.match(str(w[4]))
+           for ws in lines for w in ws):
+        return None
+    return best
 
 
 #: How far over the grid's top, and under its foot as a share of its height,
@@ -11743,6 +11801,83 @@ def stop_tail_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page written unfiled with lights "no reading laid a clue on
+#: it" while the gutter under the grid lay well right of where the second clue column's lines open, so
+#: those lines fell in the first column's window and a line read across both ended it as a notice: Gale
+#: 1963-10-07, printed gutter ~770 px, sought at 864, no reading laid 14-22 down. under_gutter() now
+#: seeks it where the second column's clue lines open (opening_gutter()). Failure shapes r10, 10-28: of
+#: the 32,975 cached windows, 24,199 were re-cut by their grid crop's size; the new gutter moved 21
+#: windows on 17 pages (1940-47, 1962-66, 2006, 2011), every one read better (by the filed clues of the
+#: 10 held, and by eye: 1946-08-30's down list whole, 2011-04-29's two columns apart), none worse. r9's
+#: "wide line" lights were mostly not this: on 1972-05-08 the gutter is right and every lost down clue
+#: is read. Due by the ledger and the cached readings (opening_gutter_read). Its own reason. Once each.
+OPENING_GUTTER = "unfiled before its fix, the gutter under the grid right of the second column's clues"
+REREAD_OPENING_GUTTER = "2026-10-28T13:00:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def opening_gutter_read(key):
+    """Whether a cached reading of clue window `key` (CROPS/rapid, "{edition}_{number}"), any window of
+    its cache that is the crop under the grid (CROPS/grids/{key}.png gives the grid's size; the crop
+    starts 40 px left of it, at its foot), puts the second column's clue openings over OPEN_MISS px left
+    of the gutter under_gutter() found before opening_gutter()."""
+    try:
+        from PIL import Image
+        with Image.open(CROPS / "grids" / f"{key}.png") as im:
+            gw, gh = im.width - 12, im.height - 12
+    except (OSError, ValueError, ImportError):
+        return False
+    boxes = {}
+    for which in READERS:
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else []
+            for o in wins:
+                boxes.setdefault(tuple(o["box"]), []).extend(tuple(w) for w in o["words"])
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+    fifties = "1950" <= key[:4] <= "1959"
+    for (x0, y0, x1, y1), words in boxes.items():
+        gx0 = x0 + 40
+        grid = (gx0, y0 - gh, gx0 + gw, y0)
+        if gw < 300 or x0 <= 0 or x1 < grid[2] + RIGHT_REACH - 1 or y1 > int(y0 + 1.8 * gw) + 1 \
+                or grid[2] + RIGHT_REACH + 1 < x1 < grid[2] + RIGHT_REACH + 50:
+            continue
+        lines = [[w] for w in words]
+        shares = UNDER_FIFTIES if fifties else None
+        mid, span = (gx0 + gw * sum(shares) / 2, gw * (shares[1] - shares[0]) / 2) if shares \
+            else (gx0 + gw / 2 - 10, UNDER_SPAN * gw)
+        bottom = y0 + 1.8 * gw
+        split = gutter(lines, (gx0, bottom, grid[2], bottom), y0, mid - span, mid + span)
+        if opening_gutter(lines, grid, split) is not None:
+            return True
+    return False
+
+
+def opening_gutter_lost(row):
+    """Whether Times ledger `row`, read before REREAD_OPENING_GUTTER, wrote a puzzle unfiled (a verdict
+    with an "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a light
+    blank as "no reading laid a clue on it" while a cached reading puts the gutter under the grid right of
+    the second column's clue openings (opening_gutter_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_OPENING_GUTTER)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not opening_gutter_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page whose read wrote its puzzle unfiled with a clue blanked
 #: "a stray mark inside a word" or "not a word" on a token the mends now clear. Failure shapes r8, 10-28:
 #: of the unplanned unfiled Times lights blanked so (87 stray mark, 115 not a word), 31 were (a) the
@@ -14489,6 +14624,8 @@ def fix_reason(row):
         return SPECK_MENDED
     if stop_tail_lost(row):
         return STOP_TAIL
+    if opening_gutter_lost(row):
+        return OPENING_GUTTER
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -15132,7 +15269,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15460,7 +15597,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED, STOP_TAIL) else {}),
+                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

@@ -471,6 +471,30 @@ check("not after the fix, nor for another paper, nor with no light no reading la
 f.stop_tail_read = lambda key: False
 check("nor with no reading holding such a line", False, f.stop_tail_lost(_clrow))
 f.stop_tail_read = _cl_read
+# ---- a Times page written unfiled for lights no reading laid while the gutter under the grid lay right of where
+# the second column's clue lines open (Gale 1963-10-07: printed ~770 px, sought at 864; 14-22 down unlaid) is due
+# once (fa.OPENING_GUTTER), ordered with never-read pages, never canary-held.
+_og = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 5, "clues": 25,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("14-down", "16-down")}}
+_ogrow = {"edition": "GaleTimes1963UKEnglish/1963-10-07", "verdicts": [_og], "readAt": "2026-10-15T14:39:49+00:00"}
+_og_read, _og_tail = f.opening_gutter_read, f.stop_tail_read
+f.opening_gutter_read = lambda key: key == "1963-10-07_9999995"
+f.stop_tail_read = lambda key: False
+check("a Times page whose gutter lay right of its second column's clue openings is due as such, ranked, "
+      "evidence, fix-landed, unfiled-first, never canary-held",
+      [f.OPENING_GUTTER, 2, True, True, True, None, None],
+      [f.fix_reason(_ogrow), f.RANKS[f.OPENING_GUTTER], eq.evidence_reason(f.OPENING_GUTTER),
+       f.OPENING_GUTTER in eq.FIX_LANDED, f.OPENING_GUTTER in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.OPENING_GUTTER, "date": "1963-10-07"}),
+       eq.canary_failed({"paper": "times", "reason": f.OPENING_GUTTER, "date": "1984-12-31"})])
+check("not after the fix, nor for another paper, nor with no light no reading laid",
+      [False] * 3,
+      [f.opening_gutter_lost({**_ogrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.opening_gutter_lost({**_ogrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
+       f.opening_gutter_lost({**_ogrow, "verdicts": [{**_og, "blank": {"14-down": "'hrute': not a word"}}]})])
+f.opening_gutter_read = lambda key: False
+check("nor with no reading so cut", False, f.opening_gutter_lost(_ogrow))
+f.opening_gutter_read, f.stop_tail_read = _og_read, _og_tail
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,
