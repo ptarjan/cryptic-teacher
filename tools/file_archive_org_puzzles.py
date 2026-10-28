@@ -2037,6 +2037,75 @@ def lead_split(lines, grid, lead, margin=40):
     return lead + (edge,)
 
 
+#: A lead window (indented_column) whose left edge runs through its own clue column's numbers: the
+#: 1940-45 Times sets ACROSS and DOWN in two columns left of the grid, its numbers outdented further
+#: left of the title than indented_column's half indent (Gale 1944-12-09: x0 1118, the numbers from
+#: 1100, so "10 White wine", "11 How Mr. Dawkins", "12 Showy" read "0 White", "1 How", "2 Showy" and
+#: 10, 11, 12, 14, 18 across were laid on no light), or whose title was read from its second word
+#: (1945-08-09: "THE" lost, x0 inside the ACROSS column, trimmed_lead cut at its gutter with DOWN,
+#: and 1-19 across went unread). 10-28 census (failure shapes): 17 unfiled 1940-45 Gale pages so,
+#: most of their across list "no reading laid a clue on it", none filed. lead_retried reads such a
+#: window again from LEAD_CUT_REACH px left of the edge at most (the clearest pixel column there,
+#: where the neighbour's print ends: the gap is 2-8px), or from its title's printed left edge
+#: (title_left), and keeps the read only when fewer light numbers go unread (unread_numbers).
+LEAD_CUT_REACH = 40
+#: Boxes a reading starts at the window's left edge (within a pixel) that make it cut there.
+LEAD_CUT_BOXES = 2
+
+
+def lead_cut_edge(img, grid, lead, rapid):
+    """The x of the clearest pixel column (the rightmost with ink under crop_window.CLEAR, else the
+    least inked) within LEAD_CUT_REACH left of lead window `lead`'s x0, from its top to the grid's
+    foot, when a reading of `rapid` ({reader: lines}) starts LEAD_CUT_BOXES or more boxes at x0 (the
+    edge cut them); else None."""
+    import numpy as np
+    x0, top = int(lead[0]), int(lead[1])
+    if not any(sum(1 for ws in lines for w in ws if w[0] <= x0 + 1) >= LEAD_CUT_BOXES for lines in rapid.values()):
+        return None
+    lo = max(0, x0 - LEAD_CUT_REACH)
+    if x0 - lo < 2 or grid[3] <= top:
+        return None
+    share = (np.asarray(img.crop((lo, top, x0, int(grid[3]))).convert("L")) < 128).mean(axis=0)
+    clear = [i for i, s in enumerate(share) if s < crop_window.CLEAR]
+    return lo + (clear[-1] if clear else int(share.argmin()))
+
+
+def lead_retried(img, gbox, title, lead, rapid, cols, lines, g, key, third, m, top, crop, x0, right, above,
+                 left, split, strip, verdict):
+    """(lead, rapid, cols) of a Gale page's lead window (lead_split()'s), read again from further left
+    when light numbers of read grid `g` go unread (unread_numbers): from where indented_column puts it
+    under the title's printed line (title_left, the title read from its second word), then from the
+    clear pixel column left of an edge that cut the column's boxes (lead_cut_edge). Each read is kept
+    only when fewer numbers go unread; verdict["leadRetried"] names those kept. As given otherwise."""
+    lost = unread_numbers(g, cols)
+    if not lost:
+        return lead, rapid, cols
+    for how in ("title", "cut"):
+        if how == "title":
+            wide = title_left(img, title, gbox)
+            at = indented_column(wide, gbox, m) if wide[0] < title[0] else None
+            at = trimmed_lead(img, gbox, at) if at else None
+            x = at[0] if at and at[0] < lead[0] else None
+        else:
+            x = lead_cut_edge(img, gbox, lead, rapid)
+        if x is None or x >= lead[0]:
+            continue
+        tried = (x, lead[1])
+        more = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
+                                   third, m, top, crop, tried, x0, right) for which in READERS}
+        tried = lead_split(lines + [ws for r in more.values() for ws in r], gbox, tried, m)
+        again = {"djvu": columns(lines, gbox, third, m, above, left, split, tried, right, strip)}
+        for which in READERS:
+            again[which] = columns(more[which], gbox, third, m, above, left, split, tried, right, strip)
+        fewer = unread_numbers(g, again)
+        if len(fewer) < len(lost):
+            lead, rapid, cols, lost = tried, more, again, fewer
+            verdict.setdefault("leadRetried", []).append(how)
+            if not lost:
+                break
+    return lead, rapid, cols
+
+
 def read_cache(cache_path):
     """The JSON a reader's cache file holds, or None when it is missing or
     unreadable: a read killed mid-write (rc=-9) left an empty file, and
@@ -8512,6 +8581,9 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead, right, strip)}
         for which in READERS:
             cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead, right, strip)
+        if lead and g and paper.key == "gale" and not over:
+            lead, rapid, cols = lead_retried(img, gbox, hit["box"], lead, rapid, cols, lines, g, key, third, m, top,
+                                             crop, x0, right, above, left, split, strip, verdict)
         wins = windows(gbox, third, m, above, left, split, lead, right, strip)
         # A light number no reading opened a clue on: each clue window is read alone, in
         # tiles, for the line the whole crop's read lost (alone_words).
@@ -10895,6 +10967,67 @@ def alone_lost(row):
         lost = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
                 if str(why) in ALONE_BLANKS and lid.split("-")[0].isdigit()} - seen
         if not lost or len(lost) > ALONE_MOST:
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a 1939-67 Gale Times page (LEAD_RETRY_YEARS: indented_column's)
+#: written unfiled with lights "no reading laid a clue on it" whose clue window left of the grid started
+#: inside its own clue column (lead_retried): its outdented numbers clipped ("0 White wine" for 10 across,
+#: Gale 1944-12-09) or, its title read from its second word, the ACROSS column cut off at its gutter with
+#: DOWN (1945-08-09). 10-28 census (failure shapes): 17 unfiled 1940-45 pages lost most of their across
+#: list so. Offline, readers only: 1944-12-09 blanks 7 -> 1 (the edge cut, x0 1118 -> 1098), 1945-08-09
+#: 9 -> 2 (the title's "THE", x0 1446 -> 1118, two columns), both word misreads the VLM settles; a filed
+#: control (1945-12-19) takes no retry and reads complete as before. 59 rows come due (1940-49 Gale, 1951 one); 98 more match,
+#: due under an earlier reason. Due by the ledger and the crop's cached reading (lead_retry_due): an
+#: unfiled verdict, not held whole, with such a blank, and its crop's left edge cutting LEAD_CUT_BOXES or
+#: more boxes that open a clue, or LEAD_LOST_LIST or more such blanks. Its own reason, not "unfiled before
+#: its fix" (CANARY_FAILED holds that for the Times). Once each: the reread's verdict says leadRetried when kept.
+LEAD_RETRY = "unfiled before its fix, a clue window left of the grid cut inside its column"
+REREAD_LEAD_RETRY = "2026-10-28T09:40:00+00:00"
+LEAD_RETRY_YEARS = ("1939", "1967")
+LEAD_LOST_LIST = 6
+
+
+@functools.lru_cache(maxsize=4096)
+def lead_cut_window(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") starts
+    LEAD_CUT_BOXES or more boxes at the crop's left edge (within a pixel) that open as a numbered clue
+    does (crop_window.CLUE_OPENING: "0 White wine", the edge having cut "10")."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            x0, words = held["box"][0], held["words"]
+        except (OSError, ValueError, KeyError, TypeError, IndexError):
+            continue
+        if sum(1 for w in words if w[0] <= x0 + 1 and crop_window.CLUE_OPENING.match(str(w[4]))) >= LEAD_CUT_BOXES:
+            return True
+    return False
+
+
+def lead_retry_due(row):
+    """Whether Gale Times ledger `row` of LEAD_RETRY_YEARS, read before REREAD_LEAD_RETRY, wrote a puzzle
+    unfiled (a verdict with an "unfiled" count or its id's copy in CROPS/unfiled, not held whole) with a
+    light blank as "no reading laid a clue on it", its crop's left edge cutting clue lines
+    (lead_cut_window) or LEAD_LOST_LIST or more lights so blank."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "gale" or not LEAD_RETRY_YEARS[0] <= day[:4] <= LEAD_RETRY_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LEAD_RETRY)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or v.get("number") is None or v.get("leadRetried"):
+            continue
+        unlaid = sum(1 for why in v["blank"].values() if "no reading laid a clue" in str(why))
+        if not unlaid:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if unlaid < LEAD_LOST_LIST and not lead_cut_window(f"{Path(rel).name}_{v['number']}"):
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -13553,6 +13686,8 @@ def fix_reason(row):
         return LEFT_LATE
     if scaled_early_due(row):
         return SCALED_EARLY
+    if lead_retry_due(row):
+        return LEAD_RETRY
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14196,7 +14331,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -14522,7 +14657,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
