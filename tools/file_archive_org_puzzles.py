@@ -4997,6 +4997,38 @@ def fallback_futile(paper, d):
     return (paper.key == "ft" and year == "1981") or (paper.key == "gale" and "1960" <= year <= "1966")
 
 
+#: The widths (px) a grid crop trove_grid cannot read at its own size is read at again, in turn, shrunk
+#: (SCALED_GRID). 1940-41 Gale Times pages are scanned at up to twice the others' resolution: their grid
+#: crops are 1,040-1,340px wide, its rules thin and broken against a cell of ~70px, so trove_grid finds
+#: few walled white cells ("too few neighbouring white cells to measure the lattice", "only 12 white cells
+#: found") and the read pends with no grid ("no title read", 66 1940-41 rows on 10-28). Census of the cached
+#: 1940-41 crops, 10-28: of 177 unread, 89 read as a 15x15 grid at 720 or 600px; of 200 read, reading them
+#: at 720px gave the same grid for 196. A crop that reads at its own size is never shrunk.
+GRID_WIDTHS = (720, 600)
+
+
+def scaled_grid(path):
+    """trove_grid.read_grid(path), or failing it the first grid it reads of the crop shrunk to each of
+    GRID_WIDTHS narrower than it, else the full-size read's (None, why)."""
+    import io
+    from PIL import Image
+    grid, why = trove_grid.read_grid(path)
+    if grid:
+        return grid, why
+    with Image.open(path) as im:
+        gray = im.convert("L")
+    for width in GRID_WIDTHS:
+        if gray.width <= width:
+            continue
+        buf = io.BytesIO()
+        gray.resize((width, max(1, round(gray.height * width / gray.width))), Image.LANCZOS).save(buf, "PNG")
+        buf.seek(0)
+        got, _ = trove_grid.read_grid(buf)
+        if got:
+            return got, None
+    return None, why
+
+
 #: Set by _answers_only once it holds the title's held file (this tool's, from this page, every clue, an answer
 #: short): read_puzzle marks a full read after it "answersTried", so FULL_SHORT is not due for it again.
 _ANSWERS_TRIED = {}
@@ -8403,7 +8435,7 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     gpath.parent.mkdir(parents=True, exist_ok=True)
     # Cut afresh on every read, so the crop is always of this grid box.
     img.crop((gbox[0] - 6, gbox[1] - 6, gbox[2] + 6, gbox[3] + 6)).save(gpath)
-    image, why = trove_grid.read_grid(gpath)
+    image, why = scaled_grid(gpath)
     g = image
     if not g:
         verdict["imageUnread"] = why
@@ -10934,6 +10966,72 @@ def left_split_due(row):
     return False
 
 
+#: The reason of a 1948-54 Gale Times page (LEFT_LATE_YEARS) refused "no reading parses" before lead_split's
+#: LEAD_TWO landed (LEAD_TWO_LANDED): the LEFT_SPLIT shape past its years. Census 10-28: 24 such rows, all
+#: read 10-19, each reading stopped at a bare count: "cannot find a clue number at: ' (8) 17 He's never fully
+#: satisfied'", the text of two clue columns read as one line. LEAD_TWO's split is not held to 1945-47, so
+#: they read as two columns now. Due by the ledger alone (left_late_due): read before LEAD_TWO_LANDED, a
+#: no-reading-parses verdict, its puzzle not held, a reading stopped at a count and every other so or
+#: finding "no ACROSS and DOWN lists". Read once: the read is after LEAD_TWO_LANDED.
+LEFT_LATE = "clue columns left of a 1948-54 grid, refused before their split"
+LEAD_TWO_LANDED = "2026-10-19T23:53:40+00:00"
+LEFT_LATE_YEARS = ("1948", "1954")
+COUNT_STOP = re.compile(r"cannot find a clue number at: ['\"]\s*\(?\d+(?:[,-]\s*\d+)*\)?\.?\s")
+
+
+def left_late_due(row):
+    """Whether Gale Times ledger `row` of LEFT_LATE_YEARS, read before LEAD_TWO_LANDED, refused a title "no
+    reading parses", its puzzle not held, a reading stopped at a bare count (COUNT_STOP) and every other
+    so or finding "no ACROSS and DOWN lists" (LEFT_LATE)."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not LEFT_LATE_YEARS[0] <= day[:4] <= LEFT_LATE_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(LEAD_TWO_LANDED)):
+        return False
+    series = paper_of(row.get("edition", "")).series
+    for v in row.get("verdicts", ()):
+        stops = [str(s) for s in (v.get("unparsed") or {}).values()]
+        if v.get("cause") == "no-reading-parses" and filed_state(series, v.get("number")) is None \
+                and any(COUNT_STOP.search(s) for s in stops) \
+                and all(s.startswith("no ACROSS and DOWN lists") or COUNT_STOP.search(s) for s in stops):
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a 1940-41 Gale Times page (SCALED_GRID_YEARS) whose grid crop
+#: trove_grid could not read at its own size, read shrunk since (scaled_grid, GRID_WIDTHS). Census 10-28:
+#: 66 such rows pend with no title filed ("no grid: the search found no grid" or "ran out of budget"),
+#: their crops 1,040-1,340px wide against the 720px of the pages that read. Of the 38 rows whose crop is
+#: cached, 31 read as a 15x15 grid shrunk. Due by the ledger alone (scaled_grid_due): a verdict pending
+#: "no grid" or "rebuilt grid disagrees", its grid unread for too few white cells, its puzzle not held.
+#: Once each.
+SCALED_GRID = "a 1940-41 grid unread at its scan's size, read shrunk since"
+REREAD_SCALED_GRID = "2026-10-28T09:30:00+00:00"
+SCALED_GRID_YEARS = ("1940", "1941")
+SCALED_GRID_UNREAD = ("too few neighbouring white cells", "only ")
+
+
+def scaled_grid_due(row):
+    """Whether Gale Times ledger `row` of SCALED_GRID_YEARS, read before REREAD_SCALED_GRID, holds a verdict
+    pending for no grid whose grid image trove_grid found too few white cells in, its puzzle not held
+    (SCALED_GRID)."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not SCALED_GRID_YEARS[0] <= day[:4] <= SCALED_GRID_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SCALED_GRID)):
+        return False
+    series = paper_of(row.get("edition", "")).series
+    for v in row.get("verdicts", ()):
+        unread = str(v.get("imageUnread") or "")
+        if str(v.get("pending") or "").startswith(("no grid", "rebuilt grid disagrees")) \
+                and unread.startswith(SCALED_GRID_UNREAD) and "white cell" in unread \
+                and filed_state(series, v.get("number")) is None:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
 #: wrote its puzzle unfiled with a clue blanked as "a stray letter": the Times set a word of emphasis
 #: letter-spaced, not in italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the guns",
@@ -13406,6 +13504,10 @@ def fix_reason(row):
         return BAND_GRID
     if left_split_due(row):
         return LEFT_SPLIT
+    if scaled_grid_due(row):
+        return SCALED_GRID
+    if left_late_due(row):
+        return LEFT_LATE
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14049,7 +14151,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
