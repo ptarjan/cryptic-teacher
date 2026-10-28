@@ -740,6 +740,9 @@ def evidence_reason(reason):
             # A Times page written unfiled whose clue window caught the line-end letters of the column to
             # its left, before clue numbers ("e 11 Office worker") or alone (fa.edge_lettered).
             or reason == fa.EDGE_LETTERS
+            # A Times page written unfiled for a clue line no reading of its whole crop held, its windows
+            # now read alone in tiles (fa.alone_lost).
+            or reason == fa.ALONE_READ
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
@@ -1474,7 +1477,7 @@ def by_urgency(units, serves=frozenset()):
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
 #: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
 UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
-                 fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS)
+                 fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ)
 
 
 def times_solution_work(unit):
@@ -1498,7 +1501,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
               fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
-              fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS)
+              fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ)
 
 
 def unproven_first(unit):

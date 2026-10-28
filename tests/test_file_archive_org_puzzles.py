@@ -6658,6 +6658,39 @@ check("a row's end spilled a little over a narrow gutter is cut there, not taken
 check("a clue number read with a dash before it still cuts a row across the gutter",
       [(100, 0, 399, 20, "hole, but not in reverse (6). - -"), (400, 0, 700, 20, "3. Grotesque insect I caught")],
       [w[:4] + (w[4].strip(),) for w in f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). - -3. Grotesque insect I caught")], [400])][:2])
+# Gale 1963-07-01: a speck glued before a linked clue's numbers put its line left of the gutter, and
+# the cut fell at its second number ("21 Hamlet"), leaving "25," in the other column.
+_linked = f.split_across([(741, 0, 1222, 20, "1 25, 21 Hamlet .of the. animal'world ?")], [770])
+check("a linked clue read across the gutter is cut at its first number, a speck left behind",
+      ("1", "25, 21 Hamlet"), (_linked[0][4].strip(), _linked[-1][4][:13]))
+check("a linked clue just left of the gutter is never cut at its later number (it is the next column's, whole)",
+      [(770, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")],
+      f.split_across([(760, 0, 1222, 20, "25, 21 Hamlet of the animal world ?")], [770]))
+# A 3x3 grid: 1 across and down, 2 down, 3 across.
+_g3 = ["...", ".#.", "..."]
+check("a light number no reading opens a clue on is unread",
+      {2}, f.unread_numbers(_g3, {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "3 Bar (3)")], [(4, 5, 0, 1, "1 Baz (3)")]]}))
+check("nor when another reading, or a clue's number inside a merged row, has it",
+      set(), f.unread_numbers(_g3, {"ch": [[(0, 1, 0, 1, "1 Foo (3)"), (2, 3, 0, 1, "it may 3 Bar (3)")]],
+                                    "en5": [[(0, 1, 0, 1, "2, 1 Baz (3)")]]}))
+check("a clue number read as a box of its own joins the line beside it, the line's copy of its last figure dropped (1961-03-10)",
+      [(773, 4768, 1215, 4804, "25 Mock at 'the Rock, going East (4).")],
+      f.numbers_joined([(773, 4770, 804, 4791, "25"), (790, 4768, 1215, 4804, "5 Mock at 'the Rock, going East (4).")]))
+_alone_img = Image.new("RGB", (400, 400), "white")
+_real_read_words = f.read_words
+try:
+    # Read alone, the window's tile holds the line the whole crop's read lost, and the speck's
+    # line it read instead: the line opening on the unread number takes the speck's place.
+    f.read_words = lambda crop, which: [(10, 50, 200, 70, "25 A position in the building world"),
+                                        (150, 72, 190, 90, "(4)."), (10, 120, 200, 140, "26 Old (3).")]
+    _rapid = [[(130, 150, 300, 170, "i 25 A positon")], [(130, 220, 300, 240, "26 Old (3).")]]
+    _got = f.alone_words(_alone_img, [(120, 330, 330, 100)], 400, "ch", _rapid, {25})
+    check("alone_words lays the lost line, its count under it, in place of the speck's",
+          ["(4).", "25 A position in the building world", "26 Old (3)."], sorted(w[0][4] for w in _got))
+    check("alone_words keeps the reading as it was when no tile opens on an unread number",
+          True, f.alone_words(_alone_img, [(120, 330, 330, 100)], 400, "ch", _rapid, {27}) is _rapid)
+finally:
+    f.read_words = _real_read_words
 # FT 1981-10-19: the across clues no reader laid have no count, so the grid's gives it, and
 # the VLM's clean column reading is laid with no pick (14 of 16 picks were for these).
 check("a blank light no reader laid takes the grid's length as its count: the clean column reading is laid, no ask",
