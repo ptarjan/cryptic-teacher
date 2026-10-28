@@ -396,6 +396,23 @@ def sections(ocr):
     end = len(lines)
     for i in range(d + 1, len(lines)):
         if re.match(r"\s*[(.]*\s*(solution|yesterday|today's solution)", lines[i], re.IGNORECASE):
+            # A lower-case "solution in Cluedo mystery" under a clue with no
+            # count yet, its count on it or on a next line opening no clue of
+            # its own ("(1,5,2,7)"), is
+            # that clue's next line, not the solution's heading; a lower-case
+            # "solution to yesterday's Cryptic" or "solution tomorrow" no
+            # count closes still ends the list, as does one it or the next line
+            # names a puzzle on ("solution 24,933", "solution of / Saturday's
+            # Prize Puzzle"), one a line's "The" opens ("The / solution to
+            # Saturday's"), or one opening a note ("yesterday: Highest day temp").
+            if (re.match(r"\s*[a-z]", lines[i]) and i > d + 1
+                    and not re.search(r"\)\W*$|\bThe\W*$", lines[i - 1])
+                    and not re.search(r"^\W*\w+:", lines[i])
+                    and not any(re.search(r"\d[,.]\d{3}|puzzle|crossword|prize", t, re.IGNORECASE)
+                                for t in lines[i:i + 2])
+                    and any(re.search(r"\(\s*\d[\d\s,.'-]*\)", t) for t in lines[i:i + 2]
+                            if t is lines[i] or not re.match(r"\s*\d", t))):
+                continue
             end = i
             break
     # What follows the heading on its line is a clue only when it starts
