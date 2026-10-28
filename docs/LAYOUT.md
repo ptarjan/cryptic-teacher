@@ -2156,6 +2156,11 @@ tests/test_strip_over.py                       does file_archive_org_puzzles.py 
                                                strip printed between the title and the grid on
                                                1945-49 Gale Times pages, split it into columns
                                                and read only its own words into them?
+tests/test_scaled_under.py                     does file_archive_org_puzzles.py take the grid
+                                               under a 1939-67 Gale Times title that
+                                               locate_grid passed over as a solution grid on a
+                                               page wider than the scan width (scaled_under),
+                                               and make the pages refused for it due once?
 tests/test_vlm_reader.py                       does tools/vlm_reader.py stay out of the way
                                                when the GPU host's VLM does not answer, cache
                                                what it asks, crop each clue column alone, and
