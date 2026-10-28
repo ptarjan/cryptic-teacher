@@ -6417,6 +6417,22 @@ check("a grid whose ink joins the clue column under it is found under its title 
 side, shaped, box = located("times-14132-flush-title")
 check("a grid flush under its title, which the under-crop cuts, is found whole (Times 14,132)",
       ("below", True), (side, shaped))
+# A 1940s Gale Times grid whose top lies within its title's line (band_grid): 1943-09-06's title over its clue
+# column and grid (the title's middle just left of the grid, so locate_grid took it as right of the title).
+_bg_title, _bg_grid = (1221, 3925, 2244, 4014), (1788, 3991, 2508, 4743)
+check("a grid under its title's right part, its top in the title's line, is the grid under it", _bg_grid,
+      f.offset_under(_bg_title, _bg_grid))
+check("not a grid starting past the title, nor left of its edge, nor well under it, nor over it", [None] * 4,
+      [f.offset_under(_bg_title, (2300, 3991, 3020, 4743)), f.offset_under(_bg_title, (1100, 3991, 1820, 4743)),
+       f.offset_under(_bg_title, (1788, 4300, 2508, 5052)), f.offset_under(_bg_title, (1788, 3100, 2508, 3852))])
+_bg_page = Image.new("L", (3621, 4977), 255)
+_bg_page.paste(0, _bg_grid)
+_bg_found = f.band_grid(_bg_page, _bg_title)
+check("band_grid finds the grid on the page when locate_grid missed it", True,
+      _bg_found is not None and all(abs(a - b) <= 2 for a, b in zip(_bg_found, _bg_grid)))
+check("band_grid takes locate_grid's own box when it qualifies", _bg_grid, f.band_grid(_bg_page, _bg_title, _bg_grid))
+check("band_grid: none when no grid lies in the title's line", None,
+      f.band_grid(Image.new("L", (3621, 4977), 255), _bg_title))
 side, shaped, box = located("times-16988-prize-solutions")
 check("a Saturday prize grid under the last puzzles' two solution grids is found under them (Times 16,988)",
       ("below", True, True), (side, shaped, box[1] > 700))
