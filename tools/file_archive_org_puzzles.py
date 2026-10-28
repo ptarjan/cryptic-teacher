@@ -6541,7 +6541,7 @@ def clue_texts(entries):
     return {entry_id(e): (e.get("clue") or {}).get("text") for e in entries if (e.get("clue") or {}).get("text")}
 
 
-def vlm_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None):
+def vlm_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None, groups=None):
     """(answers with the VLM's words added, {light: word} it gave): each light of `strips` (the
     cells of a light the grid's reading left, trove_solution_ocr.light_strip's PNGs) asked about
     once, as its row of squares with the letters its accepted crossings hold; the word stands
@@ -6549,11 +6549,14 @@ def vlm_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None
     read ends deferred, and runs again once the drainer has answered). `asked` (a dict) gets
     {light: reply} of every ask answered, taken or not (answers_only's rejudged). `clues` ({light: clue
     text}, clue_texts) lets vlm_word settle a misread letter by the clue (defined_word). `paired` (a set)
-    gets each light whose word is a name paired_word took that misread_word would drop (paired_name)."""
+    gets each light whose word is a name paired_word took that misread_word would drop (paired_name), and each
+    light of a linked answer linked_reads took. `groups` (linked_groups of the puzzle's entries) lets a reply
+    vlm_word refuses stand as a fragment of its group's answer (linked_reads)."""
     import base64
     import io
     from PIL import Image
     lts = trove_solution_ocr.lights(grid)
+    refused = {}
     held = {}
     for lid, w in answers.items():
         n, _, dr = lid.partition("-")
@@ -6582,7 +6585,92 @@ def vlm_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None
             if paired is not None and paired_name(word, reply, pattern, sizes, strip["p"], enums.get((int(n), dr)),
                                                   (clues or {}).get(lid)):
                 paired.add(lid)
+        else:
+            refused[lid] = (reply, pattern, strip["p"])
+    # A light of a linked answer ("See 11": EXASP + ERATE) is a fragment no list holds: its reply stands where
+    # the group's whole answer splits by its enumeration into listed words (linked_reads, LINKED_ANSWER).
+    took = linked_reads(groups or (), {**answers, **got}, refused, lts, held)
+    if took:
+        got.update(took)
+        if paired is not None:
+            paired.update(took)  # misread_word spares it: a fragment is no listed word one letter off
     return {**answers, **got}, got
+
+
+def linked_groups(entries):
+    """[(light ids in order, the group's enumeration, {light: held answer})] of each linked answer of
+    `entries` (a head entry's "group", two lights or more: "Anger (10)" 11-across, "See 11" 12-across)."""
+    held = {entry_id(e): re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())
+            for e in entries if (e.get("solution") or "").strip()}
+    out = []
+    for e in entries:
+        group = e.get("group") or ()
+        if len(group) >= 2:
+            out.append((list(group), (e.get("clue") or {}).get("enumeration"),
+                        {k: held[k] for k in group if k in held}))
+    return out
+
+
+def linked_fragment(reply, pattern, probs):
+    """The VLM `reply` as read for a light whose crossings give `pattern`, where its letters are as many
+    as the light's, agree with every crossing letter and each open one is at least VLM_FLOOR likely in its
+    cell by the classifier's `probs`; else None. No list test: linked_reads judges the whole group's."""
+    lines = (reply or "").strip().splitlines()
+    word = re.sub(r"[^A-Za-z?]", "", lines[0]).upper() if lines else ""
+    if not word or len(word) != len(pattern) or "?" in word or probs is None or len(probs) != len(word):
+        return None
+    if any(p != "?" and p != ch for p, ch in zip(pattern, word)):
+        return None
+    try:
+        if any(float(probs[i][trove_solution_ocr.AZ.index(ch)]) < VLM_FLOOR
+               for i, (p, ch) in enumerate(zip(pattern, word)) if p == "?"):
+            return None
+    except (IndexError, TypeError, ValueError):  # a cell with no 26 probabilities
+        return None
+    return word
+
+
+def linked_reads(groups, answers, refused, lts, letters=None):
+    """{light: word} for lights of linked answers whose VLM reply vlm_word refused (`refused`: {light:
+    (reply, pattern, probs)}): each reply as read (linked_fragment) stands where every other light of its
+    group (`groups`, linked_groups) holds an answer (`answers`, else the held file's) or such a reply too,
+    and the group's whole answer, its lights' words in order, splits by the group's enumeration into words
+    each listed (trove_solution_ocr.piece_listed; one listed word where it prints one count). A fragment
+    is no word (EXASP, ERATE; MUNICATED; OFHORRORS) so vlm_word's lists refused every one: 10-28 cached
+    replies on 1-2-short Times grids, 136 groups so whole, ~100 puzzles one or two lights short only
+    there (LINKED_ANSWER). `letters` ({cell: letter}) gets each taken word's letters."""
+    t = trove_solution_ocr
+    took = {}
+    for ids, enum, held in groups:
+        if not any(k in refused and k not in answers for k in ids):
+            continue
+        words = []
+        frag = {}
+        for k in ids:
+            w = answers.get(k) or took.get(k) or held.get(k)
+            if not w and k in refused:
+                w = linked_fragment(*refused[k])
+                if w:
+                    frag[k] = w
+            if not w:
+                break
+            words.append(w)
+        else:
+            whole = "".join(words)
+            sizes = t.pieces_of(enum, len(whole))
+            at, ok = 0, True
+            for size in sizes:
+                if not t.piece_listed(whole[at:at + size], len(sizes) > 1):
+                    ok = False
+                    break
+                at += size
+            if ok and frag:
+                took.update(frag)
+                if letters is not None:
+                    for k, w in frag.items():
+                        n, _, dr = k.partition("-")
+                        letters.update(zip(lts.get((int(n), dr), ()), w))
+    return took
 
 
 def paired_name(word, reply, pattern, sizes, probs, enum=None, clue=None):
@@ -6910,7 +6998,8 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     by_vlm = {}
     paired = set()
     if strips and ask_vlm and vlm.wanted():
-        answers, by_vlm = vlm_lights(answers, strips, grid, enums, asked, clue_texts(es), paired)
+        answers, by_vlm = vlm_lights(answers, strips, grid, enums, asked, clue_texts(es), paired,
+                                     groups=linked_groups(es))
         if by_vlm:
             info = {**info, "vlmLights": sorted(by_vlm), "accepted": info.get("accepted", 0) + len(by_vlm)}
     # A reading at odds with itself (an answer its light's length does not fit, two crossing on different
@@ -7105,7 +7194,8 @@ def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True,
         return answers, info
     replies = {}
     paired = set()
-    _, by = vlm_lights({**held, **answers}, cut, grid, enums, replies, clues=clue_texts(entries), paired=paired)
+    _, by = vlm_lights({**held, **answers}, cut, grid, enums, replies, clues=clue_texts(entries), paired=paired,
+                       groups=linked_groups(entries))
     info = {**info, "lateStrips": sorted(cut)}
     # A misread-dropped word the VLM's reply spells letter for letter (agreed_held), its crossings as vlm_lights
     # asked them.
@@ -13169,6 +13259,16 @@ REREAD_LONG_FLOOR = "2026-10-27T09:30:00+00:00"
 #: replies are cached.
 SHIFTED_WORD = "solution short, its VLM word a letter long or short mended to the classifier's reading kept since"
 REREAD_SHIFTED_WORD = "2026-10-27T11:30:00+00:00"
+#: The due reason of a Times row read before REREAD_LINKED_ANSWER, due none of those above, whose held puzzle
+#: leaves 1 to LINKED_MAX lights blank, each a light of a linked answer ("Anger (10)" 11-across, "See 11"
+#: 12-across: linked_short): vlm_word's lists refused every such light's VLM reply, a fragment no list holds
+#: (EXASP, ERATE), until linked_reads judged the group's whole answer by its enumeration (EXASPERATE,
+#: EXCOMMUNICATED, CHAMBER OF HORRORS). Failure shapes r20, 10-28: cached replies on 1-2-short Times grids,
+#: 136 linked groups so whole, ~100 puzzles whole if kept. Once, as an answers-only reread (SOLUTION_FIXES).
+LINKED_ANSWER = "solution short, its linked answer's lights judged as one answer since"
+REREAD_LINKED_ANSWER = "2026-10-28T18:30:00+00:00"
+#: linked_short: the most blank lights of a held puzzle LINKED_ANSWER reads again.
+LINKED_MAX = 2
 
 
 def unasked_short(row, paper):
@@ -13773,6 +13873,30 @@ def near_short(row, paper, swap=False, defined=False, named=False, argmax=False,
     return False
 
 
+def linked_short(row, paper):
+    """Whether Times ledger `row` (of `paper`) has a verdict whose linked solution grid it read for a puzzle
+    held by this tool with every clue filled, from this page, whose 1 to LINKED_MAX blank lights are each a
+    light of a linked answer (an entry's "group": linked_reads, LINKED_ANSWER)."""
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+        except (KeyError, OSError, ValueError):
+            continue
+        if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+            continue
+        es = held.get("entries") or ()
+        blank = {entry_id(e) for e in es if not (e.get("solution") or "").strip()}
+        linked = {k for e in es if len(e.get("group") or ()) >= 2 for k in e["group"]}
+        if 1 <= len(blank) <= LINKED_MAX and blank <= linked:
+            return True
+    return False
+
+
 #: {(held path, defined): (held stamp, held_wordplay's answer)}
 _WORDPLAY_HELD = {}
 
@@ -14048,7 +14172,8 @@ def short_again(row):
     blank, a blank light's cached long VLM reply every other mend refuses that long_word takes (near_short with
     lengthy); SHIFTED_WORD for one read before REREAD_SHIFTED_WORD, due none of those, 1 to LATE_MAX blank, a blank
     light's cached VLM reply a letter long or short every other mend refuses that shifted_word mends (near_short
-    with shifted); FULL_SHORT for
+    with shifted); LINKED_ANSWER for one read before REREAD_LINKED_ANSWER, due none of those, its 1 to LINKED_MAX
+    blank lights each a linked answer's (linked_short); FULL_SHORT for
     one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
     not try first (full_short), a paper whose cells are not classified (TIMES_1930) included."""
     paper = paper_of(row.get("edition", ""))
@@ -14116,6 +14241,8 @@ def short_again(row):
         return LONG_FLOOR
     if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_SHIFTED_WORD)) and near_short(row, paper, shifted=True):
         return SHIFTED_WORD
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_LINKED_ANSWER)) and linked_short(row, paper):
+        return LINKED_ANSWER
     if why is None and full_short(row, paper):
         return FULL_SHORT
     return why
@@ -15765,7 +15892,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, "scan stale": 3, "--reread": 3,
@@ -16338,7 +16465,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   REFUSED_GRID, MATCHED_GRID, NEAR_GRID, UNCLASSIFIED_HELD, RENUMBERED, HELD_TITLE, HEAVY_PRINT, SUSPECT_HELD, UNFILED_HELD,
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
-                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, FULL_SHORT,
+                  SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, FULL_SHORT,
                   STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD)
 

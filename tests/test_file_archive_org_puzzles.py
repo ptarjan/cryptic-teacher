@@ -1769,6 +1769,47 @@ f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = sw_filed, 
 check("shifted_word mends BOTAILNAG to BOBTAIL NAG, vlm_word too; LOTUS to LOTS vouched; not ANS to ANUS (the "
       "classifier reads O), nor LOTS unvouched",
       ["BOBTAILNAG", "BOBTAILNAG", "LOTS", None, None], sw_got)
+# LINKED_ANSWER: a row read before REREAD_LINKED_ANSWER whose held file's 1-2 blank lights are each a light of a
+# linked answer (linked_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us, real_ls = (f.named_short, f.agreed_short, f.misread_short, f.near_short,
+                                                         f.unasked_short, f.linked_short)
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+f.linked_short = lambda row, paper: True
+la_due = [f.short_again(vu_row("2026-10-28T18:25:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.linked_short = lambda row, paper: False
+la_due.append(f.short_again(vu_row("2026-10-28T18:25:00+00:00", ao=True)))
+(f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short, f.linked_short) = (
+    real_ns, real_as, real_ms, real_near, real_us, real_ls)
+f.filed_state = real_fs
+check("a held file whose blank lights are a linked answer's, read before REREAD_LINKED_ANSWER: LINKED_ANSWER (rank 2, "
+      "answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LINKED_ANSWER, None, None, 2, True, True, True, True, True],
+      la_due + [f.RANKS[f.LINKED_ANSWER], f.LINKED_ANSWER in f.SOLUTION_FIXES, f.LINKED_ANSWER.startswith("solution short"),
+                f.LINKED_ANSWER in __import__("edition_queue").LOW_ASK, f.LINKED_ANSWER in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LINKED_ANSWER)])
+# linked_reads: replies vlm_word refused on a linked answer's lights stand where the group's whole answer splits by its
+# enumeration into listed words (EXASP + ERATE, "Anger (10)" / "See 11"; held PRISON + WITHOUTBARS, 6,7,4); not
+# where an open letter is under the classifier's floor, nor where the whole is no word (EXASP + ERATX).
+la_p = lambda w, low=None: [[(0.001 if i == low else 1.0) if c == ch else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+                            for i, ch in enumerate(w)]
+la_g = [(["11-across", "12-across"], "10", {})]
+la_got = [f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP")),
+                                    "12-across": ("ERATE", "E?A?E", la_p("ERATE"))}, {}),
+          f.linked_reads([(["1-across", "9-across"], "6,7,4", {"1-across": "PRISON"})], {},
+                         {"9-across": ("WITHOUTBARS", "W?T?O?T?A?S", la_p("WITHOUTBARS"))}, {}),
+          f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP", low=1)),
+                                    "12-across": ("ERATE", "E?A?E", la_p("ERATE"))}, {}),
+          f.linked_reads(la_g, {}, {"11-across": ("EXASP", "E?A?P", la_p("EXASP")),
+                                    "12-across": ("ERATX", "E?A??", la_p("ERATX"))}, {}),
+          f.linked_groups([{"number": 11, "direction": "across", "clue": {"text": "Anger", "enumeration": "10"},
+                            "group": ["11-across", "12-across"], "solution": "EXASP"},
+                           {"number": 12, "direction": "across", "clue": {"text": "See 11"}}])]
+check("linked_reads takes EXASP + ERATE (EXASPERATE) and WITHOUTBARS after a held PRISON; not a reply under the floor, "
+      "nor EXASP + ERATX; linked_groups names the group, its enumeration and held answers",
+      [{"11-across": "EXASP", "12-across": "ERATE"}, {"9-across": "WITHOUTBARS"}, {}, {},
+       [(["11-across", "12-across"], "10", {"11-across": "EXASP"})]], la_got)
 # LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
 # short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
 # (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
