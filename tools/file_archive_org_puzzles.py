@@ -9174,10 +9174,13 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
     fits = {lid for lid, (_, enum, group) in laid.items()
             if enum and not group and ftp.count(enum) == lengths.get(lid)}
     bare = {lid for lid in lengths if not (laid.get(lid) or ("",))[0].strip()}
-    laid, blank = unfit_blanked(*reconcile(laid, stream, lengths), lengths)
+    read = {k: t for k, t in texts.items() if t.strip()}
+    laid, blank = reconcile(laid, stream, lengths)
+    # A word every reading spells alike, or one reader ran together, is not blanked here (SHARED_WORD).
+    laid, shared = shared_printed(laid, blank, read, parse)
+    laid, blank = unfit_blanked(laid, blank, lengths, shared)
     # A clue the vote left blank, laid again from each reading that printed
     # it whole (the reprint's among them) and put to the rest.
-    read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
     # A light the readings print as only "See N" is that clue, not a blank to ask the VLM for.
     laid, blank = see_laid(read, laid, blank, lengths, parse)
@@ -10456,6 +10459,30 @@ def unfit_blanked(laid, blank, lengths, printed=None):
     return laid, blank
 
 
+def shared_printed(laid, blank, read, parse):
+    """(laid, printed) for the vote's own unfit_blanked(): each laid clue
+    with a word suspect() finds no word has the word gaps put back where a
+    reading prints it apart (ocr_clues.run_apart: "thewordsof", "bya"), and
+    `printed` ({light: tokens}) holds each such word every reading of the
+    clue spells alike (ocr_clues.printed_alike, `every`: "Nil nisi bonum",
+    "Mobile sitz ?"). tail()'s own printed_alike() takes such a word as the
+    print's, but only for a clue still laid: the vote blanked it first, and
+    neither relaid() nor the VLM's held() pick keeps a word the lexicon
+    lacks, so the page stood unfiled over one clue (SHARED_WORD)."""
+    laid, printed = dict(laid), {}
+    for lid, (text, enum, group) in list(laid.items()):
+        if not text or lid in blank or not any(why == "not a word" for _, why in ocr_clues.suspect(text)):
+            continue
+        theirs = [r for r, _ in ocr_clues.readings_for(read, lid, parse)]
+        apart = ocr_clues.run_apart(text, [t for t in theirs if t])
+        if apart != text:
+            laid[lid] = (apart, enum, group)
+            text = apart
+        if got := ocr_clues.printed_alike(text, theirs, every=True):
+            printed[lid] = got
+    return laid, printed
+
+
 def speck_mended(text, enum, cells, printed=()):
     """The text clue_repair.mend_text makes of a laid clue `text` that
     ocr_clues.unfit refuses only for a stray mark or a word no lexicon has,
@@ -11411,6 +11438,45 @@ def derived_formed(row):
         if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
         if not any(derived_blank(why) for why in v["blank"].values()):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled
+#: with every blank clue (one or two) refused as "not a word": the vote's first unfit_blanked() blanked a
+#: clue over a word the lexicon lacks before tail()'s printed_alike() could take it as the print's, and
+#: neither relaid() nor the VLM's held() pick keeps such a word. Two shapes (failure shapes r22, 10-28):
+#: Latin, French, dialect and coinages every reading spells alike ("Nil nisi bonum", "Mobile sitz ?",
+#: "Mens sana", "rere-mice", "kneadful"), and one reader's run-together words another prints apart
+#: ("In thewordsof Mr.", "produced bya", "stoodin"). The vote now takes both (shared_printed). 10-28
+#: census: 126 such blanks on unfiled Times pages, 92 of them unplanned. Its own reason, not "unfiled
+#: before its fix": CANARY_FAILED holds that one for the Times. Once each; only verdicts every blank of
+#: which is such, the puzzle not held whole.
+SHARED_WORD = "unfiled before its fix, a word its readings spell alike"
+REREAD_SHARED_WORD = "2026-10-28T19:10:00+00:00"
+
+
+def shared_blank(why):
+    """Whether blank reason `why` ("'bonum': not a word") is a word suspect() refused as no word."""
+    return re.fullmatch(r"(['\"].*['\"]): not a word", str(why or "")) is not None
+
+
+def shared_worded(row):
+    """Whether Times ledger `row`, read before REREAD_SHARED_WORD, wrote a puzzle unfiled (a verdict with
+    an "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue) every one of whose
+    blank clues names a word suspect() refused as no word (shared_blank)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SHARED_WORD)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        if not v["blank"] or not all(shared_blank(why) for why in v["blank"].values()):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -15236,6 +15302,8 @@ def fix_reason(row):
         return NAME_CLUSTER
     if derived_formed(row):
         return DERIVED_FORM
+    if shared_worded(row):
+        return SHARED_WORD
     if neighbour_tailed(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
@@ -15740,7 +15808,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   GAP_VOTED,
                   # 10-28 r19: a page whose scan raised, never scanned again (failed_rescan); an untitled
                   # verdict-less page its grid-first scan never read whole (gf_unread).
-                  FAILED_SCAN, GF_UNREAD)
+                  FAILED_SCAN, GF_UNREAD,
+                  # 10-28 r22: a page unfiled over a word its readings spell alike (shared_worded).
+                  SHARED_WORD)
 
 
 def refusal_passes(why):
@@ -15965,7 +16035,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -16296,7 +16366,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
-                                      SEE_RUNS_ON) else {}),
+                                      SEE_RUNS_ON, SHARED_WORD) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

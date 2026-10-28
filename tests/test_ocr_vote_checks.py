@@ -1260,6 +1260,29 @@ check("mirror: a word one letter from a known one is a shared misread ('bediamit
 check("and without unanimous two readings still vouch it (the Listener's rule)", ["bediamite"],
       oc.printed_alike(bed, [bed, bed]))
 
+# The vote's own asPrinted (SHARED_WORD, r22): a word every reading of the clue spells alike, two at least.
+nil = "Nil nisi bonum (9)."
+check("every: a word all readings print is the print's ('Nil nisi bonum'); not where one reads it otherwise",
+      [True, False],
+      ["bonum" in oc.printed_alike(nil, [nil, nil, nil], every=True),
+       "bonum" in oc.printed_alike(nil, [nil, nil, nil.replace("bonum", "bosum")], every=True)])
+mem = "Fruit memt er (9)."
+check("every: two readings of a word one letter from a known one are a shared slip, three are the print",
+      [[], ["memt"]],
+      [oc.printed_alike(mem, [mem, mem], every=True), oc.printed_alike(mem, [mem, mem, mem], every=True)])
+shake = "(Shake- speare: T.G. of Ver.) (3)."
+check("every: a line end's half after a hyphen is no word of the print ('Shake- speare')", False,
+      any(t.startswith("speare") for t in oc.printed_alike(shake, [shake, shake, shake], every=True)))
+tle = "Bat or tle (4, 3, 6)."
+check("every: a word under EVERY_SHORTEST all readings share is a lost half ('Bat or tle')", [],
+      oc.printed_alike(tle, [tle, tle, tle], every=True))
+# One reader closed the print's word gaps up: the gaps another reading prints are put back.
+check("run_apart: words another reading prints apart are parted ('thewordsof', 'bya'); not into non-words",
+      ["In the words of Mr. Kipling", "Drawing produced by a", "formal floverbeds (8)"],
+      [oc.run_apart("In thewordsof Mr. Kipling", ["In the words of Mr. Kipling"]),
+       oc.run_apart("Drawing produced bya", ["Drawing produced by a"]),
+       oc.run_apart("formal floverbeds (8)", ["formal flo verbeds (8)"])])
+
 # A count misread as figures after the clue's last word: cut when each
 # reading prints only the count and the next clue's number there, or when
 # the figures read as the count with its brackets read as ones.

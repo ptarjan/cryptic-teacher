@@ -4642,6 +4642,9 @@ def holding(text, k):
 #: The fewest readings printed_alike(unanimous=True) takes as the print's
 #: word: two readers agreeing on a non-word ("considcraie") are a shared slip.
 UNANIMOUS_READINGS = 3
+#: The shortest word printed_alike(every=True) takes as the print's: a shorter
+#: one every reading shares is a word's lost half ("Bat or tle", "lly,").
+EVERY_SHORTEST = 4
 
 
 def one_letter_off(word):
@@ -4652,7 +4655,7 @@ def one_letter_off(word):
     return any(c != w[k] and known(w[:k] + c + w[k + 1:]) for k in range(len(w)) for c in "abcdefghijklmnopqrstuvwxyz")
 
 
-def printed_alike(text, readings, unanimous=False):
+def printed_alike(text, readings, unanimous=False, every=False):
     """The tokens of a voted clue `text` that suspect() would refuse, which
     the print itself spells so: each word suspect() flags as no word that at
     least two of `readings` (each reading's own text for the light, None
@@ -4664,7 +4667,13 @@ def printed_alike(text, readings, unanimous=False):
     Readers that share a detector share its misreads, so with `unanimous`
     a word stands only where every reading (UNANIMOUS_READINGS at least)
     holds it and no one letter's change makes it a known word: "ignis",
-    "manouevre", not the shared "bediamite" or "ples" ("pies")."""
+    "manouevre", not the shared "bediamite" or "ples" ("pies").
+    With `every` (the vote's own check, ahead of the VLM's pick: SHARED_WORD)
+    a word stands where every reading that has the clue (two at least) holds
+    it, the one-letter test applying only when fewer than UNANIMOUS_READINGS
+    do ("Nil nisi bonum", "Mobile sitz ?", "Mens sana": not "memt" where one
+    reads "meml"), and no reading prints it after a hyphen, a line end's
+    half ("Shake- speare", "Wim- bledon")."""
     own = [r for r in readings if r]
     if len(own) < (UNANIMOUS_READINGS if unanimous else 2):
         return []
@@ -4673,7 +4682,15 @@ def printed_alike(text, readings, unanimous=False):
     for raw, why in suspect(text):
         word = raw.strip(EDGE).lower()
         holds = sum(bool(re.search(r"(?<![a-z])" + re.escape(word) + r"(?![a-z])", r)) for r in low)
-        if why == "not a word" and (holds == len(low) and not one_letter_off(word) if unanimous else holds >= 2):
+        if why != "not a word":
+            continue
+        if every:
+            half = re.compile(r"[a-z]-\s*" + re.escape(word) + r"(?![a-z])")
+            if holds == len(low) and len(word) >= EVERY_SHORTEST \
+                    and (len(low) >= UNANIMOUS_READINGS or not one_letter_off(word)) \
+                    and not any(half.search(r) for r in low + [" ".join(text.lower().split())]):
+                out.append(raw)
+        elif holds == len(low) and not one_letter_off(word) if unanimous else holds >= 2:
             out.append(raw)
     k = unpaired(text)
     if k is not None and text[k] in "([":
@@ -4682,9 +4699,52 @@ def printed_alike(text, readings, unanimous=False):
             opened = re.compile(re.escape(text[k]) + r"\s*" + re.escape(after.group(1).lower()) + r"(?![a-z])")
             holds = [r for r in low if opened.search(r)]
             closed = [r for r in holds if unpaired(r) is None]
-            if len(holds) >= 2 and not closed:
+            if len(holds) >= 2 and not closed and (not every or len(holds) == len(low)):
                 out.append(holding(text, k))
     return out
+
+
+def run_apart(text, theirs):
+    """`text` with each word suspect() finds no word that one of the readings
+    `theirs` (each one's text for the clue) prints as two or three words
+    with only spaces between, each a word suspect() passes: a reader that
+    closed the print's word gaps up ("In thewordsof Mr." where another reads
+    "In the words of Mr.", "produced bya", "stoodin", "pre-emptiverights").
+    The letters stay the text's own; only the gaps are put back."""
+    raw = (text or "").split()
+    seqs = [(t or "").split() for t in theirs]
+    out = list(raw)
+    for k, tok in enumerate(raw):
+        core = tok.strip(EDGE)
+        if len(core) < 3 or not re.fullmatch(r"[A-Za-z][A-Za-z'\-]*[A-Za-z]", core) \
+                or not any(why == "not a word" for _, why in suspect(tok)):
+            continue
+        low = core.lower()
+        apart = None
+        for ws in seqs:
+            for i in range(len(ws)):
+                for n in (2, 3):
+                    run = ws[i:i + n]
+                    if len(run) < n:
+                        continue
+                    pieces = [run[0].lstrip(EDGE)] + run[1:-1] + [run[-1].rstrip(EDGE)]
+                    if "".join(pieces).lower() != low or not all(
+                            re.fullmatch(r"[A-Za-z][A-Za-z'\-]*", p) and not suspect(p) for p in pieces):
+                        continue
+                    apart = [len(p) for p in pieces]
+                    break
+                if apart:
+                    break
+            if apart:
+                break
+        if not apart:
+            continue
+        cut, at = [], 0
+        for n in apart:
+            cut.append(core[at:at + n])
+            at += n
+        out[k] = tok.replace(core, " ".join(cut), 1)
+    return " ".join(out) if out != raw else text
 
 
 # ------------------------------------------------------------ the VLM's pick
