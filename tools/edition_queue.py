@@ -713,6 +713,9 @@ def evidence_reason(reason):
                        fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
+            # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
+            # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
+            or reason == fa.TOUCHING_GRID
             or reason == "unfiled before its fix"  # a puzzle written with blank clues, a column-layout fix since
             # A 2000-14 Times page written unfiled before the 10-25 clue-11 and cut-window fixes (fa.unfiled_modern).
             or reason == fa.UNFILED_MODERN
@@ -1478,7 +1481,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               "solution short, its cells unclassified", "read without the VLM", "unfiled before its fix",
               "titles changed", fa.NO_TITLE_RESCAN, "answers held back by a clue with no enumeration",
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.MATCHED_GRID,
-              fa.NEAR_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
+              fa.NEAR_GRID, fa.TOUCHING_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
