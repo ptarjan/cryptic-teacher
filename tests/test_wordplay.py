@@ -128,7 +128,7 @@ BAD = [
     ("a repeat of an odd-length answer", "ALFAL", "rep<twice>([boy]AL)", "needs ALFAL"),
     ("a reversal of a palindrome", "LEVEL", "rev<back>([level])", "reads the same backwards"),
     ("not hidden", "LEVER", "hid<in>([trap ever])", "needs LEVER"),
-    ("hidden letters not in the words", "LEVER", "hid<in>([trap ever]LEVER)", "gives nothing"),
+    ("hidden letters not in the words", "LEVER", "hid<in>([trap ever]LEVER)", "does not print LEVER"),
     ("a container that can't fit", "STOMACH", "ins<in>([turkey]TOM, [pouch]SAC) + first<head>([hen's])", "needs"),
     ("an anagram whose order nothing fixes", "ALE", "del<losing>(ana<mad>([leap]), P)", "write the letters"),
     ("homophone spelt wrong", "PIECE", "sound<Sung>([harmony]PEACE, PEACE)", "needs PIECE"),
@@ -328,11 +328,11 @@ check("a charade written in clue order under 'after' is swapped to answer order"
 tree = w.translate({"wp": "[tea]CHA +<after> [Politician]MP"}, "Politician after tea sees winner", "CHAMP")
 check("a charade already in answer order is left alone",
       [p["gives"] for p in tree["parts"]] == ["CHA", "MP"], tree)
-try:
-    w.translate({"wp": "[Politician]MP +<with> [tea]CHA"}, "Politician with tea sees winner", "CHAMP")
-    check("a non-placement indicator is not swapped", False, "accepted")
-except w.WordplayError as e:
-    check("a non-placement indicator is not swapped", "does not give CHAMP" in str(e), str(e))
+# 'with' is no placement word, so the 'after' swap leaves it; the doesNotGive mend (exactly one order gives
+# CHAMP) puts the two pieces in answer order instead
+tree = w.translate({"wp": "[Politician]MP +<with> [tea]CHA"}, "Politician with tea sees winner", "CHAMP")
+check("a non-placement indicator is mended by the doesNotGive order mend, not the 'after' swap",
+      [p["gives"] for p in tree["parts"]] == ["CHA", "MP"], tree)
 try:
     w.translate({"wp": "[Politician]MP +<after> [tea]CHA"}, "Politician after tea sees winner", "CHAMPS")
     check("an 'after' charade that is wrong both ways stays refused", False, "accepted")

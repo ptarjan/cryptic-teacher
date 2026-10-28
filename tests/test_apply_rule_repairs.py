@@ -178,4 +178,17 @@ check("indicatorNote: an operation with no sentence is left for the model",
 check("indicatorNote: the refusal says where the note goes",
       any("under the clue's `notes`" in m for m in (lambda w: (V.check_indicators("1A", {"indicators": [{"text": "after", "for": "charade"}],
           "wordplay": {"op": "charade", "parts": []}}, "x after y", [], w), w)[1])([])))
+# doesNotGive residue, 10-28 (68 refusals since 0addda93d85): a hid() over a `+` list is one leaf; a hidden word read
+# backwards and a charade piece that sits inside its neighbour are named exactly (the rest are model slips)
+check("doesNotGive: hid() over a + list of cross-references is mended into one leaf of the words they stand for",
+      mend("hid<used by>([24D]FLAT + [10]MATES)", "Boy and girl, 24D 10 used by tax", "ATM") == "hid<used by>([24D 10]FLATMATES)")
+check("doesNotGive: hid() over a + list of plain words is mended into one leaf",
+      mend("hid<in>([nova] + [tion])", "Nova tion in the end", "ATIO") == "hid<in>([Nova tion])")
+check("doesNotGive: hid() over words the clue does not print together stays refused",
+      mend("hid<in>([nova] + [tion])", "Nova, then a tion in the end", "ATIO").startswith("REFUSED"))
+msg = mend("hid<to some extent>(rev<getting upset>([now] +<meeting> [then]))", "Now meeting then, getting upset to some extent", "TWO")
+check("doesNotGive: a word hidden backwards is named as rev(hid()), the hid inside", "rev<getting upset>(hid<to some extent>([Now then]))" in msg)
+msg = mend("[To appear]EMERGE + [cold]C + [New York]NY", "To appear cold in New York", "EMERGENCY")
+check("doesNotGive: a charade piece that only fits inside its neighbour says to write the container",
+      "[cold]C goes inside [New York]NY" in msg and "ins<indicator>([New York]NY, [cold]C)" in msg)
 sys.exit(1 if fails else 0)

@@ -3567,6 +3567,13 @@ def _does_not_give_edits(node, k, clue=None):
         out.append(new)
     elif n.get("op") == "hidden" and len(parts) == 1 and leaf(parts[0]) and clue:
         out += _hidden_reaches(fresh, parts[0], clue)
+    elif n.get("op") == "hidden" and len(parts) == 1 and parts[0].get("op") == "charade":
+        # hid() takes one leaf: a hidden word across words is the `+` list's leaves as one leaf
+        merged = W.merge_hidden_leaves(parts[0].get("parts") or [])
+        if merged and (not clue or _printed_run(merged["words"], clue)):
+            new, t = fresh()
+            t["parts"] = [merged]
+            out.append(new)
     if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
             and len(n["gives"]) > 3 and n["gives"].upper().endswith("S"):
         # the possessive spelt out ('hostel's' is INN, not INNS)
@@ -3574,6 +3581,12 @@ def _does_not_give_edits(node, k, clue=None):
         t["gives"] = t["gives"][:-1]
         out.append(new)
     return [_flat_charades(new) for new in out]
+
+
+def _printed_run(words, clue):
+    """True when the clue prints `words` as one run (case and punctuation aside)."""
+    norm = lambda t: " ".join(re.findall(r"[\w']+", str(t).lower().replace("’", "'")))
+    return f" {norm(words)} " in f" {norm(clue)} "
 
 
 def _hidden_reaches(fresh, lf, clue):
