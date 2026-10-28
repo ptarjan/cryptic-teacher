@@ -13463,6 +13463,18 @@ LINKED_MAX = 2
 #: Once, as an answers-only reread (SOLUTION_FIXES).
 LINKED_NAME = "solution short, its linked answer a name both readers spell since"
 REREAD_LINKED_NAME = "2026-10-28T18:50:00+00:00"
+#: The due reason of a Times row read before REREAD_READ_CROSSED, due none of those above (FULL_SHORT first), no
+#: held title's, whose held puzzle (every clue, from this page) leaves 1 to LATE_MAX lights blank, one with a strip
+#: the grid's reading kept whose cached reply to answers_only's first ask vlm_word takes now (crossed_short). That
+#: ask (vlm_lights) is made on the reading's own crossings, not the held file's: every near_short check looks the
+#: reply up on the held crossings, so where the two differ its key missed and no such reason came due; and a reply
+#: vlm_word refused at the read stands now where another puzzle's filed answer has spelt it since (filed_word: the
+#: filed answers grow) or a mend landed after the read. Failure shapes r25, 10-28: of 142 1-2-short Times files an
+#: offline replay made whole, a replay of the live path made 38 whole, none due; this check names 22 (19 whole),
+#: names and places mostly (MOWCHER, TAPLOW, CHICOT, PERIM, ELVAS, ISLEWORTH, IRONFOUNDERS, WAR TO THE KNIFE).
+#: Once, as an answers-only reread (SOLUTION_FIXES); the replies are cached, so it asks nothing new.
+READ_CROSSED = "solution short, its VLM word on the reading's own crossings taken since"
+REREAD_READ_CROSSED = "2026-10-28T19:50:00+00:00"
 
 
 def unasked_short(row, paper):
@@ -13808,6 +13820,121 @@ def strip_near(series, number, sol_dir, swap=False, defined=False, named=False, 
         hit = _NEAR_STRIPS[p, q, swap, defined, named, argmax, paired, spelt, filed] = (
             stamp, _strip_near(p, q, swap, defined, named, argmax, paired, spelt, filed))
     return hit[1]
+
+
+def crossed_near(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled and 1 to LATE_MAX lights
+    blank, has a blank light whose strip its linked solution grid's reading (the solution page's edition dir
+    name `sol_dir`) kept, whose cached reply to answers_only's first ask (vlm_lights: the reading's own
+    crossings, not the held file's) vlm_word takes now (_crossed_near); parsed again only when either stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return False
+    q = CROPS / "solution_reads" / f"{sol_dir}_{number}.json"
+    stamp = (_stat_stamp(p), _stat_stamp(q))
+    if None in stamp:
+        return False
+    hit = _NEAR_STRIPS.get((p, q, "crossed"))
+    if hit is None or hit[0] != stamp:
+        hit = _NEAR_STRIPS[p, q, "crossed"] = (stamp, _crossed_near(p, q))
+    return hit[1]
+
+
+def _crossed_near(p, q):
+    """crossed_near of the held file at `p` and its reading at `q`: vlm_lights' asks replayed off the cache, each
+    kept strip in turn (sorted) on the reading's answers' letters and the words taken before it, as answers_only
+    asks them; a blank light's word counts where it agrees with every held crossing letter, misread_word does not
+    drop it (but for a name paired_name spares), and no letter of it no other light holds reads, on the strip's
+    kept classifier probabilities, as a rival word (misread_rival) vlm_stands refuses."""
+    try:
+        held, read = json.loads(p.read_text()), json.loads(q.read_text())
+    except (OSError, ValueError):
+        return False
+    es = held.get("entries") or ()
+    if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or filled(held)[0] != len(es):
+        return False
+    blank = {entry_id(e) for e in es if not e.get("solution")}
+    strips = ((read.get("stats") or {}).get("strips")) or {}
+    if not 1 <= len(blank) <= LATE_MAX or not blank & set(strips):
+        return False
+    try:
+        lts = trove_solution_ocr.lights(trove_solution_ocr.puzzle_grid(held))
+    except (KeyError, IndexError, TypeError, ValueError):  # a held grid the reader cannot lay
+        return False
+    by_id = {entry_id(e): e for e in es}
+    answers = {entry_id(e): re.sub(r"[^A-Z]", "", e["solution"].upper()) for e in es if e.get("solution")}
+    held_letters = {}
+    for lid, w in answers.items():
+        held_letters.update(zip(lts.get(_light_key(lid), ()), w))
+    letters = {}
+    for lid, w in (read.get("answers") or {}).items():
+        letters.update(zip(lts.get(_light_key(lid), ()), w or ""))
+    on = {}
+    for (n, dr), cells in lts.items():
+        for rc in cells:
+            on.setdefault(rc, []).append(f"{n}-{dr}")
+    prompt = SOLUTION_PROMPT.read_text()
+    for lid, strip in sorted(strips.items()):
+        cells = lts.get(_light_key(lid))
+        e = by_id.get(lid)
+        if not cells or e is None:
+            continue
+        enum = (e.get("clue") or {}).get("enumeration")
+        clue = (e.get("clue") or {}).get("text")
+        sizes = trove_solution_ocr.pieces_of(enum, len(cells))
+        pattern = "".join(letters.get(rc, "?") for rc in cells)
+        try:
+            data = _strip_png(strip["png"])
+        except (KeyError, TypeError, ValueError, OSError):  # a strip that does not decode was never asked
+            continue
+        path = vlm.CACHE / f"{vlm.ask_key(data, strip_prompt(prompt, sizes, pattern))}.txt"
+        if not path.exists():
+            continue
+        reply = path.read_text()
+        probs = strip.get("p") or ()
+        word = vlm_word(reply, pattern, sizes, probs, enum, clue)
+        if not word:
+            continue
+        letters.update(zip(cells, word))
+        if lid not in blank or len(word) != len(cells) or len(probs) != len(cells):
+            continue
+        if any(held_letters.get(rc, ch) != ch for rc, ch in zip(cells, word)):
+            continue
+        if misread_word(word, enum) and not paired_name(word, reply, pattern, sizes, probs, enum, clue):
+            continue
+        by_cell = dict(zip(cells, probs))
+        rival = misread_rival(word, lone_cells(lid, lts, on, {**answers, lid: word}), by_cell)
+        if rival and not vlm_stands(word, rival, rival_own(word, rival, cells, by_cell), clue):
+            continue
+        return True
+    return False
+
+
+def crossed_short(row, paper):
+    """Whether Times ledger `row` (of `paper`), no held title's (its reread would ask on the held proof alone), has a
+    verdict whose linked solution grid it read for a puzzle held with every clue from this page, 1 to LATE_MAX
+    blank, its cells classified and its crop kept (held_blanks), a blank light's cached reply to answers_only's
+    first ask on the reading's own crossings taken now (crossed_near)."""
+    if any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom") or v.get("heldTitle")
+                or not isinstance(s, dict) or s.get("refused") or v.get("wrongGrid")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
+        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            continue
+        if crossed_near(paper.series, v["number"], sol_dir):
+            return True
+    return False
 
 
 def _late_near(p, q, crop):
@@ -14370,7 +14497,9 @@ def short_again(row):
     blank lights each a linked answer's (linked_short); LINKED_NAME for one read before REREAD_LINKED_NAME, due none
     of those, so too (linked_name); FULL_SHORT for
     one at any time, due none of those, its held puzzle last read short by a full read that answers_only did
-    not try first (full_short), a paper whose cells are not classified (TIMES_1930) included."""
+    not try first (full_short), a paper whose cells are not classified (TIMES_1930) included; READ_CROSSED for one
+    read before REREAD_READ_CROSSED, due none of those, 1 to LATE_MAX blank, no held title's, a blank light's cached
+    reply to answers_only's first ask on the reading's own crossings vlm_word takes now (crossed_short)."""
     paper = paper_of(row.get("edition", ""))
     if paper.key not in CELLS_CLASSIFIED:
         # A Times page of another item (TIMES_1930's archive.org pages) whose linked grid a classified print holds
@@ -14442,6 +14571,8 @@ def short_again(row):
         return LINKED_NAME
     if why is None and full_short(row, paper):
         return FULL_SHORT
+    if why is None and scan_queue.read_before(row, scan_queue.when(REREAD_READ_CROSSED)) and crossed_short(row, paper):
+        return READ_CROSSED
     return why
 
 
@@ -16097,7 +16228,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2,
-         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
+         "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, "scan stale": 3, "--reread": 3,
@@ -16671,7 +16802,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_CLASH, VLM_FLOOR_SHORT, LATE_STRIPS, WIDE_STRIPS, SURE_FRAMING, OTHER_GRID_SHORT, VLM_REJUDGED, CANDIDATE_READS,
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
-                  STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
+                  READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD)
 
 

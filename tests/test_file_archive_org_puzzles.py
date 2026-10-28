@@ -1845,6 +1845,24 @@ check("a held file whose blank lights are a linked answer's, read after REREAD_L
       ln_due + [f.RANKS[f.LINKED_NAME], f.LINKED_NAME in f.SOLUTION_FIXES, f.LINKED_NAME.startswith("solution short"),
                 f.LINKED_NAME in __import__("edition_queue").LOW_ASK, f.LINKED_NAME in __import__("edition_queue").FIX_LANDED,
                 __import__("edition_queue").evidence_reason(f.LINKED_NAME)])
+# READ_CROSSED: a row read before REREAD_READ_CROSSED (after every older cutoff) whose blank light's cached reply to
+# answers_only's first ask on the reading's own crossings vlm_word takes now (crossed_short), due nothing else: due;
+# read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_fsh, real_cs = f.full_short, f.crossed_short
+f.full_short = lambda row, paper: False
+f.crossed_short = lambda row, paper: True
+rc_due = [f.short_again(vu_row("2026-10-28T19:00:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.crossed_short = lambda row, paper: False
+rc_due.append(f.short_again(vu_row("2026-10-28T19:00:00+00:00", ao=True)))
+f.full_short, f.crossed_short = real_fsh, real_cs
+f.filed_state = real_fs
+check("a held file whose blank light's first-ask reply on the reading's crossings vlm_word takes now, read before "
+      "REREAD_READ_CROSSED: READ_CROSSED (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.READ_CROSSED, None, None, 2, True, True, True, True, True],
+      rc_due + [f.RANKS[f.READ_CROSSED], f.READ_CROSSED in f.SOLUTION_FIXES, f.READ_CROSSED.startswith("solution short"),
+                f.READ_CROSSED in __import__("edition_queue").LOW_ASK, f.READ_CROSSED in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.READ_CROSSED)])
 # LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
 # short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
 # (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
