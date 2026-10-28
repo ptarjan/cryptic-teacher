@@ -9,6 +9,7 @@ rebuilds that need it (tools/vote_tally_backfill.py).
 import json
 import subprocess
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,6 +26,16 @@ def _run(args, timeout):
     except subprocess.TimeoutExpired:
         return subprocess.CompletedProcess(args, 124, "",
                                            f"wrangler timed out after {timeout} s")
+
+
+def _refresh():
+    """Refresh the OAuth login before the one retry. Cloudflare's token
+    endpoint answers a refresh with a 500 now and then (10-28 13:40), and
+    wrangler then gives up asking for an API token; a minute later the same
+    refresh works, so a failed refresh waits and tries once more."""
+    if _run(["whoami"], 60).returncode != 0:
+        time.sleep(60)
+        _run(["whoami"], 60)
 
 
 def list_keys(prefix=None, timeout=180):
@@ -49,7 +60,7 @@ def list_keys(prefix=None, timeout=180):
         args += ["--prefix", prefix]
     out = _run(args, timeout)
     if out.returncode != 0:
-        _run(["whoami"], 60)
+        _refresh()
         out = _run(args, timeout)
     if out.returncode != 0:
         raise SystemExit("wrangler gave no key list: "
@@ -67,7 +78,7 @@ def get_key(name, timeout=120):
     through reading the keys it just listed."""
     out = _run(["kv", "key", "get", name, "--namespace-id", NAMESPACE, "--remote"], timeout)
     if out.returncode != 0:
-        _run(["whoami"], 60)
+        _refresh()
         out = _run(["kv", "key", "get", name, "--namespace-id", NAMESPACE, "--remote"], timeout)
     if out.returncode != 0:
         raise SystemExit(f"wrangler could not read {name}: "
@@ -91,7 +102,7 @@ def put_many(pairs, timeout=300):
         args = ["kv", "bulk", "put", f.name, "--namespace-id", NAMESPACE, "--remote"]
         out = _run(args, timeout)
         if out.returncode != 0:
-            _run(["whoami"], 60)
+            _refresh()
             out = _run(args, timeout)
     if out.returncode != 0:
         raise SystemExit("wrangler bulk put failed: "
