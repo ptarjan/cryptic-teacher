@@ -3256,10 +3256,9 @@ tests/test_audit_updates.py                    does audit_updates class each rer
 building and checking the site
 tests/test_overtype.js                         typing over a filled word keeps going through
                                                its filled squares
-tests/test_desktop_typing.js                   a click on a square or clue with a mouse and
-                                               keyboard leaves the page alone and typing
-                                               goes straight into the grid
 tools/grid_ocr_cache.py                        the solution-grid reader's recogniser outputs,
                                                kept on disk by what they are of
+tests/test_desktop_typing.js                   with a mouse and a keyboard, picking a light
+                                               leaves the page and focus alone
 ```
 <!-- LAYOUT-END -->
