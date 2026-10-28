@@ -8951,6 +8951,8 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
             grid, how = g, "rebuilt"
     verdict["grid"] = how
     lengths = {f"{n_}-{d_}": len(cells) for (n_, d_), cells in rg.light_cells(grid).items()}
+    # A list's last clue read on past its count into the print under it, laid with no count (tail_cut).
+    laid = tail_cut(laid, lengths)
     fits = {lid for lid, (_, enum, group) in laid.items()
             if enum and not group and ftp.count(enum) == lengths.get(lid)}
     bare = {lid for lid in lengths if not (laid.get(lid) or ("",))[0].strip()}
@@ -10166,6 +10168,39 @@ def complete(puzzle, unclued=()):
     return filled(puzzle)[0] + blank == len(puzzle["entries"]) and not any(
         suspect((e.get("clue") or {}).get("text", ""), printed=(e.get("clue") or {}).get("asPrinted") or ())
         for e in puzzle["entries"]) and not faults(puzzle)
+
+
+#: A clue's count in its text ("(5)", "(4, 5)", "(3-6)").
+TAIL_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,.\-]\s*\d{1,2})*)\s*\)")
+
+
+def tail_cut(laid, lengths):
+    """`laid` with each clue laid with no count whose text runs on past a count that fills its light into
+    text holding no count of its own cut at that count, the count laid. ftp.clues ends a clue at a bracket
+    followed by the next clue's number or the list's end, so the noise under a list's last clue (an
+    advert's lines, specks, a neighbour column's words) ran on into it, and the vote blanked it on those
+    words: "taken in by them (5). ir th tb ca f o" (Gale 1946-03-22's 25 down), "going the other way (5)
+    OZRSB" (1946-01-31's 24 down), "with this card (5) 01-6064954 AFRICA EVE" (1972-05-08's 24 down).
+    What follows the cut holds no count, so it is no clue of its own; a clue read into the next one
+    whole ("... (5) Clue B (7)") keeps the count after, and is left to runs_in_cut and bled()."""
+    out = dict(laid)
+    for lid, (text, enum, group) in laid.items():
+        cells = lengths.get(lid)
+        if enum is not None or group or not text or not cells:
+            continue
+        fit = [m for m in TAIL_COUNT.finditer(text) if ftp.count(m.group(1)) == cells]
+        if not fit:
+            continue
+        m = fit[-1]
+        tail, body = text[m.end():], text[:m.start()].strip()
+        if not re.search(r"\w", tail) or TAIL_COUNT.search(tail) or not ocr_clues.tokens(body):
+            continue
+        # A bracket a clue's words lead into is a cross-reference, not its count ("Anag. of (5)"); a clue
+        # ending on a light's number ("Weary homophone of 23") would lose it to mend_text's count slip.
+        if re.search(r"\b(?:of|see|to|the|a|an|and|in|by|with|for|from|at|on|or|as)\W*$|\d\W*$", body, re.I):
+            continue
+        out[lid] = (body, ocr_clues.shape(m.group(1)), None)
+    return out
 
 
 def unfit_blanked(laid, blank, lengths, printed=None):
@@ -11872,6 +11907,87 @@ def opening_gutter_lost(row):
         if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
             continue
         if not opening_gutter_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page written unfiled with a clue the vote blanked on words
+#: read on past its count ("no other reading has 'LUTIONOFPUZZLENO'", "readings differ: OZRSB / ONRAIB"):
+#: ftp.clues ends a clue only at a bracket followed by the next clue's number or the list's end, so the
+#: noise under a list's last clue ran on into it and it was laid with no count. tail_cut() now cuts such a
+#: clue at the count that fills its light. Failure shapes r11, 10-28: r9's "line across two columns"
+#: lights and r10's lights "lost after columns()" re-tallied by an in-process replay of the vote over the
+#: cached plain under-grid windows of the 165 unplanned Gale pages: the post-columns() steps lose few; the
+#: list's run-on last clue is the one shared fault, and the vote blanks it with its own reasons, so the
+#: "no reading laid" census never counted it (1,209 lights on 821 pages of the 1939-47 windows alone).
+#: Replayed old vs new over 729 windows of 579 pages: 53 held clues better, none worse, 12 unheld lights
+#: laid. Due by the ledger and the cached readings (run_on_tail_read). Its own reason. Once each.
+RUN_ON_TAIL = "unfiled before its fix, a clue read on past its count"
+REREAD_RUN_ON_TAIL = "2026-10-28T13:35:00+00:00"
+#: A blank reason of the vote that names the words it refused: "no other reading has 'X'", "both read 'X',
+#: not a word", "readings differ: A / B".
+VOTE_WORDS = re.compile(r"(?:no other reading has|both read) (['\"])(.+)\1(?:, not a word)?$|readings differ: (.+) / (.+)$")
+
+
+def vote_words(why):
+    """The words blank reason `why` says the vote refused (VOTE_WORDS), two letters or more."""
+    m = VOTE_WORDS.match(str(why or ""))
+    return {w.strip() for w in (m.group(2), m.group(3), m.group(4)) if w and len(w.strip()) >= 2} if m else set()
+
+
+@functools.lru_cache(maxsize=4096)
+def run_on_tail_read(key, word):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}"), any window of
+    its cache, prints `word` after a clue's count: later in the count's line, beside a box ending in a count
+    in its row, or in the line right under a line ending in a count, no clue number opening it."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            wins = [held, *held.get("more", ())] if isinstance(held, dict) else [{"words": held}]
+            boxes = [tuple(w) for o in wins for w in o["words"]]
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError):
+            continue
+        for w in boxes:
+            t = str(w[4])
+            at = t.find(word)
+            if at < 0:
+                continue
+            if any(m.end() <= at for m in TAIL_COUNT.finditer(t)):
+                return True
+            if CLUE_NUMBER_OPENS.match(t):
+                continue
+            h = max(1.0, w[3] - w[1])
+            # The line under a count's (x overlapping), or a box beside a count's in its row, left of it.
+            if any(CLUE_COUNT_END.search(str(u[4])) and (
+                    (u[1] < w[1] and 0 <= w[1] - u[3] < h and u[0] <= w[2] and w[0] <= u[2])
+                    or (u[2] <= w[0] + 5 and min(u[3], w[3]) - max(u[1], w[1]) > 0.5 * h))
+                   for u in boxes if u is not w):
+                return True
+    return False
+
+
+#: A line opening on a clue's number and a word ("26 Is about", "5:Cimex").
+CLUE_NUMBER_OPENS = re.compile(r"\W{0,3}\d{1,2}\b\W{0,2}\s*[A-Za-z\"'‘“]")
+
+
+def run_on_tail_lost(row):
+    """Whether Times ledger `row`, read before REREAD_RUN_ON_TAIL, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a clue the vote
+    blanked on words a cached reading prints after a clue's count (VOTE_WORDS, run_on_tail_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_RUN_ON_TAIL)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        words = {w for why in v["blank"].values() for w in vote_words(why)}
+        if not any(run_on_tail_read(f"{Path(rel).name}_{v['number']}", w) for w in sorted(words)):
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -14626,6 +14742,8 @@ def fix_reason(row):
         return STOP_TAIL
     if opening_gutter_lost(row):
         return OPENING_GUTTER
+    if run_on_tail_lost(row):
+        return RUN_ON_TAIL
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -15269,7 +15387,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15597,7 +15715,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
-                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER) else {}),
+                                      SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

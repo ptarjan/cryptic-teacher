@@ -2320,6 +2320,30 @@ check("a second column start further right (four columns, a grid guessed wrong) 
 check("one row of openings is no column start", None,
       f.column_start([[w] for w in _og_ch], 508 + 0.2 * 718, 508 + 0.8 * 718, 4718, 6010, 1226))
 
+# A list's last clue read on past its count into the print under it (ftp.clues ends a clue only at a bracket
+# before the next clue's number or the list's end), laid with no count, was blanked by the vote on the noise:
+# tail_cut() cuts it at the count that fills its light (Gale 1946-03-22's 25 down, 1972-05-08's 24 down).
+_rt_len = {"25-down": 5, "24-down": 5, "18-across": 7, "9-across": 7, "3-down": 9}
+_rt = f.tail_cut({"25-down": ("One need not fear being a taken in by them (5). ir th tb ca f o c ast", None, None),
+                  "24-down": ("No player has the advantage with this card (5) 01-6064954 AFRICA EVE", None, None),
+                  "18-across": ("Anag. of (7) tb ca", None, None),
+                  "9-across": ("A clue read into the next (7) Another clue (5)", None, None),
+                  "3-down": ("Put pints on points (9)", "9", None)}, _rt_len)
+check("a clue run on past its count is cut at the count that fills its light",
+      [("One need not fear being a taken in by them", "5", None),
+       ("No player has the advantage with this card", "5", None)], [_rt["25-down"], _rt["24-down"]])
+check("not at a bracket its words lead into, nor before another count, nor a clue laid with its count",
+      [("Anag. of (7) tb ca", None, None), ("A clue read into the next (7) Another clue (5)", None, None),
+       ("Put pints on points (9)", "9", None)], [_rt["18-across"], _rt["9-across"], _rt["3-down"]])
+check("nor at a count that does not fill the light, nor leaving a clue that ends on a light's number",
+      [("Taken in by them (6). ir th", None, None), ("City homophone of 24 (5) SOLUTIONOFPUZZLE", None, None)],
+      [f.tail_cut({"25-down": ("Taken in by them (6). ir th", None, None)}, _rt_len)["25-down"],
+       f.tail_cut({"24-down": ("City homophone of 24 (5) SOLUTIONOFPUZZLE", None, None)}, _rt_len)["24-down"]])
+check("the vote's blank reasons name the words it refused",
+      [{"th"}, {"PUZZLENO"}, {"OZRSB", "ONRAIB"}, set()],
+      [f.vote_words("no other reading has 'th'"), f.vote_words("both read 'PUZZLENO', not a word"),
+       f.vote_words("readings differ: OZRSB / ONRAIB"), f.vote_words("no reading laid a clue on it")])
+
 # The 2014 Times (Gale): the grid at the page's foot, the two clue columns right
 # of it, "Yesterday's solution" under the first; the third column is not read.
 from PIL import Image, ImageDraw
