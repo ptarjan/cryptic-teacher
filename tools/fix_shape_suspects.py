@@ -3665,6 +3665,19 @@ def _does_not_give_edits(node, k, clue=None):
             new, t = fresh()
             t["parts"] = [merged]
             out.append(new)
+    if n.get("op") == "hidden" and len(parts) == 1 and parts[0].get("op") == "reversal":
+        # a word hidden backwards: hid() takes the leaf, the reversal goes round the hidden word
+        # (hid(rev(words)) -> rev(hid(words)), each op keeping its own indicator)
+        new, t = fresh()
+        rv = t["parts"][0]
+        kids = rv.get("parts") or []
+        if len(kids) == 1 and kids[0].get("op") == "charade" and not kids[0].get("indicators"):
+            kids = kids[0].get("parts") or []
+        kid = W.merge_hidden_leaves(kids) if len(kids) > 1 else (kids[0] if kids else None)
+        if kid and "op" not in kid and "gives" not in kid:
+            t.clear()
+            t.update({**rv, "parts": [{**n, "parts": [kid]}]})
+            out.append(new)
     if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
             and len(n["gives"]) > 3 and n["gives"].upper().endswith("S"):
         # the possessive spelt out ('hostel's' is INN, not INNS)
