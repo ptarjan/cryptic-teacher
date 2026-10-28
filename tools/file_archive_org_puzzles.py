@@ -2872,10 +2872,16 @@ def scan_anywhere(d):
     runs _scan there), else here. Not inside scan(): scan_key() hashes what
     scan() reaches, so an edit there re-scans every edition."""
     import ocr_remote
-    if grid_first_on():
-        return grid_first_scan(d)
-    found = ocr_remote.scan(d)
-    return scan(d) if found is None else found
+    found = grid_first_scan(d) if grid_first_on() else ocr_remote.scan(d)
+    found = scan(d) if found is None else found
+    # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
+    if not found.get("failed") and not any(not p.get("fromSolutions") for p in found["puzzles"]):
+        found = {**found, WHOLE_UNTITLED: True}
+    return found
+
+
+#: The key of a scan (scan_anywhere's) that read its page whole and found no title (gf_rescan).
+WHOLE_UNTITLED = "wholeUntitled"
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
@@ -2906,6 +2912,14 @@ def grid_first_scan(d):
         finally:
             _GRID_FIRST.paper = None
             _GRID_FIRST.windows = _GRID_FIRST.detected = None
+        # No title read (none, or only one solution_titled gave): the page is read whole, as scan() reads it.
+        # Its windows are those of the grids grid_lined passes, and a page whose puzzle grid none is (a photo
+        # or a ruled advertisement passes) keeps the title line out of every window: 10-28, 73 Gale Times
+        # pages of 1945-86 (1940s 32, 1950s 34) a grid-first rescan left untitled, both page readers' whole
+        # reads holding the title ("THE TIMES CROSSWORD PUZZLE NO. 7,875" at y 3,952 of 1955-07-20, its
+        # windows at 118-718, 1,550-1,850 and 4,851-4,944), 56 of them puzzles filed before (GF_TITLE).
+        if not any(not p.get("fromSolutions") for p in found["puzzles"]):
+            return _scan(d)
     # Two grids' bands (a patch of ink round the real grid) can read one title:
     # the title is one, its box twice a pixel apart.
     kept = []
@@ -9954,7 +9968,7 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r))):
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r))):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -10753,6 +10767,36 @@ def lone_rescan(row):
         return False
     key = row.get("scanKey")
     return (key in _LONE_OLD or key not in current_keys(GALE)) and not inset_rescan(row)
+
+
+#: The reason of a Gale Times page whose scan by current scan code holds no title while its row holds a
+#: verdict (a puzzle an older scan titled on this very page was read), read before REREAD_GF_TITLE and not
+#: held (held_titles): a grid-first rescan (grid_first_scan) read it only in the windows round the grids
+#: grid_lined passes, none of them its puzzle's, and the title line lay outside every window. grid_first_scan
+#: now reads such a page whole. 10-28 r16: 81 Gale Times pages a rescan under the current key left untitled
+#: had a title before (1940s 18, 1950s 47, 1960s 14, 1980s 3); of 319 untitled current-key pages 73 were read
+#: grid-first with both page readers' whole reads holding the title (1945-47 and 1950-66: "THE TIMES CROSSWORD
+#: PUZZLE NO. 7,875", 1955-07-20). The rescan keeps no key of its own (grid_first_scan is outside scan_key's
+#: reach), so the scan is stale here (scan_current) until it is made again and marked WHOLE_UNTITLED or
+#: titled; then read.
+GF_TITLE = "untitled page, its grid-first scan's windows missed its title"
+#: Once: a row read before this is due GF_TITLE.
+REREAD_GF_TITLE = "2026-10-28T16:45:00+00:00"
+
+
+def gf_rescan(row):
+    """Whether Gale Times ledger `row` is due GF_TITLE: its scan, under scan_key(GALE), holds no title (no puzzle,
+    or only one solution_titled gave) and is not one read whole (WHOLE_UNTITLED), its row holds a verdict, it was
+    read before REREAD_GF_TITLE, and no held puzzle stands for it (held_titles reads that answers-only)."""
+    scan = (row or {}).get("scan") or {}
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and "inputs" in row and row.get("verdicts")
+            and not scan.get("failed") and not scan.get(WHOLE_UNTITLED)
+            and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+        return False
+    # Scanned by this very scan code (a grid-first rescan, as LONE_TITLE's and INSET_GRID's were), not under a key
+    # pinned to it (current_keys): those scans stand for what they found.
+    return row.get("scanKey") == scan_key(GALE) and scan_queue.read_before(row, scan_queue.when(REREAD_GF_TITLE)) \
+        and not held_titles(row)
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -14859,6 +14903,8 @@ def fix_reason(row):
         return INSET_GRID
     if lone_rescan(row):
         return LONE_TITLE
+    if gf_rescan(row):
+        return GF_TITLE
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -15383,7 +15429,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT, SEE_RUNS_ON,
                   # 10-28 r14: the Times's refusal rereads were masked so too (refusal_passes), and these full
                   # rereads of a page no file holds: 35 RIGHT_FOREIGN_READ, 10 NO_TITLE_RESCAN, 1 TOUCHING_GRID.
-                  RIGHT_FOREIGN_READ, NO_TITLE_RESCAN, TOUCHING_GRID)
+                  RIGHT_FOREIGN_READ, NO_TITLE_RESCAN, TOUCHING_GRID,
+                  # 10-28 r16: a page a grid-first rescan left untitled, read whole now (gf_rescan).
+                  GF_TITLE)
 
 
 def refusal_passes(why):
@@ -15419,7 +15467,8 @@ def blanket_or_fix(row, blanket):
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
     if lost and not titles:
-        return blanket
+        # Unless the scan is made again first (gf_rescan): its rescan reads the page whole, its title too.
+        return GF_TITLE if gf_rescan(row) else blanket
     why = fix_reason(row)
     if why in SOLUTION_FIXES:
         return blanket if lost else why
@@ -15611,7 +15660,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -15648,7 +15697,7 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row)))
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row)))
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of

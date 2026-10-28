@@ -3226,6 +3226,59 @@ check("an untitled 1982 or 1940 Gale Times scan made before paired_titles is due
                       "scan": {**_lone["scan"], "item": "GaleTelegraph1982UKEnglish"}}),
        f.scan_current({**_lone, "scanKey": f.scan_key(f.GALE)}, "h"),
        f.fix_reason({**_lone, "scanKey": f.scan_key(f.GALE)}), f.RANKS[f.LONE_TITLE]])
+# A Gale Times page a grid-first rescan by this scan code left untitled while its row holds a verdict, read before
+# REREAD_GF_TITLE: its scan stale, due GF_TITLE once, past blanket_or_fix's lost-title guard; one read whole since
+# (WHOLE_UNTITLED), titled, read after the cutoff, with no verdict, under a pinned key, or a Gale Telegraph one stands.
+_gf = {"edition": "GaleTimes1955UKEnglish/1955-07-20", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "readAt": "2026-10-16T18:48:27+00:00", "verdicts": [{"number": 7875, "id": "times-7875"}],
+       "scan": {"date": "1955-07-20", "item": "GaleTimes1955UKEnglish", "puzzles": [], "solutions": []}}
+check("an untitled Gale Times page with a verdict, rescanned by this scan code before REREAD_GF_TITLE, is due "
+      "GF_TITLE (its scan stale, past the lost-title guard); one read whole, titled, read since, with no verdict, "
+      "under a pinned key or of the Gale Telegraph is not",
+      [True, False, f.GF_TITLE, f.GF_TITLE, f.GF_TITLE, False, False, False, False, False, False, 2],
+      [f.gf_rescan(_gf), f.scan_current(_gf, "h"), f.fix_reason(_gf), f.blanket_or_fix(_gf, "inputs changed"),
+       f.blanket_or_fix(_gf, "titles changed"),
+       f.gf_rescan({**_gf, "scan": {**_gf["scan"], f.WHOLE_UNTITLED: True}}),
+       f.gf_rescan({**_gf, "scan": {**_gf["scan"], "puzzles": [{"number": 7875, "leaf": 0}]}}),
+       f.gf_rescan({**_gf, "readAt": "2026-10-29T00:00:00+00:00"}), f.gf_rescan({**_gf, "verdicts": []}),
+       f.gf_rescan({**_gf, "scanKey": _lk[0]}),
+       f.gf_rescan({**_gf, "edition": "GaleTelegraph1955UKEnglish/1955-07-20",
+                    "scan": {**_gf["scan"], "item": "GaleTelegraph1955UKEnglish"}}),
+       f.RANKS[f.GF_TITLE]])
+
+
+# grid_first_scan reads a page whole when its windows read no title (or only a solution_titled one); a titled
+# grid-first scan stands. scan_anywhere marks an untitled scan WHOLE_UNTITLED.
+def _gf_scan_with(first):
+    calls = []
+
+    def fake(d):
+        calls.append(getattr(f._GRID_FIRST, "paper", None) is not None)
+        return {"date": "1955-07-20", "item": "GaleTimes1955UKEnglish",
+                "puzzles": first if len(calls) == 1 else [{"number": 7875, "leaf": 0, "box": [1, 2, 3, 4]}],
+                "solutions": []}
+    real = f._scan, f._grid_first_install
+    f._scan, f._grid_first_install = fake, lambda: None
+    try:
+        found = f.grid_first_scan(Path("GaleTimes1955UKEnglish/1955-07-20"))
+    finally:
+        f._scan, f._grid_first_install = real
+    return calls, [p["number"] for p in found["puzzles"]]
+
+
+_real_gfo, _real_gfs = f.grid_first_on, f.grid_first_scan
+f.grid_first_on = lambda: True
+f.grid_first_scan = lambda d: {"puzzles": [], "solutions": []}
+_untitled = f.scan_anywhere(Path("GaleTimes1955UKEnglish/1955-07-20"))
+f.grid_first_scan = lambda d: {"puzzles": [{"number": 7875, "leaf": 0}], "solutions": []}
+_titled = f.scan_anywhere(Path("GaleTimes1955UKEnglish/1955-07-20"))
+f.grid_first_on, f.grid_first_scan = _real_gfo, _real_gfs
+check("grid_first_scan reads an untitled page (or one titled only from its solutions) whole, a titled one not; "
+      "scan_anywhere marks an untitled scan read whole",
+      [([True, False], [7875]), ([True, False], [7875]), ([True], [5]), True, False],
+      [_gf_scan_with([]), _gf_scan_with([{"number": 7875, "leaf": 0, "fromSolutions": [7874]}]),
+       _gf_scan_with([{"number": 5, "leaf": 0, "box": [1, 2, 3, 4]}]),
+       _untitled.get(f.WHOLE_UNTITLED, False), _titled.get(f.WHOLE_UNTITLED, False)])
 # paired_titles: with no title voted, one reader's title stands by the solution heading of the puzzle before it,
 # near the date's number; a title with no such heading, or one far off the date's number, does not.
 _day = datetime.date(1940, 3, 8)
