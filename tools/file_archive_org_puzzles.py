@@ -10448,6 +10448,63 @@ def neighbour_tailed(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose read wrote its puzzle unfiled
+#: while a RapidOCR reading of its clue window holds the line-end letters of the column to its left: the
+#: window's left edge cut through that column, and its last letters stood in front of clue numbers ("e 11
+#: Office worker", "s 19 Laid into") or alone on a line ("S"), where a clue opens. Such a line opened no
+#: clue, so its clue ran into the one before and was lost ("no reading laid a clue on it", "holds a clue
+#: number and text", "starts mid-clue") or carried the letter ("(8) n": "not a word", "a stray mark").
+#: clue_text.edge_letter_cut / EDGE_LETTER_LINE now drop them where a clue opens, in every reader's column
+#: text. 10-28: 106 unfiled Times rows (Gale 1940-69 and 2005-14 mostly) show EDGE_LETTER_BOXES or more
+#: such letters within EDGE_LETTER_PX of the window's left edge in one reading. Offline, on the captured
+#: column texts of six of them, both RapidOCR readings lay 2 to 5 more clues on five (times-23760 lays 10,
+#: 11, 12, 15 and 18 across), none fewer; filed control pages whose readings hold such letters lay the same.
+#: Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that for the Times). Once each.
+EDGE_LETTERS = "unfiled before its fix, a neighbour's letters at the window's edge"
+REREAD_EDGE_LETTERS = "2026-10-28T07:15:00+00:00"
+EDGE_LETTER_BOXES = 2
+EDGE_LETTER_PX = 4
+
+
+@functools.lru_cache(maxsize=4096)
+def edge_lettered_window(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds
+    EDGE_LETTER_BOXES or more boxes of a neighbour's line-end letters (clue_text.EDGE_LETTER_LINE)
+    within EDGE_LETTER_PX of the window's left edge."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            x0, words = held["box"][0], held["words"]
+        except (OSError, ValueError, KeyError, TypeError, IndexError):
+            continue
+        if sum(1 for w in words if w[0] - x0 <= EDGE_LETTER_PX
+               and clue_text.EDGE_LETTER_LINE.match(str(w[4]).strip())) >= EDGE_LETTER_BOXES:
+            return True
+    return False
+
+
+def edge_lettered(row):
+    """Whether Times ledger `row`, read before REREAD_EDGE_LETTERS, wrote a puzzle unfiled (a verdict with
+    an "unfiled" count or its id's copy in CROPS/unfiled, with a blank clue, not since held with every
+    clue) whose clue window a RapidOCR reading shows cut through the column to its left
+    (edge_lettered_window)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_EDGE_LETTERS)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not edge_lettered_window(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
 #: wrote its puzzle unfiled with a clue blanked as "a stray letter": the Times set a word of emphasis
 #: letter-spaced, not in italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the guns",
@@ -12909,6 +12966,8 @@ def fix_reason(row):
         return PUNCT_MENDED
     if strip_tailed(row):
         return STRIP_TAIL
+    if edge_lettered(row):
+        return EDGE_LETTERS
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -13552,7 +13611,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -13878,7 +13937,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

@@ -420,6 +420,31 @@ def mend_opening(text):
     return DAGGER.sub(lambda m: (m.group(1) or "").rstrip() + (" " if m.group(1) else "") + "\u2020", text)
 
 
+#: A letter of the column to the left, the end of its line, that a clue
+#: window's left edge caught (Gale Times 2007-08: "e 11 Office worker", "s 19
+#: Laid into", "S" alone). Not A or I, words alone; nor a figure's lookalike
+#: (I, i, l for 1; Z, z for 2), which may be a clue number's first figure.
+EDGE_LETTER = r"(?![AIZilz])[A-Za-z]"
+#: Such a letter before a clue's number and its capitalised first word. One
+#: letter only: a word there may be a line's own ("at 1 Virginia Street", the
+#: printer's imprint, is no clue 1).
+EDGE_LETTER_OPENING = re.compile(rf"^{EDGE_LETTER}[ \t]+(?=\d{{1,2}}[.,]?[ \t]+[\"'“‘]?[A-Z])")
+#: Such a letter alone on a line, or two or three small letters of the
+#: neighbour's line end ("st", the end of "first"), none a figure's
+#: lookalike: where a clue opens, after a count, no clue's text.
+EDGE_LETTER_LINE = re.compile(rf"^(?:{EDGE_LETTER}|[a-hj-km-y]{{2,3}})$")
+
+
+def edge_letter_cut(line):
+    """`line`, which opens a clue (after a count or a heading), without a
+    letter of the column to its left read in front of its number (EDGE_LETTER_OPENING):
+    "e 11 Office worker, former model (8)" is "11 Office worker, former
+    model (8)". A clue opens on its number, so a letter before it is not
+    the clue's; left, the line is no clue's opening and its clue is lost
+    into the one before (times-23760, 2007-11-16, 10 and 11 across)."""
+    return EDGE_LETTER_OPENING.sub("", line)
+
+
 def clue_number_opening(line):
     """`line`, a clue's line after a count or a heading, with its clue number
     put right: a speck before the number dropped, its 1 read as I, l, J, ! or
@@ -897,7 +922,10 @@ def _column_pass(text, running_head, extra_headings, line_hook):
             continue
         ended = is_count_end(prev) or bool(COUNT_TAIL_LINE.match(prev))
         if ended or heading_of(prev) or not out:
-            line = clue_number_opening(line)
+            if not heading and EDGE_LETTER_LINE.match(line):
+                # The column to the left's line-end letter alone on a line where a clue opens: no text.
+                continue
+            line = clue_number_opening(edge_letter_cut(line))
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         if line_hook:
             line = line_hook(line)

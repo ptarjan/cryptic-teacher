@@ -414,6 +414,36 @@ check("not after the fix, nor an across clue unlaid, nor 1945-49 (read so since 
        f.strip_tailed({**_strow, "verdicts": [{**_st, "blank": {**_st["blank"], "1-across": "no reading laid a clue on it"}}]}),
        f.strip_tailed({**_strow, "edition": "GaleTimes1946UKEnglish/1946-06-20"}),
        f.strip_tailed({**_strow, "edition": "NewsUK1942UKEnglish/1942-06-20_1"})])
+# ---- a Times page written unfiled whose clue window caught the line-end letters of the column to its left ("e 11
+# Office worker", "S" alone; times-23760) is due once (fa.EDGE_LETTERS), ordered with never-read pages, never canary-held.
+_el = {"id": "times-9999989", "number": 9999989, "complete": False, "wrote": True, "unfiled": 2, "clues": 30,
+       "lights": 30, "blank": {"15-across": "'chair n': not a word",
+                               "11-across": "no reading laid a clue on it"}}
+_elrow = {"edition": "GaleTimes2007UKEnglish/2007-11-16", "verdicts": [_el], "readAt": "2026-10-27T03:06:10+00:00"}
+_el_crops = f.CROPS
+f.CROPS = Path(tempfile.mkdtemp())
+(f.CROPS / "rapid").mkdir()
+_el_words = [[854, 2214, 864, 2227, "S"], [855, 2235, 864, 2249, "e"], [890, 2235, 1200, 2249, "11 Office worker, former model (8)"],
+             [855, 2257, 862, 2268, "n"], [890, 2257, 1200, 2268, "12 Eugene still below the limit after"]]
+for _el_key in ("2007-11-16_9999989", "1980-01-21_0_9999989"):
+    (f.CROPS / "rapid" / f"{_el_key}.ch.json").write_text(json.dumps({"box": [853, 1974, 1953, 2689], "words": _el_words}))
+# The same letters inside the window, not at its edge: the reading's own ("a", "I" in a clue's line).
+(f.CROPS / "rapid" / "2007-11-17_9999989.ch.json").write_text(json.dumps(
+    {"box": [853, 1974, 1953, 2689], "words": [[w[0] + 40, *w[1:]] for w in _el_words]}))
+try:
+    check("a Times page whose window caught its neighbour's letters is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+          [f.EDGE_LETTERS, 2, True, True, True, None],
+          [f.fix_reason(_elrow), f.RANKS[f.EDGE_LETTERS], eq.evidence_reason(f.EDGE_LETTERS), f.EDGE_LETTERS in eq.FIX_LANDED,
+           f.EDGE_LETTERS in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.EDGE_LETTERS, "date": "2007-11-16"})])
+    check("not after the fix, nor letters inside the window, nor no blank, nor another paper",
+          [False] * 4,
+          [f.edge_lettered({**_elrow, "readAt": _after}),
+           f.edge_lettered({**_elrow, "edition": "GaleTimes2007UKEnglish/2007-11-17"}),
+           f.edge_lettered({**_elrow, "verdicts": [{**_el, "blank": {}}]}),
+           f.edge_lettered({**_elrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+finally:
+    shutil.rmtree(f.CROPS, ignore_errors=True)
+    f.CROPS = _el_crops
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
