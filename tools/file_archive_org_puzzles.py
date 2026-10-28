@@ -2509,10 +2509,19 @@ def lay_loose(parsed, grid, taken=None):
                 # A linked clue ("9 & 12"): each number names one free light
                 # in the list's direction, and one count fills them all.
                 # The tails read "See 9", as the paper's own files have it.
-                names = [[n for n in tok if (n, direction) in lights and f"{n}-{direction}" not in out]
-                         for tok in clue["tokens"]]
-                ids = [f"{ns[0]}-{direction}" for ns in names if len(ns) == 1]
-                cells = sum(len(lights[(int(i.split("-")[0]), direction)]) for i in ids)
+                # A tail the list's direction does not number is the other
+                # direction's light, as ftp.match takes it ("26, 30 Women
+                # who might get hung up" over 26 down and 30 across, its
+                # across list's "30 See 26": Gale 1966-12-24, 1964-11-24).
+                other = "down" if direction == "across" else "across"
+                names = []
+                for t, tok in enumerate(clue["tokens"]):
+                    ns = [(n, direction) for n in tok if (n, direction) in lights and f"{n}-{direction}" not in out]
+                    if t and not ns and not any((n, direction) in lights for n in tok):
+                        ns = [(n, other) for n in tok if (n, other) in lights and f"{n}-{other}" not in out]
+                    names.append(ns)
+                ids = [f"{ns[0][0]}-{ns[0][1]}" for ns in names if len(ns) == 1]
+                cells = sum(len(lights[(int(i.split("-")[0]), i.split("-")[1])]) for i in ids)
                 fits = [e for e in clue["enums"] if ftp.count(e) == cells]
                 if len(ids) == len(names) == len(set(ids)) and len(fits) == 1:
                     out[ids[0]] = (clue["text"], fits[0], ids)
@@ -11262,6 +11271,71 @@ def closed_grid_due(row):
                and filed_state(series, v.get("number")) is None for v in row.get("verdicts", ()))
 
 
+#: The reason, and its fix's time, of a Times page (Gale or News UK) written unfiled with a linked clue's
+#: first light blank, "no reading laid a clue on it", while a RapidOCR reading of its window opens a line
+#: on that linked head ("26, 30 Women who might get hung up", "1, 10 8 sailors hate", "4&22 Who can"):
+#:   - lay_loose (the scan's grid standing over a reading that disagrees) laid a linked clue only when each
+#:     number named a light in its list's direction: a down clue linked to an across light ("26, 30" over
+#:     30 across, "24, 10") was refused, as ftp.match never refused it;
+#:   - ftp.heads put a lost ACROSS heading back at the first line LEAD took for a clue's, which a linked
+#:     head ("1, 10 8 sailors") was not: the clue fell before the list (Gale 1954-07-05);
+#:   - ftp.clues read a head printed with no space after a count ("(8). 5,20 How", "(6). 4&22 Who") as a
+#:     speck, its number lost ("#").
+#: 10-28 census (failure shapes r5): 15 unfiled Gale rows (1941-93) show such a head over a blank light, 11
+#: first due for this reason (4 under an earlier one). Offline, readers only, VLM off: 1981-09-09 1 blank ->
+#: whole, 1966-12-24 lays 26 down (1 left, 8 down's "81 Pies"), 1993-10-29 lays 4 and 5 down (2 -> 1),
+#: 1954-07-05 lays 1 and 10 across (3 -> 1), 1950-07-27 lays 1 across (4 -> 3); 69 captured column texts
+#: parse as before but for those heads, and filed controls (1954-07-06, 1966-12-28) read the same. A quote
+#: after a number ("12 \"Pd one", "17'Doctor's") parses already: 1961-01-04's such lights lay on current
+#: code. Due by the ledger and the cached readings (linked_lead_lost). Its own reason, not "unfiled before
+#: its fix" (CANARY_FAILED holds that for the Times). Once each.
+LINKED_LEAD = "unfiled before its fix, a linked clue's first light"
+REREAD_LINKED_LEAD = "2026-10-28T10:40:00+00:00"
+#: A RapidOCR line opening on a linked clue's numbers: the first is the light lost.
+LINKED_LEAD_LINE = re.compile(r"\W{0,2}(\d{1,2})\s*(?:,|&)\s*\d{1,2}\s+(?:\d{1,2}\s+)?[\"'“‘(]?[A-Za-z]")
+
+
+@functools.lru_cache(maxsize=4096)
+def linked_leads(key):
+    """The first numbers of the linked heads ("26, 30 Women") the RapidOCR readings of clue window `key`
+    (CROPS/rapid, "{edition}_{number}") open a line on."""
+    seen = set()
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            words = held["words"] if isinstance(held, dict) else held
+        except (OSError, ValueError, KeyError, TypeError):
+            continue
+        for w in words or ():
+            m = LINKED_LEAD_LINE.match(str(w[4]).strip())
+            if m:
+                seen.add(int(m.group(1)))
+    return frozenset(seen)
+
+
+def linked_lead_lost(row):
+    """Whether Times ledger `row`, read before REREAD_LINKED_LEAD, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a light blank
+    as "no reading laid a clue on it" whose number a cached reading opens a linked head on (linked_leads)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_LINKED_LEAD)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        lost = {int(lid.split("-")[0]) for lid, why in v["blank"].items()
+                if "no reading laid a clue" in str(why) and lid.split("-")[0].isdigit()}
+        if not lost or not lost & linked_leads(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
 #: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
 #: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
@@ -13937,6 +14011,8 @@ def fix_reason(row):
         return FIFTIES_LEFT
     if closed_grid_due(row):
         return CLOSED_GRID
+    if linked_lead_lost(row):
+        return LINKED_LEAD
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14580,7 +14656,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -14906,7 +14982,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

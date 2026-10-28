@@ -209,6 +209,8 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 #: and 28 (4, 5)": the 1945-52 Times), taken only when a count follows them: the list stopped at
 #: the comma (Gale 1945-02-03, 1946-08-12, 1947-12-11, 1951-05-12, refused "no reading parses").
 SEE_LINKED = r"(?:(?:\s*(?:,|;|&|and)\s*\d{1,2}(?:\s*(?:across|down|ac|dn)\b)?)+(?=\s*\(\d))?"
+#: A linked clue's lead numbers read as one word: "5,20", "4&22".
+LINKED_HEAD = re.compile(r"\d{1,2}(?:[,&]\d{1,2})+")
 JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
                      r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1([1-9])\)\s*\.?"
@@ -324,8 +326,10 @@ def rejoin(lines):
 
 
 HEADING_RE = clue_text.LEADING_HEADING
-#: A line led by a clue's number: "12 Forcing", "I1 If he's", "S What".
-LEAD = re.compile(rf"\s*({NUM})[.,]?\s+[^\W\d_]")
+#: A line led by a clue's number: "12 Forcing", "I1 If he's", "S What"; or a linked clue's
+#: numbers, its text maybe opening on a figure: "26, 9 If you", "1, 10 8 sailors hate" (Gale
+#: 1954-07-05 printed no ACROSS: its first clue, linked, was left out of the across list).
+LEAD = re.compile(rf"\s*({NUM})(?:[.,]?\s+|(?:\s*[,&]\s*\d{{1,2}})+\s+(?:\d{{1,2}}\s+)?)[^\W\d_]")
 #: The fewest clues a list put back without its heading must number in order.
 HEADLESS_RUN = 3
 
@@ -500,7 +504,10 @@ def clues(text):
     # "(6). '• He", "(4). 'lO \"Fear"), ends a clue: the next one's number
     # is what the speck reads as, else lost ("#"), for the grid to place.
     def lost_number(m):
-        if not enum_readings(m[1]) or readings(m[2]):
+        # A linked clue's head printed without a space ("(8). 5,20 How",
+        # "(6). 4&22 Who") is the next clue's numbers, not a speck: read
+        # as "#" its first light was lost (Gale 1981-09-09, 1993-10-29).
+        if not enum_readings(m[1]) or readings(m[2]) or LINKED_HEAD.fullmatch(m[2]):
             return m[0]
         core = m[2].split()[-1].strip(".,;:'\")") if m[2].strip() else ""
         return f"({m[1]}) {core if readings(core) else '#'} "
