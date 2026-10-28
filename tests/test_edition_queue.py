@@ -400,6 +400,29 @@ check("nor with no reading holding such a line", False, f.down_cut_lost(_dcrow))
 f.down_cut_read = _dc_read
 check("a lower-case 'solution' line opens a cached reading's line", [True, False],
       [bool(f.DOWN_CUT_LINE.match("solution in Cluedo mystery")), bool(f.DOWN_CUT_LINE.match("SOLUTION OF PUZZLE"))])
+# ---- a Times page written unfiled for its first Down lights, its DOWN heading set alone at the foot of the across
+# column past a gap that ended the column (1983-03-02's 1-3 down), is due once (fa.DOWN_FOOT), ordered with
+# never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_df = {"id": "times-9999992", "number": 9999992, "complete": False, "wrote": True, "unfiled": 3, "clues": 29,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("1-down", "2-down", "3-down")}}
+_dfrow = {"edition": "GaleTimes1983UKEnglish/1983-03-02", "verdicts": [_df], "readAt": "2026-10-22T01:26:02+00:00"}
+_df_read = f.down_foot_read
+f.down_foot_read = lambda key: True
+check("a Times page whose DOWN heading a gap cut off the across column is due as such, ranked, evidence, "
+      "fix-landed, unfiled-first, never canary-held",
+      [f.DOWN_FOOT, 2, True, True, True, None, None],
+      [f.fix_reason(_dfrow), f.RANKS[f.DOWN_FOOT], eq.evidence_reason(f.DOWN_FOOT), f.DOWN_FOOT in eq.FIX_LANDED,
+       f.DOWN_FOOT in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.DOWN_FOOT, "date": "1983-03-02"}),
+       eq.canary_failed({"paper": "times", "reason": f.DOWN_FOOT, "date": "1983-05-30"})])
+check("not after the fix, nor for an Across light, nor another paper",
+      [False] * 3,
+      [f.down_foot_lost({**_dfrow, "readAt": _after}),
+       f.down_foot_lost({**_dfrow, "verdicts": [{**_df, "blank": {"1-across": "no reading laid a clue on it"}}]}),
+       f.down_foot_lost({**_dfrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.down_foot_read = lambda key: False
+check("nor with no reading holding such a heading", False, f.down_foot_lost(_dfrow))
+f.down_foot_read = _df_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
 # quotation's spaced comma) is due once (fa.PUNCT_MENDED), ordered with never-read pages, never canary-held.
 _pm = {"id": "times-9999991", "number": 9999991, "complete": True, "clues": 30, "lights": 30,

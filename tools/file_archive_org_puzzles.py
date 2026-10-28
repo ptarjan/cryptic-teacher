@@ -593,6 +593,9 @@ def stops(text):
 
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
 GAP = 80
+#: The widest such gap over a column's DOWN heading that keeps the column going: the heading the
+#: 1981-86 Times sets alone at the foot of the across list's column, its first down clues under it.
+DOWN_GAP = 1.5 * GAP
 #: How far, in pixels, a line must start left of the split between two
 #: columns and run on right of it to be printed across both (a centred
 #: notice); a right-hand clue's outdented number starts a pixel or two left.
@@ -1388,12 +1391,19 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 cols[side].append((min(w[1] for w in part), max(w[3] for w in part),
                                    min(w[0] for w in part), max(w[2] for w in part), text))
     out = []
+    cols = [merge_rows(col) for col in cols]
+    # The one DOWN heading the window's columns hold, read alone on its line.
+    downs = [line for col in cols for line in col if clue_text.heading_of(line[4]) == "DOWN"]
     for side, col in enumerate(cols):
-        col = merge_rows(col)
         kept, last = [], None
         for line in col:
             if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP):
-                break
+                if not (line[0] - last <= DOWN_GAP and len(downs) == 1 and line is downs[0]
+                        and clue_text.heading_of(kept[0][4]) == "ACROSS"):
+                    break
+                # The DOWN heading set lower in the across list's column, after white space, its
+                # first clues under it and the rest atop the next column (Gale 1981-86: the gap
+                # 81-87 against GAP's 80 cut the column there, so no reading laid 1-3 down).
             if line[4] == NOTICE:
                 continue
             if not re.search(r"[A-Za-z0-9]", line[4]):
@@ -11514,6 +11524,69 @@ def down_cut_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a Times page written unfiled for its first Down lights: the 1981-86
+#: Times sets the DOWN heading alone at the foot of the across list's column, 81-87 px of white under the
+#: last across clue, its first two to four down clues under it and the rest atop the next column. That
+#: gap, over GAP's 80, ended the column in columns(), so no reading laid 1-3 down ("no reading laid a clue
+#: on it"; 1981-08-19, 1981-12-23, 1983-03-02, 1986-05-26). columns() now keeps going past a gap of up to
+#: DOWN_GAP to the window's one DOWN heading, when the column opened on ACROSS. Failure shapes r7: the
+#: biggest sub-cluster of "normal" no-reading-laid lights, the rest one-offs. Offline, VLM off, old vs new
+#: columns() on every call of the read: 1981-08-19 and 1986-05-26 now file whole, 1981-12-23 31 of 32,
+#: 1983-03-02 and 1983-05-30 lay 1-3 down; full reads of 1953-05-20 and 1957-08-06 differ in no call (a
+#: held title rereads answers-only, never through columns()). 7 rows due. Due by the ledger and the
+#: cached readings (down_foot_lost). Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that
+#: for the Times). Once each.
+DOWN_FOOT = "unfiled before its fix, the DOWN heading set low in the across column"
+REREAD_DOWN_FOOT = "2026-10-28T12:20:00+00:00"
+
+
+@functools.lru_cache(maxsize=4096)
+def down_foot_read(key):
+    """Whether a RapidOCR reading of clue window `key` (CROPS/rapid, "{edition}_{number}") holds one DOWN
+    heading alone on its line, more than GAP and at most DOWN_GAP under the line over it (the lowest one
+    overlapping it across), with an ACROSS heading over it in that column."""
+    for which in ("ch", "en5"):
+        try:
+            held = json.loads((CROPS / "rapid" / f"{key}.{reader_key(which)}.json").read_text())
+            words = [(float(w[0]), float(w[1]), float(w[2]), float(w[3]), str(w[4]))
+                     for w in (held["words"] if isinstance(held, dict) else held)]
+        except (OSError, ValueError, KeyError, TypeError, IndexError):
+            continue
+        downs = [w for w in words if clue_text.heading_of(w[4].strip()) == "DOWN"]
+        if len(downs) != 1:
+            continue
+        d = downs[0]
+        over = [w for w in words if w is not d and w[3] <= d[1] + 2 and w[0] < d[2] and w[2] > d[0]]
+        if over and GAP < d[1] - max(w[3] for w in over) <= DOWN_GAP \
+                and any(clue_text.heading_of(w[4].strip()) == "ACROSS" for w in over):
+            return True
+    return False
+
+
+def down_foot_lost(row):
+    """Whether Times ledger `row`, read before REREAD_DOWN_FOOT, wrote a puzzle unfiled (a verdict with an
+    "unfiled" count or its id's copy in CROPS/unfiled, not since held with every clue) with a Down light
+    blank as "no reading laid a clue on it" while a cached reading holds a DOWN heading set low under the
+    across list (down_foot_read)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_DOWN_FOOT)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or not v["blank"] or v.get("number") is None:
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not any("no reading laid a clue" in str(why) and lid.endswith("-down") for lid, why in v["blank"].items()):
+            continue
+        if not down_foot_read(f"{Path(rel).name}_{v['number']}"):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a 1945-47 Gale Times page (LEFT_SPLIT_YEARS) refused "no reading
 #: parses" for its clue columns left of the grid. Survey: ACROSS and DOWN in two columns between the
 #: title's left edge and the grid. Read as one window (lead_column, its rows joined across both columns)
@@ -14195,6 +14268,8 @@ def fix_reason(row):
         return LINKED_LEAD
     if down_cut_lost(row):
         return DOWN_CUT
+    if down_foot_lost(row):
+        return DOWN_FOOT
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -14838,7 +14913,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -15165,7 +15240,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
