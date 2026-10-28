@@ -444,7 +444,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._NEG_EXPECTED_FIX[gt.key][:2],
                                                                       *f._DOT_LEADER_FIX[gt.key][:2],
                                                                       *f._DAY_HEADING_FIX[gt.key][:2],
-                                                                      *f._CHAMPIONSHIP_FIX[gt.key][:2]},
+                                                                      *f._CHAMPIONSHIP_FIX[gt.key][:2],
+                                                                      *f._INSET_GRID_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3019,7 +3020,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._CHAMPIONSHIP_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: f._INSET_GRID_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -3031,18 +3032,54 @@ check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's
        f.scan_current({**_wide2, "scanKey": f.scan_key(f.GALE)}, "h")])
 check("every paper's pinned scan key after the grid cap fix is the one the negative-expected fix "
       "pins over, its pinned key the one the dot-leader fix pins over, its the one the day-heading fix pins "
-      "over, its the one the championship fix pins over, whose pinned key is its real scan key, and the five "
-      "fixes' old keys stand under it",
-      [True, True, True, True, True, True],
+      "over, its the one the championship fix pins over, its the one the inset-grid fix pins over, whose pinned "
+      "key is its real scan key, and the six fixes' old keys stand under it",
+      [True, True, True, True, True, True, True],
       [all(v[2] == f._NEG_EXPECTED_FIX[k][0] for k, v in f._GRID_CAP_FIX.items()),
        all(v[2] == f._DOT_LEADER_FIX[k][0] for k, v in f._NEG_EXPECTED_FIX.items()),
        all(v[2] == f._DAY_HEADING_FIX[k][0] for k, v in f._DOT_LEADER_FIX.items()),
        all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
+       all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._CHAMPIONSHIP_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._CHAMPIONSHIP_FIX[k][2]}
-           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX)
+           for k, v in f._INSET_GRID_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: f._INSET_GRID_FIX[k][2]}
+           for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
+                     f._INSET_GRID_FIX)
            for k, v in t.items() for o in v[:2])])
+# An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
+# one with a title, a verdict, of 1975, or scanned by the new code stands.
+_ik = f._INSET_GRID_FIX["gale"]
+_inset = {"edition": "GaleTimes1941UKEnglish/1941-01-27", "scanKey": _ik[0], "filesHash": "h", "inputs": "h",
+          "verdicts": [], "scan": {"date": "1941-01-27", "item": "GaleTimes1941UKEnglish", "puzzles": [], "solutions": []}}
+check("an untitled 1941 Gale Times scan made before inset_grid is due again (INSET_GRID, its scan stale); a titled "
+      "one, one with a verdict, a 1975 one and a scan by the new code stand",
+      [False, f.INSET_GRID, True, True, True, True, None],
+      [f.scan_current(_inset, "h"), f.fix_reason(_inset),
+       f.scan_current({**_inset, "scan": {**_inset["scan"], "puzzles": [{"number": 3409, "leaf": 0}]}}, "h"),
+       f.scan_current({**_inset, "verdicts": [{"number": 3409}]}, "h"),
+       f.scan_current({**_inset, "edition": "GaleTimes1975UKEnglish/1975-01-27",
+                       "scan": {**_inset["scan"], "date": "1975-01-27", "item": "GaleTimes1975UKEnglish"}}, "h"),
+       f.scan_current({**_inset, "scanKey": f.scan_key(f.GALE)}, "h"),
+       f.fix_reason({**_inset, "scanKey": f.scan_key(f.GALE)})])
+# inset_grid: a frame whose inner rules and blocks stand apart is a grid when its box is ruled evenly both ways;
+# a frame round a photograph (no rules inside) or round a column of type is not.
+_grid = np.zeros((300, 300), np.uint8)
+_grid[[0, -1], :] = _grid[:, [0, -1]] = 1
+for _r in range(20, 300, 20):
+    _grid[_r, 3:-3] = 1
+    _grid[3:-3, _r] = 1
+_grid[44:56, 44:76] = 1
+_photo = np.zeros((300, 300), np.uint8)
+_photo[[0, -1], :] = _photo[:, [0, -1]] = 1
+_photo[40:260, 40:260] = 1
+_type = np.zeros((300, 300), np.uint8)
+_type[[0, -1], :] = _type[:, [0, -1]] = 1
+for _r in range(10, 290, 6):
+    _type[_r:_r + 3, 10:290:2] = 1
+check("inset_grid: an evenly ruled box is a grid; a framed photograph and a framed column of type are not",
+      [True, False, False],
+      [f.inset_grid((0, 0, 600, 600), _grid, 2), f.inset_grid((0, 0, 600, 600), _photo, 2),
+       f.inset_grid((0, 0, 600, 600), _type, 2)])
 _dk, _hk = f._DOT_LEADER_FIX["gale"], f._DAY_HEADING_FIX["gale"]
 check("a Gale Times scan made before the dot-leader fix or the day-heading fix stands, a BAND_RESCAN day's too",
       [True, True, True, True],

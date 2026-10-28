@@ -2813,6 +2813,18 @@ def grid_ruled(img, box):
     return v >= GRID_RULES and h >= GRID_RULES and 0.5 <= v / h <= 2
 
 
+def grid_lined(img, box):
+    """grid_ruled, or the box's ink ruled evenly across and down (inset_grid's test, on a 1/2 subsample):
+    a 1940s Times grid whose blocks break its rules runs none through 70% of its rows, while a photo
+    beside it can (1941-01-27: grid-first kept only the photo's windows, and read no title)."""
+    import numpy as np
+    if grid_ruled(img, box):
+        return True
+    gray = np.asarray(img.crop(box).convert("L"), dtype=np.uint8)
+    ink = (gray < trove_grid.otsu(gray))[::2, ::2].astype(np.uint8)
+    return inset_grid((0, 0, 2 * ink.shape[1], 2 * ink.shape[0]), ink, 2)
+
+
 def _grid_first_install():
     """Put grid_first_band_words and grid_first_grids in band_words' and
     grids_on's places, once: they read as the originals do for any thread not
@@ -2831,7 +2843,7 @@ def _grid_first_install():
         found = _PLAIN["grids_on"](img, step, shaped)
         if getattr(_GRID_FIRST, "paper", None) is None:
             return found
-        return [g for g in found if grid_ruled(img, g)] or found
+        return [g for g in found if grid_lined(img, g)] or found
 
 
 def grid_first_windows(img, paper):
@@ -2843,7 +2855,7 @@ def grid_first_windows(img, paper):
     # Measured at the page's own scale (shaped_on): a page scanned wider than
     # SCAN_WIDTH (Gale 2005-06, 4664px) has its puzzle grid too wide for the
     # unscaled grid_shaped, and its solution grid alone passed for the puzzle's.
-    grids = [g for g in plain(img, 2, lambda b: shaped_on(img, b)) if grid_ruled(img, g)]
+    grids = [g for g in plain(img, 2, lambda b: shaped_on(img, b)) if grid_lined(img, g)]
     if not grids:
         return None
     wins = [b for g in grids for b in title_bands(img, g, False, paper.title_heights)]
@@ -2964,14 +2976,61 @@ def solution_titled(d, sols):
 #: (3%) is not a grid; grids fill 35-45%, but one with stippled grey blocks
 #: thresholds to specks and fills 13% (the 1980 Times, 15,200).
 GRID_FILL = 0.1
+#: The least share of its box the rules of a grid whose blocks are printed
+#: inset in their cells fill: the 1930s-50s Times's blocks stand clear of
+#: the rules, each its own patch of ink, so the grid's own patch is its thin
+#: frame alone, its inner rules and hatched blocks apart from it (1.5-8% of its
+#: box; 1939-08-07's 2,952: 3.6%, its box 27% inked). Such a patch is a grid
+#: when its box's ink, rules and blocks and all, fills GRID_FILL and is ruled
+#: evenly across and down (inset_grid).
+INSET_FILL = 0.01
+#: The fewest rules across and down an inset-block grid's box shows: runs of
+#: its columns (rows) whose ink, each pixel's two neighbours either side
+#: joined (a rule a pixel askew), fills INSET_RULE_SHARE of the box, at
+#: least INSET_EVEN of the gaps between them within a quarter of their
+#: median. The 1939-49 Times's 15x15 shows 8-10 (its rules every cell or
+#: two where blocks break them); a photograph, an advertisement's panel or
+#: a column of type 1 or 2.
+INSET_RULES = 7
+INSET_RULE_SHARE = 0.35
+INSET_EVEN = 0.6
 #: How far over and under a grid its title is looked for when archive.org's
 #: text has none: the 1995 Times prints it 250px over the grid.
 TITLE_REACH = 300
 
 
+def inset_grid(box, ink, step):
+    """Whether grid-shaped `box`, its own patch of the 1/step subsampled `ink` (0/1, uint8) under
+    GRID_FILL, is a grid whose blocks are inset in their cells (INSET_FILL): its box's ink, every patch
+    in it, fills GRID_FILL and is ruled evenly across and down (even_rules)."""
+    import numpy as np
+    cv2 = ocr_clues.capped_cv2()
+    x0, y0, x1, y1 = (v // step for v in box)
+    sub = ink[y0:y1, x0:x1]
+    if not sub.size or float(sub.mean()) < GRID_FILL:
+        return False
+    k = np.ones((1, 5), np.uint8)
+    return even_rules(cv2.dilate(sub, k).mean(axis=0)) and even_rules(cv2.dilate(sub, k.T).mean(axis=1))
+
+
+def even_rules(share):
+    """Whether a box's ink profile `share` (each column's, or row's, share inked) shows INSET_RULES runs
+    of at least INSET_RULE_SHARE, INSET_EVEN of the gaps between their middles within a quarter of the
+    median gap."""
+    import numpy as np
+    full = np.concatenate(([False], share >= INSET_RULE_SHARE, [False]))
+    edges = np.flatnonzero(full[1:] != full[:-1])
+    mids = (edges[::2] + edges[1::2]) / 2
+    if len(mids) < INSET_RULES:
+        return False
+    gaps = np.diff(mids)
+    pitch = float(np.median(gaps))
+    return float(np.mean(np.abs(gaps - pitch) <= 0.25 * pitch)) >= INSET_EVEN
+
+
 def grids_on(img, step=2, shaped=grid_shaped):
     """[box] of each grid-shaped patch of ink on a page (`shaped`, at least
-    GRID_FILL of its box inked), found on a 1/step subsample."""
+    GRID_FILL of its box inked, or INSET_FILL where inset_grid), found on a 1/step subsample."""
     import numpy as np
     cv2 = ocr_clues.capped_cv2()
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
@@ -2980,7 +3039,8 @@ def grids_on(img, step=2, shaped=grid_shaped):
     out = []
     for x, y, w, h, area in stats[1:].tolist():
         box = (x * step, y * step, (x + w) * step, (y + h) * step)
-        if shaped(box) and area >= GRID_FILL * w * h:
+        if shaped(box) and (area >= GRID_FILL * w * h
+                            or area >= INSET_FILL * w * h and inset_grid(box, ink, step)):
             out.append(box)
     return out
 
@@ -3081,7 +3141,8 @@ def ocr_titles(img, paper, day, key, far=False):
     read it; `far`, title_bands' far band too. read_puzzle still holds the
     number to the date."""
     found = []
-    for g in grids_on(img):
+    # At the page's own scale (shaped_on): a Gale 1930s page is 5,200px wide, its grid 1,330 (1939-08-07).
+    for g in grids_on(img, shaped=lambda b: shaped_on(img, b)):
         for band in title_bands(img, g, far, paper.title_heights):
             reads = {}
             for which in READERS:
@@ -9642,6 +9703,32 @@ for _paper, _pins in _CHAMPIONSHIP_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before grids_on took a grid whose blocks are
+#: inset in its cells (inset_grid, INSET_FILL) and ocr_titles measured grids at the page's own scale
+#: (shaped_on): a page with no such grid, at SCAN_WIDTH, finds the same, so every scan stands; the Gale
+#: Times's untitled INSET_YEARS pages are scanned again (inset_rescan, INSET_GRID).
+_INSET_GRID_FIX = {
+    "ft": ("391b61202cf4b98c", "7eafb81feb855f08", "4c119d3dff5e63ad"),
+    "gale": ("f7bc7e3d45b2f88b", "f0240a128820c64d", "208f2e5e7a97366c"),
+    "galeft": ("40da4fc92dec169f", "a8a4a8e9070e1bde", "13bf04e15d2e268d"),
+    "galeindependent": ("65a1b0940fbbdcb1", "82d8489959b43000", "8c894b5e3a229298"),
+    "galesundaytimes": ("694d8019af4f768b", "ab712288279cbba0", "b7e768f16d5390b7"),
+    "galetelegraph": ("cff052255b09fe94", "fad84c40850469bf", "1dee7704edb95099"),
+    "galetls": ("28518bdf27085631", "ff98b68b95bd30a9", "6277dc4cc2c855ca"),
+    "guardian": ("fea632dc98d2de42", "2219e6742fa509fa", "01427cb1c3fade69"),
+    "telegraph": ("e1178eb825e3b486", "4a17d77b0e544f9a", "1b80c5bb69577e3a"),
+    "times": ("d28a5c5b09785679", "7e8c8e46330f3809", "d0d2f468f4295b4f"),
+    "times1930": ("25cfb6341d0da49f", "3d1b461f196029fd", "e234c4bcbd44e712"),
+}
+#: The Gale Times scan keys a scan stood under before inset_grid (inset_rescan): the old key, its sized
+#: twin, and every corpus-wide key then standing for it.
+_INSET_OLD = frozenset({*_INSET_GRID_FIX["gale"][:2],
+                        *(k for k, v in CORPUS_KEYS.items() if v.get("gale") == _INSET_GRID_FIX["gale"][0])})
+for _paper, _pins in _INSET_GRID_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -9693,7 +9780,8 @@ def rekey_scans(ledger):
             paper = paper_of(r.get("edition", ""))
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
-                    and not prize_rescan(paper, r.get("scanKey"), r.get("edition")):
+                    and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
+                    and not (paper is GALE and inset_rescan(r)):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -10378,6 +10466,34 @@ def untitled_rescan(row):
             or "inputs" not in row or scan.get("puzzles") or row.get("verdicts") or scan.get("failed"):
         return False
     return row.get("scanKey") != scan_key(paper_of(Path(row["edition"])))
+
+
+#: The reason of a Gale Times page of INSET_YEARS whose scan found no title (no puzzle, no verdict) under
+#: scan code before grids_on took a grid whose blocks are inset in their cells (inset_grid): its grid's
+#: own ink is its thin lattice, under GRID_FILL, so no grid was found to read a title round, and a photo
+#: or an advertisement on the page passed for the grid. Scanned again (inset_rescan), then read.
+#: 10-28: the Mac refetched 516 Times dates whose saved page looked wrong; 469 found no other crossword
+#: article in the issue, 459 citing the day's "The Times Crossword Puzzle No. N" (1940-49 263, 1950s 88,
+#: 1960s 40): our scan missed the puzzle, not the fetch. Of the 1930-49 ones, ~95 have an inset-block grid
+#: grids_on dropped; 1939-08-07's 2,952 and 1940-05-23's 3,198 are now titled, the day before's solution
+#: under each. ~690 untitled 1930-69 pages are due (the 1957-62 ones as NO_TITLE_RESCAN).
+INSET_GRID = "untitled page, scanned before inset-block grids were found"
+#: The (first, last) years of the Gale Times whose untitled pages are scanned again for inset_grid.
+INSET_YEARS = ("1930", "1969")
+
+
+def inset_rescan(row):
+    """Whether Gale Times ledger `row` is due INSET_GRID: an edition of INSET_YEARS read with no title found
+    (no puzzle in its scan, no verdict) under a scan key from before inset_grid (_INSET_OLD, or one no longer
+    current). Its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again by this
+    code once."""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and INSET_YEARS[0] <= year <= INSET_YEARS[1]
+            and "inputs" in row and not scan.get("puzzles") and not row.get("verdicts") and not scan.get("failed")):
+        return False
+    key = row.get("scanKey")
+    return key in _INSET_OLD or key not in current_keys(GALE)
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -14012,6 +14128,8 @@ def fix_reason(row):
         return "refused unparsed before its fix"
     if untitled_rescan(row):
         return NO_TITLE_RESCAN
+    if inset_rescan(row):
+        return INSET_GRID
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -14724,7 +14842,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -14760,7 +14878,8 @@ def scan_current(row, fh, rel=None):
         paper = paper_of(rel)
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
-    return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel)
+    return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
+        and not (paper is GALE and inset_rescan(row))
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of

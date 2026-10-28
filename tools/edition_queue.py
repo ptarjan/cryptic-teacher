@@ -713,6 +713,8 @@ def evidence_reason(reason):
                        fa.UNCONFIGURED_READ)  # read OCR-only by accident (the VLM URL empty): as good as unread
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
+            # A Gale 1930-69 page no title was found on before grids_on took a grid with inset blocks (fa.inset_rescan).
+            or reason == fa.INSET_GRID
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
             or reason == fa.TOUCHING_GRID
@@ -1048,7 +1050,8 @@ def only_evidence(paper, scans, reads, out=None):
     scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
     # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
-    fixed = {rel for u in reads if year_evidence(u) or u["reason"] == fa.NO_TITLE_RESCAN for rel in u.get("needs") or ()}
+    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID)
+             for rel in u.get("needs") or ()}
     scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
         out.append(f"{paper}: left out {len(gated)} stale scans of editions only in the week after a kept read "
@@ -1516,7 +1519,8 @@ def by_urgency(units, serves=frozenset()):
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
 #: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
 UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
-                 fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT)
+                 fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT,
+                 fa.INSET_GRID)
 
 
 def times_solution_work(unit):
@@ -1540,7 +1544,8 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
               fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
-              fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT)
+              fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT,
+              fa.INSET_GRID)
 
 
 def unproven_first(unit):
@@ -1568,7 +1573,7 @@ def files_likely_tier(rank, unit):
     # newest first among them.
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
-    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.LOST_WRITE, fa.HELD_TITLE):
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LOST_WRITE, fa.HELD_TITLE):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
