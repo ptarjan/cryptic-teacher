@@ -1810,6 +1810,41 @@ check("linked_reads takes EXASP + ERATE (EXASPERATE) and WITHOUTBARS after a hel
       "nor EXASP + ERATX; linked_groups names the group, its enumeration and held answers",
       [{"11-across": "EXASP", "12-across": "ERATE"}, {"9-across": "WITHOUTBARS"}, {}, {},
        [(["11-across", "12-across"], "10", {"11-across": "EXASP"})]], la_got)
+# linked_name: a linked answer's piece no list holds stands as a name both readers spell (held OMNIUM + GATHERUM, 6,8);
+# not one a listed word, a surname too, lies one letter off on a held answer's cell (held KEL + YIN, KELVIN), nor
+# where the classifier reads a fragment letter otherwise.
+ln_g = [(["3-down", "18-down"], "6,8", {"3-down": "OMNIUM"})]
+ln_got = [f.linked_reads(ln_g, {}, {"18-down": ("GATHERUM", "?A?H?R?M", la_p("GATHERUM"))}, {}),
+          f.linked_reads([(["4-down", "9-down"], "6", {"4-down": "KEL"})], {}, {"9-down": ("YIN", "?I?", la_p("YIN"))}, {}),
+          f.linked_reads(ln_g, {}, {"18-down": ("GATHERUM", "?A?H?R?M", la_p("GATHERUM", low=0))}, {}),
+          f.linked_reads([(["9-across", "10-across"], "4,3,7", {"10-across": "BOWLING"})], {},
+                         {"9-across": ("PORTOM", "P?O?T?M", la_p("POORTOM"))}, {}),
+          f.linked_reads([(["9-across", "10-across"], "4,3,7", {"10-across": "BOWLING"})], {},
+                         {"9-across": ("PORTOX", "P?O?T?M", la_p("POORTOM"))}, {})]
+check("linked_reads takes GATHERUM after a held OMNIUM (linked_name); not YIN after KEL (KELVIN), nor a fragment "
+      "letter the classifier reads otherwise; PORTOM a letter short as the classifier's POORTOM (linked_shifted), "
+      "not PORTOX",
+      [{"18-down": "GATHERUM"}, {}, {}, {"9-across": "POORTOM"}, {}], ln_got)
+# LINKED_NAME: a row read before REREAD_LINKED_NAME (after REREAD_LINKED_ANSWER) whose held file's blank lights are a
+# linked answer's (linked_short), due nothing else: due; read since, or none so: not.
+f.filed_state = lambda series, n: (False, True)
+real_ns, real_as, real_ms, real_near, real_us, real_ls = (f.named_short, f.agreed_short, f.misread_short, f.near_short,
+                                                         f.unasked_short, f.linked_short)
+f.misread_short = f.agreed_short = f.named_short = f.unasked_short = lambda row, paper: False
+f.near_short = lambda row, paper, **kw: False
+f.linked_short = lambda row, paper: True
+ln_due = [f.short_again(vu_row("2026-10-28T18:45:00+00:00", ao=True)), f.short_again(vu_row("2027-01-01T00:00:00+00:00", ao=True))]
+f.linked_short = lambda row, paper: False
+ln_due.append(f.short_again(vu_row("2026-10-28T18:45:00+00:00", ao=True)))
+(f.named_short, f.agreed_short, f.misread_short, f.near_short, f.unasked_short, f.linked_short) = (
+    real_ns, real_as, real_ms, real_near, real_us, real_ls)
+f.filed_state = real_fs
+check("a held file whose blank lights are a linked answer's, read after REREAD_LINKED_ANSWER and before "
+      "REREAD_LINKED_NAME: LINKED_NAME (rank 2, answers-only, evidence, LOW, a fix landed); read since, or none so: not",
+      [f.LINKED_NAME, None, None, 2, True, True, True, True, True],
+      ln_due + [f.RANKS[f.LINKED_NAME], f.LINKED_NAME in f.SOLUTION_FIXES, f.LINKED_NAME.startswith("solution short"),
+                f.LINKED_NAME in __import__("edition_queue").LOW_ASK, f.LINKED_NAME in __import__("edition_queue").FIX_LANDED,
+                __import__("edition_queue").evidence_reason(f.LINKED_NAME)])
 # LATE_UNASKED: an answers-only row read before REREAD_LATE_UNASKED with no late strip, its held file 1 to LATE_MAX
 # short, a blank light whose strip the reading did not keep and no solution ask of this edition logged
 # (unasked_short), due nothing else: due; read since, every blank kept or logged, or a late strip cut: not.
