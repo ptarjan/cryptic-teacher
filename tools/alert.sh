@@ -76,9 +76,15 @@ alert_run_failures() {
     while IFS= read -r line; do
       grep -qxF -- "${line#*:}" "$claimed" && continue
       # An alert quotes a traceback's tail, so its header is claimed by the
-      # exception line that ends it: the first unindented line after it.
+      # exception line that ends it: the first unindented line after it. A
+      # chained traceback ("During handling of the above exception ...") ends
+      # at the last exception of the chain, the one the quoted tail shows.
       if [ "${line#*:}" = "Traceback (most recent call last):" ]; then
-        exc=$(tail -n +"$((${line%%:*} + 1))" "$log" | grep -m1 -v '^[[:space:]]' | cut -c1-200)
+        exc=$(tail -n +"$((${line%%:*} + 1))" "$log" | awk '
+          NF == 0 || /^[[:space:]]/ { next }
+          /^(During handling of the above exception|The above exception was the direct cause|Traceback \(most recent call last\))/ { exc = ""; next }
+          { if (exc != "") exit; exc = $0 }
+          END { print exc }' | cut -c1-200)
         [ -n "$exc" ] && grep -qxF -- "$exc" "$claimed" && continue
       fi
       printf '%s\n' "$line"

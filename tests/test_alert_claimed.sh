@@ -70,6 +70,23 @@ $frames" "$traceback
   File \"x.py\", line 1, in f
 KeyError: 4923")" "1"
 
+# A chained traceback's first header ends in the inner exception; the alert
+# quotes only the outer one, which claims the whole chain.
+outer='  File "tools/fetch_fifteensquared.py", line 95, in get
+    with urllib.request.urlopen(req, timeout=60) as r:
+urllib.error.URLError: <urlopen error timed out>'
+check "a chained traceback whose outer tail an alert quoted is not reported again" \
+  "$(run "the fifteensquared FT fetch failed (rc=1):
+$outer" "$traceback
+  File \"socket.py\", line 850, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+$traceback
+$outer")" "0"
+
 # A path that prints its own failure line before alerting claims it by
 # printing it with echo_alerted, so the catch-all does not report it again.
 claimed_line() {  # claimed_line <line> -> catch-all reports for that run
