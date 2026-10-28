@@ -518,6 +518,29 @@ check("not after the fix, nor for another paper, nor with a blank that names no 
        f.run_on_tail_lost({**_rtrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
        f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "no reading laid a clue on it"}}]})])
 f.run_on_tail_read = lambda key, word: False
+# ---- a Times page written unfiled whose blank lights a replay of the current reader lays, no other reason due
+# (fa.LAID_PUZZLES: r12's 12 Gale pages, e.g. 1944-12-13's 4,613), is due once as LAID_BLANKS.
+_lb_was = f.LAID_PUZZLES
+f.LAID_PUZZLES = frozenset((9999995,))
+_lb = {"id": "times-9999995", "number": 9999995, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"9-across": "no reading laid a clue on it"}}
+_lbrow = {"edition": "GaleTimes1944UKEnglish/1944-12-13", "verdicts": [_lb], "readAt": "2026-10-25T07:19:26+00:00",
+          "scan": {"item": "GaleTimes1944UKEnglish", "date": "1944-12-13", "puzzles": [{"number": 9999995}]}}
+check("a LAID_PUZZLES page written unfiled is due as LAID_BLANKS, ranked, evidence, fix-landed, unfiled-first, "
+      "never canary-held, passing a blanket reason",
+      [f.LAID_BLANKS, 2, True, True, True, None, f.LAID_BLANKS],
+      [f.fix_reason(_lbrow), f.RANKS[f.LAID_BLANKS], eq.evidence_reason(f.LAID_BLANKS),
+       f.LAID_BLANKS in eq.FIX_LANDED, f.LAID_BLANKS in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.LAID_BLANKS, "date": "1944-12-13"}),
+       f.blanket_or_fix(_lbrow, "inputs changed")])
+check("not after REREAD_LAID_BLANKS, nor complete, refused, another number or another paper",
+      [False] * 5,
+      [f.laid_blanks_due({**_lbrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "complete": True}]}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "refused": "no reading parses"}]}),
+       f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "number": 9999994, "id": "times-9999994"}]}),
+       f.laid_blanks_due({**_lbrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+f.LAID_PUZZLES = _lb_was
 check("nor with no reading printing them after a count", False, f.run_on_tail_lost(_rtrow))
 f.run_on_tail_read = _rt_read
 # ---- a Times page whose write the gate refused over clue punctuation a mend now clears (";," after a word, a
