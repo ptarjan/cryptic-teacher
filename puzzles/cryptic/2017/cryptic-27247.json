@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Help me to get a holiday",
     "enumeration": "6"
    },
-   "solution": "MAYDAY"
+   "solution": "MAYDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Help me",
+      "at": 0,
+      "meaning": "the radio distress call comes from French m'aider, 'help me'"
+     },
+     {
+      "text": "a holiday",
+      "at": 15,
+      "meaning": "the first of May is a traditional spring holiday"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking for assistance in getting some time off work.",
+     "definitionFit": "The distress call derives from French for 'help me', and the first of May is a public festival day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Help"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,42 @@
     "text": "Isaac Newton's teenage trouble",
     "enumeration": "4"
    },
-   "solution": "ACNE"
+   "solution": "ACNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "teenage trouble",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "'s",
+       "at": 12,
+       "note": "the possessive says the trouble belongs to the scientist's name, held within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Isaac Newton",
+       "at": 0,
+       "gives": "ACNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist's adolescent problems, as if biography were gossip.",
+     "walkthrough": "The possessive 's tells you the answer belongs to (is held by) the words Isaac Newton: it runs across their join.",
+     "definitionFit": "Spots and pimples are the classic skin complaint of adolescence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Newton's"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +120,74 @@
     "text": "Ask to support alternative comedy, mostly rot",
     "enumeration": "9"
    },
-   "solution": "DECOMPOSE"
+   "solution": "DECOMPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rot",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "at": 4,
+       "note": "in a down clue, the piece that supports another sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "alternative",
+         "at": 15,
+         "note": "alternative comedy suggests a different arrangement of the letters of comedy"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 35,
+           "note": "mostly means the word comedy loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "comedy",
+           "at": 27
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Ask",
+       "at": 0,
+       "gives": "POSE",
+       "note": "to pose a question is to ask it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to back some alternative comedy that is, mostly, rubbish.",
+     "walkthrough": "'mostly' trims comedy to COMED, and 'alternative' rearranges it to DECOM, with POSE placed under it.",
+     "definitionFit": "To rot is to decay, which is what organic matter does when it breaks down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +201,30 @@
     "text": "Gives in return",
     "enumeration": "6"
    },
-   "solution": "YIELDS"
+   "solution": "YIELDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gives in",
+      "at": 0,
+      "meaning": "to give in is to surrender or concede"
+     },
+     {
+      "text": "return",
+      "at": 9,
+      "meaning": "as a noun, the profit an investment produces"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads as a plain phrase about giving something back.",
+     "definitionFit": "One who concedes submits; an investment's income is its payout, both captured by the same plural form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +238,43 @@
     "text": "Actors' fees take balls",
     "enumeration": "8"
    },
-   "solution": "CASTRATE"
+   "solution": "CASTRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take balls",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Actors'",
+       "at": 0,
+       "gives": "CAST",
+       "note": "the actors in a play form its cast"
+      },
+      {
+       "words": "fees",
+       "at": 8,
+       "gives": "RATE",
+       "note": "a fee charged is a rate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Theatre performers' wages are outrageous; they take some nerve.",
+     "walkthrough": "'take balls' sounds like slang for having nerve, but it means remove the testicles.",
+     "definitionFit": "Gelding an animal means removing its testicles, crudely put as taking its balls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "balls"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +288,69 @@
     "text": "Left to invade African country with armies, not revolutionary masses",
     "enumeration": "15"
    },
-   "solution": "CONGLOMERATIONS"
+   "solution": "CONGLOMERATIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "masses",
+      "at": 62
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to invade",
+         "at": 5,
+         "note": "the left letter goes into the country, invading it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African country",
+         "at": 15,
+         "gives": "CONGO",
+         "note": "Congo is a central African country"
+        },
+        {
+         "words": "Left",
+         "at": 0,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 48,
+         "note": "revolutionary means the letters of armies and not are overturned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "armies, not",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military story: an African country invaded, with armies though no revolutionaries.",
+     "walkthrough": "'Left' looks like a direction or political wing; it is just the letter L.",
+     "definitionFit": "A conglomeration is a heterogeneous accumulation or mass of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +364,59 @@
     "text": "Comments one drops in obliquely",
     "enumeration": "8"
    },
-   "solution": "SIDEWAYS"
+   "solution": "SIDEWAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obliquely",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "one and drops are placed in the middle of the comments"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Comments",
+       "at": 0,
+       "gives": "SAYS",
+       "note": "someone who comments says things"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 9,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "drops",
+         "at": 13,
+         "gives": "DEW",
+         "note": "dew is water in drops"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remarks that someone drops in at a slant, as an aside.",
+     "definitionFit": "Moving sideways means going at an angle rather than straight, which is to move at a slant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +430,41 @@
     "text": "Dish served by prostitute",
     "enumeration": "5"
    },
-   "solution": "ROSTI"
+   "solution": "ROSTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "served by",
+       "at": 5,
+       "note": "the dish is served up by the word prostitute, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prostitute",
+       "at": 15
+      }
+     ]
+    },
+    "spelling": "RÖSTI",
+    "explanation": {
+     "surface": "A food item brought out by a sex worker.",
+     "definitionFit": "Rösti is a Swiss potato cake, a dish of grated fried potato."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +484,68 @@
      }
     ]
    },
-   "solution": "TRASHHEAPS"
+   "solution": "TRASHHEAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piles of rubbish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scurrying",
+         "at": 26,
+         "note": "rats running every which way suggests their letters scattered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rats",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "at": 39,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in poor",
+         "at": 48,
+         "note": "in poor shape suggests the word shape is damaged and reformed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shape",
+         "at": 56
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rats running around a run-down hospital among the rubbish.",
+     "walkthrough": "'scurrying' gives TRAS from rats, then H, then 'in poor' rearranges shape into HEAPS.",
+     "definitionFit": "A tip or dump of refuse is a pile of discarded waste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shape"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +565,50 @@
      }
     ]
    },
-   "solution": "ONSCREEN"
+   "solution": "ONSCREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Showing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 18,
+       "note": "not a says a letter a is removed from the pool"
+      },
+      {
+       "text": "problem",
+       "at": 24,
+       "note": "a problem suggests the letters of resonance are in disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "resonance",
+       "at": 8
+      },
+      {
+       "words": "a",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An acoustics engineer reassures: echo is no trouble at all.",
+     "walkthrough": "'not a' takes the A out of RESONANCE, and 'problem' rearranges the remaining eight letters.",
+     "definitionFit": "A film being shown is visible on the screen to viewers, in the screening sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "problem"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +622,67 @@
     "text": "Apprehension in stock markets, initially within 24 hours",
     "enumeration": "6"
    },
-   "solution": "DISMAY"
+   "solution": "DISMAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Apprehension",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 41,
+       "note": "the initials go inside the day"
+      }
+     ],
+     "parts": [
+      {
+       "words": "24 hours",
+       "at": 48,
+       "gives": "DAY",
+       "note": "a day lasts 24 hours"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 31,
+         "note": "initially means take the first letter of in, stock and markets"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 13
+        },
+        {
+         "words": "stock",
+         "at": 16
+        },
+        {
+         "words": "markets",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fear in the financial markets within a single day of trading.",
+     "walkthrough": "'initially' covers all three words 'in stock markets', including the little word 'in', which looks like a link.",
+     "definitionFit": "Dismay is alarm or consternation, a feeling of dread or anxious fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +696,51 @@
     "text": "Boxer's wee friend to Spooner",
     "enumeration": "12"
    },
-   "solution": "MIDDLEWEIGHT"
+   "solution": "MIDDLEWEIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "spelt": "MIDDLEWEIGHT",
+     "indicators": [
+      {
+       "text": "to Spooner",
+       "at": 19,
+       "note": "as Reverend Spooner would say it, swapping the initial sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wee",
+       "at": 8,
+       "gives": "WIDDLE",
+       "note": "to wee is to widdle, a childish word for urinating"
+      },
+      {
+       "words": "friend",
+       "at": 12,
+       "gives": "MATE",
+       "note": "a mate is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pugilist's tiny companion.",
+     "walkthrough": "'wee' is not small but to urinate, WIDDLE; swap its W with the M of MATE.",
+     "definitionFit": "A fighter in the weight class between welterweight and light heavyweight is a boxer of that division."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wee"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +754,61 @@
     "text": "Peeling paint, profit slack, upset, in a state",
     "enumeration": "10"
    },
-   "solution": "CALIFORNIA"
+   "solution": "CALIFORNIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a state",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 29,
+       "note": "in a down clue, upset means the string is turned upside down, reading upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Peeling",
+         "at": 0,
+         "note": "peeling strips the outer letter from each of paint, profit and slack"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paint",
+         "at": 8
+        },
+        {
+         "words": "profit",
+         "at": 15
+        },
+        {
+         "words": "slack",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decorator's woes: flaking paint, profits slack, all upset.",
+     "walkthrough": "'Peeling' gives AIN, ROFI and LAC; 'upset' reverses AINROFILAC.",
+     "definitionFit": "California is one of the fifty states of the USA, on the Pacific coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peeling"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +822,31 @@
     "text": "Dressing from clinic",
     "enumeration": "4"
    },
-   "solution": "MAYO"
+   "solution": "MAYO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dressing",
+      "at": 0,
+      "meaning": "a salad dressing, short for mayonnaise"
+     },
+     {
+      "text": "clinic",
+      "at": 14,
+      "meaning": "the ... Clinic is a famous medical centre in Minnesota"
+     }
+    ],
+    "explanation": {
+     "surface": "A wound dressing obtained from a medical clinic.",
+     "definitionFit": "Short for mayonnaise, a sauce served on salads; the Mayo Clinic is a renowned American hospital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dressing"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +860,60 @@
     "text": "Festive erections — symptom oddly not seen in men",
     "enumeration": "8"
    },
-   "solution": "MAYPOLES"
+   "solution": "MAYPOLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Festive erections",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 38,
+       "note": "the letters picked are seen within the word for men"
+      }
+     ],
+     "parts": [
+      {
+       "words": "men",
+       "at": 46,
+       "gives": "MALES",
+       "note": "males are men"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly not",
+         "at": 28,
+         "note": "oddly not means drop the odd letters of symptom and keep the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "symptom",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ribald note on male arousal, its symptom not visible.",
+     "walkthrough": "'oddly not' keeps the even letters of symptom (second, fourth, sixth).",
+     "definitionFit": "Poles are put up (erected) for dancing round at May Day festivals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "erections"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +927,40 @@
     "text": "Naughty word shocked nicest boy",
     "enumeration": "9"
    },
-   "solution": "OBSCENITY"
+   "solution": "OBSCENITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naughty word",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shocked",
+       "at": 13,
+       "note": "shocked letters are jolted into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nicest boy",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved boy is appalled by a rude word.",
+     "definitionFit": "An obscene expression is a rude or indecent term, a swear word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shocked"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +974,59 @@
     "text": "Intended to underwrite duel odds in challenge",
     "enumeration": "8"
    },
-   "solution": "DEFIANCE"
+   "solution": "DEFIANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "challenge",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to underwrite",
+       "at": 9,
+       "note": "in a down clue, writing under means placing beneath the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "odds",
+         "at": 28,
+         "note": "the odd letters, first and third, of the word duel"
+        }
+       ],
+       "parts": [
+        {
+         "words": "duel",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "Intended",
+       "at": 0,
+       "gives": "FIANCE",
+       "note": "one's intended is the person one is engaged to marry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A betrothed person backs the odds in a duelling challenge.",
+     "walkthrough": "'odds' takes D and E from duel; FIANCE is written under them.",
+     "definitionFit": "Defiance is open resistance, a challenge to authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Intended"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1046,60 @@
      }
     ]
    },
-   "solution": "LIFEPEER"
+   "solution": "LIFEPEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lord",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held in",
+       "at": 21,
+       "note": "the pieces are held between the two hand letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "both hands",
+       "at": 29,
+       "gives": "LR",
+       "note": "L and R, left and right hands"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "providing",
+         "at": 5,
+         "gives": "IF",
+         "note": "providing means if, as in providing that"
+        },
+        {
+         "words": "sword",
+         "at": 15,
+         "gives": "EPEE",
+         "note": "an épée is a fencing sword"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman gripping his sword with both hands.",
+     "walkthrough": "'both hands' means left and right, L and R, which bracket the rest.",
+     "definitionFit": "A peer created for life only sits in the House of Lords without passing the title on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "providing"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1113,49 @@
     "text": "Bribes storyteller to ignore casualty",
     "enumeration": "4"
    },
-   "solution": "SOPS"
+   "solution": "SOPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bribes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to ignore",
+       "at": 19,
+       "note": "to ignore means the casualty department is left out of the storyteller's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "storyteller",
+       "at": 7,
+       "gives": "AESOPS",
+       "note": "Aesop is the ancient Greek teller of fables; the wordplay needs his name with a possessive S, as if the clue said storyteller's"
+      },
+      {
+       "words": "casualty",
+       "at": 29,
+       "gives": "AE",
+       "note": "A&E (accident and emergency) is the British hospital casualty department"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller is paid off to look away from an injured person.",
+     "walkthrough": "In Britain 'casualty' is the A&E department. The final S has no source as printed: the setter's slip, presumably for 'storyteller's'.",
+     "definitionFit": "A sop is a concession or payment offered to placate someone, much like a bribe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "casualty"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1169,39 @@
     "text": "Feeble in company",
     "enumeration": "6"
    },
-   "solution": "INFIRM"
+   "solution": "INFIRM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 7
+      },
+      {
+       "words": "company",
+       "at": 10,
+       "gives": "FIRM",
+       "note": "a firm is a company"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weak, though part of a group.",
+     "definitionFit": "Someone infirm is weak through age or illness, physically frail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1221,60 @@
      }
     ]
    },
-   "solution": "LONGDISTANCE"
+   "solution": "LONGDISTANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trunk",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "suppressed by",
+       "at": 18,
+       "note": "the rearranged letters are held down inside the weapon"
+      }
+     ],
+     "parts": [
+      {
+       "words": "weapon",
+       "at": 32,
+       "gives": "LANCE",
+       "note": "a lance is a mounted soldier's weapon"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Barking",
+         "at": 0,
+         "note": "barking, as in mad, sends the letters of dog isn't wild"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog isn't",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog that won't stop barking is not silenced by a gun, nor an elephant.",
+     "walkthrough": "'Barking' means mad here. A trunk call is the old British term for a phone call between distant towns.",
+     "definitionFit": "A trunk line carries calls between distant exchanges, so trunk means covering great distances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1288,48 @@
     "text": "Try to include philosophy device",
     "enumeration": "5"
    },
-   "solution": "GISMO"
+   "solution": "GISMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "device",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "at": 4,
+       "note": "the attempt includes the doctrine within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Try",
+       "at": 0,
+       "gives": "GO",
+       "note": "to have a go is to try"
+      },
+      {
+       "words": "philosophy",
+       "at": 15,
+       "gives": "ISM",
+       "note": "an ism is a doctrine or philosophy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attempt to fit philosophy into a gadget.",
+     "definitionFit": "A gismo is a gadget, an ingenious mechanical contraption."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1343,31 @@
     "text": "Not well done — extraordinary!",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not well done",
+      "at": 0,
+      "meaning": "of steak, lightly cooked, the opposite of well done"
+     },
+     {
+      "text": "extraordinary!",
+      "at": 16,
+      "meaning": "uncommon, seldom found"
+     }
+    ],
+    "explanation": {
+     "surface": "A disappointed exclamation over shoddy work.",
+     "definitionFit": "Underdone meat is cooked lightly; something unusual is seldom seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "done"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1381,59 @@
     "text": "Sunni organisation welcomes ring of agreement",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomes",
+       "at": 19,
+       "note": "the rearranged letters take in the ring, welcoming it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "organisation",
+         "at": 6,
+         "note": "organisation suggests the letters of Sunni being reorganised"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sunni",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "ring",
+       "at": 28,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Sunni Muslim body welcomes a circle of agreement.",
+     "walkthrough": "'organisation' looks like a body, but it rearranges Sunni into UNISN, with O inside.",
+     "definitionFit": "Acting in unison means acting in harmony or concord, all together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1447,40 @@
     "text": "Built an oil rig that's not been done before",
     "enumeration": "8"
    },
-   "solution": "ORIGINAL"
+   "solution": "ORIGINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not been done before",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Built",
+       "at": 0,
+       "note": "built means the letters are constructed into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an oil rig",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oil platform was constructed in an unprecedented way.",
+     "definitionFit": "Something original is novel, created freshly rather than copied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Built"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1494,48 @@
     "text": "Official service covers times gone by",
     "enumeration": "8"
    },
-   "solution": "MAYORESS"
+   "solution": "MAYORESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Official",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 17,
+       "note": "the church service wraps around the old times"
+      }
+     ],
+     "parts": [
+      {
+       "words": "service",
+       "at": 9,
+       "gives": "MASS",
+       "note": "Mass is a church service"
+      },
+      {
+       "words": "times gone by",
+       "at": 24,
+       "gives": "YORE",
+       "note": "yore means long ago, as in days of yore"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service hides the history of the past.",
+     "definitionFit": "A mayoress holds civic office, as a female mayor or a mayor's wife with ceremonial duties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1549,41 @@
     "text": "Is allowed to border chaos",
     "enumeration": "6"
    },
-   "solution": "MAYHEM"
+   "solution": "MAYHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chaos",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Is allowed",
+       "at": 0,
+       "gives": "MAY",
+       "note": "may expresses permission, one is allowed"
+      },
+      {
+       "words": "border",
+       "at": 14,
+       "gives": "HEM",
+       "note": "a hem is the border of a garment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Permission to fringe disorder.",
+     "definitionFit": "Mayhem is violent disorder or confusion, utter disarray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   }
  ]
 }
