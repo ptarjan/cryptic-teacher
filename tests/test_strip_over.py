@@ -26,8 +26,11 @@ img = Image.fromarray(a)
 strip = f.strip_over(img, grid, title, "1945")
 assert strip and strip[0] == 438 and strip[1] == 497, strip
 assert len(strip[2]) == 1 and 1405 <= strip[2][0] <= 1495, strip
+# The 1940-44 Times sets its down list's tail there too (10-28: 1942-06-20's 22-27 down, STRIP_TAIL).
+assert f.strip_over(img, grid, title, "1942") == strip
 # Another year's page has none; nor one with no ink between title and grid.
 assert f.strip_over(img, grid, title, "1951") is None
+assert f.strip_over(img, grid, title, "1939") is None
 assert f.strip_over(Image.fromarray(np.full((1300, 2000), 255, np.uint8)), grid, title, "1945") is None
 
 # A short clue's line end leaves a blank, not a gutter: no rule, no cut.

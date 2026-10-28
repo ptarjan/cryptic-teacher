@@ -399,6 +399,21 @@ check("not after the fix, nor a fault no mend clears, nor beside another refusal
        f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_left}]}),
        f.punct_mended({**_pmrow, "verdicts": [{**_pm, "refusedWrite": _pm_other}]}),
        f.punct_mended({**_pmrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
+# grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
+_st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
+       "lights": 32, "blank": {k: "no reading laid a clue on it" for k in ("22-down", "23-down", "25-down", "27-down")}}
+_strow = {"edition": "GaleTimes1942UKEnglish/1942-06-20", "verdicts": [_st], "readAt": "2026-10-26T03:06:10+00:00"}
+check("a 1940-44 page blanked for its down tail is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.STRIP_TAIL, 2, True, True, True, None],
+      [f.fix_reason(_strow), f.RANKS[f.STRIP_TAIL], eq.evidence_reason(f.STRIP_TAIL), f.STRIP_TAIL in eq.FIX_LANDED,
+       f.STRIP_TAIL in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.STRIP_TAIL, "date": "1942-06-20"})])
+check("not after the fix, nor an across clue unlaid, nor 1945-49 (read so since 10-20), nor the News UK copy",
+      [False] * 4,
+      [f.strip_tailed({**_strow, "readAt": _after}),
+       f.strip_tailed({**_strow, "verdicts": [{**_st, "blank": {**_st["blank"], "1-across": "no reading laid a clue on it"}}]}),
+       f.strip_tailed({**_strow, "edition": "GaleTimes1946UKEnglish/1946-06-20"}),
+       f.strip_tailed({**_strow, "edition": "NewsUK1942UKEnglish/1942-06-20_1"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},

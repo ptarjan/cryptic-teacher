@@ -1030,7 +1030,10 @@ RIGHT_REACH = 30
 #: and read none of it. The strip lies over the grid, from the title's foot
 #: (STRIP_TITLE px up, the title box is a little tall) to the grid's top,
 #: and is at least STRIP_MIN px high (anything less is paper between them).
-STRIP_YEARS = ("1945", "1950")
+#: 10-28: the 1940-44 Times sets its last down clues so too (1942-06-20: 22, 23, 25, 27 down in two short
+#: columns over the grid's top right; 1941-11-15: 20-26 down): 149 unfiled 1940-44 Gale pages blanked only
+#: that list's tail ("no reading laid a clue on it"), STRIP_TAIL rereads them.
+STRIP_YEARS = ("1940", "1950")
 STRIP_TITLE, STRIP_MIN, STRIP_INK, STRIP_RULE = 2, 30, 0.02, 0.6
 #: Its columns split at a run of STRIP_GUTTER pixel columns holding next to no ink
 #: (a rule between them does not break it), STRIP_EDGE from either end of it.
@@ -10318,9 +10321,42 @@ def derived_formed(row):
 #: "unfiled before its fix": CANARY_FAILED holds that one for the Times. Once each; only verdicts every
 #: punctuation-refused clue of which now mends clean, the puzzle not held whole.
 PUNCT_MENDED = "write refused before its fix, a clue's punctuation mended"
-REREAD_PUNCT_MENDED = "2026-10-28T03:00:00+00:00"
+REREAD_PUNCT_MENDED = "2026-10-28T06:50:00+00:00"
 #: A clue the gate's "(punctuation.faults)" refusal names: SHAPE <light>: clue <repr> holds <fault> (<snippet>).
 _PUNCT_CLUE = re.compile(r"SHAPE [\w-]+: clue ('(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\") holds [a-z ]+? \(")
+
+
+#: The reason, and its fix's time, of a 1940-44 Gale Times page whose read wrote its puzzle unfiled with
+#: down clues no reading laid a clue on, and no across clue so: the last down clues printed in the strip
+#: over the grid (strip_over), which STRIP_YEARS let only 1945-49 read till 10-28. 10-28 census (failure
+#: shapes): 149 such pages, none filed. Its own reason, not "unfiled before its fix": CANARY_FAILED holds that
+#: one for Gale up to 1944. Once each; only verdicts not held with every clue.
+STRIP_TAIL = "unfiled before its fix, the down clues over the grid"
+REREAD_STRIP_TAIL = "2026-10-28T06:50:00+00:00"
+#: The years STRIP_TAIL rereads: those STRIP_YEARS gained on 10-28.
+STRIP_TAIL_YEARS = ("1940", "1945")
+
+
+def strip_tailed(row):
+    """Whether Gale Times ledger `row` of STRIP_TAIL_YEARS, read before REREAD_STRIP_TAIL, wrote a puzzle
+    unfiled (a verdict with an "unfiled" count or its id's copy in CROPS/unfiled, not held with every clue)
+    whose clues no reading laid a clue on are all down clues."""
+    rel = row.get("edition") or ""
+    m = re.search(r"((?:19|20)\d\d)-\d\d-\d\d", rel)
+    if paper_of(Path(rel)).key != "gale" or not m or not STRIP_TAIL_YEARS[0] <= m.group(1) < STRIP_TAIL_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_STRIP_TAIL)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        unlaid = [k for k, why in v["blank"].items() if "no reading laid a clue" in str(why)]
+        if not unlaid or not all(k.endswith("-down") for k in unlaid):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
 
 
 def punct_mended(row):
@@ -12869,6 +12905,8 @@ def fix_reason(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
         return PUNCT_MENDED
+    if strip_tailed(row):
+        return STRIP_TAIL
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -13500,7 +13538,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
@@ -13826,7 +13864,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                    **({"detail": refusal_detail(known.get(rels[d]) or {}, reads[d])} if reads[d].startswith("refused ") else {}),
                    **({"detail": "; ".join(f"puzzle {i}: {k} blank" for i, k in unfiled_blank(known.get(rels[d]) or {}))}
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
-                                      NEIGHBOUR_TAIL) else {}),
+                                      NEIGHBOUR_TAIL, STRIP_TAIL) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
