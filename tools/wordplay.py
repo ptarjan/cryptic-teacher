@@ -1297,17 +1297,63 @@ def _gives(node):
     return vs[0] if len(vs) == 1 else " or ".join(vs[:4]) + (" …" if len(vs) > 4 else "")
 
 
+def merge_hidden_leaves(pieces):
+    """One leaf for the plain leaves of a `+` list under hid(): their clue words joined (a hidden word runs
+    across words), or, for cross-references and numerals ([24D]FLAT + [10]MATES), the words they stand for
+    in `gives`. None when a piece is anything else, or a looked-up word (a hidden word reads printed letters)."""
+    if len(pieces) < 2 or any("op" in p or not p.get("words") for p in pieces):
+        return None
+    if all("gives" not in p for p in pieces):
+        merged = {"words": " ".join(p["words"] for p in pieces)}
+    elif all(re.search(r"\d", str(p["words"])) and p.get("gives") for p in pieces):
+        merged = {"words": " ".join(p["words"] for p in pieces), "gives": "".join(p["gives"] for p in pieces)}
+    else:
+        return None
+    if "at" in pieces[0]:
+        merged["at"] = pieces[0]["at"]
+    return merged
+
+
+def _hid_over_reversal_hint(node, want):
+    """hid(rev(words)) for a word hidden backwards: hid() takes a leaf, so the reversal goes round the hidden
+    word, rev<indicator>(hid<indicator>([words])). Named only when that reading gives `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "hidden" or len(parts) != 1 or parts[0].get("op") != "reversal":
+        return None
+    rev = parts[0]
+    kids = parts_of(rev)
+    if len(kids) != 1:
+        return None
+    kid = kids[0]
+    if kid.get("op") == "charade":
+        kid = merge_hidden_leaves(parts_of(kid))
+    if not kid or "op" in kid:
+        return None
+    new = {**rev, "parts": [{**node, "parts": [kid]}]}
+    try:
+        if match(new, want) is None:
+            return None
+    except (_NeedTarget, WordplayError):
+        return None
+    return (f"hid() takes a leaf, so a word hidden backwards is {render(new)}: write the hid() inside "
+            f"the rev(), with the reversal word as rev()'s indicator")
+
+
 def _hint(node, want):
     """A one-sentence correction for two common right-parse-written-wrong shapes, or None:
     a selection or hidden word over a `+` run (the op applies to the run's letters, not
     to each word), and a spoonerism whose words are wrapped in sound()."""
     op, parts = node.get("op"), parts_of(node)
+    if op == "hidden":
+        said = _hid_over_reversal_hint(node, want)
+        if said:
+            return said
     if op in SELECT + ("hidden",) and len(parts) == 1 and parts[0].get("op") == "charade":
         pieces = parts_of(parts[0])
         name = NAMES[op]
         if op == "hidden":
-            if all("op" not in p and "words" in p and "gives" not in p for p in pieces):
-                merged = {"words": " ".join(p["words"] for p in pieces)}
+            merged = merge_hidden_leaves(pieces)
+            if merged:
                 new = {**node, "parts": [merged]}
                 try:
                     ok = match(new, want) is not None
@@ -1390,7 +1436,7 @@ def diagnose(node, want):
     if hint:
         return hint
     ls = lengths(node)
-    hint = _container_reversed_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
+    hint = _container_reversed_hint(node, want) or _charade_container_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
     if hint:
         return hint
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
@@ -1476,6 +1522,32 @@ def _container_reversed_hint(node, want):
 
 
 _TIMES = re.compile(r"\b(three|thrice|triple|treble|trebled|tripled|four|quadruple|five)\b", re.I)
+
+
+def _charade_container_hint(node, want):
+    """[cold]C + [New York]NY for EMERGENCY (EMERGE, then C inside NY): two neighbouring pieces that only give
+    the answer with one inside the other. Named only when exactly one such container does it; the
+    container word is the clue's to supply."""
+    parts = parts_of(node)
+    if node.get("op") != "charade" or len(parts) < 2:
+        return None
+    found = []
+    for i in range(len(parts) - 1):
+        for outer, inner in ((i, i + 1), (i + 1, i)):
+            box = {"op": "container", "parts": [copy.deepcopy(parts[outer]), copy.deepcopy(parts[inner])]}
+            new = box if len(parts) == 2 else {**node, "parts": [*parts[:i], box, *parts[i + 2:]]}
+            try:
+                ok = match(new, want) is not None
+            except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError):
+                ok = False
+            if ok:
+                found.append((outer, inner))
+    if len(found) != 1:
+        return None
+    o, n = found[0]
+    return (f"{render(node)} gives {_gives(node)}, but {render(parts[n])} goes inside {render(parts[o])}: write "
+            f"ins<indicator>({render(parts[o])}, {render(parts[n])}) in place of those two pieces, with a "
+            f"container word from the clue as its indicator")
 
 
 def _repeat_count_hint(node, want):
