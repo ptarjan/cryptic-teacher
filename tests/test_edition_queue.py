@@ -728,6 +728,29 @@ try:
            f.linked_count_due({**_lcrow, "edition": "FinancialTimes1955UKEnglish/1955-07-01_0"})])
 finally:
     f.linked_numbers = _lc_real
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds after a linked
+# head's comma read as a stop ("25. 26 A good local") is due once (fa.STRAY_LINK_READ), unfiled-first.
+_sl = {**_lc, "id": "times-9999976", "number": 9999976, "blank": {"26-across": "no reading laid a clue on it"}}
+_slrow = {**_lcrow, "edition": "GaleTimes1951UKEnglish/1951-12-27", "verdicts": [_sl],
+          "scan": {"date": "1951-12-27", "item": "GaleTimes1951UKEnglish", "puzzles": [{"number": 9999976, "leaf": 0}]}}
+_sl_real = f.stray_link_numbers
+f.stray_link_numbers = lambda key: frozenset({26}) if key == "1951-12-27_9999976" else frozenset()
+try:
+    check("a Times page unfiled over a stop-linked clue's light is due as STRAY_LINK_READ, ranked, evidence, "
+          "fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.stray_link_due(_slrow), f.RANKS[f.STRAY_LINK_READ], eq.evidence_reason(f.STRAY_LINK_READ),
+           f.STRAY_LINK_READ in eq.FIX_LANDED, f.STRAY_LINK_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.STRAY_LINK_READ, "date": "1951-12-27"}),
+           f.STRAY_LINK_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.stray_link_due({**_slrow, "readAt": "2026-10-29T00:00:00+00:00"}),
+           f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"25-across": "no reading laid a clue on it"}}]}),
+           f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"26-across": "'locel': not a word"}}]}),
+           f.stray_link_due({**_slrow, "edition": "FinancialTimes1951UKEnglish/1951-12-27_0"})])
+finally:
+    f.stray_link_numbers = _sl_real
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,

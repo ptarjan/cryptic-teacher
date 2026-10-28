@@ -459,6 +459,27 @@ def torn_counts_joined(lines, ones=True):
     return out
 
 
+#: A linked clue's head whose comma was read as a stop, or a stop with it: "25. 26", "14. 17", "1.5", "12, .14",
+#: "5, .6"; then the later number's capitalised words (a direction maybe between: "1. 5 ac. If you").
+_STRAY_LINK = re.compile(r"^(\d{1,2})\s*(?:\.\s*,?|,\s*\.)\s*(\d{1,2})(?=(?:\s*(?:ac|dn|across|down)\b\.?)?\s+[\"'‘“]?\s?[A-Z])")
+
+
+def stray_link_stop(line):
+    """`line` with a linked clue's head whose comma a speck turned to a stop (_STRAY_LINK) read "M, N": the head
+    read "25. 26 \" For a good local,\"" was clue 25 whose words opened on "26", and no reading laid a clue on 26
+    (failure shapes r28: Gale 1943-05-08 "24. 26 A fragrant medley", 1951-12-27, 1953-05-02, 1954-04-02 "12, .14
+    Celestial cavalry", 1954-10-15 "14. 17 It's not half", 1969-04-17 "1. 5 ac."). Only when N is above M, as a
+    head's later number is: "3. 15" before a lower-case word is a time. With the linked-clue mends off
+    (set_linked_mends), `line` as it is, the mend noted (linked_missed)."""
+    m = _STRAY_LINK.match(line)
+    if not m or int(m[2]) <= int(m[1]):
+        return line
+    if not linked_mends():
+        linked_missed(True)
+        return line
+    return f"{m[1]}, {m[2]}" + line[m.end():]
+
+
 def count_closed_open(line):
     """`line` whose count is left open at its very end ("(5r") with it closed
     ("(5)"): for a list's last clue, where nothing follows to carry it on."""
@@ -1022,6 +1043,7 @@ def _column_pass(text, running_head, extra_headings, line_hook, ones=True):
                 continue
             line = clue_number_opening(edge_letter_cut(line))
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
+        line = stray_link_stop(line)
         if line_hook:
             line = line_hook(line)
         line = _line_slips(line)
