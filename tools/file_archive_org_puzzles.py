@@ -9968,7 +9968,8 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r))):
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r))) \
+                    and not failed_rescan(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -10797,6 +10798,27 @@ def gf_rescan(row):
     # pinned to it (current_keys): those scans stand for what they found.
     return row.get("scanKey") == scan_key(GALE) and scan_queue.read_before(row, scan_queue.when(REREAD_GF_TITLE)) \
         and not held_titles(row)
+
+
+#: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
+#: was read before REREAD_FAILED_SCAN: a failed scan stood as current under its key (scan_current), and every
+#: untitled-page rescan (inset_rescan, lone_rescan, gf_rescan, untitled_rescan) leaves failed scans out, so
+#: nothing ever scanned it again. 10-28 r19: 8 Gale Times pages of 2014-02-24..03-14 failed within 3 minutes
+#: of 10-18 03:07Z ("JSONDecodeError: Expecting value", a reply lost mid-scan), none filed, no date of theirs
+#: held from another copy; LONE_TITLE's replay titled 2014-03-05's 25,726 under the current scan. Also 3
+#: archive.org 1930 pages ("min() iterable argument is empty"). Scanned once again, then read; a scan that
+#: fails again after the cutoff stands.
+FAILED_SCAN = "scan failed, scanned again"
+#: Once: a failed scan of a row read before this is stale (failed_rescan).
+REREAD_FAILED_SCAN = "2026-10-28T17:05:00+00:00"
+
+
+def failed_rescan(row):
+    """Whether ledger `row` is due FAILED_SCAN: read (its "inputs" kept), with no verdict, its scan "failed",
+    read before REREAD_FAILED_SCAN."""
+    scan = (row or {}).get("scan") or {}
+    return bool(scan.get("failed")) and "inputs" in row and not row.get("verdicts") \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_FAILED_SCAN))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -14955,6 +14977,8 @@ def fix_reason(row):
         return LONE_TITLE
     if gf_rescan(row):
         return GF_TITLE
+    if failed_rescan(row):
+        return FAILED_SCAN
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -15485,7 +15509,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-28 r16: a page a grid-first rescan left untitled, read whole now (gf_rescan).
                   GF_TITLE,
                   # 10-28 r18: a write refused over a clue's speck marks at a word gap (gap_vote_due).
-                  GAP_VOTED)
+                  GAP_VOTED,
+                  # 10-28 r19: a page whose scan raised, never scanned again (failed_rescan).
+                  FAILED_SCAN)
 
 
 def refusal_passes(why):
@@ -15714,7 +15740,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -15751,7 +15777,8 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row)))
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row))) \
+        and not failed_rescan(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of

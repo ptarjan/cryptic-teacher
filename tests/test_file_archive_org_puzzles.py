@@ -2507,14 +2507,30 @@ none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey"
         "scan": {"item": "GaleTimes2000UKEnglish", "date": "2000-03-14", "puzzles": [], "solutions": []},
         "readAt": "2026-10-13T05:00:00+00:00"}
 check("a Gale 2000 page no title was found on by older scan code is due; by the current code, with a title, "
-      "read, failed to scan or of another paper is not; one of 1999 is due LONE_TITLE instead",
-      [f.NO_TITLE_RESCAN] + [None] * 4 + [f.LONE_TITLE, None],
+      "read or of another paper is not; one failed to scan is due FAILED_SCAN; one of 1999 is due LONE_TITLE instead",
+      [f.NO_TITLE_RESCAN] + [None] * 3 + [f.FAILED_SCAN, f.LONE_TITLE, None],
       [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14")))}),
        f.fix_reason({**none, "scan": {**none["scan"], "puzzles": [{"number": 21363}]}}),
        f.fix_reason({**none, "verdicts": [{"number": 1, "complete": True}]}),
        f.fix_reason({**none, "scan": {**none["scan"], "failed": "x"}}),
        f.fix_reason({**none, "scan": {**none["scan"], "date": "1999-12-31", "item": "GaleTimes1999UKEnglish"}}),
        f.fix_reason({**none, "scan": {**none["scan"], "item": "NewsUK2000UKEnglish"}})])
+# A page whose scan raised (10-28 r19: 8 Gale Times 2014 pages, "JSONDecodeError") is scanned once again.
+failed = {"edition": "GaleTimes2014UKEnglish/2014-03-05", "inputs": "h", "filesHash": "h",
+          "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2014UKEnglish/2014-03-05"))), "verdicts": [],
+          "scan": {"puzzles": [], "solutions": [], "failed": "JSONDecodeError: Expecting value"},
+          "readAt": "2026-10-18T03:07:34+00:00"}
+check("a failed scan read before REREAD_FAILED_SCAN is due FAILED_SCAN and stale; read since, with a verdict, "
+      "or not failed it is not",
+      [f.FAILED_SCAN, False, False, False, True],
+      [f.fix_reason(failed), f.scan_current(failed, "h"),
+       f.failed_rescan({**failed, "readAt": "2099-01-01T00:00:00+00:00"}),
+       f.failed_rescan({**failed, "verdicts": [{"number": 1, "refused": "x"}]}),
+       f.scan_current({**failed, "readAt": "2099-01-01T00:00:00+00:00"}, "h")])
+check("a failed scan's reason passes a blanket one and ranks 2", (f.FAILED_SCAN, 2),
+      (f.blanket_or_fix(failed, "inputs changed"), f.RANKS[f.FAILED_SCAN]))
+check("the failed-scan reread time is not in the future", True,
+      scan_queue.when(f.REREAD_FAILED_SCAN) <= scan_queue.when("now"))
 old = {**none, "edition": "GaleTimes1958UKEnglish/1958-12-31",
        "scan": {**none["scan"], "item": "GaleTimes1958UKEnglish", "date": "1958-12-31"}}
 check("a Gale 1957-62 page no title was found on by older scan code is due too; one of 1956 or 1963 is due "
