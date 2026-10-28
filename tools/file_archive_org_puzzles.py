@@ -13706,7 +13706,11 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
         rel, row = rels[d], known.get(rels[d]) or {}
         why = _edition_reason(st, paper, d, rel, row, fhs[d], d in stale_set, scans[rel], solutions, sources,
                               answerless, answerless_own, has_host, seen_by, reread)
-        if not why and rel in asked:
+        # An edition the annotation asked to have read again is read for that, whatever else is due of it (a first
+        # read aside): under its other reason it was ranked 2 ("scan stale, answers missing"), dropped by
+        # only_evidence, or skipped by unit_skip as "already held whole". 10-28: 23 of 24 archive.org Times
+        # requests (why ["annotatorNote"]) never ran so.
+        if rel in asked and why not in ("never read", "never read (Gale fetch)", "just laid out"):
             why = "annotation asked"
         if why == "never read" and paper.key in NEWEST_FIRST:
             why = "never read (Gale fetch)"

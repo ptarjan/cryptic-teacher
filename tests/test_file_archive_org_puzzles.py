@@ -3545,6 +3545,16 @@ e4.mkdir()
 settle(e4, e4.parent, pc)
 check("and 2 with one: the next issue, whose scan its read waits on",
       [(2, "scan stale, answers missing")], stale_fixed({"number": 15436}))
+def asked_reason(verdict):
+    """e1's read units when the annotation asked to have it read again."""
+    scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
+    with f.held_once():
+        reads = f._plan_paper_fresh(f.TIMES, pc, None, None, (f"{e1.parent.name}/{e1.name}",), None)[1]
+    return [(u["rank"], u["reason"], u["force"]) for u in reads if u["rel"].endswith("_1")]
+# 10-28: 23 of 24 archive.org Times annotator requests never ran: their edition was planned under its other
+# reason ("scan stale, answers missing", rank 2) or skipped as already held whole.
+check("an edition the annotation asked for is read for that (rank 1, forced), not its other reason",
+      [(1, "annotation asked", True)], asked_reason({"number": 15436}))
 scan_queue.append(pl, [settled_row(e4)])
 check("an answered or refused one still ranks 3", [[(3, "scan stale")], [(3, "scan stale")]],
       [stale_fixed({"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}),
@@ -3557,6 +3567,7 @@ f.unit_skip = lambda *a, **k: "already held (VLM-only reason)"
 try:
     answered = {"number": 15436, "solutionFrom": "x", "solution": {"accepted": 30, "lights": 30}}
     check("a stale read held already is skipped as VLM-only", [], stale_fixed(answered))
+    check("... but not one the annotation asked for", [(1, "annotation asked", True)], asked_reason(answered))
     f._row_likely = lambda st, series, rel, row, solutions: (
         ({f.LIKELY[0]: 1}, ()) if rel.endswith("_1") else real_row_likely(st, series, rel, row, solutions))
     check("... but not when its answers are linked now: it is read answers-only",
