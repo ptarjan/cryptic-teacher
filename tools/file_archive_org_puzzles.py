@@ -9863,7 +9863,8 @@ def prize_rescan(paper, key, rel):
     if key in _PRIZE_HEADINGS_FIX["gale"][:2] and prize_monday(day):
         return True
     return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
-                        _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2])
+                        _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2], _INSET_GRID_FIX["gale"][2],
+                        _LONE_TITLE_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 

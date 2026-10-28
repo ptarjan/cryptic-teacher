@@ -2452,7 +2452,8 @@ none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey"
         "scan": {"item": "GaleTimes2000UKEnglish", "date": "2000-03-14", "puzzles": [], "solutions": []},
         "readAt": "2026-10-13T05:00:00+00:00"}
 check("a Gale 2000 page no title was found on by older scan code is due; by the current code, with a title, "
-      "read, failed to scan, of 1999 or another paper is not", [f.NO_TITLE_RESCAN] + [None] * 6,
+      "read, failed to scan or of another paper is not; one of 1999 is due LONE_TITLE instead",
+      [f.NO_TITLE_RESCAN] + [None] * 4 + [f.LONE_TITLE, None],
       [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14")))}),
        f.fix_reason({**none, "scan": {**none["scan"], "puzzles": [{"number": 21363}]}}),
        f.fix_reason({**none, "verdicts": [{"number": 1, "complete": True}]}),
@@ -2461,8 +2462,9 @@ check("a Gale 2000 page no title was found on by older scan code is due; by the 
        f.fix_reason({**none, "scan": {**none["scan"], "item": "NewsUK2000UKEnglish"}})])
 old = {**none, "edition": "GaleTimes1958UKEnglish/1958-12-31",
        "scan": {**none["scan"], "item": "GaleTimes1958UKEnglish", "date": "1958-12-31"}}
-check("a Gale 1957-62 page no title was found on by older scan code is due too; one of 1956 or 1963 is not",
-      [f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, None, None],
+check("a Gale 1957-62 page no title was found on by older scan code is due too; one of 1956 or 1963 is due "
+      "INSET_GRID instead",
+      [f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.NO_TITLE_RESCAN, f.INSET_GRID, f.INSET_GRID],
       [f.fix_reason(old),
        f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1957UKEnglish", "date": "1957-01-02"}}),
        f.fix_reason({**old, "scan": {**old["scan"], "item": "GaleTimes1962UKEnglish", "date": "1962-12-31"}}),
