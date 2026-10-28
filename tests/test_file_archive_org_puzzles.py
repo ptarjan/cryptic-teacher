@@ -2509,7 +2509,8 @@ none = {"edition": "GaleTimes2000UKEnglish/2000-03-14", "inputs": "h", "scanKey"
 check("a Gale 2000 page no title was found on by older scan code is due; by the current code, with a title, "
       "read or of another paper is not; one failed to scan is due FAILED_SCAN; one of 1999 is due LONE_TITLE instead",
       [f.NO_TITLE_RESCAN] + [None] * 3 + [f.FAILED_SCAN, f.LONE_TITLE, None],
-      [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14")))}),
+      [f.fix_reason(none), f.fix_reason({**none, "scanKey": f.scan_key(f.paper_of(f.Path("GaleTimes2000UKEnglish/2000-03-14"))),
+                                         "scan": {**none["scan"], f.WHOLE_UNTITLED: True}}),
        f.fix_reason({**none, "scan": {**none["scan"], "puzzles": [{"number": 21363}]}}),
        f.fix_reason({**none, "verdicts": [{"number": 1, "complete": True}]}),
        f.fix_reason({**none, "scan": {**none["scan"], "failed": "x"}}),
@@ -3221,8 +3222,8 @@ check("an untitled 1941 Gale Times scan made before inset_grid is due again (INS
        f.scan_current({**_inset, "scan": {**_inset["scan"], "puzzles": [{"number": 3409, "leaf": 0}]}}, "h"),
        f.scan_current({**_inset, "verdicts": [{"number": 3409}]}, "h"),
        f.inset_rescan(_i1975), f.fix_reason(_i1975),
-       f.scan_current({**_inset, "scanKey": f.scan_key(f.GALE)}, "h"),
-       f.fix_reason({**_inset, "scanKey": f.scan_key(f.GALE)})])
+       f.scan_current({**_inset, "scanKey": f.scan_key(f.GALE), "scan": {**_inset["scan"], f.WHOLE_UNTITLED: True}}, "h"),
+       f.fix_reason({**_inset, "scanKey": f.scan_key(f.GALE), "scan": {**_inset["scan"], f.WHOLE_UNTITLED: True}})])
 # An untitled Gale Times page scanned before paired_titles (the key the lone-title fix pins over, of any year
 # 1930-2014): its scan stale, due LONE_TITLE once (an INSET_YEARS one under a pre-inset key stays INSET_GRID's);
 # a titled one, one with a verdict, a Gale Telegraph one and a scan by the new code stand; rekey_scans leaves it.
@@ -3240,8 +3241,27 @@ check("an untitled 1982 or 1940 Gale Times scan made before paired_titles is due
        f.scan_current({**_lone, "verdicts": [{"number": 15887}]}, "h"),
        f.lone_rescan({**_lone, "edition": "GaleTelegraph1982UKEnglish/1982-07-21",
                       "scan": {**_lone["scan"], "item": "GaleTelegraph1982UKEnglish"}}),
-       f.scan_current({**_lone, "scanKey": f.scan_key(f.GALE)}, "h"),
-       f.fix_reason({**_lone, "scanKey": f.scan_key(f.GALE)}), f.RANKS[f.LONE_TITLE]])
+       f.scan_current({**_lone, "scanKey": f.scan_key(f.GALE), "scan": {**_lone["scan"], f.WHOLE_UNTITLED: True}}, "h"),
+       f.fix_reason({**_lone, "scanKey": f.scan_key(f.GALE), "scan": {**_lone["scan"], f.WHOLE_UNTITLED: True}}),
+       f.RANKS[f.LONE_TITLE]])
+# An untitled Gale Times page with no verdict scanned by this scan code before REREAD_GF_UNREAD and not read whole
+# (a grid-first scan's windows only): its scan stale, due GF_UNREAD once, past blanket_or_fix; one read whole
+# (WHOLE_UNTITLED), titled, read since, with a verdict (gf_rescan's), failed, or under a pinned key stands.
+_gu = {**_lone, "edition": "GaleTimes1944UKEnglish/1944-06-06", "scanKey": f.scan_key(f.GALE),
+       "readAt": "2026-10-25T13:24:00+00:00",
+       "scan": {"date": "1944-06-06", "item": "GaleTimes1944UKEnglish", "puzzles": [], "solutions": []}}
+check("an untitled verdict-less Gale Times page scanned by this scan code before REREAD_GF_UNREAD is due GF_UNREAD "
+      "(its scan stale); read whole, titled, read since, with a verdict, failed or under a pinned key it is not",
+      [True, False, f.GF_UNREAD, f.GF_UNREAD, False, False, False, False, False, False, 2],
+      [f.gf_unread(_gu), f.scan_current(_gu, "h"), f.fix_reason(_gu), f.blanket_or_fix(_gu, "inputs changed"),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], f.WHOLE_UNTITLED: True}}),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], "puzzles": [{"number": 4450, "leaf": 0}]}}),
+       f.gf_unread({**_gu, "readAt": "2026-10-29T00:00:00+00:00"}),
+       f.gf_unread({**_gu, "verdicts": [{"number": 4450, "id": "times-4450"}]}),
+       f.gf_unread({**_gu, "scan": {**_gu["scan"], "failed": "x"}}),
+       f.gf_unread({**_gu, "scanKey": _lk[0]}), f.RANKS[f.GF_UNREAD]])
+check("the GF_UNREAD reread time is not in the future", True,
+      scan_queue.when(f.REREAD_GF_UNREAD) <= scan_queue.when("now"))
 # A Gale Times page a grid-first rescan by this scan code left untitled while its row holds a verdict, read before
 # REREAD_GF_TITLE: its scan stale, due GF_TITLE once, past blanket_or_fix's lost-title guard; one read whole since
 # (WHOLE_UNTITLED), titled, read after the cutoff, with no verdict, under a pinned key, or a Gale Telegraph one stands.
