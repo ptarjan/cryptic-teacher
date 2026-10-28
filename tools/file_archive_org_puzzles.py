@@ -15380,7 +15380,19 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM, NEIGHBOUR_TAIL, EDGE_LETTERS,
                   ALONE_READ, BAND_GRID, LEFT_SPLIT, SCALED_GRID, LEFT_LATE, SCALED_EARLY, LEAD_RETRY, BAND_LATE,
                   SMALL_PAGE, RIGHT_ADS, FIFTIES_LEFT, CLOSED_GRID, LINKED_LEAD, DOWN_CUT, DOWN_FOOT, INSET_GRID,
-                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT, SEE_RUNS_ON)
+                  LONE_TITLE, SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT, SEE_RUNS_ON,
+                  # 10-28 r14: the Times's refusal rereads were masked so too (refusal_passes), and these full
+                  # rereads of a page no file holds: 35 RIGHT_FOREIGN_READ, 10 NO_TITLE_RESCAN, 1 TOUCHING_GRID.
+                  RIGHT_FOREIGN_READ, NO_TITLE_RESCAN, TOUCHING_GRID)
+
+
+def refusal_passes(why):
+    """Whether fix_reason answer `why` is a refusal reread ("refused <cause> before its fix"): for a Times
+    series row (blanket_or_fix asks only those) it stands past a blanket reason as BLANKET_PASSES' do.
+    10-28 r14: 90 unfiled Times rows due so stood unplanned as "inputs changed" (no-reading-parses 61,
+    not-a-grid 38 with the lost-title rows, crashed 3, number-date-mismatch 4). Another paper's refusal
+    rereads are not asked here: they keep the blanket reason, and the refusal hold covers them."""
+    return bool(why) and why.startswith("refused ") and why.endswith(" before its fix")
 
 
 def blanket_or_fix(row, blanket):
@@ -15397,15 +15409,21 @@ def blanket_or_fix(row, blanket):
     (172), which only_evidence drops; LOST_WRITE rereads since 10-25 filed 64% of their pages, 33% whole.
     So does each of BLANKET_PASSES' (a write the gate refused over punctuation a mend since clears, a
     1940-44 page's down tail, a found title never read): nothing holds its puzzle either. 10-28: 23 Gale
-    pages whose titles were never read planned "scan stale, answers missing" so."""
+    pages whose titles were never read planned "scan stale, answers missing" so. So does a refusal
+    reread (refusal_passes). A lost title stops a full reread (not SOLUTION_FIXES) only when the scan
+    holds no title at all: it reads the titles its scan holds now (10-28 r14: 17 rows, mostly a
+    verdict read_as one off its scan's title; 72 whose rescan found no title keep the blanket reason)."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
         return blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
-    if any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
-            and not held_titles(row):
+    lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
+        and not held_titles(row)
+    if lost and not titles:
         return blanket
     why = fix_reason(row)
-    return why if why in SOLUTION_FIXES or why in BLANKET_PASSES else blanket
+    if why in SOLUTION_FIXES:
+        return blanket if lost else why
+    return why if why in BLANKET_PASSES or refusal_passes(why) else blanket
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
