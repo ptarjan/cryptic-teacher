@@ -981,6 +981,51 @@ def scaled_under(img, title):
     return box if wide > SOLUTION_GRID[1] and solution_shaped(img)(box) else None
 
 
+#: The least share of a grid's width its title must span over it for offset_under() to take it
+#: as the grid under the title, and how far under the title's foot (a share of the grid's width)
+#: its top may start (1940-10-04: 25px).
+OFFSET_UNDER_SHARE = 0.5
+OFFSET_UNDER_GAP = 0.1
+#: The years whose Gale Times pages band_grid() reads (surveyed 10-28: 1940-49).
+OFFSET_UNDER_YEARS = ("1939", "1949")
+
+
+def offset_under(title, box):
+    """`box` when it is the grid under `title` though locate_grid() did not take it so, else None:
+    its top lies within the title's line (box[1] at or under the title's top, at most
+    OFFSET_UNDER_GAP of its width under its foot), it starts right of the title's left edge, and
+    the title spans OFFSET_UNDER_SHARE of its width. See band_grid()."""
+    if box is None:
+        return None
+    x0, y0, x1, y1 = title
+    gw = box[2] - box[0]
+    if gw <= 0 or not y0 <= box[1] <= y1 + OFFSET_UNDER_GAP * gw or not x0 < box[0]:
+        return None
+    return box if min(x1, box[2]) - box[0] >= OFFSET_UNDER_SHARE * gw else None
+
+
+def band_grid(img, title, box=None):
+    """The grid under `title` whose top lies within the title's own line (offset_under), which
+    locate_grid() put beside it (`box`, side "right") or missed (side None), else None. Two
+    1940-49 Gale Times layouts:
+    - one title line heads the clue column and the grid ("THE TIMES CROSSWORD PUZZLE No. 4,218"
+      over both), the grid under its right part, the title's middle just left of the grid
+      (1943-09-06: title x 1221-2244, grid from 1788; 1944-02-11, 1947-04-15, 1948-01-01). Taken
+      as "right", the clue window was lead_column()'s, the 150px between the title's middle and
+      the grid, and every reading was refused "no ACROSS and DOWN lists"; read "below",
+      indented_column() takes the column left of the grid, as on 1947-05-27, whose title's middle
+      falls on its grid.
+    - the grid's top frame 10px up inside a tall title's box (1948-02-21, 1949-07-25): the crop
+      under the title's foot cut the frame off and took a rule ("the ink under the title is
+      1086x20, not a grid").
+    `box` itself when it qualifies; else the topmost grid-shaped ink on the page (grids_on) that
+    does. Read-time only: the scan's locate_grid() is unchanged."""
+    if offset_under(title, box):
+        return box
+    under = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b)) if offset_under(title, g)]
+    return min(under, key=lambda g: g[1]) if under else None
+
+
 def grid_under_clues(img, title):
     """Where the grid is when the clues are printed over it: the largest ink
     in the CLUES_ABOVE_SPAN under the title, which is the left column's
@@ -8245,6 +8290,13 @@ def _read_page(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=Fa
         if under is not None:
             gbox, side = under, "below"
             verdict["gridBox"] = "under its title, solution-sized"
+    # A 1939-49 Gale Times grid whose top lies within its title's line, taken as beside it or missed (band_grid).
+    if side in ("right", None) and paper.key == "gale" and not paper.clues_above and not paper.four \
+            and OFFSET_UNDER_YEARS[0] <= d.name[:4] <= OFFSET_UNDER_YEARS[1]:
+        band = band_grid(img, hit["box"], gbox if side == "right" else None)
+        if band is not None:
+            gbox, side = band, "below"
+            verdict["gridBox"] = "under its title, top in its line"
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
@@ -10790,6 +10842,62 @@ def alone_lost(row):
     return False
 
 
+#: The reason, and its fix's time, of a 1939-49 Gale Times page (OFFSET_UNDER_YEARS) refused for a grid
+#: whose top lies within its title's line (band_grid): taken as right of the title (one title line heads
+#: the clue column and the grid; every reading "no ACROSS and DOWN lists under the grid"), or missed, the
+#: crop under the title's foot cutting its frame off ("the ink under the title is 1086x20, not a grid").
+#: 10-28 survey of the 1940-49 refused rows: band_grid takes a grid on 12. Readers only, offline:
+#: 1943-09-06 (No 4,218) no reading parsed -> 27 of 28 clues agreed; 1948-02-21 (No 5,599) "the ink under
+#: the title is 1086x20" -> 29 of 32. 11 rows come due (1943-49), 1 of them (1948-01-01) under the
+#: refusal's own reason already, 1 (1948-02-04) holding no grid band_grid takes. Due by the ledger alone (band_due): the first
+#: layout's title spans BAND_TITLE_WIDTH at SCAN_WIDTH (its clue column's and grid's: 927-1053; a
+#: title over its grid alone 700-880); the second, a 1942-49 "not a grid" refusal (1940-41's 40 such
+#: pages hold no grid near their title; 5 of the 1948-49 6 do). Once each.
+BAND_GRID = "a grid in its title's line, refused before its fix"
+REREAD_BAND_GRID = "2026-10-28T08:20:00+00:00"
+BAND_TITLE_WIDTH = 900
+#: The first year whose "not a grid" refusals band_due() takes.
+BAND_NOT_GRID_FROM = "1942"
+
+
+def band_due(row):
+    """Whether Gale Times ledger `row` of OFFSET_UNDER_YEARS, read before REREAD_BAND_GRID, refused a
+    title for band_grid()'s case, its puzzle not held: "no reading parses", every reading "no ACROSS and
+    DOWN lists", under a title BAND_TITLE_WIDTH wide or more at SCAN_WIDTH (pages.json gives the page's
+    width); or, from BAND_NOT_GRID_FROM, "not a grid" for the ink under the title."""
+    scan = row.get("scan") or {}
+    day = str(scan.get("date") or "")
+    if not re.fullmatch(r"GaleTimes\d{4}UKEnglish", str(scan.get("item") or "")) \
+            or not OFFSET_UNDER_YEARS[0] <= day[:4] <= OFFSET_UNDER_YEARS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_BAND_GRID)):
+        return False
+    titles = {p.get("number"): p for p in scan.get("puzzles") or ()}
+    series = paper_of(row.get("edition", "")).series
+    width = None
+    for v in row.get("verdicts", ()):
+        if filed_state(series, v.get("number")) is not None:
+            continue
+        if v.get("cause") == "not-a-grid" and day[:4] >= BAND_NOT_GRID_FROM \
+                and str(v.get("refused") or "").startswith("the ink under the title is "):
+            return True
+        unparsed = v.get("unparsed") or {}
+        if v.get("cause") != "no-reading-parses" or not unparsed \
+                or not all(str(s).startswith("no ACROSS and DOWN lists") for s in unparsed.values()):
+            continue
+        title = (titles.get(v.get("read_as")) or titles.get(v.get("number")) or {}).get("box")
+        if not title:
+            continue
+        if width is None:
+            try:
+                pages = json.loads((Path(CACHE) / row["edition"] / "pages.json").read_text())
+                width = max(int(p.get("width") or 0) for p in pages["crossword_pages"]) or SCAN_WIDTH
+            except (KeyError, OSError, TypeError, ValueError):
+                width = SCAN_WIDTH
+        if (title[2] - title[0]) * SCAN_WIDTH / width >= BAND_TITLE_WIDTH:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) of the letter-spaced years whose read
 #: wrote its puzzle unfiled with a clue blanked as "a stray letter": the Times set a word of emphasis
 #: letter-spaced, not in italics ("W o r d s w o r t h ' s standard", "There's l i t t l e among the guns",
@@ -13258,6 +13366,8 @@ def fix_reason(row):
         return EDGE_LETTERS
     if alone_lost(row):
         return ALONE_READ
+    if band_due(row):
+        return BAND_GRID
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNFILED)) and unfiled_blank(row):
         return "unfiled before its fix"
     if unfiled_modern(row):
@@ -13901,7 +14011,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,

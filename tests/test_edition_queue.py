@@ -473,6 +473,28 @@ try:
 finally:
     shutil.rmtree(f.CROPS, ignore_errors=True)
     f.CROPS = _al_crops
+# ---- a 1939-49 Gale Times page refused for a grid whose top lies within its title's line (1943-09-06: one title
+# line over the clue column and the grid, the grid taken as right of it; 1948-02-21: missed, "1086x20, not a grid")
+# is due once (fa.BAND_GRID), ordered with never-read pages, never canary-held.
+_bg_nolist = {k: "no ACROSS and DOWN lists under the grid" for k in ("ch", "en5", "times", "vlm")}
+_bg = {"number": 9999987, "leaf": 0, "unparsed": _bg_nolist, "refused": "no reading parses", "cause": "no-reading-parses"}
+_bgrow = {"edition": "GaleTimes1943UKEnglish/1943-09-06", "verdicts": [_bg], "readAt": "2026-10-27T03:06:10+00:00",
+          "scan": {"date": "1943-09-06", "item": "GaleTimes1943UKEnglish",
+                   "puzzles": [{"number": 9999987, "leaf": 0, "box": [1221, 3925, 2244, 4014]}]}}
+_bgng = {"number": 9999987, "leaf": 0, "refused": "the ink under the title is 1086x20, not a grid", "cause": "not-a-grid"}
+_bgngrow = {**_bgrow, "edition": "GaleTimes1948UKEnglish/1948-02-21", "verdicts": [_bgng],
+            "scan": {**_bgrow["scan"], "date": "1948-02-21", "item": "GaleTimes1948UKEnglish"}}
+check("a 1940s Gale Times page refused for a grid in its title's line is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.BAND_GRID, f.BAND_GRID, 2, True, True, True, None],
+      [f.fix_reason(_bgrow), f.fix_reason(_bgngrow), f.RANKS[f.BAND_GRID], eq.evidence_reason(f.BAND_GRID), f.BAND_GRID in eq.FIX_LANDED,
+       f.BAND_GRID in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.BAND_GRID, "date": "1943-09-06"})])
+check("not after the fix, nor a title over its grid alone, nor another unparsed list, nor 1940-41's not a grid, nor the 1950s",
+      [False] * 5,
+      [f.band_due({**_bgrow, "readAt": _after}),
+       f.band_due({**_bgrow, "scan": {**_bgrow["scan"], "puzzles": [{"number": 9999987, "leaf": 0, "box": [1593, 3890, 2247, 3942]}]}}),
+       f.band_due({**_bgrow, "verdicts": [{**_bg, "unparsed": {**_bg_nolist, "ch": "down clues do not parse: cannot find a clue number"}}]}),
+       f.band_due({**_bgngrow, "scan": {**_bgngrow["scan"], "date": "1941-03-10", "item": "GaleTimes1941UKEnglish"}}),
+       f.band_due({**_bgrow, "scan": {**_bgrow["scan"], "date": "1953-09-07", "item": "GaleTimes1953UKEnglish"}})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
