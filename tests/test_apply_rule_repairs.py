@@ -191,4 +191,9 @@ check("doesNotGive: a word hidden backwards is named as rev(hid()), the hid insi
 msg = mend("[To appear]EMERGE + [cold]C + [New York]NY", "To appear cold in New York", "EMERGENCY")
 check("doesNotGive: a charade piece that only fits inside its neighbour says to write the container",
       "[cold]C goes inside [New York]NY" in msg and "ins<indicator>([New York]NY, [cold]C)" in msg)
+check("doesNotGive: hid() over a rev() of the clue words is mended into rev(hid())",
+      mend("hid<to some extent>(rev<getting upset>([Now] + [then]))", "Now then, getting upset to some extent", "TWO")
+      == "rev<getting upset>(hid<to some extent>([Now then]))")
+check("doesNotGive: hid() over a rev() of a looked-up word stays refused",
+      mend("hid<in>(rev<back>([Inverting]GNITREVNI))", "Inverting back in", "NITRE").startswith("REFUSED"))
 sys.exit(1 if fails else 0)
