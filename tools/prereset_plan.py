@@ -98,7 +98,10 @@ EXHAUSTED = float(os.environ.get("EXHAUSTED") or 99)
 # limit locked every chat room out until the reset. Five points of slack, and
 # paced_need stops starting runs once the headroom is under what the runs in
 # flight and the bridge will still spend (RUN_TAIL_H, RECENT_LINES).
-SESSION_CEILING = float(os.environ.get("SESSION_CEILING") or 95)
+# Raised to 98 (Paul 2026-10-28: "100 is a better target if you can but I don't
+# want to hit usage limits ... get up to but don't exceed the limits"): two
+# points of slack, the in-flight guard above doing the rest.
+SESSION_CEILING = float(os.environ.get("SESSION_CEILING") or 98)
 # Hours a run started (or in flight) is still expected to spend after the pacer
 # last looked: an annotate run lasts minutes, and a bag more.
 RUN_TAIL_H = 0.25
@@ -898,18 +901,18 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     ((88, 1.0, 2.0, 0, 6.0), 33),
     ((88, 0.05, 2.0, 0, 6.0), 660),   # the floor: the last checkpoint is finite
 ]] + [(("session",) + a, w) for a, w in [
-    # five-hour mode: 67 points left under SESSION_CEILING by the reset 4h out,
+    # five-hour mode: 70 points left under SESSION_CEILING by the reset 4h out,
     # bridge 10 an hour, 2 a run-hour
-    ((28, 4.0, 2.0, 10, 1.0), 3),
-    ((28, 4.0, 2.0, 0, 1.0), 8),      # a quiet bridge leaves the burn more
+    ((28, 4.0, 2.0, 10, 1.0), 4),
+    ((28, 4.0, 2.0, 0, 1.0), 9),      # a quiet bridge leaves the burn more
     ((28, 4.0, 2.0, 24, 1.0), 2),     # the rooms alone would spend it, but headroom keeps the floor
     # 2026-10-17: 36% with 3.6h left, bridge 17.7 an hour from a spike: floor, not 0
     ((36, 3.6, 2.0, 17.7, 1.0), 2),
     ((85, 3.0, 2.0, 30, 1.0), 0),     # 85 + 12 is over 95: ramp-down wins, no floor
     ((94, 1.0, 2.0, 30, 1.0), 0),
-    # 5 points due at the reset, 0.25h out: 2.5 run-hours
-    ((90, 0.25, 2.0, 0, 1.0), 10),
-    ((95, 0.25, 2.0, 0, 1.0), 0),     # at SESSION_CEILING: none, never on into a lockout
+    # 8 points due at the reset, 0.25h out: 4 run-hours
+    ((90, 0.25, 2.0, 0, 1.0), 16),
+    ((98, 0.25, 2.0, 0, 1.0), 0),     # at SESSION_CEILING: none, never on into a lockout
     ((99, 0.25, 2.0, 0, 1.0), 0),
     # 10-23: 93% with 0.5h left, 3 runs in flight: they and the bridge still
     # spend 3 x 6 x 0.25 + 2 = 6.5 points of the 2 left: nothing new starts
