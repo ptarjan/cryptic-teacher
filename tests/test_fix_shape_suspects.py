@@ -451,6 +451,29 @@ new, used = F.repair_tree(hl, "Covering for wheels, wheels in delivery truck", "
 check("a bare hidden word takes the 'in' before its leaf",
       used == ["unindicatedBare"] and new["parts"][0]["indicators"][0]["text"] == "in")
 
+# strict unindicatedBare (the hard noIndicator rule, lone ops the warning exempts): a container takes the
+# whole unused gap between its pieces; a hid() over a possessive leaf takes the 's
+import validate_annotations as V_
+V_ops = V_.unindicated_ops
+UBS = {"unindicatedBare": F.RULE_REPAIRS["unindicatedBare"]}
+cg = {"op": "container", "parts": [{"words": "grand to", "gives": "GTO"}, {"words": "rhubarb", "gives": "ROT"}]}
+new, used = F.repair_tree(cg, "grand to put around rhubarb", "GROTTO", UBS)
+check("a bare container takes the whole gap between its pieces", used == ["unindicatedBare"]
+      and new["indicators"][0]["text"] == "put around" and V_ops(new) == 0)
+cg2 = {"op": "container", "parts": [{"words": "shelter", "gives": "HAVEN"}, {"words": "nothing", "gives": "O"}]}
+new, used = F.repair_tree(cg2, "Wear nothing inside shelter", "HAVEON", UBS)
+check("a lone bare container takes the unused 'inside' (strict count)", new.get("indicators", [{}])[0].get("text") == "inside")
+cg3 = {"op": "container", "parts": [{"words": "shelter", "gives": "HAVEN"}, {"words": "nothing", "gives": "O"}]}
+new, used = F.repair_tree(cg3, "Wear nothing and shelter", "HAVEON", UBS)
+check("no container word in the gap: left bare", "indicators" not in new)
+hp = {"op": "hidden", "parts": [{"words": "Isaac Newton's", "gives": "ACNE"}]}
+new, used = F.repair_tree(hp, "Isaac Newton's teenage trouble", "ACNE", UBS)
+check("a hid() over a possessive leaf takes the 's as its indicator", used == ["unindicatedBare"]
+      and new["indicators"][0]["text"] == "'s" and new["parts"][0]["words"] == "Isaac Newton")
+hp2 = {"op": "hidden", "parts": [{"words": "Isaac Newton's", "gives": "ACNE"}]}
+new, used = F.repair_tree(hp2, "Isaac Newton's teenage trouble", "ACNS", UBS)
+check("possessive hid(): an answer that needs the 's is left alone", "indicators" not in new)
+
 # del_single: a deletion over a composite whose letters come out of one literal leaf filed already cut
 D1 = {"del_single": F.r_del_single}
 d1 = {"op": "deletion", "unchecked": True, "indicators": [{"text": "endless"}], "parts": [

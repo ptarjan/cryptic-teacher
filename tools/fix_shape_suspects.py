@@ -1680,7 +1680,7 @@ def _op_spans(op):
             and isinstance(x.get("at"), int)]
 
 
-def _unindicated_swap(node, ctx, base, role):
+def _unindicated_swap(node, ctx, base, role, count=None):
     """A charade's indicator owned by the type of op X, where X carries only a word nothing files under any
     type, and a bare op B stands right beside that word: the charade's word goes to X, X's word to B
     (charade<at the outset>(first<hosted>(g), ins(long, uncle's)) -> first<at the outset>, ins<hosted>).
@@ -1715,7 +1715,7 @@ def _unindicated_swap(node, ctx, base, role):
             if not h["indicators"]:
                 h.pop("indicators")
             x["indicators"], b["indicators"] = [i], [j]
-            if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
+            if (count or V.unindicated_uncovered)(node) < base and V.wrong_role_indicators(node) <= role:
                 return node
             b.pop("indicators")
             x["indicators"] = [j]
@@ -1723,7 +1723,7 @@ def _unindicated_swap(node, ctx, base, role):
     return None
 
 
-def r_unindicated_move(node, parent, ctx):
+def r_unindicated_move(node, parent, ctx, count=None):
     """unindicatedBare: a checked op with no indicator while a word the corpus files under its type (or
     the indicator lexicon lists for it) sits on another node that does not need it (a charade, or an op of
     a different type): the word moves to the bare op (charade<guards>(DET, ins(PLUS, C)) is
@@ -1736,7 +1736,7 @@ def r_unindicated_move(node, parent, ctx):
     not_this_type (such words, none fits), ambiguous (several fit, or two ops want one word), validator."""
     if parent is not None:
         return None
-    base, role = V.unindicated_uncovered(node), V.wrong_role_indicators(node)
+    base, role = (count or V.unindicated_uncovered)(node), V.wrong_role_indicators(node)
     if not base:
         return None
     log = ctx.get("declines")
@@ -1778,15 +1778,15 @@ def r_unindicated_move(node, parent, ctx):
         op["indicators"] = [i]
         if not h["indicators"]:
             h.pop("indicators")
-        if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
-            base, role, done = V.unindicated_uncovered(node), V.wrong_role_indicators(node), True
+        if (count or V.unindicated_uncovered)(node) < base and V.wrong_role_indicators(node) <= role:
+            base, role, done = (count or V.unindicated_uncovered)(node), V.wrong_role_indicators(node), True
             continue
         op.pop("indicators")
         h.setdefault("indicators", []).append(i)
         if log is not None:
             log.append("validator")
     if not done and wide:
-        return _unindicated_swap(node, ctx, base, role)
+        return _unindicated_swap(node, ctx, base, role, count)
     return node if done else None
 
 
@@ -1802,7 +1802,7 @@ def _claimed(tree, clue):
     return cov
 
 
-def r_unindicated_spare(node, parent, ctx):
+def r_unindicated_spare(node, parent, ctx, count=None):
     """unindicatedBare: a checked op with no indicator while one clue word, unused by any leaf or
     indicator, stands right beside its words and is a word the corpus files under its type (a
     container's "hosting", a reversal's "back"): the word becomes the op's indicator. Only one such
@@ -1811,7 +1811,7 @@ def r_unindicated_spare(node, parent, ctx):
     if parent is not None:
         return None
     clue = ctx["clue"]
-    base, role = V.unindicated_uncovered(node), V.wrong_role_indicators(node)
+    base, role = (count or V.unindicated_uncovered)(node), V.wrong_role_indicators(node)
     if not base or any(not isinstance(x.get("at"), int) for x, _ in walk(node) if leaf(x) and x.get("words")):
         return None
     cov = _claimed(node, clue)
@@ -1842,10 +1842,70 @@ def r_unindicated_spare(node, parent, ctx):
             continue
         m = ms[0]
         op["indicators"] = [{"text": m.group(), "at": m.start(), "note": "the clue word that signals this step"}]
-        if V.unindicated_uncovered(node) < base and V.wrong_role_indicators(node) <= role:
+        if (count or V.unindicated_uncovered)(node) < base and V.wrong_role_indicators(node) <= role:
             return node
         op.pop("indicators")
     return None
+
+#: Words that join a container's indicator phrase without saying "contains" themselves.
+_GAP_STOP = frozenset({"to", "a", "the", "of", "is", "be", "and", "will", "can", "that", "by", "has", "was"})
+
+
+def _span_of(node):
+    """(start, end) of the clue characters under `node` (leaf words and indicators), or None when one has no place."""
+    lo, hi = None, 0
+    for x, _ in walk(node):
+        for at, t in ([(x.get("at"), x.get("words"))] if leaf(x) else []) + [(i.get("at"), i.get("text")) for i in x.get("indicators") or []]:
+            if not t:
+                continue
+            if not isinstance(at, int):
+                return None
+            lo, hi = at if lo is None else min(lo, at), max(hi, at + len(t))
+    return None if lo is None else (lo, hi)
+
+
+def r_container_gap(node, parent, ctx, count=None):
+    """unindicatedBare, container: a bare two-part container whose argument spans are apart in the clue by
+    one to three words no leaf or indicator uses, one of them a container word the corpus files that way
+    (share 0.7, 20+ uses): the gap is the indicator, whole ("put around", "embraced by", "cutting"). The
+    one-word spare fixer takes "put" or "embraced" alone; the gap says all of it. Kept only when the
+    validator then counts fewer bare ops."""
+    count = count or V.unindicated_ops
+    if node.get("op") != "container" or node.get("unchecked") or node.get("indicators") \
+            or id(node) in ctx["under_unchecked"]:
+        return None
+    kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    spans = [_span_of(k) for k in kids]
+    if len(kids) != 2 or None in spans:
+        return None
+    (a0, a1), (b0, b1) = sorted(spans)
+    clue = ctx["clue"]
+    gap = clue[a1:b0]
+    cov = _claimed(ctx["tree"], clue)
+    words = re.findall(r"[A-Za-z']+", gap)
+    if not 1 <= len(words) <= 3 or re.search(r"[^A-Za-z' ]", gap.strip(" ,;")):
+        return None
+    if any(c for c, ch in zip(cov[a1:b0], gap) if c and ch != " "):
+        return None
+    anchor = False
+    for w in words:
+        counts = V._role_counts(V.indicator_role_key(w))
+        total = sum(counts.values())
+        if total >= 20 and counts.get("container", 0) >= 0.7 * total:
+            anchor = True
+        elif w.lower() not in _GAP_STOP and total >= 20 and counts.get("container", 0) < 0.3 * total:
+            return None
+    if not anchor:
+        return None
+    text = gap.strip(" ,;")
+    at = a1 + gap.index(text)
+    base = count(ctx["tree"])
+    node["indicators"] = [{"text": text, "at": at, "note": "the clue words that say one part holds the other"}]
+    if count(ctx["tree"]) < base:
+        return node
+    node.pop("indicators")
+    return None
+
 
 #: Words that say "the letters sit inside what follows" and nothing else: the one an unindicated
 #: hidden word borrows when it stands right before the hidden leaf ("wheels in delivery truck").
@@ -1887,6 +1947,37 @@ def r_hidden_link(node, parent, ctx):
     if V.unindicated_ops(ctx["tree"]) < count:
         return node
     node.pop("indicators")
+    return None
+
+
+def r_hidden_possessive(node, parent, ctx):
+    """unindicatedBare, hidden: a hid() with no indicator over one leaf whose clue words end in 's
+    ("Isaac Newton's teenage trouble": ACNE, "The Bronx's river"): the 's is the setter's "has", the
+    classic hidden-word signal. The leaf gives up its 's and the 's becomes the indicator, when the
+    answer still comes out without those two characters and the validator counts fewer bare ops."""
+    if node.get("op") != "hidden" or node.get("unchecked") or node.get("indicators") \
+            or id(node) in ctx["under_unchecked"] or not ctx.get("answer"):
+        return None
+    kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if len(kids) != 1 or not leaf(kids[0]) or not isinstance(kids[0].get("at"), int):
+        return None
+    words = str(kids[0].get("words") or "")
+    if not re.search(r"\w['\u2019]s$", words):
+        return None
+    count = V.unindicated_ops(ctx["tree"])
+    old = dict(kids[0])
+    kids[0]["words"] = words[:-2]
+    node["indicators"] = [{"text": words[-2:], "at": kids[0]["at"] + len(words) - 2,
+                           "note": "'s here means has: the words before it hold the hidden answer"}]
+    try:
+        W.evaluate(copy.deepcopy(ctx["tree"]), ctx["answer"])
+        if V.unindicated_ops(ctx["tree"]) < count:
+            return node
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError):
+        pass
+    node.pop("indicators")
+    kids[0].clear()
+    kids[0].update(old)
     return None
 
 
@@ -3647,7 +3738,8 @@ RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
-                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c), "spanOverlap": r_span_overlap,
+                "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c)
+                or r_container_gap(n, p, c) or r_hidden_possessive(n, p, c) or r_unindicated_move(n, p, c, V.unindicated_ops) or r_unindicated_spare(n, p, c, V.unindicated_ops), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
                 "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give,
                 "indicatorNote": r_indicator_note}
