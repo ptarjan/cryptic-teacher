@@ -281,13 +281,18 @@ def drop_stale_annotations(puzzle, *written):
     first of `written` (written_against) holding that same annotation, to
     other words, or to text missing a phrase the annotation quotes. The entry
     goes back to the annotate backlog (annotate_check's annotateOnly) rather
-    than reaching disk explained by words its clue does not have."""
+    than reaching disk explained by words its clue does not have. New text
+    that is SOURCE_CLUE_WRONG's correction of the old (a scan's slip mended,
+    repair_fetched --annotated-mends) keeps an annotation quoting none of the
+    mended words, as validate_annotations.check_clue_unchanged lets it stand."""
     entries = []
     for e in puzzle.get("entries") or []:
         ann, text = e.get("annotation"), (e.get("clue") or {}).get("text") or ""
         before = next((w[entry_id(e)][1] for w in written
                        if entry_id(e) in w and w[entry_id(e)][0] == ann), text)
-        if text != before and (clue_words(text) != clue_words(before)
+        corrected = (clue_words(source_clue(puzzle.get("id"), entry_id(e), before)) == clue_words(text)
+                     and corrected_clue(puzzle.get("id"), entry_id(e)) is not None)
+        if text != before and ((clue_words(text) != clue_words(before) and not corrected)
                                or not all(q in text for q in quoted(ann))):
             e = {k: v for k, v in e.items() if k != "annotation"}
         entries.append(e)
