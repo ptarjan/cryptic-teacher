@@ -814,7 +814,9 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
             list's end, uncounted_dropped for text that is no clue;
           4 joins: mend_link_tails on each list ("11/4" for "11/14").
           The four stages go round until the text stops changing (three
-          times at most), so the result is idempotent.
+          times at most), so the result is idempotent;
+          5 then a neighbouring column's words read on after a count to the
+            line's end, before a higher-numbered clue, go (foreign_tail_cut).
       "clue": one clue's text (no heading, no number, no neighbours): stage
           2's slips that hold anywhere in a line (_inline_slips),
           then the count: `torn_counts` "mend" reads a torn count whole
@@ -870,7 +872,9 @@ def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=N
         if again == text:
             break
         text = again
-    return text
+    # 5 a neighbouring column's words read on after a count, while the
+    # lines are still the print's (the lists are run together after).
+    return foreign_tail_cut(text)
 
 
 def _column_pass(text, running_head, extra_headings, line_hook):
@@ -971,6 +975,41 @@ def mend_list_start(text):
     """The number opening a list, with the stop or speck the scan put for its
     space: "1.Religion", "1-Chinese" are "1 Religion", "1 Chinese"."""
     return re.sub(r"^(\d{1,2})[.,:;'\u2019\-\u00bb\u2022]+\s*(?=[\"'A-Za-z])", r"\1 ", text)
+
+
+#: A neighbouring column's words read on after a clue's count to its line's
+#: end (FOREIGN_TAIL_WORDS of them at most, no figure or bracket in them),
+#: before a line that opens a numbered clue: the count, the words, the next
+#: line's number.
+FOREIGN_TAIL_WORDS = 4
+FOREIGN_TAIL = re.compile(
+    rf"({COUNT_IN}\.?)[ \t]+((?:[^\s()\d][^\s()\d]*[ \t]*){{1,{FOREIGN_TAIL_WORDS}}})"
+    r"(?=\n[ \t]*(\d{1,2})\.?[ \t]+[\"'“‘]?[A-Z][a-z])")
+
+
+def foreign_tail_cut(text):
+    """`text` (a list's column text, one printed line a line) with the
+    words a reading ran on after a clue's count to its line's end taken
+    out, when the next line opens a clue numbered above the last that
+    opened a line before them: the column beside the list, its line read
+    level with the clue's last (times-15827, 1982, "7 Princess of minor
+    note (7). Walks", the events column's heading, then "8 Some batsman
+    assaulted in"). A clue goes on to its own count, so words with none
+    before the next clue's number are no clue whose number was lost, and
+    filed as one they swallowed that number and the clue after it. Not when
+    the clue holds another bracket before its count: the neighbour's print
+    is inside it too ("19 Light Division troop-leader Commons (2. / heads
+    charge winning liber- / ation (7) stages.."), and the clue, cut at that
+    bracket, would leave its tail a clue of its own."""
+    def cut(m):
+        last = re.findall(r"(?:^|\n)[ \t]*(\d{1,2})\.?[ \t]", text[:m.start()])
+        # The clue's own opening: the last line that starts with a figure (its
+        # number may be misread, "141" for 14).
+        opening = list(re.finditer(r"(?:^|\n)[ \t]*\d", text[:m.start()]))
+        if not last or int(m[3]) <= int(last[-1]) or "(" in text[opening[-1].end():m.start()]:
+            return m[0]
+        return m[1]
+    return FOREIGN_TAIL.sub(cut, text)
 
 
 def mend_between_clues(text):

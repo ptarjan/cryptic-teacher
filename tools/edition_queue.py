@@ -729,6 +729,9 @@ def evidence_reason(reason):
             or reason == fa.NAME_CLUSTER
             # A Times page written unfiled for a derived word the lexicon lacks ("immortaliser"; fa.derived_formed).
             or reason == fa.DERIVED_FORM
+            # A Times page written unfiled for a clue that swallowed the next one's number, after a
+            # neighbouring column's words read past a count ("(7). Walks 8 Some"; fa.neighbour_tailed).
+            or reason == fa.NEIGHBOUR_TAIL
             # A puzzle its read wrote that the corpus no longer holds (fa.lost_writes): as good as unread.
             or reason == fa.LOST_WRITE
             # A title its scan found whose read gave no verdict, its puzzle unheld (fa.unread_titles): unread.
@@ -1462,7 +1465,8 @@ def by_urgency(units, serves=frozenset()):
 
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
 #: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
-UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM)
+UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
+                 fa.NEIGHBOUR_TAIL)
 
 
 def times_solution_work(unit):
@@ -1485,7 +1489,8 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM)
+              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.FULL_SHORT, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
+              fa.NEIGHBOUR_TAIL)
 
 
 def unproven_first(unit):

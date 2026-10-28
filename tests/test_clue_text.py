@@ -259,6 +259,27 @@ assert ct.mend_list_start("1.Religion (5)") == "1 Religion (5)" and ct.mend_list
 assert ct.mend_between_clues("a (3-6). _ 3 It's") == "a (3-6). 3 It's"
 assert ct.mend_between_clues("a (10). : 6 Angry") == "a (10). 6 Angry"
 assert ct.mend_between_clues("a (5) 11.12A product") == "a (5) 11,12 A product"
+# times-15827 (1982): the events column's heading read level with 7 down's last
+# line, after its count, swallowed "8" into a clue whose number was lost.
+assert ct.foreign_tail_cut("7 Princess of minor note (7). Walks\n8 Some batsman assaulted in\nWest Indies (6).") \
+    == "7 Princess of minor note (7).\n8 Some batsman assaulted in\nWest Indies (6)."
+assert ct.foreign_tail_cut("8 Some batsman assaulted in\nWest Indies (6). Bond Street station,\n9 Wanderings") \
+    == "8 Some batsman assaulted in\nWest Indies (6).\n9 Wanderings"
+# Not a lower number (a cross-reference or the list's own start), not a figure
+# or bracket in the words, not words with a count of their own, not mid-line.
+assert ct.foreign_tail_cut("9 Fish (5). Walks\n8 Some batsman") == "9 Fish (5). Walks\n8 Some batsman"
+assert ct.foreign_tail_cut("7 Fish (5). Walks 1.30\n8 Some batsman") == "7 Fish (5). Walks 1.30\n8 Some batsman"
+assert ct.foreign_tail_cut("7 Fish (5). Walks (4)\n8 Some batsman") == "7 Fish (5). Walks (4)\n8 Some batsman"
+assert ct.foreign_tail_cut("7 Fish (5). 8 Some batsman") == "7 Fish (5). 8 Some batsman"
+assert ct.foreign_tail_cut("7 Fish (5). one two three four five\n8 Some") == "7 Fish (5). one two three four five\n8 Some"
+# times-15828: the clue holds the neighbour's bracket too ("Commons (2."): left whole.
+_t = "19 Light Division troop-leader Commons (2.\nheads charge winning liber-\nation (7) stages..\n22 Office instruction"
+assert ct.foreign_tail_cut(_t) == _t
+# times-18519: the clue's number misread ("141" for 14), the weather column's "Nireland.." after its count.
+assert ct.foreign_tail_cut("8 Change to author church sup-\nports (5).\n141 Little girl's sort of upper-class,\n"
+                           "having noble rank (9). Nireland..\n16 Priest removing") \
+    == "8 Change to author church sup-\nports (5).\n141 Little girl's sort of upper-class,\nhaving noble rank (9).\n16 Priest removing"
+assert "Walks" not in ct.tidy_ocr_clues("DOWN\n7 Princess of minor note (7). Walks\n8 Some batsman assaulted in\nWest Indies (6).")
 assert ct.space_before_quote("in\u201cThe sire?(anag.)") == "in \u201cThe sire? (anag.)"
 assert ct.mend_numbered_run("i Emma 2 Orgasm") == "1 Emma 2 Orgasm"
 assert ct.mend_numbered_run("12Ethelred 18Hess_20 Clever 6/20d Ken 22.Panorama") == "12 Ethelred 18 Hess 20 Clever 6/20 Ken 22 Panorama"

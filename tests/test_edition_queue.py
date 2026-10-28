@@ -356,6 +356,25 @@ check("not after the fix, nor for a verb unknown whole ('vertiser'), nor an old 
        f.derived_formed({**_dfrow, "verdicts": [{**_df, "blank": {"28-across": "'vertiser': not a word"}}]}),
        f.old_formed(_dfrow),
        f.derived_formed({**_dfrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page written unfiled for a clue that swallowed the next one's number, a neighbouring column's
+# words read past a count ("(7). Walks" then "8 Some batsman"; times-15827), is due once (fa.NEIGHBOUR_TAIL),
+# ordered with never-read pages: its own reason, so CANARY_FAILED's Times row does not hold it.
+_nt = {"id": "times-9999991", "number": 9999991, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
+       "lights": 30, "blank": {"8-down": "holds a clue number and text: '8 Some batsman a'"}}
+_ntrow = {"edition": "GaleTimes1982UKEnglish/1982-05-10", "verdicts": [_nt], "readAt": "2026-10-22T01:26:02+00:00"}
+check("a Times page blanked for a swallowed clue number is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.NEIGHBOUR_TAIL, 2, True, True, True, None, None],
+      [f.fix_reason(_ntrow), f.RANKS[f.NEIGHBOUR_TAIL], eq.evidence_reason(f.NEIGHBOUR_TAIL), f.NEIGHBOUR_TAIL in eq.FIX_LANDED,
+       f.NEIGHBOUR_TAIL in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.NEIGHBOUR_TAIL, "date": "1982-05-10"}),
+       eq.canary_failed({"paper": "times", "reason": f.NEIGHBOUR_TAIL, "date": "1984-12-31"})])
+check("not after the fix, nor for another reason, nor three blanks, nor another paper",
+      [False] * 4,
+      [f.neighbour_tailed({**_ntrow, "readAt": _after}),
+       f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {"8-down": "starts mid-clue"}}]}),
+       f.neighbour_tailed({**_ntrow, "verdicts": [{**_nt, "blank": {**_nt["blank"], "1-across": "starts mid-clue",
+                                                                     "2-down": "starts mid-clue"}}]}),
+       f.neighbour_tailed({**_ntrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
 # ---- a read whose corpus write is gone is due once ("written, its file gone", fa.LOST_WRITE; 10-25)
 _lw = {"id": "times-9999998", "number": 9999998, "complete": True, "wrote": True, "clues": 30, "lights": 30}
 _lwrow = {"verdicts": [_lw], "scan": {"item": "GaleTimes1970UKEnglish", "date": "1970-01-02"},
