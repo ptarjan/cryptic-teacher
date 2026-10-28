@@ -536,6 +536,20 @@ check("not after the fix, nor a grid unread otherwise, nor one not pending, nor 
        f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1942-08-14", "item": "GaleTimes1942UKEnglish"}}),
        f.scaled_grid_due({**_sgrow, "edition": "NewsUK1941UKEnglish/1941-08-14_1",
                           "scan": {**_sgrow["scan"], "item": "NewsUK1941UKEnglish"}})])
+# ---- the same on a 1939 Gale Times page (its readings stopped unparsed, no grid to lay them) is due once as
+# fa.SCALED_EARLY; read after its cutoff, or 1938, it is not.
+_se = {**_sg, "number": 9999983, "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' niece (8) 11 They are'"}}
+_serow = {"edition": "GaleTimes1939UKEnglish/1939-10-21", "verdicts": [_se], "readAt": "2026-10-27T07:00:00+00:00",
+          "scan": {"date": "1939-10-21", "item": "GaleTimes1939UKEnglish", "puzzles": [{"number": 9999983, "leaf": 0}]}}
+check("a 1939 Gale Times page pending for a grid unread at its scan's size is due as such, ranked, evidence, fix-landed, unfiled-first, never canary-held",
+      [f.SCALED_EARLY, 2, True, True, True, None],
+      [f.fix_reason(_serow), f.RANKS[f.SCALED_EARLY], eq.evidence_reason(f.SCALED_EARLY), f.SCALED_EARLY in eq.FIX_LANDED,
+       f.SCALED_EARLY in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.SCALED_EARLY, "date": "1939-10-21"})])
+check("not after its cutoff, nor 1938, nor (as 1940-41's) SCALED_GRID",
+      [False, False, False],
+      [f.scaled_early_due({**_serow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.scaled_early_due({**_serow, "scan": {**_serow["scan"], "date": "1938-10-21", "item": "GaleTimes1938UKEnglish"}}),
+       f.scaled_grid_due(_serow)])
 # ---- a 1948-54 Gale Times page refused "no reading parses" at a bare count (two clue columns left of the grid
 # read as one line) before lead_split's LEAD_TWO landed is due once (fa.LEFT_LATE), never canary-held.
 _ll = {"number": 9999984, "leaf": 0, "refused": "no reading parses", "cause": "no-reading-parses",
