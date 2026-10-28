@@ -25,7 +25,37 @@ is the ACROSS / DOWN list heading: read however badly ("DOW'N", "AROSS",
   is_stray_count(line)      a line of only a torn count's tail ("U0).")
 """
 import re
+import threading
 from difflib import SequenceMatcher
+
+#: Whether the linked-clue mends are in force (torn_counts_joined's join, clue_repair.split_lost's keep of a
+#: number a linked head names), and how often either would have changed a text while they were off. On by
+#: default; file_archive_org_puzzles._read_page reads a window with them off first, so what that read lays
+#: stands as before, and reads again with them on only to fill the lights it left with no clue laid
+#: (fa.linked_filled; failure shapes r27b: on everywhere they changed which reading led the vote, and its
+#: misreads with it: "before 3 Balkan city" for "before a Balkan city", "groat" for "great").
+_LINKED = threading.local()
+
+
+def linked_mends():
+    """Whether the linked-clue mends are in force on this thread (_LINKED)."""
+    return getattr(_LINKED, "on", True)
+
+
+def set_linked_mends(on):
+    """Put the linked-clue mends in force (`on`) or not on this thread, and zero linked_missed();
+    returns whether they were in force before."""
+    was = linked_mends()
+    _LINKED.on, _LINKED.missed = bool(on), 0
+    return was
+
+
+def linked_missed(note=False):
+    """How many times a linked-clue mend would have changed a text since set_linked_mends while they
+    were off; `note` counts one more."""
+    if note:
+        _LINKED.missed = getattr(_LINKED, "missed", 0) + 1
+    return getattr(_LINKED, "missed", 0)
 
 #: The heading word, a letter possibly repeated ("DOwNn") or 0 for O.
 DIRECTION = r"(A+C+R+[O0]+S+|D+[O0]+W+N+)"
@@ -347,6 +377,10 @@ def count_left(text, cells, lights):
 
 #: A closed count of four or more parts, digits and separators only: "(6, 5, 2, 3, 5)".
 _COUNT_LONG = re.compile(r"\((\s*\d{1,2}(?:\s*[,.]\s*\d{1,2}){3,}\s*)\)")
+#: A count torn at a comma over a line break: the line's end left open ("interchanges (1, 4, 2,"), and
+#: the next line opening on its rest, closed ("3, 6).").
+_COUNT_TORN_OPEN = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-]\s*\d{1,2})*\s*,\s*$")
+_COUNT_TORN_REST = re.compile(r"\d{1,2}(?:\s*[,\-]\s*\d{1,2})*\s*\)")
 #: A closed count with specks after it ("(8)'", "(5).·", "(5). _").
 _COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$")
 #: A count whose ")" was read as j or J, or whose "(" was lost, after a word
@@ -401,6 +435,28 @@ def count_closed(line, ones=True):
     # 12 file_trove_puzzles.BRACKET takes as a count, so the clue ran on into the next: Gale 1952-10-15's 1, 9).
     line = _COUNT_LONG.sub(lambda m: "(" + re.sub(r"\s+", "", m.group(1)) + ")", line)
     return _COUNT_SPECKS.sub(r"\1", line)
+
+
+def torn_counts_joined(lines, ones=True):
+    """`lines` (a column's) with a count torn over a line break at a comma (_COUNT_TORN_OPEN, then
+    _COUNT_TORN_REST) one line, closed (count_closed). A linked head's long count is printed so
+    ("1, 9 A revolutionary story, with capital interchanges (1, 4, 2," then "3, 6)."): per line,
+    count_closed never saw it whole, so its spaces stayed open, 13 characters past the 12
+    file_trove_puzzles.BRACKET takes; "(1," read as the head's count and "4, 2, 3," as the next
+    clue's linked numbers, the head lost its count, its tail light had no group, and no reading
+    laid a clue on it (failure shapes r27: Gale 1951-12-03, 1954-01-01, 1954-04-01, 1955-07-01).
+    With the linked-clue mends off (set_linked_mends), `lines` as they are, each join noted (linked_missed)."""
+    out = []
+    for line in lines:
+        if out and _COUNT_TORN_OPEN.search(out[-1]) and _COUNT_TORN_REST.match(line):
+            if not linked_mends():
+                linked_missed(True)
+                out.append(line)
+                continue
+            out[-1] = count_closed(out[-1] + " " + line, ones)
+            continue
+        out.append(line)
+    return out
 
 
 def count_closed_open(line):
@@ -974,6 +1030,7 @@ def _column_pass(text, running_head, extra_headings, line_hook, ones=True):
             line = "? " + line
         out.append(line)
         prev = line
+    out = torn_counts_joined(out, ones)
     # A count left open at a list's end ("(5r", "(5-" before DOWN): a speck
     # took its bracket, as nothing follows to carry it on.
     for k, line in enumerate(out):

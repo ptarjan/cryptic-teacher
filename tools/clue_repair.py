@@ -105,10 +105,21 @@ def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
     import file_trove_puzzles as ftp
     out = parsed[direction]
     top = max(numbers(parsed), default=0)
+    # A number a linked head of the list names after its first ("1, 9 But are there talking
+    # pictures ...") is that clue's, never one the list lost: the other reading's "1, 9 But"
+    # read its 9 before words, so 9 was split off the head, the head left with no words and its
+    # count moved to a clue 9 on 8 cells, and no reading laid 9 across (failure shapes r27,
+    # Gale 1954-06-19, 1966-05-31: "no reading laid a clue on it").
+    # With the linked-clue mends off (clue_text.set_linked_mends), split as before, the keep noted.
+    linked = {n for c in out for t in c["tokens"][1:] if len(t) == 1 for n in t}
     for m in re.finditer(r"(?<![\w(,.\-])(\d{1,2})\s*[.,]?\s*(?=[A-Z])", stream):
         n = int(m.group(1))
         if n > top or any(c["tokens"][0] == {n} for c in out):
             continue
+        if n in linked:
+            if clue_text.linked_mends():
+                continue
+            clue_text.linked_missed(True)
         k = next((i for i, c in enumerate(out) if len(c["tokens"][0]) == 1
                   and next(iter(c["tokens"][0])) < n
                   and (i + 1 == len(out) or min(out[i + 1]["tokens"][0] or {99}) > n)), None)

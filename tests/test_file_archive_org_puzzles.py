@@ -6390,6 +6390,53 @@ check("a poor window with others to try asks no pick; the best, chosen, is read 
       [(None, None), (("lead", 1), True), (("plain", None), False), (None, False)], reads)
 check("and that window's verdict is the one filed, picked, with no deferral left in it", (True, False), (v.get("picked"), "_deferred" in v))
 f._read_page = real_inner
+# The linked-clue mends (clue_text.set_linked_mends) fill only the lights a window's read without them left with
+# no clue laid (failure shapes r27b, Gale 1954-06-19): that read's laid words stand ("great", not the mended read's
+# "groat"), a linked head keeps its words and takes the group's count, its tail light filled "See 1".
+_lf_calls, _lf_miss = [], [True]
+_lf_real = f._read_window
+
+
+def _lf_window(d, found, hit, sols, vlm_for, alt, alts, lent=None, defer=False):
+    on = f.clue_text.linked_mends()
+    _lf_calls.append((on, vlm_for))
+    if not on and _lf_miss[0]:
+        f.clue_text.linked_missed(True)
+
+    def e(n, text, **k):
+        return {"number": n, "direction": "across", "position": {"x": n, "y": 0}, "length": 8,
+                "clue": {"text": text, **k} if text else {"missing": True}, "solution": None}
+    if not on:
+        return ({"number": 1, "grid": "image", "lights": 3, "agreed": 2, "blank": {"9-across": "no reading laid a clue on it"}},
+                {"id": "x", "dimensions": {"cols": 15, "rows": 15},
+                 "entries": [e(1, "But'are there", enumeration="8"), e(9, ""), e(10, "Ben Lemon among the great")]})
+    head = {**e(1, "But are there", enumeration="8,8"), "group": ["1-across", "9-across"]}
+    return ({"number": 1, "grid": "image", "lights": 3, "agreed": 3},
+            {"id": "x", "dimensions": {"cols": 15, "rows": 15},
+             "entries": [head, e(9, "See 1"), e(10, "Ben Lemon among the groat")]})
+
+
+f._read_window = _lf_window
+try:
+    # The window is chosen on the read without the mends (_read_page marks it "_linked"); read_page fills it after.
+    v, p = f._read_page(None, None, None, None, ["6-across"], None, None)
+    check("a window's read is the one without the mends, marked for the fill", ({"alt": None}, {"9-across"}),
+          (v.get("_linked"), set(v.get("blank") or ())))
+    _lf_calls.clear()
+    v, p = f.read_page(None, None, None, None, ["6-across"])
+    check("a light left unlaid is filled from the mended read, nothing else the first read laid changes",
+          ([(False, ["6-across"]), (True, False)], ["9-across"], None, False,
+           [("But'are there", "8,8", ["1-across", "9-across"]), ("See 1", None, None), ("Ben Lemon among the great", None, None)]),
+          (_lf_calls, v.get("linkedFilled"), v.get("blank"), "_linked" in v,
+           [(x["clue"].get("text"), x["clue"].get("enumeration"), x.get("group")) for x in p["entries"]]))
+    _lf_calls.clear()
+    _lf_miss[0] = False
+    v, p = f.read_page(None, None, None, None, False)
+    check("no mend the first read would have made: no second read, its blank stands",
+          ([(False, False)], {"9-across": "no reading laid a clue on it"}), (_lf_calls, v.get("blank")))
+    check("the mends are back in force after the read", True, f.clue_text.linked_mends())
+finally:
+    f._read_window = _lf_real
 def fake_refused(d, found, hit, sols, vlm_for=False):
     asked.append(vlm_for)
     return {"number": 1, "cause": "not-a-grid"}, None

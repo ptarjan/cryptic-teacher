@@ -71,6 +71,16 @@ for name, line in (("ch", "composer (3,6.5)."), ("en5", "composer (3.6.5).")):
     check(f"{name}: filed with its word breaks", ("3,6,5", [3, 9]),
           (filed.get("enumeration"), [s["at"] for s in filed.get("separators", [])]))
 
+# A linked head's later number is its own, never a clue the list lost (Gale 1954-06-19): another reading's
+# "1, 9 But are there" reads its 9 before words, and split_lost cut clue 9 out of the head, leaving it no words.
+_head = {"tokens": [{1}, {9}], "text": "But are there talking pictures in the gallery ?", "enums": {"8,8"}, "see": None}
+_got, _ = clue_repair.repair({"across": [dict(_head), {"tokens": [{10}], "text": "One isn't sent there to peep",
+                                                      "enums": {"8"}, "see": None}], "down": []},
+                             "1, 9 But are there talking pictures in the gallery ? (8, 8). 10 One isn't sent there to peep (8).")
+check("a linked head keeps its later number and its words (no clue 9 split off it)",
+      [([1, 9], "But are there talking pictures in the gallery ?", {"8,8"}), ([10], "One isn't sent there to peep", {"8"})],
+      [([n for t in c["tokens"] for n in t], c["text"], c["enums"]) for c in _got["across"]])
+
 # One clue's own slips (clue_repair.mend_text). Cases are the filed texts the
 # Times 1998 "Update times-" rereads of 16-18 Oct 2026 changed (times-20866,
 # -20976, -21009, -21013, -21210, -21262, -21069, -21007 ...): the text as

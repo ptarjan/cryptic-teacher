@@ -740,6 +740,9 @@ def evidence_reason(reason):
             # A Times page written unfiled for a clue whose number the gutter's rule, read as a mark, hid
             # inside a line read across both columns ("show '22 Noisome"; fa.marked_next_due).
             or reason == fa.MARKED_NEXT_READ
+            # A Times page written unfiled for a linked clue's tail light, its head's count torn over a line
+            # break or its later number split off it ("1, 9 A revolutionary story"; fa.linked_count_due).
+            or reason == fa.LINKED_COUNT_READ
             # A Times page written unfiled for a clue that swallowed the next one's number, after a
             # neighbouring column's words read past a count ("(7). Walks 8 Some"; fa.neighbour_tailed).
             or reason == fa.NEIGHBOUR_TAIL
@@ -1568,7 +1571,8 @@ def by_urgency(units, serves=frozenset()):
 UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
                  fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
                  fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
-                 fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ)
+                 fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
+                 fa.LINKED_COUNT_READ)
 
 
 def times_solution_work(unit):
@@ -1594,7 +1598,8 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
-              fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ)
+              fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
+              fa.LINKED_COUNT_READ)
 
 
 def unproven_first(unit):

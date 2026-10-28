@@ -703,6 +703,31 @@ try:
            f.marked_next_due({**_mnrow, "edition": "FinancialTimes1963UKEnglish/1963-07-20_0"})])
 finally:
     f.marked_numbers = _mn_real
+# ---- a Times page written unfiled over a light no reading laid whose number a cached reading holds in a linked
+# clue's head ("1, 9 A revolutionary story": its count torn over a line, or 9 split off it) is due once
+# (fa.LINKED_COUNT_READ), unfiled-first.
+_lc = {"id": "times-9999977", "number": 9999977, "complete": False, "wrote": True, "unfiled": 1, "clues": 29,
+       "lights": 30, "blank": {"9-across": "no reading laid a clue on it"}}
+_lcrow = {"edition": "GaleTimes1955UKEnglish/1955-07-01", "verdicts": [_lc], "readAt": "2026-10-26T23:21:07+00:00",
+          "scan": {"date": "1955-07-01", "item": "GaleTimes1955UKEnglish", "puzzles": [{"number": 9999977, "leaf": 0}]}}
+_lc_real = f.linked_numbers
+f.linked_numbers = lambda key: frozenset({1, 9}) if key == "1955-07-01_9999977" else frozenset()
+try:
+    check("a Times page unfiled over a linked clue's light is due as LINKED_COUNT_READ, ranked, evidence, "
+          "fix-landed, unfiled-first, blanket-passing",
+          [True, 2, True, True, True, None, True],
+          [f.linked_count_due(_lcrow), f.RANKS[f.LINKED_COUNT_READ], eq.evidence_reason(f.LINKED_COUNT_READ),
+           f.LINKED_COUNT_READ in eq.FIX_LANDED, f.LINKED_COUNT_READ in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.LINKED_COUNT_READ, "date": "1955-07-01"}),
+           f.LINKED_COUNT_READ in f.BLANKET_PASSES])
+    check("not after the fix, nor another light's number, nor another blank, nor another paper",
+          [False] * 4,
+          [f.linked_count_due({**_lcrow, "readAt": "2026-10-29T00:00:00+00:00"}),
+           f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"10-across": "no reading laid a clue on it"}}]}),
+           f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"9-across": "'revolutionery': not a word"}}]}),
+           f.linked_count_due({**_lcrow, "edition": "FinancialTimes1955UKEnglish/1955-07-01_0"})])
+finally:
+    f.linked_numbers = _lc_real
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
