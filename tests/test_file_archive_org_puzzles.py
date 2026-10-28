@@ -963,12 +963,28 @@ f.fix_reason = lambda row: f.LEAD_RETRY
 bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "inputs changed"))
 f.fix_reason = lambda row: "unfiled before its fix"
 bf.append(f.blanket_or_fix({"edition": "GaleTimes1946UKEnglish/1946-07-25"}, "scan stale, answers missing"))
+# A Times refusal reread and the r14 full rereads stand too (10-28 r14: ~215 rows masked); another paper's refusal
+# keeps the blanket reason. A full reread's lost title holds it only when its scan holds no title at all.
+f.fix_reason = lambda row: "refused no-reading-parses before its fix"
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1955UKEnglish/1955-05-09"}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTelegraph1984UKEnglish/1984-05-01"}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2002UKEnglish/2002-06-17", "scan": {"puzzles": [{"number": 22068}]},
+                            "verdicts": [{"number": 22068, "read_as": 22067}]}, "inputs changed"))
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1955UKEnglish/1955-05-09", "scan": {"puzzles": []},
+                            "verdicts": [{"number": 7813}]}, "inputs changed"))
+f.fix_reason = lambda row: f.RIGHT_FOREIGN_READ
+bf.append(f.blanket_or_fix({"edition": "GaleTimes1990UKEnglish/1990-01-02"}, "inputs changed"))
+f.fix_reason = lambda row: f.SHORT_WIDE
+bf.append(f.blanket_or_fix({"edition": "GaleTimes2002UKEnglish/2002-06-17", "scan": {"puzzles": [{"number": 22068}]},
+                            "verdicts": [{"number": 22068, "read_as": 22067}]}, "inputs changed"))
 f.fix_reason = real_fr
-check("blanket_or_fix: a Times row's answers-only fix, lost write or unfiled page's fix stands over inputs/titles "
-      "changed; another paper's row, a row whose scan lost a verdict's title (not its held puzzle's), another fix, or "
-      "none keeps the blanket reason",
-      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE, "inputs changed",
-       "inputs changed", f.LOST_WRITE, "inputs changed", f.LEAD_RETRY, "unfiled before its fix"],
+check("blanket_or_fix: a Times row's answers-only fix, lost write, unfiled page's fix or refusal stands over "
+      "inputs/titles changed; another paper's row, a row whose scan lost a verdict's title (not its held puzzle's; "
+      "for a full reread, its scan holding no title), another fix, or none keeps the blanket reason",
+      [f.SHORT_WIDE, f.SHORT_WIDE, "inputs changed", f.SHORT_WIDE, "titles changed", f.SHORT_WIDE,
+       "refused unparsed before its fix", "inputs changed", f.LOST_WRITE, "inputs changed", f.LEAD_RETRY,
+       "unfiled before its fix", "refused no-reading-parses before its fix", "inputs changed",
+       "refused no-reading-parses before its fix", "inputs changed", f.RIGHT_FOREIGN_READ, "inputs changed"],
       bf)
 import edition_queue as _eq_bp
 check("every reason edition_queue.UNFILED_FIRST orders first passes blanket_or_fix (BLANKET_PASSES)",
