@@ -9968,7 +9968,7 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r))) \
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r))) \
                     and not failed_rescan(r):
                 moved[k] = new
         if moved:
@@ -10798,6 +10798,31 @@ def gf_rescan(row):
     # pinned to it (current_keys): those scans stand for what they found.
     return row.get("scanKey") == scan_key(GALE) and scan_queue.read_before(row, scan_queue.when(REREAD_GF_TITLE)) \
         and not held_titles(row)
+
+
+#: The reason of a Gale Times page gf_rescan leaves out: its scan by current scan code holds no title (no
+#: puzzle, or only one solution_titled gave), was not read whole (no WHOLE_UNTITLED), and its row holds no
+#: verdict at all, read before REREAD_GF_UNREAD. The grid-first switch has been on since 10-22, so such a scan
+#: read only the windows round the grids grid_lined passed, and a page whose puzzle grid none was kept its
+#: title out of every window (GF_TITLE's shape); with no verdict nothing was ever read. 10-28 r19: 139 Gale
+#: Times rows stood so, none planned (1940s ~90, 1980s ~15): 66 never read whole by either page reader, 15
+#: whose cached whole read holds the day's title ("The Times Crossword Puzzle No. 3,798", 1942-04-30), and
+#: Gale cites the day's crossword on each page fetched. Scanned again (grid_first_scan reads the page whole
+#: when untitled and scan_anywhere stamps WHOLE_UNTITLED), then read, once.
+GF_UNREAD = "untitled unread page, its grid-first scan never read it whole"
+#: Once: a row read before this is due GF_UNREAD.
+REREAD_GF_UNREAD = "2026-10-28T17:20:00+00:00"
+
+
+def gf_unread(row):
+    """Whether Gale Times ledger `row` is due GF_UNREAD: read with no verdict, its scan (not failed) under
+    scan_key(GALE) holding no title and not read whole (WHOLE_UNTITLED), read before REREAD_GF_UNREAD."""
+    scan = (row or {}).get("scan") or {}
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and "inputs" in row and not row.get("verdicts")
+            and not scan.get("failed") and not scan.get(WHOLE_UNTITLED)
+            and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+        return False
+    return row.get("scanKey") == scan_key(GALE) and scan_queue.read_before(row, scan_queue.when(REREAD_GF_UNREAD))
 
 
 #: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
@@ -14977,6 +15002,8 @@ def fix_reason(row):
         return LONE_TITLE
     if gf_rescan(row):
         return GF_TITLE
+    if gf_unread(row):
+        return GF_UNREAD
     if failed_rescan(row):
         return FAILED_SCAN
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -15510,8 +15537,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   GF_TITLE,
                   # 10-28 r18: a write refused over a clue's speck marks at a word gap (gap_vote_due).
                   GAP_VOTED,
-                  # 10-28 r19: a page whose scan raised, never scanned again (failed_rescan).
-                  FAILED_SCAN)
+                  # 10-28 r19: a page whose scan raised, never scanned again (failed_rescan); an untitled
+                  # verdict-less page its grid-first scan never read whole (gf_unread).
+                  FAILED_SCAN, GF_UNREAD)
 
 
 def refusal_passes(why):
@@ -15740,7 +15768,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, FULL_SHORT: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -15777,7 +15805,7 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row))) \
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row))) \
         and not failed_rescan(row)
 
 
