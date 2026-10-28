@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Call for book section",
     "enumeration": "4"
    },
-   "solution": "PAGE"
+   "solution": "PAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0,
+      "meaning": "to summon someone over a public address system, as in a hotel or hospital"
+     },
+     {
+      "text": "book section",
+      "at": 9,
+      "meaning": "one leaf or side of a book's paper"
+     }
+    ],
+    "explanation": {
+     "surface": "A request to look up a passage in a book.",
+     "definitionFit": "Both senses are standard: summoning someone by loudspeaker, and a single sheet of a book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,48 @@
     "text": "Old actor, getting wiser over time",
     "enumeration": "6"
    },
-   "solution": "STAGER"
+   "solution": "STAGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 25,
+       "note": "over here means covering, so the word for wiser is laid round the time letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wiser",
+       "at": 19,
+       "gives": "SAGER",
+       "note": "wiser means sager, more sage"
+      },
+      {
+       "words": "time",
+       "at": 30,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly performer who has grown wiser with the years.",
+     "walkthrough": "'over' is a container signal: SAGER covers T.",
+     "definitionFit": "A stager is an archaic word for a stage player, surviving in the phrase 'old stager' for a veteran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +132,32 @@
      }
     ]
    },
-   "solution": "BOTTOMLINE"
+   "solution": "BOTTOMLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's really important",
+      "at": 0,
+      "meaning": "the crucial or deciding factor in a matter"
+     },
+     {
+      "text": "part of Shakespearean player's speech",
+      "at": 27,
+      "meaning": "a line spoken by Bottom, the weaver who acts in A Midsummer Night's Dream"
+     }
+    ],
+    "explanation": {
+     "surface": "Picking out the crucial part of an actor's lines in a Shakespeare play.",
+     "walkthrough": "Bottom is the amateur actor in A Midsummer Night's Dream, so one of his lines is part of his speech.",
+     "definitionFit": "The idiom names the essential point or deciding factor in any matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "player's"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +171,64 @@
     "text": "Leftie somewhat short, if hugged by supporter",
     "enumeration": "6"
    },
-   "solution": "FABIAN"
+   "solution": "FABIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leftie",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hugged by",
+       "at": 26,
+       "note": "something hugged by another is held inside it, so the trimmed phrase goes within the fan word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "supporter",
+       "at": 36,
+       "gives": "FAN",
+       "note": "a fan is a supporter"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 16,
+         "note": "short means the phrase loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "somewhat",
+         "at": 7,
+         "gives": "ABIT",
+         "note": "somewhat means a bit"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-winger who is a little short if a backer embraces him.",
+     "walkthrough": "'short' trims the phrase for 'somewhat' and 'hugged by' signals a container; 'if' only links. The Fabian Society is a long-standing British socialist think tank.",
+     "definitionFit": "Members of the Fabian Society are British socialists, so left-wingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +248,60 @@
      }
     ]
    },
-   "solution": "WELLNIGH"
+   "solution": "WELLNIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "almost",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 9,
+       "note": "penning means enclosing, as sheep are penned, so the other letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Consider",
+       "at": 0,
+       "gives": "WEIGH",
+       "note": "to weigh something up is to consider it"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lines",
+         "at": 17,
+         "gives": "LL",
+         "note": "L is an abbreviation for line, doubled for the plural"
+        },
+        {
+         "words": "any number",
+         "at": 24,
+         "gives": "N",
+         "note": "N stands for an unspecified number in mathematics"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weighing up the writing of a few lines, with almost any amount involved.",
+     "walkthrough": "'penning' reads as writing, beside 'lines', but signals enclosure, as sheep are penned.",
+     "definitionFit": "Well-nigh is an old-fashioned synonym for nearly or virtually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +315,35 @@
     "text": "Worst as one part of speech, but only one",
     "enumeration": "4"
    },
-   "solution": "BEST"
+   "solution": "BEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worst as one part of speech, but only one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Worst as one part of speech, but only one",
+       "at": 0,
+       "note": "as a verb, to worst someone is to defeat them, a synonym of the answer; but as an adjective the two are opposites, so they match in one part of speech only"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar note on how a word behaves in different roles.",
+     "walkthrough": "As adjectives they are opposite superlatives; as verbs both mean defeat.",
+     "definitionFit": "To worst and to best an opponent both mean to beat them, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +357,64 @@
     "text": "It's a shock, a bad actor turning up as prince",
     "enumeration": "8"
    },
-   "solution": "MAHARAJA"
+   "solution": "MAHARAJA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prince",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning up",
+       "at": 26,
+       "note": "in a down entry turning up means the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 5,
+         "gives": "A"
+        },
+        {
+         "words": "shock",
+         "at": 7,
+         "gives": "JAR",
+         "note": "a jar is a jolt or shock"
+        },
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A"
+        },
+        {
+         "words": "bad actor",
+         "at": 16,
+         "gives": "HAM",
+         "note": "a ham is an actor who overacts"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shocking moment as a poor performer appears in the role of a prince.",
+     "walkthrough": "'turning up' reverses AJARAHAM, the string built from A, JAR, A and HAM.",
+     "definitionFit": "A maharaja is an Indian ruling prince."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +428,56 @@
     "text": "Supposed cause of global revolution, some rising",
     "enumeration": "4"
    },
-   "solution": "LOVE"
+   "solution": "LOVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supposed cause of global revolution, some rising",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rising",
+       "at": 42,
+       "note": "in a down entry rising means the taken letters read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "some",
+         "at": 37,
+         "note": "some means only part of the word revolution is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revolution",
+         "at": 25,
+         "gives": "EVOL"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A theory about what makes the world turn.",
+     "walkthrough": "'some' takes EVOL from revolution; 'rising' turns it round. The whole clue alludes to the saying that it makes the world go round.",
+     "definitionFit": "The proverb says it is affection that makes the world go round, hence the supposed cause of the globe turning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +491,59 @@
     "text": "Measuring device in a store rebuilt outside research site",
     "enumeration": "9"
    },
-   "solution": "ASTROLABE"
+   "solution": "ASTROLABE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Measuring device",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 36,
+       "note": "outside means the reworked letters sit around the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebuilt",
+         "at": 28,
+         "note": "rebuilt means the letters are put together in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a store",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "research site",
+       "at": 44,
+       "gives": "LAB",
+       "note": "a lab, laboratory, is a site for research"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instrument found in a shop that was rebuilt beyond a research facility.",
+     "walkthrough": "'rebuilt' turns A STORE into ASTROE, which 'outside' wraps around LAB.",
+     "definitionFit": "An astrolabe is an old instrument for measuring the altitude of stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +557,61 @@
     "text": "Elegist's initial reaction, oddly his inspiration?",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "his inspiration?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initial",
+         "at": 10,
+         "note": "initial means only the first letter of the word Elegist's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elegist's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 28,
+         "note": "oddly means take the first, third, fifth and seventh letters of the word reaction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reaction",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of elegies reacts first, perhaps oddly, to what inspires him.",
+     "definitionFit": "Erato is the Muse of lyric and love poetry, so a fitting source of inspiration for an elegist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reaction"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +625,60 @@
     "text": "American serving in the westbound crew",
     "enumeration": "5"
    },
-   "solution": "EIGHT"
+   "solution": "EIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crew",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "westbound",
+       "at": 24,
+       "note": "in an across entry westbound means reading right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "serving in",
+         "at": 9,
+         "note": "a soldier serving in a unit is inside it, so the American goes within the word the"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 20,
+         "gives": "THE"
+        },
+        {
+         "words": "American",
+         "at": 0,
+         "gives": "GI",
+         "note": "GI is an American soldier"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US serviceman stationed with a team heading west.",
+     "walkthrough": "'serving in' signals a container, making THGIE, and 'westbound' suits an across entry, read right to left.",
+     "definitionFit": "A rowing boat's team of eight oarsmen is itself called an eight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crew"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +702,46 @@
      }
     ]
    },
-   "solution": "ILLATEASE"
+   "solution": "ILLATEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "speaker will",
+       "at": 6,
+       "gives": "ILL",
+       "note": "the speaker saying 'I will' contracts it to I'll, written without the apostrophe"
+      },
+      {
+       "words": "a",
+       "at": 25
+      },
+      {
+       "words": "banterer",
+       "at": 27,
+       "gives": "TEASE",
+       "note": "a tease is someone who banters or mocks playfully"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous orator shares the stage with a joker.",
+     "walkthrough": "'Tense' looks like grammar beside 'will'; it is the adjective meaning anxious.",
+     "definitionFit": "Being ill at ease is an idiom for being uncomfortable or nervous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +755,36 @@
     "text": "One of a dozen in a box, in case?",
     "enumeration": "7"
    },
-   "solution": "JURYMAN"
+   "solution": "JURYMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of a dozen in a box, in case?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One of a dozen in a box, in case?",
+       "at": 0,
+       "note": "suggests eggs in a carton, but means one of twelve people seated in the jury box during a legal case"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An item packed in a box of twelve.",
+     "walkthrough": "The box is the jury box and the case is a trial.",
+     "definitionFit": "A jury traditionally has twelve members, who sit in the jury box hearing a court case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +811,49 @@
     "text": "Charge misbehaving child in front of a head",
     "enumeration": "7"
    },
-   "solution": "IMPEACH"
+   "solution": "IMPEACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 25,
+       "note": "in front of places the child word before the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "misbehaving child",
+       "at": 7,
+       "gives": "IMP",
+       "note": "an imp is a mischievous child"
+      },
+      {
+       "words": "a head",
+       "at": 37,
+       "gives": "EACH",
+       "note": "per head means each, so a head means each"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Blaming a naughty child before a headteacher.",
+     "walkthrough": "'a head' means per person, as in 'five pounds a head'.",
+     "definitionFit": "To impeach is to formally accuse an official of wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +873,59 @@
      }
     ]
    },
-   "solution": "PAYINGBACK"
+   "solution": "PAYINGBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taking revenge",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In at the start means the reworked letters go inside the group word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "group",
+       "at": 3,
+       "gives": "PACK",
+       "note": "a pack is a group, as of wolves"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 10,
+         "note": "oddly means the letters are arranged in an unusual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gain by",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang member strangely profiting from vengeance.",
+     "walkthrough": "'oddly' looks like an alternate-letters signal but rearranges GAIN BY into YINGBA, which goes inside PACK.",
+     "definitionFit": "Paying someone back is an idiom for getting even with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +939,30 @@
     "text": "Stop for travellers before India, as pilot says",
     "enumeration": "5"
    },
-   "solution": "HOTEL"
+   "solution": "HOTEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop for travellers",
+      "at": 0,
+      "meaning": "a place where people on a journey stay the night"
+     },
+     {
+      "text": "before India, as pilot says",
+      "at": 20,
+      "meaning": "in the NATO phonetic alphabet used by pilots, the word for H comes just before India for I"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller's rest stop on the way to India, as the pilot announces.",
+     "definitionFit": "It is both a lodging for travellers and the radio code word for the letter H."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +976,64 @@
     "text": "Sources of water selfish protester cut before one",
     "enumeration": "5"
    },
-   "solution": "NIMBI"
+   "solution": "NIMBI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sources of water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 39,
+       "note": "before puts the shortened word ahead of the letter for one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 35,
+         "note": "cut means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "selfish protester",
+         "at": 17,
+         "gives": "NIMBY",
+         "note": "a NIMBY ('not in my back yard') objects to developments near their own home"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 46,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-interested campaigner cuts off the water supply.",
+     "walkthrough": "'cut' trims NIMBY to NIMB.",
+     "definitionFit": "Nimbi are rain clouds, the plural of nimbus, so they supply rain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sources"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1047,77 @@
     "text": "Daisy's relative's crazy over crazy girl about love",
     "enumeration": "8"
    },
-   "solution": "MARIGOLD"
+   "solution": "MARIGOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daisy's relative",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 25,
+       "note": "over means covering, so the word for crazy wraps the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crazy",
+       "at": 19,
+       "gives": "MAD",
+       "note": "mad means crazy"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 41,
+         "note": "about means the jumbled letters surround the love letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "crazy",
+           "at": 30,
+           "note": "crazy here means the letters of girl are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "girl",
+           "at": 36
+          }
+         ]
+        },
+        {
+         "words": "love",
+         "at": 47,
+         "gives": "O",
+         "note": "O is love, a zero score in tennis"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl called Daisy has a relative who is utterly mad.",
+     "walkthrough": "The second 'crazy' jumbles the girl into RIGL, 'about' wraps it round the love letter, and 'over' sets that under the first crazy word. Daisy is the flower, not a girl.",
+     "definitionFit": "The marigold is a plant of the daisy family, Asteraceae."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Daisy's"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1131,53 @@
     "text": "Key producer playing role of leader in Hollywood",
     "enumeration": "3"
    },
-   "solution": "ASH"
+   "solution": "ASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Key producer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "playing role of",
+       "at": 13,
+       "gives": "AS",
+       "note": "an actor appears as a character, so playing the role of means as"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 29,
+         "note": "the leader in a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hollywood",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer cast as the head of a film studio.",
+     "walkthrough": "'Key' is not a piano or lock key but a winged seed.",
+     "definitionFit": "The tree's winged seeds are called keys, so it produces them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1191,63 @@
     "text": "To tell the truth in a court, you reported friend",
     "enumeration": "8"
    },
-   "solution": "ACTUALLY"
+   "solution": "ACTUALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "To tell the truth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "court",
+       "at": 23,
+       "gives": "CT"
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
+        {
+         "text": "reported",
+         "at": 34,
+         "note": "reported means the word is to be heard, not written"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 30,
+         "gives": "YOU",
+         "note": "the word you sounds like the letter U"
+        }
+       ]
+      },
+      {
+       "words": "friend",
+       "at": 43,
+       "gives": "ALLY",
+       "note": "an ally is a friend or supporter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving honest testimony in court about a friend.",
+     "walkthrough": "The 'in' joining the pieces is a link word here.",
+     "definitionFit": "Both phrases are sentence adverbs meaning in fact or truthfully."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1261,42 @@
     "text": "Cause of ferment coming from unknown quarter",
     "enumeration": "5"
    },
-   "solution": "YEAST"
+   "solution": "YEAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cause of ferment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "unknown",
+       "at": 29,
+       "gives": "Y",
+       "note": "Y is an unknown quantity in algebra"
+      },
+      {
+       "words": "quarter",
+       "at": 37,
+       "gives": "EAST",
+       "note": "east is one of the four quarters of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unrest stirring in an unexpected part of the world.",
+     "walkthrough": "'ferment' suggests political unrest but means fermentation.",
+     "definitionFit": "Yeast is the fungus that makes dough and brews ferment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ferment"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1310,48 @@
     "text": "Point in what we do with the Web too much",
     "enumeration": "7"
    },
-   "solution": "SURFEIT"
+   "solution": "SURFEIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "too much",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in means the compass point is placed within the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what we do with the Web",
+       "at": 9,
+       "gives": "SURFIT",
+       "note": "we surf the internet, that is, surf it"
+      },
+      {
+       "words": "Point",
+       "at": 0,
+       "gives": "E",
+       "note": "E, east, is a point of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark on spending excessive time online.",
+     "definitionFit": "A surfeit is an excess or overabundance of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1365,46 @@
     "text": "Permission to leave a learner in set",
     "enumeration": "7"
    },
-   "solution": "CONGEAL"
+   "solution": "CONGEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Permission to leave",
+       "at": 0,
+       "gives": "CONGE",
+       "note": "a congé is formal leave to depart"
+      },
+      {
+       "words": "a",
+       "at": 20
+      },
+      {
+       "words": "learner",
+       "at": 22,
+       "gives": "L",
+       "note": "L is the learner driver's plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee in a class is given leave to go.",
+     "walkthrough": "'set' looks like a group the learner is in; it is the verb meaning harden.",
+     "definitionFit": "To congeal is to solidify or thicken, as jelly sets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1418,57 @@
     "text": "Kittenish cat not finishing rodents",
     "enumeration": "6"
    },
-   "solution": "COYPUS"
+   "solution": "COYPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rodents",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Kittenish",
+       "at": 0,
+       "gives": "COY",
+       "note": "kittenish means playfully coy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not finishing",
+         "at": 14,
+         "note": "not finishing means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 10,
+         "gives": "PUSS",
+         "note": "puss is a cat"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playful cat leaves its rodent prey unfinished.",
+     "walkthrough": "'not finishing' cuts PUSS to PUS.",
+     "definitionFit": "Coypus are large South American water rodents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kittenish"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1482,44 @@
     "text": "Strikingly colourful contents of sexy notice",
     "enumeration": "6"
    },
-   "solution": "EXOTIC"
+   "solution": "EXOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strikingly colourful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "middle",
+     "indicators": [
+      {
+       "text": "contents of",
+       "at": 21,
+       "note": "contents of means each word loses its outer letters and keeps what lies within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sexy",
+       "at": 33
+      },
+      {
+       "words": "notice",
+       "at": 38
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racy advertisement in bright colours.",
+     "definitionFit": "Exotic plumage or flowers are vivid and unusual, a common sense of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contents"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1533,61 @@
     "text": "Worthy work at home, holding evaluation back",
     "enumeration": "9"
    },
-   "solution": "DIGNITARY"
+   "solution": "DIGNITARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worthy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 21,
+       "note": "holding means the home-work word encloses the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "work at home",
+       "at": 7,
+       "gives": "DIY",
+       "note": "DIY, do it yourself, is home improvement work"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 40,
+         "note": "back means the evaluation word is written backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "evaluation",
+         "at": 29,
+         "gives": "RATING",
+         "note": "a rating is an evaluation"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worthwhile job done at home, with assessment held back.",
+     "walkthrough": "'Worthy' looks like an adjective but is the noun for a notable person; 'back' gives GNITAR and 'holding' signals a container.",
+     "definitionFit": "A worthy is a noun for a notable person, as is a dignitary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Worthy"
+    }
+   }
   },
   {
    "number": 24,
@@ -446,7 +1611,59 @@
    "group": [
     "24-down",
     "13-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nautical spirit",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in means the Jack letter goes within the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "otherwise",
+         "at": 20,
+         "note": "otherwise means the letters are set out differently"
+        }
+       ],
+       "parts": [
+        {
+         "words": "navy, does",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "Jack",
+       "at": 0,
+       "gives": "J",
+       "note": "J is the abbreviation for jack in a pack of cards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor in the navy behaves differently under a sea spirit's influence.",
+     "walkthrough": "'otherwise' rearranges NAVY DOES as DAVYONES; 'in' puts J inside.",
+     "definitionFit": "In sailors' folklore, the named figure is the evil spirit of the sea whose locker is the seabed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1677,40 @@
     "text": "Part in Pride movie, as just quoted",
     "enumeration": "4"
    },
-   "solution": "IDEM"
+   "solution": "IDEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as just quoted",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Part in",
+       "at": 0,
+       "note": "part in means a run of letters lies inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pride movie",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's role in the film Pride, cited again.",
+     "definitionFit": "Idem is Latin for the same, used in references for the source just cited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1724,70 @@
     "text": "Split agreed between Britain and EU? Not half!",
     "enumeration": "5"
    },
-   "solution": "BROKE"
+   "solution": "BROKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 13,
+       "note": "between means the agreed word sits between the two other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Britain",
+         "at": 21,
+         "gives": "BR"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Not half",
+           "at": 37,
+           "note": "not half means only one of the two letters, the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "EU",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "agreed",
+       "at": 6,
+       "gives": "OK",
+       "note": "OK means agreed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brexit as a deal splitting Britain and the European Union.",
+     "walkthrough": "'Not half!' also reads as British slang for 'very much so'.",
+     "definitionFit": "Broke is the past tense of break, meaning split or broke apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "agreed"
+    }
+   }
   },
   {
    "number": 27,
@@ -488,7 +1801,29 @@
     "text": "Nervous and at the forefront of fashion",
     "enumeration": "4"
    },
-   "solution": "EDGY"
+   "solution": "EDGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nervous",
+      "at": 0,
+      "meaning": "tense, on edge"
+     },
+     {
+      "text": "at the forefront of fashion",
+      "at": 12,
+      "meaning": "cutting-edge or provocatively modern in style"
+     }
+    ],
+    "explanation": {
+     "surface": "An anxious trendsetter.",
+     "definitionFit": "The adjective means both anxious and boldly avant-garde."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -502,7 +1837,49 @@
     "text": "So long screening very old television part",
     "enumeration": "5"
    },
-   "solution": "VALVE"
+   "solution": "VALVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old television part",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "screening",
+       "at": 8,
+       "note": "screening means hiding, so the farewell word encloses the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "So long",
+       "at": 0,
+       "gives": "VALE",
+       "note": "vale is Latin for farewell"
+      },
+      {
+       "words": "very",
+       "at": 18,
+       "gives": "V"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bidding farewell while showing a very old TV.",
+     "walkthrough": "'screening' suggests television but signals a container.",
+     "definitionFit": "Old television sets used thermionic tubes, called valves in Britain, as components."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 29,
@@ -516,7 +1893,48 @@
     "text": "Setting up key in having a meal",
     "enumeration": "9"
    },
-   "solution": "LAUNCHING"
+   "solution": "LAUNCHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Setting up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in means the key letter goes inside the meal word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "having a meal",
+       "at": 18,
+       "gives": "LUNCHING",
+       "note": "lunching means having lunch"
+      },
+      {
+       "words": "key",
+       "at": 11,
+       "gives": "A",
+       "note": "A is a musical key"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Launching a venture over a business lunch.",
+     "definitionFit": "To launch a project is to start it up or establish it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   }
  ]
 }
