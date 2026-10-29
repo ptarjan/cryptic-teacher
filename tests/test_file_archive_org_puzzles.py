@@ -4791,6 +4791,60 @@ check("forced_short: a row read since REREAD_FORCED_WORD, no Times paper's, a re
        f.forced_short({"edition": "GaleTimes1961UKEnglish/1961-01-10", "readAt": "2000-01-01T00:00:00+00:00",
                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                      "solution": {"accepted": 2, "lights": 30}}]})])
+# VOUCHED_FIT: a blank light whose crossings leave one past answer (corpus_words, filed_words) that the classifier
+# allows and leads by 100 to 1 is taken by clue_solved_reads (ours), where no wordplay solves it.
+vf_filed, vf_corpus = f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words
+f.trove_solution_ocr.filed_words = lambda: frozenset({"SLATED"})
+f.trove_solution_ocr.corpus_words = lambda: frozenset({"PLANET", "PLANED", "PLACID"})
+vf_cells = [(0, i) for i in range(6)]
+vf_probs = lambda w: {rc: p for rc, p in zip(vf_cells, sp_p(w))}
+vf_half = vf_probs("PLANET")
+vf_half[vf_cells[5]] = [0.5 if c in "TD" else 0.0 for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+check("vouched_fit: the one past answer the crossings leave that the classifier allows (PLANET, SLATED filed); not "
+      "with one letter crossed, a flat classifier, two near-equal words (PLANET/PLANED), a split enumeration or none",
+      ["PLANET", "SLATED", None, None, None, None, None],
+      [f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "?L????", vf_probs("SLATED"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "P?????", vf_probs("PLANET"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", {rc: [1 / 26] * 26 for rc in vf_cells}, "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PLAN??", vf_half, "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), "3,3"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), None)])
+check("... and not a word the classifier reads another letter of in a cell (PLACID where it reads PLANET)", None,
+      f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLASET"), "6"))
+vf_real = (f.trove_solution_ocr.lights, f.checked_answers, f.crop_cell_probs)
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): vf_cells, (1, "down"): [(0, 0), (1, 0), (2, 0)],
+                                            (3, "down"): [(0, 2), (1, 2), (2, 2)]}
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: vf_probs("PLANET")
+vf_crop = type("Crop", (), {"exists": lambda self: True})()
+vf_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3"}
+for vf_clue, vf_want in (("Where we live, in a word", {"1-across": "PLANET"}), ("Planet in orbit", {})):
+    vf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": vf_clue, "enumeration": "6"}},
+             {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+             {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+    vf_ans, vf_info = f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop)
+    check(f"clue_solved_reads takes the crossings' one past answer as ours (clueSolved), not one its clue holds: {vf_clue!r}",
+          (vf_want, vf_want or None), (vf_ans, vf_info.get("clueSolved")))
+f.trove_solution_ocr.lights, f.checked_answers, f.crop_cell_probs = vf_real
+f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = vf_filed, vf_corpus
+check("VOUCHED_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.VOUCHED_FIT], f.VOUCHED_FIT in f.SOLUTION_FIXES, f.VOUCHED_FIT.startswith("solution short"),
+       f.VOUCHED_FIT in __import__("edition_queue").LOW_ASK, f.VOUCHED_FIT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.VOUCHED_FIT)))
+_vf = min(f.VOUCHED_PUZZLES)
+check("vouched_short: a row read since REREAD_VOUCHED, no Times paper's, a refused grid's or another puzzle's is "
+      "not due", [False, False, False, False],
+      [f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": []}),
+       f.vouched_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vf}", "solutionFrom": "x leaf 3", "number": _vf,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",

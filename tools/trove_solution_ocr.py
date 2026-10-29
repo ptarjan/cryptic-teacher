@@ -2249,6 +2249,75 @@ def word_spells(word, text):
     return None
 
 
+#: vouched_fit: a blank light is taken as the past answer (corpus_words, filed_words) its crossings leave, the
+#: classifier's likeliest by VOUCHED_MARGIN log odds of those it allows: at least VOUCHED_KNOWN letters crossed,
+#: every open letter VOUCHED_FLOOR likely, none read surely (VOUCHED_SURE) as another letter, and one read at
+#: VOUCHED_SEEN or more. The reading of a heavy or faded print is too weak for clue_reads' CLUE_MARGIN, but the
+#: crossings and the list of answers already given leave one word. 10-29 (r35), held out on the lights of 205
+#: Times puzzles of 1939-42 left 2-6 short (each light's crossings from the other held lights, its own puzzle's
+#: answers off the list unless a typed puzzle holds them too): 3,676 taken, 26 differing from the held word
+#: (BOW WINDOW over the held file's HOW WINDOW, CROSIERS over CROZIERS: variants, not misreads); on their 205
+#: puzzles' blank lights 150 taken, 30 puzzles left one short, 4 whole.
+VOUCHED_KNOWN, VOUCHED_MARGIN, VOUCHED_FLOOR, VOUCHED_SEEN, VOUCHED_SURE = 2, np.log(100), 0.01, 0.5, 0.9
+_VOUCHED = {}
+
+
+def vouched_of(n):
+    """(words, letter-index array) of the corpus_words() and filed_words() answers of `n` letters (one word, letters
+    only), kept until either set is another."""
+    c, f = corpus_words(), filed_words()
+    kept = _VOUCHED.get("sets")
+    if kept is None or kept[0] is not c or kept[1] is not f:
+        by = {}
+        for w in set(c) | set(f):
+            if w.isascii() and w.isalpha():
+                by.setdefault(len(w), []).append(w)
+        _VOUCHED.clear()
+        _VOUCHED.update(sets=(c, f), by=by, arr={})
+    if n not in _VOUCHED["arr"]:
+        ws = sorted(_VOUCHED["by"].get(n, ()))
+        _VOUCHED["arr"][n] = (ws, np.array([[AZ.index(ch) for ch in w] for w in ws], dtype=np.int8).reshape(len(ws), n))
+    return _VOUCHED["arr"][n]
+
+
+def vouched_fit(cells, pattern, probs, enum=None):
+    """The past answer (vouched_of) a blank light on `cells` takes where its crossings give `pattern` (? open), by
+    the classifier's `probs` ({cell: 26 letter probabilities}): an enumeration of one word of the light's length,
+    VOUCHED_KNOWN or more letters crossed, the fitting words that the classifier allows (VOUCHED_FLOOR every open
+    letter, none a surely read other, one VOUCHED_SEEN) led by VOUCHED_MARGIN over the next; else None."""
+    n = len(pattern)
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    known = n - pattern.count("?")
+    if len(parts) != 1 or parts[0] != n or len(cells) != n or known < VOUCHED_KNOWN or known == n:
+        return None
+    opened = [i for i, p in enumerate(pattern) if p == "?"]
+    try:
+        P = np.array([[float(x) for x in probs[cells[i]]] for i in opened])
+    except (KeyError, IndexError, TypeError, ValueError):  # a cell with no probabilities
+        return None
+    if P.ndim != 2 or P.shape[1] != len(AZ):
+        return None
+    ws, arr = vouched_of(n)
+    ok = np.ones(len(ws), bool)
+    for i, ch in enumerate(pattern):
+        if ch != "?":
+            ok &= arr[:, i] == AZ.index(ch)
+    idx = np.nonzero(ok)[0]
+    if not len(idx):
+        return None
+    letters = arr[idx][:, opened].astype(int)
+    pr = P[np.arange(len(opened))[None, :], letters]
+    other = (letters != P.argmax(1)[None, :]) & (P.max(1) >= VOUCHED_SURE)[None, :]
+    good = (pr.min(1) >= VOUCHED_FLOOR) & ~other.any(1) & (pr.max(1) >= VOUCHED_SEEN)
+    if not good.any():
+        return None
+    score = np.where(good, np.log(np.maximum(pr, 1e-6)).sum(1), -np.inf)
+    order = np.argsort(-score, kind="stable")
+    if len(order) > 1 and not score[order[0]] - score[order[1]] > VOUCHED_MARGIN:
+        return None
+    return ws[idx[order[0]]]
+
+
 #: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
 #: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
 _SYNSETS = []
