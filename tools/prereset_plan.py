@@ -120,6 +120,13 @@ RECENT_LINES = 3
 # as the machine requires and no earlier, and the need keeps rising as the hours
 # shrink. Only AIM_MIN_H is kept, so the last checkpoint never divides by ~0.
 AIM_MIN_H = {"weekly": 0.05, "session": 0.05}
+# 10-29 undershoot (94%, not 98): need sat at 4-5 for the window and only rose in
+# its last 0.7h, where the load/cpu caps held the width to 3-5. The five-hour
+# straight line now ends this long before the reset, so the need is front-loaded
+# and the tail never depends on a width the caps refuse. The ceiling and the
+# over-target stop are unchanged: a meter at SESSION_CEILING still starts nothing.
+SESSION_EARLY_H = {"session": 0.75}
+SESSION_LAST_H = 0.25  # the margin never aims nearer than this, so the last need stays finite
 # The rates are measured on the five-hour meter, which moves several points for
 # each weekly one. Five-hour points per weekly point is the two meters' rises
 # side by side in usage-history.csv over the last RATIO_SPAN_S, skipping any
@@ -345,7 +352,7 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0, cur
         need = max(0, round(left / (hours * rate)))
         if meter == "session" and current and behind_pace(pct, hours_left):
             need = max(need, int(current) + 1)
-        if meter == "session" and need < FLOOR_RUNS and pct + FLOOR_RUNS * hours * rate / ratio < HEADROOM_PCT:
+        if meter == "session" and need < FLOOR_RUNS and pct + FLOOR_RUNS * max(hours, hours_left) * rate / ratio < HEADROOM_PCT:
             return FLOOR_RUNS
         return need
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
@@ -365,7 +372,9 @@ def bind_need(weekly, session):
 def aim_hours(meter, hours_left):
     """Hours until the need's deadline: the reset itself, at least
     AIM_MIN_H[meter] so the last checkpoint does not divide by ~0."""
-    return max(AIM_MIN_H[meter], hours_left)
+    early = SESSION_EARLY_H.get(meter, 0.0)
+    # never aim closer than SESSION_LAST_H (or the reset, if nearer) on account of the margin
+    return max(AIM_MIN_H[meter], hours_left - early, min(hours_left, SESSION_LAST_H) if early else 0.0)
 
 
 def five_per_weekly(csv_text, start, end):
@@ -903,8 +912,8 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
 ]] + [(("session",) + a, w) for a, w in [
     # five-hour mode: 70 points left under SESSION_CEILING by the reset 4h out,
     # bridge 10 an hour, 2 a run-hour
-    ((28, 4.0, 2.0, 10, 1.0), 4),
-    ((28, 4.0, 2.0, 0, 1.0), 9),      # a quiet bridge leaves the burn more
+    ((28, 4.0, 2.0, 10, 1.0), 6),
+    ((28, 4.0, 2.0, 0, 1.0), 11),      # a quiet bridge leaves the burn more
     ((28, 4.0, 2.0, 24, 1.0), 2),     # the rooms alone would spend it, but headroom keeps the floor
     # 2026-10-17: 36% with 3.6h left, bridge 17.7 an hour from a spike: floor, not 0
     ((36, 3.6, 2.0, 17.7, 1.0), 2),
@@ -917,9 +926,11 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     # 10-23: 93% with 0.5h left, 3 runs in flight: they and the bridge still
     # spend 3 x 6 x 0.25 + 2 = 6.5 points of the 2 left: nothing new starts
     ((93, 0.5, 6.0, 4, 1.0, 3), 0),
-    ((80, 2.0, 2.0, 4, 1.0, 3), 2),   # room for them (9.5 of 15): the gate is not in the way
+    ((80, 2.0, 2.0, 4, 1.0, 3), 5),   # room for them (9.5 of 15): the gate is not in the way
     # reset passed: a fresh 5h window, 99 over 5h at 2 a run-hour
-    ((97, -0.05, 2.0, 0, 1.0), 10),
+    ((97, -0.05, 2.0, 0, 1.0), 12),
+    # 10-29: 22% with 3.9h left, 4 a run-hour, bridge 1.5: aimed 0.75h early, 6 not 5
+    ((22, 3.9, 4.0, 1.5, 1.0), 6),
 ]]
 # (weekly need, five-hour need) -> (need, the meter that bound it)
 BIND_CASES = [
