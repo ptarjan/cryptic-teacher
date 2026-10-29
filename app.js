@@ -4883,15 +4883,15 @@
     };
     const walked = tree.op && tree.parts && blocks.length ? walk(tree, true) : null;
     const treeParts = walked && used.size === blocks.length ? walked : null;
-    // Pieces whose counts do not sum to the answer's, with no tree to say what
-    // else happens to them, are only "made from" each other: "+" would claim
+    // Pieces whose counts do not sum to the answer's, with no walkable tree to
+    // say what else happens to them, are only "made from" each other: "+" would claim
     // SPACE + S is PACE.
     const sums = blocks.reduce((t, b) => t + letterCount(b.gives), 0) === letterCount(ann.answer);
     const parts = treeParts ? treeParts
       : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
       : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "−", cut]
-      : head ? [head].concat(join(all, "+"))
-      : sums ? join(all, "+") : ["made from"].concat(join(all, "and"));
+      : !sums ? ["made from"].concat(join(all, "and"))
+      : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
       + ` (${letterCount(ann.answer)}) =`;
     // What a chip reads once its piece is out: the letters the piece gives

@@ -14,7 +14,8 @@
    operation could give any count, so it never fails a clue. A chip with no
    count (its piece gives nothing) makes the line unknowable, and it is skipped.
 
-   Usage: node tests/test_formula_math.js [--list]   (--list prints every failure) */
+   Usage: node tests/test_formula_math.js [--list] [--out redo.json]
+   (--list prints every failure; --out writes the bad-data clues as re-annotation rows) */
 "use strict";
 const fs = require("fs");
 const path = require("path");
@@ -125,6 +126,9 @@ function mathFault(ann) {
   const counts = blocks.map((b) => appFormula.letterCount(b.gives));
   if (counts.some((n) => !n)) return null;
   const want = appFormula.letterCount(ann.answer);
+  // A word masked because it is the answer ("inside" for LOOK INSIDE) is no
+  // operation this can read; the line is left untold rather than called wrong.
+  if (f.parts.some((p) => typeof p === "string" && p.includes("\u2026"))) return null;
   const r = evaluate(f.parts, counts);
   if (!r) return { text: formulaText(f), why: "unreadable" };
   if (want < r[0] || want > r[1]) return { text: formulaText(f), why: `${r[0]}..${r[1]}` };
@@ -150,25 +154,48 @@ function* puzzles() {
 // are the annotation's fault, listed for re-annotation, not the formula's.
 const unchecked = (n) => !!n && (!!n.unchecked || (n.parts || []).some(unchecked));
 
-// Puzzles whose stored answers their trees do not build (Genius alteration
-// grids, misread grid answers such as azed-2033's APOLLSINARIS): bad data for
-// the fixers (tools/fix_shape_suspects.py), not a formula fault. Remove an id
-// once its puzzle is repaired; a puzzle not listed is held to the full check.
-const TREE_MISSES_ANSWER = new Set([
-  "azed-2033", "azed-2151", "azed-2209", "azed-2232", "azed-2363", "azed-2587", "azed-2695", "azed-2729",
-  "azed-2750", "cryptic-21783", "cryptic-21837", "cryptic-22183", "cryptic-22272", "cryptic-22391",
-  "cryptic-23340", "cryptic-24963", "cryptic-25867", "cryptic-26430", "cryptic-26842", "cryptic-27124",
-  "cryptic-28002", "cryptic-28075", "cryptic-28410", "cryptic-28468", "cryptic-28500", "cryptic-28632",
-  "cryptic-29485", "cryptic-29657", "cryptic-30058", "cyclops-268", "cyclops-537", "everyman-3453",
-  "everyman-3467", "everyman-3780", "ftcryptic-16323", "ftcryptic-17410", "genius-1", "genius-101", "genius-11",
-  "genius-111", "genius-138", "genius-140", "genius-142", "genius-143", "genius-145", "genius-163",
-  "genius-164", "genius-169", "genius-177", "genius-196", "genius-197", "genius-199", "genius-218",
-  "genius-221", "genius-222", "genius-236", "genius-247", "genius-250", "genius-263", "genius-38", "genius-4",
-  "genius-71", "independent-11348", "independent-11389", "independent-11679", "indysunday-1331",
-  "listener-3999", "nation-3504", "quiptic-1079", "quiptic-1263", "sundaytel-2938", "sundaytimes-4678",
-  "sundaytough-63", "telegraph-30698", "telegraph-31240", "times-28367", "times-28780", "times-29398",
-  "timesclub-20217", "timesjumbo-1603", "toughie-2194"
-]);
+// The letter count [lo, hi] the wordplay tree itself can give, read off the
+// tree and the blocks, not the formula. When it cannot reach the answer's
+// length the tree does not build the answer (a themed grid that adds a letter
+// to every answer, a misread grid answer): bad data for re-annotation, which
+// no formula can make add up, so it is reported and never fails the check.
+const SELECTS = new Set(["first", "last", "middle", "outer", "alternate", "regular", "nth", "hidden"]);
+const SUMS = new Set(["charade", "container", "anagram", "reversal", "cycling", "palindrome"]);
+function treeRange(n, blocks) {
+  const count = (s) => appFormula.letterCount(s);
+  if (!n) return [0, INF];
+  if (!n.op) {
+    if (typeof n.gives === "string") return [count(n.gives), count(n.gives)];
+    return "words" in n ? [count(n.words), count(n.words)] : [0, INF];
+  }
+  if (typeof n.gives === "string") return [count(n.gives), count(n.gives)];
+  const parts = n.parts || [];
+  const kids = parts.map((p) => treeRange(p, blocks));
+  const sum = (ks) => ks.reduce((t, k) => [t[0] + k[0], t[1] + k[1]], [0, 0]);
+  if (SUMS.has(n.op)) return sum(kids);
+  if (n.op === "move") return kids[0] || [0, INF];
+  if ((n.op === "deletion" || n.op === "composite") && kids.length > 1) {
+    const w = kids[0], c = sum(kids.slice(1));
+    return [Math.max(0, w[0] - c[1]), w[1] - c[0]];
+  }
+  if (SELECTS.has(n.op)) {
+    // A pick from clue phrases is their blocks, which hold the letters picked.
+    const picked = parts.map((leaf) => !leaf.op &&
+      blocks.find((x) => x.clueFragment === leaf.words && x.gives && (x.select || n.op === "hidden")));
+    if (parts.length && picked.every(Boolean)) {
+      const k = picked.reduce((t, b) => t + count(b.gives), 0);
+      return [k, k];
+    }
+    const s = sum(kids);
+    return [Math.min(1, s[0]), s[1]];
+  }
+  return [0, INF];
+}
+const treeMissesAnswer = (ann) => {
+  const r = treeRange(ann.wordplay, ann.blocks || []);
+  const want = appFormula.letterCount(ann.answer);
+  return want < r[0] || want > r[1];
+};
 
 // Paul's report (azed-2081 7A): a composite anagram drawn as "9 + 4" for a 5.
 function fixtures() {
@@ -200,14 +227,22 @@ if (require.main === module) {
       if (!fault) continue;
       const row = { id: p.id, entry: `${e.number}-${e.direction}`, clue: (e.clue || {}).text, answer: ann.answer,
         op: (ann.wordplay || {}).op || "-", ...fault };
-      (unchecked(ann.wordplay) || TREE_MISSES_ANSWER.has(p.id) ? badData : failures).push(row);
+      (unchecked(ann.wordplay) || treeMissesAnswer(ann) ? badData : failures).push(row);
     }
   }
   if (list) for (const f of failures.concat(badData)) console.log(JSON.stringify(f));
+  // --out <file>: the bad-data clues as re-annotation rows, the shape of
+  // tools/data/shape_reannotate.json ({id: "<puzzle>#<number><a|d>", reason}).
+  const out = process.argv.indexOf("--out");
+  if (out > 0) {
+    fs.writeFileSync(process.argv[out + 1], JSON.stringify(badData.map((r) => ({
+      id: `${r.id}#${r.entry.replace(/-(a|d)\w*$/, "$1")}`,
+      reason: `formulaMath: the tree does not build ${r.answer}: ${r.text}` })), null, 0).replace(/\},\{/g, "},\n{") + "\n");
+  }
   for (const f of failures.slice(0, 20)) console.error("FAIL: " + JSON.stringify(f));
   console.error(`${clues} clues with blocks: ${failures.length} formulas that do not add up, ` +
-    `${badData.length} more on unchecked trees or listed bad-data puzzles, ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+    `${badData.length} more whose trees do not build the answer, ${((Date.now() - t0) / 1000).toFixed(1)} s`);
   process.exit(failures.length ? 1 : 0);
 }
 
-module.exports = { mathFault, evaluate, fixtures };
+module.exports = { mathFault, evaluate, fixtures, treeMissesAnswer };
