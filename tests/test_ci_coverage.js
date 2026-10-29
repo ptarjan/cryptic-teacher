@@ -31,7 +31,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const { shards, items } = require("../tools/ci_shards.js");
+const { shards, items, PARALLEL, CORES } = require("../tools/ci_shards.js");
 const ROOT = path.join(__dirname, "..");
 const WORKFLOWS = path.join(ROOT, ".github/workflows");
 
@@ -144,6 +144,13 @@ if (shardIds.length >= 2) {
     `${f} is matched by the globs but lands in no shard, so it runs nowhere`));
   assert(placed.length === want.length,
     `the shards hold ${placed.length} items and the globs matched ${want.length}`);
+  // More PARALLEL items at once than the runner has cores is more than it
+  // holds: five smoke slices in one shard killed that shard every run.
+  const parIn = (s) => s.filter((f) => PARALLEL.has(f.split(" ")[0])).length;
+  if (parIn(placed) <= CORES * split.length) {
+    split.forEach((s, i) => assert(parIn(s) <= CORES,
+      `shard ${i} runs ${parIn(s)} parallel items on ${CORES} cores`));
+  }
   // The workflow hands a slice to its script as CI_SLICE; one it does not
   // hand over runs the whole script in every slice's shard.
   if (want.length > files.length) {

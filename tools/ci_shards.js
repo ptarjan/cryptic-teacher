@@ -24,7 +24,8 @@
 
    A script in PARALLEL is single-threaded and touches nothing but its own
    output, so a shard runs all of its PARALLEL items at once beside the rest
-   (the runner has CORES cores); LPT charges such an item COST/CORES.
+   (the runner has CORES cores); LPT charges such an item COST/CORES, and
+   hands a shard no more than CORES of them while another shard has room.
    `--parallel` prints the PARALLEL items of a shard's list, `--serial` the rest.
 
    Usage: printf '%s\n' tests/test_a.sh ... | node tools/ci_shards.js <i> <n>
@@ -101,8 +102,18 @@ function shards(files, count) {
     .sort((a, b) => cost(b) - cost(a) || (a < b ? -1 : a > b ? 1 : 0))
     .forEach((item) => {
       const after = (bin) => bin.load + cost(item) + extra(bin, item);
-      let best = 0;
-      for (let i = 1; i < count; i++) if (after(bins[i]) < after(bins[best])) best = i;
+      // A PARALLEL item only fits a shard with a core to spare. LPT charges it
+      // COST/CORES, so a shard light on serial work was handed five smoke
+      // slices on four cores, and five slices at once is more than the runner
+      // holds: it got "the runner has received a shutdown signal" mid-sweep,
+      // every run, whichever shard had the fifth. Full everywhere, it goes
+      // where it would on load alone.
+      const par = PARALLEL.has(fileOf(item));
+      const full = (bin) => bin.files.filter((f) => PARALLEL.has(fileOf(f))).length >= CORES;
+      const roomy = par && bins.some((b) => !full(b));
+      const fits = (bin) => !roomy || !full(bin);
+      let best = bins.findIndex(fits);
+      for (let i = best + 1; i < count; i++) if (fits(bins[i]) && after(bins[i]) < after(bins[best])) best = i;
       bins[best].load = after(bins[best]);
       bins[best].pages = bins[best].pages || PAGES.has(fileOf(item));
       bins[best].files.push(item);
@@ -110,7 +121,7 @@ function shards(files, count) {
   return bins.map((b) => b.files);
 }
 
-module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES, PARALLEL };
+module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES, PARALLEL, CORES };
 
 const stdinList = () => require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
 if (require.main === module && process.argv[2] === "--needs-pages") {
