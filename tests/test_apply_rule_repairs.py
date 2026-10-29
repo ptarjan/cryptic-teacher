@@ -239,4 +239,12 @@ check("blockNote: sound() of the whole answer names no letters",
 syn = {"op": "charade", "parts": [bare("Dad", "POP"), {**bare("rush", "HASTE"), "note": "haste is rush"}]}
 new, left = noted(syn, "Dad rush", "POPHASTE")
 check("blockNote: a synonym leaf with no note stays refused", len(left) == 1 and left[0]["words"] == "Dad")
+# doesNotGive: a link word filed as a bare leaf ('[to]') is read as TO; dropped, the charade gives the answer
+import wordplay as W
+for wp, clue, ans in [("[Man]HE + [to] + [run out]RO", "Man to run out victor", "HERO"),
+                      ("[Marks]M + [on] + [snake]ADDER", "Marks on snake", "MADDER")]:
+    tree = W.parse(wp)
+    W.locate(tree, clue, ())
+    new = F.r_does_not_give(tree, None, {"answer": ans, "clue": clue})
+    check("doesNotGive drops the bare link leaf: " + ans, bool(new) and len(new["parts"]) == 2)
 sys.exit(1 if fails else 0)
