@@ -794,35 +794,45 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, A on B puts A after B, so 'not far from home' comes after the island"
+       "at": 25,
+       "note": "in an across clue, A on B puts A after B, so the near-home phrase comes after the island"
       }
      ],
      "parts": [
       {
        "words": "island",
+       "at": 28,
        "gives": "I",
-       "note": "I = island, as on maps"
+       "note": "I is the usual abbreviation for island, as on maps"
       },
       {
-       "words": "not far from",
-       "gives": "NEAR",
-       "note": "near = not far from"
-      },
-      {
-       "words": "home",
-       "gives": "NEST",
-       "note": "a bird's home"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "not far",
+         "at": 7,
+         "gives": "NEAR",
+         "note": "not far means close by, near"
+        },
+        {
+         "words": "home",
+         "at": 20,
+         "gives": "NEST",
+         "note": "a nest is a bird's home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Living close to home on an island.",
-     "walkthrough": "'Really' is the adverb, as in 'she meant it really', not an exclamation.",
+     "walkthrough": "'Really' is the adverb, as in 'she meant it really', not an exclamation; 'from' only joins the two pieces.",
      "definitionFit": "A plain synonym: meant seriously, sincerely, not as a joke."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Really"
     }
    }
   },
@@ -928,62 +938,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STEVEJOBS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "move",
        "indicators": [
         {
-         "text": "Holding",
-         "note": "to hold is to have inside, so the outer word holds the other letters"
+         "text": "broken",
+         "at": 8,
+         "note": "broken into pieces, so the two letters of TV are separated before going in"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "Holding",
+           "at": 0,
+           "note": "to hold something is to have it inside, so the consult word holds the other letters"
+          }
+         ],
          "parts": [
           {
            "words": "consult",
+           "at": 19,
            "gives": "SEE",
            "note": "to see a doctor is to consult one"
           },
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "broken",
-             "note": "broken into pieces, so T and V are separated and placed apart"
-            }
-           ],
-           "parts": [
-            {
-             "words": "TV",
-             "note": "split into T and V"
-            }
-           ]
+           "words": "TV",
+           "at": 15
           }
          ]
         },
         {
-         "words": "office's",
-         "gives": "JOBS",
-         "note": "an office is a job; JOB'S"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "office's",
+       "at": 27,
+       "gives": "JOBS",
+       "note": "an office is a job or post; with the 's it gives the plural form"
       }
      ]
     },
     "explanation": {
      "surface": "Calling the office tech expert about a broken television.",
-     "walkthrough": "The T and V go into SEE separately, one after each of its first two letters.",
+     "walkthrough": "'Holding' sets the TV pair inside the consult word; 'broken' parts them, which the parse shows as an E shifting between T and V. It reads as a TV repair call, not an inventor.",
      "definitionFit": "The Apple co-founder is the best-known technology visionary of his era."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "office"
+     "misdirectedWord": "office's"
     }
    }
   },
