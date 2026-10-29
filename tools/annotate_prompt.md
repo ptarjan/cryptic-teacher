@@ -96,6 +96,8 @@ words, indicator operations and pieces, so you write none of those.
   quote, or the check refuses it as "not in the clue".
 - A leaf's letters come before any operation (`rev([papers]ID)` makes DI). A charade
   is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
+- A reversal wraps only the piece its indicator sits by, and that piece keeps its forward
+  letters inside (`SURF + rev<looking up>(TIE)`); never `rev(TIE + FRUS)` with the clue's pieces swapped.
 - Every clue piece that gives letters is a term of the wordplay: leave none out, even a
   short query phrase ("look up where?" supplying part of AUSTRIA). Pieces side by side
   are a charade (`+`), not `ins`; `ins` only where one piece is cut open by another.

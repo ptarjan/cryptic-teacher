@@ -1166,30 +1166,25 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Recalled",
-       "at": 0,
-       "note": "recalled means called back, so the letters are read in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "limiting",
+         "at": 20,
+         "note": "limiting means enclosing, so the extra word goes round the letter"
+        }
+       ],
        "parts": [
         {
-         "words": "time",
-         "at": 15,
-         "gives": "T"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "limiting",
-           "at": 20,
-           "note": "limiting means enclosing, so the extra word goes round the letter"
+           "text": "Recalled",
+           "at": 0,
+           "note": "recalled means called back, so the letters are read in reverse"
           }
          ],
          "parts": [
@@ -1198,26 +1193,31 @@
            "at": 9,
            "gives": "PLUS",
            "note": "plus means extra or additional"
-          },
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initial",
-             "at": 36,
-             "note": "initial means the first letter of club is taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "club's",
-             "at": 29
-            }
-           ]
+           "text": "initial",
+           "at": 36,
+           "note": "initial means the first letter of club is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "club's",
+           "at": 29
           }
          ]
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 15,
+       "gives": "T"
       }
      ]
     },

@@ -6283,6 +6283,38 @@ def reversal_split(tree, clue):
     return n
 
 
+REVERSED_CHARADE_ORDER = "reversal over a charade whose pieces sit in the clue in another order than it joins them"
+
+
+def reversed_charade_order(tree, clue):
+    """A reversal over a charade (no indicators of its own) whose pieces stand in the clue in another
+    order than the charade lists them, with no word between them to say so: the parse reversed the whole
+    to put the answer right, so a piece sits backwards in the walkthrough (independent-12387 SURFEIT
+    "Use a browser link, looking up" filed as rev(TIE + FRUS), when SURF stays and only TIE turns).
+    The indicator turns the piece beside it; the others stay forwards, in the clue's order."""
+    if not clue:
+        return 0
+    low = clue.lower()
+    tree = _located(tree, clue)
+    n = 0
+    for node in _walk(tree):
+        kids = node.get("parts") or []
+        if node.get("op") != "reversal" or node.get("unchecked") or len(kids) != 1:
+            continue
+        ch = kids[0]
+        if not isinstance(ch, dict) or ch.get("op") != "charade" or ch.get("indicators") or ch.get("unchecked"):
+            continue
+        pieces = [p for p in ch.get("parts") or [] if isinstance(p, dict)]
+        spans = [_extent(p, clue, low) for p in pieces]
+        if len(pieces) < 2 or not all(spans):
+            continue
+        if all(spans[i + 1][0] >= spans[i][0] for i in range(len(spans) - 1)):
+            continue
+        if not ORDER_FLIPPERS.search(clue[min(a for a, _ in spans):max(b for _, b in spans)]):
+            n += 1
+    return n
+
+
 CUT_IN_LEAF = "leaf opens with a cut word (short, half, first) and gives fewer letters than its other words"
 CUT_WORDS = frozenset("short shorter shortly half briefly brief first last lower upper heart centre initially ends "
                       "endless headless topless beheaded curtailed cut clipped docked reduced".split())
@@ -7675,6 +7707,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
         out.append(f"{tag}: {k} {CHARADE_ORDER}: keep the clue's order, or reverse the piece that moves")
     if k := reversal_split(tree, clue):
         out.append(f"{tag}: {k} {REVERSAL_SPLIT}: it reverses the one piece it sits by")
+    if k := reversed_charade_order(tree, clue):
+        out.append(f"{tag}: {k} {REVERSED_CHARADE_ORDER}: keep the clue's order and reverse only the piece the indicator sits by")
     if k := cut_in_leaf(tree):
         out.append(f"{tag}: {k} {CUT_IN_LEAF}: the cut word is an op's indicator, the leaf holds the rest")
     for fn, label, hint in (
@@ -8305,6 +8339,7 @@ BACKLOG_MARKERS = {
     "wordplay.poolGap": (POOL_GAP,),
     "wordplay.tradedIndicator": (TRADED_INDICATOR,),
     "wordplay.reversalSplit": (REVERSAL_SPLIT,),
+    "wordplay.reversedCharadeOrder": (REVERSED_CHARADE_ORDER,),
     "wordplay.anaSelectEdge": (ANA_SELECT_EDGE,),
     "wordplay.delWide": (DEL_WIDE,),
     "wordplay.indLeafOverlap": (IND_LEAF_OVERLAP,),
