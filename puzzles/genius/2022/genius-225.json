@@ -4,6 +4,14 @@
  "setter": "Pasquale",
  "date": "2022-03-07",
  "preamble": "Pasquale March 7 Wordplay in each of the down clues contains a superfluous letter. In clue order, these spell out an instruction to remove six unpleasant figures from the completed grid before submitting your entry.",
+ "messages": [
+  {
+   "text": "ERASE SPLIT DEVILS",
+   "kind": "extra",
+   "direction": "down",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -165,6 +173,10 @@
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "revolutionary"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
     }
    }
   },
@@ -225,6 +237,10 @@
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Parisian"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
     }
    }
   },
@@ -289,6 +305,10 @@
      "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "liquid"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
     }
    }
   },
@@ -360,37 +380,12 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "indicators": [
-      {
-       "text": "kicked out",
-       "at": 44,
-       "note": "the outsiders are kicked out, so the letters at the back of the phrase are thrown away too"
-      }
-     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "outsiders",
-         "at": 34,
-         "note": "with kicked out, the letters on the outside of the phrase, at its front, are thrown away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "chosen as vestry",
-         "at": 15,
-         "gives": "CHOSENASVESTRY",
-         "note": "the run left in the middle of these words, read straight through, gives the answer plus one spare letter"
-        },
-        {
-         "gives": "CHOSE"
-        }
-       ]
-      },
-      {
-       "gives": "STRY"
+       "words": "chosen as vestry — outsiders kicked out",
+       "at": 15,
+       "gives": "NASVE",
+       "note": "the run left when the outer letters of the phrase are kicked out; its S is this clue's superfluous letter"
       },
       {
        "gives": "S"
@@ -399,13 +394,17 @@
     },
     "explanation": {
      "surface": "A vestry is picked to serve as part of the church, with outsiders thrown out.",
-     "walkthrough": "'Outsiders' drops CHOSE, leaving NASVESTRY, and 'kicked out' drops STRY, leaving NASVE; its S is this clue's superfluous letter for the preamble's message, so it goes.",
+     "walkthrough": "'Outsiders kicked out' strips the outer letters of CHOSEN AS VESTRY, leaving NASVE; its S is this clue's superfluous letter for the preamble's message, so it goes.",
      "definitionFit": "The nave is the central body of a church building where the congregation sits."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "outsiders"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
     }
    }
   },
@@ -540,6 +539,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Presents"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
     }
    }
   },
@@ -636,10 +639,18 @@
      ],
      "parts": [
       {
-       "words": "Writers",
-       "at": 0,
-       "gives": "ENS",
-       "note": "writers are pens; the P of pens is this clue's superfluous letter, which the preamble removes"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Writers",
+         "at": 0,
+         "gives": "PENS",
+         "note": "writers are pens; the P is this clue's superfluous letter"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
        "op": "anagram",
@@ -652,26 +663,10 @@
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "putting out",
-           "at": 36,
-           "note": "one letter is removed from the word magic, as if put out of it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "magic",
-           "at": 30
-          },
-          {
-           "words": "100",
-           "at": 48,
-           "gives": "C",
-           "note": "C is the Roman numeral for 100"
-          }
-         ]
+         "words": "magic putting out 100",
+         "at": 30,
+         "gives": "MAGI",
+         "note": "magic with C, the Roman numeral for 100, put out of it"
         }
        ]
       }
@@ -686,6 +681,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Writers"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "P"
     }
    }
   },
@@ -1085,6 +1084,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Upset"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
     }
    }
   },
@@ -1140,6 +1143,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "scheme"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
     }
    }
   },
@@ -1195,6 +1202,10 @@
      "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Dry"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
     }
    }
   },
@@ -1352,6 +1363,10 @@
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "collecting"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
     }
    }
   },
@@ -1385,24 +1400,14 @@
       },
       {
        "op": "deletion",
-       "indicators": [
-        {
-         "text": "put out",
-         "note": "to put something out is to eject it, so the letter named just before goes"
-        }
-       ],
        "parts": [
         {
-         "words": "somewhere in Austria",
-         "gives": "VIENNA",
-         "note": "Vienna is Austria's capital; its V is the superfluous letter"
+         "words": "somewhere in Austria — I put out",
+         "gives": "VENNA",
+         "note": "Vienna, Austria's capital, with its I put out; the V is the superfluous letter"
         },
         {
          "gives": "V"
-        },
-        {
-         "words": "I",
-         "note": "taken as written, and removed"
         }
        ]
       }
@@ -1417,6 +1422,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "feeler"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "V"
     }
    }
   },
@@ -1471,6 +1480,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "taxi"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
     }
    }
   },
@@ -1526,6 +1539,10 @@
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "establishment"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
     }
    }
   },
@@ -1714,6 +1731,10 @@
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Going"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
     }
    }
   },
