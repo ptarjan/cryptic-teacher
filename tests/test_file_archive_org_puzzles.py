@@ -4855,6 +4855,69 @@ check("vouched_short: VOUCHED_MORE is apart from VOUCHED_PUZZLES and read later;
        f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
                         "verdicts": [{"id": f"times-{_vm}", "solutionFrom": "x leaf 3", "number": _vm,
                                       "solution": {"refused": "its blocks are not the puzzle's"}}]})])
+# CLUE_REPEATED: a blank light whose clue (text and count) another committed puzzle prints too takes that puzzle's
+# answer where it fits the crossings (trove_solution_ocr.clue_repeat), taken by clue_solved_reads as ours.
+cr_t = f.trove_solution_ocr
+cr_filed, cr_corpus = cr_t.filed_clues, cr_t.corpus_words
+cr_key = lambda text, enum="6": cr_t.clue_key(text, enum)
+cr_book = {cr_key("Where we live, in a word"): [("times-7", "PLANET", True), ("times-8", "PLANED", False)],
+           cr_key("A short clue about stars", "6"): [("times-9", "COMETS", False)],
+           cr_key("Another clue about stars", "6"): [("times-9", "COMETS", False), ("times-10", "COMETS", False)],
+           cr_key("Rival answers to this clue", "6"): [("times-9", "COMETS", True), ("times-10", "PLANET", True)],
+           cr_key("Our own earlier answer", "6"): [("times-5", "PLANET", True)]}
+cr_t.filed_clues = lambda: cr_book
+cr_t.corpus_words = lambda: frozenset({"PLANET", "COMETS"})
+check("clue_repeat: the one answer another puzzle's file gives the clue that fits the crossings (typed, or two files' "
+      "alike); not a lone read file's, rivals, its own puzzle's, one letter crossed, a clue too short, or a word unlisted",
+      ["PLANET", "COMETS", None, None, None, None, None, None, None],
+      [cr_t.clue_repeat("Where we live, in a word", "6", "PL????"),
+       cr_t.clue_repeat("Another clue about stars", "6", "C?????"),
+       cr_t.clue_repeat("A short clue about stars", "6", "C?M???"),
+       cr_t.clue_repeat("Rival answers to this clue", "6", "?O????"),
+       cr_t.clue_repeat("Our own earlier answer", "6", "PL????", "times-5"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "P?????"),
+       cr_t.clue_repeat("Where we live", "6", "PL????"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "XL????"),
+       cr_t.clue_repeat("Where we live, in a word", "6", "PLANET")])
+cr_t.corpus_words = lambda: frozenset()
+check("... and not a word no list holds (PLANET off the corpus, and not listed)", None,
+      cr_t.clue_repeat("Where we live, in a word", "6", "PL????") if not cr_t.listed("PLANET") else None)
+cr_t.corpus_words = lambda: frozenset({"PLANET", "COMETS"})
+cr_real = (cr_t.lights, f.checked_answers, f.crop_cell_probs)
+cr_t.lights = lambda grid: {(1, "across"): vf_cells, (1, "down"): [(0, 0), (1, 0), (2, 0)],
+                            (3, "down"): [(0, 2), (1, 2), (2, 2)]}
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: {}
+cr_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Where we live, in a word", "enumeration": "6"}},
+         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, puzzle_id="times-1")
+check("clue_solved_reads takes the answer the clue's other puzzle gave as ours (clueSolved), first of the rules",
+      ({"1-across": "PLANET"}, {"1-across": "PLANET"}), (cr_ans, cr_info.get("clueSolved")))
+cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, puzzle_id="times-7")
+check("... not from the puzzle's own file (times-7 gave it, a rival PLANED fits too)", ({}, None),
+      (cr_ans, cr_info.get("clueSolved")))
+cr_t.lights, f.checked_answers, f.crop_cell_probs = cr_real
+cr_t.filed_clues, cr_t.corpus_words = cr_filed, cr_corpus
+check("CLUE_REPEATED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, first of the queue",
+      (2, True, True, True, True, True, True),
+      (f.RANKS[f.CLUE_REPEATED], f.CLUE_REPEATED in f.SOLUTION_FIXES, f.CLUE_REPEATED.startswith("solution short"),
+       f.CLUE_REPEATED in __import__("edition_queue").LOW_ASK, f.CLUE_REPEATED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.CLUE_REPEATED),
+       __import__("edition_queue").UNFILED_FIRST[-1] == f.CLUE_REPEATED))
+_cr = min(f.CLUE_REPEAT_PUZZLES)
+check("clue_repeat_short: a row read since REREAD_CLUE_REPEATED, no Times paper's, a refused grid's or another puzzle's "
+      "is not due; the reason is apart from VOUCHED_FIT", [False, False, False, False, True],
+      [f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                            "verdicts": []}),
+       f.clue_repeat_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                            "verdicts": [{"id": f"times-{_cr}", "solutionFrom": "x leaf 3", "number": _cr,
+                                          "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.clue_repeat_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                            "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                          "solution": {"accepted": 2, "lights": 30}}]}),
+       f.CLUE_REPEATED != f.VOUCHED_FIT])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
