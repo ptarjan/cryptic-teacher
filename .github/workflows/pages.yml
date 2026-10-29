@@ -711,6 +711,11 @@ jobs:
     if: needs.scope.outputs.idle != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      # check_all defaults to 2 workers since 04bbcd91e46 (10-23), to spare the
+      # household host's burn and bridge. A public-repo runner is 4 vCPU and
+      # shared with nothing, so the shards left half of it idle: all 4 here.
+      VALIDATE_JOBS: "4"
     # A job's permissions replace the workflow's, so this restates contents.
     permissions:
       contents: write  # the requeue step pushes the allowance raises
