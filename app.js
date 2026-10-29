@@ -3467,7 +3467,8 @@
   const CHARADE_MOVED = "The answer is built from pieces each clued separately, but here they do not simply sit " +
     "end to end in the order the clue reads: the clue also turns something round or puts one piece inside another.";
   const movedCharade = (ann) => ["container", "reversal"].includes((ann.wordplay || {}).op);
-  const letterCount = (s) => String(s || "").replace(/[^A-Za-z]/g, "").length;
+  // Accented letters count: MAÑANA is six, not five (NFD splits Ñ into N and its tilde).
+  const letterCount = (s) => String(s || "").normalize("NFD").replace(/[^A-Za-z]/g, "").length;
   function partAnagram(ann) {
     const made = ((ann.assembly || {}).anagrams || []).map((a) => letterCount(a.gives));
     return made.length > 0 && Math.max(...made) < letterCount(ann.answer);
@@ -4868,6 +4869,11 @@
         if (!kids.length || kids.some((k) => !k)) return null;
         if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
         else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "−", kids[1]);
+        // A composite anagram's fodder is the answer's letters plus the second
+        // piece's (comp(x, y), tools/wordplay.py): the answer is the first less the second.
+        else if (op === "composite" && kids.length === 2) out = ["anagram of", "("].concat(kids[0], "−", kids[1], ")");
+        // A move's second piece is letters of the first, moved, not letters added to it.
+        else if (op === "move" && kids.length === 2) out = [].concat(kids[0], "with", kids[1], "moved");
         else {
           const lead = op === "charade" || op === "composite" || WHOLE_CLUE.includes(op) ? [] : [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`];
           out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
@@ -4877,10 +4883,15 @@
     };
     const walked = tree.op && tree.parts && blocks.length ? walk(tree, true) : null;
     const treeParts = walked && used.size === blocks.length ? walked : null;
+    // Pieces whose counts do not sum to the answer's, with no tree to say what
+    // else happens to them, are only "made from" each other: "+" would claim
+    // SPACE + S is PACE.
+    const sums = blocks.reduce((t, b) => t + letterCount(b.gives), 0) === letterCount(ann.answer);
     const parts = treeParts ? treeParts
       : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
       : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "−", cut]
-      : (head ? [head] : []).concat(join(all, "+"));
+      : head ? [head].concat(join(all, "+"))
+      : sums ? join(all, "+") : ["made from"].concat(join(all, "and"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
       + ` (${letterCount(ann.answer)}) =`;
     // What a chip reads once its piece is out: the letters the piece gives

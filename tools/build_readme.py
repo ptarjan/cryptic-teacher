@@ -327,6 +327,7 @@ LAYOUT = [
     ("building and checking the site", "tools/og_card.html", "source and type for og.png, the site card, and every puzzle’s clue card"),
     ("building and checking the site", "tools/og_page_card.html", "source for og/page/<slug>.png, the card of every page that is not a puzzle"),
     ("building and checking the site", "tools/page_card.py", "fills og_page_card.html from a page’s title and description; build_seo_pages.head() links one for every page"),
+    ("building and checking the site", "tests/test_formula_math.js", "every clue's hint formula adds up: its pieces, with the operations shown, make the answer's letter count"),
     ("building and checking the site", "tests/test_og_tags.js", "every generated page carries a full, valid social card, and no non-puzzle page borrows the site card"),
     ("building and checking the site", "tests/test_clue_landing.js", "does a search visitor land on the clue they typed? landing.js must mark the clue Google's text fragment scrolled to (or a #12-across anchor) and put the solve-with-hints line under it, leave reloads, other referrers and readers who scrolled first alone, and report only names on sync/events.js's list"),
     ("building and checking the site", "tests/test_app_nav.js", "can a home-screen app user get back to their puzzle? Standalone, every page must carry the tab bar with its own section lit and a Solve tab that reopens the last puzzle, a page reached from the app or another page must offer a back link that is history.back(), and a browser tab must get none of it"),
