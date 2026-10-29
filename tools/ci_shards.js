@@ -47,6 +47,8 @@ const COST = {
   "tests/test_acquire_book.py": 61,
   "tests/test_provenance.py": 28,
   "tests/test_blog_facts.sh": 34,
+  // 209 s locally with the corpus-wide clue index (~50 s) it no longer builds.
+  "tests/test_file_archive_org_puzzles.py": 150,
   "tests/test_puzzle_invariants.py": 7,
   "tests/test_alert_claimed.sh": 6,
   "tests/test_repair_fetched.py": 5,
