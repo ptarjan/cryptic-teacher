@@ -845,6 +845,8 @@ def evidence_reason(reason):
             # ... a host of a TITLE_HEADINGS era (1940-46, 1951-86) read before the slices under its title were
             # read (fa.era_bands), where its era prints the heading: once.
             or reason == fa.HOST_LAYOUT_RESCAN
+            # ... a host of 1947-50 or 1987-2002 (fa.ERA_HEADINGS), whose layouts era_bands did not hold: once.
+            or reason == fa.HOST_ERA_RESCAN
             # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
             # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
             or reason == fa.RIGHT_FOREIGN_READ

@@ -649,21 +649,41 @@ check("a week-on host read before its championship heading is due once as HOST_W
        f.host_rescan_reason(_week_on("1989-02-23")), f.HOST_WEEK_ON_RESCAN in f.RANKS, f.HOST_WEEK_ON_RESCAN in f.HOST_REASONS))
 # HOST_LAYOUT_RESCAN: a host of a TITLE_HEADINGS era read before era_bands is due once more, ranked, a host read.
 _lay = lambda day, at="2026-10-26T10:00:00+00:00": {"edition": f"GaleTimes1942UKEnglish/{day}", "solOnly": {"at": at}}
-check("a 1942 host read before era_bands is due as HOST_LAYOUT_RESCAN, once; a 1947 one and a read one are not",
+check("a 1942 host read before era_bands is due as HOST_LAYOUT_RESCAN, once; a 2005 one (no layout) and a read one are not",
       (True, f.HOST_LAYOUT_RESCAN, False, False, True, True),
       (f.host_rescan_due(f.GALE, _lay("1942-04-29")), f.host_rescan_reason(_lay("1942-04-29")),
-       f.host_rescan_due(f.GALE, {**_lay("1947-04-29"), "edition": "GaleTimes1947UKEnglish/1947-04-29"}),
+       f.host_rescan_due(f.GALE, {**_lay("2005-04-29"), "edition": "GaleTimes2005UKEnglish/2005-04-29"}),
        f.host_rescan_due(f.GALE, _lay("1942-04-29", "2099-01-01T00:00:00+00:00")),
        f.HOST_LAYOUT_RESCAN in f.RANKS, f.HOST_LAYOUT_RESCAN in f.HOST_REASONS))
+# HOST_ERA_RESCAN: a host of 1947-50 or 1987-2002 (ERA_HEADINGS) read before REREAD_HOST_ERAS is due once as that, whatever
+# its older read's reason; a 1942 one (TITLE_HEADINGS) keeps its own, and a read since is not due.
+_era = lambda year, at="2026-10-29T07:00:00+00:00": {"edition": f"GaleTimes{year}UKEnglish/{year}-04-29", "solOnly": {"at": at}}
+check("a 1948 and a 1995 host read before the eras' bands are due as HOST_ERA_RESCAN, once; a 1942 one is HOST_LAYOUT_RESCAN",
+      (True, f.HOST_ERA_RESCAN, True, f.HOST_ERA_RESCAN, f.HOST_ERA_RESCAN, False, False, f.HOST_LAYOUT_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _era(1948)), f.host_rescan_reason(_era(1948)),
+       f.host_rescan_due(f.GALE, _era(1995)), f.host_rescan_reason(_era(1995)),
+       f.host_rescan_reason(_era(1995, "2026-10-20T00:00:00+00:00")),
+       f.host_rescan_due(f.GALE, _era(1995, "2099-01-01T00:00:00+00:00")),
+       f.host_rescan_due(f.GALE, {**_era(2005), "edition": "GaleTimes2005UKEnglish/2005-04-29"}),
+       f.host_rescan_reason(_era(1942, "2026-10-26T10:00:00+00:00")),
+       f.HOST_ERA_RESCAN in f.RANKS, f.HOST_ERA_RESCAN in f.HOST_REASONS))
 # era_bands: 1942-04-29's title box (1397, 3890) puts the heading band at x 1057..1597, y 4320..4520 (the heading
 # sat at 1143, 4385), cut in 170 px slices 110 apart; a year with no layout, and a band past the page, get none.
 _tp = Image.new("L", (3487, 4814), 255)
 check("era_bands: slices under the title box where the era prints its heading",
       [(1057, 4320, 1597, 4490), (1057, 4430, 1597, 4520)], f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1942))
-check("era_bands: none for 1947 (no layout), none past the page, the 1951-66 layout right of the title",
+check("era_bands: none for 2005 (no layout), none past the page, the 1951-66 layout right of the title",
       ([], [], [(727, 4740, 1427, 4814)]),
-      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947), f.era_bands(_tp, [(1397, 4800, 2269, 4814)], 1942),
+      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 2005), f.era_bands(_tp, [(1397, 4800, 2269, 4814)], 1942),
        f.era_bands(_tp, [(327, 3890, 1100, 3947)], 1960)[-1:]))
+# ERA_HEADINGS: 1948-49 print the heading a line 47-64 px under the title and 60-110 left of it; 1995 1190-1460 under it.
+check("era_bands: the 1948 line under the title, the 1995 slices 1130-1520 under it, 1947 both its layouts",
+      ([(1227, 3900, 1737, 4050), (1227, 4010, 1737, 4050)],
+       [(167, 3830, 747, 4000), (167, 3940, 747, 4110), (167, 4050, 747, 4220), (167, 4160, 747, 4220)],
+       True),
+      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1948), f.era_bands(_tp, [(327, 2700, 900, 2750)], 1995),
+       (1057, 4320, 1597, 4490) in f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947)
+       and (1227, 3900, 1737, 4050) in f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947)))
 check("title_boxes: the scan's box first, a read title within 40 px of it not twice",
       [(1397, 3890, 2269, 3947)], f.title_boxes(f.GALE, [], 3797, [(1397, 3890, 2269, 3947)]))
 # hosted(): a solution prints in the next issue, a Saturday prize's also in
