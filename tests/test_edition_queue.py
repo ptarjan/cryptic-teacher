@@ -3111,6 +3111,17 @@ check("fills_gpu: low-ask solution rereads do not feed; neither cpu-only nor ans
        [eq.answers_linked({**u, "paper": next(iter(eq.fa.FILERS))}) for u in _lo]))
 check("gpu_fill: low-ask solution rereads ranked first do not fill, the never-read ones behind them do", ["t0", "t1"],
       [u["rel"] for u in eq.gpu_fill([(u, eq.key_of(u)) for u in _lo + _ft], set(), set(), _none, _none, 0, False, 0, 2)])
+# 10-29: ~100 reads of one fix reason took all 20 unit slots (18 min OCR each, no VLM asks): one reason is capped.
+_rc_old = os.environ.pop("CT_REASON_CAP", None)
+_rc = [eq.reason_cap_for(20), eq.reason_cap_for(3)]
+os.environ["CT_REASON_CAP"] = "0"
+_rc.append(eq.reason_cap_for(20))
+os.environ["CT_REASON_CAP"] = "5"
+_rc.append(eq.reason_cap_for(20))
+os.environ.pop("CT_REASON_CAP")
+if _rc_old is not None:
+    os.environ["CT_REASON_CAP"] = _rc_old
+check("reason_cap_for: ceiling//3 (min 2), CT_REASON_CAP overrides, 0 = off", [6, 2, 0, 5], _rc)
 check("gpu_fill: a full spool, no fill", [],eq.gpu_fill(_cands, set(), set(), _none, _none, 0, True, 0, 2))
 check("gpu_fill: fills running count against the half pool", ["t0"], [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 1, 2)])
 check("gpu_fill: tried, running and waiting reads are skipped", ["t2"],
