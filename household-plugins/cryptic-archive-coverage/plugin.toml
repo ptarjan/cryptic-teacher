@@ -2,10 +2,14 @@ about    = "The coverage ledger (tools/coverage.py): every series' puzzles that 
 room     = "cryptic-crosswords"
 schedule = "50 5 * * *"
 where    = "container"
-# Run from the corpus queue's worktree, which its hourly tick resets to
-# origin/master, so the script exists even when the main checkout is behind.
-# tools/nightly_worktree.sh then moves the run into a worktree of its own.
-run      = "~/.cryptic-teacher/corpus_queue/tools/coverage.sh"
+# The main checkout's copy, only to bootstrap: tools/nightly_worktree.sh
+# (re)creates the job's own worktree under ~/.cryptic-teacher at origin/master
+# and runs that tree's copy of the script, so a pushed fix is live at the
+# next run. Never point run (or this plugin's symlink) INTO a job tree: when
+# the tree went (2026-10-24, and vlm_health removes its own after every run)
+# the bridge listed the plugin as disabled and nothing ran to rebuild it; the
+# coverage ledger went unsaved 10-24..10-28.
+run      = "~/github/cryptic-teacher/tools/coverage.sh"
 args     = ["daily"]
 log      = "~/github/cryptic-teacher/.coverage.log"
 timeout  = 1800
