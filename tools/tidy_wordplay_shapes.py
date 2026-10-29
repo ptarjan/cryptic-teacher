@@ -93,6 +93,7 @@ FIELDS = {
     "wordplay.truncInLeaf": lambda ann: V.trunc_in_leaf(ann.get("wordplay")),
     "wordplay.cutNoteLeaf": lambda ann: V.cut_note_leaf(ann.get("wordplay")),
     "wordplay.ownIndInLeaf": lambda ann: V.own_ind_in_leaf(ann.get("wordplay")),
+    "wordplay.preReversedLeaf": lambda ann: V.pre_reversed_leaf(ann.get("wordplay")),
     "wordplay.selectorAsCut": lambda ann: V.selector_as_cut(ann.get("wordplay")),
     "wordplay.anaLoneEdge": lambda ann: V.ana_lone_edge(ann.get("wordplay"), ann.get("answer")),
     "wordplay.anaLiteralEdge": lambda ann: V.ana_literal_edge(ann.get("wordplay"), ann.get("answer")),

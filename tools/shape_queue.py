@@ -377,6 +377,8 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                        "give the whole word and cut it with a deletion op carrying that indicator",
        "ownIndInLeaf": "an op's own indicator words also sit inside its leaf (French way back under rev<back>): "
                        "the leaf holds only the words that give its letters",
+       "preReversedLeaf": "a leaf under a reversal gives its word already backwards (Use a browser giving FRUS under "
+                          "rev(TIE + FRUS)): the leaf gives the word forwards, and the reversal sits on the piece it turns",
        "splitSharedIndicator": "two neighbouring same-kind ops share one indicator, only one carrying it: write "
                                "one multi-part op under the indicator",
        "midWordLeaf": "a leaf gives a stretch of several clue words that starts or ends inside a word: "
@@ -433,6 +435,7 @@ def _validator_rules():
             "truncInLeaf": lambda t, a, c: V.trunc_in_leaf(t),
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
+            "preReversedLeaf": lambda t, a, c: V.pre_reversed_leaf(t),
             "repeatInLeaf": lambda t, a, c: V.repeat_in_leaf(t),
             "doubledApostrophe": lambda t, a, c: V.doubled_apostrophe(t),
             "splitWordLeaves": lambda t, a, c: V.split_word_leaves(t),

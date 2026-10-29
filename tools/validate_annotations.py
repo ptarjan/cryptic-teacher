@@ -6948,6 +6948,48 @@ def move_note_leaf(tree):
                and len(wordplay.letters(node["gives"])) >= 3 and wordplay.letters(node["gives"]).lower() not in lex)
 
 
+PRE_REVERSED_LEAF = "leaf under a reversal gives its word already written backwards"
+#: A note that says what the reversal makes ("IN plus A, running upward to give ANI") names the turned letters itself.
+_TURN_NOTE = re.compile(r"(?i)\b(gives?|giving|revers\w*|backwards?|back|upwards?|turn\w*|runn\w*|reads?|reading|flip\w*)\b")
+#: Ops whose leaves are read for their letters, not their meaning: the letters there may run either way.
+_LETTER_OPS = frozenset({"hidden", "anagram", "alternate", "deletion", "homophone", "spoonerism"})
+
+
+def pre_reversed_leaf(tree):
+    """Plain leaves under a reversal that give a non-word of 3+ letters whose reverse is what the words mean
+    (independent-12387 SURFEIT: "Use a browser" giving FRUS under rev(TIE + FRUS); FICHE, BEAUTYSLEEP):
+    reversing the whole charade still spells the answer, so the evaluator passes it, but the page shows the
+    solver a synonym backwards and reverses the wrong piece. The reverse must be an attested reading of the
+    words or named in the leaf's note. The leaf gives the word forwards; the reversal sits on the piece it turns.
+    Needs the lexicon."""
+    lex = _lexicon_letters()
+    if not lex:
+        return 0
+    n = 0
+
+    def visit(node, reversed_above):
+        nonlocal n
+        if not isinstance(node, dict) or node.get("op") in _LETTER_OPS or node.get("op") in wordplay.SELECT:
+            return
+        if "op" not in node:
+            g = wordplay.letters(node.get("gives") or "")
+            if not reversed_above or len(g) < 3 or not node.get("words") or node.get("soundsLike"):
+                return
+            low, back = g.lower(), g[::-1].lower()
+            if low in lex or back not in lex or _known_pair(node["words"], g):
+                return
+            note = str(node.get("note") or "")
+            named = (re.search(r"(?i)\b" + back + r"(?:s|es|d|ed|ing|er|ers)?\b", note)
+                     and low not in re.sub(r"[^a-z]", "", note.lower()) and not _TURN_NOTE.search(note))
+            n += bool(_known_pair(node["words"], g[::-1]) or named)
+            return
+        for p in node.get("parts") or []:
+            visit(p, reversed_above or node.get("op") == "reversal")
+
+    visit(tree, False)
+    return n
+
+
 def first_sibling_leaves(tree):
     """Charades holding a first-letters op over one word beside two or more plain one-word leaves that give
     their own initials (r38 FN CHEF: first<heads>(cooked) + H + E + F, every "heads" word its own leaf): one
@@ -7673,7 +7715,9 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: del_as_move(tree), DEL_AS_MOVE, "write move<indicator>(fodder, MOVED)"),
             (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
             (lambda: doubled_apostrophe(tree), DOUBLED_APOSTROPHE, "write the word with the one apostrophe the clue has"),
-            (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
+            (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters"),
+            (lambda: pre_reversed_leaf(tree), PRE_REVERSED_LEAF,
+             "give the word forwards and put the reversal on the piece it turns, SURF + rev<looking up>([link]TIE)")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
     return out
@@ -8276,6 +8320,7 @@ BACKLOG_MARKERS = {
     "wordplay.truncInLeaf": (TRUNC_IN_LEAF,),
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
+    "wordplay.preReversedLeaf": (PRE_REVERSED_LEAF,),
     "wordplay.repeatInLeaf": (REPEAT_IN_LEAF,),
     "wordplay.doubledApostrophe": (DOUBLED_APOSTROPHE,),
     "wordplay.splitWordLeaves": (SPLIT_WORD_LEAVES,),
