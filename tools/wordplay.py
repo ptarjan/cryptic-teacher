@@ -1866,6 +1866,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                             + (f" (spans with no note yet: {keys})" if keys else
                                " (every span has a note already)"))
     _quote_bare_words(tree, clue, taken)
+    _requote_sibling_words(tree)
     try:
         evaluate(tree, answer)
     except WordplayError as err:
@@ -1908,6 +1909,36 @@ def _quote_bare_words(tree, clue, taken=()):
             a, b = hits[0]
             node["words"], node["at"] = clue[a:b], a
             used.append((a, b))
+
+
+def _requote_sibling_words(tree):
+    """One quote that spells several pieces ([two letters]DEE + ESS for D and S spelt
+    out, [Three musical neighbours]D + EFLAT + E) leaves the later pieces bare, and the
+    first check's 'a block with no clueFragment' refuses them. In a charade whose quoted
+    leaves all quote the same words, bare alphabetic leaves next to a run of those leaves
+    take the words again (what `[two letters#2]ESS` writes). Two different quotes among the
+    siblings, or a bare piece not touching a quoted one, is ambiguous and stays refused."""
+    for node in _all_nodes(tree):
+        if node.get("op") != "charade":
+            continue
+        parts = parts_of(node)
+        quoted = {(p["words"].lower(), p.get("at")) for p in parts if "op" not in p and "words" in p}
+        if len(quoted) != 1:
+            continue
+        words, at = next((p["words"], p.get("at")) for p in parts if "op" not in p and "words" in p)
+        have = [("op" not in p and "words" in p) for p in parts]
+        bare = [("op" not in p and "words" not in p and not p.get("unchecked")
+                 and str(p.get("gives") or "").isalpha()) for p in parts]
+        grow = list(have)
+        for _ in parts:  # a bare piece joins when it touches a quoted one
+            for i, b in enumerate(bare):
+                if b and not grow[i] and ((i and grow[i - 1]) or (i + 1 < len(parts) and grow[i + 1])):
+                    grow[i] = True
+        if any(b and not g for b, g in zip(bare, grow)):
+            continue  # a bare piece apart from the quote: leave it to the refusal
+        for p, b in zip(parts, bare):
+            if b:
+                p["words"], p["at"] = words, at
 
 
 def _all_nodes(node):
