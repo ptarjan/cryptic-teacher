@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Document required for transferring estate car?",
     "enumeration": "10"
    },
-   "solution": "CONVEYANCE"
+   "solution": "CONVEYANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Document required for transferring estate",
+      "at": 0,
+      "meaning": "the legal deed by which property passes from seller to buyer"
+     },
+     {
+      "text": "car?",
+      "at": 42,
+      "meaning": "a car is a vehicle, a means of carrying people; the question mark flags it as an example"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks what paperwork is needed to sell a family estate car.",
+     "walkthrough": "'Estate car' reads as one thing, a station wagon; split it, so 'estate' belongs to the property deed and 'car' stands alone.",
+     "definitionFit": "In law, the deed transferring land is so called; in general use the word means any vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "estate"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +72,64 @@
     "text": "Vices shown by person elected in short order",
     "enumeration": "6"
    },
-   "solution": "CLAMPS"
+   "solution": "CLAMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vices",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in means one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 33,
+         "note": "short means the word for order loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "order",
+         "at": 39,
+         "gives": "CLASS",
+         "note": "an order is a rank or class, as in the lower orders"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "person elected",
+       "at": 15,
+       "gives": "MP",
+       "note": "an MP, Member of Parliament, is elected"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elected politician is shown up for his vices in no time.",
+     "walkthrough": "'In short order' looks like a phrase meaning quickly; split it: 'short' trims order's word and 'in' places the politician inside.",
+     "definitionFit": "Vices (US vises) are workbench tools that grip, the same job as clamps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Vices"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +143,70 @@
     "text": "Food from Mexico boy set up outside a church",
     "enumeration": "6"
    },
-   "solution": "NACHOS"
+   "solution": "NACHOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food from Mexico",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 28,
+       "note": "outside means the reversed piece wraps round the others"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 21,
+         "note": "in a down clue, set up means the word is written upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "at": 17,
+         "gives": "SON",
+         "note": "a boy is a son"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "A"
+        },
+        {
+         "words": "church",
+         "at": 38,
+         "gives": "CH"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mexican boy has set up a food stall outside a church.",
+     "walkthrough": "'Set up' signals reversal because in a down entry the word reads upwards; 'outside' wraps it round the rest.",
+     "definitionFit": "Tortilla chips with melted cheese are a Mexican dish, served as a snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +226,45 @@
      }
     ]
    },
-   "solution": "EVAPORATEDMILK"
+   "solution": "EVAPORATEDMILK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 21,
+       "note": "off means the letters are gone wrong, thrown into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Improve",
+       "at": 0
+      },
+      {
+       "words": "take lad",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to shape up and take the young man out for a drink.",
+     "walkthrough": "'Take lad off' reads as an instruction; 'and' is a link and 'off' shuffles IMPROVE, TAKE and LAD together.",
+     "definitionFit": "Concentrated tinned milk can be drunk or added to drinks, a loose but fair use of drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +278,43 @@
     "text": "Bill locks ladies in green room, perhaps",
     "enumeration": "9"
    },
-   "solution": "ACTRESSES"
+   "solution": "ACTRESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ladies in green room, perhaps",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bill",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      },
+      {
+       "words": "locks",
+       "at": 5,
+       "gives": "TRESSES",
+       "note": "locks of hair are tresses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Bill shuts some women inside a green room.",
+     "walkthrough": "'Bill' looks like a man's name and 'locks' like a verb; they are an account and hair.",
+     "definitionFit": "Performers wait in a theatre's green room before going on stage, so women there may be stage performers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +328,41 @@
     "text": "Check weapon for magnetism",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "magnetism",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Check",
+       "at": 0,
+       "gives": "CH",
+       "note": "CH is the chess abbreviation for check"
+      },
+      {
+       "words": "weapon",
+       "at": 6,
+       "gives": "ARM",
+       "note": "an arm is a weapon, as in firearms"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks a weapon for magnetic properties.",
+     "definitionFit": "Personal magnetism is attractiveness, the power to draw people in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "magnetism"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +376,41 @@
     "text": "Check containers on the way back",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the way back",
+       "at": 17,
+       "note": "on the way back means the word is read in the return direction, backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "containers",
+       "at": 6,
+       "gives": "POTS",
+       "note": "pots are containers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspects the containers on the return journey.",
+     "definitionFit": "To check something is to halt or arrest it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +424,48 @@
     "text": "Story after count will be revealing",
     "enumeration": "8"
    },
-   "solution": "TELLTALE"
+   "solution": "TELLTALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "revealing",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 6,
+       "note": "after means the story's word comes behind the count's word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "count",
+       "at": 12,
+       "gives": "TELL",
+       "note": "to tell is to count, as a bank teller does"
+      },
+      {
+       "words": "Story",
+       "at": 0,
+       "gives": "TALE",
+       "note": "a story is a tale"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A narrator promises the story will reveal everything after the count.",
+     "definitionFit": "A telltale sign is one that gives something away, revealing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +479,59 @@
     "text": "Left on boat with temperature missing elegance shown by ocean dweller",
     "enumeration": "8"
    },
-   "solution": "PORPOISE"
+   "solution": "PORPOISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ocean dweller",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 30,
+         "note": "missing means the temperature letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Left on boat",
+         "at": 0,
+         "gives": "PORT",
+         "note": "port is the left side of a ship"
+        },
+        {
+         "words": "temperature",
+         "at": 18,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "elegance",
+       "at": 38,
+       "gives": "POISE",
+       "note": "poise is graceful elegance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graceful sea creature appears to the left of a boat in falling temperatures.",
+     "walkthrough": "'Missing' drops the T from PORT, leaving POR.",
+     "definitionFit": "A small toothed whale lives in the sea, so it fits a descriptive name for a marine creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +551,35 @@
      }
     ]
    },
-   "solution": "TELEGRAPHPOLES"
+   "solution": "TELEGRAPHPOLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They may hold up lines of communication",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "They may hold up lines of communication",
+       "at": 0,
+       "note": "hold up reads as delay, but these wooden supports literally carry the overhead wires of a phone network"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Hold up' suggests obstruction; the sense is physical support of cables.",
+     "definitionFit": "Tall wooden posts carry the overhead wires along which messages travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +593,40 @@
     "text": "Insomniac crackpot's accommodating city",
     "enumeration": "5"
    },
-   "solution": "ACCRA"
+   "solution": "ACCRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "city",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 21,
+       "note": "accommodating means the phrase holds the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Insomniac crackpot's",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleepless eccentric's city makes room for him.",
+     "definitionFit": "The capital of Ghana is a West African city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodating"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +640,59 @@
     "text": "Bank employee gets hold of artist — very representative",
     "enumeration": "9"
    },
-   "solution": "TRAVELLER"
+   "solution": "TRAVELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "representative",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets hold of",
+       "at": 14,
+       "note": "gets hold of means the first word grips the others inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bank employee",
+       "at": 0,
+       "gives": "TELLER",
+       "note": "a teller works at a bank counter"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "artist",
+         "at": 27,
+         "gives": "RA",
+         "note": "RA is a Royal Academician, an artist"
+        },
+        {
+         "words": "very",
+         "at": 36,
+         "gives": "V"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank clerk grabs an artist who is very representative.",
+     "walkthrough": "'Gets hold of' makes the bank employee's word the container.",
+     "definitionFit": "A commercial salesman on the road is a sales representative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representative"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +706,48 @@
     "text": "Advertise concert, anticipating on-target earnings",
     "enumeration": "7"
    },
-   "solution": "PROMOTE"
+   "solution": "PROMOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advertise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "anticipating",
+       "at": 19,
+       "note": "anticipating means coming before, so the concert's word goes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "concert",
+       "at": 10,
+       "gives": "PROM",
+       "note": "a prom is a promenade concert"
+      },
+      {
+       "words": "on-target earnings",
+       "at": 32,
+       "gives": "OTE",
+       "note": "OTE is the jobs-advert abbreviation for on-target earnings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert for a concert job, with talk of on-target earnings.",
+     "walkthrough": "OTE appears in British sales job adverts as expected pay with bonuses.",
+     "definitionFit": "To advertise a product is to publicise it and push its sales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +761,54 @@
     "text": "Comfort seamstress hugging returning expert",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expert",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returning",
+       "at": 27,
+       "note": "returning means the held letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "hugging",
+         "at": 19,
+         "note": "hugging means the two words hold the letters inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Comfort seamstress",
+         "at": 0,
+         "gives": "ORTSEAM"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seamstress is comforted with a hug by a returning expert.",
+     "walkthrough": "'Hugging' picks ORTSEAM from comfORT SEAMstress; 'returning' reverses it.",
+     "definitionFit": "A master or virtuoso, especially in music, is an expert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Comfort"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +828,60 @@
      }
     ]
    },
-   "solution": "SAUSAGEROLLS"
+   "solution": "SAUSAGEROLLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "snack food",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "touring",
+         "at": 9,
+         "note": "touring means going round, so the sage word surrounds America"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wise man",
+         "at": 0,
+         "gives": "SAGE",
+         "note": "a sage is a wise man"
+        },
+        {
+         "words": "America",
+         "at": 17,
+         "gives": "USA",
+         "note": "USA is America"
+        }
+       ]
+      },
+      {
+       "words": "registers",
+       "at": 25,
+       "gives": "ROLLS",
+       "note": "rolls are registers or lists of names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise man on a tour of America writes down snacks in his ledgers.",
+     "walkthrough": "'Touring' means the wise man goes round America.",
+     "definitionFit": "Pastry-wrapped sausage meat is a classic British snack, eaten cold or warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "registers"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +895,35 @@
     "text": "Couple propping up the bar at football?",
     "enumeration": "9"
    },
-   "solution": "GOALPOSTS"
+   "solution": "GOALPOSTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Couple propping up the bar at football?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Couple propping up the bar at football?",
+       "at": 0,
+       "note": "a pair of drinkers leaning on a pub bar, or the two uprights supporting the crossbar of a goal"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Propping up the bar' is slang for drinking in a pub; here the bar is the goal's crossbar.",
+     "definitionFit": "Two uprights hold up a goal's crossbar in football."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +943,58 @@
      }
     ]
    },
-   "solution": "TRADESON"
+   "solution": "TRADESON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Takes unfair advantage of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 35,
+       "note": "taken in by means the Democrat letter goes inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "jittery",
+         "at": 47,
+         "note": "jittery means nervous and shaky, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "senator",
+         "at": 55
+        }
+       ]
+      },
+      {
+       "words": "Democrat",
+       "at": 26,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous senator is fooled by a Democrat colleague.",
+     "walkthrough": "'Jittery' scrambles SENATOR and D goes inside.",
+     "definitionFit": "To exploit a reputation or a relationship is to cash in on it unfairly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jittery"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1008,41 @@
     "text": "Stubborn, and planning bad route",
     "enumeration": "8"
    },
-   "solution": "OBDURATE"
+   "solution": "OBDURATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stubborn",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "planning",
+       "at": 14,
+       "note": "planning means working the letters into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bad route",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stubbornly plans a bad route.",
+     "walkthrough": "'Planning' reshuffles BAD ROUTE.",
+     "definitionFit": "A synonym: obstinate, unyielding, refusing to change one's mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planning"
+    }
+   }
   },
   {
    "number": 18,
@@ -312,7 +1062,42 @@
      }
     ]
    },
-   "solution": "RUBBERSTAMPS"
+   "solution": "RUBBERSTAMPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gives approval for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bit of bridge",
+       "at": 19,
+       "gives": "RUBBER",
+       "note": "a rubber is a unit of play in the card game bridge"
+      },
+      {
+       "words": "impressions",
+       "at": 41,
+       "gives": "STAMPS",
+       "note": "stamps are impressions pressed onto paper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A section of bridge needs stamps impressed on it before approval.",
+     "walkthrough": "'Bridge' suggests a structure; it is the card game, in which a rubber is a set of games.",
+     "definitionFit": "An idiom: to approve something automatically, without real scrutiny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1111,57 @@
     "text": "Plant a tree across lake",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 13,
+       "note": "across means the first pieces span the lake letter, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 6,
+         "gives": "A"
+        },
+        {
+         "words": "tree",
+         "at": 8,
+         "gives": "PINE",
+         "note": "a pine is a tree"
+        }
+       ]
+      },
+      {
+       "words": "lake",
+       "at": 20,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plants a tree on the far side of a lake.",
+     "definitionFit": "Mountain plants grown in rock gardens are named for the Alps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1175,28 @@
     "text": "Accept honour",
     "enumeration": "6"
    },
-   "solution": "CREDIT"
+   "solution": "CREDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accept",
+      "at": 0,
+      "meaning": "to believe or trust a claim"
+     },
+     {
+      "text": "honour",
+      "at": 7,
+      "meaning": "praise or recognition for something done, as in getting the merit for it"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One word covers believing a story and the recognition due for an achievement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1210,56 @@
     "text": "22's doctor needing season to start late",
     "enumeration": "7"
    },
-   "solution": "DRUMMER"
+   "solution": "DRUMMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "22",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 5,
+       "gives": "DR"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "start late",
+         "at": 30,
+         "note": "late means dead or gone, so the season's first letter is no longer there"
+        }
+       ],
+       "parts": [
+        {
+         "words": "season",
+         "at": 20,
+         "gives": "SUMMER",
+         "note": "summer is a season"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's doctor needs the season to begin later.",
+     "walkthrough": "'22's' reads as 22 is; 22 is Ringo, the Beatles' percussionist.",
+     "definitionFit": "Ringo Starr played the drums for the Beatles, so he is an example of a percussion player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1273,42 @@
     "text": "Percussionist must have love to support band",
     "enumeration": "5"
    },
-   "solution": "RINGO"
+   "solution": "RINGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Percussionist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "band",
+       "at": 40,
+       "gives": "RING",
+       "note": "a ring is a band, as worn on a finger"
+      },
+      {
+       "words": "love",
+       "at": 24,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drummer insists on love to back up the group.",
+     "walkthrough": "In a down entry O sits below RING, supporting it, though 'to support' is a joining phrase here.",
+     "definitionFit": "Ringo Starr was the Beatles' famous drummer, a percussion player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1322,58 @@
     "text": "Mass-market power with uranium found in Arctic environment",
     "enumeration": "7"
    },
-   "solution": "POPULAR"
+   "solution": "POPULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mass-market",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 31,
+       "note": "found in means the pieces sit within the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arctic environment",
+       "at": 40,
+       "gives": "POLAR",
+       "note": "polar describes the Arctic region"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "power",
+         "at": 12,
+         "gives": "P"
+        },
+        {
+         "words": "uranium",
+         "at": 23,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mass-market nuclear power appears in the Arctic.",
+     "definitionFit": "Mass-market goods appeal to a broad public, the very sense of widely liked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1387,48 @@
     "text": "Celebrities will eat fish — they flock together",
     "enumeration": "9"
    },
-   "solution": "STARLINGS"
+   "solution": "STARLINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they flock together",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will eat",
+       "at": 12,
+       "note": "will eat means the stars word takes the fish inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Celebrities",
+       "at": 0,
+       "gives": "STARS",
+       "note": "celebrities are stars"
+      },
+      {
+       "words": "fish",
+       "at": 21,
+       "gives": "LING",
+       "note": "a ling is a fish of the cod family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Famous people will dine on fish when they gather together.",
+     "definitionFit": "These birds gather in huge murmurations, flocks of thousands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Celebrities"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1442,58 @@
     "text": "Landowner left daughter taking in broadcast",
     "enumeration": "5"
    },
-   "solution": "LAIRD"
+   "solution": "LAIRD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Landowner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "at": 24,
+       "note": "taking in means the two letters surround the broadcast word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "left",
+         "at": 10,
+         "gives": "L"
+        },
+        {
+         "words": "daughter",
+         "at": 15,
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "broadcast",
+       "at": 34,
+       "gives": "AIR",
+       "note": "to air a programme is to broadcast it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner leaves his daughter tuned in to a broadcast.",
+     "walkthrough": "A laird is a Scottish estate owner.",
+     "definitionFit": "The Scottish word for a lord of an estate means a landholder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1507,45 @@
     "text": "Votes against hooter being sounded",
     "enumeration": "4"
    },
-   "solution": "NOES"
+   "solution": "NOES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Votes against",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NOES",
+     "indicators": [
+      {
+       "text": "being sounded",
+       "at": 21,
+       "note": "being sounded means the word is spoken, giving a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hooter",
+       "at": 14,
+       "gives": "NOSE",
+       "note": "hooter is slang for a nose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Votes against a car horn being sounded.",
+     "walkthrough": "'Hooter' looks like a horn; it is slang for the face's nose.",
+     "definitionFit": "In parliamentary divisions those voting no are counted as such."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1559,57 @@
     "text": "Happy to accept son is dependable",
     "enumeration": "10"
    },
-   "solution": "CONSISTENT"
+   "solution": "CONSISTENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dependable",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accept",
+       "at": 6,
+       "note": "to accept means the happy word takes the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Happy",
+       "at": 0,
+       "gives": "CONTENT",
+       "note": "content means happy"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "son",
+         "at": 16,
+         "gives": "S"
+        },
+        {
+         "words": "is",
+         "at": 20,
+         "gives": "IS"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful parent welcomes a son who is reliable.",
+     "walkthrough": "'To accept' makes the happy word the container.",
+     "definitionFit": "A synonym: reliable, steady, always behaving the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
