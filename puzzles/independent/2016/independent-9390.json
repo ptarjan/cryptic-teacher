@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Confronts Vandyke etc",
     "enumeration": "6"
    },
-   "solution": "BEARDS"
+   "solution": "BEARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confronts",
+      "at": 0,
+      "meaning": "to beard someone is to face them boldly and defiantly"
+     },
+     {
+      "text": "Vandyke etc",
+      "at": 10,
+      "meaning": "a Vandyke is a pointed style of chin hair, one of many such facial growths"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone squares up to the painter Van Dyck and his circle.",
+     "definitionFit": "Both senses: the verb meaning to defy someone face to face, and the plural noun for chin whiskers such as the Vandyke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vandyke"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,69 @@
     "text": "Liquid that's first injected into chopped lemon",
     "enumeration": "6"
    },
-   "solution": "MOLTEN"
+   "solution": "MOLTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Liquid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injected into",
+       "at": 20,
+       "note": "injected into says one piece is put inside the other, like a needle going into fruit"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "chopped",
+         "at": 34,
+         "note": "chopped says the letters of lemon are cut up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lemon",
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 14,
+         "note": "first asks for only the opening letter of that's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that's",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: some liquid is injected into a chopped lemon.",
+     "walkthrough": "'chopped' rearranges LEMON to MOLEN, and 'injected into' puts T, the first letter of 'that's', inside it.",
+     "definitionFit": "Molten metal or rock has been melted, so it is in a flowing, fluid state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +147,60 @@
     "text": "Futile swimming in central European river, one that's deep",
     "enumeration": "10"
    },
-   "solution": "OUTFIELDER"
+   "solution": "OUTFIELDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one that's deep",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the scrambled letters within the river's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "central European river",
+       "at": 19,
+       "gives": "ODER",
+       "note": "the Oder flows between Germany and Poland"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swimming",
+         "at": 7,
+         "note": "swimming says the letters of futile are moving about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Futile",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swimming in a river in central Europe is pointless for someone out of their depth.",
+     "walkthrough": "'swimming' makes UTFIEL, which 'in' places inside the river. 'the deep' is cricket's term for the outfield near the boundary.",
+     "definitionFit": "A cricket fielder placed in the deep stands far from the bat, out near the boundary rope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deep"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +214,65 @@
     "text": "Meat cut outside King's Lynn, say",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lynn, say",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 9,
+       "note": "outside says the shortened meat goes around the royal letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 5,
+         "note": "cut says the meat word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Meat",
+         "at": 0,
+         "gives": "VEAL",
+         "note": "veal is calf meat"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "King's",
+       "at": 17,
+       "gives": "R",
+       "note": "R, for rex, is the abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher's cut of meat beyond the Norfolk town of King's Lynn.",
+     "walkthrough": "'cut' trims VEAL to VEA and 'outside' wraps it round R. King's Lynn is a town in Norfolk; the surface hides the singer Dame Vera Lynn.",
+     "definitionFit": "Dame Vera Lynn was the British wartime singer, so her first name is an example of the given name of someone surnamed Lynn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lynn"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +286,32 @@
     "text": "Fumed or fuming?",
     "enumeration": "8"
    },
-   "solution": "INCENSED"
+   "solution": "INCENSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fumed",
+      "at": 0,
+      "meaning": "treated with fragrant smoke, as when a church is perfumed by burning resin"
+     },
+     {
+      "text": "fuming",
+      "at": 9,
+      "meaning": "fuming means extremely angry"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled query whether something smoked or is still smoking.",
+     "walkthrough": "The first sense is the whimsical one: something 'fumed' with incense smoke has been incensed.",
+     "definitionFit": "Both senses: perfumed with burning aromatic resin, and furious with rage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fumed"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +331,41 @@
      }
     ]
    },
-   "solution": "ENGLISHCHANNEL"
+   "solution": "ENGLISHCHANNEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "D-Day landers' first obstacle",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Exploding",
+       "at": 0,
+       "note": "exploding says the letters of shell enhancing are blown apart and land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shell enhancing",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bursting shells at D-Day mark the first barrier the invaders faced.",
+     "walkthrough": "'Exploding' scrambles the fourteen letters of SHELL ENHANCING. The Allied D-Day forces had to cross this stretch of sea from England to reach Normandy.",
+     "definitionFit": "Before landing on the Normandy beaches, the 1944 invasion fleet first had to cross the sea strait separating Britain from France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "enhancing"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +379,80 @@
     "text": "Pen pal finally stops once hurt, certainly",
     "enumeration": "9"
    },
-   "solution": "ENCLOSURE"
+   "solution": "ENCLOSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stops",
+         "at": 16,
+         "note": "stops says the letter plugs a gap inside the rearranged word, like a stopper"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "hurt",
+           "at": 27,
+           "note": "hurt says the letters of once are damaged into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "once",
+           "at": 22
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 8,
+           "note": "finally asks for the last letter of pal"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pal",
+           "at": 4
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "certainly",
+       "at": 33,
+       "gives": "SURE",
+       "note": "sure as an exclamation means certainly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pen pal stops writing because they were once hurt, for sure.",
+     "walkthrough": "'hurt' gives ENCO, which 'stops' plugs with the final letter of 'pal'. 'Pen' is the noun for a fenced animal yard, not a writing tool.",
+     "definitionFit": "A pen is a fenced area for animals, which is a kind of walled-in compound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pen"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +466,99 @@
     "text": "Maybe hacking cough initially upset boy, boy fluff is getting inside",
     "enumeration": "14"
    },
-   "solution": "CYBERTERRORISM"
+   "solution": "CYBERTERRORISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe hacking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 20,
+         "note": "initially asks for the opening letter of cough"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cough",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "getting inside",
+         "at": 54,
+         "note": "getting inside says the boy's name and the rest go within the reversed exclamation"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "upset",
+           "at": 30,
+           "note": "upset in a down clue turns the exclamation word upside down, reading it backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "boy",
+           "at": 36,
+           "gives": "MY",
+           "note": "'Oh boy!' and 'My!' are both exclamations of surprise, so boy can stand for my"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "boy",
+           "at": 41,
+           "gives": "BERT",
+           "note": "Bert is a common boy's name"
+          },
+          {
+           "words": "fluff",
+           "at": 45,
+           "gives": "ERROR",
+           "note": "to fluff something is to make a mistake, an error"
+          },
+          {
+           "words": "is",
+           "at": 51,
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy with a hacking cough gets fluff stuck inside him and is upset.",
+     "walkthrough": "The first 'boy' is the exclamation 'Oh boy!', equal to 'My!'; 'upset' makes YM, and 'getting inside' fills it. 'Maybe' marks hacking as only an example.",
+     "definitionFit": "Hacking into networks to cause fear or damage is one example of online attacks of a political or violent kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hacking"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +572,43 @@
     "text": "Some pain in jalapeños that may hit unexpectedly?",
     "enumeration": "5"
    },
-   "solution": "NINJA"
+   "solution": "NINJA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that may hit unexpectedly",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pain in jalapeños",
+       "at": 5,
+       "gives": "NINJA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some of the burning in hot chilli peppers can catch you off guard.",
+     "walkthrough": "The letters span 'paiN IN JAlapeños'. The definition reads with the clue's opening: something that may strike without warning.",
+     "definitionFit": "A ninja is a Japanese assassin trained in stealth, famous for striking without warning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pain"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +622,49 @@
     "text": "Soldier possibly on edge in number of patriots",
     "enumeration": "6"
    },
-   "solution": "ANTHEM"
+   "solution": "ANTHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "number of patriots",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 17,
+       "note": "on in a down clue says the first piece sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Soldier possibly",
+       "at": 0,
+       "gives": "ANT",
+       "note": "a soldier is one caste of ant, so an ant may be a soldier"
+      },
+      {
+       "words": "edge",
+       "at": 20,
+       "gives": "HEM",
+       "note": "a hem is the folded edge of cloth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier perhaps stands at the edge among a number of patriots.",
+     "walkthrough": "'number' here is a song or musical piece, not a count.",
+     "definitionFit": "A national song is a musical number that patriots sing with pride."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +678,57 @@
     "text": "Shoot down, touching short back of rifle",
     "enumeration": "5"
    },
-   "solution": "REBUT"
+   "solution": "REBUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shoot down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "touching",
+       "at": 12,
+       "gives": "RE",
+       "note": "re means about or concerning, that is touching on"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 21,
+         "note": "short says the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "back of rifle",
+         "at": 27,
+         "gives": "BUTT",
+         "note": "the butt is the rear end of a gun's stock"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shooting something down while touching the shortened back of a rifle.",
+     "walkthrough": "'short' cuts BUTT to BUT. 'Shoot down' here means to dismiss an argument.",
+     "definitionFit": "To shoot down an argument is to refute it, disproving or rejecting it with counter-evidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +742,89 @@
     "text": "Standard rented houses flipped more, evicting letters of Mr Bean",
     "enumeration": "9"
    },
-   "solution": "FLAGEOLET"
+   "solution": "FLAGEOLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bean",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 16,
+       "note": "houses says the two words around it take in the trimmed letters, as a home holds tenants"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Standard",
+         "at": 0,
+         "gives": "FLAG",
+         "note": "a standard is a flag or banner"
+        },
+        {
+         "words": "rented",
+         "at": 9,
+         "gives": "LET",
+         "note": "let means rented out"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipped",
+         "at": 23,
+         "note": "flipped says the word more is turned to read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "evicting letters of",
+           "at": 37,
+           "note": "evicting letters of says the letters of the title are thrown out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "more",
+           "at": 31
+          },
+          {
+           "words": "Mr",
+           "at": 57,
+           "gives": "MR",
+           "note": "the letters M and R as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flipping landlord with rental houses evicts Mr Bean, the bumbling TV character.",
+     "walkthrough": "'evicting letters of' Mr leaves OE, which 'flipped' turns to EO; 'houses' sets it inside the outer pair. Mr Bean is a British TV comedy character.",
+     "definitionFit": "This is a small pale green French kidney bean, a variety of haricot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bean"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +838,32 @@
     "text": "Nick's quirky behaviour?",
     "enumeration": "11"
    },
-   "solution": "STRANGEWAYS"
+   "solution": "STRANGEWAYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0,
+      "meaning": "nick is British slang for a prison; this is a famous one in Manchester"
+     },
+     {
+      "text": "quirky behaviour",
+      "at": 7,
+      "meaning": "odd habits or peculiar ways of doing things"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone named Nick has some odd habits.",
+     "walkthrough": "'Nick' looks like a man's name but is slang for a jail; HMP Strangeways is a Manchester prison.",
+     "definitionFit": "Both senses: the Manchester jail's name, and odd conduct, read as two words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +883,45 @@
      }
     ]
    },
-   "solution": "ACUTEANGLE"
+   "solution": "ACUTEANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "less than right",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ACUTEANGLE",
+     "indicators": [
+      {
+       "text": "Report of",
+       "at": 0,
+       "note": "report of says we want what the phrase sounds like when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an imbroglio when lining up",
+       "at": 10,
+       "gives": "AQUEUETANGLE",
+       "note": "an imbroglio is a tangle, and lining up is a queue, so this is a queue tangle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of a muddle in a line of people is barely correct.",
+     "walkthrough": "Spoken, 'a queue tangle' sounds like the answer. 'less than right' means smaller than a right angle.",
+     "definitionFit": "Geometry defines this as any corner measuring under ninety degrees, so it is smaller than a right one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +941,50 @@
      }
     ]
    },
-   "solution": "SUE"
+   "solution": "SUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Petition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "fractionally curtailed",
+       "at": 38,
+       "note": "fractionally curtailed says a fraction of the last letter is lopped off: chop the curved right side from a capital B and what is left looks like an E"
+      }
+     ],
+     "parts": [
+      {
+       "words": "e.g. Trident-carrier",
+       "at": 17,
+       "gives": "SUB",
+       "note": "Britain's Trident nuclear missiles are carried by submarines, or subs"
+      },
+      {
+       "gives": "B"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A petition demands that a missile-carrying vessel be scaled back a bit.",
+     "walkthrough": "A visual trick, confirmed by the setter: cutting the bulges off a capital B leaves something like an E. 'Petition' is a verb here: to appeal to a court.",
+     "definitionFit": "To petition a court for redress is to bring a lawsuit or make a formal legal plea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fractionally"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +998,46 @@
     "text": "Asked to dump van with toxic additive",
     "enumeration": "6"
    },
-   "solution": "LEADED"
+   "solution": "LEADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with toxic additive",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to dump van",
+       "at": 6,
+       "note": "van means the front, so to dump van is to drop the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Asked",
+       "at": 0,
+       "gives": "PLEADED",
+       "note": "pleaded means begged or asked"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was asked to get rid of a van loaded with poisonous chemicals.",
+     "walkthrough": "'van' is short for vanguard, the front; 'to dump van' drops the P from PLEADED.",
+     "definitionFit": "Petrol with lead compounds mixed in was the standard fuel before the poisonous metal was banned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1051,76 @@
     "text": "Actor's advance reduced after hallucinogen shows up",
     "enumeration": "8"
    },
-   "solution": "DICAPRIO"
+   "solution": "DICAPRIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 24,
+       "note": "after says the shortened word follows the reversed drug"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "shows up",
+         "at": 43,
+         "note": "shows up in a down clue says the word rises, reading upwards and so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hallucinogen",
+         "at": 30,
+         "gives": "ACID",
+         "note": "acid is slang for the hallucinogen LSD"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 16,
+         "note": "reduced says the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advance",
+         "at": 8,
+         "gives": "PRIOR",
+         "note": "prior, as in advance or earlier, means coming before"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's career advance stalls after a drug habit comes to light.",
+     "walkthrough": "'shows up' reads the drug upwards, 'reduced' drops a final R, and 'after' orders the two. The 's is 'is', joining definition and wordplay.",
+     "definitionFit": "Leonardo DiCaprio is the Hollywood star of Titanic and The Revenant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1134,64 @@
     "text": "Bones in trash with head going separate",
     "enumeration": "6"
    },
-   "solution": "UNDOCK"
+   "solution": "UNDOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "separate",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in says the doctor's nickname is placed inside the trimmed trash word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with head going",
+         "at": 15,
+         "note": "with head going says the trash word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trash",
+         "at": 9,
+         "gives": "JUNK",
+         "note": "junk is rubbish or trash"
+        },
+        {
+         "gives": "J"
+        }
+       ]
+      },
+      {
+       "words": "Bones",
+       "at": 0,
+       "gives": "DOC",
+       "note": "Bones is slang for a doctor, as with Dr McCoy in Star Trek, so a doc"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bones dumped in the rubbish, with the head removed and kept apart.",
+     "walkthrough": "'with head going' leaves UNK, which 'in' fills. 'separate' is a verb: a spacecraft detaching from a station does this.",
+     "definitionFit": "When two spacecraft uncouple from one another they disconnect and drift apart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bones"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1205,53 @@
     "text": "Son replaces husband in part of South London base for medicine",
     "enumeration": "6"
    },
-   "solution": "BALSAM"
+   "solution": "BALSAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "base for medicine",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replaces",
+       "at": 4,
+       "note": "replaces says one letter is swapped out for another in the district's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of South London",
+       "at": 24,
+       "gives": "BALHAM",
+       "note": "Balham is a district of south London"
+      },
+      {
+       "words": "husband",
+       "at": 13,
+       "gives": "H"
+      },
+      {
+       "words": "Son",
+       "at": 0,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son takes his father's place in a South London household.",
+     "walkthrough": "BALHAM is a district of south London; swapping its H for S gives the answer.",
+     "definitionFit": "Aromatic plant resins of this kind serve as the soothing basis of ointments and remedies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1265,31 @@
     "text": "Broadcast what emerges from singer's lungs?",
     "enumeration": "3"
    },
-   "solution": "AIR"
+   "solution": "AIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0,
+      "meaning": "to broadcast a programme is to put it out on radio or TV"
+     },
+     {
+      "text": "what emerges from singer's lungs",
+      "at": 10,
+      "meaning": "a singer breathes out and also sings a tune, both meanings fitting"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcast of what a singer belts out.",
+     "walkthrough": "The second sense works twice over: breath from the lungs and a melody.",
+     "definitionFit": "Both senses: to transmit on radio, and the breath or tune produced by a vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1309,60 @@
      }
     ]
    },
-   "solution": "CARPETSNAKE"
+   "solution": "CARPETSNAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reptile",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Latin",
+       "at": 15,
+       "gives": "CARPE",
+       "note": "carpe, as in carpe diem, is the Latin command seize"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bound by",
+         "at": 6,
+         "note": "bound by says the poles are tied up within the English command"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English instructions to seize",
+         "at": 25,
+         "gives": "TAKE",
+         "note": "take is the plain English command to seize"
+        },
+        {
+         "words": "Poles",
+         "at": 0,
+         "gives": "SN",
+         "note": "S and N are the south and north poles"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions in two languages to grab a reptile tied to poles.",
+     "walkthrough": "'instructions to seize' serves both languages, with carpe as in carpe diem; 'bound by' wraps the English one round the poles.",
+     "definitionFit": "This is an Australian python named for the patterned skin that resembles a rug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1376,36 @@
     "text": "Edible leaves of horse chestnut?",
     "enumeration": "6"
    },
-   "solution": "SORREL"
+   "solution": "SORREL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Edible leaves",
+      "at": 0,
+      "meaning": "a sharp-tasting green leaf used in salads and soups"
+     },
+     {
+      "text": "horse",
+      "at": 17,
+      "meaning": "a horse of reddish-brown colouring"
+     },
+     {
+      "text": "chestnut",
+      "at": 23,
+      "meaning": "a reddish-brown shade, the colour of the nut"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether horse chestnut leaves can be eaten.",
+     "walkthrough": "Three definitions hidden in what looks like one tree name: a salad herb, a horse of this colour, and the colour itself.",
+     "definitionFit": "All three: a tangy leafy herb, a horse with a reddish coat, and a light reddish-brown hue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1419,61 @@
     "text": "Environmentalist seeing carbon monoxide in air rising",
     "enumeration": "6"
    },
-   "solution": "ECONUT"
+   "solution": "ECONUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Environmentalist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 40,
+       "note": "in places the chemical formula inside the reversed melody"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 47,
+         "note": "rising in a down clue says the word reads upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "air",
+         "at": 43,
+         "gives": "TUNE",
+         "note": "an air is a tune or melody"
+        }
+       ]
+      },
+      {
+       "words": "carbon monoxide",
+       "at": 24,
+       "gives": "CO",
+       "note": "CO is the chemical formula for carbon monoxide"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A green activist notices carbon monoxide pollution rising in the air.",
+     "walkthrough": "'rising' gives ENUT, and 'in' places the gas formula within. 'air' is a melody, not the atmosphere.",
+     "definitionFit": "This is an informal term for someone passionate, even obsessive, about protecting nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1493,43 @@
      }
     ]
    },
-   "solution": "SCRAPIRON"
+   "solution": "SCRAPIRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stuff for recycling",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fight",
+       "at": 0,
+       "gives": "SCRAP",
+       "note": "a scrap is a fight or scuffle"
+      },
+      {
+       "words": "decrease",
+       "at": 6,
+       "gives": "IRON",
+       "note": "to iron is to remove creases, so de-crease"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A battle to reduce how much material goes for recycling.",
+     "walkthrough": "'decrease' is read as de-crease: to iron out wrinkles.",
+     "definitionFit": "Waste metal is collected and melted down to be reused, which is recycling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "decrease"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1543,41 @@
     "text": "Red-eye grounded, having gone missing regularly",
     "enumeration": "4"
    },
-   "solution": "RUDD"
+   "solution": "RUDD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Red-eye",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "having gone missing regularly",
+       "at": 18,
+       "note": "having gone missing regularly says every other letter of grounded is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grounded",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A red-eye flight is grounded after regularly going missing.",
+     "walkthrough": "'Red-eye' suggests an overnight flight, but it is a freshwater fish. Taking every second letter of gRoUnDeD leaves the answer.",
+     "definitionFit": "This European freshwater fish, related to the roach, is also known by the name red-eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Red-eye"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1591,43 @@
     "text": "Adornment for piercing, its shape once often seen on skins",
     "enumeration": "5"
    },
-   "solution": "RINGO"
+   "solution": "RINGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "once often seen on skins",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Adornment for piercing",
+       "at": 0,
+       "gives": "RING",
+       "note": "a ring is jewellery worn through a pierced ear or nose"
+      },
+      {
+       "words": "its shape",
+       "at": 24,
+       "gives": "O",
+       "note": "a ring is circular, the shape of the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A body-piercing ring, a shape once common on skin.",
+     "walkthrough": "'skins' is slang for drums: Ringo Starr was the Beatles' drummer, so once often seen at his kit.",
+     "definitionFit": "Ringo Starr was the drummer of the Beatles, who were once often seen sitting behind a drum kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skins"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1641,63 @@
     "text": "African people like being protected by chief, mostly",
     "enumeration": "5"
    },
-   "solution": "MASAI"
+   "solution": "MASAI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "at": 26,
+       "note": "protected by says the small word sits inside the trimmed one, sheltered by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 46,
+         "note": "mostly says the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chief",
+         "at": 39,
+         "gives": "MAIN",
+         "note": "main means chief or principal"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "like",
+       "at": 15,
+       "gives": "AS",
+       "note": "as means like, in the same way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An African people kept safe, more or less, by their chief.",
+     "walkthrough": "'mostly' leaves MAI, and 'protected by' sets the little word within it.",
+     "definitionFit": "The Masai are a pastoral tribe of Kenya and Tanzania, an ethnic group of East Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1711,51 @@
     "text": "Old age'll set off university town in Wales",
     "enumeration": "9"
    },
-   "solution": "DOLGELLAU"
+   "solution": "DOLGELLAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "town in Wales",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "set off",
+         "at": 11,
+         "note": "set off says the letters explode and land in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old age'll",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 19,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old age will set off from a university town in Wales.",
+     "walkthrough": "'set off' rearranges OLDAGELL to DOLGELLA, then U. Dolgellau is a market town in north Wales.",
+     "definitionFit": "Dolgellau is a market town in Gwynedd, in north-west Wales, near Snowdonia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "university"
+    }
+   }
   }
  ]
 }
