@@ -680,17 +680,23 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Scrambling",
-       "note": "scrambling mixes things up, so these letters are thrown into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "up tree",
-       "note": "the words as written, to be rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Scrambling",
+         "at": 0,
+         "note": "scrambling mixes things up, so these letters are thrown into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up tree",
+         "at": 11
+        }
+       ]
       },
       {
        "op": "nth",
@@ -698,13 +704,14 @@
        "indicators": [
         {
          "text": "fourth of",
+         "at": 20,
          "note": "only the letter in fourth position of the next word is kept"
         }
        ],
        "parts": [
         {
          "words": "date",
-         "note": "its fourth letter"
+         "at": 30
         }
        ]
       }
