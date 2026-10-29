@@ -327,6 +327,22 @@ def per_run_rate(lines, last=RATE_LINES, least=RATE_MIN_LINES, min_width=MIN_RAT
     return points / run_hours
 
 
+# The line width() logs at every checkpoint ("width 0: need 0 for ..."), meter
+# line first, so the lines after the RECENT_LINES-th last one are the newest
+# checkpoints' own.
+CHECKPOINT_LINE = re.compile(r"^width \d+: need ")
+
+
+def recent_rate(lines, checkpoints=RECENT_LINES):
+    """per_run_rate over the meter lines of the last `checkpoints` pacer
+    checkpoints only. 10-29: a burst (five-hour 11% -> 19% at width 1.04, ~26 a
+    run-hour) held the need at 0 at 30% with 3.6h left, and at width 0 no new
+    meter line is logged, so the stale burst was read as recent for hours."""
+    marks = [i for i, line in enumerate(lines) if CHECKPOINT_LINE.match(line)]
+    start = marks[-checkpoints] + 1 if len(marks) >= checkpoints else 0
+    return per_run_rate(lines[start:], RECENT_LINES, 2)
+
+
 def capped_rate(measured, log_rate):
     """The transcript-split burn rate, held to RATE_CAP_FACTOR times the meter
     lines' rate; the log's rate when there is no transcript one."""
@@ -786,7 +802,7 @@ def width(arg=None, floor=1):
         bridge, rate = bridge_spend()
         rate = capped_rate(rate, per_run_rate(lines))
         if meter == "session":
-            rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
+            rate = max(rate, recent_rate(lines))
         ratio = (1.0 if meter == "session" else
                  five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH), now - RATIO_SPAN_S, now))
         pct = weekly_usage.usage_pct(meter)
@@ -808,7 +824,7 @@ def width(arg=None, floor=1):
             # smaller of the two needs sets the width.
             s_pct = weekly_usage.usage_pct("session")
             s_left, _ = weekly_usage.resets_in_hours("session")
-            s_rate = max(rate, per_run_rate(lines, RECENT_LINES, 2))
+            s_rate = max(rate, recent_rate(lines))
             s_need = paced_need("session", s_pct, s_left, s_rate, bridge or 0.0, 1.0,
                                 len(burn_rss_kb()), current)
             runs_needed, bound = bind_need(runs_needed, s_need)
@@ -1154,6 +1170,15 @@ def width_self_test():
             print(f"FAIL per_run_rate of {len(lines)} lines = {per_run_rate(lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
+    # 10-29: a burst three checkpoints back no longer counts as recent once the
+    # burn idles; inside the last three it still does
+    burst = [pool.format(8, 11).replace("0.5h at width 12.50", "0.084h at width 2.20"),
+             pool.format(11, 19).replace("0.5h at width 12.50", "0.235h at width 1.04")]
+    nap = "width 0: need 0 for five-hour 98% before its reset (30% now)"
+    if (recent_rate(burst + [nap] * 3) != PER_RUN_RATE
+            or recent_rate(burst + [nap] * 2) < 20):
+        print("FAIL recent_rate: stale burst kept, or fresh burst missed", file=sys.stderr)
+        bad += 1
     pools = ["--- pool of 14: a b ---", "x", "--- pool of 9: c ---", "  weekly ...",
              "--- pool of 11: 3 in flight, 40 queued ---", "  [a] started"]
     for arg, lines, want in [("12", pools, 12), (None, pools, 11), ("0", pools, 11),
