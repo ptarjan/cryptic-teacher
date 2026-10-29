@@ -56,6 +56,8 @@ const COST = {
   "tests/test_repair_fetched.py": 5,
   "tests/test_letter_facts.sh": 4,
   "tests/test_og_tags.js": 4,
+  // Reads every puzzle shim (~65k) once.
+  "tests/test_formula_math.js": 130,
 };
 const DEFAULT_COST = 3;
 

@@ -1133,6 +1133,9 @@ tools/og_page_card.html                        source for og/page/<slug>.png, th
 tools/page_card.py                             fills og_page_card.html from a page’s title and
                                                description; build_seo_pages.head() links one
                                                for every page
+tests/test_formula_math.js                     every clue's hint formula adds up: its pieces,
+                                               with the operations shown, make the answer's
+                                               letter count
 tests/test_og_tags.js                          every generated page carries a full, valid
                                                social card, and no non-puzzle page borrows the
                                                site card
