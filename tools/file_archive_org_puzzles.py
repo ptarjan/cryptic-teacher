@@ -16809,9 +16809,15 @@ REREAD_HOST_COLUMNS = "2026-10-26T08:45:00+00:00"
 HOST_WEEK_ON_RESCAN = "solution host a week on, its championship heading unread"
 #: Once: a WEEK_ON_SOLUTIONS host whose solutions_only read is older than this is due (host_rescan_due).
 REREAD_HOST_WEEK_ON = "2026-10-26T09:45:00+00:00"
+#: The reason of the same read of a TITLE_HEADINGS-era host (1940-46, 1951-86) read before REREAD_HOST_LAYOUT:
+#: solutions_only now also reads slices of the page where that era prints its heading, by the title (era_bands).
+#: Paul 10-29: 195 hosts whose page was read linked no heading, 115 with no "Solution" word read at all.
+HOST_LAYOUT_RESCAN = "solution host, the heading's place by its title unread"
+#: Once: a TITLE_HEADINGS-era host whose solutions_only read is older than this is due (host_rescan_due).
+REREAD_HOST_LAYOUT = "2026-10-29T06:30:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
-HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN, HOST_LAYOUT_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -17306,7 +17312,14 @@ def host_rescan_due(paper, row):
     (HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN): none made at or after REREAD_HOST_COLUMNS (a "solOnly"
     with no "at" is older), or for a WEEK_ON_SOLUTIONS host (HOST_WEEK_ON_RESCAN) none at or after REREAD_HOST_WEEK_ON."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
-    return paper is GALE and bool(row) and (at < REREAD_HOST_COLUMNS or at < REREAD_HOST_WEEK_ON and week_on_host(row))
+    return paper is GALE and bool(row) and (at < REREAD_HOST_COLUMNS or at < REREAD_HOST_WEEK_ON and week_on_host(row)
+                                            or at < REREAD_HOST_LAYOUT and layout_host(row))
+
+
+def layout_host(row):
+    """Whether ledger `row`'s edition is dated in a year TITLE_HEADINGS holds a layout of."""
+    day = _date_in(str(row.get("edition") or ""))
+    return day is not None and any(e[0] <= day.year <= e[1] for e in TITLE_HEADINGS)
 
 
 def week_on_host(row):
@@ -17325,7 +17338,8 @@ def host_rescan_reason(row):
     named_day_headings are), else HOST_WEEK_ON_RESCAN (a championship puzzle's week-later host: week_on_host)."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
     return HOST_RESCAN if at < REREAD_HOST_HEADINGS else HOST_GRID_RESCAN if at < REREAD_HOST_GRIDS \
-        else HOST_COLUMN_RESCAN if at < REREAD_HOST_COLUMNS else HOST_WEEK_ON_RESCAN
+        else HOST_COLUMN_RESCAN if at < REREAD_HOST_COLUMNS \
+        else HOST_WEEK_ON_RESCAN if at < REREAD_HOST_WEEK_ON and week_on_host(row) else HOST_LAYOUT_RESCAN
 
 
 def host_rescans(paper, dirs, rels, stale_set, solutions, held, known):
@@ -17467,7 +17481,7 @@ _PLANNED_DIRS = {}
 SOLUTIONS_ONLY = 1
 
 
-def solutions_only(d):
+def solutions_only(d, titles=()):
     """The scan-shaped {"date", "item", "puzzles": [], "solutions": [...]} of
     Gale edition `d` read in its solution bands alone (a solution grid's
     shape, solution_bands, each band read by every reader), 20-60 CPU-s a page
@@ -17475,7 +17489,8 @@ def solutions_only(d):
     judged against the titles the date implies (expected +- slack, one reader
     standing) since no title is read. None when a leaf has archive.org text
     (its scan is cheap and whole). Never reaches scan(): it is no scan of the
-    edition (no puzzle is found), and a row of it never stands for one."""
+    edition (no puzzle is found), and a row of it never stands for one. `titles`: [(leaf, box)] of the titles
+    the edition's own scan found (era_bands reads under them)."""
     pages = json.loads((d / "pages.json").read_text())
     leaves = sorted(p["leaf"] for p in pages.get("crossword_pages", ()) if (d / f"leaf_{p['leaf']:04d}.jpg").exists())
     if leaf_lines(d / "djvu.xml.gz", set(leaves)):
@@ -17518,7 +17533,11 @@ def solutions_only(d):
                     for n, b in column_headings(lines, lines if pool is None else pool, lags, deferred, champs) \
                             + named_day_headings(lines, lagged):
                         columns.setdefault(n, b)
-            for band in loose_bands(img, solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words])):
+            bands = loose_bands(img, solution_bands(img, [(*w[:4], marked_solution(w[4])) for words in read for w in words]))
+            # ... and the slices under the page's titles where the era's headings print (era_bands)
+            bands += [b for b in era_bands(img, title_boxes(paper, read, expected, [b for lf, b in titles if lf == leaf]),
+                                             day.year) if b not in bands]
+            for band in bands:
                 for which in READERS:
                     path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
                     judge(row_lines([(*w[:4], mend_misreads(w[4])) for w in band_words(img, band, which, path)]))
@@ -17563,6 +17582,51 @@ def loose_bands(img, bands):
         if not any(abs(band[0] - b[0]) < 2 * left and min(band[3], b[3]) > max(band[1], b[1]) for b in out):
             out.append(band)
     return out
+
+
+#: Where a Gale Times host prints the solution heading, from its title's top left, per era: (first year, last
+#: year, band left, right, top, bottom), pixels as the ledger's boxes. Measured on the 4,000 scans that link one
+#: heading and one title on a leaf (r32): 1942-46 the heading sits 233-271 px left of the title and 472-575 under
+#: it (a 313 px line), 1951-66 440-640 right and 780-985 under, 1967-69 207-545 right and 933-1272 under,
+#: 1970-80 196-407 right and 1236-1528, 1981-86 179-388 right and 1257-1500; 1940-41's layouts run wider.
+TITLE_HEADINGS = ((1940, 1941, -560, 250, 260, 860), (1942, 1946, -340, 200, 430, 630),
+                  (1951, 1966, 400, 1100, 740, 1040), (1967, 1969, 150, 950, 880, 1330),
+                  (1970, 1980, 140, 800, 1200, 1580), (1981, 1986, 120, 780, 1200, 1540))
+#: A heading band's slices: this tall, this far apart (the readers lose a heading's small type in a tall crop).
+HEADING_SLICE = (170, 110)
+
+
+def era_bands(img, boxes, year):
+    """The bands (x0, y0, x1, y1) a host's solution heading may print in, under each title box of `boxes`
+    (TITLE_HEADINGS of `year`), cut in HEADING_SLICE slices; none for a year it holds no layout of. Paul
+    10-29: 195 hosts whose page was read linked no heading; their whole-page reads hold no "Solution" word
+    (the 1940s heading is 26 px type) and no grid shape cut a band there (solution_bands, loose_bands), yet
+    the heading sits where every linked page's does, by its title."""
+    era = next((e for e in TITLE_HEADINGS if e[0] <= year <= e[1]), None)
+    out = []
+    for b in boxes if era else ():
+        x0, x1 = max(0, int(b[0] + era[2])), min(img.width, int(b[0] + era[3]))
+        top, foot = max(0, int(b[1] + era[4])), min(img.height, int(b[1] + era[5]))
+        y = top
+        while x1 > x0 and foot - y >= 40:
+            band = (x0, y, x1, min(foot, y + HEADING_SLICE[0]))
+            if band not in out:
+                out.append(band)
+            y += HEADING_SLICE[1]
+    return out
+
+
+def title_boxes(paper, read, expected, known=()):
+    """The boxes of the titles the page reads `read` (cached_page_words) hold within the paper's slack of
+    `expected`, after `known` (the ledger scan's), those within 40 px of another once."""
+    boxes = list(known)
+    for words in read:
+        lines = printed_lines(words)
+        lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+        for n, b, _ in paper.headings(lines)[0]:
+            if abs(n - expected) <= paper.slack and not any(abs(b[0] - o[0]) < 40 and abs(b[1] - o[1]) < 40 for o in boxes):
+                boxes.append(b)
+    return boxes
 
 
 def cached_page_words(key):
@@ -17888,7 +17952,8 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None, host=False):
             if only_current(row, paper, fh) and not due:
                 return "current"
             try:
-                found = solutions_only(d)
+                found = solutions_only(d, [(p.get("leaf", 0), p["box"]) for p in (row.get("scan") or {}).get("puzzles") or []
+                                           if p.get("box")])
             except Exception as e:  # as below: the whole scan then runs and stands as one that raises
                 if downloads.media_down(e):
                     raise  # the media share down: the unit ends deferred, no row kept

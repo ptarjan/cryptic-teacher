@@ -647,6 +647,25 @@ check("a week-on host read before its championship heading is due once as HOST_W
       (True, False, f.HOST_WEEK_ON_RESCAN, True, True),
       (f.host_rescan_due(f.GALE, _week_on("1989-02-23")), f.host_rescan_due(f.GALE, _week_on("1989-02-22")),
        f.host_rescan_reason(_week_on("1989-02-23")), f.HOST_WEEK_ON_RESCAN in f.RANKS, f.HOST_WEEK_ON_RESCAN in f.HOST_REASONS))
+# HOST_LAYOUT_RESCAN: a host of a TITLE_HEADINGS era read before era_bands is due once more, ranked, a host read.
+_lay = lambda day, at="2026-10-26T10:00:00+00:00": {"edition": f"GaleTimes1942UKEnglish/{day}", "solOnly": {"at": at}}
+check("a 1942 host read before era_bands is due as HOST_LAYOUT_RESCAN, once; a 1947 one and a read one are not",
+      (True, f.HOST_LAYOUT_RESCAN, False, False, True, True),
+      (f.host_rescan_due(f.GALE, _lay("1942-04-29")), f.host_rescan_reason(_lay("1942-04-29")),
+       f.host_rescan_due(f.GALE, {**_lay("1947-04-29"), "edition": "GaleTimes1947UKEnglish/1947-04-29"}),
+       f.host_rescan_due(f.GALE, _lay("1942-04-29", "2099-01-01T00:00:00+00:00")),
+       f.HOST_LAYOUT_RESCAN in f.RANKS, f.HOST_LAYOUT_RESCAN in f.HOST_REASONS))
+# era_bands: 1942-04-29's title box (1397, 3890) puts the heading band at x 1057..1597, y 4320..4520 (the heading
+# sat at 1143, 4385), cut in 170 px slices 110 apart; a year with no layout, and a band past the page, get none.
+_tp = Image.new("L", (3487, 4814), 255)
+check("era_bands: slices under the title box where the era prints its heading",
+      [(1057, 4320, 1597, 4490), (1057, 4430, 1597, 4520)], f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1942))
+check("era_bands: none for 1947 (no layout), none past the page, the 1951-66 layout right of the title",
+      ([], [], [(727, 4740, 1427, 4814)]),
+      (f.era_bands(_tp, [(1397, 3890, 2269, 3947)], 1947), f.era_bands(_tp, [(1397, 4800, 2269, 4814)], 1942),
+       f.era_bands(_tp, [(327, 3890, 1100, 3947)], 1960)[-1:]))
+check("title_boxes: the scan's box first, a read title within 40 px of it not twice",
+      [(1397, 3890, 2269, 3947)], f.title_boxes(f.GALE, [], 3797, [(1397, 3890, 2269, 3947)]))
 # hosted(): a solution prints in the next issue, a Saturday prize's also in
 # the next Saturday's (the 1970s Monday's); "19233" on a Tuesday (19,238's
 # heading) and a heading a week after a puzzle whose next issue is missing

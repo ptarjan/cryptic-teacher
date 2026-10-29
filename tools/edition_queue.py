@@ -842,6 +842,9 @@ def evidence_reason(reason):
             # ... a championship puzzle's week-later host (fa.WEEK_ON_SOLUTIONS) read before its "Solution to
             # Eliminator Puzzle No 17,907" heading was read (fa.championship_number): once.
             or reason == fa.HOST_WEEK_ON_RESCAN
+            # ... a host of a TITLE_HEADINGS era (1940-46, 1951-86) read before the slices under its title were
+            # read (fa.era_bands), where its era prints the heading: once.
+            or reason == fa.HOST_LAYOUT_RESCAN
             # A held 2005-06 Gale Times page whose clue window ran into the box beside DOWN, read before
             # right_foreign() cut it at the gutter (fa.right_foreign_held): once.
             or reason == fa.RIGHT_FOREIGN_READ
