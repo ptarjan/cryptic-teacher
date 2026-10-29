@@ -120,7 +120,11 @@ try:
     f.held_dates = lambda series: {25640}
     check("a number already held: asked as before", None, f.held_copy(_d, {"number": 25640}, {"id": "times-25640", "entries": _ent(_clues)}))
 finally:
-    _fp.clue_index, f.held_dates = _old
+    f.held_dates = _old[1]
+    # Hermetic for the rest of the file: later read_puzzle cases reach held_copy -> clue_index(), which would
+    # otherwise index the real puzzles/ corpus (54k files, a 193 MB sqlite under ~/.cache, ~50 s, 1.1 GB).
+    _empty_idx = _CI()
+    _fp.clue_index = lambda: _empty_idx
 
 # A grid whose grey blocks are stippled thresholds to specks: grids_on still
 # finds it, so ocr_titles reads its title (1980-04-16, No 15,200: 13% ink).
