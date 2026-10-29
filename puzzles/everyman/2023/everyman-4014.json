@@ -156,6 +156,7 @@
      "parts": [
       {
        "words": "letting no light through",
+       "at": 7,
        "gives": "BLACK",
        "note": "something black lets no light through"
       },
@@ -163,19 +164,22 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "will depart"
+         "text": "will depart",
+         "at": 46,
+         "note": "the number that will depart is leaving the glass word, so its letter is taken out"
         }
        ],
        "parts": [
         {
          "words": "glass",
+         "at": 32,
          "gives": "WINDOW",
          "note": "a window is a pane of glass"
         },
         {
          "words": "number",
-         "gives": "N",
-         "note": "N is the standard abbreviation for number; it is removed from WINDOW"
+         "at": 39,
+         "gives": "N"
         }
        ]
       }
@@ -184,7 +188,7 @@
     "explanation": {
      "surface": "A spider sits on a blacked-out pane while a figure is taken away.",
      "walkthrough": "'Glass' suggests the spider is seen through a pane, but it is only there to supply the word the number leaves.",
-     "definitionFit": "The black widow is a well-known venomous spider."
+     "definitionFit": "A well-known venomous spider, named for the female eating her mate."
     },
     "features": {
      "answerInScene": false,
@@ -292,24 +296,39 @@
        "op": "container",
        "indicators": [
         {
-         "text": "including"
+         "text": "including",
+         "at": 35,
+         "note": "the phrase for done perfectly includes the starter of scampi, so that letter goes inside it"
         }
        ],
        "parts": [
         {
          "words": "done perfectly",
+         "at": 9,
          "gives": "TOAT",
-         "note": "done 'to a T' means done perfectly; S goes in after TOA"
+         "note": "done 'to a T' means done perfectly"
         },
         {
-         "words": "starter of scampi",
-         "gives": "S",
-         "note": "the first letter of scampi"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "starter of",
+           "at": 45,
+           "note": "the starter of a dish comes first, so the opening letter of scampi is the one wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "scampi",
+           "at": 56
+          }
+         ]
         }
        ]
       },
       {
        "words": "that is",
+       "at": 26,
        "gives": "IE",
        "note": "i.e. is Latin 'id est', that is"
       }
@@ -318,11 +337,12 @@
     "explanation": {
      "surface": "A pub meal cooked just right, with scampi to start.",
      "walkthrough": "S goes inside TO A T, giving TOAST, and IE follows.",
-     "definitionFit": "A toastie is a toasted sandwich, a typical British pub snack."
+     "definitionFit": "A toasted sandwich is a typical British pub snack, an informal name for one served hot."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
     }
    }
   },
@@ -994,26 +1014,30 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "that's not"
+       "text": "that's not",
+       "at": 40,
+       "note": "the wind instrument that's not about is one without the letter for about, so that letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "wind instrument",
+       "at": 24,
        "gives": "RECORDER",
        "note": "the recorder is a simple woodwind instrument"
       },
       {
        "words": "about",
+       "at": 51,
        "gives": "C",
-       "note": "c. (circa) = about; it is removed"
+       "note": "c. (circa) means about"
       }
      ]
     },
     "explanation": {
      "surface": "Someone buys another wind instrument.",
      "walkthrough": "C for 'about' is circa, as in dates like c.1500.",
-     "definitionFit": "To reorder is to order again, making a second purchase."
+     "definitionFit": "Ordering a second time is making a repeat purchase."
     },
     "features": {
      "answerInScene": true,
@@ -1464,19 +1488,23 @@
      "op": "move",
      "indicators": [
       {
-       "text": "is moved"
+       "text": "is moved",
+       "at": 28,
+       "note": "Lawrence is moved means his initials shift to a new place within the biblical books, not that they leave"
       }
      ],
      "parts": [
       {
        "words": "biblical books",
+       "at": 3,
        "gives": "TESTAMENTS",
        "note": "the Old and New Testaments"
       },
       {
        "words": "Lawrence",
+       "at": 19,
        "gives": "TE",
-       "note": "T.E. Lawrence, 'Lawrence of Arabia'; TE moves from the front to after STA"
+       "note": "T.E. Lawrence, 'Lawrence of Arabia'"
       }
      ]
     },
