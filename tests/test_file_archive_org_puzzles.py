@@ -4845,6 +4845,16 @@ check("vouched_short: a row read since REREAD_VOUCHED, no Times paper's, a refus
        f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                       "solution": {"accepted": 2, "lights": 30}}]})])
+_vm = min(f.VOUCHED_MORE)
+check("vouched_short: VOUCHED_MORE is apart from VOUCHED_PUZZLES and read later; a row read since REREAD_VOUCHED_MORE, "
+      "or with a refused grid, is not due", [True, True, False, False],
+      [not (f.VOUCHED_MORE & f.VOUCHED_PUZZLES), f.REREAD_VOUCHED_MORE > f.REREAD_VOUCHED,
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vm}", "solutionFrom": "x leaf 3", "number": _vm,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.vouched_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": f"times-{_vm}", "solutionFrom": "x leaf 3", "number": _vm,
+                                      "solution": {"refused": "its blocks are not the puzzle's"}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
