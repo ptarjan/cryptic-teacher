@@ -1316,16 +1316,28 @@ def _plan(papers, cache, reread, out, asked=None):
     if out is not None and ended - began >= SLOW_PLAN:
         out.append(slow_plan_note(took, ended, began))
     reads_only = [t[3] for t in reads]
-    return (by_urgency(scans, serves=solution_needs(reads_only), fixing=fixing_needs(reads_only)),
+    return (by_urgency(scans, serves=solution_needs(reads_only), fixing=fixing_needs(reads_only),
+                       newest=fixing_needs(reads_only, newest_only=True)),
             by_urgency(reads))
 
 
-def fixing_needs(reads):
+def fixing_needs(reads, newest_only=False):
     """The (paper, rel) of every edition a newest-first paper's fix reread (fixing_work) waits on: its own
     and its needs. by_urgency puts the scans of these first of all, with those rereads."""
     named = newest_first_papers()
-    return {(u["paper"], rel) for u in reads if u.get("paper") in named and fixing_work(u)
+    return {(u["paper"], rel) for u in reads if u.get("paper") in named and (newest_fix(u) if newest_only else fixing_work(u))
             for rel in [u["rel"], *(u.get("needs") or ())]}
+
+
+#: How many of UNFILED_FIRST's last reasons (the newest fixes) go ahead of the other fix rereads.
+#: Paul 10-28: "Things you're fixing should be at the front of the queue": r35's VOUCHED_FIT units stood
+#: at plan places 649-1065 behind ~1,200 older fix rereads, none started in the hours since it shipped.
+NEWEST_FIX_COUNT = 1
+
+
+def newest_fix(unit):
+    """Whether `unit` is a reread for one of the newest fixes (the last NEWEST_FIX_COUNT of UNFILED_FIRST)."""
+    return unit.get("reason") in UNFILED_FIRST[-NEWEST_FIX_COUNT:]
 
 
 def fixing_work(unit):
@@ -1596,7 +1608,7 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
-def by_urgency(units, serves=frozenset(), fixing=frozenset()):
+def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
@@ -1675,6 +1687,8 @@ def by_urgency(units, serves=frozenset(), fixing=frozenset()):
     # stood at 2,600+ of 25,600 reads behind solution rereads, so no fix could be judged for hours.
     fixes = [u for u in others if u.get("paper") in named
              and (fixing_work(u) or (u.get("paper"), u.get("rel")) in fixing)]
+    # The newest fixes' rereads (and the scans they wait on, `newest`) go ahead of the older fixes'.
+    fixes.sort(key=lambda u: 0 if newest_fix(u) or (u.get("paper"), u.get("rel")) in newest else 1)
     first = {id(u) for u in fixes}
     solution = [u for u in others if u.get("paper") in named and id(u) not in first
                 and (times_solution_work(u) or (u.get("paper"), u.get("rel")) in serves)]
