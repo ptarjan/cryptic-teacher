@@ -1556,34 +1556,40 @@ NEXT_ISSUE_DAYS = 4
 
 def misnumbered_titles(titles, headings, held):
     """[(number, day, title, why)], newest first, of the puzzles `held` ({number: date})
-    filed one below the title their own page prints: `titles` ({date: [title numbers]}
-    of each edition) reads No `title` = `number` + 1 alone on `day` and not `number`,
-    and a solution heading bears the title out (`headings`, {date: [numbers]}): the
-    page's own of the issue before (`number`) or, on a Saturday, of the Saturday
-    before's prize (`title` - 6), or the next issue's of the title. The
-    filer's count of issues from a neighbour filed a number off once overruled such
-    titles (file_archive_org_puzzles.placed: vouched). `why` is None for one to
-    renumber to `title`: its title free, or freed by one renumbered before it (newest
-    first); "duplicate" when the title is the same day's other file (one page filed
-    twice); else what holds the title."""
+    filed one below the title their own page prints, then (r34) one above it: `titles`
+    ({date: [title numbers]} of each edition) reads No `title` = `number` + 1 (or
+    `number` - 1) alone on `day` and not `number`, and a solution heading bears the title
+    out (`headings`, {date: [numbers]}): the page's own of the issue before (`title` - 1)
+    or, on a Saturday, of the Saturday before's prize (`title` - 6), or the next issue's of
+    the title. The filer's count of issues from a neighbour filed a number off once
+    overruled such titles (file_archive_org_puzzles.placed: vouched). `why` is None for one
+    to renumber to `title`: its title free, or freed by one renumbered before it (newest
+    first for the ones below their title, oldest first for the ones above); "duplicate"
+    when the title is the same day's other file (one page filed twice); else what holds the
+    title. Filed one above (10-29 r34: Times 21884 on 2001-11-12, 22039 on 2002-05-13, 22302
+    on 2003-03-17, each 30 lights blank and the page after refused "already filed"): the
+    count ran over a day whose puzzle was never filed, so the title's own number stood free."""
     days = sorted(titles)
     moving, out = set(), []
-    for number, day in sorted(held.items(), reverse=True):
-        title = number + 1
-        if titles.get(day) != [title]:
-            continue
+
+    def vouched(day, title):
         k = bisect.bisect_right(days, day)
         later = days[k] if k < len(days) and (days[k] - day).days <= NEXT_ISSUE_DAYS else None
         own = headings.get(day, ())
-        if number not in own and not (day.weekday() == 5 and title - 6 in own) \
-                and (later is None or title not in headings.get(later, ())):
-            continue
-        if title in held and title not in moving:
-            why = "duplicate" if held[title] == day else f"No {title} is filed for {held[title]}"
-        else:
-            why = None
-            moving.add(number)
-        out.append((number, day, title, why))
+        return (title - 1 in own or (day.weekday() == 5 and title - 6 in own)
+                or (later is not None and title in headings.get(later, ())))
+
+    for step, newest_first in ((1, True), (-1, False)):
+        for number, day in sorted(held.items(), reverse=newest_first):
+            title = number + step
+            if titles.get(day) != [title] or not vouched(day, title):
+                continue
+            if title in held and title not in moving:
+                why = "duplicate" if held[title] == day else f"No {title} is filed for {held[title]}"
+            else:
+                why = None
+                moving.add(number)
+            out.append((number, day, title, why))
     return out
 
 
