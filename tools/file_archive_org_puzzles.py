@@ -15265,6 +15265,10 @@ def near_refused(row):
 #: again, once: rows read before REREAD_RENUMBERED. Paul 10-25: 80 Times puzzles stood one low
 #: (2002-08-28..12-24 73, 2001-04 4, 1982-09 3), each host linking the puzzle after.
 RENUMBERED = "renumbered to its title, answers read again"
+#: The refusal reread of a page whose title was refused as taken, now free (renumbered()): each files a
+#: puzzle the corpus lacks, so edition_queue.UNFILED_FIRST puts it at the front (r34: 6 Times pages of
+#: 2001-03 stood at 6,744+ of 25,500 after their files were renumbered).
+NUMBER_DATE_REFUSED = "refused number-date-mismatch before its fix"
 REREAD_RENUMBERED = "2026-10-25T04:30:00+00:00"
 #: The refusals a renumber may lift: the title's number held for another day, or its page held
 #: under another number (placed, same_scan).
@@ -15300,7 +15304,7 @@ def renumbered(row):
         if not taken and v.get("id") and held.get(title) == day:
             return RENUMBERED
         if held.get(title, day) == day and (taken or held.get(number) != day):
-            return "refused number-date-mismatch before its fix"
+            return NUMBER_DATE_REFUSED
     return None
 
 
