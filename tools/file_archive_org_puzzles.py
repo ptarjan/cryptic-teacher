@@ -17354,7 +17354,8 @@ def host_rescan_reason(row):
     new to it), HOST_COLUMN_RESCAN when older than REREAD_HOST_COLUMNS (only column_headings and
     named_day_headings are), else HOST_WEEK_ON_RESCAN (a championship puzzle's week-later host: week_on_host)."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
-    if at < REREAD_HOST_ERAS and era_host(row or {}):
+    if at < REREAD_HOST_ERAS and era_host(row or {}) and not (
+            REREAD_HOST_COLUMNS <= at < REREAD_HOST_WEEK_ON and week_on_host(row)):
         return HOST_ERA_RESCAN  # whatever else the read is for, its bands now include the era's (era_bands)
     return HOST_RESCAN if at < REREAD_HOST_HEADINGS else HOST_GRID_RESCAN if at < REREAD_HOST_GRIDS \
         else HOST_COLUMN_RESCAN if at < REREAD_HOST_COLUMNS \
