@@ -127,6 +127,24 @@ AIM_MIN_H = {"weekly": 0.05, "session": 0.05}
 # over-target stop are unchanged: a meter at SESSION_CEILING still starts nothing.
 SESSION_EARLY_H = {"session": 0.75}
 SESSION_LAST_H = 0.25  # the margin never aims nearer than this, so the last need stays finite
+# 10-29 06:40 overshoot (100% with 0.3h left, every room locked out): the aim
+# above also cut the bridge's projection to the 0.25h aim when it spends to the
+# reset itself (at 93% with 0.66h left it was taken as 2.2 points; it spent 6.1),
+# and the bridge's 6h mean (8.6 pts/h) hid a last 1.5h at ~16 an hour, 13.8 more
+# than the mean from 1.5h out (two worker spawns; per-interval p75 17.9, p90
+# 27.2). The burn, which the pacer can stop, spent only 0.9 after 93%: runs in
+# flight had 0.033h left on average (p90 0.061). The five-hour bridge projection
+# now runs to the reset at its mean, plus BRIDGE_MARGIN more of it over the last
+# BRIDGE_MARGIN_H, and the runs in flight (RUN_TAIL_H each) come off the headroom
+# too. Replayed on this window's checkpoints the burn stops for good at 83% with
+# 1.09h left (the old rule started 3 runs there, and 1 more at 94%) and the
+# bridge alone ends it at ~96.7-97.2; the mean alone to the reset would stop at
+# 93% and end ~99.6. Earlier in the window there is time to
+# react, so the margin stays off the front-loaded need; inside the last hour it
+# shrinks with the hours left, so a calm bridge reopens the gate near the reset
+# and tops up toward the ceiling.
+BRIDGE_MARGIN = {"session": 0.5}
+BRIDGE_MARGIN_H = 1.0
 # The rates are measured on the five-hour meter, which moves several points for
 # each weekly one. Five-hour points per weekly point is the two meters' rises
 # side by side in usage-history.csv over the last RATIO_SPAN_S, skipping any
@@ -333,22 +351,26 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio, inflight=0, cur
     hours_left are its; rate (per run-hour) and bridge_rate (an hour) are
     five-hour points, ratio five-hour points per point of the meter (1 for the
     five-hour one). A reset already passed is a fresh window, all of it left.
-    The spend is due at the reset (aim_hours), and the bridge's is projected
-    to then; a need over the machine's caps is returned as is, width_for caps it.
-    On the five-hour meter, 0 (nothing new starts) when the headroom under the
-    ceiling is less than what the `inflight` runs still spend (RUN_TAIL_H each)
-    plus the bridge to the reset. None when any input is missing or unusable."""
+    The spend is due at the reset (aim_hours); the bridge's is projected to the
+    reset itself, plus BRIDGE_MARGIN in its last hour; a need over the machine's
+    caps is returned as is, width_for caps it. On the five-hour meter what the
+    `inflight` runs still spend (RUN_TAIL_H each) comes off the headroom, and
+    nothing new starts (0) when it and the bridge to the reset fill it.
+    None when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS[meter]
         if rate <= 0 or ratio <= 0:
             return None
         hours = aim_hours(meter, hours_left)
-        bridge = max(0.0, bridge_rate or 0.0) * hours
+        # the bridge spends to the reset, not to the aim, and bursts above its mean
+        spread = max(hours, hours_left) + BRIDGE_MARGIN.get(meter, 0.0) * min(hours_left, BRIDGE_MARGIN_H)
+        bridge = max(0.0, bridge_rate or 0.0) * spread
         top = ceiling(meter)
-        if meter == "session" and inflight and top - pct < inflight * rate * RUN_TAIL_H + bridge:
+        held = inflight * rate * RUN_TAIL_H if meter == "session" else 0.0
+        if meter == "session" and inflight and top - pct < held + bridge:
             return 0
-        left = (top - pct) * ratio - bridge
+        left = (top - pct) * ratio - bridge - held
         need = max(0, round(left / (hours * rate)))
         if meter == "session" and current and behind_pace(pct, hours_left):
             need = max(need, int(current) + 1)
@@ -911,8 +933,9 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     ((88, 0.05, 2.0, 0, 6.0), 660),   # the floor: the last checkpoint is finite
 ]] + [(("session",) + a, w) for a, w in [
     # five-hour mode: 70 points left under SESSION_CEILING by the reset 4h out,
-    # bridge 10 an hour, 2 a run-hour
-    ((28, 4.0, 2.0, 10, 1.0), 6),
+    # bridge 10 an hour to the reset plus half its last hour (45), 2 a run-hour
+    # over the 3.25h aim
+    ((28, 4.0, 2.0, 10, 1.0), 4),
     ((28, 4.0, 2.0, 0, 1.0), 11),      # a quiet bridge leaves the burn more
     ((28, 4.0, 2.0, 24, 1.0), 2),     # the rooms alone would spend it, but headroom keeps the floor
     # 2026-10-17: 36% with 3.6h left, bridge 17.7 an hour from a spike: floor, not 0
@@ -924,13 +947,20 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     ((98, 0.25, 2.0, 0, 1.0), 0),     # at SESSION_CEILING: none, never on into a lockout
     ((99, 0.25, 2.0, 0, 1.0), 0),
     # 10-23: 93% with 0.5h left, 3 runs in flight: they and the bridge still
-    # spend 3 x 6 x 0.25 + 2 = 6.5 points of the 2 left: nothing new starts
+    # spend 3 x 6 x 0.25 + 4 x 0.75 = 7.5 points of the 5 left: nothing new starts
     ((93, 0.5, 6.0, 4, 1.0, 3), 0),
-    ((80, 2.0, 2.0, 4, 1.0, 3), 5),   # room for them (9.5 of 15): the gate is not in the way
+    ((80, 2.0, 2.0, 4, 1.0, 3), 3),   # room for them (11.5 of 18): the gate is not in the way, their 1.5 comes off
     # reset passed: a fresh 5h window, 99 over 5h at 2 a run-hour
     ((97, -0.05, 2.0, 0, 1.0), 12),
     # 10-29: 22% with 3.9h left, 4 a run-hour, bridge 1.5: aimed 0.75h early, 6 not 5
     ((22, 3.9, 4.0, 1.5, 1.0), 6),
+    # 10-29 06:40 overshoot (100% with 0.3h left): the bridge to the reset at 8.2-8.6
+    # an hour plus its margin fills the headroom; the old aim-only projection
+    # started 3 runs at 83% and 1 at 94%
+    ((83, 1.09, 13.59, 8.2, 1.0, 1, 1), 0),
+    ((94, 0.58, 13.75, 8.6, 1.0, 0, 2), 0),
+    # a calm bridge (3 an hour) reopens the gate near the reset: 95% with 0.3h left
+    ((95, 0.3, 5.0, 3.0, 1.0, 0, 1), 1),
 ]]
 # (weekly need, five-hour need) -> (need, the meter that bound it)
 BIND_CASES = [
