@@ -2010,12 +2010,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ZEBRULA",
      "indicators": [
       {
        "text": "included",
-       "note": "something included is placed inside the other piece"
+       "at": 29,
+       "note": "something included is taken in, so the shortened report goes inside the scrambled letters"
       }
      ],
      "parts": [
@@ -2024,32 +2023,39 @@
        "indicators": [
         {
          "text": "Wild",
-         "note": "wild letters are out of control and form a fresh order"
+         "at": 0,
+         "note": "wild letters are out of control and settle into a fresh order"
         }
        ],
        "parts": [
         {
          "words": "zeal",
-         "note": "the four letters rearranged"
+         "at": 5,
+         "note": "the four letters of zeal rearranged"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 18,
+         "note": "without means lacking, so the following word is dropped from the report"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Report",
+         "at": 11,
+         "gives": "BRUIT",
+         "note": "a bruit is a report or rumour"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "without it",
-           "note": "without means lacking, so the letters i and t are dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Report",
-           "gives": "BRUIT",
-           "note": "a bruit is a report or rumour"
-          },
-          {
-           "gives": "IT"
-          }
-         ]
+         "words": "it",
+         "at": 26,
+         "gives": "IT",
+         "note": "taken as written, the letters to be dropped"
         }
        ]
       }
@@ -2057,7 +2063,7 @@
     },
     "explanation": {
      "surface": "A frenzy of enthusiasm and an angry account, leaving someone cross.",
-     "walkthrough": "'cross' looks like angry but means a hybrid animal.",
+     "walkthrough": "'Wild' gives ZELA, which opens to hold the shortened report. 'cross' looks like angry but means a hybrid animal.",
      "definitionFit": "A zebrula is a hybrid offspring of a zebra and a horse, so it is a cross."
     },
     "features": {
