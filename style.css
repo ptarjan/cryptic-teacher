@@ -334,6 +334,13 @@ button:disabled:hover { border-color: var(--line); }
      by code that forgot to check. */
   .ana-tile, .ana-ghost { transition: none !important; }
 }
+/* Pinch zoom stays on (no maximum-scale in the viewport tag), so iOS would
+   zoom the page in whenever a field under 16px takes focus, the hidden #kbd
+   included. 16px on iOS alone keeps every field out of that rule. */
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select { font-size: 16px !important; }
+}
+
 /* Off-screen and inert like #kbd, and for the same reason: a real input is the
    only way to take a hardware keyboard directly and raise a phone's on-screen
    one, and it must never be where a stray tap can land instead of on a tile
