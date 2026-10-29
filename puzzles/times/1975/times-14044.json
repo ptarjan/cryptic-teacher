@@ -23,7 +23,15 @@
    "6-down": "POKE",
    "7-down": "ANISEED",
    "8-down": "TIGHT"
-  }
+  },
+  "corrected": [
+   {
+    "entry": "13-across",
+    "was": "NEAT",
+    "now": "DEFT",
+    "date": "2026-10-28"
+   }
+  ]
  },
  "annotatedBy": [
   "claude-opus-5-5"
@@ -673,29 +681,41 @@
     "text": "Old copper newt is as Milton's Phillis was",
     "enumeration": "4"
    },
-   "solution": "NEAT",
+   "solution": "DEFT",
    "annotation": {
     "definitions": [
      {
-      "text": "Old copper newt",
-      "at": 0,
-      "note": "garbled in the scan; the first half must be the archaic noun sense, cattle",
-      "meaning": "first meaning, as far as the garbled scan allows: an old word for oxen or cattle"
-     },
-     {
       "text": "as Milton's Phillis was",
-      "at": 19,
-      "note": "the scan repeats 'Mil'; Milton's Phillis was neat-handed",
-      "meaning": "second meaning: tidy and deft, as in Milton's 'the ...-handed Phillis dresses' in L'Allegro"
+      "at": 19
      }
     ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old copper",
+       "at": 0,
+       "gives": "D",
+       "note": "D stood for the old British penny, a copper coin before decimalisation"
+      },
+      {
+       "words": "newt",
+       "at": 11,
+       "gives": "EFT",
+       "note": "an eft is another name for a newt"
+      }
+     ]
+    },
     "explanation": {
-     "walkthrough": "The scan of this clue is corrupted, so only the outline is sure: NEAT is an old word for cattle, and Milton's L'Allegro has 'the neat-handed Phillis'. The first half cannot be read word by word.",
-     "definitionFit": "Neat is Old English for oxen or cattle, surviving in neatsfoot oil, and also means tidy, deft and skilful."
+     "surface": "An old policeman compared with a newt, and with a milkmaid from Milton.",
+     "walkthrough": "'Old copper' looks like a retired policeman, but it is the pre-decimal penny, written d. In Milton's poem L'Allegro, Phillis is 'neat-handed', which means skilful.",
+     "definitionFit": "Milton calls Phillis neat-handed, meaning skilful and nimble with her hands."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
     }
    }
   },
