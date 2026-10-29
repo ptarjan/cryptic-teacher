@@ -113,7 +113,7 @@ jobs:
     env:
       # The count is read from `strategy.job-total` in the test job, so adding
       # or removing an entry here is the only edit a reshard needs.
-      SHARD_IDS: "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      SHARD_IDS: "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
     steps:
       - uses: actions/checkout@v5
         with:
@@ -607,6 +607,22 @@ jobs:
           # Each reads the result cache and, when it passes, writes what it
           # checked to results/ for the cache job.
           mkdir -p "$RUNNER_TEMP/results"
+          # A runner out of memory dies with "received a shutdown signal" and
+          # no word from the slices, whose logs are only printed after them.
+          # So every 20 s the log gets what the host holds and who holds it,
+          # and any OOM kill the kernel logged; the last lines before a
+          # shutdown say whether memory was the cause.
+          (
+            while :; do
+              m=$(free -m | awk '/^Mem:/{printf "used=%sMB avail=%sMB", $3, $7} /^Swap:/{printf " swap=%sMB", $3}')
+              top=$(ps -eo rss=,args= --sort=-rss | head -4 \
+                | awk '{printf "%dMB %s %s %s | ", $1/1024, $2, $3, $4}')
+              echo "mem $(date +%T) $m top: $top"
+              sudo -n dmesg 2>/dev/null | grep -i -E 'out of memory|oom-kill|killed process' | tail -2 | sed 's/^/mem dmesg: /'
+              sleep 20
+            done
+          ) &
+          memwatch=$!
           mapfile -t par < <(node tools/ci_shards.js --parallel < "$RUNNER_TEMP/mine")
           mapfile -t seq < <(node tools/ci_shards.js --serial < "$RUNNER_TEMP/mine")
           pids=()
@@ -646,6 +662,7 @@ jobs:
             cat "$RUNNER_TEMP/par-$n.log"
             echo "::endgroup::"
           done
+          kill "$memwatch" 2>/dev/null || true
           if [ "$(git status --porcelain)" != "$before" ]; then
             echo "a parallel item left the working tree dirty:"
             git status --porcelain
