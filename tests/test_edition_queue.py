@@ -1275,8 +1275,8 @@ ts = [rr("t-wide", "1990", f.SHORT_WIDE), gr("g-unlisted", "1980", f.UNLISTED), 
 check("eq.by_urgency: Times solution rereads, then Times never-read, then the Listener, then others (Paul 10-24)",
       ["t-wide", "g-unlisted", "g-grid", "t-linked", "g-never", "l-new", "tg-never"],
       [u["rel"] for u in eq.by_urgency(ts)])
-check("eq.by_urgency: a Times lost write's reread (rank 2) goes with the Times never-read, ahead of the Listener (10-27)",
-      ["t-wide", "g-lost", "g-never", "l-new", "g-changed"],
+check("eq.by_urgency: a Times lost write's reread (rank 2, UNFILED_FIRST) goes first, ahead of solution work and the Listener (10-27, Paul 10-28)",
+      ["g-lost", "t-wide", "g-never", "l-new", "g-changed"],
       [u["rel"] for u in eq.by_urgency([gr("g-changed", "2020", "inputs changed"), gr("g-lost", "2007", f.LOST_WRITE),
                                         rr("t-wide", "1990", f.SHORT_WIDE), lu("l-new", 0, "never read (Gale fetch)"),
                                         (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0,
@@ -1289,6 +1289,24 @@ check("eq.by_urgency: a Times stale scan a solution reread waits on (serves) goe
                                         sc("s-serves", 2, "scan stale"), sc("s-host", 1, f.HOST_SCAN),
                                         sc("tg-scan", 1, "never scanned", "telegraph")],
                                        serves={("gale", "s-serves")})])
+# Paul 10-28: "Things you're fixing should be at the front of the queue": a fix's rereads (UNFILED_FIRST) and
+# the scans they wait on (fixing) go ahead of every other named-paper unit, solution work included.
+check("eq.by_urgency: a fix's rereads go first of all, ahead of Times solution rereads (Paul 10-28)",
+      ["g-fix", "t-wide", "g-never", "l-new"],
+      [u["rel"] for u in eq.by_urgency([rr("t-wide", "1990", f.SHORT_WIDE), lu("l-new", 0, "never read (Gale fetch)"),
+                                        gr("g-fix", "1951", f.LINKED_COUNT_READ),
+                                        (0, 0, 1, {"rel": "g-never", "date": "2001", "paper": "gale", "rank": 0,
+                                                   "reason": "never read (Gale fetch)"})])])
+check("eq.by_urgency: the scan a fix's reread waits on (fixing) goes ahead of a solution reread's (serves)",
+      ["s-fixing", "s-host", "s-serves", "s-never"],
+      [u["rel"] for u in eq.by_urgency([sc("s-never", 0, "never scanned"), sc("s-serves", 2, "scan stale"),
+                                        sc("s-fixing", 2, "scan stale"), sc("s-host", 1, f.HOST_SCAN)],
+                                       serves={("gale", "s-serves")}, fixing={("gale", "s-fixing")})])
+check("eq.fixing_needs: a fix reread's own edition and needs, not a solution reread's or another paper's",
+      {("gale", "F"), ("gale", "N")},
+      eq.fixing_needs([{"paper": "gale", "rel": "F", "reason": f.STRAY_LINK_READ, "needs": ["N"]},
+                       {"paper": "gale", "rel": "R", "reason": f.UNLISTED, "needs": ["Y"]},
+                       {"paper": "telegraph", "rel": "T", "reason": f.STRAY_LINK_READ, "needs": []}]))
 check("eq.solution_needs: a Times solution read's own edition and needs, not another paper's or a never-read's",
       {("gale", "R"), ("gale", "N")},
       eq.solution_needs([{"paper": "gale", "rel": "R", "reason": f.UNLISTED, "needs": ["N"]},
