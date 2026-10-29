@@ -1678,24 +1678,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "move",
      "indicators": [
       {
-       "text": "moving closer to Bermuda",
-       "note": "the closing letter of the place name is moved to a new spot, so the order changes"
+       "text": "moving",
+       "at": 11,
+       "note": "moving signals that one letter of the word for passed out is shifted to a new place"
       }
      ],
      "parts": [
       {
        "words": "Passed out",
+       "at": 0,
        "gives": "DEALT",
        "note": "cards passed out to players are dealt"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closer to",
+         "at": 18,
+         "note": "the closer of a word is its final letter, so this picks the end of the place name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bermuda",
+         "at": 28
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "Someone fainted on approaching the Bermuda Triangle.",
-     "walkthrough": "'Bermuda Triangle' reads as one place; 'closer to Bermuda' is its last letter A, which moves from the middle of DEALT to the end.",
+     "walkthrough": "'Bermuda Triangle' reads as one place; 'closer to Bermuda' is its last letter A, which 'moving' shifts from the middle of DEALT to the end.",
      "definitionFit": "The Greek capital letter delta is shaped like a triangle, and river deltas are named for that shape."
     },
     "features": {
