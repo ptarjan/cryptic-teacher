@@ -13,7 +13,9 @@ nobody saw it. tools/data/deploy_budgets.json gives each step a number, and:
   check-run  reads the run's step times off the jobs API and fails on a step
              over its budget or with no row, with a ::error annotation naming
              it. pages.yml runs it after the deploy, so the site still ships
-             and the run goes red.
+             and the run goes red. A row with "warn" (why its time is not
+             ours: GitHub's side, or waiting on another job whose own steps
+             are budgeted) prints a ::warning instead and leaves the run green.
   lint       checks .github/workflows/pages.yml against the table: every step
              named and budgeted, no row for a step that is gone, and every step
              that runs a tool reading the whole corpus (CORPUS_MARKS in its
@@ -53,7 +55,7 @@ def check_run(repo, run_id, attempt="1"):
                           f"repos/{repo}/actions/runs/{run_id}/attempts/{attempt}/jobs?per_page=100"],
                          capture_output=True, text=True, check=True).stdout
     jobs = [json.loads(line) for line in out.splitlines() if line.strip()]
-    rows, bad = [], []
+    rows, bad, warned = [], [], []
     for job in jobs:
         if job["name"] == "budgets":
             continue        # the old budgets job (runs before it was folded into build)
@@ -70,7 +72,9 @@ def check_run(repo, run_id, attempt="1"):
                 rows.append((key, took, None))
                 continue
             rows.append((key, took, row["seconds"]))
-            if took > row["seconds"]:
+            if took > row["seconds"] and row.get("warn"):
+                warned.append(f"{key} took {took}s, over its {row['seconds']}s budget; warning only: {row['warn']}")
+            elif took > row["seconds"]:
                 bad.append(f"{key} took {took}s, over its {row['seconds']}s budget "
                            "(tools/data/deploy_budgets.json): find what made it slower")
     summary = ["| step | seconds | budget |", "|---|---:|---:|"]
@@ -83,6 +87,8 @@ def check_run(repo, run_id, attempt="1"):
             fh.write("## Step budgets\n\n" + "\n".join(summary) + "\n")
     except (KeyError, OSError):
         pass
+    for w in warned:
+        print(f"::warning title=Step over budget (not ours)::{w}")
     for b in bad:
         print(f"::error title=Step over budget::{b}")
     return 1 if bad else 0
@@ -193,6 +199,8 @@ def lint(workflow=WORKFLOW, table=TABLE):
             continue
         if not isinstance(row.get("seconds"), int) or row["seconds"] <= 0:
             errors.append(f"{key}: its budget needs whole seconds above 0")
+        if "warn" in row and not (isinstance(row["warn"], str) and row["warn"].strip()):
+            errors.append(f"{key}: \"warn\" must say why the step's time is not ours to budget")
         if reads_corpus(text) and not row.get("corpus"):
             errors.append(f"{key} runs a tool that reads the whole corpus: mark its row \"corpus\": true "
                           "and say how it skips unchanged puzzles")
