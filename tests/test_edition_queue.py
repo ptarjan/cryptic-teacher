@@ -671,6 +671,14 @@ check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fi
       [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
        f.FOOTER_TITLE in eq.UNFILED_FIRST,
        eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
+# ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
+# fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
+check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
+      [2, True, True, 0, True, False, False],
+      [f.RANKS[f.HELD_LINKED], eq.evidence_reason(f.HELD_LINKED), f.HELD_LINKED in eq.FIX_LANDED,
+       eq.files_likely_tier(2, {"paper": "gale", "reason": f.HELD_LINKED, "date": "1957-07-16", "kind": "read"}),
+       f.HELD_LINKED.startswith(eq.CPU_ONLY), f.HELD_LINKED in eq.UNFILED_FIRST,
+       eq.fills_gpu({"paper": "gale", "kind": "read", "rank": 2, "reason": f.HELD_LINKED})])
 # ---- a Times page written unfiled with every blank clue "not a word" (a word every reading spells alike, "Nil
 # nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
 _sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,

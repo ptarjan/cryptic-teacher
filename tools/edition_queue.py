@@ -1028,6 +1028,9 @@ def evidence_reason(reason):
             # A page whose scan finds no title while the puzzle filed from it waits on its answers
             # (fa.held_titles: Paul 10-25, ~240 Times puzzles a host's heading names): answers-only, once.
             or reason == fa.HELD_TITLE
+            # A held title's row left answerless before a host's heading linked it (fa.held_linked: failure shapes
+            # r31, 17 Times puzzles 2-5 short, none planned): answers-only, no VLM ask, once.
+            or reason == fa.HELD_LINKED
             # Such a held title's reread whose blank lights' strips its CPU-only read never asked (fa.held_strips:
             # 10-26, 172 Times puzzles 1-5 short, none planned): answers-only with the VLM, once.
             or reason == fa.HELD_STRIPS
@@ -1621,7 +1624,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.SHORT_UNFITTED, fa.UNMERGED, fa.UNLISTED, fa.VLM_UNLISTED, fa.SHORT_WIDE, fa.REFUSED_GRID, fa.MATCHED_GRID,
               fa.NEAR_GRID, fa.TOUCHING_GRID, fa.UNCLASSIFIED_HELD, fa.LOST_WRITE, fa.RIGHT_FOREIGN_READ, fa.UNFILED_MODERN, fa.HEAVY_PRINT, fa.SUSPECT_HELD,
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
-              fa.HELD_ASKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
+              fa.HELD_ASKED, fa.HELD_LINKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
               fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
@@ -1656,7 +1659,7 @@ def files_likely_tier(rank, unit):
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
     if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.LOST_WRITE,
-                                                                    fa.HELD_TITLE):
+                                                                    fa.HELD_TITLE, fa.HELD_LINKED):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
         return 1
@@ -1692,7 +1695,7 @@ def fills_gpu(unit):
 #: fa.UNMERGED: a solution grid a full read read whole, its answers never merged; answers_only reads it
 #: again whole (no light short, no strip asked) and merges them.
 #: fa.HELD_TITLE: a page its scan found no title on, read answers-only under its held puzzle's number.
-CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE)
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE, fa.HELD_LINKED)
 #: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
 #: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
 #: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep
