@@ -1718,6 +1718,16 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
 TIMES_SOLUTION = LOW_ASK + CPU_ONLY + fa.HOST_REASONS
 
 
+def reason_cap_for(ceiling):
+    """Most units of one reason string running at once while other work waits: CT_REASON_CAP
+    (integer, 0 = off), default max(2, ceiling // 3)."""
+    try:
+        v = int(os.environ.get("CT_REASON_CAP", ""))
+    except ValueError:
+        return max(2, ceiling // 3)
+    return max(0, v)
+
+
 def vlm_feed_reads():
     """The most gpu_fill reads running at once: CT_VLM_FEED_READS (default 8). A fill spends 100-500 s
     on OCR before its first ask and then makes only a few, so keeping the VLM fed takes many reads in
@@ -2613,6 +2623,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     if defer_file:
         defer_runs, defer_until = last_defers(defer_file)
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
+    reason_cap_logged = [None]  # (running, reason) last logged by the per-reason cap
     cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
@@ -3469,6 +3480,23 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         cpu_cap = mem_gate.unit_ceiling() // 3 if len(queued) < vlm_feed_target() else None
         cpu_live = sum(1 for _, (v, _at) in units_running() if cpu_only_unit(v)) if cpu_cap is not None else 0
         cpu_capped = False
+        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
+        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
+        reason_cap = reason_cap_for(mem_gate.unit_ceiling())
+        reason_live = {}
+        if reason_cap:
+            for _, (v, _at) in units_running():
+                if v["kind"] != "fetch" and v.get("reason"):
+                    reason_live[v["reason"]] = reason_live.get(v["reason"], 0) + 1
+        reason_other = {}  # reason -> whether a unit of another reason is queued and untried
+        reason_capped = []
+
+        def others_wait(reason):
+            if reason not in reason_other:
+                reason_other[reason] = any(
+                    v["kind"] != "fetch" and v.get("reason") != reason and k not in tried
+                    for v, k in zip(queue, qkeys))
+            return reason_other[reason]
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
             """What a walk of the queue (~12k units) that begins nothing
@@ -3511,6 +3539,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     and not (listener_wide and uslot == "listener")):  # no VLM-asking read is due to keep slots for
                 cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
                 continue
+            if (reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in fill_keys
+                    and reason_live.get(u["reason"], 0) >= reason_cap and others_wait(u["reason"])):
+                reason_capped.append((reason_live[u["reason"]], u["reason"]))
+                continue  # waits (not dropped): other work starts first
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
                 continue
             # Held before its ledger row is checked: stood() stats the
@@ -3585,6 +3617,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             begun_now += 1
             live_scans += u["kind"] == "scan"
             cpu_live += cpu_only_unit(u)
+            if reason_cap and u["kind"] != "fetch" and u.get("reason"):
+                reason_live[u["reason"]] = reason_live.get(u["reason"], 0) + 1
             charged += cost
             if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
@@ -3614,6 +3648,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"cpu-only cap: {cpu_live} stale scans/answer-linked rereads running of {cpu_cap} allowed "
                     f"while {len(queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
             cpu_cap_bound = cpu_capped
+            reason_hit = reason_capped[0] if reason_capped else None
+            if reason_hit and reason_hit != reason_cap_logged[0]:
+                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {reason_cap}); other work starts")
+            reason_cap_logged[0] = reason_hit
         if walked and not skip_walk and not begun_now:
             idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
                                       tuple(sorted(idle_read.items())))),
