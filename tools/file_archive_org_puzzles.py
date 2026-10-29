@@ -7315,7 +7315,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # decide() records it so (mark_clue_solved).
     if clue_solvable(old):
         answers, info = clue_solved_reads(es, answers, info, grid, enums, solution_crop(sol, number),
-                                          crossed=crossed, every=every)
+                                          crossed=crossed, every=every, puzzle_id=old.get("id"))
     t0 = _stage("clue_solved", t0)
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again, but a held answer the
@@ -7940,7 +7940,7 @@ def clue_solvable(held):
             and (not detail or detail.get("model") == CLUE_SOLVER))
 
 
-def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False):
+def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False, puzzle_id=None):
     """(answers, info) of answers_only's reading `answers` of a held puzzle's `entries`, after every read of
     the print (wordplay_reads, candidate_reads, clash_reads), with each light still blank that its clue
     solves added: wordplay_fit's one word on the crossings (an anagram or hidden word of the clue, a listed
@@ -7957,7 +7957,10 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
     refused (half wrong by their clues, the classifier reading the faded print worse than the VLM: no safe rule),
     123 a reply clashing a held crossing (the held word listed and the repair unlisted in 86 of 89), 136 a reply a
     letter or more off the light's length, 87 a reply with a "?", 46 no reply; the crossings and the past answers
-    leave one word for 150 of them (4 puzzles whole, 30 one short)."""
+    leave one word for 150 of them (4 puzzles whole, 30 one short).
+    First of all a light takes the answer another committed puzzle gave the same clue (text and count) where it
+    fits the crossings (trove_solution_ocr.clue_repeat; `puzzle_id`'s own file is left out): CLUE_REPEATED, 10-29
+    (r36): held out on 28,452 Times lights, the one fitting answer is the held word 55,468 times of 55,677."""
     t = trove_solution_ocr
     held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
     left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
@@ -7977,9 +7980,13 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
             if lid in by or not cells or len(cells) < WORDPLAY_MIN:
                 continue
             pattern = "".join(letters.get(rc, "?") for rc in cells)
-            word = wordplay_fit(clue[lid], pattern, enums.get(key)) if clue.get(lid) else None
-            if word and not t.definition_linked(word, clue[lid]):
-                word = None
+            # The answer another puzzle gave the same clue, fitting the crossings (CLUE_REPEATED), first: a print's
+            # own answer to this very clue is better evidence than the clue's wordplay or the classifier.
+            word = t.clue_repeat(clue[lid], enums.get(key), pattern, puzzle_id) if clue.get(lid) else None
+            if not word:
+                word = wordplay_fit(clue[lid], pattern, enums.get(key)) if clue.get(lid) else None
+                if word and not t.definition_linked(word, clue[lid]):
+                    word = None
             if not word and pattern.count("?") and len(pattern) - pattern.count("?") >= t.VOUCHED_KNOWN:
                 # No wordplay: the one past answer the crossings leave that the classifier allows (VOUCHED_FIT).
                 if probs is None:
@@ -8066,7 +8073,8 @@ def mark_clue_solved(old, verdict, answered):
         sol.update({"model": CLUE_SOLVER, "date": datetime.date.today().isoformat(),
                     "check": f"{len(old['entries'])} entries; each light the paper's grid did not give solved "
                              f"here from its clue's wordplay (an anagram or hidden word, the one listed word "
-                             f"fitting every crossing) and its definition (WordNet), or as the one past answer "
+                             f"fitting every crossing) and its definition (WordNet), as the answer another "
+                             f"puzzle gave the same clue, or as the one past answer "
                              f"its crossings left that the printed letters allow, agrees with the 0 "
                              f"answers the paper printed"})
         printed = {entry_id(e): e["solution"] for e in old["entries"] if e.get("solution") and entry_id(e) not in ours}
@@ -15892,6 +15900,47 @@ def vouched_short(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_CLUE_REPEATED whose linked solution grid read short for a
+#: puzzle of CLUE_REPEAT_PUZZLES held short from that page: a blank light's clue (text and count) is printed again
+#: in another committed puzzle whose answer fits the crossings (trove_solution_ocr.clue_repeat), taken by
+#: clue_solved_reads as ours (mark_clue_solved). 10-29 (r36): 3,086 of 4,527 Times rows with a puzzle not fully
+#: answered had no reread due; 2,060 of those were 1-2 short with the grid read and the VLM's strip reply refused
+#: (fits-but-unlisted 320, clashing a held crossing 184, a letter long or short 156, "?" 92, listed under the
+#: classifier floor 70: each class mined by an earlier reason, what is left has no safe rule). New evidence: the
+#: Times sets a clue again over the years. Held out on 28,452 Times lights whose clue another puzzle's file holds,
+#: with the light's alternate letters crossed: the one fitting answer is the held word 55,468 times of 55,677 (209
+#: differ, most a misread in one of the files). Once.
+CLUE_REPEATED = "solution short, its blank lights' clue printed again since"
+REREAD_CLUE_REPEATED = "2026-10-29T13:50:00+00:00"
+CLUE_REPEAT_PUZZLES = frozenset((2627, 4270, 4827, 5081, 5226, 5256, 5491, 5815, 6041, 6681, 6775, 6885, 6994, 7370, 7401,
+                                 7516, 7618, 8129, 10031, 10623, 11304, 11352, 12461, 12850, 13854, 13859, 13874, 13925,
+                                 13992, 14072, 14113, 14126, 14264, 14359, 14444, 14582, 14726, 14746, 14876, 15029, 15090,
+                                 15093, 15180, 15246, 15251, 15323, 15341, 15456, 15560, 15584, 15696, 15726, 15806, 15989,
+                                 16144, 16202, 16219, 16221, 16240, 16468, 16474, 16623, 16707, 16795, 16807, 16809, 16965,
+                                 17001, 17022, 17044, 17204, 17225, 17631, 18288, 18484, 19237, 19388, 19776, 19864, 20441,
+                                 22719, 27190))
+
+
+def clue_repeat_short(row):
+    """Whether Times ledger `row`, read before REREAD_CLUE_REPEATED, has a verdict (no held title's) of a linked
+    solution grid read short, not refused, for a puzzle of CLUE_REPEAT_PUZZLES held by this tool from that page with
+    every clue, not every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_REPEATED)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or not v.get("solutionFrom") or not isinstance(v.get("number"), int)
+                or not isinstance(s, dict) or s.get("refused") or v["number"] not in CLUE_REPEAT_PUZZLES
+                or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        if ((held_file(paper.series, v["number"]) or {}).get("source") or {}).get("acquiredBy") == TOOL:
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -16336,6 +16385,8 @@ def fix_reason(row):
         return FORCED_WORD
     if vouched_short(row):
         return VOUCHED_FIT
+    if clue_repeat_short(row):
+        return CLUE_REPEATED
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -16999,7 +17050,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -17591,7 +17642,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
-                  TWICE_READ, FORCED_WORD, VOUCHED_FIT)
+                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED)
 
 
 def keeps_vlm(why, row, unit=None):

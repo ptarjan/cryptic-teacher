@@ -2685,6 +2685,146 @@ def filed_words():
     return _FILED[key]
 
 
+#: clue_repeat: a blank light whose clue (its text and count) another committed puzzle prints too takes that
+#: puzzle's answer where it fits the crossings (CLUE_REPEATED). The Times, like every cryptic, sets the same clue
+#: again over the years, and its answer stands: 10-29 (r36), held out on 28,452 Times lights whose clue another
+#: puzzle's file holds (12+ letters of clue, the light's own half of its letters crossed), the one answer the
+#: other files' fits leave is the held word 55,468 times of 55,677 (209 differ, most the other file's or the held
+#: file's own misread: DECENT/RECENT, ODER/ADER, JABBER/YABBER). CLUE_REPEAT_MIN: the shortest clue (letters and
+#: digits only) it trusts; CLUE_REPEAT_KNOWN: the letters a light must have crossed.
+CLUE_REPEAT_MIN, CLUE_REPEAT_KNOWN = 12, 2
+_CLUES = {}
+
+
+def clue_key(text, enum):
+    """The key of a clue for clue_repeat: its text's lower-case letters and digits (12+ of them; else None) and the
+    counts of its enumeration, as a short hash."""
+    flat = re.sub(r"[^a-z0-9]", "", (text or "").lower())
+    if len(flat) < CLUE_REPEAT_MIN:
+        return None
+    return hashlib.sha1((flat + "|" + ",".join(re.findall(r"\d+", enum or ""))).encode()).hexdigest()[:14]
+
+
+def _clue_tokens(body):
+    """The entries of a puzzle file's bytes as space-separated "id|clue key|ANSWER|trust" tokens (ANSWER empty for a
+    blank light; trust T for an answer a person typed, as corpus_words trusts, else f), for filed_clues."""
+    try:
+        pz = json.loads(body)
+    except ValueError:
+        return ""
+    trust = ((pz.get("source") or {}).get("retrievedFrom") in CORPUS_CHANNELS
+             and (pz.get("solutions") or {}).get("origin") in CORPUS_ORIGINS)
+    out = []
+    for e in pz.get("entries") or []:
+        if not isinstance(e, dict) or not isinstance(e.get("clue"), dict):
+            continue
+        k = clue_key(e["clue"].get("text"), e["clue"].get("enumeration"))
+        if k:
+            out.append("%s|%s|%s|%s" % (pz.get("id"), k, re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper()),
+                                         "T" if trust else "f"))
+    return " ".join(out)
+
+
+def filed_clues():
+    """{clue key: [(puzzle id, answer, trusted)]} of the committed puzzle files of CORPUS_ROOT, for the clues some
+    file leaves a light blank on (clue_repeat asks only those), every file's answers to them; parsed by blob and
+    kept in the git common dir as filed_words is."""
+    key = str(CORPUS_ROOT)
+    if key in _CLUES:
+        return _CLUES[key]
+    git = ["git", "-C", str(CORPUS_ROOT)]
+    listed = subprocess.run(git + ["ls-files", "-s", "-z", "--", "puzzles"], capture_output=True, text=True,
+                            check=False)
+    common = subprocess.run(git + ["rev-parse", "--path-format=absolute", "--git-common-dir"],
+                            capture_output=True, text=True, check=False)
+    if listed.returncode or common.returncode:
+        _CLUES[key] = {}
+        return _CLUES[key]
+    blobs = {rec.split("\t", 1)[0].split()[1] for rec in listed.stdout.split("\0")
+             if "\t" in rec and _PUZZLE_FILE.fullmatch(rec.split("\t", 1)[1])}
+    store = Path(common.stdout.strip()) / "ct-clue-tokens.pickle"
+    merged = store.with_name("ct-clue-answers.txt")
+    digest = hashlib.sha1(" ".join(sorted(blobs)).encode()).hexdigest()
+    try:
+        with open(merged, encoding="utf-8") as f:
+            if f.readline().strip() == digest:
+                found = {}
+                for line in f:
+                    k, _, rest = line.rstrip("\n").partition(" ")
+                    found[k] = [tuple(x.split("|")) for x in rest.split(" ") if x]
+                _CLUES[key] = {k: [(p, a, t == "T") for p, a, t in v] for k, v in found.items()}
+                return _CLUES[key]
+    except OSError:
+        pass
+    try:
+        with open(store, "rb") as f:
+            cached = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError):
+        cached = {}
+    fresh = sorted(blobs - cached.keys())
+    if fresh:
+        out = subprocess.run(git + ["cat-file", "--batch"], input="\n".join(fresh).encode() + b"\n",
+                             capture_output=True, check=True).stdout
+        pos = 0
+        while pos < len(out):
+            nl = out.index(b"\n", pos)
+            sha, _, size = out[pos:nl].split()
+            cached[sha.decode()] = _clue_tokens(out[nl + 1:nl + 1 + int(size)])
+            pos = nl + 2 + int(size)
+    if fresh or cached.keys() - blobs:
+        cached = {b: cached[b] for b in blobs}
+        with tempfile.NamedTemporaryFile("wb", dir=store.parent, delete=False) as f:
+            pickle.dump(cached, f)
+        os.replace(f.name, store)
+    wanted = set()
+    for b in blobs:
+        for tok in cached[b].split():
+            pid, k, ans, _ = tok.split("|")
+            if not ans:
+                wanted.add(k)
+    by = {}
+    for b in blobs:
+        for tok in cached[b].split():
+            pid, k, ans, tr = tok.split("|")
+            if ans and k in wanted:
+                by.setdefault(k, []).append((pid, ans, tr))
+    _CLUES[key] = {k: [(p, a, t == "T") for p, a, t in v] for k, v in by.items()}
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=store.parent, delete=False) as f:
+        f.write(digest + "\n")
+        for k, v in sorted(by.items()):
+            f.write(k + " " + " ".join("|".join(x) for x in v) + "\n")
+    os.replace(f.name, merged)
+    return _CLUES[key]
+
+
+def clue_repeat(text, enum, pattern, puzzle_id=None):
+    """The answer another committed puzzle gives a clue of the same text and count (clue_key) that fits the crossings
+    `pattern` (? open) of a blank light, where all the files' fits leave one answer, CLUE_REPEAT_KNOWN or more
+    letters crossed, another puzzle's than `puzzle_id`'s, and it is a typed answer (a published or written-up
+    puzzle's) or two puzzles' read answers alike, listed or a past answer (corpus_words); else None."""
+    n = len(pattern)
+    known = n - pattern.count("?")
+    k = clue_key(text, enum)
+    if not k or known < CLUE_REPEAT_KNOWN or known == n:
+        return None
+    fits = {}
+    for pid, ans, trusted in filed_clues().get(k, ()):
+        if pid != puzzle_id and len(ans) == n and all(p == "?" or p == c for p, c in zip(pattern, ans)):
+            seen = fits.setdefault(ans, [set(), False])
+            seen[0].add(pid)
+            seen[1] = seen[1] or trusted
+    if len(fits) != 1:
+        return None
+    word, (ids, trusted) = next(iter(fits.items()))
+    if not (trusted or len(ids) >= 2):
+        return None
+    sizes = pieces_of(enum, n)
+    if word not in corpus_words() and not all(piece_listed(word[sum(sizes[:i]):sum(sizes[:i + 1])], len(sizes) > 1)
+                                              for i in range(len(sizes))):
+        return None
+    return word
+
+
 # ------------------------------------------------------------ pairing
 
 def _day(text):
