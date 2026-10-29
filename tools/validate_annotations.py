@@ -6752,6 +6752,22 @@ def own_ind_in_leaf(tree):
     return n
 
 
+DOUBLED_APOSTROPHE = "a quoted word has a doubled apostrophe inside it (Guardian''s for Guardian's)"
+DOUBLED_APOSTROPHE_RE = re.compile(r"(?<=\w)''(?=\w)")
+
+
+def doubled_apostrophe(tree):
+    """Leaf words and indicator texts with two apostrophes between letters (Guardian''s, it''s): the
+    scan's single quote read twice. Nobody writes two for one; the clue text says the same word with one
+    (genius-58 4d, a solver's "Double quote" report; 214 stored clues had it)."""
+    n = 0
+    for node in _walk(tree):
+        n += bool(DOUBLED_APOSTROPHE_RE.search(str(node.get("words") or "")))
+        n += sum(bool(DOUBLED_APOSTROPHE_RE.search(str(i.get("text") or "")))
+                 for i in node.get("indicators") or [] if isinstance(i, dict))
+    return n
+
+
 REPEAT_IN_LEAF = "leaf holds a doubling word (twice, double, again) and gives a doubled string"
 REPEAT_FORM = "write rep<twice>([boy]AL) for ALAL: the leaf gives one copy, rep() doubles it, the doubling word is rep's indicator"
 HALF_IN_LEAF = "leaf holds half and gives half of another of its words, a halving selection folded into the leaf"
@@ -7656,6 +7672,7 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: ana_is_move(tree, answer), ANA_IS_MOVE, "write move<indicator>(fodder, MOVED)"),
             (lambda: del_as_move(tree), DEL_AS_MOVE, "write move<indicator>(fodder, MOVED)"),
             (lambda: behead_in_leaf(tree), BEHEAD_IN_LEAF, "the cut is a deletion with its own indicator"),
+            (lambda: doubled_apostrophe(tree), DOUBLED_APOSTROPHE, "write the word with the one apostrophe the clue has"),
             (lambda: own_ind_in_leaf(tree), OWN_IND_IN_LEAF, "the leaf holds only the words that give its letters")):
         if k := fn():
             out.append(f"{tag}: {k} {label}: {hint}")
@@ -8260,6 +8277,7 @@ BACKLOG_MARKERS = {
     "wordplay.cutNoteLeaf": (CUT_NOTE_LEAF,),
     "wordplay.ownIndInLeaf": (OWN_IND_IN_LEAF,),
     "wordplay.repeatInLeaf": (REPEAT_IN_LEAF,),
+    "wordplay.doubledApostrophe": (DOUBLED_APOSTROPHE,),
     "wordplay.splitWordLeaves": (SPLIT_WORD_LEAVES,),
     "wordplay.moveNoteLeaf": (MOVE_NOTE_LEAF,),
     "wordplay.firstSiblingLeaves": (FIRST_SIBLING_LEAVES,),

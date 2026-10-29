@@ -3799,7 +3799,73 @@ def _flat_charades(tree):
     return tree
 
 
-RULE_REPAIRS = {"repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+def r_doubled_apostrophe(node, parent, ctx):
+    """doubledApostrophe: Guardian''s in a leaf's words or an indicator's text becomes Guardian's. Whole tree
+    only, and only when the clue itself holds the single apostrophe form (a clue still doubled is mended with
+    its annotation by fix_doubled_apostrophes, so the words keep matching it)."""
+    if parent is not None or not V.doubled_apostrophe(node) or V.DOUBLED_APOSTROPHE_RE.search(ctx.get("clue") or ""):
+        return None
+    new = copy.deepcopy(node)
+    fix = lambda t: V.DOUBLED_APOSTROPHE_RE.sub("'", t)
+    for n in V._walk(new):
+        if isinstance(n.get("words"), str):
+            n["words"] = fix(n["words"])
+        for i in n.get("indicators") or []:
+            if isinstance(i, dict) and isinstance(i.get("text"), str):
+                i["text"] = fix(i["text"])
+    return new
+
+
+def _single_apostrophe(text):
+    """rewrite_entry mapper: every apostrophe pair between letters becomes one, offsets kept on their letters."""
+    out, at, i = [], [], 0
+    while i < len(text):
+        at.append(len(out))
+        if text.startswith("''", i) and i and text[i - 1].isalnum() and i + 2 < len(text) and text[i + 2].isalnum():
+            at.append(len(out))
+            out.append("'")
+            i += 2
+            continue
+        out.append(text[i])
+        i += 1
+    at.append(len(out))
+    return "".join(out), at
+
+
+def fix_doubled_apostrophes(entry):
+    """Mend one entry in place: the clue text through enumeration.rewrite_entry (which carries the definition
+    offsets and the quoted annotation strings with it), then the tree's leftovers. Whether anything changed."""
+    import enumeration
+    changed = enumeration.rewrite_entry(entry, _single_apostrophe)
+    wp = (entry.get("annotation") or {}).get("wordplay")
+    if isinstance(wp, dict) and V.doubled_apostrophe(wp):
+        entry["annotation"]["wordplay"] = r_doubled_apostrophe(wp, None, {"clue": (entry.get("clue") or {}).get("text")})
+        changed = True
+    return changed
+
+
+def run_doubled_apostrophes(apply, root="puzzles"):
+    """The corpus sweep (--doubled-apostrophes): every puzzle file with `''` between letters in a clue, written
+    through a .part rename when `apply`. Prints the clues and puzzles mended."""
+    import pathlib
+    clues = files = 0
+    for p in sorted(pathlib.Path(root).glob("*/*/*.json")):
+        raw = p.read_text()
+        if "''" not in raw:
+            continue
+        puzzle = json.loads(raw)
+        n = sum(fix_doubled_apostrophes(e) for e in puzzle.get("entries", []))
+        if not n:
+            continue
+        clues, files = clues + n, files + 1
+        if apply:
+            part = p.with_name(f".{p.name}.part")
+            part.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n")
+            part.replace(p)
+    print(f"{'mended' if apply else 'would mend'} {clues} clues in {files} puzzles")
+
+
+RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
@@ -4400,7 +4466,12 @@ def main():
     ap.add_argument("--commit", action="store_true", help="with --rule --apply: commit the changed puzzles, 500 to a commit")
     ap.add_argument("--container-inside", action="store_true",
                     help="repair only the queued containerInside rows (--limit N samples; --apply writes puzzles)")
+    ap.add_argument("--doubled-apostrophes", action="store_true",
+                    help="mend Guardian''s -> Guardian's in every clue and annotation (--apply writes)")
     a = ap.parse_args()
+    if a.doubled_apostrophes:
+        run_doubled_apostrophes(a.apply)
+        return
     if a.container_inside:
         run_rule("containerInside", a.apply, a.examples, a.seed, a.limit, a.jobs)
         return

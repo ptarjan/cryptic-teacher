@@ -98,6 +98,7 @@ FIELDS = {
     "wordplay.anaLiteralEdge": lambda ann: V.ana_literal_edge(ann.get("wordplay"), ann.get("answer")),
     "wordplay.delWrapsCharade": lambda ann, clue=None: V.del_wraps_charade(ann.get("wordplay"), clue),
     "wordplay.repeatInLeaf": lambda ann: V.repeat_in_leaf(ann.get("wordplay")),
+    "wordplay.doubledApostrophe": lambda ann: V.doubled_apostrophe(ann.get("wordplay")),
     "wordplay.halfInLeaf": lambda ann: V.half_in_leaf(ann.get("wordplay")),
     "wordplay.selectIndEndsLeaf": lambda ann: V.select_ind_ends_leaf(ann.get("wordplay")),
     "wordplay.beheadInLeaf": lambda ann: V.behead_in_leaf(ann.get("wordplay")),
