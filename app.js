@@ -8101,6 +8101,10 @@
     // A menu set to anything but "all" is a query too, answered the same way.
     const terms = q.split(/\s+/).filter(Boolean);
     const keep = pickerFilter();
+    // Offline, the list is what this device can open: the saved puzzles only,
+    // newest first, searched and filtered as ever.
+    const heldOnly = offlineList();
+    if (heldOnly && !terms.length && !keep) return pickerPuzzles().filter((p) => !p.reprintOf && heldOnly(p));
     if (terms.length || keep) {
       // A run of digits is a NUMBER, and a number is not the digits sitting
       // inside a longer one: Globe and Mail 3,368 is inside Guardian cryptic
@@ -8113,6 +8117,7 @@
         ? new RegExp("(^|[^\\d])" + t) : null));
       const hits = pickerPuzzles().filter((p) => {
         if (keep && !keep(p)) return false;
+        if (heldOnly && !heldOnly(p)) return false;
         const hay = pickerHaystack(p);
         return terms.every((t, i) => (matchers[i] ? matchers[i].test(hay)
                                                   : hay.includes(t)));
@@ -8249,7 +8254,10 @@
     ["picker-paper", "picker-band", "picker-tag"].forEach((id) => $(id).classList.toggle("on", !!$(id).value));
     // A chosen feature says what it means: choosing it is the asking.
     const tagInfo = (INDEX.tags || {})[($("picker-tag") || {}).value || ""];
-    setHTML($("picker-note"), tagInfo ? esc(tagInfo.blurb) : "");
+    const offlineNow = !!offlineList();
+    setHTML($("picker-note"), offlineNow
+      ? `You’re offline: these are the ${offlineFiles.size} puzzle${offlineFiles.size === 1 ? "" : "s"} saved on this device.`
+      : tagInfo ? esc(tagInfo.blurb) : "");
     const filtered = !!(q || pickerFilter());
     const rows = pickerRows(q);
     // This render is throwing away the list the last observer was watching.
@@ -8265,7 +8273,8 @@
       const below = rows.length - drawn;
       const bits = [];
       if (below) bits.push(`${below} more match${below > 1 ? "es" : ""} — keep scrolling.`);
-      if (unmatched) bits.push(filtered
+      if (offlineNow) bits.push("The rest open once you’re back online.");
+      else if (unmatched) bits.push(filtered
         ? `${unmatched} other puzzle${unmatched > 1 ? "s" : ""} don’t match.`
         : `${unmatched} more — search by puzzle number, setter (the puzzle’s author) or day, type “solved” in the search box to see the ones you finished, or `
           + `<a href="${at("puzzles/")}">browse the whole archive</a>.`);
@@ -8274,7 +8283,8 @@
     if (!rows.length) {
       const li = document.createElement("li");
       li.className = "picker-empty";
-      li.innerHTML = `<span class="muted">Nothing matches${q ? ` “${esc(q)}”` : ""}.</span>`;
+      li.innerHTML = `<span class="muted">${offlineNow && !filtered ? "No puzzles are saved on this device yet."
+        : `Nothing matches${q ? ` “${esc(q)}”` : ""}.`}</span>`;
       ul.appendChild(li);
       sayRest();
       return;
@@ -8397,6 +8407,7 @@
       $("picker-tag").value = kept.tag || "";
       renderPicker();
       offlineRefresh(() => { if (!el.classList.contains("hidden")) renderPicker(); });
+      probeNet();
       // The progress numbers need the answers, and a sync pull may have handed
       // this browser progress on a puzzle whose file it has never fetched.
       loadStartedPuzzles(() => {
@@ -8448,7 +8459,14 @@
   // relative "puzzles/..." then resolves one level deeper —
   // /puzzles/<id>/puzzles/... — and 404s, for the archive link at the foot of
   // the picker and for the script tag of the NEXT puzzle opened.
-  function at(rel) { return new URL(rel, homeUrl()).href; }
+  // Kept on this page's own origin when that is http(s) (a test server, a
+  // preview): the service worker registers only from its own origin, and a
+  // fetch to the production host would be cross-origin there.
+  function at(rel) {
+    const u = new URL(rel, homeUrl());
+    return /^https?:$/.test(location.protocol) && location.origin !== u.origin
+      ? location.origin + u.pathname + u.search + u.hash : u.href;
+  }
 
   // The same goes for the icons and manifest linked in <head>: index.html writes
   // them relative, and once the bar is /puzzles/<id>/ the browser asks for
@@ -9410,9 +9428,39 @@
   // batch before a flight, and show which puzzles a dead connection can open.
   const PUZZLE_CACHE = "ct-puzzles-1";   // the name sw.js files puzzles under
   const OFFLINE_BATCH = 100;   // about 1 MB gzipped (median puzzle ~10 KB)
+  const OFFLINE_CAP = 250;     // sw.js MAX_PUZZLES: the most the device keeps
   const offlineOK = () => !!(navigator.serviceWorker && window.caches && typeof fetch === "function");
-  const isOffline = () => typeof navigator !== "undefined" && navigator.onLine === false;
+  // Offline is the browser saying so, or the server not answering: wifi that
+  // is up but dead (a plane) leaves navigator.onLine true.
+  let netDown = false;
+  const isOffline = () => netDown || (typeof navigator !== "undefined" && navigator.onLine === false);
   let offlineFiles = null;   // puzzle files held on this device, once read
+
+  // sw.js is the one file the worker never answers, so fetching it asks the
+  // server itself. Any change of state redraws what depends on it.
+  const PROBE_MS = 5000;
+  function probeNet() {
+    if (!offlineOK()) return;
+    const ctl = window.AbortController ? new AbortController() : null;
+    const timer = ctl && setTimeout(() => ctl.abort(), PROBE_MS);
+    fetch(at("sw.js"), { cache: "no-store", method: "HEAD", ...(ctl ? { signal: ctl.signal } : {}) })
+      .then((r) => r.ok, () => false)
+      .then((ok) => {
+        clearTimeout(timer);
+        if (netDown === !ok) return;
+        netDown = !ok;
+        offlineRefresh(() => {
+          if (!$("picker-panel").classList.contains("hidden")) renderPicker();
+        }, true);
+      });
+  }
+
+  // While offline with the cache read: a test of whether a puzzle row can be
+  // opened here. Null otherwise (the list is the normal one).
+  function offlineList() {
+    if (!isOffline() || !offlineFiles) return null;
+    return (p) => offlineHas(p) === true;
+  }
 
   const puzzleUrl = (p) => at("puzzles/" + p.file + ".gz" + (p.v ? "?v=" + p.v : ""));
 
@@ -9424,7 +9472,7 @@
     return !!(own && offlineFiles.has(own.file));
   }
 
-  function offlineRefresh(then) {
+  function offlineRefresh(then, always) {
     if (!offlineOK()) return;
     caches.open(PUZZLE_CACHE).then((c) => c.keys()).then((keys) => {
       const held = new Set(keys.map((k) => decodeURIComponent(new URL(k.url).pathname)
@@ -9432,23 +9480,27 @@
       const changed = !offlineFiles || held.size !== offlineFiles.size;
       offlineFiles = held;
       renderOfflineBox();
-      if (changed && then) then();
+      if ((changed || always) && then) then();
     }).catch(() => {});
   }
 
   // The next puzzles this solver would be handed: unfinished ones they have
   // started, then the newest annotated ones from the papers they play (every
   // paper while they have played none), skipping finished grids.
-  function offlineBatch() {
+  // With `more` (the Save now button), only puzzles not held yet, so every
+  // tap adds puzzles until the device holds OFFLINE_CAP.
+  function offlineBatch(more) {
     const prog = savedProgress();
     const out = [], seen = {};
+    const has = more && offlineFiles ? offlineFiles : new Set();
+    const size = more ? Math.min(OFFLINE_BATCH, Math.max(0, OFFLINE_CAP - has.size)) : OFFLINE_BATCH;
     const add = (p) => {
-      if (p && p.file && !p.reprintOf && !seen[p.id] && out.length < OFFLINE_BATCH) { seen[p.id] = 1; out.push(p); }
+      if (p && p.file && !p.reprintOf && !seen[p.id] && !has.has(p.file) && out.length < size) { seen[p.id] = 1; out.push(p); }
     };
     Object.keys(prog).forEach((id) => { if (BY_ID[id] && !pickerStatus(BY_ID[id]).done) add(BY_ID[id]); });
     const played = new Set(Object.keys(prog).map((id) => BY_ID[id] && BY_ID[id].series).filter(Boolean));
     for (const p of INDEX.puzzles) {
-      if (out.length >= OFFLINE_BATCH) break;
+      if (out.length >= size) break;
       if (!p.annotated || (played.size && !played.has(p.series))) continue;
       if (prog[p.id] && pickerStatus(p).done) continue;
       add(p);
@@ -9461,13 +9513,14 @@
     if (el) el.textContent = msg;
   }
 
+  const readyText = (n) => (n ? `${n} puzzle${n > 1 ? "s" : ""} ready offline` : "No puzzles saved offline yet");
   let offlineBusy = false;
   function renderOfflineBox() {
     const box = $("offline-box");
     if (!box || !offlineOK()) return;
     box.classList.remove("hidden");
     const n = offlineFiles ? offlineFiles.size : 0;
-    if (!offlineBusy) offlineNote(n ? `${n} puzzle${n > 1 ? "s" : ""} ready offline` : "No puzzles saved offline yet");
+    if (!offlineBusy) offlineNote(readyText(n));
   }
 
   // Saving needs no tap: the page does it once idle after loading online, at
@@ -9487,7 +9540,8 @@
 
   function saveOffline(quiet) {
     if (isOffline()) { offlineNote("You’re offline. Connect to wifi and try again."); return; }
-    const rows = offlineBatch();
+    const more = !quiet;
+    const rows = offlineBatch(more);
     if (offlineBusy) return;
     // Recycling. Dropped: a saved puzzle that is now solved, and one the last
     // batch held that this pick no longer includes. Kept: every unfinished
@@ -9505,13 +9559,27 @@
     });
     let prev = [];
     try { prev = JSON.parse(localStorage.getItem(OFFLINE_BATCH_KEY) || "[]"); } catch (e) { prev = []; }
+    // Save now adds to what the last batch held rather than replacing it.
+    if (more) prev.forEach((f) => want.add(f));
     const dropFiles = syncFails ? [] : [...new Set([...prev, ...solved])].filter((f) => !want.has(f) && !started.has(f));
     const drop = dropFiles.map((f) => at("puzzles/" + f + ".gz"));
-    if (!rows.length && !drop.length) { offlineNote("Nothing to save."); return; }
+    if (!rows.length && !drop.length) {
+      const n = offlineFiles ? offlineFiles.size : 0;
+      offlineNote(more && n >= OFFLINE_CAP ? `${n} puzzles ready offline, the most this device keeps` : "Nothing new to save.");
+      return;
+    }
     if (!navigator.serviceWorker) { offlineNote("Offline saving isn’t available in this browser."); return; }
     offlineBusy = true;
     offlineNote(`Saving 0 of ${rows.length}…`);
-    const end = (msg) => { offlineBusy = false; offlineRefresh(); offlineNote(msg); };
+    // The count is read back from the cache before the line is written, so it
+    // says what the device now holds.
+    const end = (msg) => {
+      offlineBusy = false;
+      offlineRefresh(() => {
+        offlineNote(msg(offlineFiles ? offlineFiles.size : 0));
+        if (!$("picker-panel").classList.contains("hidden")) renderPicker();
+      }, true);
+    };
     navigator.serviceWorker.ready.then((reg) => {
       const ch = new MessageChannel();
       ch.port1.onmessage = (ev) => {
@@ -9523,12 +9591,11 @@
             localStorage.setItem(OFFLINE_BATCH_KEY, JSON.stringify([...want]));
           } catch (e) { /* no storage */ }
         }
-        end(m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
-                     : `${m.done} puzzles ready offline`);
-        offlineRefresh(() => { if (!$("picker-panel").classList.contains("hidden")) renderPicker(); });
+        end((n) => (m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
+          : more ? `Saved ${m.done} more · ${readyText(n)}` : readyText(n)));
       };
       reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop }, [ch.port2]);
-    }).catch(() => end("Couldn’t save just now. Try again."));
+    }).catch(() => end(() => "Couldn’t save just now. Try again."));
   }
 
   /* Self-update. A Home Screen app is resumed from memory, so it may never
@@ -9637,7 +9704,9 @@
       if (reg.active) reg.active.postMessage({ type: "precache", urls });
     }).catch(() => {});
     offlineRefresh();
+    probeNet();
     const again = () => {
+      probeNet();
       renderOfflineBox();
       if (!$("picker-panel").classList.contains("hidden")) renderPicker();
     };
@@ -9647,6 +9716,7 @@
     if (document.readyState === "complete") later();
     else window.addEventListener("load", later);
     window.addEventListener("online", () => { again(); offlineAuto(false); });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) probeNet(); });
     window.addEventListener("offline", again);
   }
 

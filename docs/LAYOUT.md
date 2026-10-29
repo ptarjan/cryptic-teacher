@@ -1040,6 +1040,11 @@ tests/test_phone_scroll.js                     drives a real headless Chromium a
                                                home-screen app: the Puzzles list scrolls
                                                itself, never the page behind it after a puzzle
                                                visit, and touching rows paints no highlight
+tests/test_offline_library.js                  does the app work on a plane? In the same
+                                               headless Chromium: the automatic save and Save
+                                               now fill the offline cache and the count says
+                                               so, and with the server gone the Library lists
+                                               exactly the saved puzzles and one of them opens
 tools/mobile_browser.js                        the iPhone-emulating headless Chromium (touch
                                                swipes, standalone display mode) the scroll test
                                                drives over the DevTools protocol

@@ -14,6 +14,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const http = require("http");
+const zlib = require("zlib");
 const { spawn } = require("child_process");
 const ROOT = path.join(__dirname, "..");
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
@@ -33,9 +34,20 @@ async function withPhone(body) {
   // puzzles/index.js is generated, as for fake_dom; a rebuild reads every puzzle
   // file (minutes), so one already on disk is used as it is.
   if (!fs.existsSync(path.join(ROOT, "puzzles", "index.js"))) require("./reindex.js").reindex();
+  // `up` false is a dead connection: every request, the service worker's too,
+  // has its socket dropped unanswered.
+  let up = true;
   const server = http.createServer((req, res) => {
+    if (!up) { req.socket.destroy(); return; }
     let p = path.join(ROOT, decodeURIComponent(req.url.split("?")[0].split("#")[0]));
     if (p.endsWith(path.sep)) p += "index.html";
+    // The deploy ships each puzzle shim as <id>.js.gz (tools/stage_site.py);
+    // the checkout holds the .js, so it is gzipped here as asked for.
+    if (p.endsWith(".js.gz") && !fs.existsSync(p) && fs.existsSync(p.slice(0, -3))) {
+      res.writeHead(200, { "content-type": "application/gzip" });
+      res.end(zlib.gzipSync(fs.readFileSync(p.slice(0, -3))));
+      return;
+    }
     if (!p.startsWith(ROOT) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { "content-type": TYPES[path.extname(p)] || "application/octet-stream" });
     fs.createReadStream(p).pipe(res);
@@ -92,7 +104,15 @@ async function withPhone(body) {
       await ev("(document.getElementById('welcome-skip') || { click() {} }).click()");
       await sleep(500);
     };
-    await body({ goto, ev, swipe, lift, sleep, send, site });
+    // A plane: the server stops answering and the page reads navigator.onLine
+    // false. (DevTools' offline switch alone leaves the service worker's own
+    // fetches live, hence the server.)
+    const network = async (on) => {
+      up = on;
+      await send("Network.enable");
+      await send("Network.emulateNetworkConditions", { offline: !on, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
+    };
+    await body({ goto, ev, swipe, lift, sleep, send, site, network });
     ws.close();
     return true;
   } finally {
