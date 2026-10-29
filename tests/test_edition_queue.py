@@ -175,6 +175,10 @@ q.append(oc / "filed.jsonl", [
     row(eds["1985-01-01_1"], old),  # its files moved
     row(eds["1995-01-01_1"], old, scanKey="old"),  # only the scan code moved
     row(eds["1999-01-01_1"], old)])  # nothing moved: the --reread alone
+# Hermetic: solution_hosts reads the puzzles checked into this repo (held_dates: which are filed without answers)
+# and plans a HOST_SCAN of the edition printing each one's solution, so these editions' dates (1970-99) met
+# whatever the checkout held; no host scans here (the cases that want one build the unit by hand).
+_solution_hosts, f.solution_hosts = f.solution_hosts, lambda *a, **k: {}
 _, reads = eq.plan(["times", "telegraph"], oc, q.when("2026-06-01T00:00:00+00:00"))
 check("never read newest first across papers, then fixes and moved inputs newest first, then the whole corpus",
       [("1992-01-01_1", 1), ("1990-06-01_1", 1), ("1990-05-01_1", 1), ("1985-01-01_1", 2), ("1970-01-01_1", 2),
@@ -194,6 +198,7 @@ check("the refusal's read says which puzzle and what the refusal said", True,
       any(u.get("detail") for u in rd_ev))
 check("no scan for a blanket reread", True, all(u["reason"] == "never scanned" or u["rel"] in
       {r for x in rd_ev for r in x.get("needs") or ()} for u in sc_ev))
+f.solution_hosts = _solution_hosts
 eq._ASKED_WHY[("times", "X/1")] = "puzzle times-1: printedClue"
 _, ask = eq.only_evidence("times", [], [{"rel": "X/1", "reason": "annotation asked", "needs": []},
                                          {"rel": "X/2", "reason": "inputs changed", "needs": []}])
@@ -694,7 +699,10 @@ check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0,
 # nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
 _sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
        "lights": 30, "blank": {"23-across": "'bonum': not a word"}}
-_swrow = {"edition": "GaleTimes1970UKEnglish/1970-05-25", "verdicts": [_sw], "readAt": "2026-10-27T03:06:10+00:00"}
+_swrow = {"edition": "GaleTimes1970UKEnglish/1970-05-25", "verdicts": [_sw], "readAt": "2026-10-27T03:06:10+00:00",
+          # the scan holds the verdict's title: a row whose scan lost it is a lost-title one (blanket_or_fix keeps
+          # its blanket reason when the scan holds no title at all), not the shared-word one this case is
+          "scan": {"date": "1970-05-25", "item": "GaleTimes1970UKEnglish", "puzzles": [{"number": 9999987, "leaf": 0}]}}
 check("a Times page unfiled over a word its readings spell alike is due as SHARED_WORD, ranked, evidence, "
       "fix-landed, unfiled-first, blanket-passing",
       [f.SHARED_WORD, 2, True, True, True, None, True],
