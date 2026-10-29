@@ -1172,8 +1172,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A new id is refused when its clues are another held puzzle's, whichever
     # filer wrote it, and every corpus write enters the index, so a second
     # copy filed by the same run is refused too.
-    if corpus and held is None:
-        check_not_copy(puzzle)
+    # An unsolved, unannotated book file of its clues gives way (unsolved_book_yields): retired once this is written.
+    yielded = check_not_copy(puzzle) if corpus and held is None else []
     dest = puzzle_paths.file_for(puzzle) if corpus else path
     dest.parent.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
@@ -1191,6 +1191,8 @@ def write_puzzle_file(path, puzzle, generator=None):
         if held is None or (_CLUE_INDEX is not None
                             and _CLUE_INDEX_DIR == puzzle_paths.PUZZLE_DIR):
             clue_index().add(puzzle["id"], puzzle)
+        for book, book_path in yielded:
+            retire_yielded_book(book, book_path, puzzle["id"])
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --reindex because a fetcher that has just rewritten a puzzle must not
@@ -3800,20 +3802,90 @@ def is_book(pid):
     return pid.rsplit("-", 1)[0] == series_meta.BOOK_SERIES
 
 
+def unsolved_book_yields(puzzle, other):
+    """The held file of book `other` when it gives way to newspaper copy
+    `puzzle`, else None: `other` is a book id, `puzzle` is not, every entry of
+    `puzzle` holds an answer, and no entry of the held book file holds an
+    answer or an annotation (acquire_book filed it unsolved and nothing has
+    solved or annotated it since). 10-28 failure shapes r29: 76 Gale Times
+    pages were refused over such a book file (the 1989-2005 Times anthologies),
+    45 of them read with every answer from the printed solution grid; the book
+    file had none, so refusing kept the poorer copy. A book with one answer or
+    one annotation stands, as every book did before (4371cd2b25e: book-25035,
+    solved and annotated, would have been lost to a blog's rebuild)."""
+    if is_book(puzzle["id"]):
+        return None
+    entries = puzzle.get("entries") or ()
+    if not entries or not all((e.get("solution") or "").strip() for e in entries):
+        return None
+    return unsolved_book(other)
+
+
+def unsolved_book(pid):
+    """The held file of book `pid` when no entry of it holds an answer or an
+    annotation, else None (not a book id, not held, or unreadable)."""
+    if not is_book(pid):
+        return None
+    path = puzzle_paths.find(pid)
+    if path is None:
+        return None
+    try:
+        held = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if not held.get("entries") or any((e.get("solution") or "").strip() or e.get("annotation")
+                                      for e in held["entries"]):
+        return None
+    return Path(path)
+
+
+def retire_yielded_book(book, path, new_id):
+    """Take the held file `path` of unsolved book `book` (unsolved_book_yields)
+    out of the corpus for `new_id`, the newspaper copy just filed: its file and
+    shim go, its clue-index entry goes, its table rows (tools/puzzle_rows.py)
+    move to `new_id` (its book_twins pair dropped: the book file is gone), and
+    tools/data/renamed_ids.json maps `book` to `new_id`, so a link to the book's
+    page lands on the newspaper puzzle."""
+    import book_twins
+    import puzzle_rows
+    import renamed_ids
+    root = puzzle_paths.PUZZLE_DIR.parent
+    twins = book_twins.read(root)
+    if book in twins:
+        from json_merge import dump_lines
+        twins.pop(book)
+        book_twins.path(root).write_text(dump_lines(twins), encoding="utf-8")
+    puzzle_rows.retire(book, new_id, root=root)
+    path.unlink(missing_ok=True)
+    puzzle_paths.shim_path(path).unlink(missing_ok=True)
+    if _CLUE_INDEX is not None and _CLUE_INDEX_DIR == puzzle_paths.PUZZLE_DIR:
+        _CLUE_INDEX.discard(book)
+    m = root / "tools" / "data" / "renamed_ids.json"
+    m.parent.mkdir(parents=True, exist_ok=True)
+    renamed_ids.write({**(renamed_ids.read(m) if m.exists() else {}), book: new_id}, m)
+
+
 def check_not_copy(puzzle):
     """Refuse a page whose clues are another held puzzle's, of any series or
     number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
     Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either
     would make two files hold one puzzle.
 
-    The held file always stands, a book or reprint copy included: a newspaper
+    The held file stands, a book or reprint copy included: a newspaper
     id whose clues are a held book file's is refused like any copy, so no
     filer can replace a solved and annotated book file with a blog's rebuild.
     The pair goes in tools/book_twins.py, where the newspaper copy's blog
-    rows cross-check the book."""
+    rows cross-check the book. One exception: a book file with no answer and
+    no annotation gives way to a newspaper copy holding every answer
+    (unsolved_book_yields). Returns [(book id, held path)] of those, for the
+    writer to retire once the copy is written (retire_yielded_book)."""
     import puzzle_integrity  # lazy: it imports this module
     hits = clue_index().matches(puzzle["id"], clue_keys(puzzle))
+    yields = []
     for other, shared, m, _ in hits:
+        if (path := unsolved_book_yields(puzzle, other)) is not None:
+            yields.append((other, path))
+            continue
         if is_book(other) and not is_book(puzzle["id"]):
             import book_twins
             book_twins.add(other, puzzle["id"], root=puzzle_paths.PUZZLE_DIR.parent)
@@ -3822,6 +3894,7 @@ def check_not_copy(puzzle):
             f"requested {puzzle['id']} but the page served the clues of "
             f"{other} ({shared} of {m} clues are the same) — refusing to file a copy",
             [("NEARDUP", puzzle["id"], why)])
+    return yields
 
 
 def fetch_number(num, series="cryptic", reindexed=True):

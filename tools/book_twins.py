@@ -1,12 +1,16 @@
 """{book id: newspaper id}: each held book file a filer found to be the same
 puzzle as a newspaper id it tried to file.
 
-A held book or reprint file is never replaced or removed by another copy of
+A held book or reprint file is not replaced or removed by another copy of
 its puzzle: fetch_puzzle.check_not_copy refuses the copy, whichever filer
 asks, and records the pair here. The copy then serves only as a cross-check
 source: corroborate.georgeho reads a book file's blog rows under its twin's
 id, so a blog post of the newspaper puzzle still votes on the book's clues
 and answers (tools/cross_validate.py georgeho).
+
+The one exception: a book file holding no answer and no annotation gives way
+to a newspaper copy holding every answer (fetch_puzzle.unsolved_book_yields);
+its pair here is dropped and renamed_ids.json sends its id to the copy.
 """
 import json
 from pathlib import Path

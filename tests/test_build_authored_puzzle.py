@@ -94,7 +94,7 @@ with tempfile.TemporaryDirectory() as scratch:
         if [f[0] for f in err.flags] != ["NEARDUP"]:
             fails.append(f"the copy was refused for {err.flags}, want NEARDUP")
 
-    # A held book file is never replaced by another copy of its puzzle,
+    # A held book file (solved or annotated: unsolved_book_yields below) is never replaced by another copy of its puzzle,
     # whichever was filed first: a newspaper id carrying a held book file's
     # clues (telegraph-26398 over the solved, annotated book-25035) is
     # refused, the book file stands untouched, and the pair is recorded for
@@ -152,6 +152,62 @@ with tempfile.TemporaryDirectory() as scratch:
     for gone in ("supersede_book", "supersede_held_books"):
         if hasattr(fetch_puzzle, gone):
             fails.append(f"fetch_puzzle.{gone} can still remove a held book file")
+
+    # The one exception (fetch_puzzle.unsolved_book_yields, failure shapes r29): a book file with no answer
+    # and no annotation in any entry gives way to a newspaper copy holding every answer. The copy is filed,
+    # the book's file, shim and rows go, and renamed_ids.json sends the book's id to the copy. A book with
+    # a single answer or a single annotation, or a copy one answer short, is refused as before.
+    import renamed_ids
+
+    def bare(entry, **keep):
+        return {**{k: v for k, v in entry.items() if k not in ("solution", "annotation")}, **keep}
+
+    def held_book(entries):
+        return {**{k: v for k, v in puzzle.items() if k != "date"}, "entries": entries,
+                "id": "book-13008", "number": 13008, "year": 1998,
+                "source": {**puzzle["source"], "url": "https://archive.org/details/isbn_9781902254067",
+                           "book": {"identifier": "isbn_9781902254067", "numberInBook": 8}}}
+
+    first = puzzle["entries"][0]
+    cases = [("unsolved", [bare(e) for e in puzzle["entries"]], puzzle, True),
+             ("one answer", [bare(first, solution=first.get("solution") or "X")] + [bare(e) for e in puzzle["entries"][1:]],
+              puzzle, False),
+             ("one annotation", [bare(first, annotation=first.get("annotation") or {"note": "held"})]
+              + [bare(e) for e in puzzle["entries"][1:]], puzzle, False),
+             ("copy short", [bare(e) for e in puzzle["entries"]],
+              {**puzzle, "entries": [bare(first)] + puzzle["entries"][1:]}, False)]
+    for name, entries, copy, yields in cases:
+        with tempfile.TemporaryDirectory() as other:
+            puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
+            book = held_book(entries)
+            held = puzzle_paths.file_for(book)
+            held.parent.mkdir(parents=True)
+            held.write_text(json.dumps(book))
+            before = held.read_bytes()
+            try:
+                write_puzzle_file(puzzle_paths.file_for(copy), copy, generator="tools/build_authored_puzzle.py")
+                filed = True
+            except ValueError:
+                filed = False
+            mapped = renamed_ids.read(Path(other) / "tools" / "data" / "renamed_ids.json") \
+                if (Path(other) / "tools" / "data" / "renamed_ids.json").exists() else {}
+            twins = book_twins.read(Path(other))
+            if yields:
+                if not filed or not puzzle_paths.find("authored-1"):
+                    fails.append(f"{name}: the newspaper copy was not filed over an unsolved, unannotated book")
+                if held.exists() or puzzle_paths.shim_path(held).exists():
+                    fails.append(f"{name}: the yielded book file or its shim is still held")
+                if mapped != {"book-13008": "authored-1"}:
+                    fails.append(f"{name}: renamed_ids holds {mapped}, want book-13008 -> authored-1")
+                if "book-13008" in twins:
+                    fails.append(f"{name}: book_twins still pairs the retired book: {twins}")
+            else:
+                if filed or puzzle_paths.find("authored-1"):
+                    fails.append(f"{name}: the newspaper copy was filed over the book")
+                if not held.is_file() or held.read_bytes() != before:
+                    fails.append(f"{name}: the held book file was removed or changed")
+                if mapped:
+                    fails.append(f"{name}: renamed_ids holds {mapped} for a book that stands")
 
 for f in fails:
     print("  FAIL:", f)
