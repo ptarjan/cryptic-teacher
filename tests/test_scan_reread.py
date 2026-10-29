@@ -111,6 +111,13 @@ index.write_text(json.dumps({"puzzles": [
     {"id": pid, "series": "times", "date": "1990-01-02", "annotated": False, "hasSolutions": True},
     {"id": "times-18750", "series": "times", "date": "1990-01-03", "annotated": False, "hasSolutions": True}]}))
 P.INDEX = index
+# print_backlog prunes the shape redo list (prune_shape_queue.auto rewrites shape_queue.PATH, and keeps
+# its 30-minute stamp and pending-ids file under $TMPDIR): a temp copy of the list and a temp TMPDIR, so
+# it never edits tools/data/shape_reannotate.json (it left CI's tree dirty) nor depends on a stamp in /tmp.
+import shape_queue
+shape_queue.PATH = tmp / "shape_reannotate.json"
+shutil.copy(REPO / "tools" / "data" / "shape_reannotate.json", shape_queue.PATH)
+os.environ["TMPDIR"] = str(tmp)
 def backlog():
     b = io.StringIO()
     with contextlib.redirect_stdout(b), contextlib.redirect_stderr(io.StringIO()):

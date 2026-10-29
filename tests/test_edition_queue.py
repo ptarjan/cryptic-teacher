@@ -33,6 +33,12 @@ _tmp = tempfile.mkdtemp()
 _parent = os.getpid()
 atexit.register(lambda: os.getpid() == _parent and shutil.rmtree(_tmp, ignore_errors=True))
 os.environ["TMP"] = _tmp
+# Hermetic: every "~/.cache/..." the planner reads (held_dates, archive_org_crops, corpus_queue/*, scan
+# requests) is this temp home, never the host's or an earlier test file's. A plan's solution-host scans and
+# held-series lists came from that live cache, so "no scan for a blanket reread" and the fix-reason cases
+# passed or failed with what ran before them in the CI shard.
+os.makedirs(os.path.join(_tmp, "home"))
+os.environ["HOME"] = os.path.join(_tmp, "home")
 os.chdir(REPO / "tools")
 sys.path.insert(0, str(REPO / "tools"))
 
@@ -494,7 +500,7 @@ check("a Times page whose gutter lay right of its second column's clue openings 
        eq.canary_failed({"paper": "times", "reason": f.OPENING_GUTTER, "date": "1984-12-31"})])
 check("not after the fix, nor for another paper, nor with no light no reading laid",
       [False] * 3,
-      [f.opening_gutter_lost({**_ogrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.opening_gutter_lost({**_ogrow, "readAt": _after}),
        f.opening_gutter_lost({**_ogrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
        f.opening_gutter_lost({**_ogrow, "verdicts": [{**_og, "blank": {"14-down": "'hrute': not a word"}}]})])
 f.opening_gutter_read = lambda key: False
@@ -519,7 +525,7 @@ check("the words of 'readings differ' count too",
       True, f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "readings differ: th / tb"}}]}))
 check("not after the fix, nor for another paper, nor with a blank that names no refused words",
       [False] * 3,
-      [f.run_on_tail_lost({**_rtrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.run_on_tail_lost({**_rtrow, "readAt": _after}),
        f.run_on_tail_lost({**_rtrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"}),
        f.run_on_tail_lost({**_rtrow, "verdicts": [{**_rt, "blank": {"25-down": "no reading laid a clue on it"}}]})])
 f.run_on_tail_read = lambda key, word: False
@@ -540,7 +546,7 @@ check("a LAID_PUZZLES page written unfiled is due as LAID_BLANKS, ranked, eviden
        f.blanket_or_fix(_lbrow, "inputs changed")])
 check("not after REREAD_LAID_BLANKS, nor complete, refused, another number or another paper",
       [False] * 5,
-      [f.laid_blanks_due({**_lbrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.laid_blanks_due({**_lbrow, "readAt": _after}),
        f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "complete": True}]}),
        f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "refused": "no reading parses"}]}),
        f.laid_blanks_due({**_lbrow, "verdicts": [{**_lb, "number": 9999994, "id": "times-9999994"}]}),
@@ -565,7 +571,7 @@ check("a Times page whose window reads a count's 1 as i is due as ONES_COUNT, ra
        f.blanket_or_fix(_ocrow, "inputs changed")])
 check("not after REREAD_ONES_COUNT, nor with no blank, another window or another paper",
       [False] * 4,
-      [f.ones_count_lost({**_ocrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.ones_count_lost({**_ocrow, "readAt": _after}),
        f.ones_count_lost({**_ocrow, "verdicts": [{**_oc, "blank": {}}]}),
        f.ones_count_lost({**_ocrow, "edition": "GaleTimes1974UKEnglish/1974-12-08"}),
        f.ones_count_lost({**_ocrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
@@ -591,7 +597,7 @@ _sr_unfiled = {"id": "times-9999992", "number": 9999992, "complete": False, "wro
 check("written unfiled with a blank too; not after REREAD_SEE_RUNS_ON, nor another refusal, window or paper",
       [True, False, False, False, False],
       [f.see_run_lost({**_srrow, "verdicts": [_sr_unfiled]}),
-       f.see_run_lost({**_srrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+       f.see_run_lost({**_srrow, "readAt": _after}),
        f.see_run_lost({**_srrow, "verdicts": [{**_sr, "cause": "not-a-grid"}]}),
        f.see_run_lost({**_srrow, "edition": "GaleTimes1983UKEnglish/1983-11-07"}),
        f.see_run_lost({**_srrow, "edition": "FinancialTimes1983UKEnglish/1983-11-05_0"})])
@@ -637,7 +643,7 @@ _gv_quote = "refusing to write times-9999991: SHAPE 2-down: clue \"Reading munit
             "for a double quote (\"nitions ''dump\"): file the reading that prints it right (punctuation.faults)"
 check("not after the fix, nor what PUNCT_MENDED rereads, nor an apostrophes fault, nor beside another refusal, nor FT",
       [False] * 5,
-      [f.gap_vote_due({**_gvrow, "readAt": "2026-10-29T06:00:00+00:00"}),
+      [f.gap_vote_due({**_gvrow, "readAt": _after}),
        f.gap_vote_due(_pmrow),
        f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv_quote}]}),
        f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv["refusedWrite"] + "; SHAPE 4-down: holds "
@@ -663,10 +669,10 @@ try:
            f.blanket_or_fix(_byrow, "inputs changed") == f.BOOK_YIELDS])
     check("not after the fix, nor an answer short, nor a solved or annotated book, nor another paper",
           [False] * 4,
-          [f.book_yields_due({**_byrow, "readAt": "2026-10-29T06:00:00+00:00"}),
+          [f.book_yields_due({**_byrow, "readAt": _after}),
            f.book_yields_due({**_byrow, "verdicts": [{**_by, "answers": 29}]}),
            f.book_yields_due({**_byrow, "verdicts": [{**_by, "refusedWrite": _by["refusedWrite"].replace("99015", "99016")}]}),
-           f.book_yields_due({**_byrow, "edition": "FinancialTimes2005UKEnglish/2005-03-02_0"})])
+           f.book_yields_due({**_byrow, "edition": "FinancialTimes1990UKEnglish/1990-03-02_0"})])
 finally:
     _fp.unsolved_book = _by_real
 # ---- an untitled verdict-less 1935-39 Gale Times page never looked over for its footer (fa.footer_rescan) is due
@@ -768,7 +774,7 @@ try:
            f.LINKED_COUNT_READ in f.BLANKET_PASSES])
     check("not after the fix, nor another light's number, nor another blank, nor another paper",
           [False] * 4,
-          [f.linked_count_due({**_lcrow, "readAt": "2026-10-29T00:00:00+00:00"}),
+          [f.linked_count_due({**_lcrow, "readAt": _after}),
            f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"10-across": "no reading laid a clue on it"}}]}),
            f.linked_count_due({**_lcrow, "verdicts": [{**_lc, "blank": {"9-across": "'revolutionery': not a word"}}]}),
            f.linked_count_due({**_lcrow, "edition": "FinancialTimes1955UKEnglish/1955-07-01_0"})])
@@ -791,7 +797,7 @@ try:
            f.STRAY_LINK_READ in f.BLANKET_PASSES])
     check("not after the fix, nor another light's number, nor another blank, nor another paper",
           [False] * 4,
-          [f.stray_link_due({**_slrow, "readAt": "2026-10-29T00:00:00+00:00"}),
+          [f.stray_link_due({**_slrow, "readAt": _after}),
            f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"25-across": "no reading laid a clue on it"}}]}),
            f.stray_link_due({**_slrow, "verdicts": [{**_sl, "blank": {"26-across": "'locel': not a word"}}]}),
            f.stray_link_due({**_slrow, "edition": "FinancialTimes1951UKEnglish/1951-12-27_0"})])
@@ -914,7 +920,7 @@ check("a 1945-47 Gale Times page refused for clue columns left of its grid is du
        f.LEFT_SPLIT in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.LEFT_SPLIT, "date": "1945-02-13"})])
 check("not after the fix, nor another refusal, nor a reading stopped otherwise, nor every reading listless (1947-04-10), nor 1944 or 1948",
       [False] * 6,
-      [f.left_split_due({**_lsrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.left_split_due({**_lsrow, "readAt": _after}),
        f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
        f.left_split_due({**_lsrow, "verdicts": [{**_ls, "cause": "not-a-grid"}]}),
        f.left_split_due({**_lsrow, "verdicts": [{**_ls, "unparsed": {**_ls["unparsed"], "times": "across clues do not parse: clue 3 has no count"}}]}),
@@ -934,7 +940,7 @@ check("a 1940-41 Gale Times page pending for a grid unread at its scan's size is
                                                   "pending": "no grid: the search ran out of budget"}]})])
 check("not after the fix, nor a grid unread otherwise, nor one not pending, nor 1939 or 1942, nor News UK",
       [False] * 6,
-      [f.scaled_grid_due({**_sgrow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.scaled_grid_due({**_sgrow, "readAt": _after}),
        f.scaled_grid_due({**_sgrow, "verdicts": [{**_sg, "imageUnread": "the lights are not one connected patch"}]}),
        f.scaled_grid_due({**_sgrow, "verdicts": [{k: v for k, v in _sg.items() if k != "pending"}]}),
        f.scaled_grid_due({**_sgrow, "scan": {**_sgrow["scan"], "date": "1939-08-14", "item": "GaleTimes1939UKEnglish"}}),
@@ -952,7 +958,7 @@ check("a 1939 Gale Times page pending for a grid unread at its scan's size is du
        f.SCALED_EARLY in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.SCALED_EARLY, "date": "1939-10-21"})])
 check("not after its cutoff, nor 1938, nor (as 1940-41's) SCALED_GRID",
       [False, False, False],
-      [f.scaled_early_due({**_serow, "readAt": "2026-10-28T23:00:00+00:00"}),
+      [f.scaled_early_due({**_serow, "readAt": _after}),
        f.scaled_early_due({**_serow, "scan": {**_serow["scan"], "date": "1938-10-21", "item": "GaleTimes1938UKEnglish"}}),
        f.scaled_grid_due(_serow)])
 # ---- an untitled 1930-69 Gale Times page scanned before inset_grid (fa.INSET_GRID): ranked, evidence, fix-landed,
