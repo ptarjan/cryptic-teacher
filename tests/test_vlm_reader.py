@@ -41,6 +41,7 @@ def check(what, want, got):
 
 T = tmp
 vlm.CACHE = T / "vlm"
+os.environ["CT_VLM_ASK_LOG"] = str(T / "vlm_asks.log")  # never the host's real log
 (T / "slot-tmp").mkdir(exist_ok=True)
 tempfile.tempdir = str(T / "slot-tmp")  # the host's real slot locks may be held by live askers
 # A fake desktop, never the real one: two LAN leases and a tailnet address
@@ -705,6 +706,27 @@ vlm.put_spool("s" * 40, b"sx", "p", 10)
 vlm.requeue_claimed()
 check("a dead drainer's claim is queued again", (True, False), ((vlm.spool_dir() / ("s" * 40 + ".json")).exists(), (vlm.spool_dir() / ("s" * 40 + vlm.CLAIMED)).exists()))
 (vlm.spool_dir() / ("s" * 40 + ".json")).unlink()
+# A claim names its claimer: one a live other process asks is left; a dead one's, or this pid's
+# that this image does not hold (a re-exec ended its threads mid-ask), is queued again.
+def _claim(k, by):
+    vlm.put_spool(k * 40, b"x" + k.encode(), "p", 10)
+    j = vlm.spool_dir() / (k * 40 + ".json")
+    if by is not None:
+        j.write_text(json.dumps({"prompt": "p", "max_tokens": 10, "claimed_by": by}))
+    j.rename(vlm.spool_dir() / (k * 40 + vlm.CLAIMED))
+    return vlm.spool_dir() / (k * 40 + vlm.CLAIMED)
+_live, _dead, _own, _old = _claim("g", os.getppid()), _claim("h", 999999999), _claim("i", os.getpid()), _claim("j", None)
+_mine = _claim("k", os.getpid())
+vlm._MINE.add(_mine)
+check("a sweep takes back the dead's and a past image's claims only", (2, True, False, False, True, True),
+      (vlm.requeue_claimed(start=False), _live.exists(), _dead.exists(), _own.exists(), _old.exists(), _mine.exists()))
+check("... a start takes a pid-less claim too, never a live other's", (1, True, False), (vlm.requeue_claimed(), _live.exists(), _old.exists()))
+check("release_claims queues this image's own claims again", (1, False, True),
+      (vlm.release_claims(), _mine.exists(), (vlm.spool_dir() / ("k" * 40 + ".json")).exists()))
+_live.unlink()
+for _k in "ghijk":
+    (vlm.spool_dir() / (_k * 40 + ".json")).unlink(missing_ok=True)
+    (vlm.spool_dir() / (_k * 40 + ".png")).unlink(missing_ok=True)
 
 # Head of line: an entry already answered or without its png is dropped, a failing one goes to the back.
 vlm.CACHE.mkdir(parents=True, exist_ok=True)

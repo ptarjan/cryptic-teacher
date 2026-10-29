@@ -939,11 +939,69 @@ def spooled_by(pid):
     return out
 
 
-def requeue_claimed():
-    """Queue every claimed ask again: a drainer that died left them (run at a drainer's start)."""
+#: The claims (KEY.json.work paths) this process's drain_one holds now: release_claims queues them
+#: again before the process re-execs (edition_queue's hot reload), which ends its drainer threads
+#: mid-ask. 10-29 01:14: a re-exec left three claims that no drainer took again for 6 min.
+_MINE = set()
+_MINE_LOCK = threading.Lock()
+#: A claim no live process can be asking: its claimer's pid is gone, or (older entries, no pid)
+#: it was claimed longer ago than an ask can last (REQUEST_TIMEOUT per ask in flight) plus this.
+CLAIM_GRACE = 120
+
+
+def _claimer(f):
+    try:
+        got = json.loads(f.read_text())
+        return got.get("claimed_by") if isinstance(got, dict) else None
+    except (OSError, ValueError):
+        return None
+
+
+def requeue_claimed(start=True):
+    """Queue claimed asks again that no live drainer is asking; their count. A claim names its
+    claimer's pid (drain_one): stale when that process is gone, or is this one and the claim is not
+    among this image's own (_MINE: a re-exec keeps the pid, and ended the threads mid-ask). Another
+    live process's claims are left (a hand drainer mid-ask). A claim without a pid (older code's)
+    is stale at a drainer's `start` (as before), else once older than an ask can take."""
     d = spool_dir()
+    n = 0
+    with _MINE_LOCK:
+        mine = set(_MINE)
     for f in (d.glob(f"*{CLAIMED}") if d.exists() else []):
-        f.rename(f.with_name(f.name[:-len(CLAIMED)] + ".json"))
+        if f in mine:
+            continue
+        pid = _claimer(f)
+        if pid is None:
+            try:
+                age = time.time() - f.stat().st_ctime  # the claim's rename
+            except OSError:
+                continue
+            stale = start or age > REQUEST_TIMEOUT * (1 + max(0, PIPELINE)) + CLAIM_GRACE
+        else:
+            stale = pid == os.getpid() or not _alive(pid)  # this pid's, not in _MINE: an image before a re-exec
+        if not stale:
+            continue
+        try:
+            f.rename(f.with_name(f.name[:-len(CLAIMED)] + ".json"))
+            n += 1
+        except OSError:
+            pass  # another drainer took it back first
+    return n
+
+
+def release_claims():
+    """Queue this process's own claims again (it is about to exec or exit mid-ask); their count."""
+    with _MINE_LOCK:
+        mine = list(_MINE)
+        _MINE.clear()
+    n = 0
+    for f in mine:
+        try:
+            f.rename(f.with_name(f.name[:-len(CLAIMED)] + ".json"))
+            n += 1
+        except OSError:
+            pass
+    return n
 
 
 def _clear_waits(d, key):
@@ -971,6 +1029,7 @@ def drain_one():
     a claim is an atomic rename."""
     d = spool_dir()
     if not any(d.glob("*.json")):
+        MISS[0] = "nothing queued (every spooled ask is claimed)"
         return None
     # The slot first, the claim second: a claimed ask is always being asked, never waiting
     # (a .json.work that waited was lost with a dead drainer and hid from the others).
@@ -985,51 +1044,93 @@ def drain_one():
                 f.rename(claim)
             except OSError:
                 continue  # another thread has it
-            key = f.name[:-len(".json")]
-            png = d / f"{key}.png"
-            if (CACHE / f"{key}.txt").exists() or not png.exists():
-                # Answered already (a read spooled it again while it was asked), or its png is gone:
-                # nothing to ask, and it must not block the entries behind it.
-                if not (CACHE / f"{key}.txt").exists():
-                    sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: no png\n")
-                claim.unlink(missing_ok=True)
-                png.unlink(missing_ok=True)
-                _clear_waits(d, key)
-                continue
+            with _MINE_LOCK:
+                _MINE.add(claim)
             try:
-                got = json.loads(claim.read_text())
-                data = png.read_bytes()
-                if not isinstance(got, dict) or "prompt" not in got or "max_tokens" not in got or not data:
-                    raise ValueError("empty or truncated entry")
-            except ValueError as e:
-                # A torn entry (10-24: a container stop left 0-byte .json and .png, their writes never
-                # synced): it can never be asked. Requeued, it came back first every time (no pid: a read
-                # of its own, the fewest asks) and each drain_one returned None, so the drainer asked
-                # one ask in ~3 min. Dropped like an orphan; its read spools it again.
-                sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: {e}\n")
-                claim.unlink(missing_ok=True)
-                png.unlink(missing_ok=True)
-                _clear_waits(d, key)
+                got = _drain_claimed(d, f, claim)
+            finally:
+                with _MINE_LOCK:
+                    _MINE.discard(claim)
+            if got is _NEXT:
                 continue
-            except OSError:
-                got = None
-            try:
-                if got is None:
-                    raise OSError("entry unreadable")
-                ask_png(data, got["prompt"], got["max_tokens"], spool=False, held=True)
-                _log_ask(key, got)
-            except (RuntimeError, OSError, ValueError, KeyError):
-                try:
-                    claim.rename(f)
-                    os.utime(f)  # to the back of the queue: one bad entry does not block the rest
-                except OSError:
-                    pass
-                return None
-            claim.unlink(missing_ok=True)
-            png.unlink(missing_ok=True)
-            _clear_waits(d, key)
-            return key
+            return got
+        MISS[0] = "every queued ask was answered already or torn"
     return None
+
+
+#: Why the last drain_one sent nothing (edition_queue's drainer logs it when it stalls).
+MISS = [""]
+_NEXT = object()
+
+
+def _drain_claimed(d, f, claim):
+    """drain_one's ask of the entry `f` it has claimed (renamed to `claim`): its key, None when the
+    ask failed (queued again, at the back), or _NEXT when there was nothing to ask (dropped)."""
+    key = f.name[:-len(".json")]
+    png = d / f"{key}.png"
+    if (CACHE / f"{key}.txt").exists() or not png.exists():
+        # Answered already (a read spooled it again while it was asked), or its png is gone:
+        # nothing to ask, and it must not block the entries behind it.
+        if not (CACHE / f"{key}.txt").exists():
+            sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: no png\n")
+        claim.unlink(missing_ok=True)
+        png.unlink(missing_ok=True)
+        _clear_waits(d, key)
+        return _NEXT
+    try:
+        got = json.loads(claim.read_text())
+        data = png.read_bytes()
+        if not isinstance(got, dict) or "prompt" not in got or "max_tokens" not in got or not data:
+            raise ValueError("empty or truncated entry")
+    except ValueError as e:
+        # A torn entry (10-24: a container stop left 0-byte .json and .png, their writes never
+        # synced): it can never be asked. Requeued, it came back first every time (no pid: a read
+        # of its own, the fewest asks) and each drain_one returned None, so the drainer asked
+        # one ask in ~3 min. Dropped like an orphan; its read spools it again.
+        sys.stderr.write(f"vlm_reader: dropped spooled ask {key[:8]}: {e}\n")
+        claim.unlink(missing_ok=True)
+        png.unlink(missing_ok=True)
+        _clear_waits(d, key)
+        return _NEXT
+    except OSError:
+        got = None
+    if got is not None:
+        # The claimer's pid in the claim: requeue_claimed takes back only a claim no live process asks.
+        try:
+            tmp = claim.with_name(f"{key}.claim.{os.getpid()}.{threading.get_ident()}")
+            tmp.write_text(json.dumps({**got, "claimed_by": os.getpid(), "claimed_at": time.time()}))
+            st = claim.stat()
+            if claim.exists():
+                tmp.replace(claim)
+                os.utime(claim, (st.st_atime, st.st_mtime))  # its place in the queue (spooled: by mtime) kept
+            else:
+                tmp.unlink(missing_ok=True)
+        except OSError:
+            pass
+    try:
+        if got is None:
+            raise OSError("entry unreadable")
+        ask_png(data, got["prompt"], got["max_tokens"], spool=False, held=True)
+        _log_ask(key, got)
+    except (RuntimeError, OSError, ValueError, KeyError) as e:
+        MISS[0] = f"the ask failed: {cause() or type(e).__name__} ({str(e)[:120]})"
+        try:
+            claim.rename(f)
+            os.utime(f)  # to the back of the queue: one bad entry does not block the rest
+        except OSError:
+            pass
+        return None
+    except BaseException:
+        try:
+            claim.rename(f)  # anything else (a bug): queued again, never left claimed
+        except OSError:
+            pass
+        raise
+    claim.unlink(missing_ok=True)
+    png.unlink(missing_ok=True)
+    _clear_waits(d, key)
+    MISS[0] = ""
+    return key
 
 
 def ask_png(data, prompt, max_tokens=1500, spool=None, held=False):
