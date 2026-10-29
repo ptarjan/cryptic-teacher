@@ -11558,6 +11558,29 @@ def held_linked(row, sol_seen):
         for v in row.get("verdicts") or ())
 
 
+#: The due reason of a Times row read before its puzzle's late host (LATE_SOLUTIONS) was a host: the heading
+#: of its puzzle in that issue's stored scan links now (seen_solutions holds the number, the row's
+#: solutionsSeen did not), so the reread files its answers off that grid. Answers-only (SOLUTION_FIXES: the
+#: clues stand), once: the reread's solutionsSeen holds the number, so a grid it cannot read does not make
+#: the row due again. Failure shapes r37 (10-29): 13 unanswered Times puzzles (1972-74 Fridays whose
+#: Wednesday host printed them, 1980-86 six more) read a heading host_days did not name.
+LATE_LINKED = "solution heading printed days late, its host linked since"
+
+
+def late_linked(row, sol_seen):
+    """Whether Times ledger `row` holds a verdict (no solutionFrom) of a puzzle dated in LATE_SOLUTIONS whose
+    number `sol_seen` holds and the row's solutionsSeen did not: LATE_LINKED."""
+    scan = row.get("scan") or {}
+    try:
+        day = datetime.date.fromisoformat(str(scan.get("date", "")))
+    except ValueError:
+        return False
+    before = set(row.get("solutionsSeen") or ())
+    return day in LATE_SOLUTIONS and getattr(paper_of(row.get("edition", "")), "series", None) == SERIES and any(
+        not v.get("solutionFrom") and v.get("number") in sol_seen and v.get("number") not in before
+        for v in row.get("verdicts") or ())
+
+
 THREE_COLUMNS = "short Times page, its third clue column read since"
 #: The years whose short third-column pages are read first (tools/edition_queue.year_evidence): a stale one
 #: was "scan stale, answers missing" (the answers-missing test came first), a blanket reason no plan keeps,
@@ -16870,6 +16893,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
         if held_linked(row, sol_seen):
             return HELD_LINKED
+        if late_linked(row, sol_seen):
+            return LATE_LINKED
         # A found title never read is unread work whether or not its files moved since: Paul 10-25, 174
         # Gale Times pages of 2006-12 (137 of them 2009-11, mostly Saturdays, their wrong pages fetched
         # again) stood unfiled as "inputs changed", a blanket reason no plan keeps.
@@ -17050,7 +17075,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -17513,13 +17538,32 @@ WEEK_ON_SOLUTIONS = {datetime.date(*a): datetime.date(*b) for a, b in (
     ((2013, 7, 10), (2013, 7, 18)), ((2014, 4, 16), (2014, 4, 24)), ((2014, 5, 14), (2014, 5, 22)))}
 
 
+#: {puzzle date: host date} of the Times puzzles (unanswered, 10-29) whose solution heading a later issue
+#: read than host_day names, days past the next issue's: a Friday's on the Wednesday after (1972-74: 13,021,
+#: 13,027, 13,033, 13,044, 13,319, 13,613, 13,619; 1980-81's 15,149 and 15,419 the same), a Monday's on the
+#: Friday (13,633), a Saturday's or Friday's a week or nine days on (13,050, 16,080, 16,947). Each heading
+#: stands in that issue's stored scan (its number read clean, its box on the page) and in no issue
+#: host_days named, so linked_solutions dropped it for a number its host does not print and the puzzle
+#: stayed unanswered (LATE_LINKED). Failure shapes r37 (10-29): 38 Times puzzles whose host page holds no
+#: heading line; 18 unanswered puzzles had a heading in an issue host_days never named: these 13 (3 were
+#: named already, 2 stand 14 days on, past HOST_REACH). Only dates so read (the grid still has to match the
+#: puzzle's blocks): the other Fridays of those years link on the Saturday.
+LATE_SOLUTIONS = {datetime.date(*a): datetime.date(*b) for a, b in (
+    ((1972, 3, 10), (1972, 3, 15)), ((1972, 3, 17), (1972, 3, 22)), ((1972, 3, 24), (1972, 3, 29)),
+    ((1972, 4, 7), (1972, 4, 12)), ((1972, 4, 14), (1972, 4, 21)), ((1973, 3, 2), (1973, 3, 7)),
+    ((1974, 2, 15), (1974, 2, 20)), ((1974, 2, 22), (1974, 2, 27)), ((1974, 3, 11), (1974, 3, 15)),
+    ((1980, 2, 15), (1980, 2, 20)), ((1981, 1, 9), (1981, 1, 14)), ((1983, 3, 17), (1983, 3, 23)),
+    ((1986, 1, 18), (1986, 1, 27)))}
+
+
 def host_days(day, on=None):
     """Every date that may print the solution of the puzzle of `day`: host_day, and for a Saturday
-    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG), and a championship
-    puzzle's week-later host (WEEK_ON_SOLUTIONS). A host that is
+    from PRIZE_MONDAYS also the Monday week after (nine days on: PRIZE_LAG), a championship
+    puzzle's week-later host (WEEK_ON_SOLUTIONS) and a puzzle's late host (LATE_SOLUTIONS). A host that is
     maybe_no_paper and not in `on` (the dates on disk; None: unknown) has the next issue after it too."""
     more = [next_issue(day + datetime.timedelta(days=9))] if day.weekday() == 5 and day >= PRIZE_MONDAYS else []
     more += [WEEK_ON_SOLUTIONS[day]] if day in WEEK_ON_SOLUTIONS else []
+    more += [LATE_SOLUTIONS[day]] if day in LATE_SOLUTIONS else []
     out = []
     for h in (host_day(day), *more):
         gap = maybe_no_paper(h) and (on is None or h not in on)
@@ -17642,7 +17686,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
-                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED)
+                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED)
 
 
 def keeps_vlm(why, row, unit=None):
