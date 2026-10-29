@@ -3409,6 +3409,84 @@ check("grid_first_scan reads an untitled page (or one titled only from its solut
       [_gf_scan_with([]), _gf_scan_with([{"number": 7875, "leaf": 0, "fromSolutions": [7874]}]),
        _gf_scan_with([{"number": 5, "leaf": 0, "box": [1, 2, 3, 4]}]),
        _untitled.get(f.WHOLE_UNTITLED, False), _titled.get(f.WHOLE_UNTITLED, False)])
+# footer_titles (r30): a 1935-39 Gale Times page with no title read is titled by the number two of its prints agree
+# on: the footer's spelt number (N + 1), its figures on the next line (N), the solution heading (N - 1).
+check("spelt_ordinal reads a footer's misread spelt number: thousands, hundreds, last two digits (None unread)",
+      [(2, 6, 45), (None, 6, 46), (2, 6, 43), (2, 8, 1)],
+      [f.spelt_ordinal("Thc two thousand six hundred and fory-ffh crossword puzzlc in this series, together"),
+       f.spelt_ordinal("The w thousand six hundedandfory-sixth grswird puzzle in his series, together"),
+       f.spelt_ordinal("The two thosnd six laudred andfory-hird crosswopuzzle in his seris together"),
+       f.spelt_ordinal("The two thousand eight hundred and first crossword puzzle in this series")])
+check("spelt_agrees: the last two digits and the thousands or hundreds read, each the number's",
+      [True, True, False, False, False],
+      [f.spelt_agrees((2, 6, 46), 2646), f.spelt_agrees((None, 6, 46), 2646), f.spelt_agrees((None, None, 46), 2646),
+       f.spelt_agrees((2, 7, 46), 2646), f.spelt_agrees((2, 6, None), 2646)])
+# 1938-08-11 as read: no title over the grid, "SOLUTION OF PUZZLE No. 2,644", the footer spelling 2,646.
+_fnote = (3655, 5291, 4926, 5372, "NOTE,Figures in paremtheses denote the number of leters in the words required.")
+_ffoot = (3658, 6427, 4933, 6501, "The w thousand six hundedandfory-sixth grswird puzzle in his series, together")
+_fwords = [_fnote, (4354, 5696, 4920, 5761, "SOLUTION OF PUZZLE No. 2,644"), _ffoot,
+           (3738, 6461, 4853, 6532, "wih the soltion o puzleNo.2s, wilapearinThemes fo-morrw")]
+_fsol = [{"number": 2644, "leaf": 0, "box": [4354, 5696, 4920, 5761]}]
+# 1938-08-10 as read: the footer's figures "No. 2,644" read too, and read as a heading of its own.
+_f10 = [(3674, 5352, 4968, 5409, "NOTE.—Figures in parenitheses denote the number of Ietters in the words required."),
+        (3680, 6402, 4965, 6463, "Thc two thousand six hundred and fory-ffh crossword puzzlc in this series, together"),
+        (3700, 6440, 4900, 6500, "with the solution of puzzle No. 2,644, will appear in The Times to-morrow")]
+_f10sol = [{"number": 2643, "leaf": 0, "box": [4378, 5683, 4949, 5718]},
+           {"number": 2644, "leaf": 0, "box": [3878, 6444, 4331, 6484]}]
+check("footer_titles: the heading's next number the footer spells the one after, its box a title's line as wide as "
+      "the footer, 1.12 footer widths over the NOTE line; the footer's figures with its spelt number, the figures' "
+      "heading no title; none with a heading the footer disagrees with, nor with no NOTE line, nor no footer",
+      [[{"number": 2645, "leaf": 0, "box": (3658, 3789, 4933, 3863), "fromFooter": ["heading", "spelt"]}],
+       [{"number": 2644, "leaf": 0, "box": (3680, 3852, 4965, 3913), "fromFooter": ["figures", "heading", "spelt"]}],
+       [{"number": 2644, "leaf": 0, "box": (3680, 3852, 4965, 3913), "fromFooter": ["figures", "spelt"]}],
+       [], [], []],
+      [f.footer_titles(_fwords, _fsol, 0), f.footer_titles(_f10, _f10sol, 0), f.footer_titles(_f10, [], 0),
+       f.footer_titles(_fwords, [{**_fsol[0], "number": 2650}], 0), f.footer_titles(_fwords[1:], _fsol, 0),
+       f.footer_titles([_fnote], _fsol, 0)])
+# footer_titled: off the crop cache's page reads (cached_page_words, stubbed), the footer's heading dropped, stamped
+# FOOTER_READ; a titled scan, a failed one and a 1940 page stand as they are.
+_fdir = Path(tempfile.mkdtemp()) / "GaleTimes1938UKEnglish" / "1938-08-10"
+_fdir.mkdir(parents=True)
+(_fdir / "pages.json").write_text(json.dumps({"date": "1938-08-10", "crossword_pages": [{"leaf": 0}]}))
+_f40 = Path(tempfile.mkdtemp()) / "GaleTimes1940UKEnglish" / "1940-08-10"
+_f40.mkdir(parents=True)
+(_f40 / "pages.json").write_text(json.dumps({"date": "1940-08-10", "crossword_pages": [{"leaf": 0}]}))
+_fscan = {"date": "1938-08-10", "item": "GaleTimes1938UKEnglish", "puzzles": [], "solutions": _f10sol}
+_real_cpw = f.cached_page_words
+f.cached_page_words = lambda key: [_f10] if key == "GaleTimes1938UKEnglish_1938-08-10_0" else []
+try:
+    _ftd = f.footer_titled(_fdir, _fscan)
+    # 1938-08-12: no pages.json, no cached page read (the stub's []): looked over, titled none.
+    _fnone = f.footer_titled(_fdir.parent / "1938-08-12", {**_fscan, "date": "1938-08-12"})
+    check("footer_titled titles an untitled 1938 Gale Times scan from its cached page reads and drops the heading "
+          "its footer's figures were read as; stamps one it cannot title; leaves a titled, failed or 1940 scan",
+          [[2644], [2643], True, ([], True), [{"number": 2644, "leaf": 0}], False, False],
+          [[p["number"] for p in _ftd["puzzles"]], [s["number"] for s in _ftd["solutions"]], _ftd.get(f.FOOTER_READ),
+           (_fnone["puzzles"], _fnone.get(f.FOOTER_READ)),
+           f.footer_titled(_fdir, {**_fscan, "puzzles": [{"number": 2644, "leaf": 0}]})["puzzles"],
+           f.FOOTER_READ in f.footer_titled(_fdir, {**_fscan, "failed": "x"}),
+           f.FOOTER_READ in f.footer_titled(_f40, {**_fscan, "date": "1940-08-10", "item": "GaleTimes1940UKEnglish"})])
+finally:
+    f.cached_page_words = _real_cpw
+# footer_rescan: a 1935-39 Gale Times page read with no verdict, its scan under a current key untitled and never
+# looked over for its footer, is due FOOTER_TITLE once (its scan stale, past blanket_or_fix); stamped FOOTER_READ,
+# titled, with a verdict, failed, of 1940, of another paper or under a key no longer current it is not.
+_ft = {"edition": "GaleTimes1938UKEnglish/1938-08-11", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "verdicts": [], "readAt": "2026-10-28T23:00:00+00:00",
+       "scan": {"date": "1938-08-11", "item": "GaleTimes1938UKEnglish", "puzzles": [],
+                "solutions": [{"number": 2644, "leaf": 0}]}}
+check("an untitled verdict-less 1938 Gale Times page never looked over for its footer is due FOOTER_TITLE (its scan "
+      "stale); stamped, titled, with a verdict, failed, of 1940, a Gale Telegraph's or under an old key it is not",
+      [True, False, f.FOOTER_TITLE, f.FOOTER_TITLE, True, False, False, False, False, False, False, False, 2],
+      [f.footer_rescan(_ft), f.scan_current(_ft, "h"), f.fix_reason(_ft), f.blanket_or_fix(_ft, "inputs changed"),
+       f.scan_current({**_ft, "scan": {**_ft["scan"], f.FOOTER_READ: True}}, "h"),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], f.FOOTER_READ: True}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "puzzles": [{"number": 2645, "leaf": 0}]}}),
+       f.footer_rescan({**_ft, "verdicts": [{"number": 2645, "id": "times-2645"}]}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "failed": "x"}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "date": "1940-08-11", "item": "GaleTimes1940UKEnglish"}}),
+       f.footer_rescan({**_ft, "scan": {**_ft["scan"], "item": "GaleTelegraph1938UKEnglish"}}),
+       f.footer_rescan({**_ft, "scanKey": "0000000000000000"}), f.RANKS[f.FOOTER_TITLE]])
 # paired_titles: with no title voted, one reader's title stands by the solution heading of the puzzle before it,
 # near the date's number; a title with no such heading, or one far off the date's number, does not.
 _day = datetime.date(1940, 3, 8)

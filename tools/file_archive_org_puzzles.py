@@ -2908,6 +2908,8 @@ def scan_anywhere(d):
     import ocr_remote
     found = grid_first_scan(d) if grid_first_on() else ocr_remote.scan(d)
     found = scan(d) if found is None else found
+    # No title read on a 1935-39 Gale Times page: its footer's spelt number and solution heading title it.
+    found = footer_titled(d, found)
     # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
     if not found.get("failed") and not any(not p.get("fromSolutions") for p in found["puzzles"]):
         found = {**found, WHOLE_UNTITLED: True}
@@ -2916,6 +2918,160 @@ def scan_anywhere(d):
 
 #: The key of a scan (scan_anywhere's) that read its page whole and found no title (gf_rescan).
 WHOLE_UNTITLED = "wholeUntitled"
+#: The key of a Gale Times scan (scan_anywhere's) of a FOOTER_YEARS page no title was read on whose
+#: footer was looked for (footer_titled), titled by it or not: its FOOTER_TITLE rescan is done.
+FOOTER_READ = "footerRead"
+#: The (first, last) years the Gale Times prints under its puzzle's clues a footer that spells out the next
+#: puzzle's number and gives this one's in figures: "The two thousand eight hundred and twenty-seventh
+#: crossword puzzle in this series, together with the solution of puzzle No. 2,826, will appear in The Times
+#: to-morrow." 10-29: the cached whole-page reads of 1936-39 hold it (1938: 141 of 300 pages), none of 1940-59.
+FOOTER_YEARS = ("1935", "1939")
+#: A footer line: "... crossword puzzle in this series" (as read: "puzzle in his seris"), with "thousand" or
+#: "hundred" of its spelt number in it (FOOTER_SPELT).
+FOOTER_LINE = re.compile(r"\bser[il1]e?s\b|\bin\s*t?h?[il1]s\s*s", re.IGNORECASE)
+FOOTER_SPELT = re.compile(r"thous|hund", re.IGNORECASE)
+#: The footer's figures, the puzzle on its page ("solution of puzzle No. 2,826"), on the line under it.
+FOOTER_NUMBER = re.compile(r"[Nn][o0][.,]?\s*(\d[\d,.]{2,}\d)")
+#: The line under the grid over the clues: "NOTE.—Figures in parentheses denote the number of letters in the
+#: words required."
+NOTE_LINE = re.compile(r"figures\s*in|paren|parem|denote\s*the", re.IGNORECASE)
+#: How far over the NOTE line the box a footer-titled puzzle's title stands in ends, in the footer's widths.
+#: The grid is square and as wide as its column (the footer's): on 1938-39 pages whose title was read, the
+#: title ends 1.03-1.10 footer widths over the NOTE line (1938-09-10: 1,375 px for a 1,268 px footer), and its
+#: x-span is the footer's to 35 px. This box ends a little higher, clear of the grid's top, as locate_grid
+#: needs a grid wholly under its title.
+FOOTER_REACH = 1.12
+#: The words of a footer's spelt number: (kind, value) each. "c" a cardinal (one..nineteen), "t" a ten
+#: (twenty..ninety), "o" an ordinal (first..nineteenth, twentieth..ninetieth), "h" hundred, "k" thousand.
+SPELT_WORDS = {**{w: ("c", k) for k, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen "
+    "seventeen eighteen nineteen".split())},
+    **{w: ("t", 10 * k) for k, w in enumerate("twenty thirty forty fifty sixty seventy eighty ninety".split(), 2)},
+    **{w: ("o", k) for k, w in enumerate(
+        "first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth "
+        "fifteenth sixteenth seventeenth eighteenth nineteenth".split(), 1)},
+    **{w: ("o", 10 * k) for k, w in enumerate(
+        "twentieth thirtieth fortieth fiftieth sixtieth seventieth eightieth ninetieth".split(), 2)},
+    "hundred": ("h", 100), "thousand": ("k", 1000), "and": ("and", 0)}
+#: Words of a footer line read like a number word but none: "The" reads like "three" (SequenceMatcher 0.75).
+SPELT_SKIP = {"the", "thc", "tho", "tbe"}
+
+
+def number_word(token):
+    """The SPELT_WORDS word misread `token` (lower case, 3+ letters) is most like, at least 0.6 like it
+    (SequenceMatcher: "fory" forty, "hird" third, "ffh" fifth, "laudred" hundred), else None."""
+    best = max(SPELT_WORDS, key=lambda w: SequenceMatcher(None, token, w).ratio())
+    return best if SequenceMatcher(None, token, best).ratio() >= 0.6 else None
+
+
+def spelt_ordinal(text):
+    """(thousands, hundreds, last two digits) of the ordinal footer line `text` spells, before its
+    "crossword puzzle", each None where unread: "The two thousand six hundred and fory-ffh crossword
+    puzzlc in this series" -> (2, 6, 45). Words glued round "and" ("hundedandfory-sixth") are parted; the
+    last two digits stand only where the ordinal word is read, after a ten or none."""
+    low = str(text).lower()
+    end = re.search(r"puzz|pzz|\bcr\w*sw", low)
+    low = low[:end.start()] if end else low
+    tokens = []
+    for t in re.findall(r"[a-z]+", low):
+        if t not in SPELT_SKIP:
+            tokens += [p for p in re.split(r"(?<=...)and(?=...)", t) if p]
+    thousands = hundreds = None
+    count = None
+    for t in tokens:
+        word = number_word(t) if len(t) >= 3 else None
+        kind, value = SPELT_WORDS[word] if word else ("?", 0)
+        if kind == "k":
+            thousands, count = count, None
+        elif kind == "h":
+            hundreds, count = count, None
+        elif kind == "c":
+            count = value if count is None or count >= 100 else count + value
+        elif kind == "t":
+            count = value
+        elif kind == "o":
+            if count is None or count % 10 == 0 and count < 100:
+                return thousands, hundreds, (count or 0) + value
+            return thousands, hundreds, None
+        else:
+            count = None
+    return thousands, hundreds, None
+
+
+def spelt_agrees(spelt, m):
+    """Whether spelt_ordinal's `spelt` (thousands, hundreds, last two digits) spells number `m`: its last two
+    digits read and `m`'s, its thousands or hundreds read too, and each read one `m`'s."""
+    thousands, hundreds, tail = spelt
+    return tail is not None and tail == m % 100 and (thousands is not None or hundreds is not None) \
+        and (hundreds is None or hundreds == m // 100 % 10) and (thousands is None or thousands == m // 1000)
+
+
+def footer_titles(words, sols, leaf):
+    """[{"number", "leaf", "box", "fromFooter"}] of the puzzle on a leaf no title was read on, from its
+    page readers' `words` ((x0, y0, x1, y1, text) each) and its solution headings `sols`: the number N two of
+    its prints agree on, of the footer under its clues (FOOTER_LINE: "The two thousand six hundred and
+    forty-sixth crossword puzzle in this series, together with the solution of puzzle No. 2,645, will appear
+    ..."), its spelt number naming N + 1 (spelt_ordinal) and its figures on the next line N, and the
+    heading "SOLUTION OF PUZZLE No. N - 1" over the day before's solution grid: a heading and either footer
+    print, or the footer's two prints. One number only; the box a title's line over the grid, as wide as
+    the footer, FOOTER_REACH of its width over the NOTE line in its column; [] with none, or no NOTE line.
+    10-29: 112 1938-39 pages stood so, their title never read (Times 2,645's page, 1938-08-11: no word over
+    its grid at all), none of their puzzles filed."""
+    feet = [w for w in words if FOOTER_LINE.search(str(w[4])) and FOOTER_SPELT.search(str(w[4]))]
+    if not feet:
+        return []
+    spelt = [spelt_ordinal(w[4]) for w in feet]
+    figures = [m.group(1) for f in feet for w in words
+               if 0 < w[1] - f[1] < 1.6 * (f[3] - f[1]) and w[0] < f[2] and w[2] > f[0]
+               for m in [FOOTER_NUMBER.search(str(w[4]))] if m]
+    agreed = {}
+    for h in {s["number"] for s in sols if s.get("leaf", leaf) == leaf}:
+        n = h + 1
+        why = ["heading"] + ["spelt"] * any(spelt_agrees(s, n + 1) for s in spelt) \
+            + ["figures"] * any(solution_number(t, {n}) == n for t in figures)
+        if len(why) > 1:
+            agreed.setdefault(n, set()).update(why)
+    for t in figures:
+        read = clue_text.number_figures(t)
+        if read.isdigit() and any(spelt_agrees(s, int(read) + 1) for s in spelt):
+            agreed.setdefault(int(read), set()).update(("figures", "spelt"))
+    if len(agreed) != 1:
+        return []
+    (n, why), = agreed.items()
+    foot = max(feet, key=lambda w: w[2] - w[0])
+    width, height = foot[2] - foot[0], foot[3] - foot[1]
+    notes = [w for w in words if NOTE_LINE.search(str(w[4])) and w[3] < foot[1] and w[0] < foot[2] and w[2] > foot[0]]
+    if not notes:
+        return []
+    top = max(w[1] for w in notes) - int(FOOTER_REACH * width)
+    if top - height < 0:
+        return []
+    return [{"number": n, "leaf": leaf, "box": (int(foot[0]), int(top - height), int(foot[2]), int(top)),
+             "fromFooter": sorted(why)}]
+
+
+def footer_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle titled by its footer (footer_titles, off the
+    whole-page reads its scan left in the crop cache: cached_page_words, none made), the solution heading
+    the footer's figures were read as dropped (a puzzle's solution never prints with it), where it is a Gale
+    Times page of FOOTER_YEARS with no title read and no failure; stamped FOOTER_READ. Outside scan(), whose
+    key a change here would move: it titles only pages scan() titled none on."""
+    date = str(found.get("date", ""))
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or not FOOTER_YEARS[0] <= date[:4] <= FOOTER_YEARS[1] or paper_of(d) is not GALE:
+        return found
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+    except (OSError, ValueError, KeyError, TypeError):
+        leaves = sorted({s["leaf"] for s in found.get("solutions") or ()})
+    for leaf in leaves:
+        words = [w for read in cached_page_words(f"{d.parent.name}_{d.name}_{leaf}") for w in read]
+        hits = footer_titles(words, found.get("solutions") or (), leaf)
+        if hits:
+            titled = {h["number"] for h in hits}
+            return {**found, "puzzles": hits, FOOTER_READ: True,
+                    "solutions": [s for s in found.get("solutions") or () if s["number"] not in titled]}
+    return {**found, FOOTER_READ: True}
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
@@ -10291,7 +10447,7 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r))) \
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r))) \
                     and not failed_rescan(r):
                 moved[k] = new
         if moved:
@@ -11177,6 +11333,30 @@ def gf_unread(row):
             and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
         return False
     return row.get("scanKey") == scan_key(GALE) and scan_queue.read_before(row, scan_queue.when(REREAD_GF_UNREAD))
+
+
+#: The reason of a Gale Times page of FOOTER_YEARS read with no verdict, its scan (not failed, under a current
+#: key) holding no title and never looked over for its footer (no FOOTER_READ): footer_titled titles such a page
+#: from its footer's spelt number and figures and its solution heading. 10-29 r30: 112 1938-39 Gale Times pages
+#: stood so (1938 52, 1939 60), none of their puzzles filed; their cached whole-page reads hold no title over the
+#: grid (1938-08-11: no word over it at all), only "SOLUTION OF PUZZLE No. 2,644" and the footer "The two thousand
+#: six hundred and forty-sixth crossword puzzle in this series, together with the solution of puzzle No. 2,645";
+#: 52 give one number so (heading and footer, or the footer's two prints), none two. Scanned once again (the
+#: crop cache's page reads, no OCR), then read.
+FOOTER_TITLE = "untitled page, titled since by its footer's spelt number and solution heading"
+
+
+def footer_rescan(row):
+    """Whether Gale Times ledger `row` is due FOOTER_TITLE: an edition of FOOTER_YEARS read with no verdict, its
+    scan (not failed) under a current key holding no title (none, or only one solution_titled gave) and not
+    stamped FOOTER_READ. Its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and FOOTER_YEARS[0] <= year <= FOOTER_YEARS[1]
+            and "inputs" in row and not row.get("verdicts") and not scan.get("failed") and not scan.get(FOOTER_READ)
+            and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+        return False
+    return row.get("scanKey") in current_keys(GALE)
 
 
 #: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
@@ -15824,6 +16004,8 @@ def fix_reason(row):
         return GF_TITLE
     if gf_unread(row):
         return GF_UNREAD
+    if footer_rescan(row):
+        return FOOTER_TITLE
     if failed_rescan(row):
         return FAILED_SCAN
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -16383,7 +16565,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-28 r28: a page unfiled over a linked clue's comma read as a stop (stray_link_due).
                   STRAY_LINK_READ,
                   # 10-29 r29: a write refused as a copy of an unsolved, unannotated book file (book_yields_due).
-                  BOOK_YIELDS)
+                  BOOK_YIELDS,
+                  # 10-29 r30: an untitled 1935-39 page its footer and solution heading title (footer_rescan).
+                  FOOTER_TITLE)
 
 
 def refusal_passes(why):
@@ -16612,7 +16796,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -16649,7 +16833,7 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row))) \
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row))) \
         and not failed_rescan(row)
 
 

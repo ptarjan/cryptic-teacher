@@ -664,6 +664,13 @@ try:
            f.book_yields_due({**_byrow, "edition": "FinancialTimes2005UKEnglish/2005-03-02_0"})])
 finally:
     _fp.unsolved_book = _by_real
+# ---- an untitled verdict-less 1935-39 Gale Times page never looked over for its footer (fa.footer_rescan) is due
+# FOOTER_TITLE: ranked, evidence, fix-landed, unfiled-first, its scans planned with it ("fix").
+check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fix-landed, unfiled-first",
+      [2, True, True, True, None],
+      [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
+       f.FOOTER_TITLE in eq.UNFILED_FIRST,
+       eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
 # ---- a Times page written unfiled with every blank clue "not a word" (a word every reading spells alike, "Nil
 # nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
 _sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
