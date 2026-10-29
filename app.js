@@ -8461,6 +8461,11 @@
     if (canonicalHome === null) {
       const link = document.querySelector('link[rel="canonical"]');
       canonicalHome = link ? link.href : location.origin + "/";
+      // Kept on this page's own origin when that is http(s) (a test server, a
+      // preview): the service worker registers only from its own origin, and
+      // a fetch to the production host would be cross-origin there.
+      const u = new URL(canonicalHome);
+      if (/^https?:$/.test(location.protocol) && location.origin !== u.origin) canonicalHome = location.origin + u.pathname;
     }
     return canonicalHome;
   }
@@ -8470,14 +8475,7 @@
   // relative "puzzles/..." then resolves one level deeper —
   // /puzzles/<id>/puzzles/... — and 404s, for the archive link at the foot of
   // the picker and for the script tag of the NEXT puzzle opened.
-  // Kept on this page's own origin when that is http(s) (a test server, a
-  // preview): the service worker registers only from its own origin, and a
-  // fetch to the production host would be cross-origin there.
-  function at(rel) {
-    const u = new URL(rel, homeUrl());
-    return /^https?:$/.test(location.protocol) && location.origin !== u.origin
-      ? location.origin + u.pathname + u.search + u.hash : u.href;
-  }
+  function at(rel) { return new URL(rel, homeUrl()).href; }
 
   // The same goes for the icons and manifest linked in <head>: index.html writes
   // them relative, and once the bar is /puzzles/<id>/ the browser asks for
