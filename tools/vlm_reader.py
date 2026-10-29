@@ -30,6 +30,7 @@ import hashlib
 import io
 import contextlib
 import contextvars
+import http.client
 import json
 import os
 import random
@@ -437,6 +438,40 @@ _SLOTS = [None]
 #: so REQUEST_TIMEOUT grows by one request's worth per extra ask.
 PIPELINE = int(os.environ.get("CT_VLM_PIPELINE", "1"))
 REQUEST_TIMEOUT = 600
+#: TCP keepalive on the ask's connection (idle s, probe interval s, probes): a peer that
+#: vanished (10-29: a Tailscale update dropped the tailnet, three drainers sat in recv on
+#: sockets the server no longer knew, 30 min of idle GPU until REQUEST_TIMEOUT) fails in about
+#: KEEPALIVE[0] + KEEPALIVE[1] * KEEPALIVE[2] s with a TimeoutError, which the ask's error path
+#: queues again. The long read timeout stays for a slow ask on a live connection.
+KEEPALIVE = (60, 15, 4)
+
+
+def set_keepalive(sock):
+    """Turn on TCP keepalive on `sock` (each option only where the platform has it)."""
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+    idle = getattr(socket, "TCP_KEEPIDLE", None)  # macOS: TCP_KEEPALIVE
+    if idle is None and hasattr(socket, "TCP_KEEPALIVE"):
+        idle = socket.TCP_KEEPALIVE
+    for opt, value in ((idle, KEEPALIVE[0]), (getattr(socket, "TCP_KEEPINTVL", None), KEEPALIVE[1]),
+                       (getattr(socket, "TCP_KEEPCNT", None), KEEPALIVE[2])):
+        if opt is not None:
+            sock.setsockopt(socket.IPPROTO_TCP, opt, value)
+
+
+class _KeepaliveConnection(http.client.HTTPConnection):
+    def connect(self):
+        super().connect()
+        set_keepalive(self.sock)
+
+
+class _KeepaliveHandler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(_KeepaliveConnection, req)
+
+
+#: urllib.request.urlopen (what the asks and their tests call) opens plain-HTTP connections with
+#: keepalive from here on; HTTPS and the other handlers are the defaults.
+urllib.request.install_opener(urllib.request.build_opener(_KeepaliveHandler))
 
 
 def cause():
