@@ -661,6 +661,20 @@ same("a title another day's file holds is left, named",
 same("a title the same day's other file holds is a duplicate",
      [r[3] for r in rf.misnumbered_titles({D("2002-08-28"): [22130]}, {D("2002-08-28"): [22129]},
                                           {22129: D("2002-08-28"), 22130: D("2002-08-28")})], ["duplicate"])
+# 2002-05: Mon 05-13's page prints No 22038 (over the solution of 22037) yet was filed 22039, so Tue
+# 05-14's No 22039 was refused as taken. 22038 is free: the file moves down to it.
+titles = {D("2002-05-11"): [22037], D("2002-05-13"): [22038], D("2002-05-14"): [22039]}
+headings = {D("2002-05-13"): [22037], D("2002-05-14"): [22038]}
+same("a file filed one above the title its page prints moves down to it when the title is free",
+     rf.misnumbered_titles(titles, headings, {22037: D("2002-05-11"), 22039: D("2002-05-13")}),
+     [(22039, D("2002-05-13"), 22038, None)])
+same("(mirror) a title no heading bears out is not moved down",
+     rf.misnumbered_titles(titles, {}, {22037: D("2002-05-11"), 22039: D("2002-05-13")}), [])
+same("(mirror) a title another day's file holds is left, named",
+     rf.misnumbered_titles(titles, headings, {22037: D("2002-05-11"), 22038: D("2002-05-10"), 22039: D("2002-05-13")}),
+     [(22039, D("2002-05-13"), 22038, "No 22038 is filed for 2002-05-10")])
+same("(mirror) a page printing its filed number is not moved",
+     rf.misnumbered_titles({D("2002-05-13"): [22039]}, headings, {22039: D("2002-05-13")}), [])
 moved_dir = Path(tempfile.mkdtemp())
 try:
     src = moved_dir / "times-22129.json"
