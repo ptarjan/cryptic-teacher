@@ -176,6 +176,8 @@ def place_puzzle(puzzle):
             continue
         if not all(isinstance(d, dict) for d in ann["definitions"]):
             continue
+        if not (h["clue"].get("text") or "").strip():
+            continue   # a blank clue (an OCR read left it empty) has no words to place a definition in
         try:
             ann["definitions"] = place(ann["definitions"], h["clue"].get("text", ""))
         except ValueError as err:
