@@ -16815,9 +16815,15 @@ REREAD_HOST_WEEK_ON = "2026-10-26T09:45:00+00:00"
 HOST_LAYOUT_RESCAN = "solution host, the heading's place by its title unread"
 #: Once: a TITLE_HEADINGS-era host whose solutions_only read is older than this is due (host_rescan_due).
 REREAD_HOST_LAYOUT = "2026-10-29T06:30:00+00:00"
+#: The reason of the same read of a host of the years ERA_HEADINGS adds (1947-50, 1987-2002) read before
+#: REREAD_HOST_ERAS: era_bands now cuts their layouts too. Paul 10-29 (r33): 45 unanswered Times puzzles whose
+#: hosts lie in years the 06:30 layouts left out, the heading read nowhere (1990s 10, 2000-02 10, 1987-89 7).
+HOST_ERA_RESCAN = "solution host, the heading's place by its title unread, 1947-50 and 1987-2002"
+#: Once: a host of an ERA_HEADINGS year whose solutions_only read is older than this is due (host_rescan_due).
+REREAD_HOST_ERAS = "2026-10-29T08:15:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
-HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN, HOST_LAYOUT_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN, HOST_LAYOUT_RESCAN, HOST_ERA_RESCAN)
+RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, HOST_ERA_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
@@ -17313,13 +17319,20 @@ def host_rescan_due(paper, row):
     with no "at" is older), or for a WEEK_ON_SOLUTIONS host (HOST_WEEK_ON_RESCAN) none at or after REREAD_HOST_WEEK_ON."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
     return paper is GALE and bool(row) and (at < REREAD_HOST_COLUMNS or at < REREAD_HOST_WEEK_ON and week_on_host(row)
-                                            or at < REREAD_HOST_LAYOUT and layout_host(row))
+                                            or at < REREAD_HOST_LAYOUT and layout_host(row)
+                                            or at < REREAD_HOST_ERAS and era_host(row))
 
 
 def layout_host(row):
     """Whether ledger `row`'s edition is dated in a year TITLE_HEADINGS holds a layout of."""
     day = _date_in(str(row.get("edition") or ""))
     return day is not None and any(e[0] <= day.year <= e[1] for e in TITLE_HEADINGS)
+
+
+def era_host(row):
+    """Whether ledger `row`'s edition is dated in a year ERA_HEADINGS holds a layout of (and TITLE_HEADINGS none)."""
+    day = _date_in(str(row.get("edition") or ""))
+    return day is not None and any(e[0] <= day.year <= e[1] for e in ERA_HEADINGS) and not layout_host(row)
 
 
 def week_on_host(row):
@@ -17337,6 +17350,8 @@ def host_rescan_reason(row):
     new to it), HOST_COLUMN_RESCAN when older than REREAD_HOST_COLUMNS (only column_headings and
     named_day_headings are), else HOST_WEEK_ON_RESCAN (a championship puzzle's week-later host: week_on_host)."""
     at = str(((row or {}).get("solOnly") or {}).get("at") or "")
+    if at < REREAD_HOST_ERAS and era_host(row or {}):
+        return HOST_ERA_RESCAN  # whatever else the read is for, its bands now include the era's (era_bands)
     return HOST_RESCAN if at < REREAD_HOST_HEADINGS else HOST_GRID_RESCAN if at < REREAD_HOST_GRIDS \
         else HOST_COLUMN_RESCAN if at < REREAD_HOST_COLUMNS \
         else HOST_WEEK_ON_RESCAN if at < REREAD_HOST_WEEK_ON and week_on_host(row) else HOST_LAYOUT_RESCAN
@@ -17592,27 +17607,36 @@ def loose_bands(img, bands):
 TITLE_HEADINGS = ((1940, 1941, -560, 250, 260, 860), (1942, 1946, -340, 200, 430, 630),
                   (1951, 1966, 400, 1100, 740, 1040), (1967, 1969, 150, 950, 880, 1330),
                   (1970, 1980, 140, 800, 1200, 1580), (1981, 1986, 120, 780, 1200, 1540))
+#: The layouts of the years TITLE_HEADINGS leaves out, measured the same way on the same ledger (r33, 10-29):
+#: 1947 prints the 1942-46 place for part of the year and, as 1948-49 and early 1950, a 350-370 px line 47-64 px
+#: under the title and 60-110 px left of it; late 1950 the 1951-66 place; 1987-89 a line 350-700 px right of the
+#: title and 950-1430 under it; 1989-2002 (1990-91 100 left, 1992-2002 within 45 either way of the title's left)
+#: 1190-1460 under it. 2003-14 print in several places by the day, left out.
+ERA_HEADINGS = ((1947, 1947, -340, 200, 430, 630), (1947, 1950, -170, 340, 10, 160), (1950, 1950, 400, 1100, 740, 1040),
+                (1987, 1989, 280, 1060, 900, 1480), (1989, 2002, -160, 420, 1130, 1520))
 #: A heading band's slices: this tall, this far apart (the readers lose a heading's small type in a tall crop).
 HEADING_SLICE = (170, 110)
 
 
 def era_bands(img, boxes, year):
     """The bands (x0, y0, x1, y1) a host's solution heading may print in, under each title box of `boxes`
-    (TITLE_HEADINGS of `year`), cut in HEADING_SLICE slices; none for a year it holds no layout of. Paul
+    (every TITLE_HEADINGS and ERA_HEADINGS layout of `year`), cut in HEADING_SLICE slices; none for a year
+    they hold no layout of. Paul
     10-29: 195 hosts whose page was read linked no heading; their whole-page reads hold no "Solution" word
     (the 1940s heading is 26 px type) and no grid shape cut a band there (solution_bands, loose_bands), yet
     the heading sits where every linked page's does, by its title."""
-    era = next((e for e in TITLE_HEADINGS if e[0] <= year <= e[1]), None)
+    eras = [e for e in TITLE_HEADINGS + ERA_HEADINGS if e[0] <= year <= e[1]]
     out = []
-    for b in boxes if era else ():
-        x0, x1 = max(0, int(b[0] + era[2])), min(img.width, int(b[0] + era[3]))
-        top, foot = max(0, int(b[1] + era[4])), min(img.height, int(b[1] + era[5]))
-        y = top
-        while x1 > x0 and foot - y >= 40:
-            band = (x0, y, x1, min(foot, y + HEADING_SLICE[0]))
-            if band not in out:
-                out.append(band)
-            y += HEADING_SLICE[1]
+    for era in eras:
+        for b in boxes:
+            x0, x1 = max(0, int(b[0] + era[2])), min(img.width, int(b[0] + era[3]))
+            top, foot = max(0, int(b[1] + era[4])), min(img.height, int(b[1] + era[5]))
+            y = top
+            while x1 > x0 and foot - y >= 40:
+                band = (x0, y, x1, min(foot, y + HEADING_SLICE[0]))
+                if band not in out:
+                    out.append(band)
+                y += HEADING_SLICE[1]
     return out
 
 
