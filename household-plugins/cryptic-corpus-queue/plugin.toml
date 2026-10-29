@@ -5,10 +5,14 @@ room     = "cryptic-crosswords"
 # starts runs detached in its own session, so this returns in seconds.
 schedule = "35 * * * *"
 where    = "container"
-# The job's own worktree, not the main checkout: that one fast-forwards only
-# when clean, so a script newer than its last clean moment is not in it.
-# tools/nightly_worktree.sh resets this tree to origin/master on every run.
-run      = "~/.cryptic-teacher/corpus_queue/tools/corpus_queue.sh"
+# The main checkout's copy, only to bootstrap: tools/nightly_worktree.sh
+# (re)creates the job's own worktree under ~/.cryptic-teacher at origin/master
+# and runs that tree's copy of the script, so a pushed fix is live at the
+# next run. Never point run (or this plugin's symlink) INTO a job tree: when
+# the tree went (2026-10-24, and vlm_health removes its own after every run)
+# the bridge listed the plugin as disabled and nothing ran to rebuild it; the
+# coverage ledger went unsaved 10-24..10-28.
+run      = "~/github/cryptic-teacher/tools/corpus_queue.sh"
 args     = ["tick"]
 log      = "~/github/cryptic-teacher/.corpus_queue.log"
 timeout  = 600

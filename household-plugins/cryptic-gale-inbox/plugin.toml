@@ -8,9 +8,14 @@ room     = "cryptic-crosswords"
 # that one is skipped.
 schedule = "* * * * *"
 where    = "container"
-# The job's own worktree, which tools/nightly_worktree.sh resets to
-# origin/master on every tick, so a pushed fix is live at the next tick.
-run      = "~/.cryptic-teacher/gale_inbox/tools/gale_inbox.sh"
+# The main checkout's copy, only to bootstrap: tools/nightly_worktree.sh
+# (re)creates the job's own worktree under ~/.cryptic-teacher at origin/master
+# and runs that tree's copy of the script, so a pushed fix is live at the
+# next run. Never point run (or this plugin's symlink) INTO a job tree: when
+# the tree went (2026-10-24, and vlm_health removes its own after every run)
+# the bridge listed the plugin as disabled and nothing ran to rebuild it; the
+# coverage ledger went unsaved 10-24..10-28.
+run      = "~/github/cryptic-teacher/tools/gale_inbox.sh"
 args     = ["sync"]
 log      = "~/github/cryptic-teacher/.gale_inbox.log"
 timeout  = 900
