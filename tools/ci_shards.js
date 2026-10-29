@@ -41,6 +41,8 @@ const COST = {
   "tests/test_push_conflict.sh": 17,
   "tests/test_reconstruct_grid.py": 25,
   "tests/test_paper_mode.js": 62,
+  // A real Chromium saving ~200 puzzles, then reloading with the server gone.
+  "tests/test_offline_library.js": 40,
   "tests/test_file_trove_puzzles.sh": 54,
   "tests/test_solve_queue_clues.sh": 66,
   "tests/test_shim_format.py": 59,

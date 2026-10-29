@@ -296,6 +296,7 @@ LAYOUT = [
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
     ("building and checking the site", "tests/test_app_tab_pages.js", "holds the home-screen app's Puzzles and Stats tabs to full pages with their own #picker/#stats history entries, so the back gesture walks between tabs, while a browser tab keeps the old panels"),
     ("building and checking the site", "tests/test_phone_scroll.js", "drives a real headless Chromium as an iPhone home-screen app: the Puzzles list scrolls itself, never the page behind it after a puzzle visit, and touching rows paints no highlight"),
+    ("building and checking the site", "tests/test_offline_library.js", "does the app work on a plane? In the same headless Chromium: the automatic save and Save now fill the offline cache and the count says so, and with the server gone the Library lists exactly the saved puzzles and one of them opens"),
     ("building and checking the site", "tools/mobile_browser.js", "the iPhone-emulating headless Chromium (touch swipes, standalone display mode) the scroll test drives over the DevTools protocol"),
     ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
     ("building and checking the site", "tools/reindex.js", "rebuilds the puzzle manifest before a node harness reads it, through the same --reindex the site's build runs"),
