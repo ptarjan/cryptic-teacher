@@ -3487,6 +3487,24 @@ check("an untitled verdict-less 1938 Gale Times page never looked over for its f
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "date": "1940-08-11", "item": "GaleTimes1940UKEnglish"}}),
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "item": "GaleTelegraph1938UKEnglish"}}),
        f.footer_rescan({**_ft, "scanKey": "0000000000000000"}), f.RANKS[f.FOOTER_TITLE]])
+# HELD_LINKED: a Times row a held-title read left answerless (no id, no solutionFrom) whose number a host's heading
+# links now (sol_seen holds it, its solutionsSeen did not) is due HELD_LINKED, not the blanket "inputs changed";
+# not one already linked, one that read its answers, one whose number is not linked, or another paper's.
+_hl = {"edition": "GaleTimes1957UKEnglish/1957-07-16", "inputs": "h", "filesHash": "h", "scanKey": f.scan_key(f.GALE),
+       "solutionsSeen": [], "readAt": "2026-10-26T01:37:00+00:00",
+       "scan": {"date": "1957-07-16", "item": "GaleTimes1957UKEnglish", "puzzles": [{"number": 8492, "leaf": 0, "heldTitle": True}],
+                "solutions": []},
+       "verdicts": [{"number": 8492, "leaf": 0, "heldTitle": True,
+                     "skip": "a held title read answers-only: no linked solution grid gave its answers"}]}
+check("a held-title Times row whose number a host's heading links since is due HELD_LINKED once, ranked 2; not "
+      "when already seen, answered, unlinked or of another paper",
+      [True, f.HELD_LINKED, False, False, False, False, False, 2, True],
+      [f.held_linked(_hl, [8492]), f.due_reason(_hl, "h", [8492], None), f.held_linked(_hl, []),
+       f.held_linked({**_hl, "solutionsSeen": [8492]}, [8492]),
+       f.held_linked({**_hl, "verdicts": [{**_hl["verdicts"][0], "solutionFrom": "1957-07-17 leaf 0"}]}, [8492]),
+       f.held_linked({**_hl, "verdicts": [{"number": 8492, "id": "times-8492"}]}, [8492]),
+       f.held_linked({**_hl, "edition": "FinancialTimes1957UKEnglish/1957-07-16"}, [8492]),
+       f.RANKS[f.HELD_LINKED], f.HELD_LINKED in f.SOLUTION_FIXES])
 # paired_titles: with no title voted, one reader's title stands by the solution heading of the puzzle before it,
 # near the date's number; a title with no such heading, or one far off the date's number, does not.
 _day = datetime.date(1940, 3, 8)
