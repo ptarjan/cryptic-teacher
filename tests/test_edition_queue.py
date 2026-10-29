@@ -76,6 +76,7 @@ for _val, _want in ((None, 1200), ("", 1200), ("3600", 3600.0), ("abc", 1200), (
 os.environ.pop("CT_READ_SECONDS_T", None)
 
 T = Path(os.environ["TMP"])
+os.environ["CT_VLM_ASK_LOG"] = str(T / "vlm_asks.log")  # never the host's real log
 eq.DIR_CACHE, eq.HELD_CACHE, eq.LIKELY_CACHE = T / "dir_cache.pickle", T / "held_files.pickle", T / "likely.pickle"  # never this host's caches
 eq.COUNT_LEFT_CACHE = T / "count_left.pickle"
 q.LEDGERS = {k: T / f"none-{k}.jsonl" for k in ("archive", "gale", "trove")}
@@ -3206,6 +3207,36 @@ check("the drainer answers every spooled ask into the cache", (0, True),
 vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader = _cache, _slots, _pipe, _real, _gate
 vlm_reader.busy = _busy
 _tf.tempdir = _tempdir
+# A drainer thread survives an error (logged once, with its traceback) and looks again; run again,
+# vlm_drainer starts only the threads that have ended.
+_logged, _calls, _stop = [], [], _th.Event()
+def _step():
+    _calls.append(1)
+    if len(_calls) <= 2:
+        raise KeyError("boom")
+    _stop.set()
+    return False
+_saved = eq.drain_step, eq.log, eq.DRAINER_IDLE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed
+eq.drain_step, eq.log, eq.DRAINER_IDLE = _step, _logged.append, 0.01
+vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed = 1, 0, lambda start=True: 0
+_thr = []
+eq.vlm_drainer(_stop, _thr)
+_thr[0].join(5)
+check("a drainer thread goes on past an error, logged once", (3, 1, True),
+      (len(_calls), sum("KeyError" in l for l in _logged), "(the thread goes on)" in _logged[0]))
+_ended = _thr[0]
+eq.vlm_drainer(_stop, _thr)
+check("... and an ended thread is started again, once", (1, False), (len(_thr), _thr[0] is _ended))
+_thr[0].join(5)
+# A stall is logged with its cause, at most every DRAINER_STALL seconds.
+_logged.clear()
+eq._DRAIN["sent"], eq._DRAIN["logged"] = 1000.0, float("-inf")
+check("a drainer idle under the stall bar logs nothing", False, eq.drainer_stalled(4, "x", now=1000.0 + eq.DRAINER_STALL - 1))
+check("... past it, it says how long and why", (True, ["vlm drainer: 4 spooled, nothing sent for 130 s, because the VLM is down"]),
+      (eq.drainer_stalled(4, "the VLM is down", now=1130.0), _logged))
+check("... and not again at once", False, eq.drainer_stalled(4, "x", now=1131.0))
+eq.drain_step, eq.log, eq.DRAINER_IDLE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, vlm_reader.requeue_claimed = _saved
+eq._DRAIN["errors"].clear()
 # A unit deferred by spooled asks says so; a real VLM outage keeps its words.
 _cause = vlm_reader._CAUSE[0]
 vlm_reader._CAUSE[0] = "spooled"

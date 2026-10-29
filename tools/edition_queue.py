@@ -524,18 +524,102 @@ def vlm_spool_max():
     return vlm_reader.vlm_spool_max()
 
 
+#: Seconds the drainer may send nothing while asks are spooled before it logs why (then once as
+#: often while that lasts): 10-28 23:20 and 10-29 01:14 it sent nothing for minutes, and the log said not why.
+DRAINER_STALL = 120
+#: How often (seconds) the drainer queues again the claims no live process is asking
+#: (vlm_reader.requeue_claimed): a hand drainer killed mid-ask, an image before a re-exec.
+DRAINER_SWEEP = 60
+#: Seconds an idle drainer thread waits before it looks again.
+DRAINER_IDLE = 5
+#: The drainer's shared state: when it last sent an ask (or had none to send), last logged a
+#: stall, last swept the claims, and the errors it logged (each once).
+_DRAIN = {"sent": float("-inf"), "logged": float("-inf"), "swept": float("-inf"), "errors": set()}
+_DRAIN_LOCK = threading.Lock()
+_START_LOCK = threading.Lock()
+
+
+def drainer_stalled(n, why, now=None):
+    """Log, at most every DRAINER_STALL seconds, that `n` asks are spooled and the drainer has sent
+    none for DRAINER_STALL seconds, and `why`."""
+    now = time.monotonic() if now is None else now
+    with _DRAIN_LOCK:
+        idle = now - _DRAIN["sent"]
+        if idle < DRAINER_STALL or now - _DRAIN["logged"] < DRAINER_STALL:
+            return False
+        _DRAIN["logged"] = now
+    log(f"vlm drainer: {n} spooled, nothing sent for {idle:.0f} s, because {why}")
+    return True
+
+
+def drain_step():
+    """One look of a drainer thread: sweep stale claims (every DRAINER_SWEEP s), then ask the oldest
+    spooled ask when the VLM is up. Whether it sent one (the thread looks again at once)."""
+    now = time.monotonic()
+    with _DRAIN_LOCK:
+        sweep = now - _DRAIN["swept"] >= DRAINER_SWEEP
+        if sweep:
+            _DRAIN["swept"] = now
+    if sweep:
+        n = vlm_reader.requeue_claimed(start=False)
+        if n:
+            log(f"vlm drainer: {n} claimed ask(s) no live drainer was asking queued again")
+    queued = vlm_reader.spooled()
+    if not queued:
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = now  # nothing to send is no stall
+        return False
+    if not vlm_up():
+        drainer_stalled(len(queued), f"the VLM is down ({vlm_reader.cause() or 'not answering'}; "
+                                     f"vlm_reader.up asks again every {vlm_reader.UP_EVERY} s)")
+        return False
+    if vlm_reader.drain_one():
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = time.monotonic()
+        return True
+    drainer_stalled(len(queued), vlm_reader.MISS[0] or "drain_one sent nothing")
+    return False
+
+
 def vlm_drainer(stop, threads):
     """The VLM stage: one thread per ask in flight (vlm_reader.slots() + PIPELINE) takes the
     oldest spooled ask (vlm_reader.drain_one), asks the server and caches the answer, so no
-    read blocks on the VLM. Idle, or the VLM down (vlm_up), it waits and looks again."""
+    read blocks on the VLM. Idle, or the VLM down (vlm_up), it waits and looks again.
+    `threads` (the caller's list) holds the threads; run again, it starts only the ones that
+    have ended. A thread survives any error (logged once each), so it never ends silently."""
     def work():
         while not stop.is_set():
-            if not (vlm_reader.spooled() and vlm_up()) or not vlm_reader.drain_one():
-                stop.wait(5)
-    vlm_reader.requeue_claimed()
-    for _ in range(max(1, vlm_reader.slots() + max(0, vlm_reader.PIPELINE))):
-        threading.Thread(target=work, daemon=True).start()
-        threads.append(1)
+            try:
+                if drain_step():
+                    continue
+            except Exception as e:  # never die: a dead drainer leaves the spool to rot
+                what = f"{type(e).__name__}: {e}"
+                with _DRAIN_LOCK:
+                    new = what not in _DRAIN["errors"]
+                    _DRAIN["errors"].add(what)
+                if new:
+                    import traceback
+                    log(f"vlm drainer: {what} (the thread goes on)\n{traceback.format_exc().rstrip()}")
+            stop.wait(DRAINER_IDLE)
+    with _START_LOCK:  # the early start (dispatch's drainer_early) and the loop's check may race
+        first = not threads
+        dead = [t for t in threads if not t.is_alive()]
+        for t in dead:
+            threads.remove(t)
+        want = max(1, vlm_reader.slots() + max(0, vlm_reader.PIPELINE)) - len(threads)
+        if want <= 0:
+            return
+        with _DRAIN_LOCK:
+            _DRAIN["sent"] = time.monotonic()
+        n = vlm_reader.requeue_claimed(start=first)
+        if dead:
+            log(f"vlm drainer: {len(dead)} thread(s) had ended; started again")
+        if n:
+            log(f"vlm drainer: {n} claimed ask(s) of a drainer gone queued again")
+        for _ in range(want):
+            t = threading.Thread(target=work, daemon=True, name="vlm drainer")
+            t.start()
+            threads.append(t)
 
 
 #: How often (seconds) the queue is planned again.
@@ -2618,6 +2702,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     vlm_bound = False  # logged once each time the VLM-waiting cap is met
     drainer = []  # the VLM stage's threads, started with the first spooled ask
     drainer_stop = threading.Event()
+    drainer_looped = threading.Event()  # set once the dispatch loop has looked at the spool (drainer_early)
     spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
     full_wait = {}  # {key_of(read): None} of the reads deferred for a full spool, oldest first: released as the spool has room
     spool_held = [0, 0.0]  # reads the last log line said were held for a full spool, and when (once a minute, or per 10)
@@ -3068,6 +3153,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         sys.stderr.flush()
         signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
         os.environ[REEXEC_ENV] = "1"
+        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight: queued again, not left claimed
         os.execv(argv[0], argv)
 
     # A slice's first image (started by the shell, not by a re-exec) runs the
@@ -3088,6 +3174,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
     if ceiling_ctl:
         log(f"ceiling controller on: host {ceiling_ctl.host}, metrics {ceiling_ctl.metrics}, every {ceiling_ctl.every} s")
+
+    def drainer_early():
+        # A fresh image (a re-exec, a new slice) makes its first plan before the dispatch loop starts,
+        # minutes on a loaded host, while the units it adopted spool asks: 10-29 01:14-01:19 nothing
+        # drained, and with a push every ~5 min the drainer was down most of the hour. So the drainer
+        # starts as soon as anything is spooled, until the loop's own check runs (or an hour passes).
+        end = time.monotonic() + 3600
+        while not drainer_looped.is_set() and not drainer and time.monotonic() < end:
+            if vlm_reader.spooled():
+                vlm_drainer(drainer_stop, drainer)
+                return
+            drainer_looped.wait(5)
+    threading.Thread(target=drainer_early, daemon=True, name="vlm drainer start").start()
 
     while True:
         reap()
@@ -3211,7 +3310,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             ceiling_bound = False
         vlm_waiting = vlm_reader.waiting_now()
         queued = vlm_reader.spooled()
-        if queued and not drainer:
+        drainer_looped.set()  # the early start (drainer_early) is done: this check is the drainer's now
+        if queued and (not drainer or not all(t.is_alive() for t in drainer)):
             vlm_drainer(drainer_stop, drainer)
         stage = (len(queued), len(spool_wait))
         if stage != stage_seen[0] and (stage[0] or stage_seen[0]) and time.monotonic() - stage_seen[1] >= 30:
@@ -4016,6 +4116,8 @@ def media_restart(e, gate=None, execv=None):
     log(f"{why}; re-exec")
     sys.stdout.flush()
     sys.stderr.flush()
+    if execv is None:
+        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight
     (execv or os.execv)(sys.executable, [sys.executable, *sys.argv])
     return 0
 
