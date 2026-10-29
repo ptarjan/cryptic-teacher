@@ -354,7 +354,11 @@ tools/acquire_book.py                          takes a book from an archive.org 
                                                filed as a new book-N; a newspaper puzzle whose
                                                book copy is held is refused instead, the book
                                                file kept and the pair recorded in
-                                               tools/book_twins.py for the cross-check), and a
+                                               tools/book_twins.py for the cross-check, unless
+                                               the book file holds no answer and no annotation
+                                               and the newspaper copy every answer: then the
+                                               book gives way, its id redirected to the copy,
+                                               fetch_puzzle.unsolved_book_yields), and a
                                                per-puzzle report of what it got and why the
                                                rest failed
 tools/light_spec.py                            turns one OCR'd clue list into the light spec
