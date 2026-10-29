@@ -233,4 +233,22 @@ check("ligature: definition text spelt out", "Ruffianly behaviour", got["annotat
 check("ligature: italics moved", [{"at": 12, "length": 9}], got["clue"]["italics"])
 check("ligature: caller's puzzle untouched", 34, lig["annotation"]["definitions"][1]["at"])
 
+# A scan's apostrophe read twice between two letters ("Guardian''s") is one at
+# write time, offsets kept (wordplay.doubledApostrophe); a quote pair that is
+# not between letters stays.
+dbl = {"clue": {"text": "Guardian''s ‘‘big’’ bird, it''s found"},
+       "annotation": {"definitions": [{"text": "bird, it''s found", "at": 20}],
+                      "wordplay": {"op": "hidden", "indicators": [{"text": "it''s"}],
+                                   "parts": [{"words": "Guardian''s"}]}}}
+got = quotes.straighten({"entries": [dbl]})["entries"][0]
+text = got["clue"]["text"]
+check("doubled apostrophe: clue", "Guardian's ''big'' bird, it's found", text)
+check("doubled apostrophe: definition moved", 19, got["annotation"]["definitions"][0]["at"])
+check("doubled apostrophe: definition text", "bird, it's found", got["annotation"]["definitions"][0]["text"])
+check("doubled apostrophe: definition sits at its at", "bird, it's found", text[19:])
+check("doubled apostrophe: leaf and indicator", ["Guardian's", "it's"],
+      [got["annotation"]["wordplay"]["parts"][0]["words"], got["annotation"]["wordplay"]["indicators"][0]["text"]])
+clean = {"entries": [{"clue": {"text": "Guardian's big bird"}}]}
+check("doubled apostrophe: clean puzzle returned as is", True, quotes.straighten(clean) is clean)
+
 raise SystemExit(fails)

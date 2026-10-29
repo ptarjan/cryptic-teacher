@@ -104,21 +104,56 @@ def _clue_strings(entry):
             if isinstance(h, list) or (isinstance(h, dict) and isinstance(h.get(k), str))]
 
 
+#: Two apostrophes between letters ("Guardian''s"): a scan's single quote read
+#: twice, never printed (validate_annotations.DOUBLED_APOSTROPHE_RE, the same
+#: pattern; wordplay.doubledApostrophe).
+DOUBLED_APOSTROPHE = re.compile(r"(?<=\w)''(?=\w)")
+
+
+def single_apostrophe(text):
+    """`text` with each doubled apostrophe between two letters made one."""
+    return DOUBLED_APOSTROPHE.sub("'", text) if isinstance(text, str) else text
+
+
+def doubled(puzzle):
+    """Whether a clue string of `puzzle` holds a doubled apostrophe between letters."""
+    return any(DOUBLED_APOSTROPHE.search(holder[key]) for e in puzzle.get("entries") or []
+               for holder, key in _clue_strings(e))
+
+
+def _straight_single(text):
+    """A rewrite_entry mapper: `text` straightened, then each doubled
+    apostrophe between letters made one, with the offset map that keeps every
+    `at` on its letter."""
+    import enumeration  # lazy: it imports this module
+    mid, first = enumeration.translated(STRAIGHT)(text)
+    out, at, i = [], [], 0
+    while i < len(mid):
+        at.append(len(out))
+        if DOUBLED_APOSTROPHE.match(mid, i):
+            at.append(len(out))
+            i += 1
+        out.append(mid[i])
+        i += 1
+    at.append(len(out))
+    return "".join(out), [at[j] for j in first]
+
+
 def straighten(puzzle):
-    """`puzzle` with its clue text straight: itself when it already is, else
-    a copy, so the caller's puzzle is left as it was."""
-    if not curly(puzzle):
+    """`puzzle` with its clue text straight and no doubled apostrophe between
+    letters: itself when it already is, else a copy, so the caller's puzzle is
+    left as it was."""
+    if not curly(puzzle) and not doubled(puzzle):
         return puzzle
     import enumeration  # lazy: it imports this module
     puzzle = copy.deepcopy(puzzle)
-    mapper = enumeration.translated(STRAIGHT)
     for e in puzzle.get("entries") or []:
         # The clue and every offset and quoted phrase together; then any
         # annotation string the clue's rewrite did not reach.
-        enumeration.rewrite_entry(e, mapper)
+        enumeration.rewrite_entry(e, _straight_single)
         for holder, key in _clue_strings(e):
             if isinstance(holder[key], str):
-                holder[key] = straight(holder[key])
+                holder[key] = single_apostrophe(straight(holder[key]))
     return puzzle
 
 
