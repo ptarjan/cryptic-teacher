@@ -932,6 +932,58 @@ check("ask log: the reason does not change the cache key", _key_before, _key_in)
 check("ask log: the reason is reset after the block", "", vlm._WHY.get())
 os.environ.pop("CT_VLM_ASK_LOG")
 
+# TCP keepalive: a peer that vanished silently (10-29's tailnet drop) fails in minutes, not
+# REQUEST_TIMEOUT. The ask's connection (urlopen, as installed) carries the options.
+import http.client
+import socket
+import urllib.request
+_srv = socket.socket()
+_srv.bind(("127.0.0.1", 0))
+_srv.listen(1)
+_conn = vlm._KeepaliveConnection("127.0.0.1", _srv.getsockname()[1], timeout=5)
+_conn.connect()
+check("keepalive: SO_KEEPALIVE is on", True, bool(_conn.sock.getsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE)))
+for _name, _want in (("TCP_KEEPIDLE", vlm.KEEPALIVE[0]), ("TCP_KEEPINTVL", vlm.KEEPALIVE[1]),
+                     ("TCP_KEEPCNT", vlm.KEEPALIVE[2])):
+    if hasattr(socket, _name):
+        check(f"keepalive: {_name}", _want, _conn.sock.getsockopt(socket.IPPROTO_TCP, getattr(socket, _name)))
+check("keepalive: the connect timeout is kept", 5, _conn.sock.gettimeout())
+check("keepalive: dead peer detected in under 3 minutes", True, vlm.KEEPALIVE[0] + vlm.KEEPALIVE[1] * vlm.KEEPALIVE[2] <= 180)
+_conn.close()
+_srv.close()
+# The installed opener's plain-HTTP handler opens that connection class.
+_opened = []
+class _Probe(vlm._KeepaliveHandler):
+    def do_open(self, conn_type, req, **kw):
+        _opened.append(conn_type)
+        raise urllib.error.URLError("probe")
+try:
+    _Probe().http_open(urllib.request.Request("http://192.0.2.1/x"))
+except urllib.error.URLError:
+    pass
+check("keepalive: the handler opens a keepalive connection", [vlm._KeepaliveConnection], _opened)
+# A platform without the TCP_KEEP* options still gets SO_KEEPALIVE, and no error.
+_set = []
+class _Sock:
+    def setsockopt(self, *a):
+        _set.append(a)
+_saved = {n: getattr(socket, n) for n in ("TCP_KEEPIDLE", "TCP_KEEPINTVL", "TCP_KEEPCNT", "TCP_KEEPALIVE") if hasattr(socket, n)}
+for _n in _saved:
+    delattr(socket, _n)
+try:
+    vlm.set_keepalive(_Sock())
+finally:
+    for _n, _v in _saved.items():
+        setattr(socket, _n, _v)
+check("keepalive: only SO_KEEPALIVE where the platform lacks the rest", [(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)], _set)
+# A dead connection (TimeoutError from the kernel's keepalive) takes the error path: the claim is queued again.
+_real_ask_png = vlm.ask_png
+vlm.put_spool("z" * 40, b"png", "p", 10)
+vlm.ask_png = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("VLM failed (timeout): timed out"))
+check("keepalive: a dead-connection drain asks nothing", None, vlm.drain_one())
+vlm.ask_png = _real_ask_png
+check("keepalive: a dead-connection ask is queued again, not dropped", True, vlm.pending("z" * 40))
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)
