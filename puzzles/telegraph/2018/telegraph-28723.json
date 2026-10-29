@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,41 @@
     "text": "Painter estimated to possess importance",
     "enumeration": "8"
    },
-   "solution": "INTEREST"
+   "solution": "INTEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "importance",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to possess",
+       "at": 18,
+       "note": "the two words painter and estimated are said to hold the run of letters inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Painter estimated",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art valuer's estimate reflects how important a painter is.",
+     "walkthrough": "'to possess' signals that the letters run across 'Painter estimated'; 'Painter' looks like the subject but just supplies letters.",
+     "definitionFit": "Synonym: something of note or significance is of great interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Painter"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +81,31 @@
     "text": "Shortened county borders",
     "enumeration": "4"
    },
-   "solution": "BEDS"
+   "solution": "BEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shortened county",
+      "at": 0,
+      "meaning": "the usual short form of Bedfordshire, an English county"
+     },
+     {
+      "text": "borders",
+      "at": 17,
+      "meaning": "flower borders in a garden, strips of planted soil"
+     }
+    ],
+    "explanation": {
+     "surface": "A truncated county's edges.",
+     "walkthrough": "Bedfordshire is an English county north of London, commonly shortened in writing.",
+     "definitionFit": "Flower borders are garden plots, and the shortened county name is the abbreviation of Bedfordshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +119,63 @@
     "text": "Hate rodents eating nearly everything",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 13,
+       "note": "the rodents take in the next part, so it sits inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rodents",
+       "at": 5,
+       "gives": "MICE",
+       "note": "mice are small rodents"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 20,
+         "note": "almost all of the word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "everything",
+         "at": 27,
+         "gives": "ALL",
+         "note": "everything means all"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loathes rodents that devour almost everything in sight.",
+     "walkthrough": "'nearly' drops the last letter of the word for everything, and 'eating' sets the result inside the rodents.",
+     "definitionFit": "Synonym: ill will or spite towards someone is hatred."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +189,36 @@
     "text": "Fabricator of wicked articles?",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fabricator of wicked articles?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Fabricator of wicked articles?",
+       "at": 0,
+       "note": "'wicked' is read literally as having wicks: a maker of candles, not of sinful things"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who makes up evil stories or goods.",
+     "walkthrough": "'wicked' suggests evil, but here it means fitted with a wick, so the articles are candles.",
+     "definitionFit": "Example: a candle maker is the traditional trade name for someone who manufactures wicked goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +232,64 @@
     "text": "Roughly chop tile, about to lift chopper",
     "enumeration": "10"
    },
-   "solution": "HELICOPTER"
+   "solution": "HELICOPTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chopper",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Roughly",
+         "at": 0,
+         "note": "done roughly, the letters of chop and tile are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chop tile",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to lift",
+         "at": 25,
+         "note": "in a down clue lifting the word for about turns it upwards, reading backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "about",
+         "at": 19,
+         "gives": "RE",
+         "note": "re is a short word meaning about or concerning"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rough instruction about chopping tiles before lifting a cleaver.",
+     "walkthrough": "'Roughly' rearranges CHOPTILE to HELICOPT; 'to lift' turns RE (about) into ER at the bottom.",
+     "definitionFit": "Slang: a chopper is an informal name for a rotor aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chopper"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +303,48 @@
     "text": "Boot that is holding up properly",
     "enumeration": "6"
    },
-   "solution": "WELLIE"
+   "solution": "WELLIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "holding up",
+       "at": 13,
+       "note": "in a down clue the second piece sits below and supports the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "properly",
+       "at": 24,
+       "gives": "WELL",
+       "note": "done properly means done well"
+      },
+      {
+       "words": "that is",
+       "at": 5,
+       "gives": "IE",
+       "note": "ie is the abbreviation of id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boot that is properly holding up, well made.",
+     "walkthrough": "'holding up' places IE beneath WELL in the down entry.",
+     "definitionFit": "Example: a Wellington rubber boot, known informally in Britain by this short name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +358,41 @@
     "text": "Minimise part played embraced by bounder, actually",
     "enumeration": "8"
    },
-   "solution": "UNDERACT"
+   "solution": "UNDERACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minimise part played",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 21,
+       "note": "the letters sit held within the words bounder and actually"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bounder, actually",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor downplays the role of a cad.",
+     "walkthrough": "'embraced by' signals the letters run across 'bounder, actually'.",
+     "definitionFit": "Theatrical idiom: to perform a role with too little emphasis is to play it down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bounder"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +406,49 @@
     "text": "Little tense, impatient to go under",
     "enumeration": "6"
    },
-   "solution": "TITCHY"
+   "solution": "TITCHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to go under",
+       "at": 24,
+       "note": "in a down clue the impatient word is placed below the tense letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tense",
+       "at": 7,
+       "gives": "T",
+       "note": "T is the grammatical abbreviation for tense"
+      },
+      {
+       "words": "impatient",
+       "at": 14,
+       "gives": "ITCHY",
+       "note": "itchy means restless or impatient"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small, tense person impatient to undergo something.",
+     "walkthrough": "'to go under' puts ITCHY beneath T.",
+     "definitionFit": "British slang: very small or tiny, used of people or things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +462,36 @@
     "text": "Well this could be rich!",
     "enumeration": "6"
    },
-   "solution": "HEELED"
+   "solution": "HEELED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well this could be rich!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Well this could be rich!",
+       "at": 0,
+       "note": "put 'well' in front of the solution and the phrase means wealthy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of sarcastic disbelief, 'well, this is rich!'.",
+     "walkthrough": "'Well' looks like an interjection but is the word that precedes the answer to form well-heeled, meaning affluent.",
+     "definitionFit": "Idiom: well-heeled means wealthy, so the answer completes a phrase for being rich."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +505,53 @@
     "text": "This compiler succeeded twice, creating difficulty",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "difficulty",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "This compiler",
+       "at": 0,
+       "gives": "ME",
+       "note": "the setter refers to themself, giving me"
+      },
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 24,
+         "note": "the abbreviation is used two times over"
+        }
+       ],
+       "parts": [
+        {
+         "words": "succeeded",
+         "at": 14,
+         "gives": "S",
+         "note": "S is the abbreviation for succeeded, as in family trees"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's double success has caused trouble.",
+     "walkthrough": "'twice' doubles S; 'This compiler' is the setter speaking as ME.",
+     "definitionFit": "Synonym: being in a muddle or predicament is being in trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +565,67 @@
     "text": "Losing time tailing bent criminal that's elusive",
     "enumeration": "10"
    },
-   "solution": "INTANGIBLE"
+   "solution": "INTANGIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "elusive",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "criminal",
+       "at": 25,
+       "note": "criminal suggests something crooked, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Losing",
+         "at": 0,
+         "note": "losing means one letter is dropped from the jumbled pool"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "tailing",
+           "at": 12
+          },
+          {
+           "words": "bent",
+           "at": 20
+          }
+         ]
+        },
+        {
+         "words": "time",
+         "at": 7,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt crook being tailed manages to stay hard to catch.",
+     "walkthrough": "'criminal' rearranges TAILINGBENT and 'Losing time' removes one T from the eleven letters.",
+     "definitionFit": "Synonym: something impossible to touch or pin down is elusive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +639,45 @@
     "text": "Reportedly stirred the female heart",
     "enumeration": "6"
    },
-   "solution": "CENTRE"
+   "solution": "CENTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heart",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CENTRE",
+     "indicators": [
+      {
+       "text": "Reportedly",
+       "at": 0,
+       "note": "reportedly means as it is spoken, so the phrase is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stirred the female",
+       "at": 11,
+       "gives": "SENTHER",
+       "note": "stirred means sent (excited), and the female is her: sent her"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic moment: something stirred the woman's heart.",
+     "walkthrough": "'Reportedly' says 'sent her' (stirred her) is spoken like the answer.",
+     "definitionFit": "Synonym: the heart of something is its middle or core."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stirred"
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +691,44 @@
     "text": "Record in sort of music vault heard",
     "enumeration": "10"
    },
-   "solution": "TRANSCRIPT"
+   "solution": "TRANSCRIPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TRANSCRIPT",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 30,
+       "note": "heard means the phrase is matched by its spoken sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sort of music vault",
+       "at": 10,
+       "gives": "TRANCECRYPT",
+       "note": "trance is a kind of dance music and a crypt is a vault: trance crypt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recording of some music heard echoing in a vault.",
+     "walkthrough": "'heard' says 'trance crypt' is spoken like the answer.",
+     "definitionFit": "Synonym: a written copy or official record of what was said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vault"
+    }
+   }
   },
   {
    "number": 14,
@@ -212,7 +742,40 @@
     "text": "Chamber due to become sacrosanct",
     "enumeration": "8"
    },
-   "solution": "HALLOWED"
+   "solution": "HALLOWED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sacrosanct",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chamber",
+       "at": 0,
+       "gives": "HALL",
+       "note": "a hall is a large room or chamber"
+      },
+      {
+       "words": "due",
+       "at": 8,
+       "gives": "OWED",
+       "note": "a sum that is due is owed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chamber that is due to be consecrated.",
+     "definitionFit": "Synonym: something holy and revered is sacred and inviolable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -226,7 +789,49 @@
     "text": "Sad seeing jerk purchasing Sun vulgarly, perhaps",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "purchasing",
+       "at": 16,
+       "note": "purchasing means taking in, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jerk",
+       "at": 11,
+       "gives": "TIC",
+       "note": "a tic is a nervous jerk or twitch"
+      },
+      {
+       "words": "Sun vulgarly, perhaps",
+       "at": 27,
+       "gives": "RAG",
+       "note": "The Sun, a British tabloid, is an example of a rag, a dismissive word for a cheap newspaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is sad to see an idiot buying a lowbrow newspaper.",
+     "walkthrough": "'purchasing' means holding. The Sun is a British tabloid, and calling a newspaper a rag is a vulgar, scornful way to describe it.",
+     "definitionFit": "Synonym: something deeply distressing or calamitous is sad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 16,
@@ -240,7 +845,60 @@
     "text": "Solitary one criticised about love",
     "enumeration": "8"
    },
-   "solution": "ISOLATED"
+   "solution": "ISOLATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Solitary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 24,
+         "note": "about means going around, so the criticism word wraps the love letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "criticised",
+         "at": 13,
+         "gives": "SLATED",
+         "note": "slated means harshly criticised"
+        },
+        {
+         "words": "love",
+         "at": 30,
+         "gives": "O",
+         "note": "O is love, a zero score in tennis"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely person criticised over a love affair.",
+     "walkthrough": "'about' puts O (love) inside SLATED.",
+     "definitionFit": "Synonym: alone or cut off from others is solitary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 17,
@@ -254,7 +912,57 @@
     "text": "Steamy European rubbish exposed vice",
     "enumeration": "6"
    },
-   "solution": "EROTIC"
+   "solution": "EROTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Steamy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 7,
+       "gives": "E"
+      },
+      {
+       "words": "rubbish",
+       "at": 16,
+       "gives": "ROT",
+       "note": "rot means nonsense or rubbish"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 24,
+         "note": "exposed means stripped of its covering, so the outer letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vice",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racy European scandal reveals depravity.",
+     "walkthrough": "'exposed' strips VICE to IC.",
+     "definitionFit": "Slang sense: steamy scenes are sexually charged and sensual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 18,
@@ -268,7 +976,41 @@
     "text": "Plant which could make cat smile",
     "enumeration": "8"
    },
-   "solution": "CLEMATIS"
+   "solution": "CLEMATIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could make",
+       "at": 12,
+       "note": "could make means the letters can be reworked into a new word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cat smile",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant that might amuse a cat.",
+     "walkthrough": "'could make' rearranges CATSMILE.",
+     "definitionFit": "Example: a climbing garden flower, so a kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 19,
@@ -282,7 +1024,49 @@
     "text": "Strives to support live groups",
     "enumeration": "6"
    },
-   "solution": "BEVIES"
+   "solution": "BEVIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "groups",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "at": 8,
+       "note": "in a down clue the striving word holds up the living word from below"
+      }
+     ],
+     "parts": [
+      {
+       "words": "live",
+       "at": 19,
+       "gives": "BE",
+       "note": "be means exist or live"
+      },
+      {
+       "words": "Strives",
+       "at": 0,
+       "gives": "VIES",
+       "note": "vies means competes or strives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works hard to back live music bands.",
+     "walkthrough": "'to support' places VIES under BE in the down entry.",
+     "definitionFit": "Synonym: a bevy is a flock or gathering, so the plural means groups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 20,
@@ -296,7 +1080,69 @@
     "text": "Gets excited with single accepting male's jewel",
     "enumeration": "8"
    },
-   "solution": "GEMSTONE"
+   "solution": "GEMSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jewel",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 25,
+         "note": "accepting means taking in another letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "excited",
+           "at": 5,
+           "note": "excited means stirred up, so the four letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Gets",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "male's",
+         "at": 35,
+         "gives": "M",
+         "note": "M is the abbreviation for male"
+        }
+       ]
+      },
+      {
+       "words": "single",
+       "at": 18,
+       "gives": "ONE",
+       "note": "single means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets excited about a single man's jewellery.",
+     "walkthrough": "'excited' rearranges GETS to GEST; 'accepting' puts M inside, giving GEMST.",
+     "definitionFit": "Synonym: a precious stone cut for jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -310,7 +1156,69 @@
     "text": "Element of English spirit around British isle",
     "enumeration": "6"
    },
-   "solution": "ERBIUM"
+   "solution": "ERBIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 11,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 26,
+         "note": "the spirit goes around the next two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spirit",
+         "at": 19,
+         "gives": "RUM",
+         "note": "rum is a spirit"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "British",
+           "at": 33,
+           "gives": "B"
+          },
+          {
+           "words": "isle",
+           "at": 41,
+           "gives": "I",
+           "note": "I is the abbreviation for isle or island"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An essential element of English spirit around the British Isles.",
+     "walkthrough": "'around' puts BI inside RUM.",
+     "definitionFit": "Example: a rare-earth metal, a chemical element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 22,
@@ -324,7 +1232,49 @@
     "text": "Exchange with Simpson say, facing Queen",
     "enumeration": "6"
    },
-   "solution": "BARTER"
+   "solution": "BARTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exchange",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "facing",
+       "at": 27,
+       "note": "facing means placed right next to the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Simpson say",
+       "at": 14,
+       "gives": "BART",
+       "note": "Bart is one of The Simpsons, the cartoon family"
+      },
+      {
+       "words": "Queen",
+       "at": 34,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conversation with Wallis Simpson in front of the Queen.",
+     "walkthrough": "'Simpson' suggests Wallis Simpson, but Bart of the cartoon is meant. 'facing' puts BART beside ER.",
+     "definitionFit": "Synonym: to trade goods without money is to swap them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Simpson"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1288,61 @@
     "text": "Being into Netflix, gorges entire seasons initially",
     "enumeration": "6"
    },
-   "solution": "BINGES"
+   "solution": "BINGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being into Netflix, gorges entire seasons initially",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 42,
+       "note": "initially means take the first letter of each of the six words before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Being",
+       "at": 0
+      },
+      {
+       "words": "into",
+       "at": 6
+      },
+      {
+       "words": "Netflix",
+       "at": 11
+      },
+      {
+       "words": "gorges",
+       "at": 20
+      },
+      {
+       "words": "entire",
+       "at": 27
+      },
+      {
+       "words": "seasons",
+       "at": 34
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A streaming fan gobbles whole series at once.",
+     "walkthrough": "'initially' takes the first letters of all six preceding words, and the whole clue also describes the answer.",
+     "definitionFit": "Idiom: binge-watching is gorging on whole series of a show in one sitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1356,70 @@
     "text": "Straying, sailor helping to keep direction right",
     "enumeration": "10"
    },
-   "solution": "ABERRATION"
+   "solution": "ABERRATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 25,
+       "note": "to keep means to hold the next letters within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sailor",
+         "at": 10,
+         "gives": "AB",
+         "note": "AB, able-bodied seaman, is a sailor"
+        },
+        {
+         "words": "helping",
+         "at": 17,
+         "gives": "RATION",
+         "note": "a ration is a helping or portion"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "direction",
+         "at": 33,
+         "gives": "E",
+         "note": "E is east, a compass direction"
+        },
+        {
+         "words": "right",
+         "at": 43,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's food portion is kept on the right course.",
+     "walkthrough": "'to keep' means the sailor-plus-helping pair holds the two letters between them; 'helping' looks like a verb but is a noun, a portion.",
+     "definitionFit": "Synonym: a deviation or departure from the expected path."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1433,43 @@
     "text": "Stuff made with cold butter?",
     "enumeration": "4"
    },
-   "solution": "CRAM"
+   "solution": "CRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "at": 16,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      },
+      {
+       "words": "butter",
+       "at": 21,
+       "gives": "RAM",
+       "note": "a butter here is one who butts: a ram"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something made with cold butter, like pastry.",
+     "walkthrough": "'butter' is not the dairy spread but something that butts, a ram.",
+     "definitionFit": "Synonym: to pack or force tightly into a space is to stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1483,47 @@
     "text": "Bed covering a blanket",
     "enumeration": "4"
    },
-   "solution": "COAT"
+   "solution": "COAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blanket",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 4,
+       "note": "covering means the bed wraps around the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bed",
+       "at": 0,
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
+      {
+       "words": "a",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bed covering: a blanket.",
+     "walkthrough": "'Bed covering' reads as a definition but the bed (COT) is covering A.",
+     "definitionFit": "Synonym: a layer spread over a surface, as a coat of snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1537,52 @@
     "text": "Opposite of stiff drink pulled unevenly",
     "enumeration": "6"
    },
-   "solution": "SUPPLE"
+   "solution": "SUPPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opposite of stiff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drink",
+       "at": 18,
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "unevenly",
+         "at": 31,
+         "note": "unevenly means the odd-numbered letters are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pulled",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak drink as opposed to a stiff one, pulled at the bar.",
+     "walkthrough": "'unevenly' takes PLE from PULLED. 'stiff drink' looks like a phrase but 'Opposite of stiff' is the definition.",
+     "definitionFit": "Antonym: flexible and bending easily is the reverse of rigid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1596,41 @@
     "text": "Outline in coarse pants",
     "enumeration": "8"
    },
-   "solution": "SCENARIO"
+   "solution": "SCENARIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outline",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "pants",
+       "at": 18,
+       "note": "pants is British slang for rubbish, so the letters are a mess"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in coarse",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rough summary put across in vulgar trousers.",
+     "walkthrough": "'pants' is British slang for rubbish and rearranges INCOARSE.",
+     "definitionFit": "Synonym: a sketch or plot summary of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pants"
+    }
+   }
   }
  ]
 }
