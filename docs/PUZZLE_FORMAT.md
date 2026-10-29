@@ -155,7 +155,8 @@ filed, and the expression cannot write one. The tree, in brief:
   ends inside a word: the cut is folded into the leaf with no op).
   `wordplay.tradedIndicator` (two ops each carry the other's indicator word, or a hidden word carries a reversal's word).
   wordplay.charadeOrder (warning only; a charade joins its pieces in another order than the clue gives them, with no word to say so),
-  `wordplay.reversalSplit` (a reversal's indicator stands between the pieces it reverses) and
+  `wordplay.reversalSplit` (a reversal's indicator stands between the pieces it reverses),
+  `wordplay.reversedCharadeOrder` (a reversal over a charade whose pieces sit in the clue in another order than it lists them: reverse only the piece the indicator sits by) and
   wordplay.cutInLeaf (warning only; a leaf opens with a cut word such as short, half or first and gives fewer letters than its other words).
   `wordplay.movedLetter` (a deletion whose letter a sibling leaf gives again: use the move op).
   Round 25 (wrong scope / nesting, from the 33 r23 false negatives): `wordplay.anaSelectEdge` (an anagram holds a first/last-letter pick at the edge of its fodder that the answer shows outside the scramble),

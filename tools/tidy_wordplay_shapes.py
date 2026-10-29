@@ -77,6 +77,7 @@ FIELDS = {
     "wordplay.tradedIndicator": lambda ann: V.traded_indicators(ann.get("wordplay")),
     "wordplay.charadeOrder": lambda ann, clue=None: V.charade_out_of_order(ann.get("wordplay"), clue),
     "wordplay.reversalSplit": lambda ann, clue=None: V.reversal_split(ann.get("wordplay"), clue),
+    "wordplay.reversedCharadeOrder": lambda ann, clue=None: V.reversed_charade_order(ann.get("wordplay"), clue),
     "wordplay.cutInLeaf": lambda ann: V.cut_in_leaf(ann.get("wordplay")),
     "wordplay.anaSelectEdge": lambda ann: V.ana_select_edge(ann.get("wordplay"), ann.get("answer")),
     "wordplay.nonWordOperand": lambda ann: V.non_word_operands(ann.get("wordplay")),
@@ -106,7 +107,7 @@ FIELDS = {
 }
 #: Fields whose finding places words in the clue, so counts() hands them its text.
 NEEDS_CLUE = {"wordplay.deletionInside", "wordplay.anagramSynonym", "wordplay.poolGap",
-              "wordplay.charadeOrder", "wordplay.reversalSplit", "wordplay.delWide", "wordplay.indLeafOverlap",
+              "wordplay.charadeOrder", "wordplay.reversalSplit", "wordplay.reversedCharadeOrder", "wordplay.delWide", "wordplay.indLeafOverlap",
               "wordplay.delWrapsCharade"}
 
 

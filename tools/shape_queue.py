@@ -309,6 +309,9 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                        "'before' to say so: keep the clue's order or reverse the piece that moves",
        "reversalSplit": "a reversal's indicator stands between the pieces it reverses: it reverses the one piece "
                         "it sits by, so reverse that piece inside the charade or container",
+       "reversedCharadeOrder": "a reversal over a charade whose pieces sit in the clue in another order than the "
+                               "charade lists them: keep the clue's order and reverse only the piece the indicator "
+                               "sits by (SURF + rev(TIE), not rev(TIE + FRUS))",
        "cutInLeaf": "a leaf opens with a cut word (short, half, first) and gives fewer letters than its other "
                     "words: the cut is an op with its own indicator",
        "anaSelectEdge": "an anagram holds a first/last-letter pick at the edge of its fodder, and the answer shows "
@@ -418,6 +421,7 @@ def _validator_rules():
             "tradedIndicator": lambda t, a, c: V.traded_indicators(t),
             "charadeOrder": lambda t, a, c: V.charade_out_of_order(t, c),
             "reversalSplit": lambda t, a, c: V.reversal_split(t, c),
+            "reversedCharadeOrder": lambda t, a, c: V.reversed_charade_order(t, c),
             "cutInLeaf": lambda t, a, c: V.cut_in_leaf(t, c),
             "anaSelectEdge": lambda t, a, c: V.ana_select_edge(t, a.get("_answer") or None),
             "nonWordOperand": lambda t, a, c: V.non_word_operands(t),
