@@ -1282,8 +1282,19 @@ def _match_container(node, want, got):
                 got.update(trial)
                 return True
     if _scatters(node):
+        # A selection (or a bare leaf) matches exactly the strings values() gives, so ask
+        # values() once: the combinations whose letters are not among them fail without
+        # a match() each, which re-ran values() on every one (C(14,7) of them).
+        gives = None
+        if not inner.get("unchecked") and (inner.get("op") is None or inner.get("op") in SELECT):
+            try:
+                gives = values(inner)
+            except (_NeedTarget, WordplayError):
+                gives = None
         for n in sorted(lengths(inner) or range(2, len(want))):
             for pos in itertools.combinations(range(1, len(want) - 1), n):
+                if gives is not None and "".join(want[j] for j in pos) not in gives:
+                    continue
                 trial = dict(got)
                 rest = "".join(c for j, c in enumerate(want) if j not in pos)
                 if (match(inner, "".join(want[j] for j in pos), trial) is not None
