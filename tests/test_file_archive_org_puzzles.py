@@ -4908,7 +4908,7 @@ check("CLUE_REPEATED is a rank 2 answers-only fix reason, evidence, LOW, a fix l
       (f.RANKS[f.CLUE_REPEATED], f.CLUE_REPEATED in f.SOLUTION_FIXES, f.CLUE_REPEATED.startswith("solution short"),
        f.CLUE_REPEATED in __import__("edition_queue").LOW_ASK, f.CLUE_REPEATED in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.CLUE_REPEATED),
-       __import__("edition_queue").UNFILED_FIRST[-1] == f.CLUE_REPEATED))
+       __import__("edition_queue").UNFILED_FIRST[-2] == f.CLUE_REPEATED))
 _cr = min(f.CLUE_REPEAT_PUZZLES)
 check("clue_repeat_short: a row read since REREAD_CLUE_REPEATED, no Times paper's, a refused grid's or another puzzle's "
       "is not due; the reason is apart from VOUCHED_FIT", [False, False, False, False, True],
@@ -4922,6 +4922,35 @@ check("clue_repeat_short: a row read since REREAD_CLUE_REPEATED, no Times paper'
                             "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
                                           "solution": {"accepted": 2, "lights": 30}}]}),
        f.CLUE_REPEATED != f.VOUCHED_FIT])
+# LATE_SOLUTIONS: a puzzle whose solution heading prints in a later issue than host_day names (1972-03-17's 13,027 on
+# the Wednesday 03-22) has that issue as a host, so hosted() takes its number and linked_solutions keeps the heading;
+# a row read before it is due LATE_LINKED once its number is seen.
+_ld = f.datetime.date
+check("host_days names a LATE_SOLUTIONS puzzle's late host after the next issue's, and hosts_of the reverse; others none",
+      ([_ld(1972, 3, 18), _ld(1972, 3, 22)], True, [_ld(1972, 3, 20)], False),
+      (f.host_days(_ld(1972, 3, 17)), _ld(1972, 3, 17) in f.hosts_of(_ld(1972, 3, 22)),
+       f.host_days(_ld(1972, 3, 18)), _ld(1972, 3, 17) in f.hosts_of(_ld(1972, 3, 24))))
+check("every LATE_SOLUTIONS host stands within HOST_REACH days after its puzzle and past host_day",
+      True, all(0 < (h - d).days <= f.HOST_REACH and h != f.host_day(d) for d, h in f.LATE_SOLUTIONS.items()))
+_lr = {"edition": "GaleTimes1972UKEnglish/1972-03-17", "inputs": "x", "solutionsSeen": [],
+       "scan": {"date": "1972-03-17", "puzzles": [{"number": 13027}], "solutions": []},
+       "verdicts": [{"number": 13027, "id": "times-13027", "clues": 30, "lights": 30, "answers": 0}]}
+check("late_linked: a LATE_SOLUTIONS puzzle's row whose number is seen now and was not is due LATE_LINKED once; not one "
+      "linked already, seen before, off the table, another series', or without a verdict",
+      [True, False, False, False, False, False, False, True],
+      [f.late_linked(_lr, [13027]), f.late_linked({**_lr, "solutionsSeen": [13027]}, [13027]),
+       f.late_linked(_lr, []),
+       f.late_linked({**_lr, "verdicts": [{**_lr["verdicts"][0], "solutionFrom": "1972-03-22 leaf 0"}]}, [13027]),
+       f.late_linked({**_lr, "scan": {**_lr["scan"], "date": "1972-03-31"}}, [13027]),
+       f.late_linked({**_lr, "edition": "FinancialTimes1972UKEnglish/1972-03-17"}, [13027]),
+       f.late_linked({**_lr, "verdicts": []}, [13027]),
+       f.due_reason(_lr, "x", [13027], None) == f.LATE_LINKED])
+check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, first of the queue",
+      (2, True, True, True, True, True),
+      (f.RANKS[f.LATE_LINKED], f.LATE_LINKED in f.SOLUTION_FIXES,
+       f.LATE_LINKED in __import__("edition_queue").LOW_ASK, f.LATE_LINKED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.LATE_LINKED),
+       __import__("edition_queue").UNFILED_FIRST[-1] == f.LATE_LINKED))
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
