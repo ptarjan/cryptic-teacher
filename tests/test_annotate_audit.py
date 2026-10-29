@@ -133,6 +133,14 @@ check(target(ranked, told(1, **{"rule:x": 0.40, "rule:z": 0.05})), "rule:y",
 check(target([f("rule:x", 0.55)] + ranked[1:], told(1, **{"rule:x": 0.40})), "rule:x",
       "a clearly worse one jumps the cooldown")
 check(target([f("rule:x", 0.02)], {}), None, "nothing above the floor stays quiet")
+def target_muted(ranked, state, muted):
+    got = a.pick(ranked, [], state, now, lambda k: k in muted)
+    return got and got[0]["key"]
+check(target_muted(ranked, told(30, **{"rule:x": 0.07}), {"rule:x"}), "rule:y",
+      "a cause muted no-lever is skipped even past its cooldown")
+check(target_muted(ranked, told(1, **{"rule:x": 0.40}), {"rule:x"}), "rule:y",
+      "a muted cause is skipped even when it has grown")
+check(target_muted([f("rule:x", 0.07)], {}, {"rule:x"}), None, "all muted stays quiet")
 check(target(ranked, told(1, **{"rule:x": 0.1, "rule:y": 0.1, "rule:z": 0.1})), None,
       "every qualifying finding in its cooldown stays quiet")
 trend = {"key": "trend:cost", "share": 1.0, "value": 1.3, "title": "t", "detail": ""}

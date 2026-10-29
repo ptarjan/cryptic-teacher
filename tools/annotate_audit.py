@@ -555,13 +555,26 @@ def level(key, value):
     return f"{value:g}" if key.startswith("trend:") else f"{value:.0%}"
 
 
-def pick(ranked, trends, state, now):
+def ledger_muted():
+    """key -> bool: the room settled this cause as having no code lever (annotate_ledger
+    --no-lever), by the ledger's own `muted` (lapses at the next annotate-code commit)."""
+    import annotate_ledger as L   # imports this module, so only at call time
+    commit = L.code_commit()
+    rows = L.read_ledger()
+    if commit[1]:
+        rows = [r for r in rows if L.parse(r["end"]) >= L.parse(commit[1])]
+    book = L.read_no_lever()
+    return lambda key: L.muted(book.get(key), L.cause_per_clue(rows, key)[0], commit[1])
+
+
+def pick(ranked, trends, state, now, muted=lambda key: False):
     """The one fix target as (item, why), or None when nothing reaches FIX_FLOOR.
+    An item `muted(key)` calls no-lever is never the target.
 
     A woken item that has clearly grown, or a new trend, jumps the cooldown;
     otherwise the highest-ranked item not woken within COOLDOWN_DAYS."""
     seen = state.get("items", {})
-    pool = trends + [f for f in ranked if f["share"] >= FIX_FLOOR]
+    pool = [f for f in trends + [f for f in ranked if f["share"] >= FIX_FLOOR] if not muted(f["key"])]
     for item in pool:
         last = seen.get(item["key"])
         if last and grown(item, last):
@@ -766,7 +779,7 @@ def main(argv=None):
     STATE_DIR.mkdir(exist_ok=True)
     state_path = STATE_DIR / "state.json"
     state = json.loads(state_path.read_text()) if state_path.exists() else {}
-    target = pick(ranked, trends, state, now) if cur["n"] >= MIN_SESSIONS else None
+    target = pick(ranked, trends, state, now, ledger_muted()) if cur["n"] >= MIN_SESSIONS else None
     extra = refusal_section(target[0], args.hours, now) if target else ""
     if args.dry_run:
         print("\n--- would wake ---\n" + wake_text(*target, cur, extra) if target
