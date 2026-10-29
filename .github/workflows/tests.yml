@@ -618,7 +618,7 @@ jobs:
               top=$(ps -eo rss=,args= --sort=-rss | head -4 \
                 | awk '{printf "%dMB %s %s %s | ", $1/1024, $2, $3, $4}')
               echo "mem $(date +%T) $m top: $top"
-              sudo -n dmesg 2>/dev/null | grep -i -E 'out of memory|oom-kill|killed process' | tail -2 | sed 's/^/mem dmesg: /'
+              sudo -n dmesg 2>/dev/null | grep -i -E 'out of memory|oom-kill|killed process' | tail -2 | sed 's/^/mem dmesg: /' || true
               sleep 20
             done
           ) &
