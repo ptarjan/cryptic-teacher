@@ -346,6 +346,7 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
                          "unscrambled at its edge: set the word beside the anagram in a charade",
        "delWrapsCharade": "a deletion wraps a charade though its indicator stands between the charade's pieces: it cuts "
                           "the one piece next to it, so put the deletion on that piece inside the charade",
+       "doubledApostrophe": "a quoted word has two apostrophes in a row inside it (Guardian''s): write the one the clue has",
        "repeatInLeaf": "a leaf holds a doubling word (twice, double, again) and gives a doubled string: give the "
                        "block once and repeat it with an op carrying that indicator",
        "splitWordLeaves": "one word is split into two leaves over the same clue words with an insert between (EI + N + D "
@@ -433,6 +434,7 @@ def _validator_rules():
             "cutNoteLeaf": lambda t, a, c: V.cut_note_leaf(t),
             "ownIndInLeaf": lambda t, a, c: V.own_ind_in_leaf(t),
             "repeatInLeaf": lambda t, a, c: V.repeat_in_leaf(t),
+            "doubledApostrophe": lambda t, a, c: V.doubled_apostrophe(t),
             "splitWordLeaves": lambda t, a, c: V.split_word_leaves(t),
             "moveNoteLeaf": lambda t, a, c: V.move_note_leaf(t),
             "firstSiblingLeaves": lambda t, a, c: V.first_sibling_leaves(t),
