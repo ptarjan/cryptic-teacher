@@ -1031,8 +1031,11 @@ check("blanket_or_fix: a Times row's answers-only fix, lost write, unfiled page'
        "refused no-reading-parses before its fix", "inputs changed", f.RIGHT_FOREIGN_READ, "inputs changed"],
       bf)
 import edition_queue as _eq_bp
+# blanket_or_fix lets a reason stand past a blanket one when it is in SOLUTION_FIXES (answers-only: VOUCHED_FIT,
+# CLUE_REPEATED, LATE_LINKED), in BLANKET_PASSES, or a refusal reread (refusal_passes: NUMBER_DATE_REFUSED).
 check("every reason edition_queue.UNFILED_FIRST orders first passes blanket_or_fix (BLANKET_PASSES)",
-      set(), set(_eq_bp.UNFILED_FIRST) - set(f.BLANKET_PASSES))
+      set(), {w for w in _eq_bp.UNFILED_FIRST
+              if w not in f.BLANKET_PASSES and w not in f.SOLUTION_FIXES and not f.refusal_passes(w)})
 check("a held file 1-2 short with a blank light no strip was cut for, read since REREAD_VLM_UNLISTED (its reading "
       "3+ short or whole): LATE_STRIPS (rank 2, answers-only, a LOW prefix); not read since REREAD_LATE_STRIPS, "
       "VLM_FLOOR_SHORT where that is due, nothing with every blank light's strip cut",
@@ -4808,7 +4811,7 @@ check("vouched_fit: the one past answer the crossings leave that the classifier 
       "with one letter crossed, a flat classifier, two near-equal words (PLANET/PLANED), a split enumeration or none",
       ["PLANET", "SLATED", None, None, None, None, None],
       [f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", vf_probs("PLANET"), "6"),
-       f.trove_solution_ocr.vouched_fit(vf_cells, "?L????", vf_probs("SLATED"), "6"),
+       f.trove_solution_ocr.vouched_fit(vf_cells, "SL????", vf_probs("SLATED"), "6"),
        f.trove_solution_ocr.vouched_fit(vf_cells, "P?????", vf_probs("PLANET"), "6"),
        f.trove_solution_ocr.vouched_fit(vf_cells, "PL????", {rc: [1 / 26] * 26 for rc in vf_cells}, "6"),
        f.trove_solution_ocr.vouched_fit(vf_cells, "PLAN??", vf_half, "6"),
@@ -4864,10 +4867,12 @@ check("vouched_short: VOUCHED_MORE is apart from VOUCHED_PUZZLES and read later;
 cr_t = f.trove_solution_ocr
 cr_filed, cr_corpus = cr_t.filed_clues, cr_t.corpus_words
 cr_key = lambda text, enum="6": cr_t.clue_key(text, enum)
-cr_book = {cr_key("Where we live, in a word"): [("times-7", "PLANET", True), ("times-8", "PLANED", False)],
+# (times-8's BLAMED is a lone read file's answer that fits no crossing of PLANET's: a rival that fits (PLANED) leaves
+# two fits, so no answer, which the "Rival answers" clue below tests on its own.)
+cr_book = {cr_key("Where we live, in a word"): [("times-7", "PLANET", True), ("times-8", "BLAMED", False)],
            cr_key("A short clue about stars", "6"): [("times-9", "COMETS", False)],
            cr_key("Another clue about stars", "6"): [("times-9", "COMETS", False), ("times-10", "COMETS", False)],
-           cr_key("Rival answers to this clue", "6"): [("times-9", "COMETS", True), ("times-10", "PLANET", True)],
+           cr_key("Rival answers to this clue", "6"): [("times-9", "COMETS", True), ("times-10", "COMETH", True)],
            cr_key("Our own earlier answer", "6"): [("times-5", "PLANET", True)]}
 cr_t.filed_clues = lambda: cr_book
 cr_t.corpus_words = lambda: frozenset({"PLANET", "COMETS"})
@@ -4875,9 +4880,9 @@ check("clue_repeat: the one answer another puzzle's file gives the clue that fit
       "alike); not a lone read file's, rivals, its own puzzle's, one letter crossed, a clue too short, or a word unlisted",
       ["PLANET", "COMETS", None, None, None, None, None, None, None],
       [cr_t.clue_repeat("Where we live, in a word", "6", "PL????"),
-       cr_t.clue_repeat("Another clue about stars", "6", "C?????"),
+       cr_t.clue_repeat("Another clue about stars", "6", "C?M???"),
        cr_t.clue_repeat("A short clue about stars", "6", "C?M???"),
-       cr_t.clue_repeat("Rival answers to this clue", "6", "?O????"),
+       cr_t.clue_repeat("Rival answers to this clue", "6", "?O?E??"),
        cr_t.clue_repeat("Our own earlier answer", "6", "PL????", "times-5"),
        cr_t.clue_repeat("Where we live, in a word", "6", "P?????"),
        cr_t.clue_repeat("Where we live", "6", "PL????"),
@@ -4899,7 +4904,7 @@ cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, pu
 check("clue_solved_reads takes the answer the clue's other puzzle gave as ours (clueSolved), first of the rules",
       ({"1-across": "PLANET"}, {"1-across": "PLANET"}), (cr_ans, cr_info.get("clueSolved")))
 cr_ans, cr_info = f.clue_solved_reads(cr_es, {}, {}, None, vf_enums, vf_crop, puzzle_id="times-7")
-check("... not from the puzzle's own file (times-7 gave it, a rival PLANED fits too)", ({}, None),
+check("... not from the puzzle's own file (times-7 gave it, and no other file's answer fits)", ({}, None),
       (cr_ans, cr_info.get("clueSolved")))
 cr_t.lights, f.checked_answers, f.crop_cell_probs = cr_real
 cr_t.filed_clues, cr_t.corpus_words = cr_filed, cr_corpus
@@ -4935,6 +4940,10 @@ check("every LATE_SOLUTIONS host stands within HOST_REACH days after its puzzle 
 _lr = {"edition": "GaleTimes1972UKEnglish/1972-03-17", "inputs": "x", "solutionsSeen": [],
        "scan": {"date": "1972-03-17", "puzzles": [{"number": 13027}], "solutions": []},
        "verdicts": [{"number": 13027, "id": "times-13027", "clues": 30, "lights": 30, "answers": 0}]}
+# paper_of is stubbed to TIMES here (ao_stubbed, restored below): the other series' row needs the real one.
+_late_stub, f.paper_of = f.paper_of, ao_stubbed["paper_of"]
+_late_ft = f.late_linked({**_lr, "edition": "FinancialTimes1972UKEnglish/1972-03-17"}, [13027])
+f.paper_of = _late_stub
 check("late_linked: a LATE_SOLUTIONS puzzle's row whose number is seen now and was not is due LATE_LINKED once; not one "
       "linked already, seen before, off the table, another series', or without a verdict",
       [True, False, False, False, False, False, False, True],
@@ -4942,7 +4951,7 @@ check("late_linked: a LATE_SOLUTIONS puzzle's row whose number is seen now and w
        f.late_linked(_lr, []),
        f.late_linked({**_lr, "verdicts": [{**_lr["verdicts"][0], "solutionFrom": "1972-03-22 leaf 0"}]}, [13027]),
        f.late_linked({**_lr, "scan": {**_lr["scan"], "date": "1972-03-31"}}, [13027]),
-       f.late_linked({**_lr, "edition": "FinancialTimes1972UKEnglish/1972-03-17"}, [13027]),
+       _late_ft,
        f.late_linked({**_lr, "verdicts": []}, [13027]),
        f.due_reason(_lr, "x", [13027], None) == f.LATE_LINKED])
 check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, first of the queue",

@@ -50,6 +50,11 @@ check("a copied enumeration is dropped from the definition", [0],
 check("a copied hyphenated enumeration is dropped", [4], at("Big cat", "cat (2-3, 4)"))
 check("an enumeration-only difference does not hide a missing word", True,
       "not in the clue" in (refused("Big cat", "dog (3)") or ""))
+# A blank clue (an OCR read left it empty) carrying an annotation's definition is left alone, not a crash.
+blank = {"id": "times-1", "entries": [{"number": 22, "direction": "down", "clue": {"text": "", "enumeration": "4"},
+                                       "annotation": {"definitions": [{"text": "x"}]}}]}
+check("place_puzzle: a blank clue's definitions are left as they are", [{"text": "x"}],
+      D.place_puzzle(blank)["entries"][0]["annotation"]["definitions"])
 
 def errors(defs):
     puzzle = {"id": "t-1", "entries": [{"number": 1, "direction": "across",
