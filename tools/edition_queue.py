@@ -1217,7 +1217,23 @@ def _plan(papers, cache, reread, out, asked=None):
     ended = time.monotonic()
     if out is not None and ended - began >= SLOW_PLAN:
         out.append(slow_plan_note(took, ended, began))
-    return by_urgency(scans, serves=solution_needs(t[3] for t in reads)), by_urgency(reads)
+    reads_only = [t[3] for t in reads]
+    return (by_urgency(scans, serves=solution_needs(reads_only), fixing=fixing_needs(reads_only)),
+            by_urgency(reads))
+
+
+def fixing_needs(reads):
+    """The (paper, rel) of every edition a newest-first paper's fix reread (fixing_work) waits on: its own
+    and its needs. by_urgency puts the scans of these first of all, with those rereads."""
+    named = newest_first_papers()
+    return {(u["paper"], rel) for u in reads if u.get("paper") in named and fixing_work(u)
+            for rel in [u["rel"], *(u.get("needs") or ())]}
+
+
+def fixing_work(unit):
+    """Whether `unit` rereads a page for a reader fix just shipped (UNFILED_FIRST: a page held back
+    unfiled whose failure shape a fix since reads, or a lost write)."""
+    return unit.get("reason") in UNFILED_FIRST
 
 
 def solution_needs(reads):
@@ -1482,7 +1498,7 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
-def by_urgency(units, serves=frozenset()):
+def by_urgency(units, serves=frozenset(), fixing=frozenset()):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
@@ -1556,9 +1572,15 @@ def by_urgency(units, serves=frozenset()):
     named = newest_first_papers()
     if not named:
         return listener_order + others
-    solution = [u for u in others if u.get("paper") in named
+    # Paul 10-28: "Things you're fixing should be at the front of the queue". A fix's rereads (fixing_work,
+    # and the scans they wait on) go first of all, ahead of the solution work: on 10-28 ~1,000 of them
+    # stood at 2,600+ of 25,600 reads behind solution rereads, so no fix could be judged for hours.
+    fixes = [u for u in others if u.get("paper") in named
+             and (fixing_work(u) or (u.get("paper"), u.get("rel")) in fixing)]
+    first = {id(u) for u in fixes}
+    solution = [u for u in others if u.get("paper") in named and id(u) not in first
                 and (times_solution_work(u) or (u.get("paper"), u.get("rel")) in serves)]
-    first = {id(u) for u in solution}
+    first |= {id(u) for u in solution}
     # A lost write's reread (fa.LOST_WRITE, rank 2) is as good as never read: it goes with the never-read.
     # 10-27: the 247 planned stood at 9,309+ of 22,373, behind the Listener, two days after REREAD_LOST.
     # So do UNFILED_FIRST's (a puzzle held back unfiled by one blank a fix since reads): each files a new
@@ -1566,7 +1588,7 @@ def by_urgency(units, serves=frozenset()):
     new = [u for u in others if u.get("paper") in named and id(u) not in first
            and (u.get("rank", 9) <= 1 or u.get("reason") in UNFILED_FIRST)]
     first |= {id(u) for u in new}
-    return solution + new + listener_order + [u for u in others if id(u) not in first]
+    return fixes + solution + new + listener_order + [u for u in others if id(u) not in first]
 
 
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
