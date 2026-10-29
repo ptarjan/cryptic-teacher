@@ -17,6 +17,7 @@ const http = require("http");
 const zlib = require("zlib");
 const { spawn } = require("child_process");
 const ROOT = path.join(__dirname, "..");
+const SERVED = ROOT + path.sep;
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
   ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json", ".png": "image/png" };
 
@@ -39,16 +40,21 @@ async function withPhone(body) {
   let up = true;
   const server = http.createServer((req, res) => {
     if (!up) { req.socket.destroy(); return; }
-    let p = path.resolve(ROOT, "." + decodeURIComponent(req.url.split("?")[0].split("#")[0]));
-    // Nothing outside the checkout is served, so the guard runs before any file access.
-    if (p !== ROOT && !p.startsWith(ROOT + path.sep)) { res.writeHead(404); res.end(); return; }
-    if (p.endsWith(path.sep) || p === ROOT) p = path.join(p, "index.html");
+    let rel = decodeURIComponent(req.url.split("?")[0].split("#")[0]);
+    if (rel.endsWith("/")) rel += "index.html";
+    // Each path is resolved and checked against the checkout before any file
+    // access, so nothing outside it is served.
+    const p = path.resolve(ROOT, "." + rel);
+    if (!p.startsWith(SERVED)) { res.writeHead(404); res.end(); return; }
     // The deploy ships each puzzle shim as <id>.js.gz (tools/stage_site.py);
     // the checkout holds the .js, so it is gzipped here as asked for.
-    if (p.endsWith(".js.gz") && !fs.existsSync(p) && fs.existsSync(p.slice(0, -3))) {
-      res.writeHead(200, { "content-type": "application/gzip" });
-      res.end(zlib.gzipSync(fs.readFileSync(p.slice(0, -3))));
-      return;
+    if (rel.endsWith(".js.gz") && !fs.existsSync(p)) {
+      const js = path.resolve(ROOT, "." + rel.slice(0, -3));
+      if (js.startsWith(SERVED) && fs.existsSync(js)) {
+        res.writeHead(200, { "content-type": "application/gzip" });
+        res.end(zlib.gzipSync(fs.readFileSync(js)));
+        return;
+      }
     }
     if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { "content-type": TYPES[path.extname(p)] || "application/octet-stream" });
