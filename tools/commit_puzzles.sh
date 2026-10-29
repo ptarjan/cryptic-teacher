@@ -61,7 +61,8 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
       now=""
       [[ "$line" == R* ]] && now="${p[2]##*/}" && now="${now%.json}"
       python3 "$_cp_dir/puzzle_rows.py" retire "${gone%.json}" $now >/dev/null || return 1
-      for t in source_clue_wrong source_answer_wrong setter_error blog_disagree ninas blind_misses diagnosed_misses renamed_ids; do
+      # book_twins too: a book file that gave way to its newspaper copy (fetch_puzzle.unsolved_book_yields) drops its pair.
+      for t in source_clue_wrong source_answer_wrong setter_error blog_disagree ninas blind_misses diagnosed_misses book_twins renamed_ids; do
         [ -f "tools/data/$t.json" ] && p+=("tools/data/$t.json")
       done
     fi

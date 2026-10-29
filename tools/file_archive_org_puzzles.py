@@ -8590,13 +8590,17 @@ def held_copy(d, verdict, puzzle):
     if puzzle is None or d is None or d.name in _KEEP_VLM["names"] or verdict.get("number") is None:
         return None
     try:
-        from fetch_puzzle import clue_index, clue_keys
+        from fetch_puzzle import clue_index, clue_keys, unsolved_book
         import clue_index as ci
         if verdict["number"] in held_dates(paper_of(d).series):
             return None
         entries = len(puzzle.get("entries") or ())
         keys = clue_keys(puzzle)
         for other, shared, _, _ in clue_index().matches(puzzle["id"], keys):
+            # An unsolved, unannotated book file gives way to a copy with every answer
+            # (fetch_puzzle.unsolved_book_yields): its asks can change the page's fate.
+            if unsolved_book(other) is not None:
+                continue
             if entries and shared >= ci.THRESHOLD * entries:
                 return other
             # A few blank lights (the VLM's to fill): the clues the readers did print are the
@@ -11926,6 +11930,38 @@ def punct_mended(row):
         return False
     for v in row.get("verdicts", ()):
         if not v.get("id") or not punct_clean(v.get("refusedWrite")):
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a Times page (Gale or News UK) whose write check_not_copy refused as a copy
+#: of a held book file that holds no answer and no annotation, its reading every answer (answers == lights):
+#: such a book now gives way to the newspaper copy (fetch_puzzle.unsolved_book_yields), its rows and its id
+#: carried to it. Failure shapes r29, 10-29: 128 Gale Times pages refused over a book (2000s 72, 2010s 23,
+#: 1980s 18), 76 over an unsolved, unannotated one, 45 of those read with every answer. A solved or annotated
+#: book stands; a reading short of an answer stays refused.
+BOOK_YIELDS = "write refused before its fix, an unsolved book copy of its clues"
+REREAD_BOOK_YIELDS = "2026-10-29T05:15:00+00:00"
+#: The book id check_not_copy's refusal names.
+BOOK_COPY_REFUSAL = re.compile(r"served the clues of (book-\d+) \(")
+
+
+def book_yields_due(row):
+    """Whether Times ledger `row`, read before REREAD_BOOK_YIELDS, has a verdict with every answer read whose
+    write was refused as a copy of a held book file that holds no answer and no annotation
+    (fetch_puzzle.unsolved_book), its puzzle not held whole."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times", "times1930") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_BOOK_YIELDS)):
+        return False
+    for v in row.get("verdicts", ()):
+        m = BOOK_COPY_REFUSAL.search(str(v.get("refusedWrite") or ""))
+        if not v.get("id") or not m or not v.get("lights") or v.get("answers") != v.get("lights"):
+            continue
+        from fetch_puzzle import unsolved_book
+        if unsolved_book(m.group(1)) is None:
             continue
         if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
             return True
@@ -15833,6 +15869,8 @@ def fix_reason(row):
         return NEIGHBOUR_TAIL
     if punct_mended(row):
         return PUNCT_MENDED
+    if book_yields_due(row):
+        return BOOK_YIELDS
     if gap_vote_due(row):
         return GAP_VOTED
     if strip_tailed(row):
@@ -16343,7 +16381,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-28 r27: a page unfiled over a linked clue's torn count or split-off number (linked_count_due).
                   LINKED_COUNT_READ,
                   # 10-28 r28: a page unfiled over a linked clue's comma read as a stop (stray_link_due).
-                  STRAY_LINK_READ)
+                  STRAY_LINK_READ,
+                  # 10-29 r29: a write refused as a copy of an unsolved, unannotated book file (book_yields_due).
+                  BOOK_YIELDS)
 
 
 def refusal_passes(why):
@@ -16568,7 +16608,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, RIGHT_FOREIGN_READ: 2,

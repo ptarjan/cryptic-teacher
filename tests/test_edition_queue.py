@@ -638,6 +638,32 @@ check("not after the fix, nor what PUNCT_MENDED rereads, nor an apostrophes faul
        f.gap_vote_due({**_gvrow, "verdicts": [{**_gv, "refusedWrite": _gv["refusedWrite"] + "; SHAPE 4-down: holds "
                                                                     "the page's text: 'x (3) 5 Y'; cut it"}]}),
        f.gap_vote_due({**_gvrow, "edition": "FinancialTimes1980UKEnglish/1980-01-21_0"})])
+# ---- a Times page with every answer read whose write was refused as a copy of a held book file with no answer and
+# no annotation (fetch_puzzle.unsolved_book) is due once (fa.BOOK_YIELDS: such a book gives way), unfiled-first.
+import fetch_puzzle as _fp
+_by = {"id": "times-9999992", "number": 9999992, "complete": False, "clues": 30, "lights": 30, "answers": 30,
+       "refusedWrite": "requested times-9999992 but the page served the clues of book-99015 (26 of 30 clues are the "
+                       "same) — refusing to file a copy"}
+_byrow = {"edition": "GaleTimes2005UKEnglish/2005-03-02", "verdicts": [_by], "readAt": "2026-10-28T19:14:00+00:00",
+          "scan": {"item": "GaleTimes2005UKEnglish", "date": "2005-03-02", "puzzles": [{"number": 9999992}]}}
+_by_real = _fp.unsolved_book
+_fp.unsolved_book = lambda pid: Path("/x/book-99015.json") if pid == "book-99015" else None
+try:
+    check("a Times page refused over an unsolved book copy is due as BOOK_YIELDS, ranked, evidence, fix-landed, "
+          "unfiled-first, blanket-passing",
+          [f.BOOK_YIELDS, 2, True, True, True, None, True],
+          [f.fix_reason(_byrow), f.RANKS[f.BOOK_YIELDS], eq.evidence_reason(f.BOOK_YIELDS), f.BOOK_YIELDS in eq.FIX_LANDED,
+           f.BOOK_YIELDS in eq.UNFILED_FIRST,
+           eq.canary_failed({"paper": "gale", "reason": f.BOOK_YIELDS, "date": "2005-03-02"}),
+           f.blanket_or_fix(_byrow, "inputs changed") == f.BOOK_YIELDS])
+    check("not after the fix, nor an answer short, nor a solved or annotated book, nor another paper",
+          [False] * 4,
+          [f.book_yields_due({**_byrow, "readAt": "2026-10-29T06:00:00+00:00"}),
+           f.book_yields_due({**_byrow, "verdicts": [{**_by, "answers": 29}]}),
+           f.book_yields_due({**_byrow, "verdicts": [{**_by, "refusedWrite": _by["refusedWrite"].replace("99015", "99016")}]}),
+           f.book_yields_due({**_byrow, "edition": "FinancialTimes2005UKEnglish/2005-03-02_0"})])
+finally:
+    _fp.unsolved_book = _by_real
 # ---- a Times page written unfiled with every blank clue "not a word" (a word every reading spells alike, "Nil
 # nisi bonum", or one reader ran together, "thewordsof") is due once (fa.SHARED_WORD), unfiled-first.
 _sw = {"id": "times-9999987", "number": 9999987, "complete": False, "wrote": True, "unfiled": 1, "clues": 30,
