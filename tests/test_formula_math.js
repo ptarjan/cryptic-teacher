@@ -45,6 +45,9 @@ const appFormula = new Function("esc", "escClue", "LIST_SEP", [
   "return { formulaOf, buildingBlocks, letterCount };",
 ].join("\n"))((s) => String(s), (s) => String(s), " · ");
 
+// The answer a clue's tree builds: alteration.from where the grid holds an altered
+// entry (annOf in app.js merges `alteration` and `entered` in), else the answer.
+const built = (ann) => (ann.alteration && ann.alteration.from) || ann.answer;
 const INF = Infinity;
 // What an operation word does to the letter count [lo, hi] of what follows it.
 const KEEP = new Set(["anagram of", "reversal of", "cycled", "moved letters of", "palindrome of"]);
@@ -96,7 +99,11 @@ function evaluate(parts, counts) {
       else if (sep === "−") acc = [Math.max(0, acc[0] - b[1]), acc[1] - b[0]];
       else return null;
     }
-    return lead ? opRange(lead, acc) : acc;
+    // A pick from a pick ("middle of (middle of selection 2)", a word stripped twice): the chip
+    // counts the innermost pick's letters, which the outer pick does not bound.
+    if (lead && PICK.has(lead) && acc.picked) return Object.assign([Math.min(1, acc[0]), INF], { picked: true });
+    const got = lead ? opRange(lead, acc) : acc;
+    return lead && PICK.has(lead) ? Object.assign([...got], { picked: true }) : got;
   };
   const term = () => {
     const t = parts[i++];
@@ -125,7 +132,7 @@ function mathFault(ann) {
   const f = appFormula.formulaOf(ann, blocks);
   const counts = blocks.map((b) => appFormula.letterCount(b.gives));
   if (counts.some((n) => !n)) return null;
-  const want = appFormula.letterCount(ann.answer);
+  const want = appFormula.letterCount(built(ann));
   // A word masked because it is the answer ("inside" for LOOK INSIDE) is no
   // operation this can read; the line is left untold rather than called wrong.
   if (f.parts.some((p) => typeof p === "string" && p.includes("\u2026"))) return null;
@@ -187,13 +194,14 @@ function treeRange(n, blocks) {
       return [k, k];
     }
     const s = sum(kids);
-    return [Math.min(1, s[0]), s[1]];
+    // a pick of a pick: the inner pick's letters do not bound the outer one's (see evaluate)
+    return [Math.min(1, s[0]), parts.some((q) => SELECTS.has(q.op)) ? INF : s[1]];
   }
   return [0, INF];
 }
 const treeMissesAnswer = (ann) => {
   const r = treeRange(ann.wordplay, ann.blocks || []);
-  const want = appFormula.letterCount(ann.answer);
+  const want = appFormula.letterCount(built(ann));
   return want < r[0] || want > r[1];
 };
 
@@ -222,10 +230,10 @@ if (require.main === module) {
     for (const e of p.entries || []) {
       if (!e.annotation || !(e.annotation.blocks || []).length) continue;
       clues++;
-      const ann = e.annotation;
+      const ann = e.alteration ? { ...e.annotation, alteration: e.alteration, entered: e.solution } : e.annotation;
       const fault = mathFault(ann);
       if (!fault) continue;
-      const row = { id: p.id, entry: `${e.number}-${e.direction}`, clue: (e.clue || {}).text, answer: ann.answer,
+      const row = { id: p.id, entry: `${e.number}-${e.direction}`, clue: (e.clue || {}).text, answer: ann.answer, built: built(ann),
         op: (ann.wordplay || {}).op || "-", ...fault };
       (unchecked(ann.wordplay) || treeMissesAnswer(ann) ? badData : failures).push(row);
     }
@@ -237,7 +245,7 @@ if (require.main === module) {
   if (out > 0) {
     fs.writeFileSync(process.argv[out + 1], JSON.stringify(badData.map((r) => ({
       id: `${r.id}#${r.entry.replace(/-(a|d)\w*$/, "$1")}`,
-      reason: `formulaMath: the tree does not build ${r.answer}: ${r.text}` })), null, 0).replace(/\},\{/g, "},\n{") + "\n");
+      reason: `formulaMath: the tree does not build ${r.built}: ${r.text}` })), null, 0).replace(/\},\{/g, "},\n{") + "\n");
   }
   for (const f of failures.slice(0, 20)) console.error("FAIL: " + JSON.stringify(f));
   console.error(`${clues} clues with blocks: ${failures.length} formulas that do not add up, ` +
