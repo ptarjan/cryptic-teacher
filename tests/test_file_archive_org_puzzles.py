@@ -643,9 +643,10 @@ check("a championship puzzle's week-later host links its solution; its heading f
        [n for (n, _), in (f.solution_headings(champ_words("Solution to Eliminator Puzzle No 17,907"), [17913]),
                           f.solution_headings(champ_words("Solution to 25,451"), [25458]))]])
 _week_on = lambda day: {"edition": f"GaleTimes1989UKEnglish/{day}", "solOnly": {"at": "2026-10-26T09:00:00+00:00"}}
+# (1989 is also an ERA_HEADINGS year, so another day of it is due, but as HOST_ERA_RESCAN, not week-on.)
 check("a week-on host read before its championship heading is due once as HOST_WEEK_ON_RESCAN, ranked; another day is not",
-      (True, False, f.HOST_WEEK_ON_RESCAN, True, True),
-      (f.host_rescan_due(f.GALE, _week_on("1989-02-23")), f.host_rescan_due(f.GALE, _week_on("1989-02-22")),
+      (True, f.HOST_ERA_RESCAN, f.HOST_WEEK_ON_RESCAN, True, True),
+      (f.host_rescan_due(f.GALE, _week_on("1989-02-23")), f.host_rescan_reason(_week_on("1989-02-22")),
        f.host_rescan_reason(_week_on("1989-02-23")), f.HOST_WEEK_ON_RESCAN in f.RANKS, f.HOST_WEEK_ON_RESCAN in f.HOST_REASONS))
 # HOST_LAYOUT_RESCAN: a host of a TITLE_HEADINGS era read before era_bands is due once more, ranked, a host read.
 _lay = lambda day, at="2026-10-26T10:00:00+00:00": {"edition": f"GaleTimes1942UKEnglish/{day}", "solOnly": {"at": at}}
