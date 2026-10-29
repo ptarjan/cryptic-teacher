@@ -93,27 +93,37 @@
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "wild",
-         "at": 18,
-         "note": "wild letters run free, so area is rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
-        {
-         "words": "area",
-         "at": 23,
-         "note": "taken as written, the anagram fodder"
-        },
         {
          "gives": "M",
          "note": "one of the two Ms this across answer drops from the grid, so the clue never supplies them"
         },
         {
-         "gives": "M",
-         "note": "the second dropped M"
+         "op": "container",
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "wild",
+             "at": 18,
+             "note": "wild letters run free, so area is rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "area",
+             "at": 23,
+             "note": "taken as written, the anagram fodder"
+            }
+           ]
+          },
+          {
+           "gives": "M",
+           "note": "the second dropped M"
+          }
+         ]
         }
        ]
       },
