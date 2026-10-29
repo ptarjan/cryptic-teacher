@@ -15756,7 +15756,7 @@ def forced_short(row):
 #: rule there; the crossings and past answers leave one word for 132 lights of 95 puzzles, 4 whole, 30 one short.
 #: Held out on the 205 puzzles' held lights: 3,676 taken, 26 differing from the held word, variants. Once.
 VOUCHED_FIT = "solution short, its blank lights' crossings left one past answer since"
-REREAD_VOUCHED = "2026-10-29T08:50:00+00:00"
+REREAD_VOUCHED = "2026-10-29T08:30:00+00:00"
 VOUCHED_PUZZLES = frozenset((2810, 2840, 2847, 2865, 2870, 2873, 2882, 2887, 2903, 2912, 2917, 2925, 2932, 2941, 2943,
                              2984, 2992, 3018, 3038, 3042, 3056, 3094, 3103, 3107, 3111, 3170, 3217, 3232, 3247, 3267,
                              3273, 3278, 3280, 3324, 3325, 3334, 3409, 3415, 3430, 3436, 3444, 3453, 3458, 3474, 3481,
