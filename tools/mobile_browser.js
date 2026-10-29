@@ -39,8 +39,10 @@ async function withPhone(body) {
   let up = true;
   const server = http.createServer((req, res) => {
     if (!up) { req.socket.destroy(); return; }
-    let p = path.join(ROOT, decodeURIComponent(req.url.split("?")[0].split("#")[0]));
-    if (p.endsWith(path.sep)) p += "index.html";
+    let p = path.resolve(ROOT, "." + decodeURIComponent(req.url.split("?")[0].split("#")[0]));
+    // Nothing outside the checkout is served, so the guard runs before any file access.
+    if (p !== ROOT && !p.startsWith(ROOT + path.sep)) { res.writeHead(404); res.end(); return; }
+    if (p.endsWith(path.sep) || p === ROOT) p = path.join(p, "index.html");
     // The deploy ships each puzzle shim as <id>.js.gz (tools/stage_site.py);
     // the checkout holds the .js, so it is gzipped here as asked for.
     if (p.endsWith(".js.gz") && !fs.existsSync(p) && fs.existsSync(p.slice(0, -3))) {
@@ -48,7 +50,7 @@ async function withPhone(body) {
       res.end(zlib.gzipSync(fs.readFileSync(p.slice(0, -3))));
       return;
     }
-    if (!p.startsWith(ROOT) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); res.end(); return; }
+    if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); res.end(); return; }
     res.writeHead(200, { "content-type": TYPES[path.extname(p)] || "application/octet-stream" });
     fs.createReadStream(p).pipe(res);
   });
