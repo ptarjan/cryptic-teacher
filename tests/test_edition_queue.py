@@ -333,6 +333,10 @@ check("a Times page blanked for a Mc surname is due as such, ranked, evidence, f
        eq.canary_failed({"paper": "gale", "reason": f.NAME_CLUSTER, "date": "1963-11-26"}),
        eq.canary_failed({"paper": "times", "reason": f.NAME_CLUSTER, "date": "1984-12-31"}),
        f.cluster_blank("'Messrs.': a letter lost from a name")])
+check("a Times page refused as taken whose title a renumber freed (r34) is ranked 2, evidence and unfiled-first: it files a new puzzle",
+      (2, True, True),
+      (f.rank_of_reason(f.NUMBER_DATE_REFUSED), eq.evidence_reason(f.NUMBER_DATE_REFUSED),
+       f.NUMBER_DATE_REFUSED in eq.UNFILED_FIRST))
 check("not after the fix, nor for a name that lost its accent ('Mnchen'), nor a word misread as a name, nor another paper",
       [False] * 4,
       [f.cluster_named({**_ncrow, "readAt": _after}),
