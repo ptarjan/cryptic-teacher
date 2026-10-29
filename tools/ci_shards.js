@@ -25,7 +25,8 @@
    A script in PARALLEL is single-threaded and touches nothing but its own
    output, so a shard runs all of its PARALLEL items at once beside the rest
    (the runner has CORES cores); LPT charges such an item COST/CORES, and
-   hands a shard no more than CORES of them while another shard has room.
+   hands a shard no more than CORES of them, counting a SLOTS script as its
+   share, while another shard has room.
    `--parallel` prints the PARALLEL items of a shard's list, `--serial` the rest.
 
    Usage: printf '%s\n' tests/test_a.sh ... | node tools/ci_shards.js <i> <n>
@@ -68,6 +69,14 @@ const SLICES = { "tools/smoke_test.js": 40 };
 // See the header: all run concurrently within a shard, each charged COST/CORES.
 const PARALLEL = new Set(["tools/smoke_test.js"]);
 const CORES = 4;
+// Serial scripts that hold as much memory as a PARALLEL item while the shard's
+// PARALLEL items run beside them: each takes that many of the shard's CORES
+// slots. The archive.org filer loads the scan readers (numpy, OpenCV) and its
+// corpus; four smoke slices beside it killed the runner (13:41 and 18:12 UTC,
+// 29 Oct 2026), three did not.
+const SLOTS = { "tests/test_file_archive_org_puzzles.py": 1 };
+const slots = (item) => (PARALLEL.has(fileOf(item)) ? 1 : SLOTS[fileOf(item)] || 0);
+const used = (bin) => bin.files.reduce((n, f) => n + slots(f), 0);
 
 // The scripts that read what tools/build_seo_pages.py writes.
 const PAGES = new Set(["tools/smoke_test.js", "tests/test_og_tags.js"]);
@@ -102,18 +111,19 @@ function shards(files, count) {
     .sort((a, b) => cost(b) - cost(a) || (a < b ? -1 : a > b ? 1 : 0))
     .forEach((item) => {
       const after = (bin) => bin.load + cost(item) + extra(bin, item);
-      // A PARALLEL item only fits a shard with a core to spare. LPT charges it
+      // A shard runs its PARALLEL items all at once, and each holds about a
+      // core and ~1 GB. A shard with no slot left takes no more of them (nor a
+      // SLOTS script) while another has room. LPT alone charges a PARALLEL item
       // COST/CORES, so a shard light on serial work was handed five smoke
-      // slices on four cores, and five slices at once is more than the runner
-      // holds: it got "the runner has received a shutdown signal" mid-sweep,
-      // every run, whichever shard had the fifth. Full everywhere, it goes
-      // where it would on load alone.
-      const par = PARALLEL.has(fileOf(item));
-      const full = (bin) => bin.files.filter((f) => PARALLEL.has(fileOf(f))).length >= CORES;
-      const roomy = par && bins.some((b) => !full(b));
-      const fits = (bin) => !roomy || !full(bin);
-      let best = bins.findIndex(fits);
-      for (let i = best + 1; i < count; i++) if (fits(bins[i]) && after(bins[i]) < after(bins[best])) best = i;
+      // slices, or four beside the archive.org test, and either is more than
+      // the runner holds: "the runner has received a shutdown signal" in the
+      // middle of the sweep, every run, whichever shard got the extra one.
+      const need = slots(item);
+      const fits = (bin) => used(bin) + need <= CORES;
+      const roomy = need > 0 && bins.some(fits);
+      const ok = (bin) => !roomy || fits(bin);
+      let best = bins.findIndex(ok);
+      for (let i = best + 1; i < count; i++) if (ok(bins[i]) && after(bins[i]) < after(bins[best])) best = i;
       bins[best].load = after(bins[best]);
       bins[best].pages = bins[best].pages || PAGES.has(fileOf(item));
       bins[best].files.push(item);
@@ -121,7 +131,7 @@ function shards(files, count) {
   return bins.map((b) => b.files);
 }
 
-module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES, PARALLEL, CORES };
+module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES, PARALLEL, CORES, SLOTS, slots };
 
 const stdinList = () => require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
 if (require.main === module && process.argv[2] === "--needs-pages") {
