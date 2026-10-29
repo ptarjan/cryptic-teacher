@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      CT_DOWNLOADS: ${{ runner.temp }}/downloads
+      CT_DOWNLOADS: /tmp/cryptic-downloads
       FETCHERS: fetch_puzzle fetch_independent fetch_observer fetch_globeandmail fetch_metro
     steps:
       - uses: actions/checkout@v5
