@@ -322,29 +322,25 @@
     ],
     "wordplay": {
      "op": "container",
-     "indicators": [
-      {
-       "text": "overdrawn",
-       "note": "an overdrawn account is in the red, so the city sits inside the word for that colour"
-      }
-     ],
      "parts": [
       {
        "words": "overdrawn",
+       "at": 5,
        "gives": "RED",
-       "note": "an overdrawn account is in the red"
+       "note": "an overdrawn account is in the red, and that phrase also tells the solver where the city goes"
       },
       {
        "words": "York",
+       "at": 0,
        "gives": "EBOR",
-       "note": "Ebor, from Latin Eboracum, is the archbishop of York's signature and the city's old name"
+       "note": "Ebor, from the Latin Eboracum, is the old name for York, still used in the Archbishop of York's signature"
       }
      ]
     },
     "explanation": {
-     "surface": "A York account is overdrawn, like a worn-out engine needing work.",
-     "walkthrough": "'overdrawn' does double duty, both giving the colour and signalling that York sits inside it. Ebor is the Latin-derived name for York.",
-     "definitionFit": "Worn engine cylinders are reground to a larger diameter, so an old engine is often rebored during reconditioning."
+     "surface": "A York bank account has gone overdrawn, compared with a tired old engine.",
+     "walkthrough": "No separate word signals the containment: 'overdrawn' is read as 'in the red', so the one word gives the colour and its 'in' at once. Ebor is York's Latin-derived old name.",
+     "definitionFit": "Worn cylinders in an old engine are reground wider during reconditioning, so such an engine has often had this done."
     },
     "features": {
      "answerInScene": false,
@@ -421,27 +417,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "can be",
-       "note": "the letters can become something else, rearranged into another word"
+       "text": "plus",
+       "at": 4,
+       "note": "plus is simply addition here, joining the first word of the phrase to what follows it"
       }
      ],
      "parts": [
       {
        "words": "Ne",
-       "note": "taken as written"
+       "at": 1
       },
       {
-       "words": "ultra",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "can be",
+         "at": 16,
+         "note": "the word ultra can be turned into something else, its letters rearranged into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ultra",
+         "at": 9
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A paradox: the Latin phrase for the ultimate can turn out the opposite of extreme.",
-     "walkthrough": "Ne plus ultra means the highest point; here 'plus' is just addition, joining the two other words as fodder.",
+     "surface": "A paradox: the Latin phrase for the ultimate turns out to be the opposite of extreme.",
+     "walkthrough": "Ne plus ultra means the highest point attainable, but here 'plus' just joins NE to UTRAL, the letters of 'ultra' rearranged as 'can be' signals.",
      "definitionFit": "Taking no side and keeping to the middle ground is the opposite of extremism, which is what being impartial means."
     },
     "features": {
@@ -659,10 +668,15 @@
         },
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "ended",
+           "note": "ended asks for where the name Richard finishes, its final letter only"
+          }
+         ],
          "parts": [
           {
-           "words": "Richard ended",
-           "note": "the end of the name Richard"
+           "words": "Richard"
           }
          ]
         }
