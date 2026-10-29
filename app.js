@@ -3947,6 +3947,7 @@
     };
     return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
       f.parts.map((p) => (typeof p === "string" ? `<span class="formula-word">${esc(p)}</span>` : chip(p))).join(" ")}${
+      f.after ? ` <span class="formula-word">${esc(f.after)}</span>` : ""}${
       !interactive || armed || !piecesLeft(e) ? "" : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
   }
 
@@ -4766,6 +4767,9 @@
   // blockLetters may withhold from the rung but which the solver is entitled to
   // the LENGTH of — a hidden word's single piece is the answer's own length.
   function formulaOf(ann, blocks) {
+    // The pieces total what the clue itself solves to: where the grid holds an
+    // altered entry (alteration), that is alteration.from, not the entered letters.
+    const built = (ann.alteration && ann.alteration.from) || ann.answer;
     const shuffled = ((ann.assembly || {}).anagrams || []).map((a) => wholeWord(a.gives));
     // A block carries no role field: what it IS is read off its fields and its
     // note. The anagram's own fodder, a sound, the clue words as written (the
@@ -4784,7 +4788,7 @@
       const n = letterCount(b.gives);
       // The role is fixed prose too: a clue whose answer is SYNONYM must not
       // wear a "synonym" chip before the walkthrough.
-      return maskAnswer(role(b), ann.answer) + (n ? ` ${n}` : "");
+      return maskAnswer(role(b), built) + (n ? ` ${n}` : "");
     });
     const all = chips.map((_, i) => i);
     const join = (idx, sep) => idx.reduce((out, i, k) => out.concat(k ? [sep, i] : [i]), []);
@@ -4815,7 +4819,7 @@
     // A piece with no clue words of its own — the letter a deletion drops — is
     // no chip, so it is told by where it comes off the whole and how many
     // letters it is ("− last letter"), which is what makes the counts add up.
-    const vals = wpResults(tree, ann.answer);
+    const vals = wpResults(tree, built);
     const val = (n) => (n ? (vals.get(n) != null ? vals.get(n) : wpKnown(n)) : null);
     const plural = (k, w) => `${k === 1 ? "" : k + " "}${w}${k === 1 ? "" : "s"}`;
     // W the whole, cuts the letters each dropped piece gives, R what is left
@@ -4858,7 +4862,7 @@
         return null;
       }
       const op = node.op;
-      const here = top ? wholeWord(ann.answer) : val(node);
+      const here = top ? wholeWord(built) : val(node);
       let out;
       if (op === "deletion" && node.parts.slice(1).every(chipless)) {
         const whole = walk(node.parts[0], false);
@@ -4886,18 +4890,21 @@
     // Pieces whose counts do not sum to the answer's, with no walkable tree to
     // say what else happens to them, are only "made from" each other: "+" would claim
     // SPACE + S is PACE.
-    const sums = blocks.reduce((t, b) => t + letterCount(b.gives), 0) === letterCount(ann.answer);
+    const sums = blocks.reduce((t, b) => t + letterCount(b.gives), 0) === letterCount(built);
     const parts = treeParts ? treeParts
       : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
       : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "−", cut]
       : !sums ? ["made from"].concat(join(all, "and"))
       : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
-      + ` (${letterCount(ann.answer)}) =`;
+      + ` (${letterCount(built)}) =`;
     // What a chip reads once its piece is out: the letters the piece gives
     // (blockLetters, so withheld ones stay withheld), else the clue words.
     const fills = blocks.map((b) => blockLetters(ann, b) || b.clueFragment || "?");
-    return { lead: maskAnswer(lead, ann.answer), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, ann.answer) : p), chips, fills };
+    // The step from the built answer to the grid entry, said by its length only.
+    const after = ann.alteration && ann.entered && wholeWord(ann.entered) !== wholeWord(built)
+      ? `then ${(ann.alteration.steps || []).map((x) => x.op).join(", ") || "altered"} \u2192 grid entry (${letterCount(ann.entered)})` : "";
+    return { after, lead: maskAnswer(lead, built), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, built) : p), chips, fills };
   }
 
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
