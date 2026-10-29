@@ -6,7 +6,10 @@ puzzles to annotate under the usage gates, asks `tools/daily_units.py` what is
 due, and starts each due unit as a detached process with its own lock, time
 limit, ledger row and worktree, then exits. The units are:
 
-1. `fetch:<fetcher>`, hourly: the newest puzzle of each series; the
+1. `fetch:<fetcher>`, hourly: the newest puzzle of each series. Only
+   `fetch:fetch_privateeye` (its Wayback pass reads the Media disk) is
+   local; the other five run in `.github/workflows/fetch-puzzles.yml`
+   (`CI_FETCHERS`), which commits and pushes them itself. The
    fortnightly TLS (`fetch:tls_puzzles`, read off the issue's image) every
    six hours. Two
    series are not fetched, and `tools/daily_units.py` `SLOW_FETCHERS` says

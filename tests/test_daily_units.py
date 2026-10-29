@@ -50,6 +50,13 @@ for f in du.SLOW_FETCHERS:
     check(f"tools/{f}.py takes --latest", os.path.exists(f"tools/{f}.py") and "--latest" in open(f"tools/{f}.py").read(), True)
 check("fetch:tls_puzzles looks every 6h", [p[1] for p in du.PHASES if p[0] == "fetch:tls_puzzles"], [6 * du.HOUR])
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
+# The CI fetchers run in .github/workflows/fetch-puzzles.yml and nowhere else.
+workflow = (REPO / ".github" / "workflows" / "fetch-puzzles.yml").read_text()
+for f in du.CI_FETCHERS:
+    check(f"fetch:{f} is not planned locally", f"fetch:{f}" in keys, False)
+    check(f"{f} is in fetch-puzzles.yml", f in workflow, True)
+for f in du.FETCHERS + du.SLOW_FETCHERS:
+    check(f"{f} is not in fetch-puzzles.yml", f"tools/{f}.py" in workflow or f" {f}" in workflow.split("FETCHERS:")[1].split("\n")[0], False)
 
 # ratings records /progress/'s row off today's coverage ledger, so it waits for
 # that ledger until LEDGER_WAIT_UNTIL, then records without it.

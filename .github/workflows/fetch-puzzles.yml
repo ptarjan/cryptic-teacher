@@ -1,0 +1,100 @@
+# The hourly fetchers of the public series, moved off the home server
+# (tools/daily_units.py CI_FETCHERS): each is `tools/<fetcher>.py --latest`, which
+# needs only the network and the tracked puzzles. Exit 3 is "nothing new".
+#
+# Not here, and still the local tick's: fetch_privateeye (its unit also runs
+# privateeye_wayback.py over the Wayback captures kept on the Media disk) and
+# tls_puzzles (reads the issue's image with the RapidOCR model in ~/.cache and
+# keeps images under the Media disk). A fetch never runs in both places.
+#
+# Each new puzzle is its own "File <id>" commit (tools/commit_puzzles.sh), pushed
+# onto master with a rebase when the push loses a race. A push made with the
+# default GITHUB_TOKEN starts no other workflow, so tests.yml's puzzle fast path
+# and pages.yml would not see it: give the repo an Actions secret PUSH_TOKEN (a
+# token with contents:write) and the push is made with it, and both run as for
+# any other puzzle push. Without it the 15-minute pages.yml tick still deploys
+# the puzzles, and the next push's fast path checks them (it diffs back to the
+# last green run).
+name: Fetch the newest puzzles
+
+on:
+  schedule:
+    - cron: "12 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Runs never overlap: two would race on the same new puzzles.
+concurrency:
+  group: fetch-puzzles
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CT_DOWNLOADS: ${{ runner.temp }}/downloads
+      FETCHERS: fetch_puzzle fetch_independent fetch_observer fetch_globeandmail fetch_metro
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.PUSH_TOKEN || github.token }}
+      - uses: ./.github/actions/setup
+        with:
+          pip: numpy pillow pypdf opencv-python-headless
+      - name: Fetch, commit each new puzzle
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          failed=""
+          for f in $FETCHERS; do
+            echo "=== $f $(date -u +%H:%M) ==="
+            rc=0
+            python3 "tools/$f.py" --latest || rc=$?
+            if [ $rc -eq 3 ]; then
+              echo "$f: nothing new"
+            elif [ $rc -ne 0 ]; then
+              echo "::error::$f --latest failed (rc=$rc)"
+              failed="$failed $f"
+            fi
+            git add -A
+            python3 tools/renamed_ids.py --stage
+            tools/commit_puzzles.sh "daily fetch:$f"
+            if ! git diff --cached --quiet; then
+              git commit -q -m "$(printf 'Daily fetch:%s\n\n%s' "$f" "$(python3 tools/provenance.py trailer)")"
+            fi
+            left=$(git status --porcelain)
+            [ -z "$left" ] || echo "::warning::left behind after $f: $left"
+          done
+          echo "failed=$failed" >> "$GITHUB_ENV"
+      - name: Push, rebasing when master moved
+        shell: bash
+        run: |
+          ahead=$(git rev-list --count origin/master..HEAD 2>/dev/null || echo 0)
+          if [ "$ahead" = 0 ]; then
+            echo "fetch: nothing new from any fetcher"
+          else
+            git log --format='%h %s' origin/master..HEAD
+            pushed=""
+            for n in $(seq 1 8); do
+              if git push -q origin HEAD:refs/heads/master; then pushed=1; break; fi
+              echo "fetch: push $n lost the race; rebasing on the new tip"
+              git fetch -q --depth=100 origin master || { sleep 5; continue; }
+              if ! git rebase -q origin/master; then
+                git rebase --abort
+                echo "::error::rebase conflicted"
+                break
+              fi
+              sleep $((RANDOM % 5 + 1))
+            done
+            [ -n "$pushed" ] || { echo "::error::could not push"; exit 1; }
+            echo "fetch: pushed $(git rev-parse --short HEAD)"
+          fi
+          if [ -n "$failed" ]; then
+            echo "::error::failed fetchers:$failed"
+            exit 1
+          fi

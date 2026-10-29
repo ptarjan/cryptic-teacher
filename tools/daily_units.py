@@ -52,9 +52,17 @@ BACKFILLS = ("bucket:telegraph", "ft", "azed")
 SCRIPT = "tools/daily_update.sh"
 HOUR = 3600
 DAY = 24 * HOUR
-FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_privateeye", "fetch_globeandmail",
-            "fetch_metro"]
-#: Fortnightly series, on their own slower cadence in PHASES. The Genius has
+#: The hourly fetchers the local tick still runs: state off git. fetch_privateeye's
+#: unit also runs privateeye_wayback.py over the Wayback captures kept on the
+#: Media disk (downloads.PRIVATE_EYE_WAYBACK).
+FETCHERS = ["fetch_privateeye"]
+#: The hourly fetchers GitHub Actions runs (.github/workflows/fetch-puzzles.yml,
+#: 2026-10-29): `--latest` needs only the network and the tracked puzzles. Never
+#: planned here, so a fetch is never run in both places.
+CI_FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_globeandmail", "fetch_metro"]
+#: Fortnightly series, on their own slower cadence in PHASES, local because the
+#: TLS is read with the RapidOCR model in ~/.cache and its images are kept on the
+#: Media disk (downloads.ROOT / "tls"). The Genius has
 #: its own unit (genius: its fifteensquared posts, then genius_puzzles.py).
 #: Not fetched at all, and why (2026-10-12): the Listener's clues are printed only by
 #: the Times, behind its Puzzle Club subscription (listenercrossword.com posts
@@ -216,9 +224,10 @@ def plan(ledger, now):
 def after_tick(ledger, now):
     """One fetcher down is weather; every one of them failing at once is us
     (a changed user agent, no network, a python that no longer starts), and
-    looks exactly like a quiet day from the site."""
+    looks exactly like a quiet day from the site. Only meaningful while two or
+    more fetchers run here; the CI ones fail their own workflow run."""
     ends = [ledger.last_end.get(f"fetch:{f}") for f in FETCHERS]
-    if all(e is not None and e.get("rc") != 0 for e in ends):
+    if len(FETCHERS) > 1 and all(e is not None and e.get("rc") != 0 for e in ends):
         from unit_queue import alert
         alert(f"every fetcher's last run failed ({' '.join(FETCHERS)}), so no new puzzle can arrive from any paper "
               "until this is fixed. Their lines are in .update.log, `[fetch:...]`.")
