@@ -861,35 +861,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "strangely",
-       "note": "strangely means oddly arranged, so the letters are mixed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "At outset",
+         "at": 0,
+         "note": "at the outset of each word means taking its opening letter, here from five words in a row"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "At outset",
-           "note": "at the outset of each word means taking its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trade union members unusually lock",
-           "note": "initials of the five words"
-          }
-         ]
+         "words": "trade",
+         "at": 10
         },
         {
+         "words": "union",
+         "at": 16
+        },
+        {
+         "words": "members",
+         "at": 22
+        },
+        {
+         "words": "unusually",
+         "at": 30
+        },
+        {
+         "words": "lock",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strangely",
+         "at": 54,
+         "note": "strangely means oddly arranged, so the letters of the two words that follow are mixed up"
+        }
+       ],
+       "parts": [
+        {
          "words": "us out",
-         "note": "the five letters rearranged"
+         "at": 45
         }
        ]
       }
@@ -897,7 +915,7 @@
     },
     "explanation": {
      "surface": "Union members who lock management out make for a troubling dispute.",
-     "walkthrough": "'unusually' and 'lock' look like an anagram signal and its fodder, but they only lend initials.",
+     "walkthrough": "'At outset' takes the initials TUMUL; 'strangely' rearranges US OUT to TUOUS. 'unusually' looks like an anagram signal, but it only lends its initial.",
      "definitionFit": "Tumultuous means noisy and turbulent, upsetting calm, so it can mean disturbing."
     },
     "features": {
