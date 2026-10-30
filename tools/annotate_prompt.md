@@ -265,10 +265,7 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           is spelt beside it, ana(x) + N, never scrambled in
     rev(x)                x backwards; an indicator naming a stretch (last pair
                           of, first three, half) turns only that stretch, 2+
-                          letters: rev<last pair of>([mini vehicles]KARTS) for KARST.
-                          A leaf under rev() gives its word forwards, never pre-turned,
-                          and rev() wraps only the piece it turns: [Use a browser]SURF
-                          + rev<looking up>([link]TIE), never rev(TIE + FRUS)
+                          letters: rev<last pair of>([mini vehicles]KARTS) for KARST
     rep(x)                x twice (leaf gives one copy): rep<twice>([boy]AL) for ALAL
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where):
