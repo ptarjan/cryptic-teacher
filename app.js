@@ -9600,8 +9600,18 @@
     try { prev = JSON.parse(localStorage.getItem(OFFLINE_BATCH_KEY) || "[]"); } catch (e) { prev = []; }
     // Save now adds to what the last batch held rather than replacing it.
     if (more) prev.forEach((f) => want.add(f));
-    const dropFiles = syncFails ? [] : [...new Set([...prev, ...solved])].filter((f) => !want.has(f) && !started.has(f));
-    const drop = dropFiles.map((f) => at("puzzles/" + f + ".gz"));
+    // Candidates: the last batch, every completed puzzle, and (on the quiet,
+    // automatic save) anything else held that is not in this pick, such as
+    // puzzles merely opened once. The open puzzle stays.
+    const cur = P && BY_ID[P.reprintOf || P.id];
+    const stale = more || !offlineFiles ? [] : [...offlineFiles].filter((f) => !(cur && cur.file === f));
+    let dropFiles = syncFails ? [] : [...new Set([...prev, ...solved, ...stale])].filter((f) => !solved.has(f) ? !want.has(f) && !started.has(f) : true);
+    if (offlineFiles) for (let i = dropFiles.length - 1; i >= 0; i--) if (!offlineFiles.has(dropFiles[i])) dropFiles.splice(i, 1);
+    // Both stored forms of a file: the .gz and the plain script.
+    const drop = [];
+    dropFiles.forEach((f) => { drop.push(at("puzzles/" + f + ".gz"), at("puzzles/" + f)); });
+    // The worker's cap must not retire a puzzle with letters on it.
+    const keep = [...started].map((f) => at("puzzles/" + f + ".gz"));
     if (!rows.length && !drop.length) {
       const n = offlineCount();
       offlineNote(more && n >= OFFLINE_CAP ? `${n} puzzles ready offline, the most this device keeps`
@@ -9637,7 +9647,7 @@
           : more ? (m.done ? `Saved ${m.done} puzzle${m.done > 1 ? "s" : ""} — ${n} ready offline`
             : `Nothing new to save${n ? " — " + readyText(n) : ""}`) : readyText(n)));
       };
-      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop }, [ch.port2]);
+      reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop, keep }, [ch.port2]);
     }).catch(() => end(() => "Couldn’t save just now. Try again."));
   }
 
