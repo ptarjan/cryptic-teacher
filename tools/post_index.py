@@ -25,8 +25,11 @@ _memo = {}
 
 def entries(posts):
     """{post id (the file's stem, a str): [title, link, slug]} for every post
-    the cache `posts` holds, off its manifest (media_manifest.posts)."""
+    the cache `posts` holds, off its manifest (media_manifest.posts). {} where
+    the manifest was never built (a CI runner has no media disk)."""
     posts = Path(posts)
+    if posts not in _memo and not media_manifest.built(media_manifest.posts_name(posts)):
+        return {}
     if posts not in _memo:
         _memo[posts] = {str(i): [r["title"], r["link"], r["slug"]]
                         for i, r in media_manifest.posts(posts).items()}
