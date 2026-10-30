@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Pays attention to compliments",
     "enumeration": "7"
    },
-   "solution": "REGARDS"
+   "solution": "REGARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pays attention to",
+      "at": 0,
+      "meaning": "to heed or look at closely, a verb in the third person"
+     },
+     {
+      "text": "compliments",
+      "at": 18,
+      "meaning": "plural noun: good wishes sent at the end of a letter, as in 'give her my best'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone notices the flattering remarks being paid to them.",
+     "definitionFit": "As a verb the word means heeds or considers; as a plural noun it means best wishes, a polite greeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compliments"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,30 @@
     "text": "Hard or easy to move",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0,
+      "meaning": "rock-like, stony and difficult, as in a stony road"
+     },
+     {
+      "text": "easy to move",
+      "at": 8,
+      "meaning": "wobbly and unsteady, liable to shift"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether something is firm or loose.",
+     "definitionFit": "Stony terrain is tough going; a shaky table or relationship is unsteady, both senses of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,54 @@
     "text": "Lots of nerve cells giving crew back trouble",
     "enumeration": "7"
    },
-   "solution": "GANGLIA"
+   "solution": "GANGLIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lots of nerve cells",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "crew",
+       "at": 27,
+       "gives": "GANG",
+       "note": "a gang is a crew of workers"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 32,
+         "note": "back means the word for trouble runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trouble",
+         "at": 37,
+         "gives": "AIL",
+         "note": "to ail is to trouble or afflict"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A work gang with bad backs is a nervous lot.",
+     "walkthrough": "'back trouble' looks like a sore spine, but 'back' reverses AIL.",
+     "definitionFit": "Plural of ganglion: a cluster of nerve cell bodies, so many neurons grouped together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +169,29 @@
     "text": "Family of cooks providing basis for sauce",
     "enumeration": "4"
    },
-   "solution": "ROUX"
+   "solution": "ROUX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family of cooks",
+      "at": 0,
+      "meaning": "the French-born chef brothers Albert and Michel and their sons, famous restaurateurs in Britain"
+     },
+     {
+      "text": "basis for sauce",
+      "at": 26,
+      "meaning": "a cooked mixture of flour and fat used to thicken sauces"
+     }
+    ],
+    "explanation": {
+     "surface": "A culinary dynasty supplies the foundation for their sauces.",
+     "definitionFit": "Both a famous restaurateur surname (Le Gavroche) and the flour-and-butter base of béchamel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +219,32 @@
      }
     ]
    },
-   "solution": "SLIPOFTHETONGUE"
+   "solution": "SLIPOFTHETONGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Verbal gaffe",
+      "at": 0,
+      "meaning": "a spoken mistake, saying the wrong word by accident"
+     },
+     {
+      "text": "that might make a trainer uncomfortable?",
+      "at": 13,
+      "meaning": "a trainer here is a sports shoe whose flap under the laces could shift out of place"
+     }
+    ],
+    "explanation": {
+     "surface": "A careless remark that embarrasses a coach.",
+     "walkthrough": "'trainer' suggests a coach, but it is a running shoe with a tongue.",
+     "definitionFit": "A misspoken word is an idiom; literally a shoe's tongue sliding would rub the foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trainer"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +268,46 @@
      }
     ]
    },
-   "solution": "SAWTOIT"
+   "solution": "SAWTOIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put an end to the job",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Criminal",
+       "at": 0,
+       "note": "something criminal is bent or crooked, so the letters that follow are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "waits",
+       "at": 9
+      },
+      {
+       "words": "to",
+       "at": 15,
+       "note": "taken as written into the anagram"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook lies in wait until it is time to finish off the heist.",
+     "walkthrough": "'Criminal' reads as a noun, the crook, but it is the anagram signal on WAITS plus TO.",
+     "definitionFit": "An idiom: to have seen to a task means you personally made sure it got finished."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 5,
@@ -149,7 +331,42 @@
      }
     ]
    },
-   "solution": "SANANDREASFAULT"
+   "solution": "SANANDREASFAULT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "geological feature",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Unexpected",
+       "at": 0,
+       "note": "unexpected suggests things are not as anticipated, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "turn, as a sand flea",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beach insect startles everyone by revealing a landform.",
+     "walkthrough": "'exposes' is a link word; all of TURN AS A SAND FLEA is reshuffled.",
+     "definitionFit": "A famous transform fault, the boundary between tectonic plates running through California."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flea"
+    }
+   }
   },
   {
    "number": 6,
@@ -173,7 +390,38 @@
      }
     ]
    },
-   "solution": "WHATSUPDOC"
+   "solution": "WHATSUPDOC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bunny's question",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "WHATS UP + DOC",
+     "parts": [
+      {
+       "words": "cod",
+       "at": 6,
+       "note": "read the answer as wordplay: the letters of the word doctor's short form, turned upside down in a down entry, give these three letters"
+      }
+     ]
+    },
+    "spelling": "WHAT'S UP DOC",
+    "explanation": {
+     "surface": "Bugs asks a fishy question about the right response.",
+     "walkthrough": "In a down light 'up' means reversed, so the abbreviation for a medic turned upwards spells the fish.",
+     "definitionFit": "Bugs Bunny's catchphrase in Warner Bros cartoons, said while chewing a carrot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cod"
+    }
+   }
   },
   {
    "number": 7,
@@ -193,7 +441,57 @@
      }
     ]
    },
-   "solution": "OLDGOLD"
+   "solution": "OLDGOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no primary",
+         "at": 22,
+         "note": "with no primary means the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Two top awards",
+         "at": 0,
+         "gives": "GOLD",
+         "note": "gold medals are the top awards; two are needed"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "Two top awards",
+       "at": 0,
+       "gives": "GOLD",
+       "note": "the second gold medal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two winning medals, the first missing a primary colour.",
+     "walkthrough": "'primary colour' seems a phrase, but 'primary' means first letter and 'colour' is the definition.",
+     "definitionFit": "A dull brownish-yellow shade, named for the look of aged precious metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "primary"
+    }
+   }
   },
   {
    "number": 8,
@@ -207,7 +505,61 @@
     "text": "Something given by letter X, illusory, lacking force",
     "enumeration": "7"
    },
-   "solution": "TENANCY"
+   "solution": "TENANCY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something given by letter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "X",
+       "at": 26,
+       "gives": "TEN",
+       "note": "X is the Roman numeral ten"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 39,
+         "note": "lacking means without, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illusory",
+         "at": 29,
+         "gives": "FANCY",
+         "note": "fancy means imaginary or illusory"
+        },
+        {
+         "words": "force",
+         "at": 47,
+         "gives": "F",
+         "note": "F is the physics symbol for force"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An imaginary message sent by letter X loses its punch.",
+     "walkthrough": "'letter' means a landlord, one who lets property.",
+     "definitionFit": "A landlord grants occupancy of property: a lease of a flat is exactly that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 9,
@@ -221,7 +573,41 @@
     "text": "Blemish beneath skin of onions cut out",
     "enumeration": "9"
    },
-   "solution": "CONTUSION"
+   "solution": "CONTUSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blemish beneath skin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 35,
+       "note": "out here means put out of shape or disordered, so the letters of the two words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "onions cut",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook trims away a bruised spot when peeling the onions.",
+     "walkthrough": "'of' is a link word; 'out' signals the reshuffle of ONIONS CUT.",
+     "definitionFit": "A bruise is the medical sense: an injury that discolours tissue under unbroken skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 10,
@@ -235,7 +621,41 @@
     "text": "Poet's admission to chateau denied",
     "enumeration": "5"
    },
-   "solution": "AUDEN"
+   "solution": "AUDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "admission to",
+       "at": 7,
+       "note": "the poet is admitted into the words chateau denied, sitting inside them across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chateau denied",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet complains that entry to a French castle was refused.",
+     "walkthrough": "The ''s' is a link ('Poet is'); the letters sit across the end of 'chateau' and the start of 'denied'.",
+     "definitionFit": "W. H. Auden was an Anglo-American poet of the twentieth century, author of 'Funeral Blues'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admission"
+    }
+   }
   },
   {
    "number": 11,
@@ -249,7 +669,45 @@
     "text": "We're told to put together basic bird food",
     "enumeration": "4"
    },
-   "solution": "YOLK"
+   "solution": "YOLK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "basic bird food",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "YOLK",
+     "indicators": [
+      {
+       "text": "We're told",
+       "at": 0,
+       "note": "something we are told is heard, so the word is taken by how it sounds rather than how it is spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "put together",
+       "at": 14,
+       "gives": "YOKE",
+       "note": "to yoke animals is to join them together in harness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for mixing up a simple feed for birds.",
+     "walkthrough": "The yolk is the food store for the growing chick inside an egg, hence 'basic bird food'.",
+     "definitionFit": "Inside an egg, the yellow part is the nutrient supply on which the developing chick feeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 12,
@@ -269,7 +727,31 @@
      }
     ]
    },
-   "solution": "COUNTSDOWN"
+   "solution": "COUNTSDOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heralds launch",
+      "at": 0,
+      "meaning": "announces a lift-off by calling the numbers to zero, verb in third person"
+     },
+     {
+      "text": "report of noblemen's overthrow",
+      "at": 15,
+      "meaning": "a headline saying earls' continental equivalents have been brought down"
+     }
+    ],
+    "explanation": {
+     "surface": "Royal heralds broadcast news that the aristocracy has fallen.",
+     "definitionFit": "Mission control recites ten to zero before a rocket launch; read as a headline, the phrase says European nobles are toppled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heralds"
+    }
+   }
   },
   {
    "number": 13,
@@ -289,7 +771,59 @@
      }
     ]
    },
-   "solution": "NOVASCOTIA"
+   "solution": "NOVASCOTIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "North American location",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "during",
+         "at": 21,
+         "note": "during means inside, so the racecourse goes inside the date"
+        }
+       ],
+       "parts": [
+        {
+         "words": "All Saints' Day",
+         "at": 28,
+         "gives": "NOVI",
+         "note": "1 November, written NOV I with a Roman numeral one"
+        },
+        {
+         "words": "Where horses may run",
+         "at": 0,
+         "gives": "ASCOT",
+         "note": "Ascot is the racecourse in Berkshire, home of Royal Ascot"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 45,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday horse race held somewhere in America.",
+     "walkthrough": "ASCOT is an English racecourse west of London.",
+     "definitionFit": "A Canadian maritime province, so a place in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saints'"
+    }
+   }
   },
   {
    "number": 14,
@@ -309,7 +843,42 @@
      }
     ]
    },
-   "solution": "FAROUT"
+   "solution": "FAROUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bizarre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sport's body",
+       "at": 8,
+       "gives": "FA",
+       "note": "FA is the Football Association, the governing body of English soccer"
+      },
+      {
+       "words": "hiding",
+       "at": 23,
+       "gives": "ROUT",
+       "note": "a hiding is a heavy defeat, a thrashing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something odd: a sporting authority is concealing something.",
+     "walkthrough": "'hiding' looks like a containment signal but is a noun meaning a thrashing.",
+     "definitionFit": "Slang synonym: something weird or unconventional is called extremely strange in hippie talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   },
   {
    "number": 15,
@@ -323,7 +892,41 @@
     "text": "Knock not deliberately fast",
     "enumeration": "7"
    },
-   "solution": "RAPIDLY"
+   "solution": "RAPIDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fast",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Knock",
+       "at": 0,
+       "gives": "RAP",
+       "note": "a rap is a sharp knock, as on a door"
+      },
+      {
+       "words": "not deliberately",
+       "at": 6,
+       "gives": "IDLY",
+       "note": "doing something idly means doing it casually, without purpose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone taps on something by accident, quickly.",
+     "definitionFit": "Simple synonym: as an adverb, both mean quickly or at speed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 16,
@@ -337,7 +940,41 @@
     "text": "Officer slow to check everything's in order",
     "enumeration": "7"
    },
-   "solution": "COLLATE"
+   "solution": "COLLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "check everything's in order",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Officer",
+       "at": 0,
+       "gives": "COL",
+       "note": "Col is the abbreviation for colonel, an army officer"
+      },
+      {
+       "words": "slow",
+       "at": 8,
+       "gives": "LATE",
+       "note": "late here means behind time, like a slow clock"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sluggish officer is slow to inspect that all is orderly.",
+     "definitionFit": "To gather pages or data and verify their sequence is exactly what this verb describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slow"
+    }
+   }
   },
   {
    "number": 16,
@@ -351,7 +988,46 @@
     "text": "Progressed easily up, ignoring note provided",
     "enumeration": "7"
    },
-   "solution": "CATERED"
+   "solution": "CATERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "provided",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignoring",
+       "at": 22,
+       "note": "ignoring means leaving out, so a letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Progressed easily up",
+       "at": 0,
+       "gives": "CANTERED",
+       "note": "a horse cantered up, moving at an easy pace"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sailed through without noticing the note that was given.",
+     "walkthrough": "'up' is part of the phrase for moving at an easy gait.",
+     "definitionFit": "Supplied food and drink: to cater is to provide for an event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -371,7 +1047,31 @@
      }
     ]
    },
-   "solution": "LONGOFF"
+   "solution": "LONGOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fielder",
+      "at": 0,
+      "meaning": "a cricket fielding position deep behind the bowler on the off side"
+     },
+     {
+      "text": "way past his best?",
+      "at": 8,
+      "meaning": "a long time away from peak form, read literally"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket fielder who is well past it.",
+     "walkthrough": "In cricket, a fielder is placed at named positions; this one is deep on the off side.",
+     "definitionFit": "A cricket fielding position, and literally 'a long way off' one's best form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -385,7 +1085,59 @@
     "text": "Gets out of limitless task nursing invalid",
     "enumeration": "6"
    },
-   "solution": "AVOIDS"
+   "solution": "AVOIDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gets out of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 27,
+       "note": "nursing means holding or cradling, so the trimmed word goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "limitless",
+         "at": 12,
+         "note": "without limits means the word task loses its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "task",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "invalid",
+       "at": 35,
+       "gives": "VOID",
+       "note": "void means invalid, as a void contract"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dodges the endless chore of caring for a sick person.",
+     "walkthrough": "'invalid' suggests a sick patient but means void (not valid).",
+     "definitionFit": "Evades or escapes from: to dodge a duty is to wriggle out of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invalid"
+    }
+   }
   },
   {
    "number": 19,
@@ -399,7 +1151,69 @@
     "text": "Terms for the regions set up by faction initially exiled",
     "enumeration": "7"
    },
-   "solution": "DIALECT"
+   "solution": "DIALECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terms for the regions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 26,
+         "note": "in a down light, up means the word is read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "set",
+         "at": 22,
+         "gives": "LAID",
+         "note": "laid means set down, as in laid the table"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially exiled",
+         "at": 40,
+         "note": "the first letter is sent away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "faction",
+         "at": 32,
+         "gives": "SECT",
+         "note": "a sect is a faction or splinter group"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regional terms are devised by a faction whose leader is in exile.",
+     "walkthrough": "'by' is a link word.",
+     "definitionFit": "Regional speech: vocabulary and grammar of a particular area form its local variety of language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 20,
@@ -419,7 +1233,41 @@
      }
     ]
    },
-   "solution": "TONICSOLFA"
+   "solution": "TONICSOLFA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One way to transcribe solo, in fact?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "transcribe",
+       "at": 11,
+       "note": "to transcribe is to write in another form, so the letters are rewritten in a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "solo, in fact",
+       "at": 22
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A musician wonders how best to write down a solo part.",
+     "walkthrough": "The whole clue defines the answer and also rewrites SOLO IN FACT into it.",
+     "definitionFit": "It is a musical notation system using do-re-mi syllables, so a way of writing down a melody."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 21,
@@ -433,7 +1281,63 @@
     "text": "Litre spilt by Jack's companion carrying a can",
     "enumeration": "4"
    },
-   "solution": "JAIL"
+   "solution": "JAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "can",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 32,
+       "note": "carrying means holding, so the shortened name goes around the letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "spilt",
+         "at": 6,
+         "note": "spilt means lost, so the litre is dropped from the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jack's companion",
+         "at": 15,
+         "gives": "JILL",
+         "note": "Jill goes up the hill with Jack in the nursery rhyme"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 41,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jill spills a litre of water from her pail as in the nursery rhyme.",
+     "walkthrough": "'can' looks like a container for liquid but is slang for prison.",
+     "definitionFit": "Slang: 'the can' is an American informal term for prison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 22,
@@ -447,7 +1351,48 @@
     "text": "Language giving joy, without going to extremes",
     "enumeration": "5"
    },
-   "solution": "LATIN"
+   "solution": "LATIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without going to extremes",
+       "at": 21,
+       "note": "the outermost letters at each end are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "giving joy",
+       "at": 9,
+       "gives": "ELATING",
+       "note": "elating means filling with joy"
+      },
+      {
+       "gives": "E"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speech that delights, but in moderation.",
+     "definitionFit": "The language of ancient Rome, still taught in schools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "giving"
+    }
+   }
   },
   {
    "number": 23,
@@ -461,7 +1406,59 @@
     "text": "Follow youth leader after gong for service",
     "enumeration": "4"
    },
-   "solution": "OBEY"
+   "solution": "OBEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "after puts the leader's letter behind the honour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gong for service",
+       "at": 26,
+       "gives": "OBE",
+       "note": "OBE, Officer of the Order of the British Empire, is a British honour (gong is slang for a medal)"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 13,
+         "note": "the leader is the first letter of youth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "youth",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youth leader receives an honour for community service.",
+     "walkthrough": "In Britain the OBE is awarded for service to the community.",
+     "definitionFit": "To comply with orders is to do as one is told, i.e. follow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 24,
@@ -475,7 +1472,59 @@
     "text": "Last of rabbits in burrow finding a place to sleep",
     "enumeration": "5"
    },
-   "solution": "ROOST"
+   "solution": "ROOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a place to sleep",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in puts that letter inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "burrow",
+       "at": 19,
+       "gives": "ROOT",
+       "note": "to root is to dig or burrow, as a pig roots for truffles"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Last of",
+         "at": 0,
+         "note": "last of means only the final letter of rabbits is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rabbits",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The last of the rabbits in a warren finds somewhere to rest.",
+     "walkthrough": "'burrow' reads as a noun but is a verb meaning to dig.",
+     "definitionFit": "A bird's perch for the night is its roost, so somewhere to sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "burrow"
+    }
+   }
   },
   {
    "number": 25,
@@ -489,7 +1538,77 @@
     "text": "Muckiest stones, extra black, blocking gate, regularly removed",
     "enumeration": "9"
    },
-   "solution": "GRUBBIEST"
+   "solution": "GRUBBIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Muckiest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 30,
+       "note": "blocking means sitting in the middle of, so the gems go between the letters left from gate"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly removed",
+         "at": 45,
+         "note": "every other letter of gate is taken out, keeping the first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gate",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "extra",
+         "at": 17,
+         "note": "extra means added, so a further letter goes into the gems"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stones",
+         "at": 9,
+         "gives": "RUBIES",
+         "note": "rubies are precious stones"
+        },
+        {
+         "words": "black",
+         "at": 23,
+         "gives": "B",
+         "note": "B is the pencil-grade abbreviation for black"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Filthy stones and extra black stuff are cleared from blocking a gate.",
+     "walkthrough": "'extra' puts B into RUBIES giving RUBBIES, which sits between G and T.",
+     "definitionFit": "Superlative of dirty: grubby means covered in dirt, and this is its most extreme form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stones"
+    }
+   }
   },
   {
    "number": 26,
@@ -503,7 +1622,64 @@
     "text": "Unfinished document about uniform put down",
     "enumeration": "7"
    },
-   "solution": "DEFLATE"
+   "solution": "DEFLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put down",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means surrounding, so the cut-down word goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unfinished",
+         "at": 0,
+         "note": "unfinished means the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "document",
+         "at": 11,
+         "gives": "DEED",
+         "note": "a deed is a legal document"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "uniform",
+       "at": 26,
+       "gives": "FLAT",
+       "note": "flat means even, level, uniform"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A half-written paper about an army uniform gets rejected.",
+     "walkthrough": "'uniform' looks like clothing but means even or level.",
+     "definitionFit": "To take the wind out of someone, humbling them, is to belittle or squash, i.e. put them down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 27,
@@ -527,7 +1703,49 @@
      }
     ]
    },
-   "solution": "TRYITON"
+   "solution": "TRYITON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attempt seduction",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "suppressing",
+       "at": 8,
+       "note": "suppressing means holding down inside, so the god's name goes round the letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sea god",
+       "at": 0,
+       "gives": "TRITON",
+       "note": "Triton is a Greek sea god, son of Poseidon"
+      },
+      {
+       "words": "yen",
+       "at": 20,
+       "gives": "Y",
+       "note": "Y is the abbreviation for the yen, the Japanese currency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mythological sea god holds back his longing while making a pass.",
+     "walkthrough": "'yen' reads as desire, which fits the seduction, but it is the currency.",
+     "definitionFit": "An informal idiom: to make a cheeky advance, sexual or otherwise, to see if one can get away with it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yen"
+    }
+   }
   }
  ]
 }
