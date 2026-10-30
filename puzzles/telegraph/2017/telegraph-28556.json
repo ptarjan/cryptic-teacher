@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Money in US county",
     "enumeration": "5"
    },
-   "solution": "BUCKS"
+   "solution": "BUCKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money in US",
+      "at": 0,
+      "meaning": "dollars are called this in American slang"
+     },
+     {
+      "text": "county",
+      "at": 12,
+      "meaning": "the short name for Buckinghamshire, an English county west of London"
+     }
+    ],
+    "explanation": {
+     "surface": "A question of how much cash sits in some American county.",
+     "walkthrough": "The surface ties 'US' to 'county', but the American sense goes with 'Money'; the county is the English one.",
+     "definitionFit": "Slang for dollars in one sense, and the standard abbreviation of an English shire in the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "US"
+    }
+   }
   },
   {
    "number": 1,
@@ -54,7 +81,29 @@
      }
     ]
    },
-   "solution": "BEMYGUEST"
+   "solution": "BEMYGUEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stay with me",
+      "at": 0,
+      "meaning": "an invitation for someone to be one's houseguest"
+     },
+     {
+      "text": "do as you please",
+      "at": 18,
+      "meaning": "a phrase granting permission to go ahead"
+     }
+    ],
+    "explanation": {
+     "surface": "A host's welcome to a visitor, inviting them to stay and feel free.",
+     "definitionFit": "The idiom both invites a guest in and gives someone free rein to help themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +117,60 @@
     "text": "They're prickly characters initially before start of play?",
     "enumeration": "5"
    },
-   "solution": "CACTI"
+   "solution": "CACTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're prickly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 37,
+       "note": "before means the letter comes ahead of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 27,
+         "note": "initially means just the opening letter of characters is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "characters",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "start of play",
+       "at": 44,
+       "gives": "ACTI",
+       "note": "the opening of a play is Act One, written ACT I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Awkward people who are tetchy right before a show opens.",
+     "walkthrough": "'prickly characters' suggests irritable people, but 'characters' only gives its first letter.",
+     "definitionFit": "Spiny desert plants are prickly, so the plural noun fits the plural pronoun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +184,62 @@
     "text": "Pistol, say, raised in action, beginning to misfire",
     "enumeration": "7"
    },
-   "solution": "SIDEARM"
+   "solution": "SIDEARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pistol, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in action",
+         "at": 20,
+         "note": "in action means the letters of raised are set in motion and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "raised",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 31,
+         "note": "beginning to means only the first letter of misfire is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "misfire",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gun lifted in combat starts to jam.",
+     "walkthrough": "'raised' looks like a reversal signal in a down clue, but it is the fodder.",
+     "definitionFit": "A weapon worn at the belt, such as a revolver, is a handgun; a pistol is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +253,61 @@
     "text": "Publication to catch is mesmerising at first — that's attractive",
     "enumeration": "9"
    },
-   "solution": "MAGNETISM"
+   "solution": "MAGNETISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's attractive",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Publication",
+       "at": 0,
+       "gives": "MAG",
+       "note": "a magazine, shortened"
+      },
+      {
+       "words": "to catch",
+       "at": 12,
+       "gives": "NET",
+       "note": "to net a fish is to catch it"
+      },
+      {
+       "words": "is",
+       "at": 21
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 36,
+         "note": "at first means only the opening letter of mesmerising is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mesmerising",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine pulling in mesmerising content is an appealing prospect.",
+     "definitionFit": "The noun names the pull or allure something has, the quality of being drawing to others, so it is what is attractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +321,43 @@
     "text": "Style in private house discussed?",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Style",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MANNER",
+     "indicators": [
+      {
+       "text": "discussed",
+       "at": 23,
+       "note": "discussed means spoken, so the word is matched by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "private house",
+       "at": 9,
+       "gives": "MANOR",
+       "note": "a manor is a large country house"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country home's design being debated.",
+     "definitionFit": "A way of doing something, a fashion or mode, is a style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discussed"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +371,50 @@
     "text": "Success in Merlot, perhaps, offers lead for writer?",
     "enumeration": "8"
    },
-   "solution": "GRAPHITE"
+   "solution": "GRAPHITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lead for writer",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "in means the success word sits inside the fruit word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Merlot, perhaps",
+       "at": 11,
+       "gives": "GRAPE",
+       "note": "Merlot is a variety of wine grape"
+      },
+      {
+       "words": "Success",
+       "at": 0,
+       "gives": "HIT",
+       "note": "a hit is a success"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine author's best-seller about Merlot.",
+     "walkthrough": "The 'lead' is the pencil core, not a leading role.",
+     "definitionFit": "The soft carbon used as the core in pencils is the so-called lead a writer uses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +428,59 @@
     "text": "More in play that's absorbing for each in Julius Caesar, say?",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Julius Caesar, say?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that's absorbing",
+       "at": 13,
+       "note": "absorbing means taking in, so the shuffled letters hold the word for each"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in play",
+         "at": 5,
+         "note": "in play means the letters of more are moved around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "More",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "for each",
+       "at": 30,
+       "gives": "PER",
+       "note": "per means for each, as in per head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre query about Shakespeare's Roman tragedy.",
+     "walkthrough": "'play' and 'Julius Caesar' suggest Shakespeare, but the play is only the anagram signal. Caesar was a dictator rather than an emperor, hence the question mark.",
+     "definitionFit": "A supreme ruler of an empire; the Roman title Caesar became the word for such a ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +494,38 @@
     "text": "Perception of truth in instruction",
     "enumeration": "9"
    },
-   "solution": "INTUITION"
+   "solution": "INTUITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perception of truth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 20
+      },
+      {
+       "words": "instruction",
+       "at": 23,
+       "gives": "TUITION",
+       "note": "tuition is teaching or instruction"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing the truth in what one is taught.",
+     "definitionFit": "Insight or knowing something without reasoning is an instinctive grasp of what is true."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +539,43 @@
     "text": "Subordinate underground worker, we hear?",
     "enumeration": "5"
    },
-   "solution": "MINOR"
+   "solution": "MINOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Subordinate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MINOR",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 32,
+       "note": "we hear means the word is identified by how it sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "underground worker",
+       "at": 12,
+       "gives": "MINER",
+       "note": "a miner works below ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A junior pit worker, so it sounds.",
+     "definitionFit": "Lesser or secondary in importance means subordinate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Subordinate"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +589,42 @@
     "text": "A comedian's funny state",
     "enumeration": "9"
    },
-   "solution": "MACEDONIA"
+   "solution": "MACEDONIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "funny",
+       "at": 13,
+       "note": "funny in the sense of odd or peculiar tells us the letters of a comedian are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A comedian",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic's act is a hilarious condition.",
+     "walkthrough": "'funny' fits so naturally with comedian that it hides its role as the anagram signal; ''s' is just 'is', a link.",
+     "definitionFit": "A Balkan country, formerly the Yugoslav republic, now North Macedonia, is a nation or state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +644,44 @@
      }
     ]
    },
-   "solution": "PUTON"
+   "solution": "PUTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 15,
+       "note": "back tells us the phrase for only down is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "words": "only down",
+       "at": 5,
+       "gives": "NOTUP",
+       "note": "being only down means being not up at all"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment worn solely on the lower back, perhaps.",
+     "walkthrough": "'only down' is taken as NOT UP; read 'back' it gives the two-word phrase meaning to don.",
+     "definitionFit": "To don a garment or to dress in it is to wear it, so the phrasal verb matches the verb in sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +695,41 @@
     "text": "Expression of disgust, ghastly one",
     "enumeration": "7"
    },
-   "solution": "GRIMACE"
+   "solution": "GRIMACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of disgust",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "ghastly",
+       "at": 23,
+       "gives": "GRIM",
+       "note": "grim means horrible or ghastly"
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "ACE",
+       "note": "an ace is the one in a deck of cards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ghastly look of revulsion on someone's face.",
+     "definitionFit": "A twisted face showing distaste or pain is a facial expression of disgust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +743,29 @@
     "text": "Bird dog",
     "enumeration": "7"
    },
-   "solution": "HARRIER"
+   "solution": "HARRIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0,
+      "meaning": "a bird of prey of the hawk family"
+     },
+     {
+      "text": "dog",
+      "at": 5,
+      "meaning": "a hound bred for hunting hares"
+     }
+    ],
+    "explanation": {
+     "surface": "Two animals named side by side.",
+     "definitionFit": "The word names both a hawk-like raptor and a small hunting hound used for hares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +779,41 @@
     "text": "Devious game in mystery",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mystery",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Devious",
+       "at": 0,
+       "note": "devious means twisting or roundabout, so the letters of game in are twisted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game in",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty game wrapped in mystery.",
+     "walkthrough": "'in' looks like a link word but is part of the anagram fodder.",
+     "definitionFit": "A puzzling thing or person that cannot be understood is a mystery; it is also the famous wartime cipher machine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +827,55 @@
     "text": "This person's left with soldier leading",
     "enumeration": "9"
    },
-   "solution": "IMPORTANT"
+   "solution": "IMPORTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leading",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 19,
+       "note": "with means the next piece is joined on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "This person's",
+       "at": 0,
+       "gives": "IM",
+       "note": "this person is the setter, so this person is is I'm"
+      },
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      },
+      {
+       "words": "soldier",
+       "at": 24,
+       "gives": "ANT",
+       "note": "a soldier ant is a kind of ant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier at the front, with someone left behind.",
+     "walkthrough": "'leading' looks like a soldier at the front, but it is the definition.",
+     "definitionFit": "Of high rank or significance, as a leading figure is, so foremost or major."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 15,
@@ -270,7 +889,48 @@
     "text": "Bird looking to circle lake",
     "enumeration": "8"
    },
-   "solution": "STARLING"
+   "solution": "STARLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to circle",
+       "at": 13,
+       "note": "to circle means the word for looking goes around the abbreviation for lake"
+      }
+     ],
+     "parts": [
+      {
+       "words": "looking",
+       "at": 5,
+       "gives": "STARING",
+       "note": "staring is looking hard"
+      },
+      {
+       "words": "lake",
+       "at": 23,
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird gazing about as it flies round a lake.",
+     "definitionFit": "A common speckled songbird famous for its murmurations, an example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +950,32 @@
      }
     ]
    },
-   "solution": "GREATDANE"
+   "solution": "GREATDANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0,
+      "meaning": "a very large breed of dog"
+     },
+     {
+      "text": "Hamlet?",
+      "at": 7,
+      "meaning": "Hamlet was the Prince of Denmark, a famous Dane"
+     }
+    ],
+    "explanation": {
+     "surface": "Is there a dog in the village, or in the play?",
+     "walkthrough": "'Hamlet' looks like a small village; it is Shakespeare's Danish prince, hence the question mark.",
+     "definitionFit": "A giant dog breed, and literally a renowned Dane such as the prince."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hamlet"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +989,44 @@
     "text": "One who judges fools, so right",
     "enumeration": "8"
    },
-   "solution": "ASSESSOR"
+   "solution": "ASSESSOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who judges",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fools",
+       "at": 15,
+       "gives": "ASSES",
+       "note": "asses are fools"
+      },
+      {
+       "words": "so",
+       "at": 22
+      },
+      {
+       "words": "right",
+       "at": 25,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge decides fools are correct.",
+     "definitionFit": "Someone who evaluates value or quality, as in a tax valuer or exam examiner, is one who judges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fools"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1046,32 @@
      }
     ]
    },
-   "solution": "TOPBRASS"
+   "solution": "TOPBRASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0,
+      "meaning": "the most senior people in charge, originally the senior army officers"
+     },
+     {
+      "text": "band members hitting the high notes?",
+      "at": 9,
+      "meaning": "in a brass band, the players at the top of the range would be the ..., said cheekily"
+     }
+    ],
+    "explanation": {
+     "surface": "Bandleaders and the musicians who reach the highest notes.",
+     "walkthrough": "The second reading is a playful one: the brass players at the top of the pitch.",
+     "definitionFit": "The idiom for senior officers or bosses, the people at the head of an organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1085,42 @@
     "text": "Again, take 23 Across badly",
     "enumeration": "7"
    },
-   "solution": "RECLAIM"
+   "solution": "RECLAIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Again, take",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 22,
+       "note": "badly means the letters of the cross-referenced word are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "23 Across",
+       "at": 12,
+       "gives": "MIRACLE",
+       "note": "the answer to clue 23 across is used as the fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the 23 Across clue again and making a mess of it.",
+     "definitionFit": "Recover or take back possession, reading the verb as RE-, again, plus claim, take."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1134,40 @@
     "text": "Good variety for farm",
     "enumeration": "6"
    },
-   "solution": "GRANGE"
+   "solution": "GRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "farm",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "words": "variety",
+       "at": 5,
+       "gives": "RANGE",
+       "note": "a range is a wide variety or assortment"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent assortment of crops suited to farming.",
+     "definitionFit": "A country house with farm buildings attached, a farmstead, so a kind of farm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variety"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1181,65 @@
     "text": "Bitterness flowed with boldness, age forgotten",
     "enumeration": "7"
    },
-   "solution": "RANCOUR"
+   "solution": "RANCOUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bitterness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 18,
+       "note": "with means the next piece is joined on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flowed",
+       "at": 11,
+       "gives": "RAN",
+       "note": "ran means flowed, as a river does"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forgotten",
+         "at": 37,
+         "note": "forgotten means the word age is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boldness",
+         "at": 23,
+         "gives": "COURAGE",
+         "note": "courage is boldness"
+        },
+        {
+         "words": "age",
+         "at": 33,
+         "gives": "AGE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Resentment surged in with bravado as the years were forgotten.",
+     "definitionFit": "Long-standing resentment or ill will is bitterness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flowed"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1253,49 @@
     "text": "Continue to trail monster",
     "enumeration": "6"
    },
-   "solution": "DRAGON"
+   "solution": "DRAGON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "monster",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 9,
+       "note": "to means the continue word is attached to the trail word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trail",
+       "at": 12,
+       "gives": "DRAG",
+       "note": "to drag is to trail along behind"
+      },
+      {
+       "words": "Continue",
+       "at": 0,
+       "gives": "ON",
+       "note": "on means continue, as in carry on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beast that keeps following the scent.",
+     "walkthrough": "'Continue to trail' reads as the phrase drag on, but here the pieces are separate.",
+     "definitionFit": "A fire-breathing beast of legend, the classic mythical monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trail"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1309,68 @@
     "text": "Extraordinary thing to achieve fifty in speeding down the motorway?",
     "enumeration": "7"
    },
-   "solution": "MIRACLE"
+   "solution": "MIRACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extraordinary thing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "down",
+       "at": 49,
+       "note": "going down the road means following on along it, so the speeding piece comes after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the motorway",
+       "at": 54,
+       "gives": "MI",
+       "note": "the M1 is Britain's best-known motorway, London to Leeds, with the figure 1 written as the letter I"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "in means the numeral is placed inside the word for speeding"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speeding",
+         "at": 40,
+         "gives": "RACE",
+         "note": "to race is to speed"
+        },
+        {
+         "words": "fifty",
+         "at": 31,
+         "gives": "L",
+         "note": "L is the Roman numeral for fifty"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clocking fifty while racing on the motorway would be a remarkable achievement.",
+     "walkthrough": "Britain's main north-south motorway, the M1, is written with an I for the 1; 'in' puts the fifty inside the speeding word, and 'down' sets that after the road.",
+     "definitionFit": "A wonder or marvel, an event so remarkable it seems beyond nature, is an extraordinary thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "speeding"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1384,40 @@
     "text": "GP entering home, dictator!",
     "enumeration": "5"
    },
-   "solution": "MEDIC"
+   "solution": "MEDIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "GP",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 3,
+       "note": "entering means the letters sit inside the words home, dictator"
+      }
+     ],
+     "parts": [
+      {
+       "words": "home, dictator",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family doctor walks into the house of a tyrant.",
+     "definitionFit": "A general practitioner is a doctor, and the informal word for a doctor fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entering"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1431,40 @@
     "text": "Curious girl, ten, curl in hair",
     "enumeration": "7"
    },
-   "solution": "RINGLET"
+   "solution": "RINGLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "curl in hair",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Curious",
+       "at": 0,
+       "note": "curious in the sense of strange or odd tells us the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl, ten",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inquisitive ten-year-old girl with a curl in her hair.",
+     "definitionFit": "A long spiral lock of hair is a curl, the hairstyle term for one twisted tress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Curious"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1478,31 @@
     "text": "Telling stories in bed, perhaps?",
     "enumeration": "5"
    },
-   "solution": "LYING"
+   "solution": "LYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Telling stories",
+      "at": 0,
+      "meaning": "telling tales, saying untrue things"
+     },
+     {
+      "text": "in bed, perhaps?",
+      "at": 16,
+      "meaning": "reclining or ... down, as in bed"
+     }
+    ],
+    "explanation": {
+     "surface": "Bedtime storytelling.",
+     "definitionFit": "The present participle means both speaking falsehoods and being horizontal, as one is when in bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stories"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1516,47 @@
     "text": "Tot has a play",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "play",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "has",
+       "at": 4,
+       "note": "has means the next piece is joined on to the first one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tot",
+       "at": 0,
+       "gives": "DRAM",
+       "note": "a tot is a small measure of spirits, a dram"
+      },
+      {
+       "words": "a",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small child has a play to perform.",
+     "walkthrough": "'Tot' looks like a toddler, but it is a nip of whisky.",
+     "definitionFit": "A stage work for actors is a play, and the genre of serious theatre takes the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tot"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1570,58 @@
     "text": "Italian girl dancing on air after clue",
     "enumeration": "9"
    },
-   "solution": "SIGNORINA"
+   "solution": "SIGNORINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 28,
+       "note": "after means the dancing letters follow the word for clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clue",
+       "at": 34,
+       "gives": "SIGN",
+       "note": "a clue or indication is a sign"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "at": 13,
+         "note": "dancing means the letters of on air are moved about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on air",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young Italian woman dances on the radio after being given a cue.",
+     "definitionFit": "The Italian title for an unmarried young woman, so an Italian miss or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +1635,58 @@
     "text": "Vessel touring a river, large boat",
     "enumeration": "9"
    },
-   "solution": "CATAMARAN"
+   "solution": "CATAMARAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "large boat",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 7,
+       "note": "touring means going round, so the container wraps around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Vessel",
+       "at": 0,
+       "gives": "CAN",
+       "note": "a can is a container or vessel"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "river",
+         "at": 17,
+         "gives": "TAMAR",
+         "note": "the Tamar is the river dividing Devon from Cornwall"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship travelling along a river, being a big vessel.",
+     "walkthrough": "'Vessel' looks like the definition, but it is the container; the river runs between Devon and Cornwall in south-west England, and 'touring' wraps the container round it.",
+     "definitionFit": "A twin-hulled sailing craft is a type of boat, and some are sizeable ferries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 29,
@@ -492,7 +1700,45 @@
     "text": "Scoundrel in heavy footwear, heading off",
     "enumeration": "5"
    },
-   "solution": "ROGUE"
+   "solution": "ROGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scoundrel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "heading off",
+       "at": 29,
+       "note": "heading off means the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heavy footwear",
+       "at": 13,
+       "gives": "BROGUE",
+       "note": "a brogue is a stout leather shoe"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain wearing heavy boots who sets off somewhere.",
+     "definitionFit": "A dishonest rascal or knave is a scoundrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   }
  ]
 }
