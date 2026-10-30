@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,30 @@
     "text": "A tear to fall",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A tear",
+      "at": 0,
+      "meaning": "a single teardrop, a bead of liquid"
+     },
+     {
+      "text": "to fall",
+      "at": 7,
+      "meaning": "to fall or descend"
+     }
+    ],
+    "explanation": {
+     "surface": "A tear starts to roll down a cheek.",
+     "definitionFit": "Both senses are standard: a liquid bead, and the verb meaning to sink or come down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tear"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +70,46 @@
     "text": "Thus Conservative esteems ancient thinker",
     "enumeration": "8"
    },
-   "solution": "SOCRATES"
+   "solution": "SOCRATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient thinker",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Thus",
+       "at": 0,
+       "gives": "SO",
+       "note": "thus means so"
+      },
+      {
+       "words": "Conservative",
+       "at": 5,
+       "gives": "C"
+      },
+      {
+       "words": "esteems",
+       "at": 18,
+       "gives": "RATES",
+       "note": "to esteem someone is to rate them highly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician therefore admires a philosopher of old.",
+     "definitionFit": "The Athenian philosopher of the fifth century BC is the classic example of an ancient thinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +123,60 @@
     "text": "Position, say, that's slightly diminished us",
     "enumeration": "6"
    },
-   "solution": "STATUS"
+   "solution": "STATUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Position",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "slightly diminished",
+         "at": 22,
+         "note": "made a little smaller, so the word for say loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 10,
+         "gives": "STATE",
+         "note": "to say something is to state it"
+        },
+        {
+         "words": "that's",
+         "at": 15,
+         "gives": "E",
+         "note": "the letter lost is the final E of the word for say, the little bit that the diminishing removes"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "at": 42,
+       "gives": "US",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that a rank or role has rather lessened the speaker and friends.",
+     "walkthrough": "'say' is a verb here, not the 'for example' it seems to be; 'slightly diminished' clips just its last letter.",
+     "definitionFit": "Synonym: one's standing or rank in society is one's position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +190,47 @@
     "text": "Prince with a pet that's wild, one in need of training",
     "enumeration": "10"
    },
-   "solution": "APPRENTICE"
+   "solution": "APPRENTICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one in need of training",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "that's wild",
+       "at": 18,
+       "note": "wild suggests something unruly and out of order, so the letters of the prince and the pet are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prince",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "a pet",
+       "at": 12,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal with an untamed animal that still needs house-training.",
+     "walkthrough": "'wild' rearranges PRINCE plus A PET into the answer.",
+     "definitionFit": "A trainee learning a trade is by definition someone who still needs instruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +244,35 @@
     "text": "Revolutionary driving experience for author?",
     "enumeration": "7"
    },
-   "solution": "CARROLL"
+   "solution": "CARROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Revolutionary driving experience for author?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Revolutionary driving experience for author?",
+       "at": 0,
+       "note": "a vehicle flipping over is a ..., which said as one name is the Alice in Wonderland writer"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Revolutionary' suggests politics, but here it means turning over and over: a car roll.",
+     "definitionFit": "Lewis, the Victorian writer of Alice's Adventures in Wonderland, is a famous author by that surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +286,43 @@
     "text": "Third grade got with exam? It's pretty hard",
     "enumeration": "5"
    },
-   "solution": "CORAL"
+   "solution": "CORAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's pretty hard",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Third grade",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the third grade after A and B"
+      },
+      {
+       "words": "exam",
+       "at": 21,
+       "gives": "ORAL",
+       "note": "an oral is a spoken examination"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student got a C in a test and admits it was quite difficult.",
+     "walkthrough": "'pretty hard' reads as 'quite difficult' but means attractive and stony.",
+     "definitionFit": "Reef-building marine skeletons are hard and often beautiful, hence attractive and hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pretty"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +336,82 @@
     "text": "Pour this into glasses, each brimful possibly — one litre served up to start",
     "enumeration": "13"
    },
-   "solution": "LIEBFRAUMILCH"
+   "solution": "LIEBFRAUMILCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pour this into glasses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to start",
+       "at": 68,
+       "note": "says the reversed pair comes at the beginning"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "at": 58,
+         "note": "in a down clue, served up means the letters are written upwards, so reversed"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 48,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          },
+          {
+           "words": "litre",
+           "at": 52,
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "possibly",
+         "at": 37,
+         "note": "possibly signals the letters may form another word when rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "each brimful",
+         "at": 24,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for serving wine: fill each glass to the brim, with a litre to begin.",
+     "walkthrough": "'served up' turns IL into LI, placed 'to start' before the anagram ('possibly') of EACH BRIMFUL, which gives EBFRAUMILCH.",
+     "definitionFit": "It is a sweet German white wine, something you would pour into glasses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +425,42 @@
     "text": "Head meets very important lady, one given to drink",
     "enumeration": "5"
    },
-   "solution": "TOPER"
+   "solution": "TOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one given to drink",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Head",
+       "at": 0,
+       "gives": "TOP",
+       "note": "the head is the top"
+      },
+      {
+       "words": "very important lady",
+       "at": 11,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss is introduced to a royal woman who likes a tipple.",
+     "walkthrough": "ER (Elizabeth Regina) is the crossword's Queen.",
+     "definitionFit": "An old word for a habitual heavy drinker, someone fond of the bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +474,41 @@
     "text": "Appreciate Montreal is English-speaking only in part",
     "enumeration": "7"
    },
-   "solution": "REALISE"
+   "solution": "REALISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appreciate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in part",
+       "at": 45,
+       "note": "only part of the run of words is used, so the letters sit inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Montreal is English-speaking",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One should understand that the Canadian city speaks only partly English.",
+     "walkthrough": "The letters run across MontREAL IS English, taking the E of English.",
+     "definitionFit": "To appreciate a fact is to understand or become aware of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English-speaking"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +522,48 @@
     "text": "Do well getting son turned out to be respectable",
     "enumeration": "6"
    },
-   "solution": "PROPER"
+   "solution": "PROPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "respectable",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "turned out",
+       "at": 20,
+       "note": "a son turned out of the house is ejected, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Do well",
+       "at": 0,
+       "gives": "PROSPER",
+       "note": "to do well is to prosper"
+      },
+      {
+       "words": "son",
+       "at": 16,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A successful parent's boy grew up to be decent.",
+     "walkthrough": "'turned out' looks like 'became' but removes the S from PROSPER.",
+     "definitionFit": "Synonym: proper behaviour is decent and correct, as respectable conduct is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +577,49 @@
     "text": "Without end, getting cross inside and outside",
     "enumeration": "8"
    },
-   "solution": "EXTERNAL"
+   "solution": "EXTERNAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outside",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 27,
+       "note": "the cross is placed within the word for everlasting"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Without end",
+       "at": 0,
+       "gives": "ETERNAL",
+       "note": "something without end is everlasting or eternal"
+      },
+      {
+       "words": "cross",
+       "at": 21,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Endlessly annoyed, both indoors and out.",
+     "walkthrough": "'Without' looks like 'outside' but belongs to 'Without end'; 'outside' is the definition.",
+     "definitionFit": "Synonym: external parts are those on the exterior, the outer side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +633,43 @@
     "text": "Poles grow tired having got to English county",
     "enumeration": "10"
    },
-   "solution": "FLAGSTAFFS"
+   "solution": "FLAGSTAFFS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "grow tired",
+       "at": 6,
+       "gives": "FLAG",
+       "note": "to flag is to tire or weaken"
+      },
+      {
+       "words": "English county",
+       "at": 31,
+       "gives": "STAFFS",
+       "note": "Staffs is the abbreviation for Staffordshire, a county in the English Midlands"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some Polish people become weary after arriving in an English shire.",
+     "walkthrough": "'Poles' suggests people from Poland; it means posts.",
+     "definitionFit": "Flagpoles, upright staffs on which flags are flown, are a kind of pole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +683,60 @@
     "text": "See awfully big deals going around — economy having been this?",
     "enumeration": "10"
    },
-   "solution": "GLOBALISED"
+   "solution": "GLOBALISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "economy having been this?",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going around",
+       "at": 22,
+       "note": "the jumbled letters go round the word for see"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awfully",
+         "at": 4,
+         "note": "awfully suggests badly done, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "big deals",
+         "at": 12,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "See",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or see"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look at the dreadful major transactions circulating: the economy has become worldwide.",
+     "walkthrough": "'awfully' makes GBALISED from BIG DEALS, and 'going around' puts LO after its G.",
+     "definitionFit": "A worldwide, interconnected economy is described as having gone international in this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +750,35 @@
     "text": "One of twenty showing polish?",
     "enumeration": "4"
    },
-   "solution": "NAIL"
+   "solution": "NAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of twenty showing polish?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One of twenty showing polish?",
+       "at": 0,
+       "note": "people have twenty digits on hands and feet, each with a tip that may be varnished"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'polish' looks like refinement, or Polish, but means varnish on a fingertip or toe.",
+     "definitionFit": "Ten fingers and ten toes each carry one, and varnish is applied to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "polish"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +798,42 @@
      }
     ]
    },
-   "solution": "FOOLSPARADISE"
+   "solution": "FOOLSPARADISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Phony state of happiness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "curiously",
+       "at": 44,
+       "note": "curiously means in an odd manner, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "also of despair",
+       "at": 27,
+       "note": "taken as written, as anagram fodder"
+      }
+     ]
+    },
+    "spelling": "FOOL'S PARADISE",
+    "explanation": {
+     "surface": "False contentment is, oddly, a form of despair as well.",
+     "definitionFit": "The idiom describes contentment that rests on illusion or ignorance of reality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "curiously"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +847,41 @@
     "text": "Like some government giving fear, led appallingly",
     "enumeration": "7"
    },
-   "solution": "FEDERAL"
+   "solution": "FEDERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like some government",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "appallingly",
+       "at": 38,
+       "note": "appallingly means terribly badly, so the letters are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fear, led",
+       "at": 28,
+       "note": "taken as written, as anagram fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regime that spreads terror is run dreadfully.",
+     "definitionFit": "A system uniting states under a central authority, as in the USA, describes a kind of government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "led"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +895,70 @@
     "text": "A charitable donation outside pub being set up — lovely!",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lovely",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 22,
+         "note": "the gift goes around the reversed pub"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charitable donation",
+         "at": 2,
+         "gives": "DOLE",
+         "note": "a dole is a charitable gift of food or money"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "being set up",
+           "at": 34,
+           "note": "in a down clue, set up means written upwards, so reversed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pub",
+           "at": 30,
+           "gives": "BAR",
+           "note": "a bar is a pub"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gift to charity is made outside a newly built pub, which is delightful.",
+     "walkthrough": "In a down clue 'set up' means read upwards; DOLE is an old word for alms handed out to the poor.",
+     "definitionFit": "Synonym: something charming and delightful is lovely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +972,54 @@
     "text": "Editor finally rejected a collection of myths",
     "enumeration": "4"
    },
-   "solution": "EDDA"
+   "solution": "EDDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "collection of myths",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Editor",
+       "at": 0,
+       "gives": "ED"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 7,
+         "note": "finally picks the last letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rejected",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor ultimately turned down a book of legends.",
+     "definitionFit": "The Old Norse compilations of Scandinavian mythology and poetry are known by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1033,65 @@
     "text": "Firm has representative working, sent round to offer spare parts?",
     "enumeration": "10"
    },
-   "solution": "COMPONENTS"
+   "solution": "COMPONENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spare parts?",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Firm",
+       "at": 0,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      },
+      {
+       "words": "representative",
+       "at": 9,
+       "gives": "MP",
+       "note": "an MP, Member of Parliament, represents constituents"
+      },
+      {
+       "words": "working",
+       "at": 24,
+       "gives": "ON",
+       "note": "a machine that is working is on"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 38,
+         "note": "round suggests turning about, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sent",
+         "at": 33,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company's sales rep has been dispatched to supply replacement items.",
+     "walkthrough": "'round' looks like a reversal sign but here jumbles the letters; the question mark flags that spare parts are just one example of the definition.",
+     "definitionFit": "Spare parts are items making up a machine: the constituent pieces of an assembly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1105,48 @@
     "text": "One managing to keep ring made by old-fashioned craftsman",
     "enumeration": "6"
    },
-   "solution": "COOPER"
+   "solution": "COOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old-fashioned craftsman",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 13,
+       "note": "the word for one coping holds the ring inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One managing",
+       "at": 0,
+       "gives": "COPER",
+       "note": "a coper is someone who copes or manages"
+      },
+      {
+       "words": "ring",
+       "at": 21,
+       "gives": "O",
+       "note": "O is the shape of a ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone running a business retains a hoop forged by a traditional artisan.",
+     "definitionFit": "A barrel-maker is a traditional trade, little practised today."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1160,58 @@
     "text": "He leaves the study to walk",
     "enumeration": "5"
    },
-   "solution": "TREAD"
+   "solution": "TREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "walk",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 3,
+       "note": "he leaves, so those letters depart from the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "the",
+         "at": 10,
+         "note": "taken as written"
+        },
+        {
+         "words": "study",
+         "at": 14,
+         "gives": "READ",
+         "note": "to read a subject is to study it"
+        }
+       ]
+      },
+      {
+       "words": "He",
+       "at": 0,
+       "gives": "HE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man leaves the library to go for a stroll.",
+     "walkthrough": "'leaves' takes HE out of THE READ, leaving T and READ.",
+     "definitionFit": "Synonym: to tread is to step or walk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 19,
@@ -336,7 +1231,48 @@
      }
     ]
    },
-   "solution": "TRAINOIL"
+   "solution": "TRAINOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "greasy stuff",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to collect",
+       "at": 5,
+       "note": "the word for work gathers the rain within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "TOIL",
+       "note": "toil is hard work"
+      },
+      {
+       "words": "wet stuff",
+       "at": 16,
+       "gives": "RAIN",
+       "note": "rain is wet stuff from the sky"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A job involves gathering water and grease.",
+     "definitionFit": "It is oil rendered from whale blubber, a greasy substance once used for lamps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 20,
@@ -350,7 +1286,54 @@
     "text": "Like former PM making comeback or out?",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Like",
+       "at": 0,
+       "gives": "AS",
+       "note": "as means like"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "making comeback",
+         "at": 15,
+         "note": "coming back means the name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "former PM",
+         "at": 5,
+         "gives": "PEEL",
+         "note": "Robert Peel was a British Prime Minister in the 19th century"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired premier wonders whether to return to politics or stay retired.",
+     "walkthrough": "'making comeback' turns PEEL into LEEP.",
+     "definitionFit": "Someone out for the count, or out cold, is unconscious or sleeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1347,31 @@
     "text": "Top attraction for metal thieves?",
     "enumeration": "4"
    },
-   "solution": "LEAD"
+   "solution": "LEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0,
+      "meaning": "in top place, so top as a noun for first position"
+     },
+     {
+      "text": "attraction for metal thieves?",
+      "at": 4,
+      "meaning": "the soft grey metal stripped from church roofs is a classic target for scrap thieves"
+     }
+    ],
+    "explanation": {
+     "surface": "A headline draw for criminals who steal metal.",
+     "definitionFit": "The heavy metal on old roofs is regularly stolen, and the word also means first place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attraction"
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1385,48 @@
     "text": "Belgian location, say, featured in story",
     "enumeration": "5"
    },
-   "solution": "LIEGE"
+   "solution": "LIEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Belgian location",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featured in",
+       "at": 23,
+       "note": "the example is placed inside the fib"
+      }
+     ],
+     "parts": [
+      {
+       "words": "story",
+       "at": 35,
+       "gives": "LIE",
+       "note": "a story is a fib, a lie"
+      },
+      {
+       "words": "say",
+       "at": 18,
+       "gives": "EG",
+       "note": "eg, for example, is how 'say' is used"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A place in Belgium, for example, appears in a tale.",
+     "definitionFit": "It is a major city in eastern Belgium, in Wallonia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1440,60 @@
     "text": "Country worker penning love lines",
     "enumeration": "7"
    },
-   "solution": "HOLLAND"
+   "solution": "HOLLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 15,
+       "note": "penning means enclosing, so the worker surrounds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worker",
+       "at": 8,
+       "gives": "HAND",
+       "note": "a hand is a manual worker"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "love",
+         "at": 23,
+         "gives": "O",
+         "note": "love is zero in tennis, shown as O"
+        },
+        {
+         "words": "lines",
+         "at": 28,
+         "gives": "LL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farm labourer writes love poetry.",
+     "walkthrough": "'penning' looks like writing but means enclosing.",
+     "definitionFit": "A popular name for the Netherlands, a European nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penning"
+    }
+   }
   }
  ]
 }
