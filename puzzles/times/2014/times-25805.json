@@ -24,6 +24,9 @@
    "10-across"
   ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,31 @@
     "text": "Fire rifle",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0,
+      "meaning": "to fire someone is to dismiss them from a job"
+     },
+     {
+      "text": "rifle",
+      "at": 5,
+      "meaning": "to rifle a place is to plunder or ransack it"
+     }
+    ],
+    "explanation": {
+     "surface": "A terse order or note about shooting a gun.",
+     "walkthrough": "'Fire' and 'rifle' both pull towards guns; neither is about weapons here.",
+     "definitionFit": "Both are verb senses: dismissing an employee, and looting a town as an army does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rifle"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +78,47 @@
     "text": "Society journalist revealed as explorer",
     "enumeration": "10"
    },
-   "solution": "SHACKLETON"
+   "solution": "SHACKLETON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explorer",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Society",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "journalist",
+       "at": 8,
+       "gives": "HACK",
+       "note": "a hack is a slang word for a reporter"
+      },
+      {
+       "words": "revealed",
+       "at": 19,
+       "gives": "LETON",
+       "note": "let on means disclosed, gave away a secret"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip columnist exposes someone as a traveller.",
+     "walkthrough": "'revealed' looks like the link to the definition, but it supplies LET ON.",
+     "definitionFit": "Ernest Shackleton led British expeditions to the Antarctic in the early twentieth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revealed"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +132,64 @@
     "text": "Guiding principles of party supporting most of workers",
     "enumeration": "5"
    },
-   "solution": "CREDO"
+   "solution": "CREDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guiding principles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 28,
+       "note": "in a down clue, a piece supporting another sits below it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 39,
+         "note": "most of a word means it loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "workers",
+         "at": 47,
+         "gives": "CREW",
+         "note": "a crew is a team of workers"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "words": "party",
+       "at": 22,
+       "gives": "DO",
+       "note": "a do is an informal word for a party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's manifesto backed by the labour movement.",
+     "walkthrough": "'most of' trims CREW to CRE; 'supporting' puts DO beneath it.",
+     "definitionFit": "A credo is a set of beliefs that steers someone's actions, so a creed or guiding principles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +203,66 @@
     "text": "Squaddie I left outside place to eat for chap on building site",
     "enumeration": "10"
    },
-   "solution": "SCAFFOLDER"
+   "solution": "SCAFFOLDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chap on building site",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 16,
+       "note": "outside means the trimmed word wraps around the eating place"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 11,
+         "note": "left means departed, so the letter I goes from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Squaddie",
+         "at": 0,
+         "gives": "SOLDIER",
+         "note": "a squaddie is British slang for a private soldier"
+        },
+        {
+         "words": "I",
+         "at": 9,
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "words": "place to eat",
+       "at": 24,
+       "gives": "CAFF",
+       "note": "a caff is British slang for a cheap café"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier waits outside a café while a builder goes about his work.",
+     "walkthrough": "'I left' removes I from the soldier word, and 'outside' wraps what remains round the eating place; a caff is a British cheap café.",
+     "definitionFit": "A scaffolder is a worker who erects the poles and planks around buildings under construction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -90,10 +273,62 @@
    },
    "length": 9,
    "clue": {
-    "text": "Painter showing a talent origins ly in business",
+    "text": "Painter showing a talent originally in business",
     "enumeration": "9"
    },
-   "solution": "CANALETTO"
+   "solution": "CANALETTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "in means one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "business",
+       "at": 39,
+       "gives": "CO",
+       "note": "Co is the abbreviation for company, a business"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 25,
+         "note": "originally read as inventively or creatively, so the letters are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a talent",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist displays a natural gift early on in a commercial career.",
+     "walkthrough": "'originally' is the anagram signal: A TALENT rearranges to ANALETT, which goes 'in' CO.",
+     "definitionFit": "Canaletto was the eighteenth-century Venetian artist famed for views of the Grand Canal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +342,42 @@
     "text": "United's following taken advantage of",
     "enumeration": "5"
    },
-   "solution": "FUSED"
+   "solution": "FUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "United",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "following",
+       "at": 9,
+       "gives": "F",
+       "note": "f is the abbreviation for following, as in page references"
+      },
+      {
+       "words": "taken advantage of",
+       "at": 19,
+       "gives": "USED",
+       "note": "used means exploited"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Manchester United's fans have been exploited.",
+     "walkthrough": "'United's' looks like a football club, but it is the definition, with the 's standing for 'is'.",
+     "definitionFit": "Fused means joined or merged into one, a synonym of united."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United's"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +391,49 @@
     "text": "Possibly first or second row inter-interrupting exam",
     "enumeration": "7"
    },
-   "solution": "ORDINAL"
+   "solution": "ORDINAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Possibly first or second",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inter-interrupting",
+       "at": 29,
+       "note": "interrupting means breaking into the middle of the exam word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exam",
+       "at": 48,
+       "gives": "ORAL",
+       "note": "an oral is a spoken examination"
+      },
+      {
+       "words": "row",
+       "at": 25,
+       "gives": "DIN",
+       "note": "a din is a loud noise, a row"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate's oral exam is disturbed by noise from the front rows of seats.",
+     "walkthrough": "The text's 'inter-' is a stray repeat of the indicator 'interrupting'. 'row' rhymes with 'cow' here: a noise, not seating.",
+     "definitionFit": "First and second are examples of ordinal numbers, marking position in a sequence; 'Possibly' flags the examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +453,61 @@
      }
     ]
    },
-   "solution": "DAMPSQUIB"
+   "solution": "DAMPSQUIB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's not as impressive as expected",
+      "at": 41,
+      "note": "read as something that turns out to be a letdown"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "may be in",
+       "at": 26,
+       "note": "may be in tells us the politicians and the French word sit inside the spot"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spot",
+       "at": 36,
+       "gives": "DAB",
+       "note": "a dab is a small spot or blob, as of paint"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Politicians",
+         "at": 0,
+         "gives": "MPS",
+         "note": "MPs are Members of Parliament"
+        },
+        {
+         "words": "in France who",
+         "at": 12,
+         "gives": "QUI",
+         "note": "qui is the French for who"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French politicians caught in a tight spot turn out to be a disappointment.",
+     "walkthrough": "A squib is a small firework; a damp one fizzles out, hence the idiom.",
+     "definitionFit": "The idiom names a letdown: an event that fails to deliver what was promised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +521,43 @@
     "text": "Mug with drug habit",
     "enumeration": "4"
    },
-   "solution": "ROBE"
+   "solution": "ROBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "habit",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mug",
+       "at": 0,
+       "gives": "ROB",
+       "note": "to mug someone is to rob them in the street"
+      },
+      {
+       "words": "drug",
+       "at": 9,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A face, or a mug of tea, paired with a drug addiction.",
+     "walkthrough": "'habit' reads as an addiction after 'drug', but it is a monk's garment.",
+     "definitionFit": "A habit is the long garment worn by a monk or nun, a kind of robe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +571,61 @@
     "text": "Result in row over keeping army",
     "enumeration": "6"
    },
-   "solution": "ENTAIL"
+   "solution": "ENTAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Result in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 19,
+       "note": "keeping means holding the army inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 14,
+         "note": "in a down clue, over means the word is flipped upside down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "row",
+         "at": 10,
+         "gives": "LINE",
+         "note": "a line is a row, as of people"
+        }
+       ]
+      },
+      {
+       "words": "army",
+       "at": 27,
+       "gives": "TA",
+       "note": "the TA is the Territorial Army, Britain's reserve force"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument about holding on to the army has consequences.",
+     "walkthrough": "'over' turns LINE to ENIL, which is 'keeping' TA. 'row' as an argument is the false lead.",
+     "definitionFit": "To entail something is to bring it about as a necessary consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +639,70 @@
     "text": "Jot down number appearing within a small range",
     "enumeration": "9"
    },
-   "solution": "APENNINES"
+   "solution": "APENNINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing within",
+       "at": 16,
+       "note": "appearing within means the writing and the number sit inside the outer pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 33,
+         "gives": "A"
+        },
+        {
+         "words": "small",
+         "at": 35,
+         "gives": "S",
+         "note": "S is the abbreviation for small, as on clothing labels"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Jot down",
+         "at": 0,
+         "gives": "PEN",
+         "note": "to pen something is to write it down"
+        },
+        {
+         "words": "number",
+         "at": 9,
+         "gives": "NINE",
+         "note": "nine is a number"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Write down a figure that falls within a modest band.",
+     "walkthrough": "'range' looks like a span of numbers to go with the rest, but it is a chain of mountains.",
+     "definitionFit": "The Apennines are the mountain range running down the length of Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +716,60 @@
     "text": "Protest leading to end of job — so happy it's ended",
     "enumeration": "5"
    },
-   "solution": "DEMOB"
+   "solution": "DEMOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "so happy it's ended",
+      "at": 32,
+      "note": "alludes to being released from military service, a phrase as in 'demob happy'"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leading to",
+       "at": 8,
+       "note": "leading to means the protest comes first, followed by the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Protest",
+       "at": 0,
+       "gives": "DEMO",
+       "note": "a demo is a protest march"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 19,
+         "note": "end of signals the last letter of the word job"
+        }
+       ],
+       "parts": [
+        {
+         "words": "job",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strike ends a job, and the worker is delighted it is over.",
+     "walkthrough": "'demob happy' is a British idiom for the elation of someone about to be released from service.",
+     "definitionFit": "Demobilisation is the release of troops from service, an ending soldiers celebrate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Protest"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +789,71 @@
      }
     ]
    },
-   "solution": "KNOWALL"
+   "solution": "KNOWALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Awfully smart person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "overcoming",
+         "at": 32,
+         "note": "overcoming means placed over and around the abbreviation for new"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 26,
+           "note": "about means turned around, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fine",
+           "at": 21,
+           "gives": "OK",
+           "note": "OK means fine or all right"
+          }
+         ]
+        },
+        {
+         "words": "new",
+         "at": 43,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "barrier",
+       "at": 47,
+       "gives": "WALL",
+       "note": "a wall is a barrier"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very clever person deals with a new obstacle.",
+     "walkthrough": "'about' turns the word for fine round to KO, and 'overcoming' wraps that around the N for new.",
+     "definitionFit": "A know-all is someone who behaves as though they are awfully clever, an insufferable smart alec."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +867,66 @@
     "text": "European writer dropping book in rush",
     "enumeration": "6"
    },
-   "solution": "DANISH"
+   "solution": "DANISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in means the shortened writer sits inside the rush"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rush",
+       "at": 33,
+       "gives": "DASH",
+       "note": "to dash is to rush"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 16,
+         "note": "dropping means losing the abbreviation for book"
+        }
+       ],
+       "parts": [
+        {
+         "words": "writer",
+         "at": 9,
+         "gives": "NIB",
+         "note": "a nib is a pen point, a writer"
+        },
+        {
+         "words": "book",
+         "at": 25,
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A continental author hurriedly leaves out a volume.",
+     "walkthrough": "'writer' is a pen point, not an author; 'dropping' removes the book letter and 'in' puts the rest inside the rush word.",
+     "definitionFit": "A Dane is a European, and Danish describes a person or thing from Denmark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +940,69 @@
     "text": "Immoral, spoilt teenager in disgrace after vacation",
     "enumeration": "10"
    },
-   "solution": "DEGENERATE"
+   "solution": "DEGENERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immoral",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in means one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "after vacation",
+         "at": 37,
+         "note": "after vacation means the word is emptied, leaving only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disgrace",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoilt",
+         "at": 9,
+         "note": "spoilt means damaged, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "teenager",
+         "at": 16
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badly behaved, pampered youngster is in disgrace after a holiday.",
+     "walkthrough": "'spoilt' is the anagram signal; TEENAGER rearranges to EGENERAT, which goes 'in' DE, the emptied 'disgrace'.",
+     "definitionFit": "Degenerate means morally corrupt or debased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1022,44 @@
      }
     ]
    },
-   "solution": "ESCALATORCLAUSE"
+   "solution": "ESCALATORCLAUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provision for wage rise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worked out",
+       "at": 36,
+       "note": "worked out means solved or rearranged, so the letters are reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "calculators",
+       "at": 24
+      },
+      {
+       "words": "ease",
+       "at": 52
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Payroll staff work out a pay rise easily on their machines.",
+     "definitionFit": "An escalator clause in a contract allows pay or prices to go up in line with costs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1073,62 @@
     "text": "Terrible row about endless con and fraud",
     "enumeration": "9"
    },
-   "solution": "CACOPHONY"
+   "solution": "CACOPHONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terrible row",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 13,
+       "gives": "CA",
+       "note": "ca is short for circa, about"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 19,
+         "note": "endless means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "con",
+         "at": 27,
+         "gives": "CON"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "fraud",
+       "at": 35,
+       "gives": "PHONY",
+       "note": "a phony is a fake or fraud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious argument over a swindle.",
+     "walkthrough": "'about' gives CA (circa), not a turnaround. 'endless' cuts CON to CO.",
+     "definitionFit": "Cacophony is a harsh, discordant mixture of sounds, a terrible din."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1142,55 @@
     "text": "Understand point about one's alacrity",
     "enumeration": "9"
    },
-   "solution": "READINESS"
+   "solution": "READINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "alacrity",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "about means the headland word comes round next to the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Understand",
+       "at": 0,
+       "gives": "READ",
+       "note": "to read a situation is to understand it"
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "point",
+       "at": 11,
+       "gives": "NESS",
+       "note": "a ness is a headland or point, as in Loch Ness"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grasping the point of someone's eagerness.",
+     "walkthrough": "A ness is a headland; 'about' joins it to I.",
+     "definitionFit": "Readiness is willingness or promptness, the same eagerness as alacrity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1210,48 @@
      }
     ]
    },
-   "solution": "OCCASIONALTABLE"
+   "solution": "OCCASIONALTABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "item of furniture",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Produce",
+       "at": 0,
+       "gives": "OCCASION",
+       "note": "to occasion is to bring about or produce"
+      },
+      {
+       "words": "key",
+       "at": 8,
+       "gives": "ALT",
+       "note": "Alt is a key on a computer keyboard"
+      },
+      {
+       "words": "fit",
+       "at": 16,
+       "gives": "ABLE",
+       "note": "able means fit or capable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Make a key and fit it into a piece of furniture.",
+     "walkthrough": "'key' is the Alt key on a keyboard, not a lock key.",
+     "definitionFit": "An occasional table is a small portable table used as needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1265,60 @@
     "text": "Study artist ignoring current outrageous behaviour",
     "enumeration": "7"
    },
-   "solution": "SCANDAL"
+   "solution": "SCANDAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outrageous behaviour",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "SCAN",
+       "note": "to scan is to study closely"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 13,
+         "note": "ignoring means leaving out the symbol for current"
+        }
+       ],
+       "parts": [
+        {
+         "words": "artist",
+         "at": 6,
+         "gives": "DALI",
+         "note": "Salvador Dalí was a Spanish surrealist painter"
+        },
+        {
+         "words": "current",
+         "at": 22,
+         "gives": "I",
+         "note": "I is the physics symbol for electric current"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Examining an artist's outlandish antics while ignoring present events.",
+     "walkthrough": "'current' is the physics symbol I, not 'present'; DALI loses it.",
+     "definitionFit": "A scandal is conduct that causes public outrage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1332,72 @@
     "text": "Shock of paintings upset person endlessly",
     "enumeration": "6"
    },
-   "solution": "TRAUMA"
+   "solution": "TRAUMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 19,
+         "note": "in a down clue, upset means turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paintings",
+         "at": 9,
+         "gives": "ART",
+         "note": "art is a collective word for paintings"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 32,
+         "note": "endlessly means both ends are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "person",
+         "at": 25,
+         "gives": "HUMAN",
+         "note": "a human is a person"
+        },
+        {
+         "gives": "H"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person is shaken by distressing artworks.",
+     "walkthrough": "'upset' flips ART to TRA; 'endlessly' cuts HUMAN to UMA.",
+     "definitionFit": "Trauma is a severe emotional or physical shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1411,42 @@
     "text": "Brief in court with partner",
     "enumeration": "6"
    },
-   "solution": "UPDATE"
+   "solution": "UPDATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in court",
+       "at": 6,
+       "gives": "UP",
+       "note": "up means appearing before a court, as in 'up before the magistrate'"
+      },
+      {
+       "words": "partner",
+       "at": 20,
+       "gives": "DATE",
+       "note": "a date is a romantic partner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's brief for a court hearing, with a colleague.",
+     "walkthrough": "'Brief' looks like a lawyer's case papers, but it is a verb: to inform.",
+     "definitionFit": "To brief someone is to give them the latest information, to bring them up to speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1460,45 @@
     "text": "Cap that's very large picked up?",
     "enumeration": "5"
    },
-   "solution": "EXCEL"
+   "solution": "EXCEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EXCEL",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 22,
+       "note": "picked up means heard, so the letters are as spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "very large",
+       "at": 11,
+       "gives": "XL",
+       "note": "XL is the clothing size extra large"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oversized hat is lifted from the floor.",
+     "walkthrough": "'Cap' looks like a hat in an XL size, but it is a verb: to outdo.",
+     "definitionFit": "To cap something is to top or surpass it, which is to outshine it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cap"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1512,41 @@
     "text": "I have no trouble creating eponymous novel",
     "enumeration": "7"
    },
-   "solution": "IVANHOE"
+   "solution": "IVANHOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eponymous novel",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trouble",
+       "at": 10,
+       "note": "trouble here means to disturb, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I have no",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Writing a book named after its hero comes easily to me.",
+     "walkthrough": "'no trouble' reads as 'easily', but 'trouble' alone is the anagram signal.",
+     "definitionFit": "Walter Scott's novel takes its title from its hero, Wilfred of Ivanhoe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1566,66 @@
      }
     ]
    },
-   "solution": "HOOHA"
+   "solution": "HOOHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commotion",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "attracting",
+       "at": 26,
+       "note": "attracting means drawing the next letter on to the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 6,
+         "note": "out of means the clubs letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheap liquor",
+         "at": 13,
+         "gives": "HOOCH",
+         "note": "hooch is slang for cheap or illicit alcohol"
+        },
+        {
+         "words": "Clubs",
+         "at": 0,
+         "gives": "C",
+         "note": "C is the card-suit abbreviation for clubs"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 37,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nightclubs run out of rotgut, causing a ruckus.",
+     "walkthrough": "HOOCH loses C (clubs) and 'attracting' adds A.",
+     "definitionFit": "A hoo-ha is a fuss or row, a noisy disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1639,52 @@
     "text": "Great fear shown regularly over great distance",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "great distance",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 27,
+       "note": "in a down clue, over means turned upside down, read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "shown regularly",
+         "at": 11,
+         "note": "shown regularly means every second letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Great fear",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Terror felt again and again across a vast span.",
+     "walkthrough": "The even letters of 'Great fear' give RAFA; 'over' turns it upward.",
+     "definitionFit": "Afar is used for a long way off, as in 'from afar'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1698,59 @@
     "text": "Junk's first to stop crossing inlet",
     "enumeration": "5"
    },
-   "solution": "FJORD"
+   "solution": "FJORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inlet",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to stop",
+       "at": 13,
+       "note": "to stop means plugging a gap, so the letter goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "crossing",
+       "at": 21,
+       "gives": "FORD",
+       "note": "a ford is a shallow river crossing"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 7,
+         "note": "first means just the opening letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Junk's",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese junk's leading role in blocking a sea passage.",
+     "walkthrough": "'Junk' suggests a Chinese ship to go with 'inlet', but only its J is used, inside FORD.",
+     "definitionFit": "A fjord is a long narrow sea inlet between cliffs, as in Norway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1770,70 @@
      }
     ]
    },
-   "solution": "CREAMSODA"
+   "solution": "CREAMSODA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 26,
+       "note": "after means the following pieces come behind the finest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "finest",
+       "at": 32,
+       "gives": "CREAM",
+       "note": "the cream is the best part"
+      },
+      {
+       "words": "Very",
+       "at": 0,
+       "gives": "SO",
+       "note": "so means very, as in 'so good'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 5,
+         "note": "short means the last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "period of time",
+         "at": 11,
+         "gives": "DAY",
+         "note": "a day is a period of time"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny pause after the best part before a drink.",
+     "walkthrough": "'Very short' looks like one phrase; it is SO plus DAY cut short.",
+     "definitionFit": "Cream soda is a sweet fizzy soft drink flavoured with vanilla."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Very"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1853,42 @@
      }
     ]
    },
-   "solution": "ROYALFLUSH"
+   "solution": "ROYALFLUSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "winning hand?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Boys",
+       "at": 0,
+       "gives": "ROYALF",
+       "note": "Roy and Alf are two boys' names, side by side"
+      },
+      {
+       "words": "drunk",
+       "at": 6,
+       "gives": "LUSH",
+       "note": "a lush is a habitual drinker, a drunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some boys, intoxicated, deal out a strong set of cards.",
+     "walkthrough": "'Boys' gives two names, ROY and ALF; 'drunk' is a noun, LUSH.",
+     "definitionFit": "A royal flush is the top hand in poker; the question mark flags it as one example of a winner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +1902,46 @@
     "text": "Destroy bug, chopping head off",
     "enumeration": "4"
    },
-   "solution": "RAZE"
+   "solution": "RAZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Destroy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "chopping head off",
+       "at": 13,
+       "note": "chopping head off means the first letter is cut away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bug",
+       "at": 8,
+       "gives": "CRAZE",
+       "note": "a craze is a fad or enthusiasm, a bug as in 'the travel bug'"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kill an insect by decapitating it.",
+     "walkthrough": "'bug' looks like an insect, but it is an enthusiasm: CRAZE.",
+     "definitionFit": "To raze a building is to demolish it completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   }
  ]
 }
