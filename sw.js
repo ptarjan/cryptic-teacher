@@ -23,7 +23,8 @@
    see the page's own requests, so the page tells it what it loaded).
 
    What is not kept: the /learn/ and archive pages, and anything the sync Worker
-   serves. Those fail quietly offline. */
+   serves. Offline, a navigation to one of those is redirected to the app
+   (offlineHome); anything else fails quietly. */
 
 const SHELL = "ct-shell-1";
 const PUZZLES = "ct-puzzles-1";
@@ -53,16 +54,36 @@ async function trimPuzzles(cache, keep) {
   }
 }
 
+// A stamp missing from the cache with no network (the held home page can name
+// stamps a later "precache" dropped, or that were never fetched) falls back to
+// any other stamp of the same file: last week's stylesheet beats none, and
+// "none" is a page of bare Times text with every panel open (Paul, 10-30).
 async function cacheFirst(req, name) {
   const cache = await caches.open(name);
   const hit = await cache.match(req);
   if (hit) return hit;
-  const res = await fetch(req);
-  if (res.ok && !res.redirected) {
+  let res;
+  try { res = await fetch(req); } catch (e) { res = null; }
+  if (res && res.ok && !res.redirected) {
     await cache.put(req, res.clone());
     if (name === PUZZLES) await trimPuzzles(cache);
+    return res;
   }
-  return res;
+  const older = await cache.match(req, { ignoreSearch: true });
+  if (older) return older;
+  if (res) return res;
+  throw new TypeError("offline and not cached: " + req.url);
+}
+
+// Where a page the worker cannot fetch is sent instead. The home HTML links
+// its CSS and JS relatively, so it must never be served at another address:
+// at /puzzles/<id>/ (where the app itself puts the bar) "style.css" means
+// /puzzles/<id>/style.css, nothing loads, and the app shows as raw HTML. So
+// it is a redirect to the front door, keeping the puzzle as ?p=<id>.
+function offlineHome(url) {
+  const rest = url.pathname.slice(new URL(SCOPE).pathname.length);
+  const m = rest.match(/^puzzles\/([A-Za-z0-9_.-]+)\/?(?:index\.html)?$/);
+  return m && m[1] !== "series" ? SCOPE + "?p=" + encodeURIComponent(m[1]) : SCOPE;
 }
 
 // `key` is what the copy is filed under: the home page is one entry however
@@ -95,9 +116,10 @@ self.addEventListener("fetch", (event) => {
       event.respondWith(networkFirst(req, SHELL, new Request(SCOPE)).catch(() =>
         caches.match(new Request(SCOPE)).then((r) => r || Response.error())));
     } else {
-      // Another page (archive, /learn/): live when online; offline, the app.
+      // Another page (archive, /learn/, a /puzzles/<id>/ bar): live when
+      // online; offline, a redirect to the app (see offlineHome).
       event.respondWith(fetch(req).catch(() =>
-        caches.match(new Request(SCOPE)).then((r) => r || Response.error())));
+        caches.match(new Request(SCOPE)).then((r) => (r ? Response.redirect(offlineHome(url), 302) : Response.error()))));
     }
     return;
   }
@@ -134,7 +156,21 @@ async function precache(urls) {
   try {
     if (!(await cache.match(new Request(SCOPE)))) await cache.add(new Request(SCOPE));
   } catch (e) { /* same */ }
-  // A stamped URL this page no longer uses, for a path it still does.
+  // The held home page can be newer than the page sending this (the network
+  // copy lands after a slow launch fell back to the held one). Its stamps are
+  // what the next offline launch asks for, so they are fetched and kept too,
+  // never dropped as "no longer used".
+  try {
+    const home = await cache.match(new Request(SCOPE));
+    const html = home ? await home.text() : "";
+    for (const m of html.match(/(?:src|href)="[^"]*\?v=[0-9a-f]+"/g) || []) {
+      const url = new URL(m.slice(m.indexOf('"') + 1, -1), SCOPE);
+      if (url.origin !== self.location.origin) continue;
+      keep.add(url.href);
+      try { if (!(await cache.match(url.href))) await cache.add(new Request(url.href)); } catch (e) { /* next time */ }
+    }
+  } catch (e) { /* unreadable: keep only the page's own */ }
+  // A stamped URL neither page uses, for a path they still do.
   const paths = new Set([...keep].map((h) => h.split("?")[0]));
   for (const k of await cache.keys()) {
     if (k.url.includes("?v=") && paths.has(k.url.split("?")[0]) && !keep.has(k.url)) await cache.delete(k);
