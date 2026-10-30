@@ -199,6 +199,7 @@ n, _ = gf.run(limit=3, **kw)
 assert n == 3 and json.loads(kw["limits"].read_text())["refusals"][0]["status"] == 429
 assert gf.verdict(PDF, "CS999", text_of=lambda b: "link.gale.com/apps/doc/CS111/TTDA") is not None, "wrong doc"
 assert gf.verdict(PDF, "CS111", text_of=lambda b: "link.gale.com/apps/doc/CS111/TTDA") is None
+assert gf.verdict(PDF, "CS111", text_of=lambda b: "\n\n\n") is None, "a scanned issue (blank first pages) is not a wrong doc"
 
 # 3. One error is ridden out (after a backoff); MAX_ERRORS in a row stop it.
 clock, starts, stored, kw = harness(bodies=lambda i: urllib.error.URLError("reset") if i == 1 else PDF)

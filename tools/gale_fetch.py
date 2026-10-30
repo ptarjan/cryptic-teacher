@@ -134,7 +134,7 @@ LISTENER = "Listener"
 #: The Saturday Times' Listener articles (1991-2014): kept only, not laid out
 #: as an edition or a magazine page.
 TIMES_LISTENER_DIR = f"{GALE_ROOT}/{LISTENER}/Times/Fetched"
-CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "cryptic-crosswords")
+CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "web.cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
 
@@ -281,7 +281,9 @@ def verdict(body, doc, text_of=None):
             import gale_inbox  # pypdf; only once a PDF came
             text_of = gale_inbox.pdf_text
         text = text_of(body)
-        if text and doc.upper() not in text.upper():
+        # A scanned issue (HS2305412114, FT 2000-07-25) has no text on its
+        # first pages, only blank lines; its citation is on the last page.
+        if text.strip() and doc.upper() not in text.upper():
             return "a PDF whose citation does not name the document asked for", False
         return None
     text = body[:200_000].decode("utf-8", "replace").lower()
