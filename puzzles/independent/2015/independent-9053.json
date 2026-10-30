@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,48 @@
     "text": "Requirement for gymnast after I left dog",
     "enumeration": "6"
    },
-   "solution": "BEAGLE"
+   "solution": "BEAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "left",
+       "at": 32,
+       "note": "something that has left is gone, so the letter is taken away from the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Requirement for gymnast",
+       "at": 0,
+       "gives": "BEAGILE",
+       "note": "a gymnast needs to be supple, so the phrase BE AGILE"
+      },
+      {
+       "words": "I",
+       "at": 30,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of what a gymnast needs, written just after someone has walked out.",
+     "walkthrough": "'after I left' means the phrase once its I has gone; 'after' only joins.",
+     "definitionFit": "A breed of small hound used for hunting hares, so an example of a dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +89,54 @@
     "text": "Uncomfortably hot in sun? On the contrary!",
     "enumeration": "7"
    },
-   "solution": "BASKING"
+   "solution": "BASKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncomfortably hot in sun? On the contrary!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "signals that one piece sits inside another"
+      },
+      {
+       "text": "On the contrary",
+       "at": 26,
+       "note": "swaps the order the clue gives, so the hot word goes round the sun letter rather than the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Uncomfortably hot",
+       "at": 0,
+       "gives": "BAKING",
+       "note": "baking means unpleasantly hot"
+      },
+      {
+       "words": "sun",
+       "at": 21,
+       "gives": "S"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A sunbather is asked whether it is too hot, and replies that the opposite is true.",
+     "walkthrough": "'in' with 'On the contrary' reverses the containment: S for sun goes inside BAKING. Read as a whole, the clue also describes lying in the sun and enjoying the warmth.",
+     "definitionFit": "Lying in sunshine and enjoying the warmth, the opposite of finding the heat unbearable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +150,41 @@
     "text": "One more Away win",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One more",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Away",
+       "at": 9,
+       "gives": "A",
+       "note": "A is the abbreviation for away, as in football results"
+      },
+      {
+       "words": "win",
+       "at": 14,
+       "gives": "GAIN",
+       "note": "to win is to gain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan hopes for one more away victory.",
+     "definitionFit": "Adverb meaning once more, another time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Away"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +198,60 @@
     "text": "Not that keen on high mural hiding famous gardens",
     "enumeration": "8"
    },
-   "solution": "LUKEWARM"
+   "solution": "LUKEWARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not that keen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 28,
+       "note": "one piece hides another inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "high",
+         "at": 17,
+         "note": "high suggests drunk or intoxicated, so the letters of the word mural are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mural",
+         "at": 22,
+         "note": "anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "famous gardens",
+       "at": 35,
+       "gives": "KEW",
+       "note": "Kew Gardens, the botanic gardens in London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unenthusiastic about a lofty wall painting that blocks the view of famous gardens.",
+     "walkthrough": "'high' looks like height but means drunk, the anagram signal, giving LUARM. Kew is the Royal Botanic Gardens in west London.",
+     "definitionFit": "Figuratively, tepid enthusiasm: only half-hearted, not very eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +265,63 @@
     "text": "He flails there having lost heart, the lady's right",
     "enumeration": "8"
    },
-   "solution": "THRESHER"
+   "solution": "THRESHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He flails",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having lost heart",
+         "at": 16,
+         "note": "the heart of a word is its central letter, which is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "there",
+         "at": 10,
+         "gives": "THERE",
+         "note": "taken as written before its middle letter goes"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "the lady",
+       "at": 35,
+       "gives": "SHE",
+       "note": "she refers to a lady"
+      },
+      {
+       "words": "right",
+       "at": 46,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man waves his arms about over there, and the woman is correct about it.",
+     "walkthrough": "'having lost heart' takes the middle E out of THERE, leaving THRE; the 's of lady's is a link.",
+     "definitionFit": "One who beats grain with a flail to separate it from the chaff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flails"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +335,41 @@
     "text": "Short breaks from work time for composer",
     "enumeration": "5"
    },
-   "solution": "HOLST"
+   "solution": "HOLST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Short breaks from work",
+       "at": 0,
+       "gives": "HOLS",
+       "note": "hols is short for holidays"
+      },
+      {
+       "words": "time",
+       "at": 23,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer takes brief holidays to get some time off.",
+     "walkthrough": "HOLS is British informal for holidays.",
+     "definitionFit": "Gustav, the English composer of The Planets suite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +383,61 @@
     "text": "Team put in to annoy and upset is a tonic",
     "enumeration": "6"
    },
-   "solution": "ELIXIR"
+   "solution": "ELIXIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a tonic",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 5,
+       "note": "the team is placed inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 25,
+         "note": "in a down clue, upset turns the word upside down so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to annoy",
+         "at": 12,
+         "gives": "RILE",
+         "note": "to rile is to annoy"
+        }
+       ]
+      },
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "XI",
+       "note": "XI, eleven, is a cricket or football team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in a team to irritate and unsettle someone acts as a pick-me-up.",
+     "walkthrough": "In a down clue 'upset' turns the word upside down, giving ELIR; XI is eleven, a cricket or football side.",
+     "definitionFit": "A magical or medicinal potion believed to restore health, so a restorative drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +451,50 @@
     "text": "He edited article for dissident",
     "enumeration": "9"
    },
-   "solution": "HERETICAL"
+   "solution": "HERETICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dissident",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "He",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "edited",
+         "at": 3,
+         "note": "edited text has been reworked, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "article",
+         "at": 10
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man revised a piece of writing on behalf of a rebel.",
+     "walkthrough": "'edited' rearranges only ARTICLE; HE stays in place at the front.",
+     "definitionFit": "Holding views against accepted doctrine, so dissenting or unorthodox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edited"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +508,32 @@
     "text": "What to do with leftover ice?",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What to do with leftover",
+      "at": 0,
+      "meaning": "serve again, which is what happens to leftovers"
+     },
+     {
+      "text": "ice",
+      "at": 25,
+      "meaning": "ice is coldness of manner, a distant restraint"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what to do with spare ice.",
+     "walkthrough": "The first sense splits into RE-SERVE, to serve again; the second is reticence, as in an icy formality.",
+     "definitionFit": "Serve a second time, or aloofness and restraint in manner, both senses of one word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ice"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +547,76 @@
     "text": "Suspension for two lecturers leaving a belly dance (topless)",
     "enumeration": "8"
    },
-   "solution": "ABEYANCE"
+   "solution": "ABEYANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suspension",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 37
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 29,
+         "note": "the lecturers depart from the word belly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "belly",
+         "at": 39
+        },
+        {
+         "words": "two lecturers",
+         "at": 15,
+         "gives": "LL",
+         "note": "L is the abbreviation for lecturer, so two give LL"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 52,
+         "note": "without its top, the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dance",
+         "at": 45
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two academics are suspended for performing a risqué belly dance.",
+     "walkthrough": "'leaving' takes LL out of BELLY, leaving BEY; 'topless' takes D off DANCE, leaving ANCE.",
+     "definitionFit": "A state of temporary disuse or being put on hold, as when matters are left pending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +630,49 @@
     "text": "Financial swindler is hard to find in a Channel Island?",
     "enumeration": "5"
    },
-   "solution": "SHARK"
+   "solution": "SHARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Financial swindler",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to find in",
+       "at": 27,
+       "note": "the letter is found inside the island"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a Channel Island",
+       "at": 38,
+       "gives": "SARK",
+       "note": "Sark is one of the Channel Islands"
+      },
+      {
+       "words": "hard",
+       "at": 22,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a con man hard to track down on a Channel Island tax haven?",
+     "walkthrough": "SARK is a small Channel Island between England and France; 'to find in' puts H inside.",
+     "definitionFit": "Slang for a swindler or extortioner, as in loan predator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "find"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +686,64 @@
     "text": "Shooting game, this is all I shot surrounded by grouse etc",
     "enumeration": "9"
    },
-   "solution": "BILLIARDS"
+   "solution": "BILLIARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shooting game",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded by",
+       "at": 34,
+       "note": "the jumbled letters are enclosed by the outer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grouse etc",
+       "at": 48,
+       "gives": "BIRDS",
+       "note": "grouse and similar game are birds"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "at": 29,
+         "note": "shot means ruined or broken, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 23
+        },
+        {
+         "words": "I",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shooting party where everything has been hit, surrounded by grouse and other game birds.",
+     "walkthrough": "'shot' means wrecked, the anagram signal, giving LLIA; 'this is' is a link.",
+     "definitionFit": "A cue sport played on a table, where each strike of the ball is a shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +767,49 @@
      }
     ]
    },
-   "solution": "INNOWAY"
+   "solution": "INNOWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not at all",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 35,
+       "note": "the run letter goes out of the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "where to see fjords",
+       "at": 11,
+       "gives": "INNORWAY",
+       "note": "fjords are found in Norway"
+      },
+      {
+       "words": "run",
+       "at": 31,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist complains that the fjord trip was cancelled, saying it is not happening at all.",
+     "walkthrough": "'out' drops R from IN NORWAY.",
+     "definitionFit": "An emphatic negative: by no means, under no circumstances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +823,36 @@
     "text": "A bit of terse burble?",
     "enumeration": "7"
    },
-   "solution": "TWITTER"
+   "solution": "TWITTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A bit of terse burble?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A bit of terse burble",
+       "at": 0,
+       "note": "the social media site where people post short messages, and also a word for nervous chatter or bird song"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snippet of clipped chatter.",
+     "walkthrough": "The social platform carried short posts; the word also means to chatter or burble.",
+     "definitionFit": "Means light chirping talk, and was the name of a site known for brief posts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +866,42 @@
     "text": "Good stargazing needed for making of stargazey pie etc?",
     "enumeration": "10"
    },
-   "solution": "GASTRONOMY"
+   "solution": "GASTRONOMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making of stargazey pie etc",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "words": "stargazing",
+       "at": 5,
+       "gives": "ASTRONOMY",
+       "note": "astronomy is the study of the stars"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fine star-watching is required to make a Cornish fish pie.",
+     "walkthrough": "Stargazey pie is a Cornish pie with fish heads poking through the crust as if gazing at the sky.",
+     "definitionFit": "The art and practice of fine cooking and eating, which covers preparing such dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stargazing"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +915,65 @@
     "text": "The end of my comb, is it used for like \"You scratch my back…\"?",
     "enumeration": "9"
    },
-   "solution": "SYMBIOTIC"
+   "solution": "SYMBIOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like \"You scratch my back…\"",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "used",
+       "at": 26,
+       "note": "used here means worn or knocked about, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "The end of",
+         "at": 0,
+         "note": "the last letter of the word my is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "my",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "comb",
+       "at": 14
+      },
+      {
+       "words": "is",
+       "at": 20
+      },
+      {
+       "words": "it",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the tip of their comb is used to scratch their back.",
+     "walkthrough": "'The end of' gives Y from MY; 'used' scrambles it with COMB IS IT.",
+     "definitionFit": "Describes a mutually beneficial relationship, matching the saying about returning favours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "comb"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +987,54 @@
     "text": "Bride's partner turned up and had meal in London station",
     "enumeration": "8"
    },
-   "solution": "MOORGATE"
+   "solution": "MOORGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "London station",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned up",
+         "at": 16,
+         "note": "in a down clue, turned up means read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bride's partner",
+         "at": 0,
+         "gives": "GROOM",
+         "note": "the man a bride marries is the groom"
+        }
+       ]
+      },
+      {
+       "words": "had meal",
+       "at": 30,
+       "gives": "ATE",
+       "note": "ate means had a meal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The groom arrived and had dinner at a London railway station.",
+     "walkthrough": "'turned up' turns GROOM to MOORG. Moorgate is a station in the City of London.",
+     "definitionFit": "A Tube and rail terminus in the City, named after a gate in the old city wall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1048,42 @@
     "text": "A complaint of teachers",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 12,
+       "note": "the answer is part of the word teachers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teachers",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teachers are known for one particular grumble.",
+     "walkthrough": "The letters sit inside tEACHErs.",
+     "definitionFit": "A dull continuous pain, which is a physical ailment or malady."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1097,42 @@
     "text": "She might be sailable when at sea",
     "enumeration": "8"
    },
-   "solution": "ISABELLA"
+   "solution": "ISABELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 27,
+       "note": "at sea means confused, so the letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sailable",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman might be fit for sailing when out on the ocean.",
+     "walkthrough": "'at sea' rearranges SAILABLE. 'She' is also used of ships, adding to the nautical picture.",
+     "definitionFit": "A woman's given name, so an example of a female person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "She"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1146,42 @@
     "text": "Rugby member to back side",
     "enumeration": "4"
    },
-   "solution": "RUMP"
+   "solution": "RUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "back side",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Rugby",
+       "at": 0,
+       "gives": "RU",
+       "note": "RU stands for Rugby Union"
+      },
+      {
+       "words": "member",
+       "at": 6,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player is moved back to play on the defensive side.",
+     "walkthrough": "MP, Member of Parliament, is the usual sense of member.",
+     "definitionFit": "The hindquarters or buttocks of an animal or person, its rear end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1195,59 @@
     "text": "Need to exclude rector before mass — such as this?",
     "enumeration": "7"
    },
-   "solution": "REQUIEM"
+   "solution": "REQUIEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "such as this",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to exclude",
+         "at": 5,
+         "note": "the rector letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Need",
+         "at": 0,
+         "gives": "REQUIRE",
+         "note": "to need is to require"
+        },
+        {
+         "words": "rector",
+         "at": 16,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "mass",
+       "at": 30,
+       "gives": "M",
+       "note": "M is the abbreviation for mass in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service needs no rector before the mass.",
+     "walkthrough": "'to exclude' removes one R from REQUIRE, giving REQUIE. 'such as this' points back at 'mass': the answer is a kind of mass, for the dead.",
+     "definitionFit": "A Mass for the souls of the dead, so an example of the church service named in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1261,52 @@
     "text": "Stirring melodies the French miss perhaps?",
     "enumeration": "10"
    },
-   "solution": "DEMOISELLE"
+   "solution": "DEMOISELLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "miss perhaps",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Stirring",
+         "at": 0,
+         "note": "stirring mixes things up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "melodies",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "the French",
+       "at": 18,
+       "gives": "LE",
+       "note": "le is French for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Moving tunes that a French girl might miss.",
+     "walkthrough": "'Stirring' looks like an adjective for moving music, but it signals the anagram of MELODIES.",
+     "definitionFit": "A young unmarried lady, the sort addressed by the title used for unmarried women."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stirring"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1320,41 @@
     "text": "For me a siesta without clothes is the least fuss",
     "enumeration": "7"
    },
-   "solution": "EASIEST"
+   "solution": "EASIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the least fuss",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "without clothes",
+       "at": 16,
+       "note": "stripped of its outer layer, the inner run of these words is what remains"
+      }
+     ],
+     "parts": [
+      {
+       "words": "me a siesta",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a nap with no clothes on the most relaxed option.",
+     "walkthrough": "'without clothes' strips the outer M and A from 'me a siesta'; 'For' and 'is' are links.",
+     "definitionFit": "Superlative of simple: requiring the smallest effort or bother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1368,49 @@
     "text": "Fast watch — it's around five",
     "enumeration": "6"
    },
-   "solution": "STARVE"
+   "solution": "STARVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "the watching word goes around the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "watch",
+       "at": 5,
+       "gives": "STARE",
+       "note": "to stare is to watch intently"
+      },
+      {
+       "words": "five",
+       "at": 25,
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A watch that runs fast, showing about five o'clock.",
+     "walkthrough": "'Fast' looks like a watch running ahead but means go without food.",
+     "definitionFit": "To go hungry, as in deliberately abstaining from food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1424,69 @@
     "text": "Make piano completely new installing piece of electronics",
     "enumeration": "7"
    },
-   "solution": "QUIETEN"
+   "solution": "QUIETEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make piano",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "installing",
+         "at": 26,
+         "note": "the outer letters take in the extra letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "completely",
+         "at": 11,
+         "gives": "QUITE",
+         "note": "quite means completely, as in quite right"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "piece of",
+           "at": 37,
+           "note": "a piece of the word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "electronics",
+           "at": 46
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "new",
+       "at": 22,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piano is made entirely new by fitting electronic parts.",
+     "walkthrough": "'installing' puts E (from 'piece of electronics') inside QUITE N. Piano is the musical term for soft.",
+     "definitionFit": "To make softer or calmer, since piano in music means soft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1500,67 @@
     "text": "Look after run up to finals of Caucus Race",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look after",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 15,
+         "note": "in a down clue, up means read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "run",
+         "at": 11,
+         "gives": "RUN"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finals of",
+         "at": 21,
+         "note": "the last letters of each word are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Caucus",
+         "at": 31
+        },
+        {
+         "words": "Race",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tend to someone while running in Alice in Wonderland's Caucus Race.",
+     "walkthrough": "'up' turns RUN to NUR; 'finals of' gives S and E. The Caucus Race is from Alice in Wonderland.",
+     "definitionFit": "To care for a patient or tend someone who is ill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finals"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1574,70 @@
     "text": "Hump-backed apes not naughty at first but there for all to see",
     "enumeration": "7"
    },
-   "solution": "GIBBOUS"
+   "solution": "GIBBOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hump-backed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 17,
+       "note": "the letter from naughty is not in the word"
+      },
+      {
+       "text": "but there",
+       "at": 38,
+       "note": "in its place, something else is put there"
+      }
+     ],
+     "parts": [
+      {
+       "words": "apes",
+       "at": 12,
+       "gives": "GIBBONS",
+       "note": "gibbons are apes"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 29,
+         "note": "takes the first letter of naughty"
+        }
+       ],
+       "parts": [
+        {
+         "words": "naughty",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "for all to see",
+       "at": 48,
+       "gives": "U",
+       "note": "U is the film certificate meaning suitable for all audiences"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hunched apes that were good, not naughty, from the start, out in public view.",
+     "walkthrough": "'not' and 'but there' swap N (from 'naughty at first') in GIBBONS for U, the British universal film rating.",
+     "definitionFit": "Humped or convex; also used of the moon when more than half lit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1657,50 @@
      }
     ]
    },
-   "solution": "OWNUP"
+   "solution": "OWNUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "come clean",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loosing",
+       "at": 6,
+       "note": "the adult is let loose from the letters, which are removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Adult",
+       "at": 0,
+       "gives": "GROWNUP",
+       "note": "a grown-up is an adult"
+      },
+      {
+       "words": "a couple of bits of grime",
+       "at": 14,
+       "gives": "GR",
+       "note": "the first two letters of grime"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An adult washing off some dirt has come clean.",
+     "walkthrough": "'loosing' drops GR, the first two letters of grime.",
+     "definitionFit": "Idiom meaning to confess or admit to wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1714,42 @@
     "text": "Bury's ready for the French to translate",
     "enumeration": "9"
    },
-   "solution": "INTERPRET"
+   "solution": "INTERPRET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to translate",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bury",
+       "at": 0,
+       "gives": "INTER",
+       "note": "to inter is to bury"
+      },
+      {
+       "words": "ready for the French",
+       "at": 7,
+       "gives": "PRET",
+       "note": "prêt is French for ready"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Lancashire town is prepared to bring in a French interpreter.",
+     "walkthrough": "The 's of Bury's is a link. Bury looks like the Lancashire town but is the verb.",
+     "definitionFit": "To render words from one language into another, explaining their meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury's"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1763,41 @@
     "text": "Boiled clean to make an incision",
     "enumeration": "5"
    },
-   "solution": "LANCE"
+   "solution": "LANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make an incision",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Boiled",
+       "at": 0,
+       "note": "boiling churns things around, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clean",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sterilised by boiling before a surgeon makes a cut.",
+     "walkthrough": "'Boiled' rearranges CLEAN.",
+     "definitionFit": "To pierce or cut open, as a surgeon does to drain a boil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boiled"
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1811,70 @@
     "text": "Scotsman has a bit of room in bottom of hull for fish",
     "enumeration": "8"
    },
-   "solution": "MACKEREL"
+   "solution": "MACKEREL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scotsman",
+       "at": 0,
+       "gives": "MAC",
+       "note": "Mac is a nickname for a Scot"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bottom of hull",
+         "at": 30,
+         "gives": "KEEL",
+         "note": "the keel runs along the bottom of a ship's hull"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a bit of",
+           "at": 13,
+           "note": "a single letter, the first, is taken from room"
+          }
+         ],
+         "parts": [
+          {
+           "words": "room",
+           "at": 22
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot has a bit of space at the bottom of a boat to keep fish.",
+     "walkthrough": "'in' puts R, from 'a bit of room', inside KEEL.",
+     "definitionFit": "An oily, striped sea fish of the North Atlantic, an example of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 30,
@@ -481,7 +1888,50 @@
     "text": "Dog in the footwell? It's on the floor",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's on the floor",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "the pet is found in the car, which places the car word before it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the footwell",
+       "at": 7,
+       "gives": "CAR",
+       "note": "a footwell is part of a car"
+      },
+      {
+       "words": "Dog",
+       "at": 0,
+       "gives": "PET",
+       "note": "a dog is a pet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog sits in the footwell of a car, lying on the floor.",
+     "walkthrough": "A pet in a car is a car pet. The definition is a floor covering.",
+     "definitionFit": "A woven floor covering, which lies across the ground of a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dog"
+    }
+   }
   }
  ]
 }
