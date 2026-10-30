@@ -1316,46 +1316,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally means at the end, so only the end letter of Biden is used"
+       "text": "steps into",
+       "at": 14,
+       "note": "to step into a place is to go inside it, so the letter from Biden goes within the jumbled word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "steps into",
-         "note": "to step into something is to join it, so that letter joins the word that follows"
+         "text": "mess",
+         "at": 31,
+         "note": "a local mess is the word local thrown into disorder, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "mess",
-           "note": "the letters are made a mess of"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Biden",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of Biden"
-          }
-         ]
-        },
-        {
          "words": "local",
-         "note": "used as it stands"
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 6,
+         "note": "finally points to the very end of the name Biden, so only its closing letter is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Biden",
+         "at": 0
         }
        ]
       }
@@ -1363,13 +1361,13 @@
     },
     "explanation": {
      "surface": "Joe Biden wades into some neighbourhood muddle, saying he's always ready to serve.",
-     "walkthrough": "N joins LOCAL, and all six letters are jumbled together.",
-     "definitionFit": "Someone on call is ready to work whenever needed."
+     "walkthrough": "'mess' makes OCALL from LOCAL, and 'steps into' puts N, the end of Biden picked out by 'finally', after its O.",
+     "definitionFit": "Someone on call, like a duty doctor, is available to work whenever summoned."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "local"
+     "misdirectedWord": "mess"
     }
    }
   },
