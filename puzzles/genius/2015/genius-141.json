@@ -533,43 +533,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNSAVOURINESS",
-     "indicators": [
-      {
-       "text": "wreck",
-       "note": "a wreck is something smashed up, so its letters are scattered"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "unchecked": true,
-       "gives": "UNSAVOURINESS",
+       "op": "deletion",
        "parts": [
         {
          "words": "Hit man",
+         "at": 0,
          "gives": "GUN",
          "note": "gun is slang for a gunman or hired killer"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginning to",
-           "note": "the beginning of a word is its opening letter, so only that is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "shake",
-           "note": "the opening of shake"
-          }
-         ]
-        },
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 8,
+         "note": "the beginning of a word is its opening letter, so only the first of shake is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shake",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wreck",
+         "at": 40,
+         "note": "a wreck is something smashed up, so the letters before it are scattered"
+        }
+       ],
+       "parts": [
         {
          "words": "is a nervous",
+         "at": 27,
          "note": "taken as written"
         }
        ]
@@ -578,7 +586,7 @@
     },
     "explanation": {
      "surface": "A contract killer starts trembling and goes to pieces.",
-     "walkthrough": "GUN plus the jumble makes GUNSAVOURINESS; the G is this clue's surplus letter.",
+     "walkthrough": "The dropped G is this clue's surplus letter, the second letter of the preamble's message; 'wreck' rearranges the letters of 'is a nervous'.",
      "definitionFit": "Unsavouriness is unpleasantness or disreputability, the opposite of a pleasing or good quality."
     },
     "features": {
