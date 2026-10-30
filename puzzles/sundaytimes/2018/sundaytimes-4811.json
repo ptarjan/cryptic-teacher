@@ -1128,33 +1128,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "to collect",
        "at": 44,
-       "note": "the centre of the airport name comes along to pick up the food, joining on after it"
+       "note": "to collect means the preceding pieces gather the next one up inside them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "head off",
-         "at": 13,
-         "note": "the head, the first letter, comes off the word for top managers"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Top managers",
-         "at": 0,
-         "gives": "CHAIRS",
-         "note": "chairs are the people who chair boards, the top managers"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "head off",
+           "at": 13,
+           "note": "head off means the word loses its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Top managers",
+           "at": 0,
+           "gives": "CHAIRS",
+           "note": "the chairs of companies are their top managers"
+          },
+          {
+           "gives": "C"
+          }
+         ]
         },
         {
-         "gives": "C"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centre of",
+           "at": 25,
+           "note": "centre of points to the two middle letters of the airport's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Heathrow",
+           "at": 35
+          }
+         ]
         }
        ]
       },
@@ -1162,37 +1183,20 @@
        "words": "food",
        "at": 55,
        "gives": "BREAD",
-       "note": "bread is basic food"
-      },
-      {
-       "op": "middle",
-       "indicators": [
-        {
-         "text": "centre of",
-         "at": 25,
-         "note": "the central pair of letters of the eight-letter airport name"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Heathrow",
-         "at": 35,
-         "note": "the airport name, whose middle pair of letters is taken"
-        }
-       ]
+       "note": "bread is a staple food"
       }
      ]
     },
     "spelling": "HAIR'S BREADTH",
     "explanation": {
-     "surface": "Senior bosses decapitated before heading into Heathrow to pick up a meal, and it is not a long trip.",
-     "walkthrough": "'head off' strips the first letter from CHAIRS; 'centre of' takes the middle pair of Heathrow, which 'to collect' attaches after the food. The trailing ellipsis leads the surface into the next clue.",
-     "definitionFit": "A hair's breadth is a tiny distance, so whatever is within it is very close rather than far away."
+     "surface": "Executives fly into the middle of Heathrow to pick up something to eat, and it is only a short trip.",
+     "walkthrough": "The surface suggests a trip to the airport, but 'centre of' takes only the two middle letters of the name, and the definition is the closing comment after the dash.",
+     "definitionFit": "Idiom: a hair's width is a tiny distance, so anything within it is very close indeed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Heathrow"
+     "misdirectedWord": "collect"
     }
    }
   },
