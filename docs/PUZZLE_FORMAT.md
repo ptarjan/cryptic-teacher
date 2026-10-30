@@ -125,7 +125,9 @@ filed, and the expression cannot write one. The tree, in brief:
   (wordplay that is one leaf), `wordplay.bareInCharade` (a charade piece with no
   clue words, unless the clue has a `hiddenLetter` or the leaf carries
   `"device": true`) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
-  goes inside, `ins(outer, ana(x))`). Four more count what the checked rules skip,
+  goes inside, `ins(outer, ana(x))`) and `wordplay.preReversedLeaf` (a leaf under a
+  reversal that gives its word already backwards: the leaf gives the word forwards
+  and the reversal sits on the piece it turns). Four more count what the checked rules skip,
   in an `unchecked` step (the `tools/shape_suspects.py` detectors measured precise):
   `wordplay.arityIns` (a container not of two parts), `wordplay.arityOther` (a
   deletion of 3+, substitution not of 3, homophone of 3+, or a reversal, hidden
