@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "Shot wound",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shot",
+      "at": 0,
+      "meaning": "a shot is an attempt, as in 'have a go at it'"
+     },
+     {
+      "text": "wound",
+      "at": 5,
+      "meaning": "to wound is to pierce someone with a knife"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: an attempt at something, and a knife thrust that pierces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +70,67 @@
     "text": "Sort out line by the main character in Long Walk",
     "enumeration": "6"
    },
-   "solution": "STROLL"
+   "solution": "STROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Walk",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 5,
+         "note": "sorted out letters are put in a new order, so the word sort is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sort",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "at": 9,
+       "gives": "L"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the main character in",
+         "at": 17,
+         "note": "the leading or main character of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Long",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to fix a line belonging to the lead in a film called Long Walk.",
+     "walkthrough": "'Sort out' looks like a phrasal verb meaning fix; 'out' alone makes STRO.",
+     "definitionFit": "A leisurely walk taken for pleasure is the noun sense; both are unhurried journeys on foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +157,60 @@
     "text": "Pet Sematary's top minds going first",
     "enumeration": "6"
    },
-   "solution": "CARESS"
+   "solution": "CARESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going first",
+       "at": 25,
+       "note": "says the word for minds is placed ahead of the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "minds",
+       "at": 19,
+       "gives": "CARES",
+       "note": "to mind is to be concerned about, so minds means cares"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 15,
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sematary's",
+         "at": 4
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen King's Pet Sematary, where the leading brains go first — a horror-story image.",
+     "walkthrough": "Pet Sematary is a Stephen King novel; 'Pet' is the definition, not part of the title.",
+     "definitionFit": "To pet an animal is to stroke it fondly, a synonym for a gentle loving touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +224,56 @@
     "text": "One's carried away, tied up — drive here?",
     "enumeration": "8"
    },
-   "solution": "DEPORTEE"
+   "solution": "DEPORTEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's carried away",
+      "at": 0,
+      "note": "a clause standing for a noun: someone who is removed, i.e. expelled from a country"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 25,
+         "note": "in a down clue, up means the word is read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tied",
+         "at": 20,
+         "gives": "ROPED",
+         "note": "tied with rope means roped"
+        }
+       ]
+      },
+      {
+       "words": "drive here?",
+       "at": 30,
+       "gives": "TEE",
+       "note": "a golfer drives off from the tee, the peg or area where a hole starts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bound and driven off — a kidnap scene with a question about where the car is going.",
+     "walkthrough": "ROPED read upwards gives DEPOR; 'drive' is a golf shot, not a car journey.",
+     "definitionFit": "Someone expelled from a country is carried away from it, so the phrase describes an expelled person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +287,42 @@
     "text": "Sort of characters in Duma Key",
     "enumeration": "4"
    },
-   "solution": "MAKE"
+   "solution": "MAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "characters in",
+       "at": 8,
+       "note": "the letters (characters) inside the words Duma Key supply the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Duma Key",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the kind of characters found in Stephen King's novel Duma Key.",
+     "walkthrough": "'characters in' signals letters hidden in Duma Key.",
+     "definitionFit": "Brand or kind: 'what sort of car' and 'what brand of car' mean the same thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +336,71 @@
     "text": "Love actor playing in Mr Mercedes?",
     "enumeration": "8"
    },
-   "solution": "MOTORCAR"
+   "solution": "MOTORCAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mercedes?",
+      "at": 25,
+      "note": "a Mercedes is an example of an automobile, hence the question mark"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "says the following letters go inside the abbreviation for mister"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mr",
+       "at": 22,
+       "gives": "MR",
+       "note": "taken as written"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Love",
+         "at": 0,
+         "gives": "O",
+         "note": "love is zero in tennis, which looks like O"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "playing",
+           "at": 11,
+           "note": "an actor playing a role is working the letters into a new form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "actor",
+           "at": 5
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Love an actor who stars in the TV adaptation of Stephen King's Mr Mercedes.",
+     "walkthrough": "Mr Mercedes is a Stephen King novel, but only 'Mercedes?' defines; 'playing' makes TORCA.",
+     "definitionFit": "Mercedes is a car maker, so a Mercedes is an example of a car; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mr"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +414,32 @@
     "text": "What's meant by the end of Salem's Lot?",
     "enumeration": "4"
    },
-   "solution": "MASS"
+   "solution": "MASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's meant by the end of Salem's",
+      "at": 0,
+      "meaning": "the last letter of Salem is M, which in physics is the symbol for the quantity of matter in a body"
+     },
+     {
+      "text": "Lot",
+      "at": 35,
+      "meaning": "a lot is a large amount, a heap"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about the meaning of the ending of Stephen King's novel 'Salem's Lot.",
+     "walkthrough": "The first definition is cryptic: M, the final letter of Salem, is the physics symbol for this quantity. Salem is also in Massachusetts.",
+     "definitionFit": "A lot is a large quantity or heap; and in physics M denotes the quantity of matter in a body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +459,41 @@
      }
     ]
    },
-   "solution": "TITLEPAGE"
+   "solution": "TITLEPAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of book",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Handle",
+       "at": 0,
+       "gives": "TITLE",
+       "note": "a handle is slang for a name or an honorific like Sir or Dr"
+      },
+      {
+       "words": "call",
+       "at": 7,
+       "gives": "PAGE",
+       "note": "to page someone is to call them over a public address system"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic instruction to handle a call, with a part of a book thrown in.",
+     "definitionFit": "The leaf at the front of a book that gives its name and author is a standard part of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Handle"
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +507,66 @@
     "text": "Nose past drinkers outside room taking round …",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nose",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 19,
+       "note": "the two letters for former drinkers sit around the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "past drinkers",
+       "at": 5,
+       "gives": "AA",
+       "note": "AA is Alcoholics Anonymous, whose members no longer drink"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 32,
+         "note": "the abbreviation for room takes in, i.e. contains, the round letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room",
+         "at": 27,
+         "gives": "RM"
+        },
+        {
+         "words": "round",
+         "at": 39,
+         "gives": "O",
+         "note": "O is round in shape"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noses past drinkers standing outside a room, sniffing their way round.",
+     "walkthrough": "RM taking O gives ROM; AA outside that gives the answer. The ellipsis links into the next clue.",
+     "definitionFit": "A wine's nose is its smell or bouquet, so the noun is a synonym for a pleasant scent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nose"
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +580,47 @@
     "text": "… drinks to flow? Write book first",
     "enumeration": "5"
    },
-   "solution": "BOOZE"
+   "solution": "BOOZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drinks",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 29,
+       "note": "says the letter for book is written ahead of the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "book",
+       "at": 24,
+       "gives": "B"
+      },
+      {
+       "words": "flow",
+       "at": 12,
+       "gives": "OOZE",
+       "note": "to flow slowly out is to ooze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from the previous clue: drinks set the words flowing, so write the book first.",
+     "definitionFit": "Slang for alcoholic drinks taken collectively, a common informal synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flow"
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +634,65 @@
     "text": "Sexy and single — blood repelled American",
     "enumeration": "9"
    },
-   "solution": "EROGENOUS"
+   "solution": "EROGENOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sexy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repelled",
+         "at": 24,
+         "note": "repelled means driven back, so the two words are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "single",
+           "at": 9,
+           "gives": "ONE",
+           "note": "single means one"
+          },
+          {
+           "words": "blood",
+           "at": 18,
+           "gives": "GORE",
+           "note": "gore is spilt blood"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 33,
+       "gives": "US",
+       "note": "US is short for American, as in the US army"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single person, sexy, but put off by an American's blood.",
+     "walkthrough": "'repelled' turns ONEGORE into EROGENO; US follows.",
+     "definitionFit": "Sexually sensitive or arousing; the adjective describes zones of the body that excite, hence a synonym for sexy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repelled"
+    }
+   }
   },
   {
    "number": 13,
@@ -204,7 +706,42 @@
     "text": "Growth: college matter",
     "enumeration": "7"
    },
-   "solution": "POLYPUS"
+   "solution": "POLYPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Growth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "college",
+       "at": 8,
+       "gives": "POLY",
+       "note": "a poly was a polytechnic, a type of British college"
+      },
+      {
+       "words": "matter",
+       "at": 16,
+       "gives": "PUS",
+       "note": "pus is the matter discharged from an infected wound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dry remark that a growth is a matter for college study.",
+     "walkthrough": "A POLY was a polytechnic, a British higher-education college. 'matter' is the yellowish fluid from a wound.",
+     "definitionFit": "A medical term for a small tumour or polyp growing from a mucous membrane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +761,43 @@
      }
     ]
    },
-   "solution": "PUTUP"
+   "solution": "PUTUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deviously staged",
+      "at": 0,
+      "note": "an adjective: arranged dishonestly beforehand, as with a rigged job"
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "whichever way you look at it",
+       "at": 18,
+       "note": "the letters read the same from either end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Deviously staged",
+       "at": 0,
+       "gives": "PUTUP",
+       "note": "an adjective: arranged dishonestly beforehand, as with a rigged job"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An event that was staged with deceit, however you view it.",
+     "walkthrough": "'whichever way you look at it' says the answer reads the same forwards and backwards.",
+     "definitionFit": "A rigged or framed event is arranged dishonestly in advance, the idiom for something fixed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +811,75 @@
     "text": "Oddly, The Green Mile lost parts form a type of message",
     "enumeration": "7"
    },
-   "solution": "TELECOM"
+   "solution": "TELECOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a type of message",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "parts",
+       "at": 27,
+       "note": "the letter for lost parts the other pieces, sitting between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "Oddly",
+           "at": 0,
+           "note": "oddly takes the odd-numbered letters, first and third"
+          }
+         ],
+         "parts": [
+          {
+           "words": "The",
+           "at": 7
+          }
+         ]
+        },
+        {
+         "words": "Green",
+         "at": 11,
+         "gives": "ECO",
+         "note": "eco is a prefix meaning environmentally friendly, or green"
+        },
+        {
+         "words": "Mile",
+         "at": 17,
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "lost",
+       "at": 22,
+       "gives": "L",
+       "note": "L stands for lost in sports results tables"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The odd thing about The Green Mile is that its lost parts form a kind of message — a puzzle about King's book.",
+     "walkthrough": "The Green Mile is a Stephen King novel. 'parts' puts L between the odd letters of The and the rest.",
+     "definitionFit": "Short for telecommunication, a message sent over a long distance by wire or radio."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +893,59 @@
     "text": "Isolation left sections without a piece of text",
     "enumeration": "10"
    },
-   "solution": "LONELINESS"
+   "solution": "LONELINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Isolation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 10,
+       "gives": "L"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 24,
+         "note": "without in its old sense of outside, so the sections wrap round the text"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sections",
+         "at": 15,
+         "gives": "ONES",
+         "note": "ones are units or single parts of something"
+        },
+        {
+         "words": "a piece of text",
+         "at": 32,
+         "gives": "LINES",
+         "note": "lines are a passage of text, as an actor's lines"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left isolated, with sections of a document missing a piece of text.",
+     "walkthrough": "'without' is used in its old sense of outside, not lacking.",
+     "definitionFit": "Being alone and cut off from others is a state of solitude, so the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +959,50 @@
     "text": "Unclear — writer's block with first?",
     "enumeration": "5"
    },
-   "solution": "MISTY"
+   "solution": "MISTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unclear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "block with",
+       "at": 19,
+       "note": "the setter's word is blocked up with, i.e. filled by, the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer's",
+       "at": 10,
+       "gives": "MY",
+       "note": "the setter refers to themselves, so writer's means my"
+      },
+      {
+       "words": "first",
+       "at": 30,
+       "gives": "IST",
+       "note": "first is written 1st, and the 1 looks like I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the picture unclear because the writer had writer's block first?",
+     "walkthrough": "1ST becomes IST, a common crossword convention; it goes inside MY.",
+     "definitionFit": "Hazy or blurred, as in vision or memory, so not clear; a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1016,53 @@
     "text": "Satisfied over constant rates",
     "enumeration": "5"
    },
-   "solution": "TEMPI"
+   "solution": "TEMPI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rates",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 10,
+         "note": "over means turned over, so the word for satisfied is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Satisfied",
+         "at": 0,
+         "gives": "MET",
+         "note": "demands are met when satisfied"
+        }
+       ]
+      },
+      {
+       "words": "constant",
+       "at": 15,
+       "gives": "PI",
+       "note": "pi is the mathematical constant 3.14159..."
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Satisfied with constant rates, over and over.",
+     "definitionFit": "The plural of tempo: musical speeds or rates of movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1076,67 @@
     "text": "They deliver Times, collecting Scotsman around 5",
     "enumeration": "8"
    },
-   "solution": "MINIVANS"
+   "solution": "MINIVANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They deliver",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collecting",
+       "at": 20,
+       "note": "says the word for times collects, i.e. contains, the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Times",
+       "at": 13,
+       "gives": "MINS",
+       "note": "mins are minutes, short measures of time"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 40,
+         "note": "says the Scottish name goes around the numeral"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scotsman",
+         "at": 31,
+         "gives": "IAN",
+         "note": "Ian is a typical Scottish man's name"
+        },
+        {
+         "words": "5",
+         "at": 47,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vans delivering The Times newspaper, picking up The Scotsman newspaper around five o'clock.",
+     "walkthrough": "The Times and The Scotsman are British newspapers, but here they are minutes and a Scottish name.",
+     "definitionFit": "Small vans are used by couriers to make deliveries, so they deliver goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1161,70 @@
     "19-across",
     "29-across",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "novel",
+       "at": 41,
+       "note": "novel means new, so these letters are given a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "somewhat",
+       "at": 5
+      },
+      {
+       "words": "hard",
+       "at": 14
+      },
+      {
+       "words": "Stephen",
+       "at": 20
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 35,
+         "note": "a word cut short loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "King's",
+         "at": 28,
+         "gives": "KING",
+         "note": "King, ignoring possessive"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film somewhat hard going? Based on a Stephen King short novel.",
+     "walkthrough": "'short' cuts G from KING; 'novel' rearranges SOMEWHAT HARD STEPHEN KIN.",
+     "definitionFit": "A 1994 prison drama, adapted from a King novella, regularly voted one of cinema's greatest pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1238,59 @@
     "text": "Support one in home that's extremely small",
     "enumeration": "8"
    },
-   "solution": "TEENIEST"
+   "solution": "TEENIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extremely small",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Support",
+       "at": 0,
+       "gives": "TEE",
+       "note": "a golf tee supports the ball"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 12,
+         "note": "says the letter for one goes inside the word for home"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home",
+         "at": 15,
+         "gives": "NEST",
+         "note": "a nest is a bird's home"
+        },
+        {
+         "words": "one",
+         "at": 8,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Support given to someone in a care home that is extremely small.",
+     "definitionFit": "Superlative of a childish word for tiny, so the most tiny of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1304,68 @@
     "text": "Stephen King primarily published about troubles",
     "enumeration": "5"
    },
-   "solution": "NARKS"
+   "solution": "NARKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "troubles",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 33,
+       "note": "about means turned about, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 13,
+           "note": "primarily means first, so the first letter of each word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Stephen",
+           "at": 0
+          },
+          {
+           "words": "King",
+           "at": 8
+          }
+         ]
+        },
+        {
+         "words": "published",
+         "at": 23,
+         "gives": "RAN",
+         "note": "a paper ran a story when it published it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen King mainly published books about trouble.",
+     "walkthrough": "'primarily' takes SK; with RAN that is SKRAN, which 'about' turns round.",
+     "definitionFit": "To irritate or annoy someone is a British informal verb sense; it troubles them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "published"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1379,59 @@
     "text": "Writer, number one, describing punishment",
     "enumeration": "7"
    },
-   "solution": "PENANCE"
+   "solution": "PENANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "punishment",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Writer",
+       "at": 0,
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "describing",
+         "at": 20,
+         "note": "to describe a circle is to draw round, so the word for one goes round the letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 15,
+         "gives": "ACE",
+         "note": "an ace is the one in a pack of cards"
+        },
+        {
+         "words": "number",
+         "at": 8,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top writer depicting a punishment.",
+     "walkthrough": "'describing' here means drawing around: ACE goes round N.",
+     "definitionFit": "Self-imposed punishment as atonement for sin, especially in Catholic practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1445,50 @@
     "text": "King's evil woman in Misery",
     "enumeration": "7"
    },
-   "solution": "KILLJOY"
+   "solution": "KILLJOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Misery",
+      "at": 21,
+      "note": "a person, a wet blanket who spoils others' fun"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King",
+       "at": 0,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      },
+      {
+       "words": "evil",
+       "at": 7,
+       "gives": "ILL",
+       "note": "ill can mean evil, as in ill will"
+      },
+      {
+       "words": "woman",
+       "at": 12,
+       "gives": "JOY",
+       "note": "Joy is a woman's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen King's evil woman in Misery — Annie Wilkes, the novel's villainess.",
+     "walkthrough": "Misery is a Stephen King novel; here it means a gloomy spoilsport.",
+     "definitionFit": "A misery is a person who spoils others' fun, a usage common in British English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Misery"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1502,58 @@
     "text": "State answer: awkwardly ask hosts",
     "enumeration": "6"
    },
-   "solution": "KANSAS"
+   "solution": "KANSAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosts",
+       "at": 28,
+       "note": "a host holds guests, so the jumbled word holds the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awkwardly",
+         "at": 14,
+         "note": "awkwardly arranged letters are in a clumsy new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ask",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "answer",
+       "at": 6,
+       "gives": "ANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to state an answer: awkwardly ask the hosts.",
+     "walkthrough": "'State' looks like a verb but is the definition; 'awkwardly' makes KAS.",
+     "definitionFit": "A US state in the Midwest, capital Topeka, famous as Dorothy's home in The Wizard of Oz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1567,50 @@
     "text": "Puzzle creator to shake over horror film?",
     "enumeration": "6"
    },
-   "solution": "JIGSAW"
+   "solution": "JIGSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Puzzle creator",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 24,
+       "note": "in a down clue, over means placed above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to shake",
+       "at": 15,
+       "gives": "JIG",
+       "note": "to jig is to jerk or bob up and down"
+      },
+      {
+       "words": "horror film?",
+       "at": 29,
+       "gives": "SAW",
+       "note": "Saw is a 2004 horror film; the question mark flags the example"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creator of puzzles shaking over a horror film — fittingly, as Jigsaw is Saw's villain.",
+     "walkthrough": "In Saw the killer is a puzzle setter; the definition is a power saw that cuts puzzle pieces.",
+     "definitionFit": "A fine-bladed power saw cuts intricate curves, the tool that creates the interlocking pieces of a picture puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "creator"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1624,88 @@
     "text": "Left review that is good to fill jacket for Stephen King?",
     "enumeration": "9"
    },
-   "solution": "SOVEREIGN"
+   "solution": "SOVEREIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "at": 25,
+       "note": "says the inner pieces fill up the outer letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "jacket for",
+         "at": 33,
+         "note": "a jacket is the outer layer, so the outside letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stephen",
+         "at": 44
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Left",
+         "at": 0,
+         "gives": "OVER",
+         "note": "something left over remains"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "review",
+           "at": 5,
+           "note": "read as re-view, viewed back to front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "that is",
+           "at": 12,
+           "gives": "IE",
+           "note": "ie is short for id est, that is"
+          }
+         ]
+        },
+        {
+         "words": "good",
+         "at": 20,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing review saying it's good enough to fill a Stephen King dust jacket.",
+     "walkthrough": "'review' turns IE G into EIG; OVER plus EIG fills SN, the outside of Stephen.",
+     "definitionFit": "A monarch, king or queen, holds supreme power in a country; the question mark flags the Stephen pun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1719,65 @@
     "text": "After It, sign detailed deal",
     "enumeration": "4"
    },
-   "solution": "SALE"
+   "solution": "SALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deal",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "the sign piece comes after the sex-appeal piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It",
+       "at": 6,
+       "gives": "SA",
+       "note": "It is old slang for sex appeal, SA"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 15,
+         "note": "de-tailed, with its tail or last letter removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sign",
+         "at": 10,
+         "gives": "LEO",
+         "note": "Leo is a sign of the zodiac"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After It, the sign of a detailed deal; It is a Stephen King novel.",
+     "walkthrough": "IT for sex appeal is a crossword convention, abbreviated SA. 'detailed' cuts the O off LEO.",
+     "definitionFit": "A transaction where goods change hands for money, so an agreed deal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1791,40 @@
     "text": "King established support",
     "enumeration": "4"
    },
-   "solution": "REST"
+   "solution": "REST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "support",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King",
+       "at": 0,
+       "gives": "R",
+       "note": "R stands for rex, Latin for king"
+      },
+      {
+       "words": "established",
+       "at": 5,
+       "gives": "EST",
+       "note": "EST is an abbreviation for established, as on shop signs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The King established support.",
+     "definitionFit": "A prop on which something leans, like a cue or arm prop, is a noun synonym for a support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1838,71 @@
     "text": "Dark Tower's beginning — hard drink knocked back",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocked back",
+       "at": 36,
+       "note": "knocked back means sent backwards, so the pieces read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 13,
+           "note": "a word's beginning is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tower's",
+           "at": 5
+          }
+         ]
+        },
+        {
+         "words": "hard",
+         "at": 25,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        },
+        {
+         "words": "drink",
+         "at": 30,
+         "gives": "GIN",
+         "note": "gin is a drink"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The start of King's Dark Tower series, with a hard drink downed.",
+     "walkthrough": "The Dark Tower is a Stephen King series; 'Dark' is the definition. T, H and GIN are read backwards.",
+     "definitionFit": "Darkness is the time after sunset, so the noun is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1916,29 @@
     "text": "Buy Escort",
     "enumeration": "4"
    },
-   "solution": "TAKE"
+   "solution": "TAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Buy",
+      "at": 0,
+      "meaning": "to buy is to accept or believe, as in 'I won't swallow that'"
+     },
+     {
+      "text": "Escort",
+      "at": 4,
+      "meaning": "to escort someone is to accompany them somewhere"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both are verb senses: accepting a claim, and leading or accompanying someone somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Escort"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1952,40 @@
     "text": "Left stuff to write pieces",
     "enumeration": "5"
    },
-   "solution": "LINKS"
+   "solution": "LINKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pieces",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "stuff to write",
+       "at": 5,
+       "gives": "INKS",
+       "note": "inks are the stuff a pen writes with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has left the materials to write some pieces.",
+     "definitionFit": "The rings of a chain are its separate pieces, the parts joined together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 29,
