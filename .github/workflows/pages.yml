@@ -167,6 +167,18 @@ jobs:
     # it on the deployment itself.)
     environment: ${{ needs.scope.outputs.deploy == 'true' && 'github-pages' || '' }}
     steps:
+      # The runner's free disk is shared by the checkout (~1GB tree plus up to
+      # 1.5GB git store), the restored caches and the site, and run
+      # 41138886134 filled it ("No space left on device"). The image's .NET,
+      # Android SDK, GHC and CodeQL bundles are ~20GB this job never touches,
+      # so they go first. df is printed here and before the archive so the
+      # next failure shows its headroom.
+      - name: Free disk space
+        if: needs.scope.outputs.deploy == 'true'
+        run: |
+          df -h / | tail -n 1
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h / | tail -n 1
       # The tree is ~54k files, ~1GB of puzzle JSON, and fetching all of it
       # from nothing was ~58s of a 66s checkout (run 38370347047) for a push
       # that changed one file. So the object store is cached between runs
@@ -530,6 +542,7 @@ jobs:
         run: |
           tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
+          df -h / | tail -n 1
       - name: Upload the site
         if: needs.scope.outputs.deploy == 'true'
         uses: actions/upload-artifact@v6
