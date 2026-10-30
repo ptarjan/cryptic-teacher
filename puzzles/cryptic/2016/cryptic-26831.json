@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "It's taken out in wool-gathering",
     "enumeration": "10"
    },
-   "solution": "ABSTRACTED"
+   "solution": "ABSTRACTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taken out",
+      "at": 5,
+      "meaning": "removed or extracted, as something drawn out of a larger whole"
+     },
+     {
+      "text": "wool-gathering",
+      "at": 18,
+      "meaning": "daydreaming, lost in thought and inattentive"
+     }
+    ],
+    "explanation": {
+     "surface": "Something gets removed while its owner is daydreaming.",
+     "definitionFit": "Both are dictionary senses: extracted, and absent-minded or preoccupied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wool-gathering"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,60 @@
     "text": "This can provide an image that includes love — for oneself?",
     "enumeration": "8"
    },
-   "solution": "EGOMANIA"
+   "solution": "EGOMANIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This can provide an image that includes love — for oneself?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 31,
+       "note": "the phrase takes the zero letter into itself before shuffling"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "can provide",
+         "at": 5,
+         "note": "the letters of the phrase can be rearranged to provide something else, signalling a reshuffle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an image",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "at": 40,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, written as the letter O"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A riddle about a picture that contains affection directed at oneself.",
+     "walkthrough": "AN IMAGE with O placed inside is rearranged under 'can provide'; the whole clue also describes the answer, an image of love for oneself.",
+     "definitionFit": "Obsessive self-regard is literally a mania for the ego, an excessive love for oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +138,46 @@
     "text": "Left one extremely out of sorts",
     "enumeration": "6"
    },
-   "solution": "LIVERY"
+   "solution": "LIVERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out of sorts",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "one",
+       "at": 5,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      },
+      {
+       "words": "extremely",
+       "at": 9,
+       "gives": "VERY",
+       "note": "very and extremely are synonyms"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who was left behind feels thoroughly unwell and grumpy.",
+     "definitionFit": "Liverish, irritable or queasy, as if the liver were troubling one; an informal British adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +191,28 @@
     "text": "Identify the precise location",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Identify",
+      "at": 0,
+      "meaning": "to pick out or notice something"
+     },
+     {
+      "text": "the precise location",
+      "at": 9,
+      "meaning": "an exact place, as in 'the very place'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means detect or notice; as a noun it means a particular place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +226,41 @@
     "text": "A strict, or a liberal, gentleman?",
     "enumeration": "10"
    },
-   "solution": "ARISTOCRAT"
+   "solution": "ARISTOCRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gentleman?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "liberal",
+       "at": 15,
+       "note": "liberal suggests a free, loose treatment of the letters, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A strict, or a",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a gentleman is a disciplinarian or a progressive.",
+     "walkthrough": "'liberal' reads as a political label opposite 'strict', but it is the anagram signal; the question mark flags that gentleman is a definition by example.",
+     "definitionFit": "A gentleman in the old sense was a man of noble birth, so a nobleman fits as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +274,42 @@
     "text": "It currently controls rose that is rambling",
     "enumeration": "8"
    },
-   "solution": "RHEOSTAT"
+   "solution": "RHEOSTAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It currently controls",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rambling",
+       "at": 35,
+       "note": "a rambling rose sprawls in all directions, so the letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rose that",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climbing rose that sprawls everywhere is in charge right now.",
+     "walkthrough": "'currently' seems to mean 'at present' but means 'regarding electric current'; 'is' is a link word.",
+     "definitionFit": "A variable resistor is a device for regulating the electric current in a circuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "currently"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +323,35 @@
     "text": "Cheeky, but attractive, feature",
     "enumeration": "6"
    },
-   "solution": "DIMPLE"
+   "solution": "DIMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheeky, but attractive, feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cheeky, but attractive, feature",
+       "at": 0,
+       "note": "cheeky here means found on the cheek, not impudent: a charming little hollow on a face"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praises an impudent yet appealing trait in someone.",
+     "definitionFit": "A small natural hollow in the cheek, often thought charming, is a facial feature on the cheek."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cheeky"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +365,46 @@
     "text": "Boss to pore over books endlessly",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boss",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 24,
+       "note": "without its end, so the final letter of the verb is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to pore over books",
+       "at": 5,
+       "gives": "STUDY",
+       "note": "to study is to read books closely"
+      },
+      {
+       "gives": "Y"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager tells someone to keep their nose in their books.",
+     "walkthrough": "'Boss' looks like a manager but is the ornamental knob sense.",
+     "definitionFit": "A boss is a raised ornamental knob or button, as is a decorative metal stud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Boss"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +424,30 @@
      }
     ]
    },
-   "solution": "BIGDIPPER"
+   "solution": "BIGDIPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American stars",
+      "at": 0,
+      "meaning": "the American name for the seven bright stars of the Plough constellation"
+     },
+     {
+      "text": "encountered in amusement park",
+      "at": 15,
+      "meaning": "a switchback roller coaster at a fairground"
+     }
+    ],
+    "explanation": {
+     "surface": "Celebrities from the US are spotted at a theme park.",
+     "definitionFit": "The phrase names both the US star group called the Plough in Britain and a fairground roller-coaster ride."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +461,48 @@
     "text": "Elevate one among many",
     "enumeration": "5"
    },
-   "solution": "HOIST"
+   "solution": "HOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elevate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 12,
+       "note": "one letter is placed among the others, inside the word for many"
+      }
+     ],
+     "parts": [
+      {
+       "words": "many",
+       "at": 18,
+       "gives": "HOST",
+       "note": "a host is a great number, a multitude"
+      },
+      {
+       "words": "one",
+       "at": 8,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raise one person above the crowd.",
+     "definitionFit": "To raise or lift something up, often with ropes or tackle, is a synonym of elevate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +516,28 @@
     "text": "Storm created by Shakespeare",
     "enumeration": "7"
    },
-   "solution": "TEMPEST"
+   "solution": "TEMPEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0,
+      "meaning": "a violent gale with rain"
+     },
+     {
+      "text": "created by Shakespeare",
+      "at": 6,
+      "meaning": "A late play by Shakespeare"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It means a violent storm and is also the title of the play Shakespeare wrote about a shipwreck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +551,43 @@
     "text": "Skinhead frisked and betrayed to the police",
     "enumeration": "7"
    },
-   "solution": "SHOPPED"
+   "solution": "SHOPPED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "betrayed to the police",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Skinhead",
+       "at": 0,
+       "gives": "S",
+       "note": "read as the head of skin, its first letter S"
+      },
+      {
+       "words": "frisked",
+       "at": 9,
+       "gives": "HOPPED",
+       "note": "to frisk is to skip and leap playfully, so frisked means hopped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shaven-headed thug is searched and then informed on.",
+     "walkthrough": "'frisked' suggests a police search, but here means leaped about; 'Skinhead' is split into skin's head.",
+     "definitionFit": "British slang: to shop someone is to inform on them to the authorities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "frisked"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +601,57 @@
     "text": "Trouble caused by a small number in New York",
     "enumeration": "5"
    },
-   "solution": "ANNOY"
+   "solution": "ANNOY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trouble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 18,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 33,
+         "note": "the abbreviation for number sits in the abbreviation for the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New York",
+         "at": 36,
+         "gives": "NY"
+        },
+        {
+         "words": "small number",
+         "at": 20,
+         "gives": "NO",
+         "note": "NO is the short form of number, small meaning abbreviated"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bother arises from a modest figure in a big American city.",
+     "definitionFit": "To trouble someone is to irritate or bother them, a straight verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 14,
@@ -225,7 +671,41 @@
      }
     ]
    },
-   "solution": "SHORTHEAD"
+   "solution": "SHORTHEAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Winning measure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "brusque",
+       "at": 21,
+       "gives": "SHORT",
+       "note": "short with someone means curt or brusque"
+      },
+      {
+       "words": "school principal",
+       "at": 29,
+       "gives": "HEAD",
+       "note": "the head teacher runs a school"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A curt head teacher hands out a prize-winning measurement.",
+     "definitionFit": "In horse racing, a tiny winning margin less than the length of a horse's head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +725,40 @@
      }
     ]
    },
-   "solution": "SELFDENIAL"
+   "solution": "SELFDENIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Christian virtue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 31,
+       "note": "in some way or other, so the letters are arranged in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fills a need",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Christian virtue somehow meets a need.",
+     "definitionFit": "Abstaining from one's own desires is a classic ascetic virtue in Christian teaching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fills"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +772,35 @@
     "text": "An opening revelation",
     "enumeration": "10"
    },
-   "solution": "DISCLOSURE"
+   "solution": "DISCLOSURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An opening revelation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "An opening revelation",
+       "at": 0,
+       "note": "an opening is the opposite of a shutting, so the word reads as not-closing, as well as a revealing of facts"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A startling discovery right at the start.",
+     "definitionFit": "A revealing of hidden facts is a revelation, and the word splits as dis- plus closure, an un-closing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +820,31 @@
      }
     ]
    },
-   "solution": "TRAVELLERSTALES"
+   "solution": "TRAVELLERSTALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exaggerated accounts",
+      "at": 0,
+      "meaning": "tall stories, improbable yarns"
+     },
+     {
+      "text": "submitted by salesmen?",
+      "at": 21,
+      "meaning": "commercial salesmen were called travellers, so their stories belong to them"
+     }
+    ],
+    "spelling": "TRAVELLERS' TALES",
+    "explanation": {
+     "definitionFit": "The idiom means far-fetched stories, and travelling salesmen, once called commercial travellers, tell such stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "submitted"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +858,35 @@
     "text": "Deerstalkers' comedowns?",
     "enumeration": "8"
    },
-   "solution": "EARFLAPS"
+   "solution": "EARFLAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deerstalkers' comedowns?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Deerstalkers' comedowns?",
+       "at": 0,
+       "note": "a deerstalker is a hunting cap with flaps that come down over the sides of the head; comedowns usually means disappointments"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hunters of deer suffer humiliating setbacks.",
+     "definitionFit": "The side flaps of a deerstalker cap fold down over the wearer's ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comedowns"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +900,41 @@
     "text": "Bear I let out — yes, let out!",
     "enumeration": "8"
    },
-   "solution": "LIBERATE"
+   "solution": "LIBERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "let out",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 11,
+       "note": "out here means wrong or disordered, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bear I let",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frees a bear and insists on it.",
+     "walkthrough": "The first 'out' signals the anagram; the second 'let out', after 'yes', is the definition.",
+     "definitionFit": "To free or release someone is to let them out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +948,28 @@
     "text": "Shame! Say it's wrong",
     "enumeration": "9"
    },
-   "solution": "DISCREDIT"
+   "solution": "DISCREDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 0,
+      "meaning": "disgrace or loss of reputation"
+     },
+     {
+      "text": "Say it's wrong",
+      "at": 7,
+      "meaning": "to cast doubt on, refuse to believe"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a noun it means disgrace; as a verb it means to disbelieve or show something to be false."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +983,41 @@
     "text": "Spring changes course",
     "enumeration": "6"
    },
-   "solution": "SOURCE"
+   "solution": "SOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changes",
+       "at": 7,
+       "note": "the letters of the word are changed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "course",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spring of water alters its route.",
+     "walkthrough": "'Spring' could be a season or a leap, but here it is where water rises.",
+     "definitionFit": "A spring is the origin of a stream, its fountainhead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1031,40 @@
     "text": "Infant left in tower here",
     "enumeration": "5"
    },
-   "solution": "BABEL"
+   "solution": "BABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tower here",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Infant",
+       "at": 0,
+       "gives": "BABE",
+       "note": "a babe is a baby"
+      },
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baby has been abandoned in a tower.",
+     "definitionFit": "In Genesis, the city where the tower reaching to heaven was built was named for confusion of tongues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1078,41 @@
     "text": "Great girl, marrying unlawfully",
     "enumeration": "6"
    },
-   "solution": "BIGAMY"
+   "solution": "BIGAMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "marrying unlawfully",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Great",
+       "at": 0,
+       "gives": "BIG",
+       "note": "big and great are synonyms"
+      },
+      {
+       "words": "girl",
+       "at": 6,
+       "gives": "AMY",
+       "note": "Amy is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine young woman is getting married illegally.",
+     "definitionFit": "Marrying while already married is the crime of having two spouses at once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1126,53 @@
     "text": "Sentimental girl takes nothing back",
     "enumeration": "7"
    },
-   "solution": "MAUDLIN"
+   "solution": "MAUDLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sentimental",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "girl",
+       "at": 12,
+       "gives": "MAUD",
+       "note": "Maud is a girl's name"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 31,
+         "note": "the word for nothing is taken back, read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nothing",
+         "at": 23,
+         "gives": "NIL",
+         "note": "nil means nothing, zero"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl retracts her offer of nothing at all.",
+     "definitionFit": "Tearfully or weakly emotional, especially when drunk: a synonym for mawkish sentimentality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1186,42 @@
     "text": "Doctor about to get an increase",
     "enumeration": "4"
    },
-   "solution": "MORE"
+   "solution": "MORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an increase",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "MO",
+       "note": "MO is a medical officer, an army doctor"
+      },
+      {
+       "words": "about",
+       "at": 7,
+       "gives": "RE",
+       "note": "re means about or concerning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is about to receive a pay rise.",
+     "walkthrough": "'about to' reads as 'on the point of', but 'about' gives RE and 'to get' is a link.",
+     "definitionFit": "Additional amount, as in asking for some extra; the noun sense of an increased quantity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1235,28 @@
     "text": "Looks for a friendly word",
     "enumeration": "7"
    },
-   "solution": "REGARDS"
+   "solution": "REGARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Looks",
+      "at": 0,
+      "meaning": "gazes at, considers"
+     },
+     {
+      "text": "a friendly word",
+      "at": 10,
+      "meaning": "best wishes sent at the close of a letter"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means looks at or considers; as a plural noun it is a friendly greeting, as in 'kind ___'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1270,48 @@
     "text": "Storm caused by parking on drive",
     "enumeration": "4"
    },
-   "solution": "RAMP"
+   "solution": "RAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 24,
+       "note": "in a down clue, one piece placed on another comes after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drive",
+       "at": 27,
+       "gives": "RAM",
+       "note": "to ram is to drive or force something in"
+      },
+      {
+       "words": "parking",
+       "at": 16,
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car park causes a storm by being built on a driveway.",
+     "definitionFit": "To ramp is to rage or rampage, to storm about angrily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Storm"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1325,43 @@
     "text": "Short summary concerning capital investment",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Short summary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "concerning",
+       "at": 14,
+       "gives": "RE",
+       "note": "re means concerning or about"
+      },
+      {
+       "words": "capital investment",
+       "at": 25,
+       "gives": "CAP",
+       "note": "capital means of the head and investment means clothing, so a hat is head-wear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief report on a financial investment.",
+     "walkthrough": "'capital investment' sounds financial, but means something put on the head.",
+     "definitionFit": "A recapitulation, abbreviated, is a brief restatement of the main points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "investment"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1381,60 @@
      }
     ]
    },
-   "solution": "ALMAMATER"
+   "solution": "ALMAMATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old university",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 20,
+       "note": "the doubled degree is brought into the middle of the word for reform"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reform",
+       "at": 34,
+       "gives": "ALTER",
+       "note": "to reform something is to alter it"
+      },
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 9,
+         "note": "the degree is written twice in succession"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Graduate",
+         "at": 0,
+         "gives": "MA",
+         "note": "MA, Master of Arts, is a graduate degree"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate returns again and again to reform their old college.",
+     "definitionFit": "Latin for 'nourishing mother', the term for the school or university one attended."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   }
  ]
 }
