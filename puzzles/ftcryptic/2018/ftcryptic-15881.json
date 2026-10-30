@@ -222,20 +222,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "Guarding",
        "at": 0,
-       "note": "the soldier stands guard just ahead of the embassy's initial, so its letters come first"
+       "note": "guarding means the soldier and the fell stand either side of what they protect"
       }
      ],
      "parts": [
       {
-       "words": "soldier",
-       "at": 26,
-       "gives": "ANT",
-       "note": "an ant is a worker or soldier insect, a common crossword soldier"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "soldier",
+         "at": 26,
+         "gives": "ANT",
+         "note": "a soldier ant is the fighting caste of ant colonies"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 39,
+           "note": "over means the word for fell is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fell",
+           "at": 34,
+           "gives": "MOOR",
+           "note": "a fell is upland moor in northern England"
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "first",
@@ -243,7 +266,7 @@
         {
          "text": "head of",
          "at": 9,
-         "note": "the head of embassy is its opening letter"
+         "note": "head of picks the first letter of embassy"
         }
        ],
        "parts": [
@@ -252,34 +275,16 @@
          "at": 17
         }
        ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "over",
-         "at": 39,
-         "note": "over means the word for fell is turned backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fell",
-         "at": 34,
-         "gives": "MOOR",
-         "note": "a fell is a stretch of upland moor in northern England"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier guarding an ambassador collapses in the lobby.",
-     "walkthrough": "'fell' reads as fell down but is the noun MOOR, which 'over' turns into ROOM.",
-     "definitionFit": "An anteroom is a small waiting room leading into a larger one, much like a lobby."
+     "surface": "A soldier protecting an ambassador trips over in the lobby.",
+     "walkthrough": "'Fell' looks like a verb (the soldier fell over) but is a noun: upland moorland in northern England, which 'over' turns round.",
+     "definitionFit": "A small waiting area leading into a larger hall serves as an entrance lobby."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fell"
     }
