@@ -227,7 +227,7 @@ check("two copies of the word stay bare", quoted("[Tea]T + AND + [cup]CUP", "Tea
 check("a word the definition covers stays bare",
       quoted("[Tea]T + AND + [cup]CUP", "Tea and cup", "TANDCUP", [(4, 7)])[1][0] is None)
 check("a two-letter bare piece stays bare", quoted("[Tea]T + IN + [cup]CUP", "Tea in cup", "TINCUP")[1][0] is None)
-check("letters not in the clue stay bare", quoted("[Tea]T + AND + [cup]CUP", "Tea cup or", "TANDCUP")[1][0] is None)
+check("letters not in the clue stay bare", quoted("[Tea]T + AND + [cup]CUP", "Tea cup or so", "TANDCUP")[1][0] is None)
 
 # One quote that spells several touching pieces gets the words again on the bare ones
 # (real refusals: [two letters]DEE + ESS, [Three musical neighbours]D + EFLAT + E, annotate
@@ -239,9 +239,9 @@ check("a run of bare pieces shares it",
       [x[0] for x in quoted("[Three musical neighbours]D + EFLAT + E", "Three musical neighbours let down", "DEFLATE")]
       == ["Three musical neighbours"] * 3)
 check("two different quotes leave the bare piece bare",
-      quoted("[Tea]T + [cup]CUP + XX", "Tea cup zz", "TCUPXX")[2][0] is None)
+      quoted("[Tea]T + [cup]CUP + XX", "Tea cup zz yy", "TCUPXX")[2][0] is None)
 check("a bare piece apart from the quote stays bare",
-      quoted("[Tea]T + rev<up>([cup]PUC) + XX", "Tea cup up zz", "TCUPXX")[2][0] is None)
+      quoted("[Tea]T + rev<up>([cup]PUC) + XX", "Tea cup up zz yy", "TCUPXX")[2][0] is None)
 
 # Notes keyed by several free spans' words joined, or a phrase round one span
 # (real 'name no span' refusals, annotate audit 10-24/25); unrelated keys stay.
