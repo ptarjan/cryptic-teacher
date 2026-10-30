@@ -22,6 +22,9 @@
   "date": "2012-08-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "What nude model has, compared to topless one? Class",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What nude model has, compared to topless one?",
+      "at": 0,
+      "meaning": "a model wearing nothing has fewer clothes on than one who is merely bare above the waist"
+     },
+     {
+      "text": "Class",
+      "at": 46,
+      "meaning": "a period of teaching in school"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as two words for the first reading: a nude model has 'less on' than a topless one.",
+     "definitionFit": "A synonym: a class or period of teaching at school is also called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nude"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,28 @@
     "text": "Slacker's shoe",
     "enumeration": "6"
    },
-   "solution": "LOAFER"
+   "solution": "LOAFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slacker",
+      "at": 0,
+      "meaning": "an idle person who lounges about"
+     },
+     {
+      "text": "shoe",
+      "at": 10,
+      "meaning": "a slip-on casual shoe without laces"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two senses: an idler who lounges about, and a laceless slip-on moccasin-style shoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +117,41 @@
      }
     ]
    },
-   "solution": "SPIDERMAN"
+   "solution": "SPIDERMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fictional hero",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "injured",
+       "at": 11,
+       "note": "something injured is damaged and out of shape, so the letters of the two words before it are reformed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mad sniper",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged gunman has wounded a hero from the comics.",
+     "walkthrough": "'injured' tells you to rearrange MAD SNIPER.",
+     "definitionFit": "An example: the web-slinging comic-book character created by Stan Lee is a fictional superhero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "injured"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +165,49 @@
     "text": "Wayward golfers might do this greeting in Open",
     "enumeration": "7"
    },
-   "solution": "OVERHIT"
+   "solution": "OVERHIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wayward golfers might do this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "the greeting is placed in the middle of the word for open"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Open",
+       "at": 42,
+       "gives": "OVERT",
+       "note": "overt means open, not concealed"
+      },
+      {
+       "words": "greeting",
+       "at": 30,
+       "gives": "HI",
+       "note": "hi is a casual greeting"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Golfers who stray off line might shout a hello at the Open championship.",
+     "walkthrough": "'Open' looks like the golf championship but is just the adjective meaning not hidden.",
+     "definitionFit": "A descriptive definition: a golfer who strikes the ball too hard sends it past the target, which explains wayward shots."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +235,72 @@
      }
     ]
    },
-   "solution": "ASISEEIT"
+   "solution": "ASISEEIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In my view",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "stalking",
+       "at": 44,
+       "note": "the trimmed idiot follows behind the relative, as a stalker trails someone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 53,
+       "gives": "A"
+      },
+      {
+       "words": "relative",
+       "at": 55,
+       "gives": "SIS",
+       "note": "sis is short for sister, a relative"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not given",
+         "at": 20,
+         "note": "the abbreviation for justice is withheld from the word for idiot"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idiot's",
+         "at": 12,
+         "gives": "EEJIT",
+         "note": "eejit is an Irish and Scottish word for an idiot"
+        },
+        {
+         "words": "justice",
+         "at": 30,
+         "gives": "J",
+         "note": "J is the abbreviation for Justice, as in a judge's title"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opines that a fool was denied a fair hearing while following a family member about.",
+     "walkthrough": "EEJIT is the Irish spelling of idiot; without J it gives EEIT. 'when' is only a link.",
+     "definitionFit": "An idiom: the four-word phrase introduces a personal opinion, just like 'in my view'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stalking"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +314,40 @@
     "text": "Second research centre for chocolate bar?",
     "enumeration": "4"
    },
-   "solution": "SLAB"
+   "solution": "SLAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chocolate bar?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "research centre",
+       "at": 7,
+       "gives": "LAB",
+       "note": "a lab, or laboratory, is a centre for research"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query whether a second laboratory is being set up to study confectionery.",
+     "definitionFit": "A loose example: a thick flat block of chocolate is sold as one of these, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +361,57 @@
     "text": "Prison officer finally lifted loop",
     "enumeration": "7"
    },
-   "solution": "STIRRUP"
+   "solution": "STIRRUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loop",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prison",
+       "at": 0,
+       "gives": "STIR",
+       "note": "stir is slang for prison"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 15,
+         "note": "finally points to the last letter of officer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "officer",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "lifted",
+       "at": 23,
+       "gives": "UP",
+       "note": "lifted means raised up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison warder was eventually hoisted up by a noose.",
+     "definitionFit": "A description: the rider's foot rests in a metal loop hanging from the saddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loop"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +425,71 @@
     "text": "In centre of Cape Town, police brought back order",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "order",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the reversed police go in the middle of the centre letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre of",
+         "at": 3,
+         "note": "the central pair of letters of the place name taken as one word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cape Town",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought back",
+         "at": 31,
+         "note": "brought back means the letters for the police are read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police",
+         "at": 24,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department of the British police"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In central Cape Town, the police restored order.",
+     "walkthrough": "'centre of' treats Cape Town as one word, whose middle pair is ET; 'brought back' gives DIC, placed 'In' that pair. The surface's police in South Africa are a distraction.",
+     "definitionFit": "A synonym: a decree or official command issued by an authority is an order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +509,56 @@
      }
     ]
    },
-   "solution": "TOADHALL"
+   "solution": "TOADHALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fabricated residence",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to",
+       "at": 22
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "vagrant",
+         "at": 25,
+         "note": "vagrant means wandering, so the letters around it wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "had",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "everything",
+       "at": 38,
+       "gives": "ALL",
+       "note": "all means everything"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A made-up home, says the tramp, had it all.",
+     "walkthrough": "'vagrant' makes ADH; the comma suggests a tramp speaking, but 'to' simply stays as it is.",
+     "definitionFit": "An example: Mr Toad's grand home in The Wind in the Willows is a fictional residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +572,54 @@
     "text": "Adverse tone Sir Alex partly developed",
     "enumeration": "6"
    },
-   "solution": "ARISEN"
+   "solution": "ARISEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "developed",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Adverse",
+       "at": 0,
+       "note": "read cryptically as averse or turned away, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "partly",
+         "at": 22,
+         "note": "partly says only some of the letters of these words are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tone Sir Alex",
+         "at": 8,
+         "gives": "NESIRA"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hostile tone from Sir Alex Ferguson partly came about.",
+     "walkthrough": "Hidden in 'toNE SIR Alex' is NESIRA, which 'Adverse' turns round.",
+     "definitionFit": "A synonym: something that has come up or emerged has developed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Adverse"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +633,53 @@
     "text": "Classical building leaves one cold — amateur!",
     "enumeration": "8"
    },
-   "solution": "BASILICA"
+   "solution": "BASILICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Classical building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "leaves",
+       "at": 19,
+       "gives": "BASIL",
+       "note": "basil is a herb whose leaves are used in cooking"
+      },
+      {
+       "words": "one",
+       "at": 26,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "cold",
+       "at": 30,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      },
+      {
+       "words": "amateur",
+       "at": 37,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a classical structure leaves somebody cold, with a jibe of 'amateur!'",
+     "walkthrough": "'leaves' looks like a verb but is the herb whose leaves are eaten.",
+     "definitionFit": "An example: a Roman oblong hall with an apse, later the form of many churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +693,69 @@
     "text": "One doesn't forget medical department obtaining help moving American",
     "enumeration": "8"
    },
-   "solution": "ELEPHANT"
+   "solution": "ELEPHANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One doesn't forget",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "obtaining",
+       "at": 38,
+       "note": "the hospital department takes in the shuffled letters, holding them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "medical department",
+       "at": 19,
+       "gives": "ENT",
+       "note": "ENT is the ear, nose and throat department of a hospital"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "moving",
+           "at": 53,
+           "note": "moving suggests the letters shift around"
+          }
+         ],
+         "parts": [
+          {
+           "words": "help",
+           "at": 48
+          }
+         ]
+        },
+        {
+         "words": "American",
+         "at": 60,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient remembers a hospital department fetching help to move an American.",
+     "walkthrough": "'moving' makes LEPHA, which the department is 'obtaining'. 'One doesn't forget' alludes to the saying that these animals never forget.",
+     "definitionFit": "A proverb: these big beasts are said never to forget."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +769,64 @@
     "text": "Mark's regularly enraged by four-by-four vehicle reversing",
     "enumeration": "6"
    },
-   "solution": "NAEVUS"
+   "solution": "NAEVUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 7,
+         "note": "regularly means take every other letter of enraged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enraged",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "at": 49,
+         "note": "reversing turns round the letters of the vehicle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "four-by-four vehicle",
+         "at": 28,
+         "gives": "SUV",
+         "note": "an SUV is a sport utility vehicle, a four-by-four"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Mark keeps getting angry at a big off-roader backing up.",
+     "walkthrough": "The even letters of 'enraged' give NAE; 'reversing' turns SUV into VUS. 'Mark's' reads as Mark is.",
+     "definitionFit": "A synonym: a birthmark or mole on the skin is a mark, the medical term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +840,54 @@
     "text": "Staff check follows constant routine",
     "enumeration": "6"
    },
-   "solution": "CRUTCH"
+   "solution": "CRUTCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 12,
+       "note": "the chess abbreviation comes after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "constant",
+       "at": 20,
+       "gives": "C",
+       "note": "C is the symbol for a constant, such as the speed of light"
+      },
+      {
+       "words": "routine",
+       "at": 29,
+       "gives": "RUT",
+       "note": "a rut is a dull routine"
+      },
+      {
+       "words": "check",
+       "at": 6,
+       "gives": "CH",
+       "note": "CH is the chess abbreviation for check"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inspection of staff comes after a constant routine.",
+     "definitionFit": "A synonym: a walking support stick or prop for the lame is a staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +901,76 @@
     "text": "Musical piece, with beat elevated in much of 'Neighbours', say",
     "enumeration": "6"
    },
-   "solution": "SONATA"
+   "solution": "SONATA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Musical piece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "the raised beat sits in the trimmed soap opera"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "much of",
+         "at": 37,
+         "note": "much of means most but not all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Neighbours', say",
+         "at": 46,
+         "gives": "SOAP",
+         "note": "Neighbours is an Australian soap opera, popular in Britain"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevated",
+         "at": 25,
+         "note": "elevated in a down clue means the word is read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beat",
+         "at": 20,
+         "gives": "TAN",
+         "note": "to tan someone's hide is to beat them"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tune with its beat raised features in most episodes of a TV show.",
+     "walkthrough": "'much of' drops the final letter, 'elevated' gives NAT, set 'in' the rest. Neighbours is an Australian TV soap opera long shown in Britain.",
+     "definitionFit": "An example: a composition for one or two instruments in several movements is a musical piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Neighbours"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +994,45 @@
      }
     ]
    },
-   "solution": "MOTHEROFPEARL"
+   "solution": "MOTHEROFPEARL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of shell",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 34,
+       "note": "working suggests letters being worked into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the roofer",
+       "at": 23
+      },
+      {
+       "words": "lamp",
+       "at": 47
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seashell fragment turned up by a roofer using a lamp.",
+     "walkthrough": "'working' rearranges THE ROOFER with LAMP; 'found by' and 'with' are links.",
+     "definitionFit": "A description: nacre, the iridescent inner layer of some molluscs' shells, goes by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1046,69 @@
     "text": "Citadel 25 mounted, applying gloss briefly",
     "enumeration": "9"
    },
-   "solution": "ACROPOLIS"
+   "solution": "ACROPOLIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Citadel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "mounted",
+         "at": 11,
+         "note": "mounted in a down clue means the word reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "25",
+         "at": 8,
+         "gives": "ORCA",
+         "note": "the solution to 25 down, a killer whale"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 35,
+         "note": "briefly means cut short, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "applying gloss",
+         "at": 20,
+         "gives": "POLISH",
+         "note": "to polish is to apply a gloss to something"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fortress with a mounted whale given a quick shine.",
+     "walkthrough": "The answer to 25 is ORCA, turned upward as ACRO; POLISH loses its end to give POLIS.",
+     "definitionFit": "An example: the Athenian hilltop fortress with the Parthenon is the most famous citadel of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1122,72 @@
     "text": "Mirror raised, holding edge with uncertainty that is short-lived",
     "enumeration": "8"
    },
-   "solution": "EPHEMERA"
+   "solution": "EPHEMERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that is short-lived",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 15,
+       "note": "the turned mimic holds the other pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 7,
+         "note": "raised in a down clue means the word reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mirror",
+         "at": 0,
+         "gives": "APE",
+         "note": "to ape is to mirror or copy"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "edge",
+         "at": 23,
+         "gives": "HEM",
+         "note": "a hem is the edge of cloth"
+        },
+        {
+         "words": "uncertainty",
+         "at": 33,
+         "gives": "ER",
+         "note": "er is a hesitant sound expressing uncertainty"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mirror is lifted, its rim held uncertainly, and soon gone.",
+     "walkthrough": "'raised' gives EPA, 'holding' the edge and the hesitation. 'Mirror' reads as a noun but is the verb to copy.",
+     "definitionFit": "A description: collectible items made to last a day, such as tickets and posters, are things of brief life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mirror"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1207,60 @@
      }
     ]
    },
-   "solution": "PENINSULARWAR"
+   "solution": "PENINSULARWAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prison urinals derelict, bringing about bitter hostility",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prison",
+       "at": 0,
+       "gives": "PEN",
+       "note": "pen is a slang word for prison, short for penitentiary"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "derelict",
+         "at": 15,
+         "note": "derelict means ruined, so these letters fall into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "urinals",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "bitter hostility",
+       "at": 40,
+       "gives": "WAR",
+       "note": "war is bitter hostility between parties"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Run-down jail toilets provoking a fierce conflict.",
+     "walkthrough": "'derelict' turns URINALS into INSULAR. The whole clue also describes the conflict, so it reads as a description of the answer.",
+     "definitionFit": "An example: the 1807-1814 conflict in Spain and Portugal against Napoleon was a long and bitter one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "urinals"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1274,71 @@
     "text": "Goddess is seen amongst Home Counties chaps — on the rebound?",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the rebound",
+       "at": 46,
+       "note": "bouncing back suggests the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "seen amongst",
+           "at": 11,
+           "note": "the little word is seen in among the letters of the region"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Home Counties",
+           "at": 24,
+           "gives": "SE",
+           "note": "SE, the South East of England, where the counties around London lie"
+          },
+          {
+           "words": "is",
+           "at": 8,
+           "gives": "IS"
+          }
+         ]
+        },
+        {
+         "words": "chaps",
+         "at": 38,
+         "gives": "MEN",
+         "note": "men are chaps"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess is seen among Home Counties men, recovering from a failed romance.",
+     "walkthrough": "The Home Counties are the counties around London in South East England. 'seen amongst' places the little word inside, and 'on the rebound' gives the reading backwards.",
+     "definitionFit": "An example: the Greek deity of retribution who punished arrogance was a goddess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rebound"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1352,70 @@
     "text": "Shrewd hosts, acting vacuously, cook in an eccentric style",
     "enumeration": "7"
    },
-   "solution": "WACKILY"
+   "solution": "WACKILY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in an eccentric style",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosts",
+       "at": 7,
+       "note": "the shrewd word plays host to the pieces inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shrewd",
+       "at": 0,
+       "gives": "WILY",
+       "note": "wily means shrewd or cunning"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "acting",
+         "at": 14,
+         "gives": "A",
+         "note": "A is an abbreviation for acting, as in a temporary rank"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "vacuously",
+           "at": 21,
+           "note": "emptied of its middle, leaving only the outer letters of cook"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cook",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clever party hosts, acting vacantly, cook oddly.",
+     "walkthrough": "'vacuously' empties the word for cook to its outer letters, CK, and the shrewd word 'hosts' that pair with the A.",
+     "definitionFit": "A synonym: doing something wackily is behaving in a zany, oddball way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosts"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1429,67 @@
     "text": "Playing partners canoodle, turning up under the first arch",
     "enumeration": "6"
    },
-   "solution": "INSTEP"
+   "solution": "INSTEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "arch",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 38,
+       "note": "in a down clue the later pieces sit below the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the first",
+       "at": 44,
+       "gives": "I",
+       "note": "I is the Roman numeral one, the first"
+      },
+      {
+       "words": "Playing partners",
+       "at": 0,
+       "gives": "NS",
+       "note": "North and South are partners at the bridge table"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 27,
+         "note": "turning up in a down clue reverses the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "canoodle",
+         "at": 17,
+         "gives": "PET",
+         "note": "to pet is to canoodle"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Partners in a game kiss and cuddle, turning up beneath the first archway.",
+     "walkthrough": "N and S are partners in bridge; 'turning up' reverses PET to TEP.",
+     "definitionFit": "A part of the foot: the arched middle section between toes and ankle bears this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1503,82 @@
     "text": "Bury Market latterly governed by single retired doctor",
     "enumeration": "6"
    },
-   "solution": "ENTOMB"
+   "solution": "ENTOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "governed by",
+         "at": 21,
+         "note": "the last letter is controlled by the turned word around it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "retired",
+           "at": 40,
+           "note": "retired means drawn back, so the word reads backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "single",
+           "at": 33,
+           "gives": "ONE",
+           "note": "single means one"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "latterly",
+           "at": 12,
+           "note": "latterly picks the last letter of market"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Market",
+           "at": 5
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "doctor",
+       "at": 48,
+       "gives": "MB",
+       "note": "MB is a Bachelor of Medicine, a doctor's qualification"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The market in Bury, a Lancashire town, ruled by a lone retired doctor.",
+     "walkthrough": "Bury is a town near Manchester, misleading as a place. ONE retired gives ENO, round T.",
+     "definitionFit": "A synonym: to bury someone is to lay the body in a tomb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1592,31 @@
     "text": "Flash partner of A. Lloyd Webber",
     "enumeration": "5"
    },
-   "solution": "TRICE"
+   "solution": "TRICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flash",
+      "at": 0,
+      "meaning": "a flash is an instant, a very short moment"
+     },
+     {
+      "text": "partner of A. Lloyd Webber",
+      "at": 6,
+      "meaning": "the lyricist Tim Rice, styled with an initial just as the composer is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tim Rice wrote lyrics for Lloyd Webber's musicals; written with an initial like 'A. Lloyd Webber' he becomes T. Rice.",
+     "definitionFit": "A synonym: an instant, as in 'in a flash', means a very short time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flash"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1630,43 @@
     "text": "What cheek to criticise kitchen help?",
     "enumeration": "8"
    },
-   "solution": "SAUCEPAN"
+   "solution": "SAUCEPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kitchen help?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cheek",
+       "at": 5,
+       "gives": "SAUCE",
+       "note": "sauce is cheek or impudence"
+      },
+      {
+       "words": "criticise",
+       "at": 14,
+       "gives": "PAN",
+       "note": "to pan is to criticise harshly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outraged reaction to someone criticising the kitchen staff.",
+     "walkthrough": "'kitchen help' looks like a cook's assistant but is a cooking utensil, hence the question mark.",
+     "definitionFit": "A whimsical example: a cooking pot with a long handle is a helpful kitchen item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1680,42 @@
     "text": "Ocean dweller, wanting either NY (Atlantic) ____ (Pacific)?",
     "enumeration": "4"
    },
-   "solution": "ORCA"
+   "solution": "ORCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ocean dweller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "either",
+       "at": 23,
+       "gives": "OR",
+       "note": "either ... or: the missing word between the two states is or"
+      },
+      {
+       "words": "Pacific",
+       "at": 50,
+       "gives": "CA",
+       "note": "CA, California, is the state on the Pacific coast, as NY is on the Atlantic"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle over which coast a sea creature lives on, New York's or the West Coast.",
+     "walkthrough": "The blank is filled with 'or CA', so the phrase reads NY or CA: New York (Atlantic) or California (Pacific).",
+     "definitionFit": "An example: the killer whale is a large marine mammal living in the ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1729,60 @@
     "text": "Government official's recording company clown misdirecting trains",
     "enumeration": "8"
    },
-   "solution": "EMISSARY"
+   "solution": "EMISSARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Government official",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "recording company",
+       "at": 22,
+       "gives": "EMI",
+       "note": "EMI is a British record company"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "misdirecting",
+         "at": 46,
+         "note": "sending it the wrong way, so the letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clown",
+         "at": 40,
+         "gives": "ASS",
+         "note": "an ass is a fool or clown"
+        }
+       ]
+      },
+      {
+       "words": "trains",
+       "at": 59,
+       "gives": "RY",
+       "note": "RY is an abbreviation for railway, which runs trains"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official's record label has a clown sending trains the wrong way.",
+     "walkthrough": "'misdirecting' turns ASS backwards into SSA.",
+     "definitionFit": "A synonym: an envoy sent on a government's behalf is an official representative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trains"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1796,49 @@
     "text": "Dicky in punt gets allocated berth",
     "enumeration": "6"
    },
-   "solution": "BILLET"
+   "solution": "BILLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "allocated berth",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the sick word goes in the middle of the wager"
+      }
+     ],
+     "parts": [
+      {
+       "words": "punt",
+       "at": 9,
+       "gives": "BET",
+       "note": "a punt is a bet"
+      },
+      {
+       "words": "Dicky",
+       "at": 0,
+       "gives": "ILL",
+       "note": "dicky is British slang for unwell or weak, as in a dicky heart"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Dicky, in a punt, is given a mooring place.",
+     "walkthrough": "'Dicky' looks like a name; it is British slang for poorly, ILL.",
+     "definitionFit": "A synonym: soldiers' assigned lodgings or a sleeping place assigned to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1852,54 @@
     "text": "Yankee's half-exposed fraud here in the Chilterns",
     "enumeration": "8"
    },
-   "solution": "AMERSHAM"
+   "solution": "AMERSHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "here in the Chilterns",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half-exposed",
+         "at": 9,
+         "note": "half of the word is stripped off, leaving its first four letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yankee's",
+         "at": 0,
+         "gives": "AMERICAN",
+         "note": "a Yankee is an American"
+        }
+       ]
+      },
+      {
+       "words": "fraud",
+       "at": 22,
+       "gives": "SHAM",
+       "note": "a sham is a fraud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American's partly revealed swindle took place in the Chiltern Hills.",
+     "walkthrough": "AMERICAN loses its second half. The Chilterns are chalk hills north-west of London.",
+     "definitionFit": "An example: a Buckinghamshire market town lying in the Chiltern Hills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Yankee's"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1913,71 @@
     "text": "Sally's outside in rich habitat, cutting back plant",
     "enumeration": "6"
    },
-   "solution": "HYSSOP"
+   "solution": "HYSSOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "cutting back",
+       "at": 33,
+       "note": "going back means the letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 16,
+         "note": "the outer letters of the name are put in the middle of the smart word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rich habitat",
+         "at": 19,
+         "gives": "POSH",
+         "note": "posh means smart and upper-class, the setting of the rich"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "outside",
+           "at": 8,
+           "note": "the outside letters of Sally, its first and last"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sally",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sally is outside in a wealthy setting, pruning a plant.",
+     "walkthrough": "'outside' gives SY, put 'in' the smart word, and 'cutting back' gives the reverse. The 's of Sally's reads as 'is'.",
+     "definitionFit": "An example: a fragrant herb of the mint family used in medicine and cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sally's"
+    }
+   }
   }
  ]
 }
