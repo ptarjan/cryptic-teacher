@@ -1962,10 +1962,12 @@ def _requote_sibling_words(tree):
 def _quote_lone_bare_leaf(tree, clue, taken=()):
     """One bare letter piece and exactly one clue word that nothing else covers (not a
     link word) is that piece's word: the first check's 'a block with no clueFragment'
-    would send the run to quote it. Two bare pieces or two spare words stay refused."""
-    bare = [p for n in _all_nodes(tree) for p in parts_of(n)
+    would send the run to quote it. Two bare pieces or two spare words stay refused. The letters
+    a deletion, substitution or move names (its later pieces) are no block and stay bare."""
+    bare = [p for n in _all_nodes(tree) for i, p in enumerate(parts_of(n))
             if "op" not in p and "words" not in p and not p.get("unchecked")
-            and str(p.get("gives") or "").isalpha()]
+            and str(p.get("gives") or "").isalpha()
+            and not (i and n.get("op") in REMOVED_LETTER_OPS)]
     if len(bare) != 1:
         return
     left = unaccounted_words(tree, clue, taken)
@@ -1975,6 +1977,11 @@ def _quote_lone_bare_leaf(tree, clue, taken=()):
     if len(at) == 1:
         bare[0]["words"], bare[0]["at"] = left[0], at[0]
 
+
+#: Ops whose later bare letters are the letters an indicator names (`del<topless>([beefcake]HUNK, H)`):
+#: annotation._blocks gives them no block, so they are never a spare clue word's letters. Binding the H
+#: to the one spare word ('showing') made a block nobody could note (the first check's blocks.note).
+REMOVED_LETTER_OPS = ("deletion", "substitution", "move")
 
 LONE_LEAF_LINKS = frozenset({"a", "an", "the", "and", "of", "in", "to", "for", "is", "with", "by",
                              "from", "as", "at", "on", "that", "has", "gives", "makes", "see"})

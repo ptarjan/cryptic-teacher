@@ -21,5 +21,13 @@ def test_link_word_or_two_spares_stay_bare():
         assert "words" not in t["parts"][1]
 
 
+def test_letters_a_deletion_names_stay_bare():
+    # the 10-29 audit's 'missing blocks.note': H of del<Cut>([ready]CASH, H) was bound to the spare 'then'
+    for op in ("deletion", "substitution", "move"):
+        t = {"op": op, "parts": [{"words": "ready", "at": 4, "gives": "CASH"}, {"gives": "H"}]}
+        W._quote_lone_bare_leaf(t, "Cut ready then", ())
+        assert "words" not in t["parts"][1], op
+
+
 if __name__ == "__main__":
-    test_lone_spare_word_is_quoted(); test_link_word_or_two_spares_stay_bare(); print("ok")
+    test_lone_spare_word_is_quoted(); test_link_word_or_two_spares_stay_bare(); test_letters_a_deletion_names_stay_bare(); print("ok")

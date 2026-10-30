@@ -2921,7 +2921,10 @@ def check_blocks_carry_notes(entries, warnings):
                 f"teaching, and its absence is how an invented block hides. In the "
                 f"annotation add the leaf's words to `notes`: \"notes\": {{{frag!r}: "
                 f"\"<why {frag!r} gives {b.get('gives')}>\"}} (wp `[{frag}]{b.get('gives')}`); "
-                f"this is a block note, not an indicator note")
+                f"this is a block note, not an indicator note"
+                + (f". '{frag}' is also an indicator here: the note says what it gives AND that the same "
+                   f"word signals the op" if any(letters(str(i.get("text"))) == letters(frag)
+                                                  for i in ann.get("indicators", []) if isinstance(i, dict)) else ""))
 
 
 #: A tag, an entity, or a tag's remnant with its "<" lost to a reader that
