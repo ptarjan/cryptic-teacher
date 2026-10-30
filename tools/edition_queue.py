@@ -3550,8 +3550,20 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         ready = []
         heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
 
+        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
+        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
+        reason_cap = reason_cap_for(mem_gate.unit_ceiling())
+        reason_live = {}
+        if reason_cap:
+            for _, (v, _at) in units_running():
+                if v["kind"] != "fetch" and v.get("reason"):
+                    reason_live[v["reason"]] = reason_live.get(v["reason"], 0) + 1
+
         def ready_reads(reads=read_cands, busy=busy, waits=waits):
-            return [v for v, k in reads if k not in tried and k not in busy and not waits(v) and not vlm_waits(v)]
+            # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
+            # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
+            return [v for v, k in reads if k not in tried and k not in busy and not waits(v) and not vlm_waits(v)
+                    and not (reason_cap and v.get("reason") and reason_live.get(v["reason"], 0) >= reason_cap)]
 
         def fed(u, ready=ready, heads=heads):
             """Whether scan `u` only feeds a backlog: the next full read pool
@@ -3613,14 +3625,6 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         cpu_cap = mem_gate.unit_ceiling() // 3 if len(queued) < vlm_feed_target() else None
         cpu_live = sum(1 for _, (v, _at) in units_running() if cpu_only_unit(v)) if cpu_cap is not None else 0
         cpu_capped = False
-        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
-        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
-        reason_cap = reason_cap_for(mem_gate.unit_ceiling())
-        reason_live = {}
-        if reason_cap:
-            for _, (v, _at) in units_running():
-                if v["kind"] != "fetch" and v.get("reason"):
-                    reason_live[v["reason"]] = reason_live.get(v["reason"], 0) + 1
         reason_other = {}  # reason -> whether a unit of another reason is queued and untried
         reason_capped = []
 
