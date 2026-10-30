@@ -60,51 +60,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "breaking",
-       "note": "something broken falls apart, so the little word before it is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 21,
+         "note": "a leader comes at the front, so only the opening letter of the next word is kept"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "a leader comes at the front, so only the opening letter of the next word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the",
-           "note": "the first letter of the word"
-          }
-         ]
-        },
+         "words": "the",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "op": "container",
+         "text": "outside",
+         "at": 59,
+         "note": "outside says the rearranged letters sit around the abbreviation for the navy"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "outside",
-           "note": "outside says the rearranged letters sit around the abbreviation for the navy"
+           "text": "breaking",
+           "at": 41,
+           "note": "something broken falls apart, so the little word after it is rearranged"
           }
          ],
          "parts": [
           {
            "words": "out",
-           "note": "the word rearranged"
-          },
-          {
-           "words": "navy",
-           "gives": "RN",
-           "note": "RN is the Royal Navy"
+           "at": 50
           }
          ]
+        },
+        {
+         "words": "navy",
+         "at": 35,
+         "gives": "RN",
+         "note": "RN is the Royal Navy"
         }
        ]
       }
@@ -112,7 +116,7 @@
     },
     "explanation": {
      "surface": "A naval commander asks for help as rebels break out with their guns all around.",
-     "walkthrough": "'breaking out' reads as an escape, but 'breaking' works only on the word 'out'. 'guns' gives G, the first letter of GEOGRAPHICALLY in the down clues.",
+     "walkthrough": "'breaking out' reads as an escape, but 'breaking' works only on the word 'out', giving UTO. 'guns' gives G, the first letter of GEOGRAPHICALLY in the down clues.",
      "definitionFit": "To turn to someone is the idiom for going to them for help or support."
     },
     "features": {
