@@ -20,6 +20,10 @@ const d = boot({ query: "?p=" + ID, storage: { "ct:nux": "9" }, appPath: process
 const reg = d.registry;
 const puz = global.window.CRYPTIC_PUZZLES[ID];
 const cols = puz.dimensions.cols;
+// The harness is a touch screen with its keyboard down, where the cursor square
+// is not drawn (Paul 10-30); typing here is typing with the keys up.
+const noCursor = reg["grid"].children.every((el) => !el.classList.contains("sel"));
+global.window.visualViewport.raiseKeyboard(400);
 const kd = d.docListeners["keydown"][0];
 const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
 const select = (id) => reg["clue-" + id].listeners.click[0]();
@@ -27,6 +31,8 @@ const sel = () => { const i = reg["grid"].children.findIndex((el) => el.classLis
 const letterAt = (x, y) => reg["grid"].children[y * cols + x].querySelector(".letter").textContent;
 const row = () => Array.from({ length: 7 }, (_, i) => letterAt(i, 2)).join("");
 
+check(noCursor, "no cursor square is drawn while the keyboard is down");
+check(reg["grid"].children.some((el) => el.classList.contains("sel")), "the cursor square comes back when the keyboard is up");
 // Lock the crossing: solve 2 down by typing it.
 select("2-down");
 for (const ch of "RERUN") key(ch);
