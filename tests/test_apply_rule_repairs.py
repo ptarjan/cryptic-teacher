@@ -239,6 +239,15 @@ check("blockNote: sound() of the whole answer names no letters",
 syn = {"op": "charade", "parts": [bare("Dad", "POP"), {**bare("rush", "HASTE"), "note": "haste is rush"}]}
 new, left = noted(syn, "Dad rush", "POPHASTE")
 check("blockNote: a synonym leaf with no note stays refused", len(left) == 1 and left[0]["words"] == "Dad")
+# blockNote, removed letters (10-29 audit: ~30 of 66 'missing blocks.note' sessions): the letters a del() names were
+# bound to the one spare clue word ('showing' > H); they are no block, so the word is dropped, whatever the old note state
+dele = {"op": "deletion", "indicators": [ind("topless")], "parts": [{"words": "beefcake", "gives": "HUNK"}, bare("showing", "H")]}
+new, left = noted(dele, "beefcake topless showing", "UNK")
+check("blockNote: a removed letter bound to a link word loses the word", not left and "words" not in new["parts"][1])
+check("blockNote: the quoted deleted piece keeps its words", new["parts"][0]["words"] == "beefcake")
+dele = {"op": "deletion", "indicators": [ind("topless")], "parts": [{"words": "beefcake", "gives": "HUNK"}, {**bare("showing", "H"), "note": "h"}]}
+new, left = noted(dele, "beefcake topless showing", "UNK")
+check("blockNote: a removed letter that already has a note is left alone", new["parts"][1]["words"] == "showing")
 # doesNotGive: a link word filed as a bare leaf ('[to]') is read as TO; dropped, the charade gives the answer
 import wordplay as W
 for wp, clue, ans in [("[Man]HE + [to] + [run out]RO", "Man to run out victor", "HERO"),

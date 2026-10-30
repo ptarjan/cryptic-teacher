@@ -3601,17 +3601,36 @@ def _block_note_for(leaf_node, parent, tree, answer):
     return None
 
 
+def _bound_removed_letter(leaf_node, parent):
+    """True for the letters a deletion, substitution or move names, filed with a clue word and no
+    note: the 30-odd 'missing blocks.note' sessions of 10-29 (`del<topless>([beefcake]HUNK, H)` with
+    H bound to the spare word 'showing'). Those letters are no block, and a word that merely links
+    is not their source; so the word is dropped and the letters stay bare."""
+    if parent is None or parent.get("op") not in W.REMOVED_LETTER_OPS or not leaf(leaf_node):
+        return False
+    parts = parent.get("parts") or []
+    if not any(p is leaf_node for p in parts[1:]):
+        return False
+    return bool(leaf_node.get("words") and str(leaf_node.get("gives") or "").isalpha()
+                and not leaf_node.get("note") and not leaf_node.get("unchecked") and not leaf_node.get("select")
+                and W.letters(leaf_node["words"]).lower() != W.letters(leaf_node["gives"]).lower())
+
+
 def unnoted_blocks(tree, answer=None):
-    """How many leaves `r_block_note` could give a note (the first check's blocks.note, mendable shapes)."""
-    return sum(1 for node, parent in walk(tree) if leaf(node) and _block_note_for(node, parent, tree, answer))
+    """How many leaves `r_block_note` could mend (the first check's blocks.note, mendable shapes)."""
+    return sum(1 for node, parent in walk(tree)
+               if leaf(node) and (_bound_removed_letter(node, parent) or _block_note_for(node, parent, tree, answer)))
 
 
 def r_block_note(node, parent, ctx):
     """blockNote: a leaf that gives letters and has no note (the first check's blocks.note refusal)
-    takes the one sentence its shape fixes (_block_note_for); any other leaf stays refused."""
+    takes the one sentence its shape fixes (_block_note_for); a removed letter (del/sub/move's later
+    piece) bound to a spare clue word loses that word; any other leaf stays refused."""
     tree = ctx.get("tree")
     if tree is None:
         return None
+    if _bound_removed_letter(node, parent):
+        return {k: v for k, v in node.items() if k not in ("words", "at")}
     note = _block_note_for(node, parent, tree, ctx.get("answer"))
     return {**node, "note": note} if note else None
 
