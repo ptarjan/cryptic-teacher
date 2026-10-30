@@ -85,6 +85,7 @@
     "note": "only starts the link check and the IndexNow hashing in the background; their time shows in Wait for the site checks"},
   "build/Archive the site": {"seconds": 20},
   "build/Upload the site": {"seconds": 40,
+    "warn": "actions/upload-artifact sending the stored (level 0) tar to GitHub, so the time is GitHub's upload and not our work: 26-40s over 21 push builds and 35-38s over 2 scheduled builds 2026-10-29..30 (median 35s, only 5s under the budget), with one 72s outlier (run 41005868629) for the same artifact; a 40s fail would go red on ordinary variance",
     "note": "39s at deflate level 1 (run 38378765553), 65s at level 6; stored (level 0) 18s (run 38380967725)"},
   "build/Wait for the site checks": {"seconds": 45, "corpus": true,
     "uncached": "the link check reads every published page (stage_site.py --check, across the cores) and IndexNow hashes them; they run beside Archive and Upload, so this is only what is left over",
