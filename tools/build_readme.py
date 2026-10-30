@@ -878,6 +878,7 @@ LAYOUT = [
     ("building and checking the site", "tests/test_overtype.js", "typing over a filled word keeps going through its filled squares"),
     ("building and checking the site", "tools/grid_ocr_cache.py", "the solution-grid reader's recogniser outputs, kept on disk by what they are of"),
     ("building and checking the site", "tests/test_desktop_typing.js", "with a mouse and a keyboard, picking a light leaves the page and focus alone"),
+    ("building and checking the site", "tests/test_quote_lone_bare_leaf.py", "a lone bare letter piece with one spare clue word is quoted on that word"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

@@ -1881,6 +1881,7 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                                " (every span has a note already)"))
     _quote_bare_words(tree, clue, taken)
     _requote_sibling_words(tree)
+    _quote_lone_bare_leaf(tree, clue, taken)
     try:
         evaluate(tree, answer)
     except WordplayError as err:
@@ -1953,6 +1954,27 @@ def _requote_sibling_words(tree):
         for p, b in zip(parts, bare):
             if b:
                 p["words"], p["at"] = words, at
+
+
+def _quote_lone_bare_leaf(tree, clue, taken=()):
+    """One bare letter piece and exactly one clue word that nothing else covers (not a
+    link word) is that piece's word: the first check's 'a block with no clueFragment'
+    would send the run to quote it. Two bare pieces or two spare words stay refused."""
+    bare = [p for n in _all_nodes(tree) for p in parts_of(n)
+            if "op" not in p and "words" not in p and not p.get("unchecked")
+            and str(p.get("gives") or "").isalpha()]
+    if len(bare) != 1:
+        return
+    left = unaccounted_words(tree, clue, taken)
+    if len(left) != 1 or left[0].lower() in LONE_LEAF_LINKS:
+        return
+    at = [m.start() for m in re.finditer(r"(?<![\w'’])%s(?![\w'’])" % re.escape(left[0]), clue)]
+    if len(at) == 1:
+        bare[0]["words"], bare[0]["at"] = left[0], at[0]
+
+
+LONE_LEAF_LINKS = frozenset({"a", "an", "the", "and", "of", "in", "to", "for", "is", "with", "by",
+                             "from", "as", "at", "on", "that", "has", "gives", "makes", "see"})
 
 
 def _all_nodes(node):
