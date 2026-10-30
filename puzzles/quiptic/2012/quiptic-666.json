@@ -47,12 +47,14 @@
      "indicators": [
       {
        "text": "without",
-       "note": "'without' tells the solver to take something away from the word before it"
+       "at": 15,
+       "note": "without says a letter is taken away"
       }
      ],
      "parts": [
       {
-       "words": "of pasta",
+       "words": "pasta",
+       "at": 9,
        "gives": "NOODLES",
        "note": "noodles are a kind of pasta"
       },
@@ -61,22 +63,23 @@
        "indicators": [
         {
          "text": "at last",
-         "note": "'at last' points to the final letter of the word it follows"
+         "at": 32,
+         "note": "at last points to the final letter of parmesan"
         }
        ],
        "parts": [
         {
          "words": "parmesan",
-         "note": "the closing letter of parmesan"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner piles up pasta but skimps on the cheese topping.",
-     "walkthrough": "'Loads of pasta' reads as one phrase, but 'Loads' alone is the definition and 'of pasta' gives NOODLES, which loses its N to leave OODLES.",
-     "definitionFit": "Oodles is informal for a great quantity, just as loads is."
+     "surface": "Plenty of pasta served without any parmesan on top, finally.",
+     "walkthrough": "'without' removes N, the last letter of 'parmesan', from NOODLES.",
+     "definitionFit": "Oodles is informal for a great quantity, lots."
     },
     "features": {
      "answerInScene": false,
