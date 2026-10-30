@@ -256,4 +256,14 @@ for wp, clue, ans in [("[Man]HE + [to] + [run out]RO", "Man to run out victor", 
     W.locate(tree, clue, ())
     new = F.r_does_not_give(tree, None, {"answer": ans, "clue": clue})
     check("doesNotGive drops the bare link leaf: " + ans, bool(new) and len(new["parts"]) == 2)
+# doesNotGive, 10-30 audit: an article filed as a bare leaf in a TWO-piece charade ('[a] + [way]LANE') is read as A
+for wp, clue, ans in [("ins<into>([port]PT, [a] + [way]LANE)", "Space traveller has a way into port", "PLANET"),
+                      ("ins<in>([drink]ALE, [a] + [stake]POST)", "Preacher with a stake in drink", "APOSTLE")]:
+    msg = mend(wp, clue, ans)
+    check("doesNotGive drops the bare article of a two-piece charade: " + ans, "[a]" not in msg and not msg.startswith("REFUSED"))
+# ... and the refusals that stay refused say what to write: the one surplus piece, the one leaf one letter too long
+msg = mend("ins<during>([enemy]FOE, [Torment]RAGE)", "Torment during enemy raid", "FORAGE")
+check("doesNotGive names a leaf one letter too long", msg.startswith("REFUSED") and "shortened at its end to RAG" in msg)
+msg = mend("ins<in>([bed]CRIB, [article]A + [read]R)", "Native American's article read in bed", "CARIB")
+check("doesNotGive names the one surplus charade piece", msg.startswith("REFUSED") and ("surplus" in msg or "shortened" in msg))
 sys.exit(1 if fails else 0)

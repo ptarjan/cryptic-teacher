@@ -1468,6 +1468,7 @@ def diagnose(node, want):
         return hint
     ls = lengths(node)
     hint = _container_reversed_hint(node, want) or _charade_container_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
+    hint = hint or _surplus_piece_hint(node, want) or _leaf_trim_hint(node, want)
     if hint:
         return hint
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
@@ -1527,6 +1528,64 @@ def diagnose(node, want):
     elif ls is not None and len(want) not in ls:
         msg += f" ({'/'.join(map(str, sorted(ls)))} letters against {len(want)})"
     return msg
+
+
+def _tree_gives(node, want):
+    try:
+        return match(node, want) is not None
+    except (WordplayError, _NeedTarget, IndexError, KeyError, TypeError, ValueError):
+        return False
+
+
+def _surplus_piece_hint(node, want):
+    """[A] + [way]LANE round PT for PLANET: the charade is the answer once one piece is cut. Named only
+    when exactly one piece, anywhere in `node`, can be cut (a charade keeps two or more) to make it give
+    `want`; the message says to cut it and leave its clue words to the definition or as link words."""
+    if node.get("op") is None:
+        return None
+    found = []
+    for k, n in enumerate(_walk(node)):
+        parts = n.get("parts") or []
+        if n.get("op") != "charade" or len(parts) < 2:
+            continue
+        for i in range(len(parts)):
+            new = copy.deepcopy(node)
+            m = _walk(new)[k]
+            del m["parts"][i]
+            if len(m["parts"]) == 1:
+                only = m["parts"][0]
+                m.clear()
+                m.update(only)
+            if _tree_gives(new, want):
+                found.append(parts[i])
+    if len(found) != 1:
+        return None
+    return (f"{render(node)} gives {_gives(node)}, but the piece {render(found[0])} is surplus: without it "
+            f"the wordplay gives {want}. Cut it from the wordplay; if its clue word only links or points "
+            f"at the definition, it is a link word and needs no leaf")
+
+
+def _leaf_trim_hint(node, want):
+    """[article]AN in ins(MINE, AN) for MAINE: one leaf's letters are one letter too long at an end.
+    Named only when exactly one leaf, trimmed at exactly one end, makes `node` give `want`."""
+    if node.get("op") is None:
+        return None
+    found = []
+    for k, n in enumerate(_walk(node)):
+        g = str(n.get("gives") or "")
+        if n.get("op") is not None or len(g) < 2 or not g.isalpha():
+            continue
+        for end, short in (("end", g[:-1]), ("start", g[1:])):
+            new = copy.deepcopy(node)
+            _walk(new)[k]["gives"] = short
+            if _tree_gives(new, want):
+                found.append((n, short, end))
+    if len(found) != 1:
+        return None
+    n, short, end = found[0]
+    return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. It would give it with "
+            f"{render(n)} shortened at its {end} to {short}: write {render({**n, 'gives': short})} if that "
+            f"is what the clue word means, else another piece is wrong")
 
 
 def _container_reversed_hint(node, want):

@@ -3715,13 +3715,19 @@ def _does_not_give_edits(node, k, clue=None):
                 new, t = fresh()
                 t["parts"] = [t["parts"][i] for i in o]
                 out.append(new)
-    if n.get("op") == "charade" and len(parts) >= 3:
+    if n.get("op") == "charade" and len(parts) >= 2:
         # a link word filed as a bare leaf ('[to]' in [Man]HE + [to] + [run out]RO) is read as its own
-        # letters (HETORO): dropped, the charade is the answer. Bare = no gives, no op, one word.
+        # letters (HETORO): dropped, the charade is the answer. Bare = no gives, no op, one word. A
+        # two-piece charade ('[a] + [way]LANE' for PLANET: the article is no letter of the answer) is
+        # left holding the one piece, which stands in its place.
         for i, p in enumerate(parts):
             if "op" not in p and not p.get("gives") and len(str(p.get("words") or "").split()) == 1:
                 new, t = fresh()
                 del t["parts"][i]
+                if len(t["parts"]) == 1:
+                    only = t["parts"][0]
+                    t.clear()
+                    t.update(only)
                 out.append(new)
     elif n.get("op") == "reversal" and len(parts) == 1 and leaf(parts[0]) and parts[0].get("gives"):
         new, t = fresh()
