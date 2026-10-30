@@ -288,6 +288,35 @@ out=$(CT_NET_TIMEOUT=2 timeout 120 bash "$tmp/nf.sh" "$tmp/nf" 2>&1) || rc=$?
   fail "a stalled fetch held the move: rc $rc after $((SECONDS - began))s: $out"
 grep -q "fetch of origin/master failed or timed out" <<<"$out" || fail "a cut-off fetch was not said: $out"
 
+# 4d2. A tracked file a clean filter rewrites (10-24 21:51: tools/annotation_backlog.json went
+#     under filter=json-keys while the queue's tree held its old layout) looks modified, so
+#     `git reset --keep` says "not uptodate" and the tree stays behind with nothing starting. The
+#     move re-stats the index with every clean filter off and goes on.
+git clone -q "$tmp/origin.git" "$tmp/cl" 2>/dev/null
+git clone -q "$tmp/origin.git" "$tmp/cl-other" 2>/dev/null
+mkdir -p "$tmp/cl-other/puzzles/cl"
+printf '{"a":   1}\n' >"$tmp/cl-other/puzzles/cl/k.json"
+echo 'puzzles/cl/k.json filter=squeeze' >>"$tmp/cl-other/.gitattributes"
+git -C "$tmp/cl-other" add -A && git -C "$tmp/cl-other" commit -qm "a file, raw, with a filter named" && git -C "$tmp/cl-other" push -q origin HEAD:master 2>/dev/null
+git -C "$tmp/cl" pull -q origin master 2>/dev/null
+git -C "$tmp/cl" config filter.squeeze.clean "sed 's/   */ /g'"
+touch -d '-1 hour' "$tmp/cl/puzzles/cl/k.json"
+[ -n "$(git -C "$tmp/cl" status --porcelain)" ] || fail "the filtered file does not look modified, so the test proves nothing"
+printf '{"a": 1}\n' >"$tmp/cl-other/puzzles/cl/k.json"
+echo more >"$tmp/cl-other/puzzles/cl/other.txt"
+git -C "$tmp/cl-other" add -A && git -C "$tmp/cl-other" commit -qm "the file in clean form" && git -C "$tmp/cl-other" push -q origin HEAD:master 2>/dev/null
+cat >"$tmp/cl.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+. tools/durable.sh
+durable_resync || { echo "resync failed"; exit 1; }
+EOF
+out=$(bash "$tmp/cl.sh" "$tmp/cl" 2>&1) || fail "a clean filter's modified-looking file kept the tree from moving: $out"
+[ "$(git -C "$tmp/cl" rev-parse HEAD)" = "$(git --git-dir="$tmp/origin.git" rev-parse master)" ] ||
+  fail "the tree did not reach origin/master past a filtered file: $out"
+[ "$(cat "$tmp/cl/puzzles/cl/k.json")" = '{"a": 1}' ] || fail "the filtered file was not replaced by origin's: $out"
+grep -q "re-stated with the clean filters off" <<<"$out" || fail "the refresh was not said: $out"
+
 # 4e. A checkpoint inside the push window only batches its commit
 #     (push_puzzle_commit.sh's refs/push-batch/tip); the resync after it must
 #     move the tree onto that batch, not origin/master alone, or the file just
