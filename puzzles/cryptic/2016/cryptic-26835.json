@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Punch things",
     "enumeration": "7"
    },
-   "solution": "CLOBBER"
+   "solution": "CLOBBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Punch",
+      "at": 0,
+      "meaning": "to hit someone hard, the slang sense of a blow"
+     },
+     {
+      "text": "things",
+      "at": 6,
+      "meaning": "slang for one's belongings or gear, as in 'pack up your stuff'"
+     }
+    ],
+    "explanation": {
+     "surface": "A two-word note pairing a blow with some unspecified objects.",
+     "definitionFit": "Two slang senses: the verb for striking someone hard, and the noun for personal belongings or kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "things"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,58 @@
     "text": "A service dividing the Church shows bottle",
     "enumeration": "6"
    },
-   "solution": "CARAFE"
+   "solution": "CARAFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dividing",
+       "at": 10,
+       "note": "dividing means splitting the church abbreviation with the letters placed in between"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Church",
+       "at": 19,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "service",
+         "at": 2,
+         "gives": "RAF",
+         "note": "the RAF, the Royal Air Force, is one of the armed services"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service split down the middle shows off a bottle.",
+     "definitionFit": "A glass flask for serving wine or water at table is a kind of bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +136,63 @@
     "text": "Get the better of the fool among us? That's not right",
     "enumeration": "6"
    },
-   "solution": "OUTWIT"
+   "solution": "OUTWIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get the better of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "That's not right",
+       "at": 37,
+       "note": "not right means the R for right is dropped from the build"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "at": 27,
+         "note": "among puts the fool inside the word for us"
+        }
+       ],
+       "parts": [
+        {
+         "words": "us",
+         "at": 33,
+         "gives": "OUR",
+         "note": "us is read as ours, the possessive of us"
+        },
+        {
+         "words": "the fool",
+         "at": 18,
+         "gives": "TWIT",
+         "note": "a twit is a fool"
+        }
+       ]
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether the idiot among us can be beaten, then objects.",
+     "definitionFit": "To outsmart someone by cleverness is to get the better of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +212,75 @@
      }
     ]
    },
-   "solution": "BODMINMOOR"
+   "solution": "BODMINMOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "land in Cornwall",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 40,
+       "note": "about means the rearranged letters wrap around the low"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ludicrous",
+         "at": 30,
+         "note": "ludicrous signals the letters are jumbled absurdly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Morbid",
+         "at": 0
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 19,
+           "note": "ultimately takes the final letter of fascination"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fascination",
+           "at": 7
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "low",
+       "at": 46,
+       "gives": "MOO",
+       "note": "a cow's low is a moo"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim fascination with something absurd about some flat land in the West Country.",
+     "walkthrough": "'ludicrous' and 'about' both look like description; the first jumbles the letters, the second wraps them round the cow's sound. Cornwall is England's south-western county.",
+     "definitionFit": "This granite upland in north-east Cornwall is a tract of moorland, so land in that county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +294,43 @@
     "text": "August — that isn't bitter, on the contrary",
     "enumeration": "5"
    },
-   "solution": "REGAL"
+   "solution": "REGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "August",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the contrary",
+       "at": 28,
+       "note": "on the contrary means the other way round, so the beer word reads upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that isn't bitter",
+       "at": 9,
+       "gives": "LAGER",
+       "note": "bitter is a British ale; lager is a beer that is not bitter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "August's beer is anything but bitter.",
+     "walkthrough": "'August' looks like the month, but it is the adjective for majestic. Bitter is a hoppy British draught ale.",
+     "definitionFit": "The adjective august means grand and majestic, much like royal and stately bearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +344,63 @@
     "text": "Second before day's end took a heartbeat",
     "enumeration": "7"
    },
-   "solution": "SYSTOLE"
+   "solution": "SYSTOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a heartbeat",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 7,
+       "note": "before puts the second's letter ahead of what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "at": 20,
+         "note": "end picks the last letter of the word day's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day's",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "took",
+       "at": 24,
+       "gives": "STOLE",
+       "note": "took, in the sense of stole or pinched"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snatched something just before the day closed, with the heart racing.",
+     "definitionFit": "The contraction phase of the heart's cycle, the beat that pumps blood out, is its medical name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +420,42 @@
      }
     ]
    },
-   "solution": "SQUARECUT"
+   "solution": "SQUARECUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shot",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dinosaur",
+       "at": 0,
+       "gives": "SQUARE",
+       "note": "a dinosaur is an old-fashioned person, a square"
+      },
+      {
+       "words": "slightly injured",
+       "at": 9,
+       "gives": "CUT",
+       "note": "a cut is a minor injury"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dinosaur, slightly hurt, has been shot.",
+     "walkthrough": "This is a cricket stroke: the batter hits a short ball square on the off side.",
+     "definitionFit": "A cricket stroke made with a horizontal bat to the off side is one shot by the batter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dinosaur"
+    }
+   }
   },
   {
    "number": 6,
@@ -154,7 +482,40 @@
     "text": "Extra work messed up, remove it",
     "enumeration": "8"
    },
-   "solution": "OVERTIME"
+   "solution": "OVERTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extra work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "messed up",
+       "at": 11,
+       "note": "messed up says the letters of remove it are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remove it",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker grumbling that the extra hours were botched and should be taken off.",
+     "definitionFit": "Hours worked beyond the normal working day are additional work, often paid extra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remove"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +529,48 @@
     "text": "Relief to chew over source of life",
     "enumeration": "8"
    },
-   "solution": "EASEMENT"
+   "solution": "EASEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 15,
+       "note": "over means the eating word is placed over, wrapping, the source of life"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chew",
+       "at": 10,
+       "gives": "EAT",
+       "note": "to chew is to eat"
+      },
+      {
+       "words": "source of life",
+       "at": 20,
+       "gives": "SEMEN",
+       "note": "semen carries sperm, a source of new life"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Relief comes from chewing over where life comes from.",
+     "definitionFit": "The noun can mean easing or alleviation of pain or difficulty; relief is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chew"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +584,70 @@
     "text": "Netting first of three, expensive back scored",
     "enumeration": "5"
    },
-   "solution": "RATED"
+   "solution": "RATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scored",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Netting",
+       "at": 0,
+       "note": "netting means catching inside, so the reversed word holds the picked letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 34,
+         "note": "back says the word for expensive is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expensive",
+         "at": 24,
+         "gives": "DEAR",
+         "note": "expensive means dear, as in a dear price"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 8,
+         "note": "first of picks the opening letter of the word three"
+        }
+       ],
+       "parts": [
+        {
+         "words": "three",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report: three goals netted, an expensive player at the back got on the scoresheet.",
+     "definitionFit": "Marked or graded, as a paper is scored or given a mark; both are past participles of assessing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Netting"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +661,49 @@
     "text": "Tucking away feast, German mathematician demonstrating vulgar quality",
     "enumeration": "9"
    },
-   "solution": "GAUDINESS"
+   "solution": "GAUDINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vulgar quality",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Tucking away",
+       "at": 0,
+       "note": "tucking away means stowing inside, so the mathematician's name holds the feast"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German mathematician",
+       "at": 20,
+       "gives": "GAUSS",
+       "note": "Carl Friedrich Gauss, the German mathematician"
+      },
+      {
+       "words": "feast",
+       "at": 13,
+       "gives": "DINE",
+       "note": "to feast is to dine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German academic stuffing himself at a banquet shows a lack of taste.",
+     "walkthrough": "'Tucking away' looks like eating, matching 'feast', but it is the container signal for the mathematician's surname.",
+     "definitionFit": "Showiness or garishness in taste is a vulgar quality; the noun names tastelessly bright display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tucking"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +717,49 @@
     "text": "Dig in order to find plant",
     "enumeration": "10"
    },
-   "solution": "FRITILLARY"
+   "solution": "FRITILLARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "in puts the digging word inside the house of an order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "order",
+       "at": 7,
+       "gives": "FRIARY",
+       "note": "a friary houses an order of friars, standing in for the order"
+      },
+      {
+       "words": "Dig",
+       "at": 0,
+       "gives": "TILL",
+       "note": "to till is to dig or cultivate the soil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardening instruction: dig over the bed methodically to find a plant.",
+     "walkthrough": "'in order' reads as 'methodically', but 'order' is the religious order's house, a FRIARY, and 'in' the container signal; 'to find' is a link.",
+     "definitionFit": "The snake's-head fritillary is a bulb flower of the lily family, so a type of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +773,42 @@
     "text": "Stop New York baseball team getting turned over",
     "enumeration": "4"
    },
-   "solution": "STEM"
+   "solution": "STEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "getting turned over",
+       "at": 28,
+       "note": "turned over signals the team's name read backwards in this across entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New York baseball team",
+       "at": 5,
+       "gives": "METS",
+       "note": "the New York Mets are a Major League Baseball team"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants the New York team stopped from being beaten.",
+     "definitionFit": "To stem a flow is to stop or check it, as in stemming the bleeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +836,57 @@
      }
     ]
    },
-   "solution": "ANDSOTOBED"
+   "solution": "ANDSOTOBED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Final entry in diary",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "catastrophic",
+       "at": 50,
+       "note": "catastrophic signals the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dated soon",
+       "at": 21
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 40,
+         "note": "primarily takes the first letter of Brexit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Brexit",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diarist's last words: the dated thing is soon over, Brexit a disaster.",
+     "walkthrough": "Samuel Pepys ended many entries in his famous diary with this phrase.",
+     "definitionFit": "Pepys closed his diary's daily entries with this sign-off phrase, making it the last line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Brexit"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +906,65 @@
      }
     ]
    },
-   "solution": "MEDICINEMAN"
+   "solution": "MEDICINEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spiritual healer",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "in sets the word for pictures inside the shortened city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 24,
+         "note": "detailed is read as de-tailed, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sacred city",
+         "at": 12,
+         "gives": "MEDINA",
+         "note": "Medina is the holy city in Saudi Arabia where the Prophet is buried"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "Pictures",
+       "at": 0,
+       "gives": "CINEMA",
+       "note": "the pictures is an old word for the cinema"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Films set in a holy city depicting a shaman.",
+     "walkthrough": "'detailed' looks like 'in depth' but means tail removed, leaving MEDIN to hold the pictures.",
+     "definitionFit": "A shaman or tribal healer using spiritual powers to cure is called by this compound name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +978,63 @@
     "text": "Leadership ends in power struggle, in a manner of speaking",
     "enumeration": "9"
    },
-   "solution": "DIRECTION"
+   "solution": "DIRECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leadership",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 35,
+       "note": "the second in puts the ends inside the manner of speaking"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a manner of speaking",
+       "at": 38,
+       "gives": "DICTION",
+       "note": "diction is one's manner of speaking"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ends in",
+         "at": 11,
+         "note": "ends in picks the last letter of power and of struggle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "power",
+         "at": 19
+        },
+        {
+         "words": "struggle",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leadership ends in a power struggle, so to speak.",
+     "walkthrough": "'in a manner of speaking' poses as 'so to speak' but gives DICTION.",
+     "definitionFit": "Guidance or management, as in 'under his direction', is leadership."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manner"
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +1048,48 @@
     "text": "Following one god, jerk admits crime",
     "enumeration": "8"
    },
-   "solution": "THEISTIC"
+   "solution": "THEISTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Following one god",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admits",
+       "at": 24,
+       "note": "admits means letting in, so the jerk takes the crime inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "jerk",
+       "at": 19,
+       "gives": "TIC",
+       "note": "a tic is an involuntary jerk"
+      },
+      {
+       "words": "crime",
+       "at": 31,
+       "gives": "HEIST",
+       "note": "a heist is a robbery, a crime"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A believer in one god, a jerk who confesses to crime.",
+     "definitionFit": "Believing in a god, especially a single personal deity, is the adjective's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1109,61 @@
      }
     ]
    },
-   "solution": "APRESSKI"
+   "solution": "APRESSKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "partying in Zermatt, say?",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "the Fourth Estate",
+       "at": 11,
+       "gives": "PRESS",
+       "note": "the Fourth Estate is the press"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 29,
+         "note": "endlessly drops the last letter of the child"
+        }
+       ],
+       "parts": [
+        {
+         "words": "child",
+         "at": 2,
+         "gives": "KID",
+         "note": "a kid is a child"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist's child endlessly out partying at a Swiss ski resort.",
+     "walkthrough": "Zermatt is a ski resort in Switzerland; the definition is the socialising after skiing.",
+     "definitionFit": "Socialising and drinking after a day's skiing has this French name, typical of Alpine resorts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Estate"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1177,44 @@
     "text": "14's heavy African freight?",
     "enumeration": "11"
    },
-   "solution": "HIPPOCRATES"
+   "solution": "HIPPOCRATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "14's",
+      "at": 0,
+      "note": "the clue reads 'medicine man is', 14-across's answer giving the definition and 's being is"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "heavy African",
+       "at": 5,
+       "gives": "HIPPO",
+       "note": "the hippo, a heavy African mammal"
+      },
+      {
+       "words": "freight",
+       "at": 19,
+       "gives": "CRATES",
+       "note": "freight packed in crates"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about a hippo's cargo, made to look like a possessive of another clue.",
+     "walkthrough": "The 's reads as a possessive but stands for 'is': the Greek physician IS the 'heavy African freight'. Splitting the name gives HIPPO CRATES.",
+     "definitionFit": "The ancient Greek physician of the Hippocratic oath is the archetypal doctor, so a healer of medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "freight"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1247,58 @@
      }
     ]
    },
-   "solution": "SEWNUP"
+   "solution": "SEWNUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "certainly secured",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "in places the rearranged letters inside the drink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drink",
+       "at": 12,
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "brew",
+         "at": 4,
+         "note": "brew signals the letters of new are stirred up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "New",
+         "at": 0
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new brew in a drink is sure to be secured.",
+     "definitionFit": "When something is all but certain to be won, it is said to be wrapped up and secured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brew"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1312,53 @@
     "text": "A couple in the end misbehaving, all kicking off",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A couple",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "all kicking off",
+       "at": 33,
+       "note": "all kicking off means take the starting letter of every one of the preceding four words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in",
+       "at": 9
+      },
+      {
+       "words": "the",
+       "at": 12
+      },
+      {
+       "words": "end",
+       "at": 16
+      },
+      {
+       "words": "misbehaving",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair finally behaving badly, everything erupting.",
+     "walkthrough": "'all kicking off' sounds like a brawl, but it asks for the first letter of each word in 'in the end misbehaving'.",
+     "definitionFit": "A romantically linked pair is called this, as in 'they've been seen together and are now officially one'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kicking"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1372,66 @@
     "text": "Stress fracture acute, can't move in conclusion",
     "enumeration": "10"
    },
-   "solution": "ACCENTUATE"
+   "solution": "ACCENTUATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fracture",
+         "at": 7,
+         "note": "fracture means break up, so the letters of acute and can't are broken and reset"
+        }
+       ],
+       "parts": [
+        {
+         "words": "acute",
+         "at": 16
+        },
+        {
+         "words": "can't",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in conclusion",
+         "at": 34,
+         "note": "in conclusion picks the final letter of move"
+        }
+       ],
+       "parts": [
+        {
+         "words": "move",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stress fracture is acute and the patient can't move.",
+     "walkthrough": "'Stress fracture' reads as one injury, but 'Stress' is the definition and 'fracture' the anagram signal; the E is the last of 'move'.",
+     "definitionFit": "To emphasise or highlight is to give stress to something; both are verbs of emphasis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fracture"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1445,43 @@
     "text": "Surrealist taking piece from pattern, striped",
     "enumeration": "5"
    },
-   "solution": "ERNST"
+   "solution": "ERNST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surrealist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taking piece from",
+       "at": 11,
+       "note": "taking piece from says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pattern, striped",
+       "at": 29,
+       "gives": "ERNST",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surrealist painter taking a section from a striped design.",
+     "walkthrough": "The draft put 'taking' in the definition, but 'Surrealist taking' names nobody; 'taking piece from' is the hidden-word signal and 'Surrealist' alone defines.",
+     "definitionFit": "Max Ernst was a German painter of the Surrealist and Dada movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "striped"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1505,42 @@
    "group": [
     "24-down",
     "19-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's hypothetical",
+      "at": 16,
+      "note": "read as 'stuff that's hypothetical', a noun phrase"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sinister",
+       "at": 0,
+       "gives": "DARK",
+       "note": "dark means sinister or evil"
+      },
+      {
+       "words": "affair",
+       "at": 9,
+       "gives": "MATTER",
+       "note": "an affair is a matter, a business"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sinister affair that remains only supposed.",
+     "definitionFit": "Physicists posit unseen mass to explain galaxy rotation, so this substance is theorised rather than observed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "affair"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1554,70 @@
     "text": "Dutch heart and soul in continental islander",
     "enumeration": "9"
    },
-   "solution": "TASMANIAN"
+   "solution": "TASMANIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "islander",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart",
+         "at": 6,
+         "note": "heart picks the middle letter of the word Dutch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dutch",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 21,
+         "note": "in puts the soul inside the continental"
+        }
+       ],
+       "parts": [
+        {
+         "words": "continental",
+         "at": 24,
+         "gives": "ASIAN",
+         "note": "an Asian is someone from a continent, here Asia"
+        },
+        {
+         "words": "soul",
+         "at": 16,
+         "gives": "MAN",
+         "note": "a soul is a person, as in 'not a soul', so a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Dutch person's heart and soul belong to an islander from the continent.",
+     "walkthrough": "The Dutch link is a nice touch: the island is named after Abel Tasman, a Dutch explorer.",
+     "definitionFit": "Someone from the Australian island state south of Victoria is a native of that island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dutch"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1631,63 @@
     "text": "Item handed over a century after the onset of battle",
     "enumeration": "5"
    },
-   "solution": "BATON"
+   "solution": "BATON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Item handed over",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 27,
+       "note": "after places a century behind the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the onset of",
+         "at": 33,
+         "note": "the onset of means the starting letter of battle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "battle",
+         "at": 46
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 17
+      },
+      {
+       "words": "century",
+       "at": 19,
+       "gives": "TON",
+       "note": "a ton is a hundred, a century, as in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historic object surrendered a hundred years after war began.",
+     "walkthrough": "'handed over' suggests a surrender in battle; here it is the relay runner's stick.",
+     "definitionFit": "In a relay race runners pass a stick from hand to hand, so it is the thing passed on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +1711,44 @@
    "group": [
     "27-across",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "layer upon layer?",
+      "at": 15,
+      "note": "a hen is a layer, and its outer layer covers it, so a layer on a layer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Yellow",
+       "at": 0,
+       "gives": "CHICKEN",
+       "note": "yellow means cowardly, as is chicken"
+      },
+      {
+       "words": "fleece",
+       "at": 7,
+       "gives": "SKIN",
+       "note": "to fleece someone is to skin them, rip them off"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A yellow woollen coat, made in layers.",
+     "walkthrough": "'layer upon layer' suggests thick padding, but a layer is a hen and the answer is the covering on it.",
+     "definitionFit": "A laying hen is a layer, and the coating on a hen's body is the outer layer on that layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "layer"
+    }
+   }
   },
   {
    "number": 28,
@@ -505,7 +1768,67 @@
      }
     ]
    },
-   "solution": "TIDERIP"
+   "solution": "TIDERIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "More than one current meeting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 61,
+       "note": "during means the closing letters fall within the tour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tour",
+       "at": 68,
+       "gives": "TRIP",
+       "note": "a tour is a trip"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "closes",
+         "at": 54,
+         "note": "closes picks the final letter of each of I, cancelled and conference"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 30
+        },
+        {
+         "words": "cancelled",
+         "at": 32
+        },
+        {
+         "words": "conference",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on a tour cancelling a meeting as a conference wraps up.",
+     "walkthrough": "'meeting' looks like a business meeting but belongs to the definition: currents meeting.",
+     "definitionFit": "This is rough water where opposing currents or tides collide, so several streams in conflict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "meeting"
+    }
+   }
   }
  ]
 }
