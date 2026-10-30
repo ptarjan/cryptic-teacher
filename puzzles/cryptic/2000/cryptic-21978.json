@@ -865,49 +865,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "production",
-       "note": "a production makes something new, so the letters are worked into a fresh order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 12,
+         "note": "the leader of the word pit is the letter at its front"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pit",
-           "note": "its first letter"
-          }
-         ]
+         "words": "pit",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 29,
+         "note": "about means placed around, so the word for edge surrounds the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "edge",
+         "at": 24,
+         "gives": "RIM",
+         "note": "a rim is an edge"
         },
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means placed around, so the edge surrounds the other letters"
+           "text": "production",
+           "at": 40,
+           "note": "a production makes something new, so the word coal is worked into a fresh order"
           }
          ],
          "parts": [
           {
-           "words": "edge",
-           "gives": "RIM",
-           "note": "a rim is an edge"
-          },
-          {
            "words": "coal",
-           "note": "rearranged"
+           "at": 35
           }
          ]
         }
@@ -916,9 +920,9 @@
      ]
     },
     "explanation": {
-     "surface": "A colliery manager stressed about coal output makes an announcement.",
-     "walkthrough": "'Production' sounds like coal output, but it signals rearranging coal; the edge then wraps it, with the pit's first letter on top.",
-     "definitionFit": "To proclaim is to announce publicly and officially, to declare something to all."
+     "surface": "A colliery manager, stressed about coal output, makes an announcement.",
+     "walkthrough": "'Production' reads as coal output, but it is the signal to rearrange coal alone, not the whole run of words; 'about' and 'leader' do their usual jobs, and the 's is just 'is'.",
+     "definitionFit": "A synonym: both mean to announce publicly and officially, making something known to all."
     },
     "features": {
      "answerInScene": true,
