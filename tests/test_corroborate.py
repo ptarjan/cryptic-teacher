@@ -358,6 +358,19 @@ try:
          field('FIXTURE'), 'None')
     same('a puzzle with no grid is left alone',
          field('GRIDLESS'), 'True')
+    print('no posts manifest (a CI runner)')
+    import media_manifest, post_index
+    was = media_manifest.DIR
+    media_manifest.DIR = Path(TMP) / "no-manifest"
+    post_index.forget(); c._posts.clear()
+    try:
+        same('fifteensquared yields nothing, not SystemExit',
+             c.fifteensquared({"id": "guardian-cryptic-1", "series": "guardian-cryptic",
+                               "entries": []}), [])
+        same('and the index is empty', post_index.entries(c.FIFTEENSQUARED_POSTS), {})
+    finally:
+        media_manifest.DIR = was
+        post_index.forget(); c._posts.clear()
 finally:
     import shutil
     shutil.rmtree(TMP, ignore_errors=True)
