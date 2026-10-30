@@ -1521,6 +1521,9 @@ def diagnose(node, want):
     seam = _seam_hint(node, want) if op == "charade" else None
     if seam:
         return seam
+    seam = _leaf_trim_hint(node, want, choice=True)    # after the join messages, which name the letter exactly
+    if seam:
+        return seam
     msg = f"{render(node)} gives {_gives(node)}; the answer needs {want} here"
     if op is None and leaf_letters(node)[::-1] == want:
         msg += (f". {leaf_letters(node)} reads backwards: a leaf's letters come before any "
@@ -1565,27 +1568,37 @@ def _surplus_piece_hint(node, want):
             f"at the definition, it is a link word and needs no leaf")
 
 
-def _leaf_trim_hint(node, want):
-    """[article]AN in ins(MINE, AN) for MAINE: one leaf's letters are one letter too long at an end.
-    Named only when exactly one leaf, trimmed at exactly one end, makes `node` give `want`."""
+def _leaf_trim_hint(node, want, choice=False):
+    """[article]AN in ins(MINE, AN) for MAINE: one leaf's letters are one letter too long. Every leaf that,
+    with one letter dropped (an end, or inside: [cube]DICE -> DIE), makes `node` give `want` is named; one
+    candidate is said plainly; two or three (`choice`) as a choice, since only the clue word's meaning picks one."""
     if node.get("op") is None:
         return None
-    found = []
+    found, seen = [], set()
     for k, n in enumerate(_walk(node)):
         g = str(n.get("gives") or "")
         if n.get("op") is not None or len(g) < 2 or not g.isalpha():
             continue
-        for end, short in (("end", g[:-1]), ("start", g[1:])):
+        for i in range(len(g)):
+            short = g[:i] + g[i + 1:]
+            if (k, short) in seen:
+                continue
+            seen.add((k, short))
             new = copy.deepcopy(node)
             _walk(new)[k]["gives"] = short
             if _tree_gives(new, want):
-                found.append((n, short, end))
-    if len(found) != 1:
+                where = "end" if i == len(g) - 1 else "start" if i == 0 else f"inside, its {g[i]}"
+                found.append((n, short, where))
+    if not found or len(found) > 3 or (len(found) > 1 and not choice):
         return None
-    n, short, end = found[0]
-    return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. It would give it with "
-            f"{render(n)} shortened at its {end} to {short}: write {render({**n, 'gives': short})} if that "
-            f"is what the clue word means, else another piece is wrong")
+    if len(found) == 1:
+        n, short, where = found[0]
+        return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. It would give it with "
+                f"{render(n)} shortened at its {where} to {short}: write {render({**n, 'gives': short})} if that "
+                f"is what the clue word means, else another piece is wrong")
+    opts = " or ".join(render({**n, "gives": short}) for n, short, _ in found)
+    return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. One leaf is a letter too long: "
+            f"write {opts}, whichever is what its clue word means (if neither is, another piece is wrong)")
 
 
 def _container_reversed_hint(node, want):
