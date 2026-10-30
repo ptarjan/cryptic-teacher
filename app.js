@@ -2140,8 +2140,25 @@
     refreshGrid();
   }
 
+  // Paul 10-30: "Why do we show a cursor selection when there isnt a keyboard
+  // up". On a touch screen the cursor square marks where the next typed letter
+  // goes, which means nothing while the keys are away, so it is drawn as one
+  // more square of the entry until they return. A screen with no touch (a
+  // desktop and its physical keyboard) has no soft keyboard to wait for and
+  // always shows it.
+  let cursorWasShown = true;
+  function cursorVisible() {
+    if (typeof navigator === "undefined" || !navigator.maxTouchPoints) return true;
+    return keyboardUp();
+  }
+  // Redraw only on a change, from the events that raise or drop the keys.
+  function syncCursor() {
+    if (cursorVisible() !== cursorWasShown) refreshGrid();
+  }
+
   function refreshGrid() {
     const e = gridEntry();
+    const showCur = cursorWasShown = cursorVisible();
     const typeIt = !jigsaw && nuxTypeIt(e);
     const light = currentLight();
     forEachCell((c) => {
@@ -2152,8 +2169,8 @@
       el.classList.toggle("revealed", !!c.revealed);
       const inEntry = e && ((e.direction === "across" && c.y === e.position.y && c.x >= e.position.x && c.x < e.position.x + e.length)
         || (e.direction === "down" && c.x === e.position.x && c.y >= e.position.y && c.y < e.position.y + e.length));
-      el.classList.toggle("hl", !!(inEntry || (light && light.indexOf(c) >= 0)) && !(c.x === cur.x && c.y === cur.y));
-      el.classList.toggle("sel", c.x === cur.x && c.y === cur.y);
+      el.classList.toggle("hl", !!(inEntry || (light && light.indexOf(c) >= 0)) && !(showCur && c.x === cur.x && c.y === cur.y));
+      el.classList.toggle("sel", showCur && c.x === cur.x && c.y === cur.y);
       // The walk's last instruction is "type it in", and this is where that
       // happens: the empty squares wear the walk's pointer.
       el.classList.toggle("walk-point", !!inEntry && !c.letter && typeIt);
@@ -2856,6 +2873,11 @@
     };
     window.visualViewport.addEventListener("resize", settling);
     window.visualViewport.addEventListener("scroll", settling);
+    window.visualViewport.addEventListener("resize", syncCursor);
+  }
+  if (document.addEventListener) {
+    document.addEventListener("focusin", () => setTimeout(syncCursor, 300));
+    document.addEventListener("focusout", () => setTimeout(syncCursor, 300));
   }
   // A keyboard raised for another field is that field's, so focus landing
   // anywhere but the hidden inputs ends the tap's watch: the picker's search
