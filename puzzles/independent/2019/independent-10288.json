@@ -1709,51 +1709,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "dancing",
-       "note": "dancing letters move about, so the word is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "across",
+         "at": 48,
+         "note": "one piece lies across another, spanning it, so the shuffled word goes around the road"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "across",
-           "note": "one piece lies across another, spanning it, so it goes around"
+           "text": "dancing",
+           "at": 17,
+           "note": "dancing letters skip about the floor, so the word beside it is rearranged"
           }
          ],
          "parts": [
           {
            "words": "and",
-           "note": "the three letters of and rearranged"
-          },
-          {
-           "words": "road",
-           "gives": "AI",
-           "note": "the A1 is Britain's longest numbered road, written AI"
+           "at": 25
           }
          ]
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at opening",
-           "note": "at opening points to the first letter of the word before"
-          }
-         ],
-         "parts": [
-          {
-           "words": "singing",
-           "note": "the first letter of singing"
-          }
-         ]
+         "words": "road",
+         "at": 55,
+         "gives": "AI",
+         "note": "the A1 is Britain's longest numbered road, written AI"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at opening",
+         "at": 37,
+         "note": "at opening points to the first letter of the word just before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "singing",
+         "at": 29
         }
        ]
       }
@@ -1761,7 +1765,7 @@
     },
     "explanation": {
      "surface": "Lively women dance and sing as they cross the street.",
-     "walkthrough": "'Spirited' reads as lively, but means being spirits: these are water nymphs.",
+     "walkthrough": "'Spirited' reads as lively, but means being spirits. 'dancing' turns AND into NAD, which lies 'across' AI; the S from 'singing' 'at opening' ends it.",
      "definitionFit": "In Greek myth these were nymphs of rivers and springs, female nature deities, so spirits that were women."
     },
     "features": {
