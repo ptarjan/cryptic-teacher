@@ -3138,6 +3138,11 @@
   // screen there, and losing focus mid-type under a mouse would just be
   // maddening. Gated on the same touch signal as the rest of this file.
   //
+  // Paul 10-30: "Dropping the keyboard all the time might be wrong. Sometimes I'm
+  // slightly adjusting around the clue solve section." So the threshold is a
+  // real scroll (about a third of a phone screen), not a nudge: a small
+  // adjustment keeps the keyboard, reading down the page still drops it.
+  //
   // The threshold is what keeps a 1-2px jitter — or Safari's URL bar collapsing
   // as an ordinary scroll gets going — from counting. It measures from where the
   // page was when this input's focus last drew a scroll event, not from the last
@@ -3145,7 +3150,7 @@
   // it as soon as it has genuinely moved, while a bounce that returns to where it
   // started never does.
   const SCROLL_BLUR_GUARD_MS = 1000;
-  const SCROLL_BLUR_PX = 24;
+  const SCROLL_BLUR_PX = 120;
   const SCROLL_BLUR_IDS = ["kbd", "picker-search", "sync-join-code"];
   // A flag on a timer, not a Date.now() deadline: a smooth scroll can still be
   // travelling when the browser fires its last 'scroll' event for it, and the app
