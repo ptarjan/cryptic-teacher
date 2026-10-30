@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,64 @@
     "text": "An ecstasy pill? American injected disulfiram",
     "enumeration": "8"
    },
-   "solution": "ANTABUSE"
+   "solution": "ANTABUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disulfiram",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "injected",
+       "at": 26,
+       "note": "injected means the American abbreviation is pushed into the middle of the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "An",
+         "at": 0,
+         "gives": "AN"
+        },
+        {
+         "words": "pill",
+         "at": 11,
+         "gives": "TAB",
+         "note": "a tab is a slang word for a tablet or pill"
+        },
+        {
+         "words": "ecstasy",
+         "at": 3,
+         "gives": "E",
+         "note": "E is the street abbreviation for the drug ecstasy"
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 17,
+       "gives": "US"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether an American was injected with a drug, perhaps an ecstasy pill.",
+     "walkthrough": "The surface splits 'ecstasy pill' as one drug; in the parse the pill is TAB and ecstasy is E, which follows it.",
+     "definitionFit": "Antabuse is the trade name of disulfiram, a drug that makes alcohol unpleasant to drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +105,41 @@
     "text": "Perhaps ladies name foolish person",
     "enumeration": "4"
    },
-   "solution": "LOON"
+   "solution": "LOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foolish person",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perhaps ladies",
+       "at": 0,
+       "gives": "LOO",
+       "note": "a ladies' toilet is one example of a loo"
+      },
+      {
+       "words": "name",
+       "at": 15,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suggests the women present might call some idiot by name.",
+     "walkthrough": "'Ladies' is British for a women's toilet, so it is an example of LOO, signalled by 'Perhaps'.",
+     "definitionFit": "A loon is an informal word for a crazy or silly person, a synonym for a fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ladies"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +153,45 @@
     "text": "Heard she was seduced by swan songs?",
     "enumeration": "6"
    },
-   "solution": "LIEDER"
+   "solution": "LIEDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "songs",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LIEDER",
+     "indicators": [
+      {
+       "text": "Heard",
+       "at": 0,
+       "note": "heard tells us the word is taken by its sound, as if spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "she was seduced by swan",
+       "at": 6,
+       "gives": "LEDA",
+       "note": "in Greek myth Leda was seduced by Zeus in the form of a swan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the songs one heard of a swan's seduction, perhaps a tale set to music.",
+     "walkthrough": "In a non-rhotic British accent LEDA and LIEDER are said alike, 'leeder'.",
+     "definitionFit": "Lieder are German art songs, typically for solo voice and piano, as by Schubert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swan"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +205,59 @@
     "text": "Diplomatic set-up, maybe, getting worried about Nazi force",
     "enumeration": "7"
    },
-   "solution": "EMBASSY"
+   "solution": "EMBASSY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diplomatic set-up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 42,
+       "note": "about means the rearranged letters go round the Nazi force"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "getting worried",
+         "at": 26,
+         "note": "getting worried suggests the letters of the word maybe are agitated into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "maybe",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "Nazi force",
+       "at": 48,
+       "gives": "SS",
+       "note": "the SS was the Nazi paramilitary force"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomatic arrangement, perhaps, grows anxious over the threat of Nazi forces.",
+     "walkthrough": "'maybe' looks like a hedge on the definition but is the anagram fodder, giving EMBAY round SS.",
+     "definitionFit": "An embassy is the establishment of an ambassador and staff, a diplomatic mission abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maybe"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +271,58 @@
     "text": "Live NBC broadcast with interruption from Institute that may be overcome",
     "enumeration": "8"
    },
-   "solution": "VINCIBLE"
+   "solution": "VINCIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that may be overcome",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with interruption from",
+       "at": 19,
+       "note": "with interruption from means a letter breaks into the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 9,
+         "note": "broadcast in the sense of scattered, so the letters of Live NBC are strewn into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Live NBC",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Institute",
+       "at": 42,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A live television transmission on NBC is cut into by some institute's announcement.",
+     "walkthrough": "'broadcast' looks like television talk but here scatters LIVE NBC.",
+     "definitionFit": "Vincible is the rare opposite of invincible: capable of being conquered or defeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +336,60 @@
     "text": "I can do job on farm after years travelled",
     "enumeration": "10"
    },
-   "solution": "ITINERATED"
+   "solution": "ITINERATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "travelled",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "after places the farm job behind the years"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      },
+      {
+       "words": "can",
+       "at": 2,
+       "gives": "TIN",
+       "note": "a can is a tin container"
+      },
+      {
+       "words": "years",
+       "at": 27,
+       "gives": "ERA",
+       "note": "an era is a span of years"
+      },
+      {
+       "words": "do job on farm",
+       "at": 6,
+       "gives": "TED",
+       "note": "to ted is to spread out mown grass to dry for hay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts that after many years they can still manage farm work.",
+     "walkthrough": "TED, a farming verb meaning to turn hay, is the 'job on farm'.",
+     "definitionFit": "To itinerate is to journey from place to place, as a circuit preacher or judge does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +403,59 @@
     "text": "Rope, tethered initially further up, causes singular admiration",
     "enumeration": "6"
    },
-   "solution": "LATRIA"
+   "solution": "LATRIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "singular admiration",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "further up",
+       "at": 25,
+       "note": "further up, in a down clue, means that letter is shifted higher in the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rope",
+       "at": 0,
+       "gives": "LARIAT",
+       "note": "a lariat is a lasso or rope"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 15,
+         "note": "initially picks out the opening letter of the word tethered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tethered",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rope tethered high up draws particular praise.",
+     "walkthrough": "The T of LARIAT moves up two places to give LATRIA.",
+     "definitionFit": "Latria is the supreme worship owed to God alone, adoration that is unique or singular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "singular"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +469,70 @@
     "text": "I'll step in once poor mother's given eulogy",
     "enumeration": "8"
    },
-   "solution": "ENCOMIUM"
+   "solution": "ENCOMIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eulogy",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "step in",
+       "at": 5,
+       "note": "step in means the single letter enters among the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "poor",
+           "at": 18,
+           "note": "poor suggests the word once is in bad shape and so reshuffled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "once",
+           "at": 13
+          }
+         ]
+        },
+        {
+         "words": "mother's",
+         "at": 23,
+         "gives": "MUM",
+         "note": "mum is an informal word for mother"
+        }
+       ]
+      },
+      {
+       "words": "I'll",
+       "at": 0,
+       "gives": "I",
+       "note": "the letter I is taken from I'll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker volunteers to step in to deliver the eulogy, since poor Mum once did.",
+     "walkthrough": "'poor' makes ENCO from 'once'; 'I'll step in' puts I just after the first letter of the mother.",
+     "definitionFit": "An encomium is a formal speech or piece of writing that praises someone highly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poor"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +552,46 @@
      }
     ]
    },
-   "solution": "INTRAY"
+   "solution": "INTRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Missing the odd signature, any papers here?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Missing the odd",
+       "at": 0,
+       "note": "missing the odd means dropping the odd-placed letters and keeping the even ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "signature",
+       "at": 16
+      },
+      {
+       "words": "any",
+       "at": 27
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An office worker hunting for a stray signed document asks whether any papers are waiting here.",
+     "walkthrough": "Keep the even letters of 'signature any', counting straight across both words, to get I N T R A Y.",
+     "definitionFit": "An in-tray is the desk tray where incoming papers wait, the natural place to look for documents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +605,43 @@
     "text": "Conceited streak in one's nature we've picked up",
     "enumeration": "4"
    },
-   "solution": "VAIN"
+   "solution": "VAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conceited",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "VAIN",
+     "indicators": [
+      {
+       "text": "we've picked up",
+       "at": 33,
+       "note": "picked up as in heard by ear, so the word is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "streak in one's nature",
+       "at": 10,
+       "gives": "VEIN",
+       "note": "a vein is a trait or strain running through someone's character"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We have noticed a conceited trait running through someone's character.",
+     "definitionFit": "Vain describes someone with an excessive pride in their looks or achievements, a synonym of conceited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +661,45 @@
      }
     ]
    },
-   "solution": "DEADCENTRE"
+   "solution": "DEADCENTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bull",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Fantastic",
+       "at": 0,
+       "note": "fantastic in the sense of fanciful or wild, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deed",
+       "at": 10
+      },
+      {
+       "words": "Cretan",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amazing exploit involving the Cretan Bull, one of the labours of Hercules.",
+     "walkthrough": "'Bull' looks like part of the mythical beast but is the definition: a bull's-eye.",
+     "definitionFit": "A bull is short for bull's-eye, the exact middle of a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bull"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +719,47 @@
      }
     ]
    },
-   "solution": "OUTFOR"
+   "solution": "OUTFOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "On a mission to get",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "orders",
+       "at": 20,
+       "note": "orders as a verb, arranges, so the letters are put in a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to",
+       "at": 27
+      },
+      {
+       "words": "4",
+       "at": 30,
+       "gives": "FOUR",
+       "note": "the number 4 written as a word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on a mission carries instructions to the embassy of entry 4.",
+     "walkthrough": "The '4' looks like a cross-reference to 4 down but is simply the word FOUR.",
+     "definitionFit": "Being out for something means setting out determined to obtain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "4"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +779,88 @@
      }
     ]
    },
-   "solution": "FILTHYRICH"
+   "solution": "FILTHYRICH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loaded",
+      "at": 73
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Looking up",
+         "at": 0,
+         "note": "looking up, in a down clue, means the poem's title is read from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poem",
+         "at": 11,
+         "gives": "IF",
+         "note": "If is Kipling's famous poem"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to accept",
+         "at": 48,
+         "note": "to accept means the first pieces open up to take in another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suitable for singing",
+         "at": 16,
+         "gives": "LYRIC",
+         "note": "lyric means suited to being sung"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "50% of",
+           "at": 58,
+           "note": "50% of means half the word that, its first two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "that",
+           "at": 65
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 43,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reading up a poem fit to be sung, one finds it hard to take in half of something loaded.",
+     "walkthrough": "'Looking up poem' is IF read upward, FI, which leads; LYRIC + H then takes in TH, half of 'that'.",
+     "definitionFit": "Loaded is slang for extremely wealthy, someone with a great deal of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +874,48 @@
     "text": "Provincial old City Underground off limits with this?",
     "enumeration": "8"
    },
-   "solution": "SUBURBAN"
+   "solution": "SUBURBAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provincial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Underground",
+       "at": 20,
+       "gives": "SUB",
+       "note": "sub is short for subway, an underground railway"
+      },
+      {
+       "words": "old City",
+       "at": 11,
+       "gives": "UR",
+       "note": "Ur was an ancient city of Mesopotamia"
+      },
+      {
+       "words": "off limits",
+       "at": 32,
+       "gives": "BAN",
+       "note": "a ban puts something off limits"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether an old City of London tube station should be closed.",
+     "walkthrough": "'City Underground' reads as the London Tube, but UR is the ancient city and SUB the underground.",
+     "definitionFit": "Suburban can mean narrow-minded or parochial, like provincial in its pejorative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +935,71 @@
      }
     ]
    },
-   "solution": "LEYLINE"
+   "solution": "LEYLINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A possible pathway",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 41,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the west",
+         "at": 19,
+         "note": "to the west, in an across clue, means the letters run right to left"
+        }
+       ],
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 38,
+           "note": "in means the nothing goes inside the eye"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sphere of vision",
+           "at": 46,
+           "gives": "EYE",
+           "note": "the eye is the ball, or sphere, with which we see"
+          },
+          {
+           "words": "zilch",
+           "at": 32,
+           "gives": "NIL",
+           "note": "zilch is slang for nil or nothing"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something about a path westward, with nothing appearing on the left of one's view.",
+     "walkthrough": "'in' puts zilch inside the eye to make ENILYE, which 'to the west' turns to EYLINE.",
+     "definitionFit": "A ley line is a supposed alignment of ancient sites, said by some to mark an old track."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sphere"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1013,70 @@
     "text": "Little number — it turns Nimrod on before 12!",
     "enumeration": "8"
    },
-   "solution": "NOONTIME"
+   "solution": "NOONTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "12",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 35,
+       "note": "before places the word on ahead of the turned pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Little number",
+       "at": 0,
+       "gives": "NO",
+       "note": "no. is the short form of number"
+      },
+      {
+       "words": "on",
+       "at": 32,
+       "gives": "ON"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns",
+         "at": 19,
+         "note": "turns means the word it is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "Nimrod",
+       "at": 25,
+       "gives": "ME",
+       "note": "Nimrod, the setter, refers to himself as me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short song that excites the setter, timed to finish before twelve.",
+     "walkthrough": "Nimrod is the setter's pseudonym, so he is ME; IT turns to TI.",
+     "definitionFit": "Twelve o'clock midday is noon, the time of day this word names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1090,70 @@
     "text": "Spot Psammead's name written backwards in blocks",
     "enumeration": "7"
    },
-   "solution": "LENTIGO"
+   "solution": "LENTIGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in means the other letters go inside the toy blocks"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blocks",
+       "at": 42,
+       "gives": "LEGO",
+       "note": "Lego is the brand of interlocking toy building blocks"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "name",
+         "at": 16,
+         "gives": "N"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "written backwards",
+           "at": 21,
+           "note": "written backwards means the creature's name is read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Psammead's",
+           "at": 5,
+           "gives": "IT",
+           "note": "the Psammead is the sand-fairy of Nesbit's Five Children and It, called It"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child spots the Psammead's name spelled backwards in toy bricks.",
+     "definitionFit": "Lentigo is a small flat brown spot on the skin, such as a freckle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1167,67 @@
     "text": "After loss of one, point's my lowest",
     "enumeration": "8"
    },
-   "solution": "GLUMMEST"
+   "solution": "GLUMMEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lowest",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "'s",
+       "at": 24,
+       "note": "the 's stands for has, so the shortened word holds the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "After loss of",
+         "at": 0,
+         "note": "after loss of means a letter is taken out of the word for point"
+        }
+       ],
+       "parts": [
+        {
+         "words": "point",
+         "at": 19,
+         "gives": "GIST",
+         "note": "the gist is the main point of something"
+        },
+        {
+         "words": "one",
+         "at": 14,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      },
+      {
+       "words": "my",
+       "at": 27,
+       "gives": "LUMME",
+       "note": "lumme is an exclamation of surprise, like 'my!'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says that after losing one game this is their worst moment.",
+     "walkthrough": "'After loss of one' leaves GST; the 's stands for 'has', so it holds the Cockney cry of surprise.",
+     "definitionFit": "Glum means dejected, so its superlative means the most downcast, the least cheerful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1241,62 @@
     "text": "Swearing private statement about compressing oxygen",
     "enumeration": "7"
    },
-   "solution": "TROOPER"
+   "solution": "TROOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swearing private",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "compressing",
+       "at": 33,
+       "note": "compressing means the turned word squeezes another letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 27,
+         "note": "about means the word statement is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "statement",
+         "at": 17,
+         "gives": "REPORT",
+         "note": "a report is an account or statement"
+        }
+       ]
+      },
+      {
+       "words": "oxygen",
+       "at": 45,
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A private announcement concerning compressed oxygen.",
+     "walkthrough": "TROPER (REPORT turned 'about') closes round O after its third letter. A trooper is a cavalry private, proverbially foul-mouthed.",
+     "definitionFit": "To swear like a trooper is the idiom, so a trooper is the private soldier noted for oaths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swearing"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1316,40 @@
      }
     ]
    },
-   "solution": "EIGHTOAR"
+   "solution": "EIGHTOAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "en route",
+       "at": 5,
+       "note": "en route means the answer lies along the way, within the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Buckfastleigh to Arundel",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat travelling between two English towns, Buckfastleigh in Devon and Arundel in Sussex.",
+     "definitionFit": "An eight-oar is a rowing boat for eight oarsmen, a racing eight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Buckfastleigh"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1363,46 @@
     "text": "Italy's not at all good at services",
     "enumeration": "6"
    },
-   "solution": "IBADAT"
+   "solution": "IBADAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "services",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Italy",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the international vehicle code for Italy"
+      },
+      {
+       "words": "not at all good",
+       "at": 8,
+       "gives": "BAD",
+       "note": "bad is the opposite of good"
+      },
+      {
+       "words": "at",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Italy is poor at providing services.",
+     "walkthrough": "'services' suggests trade, but means religious observances.",
+     "definitionFit": "Ibadat are Islamic acts of worship, religious duties such as prayer and fasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "services"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1416,59 @@
     "text": "Dislike being on Holmes' tail? It's elementary",
     "enumeration": "6"
    },
-   "solution": "SODIUM"
+   "solution": "SODIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's elementary",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "being on",
+       "at": 8,
+       "note": "being on places the dislike after that letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail",
+         "at": 25,
+         "note": "tail picks the final letter of the detective's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Holmes'",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "Dislike",
+       "at": 0,
+       "gives": "ODIUM",
+       "note": "odium is strong dislike or hatred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hating to be followed while tailing Holmes, with a nod to 'Elementary, my dear Watson'.",
+     "definitionFit": "Sodium is a chemical element, so it is literally elementary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elementary"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1482,58 @@
     "text": "Bruce working on farm — and inside of cheese shop",
     "enumeration": "6"
    },
-   "solution": "SHEEPO"
+   "solution": "SHEEPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bruce working on farm — and inside of cheese shop",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 6,
+       "note": "working suggests the letters are set in motion and rearranged, as on a busy farm"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "inside of",
+         "at": 28,
+         "note": "inside of picks the two central letters of the word cheese"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheese",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "shop",
+       "at": 45
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An Australian, Bruce, works on a farm and also inside a cheese shop.",
+     "walkthrough": "The middle of cheese is EE; with SHOP, rearranged by working, it makes SHEEPO. The whole clue paints the Australian farmhand, Bruce being the stock Australian name.",
+     "definitionFit": "In Australian usage a sheepo is a shed hand who penned the flock for the shearers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bruce"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1553,57 @@
      }
     ]
    },
-   "solution": "HAIRSTROKE"
+   "solution": "HAIRSTROKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very fine line",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overstepping",
+       "at": 22,
+       "note": "overstepping means the rearranged letters stride over the single letter, holding it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suffering",
+         "at": 11,
+         "note": "suffering suggests the words are damaged and so rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Risk other",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking risks with another's suffering crosses a very fine line.",
+     "walkthrough": "'overstepping a very fine line' reads as one phrase, but 'a' is fodder held inside.",
+     "definitionFit": "A hairstroke is a very thin stroke in writing or type, a hairline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overstepping"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1617,57 @@
     "text": "Scots carry a lot out of Falmouth, bit by bit to get sent back",
     "enumeration": "4"
    },
-   "solution": "HUMF"
+   "solution": "HUMF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scots carry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to get sent back",
+       "at": 46,
+       "note": "sent back means the remaining letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 18,
+         "note": "out of, with bit by bit, means those letters are removed one at a time from the place name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Falmouth",
+         "at": 25
+        },
+        {
+         "words": "a lot",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scotsmen haul a great deal away from Falmouth, the Cornish port, piece by piece, to be returned.",
+     "walkthrough": "'bit by bit' says A, L, O, T leave Falmouth separately, leaving FMUH.",
+     "definitionFit": "Humf is a Scottish dialect form of hump, meaning to carry or lug something heavy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1681,40 @@
     "text": "People who modernise dresses",
     "enumeration": "4"
    },
-   "solution": "HOMO"
+   "solution": "HOMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "dresses",
+       "at": 21,
+       "note": "dresses as in clothes, the outer words wrapping the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "who modernise",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Those who bring things up to date are clothing designers.",
+     "definitionFit": "Homo is the genus of humans, so it stands for people as a biological group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dresses"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1728,60 @@
     "text": "Morning application: a short letter of credit accepted by corporation",
     "enumeration": "6"
    },
-   "solution": "TALCUM"
+   "solution": "TALCUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Morning application",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "at": 46,
+       "note": "accepted by means the letters are taken inside the belly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "corporation",
+       "at": 58,
+       "gives": "TUM",
+       "note": "corporation is old slang for a paunch, so a tum or belly"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        },
+        {
+         "words": "short letter of credit",
+         "at": 23,
+         "gives": "LC",
+         "note": "LC is the abbreviation for letter of credit"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A morning bank application for a short letter of credit, accepted by the corporation.",
+     "walkthrough": "'corporation' looks like a company but is a jokey old word for a pot belly.",
+     "definitionFit": "Talcum powder is dusted on after washing, a typical part of a morning routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1795,40 @@
     "text": "Order some soup and a sparkling wine",
     "enumeration": "8"
    },
-   "solution": "ESPUMOSO"
+   "solution": "ESPUMOSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sparkling wine",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Order",
+       "at": 0,
+       "note": "order as a verb, arrange, so the letters are put in a new sequence"
+      }
+     ],
+     "parts": [
+      {
+       "words": "some soup",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant diner asks for soup and a glass of fizz.",
+     "definitionFit": "Espumoso is Spanish or Portuguese sparkling wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Order"
+    }
+   }
   }
  ]
 }
