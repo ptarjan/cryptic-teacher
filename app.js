@@ -9524,6 +9524,25 @@
     return out;
   }
 
+  // Files of the puzzles this solver has completed. A finished puzzle is not
+  // worth a place on the device, so it is neither saved nor counted.
+  function solvedFiles() {
+    const out = new Set(), prog = savedProgress();
+    Object.keys(prog).forEach((id) => {
+      const p = BY_ID[id], own = p && BY_ID[p.reprintOf || p.id];
+      if (own && own.file && pickerStatus(p).done) out.add(own.file);
+    });
+    return out;
+  }
+  // How many saved puzzles are still worth having: held, and not completed.
+  function offlineCount() {
+    if (!offlineFiles) return 0;
+    const solved = solvedFiles();
+    let n = 0;
+    offlineFiles.forEach((f) => { if (!solved.has(f)) n++; });
+    return n;
+  }
+
   function offlineNote(msg) {
     const el = $("offline-status");
     if (el) el.textContent = msg;
@@ -9531,12 +9550,16 @@
 
   const readyText = (n) => (n ? `${n} puzzle${n > 1 ? "s" : ""} ready offline` : "No puzzles saved offline yet");
   let offlineBusy = false;
+  // The Save now button is its own progress display: disabled while a save runs.
+  function offlineBtn(busy) {
+    const b = $("btn-offline");
+    if (b) b.disabled = !!busy;
+  }
   function renderOfflineBox() {
     const box = $("offline-box");
     if (!box || !offlineOK()) return;
     box.classList.remove("hidden");
-    const n = offlineFiles ? offlineFiles.size : 0;
-    if (!offlineBusy) offlineNote(readyText(n));
+    if (!offlineBusy) offlineNote(readyText(offlineCount()));
   }
 
   // Saving needs no tap: the page does it once idle after loading online, at
@@ -9580,19 +9603,22 @@
     const dropFiles = syncFails ? [] : [...new Set([...prev, ...solved])].filter((f) => !want.has(f) && !started.has(f));
     const drop = dropFiles.map((f) => at("puzzles/" + f + ".gz"));
     if (!rows.length && !drop.length) {
-      const n = offlineFiles ? offlineFiles.size : 0;
-      offlineNote(more && n >= OFFLINE_CAP ? `${n} puzzles ready offline, the most this device keeps` : "Nothing new to save.");
+      const n = offlineCount();
+      offlineNote(more && n >= OFFLINE_CAP ? `${n} puzzles ready offline, the most this device keeps`
+        : more ? `Nothing new to save${n ? " — " + readyText(n) : ""}` : readyText(n));
       return;
     }
     if (!navigator.serviceWorker) { offlineNote("Offline saving isn’t available in this browser."); return; }
     offlineBusy = true;
-    offlineNote(`Saving 0 of ${rows.length}…`);
+    offlineBtn(true);
+    offlineNote(rows.length ? `Saving 0 of ${rows.length}…` : "Tidying saved puzzles…");
     // The count is read back from the cache before the line is written, so it
     // says what the device now holds.
     const end = (msg) => {
       offlineBusy = false;
+      offlineBtn(false);
       offlineRefresh(() => {
-        offlineNote(msg(offlineFiles ? offlineFiles.size : 0));
+        offlineNote(msg(offlineCount()));
         if (!$("picker-panel").classList.contains("hidden")) renderPicker();
       }, true);
     };
@@ -9608,7 +9634,8 @@
           } catch (e) { /* no storage */ }
         }
         end((n) => (m.failed ? `Saved ${m.done} of ${m.total}; ${m.failed} couldn’t be reached. Will try again.`
-          : more ? `Saved ${m.done} more · ${readyText(n)}` : readyText(n)));
+          : more ? (m.done ? `Saved ${m.done} puzzle${m.done > 1 ? "s" : ""} — ${n} ready offline`
+            : `Nothing new to save${n ? " — " + readyText(n) : ""}`) : readyText(n)));
       };
       reg.active.postMessage({ type: "save", urls: rows.map(puzzleUrl), drop }, [ch.port2]);
     }).catch(() => end(() => "Couldn’t save just now. Try again."));
