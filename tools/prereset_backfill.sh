@@ -253,18 +253,6 @@ trap '[ -z "$WATCH_PID" ] || kill "$WATCH_PID" 2>/dev/null; rm -f "$LOCK/pid"; r
 if [ -z "$REEXEC_STATE" ]; then
 rm -f /tmp/ct-prereset-*.resume
 
-# The burn's lane in its room's status, for as long as this process lives. The
-# hourly plugin launch is not a track-job.sh --run, so it registers itself here,
-# past the lock: a fire that found a burn running never gets this far. A
-# re-exec is the same pid, already registered.
-TRACK_JOB="${TRACK_JOB:-$(python3 "$REPO/tools/local_config.py" household_dir)/tools/track-job.sh}"
-PRERESET_LOG="${PRERESET_LOG:-}"
-PRERESET_LOG="${PRERESET_LOG/#\~/$HOME}"  # the plugin's env is not ~-expanded
-if [ -n "${HOUSEHOLD_ROOM:-}" ] && [ -x "$TRACK_JOB" ]; then
-  "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
-    "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \
-    || echo "track-job.sh failed (rc=$?); the burn runs without a status lane"
-fi
 
 # The run is bounded by the weekly reset, which is a timestamp the usage API
 # hands over on request — never a time of day guessed at. Exit 3 (a reset rolled
@@ -304,6 +292,21 @@ if [ -n "$weekly_now" ] && awk -v n="$weekly_now" -v e="$EXHAUSTED" 'BEGIN{exit 
   exit 0
 fi
 echo "weekly window at ${weekly_now:-?}%, resets in ${resets_in}h — spending until then"
+
+# The burn's lane in its room's status, for as long as this process lives. The
+# hourly plugin launch is not a track-job.sh --run, so it registers itself here,
+# past the lock and the spent-week exit: a fire that found a burn running, or
+# a week with nothing left, never gets this far (each would end its lane in a
+# minute and wake the room every five). A
+# re-exec is the same pid, already registered.
+TRACK_JOB="${TRACK_JOB:-$(python3 "$REPO/tools/local_config.py" household_dir)/tools/track-job.sh}"
+PRERESET_LOG="${PRERESET_LOG:-}"
+PRERESET_LOG="${PRERESET_LOG/#\~/$HOME}"  # the plugin's env is not ~-expanded
+if [ -n "${HOUSEHOLD_ROOM:-}" ] && [ -x "$TRACK_JOB" ]; then
+  "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
+    "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \
+    || echo "track-job.sh failed (rc=$?); the burn runs without a status lane"
+fi
 
 # Stop five minutes short of the turnover: past it we would be spending the NEW
 # week's quota on this run's queue. An epoch second, not an "HH:MM" string.
