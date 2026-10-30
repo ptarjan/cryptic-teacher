@@ -359,7 +359,7 @@ try:
     same('a puzzle with no grid is left alone',
          field('GRIDLESS'), 'True')
     print('no posts manifest (a CI runner)')
-    import media_manifest, post_index
+    import corroborate as c, media_manifest, post_index
     was = media_manifest.DIR
     media_manifest.DIR = Path(TMP) / "no-manifest"
     post_index.forget(); c._posts.clear()

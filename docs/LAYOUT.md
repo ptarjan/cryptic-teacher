@@ -3272,5 +3272,7 @@ tools/grid_ocr_cache.py                        the solution-grid reader's recogn
                                                kept on disk by what they are of
 tests/test_desktop_typing.js                   with a mouse and a keyboard, picking a light
                                                leaves the page and focus alone
+tests/test_quote_lone_bare_leaf.py             a lone bare letter piece with one spare clue
+                                               word is quoted on that word
 ```
 <!-- LAYOUT-END -->
