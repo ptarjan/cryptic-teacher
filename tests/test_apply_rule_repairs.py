@@ -243,7 +243,7 @@ check("blockNote: a synonym leaf with no note stays refused", len(left) == 1 and
 # bound to the one spare clue word ('showing' > H); they are no block, so the word is dropped, whatever the old note state
 dele = {"op": "deletion", "indicators": [ind("topless")], "parts": [{"words": "beefcake", "gives": "HUNK"}, bare("showing", "H")]}
 new, left = noted(dele, "beefcake topless showing", "UNK")
-check("blockNote: a removed letter bound to a link word loses the word", not left and "words" not in new["parts"][1])
+check("blockNote: a removed letter bound to a link word loses the word", "words" not in new["parts"][1] and "note" not in new["parts"][1])
 check("blockNote: the quoted deleted piece keeps its words", new["parts"][0]["words"] == "beefcake")
 dele = {"op": "deletion", "indicators": [ind("topless")], "parts": [{"words": "beefcake", "gives": "HUNK"}, {**bare("showing", "H"), "note": "h"}]}
 new, left = noted(dele, "beefcake topless showing", "UNK")
