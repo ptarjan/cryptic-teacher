@@ -4254,6 +4254,11 @@
   }
 
   function ringHTML(ann) {
+    // Paul 10-30: "An anagram for part of a clue shouldn't show the wheel the
+    // building blocks. Only when it is all." The ring sits on the blocks rung,
+    // so a part-anagram (CHO(MP)ED) leaves the rung to its pieces and gives no
+    // wheel; the free wheel (freeRingHTML) is still there to open by hand.
+    if (partAnagram(ann)) return "";
     const fodder = ringFodder(ann);
     const key = ringKey(ann);
     // Three letters have six arrangements and you can see all of them at once,
