@@ -301,8 +301,9 @@ def work_order(reason, facts, rows, commit):
     lines.append("Last annotate-code commit: %s %s" % (commit[0] or "?", commit[2] or ""))
     lines.append("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
                  "<ISO> --json` re-audits a window. Check git log for a fix already landed for this "
-                 "cause; if none, spawn ONE Sonnet worker (isolation=worktree) to fix it, code-side if "
-                 "possible; goal is the payback above, not a fixed $/clue.")
+                 "cause; if none, spawn ONE Sonnet worker in a sparse worktree to fix it, code-side if "
+                 "possible, and have it also judge whether tools/annotate_prompt.md could steer the "
+                 "model better on this cause (Paul 10-30); goal is the payback above, not a fixed $/clue.")
     return "\n".join(lines)[:1900]
 
 
