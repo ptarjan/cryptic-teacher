@@ -266,4 +266,16 @@ msg = mend("ins<during>([enemy]FOE, [Torment]RAGE)", "Torment during enemy raid"
 check("doesNotGive names a leaf one letter too long", msg.startswith("REFUSED") and "shortened at its end to RAG" in msg)
 msg = mend("ins<in>([bed]CRIB, [article]A + [read]R)", "Native American's article read in bed", "CARIB")
 check("doesNotGive names the one surplus charade piece", msg.startswith("REFUSED") and ("surplus" in msg or "shortened" in msg))
+# doesNotGive, 10-30 evening audit (103 refusals since 17:00 UTC): anagram fodder off by whole clue words, a
+# container word filed as the charade's indicator, a possessive's S; a leaf a letter long inside, not at an end
+for wp, clue, ans, want in [
+        ("ana<crash>([gale and waves])", "Slave, gale and waves crash", "WAGESLAVE", "ana<crash>([gale] + [waves])"),
+        ("ana<is affected>([a poet])", "Drugs: a poet is affected", "OPIATES", "ana<affected>([a poet is])"),
+        ("ana<worn>([Croatian's])", "Croatian's worn coat", "RAINCOAT", None),
+        ("[Fine]F +<across> [beer]ALE + [the south]S", "Fine beer across the south", "FALSE", "[Fine]F + ins<across>([beer]ALE, [the south]S)"),
+        ("[Revolutionary's]CHE + [son]S + [staff]MAN", "Revolutionary's son staff", "CHESSMAN", None)]:
+    msg = mend(wp, clue, ans)
+    check("doesNotGive mends in place: " + ans, not msg.startswith("REFUSED") and (want is None or msg.replace(", ", ",") == want.replace(", ", ",") or want in msg))
+msg = mend("[popular]IN + ins<in>([cube]DICE, [pet]CAT)", "popular pet in cube", "INDICATE")
+check("doesNotGive names both leaves a letter long, inside or at an end", msg.startswith("REFUSED") and "[cube]DIE or [pet]AT" in msg)
 sys.exit(1 if fails else 0)

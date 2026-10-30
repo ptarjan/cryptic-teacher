@@ -3760,13 +3760,77 @@ def _does_not_give_edits(node, k, clue=None):
             t.clear()
             t.update({**rv, "parts": [{**n, "parts": [kid]}]})
             out.append(new)
+    if n.get("op") == "anagram" and clue:
+        out += _anagram_fodder_edits(fresh, n, clue)
+    if n.get("op") == "charade" and len(parts) >= 2 and len(n.get("indicators") or []) == 1:
+        # '[Fine]F +<across> [beer]ALE + [the south]S' for FALSE: the charade's own indicator is the
+        # container word of two neighbours, one inside the other (either way round)
+        for i in range(len(parts) - 1):
+            for outer, inner in ((i, i + 1), (i + 1, i)):
+                new, t = fresh()
+                box = {"op": "container", "indicators": t.pop("indicators"),
+                       "parts": [t["parts"][outer], t["parts"][inner]]}
+                t["parts"][i:i + 2] = [box]
+                if len(t["parts"]) == 1:
+                    only = t["parts"][0]
+                    t.clear()
+                    t.update(only)
+                out.append(new)
     if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
             and len(n["gives"]) > 3 and n["gives"].upper().endswith("S"):
         # the possessive spelt out ('hostel's' is INN, not INNS)
         new, t = fresh()
         t["gives"] = t["gives"][:-1]
         out.append(new)
+    if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
+            and not n["gives"].upper().endswith("S"):
+        # the possessive's S as a letter ('Revolutionary's' is CHES, not CHE): the S the join is missing
+        new, t = fresh()
+        t["gives"] = t["gives"] + "S"
+        out.append(new)
     return [_flat_charades(new) for new in out]
+
+
+def _anagram_fodder_edits(fresh, n, clue):
+    """Single edits to an anagram whose fodder letters are off by whole clue words (the evaluator says the
+    fodder 'has ADN to spare' or 'lacks IS'): a link word inside a fodder leaf ('gale and waves') cut out,
+    leaving two leaves; the first or last word of the indicator ('is affected' after 'A poet') read as
+    fodder, the leaf growing by it; a possessive 's ('Croatian's') spelt out. evaluate() then keeps only the edit
+    that gives the answer, and only when no other does."""
+    out = []
+    parts = n.get("parts") or []
+    for j, lf in enumerate(parts):
+        if "op" in lf or lf.get("gives") or not lf.get("words"):
+            continue
+        ws = str(lf["words"]).split()
+        for i in range(len(ws)):
+            if len(ws) >= 3 and 0 < i < len(ws) - 1:
+                new, t = fresh()
+                a, b = dict(t["parts"][j], words=" ".join(ws[:i])), dict(t["parts"][j], words=" ".join(ws[i + 1:]))
+                t["parts"][j:j + 1] = [a, b]
+                out.append(new)
+        if re.search(r"['’]s$", str(lf["words"])):
+            letters = re.sub(r"[^A-Za-z]", "", re.sub(r"['’]s$", "", str(lf["words"]))).upper()
+            if letters:
+                new, t = fresh()
+                t["parts"][j]["gives"] = letters
+                out.append(new)
+    for ind_i, ind in enumerate(n.get("indicators") or []):
+        iw = str(ind.get("text") or "").split()
+        if len(iw) < 2:
+            continue
+        for j, lf in enumerate(parts):
+            if "op" in lf or lf.get("gives") or not lf.get("words"):
+                continue
+            for take, grown, rest in (
+                    (iw[0], f"{lf['words']} {iw[0]}", " ".join(iw[1:])),
+                    (iw[-1], f"{iw[-1]} {lf['words']}", " ".join(iw[:-1]))):
+                if _printed_run(grown, clue):
+                    new, t = fresh()
+                    t["parts"][j]["words"] = grown
+                    t["indicators"][ind_i]["text"] = rest
+                    out.append(new)
+    return out
 
 
 def _printed_run(words, clue):

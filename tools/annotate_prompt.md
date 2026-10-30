@@ -271,7 +271,10 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           is spelt beside it, ana(x) + N, never scrambled in
                           A short word next to the indicator may be fodder:
                           the fodder's letter count must equal what the
-                          anagram makes
+                          anagram makes. A joining word inside the fodder
+                          ('and' in gale and waves) is no fodder: two leaves,
+                          ana(gale + waves). A possessive 's is no letter
+                          (Croatian's: [Croatian's]CROATIAN)
     rev(x)                x backwards; an indicator naming a stretch (last pair
                           of, first three, half) turns only that stretch, 2+
                           letters: rev<last pair of>([mini vehicles]KARTS) for KARST.
