@@ -6107,6 +6107,37 @@
     });
   }
 
+  // Paul 10-30: "When you finish a hint ring it should go to the next." What
+  // finishing one means here is a rung done and the ladder's next question
+  // being the obvious thing to do, so the app asks it rather than waiting for
+  // the tap on a button that is already leading the row. Only ever a QUESTION:
+  // asking costs nothing and an answer earns the rung, whereas opening a rung
+  // with no question is a purchase and stays behind its two-tap button. What
+  // comes next is what the row leads with: the rest of the building blocks
+  // while pieces are left, else the first rung not yet up that is available
+  // and can be asked.
+  function nextQuestion(e) {
+    if (!e || isEntrySolved(e) || guessing) return null;
+    const ann = annOf(e);
+    if (!ann) return null;
+    if (isShown(e, "blocks") && piecesLeft(e)) {
+      const at = nextPiece(e);
+      return guessAsk(e, "blocks", at) ? { rung: "blocks", step: at } : null;
+    }
+    const steps = ladderSteps(ann, clueText(e));
+    const s = steps.find((x) => !isShown(e, x.key));
+    return s && GUESSABLE[s.key] && rungAvailable(e, steps, s.key) && guessAsk(e, s.key, 0)
+      ? { rung: s.key, step: 0 } : null;
+  }
+  function advanceLadder(e) {
+    const n = nextQuestion(e);
+    if (!n) return false;
+    const asked = guessAsk(e, n.rung, n.step);
+    guessing = { key: entryKey(e), rung: n.rung, step: n.step, picked: [],
+                 slots: (asked.pairs || []).map(() => -1), held: -1, heldSlot: -1 };
+    return true;
+  }
+
   // Opens the rung and ends the guess, in the same tick as the tap that asked
   // for it. Nothing waits: the answer and the explanation of it arrive together
   // and both stay, so there is no moment the solver has to catch.
@@ -6142,6 +6173,8 @@
     focusHint(guessing.rung);
     showHint(e, guessing.rung);
     guessing = null;
+    // A right answer finishes the rung well; go straight on to the next question.
+    if (verdict && verdict.right) advanceLadder(e);
     refreshAll();
     flipPlay(from);
   }
@@ -6989,6 +7022,11 @@
         const i = b.getAttribute("data-ana");
         if (ring) {
           ring.struck[i] = !ring.struck[i];
+          // Every tile crossed off is the wheel finished: on to the next rung.
+          if (ring === ringShelf.paid && ring.letters.length && ring.letters.every((_, k) => ring.struck[k])) {
+            const cur = currentEntry();
+            if (cur) advanceLadder(cur);
+          }
           // A tap on a tile is also "I might type next" — #ana-kbd is focused
           // first so the ring's focus ring is already drawn on the redraw that
           // follows, the same order addRingLetter/removeLastRingLetter use.
