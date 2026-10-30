@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,31 @@
      }
     ]
    },
-   "solution": "CATSPAW"
+   "solution": "CATSPAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0,
+      "meaning": "a person used by another as a dupe or instrument, as in the fable of the monkey and the cat"
+     },
+     {
+      "text": "one used to catch mice?",
+      "at": 6,
+      "meaning": "literally the foot of a feline, the thing a mouser grabs with"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks what tool would do for catching mice.",
+     "definitionFit": "A dupe manipulated into doing someone's dirty work is called this, after the fable where a monkey uses a cat's foot to pull chestnuts from a fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tool"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +78,41 @@
     "text": "All out there, Greek doctors?",
     "enumeration": "6"
    },
-   "solution": "COSMOS"
+   "solution": "COSMOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "All out there",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Greek",
+       "at": 15,
+       "gives": "COS",
+       "note": "Cos (Kos) is a Greek island, so Greek can clue it"
+      },
+      {
+       "words": "doctors",
+       "at": 21,
+       "gives": "MOS",
+       "note": "MO is medical officer, a doctor; MOS is the plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether all the medics out there are Greek.",
+     "definitionFit": "The universe is everything that exists out there, the whole ordered creation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Greek"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +139,77 @@
     "text": "Sweet confection's ultimate in licence for vitality?",
     "enumeration": "10"
    },
-   "solution": "PEPPERMINT"
+   "solution": "PEPPERMINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 39,
+       "note": "for here links vitality to what follows, the vitality word standing in front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vitality",
+       "at": 43,
+       "gives": "PEP",
+       "note": "pep means energy or vitality"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 28,
+         "note": "in places the last letter inside the word for licence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "licence",
+         "at": 31,
+         "gives": "PERMIT",
+         "note": "a permit is a licence"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimate",
+           "at": 19,
+           "note": "ultimate means last, so the final letter of confection's is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "confection's",
+           "at": 6
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet treat is pictured as permission to feel lively.",
+     "walkthrough": "'ultimate' picks the final letter of confection's, and 'in' slots it before the last letter of the licence word; 'for' lets the vitality word come first.",
+     "definitionFit": "A mint-flavoured sweet is a type of confectionery, so it is an example of a sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "licence"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +233,58 @@
    "group": [
     "4-down",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pipe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "at": 28,
+       "note": "to fill means the cart word is stuffed with the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cart",
+       "at": 36,
+       "gives": "WAIN",
+       "note": "a wain is an old farm cart or wagon"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 11
+        },
+        {
+         "words": "period of time",
+         "at": 13,
+         "gives": "TERM",
+         "note": "a term is a period of time, such as a school term"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pipe being loaded into a cart takes a while.",
+     "walkthrough": "'to fill' splits the old cart word after its first letter; 'takes' is only a link.",
+     "definitionFit": "The main underground pipe carrying the public supply of drinking liquid is a type of pipe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pipe"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +298,46 @@
     "text": "Wise getting pet in, as barking",
     "enumeration": "7"
    },
-   "solution": "SAPIENT"
+   "solution": "SAPIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "barking",
+       "at": 24,
+       "note": "barking is British slang for mad, so these letters go crazy into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pet in",
+       "at": 13
+      },
+      {
+       "words": "as",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sensible takes in a dog, which happens to be barking.",
+     "walkthrough": "'barking' rearranges PETINAS; the dog suggested by 'pet' and 'barking' is a red herring.",
+     "definitionFit": "Sapient is a formal synonym for wise or sagacious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +351,59 @@
     "text": "Ordering rosé? Me, I'm left to translate!",
     "enumeration": "9"
    },
-   "solution": "SOMMELIER"
+   "solution": "SOMMELIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ordering rosé? Me, I'm left to translate!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to translate",
+       "at": 28,
+       "note": "translate here means change into another form, so the letters are converted into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rosé",
+       "at": 9,
+       "gives": "ROSE",
+       "note": "the accent is dropped, leaving the letters R O S E"
+      },
+      {
+       "words": "Me",
+       "at": 15
+      },
+      {
+       "words": "I'm",
+       "at": 19,
+       "gives": "IM",
+       "note": "the apostrophe is dropped, leaving I and M"
+      },
+      {
+       "words": "left",
+       "at": 23,
+       "gives": "L"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A diner ordering pink wine is left to make sense of a foreign wine list.",
+     "walkthrough": "'to translate' rearranges ROSEMEIML; the whole clue is also the scene of a wine waiter left to explain an order.",
+     "definitionFit": "The wine waiter in a restaurant is the person a diner leans on when ordering and interpreting a wine list."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "translate"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +417,43 @@
     "text": "Capital half lost — that's a nuisance",
     "enumeration": "4"
    },
-   "solution": "PEST"
+   "solution": "PEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nuisance",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "half lost",
+       "at": 8,
+       "note": "the city was formed from two halves, Buda and the other one, so one half goes missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Capital",
+       "at": 0,
+       "gives": "BUDAPEST",
+       "note": "Budapest is the capital of Hungary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losing half a capital city is called a nuisance.",
+     "walkthrough": "Budapest was formed in 1873 by uniting Buda and Pest, so 'half lost' drops BUDA.",
+     "definitionFit": "An irritating person or thing is a nuisance, a common synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +467,59 @@
     "text": "English friend carrying American agency's waste away",
     "enumeration": "8"
    },
-   "solution": "EMACIATE"
+   "solution": "EMACIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waste away",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "carrying",
+         "at": 15,
+         "note": "carrying means the friend word holds the agency inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 8,
+         "gives": "MATE",
+         "note": "mate is British slang for a friend"
+        },
+        {
+         "words": "American agency's",
+         "at": 24,
+         "gives": "CIA",
+         "note": "the CIA is the American intelligence agency; the 's reads as is"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English friend helping a US agency wastes away.",
+     "walkthrough": "'carrying' splits the friend word in the middle to hold the agency; mate is everyday British for a friend.",
+     "definitionFit": "To emaciate is to become abnormally thin, that is to waste away through illness or hunger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrying"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +533,58 @@
     "text": "References can be seen by everyone wearing the Asian garment",
     "enumeration": "8"
    },
-   "solution": "THESAURI"
+   "solution": "THESAURI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "References",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the",
+       "at": 43
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 35,
+         "note": "wearing means the everyone letter is dressed in, so sits inside, the garment"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Asian garment",
+         "at": 47,
+         "gives": "SARI",
+         "note": "a sari is a garment worn in South Asia"
+        },
+        {
+         "words": "can be seen by everyone",
+         "at": 11,
+         "gives": "U",
+         "note": "a U certificate marks a British film as suitable for universal viewing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest garment is described as fit for everyone to see.",
+     "walkthrough": "U is the British film certificate for universal viewing; 'wearing' tucks it inside the garment, just before its last two letters.",
+     "definitionFit": "Books of synonyms are reference works, so the plural word is an example of references."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +611,43 @@
     "text": "Accommodating agreement, rival losing to Guardian tortoise?",
     "enumeration": "9"
    },
-   "solution": "TIMESHARE"
+   "solution": "TIMESHARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accommodating agreement",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rival",
+       "at": 25,
+       "gives": "TIMES",
+       "note": "The Times is a rival newspaper to the Guardian"
+      },
+      {
+       "words": "losing to Guardian tortoise?",
+       "at": 31,
+       "gives": "HARE",
+       "note": "in Aesop's fable the hare lost the race to the tortoise, here cast as the Guardian"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rival newspaper is cast as the hare beaten by the Guardian's tortoise.",
+     "walkthrough": "The rival paper is both TIMES and the HARE losing a fable race to the Guardian as tortoise.",
+     "definitionFit": "A deal for shared ownership of a holiday property is an agreement about accommodation, punningly 'accommodating'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tortoise"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +667,70 @@
      }
     ]
    },
-   "solution": "OLIVEGREEN"
+   "solution": "OLIVEGREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 25,
+         "note": "in places that letter inside the show's title"
+        }
+       ],
+       "parts": [
+        {
+         "words": "West End show",
+         "at": 28,
+         "gives": "OLIVER",
+         "note": "Oliver! is a long-running London musical, the West End being London's theatre district"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusion",
+           "at": 14,
+           "note": "conclusion means the final letter of Disappointing is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Disappointing",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "even",
+       "at": 43,
+       "gives": "EEN",
+       "note": "e'en is the poetic contraction of even"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A West End show ends disappointingly, even with its colourful staging.",
+     "walkthrough": "'in' slips the last letter of Disappointing before the show's final R; the poetic e'en stands for even.",
+     "definitionFit": "A dull yellowish shade like unripe drupes from the Mediterranean tree is a named colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +744,44 @@
     "text": "Casual greeting, more lofty on the telephone?",
     "enumeration": "4"
    },
-   "solution": "HIYA"
+   "solution": "HIYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Casual greeting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HIYA",
+     "indicators": [
+      {
+       "text": "on the telephone",
+       "at": 28,
+       "note": "a word heard over the phone is taken by its sound only"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more lofty",
+       "at": 17,
+       "gives": "HIGHER",
+       "note": "higher means more lofty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says a casual hello in a posh phone voice.",
+     "definitionFit": "An informal hello, a friendly greeting used between people who know each other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lofty"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +795,69 @@
     "text": "World of entertainment, Mickey Mouse deadly sin inspiring revulsion in the end",
     "enumeration": "10"
    },
-   "solution": "DISNEYLAND"
+   "solution": "DISNEYLAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "World of entertainment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspiring",
+       "at": 48,
+       "note": "inspiring means breathing in, so the jumbled letters take in the extra one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Mickey Mouse",
+         "at": 24,
+         "note": "Mickey Mouse means shoddy or amateurish, so these letters are botched into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "deadly sin",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 68,
+         "note": "in the end means the final letter of revulsion"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revulsion",
+         "at": 58
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mickey Mouse is accused of a deadly sin that ends in disgust.",
+     "walkthrough": "'Mickey Mouse' rearranges DEADLYSIN and 'inspiring' takes in N, the last letter of revulsion. Mickey looks like part of the scene, which fits the answer.",
+     "definitionFit": "The Californian theme park is a realm devoted to amusement, a world of entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mickey"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +871,77 @@
     "text": "A politician catching balls initially is clumsy with both hands",
     "enumeration": "12"
    },
-   "solution": "AMBISINISTER"
+   "solution": "AMBISINISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clumsy with both hands",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "catching",
+         "at": 13,
+         "note": "catching means the politician word holds the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "politician",
+         "at": 2,
+         "gives": "MINISTER",
+         "note": "a minister is a government politician"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 28,
+             "note": "initially takes the first letter of balls"
+            }
+           ],
+           "parts": [
+            {
+             "words": "balls",
+             "at": 22
+            }
+           ]
+          },
+          {
+           "words": "is",
+           "at": 38
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician drops a catch, proving clumsy with both hands.",
+     "walkthrough": "'catching' opens the politician word after its first letter; 'initially' picks the opening letter of balls.",
+     "definitionFit": "The rare word means equally awkward with either hand, the opposite of ambidextrous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +955,72 @@
     "text": "Collapse, seeing rascal thus eaten up by wild animal",
     "enumeration": "9"
    },
-   "solution": "IMPLOSION"
+   "solution": "IMPLOSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Collapse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rascal",
+       "at": 17,
+       "gives": "IMP",
+       "note": "an imp is a mischievous child, a rascal"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "eaten",
+         "at": 29,
+         "note": "eaten means swallowed by the animal, so placed inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wild animal",
+         "at": 41,
+         "gives": "LION",
+         "note": "a lion is a wild animal"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 35,
+           "note": "in a down entry, up means the word for thus runs bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "thus",
+           "at": 24,
+           "gives": "SO",
+           "note": "so means thus"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal is seen being devoured by a wild beast.",
+     "walkthrough": "In this down entry 'up' turns the word for thus to run upward, and 'eaten' places the result between the beast's third and fourth letters.",
+     "definitionFit": "An inward collapse, as of a building or vessel crushed by external pressure, is a kind of collapse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1040,42 @@
      }
     ]
    },
-   "solution": "RAPMUSIC"
+   "solution": "RAPMUSIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hit songs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stirring",
+       "at": 10,
+       "note": "stirring mixes the letters of the words up racism into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "up racism",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Popular songs are accused of stoking racism.",
+     "walkthrough": "'stirring' rearranges UPRACISM; 'Hit' looks like chart success but puns on a rap as a blow.",
+     "definitionFit": "Hip-hop songs are a genre of music, and a rap is also a hit or knock, which gives the pun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1103,42 @@
    "group": [
     "17-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fairies",
+       "at": 0,
+       "gives": "PERIPERI",
+       "note": "a peri is a fairy in Persian myth, so two of them give the doubled word"
+      },
+      {
+       "words": "yellow",
+       "at": 11,
+       "gives": "CHICKEN",
+       "note": "yellow and chicken both mean cowardly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fairies are perched on a yellow plate.",
+     "walkthrough": "'on' puts the fairies above the yellow word in this down entry.",
+     "definitionFit": "Poultry cooked in a hot African chilli sauce is a popular restaurant dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yellow"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1158,60 @@
      }
     ]
    },
-   "solution": "AWEINSPIRING"
+   "solution": "AWEINSPIRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 37,
+       "note": "about means the hopeful word goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hopeful",
+       "at": 29,
+       "gives": "ASPIRING",
+       "note": "aspiring means hopeful of achieving something"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Guardian",
+         "at": 10,
+         "gives": "WE",
+         "note": "the Guardian refers to itself in editorials as we"
+        },
+        {
+         "words": "popular",
+         "at": 19,
+         "gives": "IN",
+         "note": "in means popular or fashionable"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter boasts that the Guardian is popular and hopes for more.",
+     "walkthrough": "The Guardian speaks of itself as 'we' in editorials; 'about' opens the hopeful word after its first letter.",
+     "definitionFit": "Something that fills one with awe and wonder is wonderful in the original sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1235,31 @@
    "group": [
     "19-down",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provocative evening performance",
+      "at": 0,
+      "meaning": "a striptease, a provocative act, held at dusk"
+     },
+     {
+      "text": "somewhere in Hollywood",
+      "at": 32,
+      "meaning": "a famous stretch of ... Boulevard in West Hollywood"
+     }
+    ],
+    "explanation": {
+     "surface": "A risqué night-time show is staged somewhere in Hollywood.",
+     "definitionFit": "The famous stretch of boulevard in Los Angeles is a place in Hollywood, and literally a striptease at dusk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1273,51 @@
     "text": "Beginning to erupt, chief of clan producing gas",
     "enumeration": "6"
    },
-   "solution": "ETHANE"
+   "solution": "ETHANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Beginning to",
+         "at": 0,
+         "note": "beginning to takes the first letter of erupt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "erupt",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "chief of clan",
+       "at": 20,
+       "gives": "THANE",
+       "note": "a thane was a Scottish clan chief or lord"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A volcano starts to erupt and a clan chief produces gas.",
+     "definitionFit": "A colourless flammable hydrocarbon found in natural gas, so an example of a gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "erupt"
+    }
+   }
   },
   {
    "number": 21,
@@ -414,7 +1350,41 @@
      }
     ]
    },
-   "solution": "MONKEYSUIT"
+   "solution": "MONKEYSUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tuxedo",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Something unwanted on one's back",
+       "at": 0,
+       "gives": "MONKEY",
+       "note": "a monkey on one's back is a burden or addiction one cannot shake off"
+      },
+      {
+       "words": "case",
+       "at": 34,
+       "gives": "SUIT",
+       "note": "a suit is a lawsuit, a case in court"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burden on someone's back is wondered about as a reason for formal dress.",
+     "definitionFit": "Slang for formal evening dress, especially a dinner jacket outfit, so a tuxedo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1398,45 @@
     "text": "Diamond, did you say? Prepare to propose!",
     "enumeration": "5"
    },
-   "solution": "KNEEL"
+   "solution": "KNEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepare to propose!",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNEEL",
+     "indicators": [
+      {
+       "text": "did you say",
+       "at": 9,
+       "note": "did you say asks whether the word was heard correctly, signalling a word that sounds like it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Diamond",
+       "at": 0,
+       "gives": "NEIL",
+       "note": "Neil Diamond is the American singer-songwriter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor fusses about a diamond ring before proposing.",
+     "walkthrough": "'Diamond' looks like the engagement ring but is the singer Neil Diamond.",
+     "definitionFit": "Going down on one knee is the traditional preparation for asking for someone's hand in marriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Diamond"
+    }
+   }
   },
   {
    "number": 24,
@@ -452,7 +1460,66 @@
    "group": [
     "24-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "man spotted",
+       "at": 14,
+       "gives": "DICK",
+       "note": "spotted dick is a British pudding, so a spotted man is a Dick"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "having backfired",
+         "at": 45,
+         "note": "having backfired means the words for shot and routine go backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "shot",
+           "at": 31,
+           "gives": "NIP",
+           "note": "a nip is a shot or small measure of spirits"
+          },
+          {
+           "words": "routine",
+           "at": 37,
+           "gives": "RUT",
+           "note": "a rut is a dull routine"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is seen and then shot after his routine went wrong.",
+     "walkthrough": "Spotted dick is a British steamed suet pudding with currants. 'having backfired' turns NIPRUT around.",
+     "definitionFit": "The eighteenth-century English highwayman, hanged in 1739, is a famous criminal of old."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 25,
@@ -466,7 +1533,59 @@
     "text": "Tireless working to keep one clean",
     "enumeration": "9"
    },
-   "solution": "STERILISE"
+   "solution": "STERILISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clean",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 17,
+       "note": "to keep means the jumbled letters hold the extra one inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 9,
+         "note": "working means the letters of Tireless are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tireless",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 25,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works tirelessly to keep things clean.",
+     "walkthrough": "'working' rearranges TIRELESS and 'to keep' holds I inside it.",
+     "definitionFit": "To sterilise is to make free of germs, a thorough way to clean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tireless"
+    }
+   }
   },
   {
    "number": 26,
@@ -486,7 +1605,70 @@
      }
     ]
    },
-   "solution": "ATSEA"
+   "solution": "ATSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A ship's heading into the drink — here?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 17,
+         "note": "into means that first letter goes inside the drink word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the drink",
+         "at": 22,
+         "gives": "TEA",
+         "note": "tea is a drink"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading",
+           "at": 9,
+           "note": "heading means the first letter of ship's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ship's",
+           "at": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A ship heads out into the drink and someone asks where it is.",
+     "walkthrough": "'into' puts S (the heading of ship's) inside TEA. 'The drink' is also slang for the sea, which makes the whole clue the definition.",
+     "definitionFit": "A vessel out on the ocean is on the water, which is also the idiom for being bewildered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 27,
@@ -513,7 +1695,53 @@
     "text": "Lager-swilling female somewhat regretted alcoholism, on reflection",
     "enumeration": "7"
    },
-   "solution": "LADETTE"
+   "solution": "LADETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lager-swilling female",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on reflection",
+       "at": 53,
+       "note": "on reflection means the letters are read as in a mirror, back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "at": 22,
+         "note": "somewhat means only part of the words regretted alcoholism is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "regretted alcoholism",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boozy woman somewhat regrets her drinking on reflection.",
+     "walkthrough": "'somewhat' takes ETTEDAL from regretted alcoholism and 'on reflection' turns it around.",
+     "definitionFit": "British slang for a young woman who drinks heavily and behaves boisterously, like the lads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reflection"
+    }
+   }
   }
  ]
 }
