@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,77 @@
     "text": "Notify primate about capital abbot originally left",
     "enumeration": "7"
    },
-   "solution": "APPRISE"
+   "solution": "APPRISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Notify",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 15,
+       "note": "the primate's letters go round the rest, so about signals containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "primate",
+       "at": 7,
+       "gives": "APE",
+       "note": "an ape is a primate"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 46,
+         "note": "left here means departed, so the abbot's initial is taken out of the capital"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 21,
+         "gives": "PARIS",
+         "note": "Paris is the French capital"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 35,
+           "note": "originally points to the first letter of the word abbot"
+          }
+         ],
+         "parts": [
+          {
+           "words": "abbot",
+           "at": 29
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey reports that the abbot has set off from the city.",
+     "walkthrough": "'capital' is Paris; 'originally' takes the A of abbot, and 'left' means departed, so that A goes, giving PRIS for 'about' to wrap.",
+     "definitionFit": "To apprise someone is to inform them, a formal synonym for notify."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "primate"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +118,59 @@
     "text": "Priest at bar ignoring tenth commandment",
     "enumeration": "7"
    },
-   "solution": "PRECEPT"
+   "solution": "PRECEPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commandment",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Priest",
+       "at": 0,
+       "gives": "PR"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 14,
+         "note": "ignoring means leaving out, so the letter for ten is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 10,
+         "gives": "EXCEPT",
+         "note": "bar means except, as in 'all bar one'"
+        },
+        {
+         "words": "tenth",
+         "at": 23,
+         "gives": "X",
+         "note": "X is the Roman numeral ten, standing for the tenth"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest in a pub breaks the tenth commandment by coveting.",
+     "walkthrough": "'bar' looks like a pub but means except; 'ignoring' drops X from EXCEPT.",
+     "definitionFit": "A precept is a rule for action, the sense a moral commandment carries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +184,60 @@
     "text": "Station royal detective in big paper",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Station",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "royal",
+       "at": 8,
+       "gives": "R",
+       "note": "R is an abbreviation for royal, as in RN"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "in places the detective inside the paper size"
+        }
+       ],
+       "parts": [
+        {
+         "words": "big paper",
+         "at": 27,
+         "gives": "AO",
+         "note": "A0 is the largest standard paper size, written AO"
+        },
+        {
+         "words": "detective",
+         "at": 14,
+         "gives": "DI",
+         "note": "DI is a detective inspector"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal sleuth features in a broadsheet newspaper station story.",
+     "walkthrough": "'big paper' looks like a broadsheet but is A0, the largest ISO paper size, read as letters AO.",
+     "definitionFit": "A radio station is a broadcaster, so a station can mean a radio channel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +251,64 @@
     "text": "Monk doesn't start tackling piano like Thomas",
     "enumeration": "7"
    },
-   "solution": "SCEPTIC"
+   "solution": "SCEPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like Thomas",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tackling",
+       "at": 19,
+       "note": "tackling means taking on, so the monk's word holds the other letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doesn't start",
+         "at": 5,
+         "note": "not starting means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Monk",
+         "at": 0,
+         "gives": "ASCETIC",
+         "note": "an ascetic is a person of severe self-denial, like a monk"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "piano",
+       "at": 28,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, softly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monk who can't begin tackling the piano, just like doubting Thomas.",
+     "walkthrough": "'doesn't start' cuts A from ASCETIC; 'tackling' puts P inside. Doubting Thomas would not believe in the Resurrection without seeing proof.",
+     "definitionFit": "The apostle Thomas doubted until he saw proof, the classic example of a doubter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tackling"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +322,52 @@
     "text": "Let's continue now round the bend to peninsula in Northern Ireland",
     "enumeration": "7"
    },
-   "solution": "ONWARDS"
+   "solution": "ONWARDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Let's continue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "round the bend",
+         "at": 19,
+         "note": "round the bend means crazy, so the letters of now go mad and rearrange"
+        }
+       ],
+       "parts": [
+        {
+         "words": "now",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "peninsula in Northern Ireland",
+       "at": 37,
+       "gives": "ARDS",
+       "note": "the Ards Peninsula lies in County Down, Northern Ireland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver urges pressing on past the bend towards a stretch of coast in Ulster.",
+     "walkthrough": "'round the bend' looks like a road direction but means crazy, the anagram signal. The Ards Peninsula is in County Down.",
+     "definitionFit": "The exclamation onwards! is a call to go forward, the same urge as saying we should carry on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +387,49 @@
      }
     ]
    },
-   "solution": "NEMCON"
+   "solution": "NEMCON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No one is against",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 25,
+       "note": "entertaining means hosting inside, so the light holds the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "light",
+       "at": 18,
+       "gives": "NEON",
+       "note": "a neon is a light, as in a neon sign"
+      },
+      {
+       "words": "host",
+       "at": 38,
+       "gives": "MC",
+       "note": "MC is a master of ceremonies, a host"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody objects to an amusing, sparkling host.",
+     "walkthrough": "'entertaining' looks like an adjective for the host but means holding: NEON holds MC.",
+     "definitionFit": "Nem con, from Latin nemine contradicente, means with nobody opposing, unanimously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +443,66 @@
     "text": "Americans and French kidnap crew for fun",
     "enumeration": "9"
    },
-   "solution": "AMUSEMENT"
+   "solution": "AMUSEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Americans",
+       "at": 0,
+       "gives": "AM",
+       "note": "Am is an abbreviation for American"
+      },
+      {
+       "words": "Americans",
+       "at": 0,
+       "gives": "US",
+       "note": "US, the United States, stands for Americans"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "kidnap",
+         "at": 21,
+         "note": "to kidnap is to take and hold, so the French word holds the crew"
+        }
+       ],
+       "parts": [
+        {
+         "words": "and French",
+         "at": 10,
+         "gives": "ET",
+         "note": "et is the French word for and"
+        },
+        {
+         "words": "crew",
+         "at": 28,
+         "gives": "MEN",
+         "note": "a crew is a body of men"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Americans and French abduct a ship's crew just for the fun of it.",
+     "walkthrough": "'Americans' supplies two abbreviations, Am and US; 'and French' is the French word for and, which 'kidnap' makes hold the crew.",
+     "definitionFit": "Amusement is enjoyment or entertainment, a close synonym for fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kidnap"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +516,60 @@
     "text": "Dig the ground hiding lost entrance",
     "enumeration": "7"
    },
-   "solution": "DELIGHT"
+   "solution": "DELIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entrance",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 15,
+       "note": "hiding means holding concealed inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ground",
+         "at": 8,
+         "note": "ground means crushed or milled, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dig the",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "lost",
+       "at": 22,
+       "gives": "L",
+       "note": "L stands for lost, as in sports results tables"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Excavate the soil to uncover a buried doorway.",
+     "walkthrough": "'entrance' looks like a doorway but is the verb, to enchant. 'ground' rearranges DIGTHE and 'hiding' holds L inside.",
+     "definitionFit": "To entrance someone is to fill them with wonder, which is to charm and enchant them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +593,42 @@
      }
     ]
    },
-   "solution": "TONGUEINCHEEK"
+   "solution": "TONGUEINCHEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Echt, genuine, OK? Possibly not",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Possibly not",
+       "at": 19,
+       "note": "possibly not as written, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Echt, genuine, OK",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone asks whether something is authentic and decides perhaps it isn't.",
+     "walkthrough": "Echt is German for genuine; the whole clue also defines the answer, since something said that way is not genuine.",
+     "definitionFit": "A remark made ironically is not meant seriously, so its apparent sincerity is not real."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Echt"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +642,46 @@
     "text": "Nurse let go right away",
     "enumeration": "4"
    },
-   "solution": "FEED"
+   "solution": "FEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nurse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "away",
+       "at": 19,
+       "note": "away tells us the letter for right is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "let go",
+       "at": 6,
+       "gives": "FREED",
+       "note": "to have freed someone is to have let them go"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse was dismissed on the spot.",
+     "walkthrough": "'away' removes R from FREED.",
+     "definitionFit": "To nurse a baby is to feed it at the breast, a verb sense shared by both words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nurse"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +695,86 @@
     "text": "A lot see round new and refurbished rooms opened by university",
     "enumeration": "10"
    },
-   "solution": "ENORMOUSLY"
+   "solution": "ENORMOUSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 10,
+       "note": "the see's letters go round everything else, so round signals containment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "see",
+       "at": 6,
+       "gives": "ELY",
+       "note": "Ely is a cathedral city and bishop's see in Cambridgeshire"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 16,
+         "gives": "N"
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "opened by",
+           "at": 42,
+           "note": "a word opened by another has that word placed inside it"
+          }
+         ],
+         "parts": [
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "refurbished",
+             "at": 24,
+             "note": "refurbished rooms are done up anew, so the letters of rooms are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rooms",
+             "at": 36
+            }
+           ]
+          },
+          {
+           "words": "university",
+           "at": 52,
+           "gives": "U"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many visitors look over newly renovated rooms at a university building.",
+     "walkthrough": "'see' is a bishop's seat; Ely in Cambridgeshire is the usual crossword see. 'refurbished' rearranges rooms, 'opened by' admits U, and 'round' wraps the see about the lot.",
+     "definitionFit": "Enormously is an adverb of degree meaning very much, just as a lot does in 'it helped a lot'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +788,43 @@
     "text": "Boom's touching harbour",
     "enumeration": "6"
    },
-   "solution": "REPORT"
+   "solution": "REPORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "touching",
+       "at": 7,
+       "gives": "RE",
+       "note": "re means concerning or touching on"
+      },
+      {
+       "words": "harbour",
+       "at": 16,
+       "gives": "PORT",
+       "note": "a port is a harbour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something about a boom near a harbour, like a barrier across the entrance.",
+     "walkthrough": "The surface suggests a harbour boom, a floating barrier; the definition is the loud noise.",
+     "definitionFit": "A report is the loud bang of a gun or explosion, the same thing as a boom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boom"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +844,60 @@
      }
     ]
    },
-   "solution": "GOODEGGS"
+   "solution": "GOODEGGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bricks",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "comprises",
+       "at": 12,
+       "note": "comprises means holds within, so the other letters sit inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Merchandise",
+       "at": 0,
+       "gives": "GOODS",
+       "note": "goods are merchandise"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "say",
+         "at": 23,
+         "gives": "EG",
+         "note": "e.g., for example, is signalled by say"
+        },
+        {
+         "words": "German",
+         "at": 28,
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stock list includes building materials from Germany.",
+     "walkthrough": "'bricks' looks like building blocks but is the informal sense of decent, dependable people; the ellipsis links to the next clue, which also deals in bricks.",
+     "definitionFit": "Calling someone a brick or a good egg is old British slang praising a reliable, generous person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bricks"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +911,60 @@
     "text": "… one set lengthwise by stone cutter king brought in",
     "enumeration": "9"
    },
-   "solution": "STRETCHER"
+   "solution": "STRETCHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one set lengthwise",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 42,
+       "note": "brought in tells us the king's letter is put inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stone",
+         "at": 24,
+         "gives": "ST",
+         "note": "st is the abbreviation for stone, the British weight"
+        },
+        {
+         "words": "cutter",
+         "at": 30,
+         "gives": "ETCHER",
+         "note": "an etcher cuts lines into a plate"
+        }
+       ]
+      },
+      {
+       "words": "king",
+       "at": 37,
+       "gives": "R",
+       "note": "R, from Latin rex, stands for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following on from bricks, a mason lays one along its length while a king is brought in.",
+     "walkthrough": "The ellipsis continues 13's bricks: the definition is a brick laid lengthwise in a wall. 'cutter' is an etcher, and 'brought in' slips the king between stone and cutter.",
+     "definitionFit": "In bricklaying a stretcher is a brick laid with its long side along the face of the wall, unlike a header."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cutter"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +978,60 @@
     "text": "Entrenched bridge adversaries scrap over inches",
     "enumeration": "9"
    },
-   "solution": "ENSHRINED"
+   "solution": "ENSHRINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Entrenched",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bridge adversaries",
+       "at": 11,
+       "gives": "EN",
+       "note": "in bridge, East and North are opponents at the table"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 36,
+         "note": "over means covering, so one piece lies around the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scrap",
+         "at": 30,
+         "gives": "SHRED",
+         "note": "a shred is a scrap"
+        },
+        {
+         "words": "inches",
+         "at": 41,
+         "gives": "IN",
+         "note": "in is the abbreviation for inches"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Card-playing rivals squabble endlessly over inches of ground.",
+     "walkthrough": "In bridge, North-South play East-West, so East and North are adversaries. 'over' means covering: the scrap lies over the inches.",
+     "definitionFit": "Something enshrined is firmly fixed and preserved, so entrenched in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1045,43 @@
     "text": "Director general's hotline withdrawn",
     "enumeration": "5"
    },
-   "solution": "REITH"
+   "solution": "REITH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Director general",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "withdrawn",
+       "at": 27,
+       "note": "withdrawn means pulled back, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hotline",
+       "at": 19,
+       "gives": "HTIER",
+       "note": "split as hot and line: H is the abbreviation for hot, as on taps, and a tier is a row or line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The boss's direct telephone line has been taken out of service.",
+     "walkthrough": "'hotline' looks like one word but splits into hot and line; 'withdrawn' turns HTIER around. John Reith was the first Director General of the BBC.",
+     "definitionFit": "Lord Reith founded the BBC and was its first Director General, so the title names him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hotline"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1095,43 @@
     "text": "Wake in river as marked on map?",
     "enumeration": "5"
    },
-   "solution": "ROUSE"
+   "solution": "ROUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "river as marked on map",
+       "at": 8,
+       "gives": "R",
+       "note": "maps label a river with R. before its name"
+      },
+      {
+       "words": "river as marked on map",
+       "at": 8,
+       "gives": "OUSE",
+       "note": "the Ouse is a river in England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat's wake, apparently charted on a map of a river.",
+     "walkthrough": "A map would print 'R. Ouse', giving R and OUSE; the Ouse is a river in Yorkshire and East Anglia.",
+     "definitionFit": "To rouse someone is to wake them from sleep, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wake"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1145,66 @@
     "text": "Dreamy individuals get wealth he's forfeited",
     "enumeration": "7"
    },
-   "solution": "ONEIRIC"
+   "solution": "ONEIRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dreamy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "individuals",
+       "at": 7,
+       "gives": "ONE",
+       "note": "one is a single individual"
+      },
+      {
+       "words": "individuals",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one, another single individual"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "forfeited",
+         "at": 35,
+         "note": "forfeited means given up, so these letters are lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wealth",
+         "at": 23,
+         "gives": "RICHES",
+         "note": "riches means wealth"
+        },
+        {
+         "words": "he's",
+         "at": 30,
+         "gives": "HES",
+         "note": "taken as the letters H, E and S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Starry-eyed people come into money that someone else has had to give up.",
+     "walkthrough": "'forfeited' removes HES from RICHES, leaving RIC.",
+     "definitionFit": "Oneiric means relating to dreams, from the Greek word oneiros, a dream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "individuals"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1218,62 @@
     "text": "English playhouse sure to lose leader Brook",
     "enumeration": "9"
    },
-   "solution": "ENTERTAIN"
+   "solution": "ENTERTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brook",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "playhouse",
+       "at": 8,
+       "gives": "NT",
+       "note": "NT is the National Theatre in London"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to lose leader",
+         "at": 23,
+         "note": "losing its leader means the word drops its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sure",
+         "at": 18,
+         "gives": "CERTAIN",
+         "note": "certain means sure"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Brook, like director Peter Brook, at an English theatre, about to lose a leading actor.",
+     "walkthrough": "'Brook' looks like the theatre director Peter Brook, but it is a verb meaning tolerate. 'to lose leader' cuts C from CERTAIN.",
+     "definitionFit": "To brook something is to tolerate or allow it, and to entertain an idea is to admit it for consideration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Brook"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1287,59 @@
     "text": "School cash once collected by no-frills Beeb",
     "enumeration": "7"
    },
-   "solution": "EDUCATE"
+   "solution": "EDUCATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collected by",
+       "at": 17,
+       "note": "collected by means held inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "no-frills",
+         "at": 30,
+         "note": "no frills means stripped of edges, leaving the middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beeb",
+         "at": 40
+        }
+       ]
+      },
+      {
+       "words": "cash once",
+       "at": 7,
+       "gives": "DUCAT",
+       "note": "the ducat was a gold coin once used across Europe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "School money from the past is gathered up by the BBC on a budget.",
+     "walkthrough": "Beeb is the BBC's nickname; 'no-frills' strips its outer letters. The ducat was an old European coin, 'collected by' the remaining pair.",
+     "definitionFit": "To school someone is to teach or train them, which is what educating them means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "School"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1353,75 @@
     "text": "Pamper popular 16 once, feeding him contents of full English",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pamper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "at": 7,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "feeding",
+         "at": 24,
+         "note": "feeding means putting food into, so the letters go inside the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "16 once",
+         "at": 15,
+         "gives": "DG",
+         "note": "DG, director general, was Reith's title at the BBC"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "contents of",
+           "at": 36,
+           "note": "the contents of a word are its inner letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "full",
+           "at": 48
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 53,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spoil a once-popular broadcasting chief by feeding him a full English breakfast.",
+     "walkthrough": "'16 once' is Reith, once Director General, abbreviated DG; 'him' just refers back to him. A full English is a big cooked British breakfast.",
+     "definitionFit": "To indulge someone is to gratify their wishes, which is how one would pamper them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feeding"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1435,42 @@
     "text": "Brief about to receive millions?",
     "enumeration": "6"
    },
-   "solution": "INFORM"
+   "solution": "INFORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about to receive",
+       "at": 6,
+       "gives": "INFOR",
+       "note": "to be in for something is to be about to receive it, as in 'in for a shock'"
+      },
+      {
+       "words": "millions",
+       "at": 23,
+       "gives": "M",
+       "note": "M stands for million"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short summary about to land a payout of millions.",
+     "walkthrough": "'Brief' looks like an adjective but is a verb, to give someone the facts.",
+     "definitionFit": "To brief people is to tell them the facts, which is what informing them means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1484,69 @@
     "text": "Trim garden centre in outskirts of Redditch",
     "enumeration": "8"
    },
-   "solution": "RETRENCH"
+   "solution": "RETRENCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in places the rearranged letters between the outer pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outskirts of",
+         "at": 22,
+         "note": "the outskirts of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Redditch",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "garden",
+         "at": 5,
+         "note": "to garden is to dig over the soil, so the letters of centre are turned over and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "centre",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant shop on the edge of a Worcestershire town tidies its displays.",
+     "walkthrough": "'garden' signals ETRENC from CENTRE, placed 'in' RH. Redditch is a town in Worcestershire.",
+     "definitionFit": "To retrench is to cut back or reduce spending, and trim can mean exactly that cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "garden"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1560,57 @@
     "text": "Unity Mitford ultimately wound up in mess",
     "enumeration": "6"
    },
-   "solution": "UNTIDY"
+   "solution": "UNTIDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in mess",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wound up",
+       "at": 25,
+       "note": "wound up suggests things wound together and tangled, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unity",
+       "at": 0
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 14,
+         "note": "ultimately points to the last letter of Mitford"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mitford",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The life of Unity Mitford, one of the famous sisters, ended in chaos.",
+     "walkthrough": "'wound up' rearranges UNITY plus D. Unity Mitford was one of the six Mitford sisters, an English aristocratic family.",
+     "definitionFit": "Something untidy is in a mess, disordered and unkempt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1624,63 @@
     "text": "Coach to cut short corner",
     "enumeration": "5"
    },
-   "solution": "TUTOR"
+   "solution": "TUTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cut",
+       "at": 9,
+       "note": "cut here means cutting into, so the small word goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 13,
+         "note": "short means missing the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corner",
+         "at": 19,
+         "gives": "TURN",
+         "note": "to corner a car is to turn"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "to",
+       "at": 6,
+       "gives": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coach driver takes a corner too tightly.",
+     "walkthrough": "'short' trims TURN to TUR; TO 'cut' into it gives TU-TO-R. 'Coach' suggests a bus but means a teacher.",
+     "definitionFit": "A tutor is a private teacher, and a coach is likewise someone who trains a pupil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1700,75 @@
      }
     ]
    },
-   "solution": "GRANDOPERA"
+   "solution": "GRANDOPERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Otello or suchlike",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to catch",
+       "at": 22,
+       "note": "to catch means to hold, so the other letter is caught inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "£1,000",
+         "at": 0,
+         "gives": "GRAND",
+         "note": "a grand is slang for a thousand pounds"
+        },
+        {
+         "words": "for each",
+         "at": 7,
+         "gives": "PER",
+         "note": "per means for each"
+        },
+        {
+         "words": "adult",
+         "at": 16,
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 31,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Otello",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tickets at a thousand pounds a head for the first night of Verdi's Otello.",
+     "walkthrough": "'to catch' places O, the 'opening of' Otello, between GRAND and PERA. The clue is semi-&lit, Otello doubling as example.",
+     "definitionFit": "Verdi's Otello is a classic example of a fully sung, large-scale serious opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1782,62 @@
     "text": "They've excavated core of smallest artificial mound",
     "enumeration": "4"
    },
-   "solution": "TELL"
+   "solution": "TELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "artificial mound",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "excavated",
+         "at": 8,
+         "note": "excavated means dug out, so only the outer letters of the word are left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "They've",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "core of",
+         "at": 18,
+         "note": "the core of a word is its central letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smallest",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Archaeologists have dug out the middle of the smallest barrow.",
+     "walkthrough": "'excavated' empties THEY'VE to TE; 'core of' takes LL from the middle of SMALLEST.",
+     "definitionFit": "A tell is an archaeological mound built up by layers of settlement, especially in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excavated"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1851,49 @@
     "text": "Schoolgirl inspiring rebellious Jack",
     "enumeration": "7"
    },
-   "solution": "ACADEMY"
+   "solution": "ACADEMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inspiring",
+       "at": 11,
+       "note": "inspiring means breathing in, so the girl takes the rebel inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Schoolgirl",
+       "at": 0,
+       "gives": "AMY",
+       "note": "the girl part of the word gives Amy, a girl's name"
+      },
+      {
+       "words": "rebellious Jack",
+       "at": 21,
+       "gives": "CADE",
+       "note": "Jack Cade led a rebellion against Henry VI in 1450"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolgirl is drawn to a rebellious lad called Jack.",
+     "walkthrough": "'Schoolgirl' must be split: School is the definition and girl gives AMY. Jack Cade led the Kentish revolt of 1450.",
+     "definitionFit": "An academy is a school, in Britain especially a state-funded independent secondary school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 29,
@@ -451,7 +1907,48 @@
     "text": "Trainee lyricist secures a large job",
     "enumeration": "7"
    },
-   "solution": "LEARNER"
+   "solution": "LEARNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trainee",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "secures",
+       "at": 17,
+       "note": "secures means holds fast, so the lyricist's name holds the single letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lyricist",
+       "at": 8,
+       "gives": "LERNER",
+       "note": "Alan Jay Lerner wrote the lyrics for My Fair Lady"
+      },
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee songwriter lands a big job.",
+     "walkthrough": "Alan Jay Lerner, lyricist of My Fair Lady, takes A inside; 'large job' adds L plus EARNER (a money-making job), a second route to the same letters.",
+     "definitionFit": "A learner is someone being taught a skill, which is what a trainee is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lyricist"
+    }
+   }
   }
  ]
 }
