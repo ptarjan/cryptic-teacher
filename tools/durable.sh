@@ -269,6 +269,21 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
   return "$rc"
 }
 
+durable_refresh_index() {  # re-stat the index with every clean filter off; status 0 when it changed nothing it could not
+  # A tracked file a clean filter rewrites (filter.NAME.clean in .gitattributes) shows as modified
+  # whenever the tree's copy is not already in clean form, so `git reset --keep` and a rebase refuse
+  # it ("Entry ... not uptodate") on every checkpoint. 10-24 21:51: Mac 68fd0f12876 put
+  # tools/annotation_backlog.json under the json-keys filter while the queue's tree held the old
+  # layout; the tree sat 19 commits behind and started nothing for 40 min, until
+  # `git -c filter.json-keys.clean=cat update-index --refresh` was run by hand. With the filter off a
+  # file equal to its blob is up to date again, and the move that follows replaces it.
+  local args=() name
+  while IFS= read -r name; do args+=(-c "$name=cat"); done < <(git config --name-only --get-regexp '^filter\..*\.clean$' 2>/dev/null)
+  [ "${#args[@]}" -gt 0 ] || return 1
+  git "${args[@]}" update-index -q --refresh 2>/dev/null
+  return 0
+}
+
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
   local lock move pending onto
   durable_wait
@@ -299,8 +314,13 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
   pending="$(git rev-list "${_durable_pushed:-origin/master}..HEAD")" && [ -z "$pending" ] &&
     move="git reset -q --keep $onto 2>/dev/null"
   if ! flock -w 60 "$lock" sh -c "$move"; then
-    echo "durable: tree left where it is (rebase failed, or code.lock busy 60s); its commits are pushed"
-    return 1
+    # A clean filter can make an unchanged file look modified: re-stat without it and try once more.
+    if durable_refresh_index && echo "durable: the index was re-stated with the clean filters off; moving again" &&
+       flock -w 60 "$lock" sh -c "$move"; then :
+    else
+      echo "durable: tree left where it is (rebase failed, or code.lock busy 60s); its commits are pushed"
+      return 1
+    fi
   fi
   # On the batch, the next checkpoint pushes from its tip: its commits are
   # settled already, and replaying each again would cost a fetch apiece.
