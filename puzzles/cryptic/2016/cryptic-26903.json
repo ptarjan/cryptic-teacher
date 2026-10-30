@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "The letters column",
     "enumeration": "4"
    },
-   "solution": "POST"
+   "solution": "POST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The letters",
+      "at": 0,
+      "meaning": "the mail delivered to a house"
+     },
+     {
+      "text": "column",
+      "at": 12,
+      "meaning": "an upright pillar or pole, such as a gatepost"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper's letters page set out in a column.",
+     "definitionFit": "The same word names both the delivered mail and an upright pillar, two unrelated senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +72,55 @@
     "text": "Extra comment following school game shows spirit",
     "enumeration": "8"
    },
-   "solution": "SCHNAPPS"
+   "solution": "SCHNAPPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 14,
+       "note": "following means the extra comment's letters come after the school and game"
+      }
+     ],
+     "parts": [
+      {
+       "words": "school",
+       "at": 24,
+       "gives": "SCH"
+      },
+      {
+       "words": "game",
+       "at": 31,
+       "gives": "NAP",
+       "note": "nap is an old card game, a cousin of whist"
+      },
+      {
+       "words": "Extra comment",
+       "at": 0,
+       "gives": "PS",
+       "note": "a PS (postscript) is an extra comment added to a letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report notes that a school match showed great team spirit.",
+     "walkthrough": "'spirit' in the surface sounds like morale; it is the drink. Nap is an old card game, and 'following' puts the postscript last.",
+     "definitionFit": "Schnapps is a strong distilled liquor, and a spirit is any such distilled alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +134,32 @@
     "text": "Cunning, in the main",
     "enumeration": "4"
    },
-   "solution": "DEEP"
+   "solution": "DEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cunning",
+      "at": 0,
+      "meaning": "sly and hard to see through"
+     },
+     {
+      "text": "the main",
+      "at": 12,
+      "meaning": "the main is an old poetic word for the open sea"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is described as cunning in the main, that is, mostly.",
+     "walkthrough": "'in the main' reads as 'mostly'; 'the main' is the sea, with 'in' a link.",
+     "definitionFit": "Both are synonyms: a shrewd, secretive person is deep, and the ocean is poetically the deep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +173,32 @@
     "text": "Contradicts men on the board",
     "enumeration": "8"
    },
-   "solution": "COUNTERS"
+   "solution": "COUNTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contradicts",
+      "at": 0,
+      "meaning": "argues back against, opposes in words"
+     },
+     {
+      "text": "men on the board",
+      "at": 12,
+      "meaning": "the playing pieces in draughts or backgammon"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone disagrees with the men sitting on a company board.",
+     "walkthrough": "'board' suggests a boardroom; here it is a games board.",
+     "definitionFit": "To counter is to oppose or rebut, and counters are the small discs used as pieces in board games."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +212,40 @@
     "text": "Lord, if drunk, becomes flushed",
     "enumeration": "6"
    },
-   "solution": "FLORID"
+   "solution": "FLORID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flushed",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drunk",
+       "at": 9,
+       "note": "being drunk leaves the letters staggering into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lord, if",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy aristocrat turns red in the face.",
+     "walkthrough": "'drunk' rearranges LORDIF.",
+     "definitionFit": "Florid means ruddy or high-coloured in complexion, a near synonym of reddened in the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +259,30 @@
     "text": "Dispute the number left",
     "enumeration": "10"
    },
-   "solution": "DIFFERENCE"
+   "solution": "DIFFERENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dispute",
+      "at": 0,
+      "meaning": "a disagreement or quarrel"
+     },
+     {
+      "text": "the number left",
+      "at": 8,
+      "meaning": "what remains when one number is taken from another, the result of a subtraction"
+     }
+    ],
+    "explanation": {
+     "surface": "An argument over how many people remain.",
+     "definitionFit": "People settle their differences after a quarrel, and in arithmetic subtraction yields the remainder by that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +296,31 @@
     "text": "Still used as a name for an American lake",
     "enumeration": "6"
    },
-   "solution": "PLACID"
+   "solution": "PLACID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Still",
+      "at": 0,
+      "meaning": "calm and untroubled"
+     },
+     {
+      "text": "used as a name for an American lake",
+      "at": 6,
+      "meaning": "Lake ... in New York State, host of two Winter Olympics"
+     }
+    ],
+    "explanation": {
+     "surface": "A name is still applied to a lake in America.",
+     "walkthrough": "'Still' reads as an adverb ('yet'); it is the adjective meaning calm.",
+     "definitionFit": "Placid means calm and undisturbed, like still water, and Lake Placid is a resort in the Adirondacks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +334,57 @@
     "text": "A unit in the Salvation Army covers a large area of land",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a large area of land",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in means the unit's letter sits within the army's abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Salvation Army",
+         "at": 10,
+         "gives": "SA",
+         "note": "SA is the usual abbreviation for the Salvation Army"
+        },
+        {
+         "words": "unit",
+         "at": 2,
+         "gives": "I",
+         "note": "I is the Roman numeral one, a unit"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Salvation Army corps is responsible for a sizeable district.",
+     "definitionFit": "Asia is a continent, the largest landmass on Earth, which suits the modest-sounding description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +404,32 @@
      }
     ]
    },
-   "solution": "ONCUE"
+   "solution": "ONCUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "At the right moment",
+      "at": 0,
+      "meaning": "exactly when expected, like an actor hearing a prompt"
+     },
+     {
+      "text": "put chalk here",
+      "at": 20,
+      "meaning": "snooker players rub chalk onto the tip of their stick"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher is told when to write on the blackboard.",
+     "walkthrough": "The second half reads literally: chalk goes on the snooker cue.",
+     "definitionFit": "The idiom means punctually, and literally a player applies chalk to the tip of the snooker stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chalk"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +443,36 @@
     "text": "Well-provided places for those with boring occupations",
     "enumeration": "9"
    },
-   "solution": "OILFIELDS"
+   "solution": "OILFIELDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-provided places for those with boring occupations",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Well-provided places for those with boring occupations",
+       "at": 0,
+       "note": "'Well-provided' hints at oil wells and 'boring' at drilling, not at dull jobs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comfortable spots set aside for people with tedious jobs.",
+     "walkthrough": "'boring' means drilling, and 'Well' is an oil well.",
+     "definitionFit": "Petroleum-producing regions are full of wells and employ drillers, whose job is literally boring holes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +492,36 @@
      }
     ]
    },
-   "solution": "TINOPENER"
+   "solution": "TINOPENER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Can starter be produced in the kitchen?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Can starter be produced in the kitchen?",
+       "at": 0,
+       "note": "'Can starter' reads as a question about a first course, but it is the thing that starts a can"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether an appetiser can be made at home.",
+     "walkthrough": "'Can' looks like the verb; it is a tin, and 'starter' is what gets it open.",
+     "definitionFit": "The kitchen gadget that first breaches a sealed tin is exactly the thing that starts a can."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 12,
@@ -197,7 +535,33 @@
     "text": "It may give a shop a name",
     "enumeration": "5"
    },
-   "solution": "FACIA"
+   "solution": "FACIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may give a shop a name",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It may give a shop a name",
+       "at": 0,
+       "note": "the board above a shopfront on which the business name is painted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering what might supply a store with its title.",
+     "definitionFit": "A fascia is the signboard over a shop entrance displaying the trader's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +575,31 @@
     "text": "Medicine used by astronauts?",
     "enumeration": "7"
    },
-   "solution": "CAPSULE"
+   "solution": "CAPSULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Medicine",
+      "at": 0,
+      "meaning": "a pill in a soluble gelatin case"
+     },
+     {
+      "text": "used by astronauts?",
+      "at": 9,
+      "meaning": "the small cabin of a spacecraft in which crew travel"
+     }
+    ],
+    "explanation": {
+     "surface": "Pills taken by space travellers.",
+     "definitionFit": "The word means both a gelatin-coated dose of a drug and a detachable crew module of a rocket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Medicine"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +613,49 @@
     "text": "Pack a quarter in of the very best",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the very best",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in places the quarter inside the word for pack"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pack",
+       "at": 0,
+       "gives": "CRAM",
+       "note": "to cram is to pack tightly"
+      },
+      {
+       "words": "a quarter",
+       "at": 5,
+       "gives": "E",
+       "note": "E is East, one of the four quarters of the compass"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Packing a quarter of the finest goods.",
+     "walkthrough": "E (East, a compass quarter) goes 'in' CRAM.",
+     "definitionFit": "The cream of something is its finest part, like the richest layer rising to the top of milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +669,32 @@
     "text": "Get it from where market traders keep stock",
     "enumeration": "10"
    },
-   "solution": "UNDERSTAND"
+   "solution": "UNDERSTAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get it",
+      "at": 0,
+      "meaning": "grasp the point, comprehend"
+     },
+     {
+      "text": "where market traders keep stock",
+      "at": 12,
+      "meaning": "stallholders store spare goods beneath the stall, under the stand"
+     }
+    ],
+    "explanation": {
+     "surface": "Fetch something from the place stallholders keep their goods.",
+     "walkthrough": "'Get it' looks like fetching; it means comprehend. Split the answer as UNDER STAND for the second reading.",
+     "definitionFit": "To get it is idiomatic for comprehending, and literally spare stock sits below a market stall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +708,39 @@
     "text": "Laughs at what could be desired",
     "enumeration": "7"
    },
-   "solution": "DERIDES"
+   "solution": "DERIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Laughs at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "what could be",
+       "at": 10,
+       "note": "these letters could be rearranged into another word, so they are an anagram"
+      }
+     ],
+     "parts": [
+      {
+       "words": "desired",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mocks what might otherwise be wanted.",
+     "definitionFit": "To deride is to mock or ridicule, treating someone with scorn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +754,40 @@
     "text": "Possibly loves to finish the crossword?",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "finish the crossword?",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Possibly",
+       "at": 0,
+       "note": "possibly signals that these letters might be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "loves",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loves to get to the end of the puzzle.",
+     "walkthrough": "'Possibly' rearranges LOVES.",
+     "definitionFit": "Completing a puzzle by working out all its answers is exactly what solvers do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +801,46 @@
     "text": "Stopped losing head and relaxed",
     "enumeration": "5"
    },
-   "solution": "EASED"
+   "solution": "EASED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "relaxed",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing head",
+       "at": 8,
+       "note": "losing head means the first letter of the word is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stopped",
+       "at": 0,
+       "gives": "CEASED",
+       "note": "ceased means stopped"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stopped losing their temper and calmed down.",
+     "walkthrough": "'losing head' drops C from CEASED.",
+     "definitionFit": "To ease is to loosen or slacken, so eased is a synonym of loosened up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +854,43 @@
     "text": "Half-term drink",
     "enumeration": "3"
    },
-   "solution": "SEA"
+   "solution": "SEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Half",
+       "at": 0,
+       "note": "Half means only the front half of the word for term is kept"
+      }
+     ],
+     "parts": [
+      {
+       "words": "term",
+       "at": 5,
+       "gives": "SEASON",
+       "note": "a season is a period or term, as in the football season"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink taken at the half-term break.",
+     "walkthrough": "'Half-term' reads as a school holiday; 'Half' trims SEASON to its first half.",
+     "definitionFit": "The drink is slang for the sea, as in a ball hit into the drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +904,60 @@
     "text": "When father came up by himself, the rift was unmistakable",
     "enumeration": "8"
    },
-   "solution": "APPARENT"
+   "solution": "APPARENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unmistakable",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "came up",
+         "at": 12,
+         "note": "in a down clue, coming up means the word is read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "father",
+         "at": 5,
+         "gives": "PA",
+         "note": "pa is an informal word for father"
+        }
+       ]
+      },
+      {
+       "words": "himself",
+       "at": 23,
+       "gives": "PA",
+       "note": "himself refers back to father, so pa again"
+      },
+      {
+       "words": "the rift",
+       "at": 32,
+       "gives": "RENT",
+       "note": "a rent is a tear or split"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father arrived alone and the family split became obvious.",
+     "walkthrough": "'came up' reverses PA to AP in this down clue; 'himself' repeats father as PA.",
+     "definitionFit": "Apparent means plainly visible or evident, so obvious beyond doubt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "himself"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +971,36 @@
     "text": "Sort of organ that sometimes needs a blow",
     "enumeration": "5"
    },
-   "solution": "NASAL"
+   "solution": "NASAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of organ that sometimes needs a blow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sort of organ that sometimes needs a blow",
+       "at": 0,
+       "note": "the organ sounds musical but it is the nose, which needs blowing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of pipe organ that must be blown into.",
+     "walkthrough": "Organs are blown by bellows, but the organ here is the nose.",
+     "definitionFit": "The adjective relates to the nose, the bodily organ one blows into a handkerchief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1020,40 @@
      }
     ]
    },
-   "solution": "SEARCHME"
+   "solution": "SEARCHME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I've no idea!",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "A blend of",
+       "at": 0,
+       "note": "a blend mixes things together, so the letters are mixed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cashmere",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked what a cashmere blend contains admits ignorance.",
+     "walkthrough": "'A blend of' rearranges CASHMERE.",
+     "definitionFit": "The phrase is a colloquial shrug, an invitation to look through one's pockets because one is clueless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1067,42 @@
     "text": "Young accountant's holiday spot",
     "enumeration": "7"
    },
-   "solution": "MINORCA"
+   "solution": "MINORCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "holiday spot",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Young",
+       "at": 0,
+       "gives": "MINOR",
+       "note": "a minor is a young person, under the age of majority"
+      },
+      {
+       "words": "accountant's",
+       "at": 6,
+       "gives": "CA",
+       "note": "CA is a chartered accountant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where a junior accountant goes on holiday.",
+     "walkthrough": "CA is a chartered accountant.",
+     "definitionFit": "Menorca, often spelt this way, is a Balearic island popular with tourists in Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Young"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1116,35 @@
     "text": "Advice given when one is leaving work",
     "enumeration": "6"
    },
-   "solution": "NOTICE"
+   "solution": "NOTICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advice given when one is leaving work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Advice given when one is leaving work",
+       "at": 0,
+       "note": "advice in the sense of formal notification that an employee intends to quit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tips handed out at someone's retirement.",
+     "walkthrough": "'Advice' here means formal notification, as in a commercial advice note.",
+     "definitionFit": "Handing in one's notice is formally telling an employer you will quit the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Advice"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1158,50 @@
     "text": "A student has to live with it, though",
     "enumeration": "6"
    },
-   "solution": "ALBEIT"
+   "solution": "ALBEIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "though",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "student",
+       "at": 2,
+       "gives": "L",
+       "note": "L is a learner, as on a learner driver's L-plate"
+      },
+      {
+       "words": "to live",
+       "at": 14,
+       "gives": "BE",
+       "note": "to be is to exist or live"
+      },
+      {
+       "words": "it",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student must put up with something, even so.",
+     "walkthrough": "L for learner is a crossword staple for student.",
+     "definitionFit": "Albeit is a conjunction meaning even though or although."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1215,41 @@
     "text": "To look one's years requires nobility",
     "enumeration": "7"
    },
-   "solution": "PEERAGE"
+   "solution": "PEERAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nobility",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "To look",
+       "at": 0,
+       "gives": "PEER",
+       "note": "to peer is to look closely"
+      },
+      {
+       "words": "one's years",
+       "at": 8,
+       "gives": "AGE",
+       "note": "one's age is the number of years lived"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking one's age demands dignity.",
+     "definitionFit": "The peerage is the collective body of lords, the titled aristocracy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nobility"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1269,30 @@
      }
     ]
    },
-   "solution": "GOTIT"
+   "solution": "GOTIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understood",
+      "at": 0,
+      "meaning": "grasped the point"
+     },
+     {
+      "text": "one has been punished",
+      "at": 11,
+      "meaning": "colloquially, a child who has been told off has caught it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone acknowledges having been disciplined.",
+     "definitionFit": "The phrase is both an idiom for comprehension and slang for having received a telling-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1306,45 @@
     "text": "Rising flavour has bite",
     "enumeration": "4"
    },
-   "solution": "GNAT"
+   "solution": "GNAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "has bite",
+      "at": 15,
+      "note": "a noun is needed: read as 'one that has a bite', an insect"
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Rising",
+       "at": 0,
+       "note": "in a down clue, rising means the word is read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "flavour",
+       "at": 7,
+       "gives": "TANG",
+       "note": "tang is a sharp flavour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising flavour has some sharpness to it.",
+     "walkthrough": "'bite' suggests piquancy; here it is an insect's bite. 'Rising' reverses TANG in a down clue.",
+     "definitionFit": "The small fly is notorious for its itchy bite, so it is something with bite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bite"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1358,30 @@
     "text": "Shameless when unveiled",
     "enumeration": "9"
    },
-   "solution": "BAREFACED"
+   "solution": "BAREFACED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shameless",
+      "at": 0,
+      "meaning": "brazen, unashamed"
+     },
+     {
+      "text": "unveiled",
+      "at": 15,
+      "meaning": "literally, with the face uncovered"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone appears without shame once their veil is lifted.",
+     "definitionFit": "Brazen lies are called barefaced, and literally an uncovered visage is a bare face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1395,32 @@
     "text": "Car gives way for pedestrians",
     "enumeration": "4"
    },
-   "solution": "FORD"
+   "solution": "FORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Car",
+      "at": 0,
+      "meaning": "a make of motor vehicle"
+     },
+     {
+      "text": "gives way for pedestrians",
+      "at": 4,
+      "meaning": "a shallow crossing place lets walkers wade over a river"
+     }
+    ],
+    "explanation": {
+     "surface": "A motorist yields to people on foot.",
+     "walkthrough": "'gives way' sounds like traffic etiquette; it means provides a route across water.",
+     "definitionFit": "Ford is a well-known car maker, and a shallow river crossing is also called a ford."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gives"
+    }
+   }
   },
   {
    "number": 29,
@@ -475,7 +1434,36 @@
     "text": "Acts of duplicity?",
     "enumeration": "4"
    },
-   "solution": "DUOS"
+   "solution": "DUOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Acts of duplicity?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Acts of duplicity?",
+       "at": 0,
+       "note": "duplicity read literally as doubleness: performances by pairs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deceitful deeds.",
+     "walkthrough": "'duplicity' means deceit, but read as 'twoness' it gives double acts.",
+     "definitionFit": "Double acts on stage are pairs of performers, and duplicity hides the Latin for two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duplicity"
+    }
+   }
   },
   {
    "number": 30,
@@ -489,7 +1477,30 @@
     "text": "Atlantic island rising above the horizon",
     "enumeration": "9"
    },
-   "solution": "ASCENSION"
+   "solution": "ASCENSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Atlantic island",
+      "at": 0,
+      "meaning": "a remote British island in the South Atlantic"
+     },
+     {
+      "text": "rising above the horizon",
+      "at": 16,
+      "meaning": "in astronomy, a star's rising, its climb above the horizon"
+     }
+    ],
+    "explanation": {
+     "surface": "An ocean island emerging into view at sea.",
+     "definitionFit": "Ascension Island lies in the South Atlantic, and the word also means climbing or going up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 31,
@@ -503,7 +1514,42 @@
     "text": "He was known for loving capital, nothing more",
     "enumeration": "5"
    },
-   "solution": "ROMEO"
+   "solution": "ROMEO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He was known for loving",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "capital",
+       "at": 24,
+       "gives": "ROME",
+       "note": "Rome is the capital of Italy"
+      },
+      {
+       "words": "nothing",
+       "at": 33,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who loved the capital and nothing else.",
+     "walkthrough": "'more' is a link word; 'capital' suggests money, but it is a city.",
+     "definitionFit": "Shakespeare's young hero is so famous a lover that his name means an ardent suitor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
+   }
   }
  ]
 }
