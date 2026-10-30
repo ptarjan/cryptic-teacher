@@ -55,7 +55,7 @@ a clue not done yet. A linked answer is annotated once, on its leader (the entry
 
 Write a handful of clues at a time: only what is on disk survives the run ending. Run
 the check once every clue is in. Solve in the order crossings unlock; skip a clue that
-resists and return when its crossings are in (thinking longer adds no letters). There is
+resists and return when its crossings are in, and before the first check (thinking longer adds no letters). There is
 no word list: `/usr/share/dict/words` is out of reach and other puzzles are not a dictionary.
 
 ## Schema
@@ -89,7 +89,9 @@ words, indicator operations and pieces, so you write none of those.
   indicator you leave out becomes a link word the check questions: every `ins`, `hid`, `move`
   and `del` names its own word (a container's "in", "outside", "circling"; a hidden word's
   "in" or its "'s" for "has"), so write `ins<in>`, not a bare `ins`. Copy clue words
-  exactly; `[in#2]` is the second "in". Each `[leaf]`, `<indicator>`, `def` and note key
+  exactly; `[in#2]` is the second "in". One phrase giving two pieces is quoted twice:
+  `[Two bitters]COLD + [Two bitters#2]RAW`; bare letters are only the preamble's (or a
+  `del`/`sub`'s named letters). Each `[leaf]`, `<indicator>`, `def` and note key
   is one unbroken run of the clue as printed, neighbouring words with nothing between:
   words that are in order but have other words between them ("takes" ... "for" in
   "Relative takes a bit of tweed for top of pillbox hat") are two pieces, never one
@@ -99,7 +101,9 @@ words, indicator operations and pieces, so you write none of those.
 - A reversal wraps only the piece its indicator sits by, and that piece keeps its forward
   letters inside (`SURF + rev<looking up>(TIE)`); never `rev(TIE + FRUS)` with the clue's pieces swapped.
 - Every clue piece that gives letters is a term of the wordplay: leave none out, even a
-  short query phrase ("look up where?" supplying part of AUSTRIA). Pieces side by side
+  short query phrase ("look up where?" supplying part of AUSTRIA). Before writing a
+  `wp`, spell each piece's letters in answer order and count them: the total must equal
+  the solution's length, or a piece is missing, doubled or misread. Pieces side by side
   are a charade (`+`), not `ins`; `ins` only where one piece is cut open by another.
 - Selection ops (first, last, middle, outer, alt, hid...) take the words picked FROM,
   never the pick. Over several words use a comma list, one indicator:
@@ -129,6 +133,8 @@ in a double definition each definition's note says what that sense means.
 - **Trimmed synonym** ("jumps without limits" = BOUNCES less its ends, OUNCE): a
   deletion, `del<without limits>([jumps]BOUNCES, B, S)`, never `middle`/`first`/`last`
   (those say the letters are printed in the clue). A halving stays `first<half of>`.
+- **Defined by the preamble**: an answer the preamble defines (a theme list) has no
+  `def`: set `"definedByPreamble": true` (refused if the puzzle has no preamble).
 - **&lit**: `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - **Homophone** (`sound`): the first check fails ("no block says what is said aloud",
   the commonest first failure) unless the word said aloud is on ONE leaf.
@@ -263,6 +269,9 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           of the clue's own pieces as one pool. A single letter, a
                           pick at the answer's end, an abbreviation or a synonym
                           is spelt beside it, ana(x) + N, never scrambled in
+                          A short word next to the indicator may be fodder:
+                          the fodder's letter count must equal what the
+                          anagram makes
     rev(x)                x backwards; an indicator naming a stretch (last pair
                           of, first three, half) turns only that stretch, 2+
                           letters: rev<last pair of>([mini vehicles]KARTS) for KARST.
