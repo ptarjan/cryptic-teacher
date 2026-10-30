@@ -42,9 +42,15 @@ const isHome = (url) => {
   return at === SCOPE || at === SCOPE + "index.html";
 };
 
-async function trimPuzzles(cache) {
+// `keep`: paths of puzzles with letters on them, never retired by the cap.
+async function trimPuzzles(cache, keep) {
   const keys = await cache.keys();            // oldest first
-  for (let i = 0; i < keys.length - MAX_PUZZLES; i++) await cache.delete(keys[i]);
+  const safe = new Set((keep || []).map((u) => new URL(u, SCOPE).pathname));
+  let over = keys.length - MAX_PUZZLES;
+  for (let i = 0; i < keys.length && over > 0; i++) {
+    if (safe.has(new URL(keys[i].url).pathname.replace(/\.gz$/, "") + ".gz") || safe.has(new URL(keys[i].url).pathname)) continue;
+    await cache.delete(keys[i]); over--;
+  }
 }
 
 async function cacheFirst(req, name) {
@@ -111,7 +117,7 @@ self.addEventListener("message", (event) => {
   const d = event.data || {};
   const port = event.ports && event.ports[0];
   if (d.type === "precache") event.waitUntil(precache(d.urls || []));
-  if (d.type === "save") event.waitUntil(savePuzzles(d.urls || [], port, d.drop || []));
+  if (d.type === "save") event.waitUntil(savePuzzles(d.urls || [], port, d.drop || [], d.keep || []));
 });
 
 async function precache(urls) {
@@ -135,7 +141,7 @@ async function precache(urls) {
   }
 }
 
-async function savePuzzles(urls, port, drop) {
+async function savePuzzles(urls, port, drop, keep) {
   const cache = await caches.open(PUZZLES);
   // Recycling: files the page says are solved or out of the batch (any ?v=).
   for (const u of drop) {
@@ -156,7 +162,7 @@ async function savePuzzles(urls, port, drop) {
     } catch (e) { failed++; }
     if (port) port.postMessage({ done, failed, total: urls.length });
   }
-  await trimPuzzles(cache);
+  await trimPuzzles(cache, keep);
   if (port) port.postMessage({ done, failed, total: urls.length, finished: true });
 }
 

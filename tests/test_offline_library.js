@@ -84,10 +84,31 @@ const assert = (ok, msg) => { if (!ok) fails.push(msg); };
     assert(second > first, `Save now adds puzzles: ${first} -> ${second}`);
     assert(more && more.endsWith(`— ${second} puzzles ready offline`), `...and the count is the new total: "${more}" vs ${second}`);
     if (solved) {
-      const left = (await ev(files)).filter((f) => f.includes("/puzzles/" + solved.file + ".gz"));
+      const left = (await ev(files)).filter((f) => f.includes("/puzzles/" + solved.file));
       assert(left.length === 0, "a completed puzzle is dropped from the device: " + left.join(","));
       assert(await ev(`document.getElementById('offline-status').textContent.startsWith("Saved")`), "the line stays on the result");
     }
+
+    // ---- 3b. the worker's cap deletes the oldest files, but never one the page
+    // marks as having progress (Paul 10-30: "it doesn't seem to delete old
+    // puzzles"). Fill the cache past the cap with stand-ins, protect the oldest.
+    const capped = await ev(`(async () => {
+      const c = await caches.open('ct-puzzles-1');
+      const u = (n) => new URL('puzzles/zz-fake-' + n + '.js.gz', location.href).href;
+      for (let i = 0; i < 260; i++) await c.put(new Request(u(i)), new Response('x'));
+      const reg = await navigator.serviceWorker.ready;
+      await new Promise((res) => {
+        const ch = new MessageChannel();
+        ch.port1.onmessage = (e) => { if (e.data && e.data.finished) res(); };
+        reg.active.postMessage({ type: 'save', urls: [], drop: [u(1)], keep: [u(0)] }, [ch.port2]);
+      });
+      const names = (await c.keys()).map((r) => r.url);
+      return { n: names.length, kept: names.includes(u(0)), dropped: !names.includes(u(1)), oldest: names.includes(u(2)) };
+    })()`);
+    assert(capped.n === 250, "the worker trims the cache to its cap: " + JSON.stringify(capped));
+    assert(capped.kept, "...but keeps a puzzle with progress even when it is the oldest");
+    assert(capped.dropped, "...and a dropped file is really deleted: " + JSON.stringify(capped));
+    assert(!capped.oldest, "...the oldest unprotected files are the ones retired");
 
     // ---- 4. no network
     await network(false);
