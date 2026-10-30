@@ -362,10 +362,10 @@ same("every schema source key is derived or in SOURCE_CARRIED", len(lost), 0)
 print("a filer's page at a host the table has no row for is refused, not stamped unknown")
 
 
-def stamped_from(url, tool="tools/file_archive_org_puzzles.py", held=None):
+def stamped_from(url, tool="tools/file_archive_org_puzzles.py", held=None, pid="times-17246"):
     source = {"url": url, **({"acquiredBy": held} if held else {})}
     try:
-        s = p.stamp({"id": "times-17246", "number": 17246, "entries": [], "source": source}, tool)["source"]
+        s = p.stamp({"id": pid, "number": int(pid.split("-")[1]), "entries": [], "source": source}, tool)["source"]
         return s["retrievedFrom"]
     except ValueError as e:
         return "refused" if "ACQUISITION_BY_SOURCE" in str(e) else repr(e)
@@ -373,6 +373,11 @@ def stamped_from(url, tool="tools/file_archive_org_puzzles.py", held=None):
 
 same("a Gale Times page is an OCR'd newspaper page",
      stamped_from("https://go.gale.com/ps/retrieve.do?docId=GALE%7CIF0500004465&prodId=TTDA"), "newspaper")
+listener_gale = stamped_from("https://go.gale.com/ps/retrieve.do?docId=GALE%7CX", "tools/file_gale_listener.py", pid="listener-4279")
+same("a Listener page saved through the library portal is stamped like one from go.gale.com",
+     stamped_from("https://abresearchportal.ca/ps/retrieve.do?docId=GALE%7CX", "tools/file_gale_listener.py", pid="listener-4279"),
+     listener_gale)
+same("...and is not refused", listener_gale != "refused", True)
 same("a filer's first write from a host with no row is refused",
      stamped_from("https://example.org/page"), "refused")
 same("another tool's file is left to derive as before",

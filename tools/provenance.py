@@ -365,6 +365,9 @@ ACQUISITION_BY_SOURCE = {
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("listener", "go.gale.com"): ("tools/file_gale_listener.py",),
+    # The same Gale page saved through the library portal (10-27: listener-4279 failed 42 times, 17:56-18:40,
+    # for want of this row, as ("times", "abresearchportal.ca") below has one).
+    ("listener", "abresearchportal.ca"): ("tools/file_gale_listener.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
