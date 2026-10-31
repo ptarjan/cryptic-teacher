@@ -8049,8 +8049,9 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
                               f"never {ann['definedByPreamble']!r}")
             elif not puzzle.get("preamble"):
                 errors.append(f"{tag}: definedByPreamble, but the puzzle has no "
-                              f"preamble to define it. Give the definition from "
-                              f"the clue")
+                              f"preamble to define it. Write the clue's definition as "
+                              f"`def` and drop the flag; if no clue word defines it, the "
+                              f"file lacks its preamble: keep the flag, never withdraw")
             elif ann.get("definitions"):
                 errors.append(f"{tag}: definedByPreamble and a definition "
                               f"{' / '.join(definitions.texts(ann))!r} — the clue defines it or the "

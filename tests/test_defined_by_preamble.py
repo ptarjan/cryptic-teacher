@@ -38,6 +38,31 @@ check("flag beside a definition", True,
 check("flag false is not a spelling of absent", True,
       errors({"definedByPreamble": False, "definitions": [{"text": "colour", "at": 8}]}, "Birds."))
 check("no flag, no definition", True, errors({}, "Birds."))
+
+# The first check mends a flag that sits beside a definition in a puzzle with no preamble
+# (annotate audit 10-30), and leaves every other shape to the validator.
+import apply_annotations as A
+defd = {"definedByPreamble": True, "definitions": [{"text": "colour", "at": 8}], "x": 1}
+bare = {"definedByPreamble": True, "x": 1}
+mended = A.drop_spare_preamble_flag(defd, {"entries": []})
+check("spare flag beside a definition is dropped", False,
+      [] if "definedByPreamble" not in mended and mended["definitions"] == defd["definitions"] else ["kept"])
+check("flag with no definition stays (the preamble we lack)", False,
+      [] if A.drop_spare_preamble_flag(bare, {"entries": []}) == bare else ["changed"])
+check("a puzzle with a preamble is the validator's", False,
+      [] if A.drop_spare_preamble_flag(defd, {"entries": [], "preamble": "Birds."}) == defd else ["changed"])
+check("no puzzle given, nothing mended", False,
+      [] if A.drop_spare_preamble_flag(defd, None) == defd else ["changed"])
+# the refusal says what to write
+msg = [e for e in v.validate_puzzle(puzzle_schema.order({"id": "t-1", "entries": [{"number": 1,
+       "direction": "across", "clue": {"text": "Changes colour", "enumeration": "9"},
+       "solution": "TURNSTONE", "annotation": {"definedByPreamble": True}}]}))[1]
+       if "has no preamble" in e]
+check("refusal keeps the alert's prefix and names the way out", False,
+      [] if msg and "as `def` and drop the flag" in msg[0] else msg)
+import discard_alert
+check("discard_alert still reads it as the silent kind", False,
+      [] if discard_alert.silent({}, msg) else msg)
 if fails:
     raise SystemExit(fails)
 print("all definedByPreamble checks passed")

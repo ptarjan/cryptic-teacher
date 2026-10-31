@@ -916,6 +916,15 @@ _worker_finish() {
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     file=$(python3 tools/puzzle_paths.py "$id")
+    # Only a preamble the puzzle lacks is wrong: no fix run can mend it (the run was told
+    # to stop), so the puzzle is held now instead of buying a second session (audit 10-30).
+    wants=$(python3 tools/await_preamble.py "$id" --which) || wants=""
+    if [ -n "$wants" ]; then
+      discard_puzzle "$id"
+      rm -f "$vlog"
+      worker_await_preamble "$id" "$wants"
+      return 1
+    fi
     echo "  [$id] did not validate — handing the errors back rather than discarding the puzzle"
     local fix
     fix=$(printf '%s\n\n%s\n\n%s\n' "$file does not validate:" "$(grep -E '^  ERROR' "$vlog")" \

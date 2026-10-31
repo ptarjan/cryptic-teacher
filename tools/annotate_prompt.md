@@ -134,7 +134,9 @@ in a double definition each definition's note says what that sense means.
   deletion, `del<without limits>([jumps]BOUNCES, B, S)`, never `middle`/`first`/`last`
   (those say the letters are printed in the clue). A halving stays `first<half of>`.
 - **Defined by the preamble**: an answer the preamble defines (a theme list) has no
-  `def`: set `"definedByPreamble": true` (refused if the puzzle has no preamble).
+  `def`: set `"definedByPreamble": true`, only where the clue has no defining word. A puzzle
+  file with no `preamble` still takes the flag for such a clue (never a made-up `def`): the
+  check then says the puzzle is held for its preamble; end the run, do not search or withdraw.
 - **&lit**: `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - **Homophone** (`sound`): the first check fails ("no block says what is said aloud",
   the commonest first failure) unless the word said aloud is on ONE leaf.
