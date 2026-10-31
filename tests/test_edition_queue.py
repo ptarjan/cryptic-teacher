@@ -816,13 +816,14 @@ finally:
 # ordered with the newest fix, never canary-held.
 _tr = {"number": 9999974, "refused": "no reading parses", "cause": "no-reading-parses",
        "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' paniment (7) 19 Half changed yet 29Hcr '"}}
-_trrow = {"edition": "GaleTimes1937UKEnglish/1937-12-30", "verdicts": [_tr], "readAt": "2026-10-30T05:34:48+00:00",
-          "scan": {"date": "1937-12-30", "item": "GaleTimes1937UKEnglish", "puzzles": [{"number": 9999974, "leaf": 0}]}}
-check("a 1936-40 Gale Times page refused at a clue tail after a space is due as TAIL_READ, ranked, evidence, "
-      "fix-landed, last of unfiled-first, never canary-held, blanket-passing",
-      [f.TAIL_READ, 2, True, True, f.TAIL_READ, None, True],
+# (A 1941 page: a 1936-40 one is due as QUARTER_READ first, below.)
+_trrow = {"edition": "GaleTimes1941UKEnglish/1941-12-30", "verdicts": [_tr], "readAt": "2026-10-30T05:34:48+00:00",
+          "scan": {"date": "1941-12-30", "item": "GaleTimes1941UKEnglish", "puzzles": [{"number": 9999974, "leaf": 0}]}}
+check("a Gale Times page refused at a clue tail after a space is due as TAIL_READ, ranked, evidence, "
+      "fix-landed, in unfiled-first, never canary-held, blanket-passing",
+      [f.TAIL_READ, 2, True, True, True, None, True],
       [f.fix_reason(_trrow), f.RANKS[f.TAIL_READ], eq.evidence_reason(f.TAIL_READ), f.TAIL_READ in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1], eq.canary_failed({"paper": "gale", "reason": f.TAIL_READ, "date": "1937-12-30"}),
+       f.TAIL_READ in eq.UNFILED_FIRST, eq.canary_failed({"paper": "gale", "reason": f.TAIL_READ, "date": "1941-12-30"}),
        f.TAIL_READ in f.BLANKET_PASSES])
 _tr_unfiled = {"id": "times-9999974", "number": 9999974, "wrote": True, "unfiled": 1, "readings": ["vlm"],
                "blank": {"22-down": "no reading laid a clue on it"}, "unparsed": _tr["unparsed"]}
@@ -837,6 +838,29 @@ check("written unfiled with a blank too; not whole, after the fix, a tail at the
        f.tail_read_due({**_trrow, "verdicts": [{**_tr, "cause": "not-a-grid"}]}),
        f.tail_read_due({**_trrow, "verdicts": [{**_tr, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
        f.tail_read_due({**_trrow, "edition": "TheGuardian1937UKEnglish/1937-12-30"})])
+# ---- a 1936-40 Gale Times page written unfiled for a light no reading laid, or refused "no reading parses", is due
+# once (fa.QUARTER_READ: the four clue columns read as a window of their own), ordered with the newest fix, never
+# canary-held; a page of another year, read since, or blank only for a misread word is not.
+_qr = {"id": "times-9999973", "number": 9999973, "wrote": True, "unfiled": 2, "readings": ["vlm", "ch"],
+       "blank": {"18-down": "no reading laid a clue on it", "3-across": "'r': a stray letter"}}
+_qrrow = {"edition": "GaleTimes1937UKEnglish/1937-02-10", "verdicts": [_qr], "readAt": "2026-10-30T05:34:48+00:00",
+          "scan": {"date": "1937-02-10", "item": "GaleTimes1937UKEnglish", "puzzles": [{"number": 9999973, "leaf": 0}]}}
+check("a 1936-40 Gale Times page unfiled for a light no reading laid is due as QUARTER_READ, ranked, evidence, "
+      "fix-landed, blanket-passing, in unfiled-first after TAIL_READ, never canary-held",
+      [f.QUARTER_READ, 2, True, True, True, True, None, True],
+      [f.fix_reason(_qrrow), f.RANKS[f.QUARTER_READ], eq.evidence_reason(f.QUARTER_READ), f.QUARTER_READ in eq.FIX_LANDED,
+       f.QUARTER_READ in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.QUARTER_READ) > eq.UNFILED_FIRST.index(f.TAIL_READ),
+       eq.canary_failed({"paper": "gale", "reason": f.QUARTER_READ, "date": "1937-02-10"}),
+       f.QUARTER_READ in f.BLANKET_PASSES])
+check("refused no-reading-parses is due too; not read since, another year, a misread word only, another paper",
+      [True, True, False, False, False, False],
+      [f.quarter_read_due({**_qrrow, "verdicts": [{"number": 9999973, "refused": "no reading parses",
+                                                   "cause": "no-reading-parses"}]}),
+       f.quarter_read_due({**_qrrow, "verdicts": [{**_qr, "unfiled": 1}]}),
+       f.quarter_read_due({**_qrrow, "readAt": _after}),
+       f.quarter_read_due({**_qrrow, "edition": "GaleTimes1941UKEnglish/1941-02-10"}),
+       f.quarter_read_due({**_qrrow, "verdicts": [{**_qr, "blank": {"3-across": "'r': a stray letter"}}]}),
+       f.quarter_read_due({**_qrrow, "edition": "TheGuardian1937UKEnglish/1937-02-10"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
