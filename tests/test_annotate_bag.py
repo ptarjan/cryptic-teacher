@@ -114,7 +114,7 @@ saved = (shape_queue.listed, shape_queue.findings, shape_queue.regressions, appl
 shape_queue.listed = lambda p: {"5-down": "scrambledLeaf: x"}
 shape_queue.findings = lambda e, n: ["scrambledLeaf: still"]
 shape_queue.regressions = lambda e, n: []
-apply_annotations.landed = lambda ann, e, es, eid, errs: {"wordplay": ann["wordplay"]}
+apply_annotations.landed = lambda ann, e, es, eid, errs, puzzle=None: {"wordplay": ann["wordplay"]}
 got = annotate_bag.redo_gate(gpuz, {"5-down": {"wordplay": wp_old}})
 check("redo gate names the entry and the same-tree fault",
       len(got) == 1 and "redo gate 5-down" in got[0] and "same tree" in got[0] and "scrambledLeaf: still" in got[0])

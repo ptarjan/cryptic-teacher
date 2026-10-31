@@ -68,8 +68,8 @@ want_b = json.dumps(next(e for e in before["entries"] if groups.entry_id(e) == b
 # The run sends b back as it is, but landing it would rewrite it (stand-in for
 # the "at" and prose a normalisation derives).
 landed = A.landed
-def rewriting(ann, entry, entries, eid, errors):
-    got = copy.deepcopy(landed(ann, entry, entries, eid, errors))
+def rewriting(ann, entry, entries, eid, errors, puzzle=None):
+    got = copy.deepcopy(landed(ann, entry, entries, eid, errors, puzzle))
     if got is not None and eid == bid:
         got["explanation"] = {"walkthrough": "rewritten on landing"}
     return got
