@@ -20,9 +20,11 @@ Usage:
   --out DIR     write .json files here instead of puzzles/ (also skips reindex(),
                 since reindex() always scans the real puzzles/ dir)
 
-Exit codes: 0 did what was asked, 3 --latest found nothing new, 1 --latest's
-newest day is expected-but-unfetchable (the Saturday puzzle) — one
-self-contained line on stderr and no traceback. Explicit dates and --extend
+Exit codes: 0 did what was asked, 3 --latest found nothing new, which
+includes a newest day that is expected-but-unfetchable (the Saturday puzzle):
+that prints one self-contained line on stderr and no traceback, and the
+fetch-puzzles workflow reads 3 as "nothing new", not a failed fetcher (its
+first Saturday, 2026-10-31, went red on the old exit 1). Explicit dates and --extend
 print such a day as a "skip" line and go on. A weekly event that prints a
 stack trace is indistinguishable from a real crash, which is the whole reason
 ExpectedlyUnfetchable exists; the exit stays non-zero so an unattended --latest
@@ -568,7 +570,11 @@ def main(argv):
         return 0
 
     if argv[0] == "--latest":
-        puzzle = latest()
+        try:
+            puzzle = latest()
+        except ExpectedlyUnfetchable as err:
+            print(f"fetch_globeandmail.py: {err}", file=sys.stderr)
+            return 3
         if not puzzle:
             return 3
         # No reindex here: recording a print touches one Quick's file, and a
