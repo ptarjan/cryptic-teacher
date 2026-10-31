@@ -22,6 +22,9 @@
   "date": "2011-10-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "Bob, or who got him pass to see air display?",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bob",
+      "at": 0,
+      "meaning": "the name Bob reads the same backwards and forwards, a classic example of a word with that property"
+     },
+     {
+      "text": "who got him pass to see air display?",
+      "at": 8,
+      "meaning": "a friend who got him a pass to an air show is a pal in the aerodrome"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is cryptic: break the answer into PAL + IN + DROME, a mate who wangled him a pass and is now inside the (aero)drome watching the display.",
+     "definitionFit": "Bob is a textbook example of a word spelt the same either way round, which is the defining property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,42 @@
     "text": "On return, continue to see",
     "enumeration": "4"
    },
-   "solution": "PEEK"
+   "solution": "PEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "see",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "On return",
+       "at": 0,
+       "note": "on return means the word for continue is read the other way round, from bottom to top in this down light"
+      }
+     ],
+     "parts": [
+      {
+       "words": "continue",
+       "at": 11,
+       "gives": "KEEP",
+       "note": "to keep on is to continue, so keep means continue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone coming back carries on, so as to look at something.",
+     "definitionFit": "To peek is to take a quick look, so it is a loose synonym for see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +125,31 @@
     "text": "Scot who touched down in the valley?",
     "enumeration": "9"
    },
-   "solution": "LOWLANDER"
+   "solution": "LOWLANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scot",
+      "at": 0,
+      "meaning": "someone from the southern, lowland part of Scotland, as opposed to a Highlander"
+     },
+     {
+      "text": "who touched down in the valley?",
+      "at": 5,
+      "meaning": "one who landed low down, in a valley"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading splits the word into LOW + LANDER, someone who touched down in low ground.",
+     "definitionFit": "A Lowlander is a native of the Scottish Lowlands, the southern and central part of Scotland, so a kind of Scot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +163,56 @@
     "text": "At least eighteen pennies change, to end with",
     "enumeration": "5"
    },
-   "solution": "NINES"
+   "solution": "NINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "At least eighteen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "change",
+       "at": 26,
+       "note": "change tells us to rearrange the remaining letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to end with",
+         "at": 34,
+         "note": "to end with means only the closing letters of pennies are used, dropping its opening pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pennies",
+         "at": 18
+        },
+        {
+         "gives": "PE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sum of at least eighteen pennies is changed into other coins, to finish.",
+     "walkthrough": "'to end with' keeps the last five letters of 'pennies', NNIES, which 'change' rearranges.",
+     "definitionFit": "The plural means two or more nines, and two nines add up to eighteen, the smallest total possible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +232,42 @@
      }
     ]
    },
-   "solution": "RAWDEAL"
+   "solution": "RAWDEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That's not fair",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Unseasoned",
+       "at": 0,
+       "gives": "RAW",
+       "note": "raw means unseasoned, as timber not yet dried or food not yet flavoured"
+      },
+      {
+       "words": "wood",
+       "at": 11,
+       "gives": "DEAL",
+       "note": "deal is pine or fir timber"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter complains that the timber supplied has not been dried properly.",
+     "walkthrough": "DEAL is the British word for softwood planks of pine or fir.",
+     "definitionFit": "Getting unfair or harsh treatment is the idiomatic meaning of the phrase, as in 'that's a raw deal'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +281,31 @@
     "text": "They get embroiled in things",
     "enumeration": "7"
    },
-   "solution": "MATTERS"
+   "solution": "MATTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They get embroiled",
+      "at": 0,
+      "meaning": "read as things that mat, that is become tangled or matted together"
+     },
+     {
+      "text": "things",
+      "at": 22,
+      "meaning": "affairs or subjects, as in 'these things take time'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading treats the word as 'mat-ters', items that mat or tangle up; the second is the everyday sense of affairs.",
+     "definitionFit": "The plural noun means affairs or topics, a straight synonym for things in the general sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "embroiled"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +319,46 @@
     "text": "Almost lower a boat",
     "enumeration": "4"
    },
-   "solution": "SCOW"
+   "solution": "SCOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Almost",
+       "at": 0,
+       "note": "almost means the word is not quite complete, so its final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lower",
+       "at": 7,
+       "gives": "SCOWL",
+       "note": "to lower (or lour) is to frown, so it means scowl"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to bring a boat down nearly all the way.",
+     "walkthrough": "'lower' is not the opposite of raise here but the verb rhyming with 'flower', meaning to frown.",
+     "definitionFit": "A scow is a flat-bottomed boat used for carrying freight, so an example of a boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +372,49 @@
     "text": "Tea imbibed at home with mate",
     "enumeration": "5"
    },
-   "solution": "CHINA"
+   "solution": "CHINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mate",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "imbibed",
+       "at": 4,
+       "note": "imbibed means taken in, so the word for at home is drunk inside the word for tea"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tea",
+       "at": 0,
+       "gives": "CHA",
+       "note": "cha is a slang word for tea"
+      },
+      {
+       "words": "at home",
+       "at": 12,
+       "gives": "IN",
+       "note": "in means at home, as in 'staying in'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having a cup of tea at home with a friend.",
+     "walkthrough": "In Cockney rhyming slang, 'china plate' rhymes with 'mate', so a china is a pal.",
+     "definitionFit": "Cockney rhyming slang shortens 'china plate' to its first word, giving a familiar word for a friend or pal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Tea"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +434,42 @@
      }
     ]
    },
-   "solution": "WELLHEELED"
+   "solution": "WELLHEELED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wealthy",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "How surprising!",
+       "at": 0,
+       "gives": "WELL",
+       "note": "'well!' is an exclamation of surprise"
+      },
+      {
+       "words": "Listed",
+       "at": 16,
+       "gives": "HEELED",
+       "note": "a ship that lists leans to one side, which is also called heeling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is amazed to find a person's name on the rich list.",
+     "walkthrough": "'Listed' looks like 'put on a list' but is the nautical sense of leaning over.",
+     "definitionFit": "The idiom describes someone rich or comfortably off, so it is a synonym for wealthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Listed"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +483,40 @@
     "text": "Man cleaned windows on the inside",
     "enumeration": "5"
    },
-   "solution": "EDWIN"
+   "solution": "EDWIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "on the inside",
+       "at": 20,
+       "note": "on the inside means the letters sit within the words cleaned windows, spanning both"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cleaned windows",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow washed the windows from inside the house.",
+     "definitionFit": "Edwin is a male first name, so the man is an example of someone called by it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +540,30 @@
      }
     ]
    },
-   "solution": "WITHAWILL"
+   "solution": "WITHAWILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cheerfully",
+      "at": 0,
+      "meaning": "doing a job eagerly and with energy"
+     },
+     {
+      "text": "having left one's affairs in order",
+      "at": 12,
+      "meaning": "literally possessing a will, a legal document saying how your estate is to be divided"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for doing something with gusto is read literally as owning a testament.",
+     "definitionFit": "The idiom means energetically and willingly, close to cheerfully; literally it means possessing a testament for one's estate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +577,44 @@
     "text": "Put on trial, as a rule, for speaking out",
     "enumeration": "7"
    },
-   "solution": "ARRAIGN"
+   "solution": "ARRAIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put on trial",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARRAIGN",
+     "indicators": [
+      {
+       "text": "for speaking out",
+       "at": 25,
+       "note": "for speaking out says the words are pronounced, giving a word that sounds the same but is spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a rule",
+       "at": 17,
+       "gives": "AREIGN",
+       "note": "a reign is a period of rule by a monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing a person to court is, generally, a matter of speaking up.",
+     "walkthrough": "'as a rule' looks like the phrase 'usually', but 'as' is a link and 'a rule' is A REIGN.",
+     "definitionFit": "To arraign someone is to bring them before a court to answer a criminal charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +628,69 @@
     "text": "Better half has a purpose for screen: that's plain",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plain",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "for screen",
+         "at": 26,
+         "note": "the word for purpose acts as a screen, enclosing the letters taken from better"
+        }
+       ],
+       "parts": [
+        {
+         "words": "purpose",
+         "at": 18,
+         "gives": "USE",
+         "note": "use means purpose or function, as in 'what's the use?'"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 7,
+           "note": "half points to three of the six letters of better, here its back half"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Better",
+           "at": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife is said to need a screen for some reason, and that is plain to see.",
+     "walkthrough": "'Better half' looks like a spouse, but it means half the letters of 'better'; 'has' is only a link.",
+     "definitionFit": "Austere means severely simple and without decoration, so it is a synonym for plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +704,45 @@
     "text": "Removing head, open up fish",
     "enumeration": "5"
    },
-   "solution": "ROACH"
+   "solution": "ROACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Removing head",
+       "at": 0,
+       "note": "removing head means the opening letter of the word is taken off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "open up",
+       "at": 15,
+       "gives": "BROACH",
+       "note": "to broach a cask or a subject is to open it up"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for gutting a fish: cut the head off and slit it open.",
+     "definitionFit": "The roach is a freshwater fish of the carp family, so an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +762,29 @@
      }
     ]
    },
-   "solution": "WRAPPINGUP"
+   "solution": "WRAPPINGUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keeping quiet",
+      "at": 0,
+      "meaning": "'wrap up!' is British slang for 'be quiet!'"
+     },
+     {
+      "text": "clinching a deal",
+      "at": 20,
+      "meaning": "bringing a negotiation to a successful close, finishing it off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wrap up' as an order to shut up is British slang.",
+     "definitionFit": "The phrasal verb means both concluding a business agreement and, in British slang, shutting up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +798,59 @@
     "text": "Cardinal point missing, requiring change that's fundamental",
     "enumeration": "7"
    },
-   "solution": "RADICAL"
+   "solution": "RADICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fundamental",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "requiring change",
+       "at": 24,
+       "note": "requiring change says the remaining letters must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 15,
+         "note": "missing means the compass letter is left out of the word cardinal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cardinal",
+         "at": 0
+        },
+        {
+         "words": "point",
+         "at": 9,
+         "gives": "N",
+         "note": "N is north, one of the cardinal points of the compass"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cardinal compass point is gone, so the change needed is a radical one.",
+     "walkthrough": "'missing' drops the N from CARDINAL to give CARDIAL, and 'requiring change' rearranges it.",
+     "definitionFit": "A radical change goes to the root of things, so radical is a synonym for fundamental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +864,51 @@
     "text": "Who made us react strangely, in other words",
     "enumeration": "7"
    },
-   "solution": "CREATOR"
+   "solution": "CREATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who made us",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strangely",
+         "at": 18,
+         "note": "strangely means the letters of react are set in an odd new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "react",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "in other words",
+       "at": 29,
+       "gives": "OR",
+       "note": "or introduces an alternative phrasing, meaning 'in other words'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how our maker might respond oddly, put another way.",
+     "definitionFit": "The Creator is God, the being believed to have made humankind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "react"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +922,47 @@
     "text": "After second drink, produce work that's spotty",
     "enumeration": "7"
    },
-   "solution": "STIPPLE"
+   "solution": "STIPPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "produce work that's spotty",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "After",
+       "at": 0,
+       "note": "after means the drink comes following the abbreviation for second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 6,
+       "gives": "S"
+      },
+      {
+       "words": "drink",
+       "at": 13,
+       "gives": "TIPPLE",
+       "note": "a tipple is an alcoholic drink, and to tipple is to drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having a second drink, someone turns out sloppy work.",
+     "definitionFit": "To stipple is to paint or draw using small dots, producing a speckled or dotted effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spotty"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +976,42 @@
     "text": "Small audience watching 'Home For the Homeless'",
     "enumeration": "9"
    },
-   "solution": "POORHOUSE"
+   "solution": "POORHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Home For the Homeless",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "POOR",
+       "note": "a small turnout is described as poor"
+      },
+      {
+       "words": "audience",
+       "at": 6,
+       "gives": "HOUSE",
+       "note": "a house is the audience in a theatre, as in 'a full house'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Few people turn up to watch a play or programme called 'Home For the Homeless'.",
+     "walkthrough": "The surface pretends 'Home For the Homeless' is a show title in quotes.",
+     "definitionFit": "A poorhouse was an institution where paupers with nowhere else to live were housed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1025,34 @@
     "text": "Nobody rich in France",
     "enumeration": "7"
    },
-   "solution": "PARVENU"
+   "solution": "PARVENU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nobody rich in France",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Nobody rich in France",
+       "at": 0,
+       "note": "a French-derived word for a nobody who has suddenly become rich, an upstart"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The word is French (literally 'arrived'), which is what 'in France' points to.",
+     "definitionFit": "The word, from French, describes a person of humble origins who has newly gained wealth, an upstart or nobody made rich."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nobody"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1066,58 @@
     "text": "Very Scottish — South not so boorish",
     "enumeration": "7"
    },
-   "solution": "UNCOUTH"
+   "solution": "UNCOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boorish",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very Scottish",
+       "at": 0,
+       "gives": "UNCO",
+       "note": "unco is a Scottish word meaning very"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 22,
+         "note": "not means the letters of so are taken away from the word south"
+        }
+       ],
+       "parts": [
+        {
+         "words": "South",
+         "at": 16
+        },
+        {
+         "words": "so",
+         "at": 26,
+         "gives": "SO",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot remarks that people in the south are not very rough.",
+     "walkthrough": "'not so' removes the letters S and O from SOUTH, leaving UTH.",
+     "definitionFit": "Uncouth means lacking good manners or refinement, a synonym of boorish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1131,40 @@
     "text": "Forgive cheat that's cheated",
     "enumeration": "7"
    },
-   "solution": "CONDONE"
+   "solution": "CONDONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forgive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cheat",
+       "at": 8,
+       "gives": "CON",
+       "note": "to con someone is to cheat them"
+      },
+      {
+       "words": "cheated",
+       "at": 21,
+       "gives": "DONE",
+       "note": "to be done is to be cheated, as in 'I've been done'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to pardon a swindler who has been swindled in turn.",
+     "definitionFit": "To condone a wrong is to overlook or pardon it, a near synonym for forgive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1184,30 @@
      }
     ]
    },
-   "solution": "CATCHON"
+   "solution": "CATCHON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understand",
+      "at": 0,
+      "meaning": "to grasp an idea, to twig"
+     },
+     {
+      "text": "the safe way to carry firearm",
+      "at": 11,
+      "meaning": "with the safety catch engaged, so the weapon cannot fire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading takes the words literally: a gun is safest with its safety catch on.",
+     "definitionFit": "The phrasal verb means to grasp or twig something; read literally, it describes a gun with its safety engaged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1221,61 @@
     "text": "Sending back, write within 'Article unskilled'",
     "enumeration": "5"
    },
-   "solution": "INEPT"
+   "solution": "INEPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unskilled",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 20,
+       "note": "within means the reversed word for write sits inside the word for article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Article",
+       "at": 28,
+       "gives": "IT",
+       "note": "it is a pronoun standing for an unspecified article or thing"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Sending back",
+         "at": 0,
+         "note": "sending back means the word for write is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "write",
+         "at": 14,
+         "gives": "PEN",
+         "note": "to pen a letter is to write it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy article is being returned, written up as no good.",
+     "walkthrough": "'Article' is not 'a' or 'the' here but an object, which the pronoun IT stands for.",
+     "definitionFit": "Inept means lacking skill or competence, a direct synonym of unskilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1289,53 @@
     "text": "From painting, stands to make more",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "From",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex is Latin for from, as in 'ex works'"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "stands",
+         "at": 15,
+         "note": "stands means the word for painting is set upright, read upwards in this down light"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painting",
+         "at": 5,
+         "gives": "ART",
+         "note": "painting is an example of art"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes stands away from a painting exhibition to make more room.",
+     "definitionFit": "Extra means additional, so it is a synonym of more as in 'a little more'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stands"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1349,35 @@
     "text": "Mermaid's pet?",
     "enumeration": "7"
    },
-   "solution": "CATFISH"
+   "solution": "CATFISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mermaid's pet?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mermaid's pet?",
+       "at": 0,
+       "note": "a mermaid, living underwater, would keep a sea creature as a pet in place of a cat"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A land-dweller keeps a cat; a mermaid's cat would be a fish version of it.",
+     "definitionFit": "It is a real fish with whisker-like barbels; the clue jokingly imagines it as an undersea household pet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1391,54 @@
     "text": "Family is sure right away",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 21,
+         "note": "away means the letter for right is taken out of the word sure"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sure",
+         "at": 10
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative is certain straight off.",
+     "walkthrough": "'right away' looks like 'immediately' but splits into R and a deletion signal.",
+     "definitionFit": "Issue is a legal and formal word for offspring or descendants, so one's children or family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1452,45 @@
     "text": "Sees what put an end to Pompeii, so to speak",
     "enumeration": "4"
    },
-   "solution": "EYES"
+   "solution": "EYES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sees",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYES",
+     "indicators": [
+      {
+       "text": "so to speak",
+       "at": 33,
+       "note": "so to speak says the letters are spoken out, giving a word that is pronounced the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what put an end to Pompeii",
+       "at": 5,
+       "gives": "IS",
+       "note": "the last two letters of the name Pompeii are two Is, or I's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is curious about what destroyed the Roman town of Pompeii.",
+     "walkthrough": "'put an end to Pompeii' looks like Vesuvius, but it is the two I's at the end of the name.",
+     "definitionFit": "To eye something is to look at it, so the verb form is a synonym of sees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1510,29 @@
      }
     ]
    },
-   "solution": "GOTHROUGH"
+   "solution": "GOTHROUGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Experience",
+      "at": 0,
+      "meaning": "to undergo or endure something, as in 'what she had to suffer'"
+     },
+     {
+      "text": "as you look at each in turn",
+      "at": 12,
+      "meaning": "examining items one by one, as in checking papers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two senses of one phrasal verb: undergoing an ordeal and working through a pile of things.",
+     "definitionFit": "The phrasal verb means both enduring something and examining a set of items one after another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1546,29 @@
     "text": "Painting a room",
     "enumeration": "5"
    },
-   "solution": "STUDY"
+   "solution": "STUDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0,
+      "meaning": "a preliminary sketch or picture made as practice for a larger work"
+     },
+     {
+      "text": "room",
+      "at": 11,
+      "meaning": "a room in a house used for reading and writing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two unrelated nouns: an artist's practice piece and a room for work.",
+     "definitionFit": "An artist's sketch for a larger work and a home's book-lined workroom both take this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +1582,48 @@
     "text": "I vetoed unattractive design",
     "enumeration": "4"
    },
-   "solution": "PLAN"
+   "solution": "PLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "design",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "vetoed",
+       "at": 2,
+       "note": "vetoed means the letter I is rejected and thrown out of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unattractive",
+       "at": 9,
+       "gives": "PLAIN",
+       "note": "plain means unattractive, as of a person's looks"
+      },
+      {
+       "words": "I",
+       "at": 0,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refused an ugly proposal.",
+     "walkthrough": "'I vetoed' looks like the speaker objecting; instead the letter I is barred from PLAIN.",
+     "definitionFit": "A plan is a scheme or drawing for how something is to be made, synonymous with design."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vetoed"
+    }
+   }
   },
   {
    "number": 30,
@@ -509,7 +1637,43 @@
     "text": "Always the same — lacking the means for a tip",
     "enumeration": "10"
    },
-   "solution": "CHANGELESS"
+   "solution": "CHANGELESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Always the same",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the means for a tip",
+       "at": 26,
+       "gives": "CHANGE",
+       "note": "loose coins are what you use to tip a waiter"
+      },
+      {
+       "words": "lacking",
+       "at": 18,
+       "gives": "LESS",
+       "note": "less means without, as in 'penniless'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner lacks small coins for a gratuity, the same old story.",
+     "walkthrough": "Split the word as CHANGE-LESS: having no coins to tip with.",
+     "definitionFit": "Something that never alters is unvarying, constant, forever unaltered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   }
  ]
 }
