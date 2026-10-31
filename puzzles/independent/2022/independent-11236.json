@@ -740,67 +740,71 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
        "text": "featuring",
        "at": 55,
-       "note": "featuring here means the car shows up alongside the reversed words, joining the pieces together"
+       "note": "featuring means including, so the assembled letters take the car inside"
       }
      ],
      "parts": [
       {
-       "words": "marketing",
-       "at": 12,
-       "gives": "AD",
-       "note": "an ad is a piece of marketing"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "marketing",
+         "at": 12,
+         "gives": "AD",
+         "note": "an ad is a piece of marketing"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "sent back",
+           "at": 22,
+           "note": "sent back means the pair of words is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "rubbish",
+             "at": 32,
+             "gives": "ROT",
+             "note": "rot is rubbish, nonsense"
+            },
+            {
+             "words": "creative works",
+             "at": 40,
+             "gives": "ARTS",
+             "note": "the arts are creative works"
+            }
+           ]
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "car",
        "at": 65,
        "gives": "MINI",
        "note": "the Mini is a classic British car"
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "sent back",
-         "at": 22,
-         "note": "sent back means the words for rubbish and creative works are read in reverse order"
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "rubbish",
-           "at": 32,
-           "gives": "ROT",
-           "note": "rot means nonsense, rubbish"
-          },
-          {
-           "words": "creative works",
-           "at": 40,
-           "gives": "ARTS",
-           "note": "the arts are creative works"
-          }
-         ]
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A marketing director dismisses some creative work about a car as rubbish.",
-     "walkthrough": "'Director of marketing' looks like one job title, but 'of' is only a link and the definition is 'Director' alone.",
-     "definitionFit": "An administrator is a person who manages or runs an organisation, so a director in the managerial sense."
+     "surface": "A marketing boss returns poor artwork showing a car.",
+     "definitionFit": "A director is a manager running an organisation, as is this official."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sent"
+     "misdirectedWord": "Director"
     }
    }
   },
