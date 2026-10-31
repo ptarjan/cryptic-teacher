@@ -1270,7 +1270,8 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         # Three columns under the grid, the last overhanging it (over_gutters()), or four (under_quarters()):
         # the gutters, then the last column's right edge.
         edges = [gx0 - margin] + list(split)
-        return [(a, b, b, gy1 - 5) for a, b in zip(edges, edges[1:])]
+        tops = getattr(split, "tops", None) or [gy1 - 5] * len(split)
+        return [(a, b, b, top) for (a, b), top in zip(zip(edges, edges[1:]), tops)]
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if lead:
@@ -1774,6 +1775,36 @@ def under_quarters(lines, grid):
     bottom = gy1 + 1.8 * width
     return tuple(gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 + lo * width, gx0 + hi * width)
                  for lo, hi in QUARTER_SPANS) + (gx1 + 15,)
+
+
+#: The Gale Times days (inclusive) whose page ends soon under the grid (right_columns' room) because the print
+#: sets its clue lists in four columns round the grid's foot: ACROSS from the first column under the grid on
+#: through the second, then on in two columns right of the grid (their top by the grid's), DOWN after it. Failure
+#: shapes r40, 10-31: 58 pages of 1939-12 and 1940 (mostly 1940-01..04) stood refused "no reading parses" with no
+#: VLM ask, every reader's window under the grid holding a few lines (1940-03-13: "ACROSS 1 My friend hatted
+#: looks wan (6). 10 Elevate (7)." and the page's foot) and the other three columns right of the grid never read:
+#: clues_may_be_right is False for a Gale page before 2014. Tried as an alternative window ("rightwide",
+#: _read_window's alt, first of them) once the layout's window is poor, so a page that files is untouched.
+RIGHT_WIDE_DAYS = ("1939-12-01", "1940-12-31")
+
+
+class Beside(tuple):
+    """The gutters of clue columns that do not all start at the grid's foot (beside_split): `tops` are the
+    columns' tops, one each. windows_of cuts the windows from it, and a plain tuple of gutters is the
+    columns under the grid."""
+    tops = ()
+
+
+def beside_split(lines, grid, right):
+    """(first, second, third gutter, right edge) of the four clue columns of a RIGHT_WIDE_DAYS page, a Beside:
+    the two under the grid (the gutter where the fewest words of `lines` cross, near the grid's middle) and the
+    two right of it, `right` (right_columns') ending at x1 with their own gutter (right_gutter's)."""
+    gx0, gy0, gx1, gy1 = grid
+    x1, bottom = right
+    lo, hi = gx1 + RIGHT_GUTTER[0] * (x1 - gx1), gx1 + RIGHT_GUTTER[1] * (x1 - gx1)
+    out = Beside((under_gutter(lines, grid), gx1 + 5, gutter(lines, (lo, bottom, hi, bottom), gy0 - RIGHT_RISE, lo, hi), x1))
+    out.tops = (gy1 - 5, gy1 - 5, gy0 - RIGHT_RISE, gy0 - RIGHT_RISE)
+    return out
 
 
 def under_gutter(lines, grid, shares=None):
@@ -9195,7 +9226,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     window edge of that kind ("lead": a lead column's left edge; "right": the
     right clue columns' far edge; "over": the third column's; "under": the
     gutter between the two columns under the grid) to x, ("quarters", None)
-    cuts the four columns under a 1936-40 grid at their gutters (under_quarters), or ("plain", None)
+    cuts the four columns under a 1936-40 grid at their gutters (under_quarters), ("rightwide", None)
+    reads the two under a RIGHT_WIDE_DAYS grid with the two right of it (beside_split), or ("plain", None)
     reads the layout without right or overhanging columns; `alts` (a list)
     is filled with the other windows near the one used, for read_page to
     try."""
@@ -9302,6 +9334,18 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         else (None, None)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
+    # A 1939-12 to 1940 Gale Times page that ends soon under its grid: the clue lists run on in two columns right
+    # of it (RIGHT_WIDE_DAYS), a window of its own, tried first once the layout's is poor.
+    wide = right_columns(img, gbox) if paper.key == "gale" and RIGHT_WIDE_DAYS[0] <= d.name[:10] <= RIGHT_WIDE_DAYS[1] \
+        and side == "below" and top is None and not column and not right and not paper.four and not third \
+        and kind in (None, "rightwide") else None
+    if wide:
+        wide = (wide[0], img.height)
+        if kind == "rightwide":
+            over = None
+        elif alts is not None:
+            alts.insert(0, ("rightwide", None))
+    wide_read = bool(wide) and kind == "rightwide"
     # The 2005 Times: the same, the grid left of its title (side "left").
     if side == "left" and paper.key in ("times", "gale") and not paper.four and not third:
         right = right_columns(img, gbox, RIGHT_SPAN_LEFT) if kind != "plain" else None
@@ -9314,6 +9358,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                                                    if paper.key == "gale" and d.name[:4] < "1968" else None)) \
         if side == "below" and top is None and not column and not right \
         and not over and not paper.four else None
+    if wide_read:
+        lead = None
     if lead:
         lead = trimmed_lead(img, gbox, lead)
         if kind == "lead":
@@ -9330,8 +9376,12 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         ybox = (gbox[0], gbox[3], over + 300, gbox[3] + int(OVER_DEPTH[1] * gw))
         alts.extend(("over", x) for x in far_edges(img, ybox, over))
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json",
-                                (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
-                                crop, lead, x0, right) for which in READERS}
+                                # The window of a RIGHT_WIDE_DAYS page: the crop from the grid's top (the clue columns
+                                # right of it) to the page's foot, the grid blanked (rapid_lines' lead).
+                                (wide[0] - gbox[2] - 15, gbox[1] - RIGHT_RISE) if wide_read
+                                else (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
+                                crop, (gbox[0] - m, gbox[1] - RIGHT_RISE) if wide_read else lead, x0, right)
+             for which in READERS}
     if right:
         was = right
         right, rapid = right_foreign(rapid, gbox, right)
@@ -9395,7 +9445,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
              under_gutter(every, gbox, UNDER_FIFTIES if paper.key == "gale" and "1950" <= d.name[:4] <= "1959" else None)) \
             if above is None and left is None and not right else None
         quartered = paper.key == "gale" and QUARTER_ALT_YEARS[0] <= d.name[:4] <= QUARTER_ALT_YEARS[1] \
-            and above is None and left is None and not right and not over
+            and above is None and left is None and not right and not over and not wide
+        if wide_read:
+            split = beside_split(every, gbox, wide)
         if split is not None and not over and not isinstance(split, tuple):
             if kind == "quarters" and quartered:
                 split = under_quarters(every, gbox)
@@ -12210,6 +12262,30 @@ def quarter_read_due(row):
         elif not v.get("id") or not isinstance(v.get("blank"), dict) \
                 or not any("no reading laid a clue" in str(w) for w in v["blank"].values()) \
                 or (not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists()):
+            continue
+        if not (filed_state("times", v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a 1939-12 to 1940 Gale Times page (RIGHT_WIDE_DAYS) refused "no reading
+#: parses": it ends soon under the grid and the clue lists run on in two columns right of it (a window the reader
+#: took for adverts before 2014), so the columns under the grid held a few lines and no reading had both lists.
+#: The "rightwide" window (_read_window's alt) reads the four columns. Failure shapes r40, 10-31: 58 such pages,
+#: none with a VLM ask. Once each.
+RIGHT_WIDE = "refused before its fix, the clue columns right of the grid read"
+REREAD_RIGHT_WIDE = "2026-10-31T10:30:00+00:00"
+
+
+def right_wide_due(row):
+    """Whether Gale Times ledger `row` (a RIGHT_WIDE_DAYS page), read before REREAD_RIGHT_WIDE, holds a verdict
+    refused "no reading parses", its puzzle not since held with every clue."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "gale" or not RIGHT_WIDE_DAYS[0] <= Path(rel).name[:10] <= RIGHT_WIDE_DAYS[1] \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_RIGHT_WIDE)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("skip") or v.get("number") is None or not v.get("refused") or v.get("cause") != "no-reading-parses":
             continue
         if not (filed_state("times", v.get("number")) or (False, False))[1]:
             return True
@@ -16330,6 +16406,8 @@ def fix_reason(row):
     # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
     if see_run_lost(row):
         return SEE_RUNS_ON
+    if right_wide_due(row):
+        return RIGHT_WIDE
     if quarter_read_due(row):
         return QUARTER_READ
     if tail_read_due(row):
@@ -16932,7 +17010,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-31 r38: a Gale Times page whose readings stopped at a clue tail mid-list (tail_read_due).
                   TAIL_READ,
                   # 10-31 r39: a 1936-40 Gale Times page unfiled for lights no reading laid, its four columns read (quarter_read_due).
-                  QUARTER_READ)
+                  QUARTER_READ,
+                  # 10-31 r40: a 1939-12 to 1940 Gale Times page refused no reading parses, the columns right of its grid read (right_wide_due).
+                  RIGHT_WIDE)
 
 
 def refusal_passes(why):
@@ -17173,7 +17253,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
@@ -17505,7 +17585,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
                                       SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ, STRAY_LINK_READ,
-                                      TAIL_READ, QUARTER_READ) else {}),
+                                      TAIL_READ, QUARTER_READ, RIGHT_WIDE) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
