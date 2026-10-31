@@ -5698,8 +5698,11 @@ global.realSetTimeout(() => {
     // pairs question draws its options in the panel, a tap-in-the-clue question
     // draws none there, so the question's own size may fall across a switch. What
     // must not shrink is everything settled above it (verdicts, rungs), and the
-    // question always goes last in the body.
-    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "");
+    // question always goes last in the body. Text, not markup: the switch moves
+    // the hint-focus wrapper from the verdict to the new question and drops the
+    // verdict's "fresh" class, ~33 characters of tags with nothing taken away
+    // (run 41158582032).
+    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "").replace(/<[^>]*>/g, "");
     const grew = settled(before2).length;
     other.onclick();
     const after2 = registry["hint-body"].innerHTML;
