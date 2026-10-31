@@ -3788,6 +3788,26 @@ def _does_not_give_edits(node, k, clue=None):
         new, t = fresh()
         t["gives"] = t["gives"] + "S"
         out.append(new)
+    if leaf(n) and str(n.get("gives") or "").isalpha() and len(n["gives"]) > 3 and n["gives"].upper().endswith("S") \
+            and not re.search(r"['’]s$", str(n.get("words") or "")):
+        # a plural S the answer does not have at a join (YARDS + SHIFT for GRAVEYARDSHIFT, OVERS + SEE for
+        # OVERSEE): the leaf's trailing S cut; evaluate() keeps it only when no other edit gives the answer
+        new, t = fresh()
+        t["gives"] = t["gives"][:-1]
+        out.append(new)
+    if n.get("op") == "charade" and len(parts) >= 2:
+        # a piece the answer does not need ([dense]D after LARD in DULLARD: the definition word filed as a
+        # leaf): a plain leaf cut, its clue word left to the definition or as a link word
+        for i, p in enumerate(parts):
+            if "op" in p or not p.get("words") or (k == 0 and len(parts) == 2 and "op" not in parts[1 - i]):
+                continue
+            new, t = fresh()
+            del t["parts"][i]
+            if len(t["parts"]) == 1:
+                only = t["parts"][0]
+                t.clear()
+                t.update(only)
+            out.append(new)
     return [_flat_charades(new) for new in out]
 
 

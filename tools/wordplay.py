@@ -1472,6 +1472,7 @@ def diagnose(node, want):
     ls = lengths(node)
     hint = _container_reversed_hint(node, want) or _charade_container_hint(node, want) or _repeat_count_hint(node, want) or _hidden_looked_up_hint(node, want)
     hint = hint or _surplus_piece_hint(node, want) or _leaf_trim_hint(node, want)
+    hint = hint or _container_inner_hint(node, want) or _partial_reversal_hint(node, want)
     if hint:
         return hint
     if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
@@ -1602,6 +1603,53 @@ def _leaf_trim_hint(node, want, choice=False):
     opts = " or ".join(render({**n, "gives": short}) for n, short, _ in found)
     return (f"{render(node)} gives {_gives(node)}; the answer needs {want} here. One leaf is a letter too long: "
             f"write {opts}, whichever is what its clue word means (if neither is, another piece is wrong)")
+
+
+def _container_inner_hint(node, want):
+    """ins(SCARCE, F) for SCARFACE: the outer piece is right, the answer is that piece with a run of letters
+    dropped in (SCAR + FA + CE), and the inner piece gives other letters or a different count. Names the run the
+    answer needs inside, so the model re-reads the inner clue words for it and not the whole parse. Quiet when the
+    outer gives several strings, no position fits, or more than three runs do."""
+    parts = parts_of(node)
+    if node.get("op") != "container" or len(parts) != 2 or _scatters(node):
+        return None
+    outer, inner = parts
+    try:
+        outs = values(outer)
+    except (WordplayError, _NeedTarget):
+        return None
+    if len(outs) != 1:
+        return None
+    o = next(iter(outs))
+    need = len(want) - len(o)
+    if need < 1 or len(o) < 2:
+        return None
+    runs = {want[i:i + need]: i for i in range(1, len(o)) if want[:i] == o[:i] and want[i + need:] == o[i:]}
+    if not runs or len(runs) > 3:
+        return None
+    return (f"{render(node)} gives {_gives(node)}; with {render(outer)} outside, the answer {want} needs "
+            f"{' or '.join(runs)} inside it, but {render(inner)} gives {_gives(inner)}: write the inner piece "
+            f"so it gives {' or '.join(runs)} (re-read its clue words), or another piece is wrong")
+
+
+def _partial_reversal_hint(node, want):
+    """rev(FELT) for LEFT: the answer is the leaf with only a stretch of it turned round (FEL to LEF), which rev()
+    cannot say (it turns the whole leaf); sub<indicator>(leaf, FEL, LEF) can. Named only when the leaf is a plain
+    lettered leaf and one stretch of two or more letters, turned, makes `want`."""
+    parts = parts_of(node)
+    if node.get("op") != "reversal" or len(parts) != 1 or "op" in parts[0]:
+        return None
+    x = leaf_letters(parts[0])
+    if len(x) != len(want) or x == want or x[::-1] == want:
+        return None
+    lo = next(i for i in range(len(x)) if x[i] != want[i])
+    hi = max(i for i in range(len(x)) if x[i] != want[i])
+    if hi <= lo or x[lo:hi + 1][::-1] != want[lo:hi + 1]:
+        return None
+    seg = x[lo:hi + 1]
+    ind = " ".join(i.get("text", "") for i in node.get("indicators") or []) or "indicator"
+    return (f"rev() turns the whole of {render(parts[0])}, but {want} is {x} with only {seg} turned round: write "
+            f"sub<{ind}>({render(parts[0])}, {seg}, {seg[::-1]}), keeping the clue words for the turning as the indicator")
 
 
 def _container_reversed_hint(node, want):
