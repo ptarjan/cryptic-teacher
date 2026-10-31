@@ -2542,7 +2542,7 @@ def parse_text(text, ones=True):
         return None, "no ACROSS and DOWN lists under the grid"
     parsed = {}
     for direction, t in secs.items():
-        parsed[direction], why = ftp.clues(t, see=ones)
+        parsed[direction], why = ftp.clues(t, see=ones, tails=ones)
         if why:
             return None, f"{direction} clues do not parse: {why}"
     return clue_repair.split_run_on(parsed)[0], None
@@ -2550,8 +2550,10 @@ def parse_text(text, ones=True):
 
 def reads_mended(text):
     """Whether column text `text` parses otherwise mended than as read (parse's `ones`): its tidied text
-    moves (a count's i for 1) or it holds a See clue its words run on from (ftp.SEE_RUN_TEXT)."""
-    return tidy(text) != tidy(text, ones=False) or bool(ftp.SEE_RUN_TEXT.search(text))
+    moves (a count's i for 1), it holds a See clue its words run on from (ftp.SEE_RUN_TEXT), or it does
+    not parse as read and does mended (a clue tail mid-list, ftp.lost_opening's `spaced`: TAIL_READ)."""
+    return tidy(text) != tidy(text, ones=False) or bool(ftp.SEE_RUN_TEXT.search(text)) \
+        or (parse(text, ones=False)[0] is None and parse(text)[0] is not None)
 
 
 def led_list(text, others, g, ones=False):
@@ -12124,6 +12126,45 @@ def stray_link_due(row):
     return False
 
 
+#: The reason, and its fix's time, of a Gale Times page (1936-40 above all) whose every reading stopped parsing
+#: at a clue tail after another clue ("cannot find a clue number at: ' paniment (7) 19 Half changed"): the print
+#: sets four narrow clue columns under the grid, read as two, so a column's wrapped tail follows another clue
+#: mid-list. ftp.lost_opening read a tail only at a list's start (the space the clue before it leaves stopped it
+#: matching), so no OCR reading parsed (10-31 census of the Gale ledger: 1,018 readings of 854 pages of 1936-40 stopped
+#: so, about 60% of those pages),
+#: the VLM was asked every column ("fallback:no-reading-parses", 178 of 300 recent asks, 5 a page), and the page
+#: filed blank-lit from the VLM alone or not at all. Now the mended parse (ftp.clues' `tails`) reads the tail as a
+#: number-less clue, so the OCR readers parse and the VLM is asked only for the lights left weak. Failure shapes
+#: r38. Its own reason, not "unfiled before its fix" (CANARY_FAILED holds that one for the Times). Once each.
+TAIL_READ = "unfiled before its fix, a clue tail mid-list read"
+REREAD_TAIL_READ = "2026-10-31T07:30:00+00:00"
+#: An unparsed message that stopped on a lower-case tail after a space (the repr of text[pos:pos + 40]).
+TAIL_UNPARSED = re.compile(r"cannot find a clue number at: ['\"] +[a-z]")
+
+
+def tail_read_due(row):
+    """Whether Gale Times ledger `row`, read before REREAD_TAIL_READ, holds a verdict whose reading stopped parsing
+    at a clue tail after a space (TAIL_UNPARSED), refused "no reading parses" or written unfiled with a blank (an
+    "unfiled" count or its id's copy in CROPS/unfiled), its puzzle not since held with every clue."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key not in ("gale", "times") \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_TAIL_READ)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("skip") or v.get("number") is None or not isinstance(v.get("unparsed"), dict) \
+                or not any(TAIL_UNPARSED.search(str(w)) for w in v["unparsed"].values()):
+            continue
+        if v.get("refused"):
+            if v.get("cause") != "no-reading-parses":
+                continue
+        elif not v.get("id") or not isinstance(v.get("blank"), dict) or not v["blank"] \
+                or (not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists()):
+            continue
+        if not (filed_state("times", v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
 #: The reason, and its fix's time, of a Times page (Gale or News UK) whose write the gate refused over a
 #: clue's punctuation (puzzle_integrity's "(punctuation.faults)") that punctuation.mended now mends clean:
 #: a comma read with a speck beside it (";," ",:" after a word: "an odd cove;, quietly") is the comma, and
@@ -16238,6 +16279,8 @@ def fix_reason(row):
     # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
     if see_run_lost(row):
         return SEE_RUNS_ON
+    if tail_read_due(row):
+        return TAIL_READ
     for v in row.get("verdicts", ()):
         t = REREAD_REFUSED.get(v.get("cause"))
         if t and scan_queue.read_before(row, scan_queue.when(t)):
@@ -16832,7 +16875,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-29 r29: a write refused as a copy of an unsolved, unannotated book file (book_yields_due).
                   BOOK_YIELDS,
                   # 10-29 r30: an untitled 1935-39 page its footer and solution heading title (footer_rescan).
-                  FOOTER_TITLE)
+                  FOOTER_TITLE,
+                  # 10-31 r38: a Gale Times page whose readings stopped at a clue tail mid-list (tail_read_due).
+                  TAIL_READ)
 
 
 def refusal_passes(why):
@@ -17073,7 +17118,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
-         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
+         "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
@@ -17404,7 +17449,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                       if reads[d] in ("unfiled before its fix", UNFILED_MODERN, DASH_JOINED, OLD_FORM, LETTER_SPACED, NAME_CLUSTER, DERIVED_FORM,
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
-                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ, STRAY_LINK_READ) else {}),
+                                      SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ, STRAY_LINK_READ,
+                                      TAIL_READ) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

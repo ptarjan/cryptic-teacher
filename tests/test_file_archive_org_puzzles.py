@@ -3724,6 +3724,19 @@ check("a See N run on only by a joining word then more words to a count, not a n
       [False, False, True],
       [ftp.see_runs_on(r, re.match(r"See \d+", r))
        for r in ("See 3 territory (5).", "See 5 purple damask (4).", "See 3 in the territory (5).")])
+# Gale Times 1936-40 (r38, 1937-12-30): four clue columns read as two put a clue's second line in the row of the
+# other column's next clue ("15 Counsel (4). paniment (7). 19 Half changed"); a count closed by a stop leaves the
+# space before the tail, which lost_opening did not skip: no reading parsed, the VLM read every column.
+_tail_s = "15 Counsel (4). paniment (7). 19 Half changed yet unchanged (4). 20 They should be (9)."
+check("a clue tail after a count and a stop parses only mended (tails): as read the list stops at it",
+      [True, [({15}, "Counsel"), (set(), "paniment"), ({19}, "Half changed yet unchanged"), ({20}, "They should be")]],
+      [ftp.clues(_tail_s)[0] is None,
+       [(c["tokens"][0], c["text"]) for c in ftp.clues(_tail_s, tails=True)[0]]])
+_tail_t = "ACROSS\n" + _tail_s.replace(" 19", "\n19") + "\nDOWN\n1 Old instrument (6).\n2 The stuff (9)."
+check("the column text with such a tail reads mended, not as read; a plain list does not",
+      [True, True, True, False],
+      [f.parse(_tail_t, ones=False)[0] is None, f.parse(_tail_t)[0] is not None, f.reads_mended(_tail_t),
+       f.reads_mended("ACROSS\n1 Fish (4)\nDOWN\n2 Toast (4)")])
 # 1940-41 Gale Times grids scanned at twice the others' size (crops 1,040-1,340px): trove_grid finds too few
 # white cells at full size; scaled_grid reads the crop shrunk to GRID_WIDTHS, never a crop that reads as is.
 _sg_dir = Path(tempfile.mkdtemp())

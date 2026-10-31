@@ -484,13 +484,23 @@ def list_start(text, start):
 LOST_OPENING = 60
 
 
-def lost_opening(text, pos, start):
+def lost_opening(text, pos, start, spaced=False):
     """(clue, end) for the clue tail at `pos` (lower case words, then its count, then the
     next clue's number or the list's end), or None: a clue whose number and first line the
     OCR dropped ("way (3, 2)" for "1 Nominate a candidate, any way (3, 2)"). It takes the
     place of its light with no number (the "#" of list_start) and the words it has, so the
     other clues of the reading stand; its lower case opening has the vote call it
-    "starts mid-clue", never filed as it is."""
+    "starts mid-clue", never filed as it is.
+
+    `spaced` (the list mended, clues' `tails`): a tail after the space the clue before it left, mid-list
+    ("15 Counsel (4). paniment (7). 19 Half changed", Gale 1937-12-30: the 1936-40 Times prints four clue
+    columns, read as two, so a clue's second line sits in the row of the other column's next clue). A
+    count closed by a stop ("(4).") leaves the space before the tail (BRACKET takes only the space before
+    the stop), and lost_opening wanted the tail at `pos`: every such page stopped "cannot find a clue
+    number at: ' paniment (7) 19 Half changed yct 29Hcr '" (1,018 readings of 854 Gale 1936-40 pages,
+    10-31 census)."""
+    if spaced:
+        pos += len(text[pos:]) - len(text[pos:].lstrip())
     if not re.match(r"[a-z]", text[pos:pos + 1]):
         return None
     for e in BRACKET.finditer(text, pos, pos + LOST_OPENING + 14):
@@ -530,7 +540,7 @@ def see_runs_on(rest, tail):
     return bool(SEE_RUN_ON.match(rest, tail.end()))
 
 
-def clues(text, see=True):
+def clues(text, see=True, tails=False):
     """The clues of one list in printed order: [{"tokens": [number readings
     of each light it names], "text", "enums": {readings}, "see": n}].
 
@@ -538,7 +548,8 @@ def clues(text, see=True):
     previous clue's enumeration; its text runs to its own enumeration. A
     "See N" continuation carries no enumeration and ends where the next
     number starts; one its words run on from is the clue's own text
-    (see_runs_on), but with `see` False (the list as read: the vote's ranking)."""
+    (see_runs_on), but with `see` False (the list as read: the vote's ranking). `tails` True reads a clue
+    tail after a clue mid-list (lost_opening's `spaced`): a mend, as `see`, the archive.org reader's."""
     start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
                        re.IGNORECASE)
     text = clue_text.mend_between_clues(text)
@@ -560,7 +571,7 @@ def clues(text, see=True):
     while pos < len(text):
         m = start.match(text, pos)
         if not m:
-            lost = lost_opening(text, pos, start)
+            lost = lost_opening(text, pos, start, spaced=tails)
             if lost is None:
                 return None, f"cannot find a clue number at: {text[pos:pos + 40]!r}"
             out.append(lost[0])
