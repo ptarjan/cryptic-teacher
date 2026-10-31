@@ -710,7 +710,7 @@ $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)"
   miss_sid="$(worker_runs daily_update)/miss-$miss_pid-$miss_eid.sid"
   session_args "$miss_sid" sess miss_task
   # shellcheck disable=SC2086 # $miss_cap is a command and its argument, or nothing
-  $miss_cap claude -p "$miss_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+  tools/low_cpu.sh $miss_cap claude -p "$miss_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
     --append-system-prompt-file tools/solve_miss_prompt.md \
     --exclude-dynamic-system-prompt-sections \
     --model "$ANNOTATE_MODEL" \
@@ -809,7 +809,7 @@ unit_annotate() {  # id [solve]
           # and alert with the traceback rather than pay for sessions that work
           # around a broken checker.
           view_err="$(mktemp "${TMPDIR:-/tmp}/cryptic-view.XXXXXX")"
-          if ! ann_file=$(python3 tools/annotate_check.py --view "$num" 2>"$view_err") || [ -z "$ann_file" ]; then
+          if ! ann_file=$(tools/low_cpu.sh python3 tools/annotate_check.py --view "$num" 2>"$view_err") || [ -z "$ann_file" ]; then
             alert "tools/annotate_check.py --view $num failed, so no puzzle is annotated until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -n 20 "$view_err")"$'\n'"\`\`\`"
             rm -f "$view_err"
             stop_reason="annotate_check.py --view crashed on $num"
@@ -975,7 +975,7 @@ $bad_hints"
           ct_generated "$REPO"
           fix_sid="$(worker_runs daily_update)/reports.sid"
           session_args "$fix_sid" sess fix_task
-          claude -p "$fix_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+          tools/low_cpu.sh claude -p "$fix_task" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
             --append-system-prompt-file tools/report_fix_prompt.md \
             --exclude-dynamic-system-prompt-sections \
             --model "$ANNOTATE_MODEL" \
