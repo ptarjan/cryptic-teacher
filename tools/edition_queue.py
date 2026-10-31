@@ -830,6 +830,9 @@ def evidence_reason(reason):
             # A Times page written unfiled for a linked clue's later light, its head's comma read as a stop
             # ("25. 26 A good local"; fa.stray_link_due).
             or reason == fa.STRAY_LINK_READ
+            # A 1936-40 Gale Times page whose OCR readings all stopped at a clue tail mid-list ("paniment (7)
+            # 19 Half changed"), so the VLM read every column; the mended parse reads the tail (fa.tail_read_due).
+            or reason == fa.TAIL_READ
             # A Times page written unfiled for a clue that swallowed the next one's number, after a
             # neighbouring column's words read past a count ("(7). Walks 8 Some"; fa.neighbour_tailed).
             or reason == fa.NEIGHBOUR_TAIL
@@ -1721,7 +1724,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # r36 10-29: the newest fix goes first of all (NEWEST_FIX_COUNT).
                  fa.CLUE_REPEATED,
                  # r37 10-29: a late host's heading links; the newest fix goes first.
-                 fa.LATE_LINKED)
+                 fa.LATE_LINKED,
+                 # r38 10-31: a 1936-40 Gale Times page the OCR readers could not parse (a clue tail mid-list),
+                 # read by the VLM column by column; the newest fix goes first.
+                 fa.TAIL_READ)
 
 
 def times_solution_work(unit):
@@ -1748,7 +1754,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ)
 
 
 def unproven_first(unit):

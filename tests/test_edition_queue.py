@@ -811,6 +811,32 @@ try:
            f.stray_link_due({**_slrow, "edition": "FinancialTimes1951UKEnglish/1951-12-27_0"})])
 finally:
     f.stray_link_numbers = _sl_real
+# ---- a Gale Times page whose every reading stopped at a clue tail after a space ("' paniment (7) 19 Half changed",
+# the 1936-40 four clue columns read as two), refused or written unfiled with a blank, is due once (fa.TAIL_READ),
+# ordered with the newest fix, never canary-held.
+_tr = {"number": 9999974, "refused": "no reading parses", "cause": "no-reading-parses",
+       "unparsed": {"ch": "across clues do not parse: cannot find a clue number at: ' paniment (7) 19 Half changed yet 29Hcr '"}}
+_trrow = {"edition": "GaleTimes1937UKEnglish/1937-12-30", "verdicts": [_tr], "readAt": "2026-10-30T05:34:48+00:00",
+          "scan": {"date": "1937-12-30", "item": "GaleTimes1937UKEnglish", "puzzles": [{"number": 9999974, "leaf": 0}]}}
+check("a 1936-40 Gale Times page refused at a clue tail after a space is due as TAIL_READ, ranked, evidence, "
+      "fix-landed, last of unfiled-first, never canary-held, blanket-passing",
+      [f.TAIL_READ, 2, True, True, f.TAIL_READ, None, True],
+      [f.fix_reason(_trrow), f.RANKS[f.TAIL_READ], eq.evidence_reason(f.TAIL_READ), f.TAIL_READ in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1], eq.canary_failed({"paper": "gale", "reason": f.TAIL_READ, "date": "1937-12-30"}),
+       f.TAIL_READ in f.BLANKET_PASSES])
+_tr_unfiled = {"id": "times-9999974", "number": 9999974, "wrote": True, "unfiled": 1, "readings": ["vlm"],
+               "blank": {"22-down": "no reading laid a clue on it"}, "unparsed": _tr["unparsed"]}
+check("written unfiled with a blank too; not whole, after the fix, a tail at the list's start, another refusal "
+      "or another paper",
+      [True, False, False, False, False, False, False],
+      [f.tail_read_due({**_trrow, "verdicts": [_tr_unfiled]}),
+       f.tail_read_due({**_trrow, "verdicts": [{k: v for k, v in _tr_unfiled.items() if k not in ("blank", "unfiled")}]}),
+       f.tail_read_due({**_trrow, "readAt": _after}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "unparsed": {"ch": "across clues do not parse: cannot find a clue "
+                                                                            "number at: 'paniment (7) 19 Half'"}}]}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "cause": "not-a-grid"}]}),
+       f.tail_read_due({**_trrow, "verdicts": [{**_tr, "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}),
+       f.tail_read_due({**_trrow, "edition": "TheGuardian1937UKEnglish/1937-12-30"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
