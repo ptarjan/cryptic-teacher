@@ -76,7 +76,7 @@ fi
 # below, which would only say "holds its tree" and leave either one. It logs
 # and alerts, and frees the lease of a dead burn so this fire restarts it.
 [ -z "${CT_PRERESET_STATE:-}" ] && [ "${DRY_RUN:-0}" != 1 ] && [ -z "${CT_NO_PRERESET_WATCH:-}" ] &&
-  bash "$(dirname "$0")/prereset_watch.sh"
+  "$(dirname "$0")/low_cpu.sh" bash "$(dirname "$0")/prereset_watch.sh"
 # A checkout of its own, so days of unmetered annotation cannot collide with
 # the nightly's units or with somebody editing the repo. See tools/nightly_worktree.sh.
 # A commit a dropped run could not push yet is pushed by the next start.
@@ -404,7 +404,7 @@ run_claude() {
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   [ -n "$fill" ] || for m in $(worker_bag_ids "$RUNS/$tag.sid"); do
-    python3 tools/annotate_check.py --view "$m" >/dev/null
+    "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view "$m" >/dev/null
   done
   # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
   if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ]; then
@@ -536,7 +536,7 @@ pool_launch() {
   # shape list (a stale queue entry: the plan was read before its rows were
   # pruned), would be rewritten whole by annotate_check.to_write's None. Skip.
   [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ ! -s "/tmp/ct-prereset-$id.resume" ] &&
-    [ "$DRY_RUN" != 1 ] && python3 tools/annotate_check.py --nothing-due "$id" &&
+    [ "$DRY_RUN" != 1 ] && tools/low_cpu.sh python3 tools/annotate_check.py --nothing-due "$id" &&
     { echo "  [$id] skipped: already fully hinted and nothing is due on it"; return 1; }
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"

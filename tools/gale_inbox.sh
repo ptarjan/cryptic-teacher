@@ -18,4 +18,4 @@ cd "$(dirname "$0")/.." || exit 1
 # A Listener page's read runs on the desktop (tools/ocr_remote.py) while
 # it is idle; OCR_REMOTE= keeps it here.
 export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}"
-exec python3 tools/gale_inbox.py "$@"
+exec tools/low_cpu.sh python3 tools/gale_inbox.py "$@"
