@@ -3774,6 +3774,17 @@ check("four columns under a wide 1939 grid: three gutters in the words' gaps, fo
        [(60, 300, 300, 495), (300, 600, 600, 495), (600, 720, 720, 495)]],
       [len(_q) - 1, all(3640 + 330 * k + 280 <= g <= 3640 + 330 * (k + 1) for k, g in enumerate(_q[:3])),
        f.windows_of((3634, 4241, 4952, 5619), split=_q), f.windows_of((100, 100, 600, 500), split=(300, 600, 720))])
+# Gale 1940-03-13 (grid 930-1514 x 3140-3726, the page ending at 3997): two clue columns under the grid and two right of
+# it (beside_split), the right pair's tops the grid's, a Beside's windows cut from its own tops, a plain tuple's unchanged.
+_bs_words = [[(960 + 300 * k + 30 * (k // 2), 3760 + 40 * r, 960 + 300 * k + 30 * (k // 2) + 250, 3790 + 40 * r, f"{r} Clue")
+              for k in range(4)] for r in range(5)]
+_bs = f.beside_split(_bs_words, (930, 3140, 1514, 3726), (2130, 3997))
+check("four columns beside a 1940 grid: the gutters in the words' gaps, the right pair's tops the grid's",
+      [4, (1514 + 5, 2130), (3721, 3721, 3090, 3090), 4, [(890, _bs[0], _bs[0], 3721), (_bs[0], 1519, 1519, 3721),
+                                                         (1519, _bs[2], _bs[2], 3090), (_bs[2], 2130, 2130, 3090)],
+       [(60, 300, 300, 495), (300, 600, 600, 495), (600, 720, 720, 495)]],
+      [len(_bs), (_bs[1], _bs[3]), _bs.tops, len(f.windows_of((930, 3140, 1514, 3726), split=_bs)),
+       f.windows_of((930, 3140, 1514, 3726), split=_bs), f.windows_of((100, 100, 600, 500), split=(300, 600, 720))])
 check("a big grid crop unread as is reads shrunk to 720px; a crop that reads is read once; failing all, the full-size why",
       [(15, None), [1200, 720], (15, None), [700], (None, "only 9 white cells found")],
       [(len(_sg_big[0]), _sg_big[1]), _sg_big_seen, (len(_sg_small[0]), _sg_small[1]), _sg_small_seen, _sg_none])
