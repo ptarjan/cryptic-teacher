@@ -168,9 +168,12 @@ how_it_ended() {
 # all the log got was an empty line before "could not push". A git killed by
 # a signal says nothing (10-17: a commit died of SIGBUS, a pack repacked under
 # its mmap by a gc in a sibling worktree of the shared object store).
+# A signal or a timeout is named even when there was output: the shell's own
+# "Bus error" line can land in $out (CI 10-31), which says nothing of which git.
 git_failed() {
-  if [ -n "$2" ]; then printf '%s\n' "$2" >&2
-  else echo "push_puzzle_commit: $3 $(how_it_ended "$1") and said nothing" >&2; fi
+  if [ -z "$2" ]; then echo "push_puzzle_commit: $3 $(how_it_ended "$1") and said nothing" >&2; return; fi
+  printf '%s\n' "$2" >&2
+  if [ "$1" -gt 128 ] || [ "$1" = 124 ]; then echo "push_puzzle_commit: $3 $(how_it_ended "$1")" >&2; fi
 }
 
 # fetch_base: fetch origin/master into $base; 0 ok, 2 try again (lost a ref
