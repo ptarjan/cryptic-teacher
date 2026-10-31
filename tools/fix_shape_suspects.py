@@ -3733,6 +3733,21 @@ def _does_not_give_edits(node, k, clue=None):
         new, t = fresh()
         t["parts"][0]["gives"] = t["parts"][0]["gives"][::-1]
         out.append(new)
+    if n.get("op") == "reversal" and len(parts) == 1 and leaf(parts[0]) and n.get("indicators") \
+            and str(parts[0].get("gives") or "").isalpha():
+        # rev(FELT) for LEFT: only a stretch of the leaf is turned round (FEL to LEF), which rev() cannot
+        # say and sub(leaf, FEL, LEF) can, keeping the reversal's indicator. Every stretch of 2+ letters
+        # is tried; the caller keeps the mend only when exactly one edit in the whole tree gives the answer.
+        word = parts[0]["gives"]
+        for a in range(len(word)):
+            for b in range(a + 2, len(word) + 1):
+                seg = word[a:b]
+                if seg != seg[::-1] and (a, b) != (0, len(word)):
+                    new, t = fresh()
+                    t.clear()
+                    t.update({"op": "substitution", "indicators": n["indicators"],
+                              "parts": [copy.deepcopy(parts[0]), {"gives": seg}, {"gives": seg[::-1]}]})
+                    out.append(new)
     elif n.get("op") in ("first", "last"):
         # the wrong end of the word: 'side of grass' for SWORDPLAY takes the last letter, not the first
         new, t = fresh()
