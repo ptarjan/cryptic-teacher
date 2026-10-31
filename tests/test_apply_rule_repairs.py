@@ -134,9 +134,9 @@ check("doesNotGive: a two-piece charade with an indicator of its own is put in t
 check("doesNotGive: a leaf under rev() already filed reversed is turned round",
       mend("ins<in><packaging>([new]RECENT, rev<returned>([it's]TI))", "in packaging new returned it's", "RETICENT")
       .endswith("rev<returned>([it's]IT))"))
-check("doesNotGive: a container no single edit fixes (LIT round M is not LIMIT) stays refused, naming the lengths",
+check("doesNotGive: a container no single edit fixes (LIT round M is not LIMIT) stays refused, naming the run it needs inside",
       mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT").startswith("REFUSED")
-      and "4 letters against 5" in mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT"))
+      and "needs IM or MI inside" in mend("ins<included>([came down]LIT, [motorway]M)", "Maximum came down included motorway", "LIMIT"))
 check("doesNotGive: a hidden word reads & as AND ('Accident & Emergency' hides TANDEM)",
       mend("hid<in>([Accident & Emergency])", "Accident & Emergency in vehicle for two", "TANDEM") == "hid<in>([Accident & Emergency])")
 msg = mend("ins<occupying>([previous]LATE, [Military leader]CO)", "Previous occupying Military leader", "LOCATE")
@@ -265,7 +265,7 @@ for wp, clue, ans in [("ins<into>([port]PT, [a] + [way]LANE)", "Space traveller 
 msg = mend("ins<during>([enemy]FOE, [Torment]RAGE)", "Torment during enemy raid", "FORAGE")
 check("doesNotGive names a leaf one letter too long", msg.startswith("REFUSED") and "shortened at its end to RAG" in msg)
 msg = mend("ins<in>([bed]CRIB, [article]A + [read]R)", "Native American's article read in bed", "CARIB")
-check("doesNotGive names the one surplus charade piece", msg.startswith("REFUSED") and ("surplus" in msg or "shortened" in msg))
+check("doesNotGive cuts the one surplus charade piece in place", not msg.startswith("REFUSED") and "[read]R" not in msg)
 # doesNotGive, 10-30 evening audit (103 refusals since 17:00 UTC): anagram fodder off by whole clue words, a
 # container word filed as the charade's indicator, a possessive's S; a leaf a letter long inside, not at an end
 for wp, clue, ans, want in [
@@ -278,4 +278,16 @@ for wp, clue, ans, want in [
     check("doesNotGive mends in place: " + ans, not msg.startswith("REFUSED") and (want is None or msg.replace(", ", ",") == want.replace(", ", ",") or want in msg))
 msg = mend("[popular]IN + ins<in>([cube]DICE, [pet]CAT)", "popular pet in cube", "INDICATE")
 check("doesNotGive names both leaves a letter long, inside or at an end", msg.startswith("REFUSED") and "[cube]DIE or [pet]AT" in msg)
+# doesNotGive, round 3 (10-31 audit): a plural S at a join, the one surplus leaf cut in place; partial reversal and
+# the container's missing inner run named in the refusal
+for wp, clue, ans in [
+        ("[Serious]GRAVE + [distance]YARDS + [to travel]SHIFT", "Serious distance to travel is not a day job", "GRAVEYARDSHIFT"),
+        ("[Several deliveries]OVERS + del<short>([appear]SEEM, M)", "Several deliveries appear short", "OVERSEE"),
+        ("rev<turned up>([Lord]LUD) + [fat]LARD + [dense]D", "Lord turned up fat dense", "DULLARD")]:
+    msg = mend(wp, clue, ans)
+    check("doesNotGive mends the plural S / surplus leaf in place: " + ans, not msg.startswith("REFUSED"))
+msg = mend("rev<upheaval in most of contents>([experienced]FELT)", "Experienced upheaval in most of contents", "LEFT")
+check("doesNotGive names a partial reversal as sub()", msg.startswith("REFUSED") and "sub<upheaval in most of contents>([Experienced]FELT, FEL, LEF)" in msg)
+msg = mend("ins<pocketing>([seldom seen]SCARCE, [note]F)", "Seldom seen pocketing note, gangster", "SCARFACE")
+check("doesNotGive names the run the container needs inside", msg.startswith("REFUSED") and "needs FA inside it" in msg)
 sys.exit(1 if fails else 0)
