@@ -3274,5 +3274,30 @@ tests/test_desktop_typing.js                   with a mouse and a keyboard, pick
                                                leaves the page and focus alone
 tests/test_quote_lone_bare_leaf.py             a lone bare letter piece with one spare clue
                                                word is quoted on that word
+tests/test_cursor_needs_keyboard.js            paul 10-30: "Why do we show a cursor selection
+                                               when there isnt a keyboard up". On a touch
+                                               screen the cursor square is drawn only while the
+                                               soft keyboard is up; with no touch (desktop,
+                                               physical keyboard) it always is
+tests/test_keyboard_scroll.js                  paul 10-30: "Dropping the keyboard all the time
+                                               might be wrong. Sometimes I'm slightly adjusting
+                                               around the clue solve section." A small scroll
+                                               keeps the soft keyboard up; a real scroll still
+                                               puts it away
+tests/test_ladder_advance.js                   paul 10-30: "When you finish a hint ring it
+                                               should go to the next." Finishing a rung with a
+                                               right answer (or crossing off the whole anagram
+                                               wheel) asks the ladder's next question; it never
+                                               opens a rung that would cost a hint
+tests/test_part_anagram_ring.js                paul 10-30: "An anagram for part of a clue
+                                               shouldn't show the wheel the building blocks.
+                                               Only when it is all." A part-anagram's blocks
+                                               rung carries no anagram wheel; a whole-answer
+                                               anagram's still does
+tests/test_sw_shell_recovery.js                the home-screen app must never boot as bare HTML
+                                               (Paul 10-30: "My css seems broken in my app" —
+                                               Times text, every panel open, no app). sw.js is
+                                               run here in a vm against an in-memory Cache
+                                               Storage and a network that can be switched off:
 ```
 <!-- LAYOUT-END -->

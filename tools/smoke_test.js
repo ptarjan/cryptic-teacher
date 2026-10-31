@@ -71,6 +71,14 @@ const EVENTS = require("../sync/events.js");
 // under it, so "what the panel is showing" spans both elements. Tests that care
 // which of the two still name the element; the rest ask the panel.
 const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
+// A right answer now goes straight on to the ladder's next question (Paul
+// 10-30: "When you finish a hint ring it should go to the next"). The checks that
+// read the finished rung's own state skip that question first, as a solver
+// pressing "Skip for now" would, so they see the rung they just answered.
+const dismissNext = () => {
+  if (registry["hint-body"].innerHTML.includes('id="guess-later"') && registry["guess-later"]
+    && registry["guess-later"].onclick) registry["guess-later"].onclick();
+};
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is
 // "at most once per puzzle per session", not "at most once ever".
@@ -4081,7 +4089,7 @@ registry["reset-puzzle"].onclick();
   document.activeElement = kbd;
   userScroll(0);        // the first tick only learns where the scroll started
   assert(document.activeElement === kbd, "no blur on the tick that just records the baseline");
-  userScroll(40);
+  userScroll(200);     // past SCROLL_BLUR_PX (120)
   assert(document.activeElement === null, "a real scroll past the threshold drops the keyboard");
 
   // A 1px jitter — or Safari's URL bar collapsing as a scroll gets going — must not.
@@ -5315,6 +5323,7 @@ global.realSetTimeout(() => {
   // Right: exactly the words, nothing else.
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
+  dismissNext();
   html = panelHTML();
   // The verdict lands on the words as well as in a sentence: "3 of 5" never says
   // WHICH three, and which three is the lesson.
@@ -5623,6 +5632,7 @@ global.realSetTimeout(() => {
   assert(!/id="guess-check"[^>]*disabled/.test(panelHTML()),
     "a full board can be checked: " + panelHTML());
   registry["guess-check"].onclick();
+  dismissNext();
 
   html = panelHTML();
   assert(!asking(), "answering it ends the question: " + html);
@@ -6853,6 +6863,7 @@ global.realSetTimeout(() => {
       if (!earn) { registry["guess-tell"].onclick(); continue; }
       for (const i of want[k]) registry["gw-" + i].onclick();
       registry["guess-check"].onclick();
+      dismissNext();
       assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
         `the ${k} rung is earned, not bought: ` + registry["hint-body"].innerHTML);
     }
