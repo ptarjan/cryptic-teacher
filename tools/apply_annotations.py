@@ -420,6 +420,11 @@ def repair_pool_gap(new, entry):
                 better = left < _size(count(wp, now, clue))
                 if rule == "poolGap" and left:
                     better = False
+                if rule != "poolGap" and better:
+                    import validate_annotations as V
+                    # a mend that opens a poolGap (anaLoneEdge pulling F out of "This fine gift") trades one refusal for one the model cannot meet
+                    if V.pool_gaps(fixed, clue) > V.pool_gaps(wp, clue):
+                        better = False
                 if better and set(F.hits(after, clue, answer)) <= set(F.hits(now, clue, answer)) \
                         and F.unchecked(fixed) <= F.unchecked(wp):
                     wp = fixed

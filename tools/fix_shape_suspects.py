@@ -1520,6 +1520,45 @@ def _eject_candidates(ana):
             yield copy.deepcopy(piece), checked(ana, parts=[copy.deepcopy(p) for j, p in enumerate(flat) if j != k])
 
 
+def r_pool_absorb(node, parent, ctx):
+    """poolGap, the mirror of r_pool_eject: a charade of an anagram and a plain one-piece neighbour
+    (a leaf, a first/last pick) whose clue words stand between the anagram's fodder pieces, ana(goes, at, us) + R
+    for "goes right at us, surprisingly". The model pulled the letter out to satisfy anaLoneEdge (the answer
+    ends in R), but the clue gathers it into the pool: the piece joins the pool in clue order. Kept only
+    when exactly one reading still gives the answer and the pool gap is gone."""
+    clue, answer = ctx["clue"], ctx.get("answer")
+    parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    before = V.pool_gaps(ctx["tree"], clue) if clue else 0
+    if node.get("op") != "charade" or node.get("unchecked") or "gives" in node or not answer or not before:
+        return None
+    if len(parts) != len(node.get("parts") or []) or len(parts) < 2:
+        return None
+    low = clue.lower()
+    good = {}
+    for i, a in enumerate(parts):
+        if a.get("op") != "anagram" or a.get("unchecked") or "gives" in a or len(a.get("parts") or []) < 2:
+            continue
+        for j in (i - 1, i + 1):
+            if not 0 <= j < len(parts):
+                continue
+            s = parts[j]
+            if s.get("unchecked") or not (leaf(s) or s.get("op") in ("first", "last")) or not _has_letters(s):
+                continue
+            pool = [*_flat_fodder(a), s]
+            ext = [V._extent(p, clue, low) for p in pool]
+            if any(e is None for e in ext):
+                continue
+            pool = [copy.deepcopy(pool[k]) for _, k in sorted((e[0], k) for k, e in enumerate(ext))]
+            merged = checked(a, parts=pool)
+            kept = [merged if k == i else p for k, p in enumerate(parts) if k != j]
+            new = kept[0] if len(kept) == 1 else charade(copy.deepcopy(kept))
+            if len(kept) == 1:
+                new = copy.deepcopy(new)
+            if _eval_swapped(node, parent, new, ctx) and V.pool_gaps(_whole(node, parent, new, ctx), clue) < before:
+                good[json.dumps(new, sort_keys=True)] = new
+    return next(iter(good.values())) if len(good) == 1 else None
+
+
 def r_pool_eject(node, parent, ctx):
     """poolGap, a piece in the anagram's pool that is really another op's: it leaves the pool and
     goes beside the anagram (HE + ana(N, thing) -> HE + N + ana(thing)), or into the container
@@ -2999,6 +3038,8 @@ def r_ana_lone_edge(node, parent, ctx):
                 for order in set(itertools.permutations(range(size))):
                     pieces = [out[i] for i in order]
                     cand = {"op": "charade", "parts": pieces[:k] + [ana] + pieces[k:]}
+                    if ctx.get("clue") and V.pool_gaps(_whole(node, parent, cand, ctx), ctx["clue"]) > V.pool_gaps(ctx["tree"], ctx["clue"]):
+                        continue    # the letter sits among the pool's words in the clue: pulling it out is a poolGap
                     if _eval_swapped(node, parent, cand, ctx):
                         good[json.dumps(cand, sort_keys=True)] = cand
                         # two lone C's (caught, cold) pulled alike are one reading, not two
@@ -3995,7 +4036,7 @@ RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": 
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
-                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_eject(n, p, c),
+                "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_absorb(n, p, c) or r_pool_eject(n, p, c),
                 "misplacedIndicator": r_misplaced_indicator,
                 "deletionInside": r_deletion_inside, "deletionScope": r_deletion_inside, "deletionScopeAnswer": r_deletion_inside,
                 "unindicatedBare": lambda n, p, c: r_unindicated_move(n, p, c) or r_unindicated_spare(n, p, c) or r_hidden_link(n, p, c)
