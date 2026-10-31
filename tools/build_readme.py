@@ -399,6 +399,7 @@ LAYOUT = [
     ("scheduling", "tests/test_solve_queue_clues.sh", "drives the cold-solve queue out of daily_update.sh against made-up clue counts, so a grid with nothing to read is never bought a model run"),
     ("scheduling", "tests/test_push_conflict.sh","proves the nightly push rebuilds a generated file the remote also rebuilt, and refuses to resolve anything else"),
     ("scheduling", "tests/test_push_race.sh", "a push that loses the shared ref-lock race to another worktree is retried; any other failure is not"),
+    ("scheduling", "tests/test_push_silent_fail.sh", "a git step in tools/push_puzzle_commit.sh that dies with no output names its exit code or signal, and one killed by a signal is retried"),
     ("scheduling", "tools/prereset_plan.py", "how many annotations the burn runs at once, and the order it takes the queue in"),
     ("scheduling", "tools/indicator_cover.py", "puts first the backlog puzzles whose blog-named indicators no annotation of ours links yet on /indicators/: a greedy set cover weighted by each indicator's clue count, re-planned at every pool checkpoint through prereset_plan.py --cover-first"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
