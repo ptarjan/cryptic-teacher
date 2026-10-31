@@ -36,7 +36,9 @@
 # fresh fetch. A conflict exits CONFLICT (3), read off merge-tree's
 # own status (1: conflicts), so a caller can set the commit aside and go on to
 # the next (tools/durable.sh). Anything else exits
-# non-zero (1, 2) with git's own words on stderr. The one conflict settled instead of refused is a
+# non-zero (1, 2) with git's own words on stderr, or, where git had none, a line
+# saying how it ended (exit code, signal, timeout). A git killed by a signal is
+# tried again, as a lost race is. The one conflict settled instead of refused is a
 # promotion racing a re-read of its clues-only file (modify/delete on
 # clues_only/X.json): tools/resolve_promotion_conflict.py keeps the promoted
 # puzzle, drops the clues-only copy, and carries the re-read's clue text in
@@ -75,19 +77,27 @@ make_commit() {
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$3") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$3") \
     git commit-tree "${sign[@]}" "$1" -p "$2"
+  local rc=$?
+  [ "$rc" = 0 ] || echo "push_puzzle_commit: git commit-tree for $(git log -1 --format=%s "$3") $(how_it_ended "$rc")" >&2
+  return "$rc"
 }
 
 # onto_for <base>: what to build on, the batch when one waits, else <base>
 # (origin/master). A batch origin moved under is replayed onto <base> first.
 onto_for() {
-  local base="$1" tip c t prev
+  local base="$1" tip c t prev rc
   tip=$(git rev-parse -q --verify "$BATCH_REF") || { echo "$base"; return 0; }
   if git merge-base --is-ancestor "$base" "$tip"; then echo "$tip"; return 0; fi
   prev=$base
   for c in $(git rev-list --reverse "$(git merge-base "$base" "$tip")..$tip"); do
-    if t=$(git merge-tree --write-tree --merge-base "$c^" "$prev" "$c" 2>/dev/null); then
+    t=$(git merge-tree --write-tree --merge-base "$c^" "$prev" "$c" 2>/dev/null); rc=$?
+    if [ "$rc" = 0 ]; then
       [ "$t" = "$(git rev-parse "$prev^{tree}")" ] && continue
       prev=$(make_commit "$t" "$prev" "$c") || return 1
+    elif [ "$rc" != 1 ]; then
+      # Not a conflict (1) but git failing, so not parked as one.
+      echo "push_puzzle_commit: git merge-tree replaying batched $(git log -1 --format=%s "$c") $(how_it_ended "$rc")" >&2
+      return 1
     else
       git update-ref "refs/push-batch/conflicts/$c" "$c"
       echo "push_puzzle_commit: batched $(git log -1 --format=%s "$c") no longer replays onto origin/master; kept as refs/push-batch/conflicts/$c" >&2
@@ -121,12 +131,17 @@ publish() {
     schedule_flush
     return 0
   fi
-  if out=$(net_git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); then
+  local rc
+  out=$(net_git push -q --no-verify origin "$sha:refs/heads/master" 2>&1); rc=$?
+  if [ "$rc" = 0 ]; then
     date +%s >"$stamp"
     git update-ref -d "$BATCH_REF" 2>/dev/null
     return 0
   fi
-  printf '%s\n' "$out" >&2
+  git_failed "$rc" "$out" "git push to origin/master"
+  # Killed by a signal, the push may or may not have landed: the rebuild
+  # against a fresh fetch finds out ("origin/master already has").
+  if [ "$rc" -gt 128 ]; then echo "push_puzzle_commit: trying again" >&2; return 2; fi
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || return 1
   echo "push_puzzle_commit: origin/master moved under us, rebuilding" >&2
   return 2
@@ -139,12 +154,34 @@ net_git() {
   if command -v timeout >/dev/null 2>&1; then timeout "${CT_NET_TIMEOUT:-120}" git "$@"; else git "$@"; fi
 }
 
-# fetch_base: fetch origin/master into $base; 0 ok, 2 lost a ref race, 1 failed.
+# how_it_ended <rc>: "timed out after 120s", "was killed by SIGBUS (exit 135)"
+# or "exited 1", for a message about a git that failed.
+how_it_ended() {
+  if [ "$1" = 124 ]; then echo "timed out after ${CT_NET_TIMEOUT:-120}s"
+  elif [ "$1" -gt 128 ]; then echo "was killed by SIG$(kill -l "$(($1 - 128))" 2>/dev/null || echo "?") (exit $1)"
+  else echo "exited $1"; fi
+}
+
+# git_failed <rc> <out> <what>: print git's own words, or, when it had none,
+# one line saying how <what> ended. Every failure leaves a reason in the log:
+# 10-31 the burn's fetches failed wordless, fast, seven times in a night, and
+# all the log got was an empty line before "could not push". A git killed by
+# a signal says nothing (10-17: a commit died of SIGBUS, a pack repacked under
+# its mmap by a gc in a sibling worktree of the shared object store).
+git_failed() {
+  if [ -n "$2" ]; then printf '%s\n' "$2" >&2
+  else echo "push_puzzle_commit: $3 $(how_it_ended "$1") and said nothing" >&2; fi
+}
+
+# fetch_base: fetch origin/master into $base; 0 ok, 2 try again (lost a ref
+# race, or git was killed by a signal), 1 failed.
 fetch_base() {
-  local out
-  if ! out=$(net_git fetch -q origin master 2>&1); then
-    printf '%s\n' "$out" >&2
+  local out rc
+  out=$(net_git fetch -q origin master 2>&1); rc=$?
+  if [ "$rc" != 0 ]; then
+    git_failed "$rc" "$out" "git fetch origin master"
     printf '%s' "$out" | grep "cannot lock ref" >/dev/null && return 2
+    [ "$rc" -gt 128 ] && return 2
     return 1
   fi
   base=$(git rev-parse origin/master)
@@ -206,7 +243,10 @@ parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
 # A commit made from a stale tree is refused (exit 4), not replayed: see tools/clobber_guard.py.
-python3 "$here/clobber_guard.py" "$commit" || exit $?
+python3 "$here/clobber_guard.py" "$commit" || {
+  rc=$?
+  [ "$rc" = 4 ] || echo "push_puzzle_commit: tools/clobber_guard.py $(how_it_ended "$rc") checking $(git log -1 --format=%s "$commit")" >&2
+  exit "$rc"; }
 
 # partial_replay <conflicted tree> <onto> <path>...: <onto>'s tree with the
 # clean merges of the conflicted tree and the conflicted paths left as <onto>
@@ -242,8 +282,8 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
   # The batch waiting to push, when there is one, else origin/master: the
   # commit replays onto that, so it conflicts now rather than at the flush.
   onto=$(onto_for "$base") || exit 1
-  tree=$(git merge-tree --write-tree --merge-base "$parent" "$onto" "$commit")
-  case $? in
+  tree=$(git merge-tree --write-tree --merge-base "$parent" "$onto" "$commit"); rc=$?
+  case $rc in
     0) ;;
     1) # A promotion racing a re-read of the same clues-only file (one side
        # deletes clues_only/X.json, the other re-writes it) is settled by
@@ -270,7 +310,9 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
          tree=$partial_tree
          final=$CONFLICT
        fi ;;
-    *) exit 1 ;;
+    *) echo "push_puzzle_commit: git merge-tree replaying $(git log -1 --format=%s "$commit") $(how_it_ended "$rc")" >&2
+       [ "$rc" -gt 128 ] || exit 1
+       sleep "$attempt"; continue ;;
   esac
   if [ "$tree" = "$(git rev-parse "$onto^{tree}")" ]; then
     echo "push_puzzle_commit: origin/master already has $(git log -1 --format=%s "$commit")" >&2
@@ -284,4 +326,5 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
   echo "push_puzzle_commit: attempt $attempt lost the race" >&2
   sleep "$((RANDOM % 3 + 1))"
 done
+echo "push_puzzle_commit: gave up on $(git log -1 --format=%s "$commit") after 10 attempts (see above)" >&2
 exit 1
