@@ -239,7 +239,7 @@ check "a plausible one is launched" "$(got rc)" "1"
 check "with nothing recorded" "$(grep -c 'failed_inputs' "$stub/events")" "0"
 
 echo "a run stops the moment its check is clean"
-check "the clean report tells it to stop" "$(grep -c '^        print(STOP_NOW)$' tools/annotate_check.py)" "1"
+check "the clean report and the preamble hold tell it to stop" "$(grep -c '^        print(STOP_NOW)$' tools/annotate_check.py)" "2"
 check "and both prompts say no summary after a clean check" \
   "$(grep -l 'no summary' tools/annotate_prompt.md tools/solve_prompt.md | wc -l | tr -d ' ')" "2"
 check "the solve prompt keeps the fill on disk, guesses flagged" \
