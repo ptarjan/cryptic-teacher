@@ -5702,7 +5702,10 @@ global.realSetTimeout(() => {
     // the hint-focus wrapper from the verdict to the new question and drops the
     // verdict's "fresh" class, ~33 characters of tags with nothing taken away
     // (run 41158582032).
-    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "").replace(/<[^>]*>/g, "").replace(/[<>]/g, "");
+    // Tags stripped to a fixed point (one pass can leave a tag the strip itself
+    // joined up: code-scanning alert 54).
+    const untag = (h) => { let was; do { was = h; h = h.replace(/<[^>]*>/g, ""); } while (h !== was); return h; };
+    const settled = (h) => untag(kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, ""));
     const grew = settled(before2).length;
     other.onclick();
     const after2 = registry["hint-body"].innerHTML;
