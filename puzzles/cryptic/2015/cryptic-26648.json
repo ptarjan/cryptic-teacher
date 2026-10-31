@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,32 @@
     "text": "Beethoven's fifth penguin?",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beethoven's fifth",
+      "at": 0,
+      "meaning": "Beethoven's Fifth Piano Concerto carries the nickname by which it is widely known"
+     },
+     {
+      "text": "penguin?",
+      "at": 18,
+      "meaning": "the largest species of penguin, with the question mark flagging a definition by example"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled query about a symphony and a seabird, as if the music had become an animal.",
+     "walkthrough": "'Beethoven's fifth' tempts toward the Fifth Symphony or the letter V; it is the Fifth Piano Concerto, nicknamed for a ruler.",
+     "definitionFit": "Both senses are names: the concerto's nickname, and the Antarctic species, the largest living penguin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fifth"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +73,71 @@
     "text": "Two cases of executives catching better flights",
     "enumeration": "7"
    },
-   "solution": "ESCAPES"
+   "solution": "ESCAPES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flights",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "at": 24,
+       "note": "catching means trapping, so one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "Two",
+         "at": 0,
+         "note": "two says the selected pair of letters appears twice"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "cases of",
+           "at": 4,
+           "note": "cases of means the outer letters, the case around the word executives"
+          }
+         ],
+         "parts": [
+          {
+           "words": "executives",
+           "at": 13
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "better",
+       "at": 33,
+       "gives": "CAP",
+       "note": "to cap is to better or outdo"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Executives with two briefcases get better flights.",
+     "walkthrough": "The outer letters of executives give ES; doubled, ESES, with CAP caught in the middle.",
+     "definitionFit": "Getaways or escapes from captivity are flights, as in the flight of refugees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flights"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +157,77 @@
      }
     ]
    },
-   "solution": "PHASEIN"
+   "solution": "PHASEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gradually admit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when touring",
+       "at": 46,
+       "note": "touring means going round, so the anagram goes round the Spain letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ropy",
+         "at": 16,
+         "note": "ropy means poor or shoddy, so these letters are arranged badly"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "hasn't",
+           "at": 29,
+           "note": "hasn't says one letter is not present in the word Spanish"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Spanish",
+           "at": 21
+          },
+          {
+           "words": "succeeded",
+           "at": 36,
+           "gives": "S",
+           "note": "S is the abbreviation for succeeded, as in genealogies"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Spain",
+       "at": 59,
+       "gives": "E",
+       "note": "E is the international vehicle code for Spain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's poor Spanish is not getting by while travelling round Spain.",
+     "walkthrough": "'hasn't' removes an S from SPANISH; 'ropy' reorders the rest as PHASIN, which goes round E.",
+     "definitionFit": "To introduce something in stages is to admit it gradually, a phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ropy"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +241,57 @@
     "text": "Give another brief brush to ancient artefact?",
     "enumeration": "5"
    },
-   "solution": "RELIC"
+   "solution": "RELIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ancient artefact?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "another",
+       "at": 5,
+       "gives": "RE",
+       "note": "re- is the prefix meaning again, making another of something"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 13,
+         "note": "brief means cut short, so the final letter of the word for brush goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brush",
+         "at": 19,
+         "gives": "LICK",
+         "note": "a lick of paint is a quick brush"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives an old artefact another quick dusting.",
+     "walkthrough": "RE plus LICK, cut short by 'brief' to LIC; 'Give' is a link.",
+     "definitionFit": "A surviving object from the distant past is an ancient artefact; the question mark admits it may be another thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brush"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +305,58 @@
     "text": "Barking terrier, extremely virile dog",
     "enumeration": "9"
    },
-   "solution": "RETRIEVER"
+   "solution": "RETRIEVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Barking",
+       "at": 0,
+       "note": "barking means mad, so these letters are crazily rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terrier",
+       "at": 8
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 17,
+         "note": "extremely means at the extremes, the outer letters of virile"
+        }
+       ],
+       "parts": [
+        {
+         "words": "virile",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrier is barking at a very virile dog.",
+     "walkthrough": "'Barking' looks like a dog noise but is the anagram signal for TERRIER plus VE.",
+     "definitionFit": "The gun-dog breed bred to fetch shot game is a kind of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +370,51 @@
     "text": "Pompous knights finally unseated in joust",
     "enumeration": "7"
    },
-   "solution": "STILTED"
+   "solution": "STILTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pompous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 16,
+         "note": "finally points to the closing letter of the word knights"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knights",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "unseated in joust",
+       "at": 24,
+       "gives": "TILTED",
+       "note": "tilted means toppled over, as a rider knocked down in a tilt or joust"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arrogant knights are finally knocked off their horses in a tournament.",
+     "definitionFit": "Stiff, unnatural and overformal speech or manner is pompous; the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pompous"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +428,40 @@
     "text": "Orgy superseded on a regular basis",
     "enumeration": "5"
    },
-   "solution": "SPREE"
+   "solution": "SPREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Orgy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "on a regular basis",
+       "at": 16,
+       "note": "on a regular basis means taking every other letter of superseded"
+      }
+     ],
+     "parts": [
+      {
+       "words": "superseded",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild party is regularly replaced by another.",
+     "definitionFit": "A bout of wild unrestrained indulgence is an orgy, as in a spending or drinking binge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +475,43 @@
     "text": "He tips off six-footer currently playing well, perhaps",
     "enumeration": "9"
    },
-   "solution": "INFORMANT"
+   "solution": "INFORMANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He tips off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "currently playing well, perhaps",
+       "at": 23,
+       "gives": "INFORM",
+       "note": "a player on top of their game is said to be in form"
+      },
+      {
+       "words": "six-footer",
+       "at": 12,
+       "gives": "ANT",
+       "note": "an ant, like any insect, has six feet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall footballer who is on good form passes on a tip.",
+     "walkthrough": "'six-footer' suggests a tall person, but it is an insect. The wordplay reads as the ant being in form.",
+     "definitionFit": "Someone who passes secret information to the police is a person who tips them off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +525,76 @@
     "text": "Puny competitor, one entering after start of tournament",
     "enumeration": "7"
    },
-   "solution": "TRIVIAL"
+   "solution": "TRIVIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Puny",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 30,
+       "note": "after places the competitor piece behind the opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 36,
+         "note": "start of points to the opening letter of tournament"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tournament",
+         "at": 45
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 21,
+         "note": "entering means going inside, so one goes into the competitor"
+        }
+       ],
+       "parts": [
+        {
+         "words": "competitor",
+         "at": 5,
+         "gives": "RIVAL",
+         "note": "a rival is a competitor"
+        },
+        {
+         "words": "one",
+         "at": 17,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble competitor enters after the tournament has started.",
+     "definitionFit": "Something trifling or of slight importance is puny; both mean insignificant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Puny"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +608,41 @@
     "text": "Stubborn folk slip into islands",
     "enumeration": "7"
    },
-   "solution": "DONKEYS"
+   "solution": "DONKEYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stubborn folk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "slip into",
+       "at": 14,
+       "gives": "DON",
+       "note": "to don a garment is to slip into it"
+      },
+      {
+       "words": "islands",
+       "at": 24,
+       "gives": "KEYS",
+       "note": "keys are low islands or reefs, as in the Florida Keys"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Obstinate people sneak into some islands.",
+     "definitionFit": "Asses are proverbially obstinate, so stubborn people are called by the animal's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +656,60 @@
     "text": "Silent movie star's sacrificed in film — wreath produced",
     "enumeration": "7"
    },
-   "solution": "CHAPLET"
+   "solution": "CHAPLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wreath",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "sacrificed",
+         "at": 20,
+         "note": "sacrificed says the star's name gives up the word in, which is dropped from it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Silent movie star",
+         "at": 0,
+         "gives": "CHAPLIN",
+         "note": "Charlie Chaplin was the great star of silent cinema"
+        },
+        {
+         "words": "in",
+         "at": 31,
+         "gives": "IN",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "film",
+       "at": 34,
+       "gives": "ET",
+       "note": "E.T. is Spielberg's film about an extra-terrestrial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silent film star's career is lost in a movie, and a wreath is laid.",
+     "walkthrough": "'sacrificed' drops the word 'in' from the star's surname; 'in' looks like a link word but is the piece removed.",
+     "definitionFit": "A garland or circlet of flowers worn on the head is a wreath, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacrificed"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +723,78 @@
     "text": "Went on securing gallery, ejecting one unknown thug",
     "enumeration": "7"
    },
-   "solution": "RUFFIAN"
+   "solution": "RUFFIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "thug",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "at": 8,
+       "note": "securing means holding something fast inside, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Went on",
+       "at": 0,
+       "gives": "RAN",
+       "note": "went on, as in continued, means ran"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ejecting",
+         "at": 26,
+         "note": "ejecting says letters are thrown out of the gallery's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gallery",
+         "at": 17,
+         "gives": "UFFIZI",
+         "note": "the Uffizi is the famous art gallery in Florence"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "at": 35,
+           "gives": "I",
+           "note": "one is I, the Roman numeral"
+          },
+          {
+           "words": "unknown",
+           "at": 39,
+           "gives": "Z",
+           "note": "an unknown in algebra is often Z"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thug kept going after breaking into an art gallery, having thrown someone out.",
+     "walkthrough": "'ejecting' removes I and Z from UFFIZI, leaving UFFI, which RAN holds.",
+     "definitionFit": "A violent, lawless person is a thug; the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +808,64 @@
     "text": "Writer tails academic, ignoring university order",
     "enumeration": "9"
    },
-   "solution": "PRESCRIBE"
+   "solution": "PRESCRIBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "order",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "tails",
+       "at": 7,
+       "note": "tails means follows behind, so the writer comes second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring",
+         "at": 23,
+         "note": "ignoring means leaving out the abbreviation for university"
+        }
+       ],
+       "parts": [
+        {
+         "words": "academic",
+         "at": 13,
+         "gives": "PURE",
+         "note": "academic, as in pure science rather than applied, means pure"
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "Writer",
+       "at": 0,
+       "gives": "SCRIBE",
+       "note": "a scribe is a writer or copyist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist follows a professor around, ignoring the university's instructions.",
+     "walkthrough": "'ignoring' takes U out of PURE, leaving PRE; SCRIBE tails it.",
+     "definitionFit": "To order a remedy or course of action, as a doctor does, is to direct it: a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "academic"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +879,35 @@
     "text": "Eau de Cologne?",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eau de Cologne?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Eau de Cologne?",
+       "at": 0,
+       "note": "read literally in French, the water of Cologne: the river flowing through that German city"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The perfume is a decoy: 'eau' is simply water, and Cologne's water is its river.",
+     "definitionFit": "The great river that runs through Cologne is literally that city's water, as the French words say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eau"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +921,71 @@
     "text": "Convention — Whitby's last hosted by retiring fellows?",
     "enumeration": "5"
    },
-   "solution": "SYNOD"
+   "solution": "SYNOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Convention",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "at": 27,
+       "note": "hosted by means taken in as a guest, so one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "at": 37,
+         "note": "retiring means going backwards, so the word for fellows is read right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fellows",
+         "at": 46,
+         "gives": "DONS",
+         "note": "fellows of a college are dons"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last",
+         "at": 22,
+         "note": "last points to the final letter of Whitby"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Whitby's",
+         "at": 13
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering in Whitby is hosted by college fellows who are going into retirement.",
+     "walkthrough": "'retiring' turns DONS into SNOD; Y, the end of Whitby, goes inside. The Synod of Whitby (664) was a famous church council.",
+     "definitionFit": "A church council or assembly is a convention of clergy, a formal meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +999,42 @@
     "text": "Import deal possibly giving source of free fuel?",
     "enumeration": "9"
    },
-   "solution": "DRIFTWOOD"
+   "solution": "DRIFTWOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of free fuel?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Import",
+       "at": 0,
+       "gives": "DRIFT",
+       "note": "the import of a speech is its gist, its drift"
+      },
+      {
+       "words": "deal possibly",
+       "at": 7,
+       "gives": "WOOD",
+       "note": "deal is pine or fir timber, an example of wood"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trade import might provide fuel at no cost.",
+     "walkthrough": "'Import' and 'deal' look like trade words; one means meaning, the other a timber.",
+     "definitionFit": "Timber washed ashore can be gathered for nothing and burned, hence a free supply of fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1048,46 @@
     "text": "Arabs live all over the place — their values may change",
     "enumeration": "9"
    },
-   "solution": "VARIABLES"
+   "solution": "VARIABLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "their values may change",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "all over the place",
+       "at": 11,
+       "note": "all over the place means scattered in disorder, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arabs",
+       "at": 0
+      },
+      {
+       "words": "live",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arabs live scattered widely, and their values may shift.",
+     "walkthrough": "The definition reads as cultural comment; in mathematics, quantities whose values may change are this.",
+     "definitionFit": "In algebra and programming, symbols standing for quantities that can take different values are named for that changeability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "values"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1101,50 @@
     "text": "Left-winger skirting last carriage run over",
     "enumeration": "9"
    },
-   "solution": "REHEARSED"
+   "solution": "REHEARSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "run over",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "skirting",
+       "at": 12,
+       "note": "skirting means going around the edges, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Left-winger",
+       "at": 0,
+       "gives": "RED",
+       "note": "a red is a socialist or communist"
+      },
+      {
+       "words": "last carriage",
+       "at": 21,
+       "gives": "HEARSE",
+       "note": "a hearse is the vehicle for a final journey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing politician avoids a funeral car and is run over.",
+     "walkthrough": "'run over' looks like a traffic accident; here it means practised.",
+     "definitionFit": "To run over a play or speech is to go through it in practice; the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1158,60 @@
     "text": "Old man's tract of land through which inlet runs",
     "enumeration": "9"
    },
-   "solution": "PATRIARCH"
+   "solution": "PATRIARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through which",
+       "at": 24,
+       "note": "through which says something passes through the middle of the land piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tract of land",
+       "at": 10,
+       "gives": "PATCH",
+       "note": "a patch is a small plot or tract of land"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "inlet",
+         "at": 38,
+         "gives": "RIA",
+         "note": "a ria is a long narrow sea inlet formed by a drowned river valley"
+        },
+        {
+         "words": "runs",
+         "at": 44,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for runs"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man owns a plot of land with a creek running through it.",
+     "walkthrough": "'through which' sends both the inlet and the runs abbreviation into the middle of the land piece; a ria is a drowned river valley.",
+     "definitionFit": "A family head or venerable elder is an old man of authority; the word means a male elder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1225,43 @@
     "text": "There's talk of someone preserving a book of holy songs",
     "enumeration": "7"
    },
-   "solution": "PSALTER"
+   "solution": "PSALTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a book of holy songs",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PSALTER",
+     "indicators": [
+      {
+       "text": "There's talk of",
+       "at": 0,
+       "note": "talk of says the word is spoken and heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "someone preserving",
+       "at": 16,
+       "gives": "SALTER",
+       "note": "a salter preserves meat or fish with salt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People say someone is keeping a hymn book.",
+     "definitionFit": "A volume of the Psalms for worship is a book of sacred songs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "preserving"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1275,58 @@
     "text": "Skilled amateur in union creating scene",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scene",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "union",
+       "at": 19,
+       "gives": "TU",
+       "note": "TU stands for trade union"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Skilled",
+         "at": 0,
+         "gives": "ABLE",
+         "note": "able means skilled or competent"
+        },
+        {
+         "words": "amateur",
+         "at": 8,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled amateur in a trade union stages a scene.",
+     "definitionFit": "A posed group or striking picture, as in a tableau vivant, is a scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1340,42 @@
     "text": "British unit essential to further measurement",
     "enumeration": "5"
    },
-   "solution": "THERM"
+   "solution": "THERM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "British unit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "essential to",
+       "at": 13,
+       "note": "essential to says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "further measurement",
+       "at": 26,
+       "gives": "THERM",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British unit is vital to taking further measurements.",
+     "definitionFit": "A unit of heat once used for British gas bills, equal to 100,000 British thermal units."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essential"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1389,57 @@
     "text": "Priest on team heartily curses exotic preparations",
     "enumeration": "7"
    },
-   "solution": "ELIXIRS"
+   "solution": "ELIXIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exotic preparations",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Priest",
+       "at": 0,
+       "gives": "ELI",
+       "note": "Eli is the priest of Shiloh in the Bible"
+      },
+      {
+       "words": "team",
+       "at": 10,
+       "gives": "XI",
+       "note": "XI, eleven, is a cricket or football team"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heartily",
+         "at": 15,
+         "note": "heartily means taking the heart, the middle letters of curses"
+        }
+       ],
+       "parts": [
+        {
+         "words": "curses",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest swears heartily at his team over strange potions.",
+     "definitionFit": "Magical potions or remedies, like alchemists' elixirs of life, are exotic preparations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartily"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1453,71 @@
     "text": "Old Amerindian's lost a sheep going up country",
     "enumeration": "7"
    },
-   "solution": "MYANMAR"
+   "solution": "MYANMAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost",
+         "at": 17,
+         "note": "lost says a letter is dropped from the Amerindian word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Old Amerindian",
+         "at": 0,
+         "gives": "MAYAN",
+         "note": "the Maya were an ancient people of Central America"
+        },
+        {
+         "words": "a",
+         "at": 22,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going up",
+         "at": 30,
+         "note": "going up in a down clue means the word is read bottom to top, reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sheep",
+         "at": 24,
+         "gives": "RAM",
+         "note": "a ram is a male sheep"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient American has lost a sheep wandering up the hills.",
+     "walkthrough": "'lost' drops one A from MAYAN, leaving MYAN; RAM 'going up' gives MAR.",
+     "definitionFit": "The Southeast Asian nation formerly known as Burma is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1531,64 @@
     "text": "Reach maiden in topless dress",
     "enumeration": "5"
    },
-   "solution": "AMBIT"
+   "solution": "AMBIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in places one piece within the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 16,
+         "note": "topless means losing the top, the first letter of the word for dress"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dress",
+         "at": 24,
+         "gives": "HABIT",
+         "note": "a habit is a garment, as worn by a nun or rider"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "maiden",
+       "at": 6,
+       "gives": "M",
+       "note": "M is the cricket abbreviation for a maiden over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl reaches for a dress with no top.",
+     "walkthrough": "'topless' cuts H from HABIT, leaving ABIT, and M goes inside.",
+     "definitionFit": "Scope or extent, how far something extends, is its reach: a noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1608,44 @@
      }
     ]
    },
-   "solution": "SHANGRILA"
+   "solution": "SHANGRILA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "idyllic location",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 11,
+       "note": "out means not as normal, or wrong, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Liar",
+       "at": 0
+      },
+      {
+       "words": "hangs",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A liar hangs about in a beautiful place.",
+     "definitionFit": "The hidden Himalayan valley paradise of James Hilton's novel Lost Horizon, now any earthly paradise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1659,58 @@
     "text": "Firm dealt in clothing items, primarily",
     "enumeration": "5"
    },
-   "solution": "SOLID"
+   "solution": "SOLID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clothing",
+       "at": 14,
+       "note": "clothing means dressing around, so one piece wraps the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dealt in",
+       "at": 5,
+       "gives": "SOLD",
+       "note": "a trader who dealt in goods sold them"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 30,
+         "note": "primarily points to the first letter of items"
+        }
+       ],
+       "parts": [
+        {
+         "words": "items",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm traded in clothing articles above all.",
+     "definitionFit": "Something firm is solid, steady and not liable to give way: adjective synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1724,30 @@
     "text": "Superficial damage to crop",
     "enumeration": "5"
    },
-   "solution": "GRAZE"
+   "solution": "GRAZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Superficial damage",
+      "at": 0,
+      "meaning": "a slight scrape or abrasion of the skin"
+     },
+     {
+      "text": "crop",
+      "at": 22,
+      "meaning": "to crop is to eat grass, as cattle do in a field"
+     }
+    ],
+    "explanation": {
+     "surface": "Light harm is done to a harvest.",
+     "definitionFit": "A scrape on the skin is superficial damage, and animals feeding on grass crop it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crop"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1761,50 @@
     "text": "Whistle-blower stops hard labour in plant",
     "enumeration": "7"
    },
-   "solution": "TREFOIL"
+   "solution": "TREFOIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stops",
+       "at": 15,
+       "note": "stops means plugs a gap, so one piece fills the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hard labour",
+       "at": 21,
+       "gives": "TOIL",
+       "note": "toil is hard labour"
+      },
+      {
+       "words": "Whistle-blower",
+       "at": 0,
+       "gives": "REF",
+       "note": "a referee, the ref, blows the whistle in a match"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An informer puts an end to hard labour in a factory.",
+     "walkthrough": "'Whistle-blower' suggests an informer; here it is a referee.",
+     "definitionFit": "Clover and similar three-leaved herbs belong to this group, so it names a kind of plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Whistle-blower"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1818,51 @@
     "text": "One type of publicity I must spread round arena",
     "enumeration": "7"
    },
-   "solution": "STADIUM"
+   "solution": "STADIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "arena",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread round",
+       "at": 29,
+       "note": "spread round means scattered about, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One type of publicity",
+       "at": 0,
+       "gives": "AD",
+       "note": "an ad, an advertisement, is one form of publicity"
+      },
+      {
+       "words": "I",
+       "at": 22
+      },
+      {
+       "words": "must",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advertiser insists on putting posters all round a sports venue.",
+     "walkthrough": "'spread round' is the anagram signal; 'One type of publicity' gives an abbreviation before the shuffle.",
+     "definitionFit": "A large sports ground with banked seating is an arena, a venue for contests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1876,32 @@
     "text": "Mature sycophantic journalists might gather here",
     "enumeration": "7"
    },
-   "solution": "ROUNDED"
+   "solution": "ROUNDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0,
+      "meaning": "fully developed, as a full-bodied wine or a well-developed character"
+     },
+     {
+      "text": "sycophantic journalists might gather here",
+      "at": 7,
+      "meaning": "fawning reporters cluster ..., the editor"
+     }
+    ],
+    "explanation": {
+     "surface": "A seasoned person notices where fawning reporters would congregate.",
+     "walkthrough": "The second sense splits as ROUND ED: ED is the usual short form of editor.",
+     "definitionFit": "A well-developed, fully formed character or wine is called mature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1915,47 @@
     "text": "Storage cabinet provided by bald barber?",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Storage cabinet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bald",
+       "at": 28,
+       "note": "bald means without hair, so that word is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "barber",
+       "at": 33,
+       "gives": "HAIRDRESSER",
+       "note": "a barber cuts hair for a living, a hairdresser"
+      },
+      {
+       "gives": "HAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bald barber has supplied a cupboard for a kitchen.",
+     "walkthrough": "A barber is a HAIRDRESSER; 'bald' strips off HAIR.",
+     "definitionFit": "A kitchen sideboard with shelves for dishes is a cabinet for storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bald"
+    }
+   }
   }
  ]
 }
