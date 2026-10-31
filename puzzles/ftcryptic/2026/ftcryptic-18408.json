@@ -275,48 +275,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "section of",
+       "at": 17,
+       "note": "a section of the doubled word is kept, so letters from both ends are removed"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "EN",
+       "op": "repeat",
        "indicators": [
         {
-         "text": "section of",
-         "note": "a section is a slice cut from something longer, so only a run of letters is kept"
+         "text": "two identical",
+         "at": 28,
+         "note": "two identical means the same word written twice in a row"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "two identical planted areas",
-         "gives": "EN",
-         "select": "last",
-         "note": "garden written twice; the slice begins with the tail of the first one"
+         "words": "planted areas",
+         "at": 42,
+         "gives": "GARDEN",
+         "note": "a garden is a planted area; the plural reflects there being two copies"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GARDE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "planted areas",
-         "gives": "GARDE",
-         "select": "first",
-         "note": "the second garden, all but its final letter"
-        }
-       ]
+       "gives": "GARDN"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to put a fence around part of a pair of matching flower beds.",
-     "walkthrough": "The string to search is not printed: write garden twice, GARDENGARDEN, and the answer runs across the join. 'Fence' looks like garden work but means swordplay.",
-     "definitionFit": "En garde is the call to a fencer to take up the ready position, so it is an instruction to get ready for a bout."
+     "surface": "Getting ready to put a fence along part of two matching flowerbeds.",
+     "walkthrough": "GARDENGARDEN loses GARD from its start and N from its end, leaving the middle stretch.",
+     "definitionFit": "Fencers call out this French phrase as a warning to get ready before a bout begins."
     },
     "features": {
      "answerInScene": false,
