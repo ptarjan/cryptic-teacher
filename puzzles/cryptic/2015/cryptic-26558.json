@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Photographer has similar facility to that of 17",
     "enumeration": "7"
    },
-   "solution": "SNOWDON"
+   "solution": "SNOWDON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Photographer",
+      "at": 0,
+      "meaning": "Lord ..., Antony Armstrong-Jones, was a celebrated royal photographer"
+     },
+     {
+      "text": "similar facility to that of 17",
+      "at": 17,
+      "meaning": "17 is the Isle of Man peak with a mountain railway; the Welsh peak also has a rack railway to its summit"
+     }
+    ],
+    "explanation": {
+     "surface": "A cameraman is said to enjoy the same amenity as whoever owns some other numbered item.",
+     "walkthrough": "Both senses are proper names: the Earl of Snowdon, and the highest mountain in Wales, whose summit railway matches Snaefell's on the Isle of Man.",
+     "definitionFit": "Lord Snowdon was a famous society photographer, married to Princess Margaret, so the title names him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facility"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,29 @@
     "text": "One who criticises celebrity chef",
     "enumeration": "6"
    },
-   "solution": "SLATER"
+   "solution": "SLATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who criticises",
+      "at": 0,
+      "meaning": "to slate is to criticise harshly"
+     },
+     {
+      "text": "celebrity chef",
+      "at": 19,
+      "meaning": "Nigel ... is a well-known British food writer and television cook"
+     }
+    ],
+    "explanation": {
+     "surface": "A famous cook who also hands out harsh reviews.",
+     "definitionFit": "Slating means savage criticism, and Nigel Slater is a British TV cook, so both senses fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +108,58 @@
     "text": "Bird rings before end of the day",
     "enumeration": "6"
    },
-   "solution": "OSPREY"
+   "solution": "OSPREY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rings",
+       "at": 5,
+       "gives": "OS",
+       "note": "rings are round like the letter O, so several are O's"
+      },
+      {
+       "words": "before",
+       "at": 11,
+       "gives": "PRE",
+       "note": "pre is the Latin prefix meaning before"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 18,
+         "note": "the end of a word is its final letter, here taken from day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird ringed by ornithologists before the day closes.",
+     "walkthrough": "'end of' takes the last letter of 'day'.",
+     "definitionFit": "The fish-eating hawk is a large bird of prey, a straightforward example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +173,41 @@
     "text": "Events over two days have not clashed badly",
     "enumeration": "10"
    },
-   "solution": "DECATHLONS"
+   "solution": "DECATHLONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Events over two days",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 38,
+       "note": "something done badly is messed up, so these letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not clashed",
+       "at": 26
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two-day athletics meetings have gone off without clashing too much.",
+     "walkthrough": "'badly' rearranges NOT CLASHED; 'have' only links definition to wordplay.",
+     "definitionFit": "A ten-event athletics contest is held over two consecutive days, so these are two-day events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clashed"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +221,60 @@
     "text": "Long-distance runner tearing about with no little thanks",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Long-distance runner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about here means turned around and mixed up, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 40,
+         "note": "no here means without, so the thanks letters are dropped from the word tearing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tearing",
+         "at": 21
+        },
+        {
+         "words": "little thanks",
+         "at": 43,
+         "gives": "TA",
+         "note": "ta is a short, informal British word for thanks"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distance athlete races about, too busy to say a quick thank-you.",
+     "walkthrough": "'no' removes TA from TEARING, leaving ERING, which 'about' rearranges.",
+     "definitionFit": "A river is a crossword runner, and this West African river runs over four thousand kilometres."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +288,50 @@
     "text": "Attack weapon used by Thatcher to start afresh",
     "enumeration": "7"
    },
-   "solution": "SANDBAG"
+   "solution": "SANDBAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attack weapon",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "to start afresh",
+       "at": 31,
+       "note": "starting afresh means the first letter is swapped for a new one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "used by Thatcher",
+       "at": 14,
+       "gives": "HANDBAG",
+       "note": "Margaret Thatcher's handbag was famous, and 'handbagging' became slang for her verbal attacks"
+      },
+      {
+       "gives": "H"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weapon the Prime Minister wielded when she wanted a fresh start.",
+     "walkthrough": "Mrs Thatcher's handbag was her legendary weapon; give it a new first letter, S, and it becomes a cosh.",
+     "definitionFit": "A bag filled with sand makes a crude cosh, used to strike someone down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Thatcher"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +345,45 @@
     "text": "Explanations get souls into trouble",
     "enumeration": "9"
    },
-   "solution": "SOLUTIONS"
+   "solution": "SOLUTIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Explanations",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trouble",
+       "at": 28,
+       "note": "to trouble is to disturb, so the letters of the two words are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "souls",
+       "at": 17
+      },
+      {
+       "words": "into",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Accounts of events that land people's souls in trouble.",
+     "walkthrough": "'trouble' is the anagram signal, working on SOULS and INTO together; 'get' only joins.",
+     "definitionFit": "Answers to problems are explanations of how they work out, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +397,29 @@
     "text": "Tip for winning card game",
     "enumeration": "3"
    },
-   "solution": "NAP"
+   "solution": "NAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tip for winning",
+      "at": 0,
+      "meaning": "in horse racing, a tipster's most confident selection of the day is called a ..."
+     },
+     {
+      "text": "card game",
+      "at": 16,
+      "meaning": "a trick-taking card game, short for Napoleon"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice on how to win at cards.",
+     "definitionFit": "Racing tipsters name their surest bet as the nap, and Napoleon (nap) is a card game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +433,41 @@
     "text": "Virus supports ongoing problems",
     "enumeration": "8"
    },
-   "solution": "BUGBEARS"
+   "solution": "BUGBEARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ongoing problems",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Virus",
+       "at": 0,
+       "gives": "BUG",
+       "note": "a bug is an informal word for a virus or infection"
+      },
+      {
+       "words": "supports",
+       "at": 6,
+       "gives": "BEARS",
+       "note": "bears means holds up or supports"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lingering infection keeps causing trouble.",
+     "definitionFit": "Persistent sources of annoyance or worry are pet hates or recurring problems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +491,63 @@
      }
     ]
    },
-   "solution": "GOSOFTON"
+   "solution": "GOSOFTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fall for",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "the ending of",
+         "at": 9,
+         "note": "the ending of a word is its tail, so the front of 10 across is dropped and its last three letters kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "10",
+         "at": 23,
+         "gives": "GALAPAGOS",
+         "note": "10 across is the island group in the Pacific"
+        },
+        {
+         "gives": "GALAPA"
+        }
+       ]
+      },
+      {
+       "words": "frequently",
+       "at": 28,
+       "gives": "OFT",
+       "note": "oft is an old word for often"
+      },
+      {
+       "words": "it can be told",
+       "at": 39,
+       "gives": "ON",
+       "note": "a story is something that can be told, and a story goes on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Falling for the end of a tale that is often told.",
+     "walkthrough": "'the ending of' keeps the closing GOS of 10 across. ON for 'it can be told' is loose: a story told goes on.",
+     "definitionFit": "To fall for someone is to become soft-hearted toward them, an idiom of indulgence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +561,48 @@
     "text": "A form of stock illustration tacked onto articles",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A form of stock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "tacked onto",
+       "at": 29,
+       "note": "tacked onto means joined on after, so the picture follows the articles"
+      }
+     ],
+     "parts": [
+      {
+       "words": "articles",
+       "at": 41,
+       "gives": "AS",
+       "note": "a is the indefinite article, so more than one gives a's"
+      },
+      {
+       "words": "illustration",
+       "at": 16,
+       "gives": "PIC",
+       "note": "pic is short for picture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An illustration of soup stock is pinned to some articles.",
+     "definitionFit": "Savoury jelly is made by setting clarified meat stock, so it is a form of stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +616,70 @@
     "text": "Unique group celebrations securing leading place in the past",
     "enumeration": "9"
    },
-   "solution": "GALAPAGOS"
+   "solution": "GALAPAGOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unique group",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "at": 26,
+       "note": "securing means holding fast, so the celebrations wrap around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "celebrations",
+       "at": 13,
+       "gives": "GALAS",
+       "note": "galas are festive celebrations"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leading",
+           "at": 35,
+           "note": "leading means the front letter of place"
+          }
+         ],
+         "parts": [
+          {
+           "words": "place",
+           "at": 43
+          }
+         ]
+        },
+        {
+         "words": "in the past",
+         "at": 49,
+         "gives": "AGO",
+         "note": "ago means in the past"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-of-a-kind group held parties that once secured a top spot.",
+     "walkthrough": "'Unique group' hints at the islands' one-off wildlife, which inspired Darwin.",
+     "definitionFit": "These Pacific islands are a unique archipelago, famous for wildlife found nowhere else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +693,41 @@
     "text": "German ruler once took in voters",
     "enumeration": "10"
    },
-   "solution": "ELECTORATE"
+   "solution": "ELECTORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "voters",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German ruler once",
+       "at": 0,
+       "gives": "ELECTOR",
+       "note": "an Elector was one of the princes who chose the Holy Roman Emperor"
+      },
+      {
+       "words": "took",
+       "at": 18,
+       "gives": "ATE",
+       "note": "ate means took food in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former German prince who absorbed the voters.",
+     "definitionFit": "The whole body of people entitled to vote in an election is the electorate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +741,55 @@
     "text": "One who was bound to come back in 16",
     "enumeration": "4"
    },
-   "solution": "SERF"
+   "solution": "SERF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who was bound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to come back",
+       "at": 18,
+       "note": "coming back means going the other way, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 31,
+         "note": "in means the letters sit inside the answer to 16 down"
+        }
+       ],
+       "parts": [
+        {
+         "words": "16",
+         "at": 34,
+         "gives": "FRES"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who was obliged to return to the open air.",
+     "walkthrough": "'in' takes FRES from inside ALFRESCO (16 down); 'to come back' reverses it.",
+     "definitionFit": "A medieval labourer was bound to his lord's land and could not leave it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +803,67 @@
     "text": "Dignified way to get queue shortened on a weekday",
     "enumeration": "10"
    },
-   "solution": "STATUESQUE"
+   "solution": "STATUESQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dignified",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way",
+       "at": 10,
+       "gives": "ST",
+       "note": "St is the abbreviation for street, a way"
+      },
+      {
+       "words": "a",
+       "at": 40
+      },
+      {
+       "words": "weekday",
+       "at": 42,
+       "gives": "TUES",
+       "note": "Tues is the short form of Tuesday"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 27,
+         "note": "shortened means cut down, so the word loses its last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "queue",
+         "at": 21,
+         "gives": "QUEUE",
+         "note": "taken as written, a line of people waiting"
+        },
+        {
+         "gives": "UE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stately way to cut short the queue on a Tuesday.",
+     "walkthrough": "'shortened' takes UE off QUEUE to give QUE.",
+     "definitionFit": "Someone tall and graceful with a stately bearing looks like a statue, hence dignified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +883,41 @@
      }
     ]
    },
-   "solution": "LAKEONTARIO"
+   "solution": "LAKEONTARIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the last in the chain of five",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Get",
+       "at": 0,
+       "note": "get here means produce by reworking, so these letters are rearranged into new words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an irate look",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receives an angry glare from the last person in a line of five.",
+     "walkthrough": "'Get' rearranges AN IRATE LOOK.",
+     "definitionFit": "Of the five Great Lakes, linked in a chain, this is the most easterly, the last before the St Lawrence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +931,34 @@
     "text": "I've got a gal here in Michigan",
     "enumeration": "9"
    },
-   "solution": "KALAMAZOO"
+   "solution": "KALAMAZOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I've got a gal here in Michigan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "I've got a gal here in Michigan",
+       "at": 0,
+       "note": "the Glenn Miller hit is titled I've Got a Gal In ..., naming this Michigan city"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man boasting of a girlfriend in the Midwest.",
+     "definitionFit": "The 1942 song places the singer's sweetheart in this Michigan city, so the clue's line points to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +972,71 @@
     "text": "Outside firm after a large return for 12",
     "enumeration": "8"
    },
-   "solution": "ALFRESCO"
+   "solution": "ALFRESCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outside",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 13,
+       "note": "after places the firm at the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 19
+      },
+      {
+       "words": "large",
+       "at": 21,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return",
+         "at": 27,
+         "note": "a return goes back the way it came, so these letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "12",
+         "at": 38,
+         "gives": "SERF",
+         "note": "12 across is the bound labourer"
+        }
+       ]
+      },
+      {
+       "words": "firm",
+       "at": 8,
+       "gives": "CO",
+       "note": "Co is short for company, a firm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outside business follows a big comeback.",
+     "walkthrough": "'return' reverses SERF (12 across) to FRES.",
+     "definitionFit": "Done in the open air, as with a meal eaten outside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1050,32 @@
     "text": "Manly height can be got up on track",
     "enumeration": "8"
    },
-   "solution": "SNAEFELL"
+   "solution": "SNAEFELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manly height",
+      "at": 0,
+      "meaning": "the highest mountain on the Isle of Man, whose people are Manx"
+     },
+     {
+      "text": "can be got up on track",
+      "at": 13,
+      "meaning": "a mountain railway climbs to the summit of this peak"
+     }
+    ],
+    "explanation": {
+     "surface": "A tall masculine figure who can be reached by running track.",
+     "walkthrough": "'Manly' means 'of the Isle of Man', a British Crown dependency in the Irish Sea.",
+     "definitionFit": "This peak is the island's summit, reachable by the Manx electric mountain railway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Manly"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1095,50 @@
      }
     ]
    },
-   "solution": "LINENCLOSET"
+   "solution": "LINENCLOSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little room",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 25,
+       "note": "containing means holding inside, so the dressing wraps around the girdle word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dressing",
+       "at": 16,
+       "gives": "LINT",
+       "note": "lint is a soft fabric used to dress wounds"
+      },
+      {
+       "words": "girdle",
+       "at": 36,
+       "gives": "ENCLOSE",
+       "note": "to girdle is to encircle or enclose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small dressing room holding a corset.",
+     "walkthrough": "'dressing' and 'girdle' both pretend to be clothing; one is a wound dressing, the other a verb.",
+     "definitionFit": "A cupboard for storing sheets and towels is a small storage space, a little room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1152,53 @@
     "text": "Fly in Thailand direction, twice",
     "enumeration": "6"
    },
-   "solution": "TSETSE"
+   "solution": "TSETSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "repeat",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 27,
+       "note": "twice means the pair of pieces is written two times"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Thailand",
+         "at": 7,
+         "gives": "T",
+         "note": "T is the international vehicle code for Thailand"
+        },
+        {
+         "words": "direction",
+         "at": 16,
+         "gives": "SE",
+         "note": "SE is south-east, a compass direction"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect flying around in Thailand, in one direction and then back.",
+     "definitionFit": "An African biting insect that spreads sleeping sickness is a kind of fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1212,40 @@
     "text": "Wit especially getting slower",
     "enumeration": "6"
    },
-   "solution": "ESPRIT"
+   "solution": "ESPRIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "especially",
+       "at": 4,
+       "gives": "ESP"
+      },
+      {
+       "words": "slower",
+       "at": 23,
+       "gives": "RIT",
+       "note": "rit, short for ritardando, is the musical direction to slow down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Humour that is mostly slowing down.",
+     "definitionFit": "Liveliness of mind and quickness of humour are what the French borrowing names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slower"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1259,44 @@
     "text": "Bird said to be back",
     "enumeration": "4"
    },
-   "solution": "RHEA"
+   "solution": "RHEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RHEA",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 5,
+       "note": "said means spoken, so the word for back is pronounced"
+      }
+     ],
+     "parts": [
+      {
+       "words": "back",
+       "at": 16,
+       "gives": "REAR",
+       "note": "rear means back"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is reported to have returned.",
+     "walkthrough": "In a non-rhotic British accent the two words are pronounced alike.",
+     "definitionFit": "A large flightless South American bird, related to the ostrich."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1310,45 @@
     "text": "Man with an issue to resolve records what's said",
     "enumeration": "10"
    },
-   "solution": "AMANUENSIS"
+   "solution": "AMANUENSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "records what's said",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to resolve",
+       "at": 18,
+       "note": "resolving untangles and reshapes, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Man",
+       "at": 0
+      },
+      {
+       "words": "an issue",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a problem to sort out writes down what's said.",
+     "walkthrough": "'to resolve' rearranges MAN and AN ISSUE; 'with' just joins them.",
+     "definitionFit": "A secretary taking dictation writes down spoken words, so the clue's phrase describes this scribe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1362,45 @@
     "text": "\"Fashionable\" Med resort said to be a relative term",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a relative term",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NIECE",
+     "indicators": [
+      {
+       "text": "said",
+       "at": 25,
+       "note": "said means spoken aloud, so the resort's name is heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Med resort",
+       "at": 14,
+       "gives": "NICE",
+       "note": "Nice is a resort on the French Riviera; nice also means fashionable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart Mediterranean holiday spot is called a family word.",
+     "walkthrough": "'Fashionable' hints at nice, which is also the Riviera city's name.",
+     "definitionFit": "A brother's or sister's daughter is a family member, so the word is a kinship term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fashionable"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1414,60 @@
     "text": "Female spy sleep-in causes a rumpus",
     "enumeration": "9"
    },
-   "solution": "SHEMOZZLE"
+   "solution": "SHEMOZZLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a rumpus",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Female",
+       "at": 0,
+       "gives": "SHE",
+       "note": "she is the female pronoun"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "in means the sleep letters go inside the spy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spy",
+         "at": 7,
+         "gives": "MOLE",
+         "note": "a mole is a spy planted inside an organisation"
+        },
+        {
+         "words": "sleep",
+         "at": 11,
+         "gives": "ZZ",
+         "note": "zz is the comic-strip sign for sleep"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman agent's lie-in causes uproar.",
+     "walkthrough": "The '-in' of 'sleep-in' is the container signal, so the hyphenated word splits in two jobs.",
+     "definitionFit": "A Yiddish-derived word for a noisy muddle or uproar, the same as a rumpus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sleep-in"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1481,48 @@
     "text": "Have leaders of the opposition waiting nervously",
     "enumeration": "3"
    },
-   "solution": "OWN"
+   "solution": "OWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leaders of",
+       "at": 5,
+       "note": "the leaders of words are their first letters, taken from three words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opposition",
+       "at": 20
+      },
+      {
+       "words": "waiting",
+       "at": 31
+      },
+      {
+       "words": "nervously",
+       "at": 39
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opposition's top people nervously wait to have their say.",
+     "definitionFit": "To possess something is to hold it as property, the plain sense of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1536,55 @@
     "text": "Drug ends drear state",
     "enumeration": "5"
    },
-   "solution": "QATAR"
+   "solution": "QATAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "state",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drug",
+       "at": 0,
+       "gives": "QAT",
+       "note": "qat, or khat, is a stimulant leaf chewed in Arabia and East Africa"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ends",
+         "at": 5,
+         "note": "ends means only the closing letters of drear are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drear",
+         "at": 10
+        },
+        {
+         "gives": "DRE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug use ends a dreary situation.",
+     "walkthrough": "'ends' keeps only AR, the end of 'drear'.",
+     "definitionFit": "A Gulf nation is an independent country, which is the sense of state here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1598,40 @@
     "text": "Ronaldo playing for US city",
     "enumeration": "7"
    },
-   "solution": "ORLANDO"
+   "solution": "ORLANDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 8,
+       "note": "playing suggests a footballer moving around, so the name's letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ronaldo",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The footballer Ronaldo turns out for an American team.",
+     "definitionFit": "A Florida city famous for its theme parks, so a US city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ronaldo"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1645,41 @@
     "text": "Opening partner remains in top place",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "top place",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Opening partner",
+       "at": 0,
+       "gives": "EVE",
+       "note": "Eve was Adam's partner in the opening book of the Bible, the first woman"
+      },
+      {
+       "words": "remains",
+       "at": 16,
+       "gives": "REST",
+       "note": "the rest is what remains"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opening batsman's partner stays at the top of the order.",
+     "definitionFit": "The world's highest mountain is literally the top place on Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Opening"
+    }
+   }
   }
  ]
 }
