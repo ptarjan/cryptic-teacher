@@ -1405,6 +1405,9 @@ tests/test_push_conflict.sh                    proves the nightly push rebuilds 
 tests/test_push_race.sh                        a push that loses the shared ref-lock race to
                                                another worktree is retried; any other failure
                                                is not
+tests/test_push_silent_fail.sh                 a git step in tools/push_puzzle_commit.sh that
+                                               dies with no output names its exit code or
+                                               signal, and one killed by a signal is retried
 tools/prereset_plan.py                         how many annotations the burn runs at once, and
                                                the order it takes the queue in
 tools/indicator_cover.py                       puts first the backlog puzzles whose blog-named
