@@ -23,9 +23,11 @@ check("every RULE_REPAIRS key has a detector the first check can count: " + ", "
 
 # CASTANCHOR: two lone C's in the fodder, the answer starts with one: C + ana(TAR HAS + C + ON)
 leaf = lambda w, g=None: {"words": w, "note": "taken as written"} if g is None else {"words": w, "gives": g, "note": "abbreviation"}
+# The lone C sits at the pool's edge in the clue ("Caught" first): pulling it out opens no poolGap. (A C mid-pool, as in
+# "Tar has caught cold on", is genuine fodder: pulling it is a poolGap, the FISTFIGHT case below.)
 wp = {"op": "anagram", "indicators": [{"text": "windy", "note": "windy things are blown about"}],
-      "parts": [leaf("Tar has"), leaf("caught", "C"), leaf("cold", "C"), leaf("on")]}
-entry = {"solution": "CASTANCHOR", "clue": {"text": "Tar has caught cold on windy moor"}}
+      "parts": [leaf("Caught", "C"), leaf("tar has"), leaf("cold", "C"), leaf("on")]}
+entry = {"solution": "CASTANCHOR", "clue": {"text": "Caught tar has cold on windy moor"}}
 new = A.repair_pool_gap({"wordplay": wp}, entry)["wordplay"]
 check("anaLoneEdge anagram is mended in place", new.get("op") == "charade" and not A.rule_counters()["anaLoneEdge"](new, {"_answer": "CASTANCHOR"}, ""))
 counters = A.rule_counters()

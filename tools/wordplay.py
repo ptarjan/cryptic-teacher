@@ -26,6 +26,9 @@ Grammar
                           of the clue's own pieces as one pool. A single letter, a
                           pick at the answer's end, an abbreviation or a synonym
                           is spelt beside it, ana(x) + N, never scrambled in
+                          (unless its clue word stands between the fodder words,
+                          "This fine gift may be exchanged": F is fodder, ana(This + [fine]F +
+                          gift): the pool is the clue's words in order)
                           A short word next to the indicator may be fodder:
                           the fodder's letter count must equal what the
                           anagram makes. A joining word inside the fodder
