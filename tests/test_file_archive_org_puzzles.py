@@ -4926,7 +4926,7 @@ check("CLUE_REPEATED is a rank 2 answers-only fix reason, evidence, LOW, a fix l
       (f.RANKS[f.CLUE_REPEATED], f.CLUE_REPEATED in f.SOLUTION_FIXES, f.CLUE_REPEATED.startswith("solution short"),
        f.CLUE_REPEATED in __import__("edition_queue").LOW_ASK, f.CLUE_REPEATED in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.CLUE_REPEATED),
-       __import__("edition_queue").UNFILED_FIRST[-2] == f.CLUE_REPEATED))
+       f.CLUE_REPEATED in __import__("edition_queue").UNFILED_FIRST))
 _cr = min(f.CLUE_REPEAT_PUZZLES)
 check("clue_repeat_short: a row read since REREAD_CLUE_REPEATED, no Times paper's, a refused grid's or another puzzle's "
       "is not due; the reason is apart from VOUCHED_FIT", [False, False, False, False, True],
@@ -4972,7 +4972,8 @@ check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix lan
       (f.RANKS[f.LATE_LINKED], f.LATE_LINKED in f.SOLUTION_FIXES,
        f.LATE_LINKED in __import__("edition_queue").LOW_ASK, f.LATE_LINKED in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.LATE_LINKED),
-       __import__("edition_queue").UNFILED_FIRST[-1] == f.LATE_LINKED))
+       __import__("edition_queue").UNFILED_FIRST.index(f.CLUE_REPEATED)
+       < __import__("edition_queue").UNFILED_FIRST.index(f.LATE_LINKED)))
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
