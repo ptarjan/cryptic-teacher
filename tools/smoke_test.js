@@ -6717,6 +6717,10 @@ global.realSetTimeout(() => {
     if (!panelHTML().includes("guess-clue ask")) return null;
     registry["gw-0"].onclick();
     registry["guess-check"].onclick();
+    // One word that is already the whole target is a RIGHT answer, and a right
+    // answer goes on to the next question, so there is no wrong-pick marking to
+    // read: the target is that one word.
+    if (registry["hint-body"].innerHTML.includes("guess-verdict right")) return [0];
     const marks = registry["hint-body"].innerHTML.match(/class="gw([^"]*)"/g) || [];
     return marks.reduce((acc, m, i) => (/hit|missed/.test(m) ? acc.concat(i) : acc), []);
   };
