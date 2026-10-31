@@ -5694,10 +5694,10 @@ global.realSetTimeout(() => {
     const other = rungs().find((b) => !b.disabled);
     const label = other.textContent;
     const before2 = registry["hint-body"].innerHTML;
-    const grew = before2.length;
+    const grew = kept(before2).length;
     other.onclick();
     const after2 = registry["hint-body"].innerHTML;
-    assert(after2.length >= grew, "the panel still only grows across a switch: " + label);
+    assert(kept(after2).length >= grew, "the panel still only grows across a switch: " + label);
     // The rung the solver walked away from was never answered, so nothing new
     // may be marked as worked out on the way past.
     const won = (h) => (h.match(/hint-step won/g) || []).length;
@@ -6863,9 +6863,11 @@ global.realSetTimeout(() => {
       if (!earn) { registry["guess-tell"].onclick(); continue; }
       for (const i of want[k]) registry["gw-" + i].onclick();
       registry["guess-check"].onclick();
-      dismissNext();
+      // The verdict is read while the next question stands beside it; then that
+      // question is skipped so the ladder is counted as it is after the rung.
       assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
         `the ${k} rung is earned, not bought: ` + registry["hint-body"].innerHTML);
+      dismissNext();
     }
     return { locked: locked(), offered: offeredN(), score: registry["scorebar"].innerHTML,
              text: offered() };
