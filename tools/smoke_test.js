@@ -5702,7 +5702,7 @@ global.realSetTimeout(() => {
     // the hint-focus wrapper from the verdict to the new question and drops the
     // verdict's "fresh" class, ~33 characters of tags with nothing taken away
     // (run 41158582032).
-    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "").replace(/<[^>]*>/g, "");
+    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "").replace(/<[^>]*>/g, "").replace(/[<>]/g, "");
     const grew = settled(before2).length;
     other.onclick();
     const after2 = registry["hint-body"].innerHTML;
