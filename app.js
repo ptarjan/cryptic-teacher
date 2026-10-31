@@ -40,8 +40,10 @@
      ballot either, so one-vote-per-clue is this device remembering, and
      clearing the browser buys another vote. That is a fair price for keeping the votes anonymous.
 
-     The whole puzzle's tally arrives in ONE request when the grid opens, not one
-     per clue. Everything here is best-effort: no tally is a row with no numbers
+     The whole puzzle's tally arrives in ONE request, not one per clue, and only
+     when the first vote row is drawn: a grid opened and left, or loaded by a
+     crawler, never shows a row, and fetching on open cost a KV read per page
+     view (100k a day once a headless crawler walked the clue pages). Everything here is best-effort: no tally is a row with no numbers
      in it, never an error in front of somebody solving.  */
   const VOTES_KEY = "ct:votes";
   let myVotes = store.get(VOTES_KEY, {}) || {};
@@ -49,9 +51,16 @@
 
   const voteTarget = (e) => (e ? `c:${P.id}:${entryKey(e)}` : `p:${P.id}`);
 
+  let votesAsked = null;   // the puzzle id whose tally has been asked for
+  const BOT_UA = /bot|crawl|spider|slurp|headless|lightpanda|phantom|puppeteer|playwright/i;
+
+  function forgetVotes() { voteTally = {}; votesAsked = null; }
+
   function fetchVotes(id) {
-    voteTally = {};
+    if (votesAsked === id) return;
+    votesAsked = id;
     if (!SYNC_ENDPOINT || typeof fetch !== "function") return;
+    if (navigator.webdriver || BOT_UA.test(navigator.userAgent || "")) return;
     fetch(`${SYNC_ENDPOINT}/v?p=${encodeURIComponent(id)}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((t) => {
@@ -92,6 +101,7 @@
   // two buttons. Numbers only when there are any — "0 of 0 liked it" is a way
   // of saying nobody has been here, which is not a thing to tell a solver.
   function voteRowHTML(target, ask, yes, no) {
+    if (P) fetchVotes(P.id);
     const mine = myVotes[target];
     const t = voteTally[target] || { up: 0, down: 0 };
     const said = t.up + t.down;
@@ -8696,7 +8706,7 @@
     // not something to celebrate.
     wasComplete = null;
     tallyDrawn = false;
-    fetchVotes(id);
+    forgetVotes();
     // Forget the last puzzle's clue too, so syncClueUrl always writes the new
     // one. It compares refs, not puzzles, and "1A" left over from the puzzle
     // just closed reads as no change if the new one also opens on "1A" —

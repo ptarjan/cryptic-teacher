@@ -37,6 +37,12 @@ const MAX_VOTE = 64;
 // nothing, and a second copy of the catalogue here is a copy that goes stale.
 const VOTE_TARGET_RE = /^(?:c:[a-z]{4,12}-\d{1,6}:\d{1,3}-(?:across|down)|p:[a-z]{4,12}-\d{1,6})$/;
 const VOTE_VERDICTS = ["up", "down"];
+// GET /v was a KV read per page view, and a headless crawler walking the clue
+// pages made that 100k reads a day. Crawlers are told "no votes" for free, and a
+// puzzle's tally is remembered per isolate for a few minutes.
+const BOT_UA = /bot|crawl|spider|slurp|headless|lightpanda|phantom|puppeteer|playwright/i;
+const TALLY_MEMO = new Map();
+const TALLY_MEMO_MS = 5 * 60 * 1000;
 
 const INDEX_URL = "https://cryptic.paultarjan.com/puzzles/index.json";
 const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
@@ -287,14 +293,28 @@ export default {
         const tally = (await env.SAVES.get(tallyKey, "json")) || {};
         (tally[target] = tally[target] || { up: 0, down: 0 })[verdict]++;
         await env.SAVES.put(tallyKey, JSON.stringify(tally), { expirationTtl: VOTE_TTL });
+        TALLY_MEMO.set(target.split(":")[1], { at: Date.now(), tally });
         return ok;
       }
       if (request.method === "GET") {
         const puzzle = url.searchParams.get("p") || "";
         if (!/^[a-z]{4,12}-\d{1,6}$/.test(puzzle))
           return json({ error: "p must be a puzzle id" }, 400, origin);
-        const tally = (await env.SAVES.get("t:" + puzzle, "json")) || {};
-        return json(tally, 200, origin);
+        // A tally is a nicety, and every read is billed: crawlers get an empty
+        // one without a KV read, and a puzzle read in the last few minutes is
+        // answered from this isolate's memory. A minute-stale count is fine.
+        if (BOT_UA.test(request.headers.get("user-agent") || ""))
+          return json({}, 200, origin);
+        const now = Date.now();
+        let hit = TALLY_MEMO.get(puzzle);
+        if (!hit || now - hit.at > TALLY_MEMO_MS) {
+          hit = { at: now, tally: (await env.SAVES.get("t:" + puzzle, "json")) || {} };
+          if (TALLY_MEMO.size > 500) TALLY_MEMO.clear();
+          TALLY_MEMO.set(puzzle, hit);
+        }
+        const res = json(hit.tally, 200, origin);
+        res.headers.set("cache-control", "public, max-age=300");
+        return res;
       }
     }
 
