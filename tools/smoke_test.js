@@ -5694,10 +5694,17 @@ global.realSetTimeout(() => {
     const other = rungs().find((b) => !b.disabled);
     const label = other.textContent;
     const before2 = registry["hint-body"].innerHTML;
-    const grew = kept(before2).length;
+    // The standing question is swapped for the new one, not kept: a choice or
+    // pairs question draws its options in the panel, a tap-in-the-clue question
+    // draws none there, so the question's own size may fall across a switch. What
+    // must not shrink is everything settled above it (verdicts, rungs), and the
+    // question always goes last in the body.
+    const settled = (h) => kept(h).replace(/(<div id="hint-focus">)?<div class="hint-step guess"[\s\S]*$/, "");
+    const grew = settled(before2).length;
     other.onclick();
     const after2 = registry["hint-body"].innerHTML;
-    assert(kept(after2).length >= grew, "the panel still only grows across a switch: " + label);
+    assert(settled(after2).length >= grew, "the panel still only grows across a switch: " + label
+      + " (" + grew + " -> " + settled(after2).length + ")\nbefore: " + before2 + "\nafter: " + after2);
     // The rung the solver walked away from was never answered, so nothing new
     // may be marked as worked out on the way past.
     const won = (h) => (h.match(/hint-step won/g) || []).length;

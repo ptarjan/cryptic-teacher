@@ -1648,7 +1648,8 @@ def _partial_reversal_hint(node, want):
         return None
     seg = x[lo:hi + 1]
     ind = " ".join(i.get("text", "") for i in node.get("indicators") or []) or "indicator"
-    return (f"rev() turns the whole of {render(parts[0])}, but {want} is {x} with only {seg} turned round: write "
+    return (f"rev<{ind}> turns the whole of {render(parts[0])}, but {want} is {x} with only {seg} turned round "
+            f"(needs {want}): write "
             f"sub<{ind}>({render(parts[0])}, {seg}, {seg[::-1]}), keeping the clue words for the turning as the indicator")
 
 
