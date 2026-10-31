@@ -346,12 +346,28 @@ def mend_clues(puzzle):
             entry["clue"]["reconstructed"] = True
 
 
-def landed(ann, entry, entries, eid, errors):
+def drop_spare_preamble_flag(new, puzzle):
+    """`new` without a `definedByPreamble` it gives beside a definition, in a puzzle that
+    prints no preamble: the clue defines the answer, so the flag is spare, and the validator
+    would refuse it ("definedByPreamble, but the puzzle has no preamble", the audit's 10-30
+    cause: 17 sessions). Unambiguous, so mended here instead of sent back. A puzzle with a
+    preamble, or one not given, is left to the validator; a flag with no definition is the
+    preamble we lack and stays (puzzle_worker.sh holds the puzzle for it)."""
+    if (isinstance(new, dict) and isinstance(puzzle, dict) and "entries" in puzzle
+            and not puzzle.get("preamble") and new.get("definedByPreamble") is True
+            and new.get("definitions")):
+        return {k: v for k, v in new.items() if k != "definedByPreamble"}
+    return new
+
+
+def landed(ann, entry, entries, eid, errors, puzzle=None):
     """normalize(), with a wordplay that does not check appended to `errors`
-    as "<eid>: why" (None back)."""
+    as "<eid>: why" (None back). `puzzle`, when given, lets a flag the puzzle cannot
+    honour be dropped (drop_spare_preamble_flag)."""
     import wordplay
     try:
-        return carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry), entry)
+        return drop_spare_preamble_flag(
+            carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry), entry), puzzle)
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
@@ -664,7 +680,7 @@ def apply(path, annotations, by=None, only=None, partial=False):
         if ann is None:
             entry.pop("annotation", None)
         else:
-            new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors)
+            new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors, puzzle)
             if new is not None:
                 keep_spelling(new, entry, was)
             found = []

@@ -135,7 +135,7 @@ def redo_gate(puzzle, part):
         if not ann or not entry.get("annotation"):
             continue
         bad = []
-        new = landed(ann, entry, puzzle["entries"], eid, bad)
+        new = landed(ann, entry, puzzle["entries"], eid, bad, puzzle)
         if new is None:
             continue  # annotate_check reports a tree that does not parse
         detected = shape_queue.findings(entry, new) if eid in relisted else []

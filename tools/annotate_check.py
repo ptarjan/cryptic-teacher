@@ -75,7 +75,9 @@ from pathlib import Path
 from annotate_audit import load_templates, rule_name
 import annotation
 import apply_annotations
+import await_preamble
 import blog_post
+import discard_alert
 import fetch_puzzle
 import clue_types
 import corroborate
@@ -315,6 +317,18 @@ def keep_words(puzzle, only):
             if words:
                 out[eid] = " ".join(words)
     return out
+
+
+def awaiting_preamble(path, vout, errors):
+    """The entries whose only fault is a preamble the puzzle lacks (await_preamble.which: the
+    file validates once given a stand-in), else []. Their runs used to search for the preamble,
+    then withdraw, and a fix run followed (annotate audit 10-30: 17 sessions)."""
+    if not errors or not any(p in vout for p in discard_alert.PREAMBLE_ERRORS):
+        return []
+    try:
+        return await_preamble.which(path, read_puzzle_file(path))
+    except Exception:
+        return []
 
 
 def write_view(path):
@@ -933,7 +947,7 @@ def preview(path, pending):
             else:
                 # A clue whose wordplay does not check is named by the refusal;
                 # the rest are still worth validating.
-                new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], "", [])
+                new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], "", [], puzzle)
                 if new is None:
                     refused.add(f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}")
                     continue
@@ -1229,6 +1243,13 @@ def main(argv):
     print(f"\nannotate_check {stem}: " + (
         "applied, index refreshed, " + f"{warns} advisory warn — done" if advisory
         else ", ".join(counts) if counts else "clean, index refreshed — done"))
+    waits = awaiting_preamble(path, vout, errors)
+    if waits:
+        print(f"{', '.join(waits)} lean on a preamble this puzzle's file does not hold, and "
+              f"that is the only thing wrong. No edit mends it and you cannot fetch it "
+              f"(a search will not find it): leave {pending.name} as it stands, do not "
+              f"withdraw, and end the run now. The puzzle is held until its preamble is filed.")
+        print(STOP_NOW)
     if advisory:
         print("The annotations are applied and valid; the warns above are advisory "
               "and several (the cryptic-definition cap, 'never shows the "
@@ -1243,7 +1264,7 @@ def main(argv):
         # Runs kept going after a clean check, re-reading and summarising,
         # ~3-4% of the burn's spend (10-08..12): said here, where they look.
         print(STOP_NOW)
-    if counts and not advisory:
+    if counts and not advisory and not waits:
         # Two callers: the annotate run, which hands over tools/_ann_<ID>.json,
         # and the field backfills, which edit the puzzle in place. Naming a file
         # that is not there is an invitation to go looking for it.
