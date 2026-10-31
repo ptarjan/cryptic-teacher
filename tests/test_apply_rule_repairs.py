@@ -156,6 +156,13 @@ check("doesNotGive: a hidden word in a cross-reference or numeral reads the word
       mend("hid<Some>([70s]SEVENTIES)", "Some 70s occasion", "EVENT") == "hid<Some>([70s]SEVENTIES)")
 msg = mend("hid<in>([US state]IDAHO)", "Mountain in US state", "IDA")
 check("doesNotGive: a hidden word over a looked-up synonym says what to write instead", "no hidden word" in msg and "first(), last() or del()" in msg)
+# doesNotGive, 10-31 audit (the commonest residue was rev(leaf) where one stretch only is turned: LAID to LIAD, SPELT to SLEPT)
+check("doesNotGive: rev() over a leaf where only a stretch is turned becomes sub(leaf, OLD, NEW), indicator kept",
+      mend("[I]I + rev<flipped>([put down]LAID)", "I put down flipped", "ILIAD") == "[I]I + sub<flipped>([put down]LAID, AI, IA)")
+check("doesNotGive: that partial turn is mended on its own too (SPELT to SLEPT)",
+      mend("rev<changing sides>([Wheat]SPELT)", "Wheat changing sides", "SLEPT") == "sub<changing sides>([Wheat]SPELT, PEL, LEP)")
+check("doesNotGive: a whole-leaf reversal that gives the answer is left alone",
+      mend("rev<flipped>([devil]DEVIL)", "devil flipped", "LIVED") == "rev<flipped>([devil]DEVIL)")
 # indicators.note (10-27 audit, 6 sessions): the link word of `+<after>` / `ins<in>` filed with no note is given
 # the sentence for its operation; an operation with no sentence (a spoonerism) stays refused.
 def noted(wp_text, clue, ans, notes):
@@ -287,7 +294,7 @@ for wp, clue, ans in [
     msg = mend(wp, clue, ans)
     check("doesNotGive mends the plural S / surplus leaf in place: " + ans, not msg.startswith("REFUSED"))
 msg = mend("rev<upheaval in most of contents>([experienced]FELT)", "Experienced upheaval in most of contents", "LEFT")
-check("doesNotGive names a partial reversal as sub()", msg.startswith("REFUSED") and "sub<upheaval in most of contents>([Experienced]FELT, FEL, LEF)" in msg)
+check("doesNotGive mends a partial reversal as sub() in place", msg == "sub<upheaval in most of contents>([Experienced]FELT, FEL, LEF)")
 msg = mend("ins<pocketing>([seldom seen]SCARCE, [note]F)", "Seldom seen pocketing note, gangster", "SCARFACE")
 check("doesNotGive names the run the container needs inside", msg.startswith("REFUSED") and "needs FA inside it" in msg)
 sys.exit(1 if fails else 0)
