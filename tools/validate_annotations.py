@@ -7265,10 +7265,13 @@ def _pull_part(tree, node, idx, front):
     return None
 
 
-def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False):
+def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False, clue=None):
     """How many anagrams in `tree` have a part `pick(parts, idx)` accepts that, set outside the anagram at
     the start or the end of a charade, still gives the answer. `keep_order`: a first part may only go to the
-    start and a last part to the end (the piece stays where the clue put it)."""
+    start and a last part to the end (the piece stays where the clue put it). With `clue`, a pull that would
+    leave the piece's clue words between the anagram's other pieces is no pull: it trades this rule for
+    poolGap, and the two cannot both be met (FISTFIGHT "This fine gift may be exchanged": F is genuine
+    fodder from the middle of the pool, so the F-first answer is a coincidence, not a lone edge)."""
     if not answer or not isinstance(tree, dict):
         return 0
     try:
@@ -7286,6 +7289,8 @@ def _anagrams_with_pulled_part(tree, answer, pick, keep_order=False):
                 if keep_order and front != (idx == 0):
                     continue
                 t = _pull_part(tree, node, idx, front)
+                if clue and t is not None and pool_gaps(t, clue) > pool_gaps(tree, clue):
+                    continue
                 try:
                     wordplay.evaluate(t, answer)
                     done = True
@@ -7314,15 +7319,15 @@ def _one_letter_part(parts, i):
     return len(wordplay.letters(p.get("gives") or p.get("words"))) == 1
 
 
-def ana_lone_edge(tree, answer=None):
+def ana_lone_edge(tree, answer=None, clue=None):
     """Anagrams with a single-letter fodder piece (an abbreviation, a first/last pick, a lone word like "a")
     anywhere in the fodder, that the answer shows at its start or end (r32 FN: ESPLANADES E + ana(SEDAN ALPS),
     REAWAKEN ana(A + WEAKER) + N, CYPRIOTS C + ana(...)). Paul 10-19: a lone letter that can sit outside the
     anagram must. A letter that sits mid-answer is genuine fodder (Paul's rule 9) and is not counted."""
-    return _anagrams_with_pulled_part(tree, answer, _one_letter_part)
+    return _anagrams_with_pulled_part(tree, answer, _one_letter_part, clue=clue)
 
 
-def ana_literal_edge(tree, answer=None):
+def ana_literal_edge(tree, answer=None, clue=None):
     """Anagrams whose first or last fodder piece is 2+ clue-word letters taken as written, which the answer
     shows unscrambled at its edge (r32 FN: ZEROTOLERANCE ZERO + ana(TO + CLEANER) holds TO). Single letters
     are ana_lone_edge's."""
@@ -7330,7 +7335,7 @@ def ana_literal_edge(tree, answer=None):
         p = parts[i]
         return i in (0, len(parts) - 1) and "op" not in p and not p.get("unchecked") and not _stand_in_piece(p) \
             and len(wordplay.letters(p.get("gives") or p.get("words"))) >= 2
-    return _anagrams_with_pulled_part(tree, answer, literal_edge, keep_order=True)
+    return _anagrams_with_pulled_part(tree, answer, literal_edge, keep_order=True, clue=clue)
 
 
 def del_wraps_charade(tree, clue=None):
@@ -7700,7 +7705,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
                    f"move<dropping>([England]ALBION, [ball]O)")
     if k := pool_gaps(tree, clue):
         out.append(f"{tag}: {k} {POOL_GAP}: the fodder is the words together under the indicator; "
-                   f"a piece the clue places elsewhere belongs to the charade or insertion, not the pool")
+                   f"a piece the clue places elsewhere belongs to the charade or insertion, not the pool; "
+                   f"a piece whose words sit between the fodder words is fodder: list the pieces in clue order inside the one ana()")
     if k := midword_leaves(tree, clue):
         out.append(f"{tag}: {k} {MIDWORD_LEAF}: a cut is an op (del/first/last), not a leaf that "
                    f"gives part of a word")
@@ -7733,8 +7739,8 @@ def shape_warnings(tag, ann, clue=None, answer=None):
             (lambda: trunc_in_leaf(tree), TRUNC_IN_LEAF, "the truncation word is a deletion's indicator"),
             (lambda: cut_note_leaf(tree), CUT_NOTE_LEAF, "give the real word and cut it with a deletion op"),
             (lambda: selector_as_cut(tree), SELECTOR_AS_CUT, "the removed letter is a first/last pick with its own indicator"),
-            (lambda: ana_lone_edge(tree, answer), ANA_LONE_EDGE, "set the letter beside the anagram in a charade"),
-            (lambda: ana_literal_edge(tree, answer), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
+            (lambda: ana_lone_edge(tree, answer, clue), ANA_LONE_EDGE, "set the letter beside the anagram in a charade"),
+            (lambda: ana_literal_edge(tree, answer, clue), ANA_LITERAL_EDGE, "set the word beside the anagram in a charade"),
             (lambda: del_wraps_charade(tree, clue), DEL_WRAPS_CHARADE, "cut inside the one piece the word acts on"),
             (lambda: repeat_in_leaf(tree), REPEAT_IN_LEAF, REPEAT_FORM),
             (lambda: split_word_leaves(tree), SPLIT_WORD_LEAVES, "the word is the container's outer piece, one leaf"),

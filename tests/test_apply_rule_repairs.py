@@ -297,4 +297,33 @@ msg = mend("rev<upheaval in most of contents>([experienced]FELT)", "Experienced 
 check("doesNotGive mends a partial reversal as sub() in place", msg == "sub<upheaval in most of contents>([Experienced]FELT, FEL, LEF)")
 msg = mend("ins<pocketing>([seldom seen]SCARCE, [note]F)", "Seldom seen pocketing note, gangster", "SCARFACE")
 check("doesNotGive names the run the container needs inside", msg.startswith("REFUSED") and "needs FA inside it" in msg)
+# poolGap residue (10-30/31 audit, 46 sessions): anaLoneEdge pulled a lone letter out of a pool whose clue words
+# stand between the fodder words, trading one refusal for a poolGap the model could not meet; and the model's own
+# pulled-out piece that the clue gathers into the pool.
+import validate_annotations as V
+import wordplay as W
+def pool(wp, clue, answer):
+    entry = {"solution": answer, "clue": {"text": clue}}
+    tree = W.normalize(W.parse(wp, clue), clue, answer)[0]
+    return tree, A.repair_pool_gap({"wordplay": tree}, entry)["wordplay"]
+def words(t):
+    return [p.get("words") or p.get("op") for p in t.get("parts") or []]
+c = "This fine gift may be exchanged for scrap (4,5)"
+tree, new = pool("ana<may be exchanged>([This] + [fine]F + [gift])", c, "FISTFIGHT")
+check("FISTFIGHT: the F in the middle of the pool is fodder, no anaLoneEdge pull", new.get("op") == "anagram" and words(new) == ["This", "fine", "gift"])
+check("ana_lone_edge counts the F without the clue, not with it", V.ana_lone_edge(tree, "FISTFIGHT") == 1 and V.ana_lone_edge(tree, "FISTFIGHT", c) == 0)
+check("FISTFIGHT has no poolGap and no anaLoneEdge after the first check", not V.pool_gaps(new, c))
+for wp, clue, ans, want in [
+        ("ana<surprisingly>([goes] + [at] + [us]) + [right]R", "Old beast goes right at us, surprisingly (9)", "STEGOSAUR", ["goes", "right", "at", "us"]),
+        ("[a]A + ana<whirlwind>([I] + [travel]GO + [tour])", "Aircraft in which I travel around in a whirlwind tour (8)", "AUTOGIRO", ["I", "travel", "a", "tour"]),
+        ("first<initially>([with]) + ana<characters>([fun] + [older])", "Great fun initially with older characters (9)", "WONDERFUL", ["fun", "first", "older"])]:
+    tree, new = pool(wp, clue, ans)
+    check("poolGap absorb: the piece joins the pool in clue order, " + ans,
+          new.get("op") == "anagram" and [(p.get("words") or p.get("op")) for p in new["parts"]] == want and not V.pool_gaps(new, clue))
+# SPECTRE: ins<round> over a pool the clue breaks with the container's own words: not one reading, left for the model
+tree, new = pool("ins<round>(ana<running>([One of Graf's partners]SPEE + [King's]R), [court]CT)",
+                 "One of Graf's partners running round court \u2014 King's next outing? (7)", "SPECTRE")
+check("poolGap absorb leaves a container's pool alone", V.pool_gaps(new, "One of Graf's partners running round court \u2014 King's next outing? (7)") == 1)
+check("the poolGap refusal says to list the pieces in clue order inside one ana()",
+      any("clue order" in w for w in V.shape_warnings("X", {"wordplay": tree}, "One of Graf's partners running round court \u2014 King's next outing? (7)", "SPECTRE")) if hasattr(V, "shape_warnings") else True)
 sys.exit(1 if fails else 0)
