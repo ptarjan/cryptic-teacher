@@ -75,6 +75,10 @@ git() {
   [ "$1" = add ] && echo "staged ${*:3}" >>"$EVENTS"
   echo "git $1 ${*: -1}" >>"$EVENTS"
 }
+# The script runs its helpers as tools/low_cpu.sh CMD...; low_cpu.sh execs the
+# real command, which would bypass the python3 stub below and spawn a real
+# (niced, so slow on a loaded runner) python per launch. Run the stubs instead.
+tools/low_cpu.sh() { "$@"; }
 pool_bag() { :; }   # bagging reads the queue through tools/clue_bag.py; not under test here
 worker_sweep_scratch() { :; }
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
