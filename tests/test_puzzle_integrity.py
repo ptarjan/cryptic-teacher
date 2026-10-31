@@ -292,12 +292,12 @@ def block_out_await():
     blank = copy.deepcopy(bare)
     spare = next(e for e in blank["entries"] if e.get("annotation")
                  and not e["annotation"].get("definedByPreamble"))
-    spare["annotation"] = None
+    del spare["annotation"]  # a blank clue has no annotation key; null would fail the schema, not be blank
     print("BLANK", "-".join(await_preamble.which(path, blank)) or "none")
     both = copy.deepcopy(other)
     plain = [e for e in both["entries"] if e.get("annotation")
              and not e["annotation"].get("definedByPreamble")]
-    plain[1]["annotation"] = None  # plain[0] is the broken one
+    del plain[1]["annotation"]  # plain[0] is the broken one
     print("BLANKBROKEN", "-".join(await_preamble.which(path, both)) or "none")
     supplied = copy.deepcopy(bare)
     for e in supplied["entries"]:
