@@ -18,8 +18,15 @@ preamble is filed, when write_puzzle_file drops the flag.
 lists the entries only when the missing preamble is the run's sole failure:
 the run's file, given a stand-in preamble, validates. Otherwise it prints
 nothing, and the run is parked like any other.
+
+Clues the run left blank do not count as a failure of their own: once a
+preamble is filed the whole puzzle is annotated again, blanks included, so
+holding it loses nothing. Gozo's 13 undefined instruments plus one blank 29A
+were parked with an alert this way. At least one entry must lean on the
+preamble, though; blanks alone are the worker's business.
 """
 import copy
+import re
 import sys
 
 import annotation
@@ -29,6 +36,10 @@ import validate_annotations
 from fetch_puzzle import read_puzzle_file, write_puzzle_file
 
 STAND_IN = "The paper's preamble, which we do not hold."
+
+# A clue left blank ("29A: no annotation. ..."), the shape puzzle_worker.sh's
+# worker_only_blanks matches.
+BLANK = re.compile(r"[0-9]+[AD](,[0-9]+[AD])*: no annotation\.")
 
 
 def left_to_preamble(puzzle):
@@ -45,12 +56,14 @@ def left_to_preamble(puzzle):
 
 def which(path, puzzle):
     """The entries that make the run's file wait for its preamble, or [] when
-    the file fails for anything else too, or has a preamble already."""
+    the file fails for anything else too, or has a preamble already. Errors
+    that are only blank clues are ignored (see the module docstring)."""
     tags = left_to_preamble(puzzle)
     if puzzle.get("preamble") or not tags:
         return []
     given = puzzle_schema.order(dict(copy.deepcopy(puzzle), preamble=STAND_IN))
-    return [] if validate_annotations.run_errors(path, given) else tags
+    errors = [e for e in validate_annotations.run_errors(path, given) if not BLANK.match(e)]
+    return [] if errors else tags
 
 
 def main(argv):

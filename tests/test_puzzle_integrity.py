@@ -289,6 +289,16 @@ def block_out_await():
                   and not e["annotation"].get("definedByPreamble"))
     broken["annotation"]["wordplay"] = {"words": broken["clue"]["text"].split()[0]}
     print("OTHER", "-".join(await_preamble.which(path, other)) or "none")
+    blank = copy.deepcopy(bare)
+    spare = next(e for e in blank["entries"] if e.get("annotation")
+                 and not e["annotation"].get("definedByPreamble"))
+    spare["annotation"] = None
+    print("BLANK", "-".join(await_preamble.which(path, blank)) or "none")
+    both = copy.deepcopy(other)
+    plain = [e for e in both["entries"] if e.get("annotation")
+             and not e["annotation"].get("definedByPreamble")]
+    plain[1]["annotation"] = None  # plain[0] is the broken one
+    print("BLANKBROKEN", "-".join(await_preamble.which(path, both)) or "none")
     supplied = copy.deepcopy(bare)
     for e in supplied["entries"]:
         if (e.get("annotation") or {}).pop("definedByPreamble", None):
@@ -902,6 +912,8 @@ try:
     same("a puzzle holding its preamble awaits none", field("HELD", out_await), "none")
     same("letters a block takes from the preamble lean on it too", grep_c("[0-9][AD]", field("SUPPLIED", out_await)), "1")
     same("a run that failed on anything else too is parked instead", field("OTHER", out_await), "none")
+    same("a blank clue beside the preamble does not stop the hold", grep_c("[0-9][AD]", field("BLANK", out_await)), "1")
+    same("a blank clue beside a real error is still parked", field("BLANKBROKEN", out_await), "none")
     same("awaitsPreamble keeps it from the annotators", field("FLAGGED", out_await), "True")
     same("until a preamble is filed", field("ARRIVED", out_await), "False")
     same("the flag beside a preamble is flagged", field("BESIDE", out_await), "True")
