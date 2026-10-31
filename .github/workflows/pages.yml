@@ -171,14 +171,16 @@ jobs:
       # 1.5GB git store), the restored caches and the site, and run
       # 41138886134 filled it ("No space left on device"). The image's .NET,
       # Android SDK, GHC and CodeQL bundles are ~20GB this job never touches,
-      # so they go first. df is printed here and before the archive so the
-      # next failure shows its headroom.
+      # so they go. The delete runs in the background: it took 48-96s in the
+      # foreground (runs 41143359058, 41157117731) and the build is nowhere
+      # near full while it runs (86GB free before it, 53GB at the peak, run
+      # 41157117731), so nothing waits on it. df is printed here and before
+      # the archive so the next failure shows its headroom.
       - name: Free disk space
         if: needs.scope.outputs.deploy == 'true'
         run: |
           df -h / | tail -n 1
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
-          df -h / | tail -n 1
+          sudo nohup rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL >/dev/null 2>&1 &
       # The tree is ~54k files, ~1GB of puzzle JSON, and fetching all of it
       # from nothing was ~58s of a 66s checkout (run 38370347047) for a push
       # that changed one file. So the object store is cached between runs
