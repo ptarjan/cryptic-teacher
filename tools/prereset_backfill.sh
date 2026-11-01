@@ -1667,37 +1667,17 @@ fi
 # Unconditionally, even if nothing was annotated: this is cheap, deterministic
 # and idempotent, and running it always means a run that landed one puzzle and a
 # run that landed none leave the tree in the same shape. The index, the static
-# pages and the ?v= stamps have to move together, and the smoke test is the last
-# word on whether the app still boots against what we just wrote.
+# pages and the ?v= stamps have to move together.
 # Not a full --reindex: that re-makes all ~63k rows whenever the code a row
 # reaches moved (~2000 CPU-s), and the deploy makes the same rows. This takes
 # the deploy's index and re-makes only the puzzles changed since (this run's
 # among them), else re-reads the files changed since the index; the job is
 # already at nice 19 (deprioritize.sh at the top).
 python3 tools/fetch_puzzle.py --reindex-from-deploy
-# The glossary is generated from the annotated corpus, so rebuild it before the
-# final commit.
-python3 tools/build_abbreviations.py
-# A failed build leaves last week's pages on disk, and the smoke test below
-# would grade those instead, so the refusal is the alert and the smoke test is
-# skipped rather than run against output this tree did not make.
-seo_ok=1
-if ! seo_err=$(python3 tools/build_seo_pages.py 2>&1); then
-  seo_ok=0
-  printf '%s\n' "$seo_err"
-  alert "the pre-reset backfill could not build the site pages, so its smoke test was skipped: $(printf '%s' "$seo_err" | tail -3)"
-fi
-if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
-  smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset-smoke.XXXXXX")"
-  node tools/smoke_test.js 2>&1 | tee "$smoke_log"
-  smoke_rc=${PIPESTATUS[0]}
-  # A WARNING in a log is not a warning to anyone, so a failure is alerted.
-  # Exit 2 is "no hints yet".
-  if [ "$smoke_rc" -ne 0 ] && [ "$smoke_rc" -ne 2 ]; then
-    alert "the app's smoke test is failing on the tree the pre-reset backfill is about to commit: $(grep -m3 '^FAIL' "$smoke_log" | tr '\n' ' ')"
-  fi
-  rm -f "$smoke_log"
-fi
+# The glossary (abbreviations.js), the site pages and the smoke test are not
+# run here: they are gitignored build output that nothing in this script reads,
+# pages.yml builds the first two at deploy and tests.yml / nightly-smoke.yml run
+# the smoke test, all on CI's cores rather than the home Mac's.
 # The annotation payloads apply_annotations.py consumed, swept for the same
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_bag_"* "$REPO/tools/_scan_"*.png
@@ -1718,12 +1698,6 @@ if [ -n "$(git --no-optional-locks status --porcelain)" ]; then
   push_race_retry sync_attempt ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
-
-# Where the rollout got to. Nothing to flip by hand: the ratchet in
-# tools/validate_annotations.py requires these fields of every puzzle
-# annotated since they were added, and the numbers below are only the historical
-# remainder.
-python3 tools/validate_annotations.py 2>&1 | grep -i "backlog" || true
 
 ledger_tick
 echo "=== done $(date '+%H:%M') ==="

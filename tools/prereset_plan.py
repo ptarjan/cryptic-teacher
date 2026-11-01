@@ -562,8 +562,7 @@ def cpu_cap(others, burn, cores, runs):
     return max(0, int((cores - others) / (burn / runs)))
 
 
-LOAD_SHRINK = 2   # 1-minute load per core above which the pool loses a run
-LOAD_FLOOR = 4    # ... and above which it drops to one run
+# The pool scales down in proportion once 1-minute load passes one run per core.
 
 
 def read_load1():
@@ -575,18 +574,18 @@ def read_load1():
 
 
 def load_cap(load1, cores, current):
-    """Runs the box's load lets the pool keep: None while calm (or unread), one
-    fewer than the current width above LOAD_SHRINK x cores (never below 1), one
-    above LOAD_FLOOR x cores. 2026-10-25 load hit 30-63 on 6 cores with ~4
-    annotate runs plus a fetch, stalling the bridge up to 88 s despite nice 19;
-    CPU and memory caps both read fine, so load itself is the signal."""
-    if load1 is None or not cores:
+    """Runs the box's load lets the pool keep: None while load1 is at or under
+    one per core (or unread), else the current width scaled by cores / load1
+    (never below 1). 2026-10-25 load hit 30-63 on 6 cores with ~4 annotate runs
+    plus a fetch, stalling the bridge up to 88 s despite nice 19; CPU and memory
+    caps both read fine, so load itself is the signal. The first version shrank
+    one run at a time and only past 2x cores, so at a 5-minute checkpoint it
+    answered a load of 38 with one fewer run, and a burst between checkpoints
+    never met it at all; scaling by the overshoot answers a load of 38 on 6
+    cores with a sixth of the pool at once."""
+    if load1 is None or not cores or load1 <= cores:
         return None
-    if load1 > LOAD_FLOOR * cores:
-        return 1
-    if load1 > LOAD_SHRINK * cores:
-        return max(1, int(current or 1) - 1)
-    return None
+    return max(1, int(max(int(current or 1), 1) * cores / load1))
 
 
 def cpu_runs(live, span):
@@ -1031,12 +1030,13 @@ RUSH_OFF_CASES = [
 # (1-minute load, cores, current width) -> load cap
 LOAD_CASES = [
     (3.0, 6, 10, None),    # calm: no cap, quota use untouched
-    (12.0, 6, 10, None),   # exactly 2x cores: not above
-    (13.0, 6, 10, 9),      # busy: one fewer
+    (6.0, 6, 10, None),    # exactly one per core: not above
+    (12.0, 6, 10, 5),      # twice the cores: half the pool
+    (13.0, 6, 10, 4),
     (13.0, 6, 1, 1),       # never below 1
     (13.0, 6, 0, 1),
-    (24.0, 6, 10, 9),  # exactly 4x cores: still the shrink
-    (30.0, 6, 10, 1),      # swamped: one run
+    (30.0, 6, 10, 2),      # swamped: a fifth
+    (38.0, 6, 7, 1),       # 2026-11-01: load 38 with 7 runs
     (63.0, 6, 3, 1),
     (None, 6, 10, None),   # unread: no cap
     (30.0, 0, 10, None),
