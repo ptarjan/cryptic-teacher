@@ -1022,14 +1022,21 @@ $bad_hints"
 # the tick's annotation queue (daily_units.py keyed --record).
 unit_commit() {  # subject
   python3 tools/daily_units.py keyed --record
-  if git status --porcelain -- puzzles | grep . >/dev/null; then
+  # One whole-tree status serves both this test and the commit test below: on the
+  # 3 GB tree each status walks the disk (one blocked over a minute). Untracked
+  # files must be seen (a filed puzzle is new), so it is not narrowed; it is
+  # run again only when cross_validate may have changed the tree.
+  local st
+  st=$(git status --porcelain)
+  if printf '%s\n' "$st" | grep -E '^.. "?puzzles/|-> "?puzzles/' >/dev/null; then
     blog_chain Corroboration "cross_validate.py all --new --apply"
+    st=$(git status --porcelain)
   fi
   # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
   # so this is housekeeping rather than safety — but nothing else clears them.
   rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
-  if [ -n "$(git status --porcelain)" ] || [ -n "$(git rev-list origin/master..HEAD 2>/dev/null)" ]; then
+  if [ -n "$st" ] || [ -n "$(git rev-list origin/master..HEAD 2>/dev/null)" ]; then
     # Everything, because this tree contains nothing else: the run started at
     # origin/master in a worktree of its own, so whatever is modified or new here
     # was made by this run.
@@ -1276,6 +1283,20 @@ index_rebuild_mode() {
   fi
 }
 start_index_rebuild() {  # detached, holding none of this tick's descriptors (the tree lease, the scheduler's lock)
+  # The hint burn ends with its own --reindex-from-deploy, which re-reads every
+  # puzzle changed since the index, this tick's pending ones included. While it
+  # holds its lock, a --reindex-changed here would index each burn commit twice
+  # (~3.5k CPU-s/day), so it is skipped; the index code is unchanged (that is
+  # what makes the mode --reindex-changed), so index_ready stays true.
+  if [ "$(index_rebuild_mode)" = --reindex-changed ]; then
+    local burn_pid
+    burn_pid=$(cat "$REPO/.prereset.lock/pid" 2>/dev/null ||
+      cat "$(git rev-parse --path-format=absolute --git-common-dir)/../.prereset.lock/pid" 2>/dev/null)
+    if [ -n "$burn_pid" ] && ps -o command= -p "$burn_pid" 2>/dev/null | grep prereset_backfill >/dev/null; then
+      echo "the pre-reset backfill is running and reindexes at its end; skipping this tick's --reindex-changed"
+      return 0
+    fi
+  fi
   python3 - "$index_lock" "$(git rev-parse --path-format=absolute --git-common-dir)/ct-generated.lock" "$index_stamp" \
     "$(index_rebuild_mode)" <<'PY'
 import subprocess, sys
