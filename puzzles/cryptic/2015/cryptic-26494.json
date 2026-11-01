@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,37 @@
     "text": "Possibly red hero?",
     "enumeration": "7"
    },
-   "solution": "HERRING"
+   "solution": "HERRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Possibly red",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "HER + RING",
+     "parts": [
+      {
+       "words": "hero",
+       "at": 13,
+       "note": "split the answer into HER and RING; a ring is the shape O, so it reads as HER followed by O, spelling the clue word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether some hero might be a communist.",
+     "walkthrough": "This is a reverse clue: the answer is the wordplay and the clue word is what it produces. A ring is the letter O.",
+     "definitionFit": "A red herring is a false lead, so this kind of fish can possibly be described with the colour word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +78,57 @@
     "text": "Past Tory MP's question: difficult to depose leader?",
     "enumeration": "6"
    },
-   "solution": "HOWARD"
+   "solution": "HOWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Past Tory MP",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "question",
+       "at": 15,
+       "gives": "HOW",
+       "note": "how is a question word"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to depose leader",
+         "at": 35,
+         "note": "deposing the leader removes the first letter of the word for difficult"
+        }
+       ],
+       "parts": [
+        {
+         "words": "difficult",
+         "at": 25,
+         "gives": "HARD",
+         "note": "difficult means hard"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Conservative wonders how hard it would be to oust the party chief.",
+     "walkthrough": "Michael Howard was a Conservative MP and former leader of the Tory party.",
+     "definitionFit": "Michael Howard sat as a Conservative member of parliament and led his party in the 2000s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depose"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +142,48 @@
     "text": "Regrets decisions to abandon pound",
     "enumeration": "6"
    },
-   "solution": "RUINGS"
+   "solution": "RUINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regrets",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to abandon",
+       "at": 18,
+       "note": "abandoning means the letter for pound is dropped from the word for decisions"
+      }
+     ],
+     "parts": [
+      {
+       "words": "decisions",
+       "at": 8,
+       "gives": "RULINGS",
+       "note": "rulings are decisions, as by a judge"
+      },
+      {
+       "words": "pound",
+       "at": 29,
+       "gives": "L",
+       "note": "L is the abbreviation for a pound sterling (from Latin libra)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets a choice to give up the pound as currency.",
+     "definitionFit": "To rue is to regret, so a person who rues something is said to regret it; the verb forms match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +197,66 @@
     "text": "1,500 over 10? One draws characters",
     "enumeration": "10"
    },
-   "solution": "IDENTITIES"
+   "solution": "IDENTITIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "characters",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "1,500",
+       "at": 0,
+       "gives": "ID",
+       "note": "in Roman numerals I is 1 and D is 500"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 6,
+         "note": "over here means knocked over, so the word for ten is jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "10",
+         "at": 11,
+         "gives": "TEN",
+         "note": "ten written as a word"
+        }
+       ]
+      },
+      {
+       "words": "One",
+       "at": 15,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "draws",
+       "at": 19,
+       "gives": "TIES",
+       "note": "ties are drawn games"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sum about dividing 1,500 by 10, then a nod to a cartoonist sketching characters.",
+     "walkthrough": "'over' looks like a division sign but signals the anagram of TEN, giving ENT.",
+     "definitionFit": "Identities are characters in the sense of personas or who someone is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +270,34 @@
     "text": "Jealous of new party member?",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jealous",
+      "at": 0,
+      "meaning": "... with envy means jealous"
+     },
+     {
+      "text": "new",
+      "at": 11,
+      "meaning": "... also means inexperienced or new"
+     },
+     {
+      "text": "party member",
+      "at": 15,
+      "meaning": "a member of the ... Party"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is envious of a newcomer to their political party.",
+     "definitionFit": "The colour word covers envy, inexperience and membership of the environmental political party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +311,32 @@
     "text": "Men like Pasquale and Quixote?",
     "enumeration": "7"
    },
-   "solution": "FELLOWS"
+   "solution": "FELLOWS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Men",
+      "at": 0,
+      "meaning": "men, chaps"
+     },
+     {
+      "text": "like Pasquale and Quixote?",
+      "at": 4,
+      "meaning": "Don Pasquale and Don Quixote are both dons, and a university don is a fellow"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what sort of men an opera hero and a literary knight are.",
+     "walkthrough": "Don Pasquale is Donizetti's opera, Don Quixote Cervantes's knight; a don at Oxford or Cambridge is a college fellow.",
+     "definitionFit": "Fellows means chaps or men, and also college dons, the shared title of both characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pasquale"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +350,60 @@
     "text": "Bums for deals without energy",
     "enumeration": "9"
    },
-   "solution": "FREELOADS"
+   "solution": "FREELOADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bums for deals without energy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 15,
+       "note": "without in its old sense of outside, so the jumbled letters sit around the abbreviation for energy"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Bums",
+         "at": 0,
+         "note": "bums as a verb means knocks about or messes up, so the letters of for deals are thrown around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for deals",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "energy",
+       "at": 23,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Idlers go after free deals but lack any get-up-and-go.",
+     "walkthrough": "'Bums' does double duty: it is the definition and also signals the anagram, so the whole clue serves as both. 'without' means outside, an old sense, so the anagram goes round E.",
+     "definitionFit": "To bum is to cadge or scrounge, and a scrounger who lives off others is a sponger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +417,67 @@
     "text": "Bar brawl's conclusion — punch strikes head",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "conclusion",
+         "at": 12,
+         "note": "the conclusion of the word brawl is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brawl's",
+         "at": 4,
+         "gives": "BRAWL"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "strikes head",
+         "at": 31,
+         "note": "striking the head off removes the first letter of the word for punch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "punch",
+         "at": 25,
+         "gives": "SOCK",
+         "note": "to sock is to punch"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fight in a pub ends when someone's punch lands on another's head.",
+     "definitionFit": "To bar a door is to fasten it shut, the same as securing it with a key."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +491,55 @@
     "text": "Raised in Britain, aid is boosted by rock",
     "enumeration": "8"
    },
-   "solution": "OBSIDIAN"
+   "solution": "OBSIDIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rock",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Raised",
+       "at": 0,
+       "note": "Raised says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "in says the answer sits within the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Britain, aid is boosted",
+         "at": 10,
+         "gives": "NAIDISBO",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something brought up in Britain has its funding increased.",
+     "walkthrough": "The draft took 'by rock' as the definition and gave 'in' no job; 'in' marks the hidden run, 'by' is a link and the definition is 'rock'. In a down clue 'Raised' reads the letters upwards.",
+     "definitionFit": "Obsidian is a dark volcanic glass, a kind of igneous stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boosted"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +553,60 @@
     "text": "\"An ogre is squashing me!\", the little prince yelled",
     "enumeration": "8"
    },
-   "solution": "SHRIEKED"
+   "solution": "SHRIEKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yelled",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "is squashing",
+         "at": 9,
+         "note": "squashing means the ogre's name presses around the word for me"
+        }
+       ],
+       "parts": [
+        {
+         "words": "An ogre",
+         "at": 1,
+         "gives": "SHREK",
+         "note": "Shrek is the ogre of the animated films"
+        },
+        {
+         "words": "me",
+         "at": 22,
+         "gives": "I",
+         "note": "I is the speaker, me"
+        }
+       ]
+      },
+      {
+       "words": "the little prince",
+       "at": 28,
+       "gives": "ED",
+       "note": "Ed is a short form of Edward, a royal name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small prince cries out that an ogre is crushing him.",
+     "definitionFit": "To shriek is to scream or yell loudly; both verbs are in the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +620,71 @@
     "text": "Inside the Guardian, 75% of this puzzle is clean",
     "enumeration": "5"
    },
-   "solution": "WHITE"
+   "solution": "WHITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "clean",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Inside",
+       "at": 0,
+       "note": "inside means the jumbled letters go within the newspaper's pronoun"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the Guardian",
+       "at": 7,
+       "gives": "WE",
+       "note": "the newspaper speaks of itself as we"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "puzzle",
+         "at": 33,
+         "note": "puzzle is an anagram signal, confusing these three letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "75% of",
+           "at": 21,
+           "note": "three-quarters of the four-letter word this is its first three letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "this",
+           "at": 28
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that most of the Guardian's crossword is wholesome.",
+     "walkthrough": "'75% of' keeps three of the four letters of 'this'; 'puzzle' rearranges them, and 'Inside' puts the result within the paper's own 'we'.",
+     "definitionFit": "White suggests spotless and pure, as with clean laundry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzle"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +698,68 @@
     "text": "Old rice crackers with special vitamin — recipe used to keep healthy?",
     "enumeration": "9"
    },
-   "solution": "EXERCISER"
+   "solution": "EXERCISER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "used to keep healthy?",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former or old"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crackers",
+         "at": 9,
+         "note": "crackers means crazy, so the word rice is scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rice",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "words": "special",
+       "at": 23,
+       "gives": "S"
+      },
+      {
+       "words": "vitamin",
+       "at": 31,
+       "gives": "E",
+       "note": "E is a vitamin"
+      },
+      {
+       "words": "recipe",
+       "at": 41,
+       "gives": "R",
+       "note": "R is the abbreviation for recipe on prescriptions"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crackers made from rice with added vitamins are a healthy recipe.",
+     "definitionFit": "An exerciser is a machine or device you use for fitness workouts; the definition describes its purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +779,43 @@
      }
     ]
    },
-   "solution": "RIGHTANGLE"
+   "solution": "RIGHTANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "900",
+      "at": 0,
+      "note": "read as 90 with a degree sign, a quantity of angle rather than a number"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "heat",
+       "at": 19,
+       "note": "in heat means excited or agitated, so these letters are stirred up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the glaring",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nine hundred people out in blazing sunshine.",
+     "walkthrough": "'900' is 90 followed by 0 read as the degree symbol.",
+     "definitionFit": "A corner of ninety degrees is the standard measure in geometry for a perpendicular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "900"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +829,31 @@
     "text": "River following sea, say",
     "enumeration": "3"
    },
-   "solution": "DEE"
+   "solution": "DEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0,
+      "meaning": "a river in Wales, England and Scotland"
+     },
+     {
+      "text": "following sea, say",
+      "at": 6,
+      "meaning": "sea sounds like the letter C; the letter following it in the alphabet is D, spelt out as a word"
+     }
+    ],
+    "explanation": {
+     "surface": "A river that flows on after reaching the sea.",
+     "definitionFit": "The Dee is a British waterway, and the spelt name of the fourth letter of the alphabet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +867,83 @@
     "text": "Liberal, posh, wearing platinum — with fancy cars to give rich people",
     "enumeration": "10"
    },
-   "solution": "PLUTOCRATS"
+   "solution": "PLUTOCRATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rich people",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "at": 15,
+         "note": "wearing means the symbol for platinum is put on around the two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "platinum",
+         "at": 23,
+         "gives": "PT",
+         "note": "Pt is the chemical symbol for platinum"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Liberal",
+           "at": 0,
+           "gives": "L"
+          },
+          {
+           "words": "posh",
+           "at": 9,
+           "gives": "U",
+           "note": "U means upper-class, posh"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 39,
+         "note": "fancy means elaborate or fanciful, so the letters of cars and to are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cars",
+         "at": 45
+        },
+        {
+         "words": "to",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A posh Liberal in platinum jewellery and flashy cars plays the wealthy grandee.",
+     "definitionFit": "Plutocrats are the wealthy elite who hold power because of their money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +967,75 @@
      }
     ]
    },
-   "solution": "ETONWALLGAME"
+   "solution": "ETONWALLGAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Football",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 17,
+         "note": "rejected means turned back, so the word for account is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "account",
+         "at": 9,
+         "gives": "NOTE",
+         "note": "a note is an account or bill"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "at": 27,
+       "gives": "W"
+      },
+      {
+       "words": "everyone",
+       "at": 32,
+       "gives": "ALL",
+       "note": "all means everyone"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "at": 46,
+         "note": "corrupt means altered, so the letters of mega are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mega",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report is turned down because the whole sport is massively crooked.",
+     "walkthrough": "The Eton wall game is a form of football played only at Eton College, an English public school.",
+     "definitionFit": "The Eton wall game is an obscure version of football played against a wall at the school."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1049,63 @@
     "text": "He played with guitar after note, more blue",
     "enumeration": "9"
    },
-   "solution": "NAUGHTIER"
+   "solution": "NAUGHTIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more blue",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after says the jumbled letters follow the note"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "at": 28,
+       "gives": "N",
+       "note": "N is a note, as in North on a compass"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played with",
+         "at": 3,
+         "note": "played with means messed about with, so he and guitar are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "He",
+         "at": 0
+        },
+        {
+         "words": "guitar",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician fiddled with his guitar after a bluesy note.",
+     "definitionFit": "Blue can mean risqué or rude, so more blue is ruder, more improper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1119,52 @@
     "text": "Ancient warriors fight mutant ants!",
     "enumeration": "8"
    },
-   "solution": "SPARTANS"
+   "solution": "SPARTANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient warriors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fight",
+       "at": 17,
+       "gives": "SPAR",
+       "note": "to spar is to fight"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mutant",
+         "at": 23,
+         "note": "mutant means changed in form, so the letters of ants are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ants",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A B-movie scene of old soldiers battling giant mutated insects.",
+     "definitionFit": "Spartans were the warriors of ancient Sparta, famous for their military discipline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mutant"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1184,81 @@
      }
     ]
    },
-   "solution": "FENGSHUI"
+   "solution": "FENGSHUI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No good in house that lacks order, if untidy — might this help?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "in means the abbreviation for no good goes within the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "untidy",
+         "at": 38,
+         "note": "untidy means messy, so the remaining letters with if are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "that lacks",
+           "at": 17,
+           "note": "lacking means the letter for order is taken away from the word house"
+          }
+         ],
+         "parts": [
+          {
+           "words": "house",
+           "at": 11
+          },
+          {
+           "words": "order",
+           "at": 28,
+           "gives": "O",
+           "note": "O is short for Order, as in the OBE"
+          }
+         ]
+        },
+        {
+         "words": "if",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "words": "No good",
+       "at": 0,
+       "gives": "NG"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A messy, disordered house might be improved by some Chinese interior arranging.",
+     "walkthrough": "'that lacks order' drops O from HOUSE; 'untidy' jumbles HUSE with IF into FESHUI, which NG goes 'in'.",
+     "definitionFit": "Feng shui is the Chinese art of arranging a home harmoniously, the obvious help for an untidy house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1272,66 @@
     "text": "Before writing \"fine\", rub out \"unknown condition\"",
     "enumeration": "12"
    },
-   "solution": "PREREQUISITE"
+   "solution": "PREREQUISITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "condition",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Before",
+       "at": 0,
+       "gives": "PRE",
+       "note": "pre means before"
+      },
+      {
+       "words": "writing",
+       "at": 7,
+       "gives": "R",
+       "note": "R is writing, one of the three Rs"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rub out",
+         "at": 23,
+         "note": "rubbing out removes the unknown letter from the word for fine"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fine",
+         "at": 16,
+         "gives": "EXQUISITE",
+         "note": "exquisite means very fine"
+        },
+        {
+         "words": "unknown",
+         "at": 32,
+         "gives": "X",
+         "note": "X is an unknown in algebra"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to erase one phrase before writing the word fine.",
+     "walkthrough": "The three Rs are reading, writing and arithmetic, so R stands for writing.",
+     "definitionFit": "A prerequisite is a precondition, something required before something else can happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1345,30 @@
     "text": "Uncivilised football pundit?",
     "enumeration": "6"
    },
-   "solution": "SAVAGE"
+   "solution": "SAVAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncivilised",
+      "at": 0,
+      "meaning": "wild and uncivilised"
+     },
+     {
+      "text": "football pundit?",
+      "at": 12,
+      "meaning": "Robbie ... is a former Wales footballer who works as a TV and radio football pundit"
+     }
+    ],
+    "explanation": {
+     "surface": "A dig at a football commentator for being boorish.",
+     "definitionFit": "Savage means brutal or barbaric, and is also the surname of a well-known British football commentator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1392,72 @@
    "group": [
     "20-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Labour MP",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 20,
+         "note": "about means turned around, so the word for was wrong is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "was wrong",
+         "at": 10,
+         "gives": "SINNED",
+         "note": "sinned means did wrong"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "pocketing",
+         "at": 35,
+         "note": "pocketing means the word for offender holds the letter for a grand"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offender",
+         "at": 26,
+         "gives": "SINNER",
+         "note": "a sinner is an offender"
+        },
+        {
+         "words": "a grand",
+         "at": 45,
+         "gives": "K",
+         "note": "K stands for a thousand, a grand"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour politician erred in defending a criminal who stole a thousand pounds.",
+     "walkthrough": "Dennis Skinner was a long-serving left-wing Labour MP for Bolsover.",
+     "definitionFit": "Dennis Skinner served for decades as a Labour member of parliament, nicknamed the Beast of Bolsover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketing"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1471,39 @@
     "text": "Paper read in Prague",
     "enumeration": "3"
    },
-   "solution": "RAG"
+   "solution": "RAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "read in",
+       "at": 6,
+       "note": "read in says the letters are found within the city's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prague",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper someone reads in the Czech capital.",
+     "definitionFit": "Rag is a slang word for a newspaper, especially a poor-quality one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1523,41 @@
      }
     ]
    },
-   "solution": "CHEVYCHASE"
+   "solution": "CHEVYCHASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US comedian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US car",
+       "at": 16,
+       "gives": "CHEVY",
+       "note": "a Chevy is a Chevrolet, an American car make"
+      },
+      {
+       "words": "to drive away",
+       "at": 23,
+       "gives": "CHASE",
+       "note": "to chase off is to drive away"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American comic owns a car to escape in.",
+     "definitionFit": "Chevy Chase is an American comic actor known for Saturday Night Live and the Vacation films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1571,42 @@
     "text": "4s like US city, commonly",
     "enumeration": "5"
    },
-   "solution": "VEGAS"
+   "solution": "VEGAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city, commonly",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "4s",
+       "at": 0,
+       "gives": "VEG",
+       "note": "the answer to 4 down is a colour word; plural, as greens, it means vegetables, veg"
+      },
+      {
+       "words": "like",
+       "at": 3,
+       "gives": "AS",
+       "note": "as means like"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some greens are compared to an American city, in casual speech.",
+     "walkthrough": "'4s' points to the answer of 4 down; greens are green vegetables.",
+     "definitionFit": "Las Vegas in Nevada is informally called by its shorter name, hence commonly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "4s"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1620,31 @@
     "text": "Boxer, a former heavyweight on the left?",
     "enumeration": "4"
    },
-   "solution": "BENN"
+   "solution": "BENN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0,
+      "meaning": "Nigel ... is a former British world champion boxer"
+     },
+     {
+      "text": "a former heavyweight on the left?",
+      "at": 7,
+      "meaning": "Tony ... was a political heavyweight of the Labour left"
+     }
+    ],
+    "explanation": {
+     "surface": "A retired heavyweight boxer known for leading with his left.",
+     "definitionFit": "The surname belongs to boxer Nigel and to Tony, a towering figure of left-wing politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heavyweight"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1658,57 @@
     "text": "Getting a larcenous Conservative for leader …",
     "enumeration": "9"
    },
-   "solution": "ACHIEVING"
+   "solution": "ACHIEVING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Getting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for leader",
+         "at": 33,
+         "note": "the abbreviation replaces the first letter of the word for larcenous"
+        }
+       ],
+       "parts": [
+        {
+         "words": "larcenous",
+         "at": 10,
+         "gives": "THIEVING",
+         "note": "larcenous means thieving"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thieving Tory gets made party chief.",
+     "definitionFit": "Achieving means attaining or getting, as in getting results."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1722,39 @@
     "text": "… in return for a profit",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in return",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 16
+      },
+      {
+       "words": "profit",
+       "at": 18,
+       "gives": "GAIN",
+       "note": "a gain is a profit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: the thief got the top job in exchange for money.",
+     "definitionFit": "Again can mean back, as in to give again, in the sense of in return."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +1781,58 @@
     "text": "Stress fractures? Taking iodine? They're related",
     "enumeration": "7"
    },
-   "solution": "SISTERS"
+   "solution": "SISTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're related",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Taking",
+       "at": 18,
+       "note": "taking means the jumbled letters take in the symbol for iodine"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fractures",
+         "at": 7,
+         "note": "fractures means breaks, so the letters of stress are broken up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Stress",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "iodine",
+       "at": 25,
+       "gives": "I",
+       "note": "I is the chemical symbol for iodine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor asks about stress fractures and iodine, then about family links.",
+     "definitionFit": "Sisters are siblings, female relatives born to the same parents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fractures"
+    }
+   }
   }
  ]
 }
