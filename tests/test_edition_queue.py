@@ -3184,6 +3184,24 @@ check("gpu_fill: an unfed VLM stage takes the other paper's never-read reads, wi
       [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 0, False, 0, 2)])
 check("gpu_fill: spooled asks at the feed target (CT_VLM_FEED, 4), no fill", ([], ["t0"]),
       (eq.gpu_fill(_cands, set(), set(), _none, _none, 4, False, 0, 2), [u["rel"] for u in eq.gpu_fill(_cands, set(), set(), _none, _none, 3, False, 0, 4)]))
+# Lead time: fills in their OCR phase count as asks to come toward the look-ahead, so a spool at the target
+# still gets fills started while the pipe (spooled + per_fill * running) is short of `ahead`.
+_more = [_mk("times", f"m{k}", 1, "never read (Gale fetch)") for k in range(10)]
+_mc = [(u, eq.key_of(u)) for u in _more]
+_fa = lambda spooled, running, maxf, ahead=40, per=4, full=False: len(
+    eq.gpu_fill(_mc, set(), set(), _none, _none, spooled, full, running, maxf, None, frozenset(), 0, ahead, per))
+check("gpu_fill: spooled at the target but the pipe short of ahead starts fills (empty spool: as many as ahead needs)",
+      (5, 8, 0, 0, 2),
+      (_fa(0, 0, 8, ahead=20), _fa(0, 0, 8), _fa(0, 8, 8), _fa(36, 0, 8, ahead=36), _fa(4, 2, 8, ahead=20)))
+check("gpu_fill: running fills count as asks to come; a full spool or no per-fill count keeps the old rule",
+      (0, 0, 0),
+      (_fa(0, 5, 8, ahead=20), _fa(4, 0, 8, per=0, ahead=0), _fa(0, 0, 8, full=True)))
+check("gpu_fill: the look-ahead never exceeds max_fills", 3, _fa(0, 5, 8, ahead=1000))
+os.environ["CT_VLM_FEED_AHEAD"] = "junk"
+os.environ["CT_VLM_FILL_ASKS"] = "junk"
+check("vlm_feed_ahead / vlm_fill_asks: bad values fall back to 40 (at least the target) and 4",
+      (max(40, eq.vlm_feed_target()), 4), (eq.vlm_feed_ahead(), eq.vlm_fill_asks()))
+del os.environ["CT_VLM_FEED_AHEAD"], os.environ["CT_VLM_FILL_ASKS"]
 # answers_only rereads ask the VLM nothing: they never feed it, even ranked first; never-read, fix-landed and proven ones do.
 _al = _mk("times", "al", 2, "inputs changed: answers linked x1")
 _fx = _mk("times", "fx", 2, "unfiled before its fix")
