@@ -55,6 +55,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
 
+import puzzle_integrity
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (http_bytes, flatten_clue, separators,
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
@@ -455,6 +456,14 @@ def fetch_day(ymd):
     return puzzle
 
 
+def _refusal_line(err):
+    """One line for a day the guard refused: what the source served instead."""
+    m = re.search(r"requested (\S+) but the page served the clues of (\S+)", str(err))
+    if m:
+        return (f"source served {m[2]}'s clues for {m[1]}; skipping, will retry")
+    return f"{err}; skipping, will retry"
+
+
 def days_back(n, end=None):
     end = end or date.today()
     return [(end - timedelta(days=i)).strftime("%y%m%d") for i in range(n)]
@@ -510,7 +519,13 @@ def latest():
             # nothing newer to find further back either.
             print(f"up-to-date {puzzle['id']}")
             return None
-        return fetch_day(ymd)
+        try:
+            return fetch_day(ymd)
+        except puzzle_integrity.RefusedWrite as err:
+            # The feed served another puzzle's clues under this date (a source
+            # mixup, not our URL). The guard was right to refuse; skip the day,
+            # try the next one back, and the next run retries.
+            print(f"skip {ymd}: {_refusal_line(err)}")
     return None
 
 
@@ -538,8 +553,12 @@ def backfill(ymds):
         if puzzle["id"] in have:
             skipped += 1
         else:
-            fetch_day(ymd)
-            fetched += 1
+            try:
+                fetch_day(ymd)
+                fetched += 1
+            except puzzle_integrity.RefusedWrite as err:
+                print(f"skip {ymd}: {_refusal_line(err)}")
+                missing += 1
         time.sleep(1)
     reindex()
     print(f"backfill done: {fetched} fetched, {skipped} skipped, {missing} unavailable")
