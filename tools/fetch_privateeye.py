@@ -1160,7 +1160,7 @@ def date_by_cadence(out_dir, dry_run=False):
 
 def on_disk_numbers(out_dir):
     prefix = f"{SERIES}-"
-    files = puzzle_files() if is_corpus(out_dir) else out_dir.glob(f"{prefix}*.json")
+    files = puzzle_files(SERIES) if is_corpus(out_dir) else out_dir.glob(f"{prefix}*.json")
     return sorted(int(p.stem[len(prefix):]) for p in files
                   if p.stem.startswith(prefix) and p.stem[len(prefix):].isdigit())
 
