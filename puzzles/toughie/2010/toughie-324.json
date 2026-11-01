@@ -22,6 +22,9 @@
   "date": "2010-03-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,31 @@
      }
     ]
    },
-   "solution": "BLOODCOUNT"
+   "solution": "BLOODCOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Health check",
+      "at": 0,
+      "meaning": "a test counting the cells in a sample of a patient's blood"
+     },
+     {
+      "text": "Dracula?",
+      "at": 17,
+      "meaning": "Count Dracula, the vampire, is a nobleman who lives on blood: a blood-drinking count"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor jokingly asks what medical test the vampire would need.",
+     "definitionFit": "A routine medical test measuring red and white cells is a standard health check, and Dracula is a Count with a thirst for blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dracula"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +82,42 @@
     "text": "Over onion, say, cry",
     "enumeration": "4"
    },
-   "solution": "BLUB"
+   "solution": "BLUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cry",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Over",
+       "at": 0,
+       "note": "in a down clue, over means the word is turned around and read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "onion, say",
+       "at": 5,
+       "gives": "BULB",
+       "note": "an onion is an example of a bulb, a plant's underground storage organ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chopping onions makes someone weep.",
+     "definitionFit": "To blub is informal British for weeping or sobbing, so it matches cry as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Over"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +131,42 @@
     "text": "Whack-whack-whacky",
     "enumeration": "7"
    },
-   "solution": "OFFBEAT"
+   "solution": "OFFBEAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "whacky",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Whack",
+       "at": 0,
+       "gives": "OFF",
+       "note": "to whack someone in gangster slang is to kill them, to bump them off"
+      },
+      {
+       "words": "whack",
+       "at": 6,
+       "gives": "BEAT",
+       "note": "to whack is to strike or hit, to beat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoonish string of blows ending in a description of the zany result.",
+     "walkthrough": "The three-word clue reads as one nonsense word; split it into two verbs and a definition.",
+     "definitionFit": "Unconventional or eccentric, as in an offbeat sense of humour, is what wacky means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +190,32 @@
      }
     ]
    },
-   "solution": "DRAGONESFEET"
+   "solution": "DRAGONESFEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't be in a rush",
+      "at": 0,
+      "meaning": "to dawdle deliberately, taking one's time over something"
+     },
+     {
+      "text": "to put stilettos on, man?",
+      "at": 19,
+      "meaning": "a man in drag wearing women's high-heeled shoes has drag on his feet"
+     }
+    ],
+    "spelling": "DRAG ONE'S FEET",
+    "explanation": {
+     "surface": "Advice to a man trying on high heels: take your time.",
+     "definitionFit": "To dawdle or delay reluctantly is the idiom's meaning, the opposite of hurrying; the second reading puts drag (women's clothing) on a man's feet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rush"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +229,86 @@
     "text": "Member of ruling elite refined oil, rich one left controlling Georgia",
     "enumeration": "8"
    },
-   "solution": "OLIGARCH"
+   "solution": "OLIGARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Member of ruling elite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "controlling",
+       "at": 50,
+       "note": "controlling means holding, so the scrambled letters wrap around the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refined",
+         "at": 23,
+         "note": "refined oil is processed, so these letters are reworked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "left",
+           "at": 45,
+           "note": "left as in departed, so the letter for one goes away from the fodder"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "oil",
+             "at": 31
+            },
+            {
+             "words": "rich",
+             "at": 36
+            }
+           ]
+          },
+          {
+           "words": "one",
+           "at": 41,
+           "gives": "I",
+           "note": "the Roman numeral for one is I"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "Georgia",
+       "at": 62,
+       "gives": "GA",
+       "note": "GA is the postal abbreviation for the US state of Georgia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rich Russian-style tycoon who made money from oil and holds sway in Georgia.",
+     "walkthrough": "'refined' shuffles OILRICH less one I ('one left') into OLIRCH, which 'controlling' wraps around GA to give OLI-GA-RCH.",
+     "definitionFit": "An oligarch is one of the small group holding power in a government by the few."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +322,59 @@
     "text": "Wartime currency only exchanged between allies across table",
     "enumeration": "6"
    },
-   "solution": "NYLONS"
+   "solution": "NYLONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wartime currency",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 32,
+       "note": "between means the scrambled letters sit inside the two partner letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "allies across table",
+       "at": 40,
+       "gives": "NS",
+       "note": "in bridge, North and South sit facing each other across the table as partners"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exchanged",
+         "at": 22,
+         "note": "exchanged means swapped about, so the letters of the word only change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "only",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of wartime money traded only among allied nations.",
+     "walkthrough": "'allies across table' are the bridge partners North and South, who sit opposite each other; 'exchanged' scrambles the word only.",
+     "definitionFit": "In the Second World War, scarce stockings were traded like money, a sort of black-market currency among soldiers and civilians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "allies"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +402,42 @@
      }
     ]
    },
-   "solution": "ASAP"
+   "solution": "ASAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "how one should be parted from his money?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "fool",
+       "at": 2,
+       "gives": "SAP",
+       "note": "a sap is a gullible fool"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twist on the proverb that a fool and his money are soon parted.",
+     "walkthrough": "The proverb says such a pair are 'soon parted', so the definition means as soon as possible.",
+     "definitionFit": "The abbreviation for as soon as possible captures the proverb's 'soon', the speed with which a fool loses his cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parted"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +457,59 @@
      }
     ]
    },
-   "solution": "SCAFELL"
+   "solution": "SCAFELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "peak at 964m",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially takes just the opening letter of the word successful"
+        }
+       ],
+       "parts": [
+        {
+         "words": "successful",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "food site",
+       "at": 21,
+       "gives": "CAFE",
+       "note": "a cafe is a place where food is served"
+      },
+      {
+       "words": "will",
+       "at": 31,
+       "gives": "LL",
+       "note": "will shortens to 'll, as in she'll"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promising restaurant venture is forecast to reach new heights.",
+     "walkthrough": "This is a Lake District mountain in England's Cumbria, second highest in England after its neighbour Scafell Pike.",
+     "definitionFit": "The mountain in the Lake District stands 964 metres high, so the height identifies it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +523,44 @@
     "text": "They're found on moors with map, staring wildly",
     "enumeration": "10"
    },
-   "solution": "PTARMIGANS"
+   "solution": "PTARMIGANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're found on moors",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wildly",
+       "at": 41,
+       "note": "wildly suggests disorder, so the letters of map and staring are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "map",
+       "at": 28
+      },
+      {
+       "words": "staring",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hikers on the moors peer wildly at their map.",
+     "definitionFit": "These are game birds of upland moors and mountains, of the grouse family, turning white in winter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staring"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +574,40 @@
     "text": "Fuel in base detonated — it's like Mission Impossible",
     "enumeration": "10"
    },
-   "solution": "UNFEASIBLE"
+   "solution": "UNFEASIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's like Mission Impossible",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "detonated",
+       "at": 13,
+       "note": "detonated means blown apart, so the letters of the three words are scattered and reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fuel in base",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy-film scene: fuel inside an enemy base blown up.",
+     "definitionFit": "Mission Impossible is a task that cannot be done, so impracticable or unachievable describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "detonated"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +621,50 @@
     "text": "What Vesuvius produced initially doubled — liquid'll pour forth once its top's blown",
     "enumeration": "4"
    },
-   "solution": "CAVA"
+   "solution": "CAVA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "liquid'll pour forth once its top's blown",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "initially doubled",
+       "at": 23,
+       "note": "the opening letter, Roman fifty, is doubled in value to Roman one hundred"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What Vesuvius produced",
+       "at": 0,
+       "gives": "LAVA",
+       "note": "the volcano Vesuvius poured out molten rock, lava"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A volcano erupting, with molten rock pouring out once the top blows.",
+     "walkthrough": "L is the Roman numeral 50; doubling it gives 100, which is C.",
+     "definitionFit": "A Spanish sparkling wine gushes out when the cork pops, just like an erupting volcano."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vesuvius"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +684,33 @@
      }
     ]
    },
-   "solution": "QUEENSSPEECH"
+   "solution": "QUEENSSPEECH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Acts foretold in this",
+      "at": 0,
+      "meaning": "the monarch's address opening Parliament announces the government's planned legislation"
+     },
+     {
+      "text": "soliloquy from Lady Macbeth, say",
+      "at": 22,
+      "meaning": "Lady Macbeth is Scotland's queen, so any of her speeches is a royal consort's speech"
+     }
+    ],
+    "spelling": "QUEEN'S SPEECH",
+    "explanation": {
+     "surface": "Theatre talk: a soliloquy from Lady Macbeth that forecasts the acts of the play.",
+     "walkthrough": "'Acts' looks theatrical but means Acts of Parliament, the laws the monarch's address announces each session.",
+     "definitionFit": "The monarch's address at the State Opening of Parliament sets out new laws; Lady Macbeth, a queen, also delivers speeches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Acts"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +724,43 @@
     "text": "German course to go over and go over…",
     "enumeration": "4"
    },
-   "solution": "REDO"
+   "solution": "REDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "go over",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to go over",
+       "at": 14,
+       "note": "go over means turn over, so the river's name is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "German course",
+       "at": 0,
+       "gives": "ODER",
+       "note": "the Oder is a river forming part of Germany's border with Poland; a river's course"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German lesson that has to be repeated again and again.",
+     "walkthrough": "'course' suggests a lesson but means a river's course.",
+     "definitionFit": "To go over something again is to do it a second time, to repeat it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +780,81 @@
      }
     ]
    },
-   "solution": "ADNAUSEAM"
+   "solution": "ADNAUSEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on and on and on!",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 10,
+         "note": "in places the turned letters inside the pair of letters that follow"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 13,
+           "gives": "A"
+          },
+          {
+           "words": "Mitford-approved",
+           "at": 15,
+           "gives": "U",
+           "note": "Nancy Mitford popularised U (upper-class) versus non-U usage, so approved by her is U"
+          }
+         ]
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "over",
+           "at": 5,
+           "note": "over means turned over, so the word and is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "and",
+           "at": 1,
+           "gives": "AND"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "vein",
+       "at": 32,
+       "gives": "SEAM",
+       "note": "a seam is a vein of ore or coal in rock"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue's repetition, in a posh manner, endlessly.",
+     "walkthrough": "'over' turns AND to DNA, placed 'in' A and U. Nancy Mitford's essays sorted upper-class (U) from non-U English.",
+     "definitionFit": "The Latin phrase means to the point of sickness, used of something repeated tiresomely and endlessly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vein"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +868,74 @@
     "text": "The special talent of Londoners might be expressed thus: new city in old one's native style",
     "enumeration": "10"
    },
-   "solution": "VERNACULAR"
+   "solution": "VERNACULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "native style",
+      "at": 79
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "VERNAC",
+       "indicators": [
+        {
+         "text": "of Londoners might be expressed thus",
+         "at": 19,
+         "note": "Cockney Londoners say th as v, so these words are spoken in a London accent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The special talent",
+         "at": 0,
+         "gives": "THEKNACK",
+         "note": "a special talent or aptitude is a knack, so with the article it is 'the knack'"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 66,
+         "note": "in places the young city inside the old one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old one's",
+         "at": 69,
+         "gives": "UR",
+         "note": "Ur was an ancient city of Mesopotamia"
+        },
+        {
+         "words": "new city",
+         "at": 57,
+         "gives": "LA",
+         "note": "LA, Los Angeles, is a young city compared with ancient ones"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trivia note on Londoners' gift for slang, then a description of a city within a city.",
+     "walkthrough": "Cockneys, working-class East Londoners, say th as v, so 'the knack' comes out roughly as 'ver nack'; the setter confirmed this loose homophone on the blog.",
+     "definitionFit": "The everyday language spoken by ordinary people of a region is their native idiom or way of speaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "talent"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +949,58 @@
     "text": "Establish space by river and fish around",
     "enumeration": "8"
    },
-   "solution": "ENTRENCH"
+   "solution": "ENTRENCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Establish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "space",
+       "at": 10,
+       "gives": "EN",
+       "note": "an en is a printer's unit of space"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 34,
+         "note": "around means the fish's name goes round the river's abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 29,
+         "gives": "TENCH",
+         "note": "a tench is a freshwater fish"
+        },
+        {
+         "words": "river",
+         "at": 19,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Setting up a fishing spot beside a river.",
+     "definitionFit": "To set something up firmly so it is hard to remove is to establish it solidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1020,43 @@
      }
     ]
    },
-   "solution": "JETLAG"
+   "solution": "JETLAG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "getting whacked after flight?",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shoot",
+       "at": 0,
+       "gives": "JET",
+       "note": "a jet is a stream shot out of something, as water shoots from a hose"
+      },
+      {
+       "words": "convict",
+       "at": 6,
+       "gives": "LAG",
+       "note": "a lag is British slang for a convict, an old lag"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangland execution: shoot the escaped prisoner after he flees.",
+     "walkthrough": "'whacked' is British slang for exhausted, not killed.",
+     "definitionFit": "Tiredness caused by crossing time zones is what travellers feel worn out by after a long journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whacked"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1070,52 @@
     "text": "What shimmers? Bit of brass may",
     "enumeration": "8"
    },
-   "solution": "HAWTHORN"
+   "solution": "HAWTHORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shimmers",
+         "at": 5,
+         "note": "shimmers means wavers and flickers, so the letters of what are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "What",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "Bit of brass",
+       "at": 15,
+       "gives": "HORN",
+       "note": "a horn is one instrument in the brass section"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about what is glinting, and a guess that it is a piece of brass.",
+     "walkthrough": "'may' looks like a verb but is the shrub, also known as may blossom.",
+     "definitionFit": "May is another name for the flowering shrub whose white blossom appears in spring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "may"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1135,65 @@
      }
     ]
    },
-   "solution": "NODOFF"
+   "solution": "NODOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'snooze'",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "after means the note and frequencies come later than the turned word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 23,
+         "note": "turning means the little word on is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 31,
+         "gives": "ON"
+        }
+       ]
+      },
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "DO",
+       "note": "do (or doh) is the first note of the sol-fa scale"
+      },
+      {
+       "words": "frequencies",
+       "at": 5,
+       "gives": "FF",
+       "note": "F is the abbreviation for frequency, doubled for the plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Setting a radio alarm's frequencies before hitting the snooze button.",
+     "definitionFit": "To fall asleep briefly, to doze, is to snooze."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frequencies"
+    }
+   }
   },
   {
    "number": 19,
@@ -361,7 +1207,48 @@
     "text": "Play about nymph in three-dimensional scene",
     "enumeration": "7"
    },
-   "solution": "DIORAMA"
+   "solution": "DIORAMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "three-dimensional scene",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "about means the play surrounds the nymph"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Play",
+       "at": 0,
+       "gives": "DRAMA",
+       "note": "a play is a drama"
+      },
+      {
+       "words": "nymph",
+       "at": 11,
+       "gives": "IO",
+       "note": "Io was a nymph of Greek myth loved by Zeus"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A play about a nymph staged in a 3D tableau.",
+     "definitionFit": "A model scene with figures in front of a painted background gives a three-dimensional picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 20,
@@ -375,7 +1262,49 @@
     "text": "Coarse stuff about one selling his soul",
     "enumeration": "8"
    },
-   "solution": "FAUSTIAN"
+   "solution": "FAUSTIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "selling his soul",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means the cloth wraps round the letter for one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Coarse stuff",
+       "at": 0,
+       "gives": "FUSTIAN",
+       "note": "fustian is a coarse, thick cloth"
+      },
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "A",
+       "note": "a means one, as in a single thing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheap rough material about someone who traded away their soul.",
+     "walkthrough": "'Coarse stuff' looks like crude talk but is a cloth.",
+     "definitionFit": "Doctor Faustus sold his soul to the Devil, so a pact of that kind is named after him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1318,46 @@
     "text": "Press international holy man — he may not be saying what he means",
     "enumeration": "7"
    },
-   "solution": "IRONIST"
+   "solution": "IRONIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he may not be saying what he means",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Press",
+       "at": 0,
+       "gives": "IRON",
+       "note": "to press clothes is to iron them"
+      },
+      {
+       "words": "international",
+       "at": 6,
+       "gives": "I"
+      },
+      {
+       "words": "holy man",
+       "at": 20,
+       "gives": "ST",
+       "note": "ST is short for saint, a holy man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters from the global press interview a holy man who speaks in riddles.",
+     "definitionFit": "Someone who uses irony says the opposite of what is meant, so their words are not to be taken literally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1381,45 @@
      }
     ]
    },
-   "solution": "ONAPAR"
+   "solution": "ONAPAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as equal",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ONAPAR",
+     "indicators": [
+      {
+       "text": "It says",
+       "at": 0,
+       "note": "it says points to the words being heard spoken aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "respect the old man",
+       "at": 11,
+       "gives": "HONOURPA",
+       "note": "to respect is to honour, and the old man is pa, a father"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commandment-like instruction to respect one's father as an equal.",
+     "walkthrough": "In a non-rhotic British accent 'honour pa' sounds like the answer.",
+     "definitionFit": "Being level or matched with something, as an equal, is the idiom's meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "respect"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1439,87 @@
      }
     ]
    },
-   "solution": "CLOSEKNIT"
+   "solution": "CLOSEKNIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bonded tightly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "at": 32,
+       "note": "amid places those outer letters in the middle of the scrambled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breakdown",
+         "at": 46,
+         "note": "a breakdown is a collapse, so the letters of societal are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "leaves",
+           "at": 68,
+           "note": "leaves means departs, so the letter for adult is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "societal",
+           "at": 37
+          },
+          {
+           "words": "adult",
+           "at": 62,
+           "gives": "A",
+           "note": "A is the film-classification abbreviation for adult"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 20,
+         "note": "outside takes the outer letters of the word kin"
+        }
+       ],
+       "parts": [
+        {
+         "words": "kin",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Family ties holding fast despite the collapse of society.",
+     "walkthrough": "'leaves' drops A from SOCIETAL; 'breakdown' rearranges SOCIETL to CLOSEIT; 'outside' gives KN from kin, placed 'amid' it.",
+     "definitionFit": "A community whose members are firmly united by strong ties is tightly bound together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breakdown"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1533,41 @@
     "text": "Fatah would make heavy weather of things",
     "enumeration": "4"
    },
-   "solution": "PLOD"
+   "solution": "PLOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "make heavy weather of things",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fatah",
+       "at": 0,
+       "gives": "PLO",
+       "note": "Fatah is the main faction of the Palestine Liberation Organisation, PLO"
+      },
+      {
+       "words": "would",
+       "at": 6,
+       "gives": "D",
+       "note": "would shortens to 'd, as in he'd"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political faction would make a difficult situation worse.",
+     "definitionFit": "To trudge slowly and laboriously is to struggle through tasks, making hard work of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fatah"
+    }
+   }
   },
   {
    "number": 25,
@@ -461,7 +1581,46 @@
     "text": "Native Australians consider sending up English",
     "enumeration": "4"
    },
-   "solution": "EMUS"
+   "solution": "EMUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Native Australians",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "sending up",
+       "at": 28,
+       "note": "in a down clue, sending up moves a letter towards the top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "consider",
+       "at": 19,
+       "gives": "MUSE",
+       "note": "to muse is to ponder or consider"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thinking about mocking the English, an Australian pastime.",
+     "walkthrough": "'sending up' looks like mockery, but it lifts the E of MUSE to the front.",
+     "definitionFit": "These large flightless birds are native to Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sending"
+    }
+   }
   },
   {
    "number": 26,
@@ -475,7 +1634,58 @@
     "text": "Spring fruit cored, halved and chopped about",
     "enumeration": "4"
    },
-   "solution": "LEAP"
+   "solution": "LEAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "halved and chopped about",
+       "at": 20,
+       "note": "the remaining letters are split into two halves and moved around, like cut fruit"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cored",
+         "at": 13,
+         "note": "cored means its central letter is removed, like taking the core from fruit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 7,
+         "gives": "APPLE",
+         "note": "an apple is a fruit"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Preparing fruit for a springtime dish.",
+     "walkthrough": "'cored' drops the middle P of APPLE; 'halved and chopped about' splits APLE into AP and LE and swaps them.",
+     "definitionFit": "To jump or bound is to spring into the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +1699,52 @@
     "text": "'More pence!' is poor men's confused utterance",
     "enumeration": "10"
    },
-   "solution": "SPOONERISM"
+   "solution": "SPOONERISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "utterance",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confused",
+       "at": 28,
+       "note": "confused means mixed up, so the letters of these three words are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "poor",
+       "at": 17
+      },
+      {
+       "words": "men's",
+       "at": 22,
+       "gives": "MENS",
+       "note": "the apostrophe is dropped, leaving the letters m, e, n, s"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beggar's plea for more money as the cry of the poor.",
+     "walkthrough": "'More pence' swaps the first sounds of 'poor men's', so it is itself an example of the answer.",
+     "definitionFit": "A confused utterance swapping the first sounds of words, named after the Reverend Spooner, is a slip of the tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "poor"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +1758,49 @@
     "text": "Sovereign leaving kingdom lots of paperwork",
     "enumeration": "4"
    },
-   "solution": "REAM"
+   "solution": "REAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lots of paperwork",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 10,
+       "note": "leaving means going out of, so the symbol for a pound is taken from the kingdom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "kingdom",
+       "at": 18,
+       "gives": "REALM",
+       "note": "a realm is a kingdom"
+      },
+      {
+       "words": "Sovereign",
+       "at": 0,
+       "gives": "L",
+       "note": "a sovereign is a gold pound coin, and L is the old abbreviation for pound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch abdicates, leaving behind piles of official papers.",
+     "walkthrough": "'Sovereign' looks like the monarch but is the British pound coin, abbreviated L from librum.",
+     "definitionFit": "Five hundred sheets make up one bundle of paper, so it means a large quantity of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sovereign"
+    }
+   }
   },
   {
    "number": 29,
@@ -517,7 +1814,60 @@
     "text": "Striking endlessly once British disease",
     "enumeration": "10"
    },
-   "solution": "BRONCHITIS"
+   "solution": "BRONCHITIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disease",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Striking",
+       "at": 0,
+       "note": "striking suggests something knocked about, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 9,
+         "note": "endlessly means the final letter of once is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "once",
+         "at": 19
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "British",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British industrial dispute once struck everyone down like an illness.",
+     "walkthrough": "'endlessly' trims ONCE to ONC; 'Striking' scrambles ONC with BRITISH.",
+     "definitionFit": "Inflammation of the airways of the lungs, causing coughing, is a respiratory illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Striking"
+    }
+   }
   }
  ]
 }
