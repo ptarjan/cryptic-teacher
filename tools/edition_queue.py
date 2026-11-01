@@ -1880,6 +1880,25 @@ def vlm_feed_target():
     return vlm_reader.feed_target()
 
 
+def vlm_feed_ahead():
+    """The asks (spooled plus those running fills will make) gpu_fill keeps ahead of the GPU:
+    CT_VLM_FEED_AHEAD (default 40, ~9 min of the drainer's ~4 asks/min, the p90 lead of a never-read
+    read). Never below vlm_feed_target(); fills are still bounded by vlm_feed_reads() and the free
+    read slots, the unit ceiling and CT_VLM_SPOOL_MAX."""
+    try:
+        return max(vlm_feed_target(), int(os.environ.get("CT_VLM_FEED_AHEAD", "40")))
+    except ValueError:
+        return max(vlm_feed_target(), 40)
+
+
+def vlm_fill_asks():
+    """The asks a running fill is counted to make (CT_VLM_FILL_ASKS, default 4; 0 = count none)."""
+    try:
+        return max(0, int(os.environ.get("CT_VLM_FILL_ASKS", "4")))
+    except ValueError:
+        return 4
+
+
 def vlm_feed_scans():
     """The most scans gpu_fill keeps running for fill reads that wait on them: CT_VLM_FEED_SCANS (default 4)."""
     try:
@@ -1889,7 +1908,7 @@ def vlm_feed_scans():
 
 
 def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_fills, max_fills,
-             scan_of=None, scanning=frozenset(), max_scans=0):
+             scan_of=None, scanning=frozenset(), max_scans=0, ahead=0, per_fill=0):
     """The units to start ahead of the queue's order because the VLM stage is short of asks (spooled
     below vlm_reader.slots() + PIPELINE) while CT_NEWEST_FIRST papers' OCR-only work holds the read
     pool: the next never-read reads of other papers that ask the VLM, as many as keep running fills
@@ -1904,9 +1923,14 @@ def gpu_fill(read_cands, tried, busy, waits, vlm_waits, spooled, full, running_f
     running scan in `scanning` that a fill read waits on counts). Ready reads always come first: on
     10-21, when a waiting read's scan was taken whenever met, 15 of ~25 feed starts were scans."""
     target = vlm_feed_target()
-    if full or spooled >= target:
+    # Lead time: a fill spends minutes on OCR before its first ask (never-read Gale reads: median 170 s,
+    # p90 550 s over 5,700 reads) while the GPU drains ~4 asks/min, so a spool at the target is empty
+    # before the next fill asks. Each running fill counts `per_fill` asks still to come toward `ahead`.
+    ahead = max(target, ahead)
+    coming = spooled + per_fill * running_fills
+    if full or spooled >= ahead or coming >= ahead:
         return []
-    left = min(max_fills - running_fills, target - spooled)
+    left = min(max_fills - running_fills, max(target - spooled, -(-(ahead - coming) // per_fill) if per_fill else 0))
     out, waiting = [], []
     for u, k in read_cands:
         if left <= 0:
@@ -3618,7 +3642,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                         min(vlm_feed_reads(), fills_running + free.get("read", 0)),
                         fill_scan, scanning,
                         # Paul 10-23: no fill read ready, GPU 0%: the scans they wait on start, a few at once.
-                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3))
+                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3)),
+                        vlm_feed_ahead(), vlm_fill_asks()
                         ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
         fill_keys = {key_of(u) for u in fill}
         fill_scans = sum(1 for u in fill if u["kind"] == "scan")
