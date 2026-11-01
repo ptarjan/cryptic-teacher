@@ -10,7 +10,17 @@ after the bridge's own projected spend (paced_need), and no more than the
 machine has free once everything else on it is counted: memory over the size
 of a run, and idle cores over a run's measured CPU.
 
-The meter paced is the weekly one, to the weekly reset. Anthropic dropped the
+The meter paced is the weekly one. Paul may also reset it by hand
+MANUAL_RESETS times in any 30 days (the natural reset stays put), so the need's
+deadline is not always the natural reset: reset_plan counts the manual resets
+in usage-history.csv's trailing 30 days (a fall with resets_at unmoved), the
+slots free now and those freeing before the natural reset, and spends one more
+window of EXHAUSTED points per slot it uses, the last ending at the natural
+reset. Under the staircase "no more than EXHAUSTED before the next slot frees"
+it takes the taut string (the lowest top rate), uses the most slots whose top
+rate the memory cap can spend, and paces to the first window's fill, moved out
+of Paul's night (23:00-07:00 Pacific). At RUSH_SPENT with a slot free it wakes
+the room once (held to the morning) so he resets. Anthropic dropped the
 five-hour window on 2026-10-31, so nothing here reads it: the rates and the
 bridge's spend are in weekly points, and a five-hour lockout (if one ever
 returns) is still napped through by prereset_backfill.sh. --rush is flat out.
@@ -51,7 +61,8 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --rush [MINUTES]   # burn flat out until the weekly meter hits 100% or its reset (MINUTES is optional, unused)
-    tools/prereset_plan.py --weekly           # pace the weekly meter (the default)
+    tools/prereset_plan.py --weekly           # pace the weekly meter, a window per manual reset (the default)
+    tools/prereset_plan.py --resets           # the manual resets free before the natural one, and the plan
     tools/prereset_plan.py --self-test
 """
 import datetime as dt
@@ -122,6 +133,25 @@ RUSH_TARGET = 100.0
 RUSH_SPENT = 99.0
 RUSH_SPENT_STAMP = ".prereset.rush-spent-{}"
 RUSH_ROOM = "cryptic-crosswords"
+# The manual resets (Paul 11-01: "Are we burning at the right rate now to make
+# me use all my resets? Did you take into account the natural reset I get
+# too?"). Paul may reset the weekly meter MANUAL_RESETS times in any trailing
+# RESET_SPAN_S; a manual reset empties it but leaves the natural reset where it
+# is. reset_plan paces the meter to EXHAUSTED once per reset free before the
+# natural one, the last window ending at it, and RUSH_SPENT wakes our room
+# then. No wake in QUIET_HOURS Pacific: fills aim outside them, and a meter
+# full at night waits for the morning. PLAN_SHARE of the memory cap is the
+# width counted on when choosing how many resets the machine can fill.
+MANUAL_RESETS = 15
+RESET_SPAN_S = 30 * 86400
+MANUAL_DROP = 20.0
+QUIET_HOURS = (23, 7)
+PLAN_SHARE = 0.8
+try:
+    from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+    PACIFIC = ZoneInfo("America/Los_Angeles")
+except (ImportError, ZoneInfoNotFoundError):  # no tz database: a fixed PST
+    PACIFIC = dt.timezone(dt.timedelta(hours=-8))
 WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
@@ -190,22 +220,23 @@ def rush_disarmed(stamp, week_pct, now):
         return False
 
 
-def rush_notify(home, name, pct, say):
-    """Wake our room once per window when meter `name` reaches RUSH_SPENT; the
-    stamp goes when it falls, so the next window wakes it again."""
+def rush_notify(home, name, pct, say, now=None, due=True, text=None):
+    """Wake our room once per window when meter `name` reaches RUSH_SPENT and
+    a reset is `due`; the stamp goes when it falls, so the next window wakes it
+    again. In QUIET_HOURS the wake waits (no stamp) for the morning."""
     mark = home / RUSH_SPENT_STAMP.format(name)
     if pct is None:
         return False
     if pct < RUSH_SPENT:
         mark.unlink(missing_ok=True)
         return False
-    if mark.exists():
+    if not due or mark.exists() or quiet(time.time() if now is None else now):
         return False
     try:
         mark.write_text(f"{pct:g}\n")
     except OSError:
         return False
-    say(f"The rush has spent the {name} meter ({pct:g}%): reset it to carry on. "
+    say(text or f"The rush has spent the {name} meter ({pct:g}%): reset it to carry on. "
         f"The burn resumes by itself once it falls.")
     return True
 
@@ -275,6 +306,100 @@ def aim_hours(hours_left):
     """Hours until the need's deadline: the reset itself, at least AIM_MIN_H
     so the last checkpoint does not divide by ~0."""
     return max(AIM_MIN_H, hours_left)
+
+
+def manual_resets(csv_text, since=0.0):
+    """Epochs of the manual resets in usage-history.csv at or after `since`:
+    a weekly drop of over MANUAL_DROP points whose resets_at did not move (a
+    natural reset moves it a week on)."""
+    rows = []
+    for line in (csv_text or "").splitlines():
+        f = line.split(",")
+        try:
+            if len(f) >= 4 and f[1] == "seven_day":
+                rows.append((float(f[0]), float(f[2]), float(f[3])))
+        except ValueError:
+            continue
+    rows.sort()
+    return [b[0] for a, b in itertools.pairwise(rows)
+            if b[0] >= since and a[1] - b[1] > MANUAL_DROP and abs(b[2] - a[2]) < 86400]
+
+
+def reset_slots(resets, now, until, allowed=MANUAL_RESETS, span=RESET_SPAN_S):
+    """When each manual reset Paul may still use before `until` (the natural
+    reset) is free: `now` for each of the `allowed` left in the trailing span,
+    then one as each of `resets` turns `span` old."""
+    recent = sorted(t for t in resets if now - span < t <= now)
+    free = [now] * max(0, allowed - len(recent))
+    later = [t + span for t in recent[max(0, len(recent) - allowed):] if t + span < until]
+    return free + later
+
+
+def steepest(start, done, total, corners, until):
+    """The fastest rate (points an hour) a schedule must reach to spend
+    `total` by `until`, having spent `done` at `start` and at most U by each
+    corner (t, U) still ahead: the last leg of the taut string."""
+    legs = [(start, done)] + [(t, u) for t, u in corners if start < t < until]
+    return max((total - u) / max(AIM_MIN_H, (until - t) / 3600) for t, u in legs)
+
+
+def reset_due(plan, slots, now):
+    """True when the plan uses a manual reset, one is free now, and the meter
+    is due full now: the moment to wake Paul to reset."""
+    return bool(plan and plan[0] and slots and slots[0] <= now and plan[1] <= now + 600)
+
+
+def quiet(epoch):
+    """True when `epoch` falls in Paul's night, QUIET_HOURS Pacific."""
+    hour = dt.datetime.fromtimestamp(epoch, PACIFIC).hour
+    start, end = QUIET_HOURS
+    return hour >= start or hour < end
+
+
+def quiet_edges(epoch):
+    """(the night's start before `epoch`, its end after it) as epochs."""
+    local = dt.datetime.fromtimestamp(epoch, PACIFIC)
+    day = local.date() - dt.timedelta(days=1 if local.hour < QUIET_HOURS[1] else 0)
+    start = dt.datetime.combine(day, dt.time(QUIET_HOURS[0]), PACIFIC)
+    end = dt.datetime.combine(day + dt.timedelta(days=1), dt.time(QUIET_HOURS[1]), PACIFIC)
+    return start.timestamp(), end.timestamp()
+
+
+def reset_plan(pct, now, until, slots, cap_rate=None):
+    """(resets used, epoch the meter should reach EXHAUSTED, rate points an
+    hour) for a weekly meter at `pct` with manual resets free at `slots`
+    before the natural reset `until`. Each reset buys one more window of
+    EXHAUSTED points; the meter can spend at most to EXHAUSTED before the next
+    slot frees, so the schedule is the taut string under that staircase. It
+    uses the most slots (earliest first) whose steepest leg the machine's
+    cap_rate holds (None: no cap). With none used the fill is the natural reset.
+    A fill in the night moves to its nearer edge the rates allow (the earlier
+    one only while the cap holds it), so Paul is not woken to reset."""
+    head = max(0.0, EXHAUSTED - pct)
+    hours = max(AIM_MIN_H, (until - now) / 3600)
+    for k in range(len(slots), -1, -1):
+        corners = [(t, head + EXHAUSTED * i) for i, t in enumerate(slots[:k])]
+        total = head + EXHAUSTED * k
+        top = steepest(now, 0.0, total, corners, until)
+        if k == 0 or cap_rate is None or top <= cap_rate:
+            break
+    if k == 0:
+        return 0, until, head / hours
+    # The first leg: the shallowest line from now to a corner still ahead or the end.
+    first = min([total / hours] + [u / ((t - now) / 3600) for t, u in corners if now < t < until])
+    fill = now + head / first * 3600 if first > 0 else now
+    if fill > now and quiet(fill):
+        early, late = quiet_edges(fill)
+        rest = [(t, u) for t, u in corners if t > late]
+        ok_early = early > now and (cap_rate is None or head / ((early - now) / 3600) <= cap_rate)
+        ok_late = late < until and (cap_rate is None
+                                    or steepest(late, head, total, rest, until) <= cap_rate)
+        if ok_early and (fill - early <= late - fill or not ok_late):
+            fill = early
+        elif ok_late:
+            fill = late
+    rate = head / max(AIM_MIN_H, (fill - now) / 3600)
+    return k, fill, rate
 
 
 def meter_rise(csv_text, start, end):
@@ -586,6 +711,38 @@ def bridge_spend(now=None):
                                                now - rise[1] * 3600, now))
 
 
+def capacity_rate(mem, rate, bridge):
+    """Weekly points an hour the machine can spend: PLAN_SHARE of the memory
+    cap's runs at the per-run rate, plus the bridge's own. None unread."""
+    if not rate or rate <= 0:
+        return None
+    runs = DEFAULT_CEILING if mem is None else mem
+    return PLAN_SHARE * runs * rate + max(0.0, bridge or 0.0)
+
+
+def show_resets():
+    """--resets: the manual resets free before the natural one and the plan."""
+    now = time.time()
+    hours_left, _ = weekly_usage.resets_in_hours("weekly")
+    pct = weekly_usage.usage_pct("weekly")
+    until = now + hours_left * 3600
+    used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
+    slots = reset_slots(used, now, until)
+    bridge, rate = bridge_spend()
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.log") or "").splitlines()))
+    cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
+    k, fill, need_rate = reset_plan(pct, now, until, slots, cap)
+    def at(t):
+        return f"{dt.datetime.fromtimestamp(t, PACIFIC):%a %m-%d %H:%M} Pacific"
+    print(f"weekly {pct:g}%, natural reset {at(until)}; {len(used)} of {MANUAL_RESETS} "
+          f"manual resets used in 30 days; free before it: {', '.join(map(at, slots)) or 'none'}")
+    print(f"plan: {k} manual resets, meter to {EXHAUSTED:g}% by {at(fill)} at "
+          f"{need_rate:.2f} pts/h (capacity {cap if cap is None else round(cap, 2)} pts/h, "
+          f"bridge {bridge if bridge is None else round(bridge, 2)} pts/h)")
+    return 0
+
+
 def publish(path, need, mem, cpu, w):
     """The plan for the OCR queues' burn-first gate (mem_gate.burn_starved),
     replaced whole so a reader never sees half of it."""
@@ -604,8 +761,11 @@ def width(arg=None, floor=1):
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     lines = (_read(home / ".prereset.log") or "").splitlines()
     current = current_width(arg, lines)
-    runs_needed = bridge = pct = hours_left = None
+    runs_needed = bridge = pct = hours_left = plan = None
+    slots = []
     rushing = False
+    rss = burn_rss_kb()
+    mem = mem_cap(_read("/proc/meminfo"), rss)
     try:
         now = time.time()
         bridge, rate = bridge_spend()
@@ -613,17 +773,29 @@ def width(arg=None, floor=1):
         pct = weekly_usage.usage_pct("weekly")
         hours_left, _ = weekly_usage.resets_in_hours("weekly")
         stamp = _read(home / RUSH)
-        if stamp is not None:
-            rush_notify(home, "weekly", pct, wake_room)
+        armed = stamp is not None
+        if armed:
             if rush_disarmed(stamp, pct, now):
                 (home / RUSH).unlink(missing_ok=True)
             else:
                 rushing = rush_active(stamp, pct, now)
-        runs_needed = paced_need(pct, hours_left, rate, bridge or 0.0)
+        aim_h = hours_left
+        if hours_left is not None and hours_left > 0 and pct is not None:
+            until = now + hours_left * 3600
+            used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
+            slots = reset_slots(used, now, until)
+            plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge))
+            if plan[0]:
+                aim_h = max(AIM_MIN_H, (plan[1] - now) / 3600)
+        due = armed or reset_due(plan, slots, now)
+        rush_notify(home, "weekly", pct, wake_room, now, due,
+                    None if armed else
+                    f"The burn has spent the weekly meter ({pct:g}%) and a reset is free: "
+                    f"reset it now ({plan[0] if plan else 0} planned before the natural reset). "
+                    f"The burn resumes by itself once it falls.")
+        runs_needed = paced_need(pct, aim_h, rate, bridge or 0.0)
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
         print(f"width: meter unread: {type(exc).__name__}: {exc}", file=sys.stderr)
-    rss = burn_rss_kb()
-    mem = mem_cap(_read("/proc/meminfo"), rss)
     load = cpu_load(home / CPU_STATE)
     runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
     cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
@@ -642,6 +814,9 @@ def width(arg=None, floor=1):
           if pct is not None and hours_left is not None else "meter unread")
     aim = (f", aiming {aim_hours(hours_left):.2f}h out"
            if hours_left is not None and hours_left > 0 else "")
+    if plan and plan[0]:
+        aim = (f", {plan[0]} manual resets planned, next fill "
+               f"{dt.datetime.fromtimestamp(plan[1], PACIFIC):%a %H:%M} Pacific at {plan[2]:.1f} pts/h")
     print(f"width {w}: need {runs_needed} for weekly {ceiling(rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
           f"bridge {shown}), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
@@ -678,7 +853,8 @@ def self_test():
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6)
+         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
+         + 4 + 5 + len(PLAN_CASES) + 5 + 4 + 4)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -882,7 +1058,7 @@ def width_self_test():
             print(f"FAIL current_width({arg!r}, {lines}) = {current_width(arg, lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
-    bad += spend_self_test() + tree_self_test()
+    bad += spend_self_test() + tree_self_test() + reset_self_test()
     real = weekly_usage.usage_pct
     def unreadable(_group):
         raise RuntimeError("no reading")
@@ -913,13 +1089,109 @@ def width_self_test():
         said = []
         seq = [("weekly", 98, 0), ("weekly", 99, 1), ("weekly", 100, 0), ("weekly", 40, 0),
                ("weekly", 99, 1), ("weekly", None, 0)]
+        noon = 1793563200  # 2026-11-01 12:00 Pacific: outside the night
         for name, pct, sent in seq:
             before = len(said)
-            rush_notify(Path(tmp), name, pct, said.append)
+            rush_notify(Path(tmp), name, pct, said.append, noon)
             if len(said) - before != sent:
                 print(f"FAIL rush_notify({name}, {pct}) sent {len(said) - before} (want {sent})",
                       file=sys.stderr)
                 bad += 1
+    return bad
+
+
+def _utc(*when):
+    return dt.datetime(*when, tzinfo=dt.UTC).timestamp()
+
+
+# 2026-11-01 14:01:53 UTC: weekly 43%, natural reset Wed 11-04 11:00 UTC, and
+# the 14 manual resets of the trailing 30 days (10-01 23:10 just aged out).
+NOW = _utc(2026, 11, 1, 14, 1, 53)
+NATURAL = _utc(2026, 11, 4, 11)
+USED = [_utc(2026, 10, d, h, m) for d, h, m in [
+    (3, 13, 29), (4, 21, 33), (9, 21, 48), (11, 4, 0), (12, 12, 0), (16, 5, 34), (17, 17, 44),
+    (19, 1, 3), (22, 22, 27), (24, 9, 44), (25, 18, 10), (26, 23, 37), (30, 4, 56), (31, 15, 14)]]
+SLOTS = [NOW, USED[0] + RESET_SPAN_S, USED[1] + RESET_SPAN_S]  # free now, Mon 13:29, Tue 21:33 UTC
+MON22 = _utc(2026, 11, 3, 6)  # Mon 22:00 Pacific
+# (pct, now, natural reset, slots, capacity) -> (resets, hours to the fill, pts/h); fills within a minute
+PLAN_CASES = [
+    # today at the machine's 3.7 pts/h: the Tue slot's last window would need
+    # 7.4 pts/h, so two resets; one window of 254 points over 69h, evenly
+    ((43, NOW, NATURAL, SLOTS, 3.7), (2, 15.206, 3.683)),
+    # no cap: all three, the first leg aimed at the Tue slot's corner
+    ((43, NOW, NATURAL, SLOTS, None), (3, 12.240, 4.575)),
+    # a machine too slow for any reset: 56 points to the natural reset
+    ((43, NOW, NATURAL, SLOTS, 1.0), (0, 68.969, 0.812)),
+    ((43, NOW, NATURAL, [], None), (0, 68.969, 0.812)),
+    # spent with a reset free: fill now
+    ((99, NOW, NATURAL, SLOTS, 3.7), (2, 0.0, 0.0)),
+    # the night: a 06:00 fill waits for 07:00, 23:30 and 02:00 move back to 23:00
+    ((90, MON22, MON22 + 96 * 3600, [MON22], None), (1, 9.0, 1.0)),
+    ((90, MON22, MON22 + 18 * 3600, [MON22], 20.0), (1, 1.0, 9.0)),
+    ((90, MON22, MON22 + 48 * 3600, [MON22], None), (1, 1.0, 9.0)),
+    # ...unless 23:00 is too steep for the machine: then 07:00
+    ((90, MON22, MON22 + 48 * 3600, [MON22], 8.0), (1, 9.0, 1.0)),
+    # one window of 108 points in 18h is beyond 5 pts/h: no reset
+    ((90, MON22, MON22 + 18 * 3600, [MON22], 5.0), (0, 18.0, 0.5)),
+]
+
+
+def reset_self_test():
+    """Manual resets read off the CSV, the slots they leave, the plan, the
+    night, and the 99% wake held for the morning."""
+    bad = 0
+    def fail(what):
+        nonlocal bad
+        print(f"FAIL {what}", file=sys.stderr)
+        bad += 1
+    row = "{:.0f},seven_day,{},{:.0f}\n"
+    week = 7 * 86400
+    csv = "".join(row.format(*r) for r in [
+        (0, 98, week), (300, 0, 2 * week),           # natural: resets_at moves a week
+        (600, 100, 2 * week), (900, 0, 2 * week),    # manual
+        (1200, 40, 2 * week), (1500, 25, 2 * week),  # a 15-point dip is no reset
+        (1800, 100, 2 * week), (2100, 0, 2 * week + 60)])  # manual, resets_at jittered
+    csv += "1000,five_hour,90,1\n1100,five_hour,0,1\n"
+    for args, want in [((csv,), [900.0, 2100.0]), ((csv, 1000), [2100.0]),
+                       (("garbage",), []), ((None,), [])]:
+        if manual_resets(*args) != want:
+            fail(f"manual_resets{args[1:]} = {manual_resets(*args)} (want {want})")
+    for args, want in [((USED, NOW, NATURAL), SLOTS),
+                       ((USED[2:], NOW, NATURAL), [NOW] * 3),   # 12 used: 3 free now
+                       ((USED + [NOW - 60], NOW, NATURAL), SLOTS[1:]),  # 15 used: none now
+                       ((USED, NOW, SLOTS[2]), SLOTS[:2]),       # a slot past the natural reset
+                       (([], NOW, NATURAL, 2), [NOW, NOW])]:
+        if reset_slots(*args) != want:
+            fail(f"reset_slots of {len(args[0])} = {reset_slots(*args)} (want {want})")
+    for args, (k, hours, rate) in PLAN_CASES:
+        got = reset_plan(*args)
+        if (got[0] != k or abs((got[1] - args[1]) / 3600 - hours) > 1 / 60
+                or abs(got[2] - rate) > 0.01):
+            fail(f"reset_plan{args[0], args[4]} = ({got[0]}, {(got[1] - args[1]) / 3600:.3f}h, "
+                 f"{got[2]:.3f}) (want ({k}, {hours}h, {rate}))")
+    for args, want in [(((2, NOW, 0), SLOTS, NOW), True),
+                       (((2, NOW + 3600, 1), SLOTS, NOW), False),  # not full yet
+                       (((0, NOW, 0), SLOTS, NOW), False),         # no reset planned
+                       (((1, NOW, 0), SLOTS[1:], NOW), False),     # none free now
+                       ((None, [], NOW), False)]:
+        if reset_due(*args) != want:
+            fail(f"reset_due{args} = {reset_due(*args)} (want {want})")
+    for when, want in [(_utc(2026, 11, 3, 6, 59), False), (_utc(2026, 11, 3, 7), True),
+                       (_utc(2026, 11, 3, 14, 59), True), (_utc(2026, 11, 3, 15), False)]:
+        if quiet(when) != want:
+            fail(f"quiet({when}) = {quiet(when)} (want {want})")
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        said = []
+        night, morning = _utc(2026, 11, 3, 10), _utc(2026, 11, 3, 15, 5)
+        for pct, now, due, sent in [(99, morning, False, 0),  # no reset free: no wake
+                                    (99, night, True, 0),     # 02:00 Pacific: held
+                                    (99, morning, True, 1),   # 07:05: woken
+                                    (99, morning, True, 0)]:  # once
+            before = len(said)
+            rush_notify(Path(tmp), "weekly", pct, said.append, now, due)
+            if len(said) - before != sent:
+                fail(f"rush_notify({pct}, {now}, due={due}) sent {len(said) - before} (want {sent})")
     return bad
 
 
@@ -2356,6 +2628,8 @@ def main():
     if "--rush" in sys.argv:
         rest = sys.argv[sys.argv.index("--rush") + 1:]
         return set_rush(rest[0] if rest and not rest[0].startswith("-") else None)
+    if "--resets" in sys.argv:
+        return show_resets()
     if "--weekly" in sys.argv:  # the only mode now; kept for old callers
         return 0
     if "--self-test" in sys.argv:
