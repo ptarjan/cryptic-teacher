@@ -6230,8 +6230,13 @@ check("a clue reading is kept: the second identical read runs no OCR and gives t
 f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
 f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
 check("...a fractional `above` crop round-trips its JSON key: read once", 2, len(reads))
-f.rapid_lines(clue_page, (204, 300, 704, 800), "en5", rp)
+f.rapid_lines(clue_page, (240, 300, 740, 800), "en5", rp)
 check("...and a moved grid is read again", 3, len(reads))
+near = f.rapid_lines(clue_page, (243, 300, 743, 800), "en5", rp)
+check("...a window within NEAR_WINDOW px on every edge of one read stands on that read (no OCR)",
+      (3, f.rapid_lines(clue_page, (240, 300, 740, 800), "en5", rp)), (len(reads), near))
+f.rapid_lines(clue_page, (245, 300, 745, 800), "en5", rp)
+check("...one more than NEAR_WINDOW px off on an edge is read", 4, len(reads))
 f.read_words = _read_words
 
 # bounded_light(): a light off a grid whose blocks read unsure stands only
