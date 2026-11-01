@@ -22,6 +22,9 @@
   "date": "2009-03-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -53,7 +56,31 @@
      }
     ]
    },
-   "solution": "ONTOPOFTHEWORLD"
+   "solution": "ONTOPOFTHEWORLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0,
+      "meaning": "elated, overjoyed, in the idiom of being on a high"
+     },
+     {
+      "text": "place for Hillary?",
+      "at": 6,
+      "meaning": "Sir Edmund Hillary first climbed Everest, the summit of the globe"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about where the famous mountaineer felt contented.",
+     "definitionFit": "The phrase is an idiom for elation and also literally describes standing on Everest's summit, where Hillary stood in 1953."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hillary"
+    }
+   }
   },
   {
    "number": 1,
@@ -81,7 +108,31 @@
      }
     ]
    },
-   "solution": "ONEOVERTHEEIGHT"
+   "solution": "ONEOVERTHEEIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "12.5%",
+      "at": 3,
+      "meaning": "12.5 per cent is one eighth, a fraction written as one over eight"
+     },
+     {
+      "text": "too much alcohol?",
+      "at": 9,
+      "meaning": "slightly drunk, having had a drink more than the limit"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks whether wine at 12.5 per cent strength is excessively boozy.",
+     "definitionFit": "The idiom means mildly tipsy; read literally as a fraction it is one eighth, which is 12.5 per cent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Is"
+    }
+   }
   },
   {
    "number": 2,
@@ -95,7 +146,46 @@
     "text": "He may repair the floor where line of girl dancers tumbles",
     "enumeration": "5"
    },
-   "solution": "TILER"
+   "solution": "TILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He may repair the floor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "tumbles",
+       "at": 51,
+       "note": "the line falls out of the troupe's name, so that letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "girl dancers",
+       "at": 38,
+       "gives": "TILLER",
+       "note": "the Tiller Girls were a famous British precision dance troupe"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A craftsman fixing a stage floor where a chorus line has taken a fall.",
+     "walkthrough": "The Tiller Girls were a long-running British high-kicking dance troupe; one of their L's 'tumbles' out.",
+     "definitionFit": "A tradesman who lays or mends tiles on a floor is a natural candidate for repairing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tumbles"
+    }
+   }
   },
   {
    "number": 3,
@@ -109,7 +199,42 @@
     "text": "The first Greek woman to criticize another",
     "enumeration": "7"
    },
-   "solution": "PANDORA"
+   "solution": "PANDORA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The first Greek woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "criticize",
+       "at": 25,
+       "gives": "PAN",
+       "note": "to pan a play is to criticize it harshly"
+      },
+      {
+       "words": "another",
+       "at": 35,
+       "gives": "DORA",
+       "note": "another woman, here any girl's name such as Dora"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek woman being the first to find fault with a fellow woman.",
+     "walkthrough": "'another' borrows 'woman' from the definition: another woman, DORA.",
+     "definitionFit": "In Greek myth, Pandora was the first mortal woman, fashioned by the gods and given the fateful jar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "criticize"
+    }
+   }
   },
   {
    "number": 4,
@@ -123,7 +248,59 @@
     "text": "Pots of nice stew eaten by ancient fairyfolk",
     "enumeration": "7"
    },
-   "solution": "FAIENCE"
+   "solution": "FAIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eaten by",
+       "at": 18,
+       "note": "being eaten means going inside the fairyfolk word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancient fairyfolk",
+       "at": 27,
+       "gives": "FAE",
+       "note": "fae is an old word for the fairy people"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stew",
+         "at": 13,
+         "note": "a stew mixes its contents, so the letters of nice are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nice",
+         "at": 8
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pots of tasty stew devoured by the fairies of old.",
+     "walkthrough": "'stew' looks like the food in the pots, but it is the anagram signal; fae is an archaic word for fairies.",
+     "definitionFit": "Faience is glazed earthenware, so pots and other vessels made of it are collectively so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +314,31 @@
     "text": "Sound of footstep — and the final drop?",
     "enumeration": "7"
    },
-   "solution": "HEELTAP"
+   "solution": "HEELTAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound of footstep",
+      "at": 0,
+      "meaning": "the click of the back of a shoe hitting the ground"
+     },
+     {
+      "text": "the final drop?",
+      "at": 24,
+      "meaning": "the last bit of liquor left in the bottom of a glass"
+     }
+    ],
+    "explanation": {
+     "surface": "A footstep is heard, then a question about a last fall.",
+     "definitionFit": "A heel striking the floor makes a tap; separately the word names the dregs remaining in a drinker's glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +352,54 @@
     "text": "Send out the inexperienced for call-up in 1914, perhaps?",
     "enumeration": "7"
    },
-   "solution": "WARTIME"
+   "solution": "WARTIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "1914, perhaps",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "call-up",
+       "at": 31,
+       "note": "in a down clue, calling the letters up means reading them from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Send out",
+         "at": 0,
+         "gives": "EMIT",
+         "note": "to emit is to send out"
+        },
+        {
+         "words": "the inexperienced",
+         "at": 9,
+         "gives": "RAW",
+         "note": "raw recruits are the inexperienced"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sending green recruits off to the front when conscription began in 1914.",
+     "walkthrough": "'call-up' looks like conscription, part of the scene, but signals that EMIT and RAW are read upwards in this down light.",
+     "definitionFit": "1914 began the Great War, so it is an example of a period of armed conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "call-up"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +413,60 @@
     "text": "Set irregular pattern for internal security in managed millennium building",
     "enumeration": "9"
    },
-   "solution": "RANDOMISE"
+   "solution": "RANDOMISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set irregular pattern",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "managed",
+       "at": 47,
+       "gives": "RAN",
+       "note": "ran a business means managed it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 44,
+         "note": "the security letters sit inside the building"
+        }
+       ],
+       "parts": [
+        {
+         "words": "millennium building",
+         "at": 55,
+         "gives": "DOME",
+         "note": "the Millennium Dome in London, built for the year 2000"
+        },
+        {
+         "words": "internal security",
+         "at": 26,
+         "gives": "IS",
+         "note": "IS abbreviates internal security"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Planning a random security pattern inside a managed millennium building.",
+     "walkthrough": "The Millennium Dome is the large London exhibition building opened for the year 2000.",
+     "definitionFit": "To randomise is to arrange things haphazardly, giving them a deliberately irregular order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "internal"
+    }
+   }
   },
   {
    "number": 8,
@@ -189,7 +490,77 @@
      }
     ]
    },
-   "solution": "DAPHNISANDCHLOE"
+   "solution": "DAPHNISANDCHLOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lovers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 28,
+       "note": "moved about, the letters are shuffled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 34,
+         "note": "the final letter of rejoicing is taken away from holding"
+        }
+       ],
+       "parts": [
+        {
+         "words": "holding",
+         "at": 8
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 42,
+           "note": "the last letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rejoicing",
+           "at": 49
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hands",
+       "at": 16
+      },
+      {
+       "words": "pace",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lovers hand in hand stroll around, celebrating without end.",
+     "walkthrough": "'with no end of rejoicing' removes G (the last letter of 'rejoicing') from HOLDING; HOLDIN plus HANDS and PACE is then rearranged.",
+     "definitionFit": "The shepherd and shepherdess of Longus's Greek romance are a famous pair of young lovers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +574,40 @@
     "text": "Retrain inelegant plant",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Retrain",
+       "at": 0,
+       "note": "training again rearranges the letters of inelegant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "inelegant",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Training a clumsy-looking shrub into better shape.",
+     "definitionFit": "Eglantine is sweetbriar, a wild rose, so it is a kind of flowering shrub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retrain"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +627,30 @@
      }
     ]
    },
-   "solution": "RUNUP"
+   "solution": "RUNUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swiftly make",
+      "at": 0,
+      "meaning": "to ... a dress is to sew it quickly"
+     },
+     {
+      "text": "an approach",
+      "at": 13,
+      "meaning": "the run before a jump or a delivery in cricket, or the build-up to an event"
+     }
+    ],
+    "explanation": {
+     "surface": "Moving fast to approach someone.",
+     "definitionFit": "The phrasal verb means to make quickly, and the hyphenated noun means a preparatory approach or lead-in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swiftly"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +664,42 @@
     "text": "\"September's child's a-roving, a-roving\"",
     "enumeration": "7"
    },
-   "solution": "VIRGOAN"
+   "solution": "VIRGOAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "September's child",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "a-roving",
+       "at": 31,
+       "note": "the repeated roving tells the letters of the first a-roving to wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a-roving",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sea-shanty line about a September baby who loves to wander.",
+     "walkthrough": "The surface echoes the shanty 'A-Roving' and the rhyme 'Monday's child'.",
+     "definitionFit": "Someone born in early or mid September has the star sign of the Virgin, so is a native of that sign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "a-roving"
+    }
+   }
   },
   {
    "number": 12,
@@ -261,7 +723,81 @@
    "group": [
     "12-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "headgear",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 48,
+       "note": "the word that is worn around the royal letters like a garment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "that",
+       "at": 56,
+       "gives": "THAT",
+       "note": "taken as written and split around the middle"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Queen",
+         "at": 0,
+         "gives": "R",
+         "note": "R for Regina, Latin for queen"
+        },
+        {
+         "words": "Empress",
+         "at": 10,
+         "gives": "I",
+         "note": "I for Imperatrix, as in Victoria R I"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "infinitely",
+           "at": 18,
+           "note": "without end, so the last letter is cut"
+          }
+         ],
+         "parts": [
+          {
+           "words": "old-fashioned",
+           "at": 29,
+           "gives": "CORNY",
+           "note": "corny means hackneyed or old-fashioned"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Victoria, queen and empress, wearing a quaint hat.",
+     "walkthrough": "Victoria signed as R I, Regina Imperatrix. 'infinitely' drops the last letter; 'wearing' splits the word that around the royal letters.",
+     "definitionFit": "A three-cornered hat with its brim turned up is an item of headwear from the eighteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Empress"
+    }
+   }
   },
   {
    "number": 13,
@@ -275,7 +811,45 @@
     "text": "Nearly burn the tea",
     "enumeration": "3"
    },
-   "solution": "CHA"
+   "solution": "CHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tea",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Nearly",
+       "at": 0,
+       "note": "nearly all of the word, so its final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "burn",
+       "at": 7,
+       "gives": "CHAR",
+       "note": "to char is to burn or scorch"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Almost scorching the tea leaves.",
+     "definitionFit": "Cha is a slang word for tea, taken from the Chinese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "burn"
+    }
+   }
   },
   {
    "number": 14,
@@ -289,7 +863,31 @@
     "text": "Renew hiring for film, perhaps",
     "enumeration": "7"
    },
-   "solution": "RELEASE"
+   "solution": "RELEASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Renew hiring",
+      "at": 0,
+      "meaning": "to lease again, renewing a rental agreement"
+     },
+     {
+      "text": "film, perhaps",
+      "at": 17,
+      "meaning": "a newly issued film or record is a new issue to the public"
+     }
+    ],
+    "explanation": {
+     "surface": "Renting the equipment again for a movie shoot.",
+     "definitionFit": "Hyphenated it means lease anew; unhyphenated it is a newly issued film, an example of the sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hiring"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +901,56 @@
     "text": "… and student paces about among the scenery",
     "enumeration": "9"
    },
-   "solution": "LANDSCAPE"
+   "solution": "LANDSCAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "scenery",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "student",
+       "at": 6,
+       "gives": "L",
+       "note": "L is the learner plate letter, for a student driver"
+      },
+      {
+       "words": "and",
+       "at": 2
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 20,
+         "note": "moved about, the letters of paces are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paces",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the lovers' stroll: a student also walking around amid the scenery.",
+     "walkthrough": "The ellipsis links to 8 Down. 'about' turns PACES into SCAPE.",
+     "definitionFit": "A landscape is an expanse of country seen as a view, so it is natural scenery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +964,30 @@
     "text": "Meet in city",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0,
+      "meaning": "to ... a person is to meet them"
+     },
+     {
+      "text": "city",
+      "at": 8,
+      "meaning": "a bishop's seat, a cathedral city"
+     }
+    ],
+    "explanation": {
+     "surface": "Arranging to meet up in town.",
+     "definitionFit": "The verb means to visit or encounter someone; the noun is a diocese or its cathedral city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "city"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1001,41 @@
     "text": "Criticism gives writer twitches",
     "enumeration": "7"
    },
-   "solution": "POETICS"
+   "solution": "POETICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Criticism",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "writer",
+       "at": 16,
+       "gives": "POE",
+       "note": "Edgar Allan Poe, the American writer"
+      },
+      {
+       "words": "twitches",
+       "at": 23,
+       "gives": "TICS",
+       "note": "tics are nervous twitches"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harsh reviews make an author nervously twitch.",
+     "definitionFit": "Poetics is the theory and critical study of poetry, a branch of literary criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1049,39 @@
     "text": "Some modern poetry",
     "enumeration": "3"
    },
-   "solution": "ODE"
+   "solution": "ODE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "poetry",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "some of the word, a run of letters within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "modern",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sample of contemporary verse.",
+     "definitionFit": "An ode is a lyric poem, so it is a piece of verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1095,47 @@
     "text": "It's hard with company to be remote",
     "enumeration": "7"
    },
-   "solution": "HANDSET"
+   "solution": "HANDSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "remote",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hard",
+       "at": 5,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      },
+      {
+       "words": "with",
+       "at": 10,
+       "gives": "AND",
+       "note": "and joins things together, like with"
+      },
+      {
+       "words": "company",
+       "at": 15,
+       "gives": "SET",
+       "note": "a set is a group or company of people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How difficult it is to be distant when among other people.",
+     "definitionFit": "A handset is a hand-held controller, such as the remote for a television."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "remote"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1149,64 @@
     "text": "Actor in brief send-up for detergent?",
     "enumeration": "7"
    },
-   "solution": "SHAMPOO"
+   "solution": "SHAMPOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "detergent?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the actor sits inside the shortened send-up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 9,
+         "note": "cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "send-up",
+         "at": 15,
+         "gives": "SPOOF",
+         "note": "a spoof is a send-up or parody"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "words": "Actor",
+       "at": 0,
+       "gives": "HAM",
+       "note": "a ham is an overacting performer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer appearing in a short parody advertisement for washing powder.",
+     "walkthrough": "'brief' trims SPOOF to SPOO, which holds HAM.",
+     "definitionFit": "Shampoo is a cleaning agent for hair or carpets, so loosely a kind of detergent, hence the query."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Actor"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1220,59 @@
     "text": "Note about earth-shattering drama",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drama",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "the note goes around the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "TE",
+       "note": "te is a note of the sol-fa scale"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shattering",
+         "at": 17,
+         "note": "smashed to pieces, the letters of earth are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "earth",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A review of an earth-shattering stage play.",
+     "walkthrough": "'earth-shattering' reads as one adjective, but the hyphen hides the fodder and its anagram signal; te is the sol-fa note.",
+     "definitionFit": "Theatre denotes plays and dramatic art collectively, so it is a synonym for drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1292,47 @@
      }
     ]
    },
-   "solution": "SEABEAN"
+   "solution": "SEABEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"On The Beach\" is where to spot this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "nameless",
+       "at": 37,
+       "note": "without a name, so N, the abbreviation for name, is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "film star",
+       "at": 46,
+       "gives": "SEANBEAN",
+       "note": "Sean Bean is an English film actor"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film star is spotted on the beach, echoing the title of the film On the Beach.",
+     "walkthrough": "Sean Bean is an English actor; N for name drops out. 'On The Beach' looks like the movie title.",
+     "definitionFit": "Sea beans are large drift seeds washed ashore, so they are found on beaches by beachcombers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Beach"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1346,61 @@
     "text": "Groups worked up about Mandela's party policies",
     "enumeration": "7"
    },
-   "solution": "STANCES"
+   "solution": "STANCES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "policies",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "the reversed groups go around the party letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "worked up",
+         "at": 7,
+         "note": "in a down clue, worked upwards means the word reads from the bottom"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Groups",
+         "at": 0,
+         "gives": "SETS",
+         "note": "sets are groups"
+        }
+       ]
+      },
+      {
+       "words": "Mandela's party",
+       "at": 23,
+       "gives": "ANC",
+       "note": "the ANC, African National Congress, led by Nelson Mandela"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Factions agitated over the political programme of Mandela's party.",
+     "walkthrough": "'worked up' looks like agitation, but in this down light it reads the groups word upwards.",
+     "definitionFit": "A stance is a position or attitude adopted on an issue, close to a policy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1414,65 @@
     "text": "To the French, names initially appear hard — like this girl's?",
     "enumeration": "7"
    },
-   "solution": "ALANNAH"
+   "solution": "ALANNAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this girl's",
+      "at": 50,
+      "note": "the girl's name, which the clue builds"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "To the French",
+       "at": 0,
+       "gives": "ALA",
+       "note": "à la is French for to the"
+      },
+      {
+       "words": "names",
+       "at": 15,
+       "gives": "NN",
+       "note": "NN is the plural abbreviation of name"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 21,
+         "note": "only the opening letter of appear is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appear",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 38,
+       "gives": "H",
+       "note": "H is the pencil abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In French, initial names look tough, like a particular girl's name.",
+     "walkthrough": "'initially' takes A from 'appear'. The definition is the girl's name, an Irish endearment meaning my child.",
+     "definitionFit": "Alannah is an Irish girl's given name, from a term of endearment for a child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appear"
+    }
+   }
   },
   {
    "number": 24,
@@ -462,7 +1499,46 @@
     "text": "Navy leaves unexpectedly to put down …",
     "enumeration": "7"
    },
-   "solution": "ENSLAVE"
+   "solution": "ENSLAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put down",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unexpectedly",
+       "at": 12,
+       "note": "the letters turn up in an unforeseen order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Navy",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "leaves",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors suddenly go ashore to suppress a rebellion, continued in the next clue.",
+     "walkthrough": "The ellipsis runs on to 26 Across, which supplies the revolt in the surface.",
+     "definitionFit": "To enslave is to subjugate people, to put them down by force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 26,
@@ -476,7 +1552,74 @@
     "text": "… beginnings of armed revolt on island without extremes of language",
     "enumeration": "7"
    },
-   "solution": "ARAMAIC"
+   "solution": "ARAMAIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "language",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginnings of",
+         "at": 2,
+         "note": "the opening letters of the two following words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "armed",
+         "at": 16
+        },
+        {
+         "words": "revolt",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without extremes",
+         "at": 39,
+         "note": "the island name loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "island",
+         "at": 32,
+         "gives": "JAMAICA",
+         "note": "Jamaica, the Caribbean island"
+        },
+        {
+         "gives": "J"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An armed uprising starting on an island, following the navy of the previous clue.",
+     "walkthrough": "'without extremes of' removes the J and final A from JAMAICA, leaving AMAIC.",
+     "definitionFit": "Aramaic is an ancient Semitic tongue, spoken in the Near East in biblical times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 27,
@@ -490,7 +1633,57 @@
     "text": "Regularly carsick over time going to the races",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the races",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Regularly",
+         "at": 0,
+         "note": "every other letter, taken at regular intervals"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carsick",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "over",
+       "at": 18,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      },
+      {
+       "words": "time",
+       "at": 23,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queasy traveller repeatedly sick on the trip to a race meeting.",
+     "walkthrough": "Ascot is the famous Berkshire racecourse holding Royal Ascot.",
+     "definitionFit": "Ascot is an English horse-racing venue, so 'the races' there is a day out at it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carsick"
+    }
+   }
   },
   {
    "number": 28,
@@ -504,7 +1697,50 @@
     "text": "Understanding oddities of German spelling",
     "enumeration": "5"
    },
-   "solution": "GRASP"
+   "solution": "GRASP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understanding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddities of",
+         "at": 14,
+         "note": "the odd-numbered letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "German",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "spelling",
+       "at": 33,
+       "gives": "SP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting the hang of the quirks of German orthography.",
+     "definitionFit": "To have a grasp of a subject is to comprehend it well, so the noun is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddities"
+    }
+   }
   },
   {
    "number": 29,
@@ -518,7 +1754,44 @@
     "text": "Specialised sleuth given bit of change in USA, we hear",
     "enumeration": "9"
    },
-   "solution": "TECHNICAL"
+   "solution": "TECHNICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Specialised",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TECHNICAL",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 47,
+       "note": "the words heard spoken give the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sleuth given bit of change in USA",
+       "at": 12,
+       "gives": "TECNICKEL",
+       "note": "tec is a detective, and a nickel is a five-cent coin in America"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A private eye handed a coin in America.",
+     "definitionFit": "Technical describes something requiring expert or specialist knowledge in a particular field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 30,
@@ -546,7 +1819,64 @@
      }
     ]
    },
-   "solution": "THEPOWERSTHATBE"
+   "solution": "THEPOWERSTHATBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "authorities",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "when chasing",
+       "at": 30,
+       "note": "chasing means coming after, so these pieces follow the word the"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the",
+       "at": 43,
+       "gives": "THE"
+      },
+      {
+       "words": "Internee",
+       "at": 0,
+       "gives": "POW",
+       "note": "a POW, prisoner of war, is an internee"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "treatment",
+         "at": 20,
+         "note": "a treatment works the letters over into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has better",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detained prisoner being treated better while pursuing those in charge.",
+     "walkthrough": "'treatment' rearranges HAS BETTER into ERSTHATBE; 'the' is part of the answer, leaving 'authorities' as definition.",
+     "definitionFit": "The phrase is an idiom for those holding power or the establishment in charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Internee"
+    }
+   }
   }
  ]
 }
