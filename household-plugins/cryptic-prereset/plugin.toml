@@ -2,7 +2,7 @@ about    = "Spend the usage left at each reset on annotation backfills"
 room     = "cryptic-crosswords"
 # Every five minutes: a run already going holds the tree lease and the fire is
 # a no-op (one flock, then exit); otherwise it starts a burn that paces the
-# weekly meter (or, after --five-hour, each five-hour window) to its reset
+# weekly meter to its reset
 # until the weekly meter is spent or the week resets. It was hourly, so a burn
 # that died (OOM, a bad re-exec) sat dead for up to 55 minutes; this is the
 # liveness check, and costs no process of its own. The reasoning is in the

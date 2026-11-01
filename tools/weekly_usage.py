@@ -365,7 +365,10 @@ def _sampled_payload():
         except ValueError:
             pass
         data[parts[1]] = window
-    return data if len(data) == len(LEGACY_FIELD) else None
+    # The five-hour window was dropped on 2026-10-31, so the sampler writes only
+    # seven_day rows: a fresh weekly row IS the live reading. A group with no
+    # fresh row is simply absent and its read raises, as for any missing window.
+    return data if "seven_day" in data else None
 
 
 def _payload():

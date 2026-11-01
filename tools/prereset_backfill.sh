@@ -6,8 +6,8 @@
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
 # gate. It keeps as many runs in flight as spends the paced meter evenly to EXHAUSTED a margin before
-# its reset (tools/prereset_plan.py --width): the weekly one by default, each
-# five-hour window after `tools/prereset_plan.py --five-hour`. That holds from
+# its reset (tools/prereset_plan.py --width): the weekly one
+# (the five-hour window was dropped 2026-10-31). That holds from
 # the moment it starts until the week resets: a rolling pool, where a finished
 # run's slot is refilled at once.
 #
