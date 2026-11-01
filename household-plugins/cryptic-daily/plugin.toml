@@ -4,7 +4,7 @@ room     = "cryptic-crosswords"
 # minute; the units run detached, each with its own lock and time limit
 # (tools/unit_queue.py), so a puzzle that appears mid-morning is fetched within
 # the hour and annotated at the tick after, not at the next 04:45.
-schedule = "*/10 * * * *"
+schedule = "4-59/10 * * * *"
 where    = "container"
 run      = "~/github/cryptic-teacher/tools/daily_update.sh"
 # The run's whole transcript is how a day that went wrong is read back, each
