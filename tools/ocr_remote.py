@@ -1517,16 +1517,56 @@ def call(name, *args, data=b"", **kwargs):
     return got["result"], back
 
 
+#: Where reconstruct() keeps the searches it has run: one JSON file each, named by a hash of the
+#: search's inputs and the solver's source. 11-01, a Gale Times 1935 page read cold-cached took 124 s,
+#: 94 of them three 2M-node searches (31 s each, one a window) that found no grid; the queue reads a
+#: page in a process a round (its VLM asks spool, it ends deferred, it runs again), so the same
+#: searches were run again every round, on every window, 3-6 rounds a page.
+RECONSTRUCT_CACHE = Path(os.path.expanduser("~/.cache/archive_org_crops")) / "reconstruct"
+
+
+def _reconstruct_path(spec, kwargs):
+    """The cache file of the search `spec`, `kwargs` ask, or None when it is not kept: a solver that
+    is not reconstruct_grid's own (a test's stand-in), or inputs JSON cannot spell."""
+    import reconstruct_grid
+    if getattr(reconstruct_grid.reconstruct, "__module__", "") != "reconstruct_grid":
+        return None
+    try:
+        asked = json.dumps([[list(t) for t in spec], sorted(kwargs.items())], sort_keys=True)
+        code = hashlib.sha1(Path(reconstruct_grid.__file__).read_bytes()).hexdigest()
+    except (TypeError, ValueError, OSError):
+        return None
+    return RECONSTRUCT_CACHE / f"{hashlib.sha1((code + asked).encode()).hexdigest()}.json"
+
+
 def reconstruct(spec, **kwargs):
     """reconstruct_grid.reconstruct(spec, **kwargs), run on the desktop when
-    call() can: the same search, the same grids."""
+    call() can: the same search, the same grids. Kept on disk (RECONSTRUCT_CACHE) by its inputs: the
+    search is a count of nodes, not of seconds, so the same inputs give the same grids."""
     import reconstruct_grid
+    path = _reconstruct_path(spec, kwargs)
+    try:
+        kept = json.loads(path.read_text()) if path else None
+    except (OSError, ValueError):
+        kept = None
+    if isinstance(kept, list) and len(kept) == 2:
+        return [tuple(g) for g in kept[0]], kept[1]
     got = call("reconstruct", [list(t) for t in spec], **kwargs)
     if got is None:
         with local_slot():
-            return reconstruct_grid.reconstruct(spec, **kwargs)
-    found, info = got[0]
-    return [tuple(g) for g in found], info
+            found, info = reconstruct_grid.reconstruct(spec, **kwargs)
+    else:
+        found, info = got[0]
+    found = [tuple(g) for g in found]
+    if path:
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+            tmp.write_text(json.dumps([found, info]))
+            os.replace(tmp, path)
+        except (OSError, TypeError, ValueError):
+            pass
+    return found, info
 
 
 _HELD = threading.local()
