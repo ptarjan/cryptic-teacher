@@ -386,7 +386,9 @@ def over_json(name, *args, data=b"", **kwargs):  # call() as the desktop answers
     result, back = ocr_remote.CALLS[name](data, *json.loads(json.dumps(args)), **kwargs)
     return json.loads(json.dumps(result)), back
 tiny = rec_of(TINY)
-def searched():
+real_cache = ocr_remote.RECONSTRUCT_CACHE
+def searched():  # each in an empty search cache: a kept search would answer before the desktop is asked
+    ocr_remote.RECONSTRUCT_CACHE = pathlib.Path(tempfile.mkdtemp())
     b = T.Budget(10**6, log=False)
     sols, info = b.search("answers in", T.triples(tiny), 10**5, cols=5, rows=5,
                           words=[e["answer"] for e in T.printed(tiny)])
@@ -409,6 +411,7 @@ v = pathlib.Path(tempfile.mkdtemp())
 (v / "parsed.jsonl").write_text("".join(json.dumps(post(n, rec_of(TINY), "a clue")) + "\n" for n in (1, 2, 3)))
 together_n = T.run(where=v, solver=together)["n"]
 ocr_remote.hosts, ocr_remote.call, ocr_remote.SEARCH_SLOTS = real_hosts, real_call, real_slots
+ocr_remote.RECONSTRUCT_CACHE = real_cache
 print("REMOTE_SEARCH", remote == here == lost, here[0] == [TINY], there == ["reconstruct"])
 print("PARALLEL", together_n, sorted(met), sorted(json.loads(l)["post_id"] for l in (v / "attempts.jsonl").open()))
 # A grid outlives no post the parser stops reading: the run drops its row and
