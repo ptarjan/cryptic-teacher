@@ -135,7 +135,14 @@ python3() {
     tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
     tools/provenance.py) echo "Trailer: x" ;;
     tools/solve_misses.py) [ "$2" = keep-log ] ;;
-    tools/annotate_check.py) [ "$2" = --nothing-due ] && return "${NOTHING_DUE_RC:-1}"
+    tools/annotate_check.py)
+      if [ "$2" = --nothing-due-many ]; then   # ids on stdin; NOTHING_DUE_RC 0: all done
+        while read -r id; do [ "${NOTHING_DUE_RC:-1}" = 0 ] && echo "$id 1" || echo "$id 0"; done
+        return 0
+      fi
+      if [ "$2" = --view ]; then   # one call for a bag: an event per id
+        shift 2; for id in "$@"; do echo "hints $id" >>"$EVENTS"; done; return 0
+      fi
       echo "hints $2" >>"$EVENTS" ;;
     tools/own_rows.py) : ;;
     tools/clues_only.py) return 1 ;;   # implausible: no clue list here is

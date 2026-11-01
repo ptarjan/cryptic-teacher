@@ -403,9 +403,12 @@ run_claude() {
   rm -f "$resume_at"
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
-  [ -n "$fill" ] || for m in $(worker_bag_ids "$RUNS/$tag.sid"); do
-    "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view "$m" >/dev/null
-  done
+  # One call per bag, not per member: each python start reloads the corpus.
+  [ -n "$fill" ] || {
+    m=$(worker_bag_ids "$RUNS/$tag.sid")
+    # shellcheck disable=SC2086
+    [ -z "$m" ] || "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view $m >/dev/null
+  }
   # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
   if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ]; then
     python3 tools/annotate_bag.py view $(worker_bag_ids "$RUNS/$tag.sid") >/dev/null
@@ -526,6 +529,21 @@ pool_mark() {
   POOL_MARK_US=$now
 }
 
+# Whether $1 has nothing due (annotate_check --nothing-due), from one python
+# start per window of the queue ahead rather than one per puzzle: each start
+# reloads the corpus (~1.4 CPU-s). An id not yet answered fetches itself and
+# the next 199 queued; the answers are kept in NOTHING_DUE for later launches.
+declare -A NOTHING_DUE=()
+pool_nothing_due() {
+  local id="$1" k v
+  if [ -z "${NOTHING_DUE[$id]:-}" ]; then
+    while read -r k v; do NOTHING_DUE[$k]="$v"; done < <(
+      printf '%s\n' "$id" "${queue[@]:$((at + 1)):199}" |
+        tools/low_cpu.sh python3 tools/annotate_check.py --nothing-due-many)
+  fi
+  [ "${NOTHING_DUE[$id]:-0}" = 1 ]
+}
+
 pool_launch() {
   local id="$1" prompt wait_us fill=""
   # A clue list no grid can hold is recorded, not solved (worker_implausible);
@@ -536,7 +554,7 @@ pool_launch() {
   # shape list (a stale queue entry: the plan was read before its rows were
   # pruned), would be rewritten whole by annotate_check.to_write's None. Skip.
   [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ ! -s "/tmp/ct-prereset-$id.resume" ] &&
-    [ "$DRY_RUN" != 1 ] && tools/low_cpu.sh python3 tools/annotate_check.py --nothing-due "$id" &&
+    [ "$DRY_RUN" != 1 ] && pool_nothing_due "$id" &&
     { echo "  [$id] skipped: already fully hinted and nothing is due on it"; return 1; }
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"

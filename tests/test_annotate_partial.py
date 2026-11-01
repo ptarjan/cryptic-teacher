@@ -155,6 +155,21 @@ try:
     check("a clue on the shape list is due",
           not AC.nothing_due({**api, "entries": copy.deepcopy(done)}))
     AC.shape_queue.flagged = real_flagged
+    # The batch form (--nothing-due-many) answers per id, keyed by id, from one load.
+    import io, contextlib
+    pdir = tmp / "many"
+    pdir.mkdir()
+    real_rp, real_rf = AC.resolve_puzzle, AC.read_puzzle_file
+    files = {"a-1": {**api, "entries": copy.deepcopy(done)},
+             "a-2": {**api, "entries": copy.deepcopy(done) + [entry(7, "More")]}}
+    AC.resolve_puzzle = lambda i: pdir / i if i in files else (_ for _ in ()).throw(SystemExit("no puzzle"))
+    AC.read_puzzle_file = lambda p: files[p.name]
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        rc = AC.main(["--nothing-due-many", "a-1", "a-2", "a-gone"])
+    AC.resolve_puzzle, AC.read_puzzle_file = real_rp, real_rf
+    check("--nothing-due-many keys each id: done 1, work 0, unreadable 0",
+          rc == 0 and out.getvalue().split("\n")[:3] == ["a-1 1", "a-2 0", "a-gone 0"])
     pid = "times-1"
     F.SOURCE_CLUE_WRONG[(pid, "3-across")] = ("","Restored from the scan", "Scan reads: Restored from the scan (5)")
     check("a blank clue takes a row whose served text is empty",

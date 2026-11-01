@@ -3,6 +3,8 @@
 
     python3 tools/annotate_check.py cryptic-30098
     python3 tools/annotate_check.py --view cryptic-30098   # the run's input
+    python3 tools/annotate_check.py --view ID ID ...       # a bag: one load, a path per line
+    python3 tools/annotate_check.py --nothing-due-many ID ...  # "ID 1|0" per line (1: nothing due); ids on stdin if none
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
     python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
     python3 tools/annotate_check.py cryptic-30098 --by claude-opus-5-5  # hints another session wrote
@@ -214,6 +216,15 @@ def nothing_due(puzzle):
     clues = [e for e in puzzle["entries"] if entry_id(e) not in groups.leader_of(puzzle["entries"])]
     return (to_write(puzzle, None) is None
             and any(e.get("annotation") for e in clues))
+
+
+def nothing_due_id(pid):
+    """nothing_due for a puzzle id as 1 or 0, 0 when it cannot be read (the
+    single-id --nothing-due answers exit 1 there): the batch form's value."""
+    try:
+        return int(bool(nothing_due(read_puzzle_file(resolve_puzzle(pid)))))
+    except (SystemExit, OSError, ValueError, KeyError):
+        return 0
 
 
 def grid_rows(puzzle):
@@ -1099,6 +1110,19 @@ def main(argv):
             return 0 if nothing_due(read_puzzle_file(resolve_puzzle(argv[1]))) else 1
         except (SystemExit, OSError, ValueError, KeyError):
             return 1
+    if argv[0] == "--nothing-due-many":  # ids as args, or one per line on stdin if none
+        for pid in (argv[1:] or sys.stdin.read().split()):
+            print(pid, nothing_due_id(pid))
+        return 0
+    if argv[0] == "--view" and len(argv) > 2:  # a bag: one load, each id's view path
+        failed = 0
+        for pid in argv[1:]:
+            try:
+                print(write_view(resolve_puzzle(pid)).relative_to(ROOT))
+            except (SystemExit, OSError, ValueError, KeyError) as err:
+                print(f"--view {pid} failed: {err}", file=sys.stderr)
+                failed = 1
+        return failed
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         # `python3 -c` over this file failed in ~100 runs a window: `entries` is a
