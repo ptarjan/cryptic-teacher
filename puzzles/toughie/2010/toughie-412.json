@@ -22,6 +22,9 @@
   "date": "2010-08-25",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "English town providing facilities for disabled?",
     "enumeration": "11"
    },
-   "solution": "BROADSTAIRS"
+   "solution": "BROADSTAIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English town",
+      "at": 0,
+      "meaning": "a seaside resort on the Kent coast of England"
+     },
+     {
+      "text": "providing facilities for disabled?",
+      "at": 13,
+      "meaning": "split 5,6 the name suggests wide steps, fit for wheelchair access"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "BROADSTAIRS is a resort town in Kent; the question mark flags the whimsical second reading of its name as 'broad stairs'.",
+     "definitionFit": "The Kent resort is a town in England, and wide stairs would be a kind of accessibility provision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "disabled"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,67 @@
     "text": "Architectural style using gold repeatedly through department store",
     "enumeration": "7"
    },
-   "solution": "BAUHAUS"
+   "solution": "BAUHAUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Architectural style",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "at": 42,
+       "note": "through means running inside, so the gold sits within the store's initials"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 31,
+         "note": "repeatedly means the gold symbol is used a second time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "department store",
+         "at": 50,
+         "gives": "BHS",
+         "note": "BHS, British Home Stores, was a UK high-street department store chain"
+        },
+        {
+         "words": "gold",
+         "at": 26,
+         "gives": "AU",
+         "note": "Au is the chemical symbol for gold"
+        }
+       ]
+      },
+      {
+       "words": "gold",
+       "at": 26,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building style that uses lots of gilding throughout a department store.",
+     "walkthrough": "British Home Stores was a UK high-street chain; 'repeatedly' signals that the gold symbol goes in at two separate places.",
+     "definitionFit": "Bauhaus was the German modernist design school whose functional style shaped twentieth-century architecture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +150,49 @@
     "text": "Cold leaves chest tender",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tender",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 5,
+       "note": "leaves means departs, so the letter for cold is taken out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chest",
+       "at": 12,
+       "gives": "COFFER",
+       "note": "a coffer is a strongbox or chest"
+      },
+      {
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold ailment leaves a patient's chest sore.",
+     "walkthrough": "'tender' wants to mean sore, but it is a verb: to tender is to offer.",
+     "definitionFit": "To tender is to put forward or present something, such as a bid or a resignation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tender"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +206,70 @@
     "text": "Extremely intense training in river's heading for trouble",
     "enumeration": "7"
    },
-   "solution": "DEEPEST"
+   "solution": "DEEPEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Extremely intense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "in places the exercise letters inside the river's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river's",
+         "at": 30,
+         "gives": "DEES",
+         "note": "the Dee is a river in Wales, England and Scotland; the possessive adds S"
+        },
+        {
+         "words": "training",
+         "at": 18,
+         "gives": "PE",
+         "note": "PE is physical education, or training"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 38,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trouble",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Intense training by a river is heading for trouble.",
+     "walkthrough": "The River Dee flows through Wales and England, with another in Scotland.",
+     "definitionFit": "The superlative of deep describes the most profound or strongest feeling, so extremely intense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +289,64 @@
      }
     ]
    },
-   "solution": "TOPHOLE"
+   "solution": "TOPHOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcomed by",
+       "at": 14,
+       "note": "being welcomed by someone means being taken in, so one piece goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "who's roofless",
+         "at": 38,
+         "note": "in a down answer the roof is the top letter, which is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "actor Peter",
+         "at": 26,
+         "gives": "OTOOLE",
+         "note": "Peter O'Toole was the Irish-born star of Lawrence of Arabia"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "pub",
+       "at": 10,
+       "gives": "PH",
+       "note": "PH, public house, is the map abbreviation for a pub"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub welcomes the actor Peter O'Toole, who has lost his roof.",
+     "walkthrough": "In a down clue 'roofless' drops the top letter, the O of O'TOOLE; PH is the map abbreviation for a pub.",
+     "definitionFit": "Tip-top is an old-fashioned upper-class British slang term for first-rate or splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roofless"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +370,35 @@
      }
     ]
    },
-   "solution": "ISLEOFMAN"
+   "solution": "ISLEOFMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Three-legged race here?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Three-legged race here?",
+       "at": 0,
+       "note": "the emblem of this Irish Sea island is three armoured legs, so its Manx people are a three-legged race"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "A 'three-legged race' sounds like a sports-day event, but race means people: the island's flag shows three running legs.",
+     "definitionFit": "The Manx flag, the triskelion, has three legs, so its natives are whimsically a three-legged people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +412,69 @@
     "text": "Society stars circumvent premier to nick part of buffet?",
     "enumeration": "7"
    },
-   "solution": "SARNIES"
+   "solution": "SARNIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of buffet?",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Society",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circumvent",
+         "at": 14,
+         "note": "to circumvent is to go around, so the stars surround the initial"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stars",
+         "at": 8,
+         "gives": "ARIES",
+         "note": "Aries, the Ram, is a constellation of stars"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "premier to",
+           "at": 25,
+           "note": "the premier, or first, letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nick",
+           "at": 36
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Society stars dodge the prime minister to pinch food from the buffet.",
+     "walkthrough": "'premier' looks political but just means the first letter, N of nick.",
+     "definitionFit": "Sarnies is British slang for sandwiches, a typical item laid out at a buffet; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "premier"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +488,52 @@
     "text": "In fight, Charlie's knocked out by old pudding",
     "enumeration": "7"
    },
-   "solution": "SOUFFLE"
+   "solution": "SOUFFLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pudding",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "knocked out by",
+       "at": 20,
+       "note": "one letter is knocked out of the word for a fight and another takes its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fight",
+       "at": 3,
+       "gives": "SCUFFLE",
+       "note": "a scuffle is a brief scrappy fight"
+      },
+      {
+       "words": "Charlie's",
+       "at": 10,
+       "gives": "C",
+       "note": "Charlie is C in the NATO phonetic alphabet"
+      },
+      {
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer called Charlie is knocked out in a bout by an ageing opponent.",
+     "walkthrough": "'knocked out' sounds like boxing, but it swaps the C of SCUFFLE for O.",
+     "definitionFit": "A light baked dish of whisked egg, often served as a dessert, is a kind of pudding in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +547,71 @@
     "text": "Storage space's back, with old fuel company removing a mixed bag",
     "enumeration": "11"
    },
-   "solution": "SMORGASBORD"
+   "solution": "SMORGASBORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mixed bag",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 16,
+         "note": "back means the storage term is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Storage space's",
+         "at": 0,
+         "gives": "ROMS",
+         "note": "ROM, read-only memory, is computer storage; the possessive adds S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing",
+         "at": 44,
+         "note": "removing takes the letter out of the company name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "old fuel company",
+         "at": 27,
+         "gives": "GASBOARD",
+         "note": "the Gas Board supplied gas in Britain before privatisation"
+        },
+        {
+         "words": "a",
+         "at": 53,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old fuel company clears out a storeroom full of odds and ends.",
+     "walkthrough": "ROM, read-only memory, is computer storage, and 'back' turns it. The Gas Board was Britain's state gas supplier before privatisation.",
+     "definitionFit": "A smorgasbord is a Swedish buffet, and by extension any varied assortment or medley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Storage"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +625,87 @@
     "text": "Before opening of shop, April showers stifle Oscar star",
     "enumeration": "7"
    },
-   "solution": "POLARIS"
+   "solution": "POLARIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "star",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "before places the first part ahead of the shop letter in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stifle",
+         "at": 38,
+         "note": "to stifle is to smother, so the jumbled letters wrap around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "showers",
+           "at": 30,
+           "note": "showers read as a verb, scattering the letters of the month"
+          }
+         ],
+         "parts": [
+          {
+           "words": "April",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "Oscar",
+         "at": 45,
+         "gives": "O",
+         "note": "Oscar is O in the NATO phonetic alphabet"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 7,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spring rain spoils the moment for an award-winning actor turning up outside a shop.",
+     "walkthrough": "'showers' looks like rain but makes PLARI from APRIL; 'stifle' puts O inside it, and 'Before' sets that ahead of S.",
+     "definitionFit": "Polaris is the North Star, the bright star nearly above Earth's north pole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "showers"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +725,64 @@
      }
     ]
    },
-   "solution": "STEVEMARTIN"
+   "solution": "STEVEMARTIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US comic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to appear in",
+       "at": 22,
+       "note": "to appear in a theatre is to go inside it, so one piece is placed within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 52,
+         "note": "briefly means cut short, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "West End theatre",
+         "at": 35,
+         "gives": "STMARTINS",
+         "note": "St Martin's Theatre in London's West End is the home of The Mousetrap"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "first woman",
+       "at": 10,
+       "gives": "EVE",
+       "note": "Eve is the first woman in the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first actress to appear on a London stage is a short-lived American comedian.",
+     "walkthrough": "St Martin's is a London West End theatre; 'briefly' drops its final S.",
+     "definitionFit": "Steve Martin is an American comedian and actor known for The Jerk and stand-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "woman"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +802,55 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Broadcasting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "westwards",
+       "at": 37,
+       "note": "westwards says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Siberia, northwards",
+         "at": 16,
+         "gives": "RIANO",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radio report from Siberia heading north, then west.",
+     "walkthrough": "In an across answer 'westwards' means right to left, so RIANO, taken from inside 'Siberia, northwards', is read back.",
+     "definitionFit": "A programme being transmitted at this moment is said to be live, the same as broadcasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "westwards"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +864,70 @@
     "text": "Green, simple man returned close to nature to cut costs",
     "enumeration": "9"
    },
-   "solution": "ECONOMISE"
+   "solution": "ECONOMISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut costs",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Green",
+       "at": 0,
+       "gives": "ECO",
+       "note": "eco- is the prefix for environmentally friendly, or green"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 18,
+         "note": "returned means the name is turned round and read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "simple man",
+         "at": 7,
+         "gives": "SIMON",
+         "note": "Simple Simon is the foolish figure of the nursery rhyme"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 27,
+         "note": "the close of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nature",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An environmentalist and a simple fellow go back to nature to save money.",
+     "walkthrough": "'Simple man' is Simple Simon of the nursery rhyme; 'returned' turns SIMON into NOMIS.",
+     "definitionFit": "To economise is to spend less and save money, a synonym of cutting expenditure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +941,59 @@
     "text": "As a form of therapy, alcohol drinks worked least",
     "enumeration": "7"
    },
-   "solution": "GESTALT"
+   "solution": "GESTALT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "form of therapy",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinks",
+       "at": 30,
+       "note": "drinks means takes in, so the pair of letters swallows the jumbled word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alcohol",
+       "at": 22,
+       "gives": "GT",
+       "note": "G and T, gin and tonic, is an alcoholic drink"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worked",
+         "at": 37,
+         "note": "worked means reshaped, so the letters of least are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "least",
+         "at": 44
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is told that boozing did the least good as therapy.",
+     "walkthrough": "'drinks' is not about boozing: GT (gin and tonic) takes in ESTAL, the anagram of LEAST from 'worked'.",
+     "definitionFit": "Gestalt therapy is a recognised psychotherapy focusing on present awareness of the whole person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +1013,59 @@
      }
     ]
    },
-   "solution": "ATLEISURE"
+   "solution": "ATLEISURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "easily",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivated by",
+       "at": 10,
+       "note": "captivated means held captive, so the garlands are held inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wizard",
+         "at": 31,
+         "note": "wizard as an adjective means brilliant, here signalling a reworking of the letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a true",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "Garland's",
+       "at": 0,
+       "gives": "LEIS",
+       "note": "leis are Hawaiian flower garlands; the possessive reads as a plural"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Judy Garland is captivated by the Wizard of Oz, effortlessly.",
+     "walkthrough": "'Garland' suggests Judy of The Wizard of Oz, but it is a lei; 'wizard' rearranges A TRUE into ATURE, opened up by LEIS.",
+     "definitionFit": "Doing something without hurry or pressure means doing it in a relaxed, unhurried way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Garland's"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +1085,56 @@
      }
     ]
    },
-   "solution": "ENMASSE"
+   "solution": "ENMASSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as a group",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dissolved",
+       "at": 26,
+       "note": "dissolved means broken up, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "redundant",
+         "at": 15,
+         "note": "made redundant means dismissed, so the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Salesmen",
+         "at": 0
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company lays off its sales force and the team is disbanded.",
+     "walkthrough": "'left redundant' takes L out of SALESMEN, leaving SAESMEN; 'dissolved' rearranges those letters.",
+     "definitionFit": "The French-derived phrase describes everybody acting together all at once, collectively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dissolved"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1148,58 @@
     "text": "Rings work, moving earliest of shifts — something fishy?",
     "enumeration": "7"
    },
-   "solution": "SCALLOP"
+   "solution": "SCALLOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something fishy?",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "move",
+       "indicators": [
+        {
+         "text": "moving earliest of shifts",
+         "at": 12,
+         "note": "the final letter, the one that begins shifts, is moved to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rings",
+         "at": 0,
+         "gives": "CALLS",
+         "note": "rings means phones, which is calls"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "work",
+       "at": 6,
+       "gives": "OP",
+       "note": "op, short for opus, is a musical work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working shifts rings in to switch the earliest one and smells a rat.",
+     "walkthrough": "'moving earliest of shifts' says the letter that begins 'shifts' moves to the start of the word for rings.",
+     "definitionFit": "A scallop is a shellfish, a sea creature, so is jokingly fishy; the question mark admits it is not a fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1213,60 @@
     "text": "Fake dope smoked (no fine)",
     "enumeration": "7"
    },
-   "solution": "ASSUMED"
+   "solution": "ASSUMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dope",
+       "at": 5,
+       "gives": "ASS",
+       "note": "a dope, or fool, is an ass"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 18,
+         "note": "no fine means without the letter for fine"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smoked",
+         "at": 10,
+         "gives": "FUMED",
+         "note": "fumed means gave off smoke"
+        },
+        {
+         "words": "fine",
+         "at": 21,
+         "gives": "F",
+         "note": "F is the abbreviation for fine, as on pencils"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake drugs were smoked, with no penalty imposed.",
+     "walkthrough": "'dope' and 'smoked' suggest drugs, but dope is a fool, ASS.",
+     "definitionFit": "An assumed name or air is false, adopted for show, so the adjective means fake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1280,80 @@
     "text": "Roman dramatist, forerunner of preterite tense in usual works",
     "enumeration": "7"
    },
-   "solution": "PLAUTUS"
+   "solution": "PLAUTUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Roman dramatist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "forerunner of",
+         "at": 17,
+         "note": "the forerunner of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "preterite",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 47,
+         "note": "in places the abbreviation inside the jumbled letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "works",
+           "at": 56,
+           "note": "works as in works over, rearranging the letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "usual",
+           "at": 50
+          }
+         ]
+        },
+        {
+         "words": "tense",
+         "at": 41,
+         "gives": "T",
+         "note": "T is the grammatical abbreviation for tense"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar lesson about a Roman playwright using the past tense in his usual works.",
+     "walkthrough": "'works' looks like the dramatist's plays, but it rearranges USUAL around T.",
+     "definitionFit": "Plautus was a Latin comic playwright of the Roman Republic, author of comedies such as Miles Gloriosus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1367,74 @@
     "text": "Leader of cubs, outside in autumn for instance, volunteers two packs for this game",
     "enumeration": "7"
    },
-   "solution": "CANASTA"
+   "solution": "CANASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "game",
+      "at": 78
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cubs",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "outside in",
+         "at": 16,
+         "note": "the outside letters of the season are its first and last"
+        }
+       ],
+       "parts": [
+        {
+         "words": "autumn",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "for instance",
+       "at": 34,
+       "gives": "AS",
+       "note": "as, in 'such as', introduces an example"
+      },
+      {
+       "words": "volunteers",
+       "at": 48,
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve force"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cub Scout leader takes the volunteers outdoors in autumn to play a card game.",
+     "walkthrough": "TA is Britain's Territorial Army, its volunteer reserve. The card game is played with two packs, as the clue says.",
+     "definitionFit": "Canasta is a rummy-style card game, usually played with two full packs of cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cubs"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1448,72 @@
     "text": "Club, which caddy holds, keeps golfer third in Open",
     "enumeration": "7"
    },
-   "solution": "CHELSEA"
+   "solution": "CHELSEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeps",
+       "at": 25,
+       "note": "keeps means holds inside, so the tea wraps the golfer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "which caddy holds",
+       "at": 6,
+       "gives": "CHA",
+       "note": "a tea caddy holds tea, and cha is slang for tea"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "golfer",
+         "at": 31,
+         "gives": "ELS",
+         "note": "Ernie Els is a South African golfer"
+        },
+        {
+         "op": "nth",
+         "n": 3,
+         "indicators": [
+          {
+           "text": "third in",
+           "at": 38,
+           "note": "the third letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Open",
+           "at": 47
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf club that a caddy carries, held by a golfer in the Open.",
+     "walkthrough": "The caddy is a tea caddy, not a golf caddie; cha is British slang for tea. Chelsea is a London football club.",
+     "definitionFit": "Chelsea FC is a London football club, an example of a sports club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "caddy"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1527,36 @@
     "text": "How do you make Arnold an old batsman?",
     "enumeration": "7"
    },
-   "solution": "STRIKER"
+   "solution": "STRIKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "batsman",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "STRIKE R",
+     "parts": [
+      {
+       "words": "Arnold",
+       "at": 16,
+       "note": "the name from which one consonant is struck out, leaving the clue's words 'an old'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle asking how to turn someone called Arnold into a veteran cricketer.",
+     "walkthrough": "Split 6,1 the answer is an instruction: obey it on the name Arnold and 'an old' is left.",
+     "definitionFit": "In cricket the player currently facing the bowling is the one on strike, a term for that batsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1570,64 @@
     "text": "Olga's beginning summer time at home worried stiff?",
     "enumeration": "9"
    },
-   "solution": "OBSTINATE"
+   "solution": "OBSTINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stiff?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 7,
+         "note": "a word's beginning is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Olga's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "summer time",
+       "at": 17,
+       "gives": "BST",
+       "note": "BST is British Summer Time"
+      },
+      {
+       "words": "at home",
+       "at": 29,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "words": "worried",
+       "at": 37,
+       "gives": "ATE",
+       "note": "ate, as in 'what's eating you?', means worried"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Olga starts fretting at home in the summer and freezes up.",
+     "walkthrough": "BST, British Summer Time, is the UK's daylight-saving clock. 'Ate' is worried in the sense 'what's eating you?'.",
+     "definitionFit": "Someone stubborn and unbending is stiff in attitude; the question mark marks the looser sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1641,53 @@
     "text": "Suggest vacating when stag mates swagger",
     "enumeration": "5"
    },
-   "solution": "STRUT"
+   "solution": "STRUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swagger",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacating",
+         "at": 8,
+         "note": "vacating means emptying, so only the outer letters are left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Suggest",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "when stag mates",
+       "at": 17,
+       "gives": "RUT",
+       "note": "the rut is the deer's mating season"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion to leave the party while the stag-night friends show off.",
+     "walkthrough": "'stag mates' suggests a stag night, but it is a deer: the rut is its breeding season.",
+     "definitionFit": "To strut is to walk with a proud, showy gait, which is to swagger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stag"
+    }
+   }
   },
   {
    "number": 21,
@@ -411,7 +1701,51 @@
     "text": "Naked celebrity, the centre of jokes",
     "enumeration": "5"
    },
-   "solution": "STARK"
+   "solution": "STARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Naked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "celebrity",
+       "at": 6,
+       "gives": "STAR",
+       "note": "a star is a celebrity"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "the centre of",
+         "at": 17,
+         "note": "the centre of a five-letter word is its third letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jokes",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naked celebrity becomes the butt of jokes.",
+     "definitionFit": "Stark naked means completely nude; stark alone is a synonym for bare or unclothed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 22,
@@ -425,7 +1759,47 @@
     "text": "March 1 in France — time to take apart a building perhaps",
     "enumeration": "7"
    },
-   "solution": "DEMOUNT"
+   "solution": "DEMOUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take apart a building perhaps",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "March",
+       "at": 0,
+       "gives": "DEMO",
+       "note": "a demo is a protest march"
+      },
+      {
+       "words": "1 in France",
+       "at": 6,
+       "gives": "UN",
+       "note": "un is French for one"
+      },
+      {
+       "words": "time",
+       "at": 20,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On the first of March in France, it is time to pull down a building.",
+     "walkthrough": "'March 1' reads as a date, but March is a protest demo and 1 is French UN.",
+     "definitionFit": "To demount is to dismantle something, such as a prefabricated structure, for reassembly elsewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,7 +1813,70 @@
     "text": "Become slower from half-nine, with 1000 calories knocked back",
     "enumeration": "7"
    },
-   "solution": "SLACKEN"
+   "solution": "SLACKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Become slower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocked back",
+       "at": 49,
+       "note": "knocked back means the assembled letters are set down in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "half-",
+           "at": 19,
+           "note": "half of the four-letter number gives its last two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nine",
+           "at": 24
+          }
+         ]
+        },
+        {
+         "words": "1000",
+         "at": 35,
+         "gives": "K",
+         "note": "K is the abbreviation for a thousand"
+        },
+        {
+         "words": "calories",
+         "at": 40,
+         "gives": "CALS",
+         "note": "cals is short for calories"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter slows down after half past nine, having knocked back a thousand calories.",
+     "walkthrough": "'half-nine' looks like a time, but gives NE, the back half of NINE; NE, K and CALS are then read backwards.",
+     "definitionFit": "To slacken is to ease off or lose speed, which is to become slower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nine"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1890,84 @@
     "text": "Hat comes from expensive-sounding shop in converted residence",
     "enumeration": "11"
    },
-   "solution": "DEERSTALKER"
+   "solution": "DEERSTALKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "DEER",
+       "indicators": [
+        {
+         "text": "sounding",
+         "at": 25,
+         "note": "sounding says the word for expensive is heard rather than spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expensive",
+         "at": 15,
+         "gives": "DEAR",
+         "note": "dear means expensive"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 39,
+         "note": "in puts the informer's word inside the turned abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "converted",
+           "at": 42,
+           "note": "converted means turned round, so the abbreviation is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "residence",
+           "at": 52,
+           "gives": "RES"
+          }
+         ]
+        },
+        {
+         "words": "shop",
+         "at": 34,
+         "gives": "TALK",
+         "note": "to shop criminal mates is to inform on them, to talk to the police"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hat is bought from a pricey shop set up in a converted house.",
+     "walkthrough": "'shop' looks like a store but is a verb, to grass on someone; 'converted' turns the residence abbreviation round, and 'sounding' gives the animal for the word meaning pricey.",
+     "definitionFit": "A deerstalker is a cloth cap with ear flaps, famous as Sherlock Holmes's headwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shop"
+    }
+   }
   }
  ]
 }
