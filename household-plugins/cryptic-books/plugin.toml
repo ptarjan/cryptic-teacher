@@ -7,7 +7,7 @@ room     = "cryptic-crosswords"
 # tools/book_units.py asks again an hour later (REFUSAL_WAIT), as the hourly
 # schedule Paul asked for on 2026-10-05 did. A book borrowed is read at the
 # next tick, beside any other read (.books.log has every loan and refusal).
-schedule = "*/10 * * * *"
+schedule = "7-59/10 * * * *"
 where    = "container"
 run      = "~/github/cryptic-teacher/tools/acquire_books.sh"
 # The transcript is how a run that went wrong is read back; the scheduler's

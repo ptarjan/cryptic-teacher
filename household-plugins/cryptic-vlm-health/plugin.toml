@@ -2,7 +2,7 @@ about    = "Wake the room when the desktop VLM has been down 30 minutes with no 
 room     = "cryptic-crosswords"
 # Every 5 minutes: an up VLM costs one HTTP request; a down one adds one ssh
 # probe of the desktop, which decides whether a game explains it.
-schedule = "*/5 * * * *"
+schedule = "3-59/5 * * * *"
 where    = "container"
 # The main checkout's copy, only to bootstrap: tools/nightly_worktree.sh
 # (re)creates the job's own worktree under ~/.cryptic-teacher at origin/master

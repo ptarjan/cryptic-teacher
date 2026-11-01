@@ -7,7 +7,7 @@ room     = "cryptic-crosswords"
 # that died (OOM, a bad re-exec) sat dead for up to 55 minutes; this is the
 # liveness check, and costs no process of its own. The reasoning is in the
 # script's own header.
-schedule = "*/5 * * * *"
+schedule = "2-59/5 * * * *"
 where    = "container"
 run      = "~/github/cryptic-teacher/tools/prereset_backfill.sh"
 log      = "~/github/cryptic-teacher/.prereset.log"
