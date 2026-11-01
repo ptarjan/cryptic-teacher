@@ -42,7 +42,9 @@ jobs:
       - run: python3 tools/build_seo_pages.py
       - run: |
           mkdir -p "$RUNNER_TEMP/shapes"
-          CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/16 \
+          # Node's default ~2 GB heap ran out in slice 9 on 11-01 (run
+          # 41298197573) as the corpus grew; runners have 16 GB.
+          NODE_OPTIONS=--max-old-space-size=6144 CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/16 \
             CT_SHAPES_OUT="$RUNNER_TEMP/shapes/slice-${{ matrix.slice }}.json" node tools/smoke_test.js
       # Which rare shapes this slice saw, for the job below. Even when the slice
       # failed: a missing report is itself a failure there.
