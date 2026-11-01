@@ -115,8 +115,24 @@ def block1():
         result, back = ocr_remote.run_call(name, data, json.loads(json.dumps(args)), kwargs)
         return json.loads(json.dumps(result)), back
     ocr_remote.call = over_json
+    ocr_remote.RECONSTRUCT_CACHE = tmp / "reconstruct"  # never the live ~/.cache
     check("a search run there gives the grids a search here does",
           reconstruct_grid.reconstruct(spec, **kw), ocr_remote.reconstruct(spec, **kw))
+    # A search is kept by its inputs: the next round's process asks neither the desktop nor the solver.
+    def never(*a, **k):
+        raise AssertionError("the search ran again")
+    ocr_remote.call = never
+    try:
+        again = ocr_remote.reconstruct(spec, **kw)
+    except AssertionError:
+        again = None
+    finally:
+        ocr_remote.call = over_json
+    check("a search run before is read from the cache, not run again",
+          reconstruct_grid.reconstruct(spec, **kw), again)
+    check("a search with other inputs is another cache file", 1, len(list((tmp / "reconstruct").glob("*.json"))))
+    ocr_remote.reconstruct(spec, **{**kw, "limit": 4})
+    check("... and is kept apart", 2, len(list((tmp / "reconstruct").glob("*.json"))))
 
     # A desktop read decides what files there (decide_here, the filer's decide()
     # against copies of the Mac's files): a reading of a held number files
