@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Truly the young American way",
     "enumeration": "6"
    },
-   "solution": "REALLY"
+   "solution": "REALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Truly",
+      "at": 0,
+      "meaning": "truly, in earnest, without exaggeration"
+     },
+     {
+      "text": "the young American way",
+      "at": 6,
+      "meaning": "in US youth slang 'way' is an intensifier, as in 'way cool', meaning very much"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two definitions: the plain adverb, and the slang American 'way' (as in 'way cool'), which means the same intensifier.",
+     "definitionFit": "Both are intensifying adverbs: genuinely, and the teenage American 'way', meaning very."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,30 @@
     "text": "Way of honour",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0,
+      "meaning": "a way or aspect, as in 'in every way' or 'in every regard'"
+     },
+     {
+      "text": "honour",
+      "at": 7,
+      "meaning": "to honour someone is to hold them in high esteem"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two definitions joined by 'of': a way, as in 'in this regard', and honour, as a verb meaning to esteem.",
+     "definitionFit": "A 'way' is an aspect or regard, and honouring is showing esteem; the same word covers both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +109,41 @@
     "text": "Anticipating love without limit",
     "enumeration": "1 4"
    },
-   "solution": "AGOGO"
+   "solution": "AGOGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without limit",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Anticipating",
+       "at": 0,
+       "gives": "AGOG",
+       "note": "agog means eagerly expectant, anticipating something"
+      },
+      {
+       "words": "love",
+       "at": 13,
+       "gives": "O",
+       "note": "love is nil in tennis, the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eagerly looking forward to a love that knows no bounds.",
+     "definitionFit": "The phrase 'a gogo', borrowed from French, means in abundance, as much as you like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +157,62 @@
     "text": "Put boot in guts of challenger to one of the Welsh princes",
     "enumeration": "9"
    },
-   "solution": "LLEWELLYN"
+   "solution": "LLEWELLYN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of the Welsh princes",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the kicking word is placed inside the middle part of the challenger"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "guts of",
+         "at": 12,
+         "note": "the guts are the inner part, so the outer letters of the word challenger are stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "challenger",
+         "at": 20
+        },
+        {
+         "gives": "CHAGER"
+        }
+       ]
+      },
+      {
+       "words": "Put boot",
+       "at": 0,
+       "gives": "WELLY",
+       "note": "to welly is British slang for to kick hard, to put the boot in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rival is kicked in the stomach by someone bent on attacking a Welsh prince.",
+     "walkthrough": "WELLY, British slang for a forceful kick (from wellington boot), goes inside LLEN, taken from the middle of 'challenger'.",
+     "definitionFit": "Llywelyn, anglicised to this spelling, was the name of medieval princes of Wales, notably Llywelyn the Great."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guts"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +232,45 @@
      }
     ]
    },
-   "solution": "BRANPIE"
+   "solution": "BRANPIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lucky dip",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "the odd",
+       "at": 5,
+       "note": "the odd letters, first, third, fifth and so on, are picked from the words bargain and a prize"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bargain",
+       "at": 13
+      },
+      {
+       "words": "a prize",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rummaging for an unusual bargain, a prize pulled from the tub at a fete.",
+     "walkthrough": "Take letters 1, 3, 5... of 'bargain a prize' run together.",
+     "definitionFit": "A bran tub, with prizes buried in bran for children to dig out, is the same thing as a lucky dip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +290,36 @@
      }
     ]
    },
-   "solution": "BADFORM"
+   "solution": "BADFORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "error in social ways",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "BAD + FORM",
+     "parts": [
+      {
+       "words": "Clue from",
+       "at": 0,
+       "note": "read the pieces as a clue: a bad (scrambled) version of the word form gives the word from"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hint taken from a blunder in polite society.",
+     "walkthrough": "A reverse clue: the answer, read as wordplay, is a clue to 'from', since a bad version of FORM is FROM.",
+     "definitionFit": "Bad form is British for behaviour that breaks social etiquette, a lapse of manners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clue"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +333,42 @@
     "text": "If art form can be puzzling, his was",
     "enumeration": "5"
    },
-   "solution": "AFRIT"
+   "solution": "AFRIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "If art form can be puzzling, his was",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form can be puzzling",
+       "at": 7,
+       "note": "the letters of if art are formed into a puzzling new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "If art",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A remark about a setter: if any art form can be puzzling, this man's certainly was.",
+     "walkthrough": "The whole clue defines too: Afrit (A. F. Ritchie) was a famous Listener crossword setter, whose art form was the puzzle.",
+     "definitionFit": "Afrit was the pseudonym of A. F. Ritchie, a celebrated compiler of cryptic crosswords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +388,54 @@
      }
     ]
    },
-   "solution": "PACKDRILL"
+   "solution": "PACKDRILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Punishment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 31,
+       "note": "the medic comes after the squad"
+      }
+     ],
+     "parts": [
+      {
+       "words": "squad",
+       "at": 37,
+       "gives": "PACK",
+       "note": "a pack is a group or squad"
+      },
+      {
+       "words": "soldiers' medic",
+       "at": 15,
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
+      },
+      {
+       "words": "a bad way",
+       "at": 51,
+       "gives": "ILL",
+       "note": "to be in a bad way is to be ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A squad of soldiers is in trouble after their medic gets into difficulty.",
+     "definitionFit": "Pack drill was a military punishment of marching up and down in full kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "squad"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +449,69 @@
     "text": "First in line? Last in line? First in line? In short, the end of the line",
     "enumeration": "6"
    },
-   "solution": "ELDEST"
+   "solution": "ELDEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First in line?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Last in",
+         "at": 15,
+         "note": "the last letter is taken from the second word line"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First in",
+         "at": 29,
+         "note": "the first letter is taken from the third word line"
+        }
+       ],
+       "parts": [
+        {
+         "words": "line",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "In short, the end of the line",
+       "at": 44,
+       "gives": "DEST",
+       "note": "the end of the line is the destination, shortened to its abbreviation DEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled list of queue positions, ending at the terminus.",
+     "walkthrough": "Only the first 'First in line?' is the definition; the rest builds E, L and DEST, short for destination.",
+     "definitionFit": "The eldest child is first in line of inheritance or succession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +525,35 @@
     "text": "Say \"hallway\"!",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Say \"hallway\"!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Say \"hallway\"!",
+       "at": 0,
+       "note": "say 'hall' and 'way': a hall is a manor, and saying that word aloud gives a word meaning way"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Hall' gives MANOR, which said aloud sounds like a word for way, so 'hallway' is a hall said as a way.",
+     "definitionFit": "Manner is a way of doing something, and it sounds identical to manor, a country hall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hallway"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +573,83 @@
      }
     ]
    },
-   "solution": "STONEYARD"
+   "solution": "STONEYARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where a mason works",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 52,
+       "note": "the two roads sit around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "two ways",
+         "at": 43,
+         "gives": "ST",
+         "note": "ST is the abbreviation for street, one way"
+        },
+        {
+         "words": "two ways",
+         "at": 43,
+         "gives": "RD",
+         "note": "RD is the abbreviation for road, another way"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reflectively",
+         "at": 21,
+         "note": "as in a mirror, the words for yes and no are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Yes",
+           "at": 35,
+           "gives": "AYE",
+           "note": "aye means yes"
+          },
+          {
+           "words": "no",
+           "at": 40,
+           "gives": "NO",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stonemason's workplace, described with a firm 'no two ways about it'.",
+     "walkthrough": "'Reflectively' turns the yes-and-no pair round to ONEYA, and 'about' wraps the two road abbreviations around it; 'no two ways about it' is only the surface idiom.",
+     "definitionFit": "A yard where stone is cut and dressed is where a mason does his work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflectively"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +663,49 @@
     "text": "Quickly went to number one midway",
     "enumeration": "5"
    },
-   "solution": "RACED"
+   "solution": "RACED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quickly went",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 13,
+       "note": "the top card is put to the middle of the road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "midway",
+       "at": 27,
+       "gives": "RD",
+       "note": "mid-way: the abbreviation RD for road, a way, with something in its middle"
+      },
+      {
+       "words": "number one",
+       "at": 16,
+       "gives": "ACE",
+       "note": "an ace is a number one, the top card or top performer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sprinted towards the champion halfway along.",
+     "walkthrough": "'Midway' does double duty: the way is RD, and 'mid' puts ACE in its middle.",
+     "definitionFit": "To race is to go fast, so having raced is having gone quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "midway"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +719,42 @@
     "text": "Paint picture of Kiev (O'Keeffe abstract)",
     "enumeration": "5"
    },
-   "solution": "EVOKE"
+   "solution": "EVOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paint picture of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "abstract",
+       "at": 32,
+       "note": "to abstract is to draw out, so letters are drawn out of the words Kiev O'Keeffe"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Kiev (O'Keeffe",
+       "at": 17,
+       "gives": "EVOKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painting of the Ukrainian capital in the abstract manner of Georgia O'Keeffe.",
+     "walkthrough": "'Abstract' looks like an art style but is a verb: extract. The letters run across 'kiEV O'KEeffe'.",
+     "definitionFit": "To evoke something is to call it vividly to mind, as a painting conjures up a scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "abstract"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +768,59 @@
     "text": "Spinning, intends to take a pair every lunchtime",
     "enumeration": "9"
    },
-   "solution": "NOONTIDES"
+   "solution": "NOONTIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "every lunchtime",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to take",
+       "at": 18,
+       "note": "the rearranged letters take in the pair"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Spinning",
+         "at": 0,
+         "note": "spinning letters round, so the word intends is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "intends",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "a pair",
+       "at": 26,
+       "gives": "OO",
+       "note": "a pair of Os, two round letters like spinning rings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to take a couple of something, perhaps pills, with lunch every day.",
+     "walkthrough": "NNTIDES (from 'intends', with 'Spinning') takes OO inside.",
+     "definitionFit": "Noontide is an old word for midday, so the plural covers every lunchtime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +834,30 @@
     "text": "Vessel in lock: it must be moved to open gate",
     "enumeration": "7"
    },
-   "solution": "TUMBLER"
+   "solution": "TUMBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0,
+      "meaning": "a drinking glass without a stem or handle"
+     },
+     {
+      "text": "in lock: it must be moved to open gate",
+      "at": 7,
+      "meaning": "a pin or lever in a lock that must be lifted before the bolt can turn"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two definitions: a drinking glass, and the part of a lock that the key must shift.",
+     "definitionFit": "The same word names a flat-bottomed glass and the moving pin inside a lock mechanism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +877,75 @@
      }
     ]
    },
-   "solution": "MOVESOVER"
+   "solution": "MOVESOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gives way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "medic",
+       "at": 13,
+       "gives": "MO",
+       "note": "MO is a medical officer"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "immersed in",
+         "at": 22,
+         "note": "the word so sits inside the reshaped vitality"
+        }
+       ],
+       "parts": [
+        {
+         "op": "move",
+         "indicators": [
+          {
+           "text": "right to the end",
+           "at": 44,
+           "note": "the R, short for right, is shifted to the end of the word for vitality"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vitality",
+           "at": 34,
+           "gives": "VERVE",
+           "note": "verve is vitality or energy"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "words": "so",
+         "at": 19,
+         "gives": "SO",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor so steeped in energy that they keep going right to the finish.",
+     "walkthrough": "'Right to the end' shifts the R of the energy word to its tail, giving VEVER, and 'immersed in' sinks the little word inside that.",
+     "definitionFit": "To move over is to shift aside and give way to someone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +959,70 @@
     "text": "Gloomy in a big way: the world and its end?",
     "enumeration": "6"
    },
-   "solution": "MORBID"
+   "solution": "MORBID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "the globe goes in the motorway"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a big way",
+         "at": 10,
+         "gives": "MI",
+         "note": "the M1 is Britain's first and biggest motorway, written MI"
+        },
+        {
+         "words": "the",
+         "at": 21,
+         "gives": "ORB",
+         "note": "an orb is a globe, the world"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "its end",
+         "at": 35,
+         "note": "the end letter of the word world"
+        }
+       ],
+       "parts": [
+        {
+         "words": "world",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rhetorical worry: is something on a vast scale, the end of the world, depressing?",
+     "walkthrough": "The M1 is the London to Leeds motorway; ORB goes inside it, followed by D from the end of 'world'.",
+     "definitionFit": "Morbid describes an unhealthy, gloomy preoccupation with death and disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "big"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1036,49 @@
     "text": "Acting loudly, turning heads, changing …",
     "enumeration": "9"
    },
-   "solution": "REFORMING"
+   "solution": "REFORMING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "changing …",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "loudly, turning heads",
+       "at": 7,
+       "note": "loudly means not quiet, so P (piano, quietly) goes, and the head letters then turn round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Acting",
+       "at": 0,
+       "gives": "PERFORMING",
+       "note": "performing is acting on stage"
+      },
+      {
+       "gives": "PER"
+      },
+      {
+       "gives": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acting noisily draws attention, and things begin to change.",
+     "walkthrough": "P is the musical mark for quiet, so 'loudly' drops it, leaving ER at the head; 'turning heads' reverses that to RE.",
+     "definitionFit": "Reforming means altering or improving, so changing is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1092,39 @@
     "text": "A place to meet on the way",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "place to meet",
+       "at": 2,
+       "gives": "VENUE",
+       "note": "a venue is a meeting place"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging to meet somewhere on one's route.",
+     "definitionFit": "An avenue is a broad road or route, so it is a way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1138,41 @@
     "text": "… shingle found between Cornwall and Cumbria",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "between Cornwall and Cumbria",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "found",
+       "at": 10,
+       "note": "to found is to melt and cast metal, so the letters of shingle are recast"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shingle",
+       "at": 2
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from 16, a beach of shingle stretching between two far-flung English counties.",
+     "walkthrough": "Cornwall and Cumbria are counties at England's south-west tip and north-west corner.",
+     "definitionFit": "Anything lying in the territory between those two counties belongs to the country of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1186,49 @@
     "text": "Very congested freeway on outskirts",
     "enumeration": "7"
    },
-   "solution": "AWFULLY"
+   "solution": "AWFULLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on outskirts",
+       "at": 23,
+       "note": "the scrambled road goes round the outside of the jammed word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "freeway",
+       "at": 15,
+       "gives": "AWY",
+       "note": "free means set loose, so the letters of way are rearranged"
+      },
+      {
+       "words": "congested",
+       "at": 5,
+       "gives": "FULL",
+       "note": "full means packed or congested"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorway that is extremely jammed at the city edges.",
+     "walkthrough": "'Freeway' splits as free + way: 'free' loosens the letters of way, and 'on outskirts' puts them around the word for congested.",
+     "definitionFit": "Awfully is an informal intensifier, as in 'awfully kind', meaning very."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "freeway"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1242,50 @@
     "text": "Boatman on the way across the sea",
     "enumeration": "6"
    },
-   "solution": "ABROAD"
+   "solution": "ABROAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "across the sea",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 8,
+       "note": "in a down clue the sailor sits on top of the road"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boatman",
+       "at": 0,
+       "gives": "AB",
+       "note": "AB is an able seaman, a sailor"
+      },
+      {
+       "words": "the way",
+       "at": 11,
+       "gives": "ROAD",
+       "note": "a road is a way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, Boatman, setting off on the road over the sea.",
+     "walkthrough": "Boatman is the setter's own pseudonym, used here for a sailor.",
+     "definitionFit": "Going abroad means travelling overseas, to a foreign country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boatman"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1299,45 @@
     "text": "They claim to sing badly — Lord, yes!",
     "enumeration": "7"
    },
-   "solution": "YODLERS"
+   "solution": "YODLERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They claim to sing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "badly",
+       "at": 19,
+       "note": "badly done, so the letters of Lord yes are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lord",
+       "at": 27
+      },
+      {
+       "words": "yes",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated listener agrees that some would-be singers are terrible.",
+     "definitionFit": "Yodellers warble in a style some would hardly call singing, hence the teasing 'claim'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "badly"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1351,48 @@
     "text": "Men found underground cathedrals? No way!",
     "enumeration": "6"
    },
-   "solution": "MINERS"
+   "solution": "MINERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Men found underground",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No",
+       "at": 34,
+       "note": "no way means without the way, so the abbreviation for street is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cathedrals",
+       "at": 22,
+       "gives": "MINSTERS",
+       "note": "minsters are large churches or cathedrals, like York Minster"
+      },
+      {
+       "words": "way",
+       "at": 37,
+       "gives": "ST",
+       "note": "ST is short for street, a way"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An incredulous reaction to the idea of cathedrals built below ground.",
+     "definitionFit": "Miners are workers who dig coal and ore deep in the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1406,61 @@
     "text": "Tricky delivery as victory sign removed outside",
     "enumeration": "9"
    },
-   "solution": "INSWINGER"
+   "solution": "INSWINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tricky delivery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 40,
+       "note": "the rearranged letters go round the victory"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "removed",
+         "at": 32,
+         "note": "re-moved, moved about, so the letters are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sign",
+         "at": 27,
+         "gives": "RESIGN",
+         "note": "to sign again is to re-sign"
+        }
+       ]
+      },
+      {
+       "words": "victory",
+       "at": 19,
+       "gives": "WIN",
+       "note": "a win is a victory"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A V-sign is taken away from someone, a tricky handover.",
+     "walkthrough": "Read 'sign removed' as re-sign moved: those letters, shuffled to INSGER, go 'outside' the victory. In cricket the delivery curves in towards the batsman.",
+     "definitionFit": "In cricket a delivery is a ball bowled, and one that swings in is hard to play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1474,56 @@
     "text": "Sharp ends of iron needles, stitching elegantly threaded gusset",
     "enumeration": "5"
    },
-   "solution": "INSET"
+   "solution": "INSET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gusset",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Sharp ends of",
+       "at": 0,
+       "note": "the sharp end of a needle is its tip, so the front letters of the following words are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "iron",
+       "at": 14
+      },
+      {
+       "words": "needles",
+       "at": 19
+      },
+      {
+       "words": "stitching",
+       "at": 28
+      },
+      {
+       "words": "elegantly",
+       "at": 38
+      },
+      {
+       "words": "threaded",
+       "at": 48
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sewing scene: pointed needles stitching fabric to set in a gusset.",
+     "definitionFit": "A gusset is a piece of material set into a garment, which is just what an inset can be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1537,31 @@
     "text": "Song of a robin?",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0,
+      "meaning": "a song for several voices entering in turn, like 'Frère Jacques'"
+     },
+     {
+      "text": "of a robin?",
+      "at": 5,
+      "meaning": "the word that goes before robin in a ...-robin letter or tournament"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two definitions: a kind of canon sung in turn, and the first half of 'round robin'.",
+     "definitionFit": "A canon sung by staggered voices is called by this name, and so is a petition signed in a circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "robin"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1575,45 @@
     "text": "Way to cut two slices off salami?",
     "enumeration": "5"
    },
-   "solution": "USAGE"
+   "solution": "USAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut two slices off",
+       "at": 7,
+       "note": "two letters are trimmed from the front, like slices off the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "salami",
+       "at": 26,
+       "gives": "SAUSAGE",
+       "note": "salami is an example of a sausage"
+      },
+      {
+       "gives": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking how best to slice a salami.",
+     "definitionFit": "Usage is the customary way of doing or saying something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slices"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1627,60 @@
     "text": "First lady keeping one small step from the gutter here",
     "enumeration": "5"
    },
-   "solution": "EAVES"
+   "solution": "EAVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gutter here",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "at": 11,
+         "note": "to keep something is to hold it within, so the first woman's name holds the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "First lady",
+         "at": 0,
+         "gives": "EVE",
+         "note": "Eve was the first woman in Genesis"
+        },
+        {
+         "words": "one",
+         "at": 19,
+         "gives": "A",
+         "note": "A is one, the indefinite article"
+        }
+       ]
+      },
+      {
+       "words": "small step",
+       "at": 23,
+       "gives": "S",
+       "note": "S, the abbreviation for small, is a tiny step on from the rest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Echoes Armstrong's 'one small step', with the first woman stepping out of the gutter.",
+     "walkthrough": "The roof edge holding the gutter is one step from it.",
+     "definitionFit": "The overhanging edge of a roof, where the gutter is fixed, is right next to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gutter"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1694,63 @@
     "text": "Lifeless, in a bad way? Maintain cheery heart",
     "enumeration": "9"
    },
-   "solution": "INANIMATE"
+   "solution": "INANIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lifeless",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a bad way",
+         "at": 10,
+         "note": "in a bad way, so the letters of maintain are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Maintain",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "heart",
+         "at": 40,
+         "note": "the heart of the word cheery is one of its central letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheery",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in trouble is told to keep a cheerful heart.",
+     "walkthrough": "'Maintain' is rearranged to INANIMAT, then the middle E of 'cheery'.",
+     "definitionFit": "Inanimate means not alive, without life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maintain"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1764,30 @@
     "text": "Way of life, an extreme example?",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way of life",
+      "at": 0,
+      "meaning": "a length of time inside, such as a prison term or a period of one's life"
+     },
+     {
+      "text": "an extreme example?",
+      "at": 13,
+      "meaning": "something far-fetched, as in 'that's a bit of a reach'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two definitions: a period of life (or a prison term), and an exaggerated or far-fetched case.",
+     "definitionFit": "The word covers both a span of time served and an extreme, implausible claim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extreme"
+    }
+   }
   },
   {
    "number": 29,
@@ -495,7 +1801,45 @@
     "text": "Degenerate leader is out … way out",
     "enumeration": "6"
    },
-   "solution": "EGRESS"
+   "solution": "EGRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way out",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leader is out",
+       "at": 11,
+       "note": "the leading letter is removed from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Degenerate",
+       "at": 0,
+       "gives": "REGRESS",
+       "note": "to regress is to slip back or degenerate"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt leader has been ousted, and that is the way out.",
+     "definitionFit": "An egress is an exit, a way of going out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   }
  ]
 }
