@@ -2365,6 +2365,14 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
                 if tuple(o["box"]) == box:
                     return [[tuple(w)] for w in o["words"]]
             others = [{"box": cached["box"], "words": cached["words"]}, *cached.get("more", ())][:MORE_WINDOWS]
+            # A window within NEAR_WINDOW px on every edge of one read already gives the reader no new look
+            # (lead_retried's cut and title retries, the gutter alternatives 1-3 px apart: 1935-01-04 read 6
+            # windows in 3 such pairs, ~3 reads of ~100 s each a pair): that window's reading stands for it.
+            near = [o for o in others if len(o["box"]) == len(box)
+                    and max(abs(a - b) for a, b in zip(o["box"], box)) <= NEAR_WINDOW]
+            if near:
+                best = min(near, key=lambda o: max(abs(a - b) for a, b in zip(o["box"], box)))
+                return [[tuple(w)] for w in best["words"]]
         except (KeyError, TypeError):
             others = []  # an unreadable cache is a miss
     crop = img.crop(box)
@@ -2379,6 +2387,8 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
 
 #: How many other windows' readings a reader's cache file keeps besides the last.
 MORE_WINDOWS = 8
+#: The most pixels a window's edge may differ from a window already read for that reading to stand for it.
+NEAR_WINDOW = 4
 
 
 #: A clue line the whole crop's read missed. RapidOCR scales an image's longer side down to
