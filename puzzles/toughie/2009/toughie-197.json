@@ -22,6 +22,9 @@
   "date": "2009-08-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "Take to be suitable",
     "enumeration": "11"
    },
-   "solution": "APPROPRIATE"
+   "solution": "APPROPRIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take",
+      "at": 0,
+      "meaning": "to take something for yourself, often without permission, is to seize or commandeer it"
+     },
+     {
+      "text": "suitable",
+      "at": 11,
+      "meaning": "fitting or proper for the occasion"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone deciding whether a thing is fit to accept.",
+     "definitionFit": "The word works as a verb meaning seize for oneself and as an adjective meaning fitting or proper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +75,59 @@
     "text": "Going back to sleep, I am in discomfort",
     "enumeration": "4"
    },
-   "solution": "PAIN"
+   "solution": "PAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discomfort",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "am in",
+       "at": 23,
+       "note": "'I am in' says the letter I sits inside the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Going back",
+         "at": 0,
+         "note": "going back means the word for sleep is read from its end to its start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sleep",
+         "at": 14,
+         "gives": "NAP",
+         "note": "a nap is a short sleep"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returning to bed because they are hurting.",
+     "walkthrough": "'Going back' turns NAP into PAN, and 'am in' places I within it.",
+     "definitionFit": "Discomfort and this word are synonyms for physical suffering or hurt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sleep"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +141,30 @@
     "text": "Stun with a stone",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stun",
+      "at": 0,
+      "meaning": "to shake or astound someone, as news can"
+     },
+     {
+      "text": "stone",
+      "at": 12,
+      "meaning": "a lump of hard mineral, a boulder"
+     }
+    ],
+    "explanation": {
+     "surface": "Knocking someone out by hitting them with a stone.",
+     "definitionFit": "As a verb the word means shock or stagger; as a noun it means a large stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stun"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +178,35 @@
     "text": "Got everything in order for the flight",
     "enumeration": "7"
    },
-   "solution": "PREENED"
+   "solution": "PREENED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got everything in order for the flight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Got everything in order for the flight",
+       "at": 0,
+       "note": "suggests a traveller packing before an air trip, but describes a bird tidying its feathers before flying"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger getting organised before boarding a plane.",
+     "definitionFit": "Birds groom and arrange their feathers with their beaks, making them ready to fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +220,61 @@
     "text": "In turning gold into base metal",
     "enumeration": "4"
    },
-   "solution": "IRON"
+   "solution": "IRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "base metal",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 16,
+       "note": "into says one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "In",
+       "at": 0,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 3,
+         "note": "turning means the word for gold is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gold",
+         "at": 11,
+         "gives": "OR",
+         "note": "OR is the heraldic term for gold"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An alchemist's failure, turning gold into a base metal.",
+     "walkthrough": "OR is gold in heraldry; 'turning' is the reversal signal and 'into' the container signal, not the alchemy the surface suggests.",
+     "definitionFit": "Iron is a common, non-precious metal, which is what base metal means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +288,43 @@
     "text": "A few workers who live in",
     "enumeration": "7"
    },
-   "solution": "TENANTS"
+   "solution": "TENANTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who live in",
+      "at": 14,
+      "note": "a noun phrase for people occupying a place, plural like the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A few",
+       "at": 0,
+       "gives": "TEN",
+       "note": "ten is a small number, a few"
+      },
+      {
+       "words": "workers",
+       "at": 6,
+       "gives": "ANTS",
+       "note": "ants are the classic workers of crosswords"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handful of live-in staff.",
+     "walkthrough": "'workers' as ANTS is a crossword staple, from worker ants.",
+     "definitionFit": "Occupants who rent and reside in a property are the people who live in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "workers"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +338,35 @@
     "text": "Inside-out, good gracious!",
     "enumeration": "4"
    },
-   "solution": "WELL"
+   "solution": "WELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inside-out, good gracious!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Inside-out, good gracious!",
+       "at": 0,
+       "note": "the word means good and is also an exclamation of surprise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation at finding a garment on the wrong way round.",
+     "definitionFit": "The word is an adverb for good and an interjection of surprise, and a shaft from which water is drawn out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inside-out"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +390,43 @@
      }
     ]
    },
-   "solution": "INTWOSHAKES"
+   "solution": "INTWOSHAKES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quickly",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "How entry was made into the Ark",
+       "at": 0,
+       "gives": "INTWOS",
+       "note": "the animals went into Noah's Ark two by two, that is, in pairs"
+      },
+      {
+       "words": "fishes",
+       "at": 35,
+       "gives": "HAKES",
+       "note": "hake are fish of the cod family"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whimsical account of the fish boarding Noah's Ark, done in a hurry.",
+     "walkthrough": "The animals entered the Ark in pairs, and the fish are hakes, giving the idiom.",
+     "definitionFit": "The idiom means in a moment, very soon, as fast as two shakes of a lamb's tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fishes"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +440,29 @@
     "text": "Received and understood",
     "enumeration": "4"
    },
-   "solution": "SEEN"
+   "solution": "SEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Received",
+      "at": 0,
+      "meaning": "received in the sense of ... or viewed, as with a document acknowledged"
+     },
+     {
+      "text": "understood",
+      "at": 13,
+      "meaning": "grasped, as in 'I see'"
+     }
+    ],
+    "explanation": {
+     "surface": "An office acknowledgement: message got and taken in.",
+     "definitionFit": "A document marked as viewed has been received, and to see is to understand, so the past participle fits both."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +482,43 @@
      }
     ]
    },
-   "solution": "CIRCLEROUND"
+   "solution": "CIRCLEROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look at it from all aspects",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oo!",
+       "at": 0,
+       "gives": "CIRCLE",
+       "note": "the first O is shaped like a ring"
+      },
+      {
+       "words": "Oo!",
+       "at": 0,
+       "gives": "ROUND",
+       "note": "the second O is a round shape"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of delight, urging someone to examine something from every side.",
+     "walkthrough": "Each O of 'Oo!' is read as a shape: one ring, one round.",
+     "definitionFit": "To go all the way about something is to inspect it from every side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Oo!"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +532,40 @@
     "text": "Note deep in pitch to sound on a brass instrument",
     "enumeration": "4"
    },
-   "solution": "BLOW"
+   "solution": "BLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to sound on a brass instrument",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "B",
+       "note": "B is a musical note"
+      },
+      {
+       "words": "deep in pitch",
+       "at": 5,
+       "gives": "LOW",
+       "note": "a low note is deep in pitch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trombone or tuba player producing a deep note.",
+     "definitionFit": "Players of trumpets and horns produce notes by forcing breath through the instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +585,35 @@
      }
     ]
    },
-   "solution": "FULLAPOLOGY"
+   "solution": "FULLAPOLOGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"Sorry, but there's no room\"?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "\"Sorry, but there's no room\"?",
+       "at": 0,
+       "note": "a hotelier turning someone away is sorry because the hotel is full"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel receptionist turning away a guest.",
+     "definitionFit": "A complete expression of regret; here the hotel is booked out, so the regret is a full one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +627,66 @@
     "text": "Where by hypnotism I found myself regressed, or by trickery?",
     "enumeration": "6"
    },
-   "solution": "EMBRYO"
+   "solution": "EMBRYO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where by hypnotism I found myself regressed, or by trickery?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "regressed",
+         "at": 34,
+         "note": "regressed means the word is turned backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "myself",
+         "at": 27,
+         "gives": "ME",
+         "note": "me stands for myself"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trickery",
+         "at": 51,
+         "note": "trickery means the letters are juggled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or by",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A sceptic doubting a past-life regression under hypnosis.",
+     "walkthrough": "'regressed' turns ME into EM; 'trickery' rearranges OR BY into BRYO.",
+     "definitionFit": "Regressing far enough under hypnosis would take one back to the unborn stage of development."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "regressed"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +700,30 @@
     "text": "Not touched: left just where it was",
     "enumeration": "7"
    },
-   "solution": "UNMOVED"
+   "solution": "UNMOVED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not touched",
+      "at": 0,
+      "meaning": "emotionally unaffected"
+     },
+     {
+      "text": "left just where it was",
+      "at": 13,
+      "meaning": "not shifted from its place"
+     }
+    ],
+    "explanation": {
+     "surface": "Evidence at a scene that nobody has disturbed.",
+     "definitionFit": "The word means emotionally unaffected and also physically undisturbed in position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +737,43 @@
     "text": "Hang about, prepared to alter last section",
     "enumeration": "5"
    },
-   "solution": "DRAPE"
+   "solution": "DRAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hang about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to alter last section",
+       "at": 21,
+       "note": "to alter the last section says only the tail of the word prepared, its final five letters, is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prepared",
+       "at": 12,
+       "gives": "PARED",
+       "note": "pared, the last section of prepared, also means trimmed or peeled, as food prepared for cooking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor told to wait while the end of a garment is altered.",
+     "walkthrough": "'to alter last section' rearranges PARED, the tail end of 'prepared', into the answer.",
+     "definitionFit": "To hang fabric loosely around something is to arrange it in folds over it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hang"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +787,36 @@
     "text": "Shifts out of gear",
     "enumeration": "7"
    },
-   "solution": "STREAKS"
+   "solution": "STREAKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shifts out of gear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Shifts out of gear",
+       "at": 0,
+       "note": "suggests a car moving into neutral, but means runs about with no clothes on, gear being clothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver moving the gearstick into neutral.",
+     "walkthrough": "'gear' is informal for clothes, so 'out of gear' is naked.",
+     "definitionFit": "Running naked through a public place, such as a sports ground, is the prank this word names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +830,30 @@
     "text": "Brushes the man's garments",
     "enumeration": "5"
    },
-   "solution": "SPATS"
+   "solution": "SPATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brushes",
+      "at": 0,
+      "meaning": "brief skirmishes or quarrels"
+     },
+     {
+      "text": "the man's garments",
+      "at": 8,
+      "meaning": "old-fashioned cloth ankle coverings worn by men over shoes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone cleaning a gentleman's clothes.",
+     "definitionFit": "Minor quarrels are brushes, and the same word names short gaiters fastened over men's shoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brushes"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +867,42 @@
     "text": "A disease I got from a wild animal",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wild animal",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "disease",
+       "at": 2,
+       "gives": "GOUT",
+       "note": "gout is a disease of the joints"
+      },
+      {
+       "words": "I",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who caught a disease from a wild creature.",
+     "definitionFit": "This is a burrowing rodent of Central and South America, related to the guinea pig."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +916,29 @@
     "text": "Decreases the medication",
     "enumeration": "5"
    },
-   "solution": "DROPS"
+   "solution": "DROPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decreases",
+      "at": 0,
+      "meaning": "falls or reduces, as prices do"
+     },
+     {
+      "text": "the medication",
+      "at": 10,
+      "meaning": "liquid medicine given a little at a time, as eye or ear medicine"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor reducing a patient's dose.",
+     "definitionFit": "The word is a verb for falls or lessens and a noun for liquid medicine given in small amounts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +952,31 @@
     "text": "Fun the cat would like to put an end to",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fun",
+      "at": 0,
+      "meaning": "a prank or bit of mischief"
+     },
+     {
+      "text": "the cat would like to put an end to",
+      "at": 4,
+      "meaning": "a cat would like to catch and kill a songbird such as the skylark"
+     }
+    ],
+    "explanation": {
+     "surface": "A spoilsport cat that wants to stop everyone's enjoyment.",
+     "definitionFit": "The word means a piece of fun and also a songbird that a cat would happily kill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fun"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +990,57 @@
     "text": "A number one retirement island",
     "enumeration": "4"
    },
-   "solution": "IONA"
+   "solution": "IONA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "island",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "retirement",
+       "at": 13,
+       "note": "retirement means the pieces withdraw, read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "number",
+         "at": 2,
+         "gives": "NO"
+        },
+        {
+         "words": "one",
+         "at": 9,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top-rated island to retire to.",
+     "walkthrough": "'retirement' reverses A, NO and I.",
+     "definitionFit": "This is a small island in the Inner Hebrides off western Scotland, famous for its abbey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1054,42 @@
     "text": "Checks back and sees",
     "enumeration": "5"
    },
-   "solution": "SPOTS"
+   "solution": "SPOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sees",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 7,
+       "note": "back means the word is read the other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Checks",
+       "at": 0,
+       "gives": "STOPS",
+       "note": "to check something is to stop it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looking over their shoulder and noticing something.",
+     "definitionFit": "To notice or catch sight of is to see something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Checks"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1103,30 @@
     "text": "Make a dash for the vessel",
     "enumeration": "7"
    },
-   "solution": "SCUTTLE"
+   "solution": "SCUTTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make a dash",
+      "at": 0,
+      "meaning": "run with short hurried steps"
+     },
+     {
+      "text": "vessel",
+      "at": 20,
+      "meaning": "a container, such as one for coal; also a verb of sinking a ship"
+     }
+    ],
+    "explanation": {
+     "surface": "Running hurriedly for a boat.",
+     "definitionFit": "The word means hurry off and is also a metal container for coal beside a fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1140,59 @@
     "text": "Food panic that's absurd — don't speak about it",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about it",
+       "at": 39,
+       "note": "about it says the call for silence wraps round the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "don't speak",
+       "at": 27,
+       "gives": "SH",
+       "note": "sh is the call for silence"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "that's absurd",
+         "at": 11,
+         "note": "absurd means the letters of panic are put into a ridiculous jumble"
+        }
+       ],
+       "parts": [
+        {
+         "words": "panic",
+         "at": 5
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A food scare that people are told not to mention.",
+     "walkthrough": "'Food' looks like part of 'food panic', but it is the definition; 'that's absurd' signals the anagram and 'about it' the wrapping.",
+     "definitionFit": "Spinach is a leafy green vegetable, an example of a food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "panic"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1206,42 @@
     "text": "Make, for having miscued",
     "enumeration": "7"
    },
-   "solution": "PRODUCE"
+   "solution": "PRODUCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "at": 6,
+       "gives": "PRO",
+       "note": "pro means in favour of, for"
+      },
+      {
+       "words": "having miscued",
+       "at": 10,
+       "gives": "DUCE",
+       "note": "the word cued with its letters mis-placed gives DUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player's excuse for a poor shot.",
+     "walkthrough": "'miscued' is read as cued done wrongly: its letters rearranged.",
+     "definitionFit": "To manufacture or create something is to bring it into being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "miscued"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1255,35 @@
     "text": "A shadow of one's former self",
     "enumeration": "7"
    },
-   "solution": "SPECTRE"
+   "solution": "SPECTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A shadow of one's former self",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A shadow of one's former self",
+       "at": 0,
+       "note": "the idiom for a weakened person, read literally as a ghost"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone diminished by illness or age.",
+     "definitionFit": "A ghost is the shadowy remnant of a person who has died, so literally the former self."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shadow"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1297,30 @@
     "text": "Run out and tell people the news",
     "enumeration": "4"
    },
-   "solution": "LEAK"
+   "solution": "LEAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Run out",
+      "at": 0,
+      "meaning": "escape through a hole, as liquid does"
+     },
+     {
+      "text": "tell people the news",
+      "at": 12,
+      "meaning": "disclose secret information"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dashing off to spread gossip.",
+     "definitionFit": "The word means escape from a container through a gap and pass secret information to others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1334,36 @@
     "text": "Being alone for a while in the garden",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being alone for a while in the garden",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Being alone for a while in the garden",
+       "at": 0,
+       "note": "the Garden of Eden had a single human until Eve was made"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoying some solitude among the flowers.",
+     "walkthrough": "'Being' is a noun, a creature; 'the garden' is Eden.",
+     "definitionFit": "In Genesis the first man lived in Eden on his own until a companion was created from his rib."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Being"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1377,51 @@
     "text": "As soon as love is given half a chance",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "As soon as",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "love",
+       "at": 11,
+       "gives": "O",
+       "note": "love is zero in tennis, the letter O"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 25,
+         "note": "half here takes the second three letters of the word chance"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chance",
+         "at": 32
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic jumping at any opportunity.",
+     "definitionFit": "Used as a conjunction the word means the moment that, immediately when."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1435,35 @@
     "text": "List that doesn't go up to S",
     "enumeration": "4"
    },
-   "solution": "ROTA"
+   "solution": "ROTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "List that doesn't go up to S",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "List that doesn't go up to S",
+       "at": 0,
+       "note": "a duty list in the singular, stopping short of the plural ending S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list that runs out before the letter S.",
+     "walkthrough": "The plural ends in S; this single list stops short of it.",
+     "definitionFit": "A schedule of who does which duty when is a list of names in turn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "S"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1477,50 @@
     "text": "Anemones arranged, with some missed, for her",
     "enumeration": "4"
    },
-   "solution": "ANNE"
+   "solution": "ANNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "her",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "arranged",
+       "at": 9,
+       "note": "arranged means the letters of Anemones are put in a new order"
+      },
+      {
+       "text": "missed",
+       "at": 29,
+       "note": "missed says the letters of some are left out of the flowers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Anemones",
+       "at": 0
+      },
+      {
+       "words": "some",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flower arrangement with a few blooms missing, made for a woman.",
+     "walkthrough": "'arranged' shuffles ANEMONES; 'missed' drops the letters of SOME, leaving ANNE.",
+     "definitionFit": "A girl's name stands for a woman, which the pronoun her refers to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "missed"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +1540,32 @@
      }
     ]
    },
-   "solution": "STANDAROUND"
+   "solution": "STANDAROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lounge",
+      "at": 0,
+      "meaning": "idle about, loiter"
+     },
+     {
+      "text": "you buy drinks in",
+      "at": 7,
+      "meaning": "a pub phrase for treating everyone to a drink, buying a round"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel bar where you order drinks.",
+     "walkthrough": "In British pubs, to 'stand a round' is to buy a drink for everyone in your group.",
+     "definitionFit": "The phrase means loiter idly; split differently it is treating your companions to drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lounge"
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +1579,50 @@
     "text": "Happy to be touring Donegal without one",
     "enumeration": "4"
    },
-   "solution": "GLAD"
+   "solution": "GLAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 12,
+       "note": "touring means the letters of Donegal travel about into a new order"
+      },
+      {
+       "text": "without",
+       "at": 28,
+       "note": "without says the letters of one are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Donegal",
+       "at": 20
+      },
+      {
+       "words": "one",
+       "at": 36
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor content to tour Donegal on their own.",
+     "walkthrough": "Donegal is a county in Ireland. 'touring' rearranges DONEGAL; 'without' removes ONE, leaving GLAD.",
+     "definitionFit": "Pleased and cheerful are synonyms of content and joyful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 32,
@@ -531,7 +1642,43 @@
      }
     ]
    },
-   "solution": "LEVELHEADED"
+   "solution": "LEVELHEADED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sensible",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "flat",
+       "at": 15,
+       "gives": "LEVEL",
+       "note": "level means flat"
+      },
+      {
+       "words": "Having the top",
+       "at": 0,
+       "gives": "HEADED",
+       "note": "headed means having a top, as headed notepaper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing the top-floor apartment is a wise move.",
+     "walkthrough": "'flat' looks like an apartment but means even.",
+     "definitionFit": "Calm and rational, not given to panic, is what this compound adjective means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   }
  ]
 }
