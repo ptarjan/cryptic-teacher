@@ -3295,20 +3295,27 @@ vlm_reader.CACHE = T / "vlm-stage"
 (T / "vlm-stage-tmp").mkdir(exist_ok=True)
 _tempdir, _tf.tempdir = _tf.tempdir, str(T / "vlm-stage-tmp")  # the host's real slot locks are held by live askers
 vlm_reader._SLOTS[0], vlm_reader.PIPELINE = 1, 0
-_ur.urlopen = lambda req, timeout=None: io.BytesIO(json.dumps({"choices": [{"message": {"content": "A"}}]}).encode())
+_asked, _all_asked = [], _th.Event()
+def _answer(req, timeout=None):
+    _asked.append(1)
+    if len(_asked) >= 3:
+        _all_asked.set()
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "A"}}]}).encode())
+_ur.urlopen = _answer
 eq.vlm_gate_reader = lambda: True
 _busy, vlm_reader.busy = vlm_reader.busy, lambda: ""
 _keys = [vlm_reader.ask_key(b"png%d" % k, "p") for k in range(3)]
 for _k, _b in zip(_keys, range(3)):
     vlm_reader.put_spool(_k, b"png%d" % _b, "p", 10)
-_stop = _th.Event()
-eq.vlm_drainer(_stop, [])
-for _ in range(100):
-    if not vlm_reader.spooled():
-        break
-    time.sleep(0.1)
+_stop, _dthreads = _th.Event(), []
+eq.vlm_drainer(_stop, _dthreads)
+# Completion signals, not wall time: the server stub sets an Event once all three asks reached it, then the
+# threads are joined so every in-flight ask has its cache file written (a claimed ask is already out of the
+# spool) and the threads have ended before the real cache is back. The waits only bound a real hang.
+_all_asked.wait(300)
 _stop.set()
-time.sleep(1)  # its threads end before the real cache is back
+for _t in _dthreads:
+    _t.join(300)
 check("the drainer answers every spooled ask into the cache", (0, True),
       (len(vlm_reader.spooled()), all((vlm_reader.CACHE / f"{k}.txt").exists() for k in _keys)))
 vlm_reader.CACHE, vlm_reader._SLOTS[0], vlm_reader.PIPELINE, _ur.urlopen, eq.vlm_gate_reader = _cache, _slots, _pipe, _real, _gate
