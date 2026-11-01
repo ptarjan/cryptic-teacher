@@ -1290,8 +1290,8 @@ start_index_rebuild() {  # detached, holding none of this tick's descriptors (th
   # what makes the mode --reindex-changed), so index_ready stays true.
   if [ "$(index_rebuild_mode)" = --reindex-changed ]; then
     local burn_pid
-    burn_pid=$(cat "$REPO/.prereset.lock/pid" 2>/dev/null ||
-      cat "$(git rev-parse --path-format=absolute --git-common-dir)/../.prereset.lock/pid" 2>/dev/null)
+    # The burn runs in its own checkout; its lock lives there, not in $REPO.
+    burn_pid=$(cat "${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/prereset_backfill/.prereset.lock/pid" 2>/dev/null)
     if [ -n "$burn_pid" ] && ps -o command= -p "$burn_pid" 2>/dev/null | grep prereset_backfill >/dev/null; then
       echo "the pre-reset backfill is running and reindexes at its end; skipping this tick's --reindex-changed"
       return 0
