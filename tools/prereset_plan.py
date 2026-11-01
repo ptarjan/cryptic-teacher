@@ -19,8 +19,13 @@ window of EXHAUSTED points per slot it uses, the last ending at the natural
 reset. Under the staircase "no more than EXHAUSTED before the next slot frees"
 it takes the taut string (the lowest top rate), uses the most slots whose top
 rate the memory cap can spend, and paces to the first window's fill, moved out
-of Paul's night (23:00-07:00 Pacific). At RUSH_SPENT with a slot free it wakes
-the room once (held to the morning) so he resets. Anthropic dropped the
+of Paul's predicted night: tools/awake.py learns it from the times of his own
+messages (23:00-07:00 Pacific when they are too few), and a message in the last
+75 minutes says he is up now. Unless the meter is due full before his bedtime,
+the burn is capped (overnight_cap) so that the bridge alone, at 1.5 times its
+rate, could not take the meter past EXHAUSTED before he wakes: nothing locks
+him out asleep. At RUSH_SPENT with a slot free it wakes the room once (held
+until he is up) so he resets. Anthropic dropped the
 five-hour window on 2026-10-31, so nothing here reads it: the rates and the
 bridge's spend are in weekly points, and a five-hour lockout (if one ever
 returns) is still napped through by prereset_backfill.sh. --rush is flat out.
@@ -62,7 +67,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --rush [MINUTES]   # burn flat out until the weekly meter hits 100% or its reset (MINUTES is optional, unused)
     tools/prereset_plan.py --weekly           # pace the weekly meter, a window per manual reset (the default)
-    tools/prereset_plan.py --resets           # the manual resets free before the natural one, and the plan
+    tools/prereset_plan.py --resets           # the manual resets free before the natural one, the plan, and his nights
     tools/prereset_plan.py --self-test
 """
 import datetime as dt
@@ -74,6 +79,7 @@ import sys
 import time
 from pathlib import Path
 
+import awake
 import mem_gate
 import series
 import weekly_usage
@@ -139,19 +145,22 @@ RUSH_ROOM = "cryptic-crosswords"
 # RESET_SPAN_S; a manual reset empties it but leaves the natural reset where it
 # is. reset_plan paces the meter to EXHAUSTED once per reset free before the
 # natural one, the last window ending at it, and RUSH_SPENT wakes our room
-# then. No wake in QUIET_HOURS Pacific: fills aim outside them, and a meter
-# full at night waits for the morning. PLAN_SHARE of the memory cap is the
+# then. No wake while he is asleep (tools/awake.py): fills aim outside his
+# nights, and a meter full at night waits for the morning. PLAN_SHARE of the memory cap is the
 # width counted on when choosing how many resets the machine can fill.
 MANUAL_RESETS = 15
 RESET_SPAN_S = 30 * 86400
 MANUAL_DROP = 20.0
-QUIET_HOURS = (23, 7)
 PLAN_SHARE = 0.8
-try:
-    from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
-    PACIFIC = ZoneInfo("America/Los_Angeles")
-except (ImportError, ZoneInfoNotFoundError):  # no tz database: a fixed PST
-    PACIFIC = dt.timezone(dt.timedelta(hours=-8))
+PACIFIC = awake.PACIFIC
+# Lockout safety (Paul 11-01: "try to know when I'm awake so you don't lock me
+# out when I'm sleeping"). Unless the plan fills the meter before his next
+# night (tools/awake.py), the burn is capped so that, were it to stop, the
+# bridge alone at NIGHT_BRIDGE_FACTOR times its measured rate would leave the
+# meter NIGHT_GUARD points under EXHAUSTED when he wakes (or at the reset, if
+# sooner): overnight_cap.
+NIGHT_BRIDGE_FACTOR = 1.5
+NIGHT_GUARD = 1.0
 WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
@@ -220,17 +229,18 @@ def rush_disarmed(stamp, week_pct, now):
         return False
 
 
-def rush_notify(home, name, pct, say, now=None, due=True, text=None):
+def rush_notify(home, name, pct, say, now=None, due=True, text=None, sleep=None):
     """Wake our room once per window when meter `name` reaches RUSH_SPENT and
     a reset is `due`; the stamp goes when it falls, so the next window wakes it
-    again. In QUIET_HOURS the wake waits (no stamp) for the morning."""
+    again. While Paul is asleep (`sleep`, tools/awake.py) the wake waits (no
+    stamp) for the morning."""
     mark = home / RUSH_SPENT_STAMP.format(name)
     if pct is None:
         return False
     if pct < RUSH_SPENT:
         mark.unlink(missing_ok=True)
         return False
-    if not due or mark.exists() or quiet(time.time() if now is None else now):
+    if not due or mark.exists() or quiet(time.time() if now is None else now, sleep):
         return False
     try:
         mark.write_text(f"{pct:g}\n")
@@ -349,23 +359,42 @@ def reset_due(plan, slots, now):
     return bool(plan and plan[0] and slots and slots[0] <= now and plan[1] <= now + 600)
 
 
-def quiet(epoch):
-    """True when `epoch` falls in Paul's night, QUIET_HOURS Pacific."""
-    hour = dt.datetime.fromtimestamp(epoch, PACIFIC).hour
-    start, end = QUIET_HOURS
-    return hour >= start or hour < end
+def quiet(epoch, sleep=None):
+    """True when Paul is predicted asleep at `epoch` (tools/awake.py; None:
+    the fixed 23:00-07:00 Pacific)."""
+    return awake.asleep(epoch, sleep)
 
 
-def quiet_edges(epoch):
-    """(the night's start before `epoch`, its end after it) as epochs."""
-    local = dt.datetime.fromtimestamp(epoch, PACIFIC)
-    day = local.date() - dt.timedelta(days=1 if local.hour < QUIET_HOURS[1] else 0)
-    start = dt.datetime.combine(day, dt.time(QUIET_HOURS[0]), PACIFIC)
-    end = dt.datetime.combine(day + dt.timedelta(days=1), dt.time(QUIET_HOURS[1]), PACIFIC)
-    return start.timestamp(), end.timestamp()
+def overnight_cap(pct, now, end, rate, bridge):
+    """The most runs that, spread until `end` (his predicted wake, or the reset
+    if sooner), leave room for the bridge alone at NIGHT_BRIDGE_FACTOR times
+    `bridge` to stay NIGHT_GUARD points under EXHAUSTED until then. None when
+    an input is missing."""
+    try:
+        hours = max(AIM_MIN_H, (end - now) / 3600)
+        room = (EXHAUSTED - NIGHT_GUARD - pct
+                - max(0.0, bridge or 0.0) * NIGHT_BRIDGE_FACTOR * hours)
+        return max(0, int(room / (hours * rate)))
+    except (TypeError, ValueError, ZeroDivisionError, OverflowError):
+        return None
 
 
-def reset_plan(pct, now, until, slots, cap_rate=None):
+def night_guard(pct, now, hours_left, plan, rate, bridge, sleep):
+    """(overnight_cap's runs, the epoch it guards to) unless the meter is due
+    full (the plan's fill, else the reset) by Paul's next bedtime; None then
+    or when the meter is unread."""
+    if pct is None or hours_left is None or hours_left <= 0 or not rate:
+        return None
+    until = now + hours_left * 3600
+    bed, up = awake.next_sleep(now, sleep)
+    if (plan[1] if plan and plan[0] else until) <= bed:
+        return None
+    end = min(up, until)
+    runs = overnight_cap(pct, now, end, rate, bridge)
+    return None if runs is None else (runs, end)
+
+
+def reset_plan(pct, now, until, slots, cap_rate=None, sleep=None):
     """(resets used, epoch the meter should reach EXHAUSTED, rate points an
     hour) for a weekly meter at `pct` with manual resets free at `slots`
     before the natural reset `until`. Each reset buys one more window of
@@ -373,8 +402,9 @@ def reset_plan(pct, now, until, slots, cap_rate=None):
     slot frees, so the schedule is the taut string under that staircase. It
     uses the most slots (earliest first) whose steepest leg the machine's
     cap_rate holds (None: no cap). With none used the fill is the natural reset.
-    A fill in the night moves to its nearer edge the rates allow (the earlier
-    one only while the cap holds it), so Paul is not woken to reset."""
+    A fill in Paul's predicted night (`sleep`, tools/awake.py) moves to its
+    nearer edge the rates allow (his bedtime only while the cap holds it), so
+    he is awake to reset."""
     head = max(0.0, EXHAUSTED - pct)
     hours = max(AIM_MIN_H, (until - now) / 3600)
     for k in range(len(slots), -1, -1):
@@ -388,8 +418,8 @@ def reset_plan(pct, now, until, slots, cap_rate=None):
     # The first leg: the shallowest line from now to a corner still ahead or the end.
     first = min([total / hours] + [u / ((t - now) / 3600) for t, u in corners if now < t < until])
     fill = now + head / first * 3600 if first > 0 else now
-    if fill > now and quiet(fill):
-        early, late = quiet_edges(fill)
+    if fill > now and quiet(fill, sleep):
+        early, late = awake.next_sleep(fill, sleep)
         rest = [(t, u) for t, u in corners if t > late]
         ok_early = early > now and (cap_rate is None or head / ((early - now) / 3600) <= cap_rate)
         ok_late = late < until and (cap_rate is None
@@ -732,7 +762,9 @@ def show_resets():
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.log") or "").splitlines()))
     cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
-    k, fill, need_rate = reset_plan(pct, now, until, slots, cap)
+    sleep = awake.load(home, now)
+    k, fill, need_rate = reset_plan(pct, now, until, slots, cap, sleep)
+    night = night_guard(pct, now, hours_left, (k, fill, need_rate), rate, bridge, sleep)
     def at(t):
         return f"{dt.datetime.fromtimestamp(t, PACIFIC):%a %m-%d %H:%M} Pacific"
     print(f"weekly {pct:g}%, natural reset {at(until)}; {len(used)} of {MANUAL_RESETS} "
@@ -740,6 +772,15 @@ def show_resets():
     print(f"plan: {k} manual resets, meter to {EXHAUSTED:g}% by {at(fill)} at "
           f"{need_rate:.2f} pts/h (capacity {cap if cap is None else round(cap, 2)} pts/h, "
           f"bridge {bridge if bridge is None else round(bridge, 2)} pts/h)")
+    runs = paced_need(pct, max(AIM_MIN_H, (fill - now) / 3600), rate, bridge or 0.0)
+    if night is not None and runs is not None:
+        runs = min(runs, night[0])
+    print(f"next fill: {at(fill)}, burn width now {runs} runs"
+          + (f" at {rate:.2f} pts per run-hour" if rate else ""))
+    print("overnight: the meter is due full before his bedtime" if night is None else
+          f"overnight: at most {night[0]} runs until {at(night[1])}, so the bridge alone at "
+          f"{NIGHT_BRIDGE_FACTOR:g}x stays under {EXHAUSTED - NIGHT_GUARD:g}%")
+    print("\n".join(awake.describe(sleep, now)))
     return 0
 
 
@@ -761,7 +802,7 @@ def width(arg=None, floor=1):
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     lines = (_read(home / ".prereset.log") or "").splitlines()
     current = current_width(arg, lines)
-    runs_needed = bridge = pct = hours_left = plan = None
+    runs_needed = bridge = pct = hours_left = plan = night = None
     slots = []
     rushing = False
     rss = burn_rss_kb()
@@ -780,11 +821,12 @@ def width(arg=None, floor=1):
             else:
                 rushing = rush_active(stamp, pct, now)
         aim_h = hours_left
+        sleep = awake.load(home, now)
         if hours_left is not None and hours_left > 0 and pct is not None:
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             slots = reset_slots(used, now, until)
-            plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge))
+            plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
             if plan[0]:
                 aim_h = max(AIM_MIN_H, (plan[1] - now) / 3600)
         due = armed or reset_due(plan, slots, now)
@@ -792,8 +834,11 @@ def width(arg=None, floor=1):
                     None if armed else
                     f"The burn has spent the weekly meter ({pct:g}%) and a reset is free: "
                     f"reset it now ({plan[0] if plan else 0} planned before the natural reset). "
-                    f"The burn resumes by itself once it falls.")
+                    f"The burn resumes by itself once it falls.", sleep)
         runs_needed = paced_need(pct, aim_h, rate, bridge or 0.0)
+        night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep)
+        if night is not None and runs_needed is not None and night[0] < runs_needed:
+            runs_needed = night[0]
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
         print(f"width: meter unread: {type(exc).__name__}: {exc}", file=sys.stderr)
     load = cpu_load(home / CPU_STATE)
@@ -817,6 +862,9 @@ def width(arg=None, floor=1):
     if plan and plan[0]:
         aim = (f", {plan[0]} manual resets planned, next fill "
                f"{dt.datetime.fromtimestamp(plan[1], PACIFIC):%a %H:%M} Pacific at {plan[2]:.1f} pts/h")
+    if night is not None:
+        aim += (f", overnight cap {night[0]} to his wake "
+                f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific")
     print(f"width {w}: need {runs_needed} for weekly {ceiling(rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
           f"bridge {shown}), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
@@ -854,7 +902,8 @@ def self_test():
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
-         + 4 + 5 + len(PLAN_CASES) + 5 + 4 + 4)
+         + 4 + 5 + len(PLAN_CASES) + 5 + 4 + 4
+         + len(SLEEP_PLAN_CASES) + len(OVERNIGHT_CASES) + len(GUARD_CASES) + 2)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -1058,7 +1107,7 @@ def width_self_test():
             print(f"FAIL current_width({arg!r}, {lines}) = {current_width(arg, lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
-    bad += spend_self_test() + tree_self_test() + reset_self_test()
+    bad += spend_self_test() + tree_self_test() + reset_self_test() + sleep_self_test()
     real = weekly_usage.usage_pct
     def unreadable(_group):
         raise RuntimeError("no reading")
@@ -1134,6 +1183,69 @@ PLAN_CASES = [
     # one window of 108 points in 18h is beyond 5 pts/h: no reset
     ((90, MON22, MON22 + 18 * 3600, [MON22], 5.0), (0, 18.0, 0.5)),
 ]
+
+# A learned night of 22:30-06:30 Pacific (tools/awake.py's span), then the
+# same with a message from Paul at 22:00 (awake now: his night starts 23:15).
+LEARNED = {"span": (22.5, 30.5), "last": None}
+UP_LATE = dict(LEARNED, last=MON22)
+# (pct, now, natural reset, slots, capacity, sleep) -> as PLAN_CASES
+SLEEP_PLAN_CASES = [
+    # a 02:00 fill moves back to his 22:30 bedtime...
+    ((90, MON22, MON22 + 48 * 3600, [MON22], None, LEARNED), (1, 0.5, 18.0)),
+    # ...or, too steep for the machine, on to 06:30 when he is up
+    ((90, MON22, MON22 + 48 * 3600, [MON22], 8.0, LEARNED), (1, 8.5, 9 / 8.5)),
+    # up late: 23:15 is within the machine's reach
+    ((90, MON22, MON22 + 48 * 3600, [MON22], 8.0, UP_LATE), (1, 1.25, 7.2)),
+    # a fill in the afternoon stays put
+    ((43, NOW, NATURAL, SLOTS, 3.7, LEARNED), (2, 15.206, 3.683)),
+]
+# (pct, now, end, per-run rate, bridge) -> runs
+OVERNIGHT_CASES = [
+    ((90, MON22, MON22 + 8 * 3600, 0.5, 1.0), 0),    # 90 + 1.5 x 8 is past 98: none
+    ((60, MON22, MON22 + 8 * 3600, 0.5, 1.0), 6),    # 26 points of room over 8h at 0.5
+    ((60, MON22, MON22 + 8 * 3600, 0.5, 0.0), 9),    # no bridge: 38 points
+    ((60, MON22, MON22 + 8 * 3600, None, 1.0), None),
+]
+# (pct, now, hours to the reset, plan, rate, bridge, sleep) -> night_guard
+NOON = MON22 - 10 * 3600
+GUARD_CASES = [
+    # the plan fills at 21:00, before his 22:30 bedtime: no guard
+    ((60, NOON, 60, (1, MON22 - 3600, 4.0), 0.5, 1.0, LEARNED), None),
+    # it fills at 07:00 tomorrow: 18.5h to his 06:30 wake, 38 - 1.5 x 18.5 = 10.25 points, 1 run
+    ((60, NOON, 60, (1, MON22 + 9 * 3600, 4.0), 0.5, 1.0, LEARNED), (1, MON22 + 8.5 * 3600)),
+    # no reset planned and the natural one at 03:00: guarded to the reset, 38 - 22.5 points
+    ((60, NOON, 15, (0, NOON + 15 * 3600, 2.0), 0.5, 1.0, LEARNED), (2, NOON + 15 * 3600)),
+    ((None, NOON, 15, None, 0.5, 1.0, LEARNED), None),
+]
+
+
+def sleep_self_test():
+    """The plan around a learned night, the overnight cap and its guard."""
+    bad = 0
+    for args, (k, hours, rate) in SLEEP_PLAN_CASES:
+        got = reset_plan(*args)
+        if (got[0] != k or abs((got[1] - args[1]) / 3600 - hours) > 1 / 60
+                or abs(got[2] - rate) > 0.01):
+            print(f"FAIL reset_plan{args[0], args[4], args[5]} = ({got[0]}, "
+                  f"{(got[1] - args[1]) / 3600:.3f}h, {got[2]:.3f}) (want ({k}, {hours}h, {rate}))",
+                  file=sys.stderr)
+            bad += 1
+    for fn, cases in [(overnight_cap, OVERNIGHT_CASES), (night_guard, GUARD_CASES)]:
+        for args, want in cases:
+            if fn(*args) != want:
+                print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
+                bad += 1
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:  # the 99% wake waits for his learned morning
+        said = []
+        for now, sent in [(MON22 + 3600, 0), (MON22 + 8.6 * 3600, 1)]:
+            before = len(said)
+            rush_notify(Path(tmp), "weekly", 99, said.append, now, True, sleep=LEARNED)
+            if len(said) - before != sent:
+                print(f"FAIL rush_notify at {now} sent {len(said) - before} (want {sent})",
+                      file=sys.stderr)
+                bad += 1
+    return bad
 
 
 def reset_self_test():
