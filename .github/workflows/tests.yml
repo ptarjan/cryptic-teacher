@@ -435,6 +435,19 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
+      # Run 41271692192 shard 0 died in "Unpack the puzzle pages" with "No space
+      # left on device": the checkout, the restored git store, the row, shim and
+      # page caches and the built pages share the runner's free disk. The
+      # image's .NET, Android SDK, GHC and CodeQL bundles (~18GB) are never used
+      # here, so they go, in the background as in pages.yml (the foreground
+      # delete cost 48-96s there). df is printed here and after the unpacks so
+      # a failure shows its headroom.
+      - name: Free disk space
+        if: needs.scope.outputs.mode == 'full'
+        shell: bash
+        run: |
+          df -h / | tail -n 1
+          sudo nohup rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL >/dev/null 2>&1 &
       # The tree is ~54k files; actions/checkout fetches and writes all of it
       # (~95s a job, 11 jobs). pages.yml saves its object store, and this
       # restores it and fetches only what was pushed since, as pages.yml's
@@ -547,7 +560,9 @@ jobs:
           restore-keys: puzzle-shims-
       - name: Unpack the puzzle shims
         if: needs.scope.outputs.mode == 'full'
-        run: bash tools/cache_tar.sh unpack .shim-cache.tar
+        run: |
+          bash tools/cache_tar.sh unpack .shim-cache.tar
+          df -h / | tail -n 1
       - name: Build the index the tests read
         if: needs.scope.outputs.mode == 'full'
         run: |
@@ -590,7 +605,9 @@ jobs:
           restore-keys: seo-pages-
       - name: Unpack the puzzle pages
         if: ${{ needs.scope.outputs.mode == 'full' && (steps.pick.outputs.pages == 'true') }}
-        run: bash tools/cache_tar.sh unpack .page-cache.tar
+        run: |
+          bash tools/cache_tar.sh unpack .page-cache.tar
+          df -h / | tail -n 1
       - name: Build the pages the tests read
         if: ${{ needs.scope.outputs.mode == 'full' && (steps.pick.outputs.pages == 'true') }}
         run: python3 tools/build_seo_pages.py
