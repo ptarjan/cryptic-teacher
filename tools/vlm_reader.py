@@ -34,6 +34,7 @@ import http.client
 import json
 import os
 import random
+import re
 import socket
 import sys
 import tempfile
@@ -1273,6 +1274,12 @@ def boxes(img, wins, readings):
         if not got:
             out.append(None)
             continue
+        if prose([cols[i] for cols in readings if i < len(cols)]):
+            print(f"vlm_reader: no ask for column {i}: lines with no clue count or number, the page's prose",
+                  file=sys.stderr)
+            SKIPPED_PROSE.append(i)
+            out.append(None)
+            continue
         box = (max(0, min(l[2] for l in got) - PAD), max(0, min(l[0] for l in got) - PAD),
                min(img.width, max(l[3] for l in got) + PAD), min(img.height, max(l[1] for l in got) + PAD))
         if too_small(box):
@@ -1283,6 +1290,35 @@ def boxes(img, wins, readings):
             continue
         out.append(box)
     return out
+
+
+#: A column the readers see PROSE_LINES or more lines in, of which under PROSE_SHARE end in a count ("(7).") or
+#: open with a clue's number, in every reader, is the page's prose (a racing card, a report) and no clue column:
+#: boxes() gives it no ask. Failure shapes, 11-02: of 9,228 VLM column reads of 1930-49 Gale Times pages in the
+#: last 5 days 3,432 (37%) answered prose with no two counts in it, ~3,500 characters each against ~770 for a
+#: clue column, so 73% of the reply characters (the GPU's decode time) went to pages' prose while the VLM was
+#: the queue's binding limit (~9 asks a page, 1,201 pages). A clue column ends a line in a count about one line
+#: in three, and opens one in a number as often.
+PROSE_LINES = 12
+PROSE_SHARE = 0.1
+#: Columns boxes() refused as prose, this process (their indexes).
+SKIPPED_PROSE = []
+#: A line's count at its end, the slips an OCR makes of a bracket and digits allowed: "(7).", "(4, 2, 3)", "(9", "(l0)".
+COUNT_END = re.compile(r"\(\s*[\dIlOoS]{1,2}(?:\s*[,.\-\u2013]\s*[\dIlOoS]{1,2})*\s*[)1l]?\s*[.,]?\s*$")
+#: A line that opens with a clue's number and a word.
+NUMBER_OPENS = re.compile(r"\s*\d{1,2}[.,]?\s+[A-Za-z\"'(]")
+
+
+def prose(columns):
+    """Whether a column, `columns` its lines (y0, y1, x0, x1, text) as each reader has them, is the page's
+    prose and no clue column: some reader has PROSE_LINES lines (with their text) and in none are PROSE_SHARE
+    of the lines counts' ends or numbers' openings. A reader whose lines carry no text says nothing."""
+    texts = [[ln[4] for ln in col if len(ln) > 4] for col in columns]
+    texts = [t for t in texts if t]
+    if not texts or max(map(len, texts)) < PROSE_LINES:
+        return False
+    return all(sum(1 for t in col if COUNT_END.search(t) or NUMBER_OPENS.match(t)) < PROSE_SHARE * len(col)
+               for col in texts)
 
 
 #: A crop (page pixels) narrower or shorter than this holds no clue column: the
