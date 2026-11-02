@@ -882,6 +882,25 @@ check("not read since, another year, another refusal, an unfiled page, another p
        f.right_wide_due({**_rwrow, "verdicts": [{**_rw, "cause": "not-a-grid"}]}),
        f.right_wide_due({**_rwrow, "verdicts": [{**_qr, "number": 9999972}]}),
        f.right_wide_due({**_rwrow, "edition": "TheGuardian1940UKEnglish/1940-03-13"})])
+# ---- a Times page written unfiled with every light answered and a light no reading laid (the VLM's column reading
+# holds its clue, list-less) is due once (fa.VLM_LAID), ordered with the newest fix, never canary-held.
+_vl = {"id": "times-9999971", "number": 9999971, "complete": False, "wrote": True, "unfiled": 1, "clues": 31,
+       "lights": 32, "answers": 32, "blank": {"4-down": "no reading laid a clue on it"}}
+_vlrow = {"edition": "GaleTimes1964UKEnglish/1964-10-16", "verdicts": [_vl], "readAt": "2026-10-30T04:38:16+00:00",
+          "scan": {"date": "1964-10-16", "item": "GaleTimes1964UKEnglish", "puzzles": [{"number": 9999971, "leaf": 0}]}}
+check("a Times page unfiled with every answer over a light no reading laid is due as VLM_LAID (ahead of RIGHT_WIDE), "
+      "ranked, evidence, fix-landed, blanket-passing, in unfiled-first after RIGHT_WIDE, never canary-held",
+      [f.VLM_LAID, 2, True, True, True, True, None, True],
+      [f.fix_reason(_vlrow), f.RANKS[f.VLM_LAID], eq.evidence_reason(f.VLM_LAID), f.VLM_LAID in eq.FIX_LANDED,
+       f.VLM_LAID in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.VLM_LAID) > eq.UNFILED_FIRST.index(f.RIGHT_WIDE),
+       eq.canary_failed({"paper": "gale", "reason": f.VLM_LAID, "date": "1964-10-16"}),
+       f.VLM_LAID in f.BLANKET_PASSES])
+check("not read since, nor a light unanswered, nor another blank, nor another paper",
+      [False] * 4,
+      [f.vlm_laid_due({**_vlrow, "readAt": _after}),
+       f.vlm_laid_due({**_vlrow, "verdicts": [{**_vl, "answers": 31}]}),
+       f.vlm_laid_due({**_vlrow, "verdicts": [{**_vl, "blank": {"4-down": "'Murat': a word misread as a name"}}]}),
+       f.vlm_laid_due({**_vlrow, "edition": "TheGuardian1964UKEnglish/1964-10-16"})])
 # ---- a 1940-44 Gale Times page written unfiled for down clues no reading laid (its down list's tail set over the
 # grid, strip_over) is due once (fa.STRIP_TAIL), ordered with never-read pages, never canary-held.
 _st = {"id": "times-9999990", "number": 9999990, "complete": False, "wrote": True, "unfiled": 4, "clues": 28,
