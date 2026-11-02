@@ -19,7 +19,7 @@ What counts as overdue, all of:
     inputs (tools/failed_inputs.py -- those already alerted when they failed);
   - some clue still lacks its annotation (fetch_puzzle.puzzle_is_annotated).
 
-A puzzle held back by the weekly/five-hour usage gate is indistinguishable from
+A puzzle held back by the weekly usage gate is indistinguishable from
 a silent miss at this point, so the message names the gate as a likely reason
 instead of staying quiet: the gate skipping for a day and a half running is
 itself something to look at.

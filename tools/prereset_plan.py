@@ -25,10 +25,8 @@ messages (23:00-07:00 Pacific when they are too few), and a message in the last
 the burn is capped (overnight_cap) so that the bridge alone, at 1.5 times its
 rate, could not take the meter past EXHAUSTED before he wakes: nothing locks
 him out asleep. At RUSH_SPENT with a slot free it wakes the room once (held
-until he is up) so he resets. Anthropic dropped the
-five-hour window on 2026-10-31, so nothing here reads it: the rates and the
-bridge's spend are in weekly points, and a five-hour lockout (if one ever
-returns) is still napped through by prereset_backfill.sh. --rush is flat out.
+until he is up) so he resets. The rates and the bridge's spend are in weekly
+points. --rush is flat out.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them), and every
@@ -124,7 +122,7 @@ RUN_RSS_KB = 250 * 1024
 CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
-# `--rush` (Paul 10-26 "burn your whole five hours quickly and I can reset
+# `--rush` (Paul 10-26 "burn your whole quota quickly and I can reset
 # you", then "fit another seven day reset in before the Wednesday reset"): RUSH
 # holds the weekly meter's reset epoch at arming. While it is armed and the
 # weekly meter is under RUSH_TARGET the need is the memory cap (flat out, no cpu
@@ -184,12 +182,12 @@ RUN_HOURS_MIN = 0.25
 
 # Weekly points one run in flight spends per hour. Measured off the burn's own
 # meter lines in .prereset.log (see per_run_rate); this is the fallback when
-# too few are readable (the old 1.95 five-hour points, at 6.4 per weekly point).
+# too few are readable.
 PER_RUN_RATE = 0.3
 # The meter line after_wave logs at every pool checkpoint:
 #   weekly 33% -> 34% in 0.083h at width 12.40 (pool of 14)
 # where the width is the runs in flight on average over the interval, measured.
-METER_LINE = re.compile(r"weekly (\d+)% -> (\d+)%(?:, five-hour [^ ]+ -> [^ ]+)? in ([\d.]+)h at width (\d+(?:\.\d+)?)")
+METER_LINE = re.compile(r"weekly (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+(?:\.\d+)?)")
 # The width the burn last ran at: "--- pool of 14: ..." at every checkpoint.
 WIDTH_LINE = re.compile(r"^--- pool of (\d+):")
 RATE_LINES = 60
@@ -797,7 +795,7 @@ def publish(path, need, mem, cpu, w):
 def width(arg=None, floor=1):
     """The width to keep in flight, from the live weekly meter and reset, the
     bridge's measured spend, the burn's rate and last width, and the machine.
-    The inputs go to stderr. No five-hour meter is read: it no longer exists."""
+    The inputs go to stderr."""
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     lines = (_read(home / ".prereset.log") or "").splitlines()
     current = current_width(arg, lines)
@@ -926,8 +924,7 @@ WIDTH_CASES = [
 ]
 # (weekly pct, hours to its reset, per-run rate and bridge points an hour in
 #  weekly points) -> need; EXHAUSTED is 99. Every need is due at the reset
-# (aim_hours), less only AIM_MIN_H. The rates are the old five-hour ones over
-# 6, the two meters' measured ratio.
+# (aim_hours), less only AIM_MIN_H.
 R = 6.0
 NEED_CASES = [(a, w) for a, w in [
     ((89, 10.0, 2.0 / R, 0), 3),     # 10 weekly over 10h at a third a run-hour
@@ -986,8 +983,6 @@ METER_CASES = [
     # newest row too old to say anything about now
     ("".join(_ROW.format(t, p) for t, p in [(0, 10), (600, 12)]), 0, 3600, None),
     (_ROW.format(3000, 10), 0, 3600, None),
-    # the retired five-hour rows are ignored
-    ("0,five_hour,10,9999999999\n3600,five_hour,50,9999999999\n", 0, 3600, None),
     ("garbage", 0, 3600, None),
     (None, 0, 3600, None),
 ]
@@ -1083,11 +1078,8 @@ def width_self_test():
     pooled = [pool.format(i, i + 5) for i in range(12)]
     # lines with and without the pool suffix: 12 x 3 + 12 x 5 points over 12 x (1.4 + 6.25)
     mixed = logged[:12] + pooled
-    # a line from before the five-hour meter went still reads, by its weekly part
-    old = "  weekly {}% -> {}%, five-hour 1% -> 1% in 0.5h at width 12.50 (pool of 14)"
-    oldpooled = [old.format(i, i + 5) for i in range(12)]
     for lines, want in [(logged, 3 / 1.4), (logged[:3], PER_RUN_RATE),
-                        (pooled, 5 / 6.25), (oldpooled, 5 / 6.25), (mixed, 96 / (12 * 7.65)),
+                        (pooled, 5 / 6.25), (mixed, 96 / (12 * 7.65)),
                         # an interval with nothing in flight says nothing
                         (pooled[:9] + [pool.format(5, 9).replace("12.50", "0.00")],
                          PER_RUN_RATE),
@@ -1263,7 +1255,6 @@ def reset_self_test():
         (600, 100, 2 * week), (900, 0, 2 * week),    # manual
         (1200, 40, 2 * week), (1500, 25, 2 * week),  # a 15-point dip is no reset
         (1800, 100, 2 * week), (2100, 0, 2 * week + 60)])  # manual, resets_at jittered
-    csv += "1000,five_hour,90,1\n1100,five_hour,0,1\n"
     for args, want in [((csv,), [900.0, 2100.0]), ((csv, 1000), [2100.0]),
                        (("garbage",), []), ((None,), [])]:
         if manual_resets(*args) != want:

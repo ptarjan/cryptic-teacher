@@ -212,8 +212,7 @@ answers were not yet published. On 08-29 the annotation rules moved from
   reasoning. From then on one run solves the puzzle and annotates it in the same
   conversation, and both schedulers call the same per-puzzle worker
   (`tools/puzzle_worker.sh`).
-- **Pacing modes (10-07).** The burn paces to the weekly reset by default, or
-  to each five-hour window when Paul has resets to spend.
+- **Pacing (10-07).** The burn paces to the weekly reset.
 - **Blogs are read, not overwritten (10-09).** A puzzle with a solving blog's
   write-up takes its key from the blog; a model is refused there.
 - **Never discard good work (10-08 to 10-12).** One clue failing validation
@@ -306,12 +305,12 @@ schedules and thresholds are generated into [NIGHTLY.md](NIGHTLY.md)):
 
 - **The daily tick** (`tools/daily_update.sh`, on a short timer) annotates
   every new arrival, because a puzzle gets most of its visits in the week it
-  is published. It runs only while the weekly and five-hour meters have
+  is published. It runs only while the weekly meter has
   headroom.
 - **The burn** (`tools/prereset_backfill.sh`, hourly) spends everything
   else on the backlog. `tools/prereset_plan.py` sizes the pool so the weekly
   meter lands at its limit just as it resets, net of what interactive use
-  spends, and waits out five-hour lockouts. It interleaves series
+  spends. It interleaves series
   round-robin, puts small series first (finishing a small series is more
   useful than another slice of the Times), and runs one lane of reprints
   last.

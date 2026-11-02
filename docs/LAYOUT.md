@@ -2708,11 +2708,8 @@ tests/test_reconstruct_grid_cli.sh             tools/reconstruct_grid.py's comma
                                                search
 tools/track_prereset.sh                        register the pre-reset burn as a status lane for
                                                the cryptic room. The label names the job only:
-                                               which meter it is pacing (weekly or five-hour)
-                                               changes with `prereset_plan.py --five-hour`, so
                                                the lane's text is the last line of
-                                               .prereset.log, which states the mode, never a
-                                               label typed here
+                                               .prereset.log, never a label typed here
 tests/test_writeup_keyed.py                    a blank light on a puzzle whose answer key is a
                                                blog's write-up is never offered for a solve
 tests/test_post_index.sh                       does a single-puzzle write find its

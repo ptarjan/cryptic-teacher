@@ -109,8 +109,7 @@ wave_width() {  # runs in a $(...) subshell: the zero count is kept in a file
   [ -e "$WIDTH_FILE.zero" ] && echo 1 >"$WIDTH_FILE"
   : >"$WIDTH_FILE.zero"
 }
-after_wave() { echo "after failed=$4 avg=$3 hours=$2 pool=$6" >>"$EVENTS"; return 0; }
-requeue_failed() { :; }
+after_wave() { echo "after failed=$4 avg=$3 hours=$2 pool=$5" >>"$EVENTS"; return 0; }
 sync_wave() { echo "sync inflight=${#POOL_RUNS[@]}" >>"$EVENTS"; }
 past_deadline() { false; }
 alert() { echo "ALERT $*" >>"$EVENTS"; }
@@ -290,21 +289,15 @@ check "a re-plan that loses an id is discarded, with the id named, and the order
 PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool t
 check "the re-plan's planner runs under a deadline 42s out of 60" 1 \
   "$(awk '$1 == "replan" { sub("deadline=", "", $2); sub("now=", "", $3); d = $2 - $3; print (d >= 40 && d <= 42); exit }' "$EVENTS")"
-# A run that fails mid re-plan with the five-hour window below LOCKOUT_PCT failed
-# on its own puzzle: the pool goes on filling its slots (10-15 it sank from 7
-# runs to 2 through one re-plan). With the meter at the lockout it stops, since
-# the checkpoint after the plan may nap.
-LOCKOUT_PCT=90
+# A run that fails mid re-plan failed on its own puzzle: the pool goes on filling
+# its slots (10-15 it sank from 7 runs to 2 through one re-plan).
 starts_after_fail() {  # runs started after $1 failed, before the next width read
   awk -v id="$1" '$1 == "fail" && $2 == id { f = 1; next } f && $1 == "width" { exit }
        f && $1 == "start" { n++ } END { print n + 0 }' "$EVENTS"
 }
 FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
-check "a failure mid re-plan with the window open: the pool keeps filling its slots" 1 \
+check "a failure mid re-plan: the pool keeps filling its slots" 1 \
   "$(( $(starts_after_fail "pooltest-$$-f3") > 0 ))"
-FAIL_ID="pooltest-$$-l3" METER_PCT=95 PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool l
-check "a failure mid re-plan at the lockout: no new run starts until the checkpoint" 0 \
-  "$(starts_after_fail "pooltest-$$-l3")"
 # A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a
 # survivor would hold this test's output open for its 30s), and the queue keeps
 # its order.
@@ -362,8 +355,8 @@ eval "$(sed -n '/^REEXEC_VARS=(/,/)$/p' "$SCRIPT")"
 POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
 RELOAD_ASKED=0 WATCH_PID=""
 RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
-queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
-resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
+queue=($IDS) at=0 requeued=" " resumed=" " WAVE_FAILED_IDS=() wide=""
+resets_in=1 RESET_AT=0 STOP_AT=0 POOL_PHASE=annotate fields=() field_i=0
 SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # set at the script's top level; reexec_self carries it
 adopted_state=${CT_PRERESET_STATE:-}
 if [ -n "${CT_PRERESET_STATE:-}" ]; then
@@ -386,7 +379,6 @@ sync_wave() {
   sed 's/^CODE=old$/CODE=new/' "$PRERESET_SELF" >"$PRERESET_SELF.new" && mv "$PRERESET_SELF.new" "$PRERESET_SELF"
 }
 after_wave() { return 0; }
-requeue_failed() { :; }
 wave_width() { echo 3; }
 past_deadline() { false; }
 needs_solve() { false; }

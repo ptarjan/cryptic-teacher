@@ -710,7 +710,7 @@ LAYOUT = [
     ("fetching", "tests/test_trove_articles_index.py", "does tools/trove_solution_ocr.py's _articles keep what it read in a file, reread only an article whose files changed, and return the same list warm?"),
     ("fetching", "tools/await_preamble.py", "hold back a puzzle that cannot be explained without the preamble we lack"),
     ("fetching", "tests/test_reconstruct_grid_cli.sh", "tools/reconstruct_grid.py's command line: several --lights run as separate searches (on the OCR host under OCR_REMOTE; here, with it unset, in-process), and --words reaches the search"),
-    ("fetching", "tools/track_prereset.sh", "register the pre-reset burn as a status lane for the cryptic room. The label names the job only: which meter it is pacing (weekly or five-hour) changes with `prereset_plan.py --five-hour`, so the lane's text is the last line of .prereset.log, which states the mode, never a label typed here"),
+    ("fetching", "tools/track_prereset.sh", "register the pre-reset burn as a status lane for the cryptic room. The label names the job only: the lane's text is the last line of .prereset.log, never a label typed here"),
     ("fetching", "tests/test_writeup_keyed.py", "a blank light on a puzzle whose answer key is a blog's write-up is never offered for a solve"),
     ("fetching", "tests/test_post_index.sh", "does a single-puzzle write find its fifteensquared posts off the local post index, opening only the posts it lacks, and do corroborate, blog_post and other_setters find what a full read found?"),
     ("fetching", "tests/test_fifteensquared_index.py", "do the fifteensquared readers find a category's posts off the index, without opening every cached post, and does tools/ft_puzzles.py's budget count its parse?"),
@@ -925,7 +925,6 @@ LAYOUT_EXEMPT = re.compile(r"""
 KNOB_FILES = {
     "ANNOTATE_MAX": "tools/daily_update.sh",
     "ANNOTATE_MAX_WEEKLY_PCT": "tools/daily_update.sh",
-    "ANNOTATE_MAX_SESSION_PCT": "tools/daily_update.sh",
     "SOLVE_MAX": "tools/daily_update.sh",
 }
 
@@ -1158,14 +1157,10 @@ def build_knobs(k):
         f"units, started by a tick every ten minutes, annotate every puzzle from "
         f"the last two days plus at most {k['ANNOTATE_MAX']} a day from the "
         f"backlog, and only below {k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week "
-        f"(and {k['ANNOTATE_MAX_SESSION_PCT']}% of the rolling five-hour window, "
-        f"re-checked as each puzzle starts), while the hourly one spends everything "
-        f"else with no gate: as many runs as land the weekly meter at its limit "
-        f"right at the weekly reset, net of the bridge's own spend, waiting out "
-        f"any five-hour lockout, until the weekly meter is spent or the week "
-        f"resets. When Paul has weekly resets to spend, "
-        f"`tools/prereset_plan.py --five-hour` paces each five-hour window to "
-        f"its own reset instead, until the week resets or `--weekly` is run."
+        f"(re-checked as each puzzle starts), while the hourly one spends "
+        f"everything else with no gate: as many runs as land the weekly meter at "
+        f"its limit right at the weekly reset, net of the bridge's own spend, "
+        f"until the weekly meter is spent or the week resets."
     )
 
 

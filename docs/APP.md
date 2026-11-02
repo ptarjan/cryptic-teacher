@@ -751,7 +751,7 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
     stops early when the weekly meter is exhausted. The reset time is a
     timestamp from `GET /api/oauth/usage`, read through
     `weekly_usage.py --resets-in`. A fire that finds a run going is a no-op.
-  - `daily_update.sh` re-reads the five-hour session window at every tick and
+  - `daily_update.sh` re-reads the weekly window at every tick and
     as each puzzle's unit starts, not once a day (at 04:45 it always read near
     zero). A budget is re-read between the things that spend it.
 - **The spend gate fails closed.** `gate()` in `tools/weekly_usage.py` returns

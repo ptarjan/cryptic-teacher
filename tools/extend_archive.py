@@ -12,8 +12,8 @@ first issue is often far below that.
 
 The papers publish four or five puzzles a day between them; a good week of the
 pre-reset burn annotates far more than that. Left alone the queue therefore
-empties, and a burn with nothing to annotate spends the rest of its five-hour
-window on nothing at all — the one outcome the whole job exists to avoid. The
+empties, and a burn with nothing to annotate spends the rest of its
+quota on nothing at all — the one outcome the whole job exists to avoid. The
 archives go back years, so the fix is to walk backwards.
 
 TARGET IS MEASURED, NOT CHOSEN. It is the most puzzles this job has cleared in
