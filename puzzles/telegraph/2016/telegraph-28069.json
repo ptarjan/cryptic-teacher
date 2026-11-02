@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Material for building split windscreen?",
     "enumeration": "11"
    },
-   "solution": "BREEZEBLOCK"
+   "solution": "BREEZEBLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material for building",
+      "at": 0,
+      "meaning": "a lightweight concrete brick used in building walls"
+     },
+     {
+      "text": "split windscreen?",
+      "at": 22,
+      "meaning": "split the word windscreen into wind and screen, then swap each half for a synonym: wind is a breeze, a screen is a block"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is playful: splitting 'windscreen' into WIND and SCREEN and swapping each for a synonym gives BREEZE and BLOCK.",
+     "definitionFit": "A cinder or concrete brick used for walls is a common building material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +71,69 @@
     "text": "Monkeys developed scars around nails intermittently",
     "enumeration": "7"
    },
-   "solution": "RASCALS"
+   "solution": "RASCALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monkeys",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 24,
+       "note": "around means the rearranged scars wrap about the selected letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developed",
+         "at": 8,
+         "note": "developed suggests the letters of scars changing into something new"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scars",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "intermittently",
+         "at": 37,
+         "note": "intermittently means taking letters of nails at intervals, here the second and fourth"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nails",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Apes grew scars from scratching with their nails now and then.",
+     "walkthrough": "'Monkeys' is not apes here but cheeky children; 'developed' reorders the scars to RASCS before the alternate letters of nails go inside.",
+     "definitionFit": "Monkeys is a playful word for mischievous children, like scamps or rogues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Monkeys"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +147,42 @@
     "text": "Teams with points must get refreshments",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "refreshments",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Teams",
+       "at": 0,
+       "gives": "ELEVENS",
+       "note": "cricket and football teams are elevens"
+      },
+      {
+       "words": "points",
+       "at": 11,
+       "gives": "ES",
+       "note": "E and S are compass points, east and south"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sides that score points earn their snacks.",
+     "walkthrough": "ELEVENSES is the British mid-morning snack of tea or coffee and biscuits.",
+     "definitionFit": "A mid-morning break with a light snack and hot drink is a kind of refreshment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +196,46 @@
     "text": "Provides comfort stops after leader goes",
     "enumeration": "5"
    },
-   "solution": "EASES"
+   "solution": "EASES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provides comfort",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after leader goes",
+       "at": 23,
+       "note": "the leader is the first letter of the word for stops, which goes away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stops",
+       "at": 17,
+       "gives": "CEASES",
+       "note": "ceases means stops"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rest area provides comfort stops after the tour leader departs.",
+     "walkthrough": "'comfort stops' reads as one phrase but splits between definition and wordplay.",
+     "definitionFit": "To relieve pain or worry is to soothe, offering comfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comfort"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +249,42 @@
     "text": "Flier's feet all at sea",
     "enumeration": "7"
    },
-   "solution": "LEAFLET"
+   "solution": "LEAFLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flier's",
+      "at": 0,
+      "note": "read as flier is, the 's a link joining definition and wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "at sea",
+       "at": 17,
+       "note": "at sea means confused, so the letters of feet all are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "feet all",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird or pilot is disoriented, feet and all, over the ocean.",
+     "walkthrough": "'at sea' rearranges FEET ALL.",
+     "definitionFit": "A flier is a printed sheet handed out to advertise something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flier's"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +298,69 @@
     "text": "Island company reproduced cars, importing one",
     "enumeration": "7"
    },
-   "solution": "CORSICA"
+   "solution": "CORSICA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "at": 7,
+       "gives": "CO"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "importing",
+         "at": 32,
+         "note": "importing means taking in, so the scrambled word takes in the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "reproduced",
+           "at": 15,
+           "note": "reproduced means the letters of cars are made again in a new form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cars",
+           "at": 26
+          }
+         ]
+        },
+        {
+         "words": "one",
+         "at": 42,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm on an island copied cars and brought in one more.",
+     "walkthrough": "'reproduced' turns CARS into RSCA, which takes in I to give RSICA.",
+     "definitionFit": "A French Mediterranean territory, birthplace of Napoleon, is an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reproduced"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +374,41 @@
     "text": "Token piece of glass that's put on bed",
     "enumeration": "11"
    },
-   "solution": "COUNTERPANE"
+   "solution": "COUNTERPANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's put on bed",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Token",
+       "at": 0,
+       "gives": "COUNTER",
+       "note": "a counter is a token used in board games"
+      },
+      {
+       "words": "piece of glass",
+       "at": 6,
+       "gives": "PANE",
+       "note": "a pane is a sheet of glass in a window"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A token and a pane of glass are placed on a bed.",
+     "definitionFit": "A bedspread or quilt is the covering laid over a bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Token"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +422,62 @@
     "text": "University qualification needing source of cash for good rule",
     "enumeration": "6"
    },
-   "solution": "DECREE"
+   "solution": "DECREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rule",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 48,
+       "note": "for means one letter stands in place of another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "University qualification",
+       "at": 0,
+       "gives": "DEGREE",
+       "note": "a degree is the qualification a university awards"
+      },
+      {
+       "gives": "G"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "at": 33,
+         "note": "the source of a word is its first letter, here of cash"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cash",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate needs money for a good life.",
+     "walkthrough": "'source of cash' gives C, which replaces G (good) in DEGREE.",
+     "definitionFit": "An official order having the force of law is a ruling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +491,41 @@
     "text": "Keep an eye on extra responsibility of a bishop",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep an eye on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "extra",
+       "at": 15,
+       "gives": "OVER",
+       "note": "extra or left over, as in 'over and above'"
+      },
+      {
+       "words": "responsibility of a bishop",
+       "at": 21,
+       "gives": "SEE",
+       "note": "a see is the diocese a bishop governs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is asked to supervise an additional duty beyond his diocese.",
+     "definitionFit": "Supervising or watching over something is keeping an eye on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +539,49 @@
     "text": "One amongst celebrities in flight",
     "enumeration": "6"
    },
-   "solution": "STAIRS"
+   "solution": "STAIRS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flight",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amongst",
+       "at": 4,
+       "note": "amongst says the single letter for one sits within the word for celebrities"
+      }
+     ],
+     "parts": [
+      {
+       "words": "celebrities",
+       "at": 12,
+       "gives": "STARS",
+       "note": "famous people are stars"
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single person mingles with famous passengers aboard a plane.",
+     "walkthrough": "'flight' suggests air travel, but here it is a flight of steps.",
+     "definitionFit": "A flight is a series of steps between floors of a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +595,41 @@
     "text": "Poet or speaker as he develops",
     "enumeration": "11"
    },
-   "solution": "SHAKESPEARE"
+   "solution": "SHAKESPEARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "develops",
+       "at": 22,
+       "note": "develops suggests change, so the letters of speaker as he take a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "speaker as he",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet, or a public speaker, grows in his craft.",
+     "walkthrough": "'develops' rearranges SPEAKER AS HE.",
+     "definitionFit": "The Bard of Avon, author of the sonnets, is the most famous English poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speaker"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +643,54 @@
     "text": "Hurried back to evaluate recount",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recount",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 8,
+         "note": "back tells us the word for hurried is written in the reverse direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hurried",
+         "at": 0,
+         "gives": "RAN",
+         "note": "hurried means ran"
+        }
+       ]
+      },
+      {
+       "words": "evaluate",
+       "at": 16,
+       "gives": "RATE",
+       "note": "to evaluate is to rate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes back to reassess a count, as in an election recount.",
+     "walkthrough": "'back' turns RAN into NAR. 'recount' looks like a noun about votes, but it is the verb meaning tell.",
+     "definitionFit": "To recount is to tell a story or give an account, a synonym of relating events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "recount"
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +704,57 @@
     "text": "Mostly flog salmon, perhaps being greedy",
     "enumeration": "7"
    },
-   "solution": "SELFISH"
+   "solution": "SELFISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "greedy",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most of the word for flog, its last letter dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flog",
+         "at": 7,
+         "gives": "SELL",
+         "note": "to flog goods is to sell them"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "salmon, perhaps",
+       "at": 12,
+       "gives": "FISH",
+       "note": "a salmon is an example of a fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger pushing salmon hard comes across as grasping.",
+     "walkthrough": "'Mostly' trims SELL to SEL.",
+     "definitionFit": "Someone greedy cares only for themselves, putting their own wants first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flog"
+    }
+   }
   },
   {
    "number": 14,
@@ -212,7 +768,46 @@
     "text": "Quits after delayed start to rugby game",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "delayed start to",
+       "at": 12,
+       "note": "a start so delayed that it never happens means the first letter of the rugby game is missing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rugby game",
+       "at": 29,
+       "gives": "SEVENS",
+       "note": "sevens is the seven-a-side form of rugby union"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gives up after a rugby match kicks off late.",
+     "walkthrough": "'Quits' looks like a verb but is the adjective meaning square. Sevens is rugby with seven players a side.",
+     "definitionFit": "Being quits means being square, with neither side owing the other anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quits"
+    }
+   }
   },
   {
    "number": 15,
@@ -226,7 +821,49 @@
     "text": "Follow team's first draw away",
     "enumeration": "9"
    },
-   "solution": "SIDETRACK"
+   "solution": "SIDETRACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "draw away",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 14,
+       "note": "first says the team's word comes before the word for follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "team's",
+       "at": 7,
+       "gives": "SIDE",
+       "note": "a team is a side"
+      },
+      {
+       "words": "Follow",
+       "at": 0,
+       "gives": "TRACK",
+       "note": "to follow someone is to track them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scout tails the leading team, whose first match ended in an away draw.",
+     "walkthrough": "'draw away' looks like a football result, but it means to divert.",
+     "definitionFit": "To divert someone from their purpose is to distract or lead them off course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 16,
@@ -240,7 +877,48 @@
     "text": "Academic programme supporting police inspector's discussion",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "discussion",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 19,
+       "note": "in a down clue, supporting puts the programme word underneath the police inspector's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "police inspector's",
+       "at": 30,
+       "gives": "DIS",
+       "note": "DI is a Detective Inspector, and the 's adds S"
+      },
+      {
+       "words": "Academic programme",
+       "at": 0,
+       "gives": "COURSE",
+       "note": "a course is a programme of study"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A study course underpins a detective's talk.",
+     "definitionFit": "A formal talk or written treatment of a subject is a discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 17,
@@ -254,7 +932,45 @@
     "text": "Stormy signs and poor outlook",
     "enumeration": "9"
    },
-   "solution": "PROGNOSIS"
+   "solution": "PROGNOSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outlook",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Stormy",
+       "at": 0,
+       "note": "stormy suggests turbulence, so the letters of signs and poor are tossed about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "signs",
+       "at": 7
+      },
+      {
+       "words": "poor",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast: stormy signs and a gloomy outlook.",
+     "walkthrough": "'Stormy' rearranges SIGNS and POOR together.",
+     "definitionFit": "A forecast of how things will turn out, as a doctor's view of a disease's course, is an outlook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stormy"
+    }
+   }
   },
   {
    "number": 18,
@@ -268,7 +984,41 @@
     "text": "Reveal cut in exposed rock",
     "enumeration": "7"
    },
-   "solution": "OUTCROP"
+   "solution": "OUTCROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "exposed rock",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Reveal",
+       "at": 0,
+       "gives": "OUT",
+       "note": "to out someone is to reveal their secret"
+      },
+      {
+       "words": "cut",
+       "at": 7,
+       "gives": "CROP",
+       "note": "to crop is to cut short"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist shows a cut made into bare rock.",
+     "definitionFit": "Rock that juts above the surrounding ground, visible at the surface, is exposed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reveal"
+    }
+   }
   },
   {
    "number": 19,
@@ -282,7 +1032,45 @@
     "text": "Kind of industry sounding fresh and comprehensible",
     "enumeration": "7"
    },
-   "solution": "NUCLEAR"
+   "solution": "NUCLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kind of industry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NUCLEAR",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 17,
+       "note": "sounding says the words are heard, giving a word spelt differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fresh and comprehensible",
+       "at": 26,
+       "gives": "NEWCLEAR",
+       "note": "fresh is new and comprehensible is clear, said together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An industry pitches itself as clean and easy to understand.",
+     "walkthrough": "NEW CLEAR said aloud matches a common pronunciation.",
+     "definitionFit": "Power generation from atomic fission is a branch of the energy industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 20,
@@ -296,7 +1084,40 @@
     "text": "Daughter has drinks in one!",
     "enumeration": "5"
    },
-   "solution": "DOWNS"
+   "solution": "DOWNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drinks in one!",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Daughter",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "words": "has",
+       "at": 9,
+       "gives": "OWNS",
+       "note": "to have something is to own it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter knocks back her drinks in a single gulp.",
+     "definitionFit": "To swallow a drink in a single go is to knock it back or gulp it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 20,
@@ -310,7 +1131,61 @@
     "text": "Get undressed, seeing bride's worried about love",
     "enumeration": "7"
    },
-   "solution": "DISROBE"
+   "solution": "DISROBE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get undressed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 38,
+       "note": "about means the jumbled letters go round the letter for love"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 30,
+         "note": "worried means agitated, so the letters of bride's are shaken up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bride's",
+         "at": 22,
+         "gives": "BRIDES",
+         "note": "the letters of bride's including the S"
+        }
+       ]
+      },
+      {
+       "words": "love",
+       "at": 44,
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous bride frets about romance before taking off her gown.",
+     "walkthrough": "'worried' rearranges BRIDES to DISRBE, with O placed inside.",
+     "definitionFit": "To take off one's clothes is to strip or undress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1199,59 @@
     "text": "Conflict many think and hope originally generates affection",
     "enumeration": "6"
    },
-   "solution": "WARMTH"
+   "solution": "WARMTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "affection",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conflict",
+       "at": 0,
+       "gives": "WAR",
+       "note": "war is armed conflict"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 29,
+         "note": "originally means taking the opening letter of each of the next three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "many",
+         "at": 9
+        },
+        {
+         "words": "think",
+         "at": 14
+        },
+        {
+         "words": "hope",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Many hope that strife can, against the odds, breed fondness.",
+     "definitionFit": "Tenderness and fond feeling toward someone is affection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conflict"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1265,31 @@
     "text": "Saw how the drinks may be served at room temperature?",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0,
+      "meaning": "past tense of see, meaning spotted or observed"
+     },
+     {
+      "text": "how the drinks may be served at room temperature?",
+      "at": 4,
+      "meaning": "drinks at room temperature come without ice, split into two words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as NOT ICED, the second reading describes drinks served without ice.",
+     "definitionFit": "Having spotted or observed something is having seen it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 23,
@@ -352,7 +1303,51 @@
     "text": "Stayed, as doctor's beginning on scar",
     "enumeration": "5"
    },
-   "solution": "DWELT"
+   "solution": "DWELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stayed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 20,
+         "note": "the beginning of doctor's is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor's",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "scar",
+       "at": 33,
+       "gives": "WELT",
+       "note": "a welt is a raised mark on the skin, like a scar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wound remained, as a doctor began treating it.",
+     "definitionFit": "Having lived or remained somewhere is to have stayed there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scar"
+    }
+   }
   },
   {
    "number": 24,
@@ -366,7 +1361,48 @@
     "text": "Remark old boys initially are of use",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 16,
+       "note": "initially says the old boys' letters come first, before the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old boys",
+       "at": 7,
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "words": "are of use",
+       "at": 26,
+       "gives": "SERVE",
+       "note": "to serve is to be useful"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that former pupils are, at first, helpful.",
+     "definitionFit": "To remark is to comment or note something aloud, a sense of observe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boys"
+    }
+   }
   },
   {
    "number": 25,
@@ -380,7 +1416,45 @@
     "text": "Stop moving band around room for broadcast",
     "enumeration": "6"
    },
-   "solution": "FREEZE"
+   "solution": "FREEZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stop moving",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FREEZE",
+     "indicators": [
+      {
+       "text": "for broadcast",
+       "at": 29,
+       "note": "broadcast means heard over the air, so we want a word sounding like the decorative band"
+      }
+     ],
+     "parts": [
+      {
+       "words": "band around room",
+       "at": 12,
+       "gives": "FRIEZE",
+       "note": "a frieze is a decorative band running round the top of a room's walls"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music group is told to halt as it goes round a studio for a radio show.",
+     "walkthrough": "'band' suggests musicians, but it is a decorative strip on a wall.",
+     "definitionFit": "To become still and motionless is to stop moving, like a statue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 26,
@@ -394,7 +1468,50 @@
     "text": "One might crow when nothing appears in the duty list",
     "enumeration": "7"
    },
-   "solution": "ROOSTER"
+   "solution": "ROOSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One might crow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appears in",
+       "at": 28,
+       "note": "appears in tells us the letter for nothing is placed within the duty list"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the duty list",
+       "at": 39,
+       "gives": "ROSTER",
+       "note": "a roster is a list of who is on duty when"
+      },
+      {
+       "words": "nothing",
+       "at": 20,
+       "gives": "O",
+       "note": "zero, nothing, looks like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts when they find they are absent from the work rota.",
+     "walkthrough": "'crow' looks like boasting but it is the cockerel's call.",
+     "definitionFit": "A cockerel greets the dawn by crowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crow"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1531,30 @@
      }
     ]
    },
-   "solution": "SPIRITLEVEL"
+   "solution": "SPIRITLEVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What a builder might use",
+      "at": 0,
+      "meaning": "a tool with an air bubble in liquid that shows whether a surface is horizontal"
+     },
+     {
+      "text": "to maintain equanimity?",
+      "at": 25,
+      "meaning": "keeping one's ... means staying calm and composed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading takes the words as a phrase: keep your spirit level, that is, stay calm.",
+     "definitionFit": "Builders check that surfaces are horizontal with a bubble tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
