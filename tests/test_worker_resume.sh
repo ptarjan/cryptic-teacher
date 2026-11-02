@@ -180,6 +180,10 @@ check "a flagged resume: handled, session and note forgotten, one line logged" "
 check "the flagged run's edits are put back as committed" '{"clues": "original"}' "$(cat "$tree/puzzles/s/2026/s-e.json")"
 check "a flagged resume is not charged to the puzzle" "no" "$([ -e "$t/recorded" ] && echo yes || echo no)"
 start_run "$tree" s-e >/dev/null
+out=$(cd "$tree" && worker_flagged s-e "$t/gnote-gone" "$runs/s-e.sid" "$t/flagged.txt" 1 2>&1)
+check "a resumed run whose note was already deleted is still a resume, not counted" "1 0 no" \
+  "$(printf '%s\n' "$out" | grep -c 'flagged its resumed') $(cat "$runs/s-e.flags" 2>/dev/null || echo 0) $([ -e "$t/recorded" ] && echo yes || echo no)"
+start_run "$tree" s-e >/dev/null
 fl flagged.txt >/dev/null
 check "a fresh run flagged once: forgotten, not recorded" "no no" \
   "$([ -e "$runs/s-e.sid" ] && echo yes || echo no) $([ -e "$t/recorded" ] && echo yes || echo no)"
