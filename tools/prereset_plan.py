@@ -66,6 +66,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     tools/prereset_plan.py --rush [MINUTES]   # burn flat out until the weekly meter hits 100% or its reset (MINUTES is optional, unused)
     tools/prereset_plan.py --weekly           # pace the weekly meter, a window per manual reset (the default)
     tools/prereset_plan.py --resets           # the manual resets free before the natural one, the plan, and his nights
+    tools/prereset_plan.py --natural-only [UNTIL_EPOCH]  # plan no manual resets until then (default: the natural reset)
     tools/prereset_plan.py --self-test
 """
 import datetime as dt
@@ -133,6 +134,7 @@ CPU_STATE = ".prereset.cpu"
 # weekly reset passes. The weekly meter reaching RUSH_SPENT wakes our room once
 # per window (RUSH_SPENT_STAMP, cleared when the meter falls) so Paul can reset.
 RUSH = ".prereset.rush"
+NATURAL_ONLY = ".prereset.natural_until"  # epoch: until then plan no manual resets
 RUSH_TARGET = 100.0
 RUSH_SPENT = 99.0
 RUSH_SPENT_STAMP = ".prereset.rush-spent-{}"
@@ -380,11 +382,20 @@ def overnight_cap(pct, now, end, rate, bridge):
         return None
 
 
-def night_guard(pct, now, hours_left, plan, rate, bridge, sleep):
+def natural_only(text, now):
+    """True while the NATURAL_ONLY file's epoch (`text`) is still ahead."""
+    try:
+        return now < float(text)
+    except (TypeError, ValueError):
+        return False
+
+
+def night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural=False):
     """(overnight_cap's runs, the epoch it guards to) unless the meter is due
     full (the plan's fill, else the reset) by Paul's next bedtime; None then
-    or when the meter is unread."""
-    if pct is None or hours_left is None or hours_left <= 0 or not rate:
+    or when the meter is unread. `natural`: the target is the natural reset,
+    which needs no Paul, so nothing holds the meter back for his sleep."""
+    if natural or pct is None or hours_left is None or hours_left <= 0 or not rate:
         return None
     until = now + hours_left * 3600
     bed, up = awake.next_sleep(now, sleep)
@@ -757,18 +768,23 @@ def show_resets():
     pct = weekly_usage.usage_pct("weekly")
     until = now + hours_left * 3600
     used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
-    slots = reset_slots(used, now, until)
-    bridge, rate = bridge_spend()
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    natural = natural_only(_read(home / NATURAL_ONLY), now)
+    slots = [] if natural else reset_slots(used, now, until)
+    bridge, rate = bridge_spend()
     rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.log") or "").splitlines()))
     cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
     sleep = awake.load(home, now)
     k, fill, need_rate = reset_plan(pct, now, until, slots, cap, sleep)
-    night = night_guard(pct, now, hours_left, (k, fill, need_rate), rate, bridge, sleep)
+    night = night_guard(pct, now, hours_left, (k, fill, need_rate), rate, bridge, sleep,
+                        natural and k == 0)
     def at(t):
         return f"{dt.datetime.fromtimestamp(t, PACIFIC):%a %m-%d %H:%M} Pacific"
     print(f"weekly {pct:g}%, natural reset {at(until)}; {len(used)} of {MANUAL_RESETS} "
           f"manual resets used in 30 days; free before it: {', '.join(map(at, slots)) or 'none'}")
+    if natural:
+        print(f"natural-only until {at(float(_read(home / NATURAL_ONLY)))}: no manual resets "
+              f"planned, the meter fills to {EXHAUSTED:g}% at the natural reset, no night guard")
     print(f"plan: {k} manual resets, meter to {EXHAUSTED:g}% by {at(fill)} at "
           f"{need_rate:.2f} pts/h (capacity {cap if cap is None else round(cap, 2)} pts/h, "
           f"bridge {bridge if bridge is None else round(bridge, 2)} pts/h)")
@@ -781,6 +797,22 @@ def show_resets():
           f"overnight: at most {night[0]} runs until {at(night[1])}, so the bridge alone at "
           f"{NIGHT_BRIDGE_FACTOR:g}x stays under {EXHAUSTED - NIGHT_GUARD:g}%")
     print("\n".join(awake.describe(sleep, now)))
+    return 0
+
+
+def set_natural_only(arg):
+    """--natural-only [UNTIL_EPOCH]: write NATURAL_ONLY so the burn plans no
+    manual resets until then (default: the current natural reset)."""
+    now = time.time()
+    try:
+        until = float(arg) if arg else now + weekly_usage.resets_in_hours("weekly")[0] * 3600
+    except (TypeError, ValueError, *weekly_usage.READ_ERRORS) as exc:
+        print(f"natural-only: no end time: {exc}", file=sys.stderr)
+        return 1
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    (home / NATURAL_ONLY).write_text(f"{until:.0f}\n")
+    print(f"natural-only until {dt.datetime.fromtimestamp(until, PACIFIC):%a %m-%d %H:%M} "
+          f"Pacific ({until:.0f}) in {home / NATURAL_ONLY}")
     return 0
 
 
@@ -804,7 +836,7 @@ def width(arg=None, floor=1):
     current = current_width(arg, lines)
     runs_needed = bridge = pct = hours_left = plan = night = None
     slots = []
-    rushing = False
+    rushing = natural = False
     rss = burn_rss_kb()
     mem = mem_cap(_read("/proc/meminfo"), rss)
     try:
@@ -825,7 +857,8 @@ def width(arg=None, floor=1):
         if hours_left is not None and hours_left > 0 and pct is not None:
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
-            slots = reset_slots(used, now, until)
+            natural = natural_only(_read(home / NATURAL_ONLY), now)
+            slots = [] if natural else reset_slots(used, now, until)
             plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
             if plan[0]:
                 aim_h = max(AIM_MIN_H, (plan[1] - now) / 3600)
@@ -836,7 +869,7 @@ def width(arg=None, floor=1):
                     f"reset it now ({plan[0] if plan else 0} planned before the natural reset). "
                     f"The burn resumes by itself once it falls.", sleep)
         runs_needed = paced_need(pct, aim_h, rate, bridge or 0.0)
-        night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep)
+        night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural)
         if night is not None and runs_needed is not None and night[0] < runs_needed:
             runs_needed = night[0]
     except weekly_usage.READ_ERRORS as exc:  # an unread meter leaves the need unknown
@@ -1262,6 +1295,12 @@ def reset_self_test():
                        (("garbage",), []), ((None,), [])]:
         if manual_resets(*args) != want:
             fail(f"manual_resets{args[1:]} = {manual_resets(*args)} (want {want})")
+    for text, want in [("2000", True), ("1000", False), ("", False), (None, False), ("x", False)]:
+        if natural_only(text, 1500.0) != want:
+            fail(f"natural_only({text!r}) = {not want} (want {want})")
+    a_night = (50.0, 1000.0, 20.0, (0, 1000.0 + 20 * 3600, 2.0), 1.0, 1.0, None)
+    if night_guard(*a_night, natural=True) is not None:
+        fail("night_guard holds the meter when the target is the natural reset")
     for args, want in [((USED, NOW, NATURAL), SLOTS),
                        ((USED[2:], NOW, NATURAL), [NOW] * 3),   # 12 used: 3 free now
                        ((USED + [NOW - 60], NOW, NATURAL), SLOTS[1:]),  # 15 used: none now
@@ -2736,6 +2775,9 @@ def main():
         return set_rush(rest[0] if rest and not rest[0].startswith("-") else None)
     if "--resets" in sys.argv:
         return show_resets()
+    if "--natural-only" in sys.argv:
+        rest = sys.argv[sys.argv.index("--natural-only") + 1:]
+        return set_natural_only(rest[0] if rest and not rest[0].startswith("-") else None)
     if "--weekly" in sys.argv:  # the only mode now; kept for old callers
         return 0
     if "--self-test" in sys.argv:
