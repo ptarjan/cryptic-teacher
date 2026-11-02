@@ -46,19 +46,28 @@ function start(storage) {
   // Opens the picker, searches for the puzzle's number and presses the row that
   // opens it — told apart by the tab flag pointUrlAtPuzzle sets, since a number
   // alone can match several papers.
+  // Opening the picker clears its search box, so a number shared by several
+  // papers (genius-281 and every other 281) is searched afresh for each row
+  // tried: the rows are read again after the box is refilled, and row i of that
+  // search is the one pressed.
   const pick = (p) => {
-    reg["btn-picker"].onclick();
-    reg["picker-search"].value = String(p.number);
-    reg["picker-search"].listeners.input.forEach((f) => f());
+    const search = () => {
+      reg["btn-picker"].onclick();
+      reg["picker-search"].value = String(p.number);
+      reg["picker-search"].listeners.input.forEach((f) => f());
+      return reg["picker-list"].children.slice();
+    };
     const key = `ct:app:${p.id}`;
     global.sessionStorage.removeItem(key);
-    const rows = reg["picker-list"].children.slice();
-    for (const li of rows) {
-      const btn = li.children[0];
+    let rows = search();
+    for (let i = 0; i < rows.length; i++) {
+      const btn = rows[i] && rows[i].children[0];
       if (!btn || !btn.onclick) continue;
+      const n = rows.length;
       btn.onclick({ target: {} });
       if (global.sessionStorage.getItem(key)) return true;
-      reg["btn-picker"].onclick();
+      rows = search();
+      if (rows.length !== n) break;
     }
     return false;
   };
