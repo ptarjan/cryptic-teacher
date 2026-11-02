@@ -35,7 +35,12 @@ worker_reopen() { [ "$REOPEN_OK" = 1 ]; }
 worker_annotate() { echo "$4" >>"$FIXES"; }
 worker_commit() { echo "commit $1" >>"$RECORDS"; }
 index_lock() { :; }; index_unlock() { :; }; stage_puzzle() { :; }
-git() { [ "$1" = --no-optional-locks ] && shift; [ "$1" = status ] && [ "$CHANGED" = 1 ] && echo " M x"; return 0; }
+git() {  # a run that changed files has them staged, so diff --cached --quiet says so
+  [ "$1" = --no-optional-locks ] && shift
+  [ "$1" = status ] && [ "$CHANGED" = 1 ] && echo " M x"
+  [ "$1" = diff ] && [ "$CHANGED" = 1 ] && return 1
+  return 0
+}
 python3() {
   case "$1" in
     tools/validate_annotations.py)
