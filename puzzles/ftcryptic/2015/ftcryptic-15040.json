@@ -22,6 +22,9 @@
   "date": "2015-10-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,30 @@
     "text": "American man, destructive type?",
     "enumeration": "6"
    },
-   "solution": "BUSTER"
+   "solution": "BUSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American man",
+      "at": 0,
+      "meaning": "in American speech a man is often addressed familiarly, and a little aggressively, as 'mister' or 'pal' with this word"
+     },
+     {
+      "text": "destructive type?",
+      "at": 14,
+      "meaning": "someone who breaks or smashes things, one who busts them"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether some American fellow is a vandal or wrecker.",
+     "definitionFit": "Two senses: a familiar American form of address to a man, and a person who busts or breaks things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destructive"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +75,57 @@
     "text": "High-pitched sound that's shrill, ultimately, in sound of horn",
     "enumeration": "5"
    },
-   "solution": "BLEEP"
+   "solution": "BLEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High-pitched sound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 46,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sound of horn",
+       "at": 49,
+       "gives": "BEEP",
+       "note": "a car horn goes beep"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 34,
+         "note": "ultimately points to the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shrill",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car horn's noise that is shrill at the end.",
+     "definitionFit": "A bleep is a short, high electronic tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +139,58 @@
     "text": "Deal with capital in Rome, certainly not a seaport in Campania",
     "enumeration": "7"
    },
-   "solution": "SALERNO"
+   "solution": "SALERNO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a seaport in Campania",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Deal",
+       "at": 0,
+       "gives": "SALE",
+       "note": "a sale is a deal or transaction"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "capital in",
+         "at": 10,
+         "note": "the capital of a word is its first, capital letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rome",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "certainly not",
+       "at": 27,
+       "gives": "NO",
+       "note": "no is a flat refusal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handling the capital Rome, which is certainly not a port in Campania.",
+     "walkthrough": "'capital in Rome' tempts with ROME itself; it is only R, its capital letter.",
+     "definitionFit": "Salerno is a port city on the coast of the Campania region in southern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +204,51 @@
     "text": "Plant is in Leeds, we gathered",
     "enumeration": "9"
    },
-   "solution": "EDELWEISS"
+   "solution": "EDELWEISS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "gathered",
+       "at": 22,
+       "note": "gathered up in a bunch, the letters are collected and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "is",
+       "at": 6
+      },
+      {
+       "words": "Leeds",
+       "at": 12,
+       "note": "taken as written"
+      },
+      {
+       "words": "we",
+       "at": 19,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant lives in Leeds, or so we have been told.",
+     "walkthrough": "'gathered' reads as 'we understood', but it signals a reshuffle of IS LEEDS WE.",
+     "definitionFit": "Edelweiss is a white-flowered Alpine plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathered"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +262,71 @@
     "text": "On board ship, junk heading for unlikely position",
     "enumeration": "6"
    },
-   "solution": "STATUS"
+   "solution": "STATUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "position",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "On board",
+       "at": 0,
+       "note": "being on board a ship means sitting between its two letters, so these pieces go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ship",
+       "at": 9,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "junk",
+         "at": 15,
+         "gives": "TAT",
+         "note": "tat is cheap rubbishy stuff"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 20,
+           "note": "the heading of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unlikely",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor stowing rubbish aboard a ship, which seems an unlikely place for it.",
+     "walkthrough": "'junk' looks like a Chinese boat beside 'ship', but here it is rubbish.",
+     "definitionFit": "Status is standing or rank, the place one holds in a hierarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "junk"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +340,29 @@
     "text": "Find a particle",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0,
+      "meaning": "to locate or track down"
+     },
+     {
+      "text": "a particle",
+      "at": 5,
+      "meaning": "a tiny amount, a speck or vestige"
+     }
+    ],
+    "explanation": {
+     "surface": "Discovering a particle.",
+     "definitionFit": "Two senses: to track something down, and a minute quantity, as in 'not a scrap of evidence'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +376,49 @@
     "text": "Snack, one of ten containing wine",
     "enumeration": "7"
    },
-   "solution": "TOASTIE"
+   "solution": "TOASTIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snack",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 18,
+       "note": "one piece holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one of ten",
+       "at": 7,
+       "gives": "TOE",
+       "note": "people have ten toes"
+      },
+      {
+       "words": "wine",
+       "at": 29,
+       "gives": "ASTI",
+       "note": "Asti is an Italian sparkling wine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snack, one of ten, with wine inside.",
+     "walkthrough": "'one of ten' could be a digit of either kind; it is a toe.",
+     "definitionFit": "A toastie is a toasted sandwich, a light snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ten"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +432,31 @@
     "text": "One making breakfast for a biker?",
     "enumeration": "9"
    },
-   "solution": "SCRAMBLER"
+   "solution": "SCRAMBLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One making breakfast",
+      "at": 0,
+      "meaning": "a cook who scrambles eggs for the morning meal"
+     },
+     {
+      "text": "for a biker?",
+      "at": 21,
+      "meaning": "an off-road motorcycle built for rough tracks"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook who fries up breakfast for a motorcyclist.",
+     "definitionFit": "Two senses: someone who scrambles eggs, and a lightweight off-road motorbike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breakfast"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +470,50 @@
     "text": "Pair of stick-in-the-muds, that is, captured by sci-fi author",
     "enumeration": "7"
    },
-   "solution": "WELLIES"
+   "solution": "WELLIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pair of stick-in-the-muds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 36,
+       "note": "something captured by another is held inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sci-fi author",
+       "at": 48,
+       "gives": "WELLS",
+       "note": "H. G. Wells wrote The War of the Worlds and The Time Machine"
+      },
+      {
+       "words": "that is",
+       "at": 27,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, 'that is'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two dull conservative people, it seems, kidnapped by a science-fiction writer.",
+     "walkthrough": "'stick-in-the-muds' reads as fuddy-duddies, but here it means boots that literally stick in the mud.",
+     "definitionFit": "Rubber boots worn in mud come as a pair; the clue's playful phrase takes the idiom literally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stick-in-the-muds"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +527,71 @@
     "text": "Dark red initially embraced by Lincoln in a kilt?",
     "enumeration": "7"
    },
-   "solution": "MACABRE"
+   "solution": "MACABRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in a kilt",
+       "at": 39,
+       "gives": "MAC",
+       "note": "a Scot, kilted, suggests the Scottish surname prefix Mac"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "embraced by",
+         "at": 19,
+         "note": "being embraced means being held inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lincoln",
+         "at": 31,
+         "gives": "ABE",
+         "note": "Abe is Abraham Lincoln's familiar name"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 9,
+           "note": "initially points to the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "red",
+           "at": 5
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark red tartan worn by a kilted Abraham Lincoln.",
+     "walkthrough": "'Dark red' looks like a colour, but 'Dark' alone is the definition.",
+     "definitionFit": "Macabre means gruesome or grim, dealing with death, which is dark in the figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +611,78 @@
      }
     ]
    },
-   "solution": "SAFETYPIN"
+   "solution": "SAFETYPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fastener",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "at": 29,
+       "note": "securing means holding inside, so one piece contains the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when bent",
+         "at": 18,
+         "note": "bent means twisted out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 9
+        },
+        {
+         "words": "fasten",
+         "at": 11,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tops",
+         "at": 50,
+         "note": "the tops of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 38
+        },
+        {
+         "words": "pyjama",
+         "at": 43
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fastener that I use to hold your pyjama tops in place.",
+     "walkthrough": "'when bent' signals the anagram of I FASTEN, giving SAFETIN; 'securing' then holds the tops of 'your pyjama' inside it.",
+     "definitionFit": "A safety pin is a bent pin with a guarded clasp, used for fastening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tops"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +702,65 @@
      }
     ]
    },
-   "solution": "SPERMWHALE"
+   "solution": "SPERMWHALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giant mammal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "one piece sits inside the jumbled other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cuckoo",
+         "at": 44,
+         "note": "cuckoo means crazy, so the letters are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 36
+        },
+        {
+         "words": "Welsh",
+         "at": 38,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "possible variation",
+       "at": 14,
+       "gives": "PERM",
+       "note": "a perm, short for permutation, is one possible arrangement or variation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge animal, perhaps some mutant form of a Welsh cuckoo bird.",
+     "walkthrough": "'cuckoo' poses as a bird but means crazy, the anagram signal; 'possible variation' is a perm, short for permutation.",
+     "definitionFit": "The sperm whale is the largest toothed whale, an enormous marine mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +774,34 @@
     "text": "Self-dedicated book?",
     "enumeration": "4"
    },
-   "solution": "TOME"
+   "solution": "TOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Self-dedicated book?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Self-dedicated book?",
+       "at": 0,
+       "note": "a book dedicated by its writer to himself would be inscribed '...', and the two words run together make a word for a volume"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book whose author dedicated it to themselves.",
+     "definitionFit": "A tome is a book, especially a large heavy volume, and split in two it reads as a dedication to oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +815,42 @@
     "text": "Antipodean communist state",
     "enumeration": "5"
    },
-   "solution": "MAORI"
+   "solution": "MAORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Antipodean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "communist",
+       "at": 11,
+       "gives": "MAO",
+       "note": "Mao Zedong was the Chinese communist leader"
+      },
+      {
+       "words": "state",
+       "at": 21,
+       "gives": "RI",
+       "note": "RI is the abbreviation for Rhode Island, a US state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A communist country on the other side of the world.",
+     "walkthrough": "'state' sits next to 'communist' as if a nation; it is just the US state abbreviation.",
+     "definitionFit": "The Maori are the indigenous people of New Zealand, in the Antipodes; as an adjective it means from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +864,32 @@
     "text": "Coldest period, suggestion of New Testament?",
     "enumeration": "9"
    },
-   "solution": "MIDWINTER"
+   "solution": "MIDWINTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coldest period",
+      "at": 0,
+      "meaning": "the depth of the cold season, around the solstice"
+     },
+     {
+      "text": "suggestion of New Testament?",
+      "at": 16,
+      "meaning": "NT, the abbreviation for New Testament, sits in the middle of the word for the cold season"
+     }
+    ],
+    "explanation": {
+     "surface": "The coldest time of year, hinting at the New Testament.",
+     "walkthrough": "The middle of WINTER is the letters NT, the usual abbreviation for New Testament.",
+     "definitionFit": "The middle of the cold season, near the shortest day, is typically its coldest stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suggestion"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +903,49 @@
     "text": "Wind flower in Cambridgeshire city",
     "enumeration": "8"
    },
-   "solution": "EASTERLY"
+   "solution": "EASTERLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cambridgeshire city",
+       "at": 15,
+       "gives": "ELY",
+       "note": "Ely is a cathedral city in Cambridgeshire, England"
+      },
+      {
+       "words": "flower",
+       "at": 5,
+       "gives": "ASTER",
+       "note": "the aster is a daisy-like garden flower"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wind-blown flower in a Cambridgeshire city.",
+     "walkthrough": "'flower' could be a river, a common trick, but here it is a bloom.",
+     "definitionFit": "An easterly is a breeze blowing from the east."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +959,53 @@
     "text": "Owls trained to mentor a snail",
     "enumeration": "9"
    },
-   "solution": "SLOWCOACH"
+   "solution": "SLOWCOACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a snail",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "trained",
+         "at": 5,
+         "note": "trained means reshaped, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Owls",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "mentor",
+       "at": 16,
+       "gives": "COACH",
+       "note": "to coach is to mentor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Owls being taught to guide a snail.",
+     "walkthrough": "'a snail' here is a person who moves slowly.",
+     "definitionFit": "A slow-moving person is figuratively called a snail; the informal British word for a dawdler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "snail"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1025,53 @@
      }
     ]
    },
-   "solution": "IDARESAY"
+   "solution": "IDARESAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "probably",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beyond",
+       "at": 11,
+       "note": "beyond means coming after, so these pieces follow the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "identification",
+       "at": 18,
+       "gives": "ID"
+      },
+      {
+       "words": "God",
+       "at": 0,
+       "gives": "ARES",
+       "note": "Ares is the Greek god of war"
+      },
+      {
+       "words": "always",
+       "at": 4,
+       "gives": "AY",
+       "note": "ay is a poetic form of aye, 'always'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god who is forever beyond being identified, more or less.",
+     "definitionFit": "The phrase 'I dare say' means I suppose, or very likely: an expression of probability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "identification"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1085,51 @@
     "text": "Is left right? Then name is wrong",
     "enumeration": "7"
    },
-   "solution": "REMAINS"
+   "solution": "REMAINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Is left",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "right",
+       "at": 8,
+       "gives": "R"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 28,
+         "note": "wrong means incorrectly arranged, so the letters are shuffled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "name is",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking if left is right, then saying the name is mistaken.",
+     "walkthrough": "'left' and 'right' look like opposites; 'Is left' means stays behind.",
+     "definitionFit": "Something that remains is still left over after the rest has gone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1143,47 @@
     "text": "Mark on the back of old statuette",
     "enumeration": "5"
    },
-   "solution": "OSCAR"
+   "solution": "OSCAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "statuette",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on the back of",
+       "at": 5,
+       "note": "placed behind, so this piece follows the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old",
+       "at": 20,
+       "gives": "O"
+      },
+      {
+       "words": "Mark",
+       "at": 0,
+       "gives": "SCAR",
+       "note": "a scar is a mark left by a wound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mark found on the back of an antique figurine.",
+     "definitionFit": "The Academy Award trophy is a small gilded figure, known by this nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1197,59 @@
     "text": "Mild cold allowed to grip people",
     "enumeration": "7"
    },
-   "solution": "CLEMENT"
+   "solution": "CLEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mild",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "at": 5,
+       "gives": "C",
+       "note": "C is the abbreviation for cold on taps"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to grip",
+         "at": 18,
+         "note": "gripping something means holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "allowed",
+         "at": 10,
+         "gives": "LET",
+         "note": "to let is to allow"
+        },
+        {
+         "words": "people",
+         "at": 26,
+         "gives": "MEN",
+         "note": "men are people"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mild cold that is allowed to take hold of people.",
+     "definitionFit": "Clement weather is gentle and temperate, the opposite of inclement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1263,52 @@
     "text": "Picture frame is light mahogany, for starters",
     "enumeration": "4"
    },
-   "solution": "FILM"
+   "solution": "FILM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "for starters",
+       "at": 33,
+       "note": "starters are the first items, so the opening letter of each word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "frame",
+       "at": 8
+      },
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "light",
+       "at": 17
+      },
+      {
+       "words": "mahogany",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture frame made of pale mahogany, to begin with.",
+     "definitionFit": "A film is a motion picture, as in 'going to the pictures'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1322,75 @@
     "text": "Tories who failed to impress Conservative leader in complete U-turn",
     "enumeration": "10"
    },
-   "solution": "SWITCHEROO"
+   "solution": "SWITCHEROO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complete U-turn",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to impress",
+       "at": 18,
+       "note": "to impress literally means to press in, so one piece is pushed into the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "failed",
+         "at": 11,
+         "note": "failed suggests a broken state, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tories",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "who",
+         "at": 7,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 42,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Conservative",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tories who could not win over their Conservative leader make a total reversal.",
+     "walkthrough": "The anagram of TORIES WHO, signalled by 'failed', takes in C, the head of 'Conservative'.",
+     "definitionFit": "A switcheroo is informal for a sudden reversal or swap, an about-face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1404,29 @@
     "text": "Completely transparent",
     "enumeration": "5"
    },
-   "solution": "SHEER"
+   "solution": "SHEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Completely",
+      "at": 0,
+      "meaning": "utterly, as in '... madness'"
+     },
+     {
+      "text": "transparent",
+      "at": 11,
+      "meaning": "see-through, as fine fabric is"
+     }
+    ],
+    "explanation": {
+     "surface": "Something entirely see-through.",
+     "definitionFit": "Two senses: utter or absolute, and thin enough to see through, as in sheer tights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1440,62 @@
     "text": "Bulb illuminated more than once, one being screwed in",
     "enumeration": "5"
    },
-   "solution": "ONION"
+   "solution": "ONION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bulb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being screwed in",
+       "at": 37,
+       "note": "screwed in means fitted inside, as a bulb into a socket"
+      }
+     ],
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "more than once",
+         "at": 17,
+         "note": "more than once means the piece appears twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illuminated",
+         "at": 5,
+         "gives": "ON",
+         "note": "a light that is illuminated is on"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 33,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light bulb switched on repeatedly, one being screwed into its socket.",
+     "walkthrough": "'Bulb' and 'illuminated' suggest a lamp, but the bulb is a vegetable.",
+     "definitionFit": "An onion is a bulb vegetable, growing as layered leaves round a stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bulb"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1509,32 @@
     "text": "Player in football match?",
     "enumeration": "7"
    },
-   "solution": "STRIKER"
+   "solution": "STRIKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Player in football",
+      "at": 0,
+      "meaning": "a forward whose job is scoring goals"
+     },
+     {
+      "text": "match?",
+      "at": 19,
+      "meaning": "a match is something struck, so a match is one that strikes, lighting it"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking about someone playing in a football game.",
+     "walkthrough": "'football match' reads as one phrase; split it and 'match' is the matchstick that is struck to light.",
+     "definitionFit": "Two senses: football's goal-scoring forward, and a matchstick, which ignites by being struck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1548,73 @@
     "text": "Very aggressive continental backs into ancient Hindu spear",
     "enumeration": "7"
    },
-   "solution": "JAVELIN"
+   "solution": "JAVELIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spear",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 34,
+       "note": "these pieces are put into the other word, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ancient Hindu",
+       "at": 39,
+       "gives": "JAIN",
+       "note": "a Jain follows Jainism, an ancient Indian religion that grew alongside Hinduism"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Very",
+         "at": 0,
+         "gives": "V"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "backs",
+           "at": 28,
+           "note": "the backs of words are their last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "aggressive",
+           "at": 5
+          },
+          {
+           "words": "continental",
+           "at": 16
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fierce European retreating into an ancient Indian, weapon in hand.",
+     "walkthrough": "'backs' reads as a verb of retreat, but it takes the final letters of 'aggressive' and 'continental'. Calling a Jain 'ancient Hindu' is loose: Jainism is an old Indian faith distinct from Hinduism.",
+     "definitionFit": "A javelin is a light throwing spear, used in war and now in athletics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backs"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1628,31 @@
     "text": "Blackpool, perhaps, again put in order?",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blackpool, perhaps",
+      "at": 0,
+      "meaning": "Blackpool is an example of a seaside holiday town on England's north-west coast"
+     },
+     {
+      "text": "again put in order?",
+      "at": 20,
+      "meaning": "to sort a second time, written with a hyphen as ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering whether Blackpool should be tidied up all over again.",
+     "walkthrough": "Blackpool is a popular British seaside town; the second sense is the verb re-sort.",
+     "definitionFit": "A holiday destination is called this, and the same letters spell the verb for sorting anew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1666,48 @@
     "text": "Exclude housing accommodation that's basic in Asian country",
     "enumeration": "6"
    },
-   "solution": "BHUTAN"
+   "solution": "BHUTAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asian country",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housing",
+       "at": 8,
+       "note": "one piece houses, that is contains, the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exclude",
+       "at": 0,
+       "gives": "BAN",
+       "note": "to ban is to exclude"
+      },
+      {
+       "words": "accommodation that's basic",
+       "at": 16,
+       "gives": "HUT",
+       "note": "a hut is a simple, basic dwelling"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping out basic housing in an Asian nation.",
+     "definitionFit": "Bhutan is a Himalayan kingdom in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   }
  ]
 }
