@@ -673,6 +673,13 @@ worker_await_preamble() {   # id entries
     puzzle_specs "$id" specs
     index_lock
     if out=$(git add -A -- "${specs[@]}" 2>&1); then
+      if git diff --cached --quiet -- "${specs[@]}"; then
+        # Already marked: a sibling run of the same puzzle, picked before the
+        # mark landed, committed it first (11-01 nation-3403, sundaytel-2776).
+        index_unlock
+        echo "  [$id] awaits its preamble ($2), marked already"
+        return 0
+      fi
       worker_commit "Await the preamble for $id"$'\n\n'"Its annotation left $2 to a preamble the puzzle does not hold, and failed on nothing else." \
         "${specs[@]}" && { echo "  [$id] awaits its preamble ($2)"; return 0; }
     else
