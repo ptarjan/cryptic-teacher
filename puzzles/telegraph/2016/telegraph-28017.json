@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Treat with contempt a pre-exam test",
     "enumeration": "4"
    },
-   "solution": "MOCK"
+   "solution": "MOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treat with contempt",
+      "at": 0,
+      "meaning": "to ridicule or scorn someone"
+     },
+     {
+      "text": "a pre-exam test",
+      "at": 20,
+      "meaning": "a practice paper sat at school before the real examination"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher sneers at a trial run before the real exam.",
+     "definitionFit": "The verb means to deride; the noun is the British school term for a practice examination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +69,70 @@
     "text": "Bankrupt's ultimate joke, involved in extra money being borrowed",
     "enumeration": "8"
    },
-   "solution": "MORTGAGE"
+   "solution": "MORTGAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "money being borrowed",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 26,
+       "note": "involved in says the following pieces sit inside the word for extra"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extra",
+       "at": 38,
+       "gives": "MORE",
+       "note": "extra means more"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimate",
+           "at": 11,
+           "note": "ultimate means the final letter of the word Bankrupt's is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Bankrupt's",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "joke",
+         "at": 20,
+         "gives": "GAG",
+         "note": "a gag is a joke"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bankrupt's last laugh about borrowing still more cash.",
+     "walkthrough": "'involved in' places the bankrupt's final letter and the joke inside the word for extra; the definition is a home loan.",
+     "definitionFit": "A home loan secured on property is the classic sum someone borrows from a lender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joke"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +146,41 @@
     "text": "Study French city features on map",
     "enumeration": "8"
    },
-   "solution": "CONTOURS"
+   "solution": "CONTOURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "features on map",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Study",
+       "at": 0,
+       "gives": "CON",
+       "note": "to con is an old word for to study or learn"
+      },
+      {
+       "words": "French city",
+       "at": 6,
+       "gives": "TOURS",
+       "note": "Tours is a city on the Loire in France"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone examines the layout of a French city on a map.",
+     "definitionFit": "Lines joining points of equal height are what a relief map shows of the land's shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +200,58 @@
      }
     ]
    },
-   "solution": "FARSIGHTED"
+   "solution": "FARSIGHTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shrewd",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changing",
+       "at": 28,
+       "note": "changing says the letters gathered so far are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initially",
+         "at": 0,
+         "note": "initially points to the opening letter of the word going"
+        }
+       ],
+       "parts": [
+        {
+         "words": "going",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "head first",
+       "at": 16,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone diving in headlong and then changing course to become wise.",
+     "walkthrough": "'changing' rearranges G (the first of 'going', from 'Initially') with HEADFIRST.",
+     "definitionFit": "Being far-sighted means having good judgement about the future, a close synonym for astute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +265,47 @@
     "text": "Cordial disposition — it is evident in Jo's sister",
     "enumeration": "5"
    },
-   "solution": "AMITY"
+   "solution": "AMITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cordial disposition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is evident in",
+       "at": 25,
+       "note": "is evident in says the word it shows up inside the sister's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Jo's sister",
+       "at": 39,
+       "gives": "AMY",
+       "note": "Amy is one of Jo March's sisters in Louisa May Alcott's novel Little Women"
+      },
+      {
+       "words": "it",
+       "at": 22,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly nature is apparent in Jo March's younger sister.",
+     "definitionFit": "Friendship and goodwill between people is exactly a cordial, peaceable disposition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evident"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +319,31 @@
     "text": "What nave of church has, being well-kept",
     "enumeration": "9"
    },
-   "solution": "SHIPSHAPE"
+   "solution": "SHIPSHAPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What nave of church has",
+      "at": 0,
+      "meaning": "the nave takes its name from Latin navis, a ship, so it has the form of a vessel"
+     },
+     {
+      "text": "well-kept",
+      "at": 31,
+      "meaning": "neat and in good order"
+     }
+    ],
+    "explanation": {
+     "surface": "A church's nave, admired for being in good order.",
+     "definitionFit": "Tidy and trim is the everyday sense; the cryptic sense is the vessel form behind the Latin word for a church's nave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nave"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +371,32 @@
      }
     ]
    },
-   "solution": "GOTOTHEWALL"
+   "solution": "GOTOTHEWALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fail",
+      "at": 0,
+      "meaning": "to collapse or go bankrupt"
+     },
+     {
+      "text": "prepare for game at Eton?",
+      "at": 8,
+      "meaning": "Eton College plays its own Wall Game, so players head for the wall"
+     }
+    ],
+    "explanation": {
+     "surface": "Failing to get ready for a match at a famous school.",
+     "walkthrough": "Eton is a famous English public school whose Wall Game is played against a brick wall.",
+     "definitionFit": "The idiom means to be ruined in business; literally it is setting off to the pitch for the Eton Wall Game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fail"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,10 +407,73 @@
    },
    "length": 6,
    "clue": {
-    "text": "CLUE TO COME",
+    "text": "Disastrous time with student event undermined by one head of college",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disastrous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "undermined by",
+       "at": 35,
+       "note": "undermined by puts the following pieces beneath the student event in this down light"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 11,
+       "gives": "T"
+      },
+      {
+       "words": "student event",
+       "at": 21,
+       "gives": "RAG",
+       "note": "a rag is a British student charity carnival"
+      },
+      {
+       "words": "one",
+       "at": 49,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 53,
+         "note": "head of points to the opening letter of the word college"
+        }
+       ],
+       "parts": [
+        {
+         "words": "college",
+         "at": 61
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calamitous student festival wrecked by a college principal.",
+     "walkthrough": "A RAG is a British student fundraising carnival; in a down answer 'undermined by' means followed by.",
+     "definitionFit": "Something catastrophic and dreadful in outcome is described as tragic, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "undermined"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +487,48 @@
     "text": "Excessive fondness of Venice's bigwig entertaining volunteers",
     "enumeration": "6"
    },
-   "solution": "DOTAGE"
+   "solution": "DOTAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excessive fondness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 38,
+       "note": "entertaining means holding a guest, so the ruler's title takes the volunteers inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Venice's bigwig",
+       "at": 22,
+       "gives": "DOGE",
+       "note": "the Doge was the elected ruler of the Venetian republic"
+      },
+      {
+       "words": "volunteers",
+       "at": 51,
+       "gives": "TA",
+       "note": "TA is the Territorial Army, Britain's volunteer reserve"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Venetian grandee doting on the volunteers he hosts.",
+     "definitionFit": "Besides senility, the word has an older sense of foolish infatuation, being overly besotted with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +542,30 @@
     "text": "Phoned and spoke",
     "enumeration": "4"
    },
-   "solution": "RUNG"
+   "solution": "RUNG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Phoned",
+      "at": 0,
+      "meaning": "called on the telephone, past participle of ring"
+     },
+     {
+      "text": "spoke",
+      "at": 11,
+      "meaning": "a crosspiece of a ladder or chair"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called and talked.",
+     "definitionFit": "A past form of ring means telephoned; a ladder's step is another name for a spoke or rail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +579,58 @@
     "text": "Attendant responsible for little display of anger crossing street",
     "enumeration": "10"
    },
-   "solution": "MINISTRANT"
+   "solution": "MINISTRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attendant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 50,
+       "note": "crossing says the two words stretch across either side of the street abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "little",
+         "at": 26,
+         "gives": "MINI",
+         "note": "mini means small"
+        },
+        {
+         "words": "display of anger",
+         "at": 33,
+         "gives": "RANT",
+         "note": "a rant is an angry tirade"
+        }
+       ]
+      },
+      {
+       "words": "street",
+       "at": 59,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attendant to blame for a small outburst while crossing the road.",
+     "definitionFit": "A ministrant is one who serves or assists, especially at a religious service, so an attendant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +650,47 @@
      }
     ]
    },
-   "solution": "GOODDAY"
+   "solution": "GOODDAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "greeting",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Become",
+       "at": 0,
+       "gives": "GO",
+       "note": "go can mean become, as in go mad"
+      },
+      {
+       "words": "strange",
+       "at": 7,
+       "gives": "ODD",
+       "note": "odd means strange"
+      },
+      {
+       "words": "always",
+       "at": 16,
+       "gives": "AY",
+       "note": "ay (or aye) is a poetic word for ever"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turning eccentric yet forever saying hello.",
+     "definitionFit": "A cheery salutation used when meeting someone, especially in Australian or old-fashioned British speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "always"
+    }
+   }
   },
   {
    "number": 12,
@@ -234,7 +714,30 @@
      }
     ]
    },
-   "solution": "DOWNTOEARTH"
+   "solution": "DOWNTOEARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having both feet on the ground",
+      "at": 0,
+      "meaning": "practical and sensible"
+     },
+     {
+      "text": "as, say, after parachute jump?",
+      "at": 33,
+      "meaning": "a parachutist drops from the sky to land"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sensible, like a skydiver who has landed safely.",
+     "definitionFit": "The idiom means realistic and unpretentious; literally a parachutist ends up descended onto the land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +751,47 @@
     "text": "Italian in pain having a rest?",
     "enumeration": "7"
    },
-   "solution": "SITTING"
+   "solution": "SITTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having a rest?",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "in places the Italian abbreviation within the word for pain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pain",
+       "at": 11,
+       "gives": "STING",
+       "note": "a sting is a sharp pain"
+      },
+      {
+       "words": "Italian",
+       "at": 0,
+       "gives": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian in agony, wondering if a break might help.",
+     "definitionFit": "Taking the weight off one's feet in a seat is a way of resting, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +811,41 @@
      }
     ]
    },
-   "solution": "GERMWARFARE"
+   "solution": "GERMWARFARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hostile little bugs in destructive action?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unhappy",
+       "at": 57,
+       "note": "unhappy says the letters of these three words are disturbed into another order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A farmer grew",
+       "at": 43
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer frets over pests destroying the crop.",
+     "definitionFit": "Biological warfare uses microbes as weapons, so tiny hostile organisms deployed to destroy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bugs"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +859,42 @@
     "text": "Putting right a part of the Army that's withering?",
     "enumeration": "9"
    },
-   "solution": "REMEDYING"
+   "solution": "REMEDYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Putting right",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a part of the Army",
+       "at": 14,
+       "gives": "REME",
+       "note": "REME is the Royal Electrical and Mechanical Engineers, a British Army corps"
+      },
+      {
+       "words": "withering",
+       "at": 40,
+       "gives": "DYING",
+       "note": "dying means withering away"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Repairing a branch of the army that is wasting away.",
+     "walkthrough": "REME is the British Army corps that maintains and repairs equipment, which suits the definition.",
+     "definitionFit": "To remedy is to correct or cure, so this present participle means correcting a fault."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withering"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +908,42 @@
     "text": "Leo has this place with wild animal getting horrible disease",
     "enumeration": "8"
    },
-   "solution": "DENEBOLA"
+   "solution": "DENEBOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Leo has this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place with wild animal",
+       "at": 13,
+       "gives": "DEN",
+       "note": "a den is a wild beast's lair"
+      },
+      {
+       "words": "horrible disease",
+       "at": 44,
+       "gives": "EBOLA",
+       "note": "Ebola is a deadly viral fever"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lion's lair harbouring a beast with a terrible illness.",
+     "walkthrough": "'Leo' looks like a lion or a man; it is the constellation.",
+     "definitionFit": "This is the second-brightest star in the constellation Leo, marking the lion's tail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leo"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +957,40 @@
     "text": "Good person felt irritation as one post-operation?",
     "enumeration": "8"
    },
-   "solution": "STITCHED"
+   "solution": "STITCHED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as one post-operation?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good person",
+       "at": 0,
+       "gives": "ST",
+       "note": "St (saint) is the crossword stand-in for a good person"
+      },
+      {
+       "words": "felt irritation",
+       "at": 12,
+       "gives": "ITCHED",
+       "note": "itched means felt an irritation of the skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient, saintly sort, itching after surgery.",
+     "definitionFit": "After surgery a wound is sewn up, so a patient recovering is sewn closed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1004,57 @@
     "text": "Disposition to sow rage — be regretful losing head",
     "enumeration": "11"
    },
-   "solution": "TEMPERAMENT"
+   "solution": "TEMPERAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disposition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rage",
+       "at": 19,
+       "gives": "TEMPER",
+       "note": "temper means a fit of anger"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing head",
+         "at": 39,
+         "note": "losing head says the first letter of the word for being regretful goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "be regretful",
+         "at": 26,
+         "gives": "LAMENT",
+         "note": "to lament is to express regret or grief"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tendency to stir anger, then be sorry for it.",
+     "walkthrough": "'losing head' drops L from LAMENT to give AMENT; 'to sow' only links the definition to the wordplay.",
+     "definitionFit": "One's natural character or mood is one's temperament, a direct synonym for disposition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sow"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1068,47 @@
     "text": "Woman given command in Salvation Army",
     "enumeration": "6"
    },
-   "solution": "STELLA"
+   "solution": "STELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in places the word for order within the Salvation Army abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Salvation Army",
+       "at": 23,
+       "gives": "SA"
+      },
+      {
+       "words": "command",
+       "at": 12,
+       "gives": "TELL",
+       "note": "to tell someone to do something is to order them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman put in charge within the Salvation Army.",
+     "definitionFit": "Stella is a girl's given name, so it is an example of a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "command"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1122,49 @@
     "text": "Projecting beam or stake buried under rocky territory",
     "enumeration": "6"
    },
-   "solution": "GIBBET"
+   "solution": "GIBBET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Projecting beam",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "buried under",
+       "at": 25,
+       "note": "buried under puts the wager below the territory in this down light"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rocky territory",
+       "at": 38,
+       "gives": "GIB",
+       "note": "Gib is short for Gibraltar, the British territory known as the Rock"
+      },
+      {
+       "words": "stake",
+       "at": 19,
+       "gives": "BET",
+       "note": "a bet is a stake or wager"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beam or post driven into rocky ground.",
+     "walkthrough": "In a down answer 'buried under' means placed after.",
+     "definitionFit": "A gallows is an upright post with an arm jutting out from which bodies were hung."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stake"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1184,31 @@
      }
     ]
    },
-   "solution": "TAILEND"
+   "solution": "TAILEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Description of a Charlie",
+      "at": 0,
+      "meaning": "a ... Charlie was the rear gunner of a bomber, or whoever brings up the rear"
+     },
+     {
+      "text": "inferior part",
+      "at": 28,
+      "meaning": "the last or lowest portion of something"
+     }
+    ],
+    "explanation": {
+     "surface": "Charlie described as playing a minor role.",
+     "walkthrough": "Tail-end Charlie is British slang, from RAF use, for the last person in a line.",
+     "definitionFit": "The rear or fag end of anything is its least significant portion, the lowest part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1222,43 @@
     "text": "Nut to satisfy the boy at 23, by the sound of it",
     "enumeration": "7"
    },
-   "solution": "FILBERT"
+   "solution": "FILBERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "FILBERT",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 30,
+       "note": "by the sound of it says the words are heard when spoken, not seen as spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to satisfy the boy at 23",
+       "at": 4,
+       "gives": "FILLBERT",
+       "note": "to fill is to satisfy, as with a hunger; the boy named in the wordplay of 23 Across is Bert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nut that will feed a boy mentioned elsewhere in the puzzle.",
+     "definitionFit": "A hazelnut, especially the cultivated kind, goes by this name, so it is a type of nut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "satisfy"
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1272,55 @@
     "text": "Goddess elevated in prayer festival",
     "enumeration": "5"
    },
-   "solution": "FREYA"
+   "solution": "FREYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "elevated",
+       "at": 8,
+       "note": "elevated says the hidden letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "the clue word that says the letters sit inside the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prayer festival",
+         "at": 20,
+         "gives": "AYERF",
+         "note": "the letters run across the end of one word into the next"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess raised up in worship at a religious celebration.",
+     "walkthrough": "'in' signals letters concealed in 'prayer festival'; 'elevated' turns them upwards in this down light.",
+     "definitionFit": "Freya is the Norse deity of love and fertility, so an example of a divine female."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elevated"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1334,59 @@
     "text": "Dissolute types given punishment at school, one boy included",
     "enumeration": "10"
    },
-   "solution": "LIBERTINES"
+   "solution": "LIBERTINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dissolute types",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included",
+       "at": 52,
+       "note": "included says the number and the name go inside the school punishment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "punishment at school",
+       "at": 22,
+       "gives": "LINES",
+       "note": "lines are sentences a pupil must copy out as punishment"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 44,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "boy",
+         "at": 48,
+         "gives": "BERT",
+         "note": "Bert is a boy's name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Debauched pupils given lines, one lad among them.",
+     "definitionFit": "Rakes and debauchees who ignore moral restraint are exactly such loose-living people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punishment"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1400,40 @@
     "text": "Leave with quiet expression of surprise",
     "enumeration": "4"
    },
-   "solution": "GOSH"
+   "solution": "GOSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expression of surprise",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Leave",
+       "at": 0,
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "words": "quiet",
+       "at": 11,
+       "gives": "SH",
+       "note": "sh is a call for quiet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Departing with a hushed exclamation of astonishment.",
+     "definitionFit": "A mild exclamation, a polite substitute for God, voiced in amazement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1457,31 @@
      }
     ]
    },
-   "solution": "ACTTHEGOAT"
+   "solution": "ACTTHEGOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fool around",
+      "at": 0,
+      "meaning": "behave in a silly, playful way"
+     },
+     {
+      "text": "trying to be like Billy?",
+      "at": 13,
+      "meaning": "a billy is a male goat, so one imitating it plays the animal"
+     }
+    ],
+    "explanation": {
+     "surface": "Messing about, trying to imitate someone called Billy.",
+     "definitionFit": "The idiom means to clown about; literally it is performing the role of a billy goat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Billy"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1495,48 @@
     "text": "Money haphazard — order lost",
     "enumeration": "4"
    },
-   "solution": "RAND"
+   "solution": "RAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 24,
+       "note": "lost says the honour's letters go missing from the word for haphazard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "haphazard",
+       "at": 6,
+       "gives": "RANDOM",
+       "note": "random means haphazard"
+      },
+      {
+       "words": "order",
+       "at": 18,
+       "gives": "OM",
+       "note": "OM is the Order of Merit, a British honour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cash kept in a jumble, its arrangement gone.",
+     "definitionFit": "The rand is the currency of South Africa, so a specific unit of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   }
  ]
 }
