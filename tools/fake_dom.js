@@ -28,13 +28,7 @@ const NATIVE_FETCH = global.fetch;
 // puzzle) ran out of heap on the 7-per-series sample (10-13).
 const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
 
-// The boot still live. A new boot() stops it first: it replaces the globals the
-// old one reads, so nothing may use it afterwards, and its pending timers would
-// otherwise keep its window and index copy alive.
-let liveBoot = null;
-
 function boot(opts) {
-  if (liveBoot) { liveBoot.stop(); liveBoot = null; }
   const options = opts || {};
   const registry = {};
   const unpublish = (el) => {
@@ -419,20 +413,6 @@ function boot(opts) {
       t.fn(...t.args);
     }
   };
-  // The page's "once idle" hook. Without one app.js falls back to a real 3 s
-  // setTimeout that a synchronous suite only ever lets fire at the very end,
-  // keeping every boot's window and index copy alive until then. Here it is a
-  // pending entry with no real timer behind it, due at the same fake 3000 ms the
-  // fallback had, so flushTimers(>=3000) still runs it and stop() drops it.
-  global.requestIdleCallback = (fn) => {
-    const handle = {};
-    pending.set(handle, { fn: () => fn({ didTimeout: false, timeRemaining: () => 50 }),
-                          args: [], ms: 3000, handle });
-    return handle;
-  };
-  global.cancelIdleCallback = (handle) => { pending.delete(handle); };
-  global.window.requestIdleCallback = global.requestIdleCallback;
-  global.window.cancelIdleCallback = global.cancelIdleCallback;
 
   // Modelled for the same reason the clock and the scroll are: the app asks an
   // IntersectionObserver whether the finish box is on screen, and holds the
@@ -588,10 +568,8 @@ function boot(opts) {
     for (const t of pending.values()) realClearTimeout(t.handle);
     pending.clear();
   };
-  const handle = { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
-                   appSrc, beacons, window: global.window, stop };
-  liveBoot = handle;
-  return handle;
+  return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
+           appSrc, beacons, window: global.window, stop };
 }
 
 module.exports = { boot, ROOT };
