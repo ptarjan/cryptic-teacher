@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,49 @@
     "text": "Man who painted factories across main road",
     "enumeration": "7"
    },
-   "solution": "MILLAIS"
+   "solution": "MILLAIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man who painted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 26,
+       "note": "the factories stretch across the road, so one word goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "factories",
+       "at": 16,
+       "gives": "MILLS",
+       "note": "mills are factories, as in cotton mills"
+      },
+      {
+       "words": "main road",
+       "at": 33,
+       "gives": "AI",
+       "note": "the A1 is Britain's longest main road, written here as AI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is pictured working in the industrial landscape beside a busy trunk road.",
+     "walkthrough": "The A1 is the Great North Road in Britain; the digit 1 is read as the letter I.",
+     "definitionFit": "Sir John Everett Millais was a Pre-Raphaelite painter, so he is a man who painted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "factories"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +90,48 @@
     "text": "Bird and donkey seen across river",
     "enumeration": "6"
    },
-   "solution": "MOPOKE"
+   "solution": "MOPOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen across",
+       "at": 16,
+       "note": "the donkey is seen stretched across the river, so one goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "donkey",
+       "at": 9,
+       "gives": "MOKE",
+       "note": "moke is slang for a donkey"
+      },
+      {
+       "words": "river",
+       "at": 28,
+       "gives": "PO",
+       "note": "the Po is Italy's longest river"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird and a donkey are glimpsed on the far side of a river.",
+     "definitionFit": "The mopoke is an Australasian owl named for its call."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +145,49 @@
     "text": "The Italian goes after fast food",
     "enumeration": "6"
    },
-   "solution": "LENTIL"
+   "solution": "LENTIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "goes after",
+       "at": 12,
+       "note": "goes after means the Italian article is placed after the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fast",
+       "at": 23,
+       "gives": "LENT",
+       "note": "Lent is the Christian period of fasting"
+      },
+      {
+       "words": "The Italian",
+       "at": 0,
+       "gives": "IL",
+       "note": "il is Italian for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian chases after some fast food.",
+     "definitionFit": "A lentil is an edible pulse, a staple food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +201,98 @@
     "text": "Saw dad in strange hat, trim having bit of gold in it",
     "enumeration": "10"
    },
-   "solution": "APOPHTHEGM"
+   "solution": "APOPHTHEGM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 8,
+         "note": "in means the word for dad goes inside the jumbled hat"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "strange",
+           "at": 11,
+           "note": "strange signals the letters of hat rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hat",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "dad",
+         "at": 4,
+         "gives": "POP",
+         "note": "pop is an informal word for dad"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in it",
+         "at": 48,
+         "note": "having it in it means the gold letter sits inside the trim"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trim",
+         "at": 24,
+         "gives": "HEM",
+         "note": "a hem is the trimmed edge of cloth"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 36,
+           "note": "bit of takes just the first letter of gold"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gold",
+           "at": 43
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad wears an odd hat, its brim edged with a touch of gold.",
+     "walkthrough": "'Saw' looks like a verb or a tool but means a proverb; 'strange' turns hat into AHT so dad can sit after its A.",
+     "definitionFit": "A saw is an old saying or maxim, which is what an apophthegm is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +306,45 @@
     "text": "Great meal one page brought out",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "brought out",
+       "at": 20,
+       "note": "brought out means one letter is taken out of the meal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meal",
+       "at": 6,
+       "gives": "SUPPER",
+       "note": "supper is an evening meal"
+      },
+      {
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great meal is served once a page boy brings it out.",
+     "definitionFit": "Super is informal for great or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +358,48 @@
     "text": "Revolutionary infiltrating mad groups",
     "enumeration": "7"
    },
-   "solution": "BATCHES"
+   "solution": "BATCHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "groups",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "infiltrating",
+       "at": 14,
+       "note": "infiltrating means getting inside, so one word goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mad",
+       "at": 27,
+       "gives": "BATS",
+       "note": "bats is slang for crazy or mad"
+      },
+      {
+       "words": "Revolutionary",
+       "at": 0,
+       "gives": "CHE",
+       "note": "Che Guevara is the archetypal revolutionary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical is pictured sneaking into crazy factions.",
+     "definitionFit": "Batches are sets of things or people dealt with together, so groups is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +413,53 @@
     "text": "Smart on top, is that woman in rubber?",
     "enumeration": "9"
    },
-   "solution": "BURNISHER"
+   "solution": "BURNISHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rubber",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on top",
+       "at": 6,
+       "note": "on top means the first piece sits above the rest in this down entry"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Smart",
+       "at": 0,
+       "gives": "BURN",
+       "note": "to smart is to sting or burn"
+      },
+      {
+       "words": "is",
+       "at": 14
+      },
+      {
+       "words": "that woman",
+       "at": 17,
+       "gives": "HER",
+       "note": "her refers to that woman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman in rubber looks smart on top.",
+     "definitionFit": "A burnisher is a tool or person that polishes by rubbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rubber"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +483,46 @@
    "group": [
     "6-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Who perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "whizz",
+       "at": 29,
+       "note": "to whizz is to whirl about, so these letters spin into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "merit",
+       "at": 18
+      },
+      {
+       "words": "old",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old whizz-kid shows his worth.",
+     "walkthrough": "Doctor Who is a long-running British TV science-fiction series.",
+     "definitionFit": "Doctor Who is a Time Lord, so a Time Lord is a Who, perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Who"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +542,60 @@
      }
     ]
    },
-   "solution": "HATEMAIL"
+   "solution": "HATEMAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Abusive stuff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming in",
+       "at": 14,
+       "note": "coming in means these pieces enter the word for torrent"
+      }
+     ],
+     "parts": [
+      {
+       "words": "torrent",
+       "at": 24,
+       "gives": "HAIL",
+       "note": "a hail of things is a torrent of them"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "troublemaker",
+         "at": 34,
+         "gives": "ATE",
+         "note": "Ate was the Greek goddess of mischief and ruin"
+        },
+        {
+         "words": "maiden",
+         "at": 55,
+         "gives": "M",
+         "note": "m is the cricket abbreviation for maiden over"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker traps a girl amid a torrent of abuse.",
+     "walkthrough": "'trapped' also says the troublemaker and maiden sit inside the torrent.",
+     "definitionFit": "Hate mail is abusive letters or messages sent to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +609,63 @@
     "text": "Endless struggle concluded by small examination",
     "enumeration": "8"
    },
-   "solution": "SCRUTINY"
+   "solution": "SCRUTINY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "examination",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "concluded by",
+       "at": 17,
+       "note": "concluded by means the next piece is placed at the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the final letter of the struggle is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "struggle",
+         "at": 8,
+         "gives": "SCRUM",
+         "note": "a scrum is a disorderly struggle"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "small",
+       "at": 30,
+       "gives": "TINY",
+       "note": "tiny means small"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An endless struggle ends with a small test.",
+     "definitionFit": "Scrutiny is close examination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +679,43 @@
     "text": "Soldier quietly qualifying for £200 in board game?",
     "enumeration": "5"
    },
-   "solution": "PONGO"
+   "solution": "PONGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quietly",
+       "at": 8,
+       "gives": "P",
+       "note": "p (piano) is the musical marking for quietly"
+      },
+      {
+       "words": "qualifying for £200 in board game?",
+       "at": 16,
+       "gives": "ONGO",
+       "note": "in Monopoly you collect £200 when you pass or land on Go, so being on Go qualifies you"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier quietly earns his £200 while playing Monopoly.",
+     "walkthrough": "Monopoly is the property-trading board game whose Go square pays £200 in the British edition.",
+     "definitionFit": "Pongo is old British slang, chiefly naval, for a soldier or marine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +729,60 @@
     "text": "Man in serial denial crosses mud going over boundary",
     "enumeration": "9"
    },
-   "solution": "PERIMETER"
+   "solution": "PERIMETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boundary",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crosses",
+       "at": 21,
+       "note": "crosses means stretches across, so the man's name goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Man in serial denial",
+       "at": 0,
+       "gives": "PETER",
+       "note": "the apostle Peter denied knowing Jesus three times"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going over",
+         "at": 33,
+         "note": "going over is read as turning over, so this word runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mud",
+         "at": 29,
+         "gives": "MIRE",
+         "note": "mire is deep mud"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who keeps denying things wades through mud to cross a boundary.",
+     "definitionFit": "The perimeter is the outer edge or boundary line of an area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serial"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +802,51 @@
      }
     ]
    },
-   "solution": "KEIRHARDIE"
+   "solution": "KEIRHARDIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "his radical contemporary",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "spelt": "KEIRHARDIE",
+     "indicators": [
+      {
+       "text": "Spooner gets",
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of pairs of words, so the two words trade first sounds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to listen",
+       "at": 13,
+       "gives": "HEAR",
+       "note": "to hear is to listen"
+      },
+      {
+       "words": "woolly type",
+       "at": 26,
+       "gives": "CARDIE",
+       "note": "a cardie is a woolly cardigan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner's mangled phrase about listening to a knitwear wearer turns into a fellow Victorian.",
+     "walkthrough": "The swap is by sound: hear cardie becomes Keir Hardie. 'His' refers to Spooner, who lived at the same time.",
+     "definitionFit": "Keir Hardie, founder of the Labour Party, was a radical politician living in Spooner's era."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "woolly"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +860,42 @@
     "text": "Some solvers may love it; some others mutter",
     "enumeration": "4"
    },
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Some solvers may love it",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 26,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "others mutter",
+       "at": 31,
+       "gives": "SMUT",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword lovers are split: some relish a risque clue while others grumble at it.",
+     "definitionFit": "Smut is indecent or bawdy material, which some solvers enjoy in a clue and others frown on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mutter"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +909,41 @@
     "text": "Something potentially creaky to baffle the bosses?",
     "enumeration": "10"
    },
-   "solution": "FLOORBOARD"
+   "solution": "FLOORBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something potentially creaky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to baffle",
+       "at": 29,
+       "gives": "FLOOR",
+       "note": "to floor someone is to baffle them"
+      },
+      {
+       "words": "the bosses",
+       "at": 39,
+       "gives": "BOARD",
+       "note": "the board is a company's directors, its bosses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to confuse their senior management.",
+     "definitionFit": "Floorboards notoriously creak when walked on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "creaky"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +957,47 @@
     "text": "Bad man attending place of worship, posing as an impressive leader?",
     "enumeration": "12"
    },
-   "solution": "CHURCHILLIAN"
+   "solution": "CHURCHILLIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "posing as an impressive leader",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place of worship",
+       "at": 18,
+       "gives": "CHURCH",
+       "note": "a church is a place of worship"
+      },
+      {
+       "words": "Bad",
+       "at": 0,
+       "gives": "ILL",
+       "note": "ill means bad, as in ill luck"
+      },
+      {
+       "words": "man",
+       "at": 4,
+       "gives": "IAN",
+       "note": "Ian is a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain attends church while pretending to be a great statesman.",
+     "definitionFit": "Churchillian describes behaviour modelled on Winston Churchill, the stirring wartime prime minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "attending"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1011,58 @@
     "text": "Right form of book to enthral any number in translation",
     "enumeration": "9"
    },
-   "solution": "RENDITION"
+   "solution": "RENDITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "translation",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to enthral",
+         "at": 19,
+         "note": "to enthral is to captivate, read as holding the letter inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "form of book",
+         "at": 6,
+         "gives": "EDITION",
+         "note": "an edition is a particular form of a book"
+        },
+        {
+         "words": "any number",
+         "at": 30,
+         "gives": "N",
+         "note": "n stands for any number in maths"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The right version of a book captivates many readers in translation.",
+     "definitionFit": "A rendition is a rendering or translation of a text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthral"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1086,49 @@
      }
     ]
    },
-   "solution": "WCFIELDS"
+   "solution": "WCFIELDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comedian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "besieged by",
+       "at": 17,
+       "note": "besieged by means surrounded, so the area goes inside the toilets"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ladies and gentlemen?",
+       "at": 29,
+       "gives": "WCS",
+       "note": "public toilets are signed Ladies and Gentlemen, so these are WCs"
+      },
+      {
+       "words": "area",
+       "at": 12,
+       "gives": "FIELD",
+       "note": "a field is an area"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic plays to a field of ladies and gentlemen.",
+     "definitionFit": "W. C. Fields was an American film comedian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ladies"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1142,40 @@
     "text": "Alien had a nice estate",
     "enumeration": "8"
    },
-   "solution": "HACIENDA"
+   "solution": "HACIENDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "estate",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Alien",
+       "at": 0,
+       "note": "alien means foreign or strange, so these letters become a different arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "had a nice",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extraterrestrial owned a pleasant property.",
+     "definitionFit": "A hacienda is a large estate in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alien"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1195,48 @@
      }
     ]
    },
-   "solution": "CHANGINGROOM"
+   "solution": "CHANGINGROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sports club facility",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 28,
+       "gives": "C",
+       "note": "c (circa) means about"
+      },
+      {
+       "words": "danglin'",
+       "at": 34,
+       "gives": "HANGIN",
+       "note": "hangin' is a clipped form of hanging, which means dangling"
+      },
+      {
+       "words": "dress",
+       "at": 43,
+       "gives": "GROOM",
+       "note": "to groom is to dress or tidy oneself"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports club facility is pictured, with clothes dangling and people dressing.",
+     "walkthrough": "The apostrophe in danglin' tells you the synonym also drops its final G.",
+     "definitionFit": "Changing rooms are where players change kit at a sports club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "danglin'"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1250,43 @@
     "text": "Composer to deal with sounds",
     "enumeration": "6"
    },
-   "solution": "HANDEL"
+   "solution": "HANDEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HANDEL",
+     "indicators": [
+      {
+       "text": "sounds",
+       "at": 22,
+       "note": "sounds means the word is said aloud, matching the composer's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to deal with",
+       "at": 9,
+       "gives": "HANDLE",
+       "note": "to handle something is to deal with it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer must cope with musical sounds.",
+     "definitionFit": "George Frideric Handel was the German-born Baroque composer of Messiah."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1300,44 @@
     "text": "A university lecturer is a lord",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a lord",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "university lecturer",
+       "at": 2,
+       "gives": "DON",
+       "note": "a don is a university lecturer"
+      },
+      {
+       "words": "is",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university academic is a peer.",
+     "walkthrough": "The name Adonis comes from the Semitic word adon, meaning lord.",
+     "definitionFit": "Adonis derives from a Phoenician title meaning lord or master."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lord"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1351,59 @@
     "text": "One bird's losing the way, one bird",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one bird",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 11,
+         "note": "losing means the named letters are taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird's",
+         "at": 4,
+         "gives": "BIRDS",
+         "note": "the possessive is read as the plural birds"
+        },
+        {
+         "words": "the way",
+         "at": 18,
+         "gives": "RD",
+         "note": "rd is short for road, a way"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lost bird is pictured, straying from its path.",
+     "definitionFit": "The ibis is a long-billed wading bird, so it is one example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1417,51 @@
     "text": "Legendary German greeting bald nerd, nastily",
     "enumeration": "10"
    },
-   "solution": "HILDEBRAND"
+   "solution": "HILDEBRAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legendary German",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "greeting",
+       "at": 17,
+       "gives": "HI",
+       "note": "hi is a greeting"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nastily",
+         "at": 37,
+         "note": "nastily signals the letters are rearranged badly"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bald nerd",
+         "at": 26
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rudely greets a bald geek.",
+     "definitionFit": "Hildebrand is a hero of early Germanic legend, as in the Hildebrandslied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "greeting"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1481,40 @@
      }
     ]
    },
-   "solution": "DRYUP"
+   "solution": "DRYUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "run out of words",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Doctor",
+       "at": 0,
+       "gives": "DR"
+      },
+      {
+       "words": "sure",
+       "at": 7,
+       "gives": "YUP",
+       "note": "yup is a casual yes, meaning sure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is certain to be lost for words.",
+     "definitionFit": "To dry up is to forget one's lines and fall silent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1547,60 @@
      }
     ]
    },
-   "solution": "LONDONIVY"
+   "solution": "LONDONIVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smoke",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 31,
+       "note": "captured by means held inside, so the river pieces go within the historian"
+      }
+     ],
+     "parts": [
+      {
+       "words": "historian",
+       "at": 43,
+       "gives": "LIVY",
+       "note": "Livy was the Roman historian"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "close to",
+         "at": 6,
+         "gives": "ON",
+         "note": "on can mean close to, as in a house on the river"
+        },
+        {
+         "words": "Yorkshire river",
+         "at": 15,
+         "gives": "DON",
+         "note": "the Don is a river in South Yorkshire"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smoke rises near a Yorkshire river while a historian takes it captive.",
+     "walkthrough": "'The Smoke' is a British nickname for London, and London ivy was a name for its thick fog.",
+     "definitionFit": "London ivy was a Victorian nickname for the dense smoky fog of the capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Smoke"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1614,50 @@
     "text": "Poet has classy port brought round",
     "enumeration": "5"
    },
-   "solution": "AUDEN"
+   "solution": "AUDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought round",
+       "at": 21,
+       "note": "brought round means the port encircles the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "port",
+       "at": 16,
+       "gives": "ADEN",
+       "note": "Aden is a port in Yemen"
+      },
+      {
+       "words": "classy",
+       "at": 9,
+       "gives": "U",
+       "note": "U means upper class, from Nancy Mitford's U and non-U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet is offered a classy glass of port.",
+     "walkthrough": "U meaning upper-class comes from 1950s British usage, U and non-U.",
+     "definitionFit": "W. H. Auden was an Anglo-American poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 27,
@@ -478,7 +1677,58 @@
      }
     ]
    },
-   "solution": "STANDIN"
+   "solution": "STANDIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put inside",
+       "at": 36,
+       "note": "put inside signals the word and goes within the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "get sent back",
+         "at": 18,
+         "note": "sent back means reversed, so the word for fools runs backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fools",
+         "at": 12,
+         "gives": "NITS",
+         "note": "nits is slang for fools"
+        }
+       ]
+      },
+      {
+       "words": "and",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fools are sent packing and locked up, bringing relief.",
+     "definitionFit": "A relief is a substitute who takes over a duty, just like a stand-in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relief"
+    }
+   }
   },
   {
    "number": 28,
@@ -492,7 +1742,30 @@
     "text": "Doesn't get deeply involved with canoes?",
     "enumeration": "7"
    },
-   "solution": "PADDLES"
+   "solution": "PADDLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Doesn't get deeply involved",
+      "at": 0,
+      "meaning": "one who ... stays in the shallows rather than swimming deep"
+     },
+     {
+      "text": "with canoes?",
+      "at": 28,
+      "meaning": "the blades used to propel canoes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To paddle is to wade in shallow water, and paddles are the oars that drive a canoe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deeply"
+    }
+   }
   }
  ]
 }
