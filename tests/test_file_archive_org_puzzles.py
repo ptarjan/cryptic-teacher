@@ -7572,6 +7572,28 @@ check("but not where the rest of the line is no whole clue (no count closes it),
 check("a rule read as a 1 before a digit stays the number's (NEXT_CLUE's '|5' is 15)",
       "|5 Grotesque insect I caught",
       f.split_across([(100, 0, 700, 20, "hole, but not in reverse (6). |5 Grotesque insect I caught")], [400])[-1][4])
+# Gale 1964-10-16's 4 down: the VLM was asked for the one column with a weak light, its reply a list with no
+# heading (parse() needs both lists), and the readers' line was garbled ("4 t u p n emstic a lly").
+_vlmcol = "4 Euphemistically\nmore bloody (7).\n5 Tripped under\ncanvas (7).\n6 Love-bird? (4).\n"
+_vlmread = "4 t u p n emstic a lly more bloody (7). 5 Tripped under canvas (7)"
+_vlblank = {"4-down": "no reading laid a clue on it"}
+_vllaid = {"4-down": ("", None, None)}
+check("a VLM reply's clues are split at the numbers that open a closed clue, a line opening on a number inside one is its",
+      [[(4, "Euphemistically more bloody", "7"), (5, "Tripped under canvas", "7"), (6, "Love-bird?", "4")],
+       [(5, "Sleeping accommodation in the 19 Club perhaps", "8")]],
+      [f.vlm_clues(_vlmcol), f.vlm_clues("5 Sleeping accommodation in the\n19 Club perhaps (8).\n")])
+check("a light no reading laid takes the VLM's clue under its number and count when the readers spell most of its words",
+      [{"4-down": ("Euphemistically more bloody", "7", None)}, {}],
+      [f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "5-down": 7})[0],
+       f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "5-down": 7})[1]])
+check("but not where the number names another light of that length, the count fits no light, or the readers share none of its words",
+      [_vlblank] * 3,
+      [f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7, "4-across": 7})[1],
+       f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 8})[1],
+       f.vlm_laid({"ch": "Quite unrelated print about gardens", "vlm": _vlmcol}, _vllaid, _vlblank, {"4-down": 7})[1]])
+check("and a light blank for another reason is left to the pick",
+      {"4-down": "'Murat': a word misread as a name"},
+      f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, {"4-down": "'Murat': a word misread as a name"}, {"4-down": 7})[1])
 # A 3x3 grid: 1 across and down, 2 down, 3 across.
 _g3 = ["...", ".#.", "..."]
 check("a light number no reading opens a clue on is unread",
