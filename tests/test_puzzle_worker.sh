@@ -335,9 +335,12 @@ stale_secs() (   # age in seconds, "live" to keep a git alive in the tree; print
   git init -q .
   touch -d "$1 seconds ago" .git/index.lock
   if [ "$2" = live ]; then
-    # a process whose name is "git", working in the repo, as a live git is
+    # a process whose name is "git", working in the repo, as a live git is.
+    # A script, not a copy of sleep: ubuntu-26.04's sleep is the uutils
+    # multicall binary, which named "git" exits at once instead of sleeping.
     mkdir "$repo/bin"
-    cp "$(command -v sleep)" "$repo/bin/git"
+    printf '#!/bin/sh\nsleep "$1" & c=$!\ntrap '"'"'kill $c; exit'"'"' TERM\nwait\n' >"$repo/bin/git"
+    chmod +x "$repo/bin/git"
     ( cd "$repo" && exec "$repo/bin/git" 20 ) &
     gp=$!
     sleep 0.3
