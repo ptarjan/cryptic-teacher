@@ -149,6 +149,7 @@ RUSH_ROOM = "cryptic-crosswords"
 MANUAL_RESETS = 15
 RESET_SPAN_S = 30 * 86400
 MANUAL_DROP = 20.0
+NATURAL_SLACK_S = 3600  # a drop this near resets_at is the natural reset
 PLAN_SHARE = 0.8
 PACIFIC = awake.PACIFIC
 # Lockout safety (Paul 11-01: "try to know when I'm awake so you don't lock me
@@ -318,8 +319,9 @@ def aim_hours(hours_left):
 
 def manual_resets(csv_text, since=0.0):
     """Epochs of the manual resets in usage-history.csv at or after `since`:
-    a weekly drop of over MANUAL_DROP points whose resets_at did not move (a
-    natural reset moves it a week on)."""
+    a weekly drop of over MANUAL_DROP points unless it lands within
+    NATURAL_SLACK_S of the previous row's resets_at (that is the natural reset;
+    a manual one can move resets_at too, so the move is no tell)."""
     rows = []
     for line in (csv_text or "").splitlines():
         f = line.split(",")
@@ -330,7 +332,8 @@ def manual_resets(csv_text, since=0.0):
             continue
     rows.sort()
     return [b[0] for a, b in itertools.pairwise(rows)
-            if b[0] >= since and a[1] - b[1] > MANUAL_DROP and abs(b[2] - a[2]) < 86400]
+            if b[0] >= since and a[1] - b[1] > MANUAL_DROP
+            and abs(b[0] - a[2]) > NATURAL_SLACK_S]
 
 
 def reset_slots(resets, now, until, allowed=MANUAL_RESETS, span=RESET_SPAN_S):
@@ -1251,10 +1254,10 @@ def reset_self_test():
     row = "{:.0f},seven_day,{},{:.0f}\n"
     week = 7 * 86400
     csv = "".join(row.format(*r) for r in [
-        (0, 98, week), (300, 0, 2 * week),           # natural: resets_at moves a week
+        (0, 98, 200), (300, 0, 2 * week),            # natural: the drop lands on resets_at
         (600, 100, 2 * week), (900, 0, 2 * week),    # manual
         (1200, 40, 2 * week), (1500, 25, 2 * week),  # a 15-point dip is no reset
-        (1800, 100, 2 * week), (2100, 0, 2 * week + 60)])  # manual, resets_at jittered
+        (1800, 100, 2 * week), (2100, 0, 3 * week)])  # manual, resets_at moved
     for args, want in [((csv,), [900.0, 2100.0]), ((csv, 1000), [2100.0]),
                        (("garbage",), []), ((None,), [])]:
         if manual_resets(*args) != want:
