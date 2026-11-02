@@ -11,11 +11,17 @@
 #
 # The namespace needs root to create and to bring lo up, so the script is run
 # back as the runner user with its environment and PATH (sudo resets PATH, and
-# setup-python and setup-node put their tools on it).
+# setup-python and setup-node put their tools on it). The environment travels in
+# a file, not through `sudo -E`: ubuntu-26.04's sudo-rs drops HOME, RUNNER_TEMP
+# and the rest even with -E, and steps then wrote to /root/.cache and /shapes.
 set -euo pipefail
 
 if [ "${1:-}" = --inside ]; then
-  shift
+  envfile=$2
+  # shellcheck disable=SC1090
+  . "$envfile"
+  rm -f "$envfile"
+  set -- "$3"
   if python3 -c "import urllib.request; urllib.request.urlopen('https://example.com', timeout=5)" 2>/dev/null; then
     echo "offline.sh: example.com is reachable, so the network was not cut" >&2
     exit 1
@@ -24,7 +30,9 @@ if [ "${1:-}" = --inside ]; then
 fi
 
 script=$(realpath "$1")
+envfile=$(mktemp)
+export -p | grep -v '^declare -[a-z]*r' > "$envfile"
 exec sudo -E unshare --net -- sh -c '
   ip link set lo up
-  exec setpriv --reuid="$1" --regid="$2" --init-groups env PATH="$3" bash "$4" --inside "$5"
-' sh "$(id -u)" "$(id -g)" "$PATH" "$(realpath "$0")" "$script"
+  exec setpriv --reuid="$1" --regid="$2" --init-groups env PATH="$3" bash "$4" --inside "$5" "$6"
+' sh "$(id -u)" "$(id -g)" "$PATH" "$(realpath "$0")" "$envfile" "$script"
