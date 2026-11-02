@@ -42,6 +42,7 @@ export POOL_LAUNCH_GAP=0.1
 POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at once
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 RELOAD_ASKED=0      # the script sets it at its top level; reload_due reads it
+EXHAUSTED=99        # the script exports it at its top level; pool_topup_room compares the weekly meter to it
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
