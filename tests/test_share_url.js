@@ -43,19 +43,32 @@ function start(storage) {
     state.bar = new URL(String(url), state.bar).href;
   };
   const reg = d.registry;
-  // Opens the picker, searches for the puzzle's number and presses the row that
-  // opens it — told apart by the tab flag pointUrlAtPuzzle sets, since a number
-  // alone can match several papers.
-  // Opening the picker clears its search box, so a number shared by several
-  // papers (genius-281 and every other 281) is searched afresh for each row
-  // tried: the rows are read again after the box is refilled, and row i of that
-  // search is the one pressed.
+  // Opens the picker, searches for the puzzle's number and paper, and presses
+  // the row that opens it — told apart by the tab flag pointUrlAtPuzzle sets.
+  //
+  // The number alone is not enough. A digits term matches every number that
+  // STARTS with it, the picker lists annotated hits first, and it draws only
+  // PICKER_CHUNK rows until the solver scrolls: "281" matches some 350
+  // puzzles, about 290 of them annotated, so genius-281 (not annotated) was
+  // never among the rows drawn and no amount of pressing them could open it.
+  // The series key is in every row's haystack, so "<number> <series>" narrows
+  // to the one paper; and the list is scrolled to its end (intersect() tells
+  // the picker's observer its last row is on screen) so a row past the first
+  // chunk is still there to press.
+  //
+  // Opening the picker clears its search box, so after a wrong row the search
+  // is made afresh and row i of that search is the one pressed.
   const pick = (p) => {
     const search = () => {
       reg["btn-picker"].onclick();
-      reg["picker-search"].value = String(p.number);
+      reg["picker-search"].value = `${p.number} ${p.series || "cryptic"}`;
       reg["picker-search"].listeners.input.forEach((f) => f());
-      return reg["picker-list"].children.slice();
+      const list = reg["picker-list"];
+      for (let n = -1; n !== list.children.length;) {
+        n = list.children.length;
+        if (n) global.intersect(list.children[n - 1]);
+      }
+      return list.children.slice();
     };
     const key = `ct:app:${p.id}`;
     global.sessionStorage.removeItem(key);
