@@ -299,6 +299,29 @@ check("a two-line strip column is boxed, a stray line's speck is not",
       vlm.boxes(img, [(10, 200, 390, 0), (200, 390, 390, 0)],
                 [[[(20, 70, 15, 335, "21 Foreign currency (5)")], [(30, 56, 210, 223, "x")]]]))
 
+# A column of the page's prose (a racing card under a 1934 Times grid: 3,500 characters a reply, no clue in it) gets no ask.
+_race = ["4.10.\u2014PRINCESS MARY STAKES (5f.).\u2014This is", "a nursery, and even now such two-year-old handi-",
+         "caps are difficult to deal with. TETREMA has", "failed more than once, notably at Goodwood.",
+         "She then ran better at Kempton Park. She", "may not be so good out as she is at home, but",
+         "I shall give her another chance and take her to", "win. She is quite nicely weighted with 8 st. 3 lb.",
+         "4.40.\u2014WHARNCLIFFE HANDICAP (7f.).\u2014Flaming", "Abbess comes from a stable in form and has",
+         "a chance, but the probable winner seems to me", "AT GLOUCESTER (2.45)", "to be THE OLD PRETENDER, who ran well"]
+_clues = ["1 Mountain finch or", "Lancashire at cricket", "(four words) (4, 2, 3,", "5).", "9 Apt retort to a", "fencer (7).",
+          "10 An archbishop be-", "gins in formal man-", "ner (7).", "11 R.E. in a tent (anag.)", "(9).", "12 Bolt (5).",
+          "13 Dance jacket (5)."]
+def _lines(texts, x0=15):
+    return [(20 + 30 * k, 45 + 30 * k, x0, x0 + 160, t) for k, t in enumerate(texts)]
+_kept = len(vlm.SKIPPED_PROSE)
+check("a column of prose (12+ lines, under a tenth ending in a count or opening with a number) is not boxed, a clue "
+      "column, a short one and lines with no text are",
+      [None, True, True, True, True],
+      [vlm.boxes(img, [(10, 200, 390, 0)], [[_lines(_race)]])[0]]
+      + [vlm.boxes(img, [(10, 200, 390, 0)], rd)[0] is not None for rd in
+         ([[_lines(_clues)]], [[_lines(_race[:8])]], [[[(20 + 30 * k, 45 + 30 * k, 15, 175) for k in range(20)]]],
+          # one reader reads the counts: a column any reader sees clues in is asked
+          [[_lines(_race)], [_lines(_clues)]])])
+check("the prose column is noted", _kept + 1, len(vlm.SKIPPED_PROSE))
+
 # A column another crop window re-cuts a few pixels apart is not read twice (FT 1980-10-25).
 read_kept, crop_kept = vlm.read, vlm.crop
 read_log = []
