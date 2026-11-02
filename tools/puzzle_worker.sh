@@ -704,10 +704,12 @@ worker_await_preamble() {   # id entries
 # instead of looping. The resume note's wording was checked and is not the
 # trigger: toughie-3351 was flagged on resume and ran clean fresh.
 # 0 when $4's output holds the refusal and it was dealt with; 1 otherwise.
-worker_flagged() {   # id notefile sidfile output
+worker_flagged() {   # id notefile sidfile output [resumed]
+  # $5 is 1 when the run was a resume. Callers that delete the note before the
+  # run starts must say so here: the note file alone cannot be trusted.
   local id="$1" notefile="$2" sidfile="$3" out="$4" flags="${3%.sid}.flags" n resumed=""
   grep -q "safeguards flagged this message" "$out" 2>/dev/null || return 1
-  [ -s "$notefile" ] && resumed=1
+  { [ "${5:-}" = 1 ] || [ -s "$notefile" ]; } && resumed=1
   local m
   for m in $(worker_bag_ids "$sidfile"); do discard_puzzle "$m"; done
   worker_forget "$sidfile"

@@ -355,7 +355,10 @@ run_claude() {
     sleep 1
     return 0
   fi
-  [ -s "$resume_at" ] && note=$(cat "$resume_at")
+  # The note is deleted below, so the fact of the resume is kept in a marker
+  # for handle_failed_run -> worker_flagged.
+  rm -f "/tmp/ct-prereset-$tag.resumed"
+  [ -s "$resume_at" ] && { note=$(cat "$resume_at"); : >"/tmp/ct-prereset-$tag.resumed"; }
   rm -f "$resume_at"
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
@@ -426,7 +429,8 @@ handle_failed_run() {
   tail -5 "/tmp/ct-prereset-$1.txt" 2>/dev/null | sed "s/^/  [$1] failed: /"
   # The API refusing the conversation itself is no lockout: forgotten, and not
   # a wave failure.
-  worker_flagged "$1" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" "/tmp/ct-prereset-$1.txt" && return 1
+  worker_flagged "$1" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" "/tmp/ct-prereset-$1.txt" \
+    "$([ -e "/tmp/ct-prereset-$1.resumed" ] && echo 1)" && return 1
   worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" || true
 }
 

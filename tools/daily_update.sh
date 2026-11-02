@@ -896,7 +896,7 @@ unit_annotate() {  # id [solve]
         record_annotate_failure "$num" "$stop_reason"
         # What it finished stays if it validates, for the closing commit and
         # tomorrow's run to build on; a half-written file is put back.
-        worker_flagged "$num" "$work_dir/$num.resume" "$sidfile" "$run_log" ||
+        worker_flagged "$num" "$work_dir/$num.resume" "$sidfile" "$run_log" "${ann_resume:+1}" ||
           worker_failed "$num" Annotate "$work_dir/$num.resume" "$sidfile" || true
         # Every dead puzzle is reported, not only a night that annotated none.
         # A run that got two and lost one is otherwise silent, and the first
