@@ -1784,9 +1784,6 @@ const sweptClues = new Map();  // puzzle id -> clues opened since its last reset
 const reopenForSweep = (id, clueId) => {
   const fresh = () => { registry["reset-puzzle"].onclick(); sweptClues.set(id, new Set()); };
   if (storage["ct:last"] !== id) {
-    // Settle the puzzle being left before it is: its timers would otherwise sit
-    // in the pending table for the whole sweep, across ~100 puzzles.
-    global.flushTimers(10000);
     if (!openFromPicker(id)) return;
     fresh();
   }
