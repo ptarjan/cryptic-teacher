@@ -88,7 +88,7 @@ def view_path(path):
     return TOOLS / f"_puzzle_{path.stem}.json"
 
 
-# A run that is cut off resumes within hours (the five-hour window); a copy
+# A run that is cut off resumes within hours; a copy
 # older than this is a crashed run's leftover, not the current run's contract.
 VIEW_MAX_AGE_S = 12 * 3600
 

@@ -6,13 +6,9 @@ The annotation step is the only expensive thing this repo does: three headless
 week is young and a waste of the account when it isn't — a crossword backlog is
 never worth being rate-limited for real work. daily_update.sh gates on this.
 
-Two windows matter, and they fail differently:
-
-  weekly  — the account's seven-day quota. Checked once, before the run: if the
-            week is already half gone, tonight's puzzles can wait for the reset.
-  session — the rolling five-hour window. This one is spent BY THIS SCRIPT, so
-            it has to be re-read between puzzles. Checked once at the start it
-            is always near zero and always says yes.
+The one window that matters is the account's seven-day quota. Checked before
+the run: if the week is already half gone, tonight's puzzles can wait for the
+reset.
 
 Where the numbers come from: the same place the CLI's /usage screen gets them,
 `GET /api/oauth/usage` with the subscription's OAuth access token. The token
@@ -53,7 +49,6 @@ hitting the overall one, so the max is the honest answer to "how close are we?".
 
 Usage:
   python3 tools/weekly_usage.py                    # weekly, prints e.g. "68"
-  python3 tools/weekly_usage.py --group session    # the five-hour window
   python3 tools/weekly_usage.py --resets-in        # hours left, e.g. "116.9"
   python3 tools/weekly_usage.py --gate 50          # "spend" / "skip" / "unknown"
                                        # exits 2, printing why, if it can't tell
@@ -74,13 +69,13 @@ import urllib.request
 
 USAGE_URL = "https://api.anthropic.com/api/oauth/usage"
 # The old shape's field name, per group, for when `limits` isn't in the payload.
-LEGACY_FIELD = {"weekly": "seven_day", "session": "five_hour"}
-# How long each window lasts. Not a fitted constant standing in for a queryable
-# fact — it is the window's definition, and the API's own field names say it
-# ("seven_day", "five_hour"). Used only to roll a reset stamp forward when the
+LEGACY_FIELD = {"weekly": "seven_day"}
+# How long the window lasts. Not a fitted constant standing in for a queryable
+# fact — it is the window's definition, and the API's own field name says it
+# ("seven_day"). Used only to roll a reset stamp forward when the
 # API has turned the window over without re-stamping it, and only ever to
 # conclude "not now"; see resets_in_hours().
-WINDOW_LENGTH_HOURS = {"weekly": 7 * 24.0, "session": 5.0}
+WINDOW_LENGTH_HOURS = {"weekly": 7 * 24.0}
 CACHE_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     ".usage_cache.json")
@@ -365,9 +360,8 @@ def _sampled_payload():
         except ValueError:
             pass
         data[parts[1]] = window
-    # The five-hour window was dropped on 2026-10-31, so the sampler writes only
-    # seven_day rows: a fresh weekly row IS the live reading. A group with no
-    # fresh row is simply absent and its read raises, as for any missing window.
+    # The sampler writes only seven_day rows: a fresh weekly row IS the live
+    # reading.
     return data if "seven_day" in data else None
 
 
@@ -897,10 +891,6 @@ def sampler_self_test():
             pct, age, until = sampled
             SAMPLE_CSV_PATH = os.path.join(tmp, f"usage-{i}.csv")
             with open(SAMPLE_CSV_PATH, "w") as fh:
-                # A five-hour row first, so the kind column has to be honoured
-                # rather than the last line taken on trust.
-                fh.write(f"{int((now - age).timestamp())},five_hour,99.0,"
-                         f"{int((now + until).timestamp())}\n")
                 fh.write(f"{int((now - age).timestamp())},seven_day,{pct},"
                          f"{int((now + until).timestamp())}\n")
             if cached:

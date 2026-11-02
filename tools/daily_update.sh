@@ -52,9 +52,8 @@
 #                      ANNOTATE_MAX (default 3) a day bounds only the rest:
 #                      answerless puzzles plus the older backlog.
 #                      All of it only while the account's weekly usage window is
-#                      under ANNOTATE_MAX_WEEKLY_PCT (default 90) and its
-#                      five-hour window under ANNOTATE_MAX_SESSION_PCT (default
-#                      90), read at every tick and again as each unit starts.
+#                      under ANNOTATE_MAX_WEEKLY_PCT (default 90), read at
+#                      every tick and again as each unit starts.
 #                      An annotation that fails the way that says nothing about
 #                      the puzzle (the CLI's own failure) holds every
 #                      annotation back ANNOTATE_PAUSE; one the wall-clock cap
@@ -203,7 +202,6 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Explicit, because the CLI default differs per model (medium on Opus 5.5,
 # high elsewhere) and would change silently when the alias moves.
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
-ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-90}"
 # Turns are the wrong unit to bound a run by, because one turn is not one price.
 # A turn cut off for overrunning the output ceiling emits no tool call, so the
 # CLI keeps its --max-turns budget intact and simply tries again; the ceiling is
@@ -686,22 +684,17 @@ unit_minute() {
 # the same failure.
 SOLVE_MISS_MAX_MINUTES="${SOLVE_MISS_MAX_MINUTES:-30}"
 unit_miss() {  # pid eid
-  local miss_pid="$1" miss_eid="$2" miss_cap misslog session miss_rc miss_verdict miss_why
+  local miss_pid="$1" miss_eid="$2" miss_cap misslog miss_rc miss_verdict miss_why
   command -v claude >/dev/null 2>&1 || { echo "miss diagnosis: no claude CLI on PATH ($PATH)"; return 1; }
   miss_cap="timeout ${SOLVE_MISS_MAX_MINUTES}m"
   command -v timeout >/dev/null 2>&1 || miss_cap=""
   misslog="$(mktemp "${TMPDIR:-/tmp}/cryptic-miss.XXXXXX")"
-  session=$(python3 tools/weekly_usage.py --group session)
-  if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
-    echo "miss diagnosis: five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — waits for the reset"
-    return 75
-  fi
   if [ "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT" 2>/dev/null)" != spend ]; then
     echo "miss diagnosis: weekly window not under ${ANNOTATE_MAX_WEEKLY_PCT}% — waits for the reset"
     return 75
   fi
 
-  echo "diagnosing the graded miss $miss_pid $miss_eid with Claude Code... (session ${session:-unknown}%)"
+  echo "diagnosing the graded miss $miss_pid $miss_eid with Claude Code..."
   local miss_task miss_sid sess=()
   miss_task="Follow tools/solve_miss_prompt.md exactly (it is your system prompt's appendix; do not open the file). This is the miss it is about:
 
@@ -738,13 +731,10 @@ $(python3 tools/solve_misses.py packet "$miss_pid" "$miss_eid" 2>&1)"
 # else in this script runs a solve, because a grid solved and not hinted is
 # spend the site never shows. Exit 0 when the puzzle is done or written off
 # (failed_inputs.py holds it out of the queue), 1 when the CLI itself failed
-# (daily_units.py then holds every annotation back), 75 when the five-hour
-# window stopped it before it began.
+# (daily_units.py then holds every annotation back).
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
-# Set when the stop is the five-hour gate: a budget decision, never an alert.
-stop_budget=""
 # Set when a dead puzzle has already been reported WITH its post-mortem, so the
 # summary below does not say the same failure again as a headline.
 stop_alerted=""
@@ -776,12 +766,6 @@ unit_annotate() {  # id [solve]
       echo "  no timeout(1) here, so this run has no wall-clock cap"
     fi
     for num in $pending; do
-      session=$(python3 tools/weekly_usage.py --group session)
-      if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
-        stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — $num waits for the reset"
-        stop_budget=1
-        break
-      fi
       # The conversation's record, where a unit killed mid-run (its time limit,
       # a restart) leaves it for the next unit given this puzzle, in whichever
       # tree: that one resumes it (worker_put_back), its edits put back.
@@ -799,9 +783,9 @@ unit_annotate() {  # id [solve]
           fill="${sidfile%.sid}.fill" verdict="$work_dir/$num.verdict"
           [ -s "$sidfile" ] || ! worker_implausible "$num" || continue
           ann_file="tools/_puzzle_$num.json"
-          echo "solving puzzle $num cold and annotating it with Claude Code... (session ${session:-unknown}%)" ;;
+          echo "solving puzzle $num cold and annotating it with Claude Code..." ;;
         *)
-          echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
+          echo "annotating puzzle $num with Claude Code..."
           # The run reads a copy of the puzzle without its solutions detail, which
           # names the blog the key came from (see annotate_check.py VIEW_KEYS).
           # A crashed view leaves the run nothing to read, and the crash is in the
@@ -838,7 +822,7 @@ unit_annotate() {  # id [solve]
         # reason off the CLI's last line and a killed CLI never printed one.
         # This puzzle is lost; the night is not. The cap firing says the model
         # is stuck on THIS grid — it says nothing about the next one, and the
-        # loop re-reads the five-hour window at the top of every iteration, so
+        # loop is gated at the top of every tick, so
         # carrying on cannot outspend the gate. Stopping the run here would take
         # every puzzle after this one, untried, down with it.
         if [ "$ann_rc" = 124 ]; then
@@ -926,7 +910,6 @@ unit_annotate() {  # id [solve]
     stop_reason="claude CLI not on PATH ($PATH)"
   fi
   if [ -n "$stop_reason" ]; then
-    [ -n "$stop_budget" ] && { echo "$stop_reason"; return 75; }
     # Already sent with the transcript's own post-mortem, or said here.
     [ -n "$stop_alerted" ] ||
       alert "annotating $pending stopped — $stop_reason. If that mentions authentication the CLI needs a fresh /login; see the CLAUDE_CONFIG_DIR note in daily_update.sh. Annotation waits ANNOTATE_PAUSE (tools/daily_units.py) before the next. Full output: .update.log."
@@ -952,20 +935,17 @@ unit_annotate() {  # id [solve]
 # saying "solvers reported bad hints" over a wrangler stack trace sends whoever
 # answers it hunting for a clue to fix that nobody reported.
 unit_reports() {
-  local bad_hints attempted session fixlog fix_task fix_sid sess=()
+  local bad_hints attempted fixlog fix_task fix_sid sess=()
   if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
     case "$bad_hints" in
       "no bad-hint reports"*|"") ;;
       *)
         attempted=0
-        session=$(python3 tools/weekly_usage.py --group session)
         if ! command -v claude >/dev/null 2>&1; then
           echo "bad-hint queue: no claude CLI, so the reports only get an alert"
-        elif [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
-          echo "bad-hint queue: five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — the fix pass waits for the reset"
         else
           fixlog="${TMPDIR:-/tmp}/cryptic-reports.log"
-          echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
+          echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code..."
           fix_task="Follow tools/report_fix_prompt.md exactly (it is your system prompt's appendix; do not open the file). These are the reports it is about:
 
 $bad_hints"
@@ -1510,24 +1490,12 @@ if [ -n "$fresh$pending$unsolved" ]; then
   rm -f "$gate_why"
 fi
 
-# The five-hour window is the one the annotation units spend, so it is read at
-# every tick and again as each unit starts: a full window starts no model run,
-# and the units wait for its reset rather than die on "you've hit your limit".
-if [ -n "$fresh$pending$unsolved" ]; then
-  session=$(python3 tools/weekly_usage.py --group session)
-  if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
-    echo "five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — no model run starts until it resets"
-    fresh="" pending="" unsolved=""
-  fi
-fi
-# Graded misses waiting for a diagnosis (unit_miss), under the same gates: the
+# Graded misses waiting for a diagnosis (unit_miss), under the same gate: the
 # payload is the gate, so a quiet day costs nothing.
 misses=$(python3 tools/solve_misses.py pending)
 if [ -n "$misses" ]; then
-  session=$(python3 tools/weekly_usage.py --group session)
-  if [ "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT" 2>/dev/null)" != spend ] ||
-     { [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; }; then
-    echo "graded misses wait for the usage gates: $(printf '%s' "$misses" | tr '\n' ' ')"
+  if [ "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT" 2>/dev/null)" != spend ]; then
+    echo "graded misses wait for the usage gate: $(printf '%s' "$misses" | tr '\n' ' ')"
     misses=""
   fi
 fi

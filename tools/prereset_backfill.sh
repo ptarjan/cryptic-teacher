@@ -6,15 +6,11 @@
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
 # gate. It keeps as many runs in flight as spends the paced meter evenly to EXHAUSTED a margin before
-# its reset (tools/prereset_plan.py --width): the weekly one
-# (the five-hour window was dropped 2026-10-31). That holds from
+# its reset (tools/prereset_plan.py --width): the weekly one. That holds from
 # the moment it starts until the week resets: a rolling pool, where a finished
 # run's slot is refilled at once.
 #
 # The only stops are the meters and the reset itself:
-#   - the FIVE-hour limit: saturate it and nothing more can be bought until it
-#     turns over, so a lockout is waited out and the pool picks up where it
-#     stopped;
 #   - the weekly meter at EXHAUSTED: the run stops (Paul resets it);
 #   - the weekly reset: the run stops five minutes short of it rather than spend
 #     the next week's quota, and the next hourly fire starts the new week.
@@ -40,9 +36,8 @@
 #      when the next rule lands.
 #
 # A failed run is read off the meters, never off the CLI's words: past
-# EXHAUSTED weekly the job stops, past LOCKOUT_PCT five-hour it waits for the
-# window to turn over, and below both the run failed for reasons of its own,
-# so that puzzle is dropped and the queue carries on. See after_wave.
+# EXHAUSTED weekly the job stops, and below it the run failed for reasons of
+# its own, so that puzzle is dropped and the queue carries on. See after_wave.
 #
 # Install: household-plugins/cryptic-prereset/plugin.toml, every five minutes,
 # and that is the only schedule this job has; a fire that finds a run going is
@@ -151,7 +146,7 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
 WORKER_JOB="pre-reset backfill"
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
-# what spends the paced meter (weekly, or five-hour) to EXHAUSTED by its reset,
+# what spends the paced meter (weekly) to EXHAUSTED by its reset,
 # capped by free memory and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
 # width the current one stands. At 0 (the bridge alone will spend what the
 # week has left, or the machine has no room) nothing new starts, and once the
@@ -165,8 +160,7 @@ wave_width() {
   w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-})
   case "$w" in ''|*[!0-9]*) echo "${wide:-14}" ;; *) echo "$w" ;; esac
 }
-# Above this the weekly window really is gone and a failing run means it. Below
-# it, a failure is the FIVE-hour window instead, which clears by itself. The
+# Above this the weekly window really is gone and a failing run means it. The
 # meter sits at 99 when the week is spent, which is also what the reset ping
 # fires on, so the burn spends right up to it.
 #
@@ -175,9 +169,6 @@ wave_width() {
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 export EXHAUSTED="${EXHAUSTED:-99}"
-# Below this on the five-hour meter a failed run was not locked out: the window
-# had room, so waiting for it to turn over buys nothing.
-LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
 # DRY_RUN=1 walks the whole job — queue order, the pool, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
 # ungated inference in parallel and cannot be rehearsed any other way.
@@ -320,46 +311,11 @@ fi
 past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ] || [ -e "$PRERESET_PAUSE" ]
 }
-# One nap per five-hour window left in the week is the plan, not a failure, so
-# the allowance is that count with slack. It only bounds runs failing fast for
-# some reason other than a lockout; each nap is capped at the deadline anyway.
-[ -n "$REEXEC_STATE" ] || MAX_NAPS=$(awk -v h="$resets_in" 'BEGIN{printf "%d", h / 5 + 3}')
-
-# Minutes until the five-hour window turns over. Empty when it cannot be read.
-session_left_min() {
-  python3 tools/weekly_usage.py --group session --resets-in 2>/dev/null \
-    | awk 'NF{printf "%d", $1 * 60}'
-}
-
-# Put the puzzles a lockout cut off back at the front of what is left to do.
-# Without this the queue index walks straight past them: the job served the whole
-# nap, came back to a window that would have run them, and spent it on the NEXT
-# puzzles instead while the ones it had already half-paid for sat out the night.
-#
-# Once each. A puzzle failing for its own reasons — a clue the model cannot solve
-# — must not be able to hold the queue open, and MAX_NAPS bounds the rest.
 # WAVE_FAILED_IDS is the runs that failed since the last pool checkpoint;
 # WAVE_WHAT the commit message prefix of the pool running now.
 WAVE_FAILED_IDS=()
 WAVE_WHAT=""
-NAPPED=0
 requeued=" "
-requeue_failed() {
-  local id back=()
-  [ "$NAPPED" = 1 ] || return 0
-  for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
-    case "$requeued" in *" $id "*) continue ;; esac
-    requeued="$requeued$id "
-    back+=("$id")
-  done
-  [ ${#back[@]} -eq 0 ] && return 0
-  echo "  requeuing ${back[*]} — the window that refused them has turned over"
-  # queue[0..at) stays: the checkpoint's backlog re-read reads an index built
-  # at start, which still lists what this run annotated, and appends any id
-  # the queue no longer holds.
-  queue=("${queue[@]:0:$at}" "${back[@]}" "${queue[@]:$at}")
-}
-
 # Put the queued ids whose runs a restart stopped (a record left in $RUNS) at
 # the front of queue[at..], and keep them there through the re-plan: their
 # conversations are already paid for.
@@ -469,7 +425,7 @@ on_fix_run() { pool_mark; POOL_FIXING="$1"; }
 handle_failed_run() {
   tail -5 "/tmp/ct-prereset-$1.txt" 2>/dev/null | sed "s/^/  [$1] failed: /"
   # The API refusing the conversation itself is no lockout: forgotten, and not
-  # a wave failure that a nap would requeue to resume it.
+  # a wave failure.
   worker_flagged "$1" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" "/tmp/ct-prereset-$1.txt" && return 1
   worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" || true
 }
@@ -838,23 +794,15 @@ pool_kill_tree() {
 }
 # While a re-plan runs: free slots filled up to the width already in force.
 # Not at the first plan (no width yet), past the deadline, or once a run failed
-# this interval while the five-hour meter is at LOCKOUT_PCT or unread: that may
-# be a lockout for the checkpoint after the plan. A failure with the window
-# below it is the puzzle's own (after_wave's test), so the pool goes on. It used
+# this interval while the weekly meter is at EXHAUSTED: after_wave stops the
+# run then. A failure below it is the puzzle's own, so the pool goes on. It used
 # to stop at any failure, and a re-plan lasts up to POOL_PLAN_SECS: 10-15 the
 # pool sank from 7 runs to 2 through one, at a planned width of 6-8.
-POOL_TOPUP_READ=""   # how many failures the meter was last read for
-POOL_TOPUP_ROOM=0    # 1 when that read was below LOCKOUT_PCT
 pool_topup_room() {
-  local s
+  local w
   [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] && return 0
-  if [ "$POOL_TOPUP_READ" != "${#WAVE_FAILED_IDS[@]}" ]; then
-    POOL_TOPUP_READ=${#WAVE_FAILED_IDS[@]}
-    POOL_TOPUP_ROOM=0
-    s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) &&
-      awk -v s="$s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s != "" && s < l)}' && POOL_TOPUP_ROOM=1
-  fi
-  [ "$POOL_TOPUP_ROOM" = 1 ]
+  w=$(python3 tools/weekly_usage.py 2>/dev/null) || return 1
+  awk -v n="$w" -v e="$EXHAUSTED" 'BEGIN{exit !(n != "" && n < e)}'
 }
 POOL_HOLD=0          # 1 while the pool drains or stops: nothing new starts
 pool_topup() {
@@ -883,7 +831,6 @@ pool_finished() {
 # shrinks as annotations land.
 pool_interval_start() {
   WAVE_FAILED_IDS=()
-  POOL_TOPUP_READ=""
   POOL_DONE=0
   # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
@@ -900,10 +847,9 @@ pool_interval_start() {
     pool_replan
     POOL_PLANNED=1
   fi
-  # Read after the re-plan, which can take longer than a five-hour window has
+  # Read after the re-plan, which can take longer than a window has
   # left on a loaded machine: the width launched is the one for now.
   POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
-  POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   wide=$(wave_width)
   pool_mark
   POOL_RUN_US=0
@@ -911,8 +857,8 @@ pool_interval_start() {
   echo "--- pool of $wide: ${#POOL_RUNS[@]} in flight ($(pool_live) running), $(( ${#queue[@]} - at )) queued${queue[$at]:+, next ${queue[*]:$at:3}} ---"
 }
 
-# End the interval: after_wave logs the meters and decides on its failures,
-# requeue_failed puts back what a lockout cut off, and the next interval starts.
+# End the interval: after_wave logs the meter and decides on its failures, and
+# the next interval starts.
 # Returns non-zero when the caller should stop.
 pool_checkpoint() {
   local elapsed hours avg
@@ -920,9 +866,8 @@ pool_checkpoint() {
   elapsed=$(( POOL_MARK_US - POOL_STARTED_US ))
   hours=$(awk -v e="$elapsed" 'BEGIN{printf "%.3f", e / 3.6e9}')
   avg=$(awk -v r="$POOL_RUN_US" -v e="$elapsed" 'BEGIN{printf "%.2f", (e > 0 ? r / e : 0)}')
-  after_wave "$POOL_BEFORE" "$hours" "$avg" "${#WAVE_FAILED_IDS[@]}" "$POOL_BEFORE_S" "$wide" ||
+  after_wave "$POOL_BEFORE" "$hours" "$avg" "${#WAVE_FAILED_IDS[@]}" "$wide" ||
     return 1
-  requeue_failed
   worker_sweep_scratch
   POOL_SPAN_RUNS=$avg
   pool_interval_start
@@ -996,7 +941,7 @@ run_pool() {
         continue
       fi
       # Nothing in flight and nothing left to start: one last checkpoint for the
-      # runs since the previous one, which may requeue what a lockout cut off.
+      # runs since the previous one.
       [ "$stop" = 0 ] && [ "$POOL_DONE" -gt 0 ] || break
     fi
     pool_checkpoint || { stop=1; POOL_HOLD=1; }
@@ -1025,10 +970,10 @@ shell_sum() {
 }
 SHELL_SUM=$(shell_sum)
 # The state the main sequence and run_pool carry across the exec.
-REEXEC_VARS=(queue at requeued resumed naps NAPPED WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
+REEXEC_VARS=(queue at requeued resumed WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
   POOL_REORDER POOL_PLANNED POOL_RUNS POOL_SOLVING POOL_RUN_US POOL_MARK_US POOL_STARTED_US
-  POOL_SYNCED_US SYNC_OK_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE POOL_BEFORE_S wide
-  resets_in RESET_AT STOP_AT MAX_NAPS POOL_PHASE fields field_i burn_stopped)
+  POOL_SYNCED_US SYNC_OK_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE wide
+  resets_in RESET_AT STOP_AT POOL_PHASE fields field_i burn_stopped)
 reexec_self() {
   local state="$RUN_LOG.state" err
   # New code that does not parse would kill the burn with its runs in flight.
@@ -1343,88 +1288,44 @@ sync_wave() {
 # Record where a pool interval left the meters, and decide whether to go on.
 #   $1 weekly percent at its start  $2 hours it took
 #   $3 runs in flight on average over it, measured
-#   $4 how many runs failed in it  $5 five-hour percent at its start
-#   $6 the pool's width at its end
+#   $4 how many runs failed in it  $5 the pool's width at its end
 # Returns non-zero when the caller should stop.
 #
-# The meter line is what tools/prereset_plan.py per_run_rate reads: five-hour
-# points over hours times the average in flight is points per run-hour.
+# The meter line is what tools/prereset_plan.py per_run_rate reads.
 after_wave() {
-  local before="$1" hours="$2" avg="$3" failed="$4" before_s="$5" pool="$6" now now_s s_now s_read=1
-  NAPPED=0
+  local before="$1" hours="$2" avg="$3" failed="$4" pool="$5" now
   publish_shared_data
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
-  now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) || { now_s="$before_s"; s_read=0; }
-  echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${avg} (pool of ${pool})"
+  echo "  weekly ${before}% -> ${now}% in ${hours}h at width ${avg} (pool of ${pool})"
   # Where the weekly meter stood, and when it turns over. The meter reads 0% the
   # instant it does, so a week that landed at 100% and one that landed at 54%
   # look identical the morning after; the landing report above reads this back
   # on the first fire after the reset and says the number out loud.
   echo "$now $RESET_AT" > "$LANDING_FILE"
   [ "${failed:-1}" -eq 0 ] && return 0
-  # A failed run with room still on the weekly clock is the FIVE-hour limit
-  # only when that meter says so, and that clears by itself. Only the seven-day
-  # number gets to end the run. awk -v, never string interpolation: an empty
+  # Only the seven-day number gets to end the run. awk -v, never string interpolation: an empty
   # reading spliced into the program is a syntax error, not a missing number.
   if awk -v n="$now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
     echo "  weekly window is spent (${now}%) — stopping"
     return 1
   fi
-  # With the five-hour meter read and below LOCKOUT_PCT the window had room, so
-  # no nap clears whatever failed these runs. An unread meter counts as locked:
-  # a nap wasted is an hour, a lockout read as a bad puzzle loses the puzzle.
-  if [ "$s_read" = 1 ] && awk -v s="$now_s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
-    drop_failed "$now_s"
-    return 0
-  fi
-  naps=$((naps + 1))
-  if [ "$naps" -gt "$MAX_NAPS" ]; then
-    echo "  $naps waits already and runs still fail — stopping rather than looping"
-    return 1
-  fi
-  # Sleep until the five-hour window actually turns over, asked rather than
-  # guessed: a nap shorter than the lockout spends a nap on runs that were
-  # always going to fail. The runs still in flight finish first (into the
-  # lockout, so they mostly fail and are requeued with the rest), because a nap
-  # with runs going would leave them unreaped.
-  pool_drain
-  # Draining can outlast the lockout: runs that started before the window
-  # turned over finish after it, and the reset then asked for is the NEXT
-  # window's, a nap of nearly five hours on a meter that is already empty
-  # (10-11: drained 12:5x-13:19 past a 1pm reset, then slept until 18:03).
-  # So read the meter again; a window with room needs no nap, only the
-  # requeue a nap would have bought.
-  if s_now=$(python3 tools/weekly_usage.py --group session 2>/dev/null) &&
-     awk -v s="$s_now" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s < l)}'; then
-    echo "  five-hour window turned over while runs drained (${s_now}%) — no nap"
-    NAPPED=1
-    return 0
-  fi
-  local nap room left_min
-  left_min=$(session_left_min)
-  nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
-  room=$(( STOP_AT - $(date +%s) - 60 ))
-  [ "$nap" -gt "$room" ] && nap="$room"
-  if [ "$nap" -le 0 ]; then return 1; fi
-  echo "  runs failed at ${now}% weekly — five-hour limit; waiting ${nap}s (nap $naps)"
-  NAPPED=1
-  sleep "$nap"
+  # Room on the weekly clock: the failure was the puzzle's own.
+  drop_failed
   return 0
 }
 
 # Drop the puzzles that failed for reasons of their own. Resuming their
 # conversations only replays the failure, so the session, the resume note and
-# the half-done edit all go; the queue has already walked past them and
-# requeue_failed only runs after a nap, so this run does not come back to them.
+# the half-done edit all go; the queue has already walked past them, so this run does not come
+# back to them.
 # A new annotation is also entered in tools/failed_inputs.py, which keeps it
 # out of later runs until its inputs change — and which refuses the entry
 # itself when the run's last words were a limit or the network.
-#   $1 the five-hour meter the failure was read at
 drop_failed() {
   local id out rc m ids
   for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
     ids=$(worker_bag_ids "$RUNS/$id.sid")
-    echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
+    echo "  [$id] failed with the weekly meter below ${EXHAUSTED}% — dropped for this run"
     rm -f "/tmp/ct-prereset-$id.resume"
     if [ "$DRY_RUN" != 1 ] && [ "$WAVE_WHAT" = Annotate ]; then
       # A failure that was ours or the network's (a crash, an API 5xx, a login
@@ -1524,7 +1425,6 @@ echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 todo=$(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked")
-naps=0
 queue=($todo)
 at=0
 fi
