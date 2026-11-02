@@ -30,15 +30,51 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "fifteensquared",
-  "url": "https://fifteensquared.net/2008/10/12/azed-1897-competition-puzzle/",
-  "date": "2008-10-12",
-  "check": "35 of 36 entries, 88 crossings, 0 conflicts; answers matched to the grid by number, direction and length",
-  "partial": [
-   "18-across"
-  ]
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-11-01",
+  "check": "36 entries, 94 crossings, 0 conflicts, agrees with the 35 answers the paper printed",
+  "printed": {
+   "1-across": "WEYARD",
+   "1-down": "WASHOUT",
+   "2-down": "EFLORNITHINE",
+   "3-down": "YOICKS",
+   "4-down": "ROOSA",
+   "5-down": "DEVALL",
+   "6-down": "EDIBLE",
+   "7-across": "FAVOR",
+   "8-down": "AMIANTUS",
+   "9-down": "VOLTE",
+   "10-down": "ORDEROFMERIT",
+   "11-down": "REALO",
+   "12-across": "OBOEDAMORE",
+   "13-across": "SLIVOVIC",
+   "14-across": "HOCUS",
+   "15-across": "BOATEL",
+   "16-down": "POTAUFEU",
+   "17-across": "LLANERO",
+   "19-across": "TROW",
+   "20-down": "WEASELS",
+   "21-across": "TIFT",
+   "22-across": "TARTUFFE",
+   "23-down": "AGEOLD",
+   "24-down": "RETREE",
+   "25-down": "FURIES",
+   "26-across": "STRANGE",
+   "26-down": "SCRIM",
+   "27-down": "RASTA",
+   "28-down": "UNTAX",
+   "29-across": "CHAUFE",
+   "30-across": "NARES",
+   "31-across": "PORTFIRE",
+   "32-across": "INTERLEAVE",
+   "33-across": "MEAUX",
+   "34-across": "EXISTS"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -52,7 +88,42 @@
     "text": "One of Macbeth's witches, I, and others, with three feet",
     "enumeration": "6"
    },
-   "solution": "WEYARD"
+   "solution": "WEYARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of Macbeth's witches",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I, and others",
+       "at": 26,
+       "gives": "WE",
+       "note": "I together with other people makes the plural pronoun we"
+      },
+      {
+       "words": "three feet",
+       "at": 46,
+       "gives": "YARD",
+       "note": "a yard is a length of three feet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about counting Macbeth's witches and measuring something three feet long.",
+     "walkthrough": "Shakespeare calls the witches the 'weyard sisters', an old spelling of weird.",
+     "definitionFit": "Shakespeare's folio calls the three witches the weyard sisters, so each is one weyard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 1,
@@ -66,7 +137,33 @@
     "text": "A complete failure",
     "enumeration": "7"
    },
-   "solution": "WASHOUT"
+   "solution": "WASHOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A complete failure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A complete failure",
+       "at": 0,
+       "note": "a total flop, like an event rained off by a downpour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plain verdict on something that went entirely wrong.",
+     "definitionFit": "A washout is a total flop, from an event ruined by rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -80,7 +177,59 @@
     "text": "Aid in combatting tsetses, rarefied in treatment of one flier",
     "enumeration": "12"
    },
-   "solution": "EFLORNITHINE"
+   "solution": "EFLORNITHINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aid in combatting tsetses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "in says the synonym for rarefied goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "treatment of",
+         "at": 39,
+         "note": "treatment of says the letters of one flier are processed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one flier",
+         "at": 52
+        }
+       ]
+      },
+      {
+       "words": "rarefied",
+       "at": 27,
+       "gives": "THIN",
+       "note": "rarefied air is thin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A treatment against tsetse flies, mixed thin, for one flier.",
+     "walkthrough": "'treatment of' rearranges ONE FLIER, and 'in' places THIN inside it.",
+     "definitionFit": "Eflornithine is a drug used against sleeping sickness, the disease spread by tsetse flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +243,63 @@
     "text": "In the pink you may come out with this, half your sick ailing",
     "enumeration": "6"
    },
-   "solution": "YOICKS"
+   "solution": "YOICKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In the pink you may come out with this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 40,
+         "note": "half means taking the first two of the four letters of your"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your",
+         "at": 45
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ailing",
+         "at": 55,
+         "note": "ailing says the letters of sick are in poor shape, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sick",
+         "at": 50
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Healthy people say it, but you are half sick and ailing.",
+     "walkthrough": "'In the pink' looks like good health, but hunting pink is the red coat of foxhunters, who shout this cry.",
+     "definitionFit": "Yoicks is a cry of foxhunters urging on hounds, shouted by riders in hunting pink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +313,49 @@
     "text": "Deer love tucking into blooms",
     "enumeration": "5"
    },
-   "solution": "ROOSA"
+   "solution": "ROOSA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 10,
+       "note": "tucking into says one piece is put inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blooms",
+       "at": 23,
+       "gives": "ROSA",
+       "note": "Rosa is the genus of roses, so it stands for blooms"
+      },
+      {
+       "words": "love",
+       "at": 5,
+       "gives": "O",
+       "note": "love is zero in tennis, written O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deer loves eating flowers.",
+     "walkthrough": "'tucking into' looks like eating, but it puts O inside ROSA.",
+     "definitionFit": "Roosa is a variant of rusa, a large South-East Asian deer such as the sambar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +369,44 @@
     "text": "W-washed up in very old sink",
     "enumeration": "6"
    },
-   "solution": "DEVALL"
+   "solution": "DEVALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very old sink",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 9,
+       "note": "up in a down clue says the letters are read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "W-washed",
+       "at": 0,
+       "gives": "LLAVED",
+       "note": "the stammered W-washed gives laved (washed) with its first letter stammered too, l-laved"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something old and dirty turns up in an ancient sink.",
+     "walkthrough": "The stammer carries over: 'W-washed' becomes L-LAVED, and 'up' reverses it. 'very old' marks the sense as obsolete; 'in' only links.",
+     "definitionFit": "Devall is an obsolete verb meaning to sink or descend, later Scots for to cease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +420,52 @@
     "text": "Bit of food I draw off cyclically",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bit of food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "cyclically",
+       "at": 23,
+       "note": "cyclically says letters are moved round from the end of the string to its start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 12
+        },
+        {
+         "words": "draw off",
+         "at": 14,
+         "gives": "BLEED",
+         "note": "to bleed is to draw off liquid, as blood or sap"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone taking a bit of food keeps refusing it in cycles.",
+     "walkthrough": "'cyclically' takes IBLEED and carries the final ED round to the front.",
+     "definitionFit": "An edible, usually plural, is a thing fit to eat, a foodstuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +479,60 @@
     "text": "See, in a couple of states, an old face that's not wholly American",
     "enumeration": "5"
    },
-   "solution": "FAVOR"
+   "solution": "FAVOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old face",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in says the next pieces sit inside the letters for the two states"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a couple of states",
+       "at": 8,
+       "gives": "FOR",
+       "note": "F is the international vehicle code for the state of France and OR the abbreviation for Oregon, so the pair is not wholly American"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "an",
+         "at": 28,
+         "gives": "A",
+         "note": "an gives the article A"
+        },
+        {
+         "words": "See",
+         "at": 0,
+         "gives": "V",
+         "note": "V stands for vide, Latin for see"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees, across two states, an old face that isn't quite American.",
+     "walkthrough": "'that's not wholly American' describes the pair of states: France is not American, Oregon is. The answer also takes the US spelling of an old British word.",
+     "definitionFit": "Favour once meant a face or appearance, as in ill-favoured; this is its American spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "states"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +546,41 @@
     "text": "Suit a man fashioned in stuff suitable for fire-fighting garb?",
     "enumeration": "8"
    },
-   "solution": "AMIANTUS"
+   "solution": "AMIANTUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stuff suitable for fire-fighting garb?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fashioned",
+       "at": 11,
+       "note": "fashioned says the letters of Suit a man are reshaped into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Suit a man",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor fashions a suit for a firefighter out of fireproof material.",
+     "walkthrough": "'Suit' and 'fashioned' look like tailoring, but they are fodder and signal; 'in' only links.",
+     "definitionFit": "Amiantus is a fine silky asbestos, fireproof and once woven into protective cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fashioned"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +594,58 @@
     "text": "Majority decision about waltz centrally — not what modern discos feature?",
     "enumeration": "5"
    },
-   "solution": "VOLTE"
+   "solution": "VOLTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not what modern discos feature?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about says the voting word goes round the middle letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Majority decision",
+       "at": 0,
+       "gives": "VOTE",
+       "note": "a vote decides by majority"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centrally",
+         "at": 30,
+         "note": "centrally means the middle letter of waltz"
+        }
+       ],
+       "parts": [
+        {
+         "words": "waltz",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vote on the waltz, the kind of dance you won't find at a modern disco.",
+     "definitionFit": "The volte, or lavolta, is an old leaping dance of the sixteenth century, hardly disco fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "waltz"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +658,40 @@
    "clue": {
     "text": "Honours list former editor scrapped (12, three words)"
    },
-   "solution": "ORDEROFMERIT"
+   "solution": "ORDEROFMERIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Honours list",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "scrapped",
+       "at": 27,
+       "note": "scrapped says the letters of former editor are broken up and remade"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former editor",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former editor has been dropped from the honours list.",
+     "definitionFit": "The Order of Merit is a British order, its membership a short list honouring distinguished people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrapped"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +705,41 @@
     "text": "No fundamentalist in German politics displaying true love",
     "enumeration": "5"
    },
-   "solution": "REALO"
+   "solution": "REALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No fundamentalist in German politics",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "true",
+       "at": 48,
+       "gives": "REAL",
+       "note": "true means real or genuine"
+      },
+      {
+       "words": "love",
+       "at": 53,
+       "gives": "O",
+       "note": "love is zero in tennis, written O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German politician shows true love rather than ideology.",
+     "definitionFit": "In the German Greens, Realos were pragmatists, opposed to the radical Fundis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "displaying"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +752,70 @@
    "clue": {
     "text": "Instrument a Romeo played (and British dictionary included)? (10, three words, apostrophe)"
    },
-   "solution": "OBOEDAMORE"
+   "solution": "OBOEDAMORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "included",
+       "at": 50,
+       "note": "included says the next pieces are put inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "at": 19,
+         "note": "played suggests performing on it, but here it says the letters of a Romeo are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a Romeo",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "British",
+         "at": 31,
+         "gives": "B"
+        },
+        {
+         "words": "dictionary",
+         "at": 39,
+         "gives": "OED",
+         "note": "OED is the Oxford English Dictionary"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "OBOE D'AMORE",
+    "explanation": {
+     "surface": "A lover serenades on some instrument, with a British reference book tucked in.",
+     "walkthrough": "'a Romeo' looks like a lover playing; 'played' rearranges its letters and 'included' slips the British dictionary in after the first O.",
+     "definitionFit": "The oboe d'amore is a mezzo-soprano member of the oboe family, used by Bach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +829,65 @@
     "text": "Brandy: special one bottled in Lemberg, I see",
     "enumeration": "8"
    },
-   "solution": "SLIVOVIC"
+   "solution": "SLIVOVIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brandy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "special",
+       "at": 8,
+       "gives": "S"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bottled in",
+         "at": 20,
+         "note": "bottled in says one piece is held inside another, like drink in a bottle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lemberg",
+         "at": 31,
+         "gives": "LVOV",
+         "note": "Lemberg is the German name of the city also called Lvov (Lviv)"
+        },
+        {
+         "words": "one",
+         "at": 16,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "words": "I see",
+       "at": 40,
+       "gives": "IC",
+       "note": "I see is read as the letters I and C, sounded like see"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Lemberg notes a special brandy that has been bottled there.",
+     "walkthrough": "Lemberg, Lvov and Lviv are the same city, now in Ukraine.",
+     "definitionFit": "Slivovic, or slivovitz, is a plum brandy from central and eastern Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +901,64 @@
     "text": "Drug: hospital having none Tom discarded habit",
     "enumeration": "5"
    },
-   "solution": "HOCUS"
+   "solution": "HOCUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hospital",
+       "at": 6,
+       "gives": "H"
+      },
+      {
+       "words": "none",
+       "at": 22,
+       "gives": "O",
+       "note": "O, the figure nought, stands for none"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "discarded",
+         "at": 31,
+         "note": "discarded says the word Tom is thrown away from the synonym of habit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "habit",
+         "at": 41,
+         "gives": "CUSTOM",
+         "note": "a habit is a custom"
+        },
+        {
+         "words": "Tom",
+         "at": 27,
+         "gives": "TOM",
+         "note": "Tom is taken as written, the letters to remove"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital patient, Tom, has kicked a drug habit and has none left.",
+     "definitionFit": "To hocus is an old verb meaning to stupefy someone with drugs, especially to dope a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +972,42 @@
     "text": "It offers rooms afloat you need to bale out?",
     "enumeration": "6"
    },
-   "solution": "BOATEL"
+   "solution": "BOATEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It offers rooms afloat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 40,
+       "note": "out says the letters of to bale are thrown into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to bale",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A floating hotel is like a leaky boat you have to bale out.",
+     "walkthrough": "'bale out' suggests bailing water from a leaky craft; 'out' in fact rearranges TO BALE.",
+     "definitionFit": "A boatel is a waterside hotel, or a moored ship serving as a hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bale"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1021,56 @@
     "text": "Stew disposed of (eat up) that all may see",
     "enumeration": "8"
    },
-   "solution": "POTAUFEU"
+   "solution": "POTAUFEU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stew",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disposed",
+         "at": 5,
+         "note": "disposed says the letters of of and eat up are arranged afresh"
+        }
+       ],
+       "parts": [
+        {
+         "words": "of",
+         "at": 14
+        },
+        {
+         "words": "eat up",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "that all may see",
+       "at": 26,
+       "gives": "U",
+       "note": "U is the British film certificate for films suitable for everyone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stew has been finished off, eaten up for all to see.",
+     "walkthrough": "'disposed of' reads as one phrase, but 'of' is part of the fodder with EAT UP. U, universal, is the film rating for all audiences.",
+     "definitionFit": "Pot-au-feu is a French dish of boiled beef and vegetables, a hearty stew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disposed"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1084,53 @@
     "text": "Plainsman turned quite black in Italy",
     "enumeration": "7"
    },
-   "solution": "LLANERO"
+   "solution": "LLANERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plainsman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 10,
+         "note": "turned says the synonym for quite is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "quite",
+         "at": 17,
+         "gives": "ALL",
+         "note": "all can mean quite or entirely, as in all alone"
+        }
+       ]
+      },
+      {
+       "words": "black in Italy",
+       "at": 23,
+       "gives": "NERO",
+       "note": "nero is the Italian word for black"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man of the plains became quite dark from the sun in Italy.",
+     "definitionFit": "A llanero is a cowboy or inhabitant of the llanos, the grassy plains of South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,6 +1143,42 @@
    "clue": {
     "text": "Clean one's getting drunk",
     "enumeration": "8"
+   },
+   "solution": "UNSOILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one's",
+       "at": 6,
+       "gives": "UNS",
+       "note": "'un is a colloquial form of one, as in a good 'un, and the 's adds an S"
+      },
+      {
+       "words": "drunk",
+       "at": 20,
+       "gives": "OILED",
+       "note": "oiled is slang for drunk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sobered up and cleaned themselves while their friend was getting drunk.",
+     "walkthrough": "'getting' only links the pieces.",
+     "definitionFit": "Something unsoiled has no dirt or stain on it, so it is spotless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clean"
+    }
    }
   },
   {
@@ -315,7 +1193,40 @@
     "text": "Small barge hit rower amidships",
     "enumeration": "4"
    },
-   "solution": "TROW"
+   "solution": "TROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Small barge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "amidships",
+       "at": 22,
+       "note": "amidships points to the middle of the words hit rower, where the answer is found"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hit rower",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small barge struck a rower halfway along its length.",
+     "definitionFit": "A trow is a flat-bottomed sailing barge once used on the River Severn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amidships"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1240,50 @@
     "text": "Amphibians needed when entering whirlpools",
     "enumeration": "7"
    },
-   "solution": "WEASELS"
+   "solution": "WEASELS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Amphibians",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 23,
+       "note": "entering says the word for when goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "whirlpools",
+       "at": 32,
+       "gives": "WEELS",
+       "note": "weel is a Scots word for a whirlpool"
+      },
+      {
+       "words": "when",
+       "at": 18,
+       "gives": "AS",
+       "note": "as can mean when, as in as he arrived"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frogs and newts are needed when whirlpools come in.",
+     "walkthrough": "'Amphibians' suggests frogs; here they are vehicles. 'needed' only links.",
+     "definitionFit": "A weasel is a tracked amphibious vehicle, so the plural describes machines that go on land and water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Amphibians"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1297,49 @@
     "text": "Dram of Scotch? Off such, concealing condition",
     "enumeration": "4"
    },
-   "solution": "TIFT"
+   "solution": "TIFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dram of Scotch?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 26,
+       "note": "concealing says the condition word is hidden within the letters for teetotal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Off such",
+       "at": 16,
+       "gives": "TT",
+       "note": "off such drams means teetotal, abbreviated TT"
+      },
+      {
+       "words": "condition",
+       "at": 37,
+       "gives": "IF",
+       "note": "if introduces a condition"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman refuses a dram of Scotch on some condition.",
+     "walkthrough": "'Off such' refers back to drams: someone off drink is TT, teetotal. The question mark marks a less common sense of tift.",
+     "definitionFit": "Tift is a Scots variant of tiff, a small draught or sip of liquor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Off"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1353,59 @@
     "text": "Rich chocolate sweet — type of rock — tear off wrapping",
     "enumeration": "8"
    },
-   "solution": "TARTUFFE"
+   "solution": "TARTUFFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rich chocolate sweet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wrapping",
+       "at": 47,
+       "note": "wrapping says the rearranged letters go round the rock"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 43,
+         "note": "off says the letters of tear are thrown into another order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tear",
+         "at": 38
+        }
+       ]
+      },
+      {
+       "words": "type of rock",
+       "at": 23,
+       "gives": "TUFF",
+       "note": "tuff is a rock formed from volcanic ash"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tears the wrapper off a rich chocolate sweet shaped like a rock.",
+     "walkthrough": "'tear off' reads as unwrapping; 'off' rearranges the four letters of tear, and 'wrapping' puts the rock inside them.",
+     "definitionFit": "A tartuffe here is a rich chocolate dessert, a variant of the Italian tartufo, shaped like a truffle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tear"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1419,67 @@
     "text": "Ancient bit of embossment in a precious metal",
     "enumeration": "6"
    },
-   "solution": "AGEOLD"
+   "solution": "AGEOLD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ancient",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 29
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 26,
+         "note": "in says the first letter goes inside the metal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "precious metal",
+         "at": 31,
+         "gives": "GOLD",
+         "note": "gold is a precious metal"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 8,
+           "note": "bit of means just the first letter of embossment"
+          }
+         ],
+         "parts": [
+          {
+           "words": "embossment",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient piece of embossed decoration made in a precious metal.",
+     "definitionFit": "Age-old means very long established, so of great antiquity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1493,49 @@
     "text": "French auxiliary in British regiment — substandard material",
     "enumeration": "6"
    },
-   "solution": "RETREE"
+   "solution": "RETREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "substandard material",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in says the French verb sits inside the regiment's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "British regiment",
+       "at": 20,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British Army corps"
+      },
+      {
+       "words": "French auxiliary",
+       "at": 0,
+       "gives": "ETRE",
+       "note": "etre, to be, is an auxiliary verb in French"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French helper serves in a British regiment, though issued with poor kit.",
+     "walkthrough": "'auxiliary' suggests a helper soldier, but it is a grammatical auxiliary verb.",
+     "definitionFit": "Retree is paper that is slightly damaged or imperfect, sold as seconds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "auxiliary"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1549,50 @@
     "text": "Group of formidable ladies that is dressed to annoy animal rights activists?",
     "enumeration": "6"
    },
-   "solution": "FURIES"
+   "solution": "FURIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group of formidable ladies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dressed",
+       "at": 35,
+       "note": "dressed says the abbreviation is clothed by the furs"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to annoy animal rights activists",
+       "at": 43,
+       "gives": "FURS",
+       "note": "wearing furs is a sure way to annoy animal rights campaigners"
+      },
+      {
+       "words": "that is",
+       "at": 27,
+       "gives": "IE",
+       "note": "ie, id est, means that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of fierce women, dressed to provoke animal rights protesters.",
+     "walkthrough": "'dressed' sounds like what the ladies wear; it says the furs are wrapped round 'that is', like a coat.",
+     "definitionFit": "The Furies were the avenging goddesses of Greek myth, and the word now means fierce, vengeful women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1606,69 @@
     "text": "Nag set out, snatching lead from Red Rum",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rum",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "snatching",
+       "at": 13,
+       "note": "snatching says the rearranged letters grab and hold the next letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 8,
+         "note": "out says the letters of Nag set are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nag set",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "lead from",
+         "at": 23,
+         "note": "lead from means the first letter of Red"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Red",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing tale: a horse set off and snatched the lead from the famous Red Rum.",
+     "walkthrough": "Red Rum was a famous British racehorse, three-times Grand National winner; 'Rum' is in fact the definition. The anagram of NAG SET holds R.",
+     "definitionFit": "Rum is British slang for odd or peculiar, a synonym of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rum"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1682,46 @@
     "text": "With this aunty might redo my curtains",
     "enumeration": "5"
    },
-   "solution": "SCRIM"
+   "solution": "SCRIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "With this aunty might redo my curtains",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "might redo",
+       "at": 16,
+       "note": "might redo says the letters of my curtains are reworked, once the letters of aunty are set beside the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "my curtains",
+       "at": 27
+      },
+      {
+       "words": "aunty",
+       "at": 10
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "An aunt plans to remake the curtains with some new fabric.",
+     "walkthrough": "The answer plus AUNTY rearranges into MY CURTAINS, and scrim is curtain fabric, so the whole clue is the definition too.",
+     "definitionFit": "Scrim is a light open-weave cotton or linen fabric used for curtains and linings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "aunty"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1735,53 @@
     "text": "One uplifting a supreme ruler?",
     "enumeration": "5"
    },
-   "solution": "RASTA"
+   "solution": "RASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One uplifting a supreme ruler?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "uplifting",
+       "at": 4,
+       "note": "uplifting in a down clue says the letters are raised, read bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 14
+        },
+        {
+         "words": "supreme ruler",
+         "at": 16,
+         "gives": "TSAR",
+         "note": "a tsar was the supreme ruler of Russia"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone who raises up and exalts a supreme ruler.",
+     "walkthrough": "Rastafarians revere Haile Selassie, emperor of Ethiopia, so the whole clue also defines.",
+     "definitionFit": "A Rastafarian venerates Haile Selassie, the former Ethiopian emperor, as divine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1795,43 @@
     "text": "Refund e.g. VAT on some discount Axminsters",
     "enumeration": "5"
    },
-   "solution": "UNTAX"
+   "solution": "UNTAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refund e.g. VAT",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "some",
+       "at": 19,
+       "note": "some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "discount Axminsters",
+       "at": 24,
+       "gives": "UNTAX",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting the sales tax back on some cut-price carpets.",
+     "walkthrough": "VAT is Britain's sales tax; Axminster is a kind of carpet. 'on' only links.",
+     "definitionFit": "To untax is to remove or remit a tax, which a VAT refund does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Axminsters"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1845,53 @@
     "text": "Poet's wear, old breeches needing iron for rear half",
     "enumeration": "6"
    },
-   "solution": "CHAUFE"
+   "solution": "CHAUFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet's wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for rear half",
+       "at": 39,
+       "note": "for rear half says the back half of the word is swapped for the iron symbol"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old breeches",
+       "at": 13,
+       "gives": "CHAUSSES",
+       "note": "chausses were medieval leg coverings or breeches"
+      },
+      {
+       "gives": "SSES"
+      },
+      {
+       "words": "iron",
+       "at": 34,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's clothing: old breeches needed ironing at the back.",
+     "walkthrough": "'needing' only links. 'Poet's' marks a word used by Spenser; 'wear' is a verb, as in to rub away.",
+     "definitionFit": "Chaufe is Spenser's form of chafe, to rub and wear away by friction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wear"
+    }
+   }
   },
   {
    "number": 30,
@@ -483,7 +1905,42 @@
     "text": "Set in examination are some snorters?",
     "enumeration": "5"
    },
-   "solution": "NARES"
+   "solution": "NARES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "snorters?",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Set in",
+       "at": 0,
+       "note": "set in says the answer is lodged inside the following words, across their boundaries"
+      }
+     ],
+     "parts": [
+      {
+       "words": "examination are some",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a set examination some candidates are snoring.",
+     "walkthrough": "The question mark admits that a nostril only does the snorting figuratively.",
+     "definitionFit": "Nares is the anatomical term for nostrils, which do the snorting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "snorters"
+    }
+   }
   },
   {
    "number": 31,
@@ -497,7 +1954,42 @@
     "text": "Wine sack, slow burner",
     "enumeration": "8"
    },
-   "solution": "PORTFIRE"
+   "solution": "PORTFIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slow burner",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Wine",
+       "at": 0,
+       "gives": "PORT",
+       "note": "port is a fortified wine"
+      },
+      {
+       "words": "sack",
+       "at": 5,
+       "gives": "FIRE",
+       "note": "to sack someone is to fire them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wine and sack, an old drink, make a slow-burning combination.",
+     "walkthrough": "Sack is also an old sherry-like wine, which makes 'Wine sack' read as one thing.",
+     "definitionFit": "A portfire was a slow-burning fuse used to fire cannon and fireworks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 32,
@@ -511,7 +2003,46 @@
     "text": "Alternate in e.g. Christmas holiday, with going first",
     "enumeration": "10"
    },
-   "solution": "INTERLEAVE"
+   "solution": "INTERLEAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alternate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "going first",
+       "at": 42,
+       "note": "going first says the with letter is lost from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "e.g. Christmas holiday",
+       "at": 13,
+       "gives": "WINTERLEAVE",
+       "note": "a Christmas break is an example of winter leave"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking turns over who gets the Christmas holiday, with someone going first.",
+     "walkthrough": "'going first' reads as one person going before another, but it removes the leading W. 'in' only links.",
+     "definitionFit": "To interleave is to insert things alternately between others, as blank pages between printed ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 33,
@@ -525,7 +2056,47 @@
     "text": "I'm famous for hot spicy stuff — get me a wife!",
     "enumeration": "5"
    },
-   "solution": "MEAUX"
+   "solution": "MEAUX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'm famous for hot spicy stuff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "me",
+       "at": 37,
+       "gives": "ME",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 40
+      },
+      {
+       "words": "wife",
+       "at": 42,
+       "gives": "UX",
+       "note": "ux is the abbreviation for uxor, Latin for wife"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man known for fiery cooking asks to be found a wife.",
+     "walkthrough": "The definition speaks as the place: Meaux is a French town famous for its grainy mustard.",
+     "definitionFit": "Meaux, a town east of Paris, gives its name to a well-known whole-grain mustard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 34,
@@ -539,7 +2110,61 @@
     "text": "Unconventional sext includes equivalent of this?",
     "enumeration": "6"
    },
-   "solution": "EXISTS"
+   "solution": "EXISTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unconventional sext includes equivalent of this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "includes",
+       "at": 20,
+       "note": "includes says another piece is placed inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unconventional",
+         "at": 0,
+         "note": "unconventional says the letters of sext are put in an unusual order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sext",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "equivalent of this",
+       "at": 29,
+       "gives": "IS",
+       "note": "is means the same as the answer itself, so it is its equivalent"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A racy text message that goes beyond the usual carries something equal to it.",
+     "walkthrough": "'Unconventional' rearranges SEXT as EXTS, which 'includes' IS. The 'this' is the answer itself, so IS is its equivalent, and the clue as a whole points to the answer.",
+     "definitionFit": "To exist is simply to be, so the answer is a longer way of saying is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "sext"
+    }
+   }
   }
  ]
 }
