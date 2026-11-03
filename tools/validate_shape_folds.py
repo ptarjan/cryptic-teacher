@@ -652,7 +652,12 @@ def _positional_charade(node, key):
 
 
 def misplaced_indicators(tree):
-    """How many indicators on a checked op that the lexicon files only under another op."""
+    """How many indicators on a checked op that the lexicon files only under another op.
+
+    A checked charade of pieces that are bare leaves or in-place anagram / alternate-letters results,
+    not held by a container, gets the same leaf-only allowance: its pieces concatenate to its letters, so
+    a container word on it is the clue's link (everyman-3776 9d UPBEAT "pub receives penalty regularly":
+    anagram(pub) + alternate(penalty))."""
     lex = _indicator_lexicon()
     if not lex:
         return 0
@@ -669,11 +674,14 @@ def misplaced_indicators(tree):
         # "in") is a link between the pieces (telegraph-31202 6d DIVAN, cryptic-21866 8d DOSH).
         leaf_only = id(node) not in under_container and not any(
             "op" in p for p in node.get("parts") or [] if isinstance(p, dict))
+        in_place = id(node) not in under_container and all(
+            p.get("op") in (None, "anagram", "alternate") and not p.get("unchecked")
+            for p in node.get("parts") or [] if isinstance(p, dict))
         for i in node.get("indicators") or []:
             key = " ".join(w for w in (wordplay.letters(x) for x in str(i.get("text") or "").split()) if w)
             if not key or lex.get(own, {}).get(key, 0) or key.lower() in ORDERING_INDICATORS:
                 continue
-            if leaf_only and not any(c >= MISPLACED_MIN_USES for t, d in lex.items()
+            if (leaf_only or in_place) and not any(c >= MISPLACED_MIN_USES for t, d in lex.items()
                                      if t not in (own, "container") for c in [d.get(key, 0)]):
                 continue
             if key.lower() in POSITION_INDICATORS and _positional_charade(node, key.lower()):

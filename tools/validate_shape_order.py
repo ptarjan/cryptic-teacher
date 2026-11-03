@@ -257,13 +257,19 @@ def charade_out_of_order(tree, clue):
     return n
 
 
+_ORDER_NEXT = re.compile(r"\s+(?:before|after|behind|following|ahead of)\b")
 REVERSAL_SPLIT = "reversal whose indicator sits between two of the pieces it reverses"
 
 
 def reversal_split(tree, clue):
     """Reversals over several pieces with their indicator word standing between those pieces in the clue:
     the indicator acts on the piece beside it (mephisto DEGAS "editor repelled with flatulence" reverses
-    ED alone; LILAC, NOTHALF, ELAPSES). Round 22: 5 of 38 judged misses."""
+    ED alone; LILAC, NOTHALF, ELAPSES). Round 22: 5 of 38 judged misses.
+
+    Not counted: a reversal over a two-leaf charade (no op, no indicator) whose indicator is followed at
+    once by an order word ("We will be rising before four", everyman-3872 4d VIEW: rev(WE + IV)): the
+    word after "rising" orders the two pieces, so the indicator turns the pair, and turning one piece
+    cannot give the answer (EW+IV, WE+VI)."""
     if not clue:
         return 0
     low = clue.lower()
@@ -281,9 +287,13 @@ def reversal_split(tree, clue):
         if not spans:
             continue
         lo, hi = min(a for a, _ in spans), max(b for _, b in spans)
+        pair = len(kids) == 1 and kids[0].get("op") == "charade" and not kids[0].get("indicators") \
+            and len(kids[0].get("parts") or []) == 2 and not any("op" in q for q in kids[0]["parts"] if isinstance(q, dict))
         for ind in node.get("indicators") or []:
             text = str(ind.get("text") or "") if isinstance(ind, dict) else ""
             at = ind.get("at") if isinstance(ind.get("at"), int) else low.find(text.lower())
+            if pair and text and at >= 0 and _ORDER_NEXT.match(low[at + len(text):]):
+                continue
             if text and at >= 0 and lo < at and at + len(text) < hi:
                 n += 1
                 break

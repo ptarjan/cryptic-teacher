@@ -362,14 +362,23 @@ def trims_as_selection(tree, answer):
 def split_shared_indicators(tree):
     """Two neighbouring same-kind ops (deletion, homophone, a selection) under one parent where only one
     carries an indicator (r26 FN: "finishes off" over CHAD and BLISS, "leaders must leave" over Told that):
-    one indicator, one multi-part op."""
+    one indicator, one multi-part op.
+
+    Not counted: two deletions of two parts each (whole word, the letters cut off it) under a charade
+    with an indicator of its own (independent-9959 HIPPO "Statesmanship and politics together
+    encapsulate", independent-11513 OBELI, indysunday-1338 CYNIC, timesclub-20266 THYMI): the validator
+    takes no multi-cut deletion, so there is no one-op form to write (r_split_shared_indicator leaves
+    deletions for the model for that reason) and the charade's indicator joins the two cuts."""
     n = 0
     for parent in _walk(tree):
         groups = {}
         for p in (q for q in parent.get("parts") or [] if isinstance(q, dict)):
             if p.get("op") in _SHARED_OK and not p.get("unchecked"):
                 groups.setdefault(p["op"], []).append(p)
-        for ns in groups.values():
+        for op, ns in groups.items():
+            if (op == "deletion" and len(ns) == 2 and parent.get("op") == "charade" and parent.get("indicators")
+                    and all(len(x.get("parts") or []) == 2 for x in ns)):
+                continue
             n += len(ns) == 2 and sum(bool(x.get("indicators")) for x in ns) == 1 and _pair_adjacent(ns)
             n += len(ns) >= 3 and sum(bool(x.get("indicators")) for x in ns) == 1  # r40 FN NUMEROUNO: one "never-endingly" over four deletions
     return n
