@@ -1515,6 +1515,16 @@ for ((; field_i < ${#fields[@]}; field_i++)); do
   nums=$(python3 -c 'import json,sys
 d=json.load(open("tools/annotation_backlog.json")).get(sys.argv[1],{})
 print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
+  # A wordplay.<rule> key is a shape rule, not a field: a run can only redo the
+  # clues tools/shape_queue.py still lists for the puzzle (its view's `flagged`).
+  # A puzzle with none pending has nothing a run can do, and was bought anyway:
+  # 20 of 27 such runs on 11-02..03 ended "produced no change", the model saying
+  # there is no field to add. Kept on the backlog; the queue decides.
+  if [[ $field == wordplay.* && $field != wordplay.unchecked && -n $nums ]]; then
+    # shellcheck disable=SC2086  # $nums is a list of puzzle ids
+    nums=$(python3 -c 'import sys; sys.path.insert(0, "tools"); import shape_queue
+p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))' $nums)
+  fi
   echo "$field backlog: ${nums:-none}"
   name="\`$field\`"
   case "$field" in
@@ -1544,6 +1554,10 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and docs/STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
+  # "Add the missing wordplay.anaStandIn" read as a field to add, and runs said
+  # there was none and stopped (7 of 27 no-change runs had a clue listed).
+  [[ $field == wordplay.* ]] &&
+    prompt="In this repo, the annotated crossword @ (@PATH@) has hints whose wordplay tree breaks the shape rule \`$field\` (a validator check, not a field to add). Run python3 tools/annotate_check.py --view @: the entries it lists under \`flagged\` in tools/_puzzle_@.json are the ones to redo. Write a new annotation for each as the view says, following tools/annotate_prompt.md (appended to your system prompt), and change nothing else. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   # The field a re-exec came back into keeps its queue.
   if [ "$POOL_PHASE" != "$field" ]; then
     POOL_PHASE=$field

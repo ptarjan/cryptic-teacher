@@ -1185,6 +1185,15 @@ def main(argv):
         rc, out = run([sys.executable, str(TOOLS / "apply_annotations.py"),
                        stem, str(pending), "--no-validate", *by])
         print(out)
+        # A bag run (--partial) writes the clues that pass and keeps the old hint
+        # on the ones apply refused. The file as it stands may then validate, and
+        # "done" would end the run on a redo that never landed: 150 bag puzzles in
+        # one burn (11-03) committed nothing, logged as "produced no change". The
+        # refusals are this run's to fix (or null), so they keep the check open.
+        left = re.search(r"(\d+) clue\(s\) left out, the rest written", out)
+        if left:
+            issues.append(f"{left[1]} clue(s) left out by apply_annotations (reasons above; "
+                          f"fix each or give it null to keep the old hint)")
         if rc:
             # Nothing downstream is about this puzzle if the annotations never
             # landed in it, and reporting the old file's state as this run's
