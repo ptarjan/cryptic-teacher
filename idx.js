@@ -117,6 +117,7 @@
     });
     if (unlisted.length) index.unlisted = unlisted;
     index.partial = false;
+    delete index.idx;
     return index;
   }
 
