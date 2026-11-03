@@ -411,7 +411,7 @@ run_claude() {
     [ -z "$m" ] || "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view $m >/dev/null 2>&1
   }
   # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
-  if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ] && [ "$WAVE_WHAT" != "Re-check against its blog:" ]; then
+  if [ -z "$fill" ] && [ -s "$RUNS/$tag.bag" ]; then
     python3 tools/annotate_bag.py view $(worker_bag_ids "$RUNS/$tag.sid") >/dev/null
   fi
   worker_annotate "$tag" "$log" "$RUNS/$tag.sid" "$prompt" "$note" "$fill"
@@ -473,6 +473,13 @@ handle_failed_run() {
   # a wave failure.
   worker_flagged "$1" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" "/tmp/ct-prereset-$1.txt" \
     "$([ -e "/tmp/ct-prereset-$1.resumed" ] && echo 1)" && return 1
+  # A bag that ran out of turns is not a lockout: what it finished ships, the rest goes back
+  # in the queue for a fresh bag (worker_finish_bag), never resumed into this conversation.
+  if [ -s "$RUNS/$1.bag" ] && grep -q "Reached max turns" "/tmp/ct-prereset-$1.txt" 2>/dev/null; then
+    WORKER_BAG_AGAIN="" WORKER_BAG_REQUEUE=""
+    WORKER_TURN_LIMIT=1 commit_puzzle "$1" "$2" || true
+    return 0
+  fi
   worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" || true
 }
 
@@ -610,17 +617,14 @@ pool_launch() {
 # below): a re-parse of those hints only, nothing else touched.
 bag_prompt() {
   local tmpl ids rule
-  if [ "$(bag_rule "${2:-}")" = blog ]; then  # the solo BLOG_PROMPT's rules, per puzzle (clue_bag.py --blog-list)
-    tmpl=$(<tools/blog_bag_prompt.md)
-    printf '%s%s' "${tmpl//@LIST@/$(python3 tools/clue_bag.py --blog-list "$1")}" "${SHAPE_EXCEPTION//@/<id>}"
-    return
-  fi
   tmpl=$(<tools/annotate_bag_prompt.md)
   ids=$(tr '\n' ' ' <"$1")
   tmpl="${tmpl//@FIRST@/$(head -n1 "$1")}"
   tmpl="${tmpl//@IDS@/${ids% }}"
   rule=$(bag_rule "${2:-}")
-  if [ "$rule" != annotate ]; then
+  if [ "$rule" = blog ]; then
+    tmpl="These crosswords are already annotated, and their hints are fine except the clues the bag's view lists under \`blogFlagged\`: for each, the blog the puzzle is written up on marks a definition, type or building blocks that disagree with our hint (shown beside it under \`ourAnnotations\`). For each listed clue solve it fresh from the clue and answer. If the blog is right, write the corrected annotation (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, do not rewrite it: list it under \"_keep\" with one sentence why ours stands. The blog can be wrong; never copy its wording. Change nothing else in any puzzle. $tmpl"
+  elif [ "$rule" != annotate ]; then
     tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks a shape rule (a validator check, not a field to add; this pool drains \`$rule\`, and the bag takes other rules' clues too), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
   fi
   printf '%s' "$tmpl"
@@ -680,9 +684,15 @@ pool_bag() {
     esac
     ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" |
       python3 tools/clue_bag.py --due ${any[@]+"${any[@]}"} "$RUNS" "$id") || return 0
-    [ "$(wc -l <<<"$ids")" -gt 1 ] || return 0
+    # One puzzle's tail on its own is still a bag for every kind but Annotate (a whole puzzle
+    # is its own session's worth): the view, the one write and the one check cost far fewer turns
+    # than a solo run reading, checking and editing the file (blog re-check, 11-03).
+    [ "$(wc -l <<<"$ids")" -gt 1 ] || [ "$(bag_rule)" != annotate ] || return 0
+    [ -n "$ids" ] || return 0
     due=$(awk '{n += $2} END {print n + 0}' <<<"$ids")
     awk '{print $1}' <<<"$ids" >"$RUNS/$id.bag"
+    # Every bag gets the same turn budget from its clue count (tools/bag_turns.py).
+    python3 tools/bag_turns.py "$due" >"$RUNS/$id.turns"
   fi
   [ -s "$RUNS/$id.bag" ] || return 0
   # The members are no longer queued; this puzzle's own place at queue[at] stays.
@@ -1481,13 +1491,17 @@ commit_puzzle() {
   local id="$1" what="$2"
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $id"; return 0; fi
   local a
-  WORKER_BAG_AGAIN=""
+  WORKER_BAG_AGAIN="" WORKER_BAG_REQUEUE=""
   WORKER_KEEP_CUTOFF_FIX=1 worker_finish "$id" "$what" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.txt"
   case $? in
     0) # A bag's puzzles whose unparsed answers were reopened are solved again next.
        for a in $WORKER_BAG_AGAIN; do
          queue=("${queue[@]:0:$at}" "$a" "${queue[@]:$at}")
          echo "  [$a] solving it again next"
+       done
+       # A bag that hit its turn limit: the puzzles it never reached go back for a fresh bag.
+       for a in $WORKER_BAG_REQUEUE; do
+         queue=("${queue[@]:0:$at}" "$a" "${queue[@]:$at}")
        done
        return 0 ;;
     3) # Its validation-fix run was cut off: resumed, like any cut-off run.
@@ -1757,6 +1771,7 @@ if [ "$burn_stopped" = 0 ] && ! past_deadline; then
     at=0
     echo "blog re-check backlog: ${#queue[@]} puzzles"
   fi
+  export CT_BLOG_RECHECK=1   # tools/annotate_check.py blog_due: the blog's clues join a bag's view
   BLOG_PROMPT="In this repo, the annotated crossword @ (@PATH@) has clues whose definition, type or building blocks disagree with what its blog marked: run python3 tools/annotate_check.py @ and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in @PATH@ (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep @ <entry id> <definition|type|blocks> \"<one sentence: why ours stands>\". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py @ until no blog warning is left and it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
   [ ${#queue[@]} -gt 0 ] && { run_pool "Re-check against its blog:" "$BLOG_PROMPT" || burn_stopped=1; }
 fi
