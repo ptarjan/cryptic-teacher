@@ -68,16 +68,19 @@ jobs:
       # A scheduled tick with nothing to do: validate is skipped too.
       idle: ${{ steps.pick.outputs.idle }}
     steps:
-      # Only the scripts the decision reads: tools/ in cone mode pulled every
-      # tools/data blob (~265MB) lazily, 45s+ of a 30s budget (run 39309089344).
+      # Cone mode, as validate does: the non-cone patterns (/tools/*.py) were
+      # matched against all ~106k index entries, 22s of a 35s step (run
+      # 41710733430: fetch 15s, checkout 22s) against validate's 5s for the
+      # same commit. The earlier worry that cone mode pulls every tools/data
+      # blob (run 39309089344) no longer holds: validate's cone checkout of
+      # tools takes 5-15s.
       - name: Check out
         uses: actions/checkout@v5
         with:
           filter: blob:none
-          sparse-checkout-cone-mode: false
           sparse-checkout: |
-            /tools/*.py
-            /.github/workflows/pages.yml
+            tools
+            .github/workflows
       - name: Decide whether this run deploys
         id: pick
         env:
@@ -118,6 +121,16 @@ jobs:
           # newer pending one, or the push was a burst, the next scheduled tick
           # deploys whatever master is ahead with, so nothing is lost.
           case "$BEFORE" in *[1-9a-f]*) ;; *) yes "no parent to diff against" ;; esac
+          # The live deploy's commit is fetched beside the parent, not after
+          # it: each blobless fetch carries a whole 100k-entry tree (15-20s),
+          # and the two ran one behind the other (40s, runs 41703010819,
+          # 41710498352).
+          live=$(python3 tools/last_deploy.py "$REPO") || live=""
+          live_ok=$(mktemp)
+          if [ -n "$live" ]; then
+            ( git fetch --no-tags --depth=1 --filter=blob:none origin "$live" && echo ok > "$live_ok" ) >/dev/null 2>&1 &
+            livepid=$!
+          fi
           git fetch --no-tags --depth=1 --filter=blob:none origin "$BEFORE" || yes "could not fetch $BEFORE"
           verdict=$(python3 tools/ci_scope.py decide "$BEFORE") || yes "could not diff against $BEFORE"
           [ "$verdict" = fast ] || yes "$verdict"
@@ -128,8 +141,8 @@ jobs:
           # say "not needed" about it. So count every non-puzzle change since
           # the commit the site was deployed from. A build already running
           # will deploy the code, so only then the fast path stands.
-          live=$(python3 tools/last_deploy.py "$REPO") || live=""
-          if [ -n "$live" ] && git fetch --no-tags --depth=1 --filter=blob:none origin "$live"; then
+          [ -z "${livepid:-}" ] || wait "$livepid" || true
+          if [ -n "$live" ] && [ -s "$live_ok" ]; then
             undeployed=$(python3 tools/ci_scope.py decide "$live") || undeployed="full could not diff against $live"
             if [ "$undeployed" != fast ]; then
               running=$(gh api "repos/$REPO/actions/workflows/pages.yml/runs?status=in_progress&per_page=30" \
