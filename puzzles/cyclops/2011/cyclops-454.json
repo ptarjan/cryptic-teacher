@@ -560,36 +560,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORDEAL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
          "text": "no. 2",
-         "note": "take the second letter of Tory"
-        },
-        {
-         "text": "pisspoor",
-         "note": "a badly done version of the word, so its letters are jumbled"
-        },
-        {
-         "text": "energy-lacking",
-         "note": "remove E, the symbol for energy"
+         "at": 5,
+         "note": "number two here means the second letter of the word Tory, not a deputy"
         }
        ],
        "parts": [
         {
          "words": "Tory",
-         "gives": "O",
-         "note": "second letter of Tory"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "leader",
-         "gives": "RDEAL",
-         "note": "LEADER minus one E (energy) leaves LADER, rearranged to RDEAL"
+         "text": "pisspoor",
+         "at": 23,
+         "note": "something done in a piss-poor way is botched, so the remaining letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "energy-lacking",
+           "at": 33,
+           "note": "E is the physics symbol for energy, so the word leader loses one of its E's"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leader",
+           "at": 48
+          },
+          {
+           "gives": "E",
+           "note": "E is the standard symbol for energy"
+          }
+         ]
         }
        ]
       }
@@ -597,7 +615,7 @@
     },
     "explanation": {
      "surface": "A jibe that a Tory deputy paired with a feeble, listless leader would be a nightmare.",
-     "walkthrough": "'Teamed with' only puts the two pieces side by side. The anagram works on LADER, the five letters left once one E is gone.",
+     "walkthrough": "'No. 2' looks like a deputy but picks O, the second letter of Tory. 'Energy-lacking' takes one E from LEADER to leave LADER, and 'pisspoor' jumbles that into RDEAL; 'teamed with' only joins the pieces.",
      "definitionFit": "Figurative use: a nightmare is any dreadful experience, and an ordeal is the painful trial one has to live through."
     },
     "features": {
