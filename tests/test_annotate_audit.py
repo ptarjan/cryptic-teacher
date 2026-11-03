@@ -62,7 +62,7 @@ check(a.rule_name("  ERROR: 3D: hiddenLetter 'E' is not in the blocks", t), "hid
       "a pass-through message is no template")
 check(a.rule_name("  ERROR: puzzle: 1 clue(s) (1D) have blocks whose letters are not the answer's", t),
       "check_blocks_add_up", "a puzzle-level message is named by its check, whichever clues it lists")
-check(len(a.load_templates(a.VALIDATOR.read_text())) > 50, True,
+check(len(a.load_templates(a.validator_source())) > 50, True,
       "the real validator yields its message templates")
 check(a.stopped_names("SCHEMA $.entries[2].annotation: missing required key 'blocks'; "
                       "SCHEMA $.entries[9].annotation: missing required key 'blocks'"),

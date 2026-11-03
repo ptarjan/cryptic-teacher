@@ -83,7 +83,7 @@ const SMOKE_DEPS = [
     "tests/test_alert_claimed.sh", "tests/test_nightly_worktree.sh",
     "tests/test_notify_race.js", "tests/test_prereset_paths.sh", "tests/test_push_hold.js",
     "tools/clue_repair.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
-    "tools/tutorial.html", "tools/unstage_unparsable.sh", "tools/validate_annotations.py", "tools/vlm_reader.py",
+    "tools/tutorial.html", "tools/unstage_unparsable.sh", "tools/validate_annotations.py", "tools/validate_anagram.py", "tools/validate_answers.py", "tools/validate_base.py", "tools/validate_blocks.py", "tools/validate_blog.py", "tools/validate_committed.py", "tools/validate_definition.py", "tools/validate_features.py", "tools/validate_hidden.py", "tools/validate_indicator.py", "tools/validate_link.py", "tools/validate_shape_base.py", "tools/validate_shape_folds.py", "tools/validate_shape_inside.py", "tools/validate_shape_leaf.py", "tools/validate_shape_ops.py", "tools/validate_shape_order.py", "tools/validate_shape_warn.py", "tools/validate_sound.py", "tools/validate_walkthrough.py", "tools/vlm_reader.py",
     // clues_only's Genius jigsaw builder (genius_puzzles.promote_jigsaw) and what it imports.
     "tools/genius_puzzles.py", "tools/ft_pdf_puzzles.py", "tools/ft_puzzles.py", "tools/file_blog_puzzles.py",
     "tools/fetch_fifteensquared.py", "tools/fetch_wp_blog.py", "tools/times_grids.py",

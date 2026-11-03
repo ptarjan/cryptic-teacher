@@ -81,7 +81,7 @@ SUCCESS_RATE = 0.5    # a fix is assumed to work half the time
 FIX_COST = 6.0        # one Sonnet cost-fix worker, in dollars (estimate, not measured)
 RATE_ROWS = 6         # recent rows averaged for the cause's $/h (never fewer than 3)
 # What "annotate code" means for the best-level baseline.
-CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/puzzle_worker.sh",
+CODE_PATHS = ["tools/annotate*", "tools/validate_annotations.py", "tools/validate_*.py", ":(exclude)tools/validate_scope.py", "tools/puzzle_worker.sh",
               "tools/clue_bag.py", "tools/annotate_prompt.md", "tools/annotate_bag_prompt.md",
               # the modules an annotate run's checks and apply step import: a fix there is
               # an annotate fix (wordplay.py holds the "does not give the answer" refusal)
