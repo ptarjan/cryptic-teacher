@@ -3032,6 +3032,28 @@ tools/fix_shape_suspects.py                    repair the shape suspects whose r
                                                (dry run by default; --apply writes puzzles, one
                                                sweep commit), and list the rest per clue in
                                                tools/data/shape_reannotate.json
+tools/fix_shape_base.py                        the tree helpers (walk, leaf, checked, charade)
+                                               and the end/head/middle indicator words the
+                                               other fix_shape_* modules share
+tools/fix_shape_leaves.py                      the leaf-level repairs of
+                                               tools/fix_shape_suspects.py: trimming a leaf or
+                                               its indicator, checking a leaf, folding its
+                                               words, regrouping a wrong arity
+tools/fix_shape_indicators.py                  the indicator repairs of
+                                               tools/fix_shape_suspects.py: role moves, shared
+                                               and misplaced indicators, unindicated moves and
+                                               spares, hidden-word links
+tools/fix_shape_container.py                   the container, nesting and letter-pool repairs
+                                               of tools/fix_shape_suspects.py
+tools/fix_shape_cuts.py                        the deletion and selection repairs of
+                                               tools/fix_shape_suspects.py: the letters an op
+                                               removes or keeps and the words that name them
+tools/fix_shape_ana.py                         the anagram repairs of
+                                               tools/fix_shape_suspects.py: fodder, pieces
+                                               pulled out of it, edges standing in for it
+tools/fix_shape_notes.py                       the note repairs of tools/fix_shape_suspects.py:
+                                               indicator and block notes, doesNotGive edits,
+                                               the doubled apostrophe, note_deletions
 tools/shape_queue.py                           the clues whose wordplay tree
                                                tools/shape_suspects.py flags and
 tools/prune_shape_queue.py                     drop the shape re-annotation rows no detector
