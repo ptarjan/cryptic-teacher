@@ -169,7 +169,7 @@ try:
             mock.patch.object(obs, "article_uuid", lambda num: "u"), \
             mock.patch.object(obs, "puzzle_manifest", lambda uuid: {}), \
             mock.patch.object(obs, "puzzle_data", lambda m: {"copy": {"settings": {"solution": None}}}), \
-            mock.patch.object(obs.time, "sleep", lambda s: None), \
+            mock.patch.object(obs.daily_fetch.time, "sleep", lambda s: None), \
             mock.patch.object(obs, "reindex", lambda: obs_reindexed.append(1)):
         obs.refresh_unsolved()
 finally:

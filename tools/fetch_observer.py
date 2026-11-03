@@ -67,12 +67,10 @@ fetcher here.
 import json
 import re
 import sys
-import time
-import urllib.error
-import urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+import daily_fetch  # the walk and refresh loop the numbered fetchers share
 import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (read_puzzle_view, http_bytes, flatten_clue, grade_model_fill,
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
@@ -343,25 +341,8 @@ def latest():
 def walk(numbers, what="backfill"):
     """Fetch each number in turn, skipping what's on disk and what 404s.
     Returns how many arrived."""
-    fetched = skipped = missing = 0
-    for num in numbers:
-        path = puzzle_path("everyman", num)
-        if path.exists():
-            skipped += 1
-            continue
-        try:
-            fetch_number(num)
-            fetched += 1
-        except urllib.error.HTTPError as err:
-            print(f"skip {num}: HTTP {err.code}")
-            missing += 1
-        except Exception as err:  # one bad puzzle is reported, not the run's end
-            print(f"skip {num}: {type(err).__name__}: {err}")
-            missing += 1
-        time.sleep(1)
-    reindex()
-    print(f"{what} done: {fetched} fetched, {skipped} already present, {missing} unavailable")
-    return fetched
+    return daily_fetch.walk(numbers, lambda num: puzzle_path("everyman", num).exists(),
+                            lambda num: fetch_number(num), what, finish=reindex)
 
 
 def backfill(count=30):
@@ -378,14 +359,12 @@ def extend(count=30):
     number below it 404s at both publishers, and a walk that discovers that one
     polite second at a time would burn a minute of the run to learn nothing.
     """
-    have = sorted(int(p.stem[len("everyman-"):]) for p in puzzle_files()
-                  if p.stem.startswith("everyman-")
-                  and p.stem[len("everyman-"):].isdigit())
+    have = daily_fetch.numbers_in(puzzle_files(), "everyman")
     oldest = min(have) if have else find_latest_number() + 1
     if oldest <= EARLIEST:
         print(f"extend done: everyman starts at {EARLIEST}; nothing older exists")
         return 0
-    return walk(range(oldest - 1, max(oldest - 1 - count, EARLIEST - 1), -1), "extend")
+    return walk(daily_fetch.older(oldest, count, EARLIEST), "extend")
 
 
 def refresh_unsolved():
@@ -413,46 +392,39 @@ def refresh_unsolved():
         # field either way, so it is dropped before it can join a queue that
         # would otherwise ask for it every night forever (see fetch_puzzle.py,
         # where the cutoff and the reasoning both live).
-        if not still_worth_refreshing(p):
-            continue
-        if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
+        if still_worth_refreshing(p) and daily_fetch.needs_answers(p):
             pending.append(p["number"])
-    filled = 0
-    for num in pending:
-        # One puzzle's bad page must not stop the rest from being checked.
-        try:
-            uuid = article_uuid(num)
-            manifest = puzzle_manifest(uuid)
-            data = puzzle_data(manifest)
-            solution = data["copy"]["settings"].get("solution")
-            if not solution:
-                print(f"{num}: still within its competition window — solutions still withheld")
-                time.sleep(1)
-                continue
-            path = puzzle_path("everyman", num)
-            puzzle = read_puzzle_file(path)
-            guessed = (provenance.model_answers(puzzle)
-                       if "model" in provenance.solution_detail(puzzle) else None)
-            fill_solutions(puzzle["entries"], solution,
-                            puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
-            if guessed is not None:
-                # The paper has spoken, so our fill stops being the answer and
-                # starts being an attempt that can be marked. Same grading the
-                # Guardian gets on re-fetch, from the same function.
-                graded = grade_model_fill(puzzle, guessed)
-                puzzle["solutions"] = provenance.drop_solution_detail(puzzle)["solutions"]
-                print_grade(puzzle, graded, guessed)
-            write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
-            print(f"solutions now published for {num}")
-            filled += 1
-            time.sleep(1)
-        except Exception as err:  # one bad puzzle is reported, then the next is checked
-            print(f"refresh {num} failed: {type(err).__name__}: {err}")
+
+    def one(num):
+        uuid = article_uuid(num)
+        manifest = puzzle_manifest(uuid)
+        data = puzzle_data(manifest)
+        solution = data["copy"]["settings"].get("solution")
+        if not solution:
+            print(f"{num}: still within its competition window — solutions still withheld")
+            return False
+        path = puzzle_path("everyman", num)
+        puzzle = read_puzzle_file(path)
+        guessed = (provenance.model_answers(puzzle)
+                   if "model" in provenance.solution_detail(puzzle) else None)
+        fill_solutions(puzzle["entries"], solution,
+                        puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
+        if guessed is not None:
+            # The paper has spoken, so our fill stops being the answer and
+            # starts being an attempt that can be marked. Same grading the
+            # Guardian gets on re-fetch, from the same function.
+            graded = grade_model_fill(puzzle, guessed)
+            puzzle["solutions"] = provenance.drop_solution_detail(puzzle)["solutions"]
+            print_grade(puzzle, graded, guessed)
+        write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
+        print(f"solutions now published for {num}")
+        return True
+
+    filled, _ = daily_fetch.refresh(pending, one)
     # Only a write moves the index, and a puzzle still in its window writes
     # nothing: a whole-corpus reindex for it was most of this pass's time.
     if filled:
         reindex()
-    print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
 
 def main(argv):
