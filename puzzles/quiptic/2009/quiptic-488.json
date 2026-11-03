@@ -912,37 +912,33 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AMICABLE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "American",
+       "at": 9,
+       "gives": "AM"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "lying about means scattered around, so these letters are tossed into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "American",
-         "gives": "AM",
-         "note": "AM is a short form of American"
+         "words": "lie",
+         "at": 27,
+         "note": "taken as written"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means around, so the lying word wraps round the cab"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lie",
-           "note": "the letters of lie in a new order"
-          },
-          {
-           "words": "taxi",
-           "gives": "CAB",
-           "note": "a cab is a taxi"
-          }
-         ]
+         "words": "taxi",
+         "at": 37,
+         "gives": "CAB",
+         "note": "a cab is a taxi"
         }
        ]
       }
@@ -950,7 +946,7 @@
     },
     "explanation": {
      "surface": "A pleasant American has to fib about a taxi ride.",
-     "walkthrough": "The parse is loose: the letters of lie must be shuffled as well as wrapped around the taxi, and 'about' has to signal both steps.",
+     "walkthrough": "'about' looks like it means 'concerning', but here it shuffles the fib and the taxi together into ICABLE; 'needs to' only joins the pieces.",
      "definitionFit": "Amicable means showing goodwill, as in an amicable divorce, so it is a synonym of friendly."
     },
     "features": {
