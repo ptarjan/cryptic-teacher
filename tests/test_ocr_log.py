@@ -149,11 +149,13 @@ env = dict(os.environ, GIT_AUTHOR_NAME="t", GIT_AUTHOR_EMAIL="t@example.com", GI
 def git(*args, when=None):
     e = dict(env, GIT_AUTHOR_DATE=when, GIT_COMMITTER_DATE=when) if when else env
     subprocess.run(["git", "-C", repo, *args], check=True, capture_output=True, env=e)
+def local_iso(h, m):   # the log's clock is local time, so give git the same moment with an explicit offset
+    return datetime.datetime(2026, 10, 30, h, m).astimezone().isoformat()
 git("init", "-q")
 git("config", "commit.gpgsign", "false")
 for i, subject in enumerate(["File times-5355", "File times-5356", "Update 3 puzzles", "Update 4 puzzles", "Something else"]):
-    git("commit", "-q", "--allow-empty", "-m", subject, when="2026-10-30T08:%02d:00" % (20 + i))
-git("commit", "-q", "--allow-empty", "-m", "File times-1", when="2026-10-30T06:00:00")   # outside the hour
+    git("commit", "-q", "--allow-empty", "-m", subject, when=local_iso(8, 20 + i))
+git("commit", "-q", "--allow-empty", "-m", "File times-1", when=local_iso(6, 0))   # outside the hour
 log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
 check(log.git_counts(log.t), (2, 7), "two filed commits and 3+4 puzzles updated in the last hour")

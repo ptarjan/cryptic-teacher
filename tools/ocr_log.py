@@ -203,7 +203,7 @@ class Log:
         if self.git_cache[0] is not None and abs(t - self.git_cache[0]) < 60:
             return self.git_cache[1]
         def iso(x):
-            return datetime.datetime.fromtimestamp(x).strftime("%Y-%m-%d %H:%M:%S")
+            return f"{int(x)} +0000"          # epoch seconds: no local-zone guesswork on either side
         try:
             res = subprocess.run(["git", "-C", self.repo, "log", f"--since={iso(t - 3600)}", f"--until={iso(t)}",
                                   "--format=%s"], capture_output=True, text=True, timeout=30, check=True)
