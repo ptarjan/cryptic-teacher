@@ -558,52 +558,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "struggling",
-       "note": "struggling letters are thrashing about out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "tail",
+         "at": 16,
+         "note": "the tail of the rodent's name is its final letter, so only its end is wanted"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "tail",
-           "note": "a tail is at the rear, so take the final letter of the animal"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rat's",
-           "gives": "RAT",
-           "note": "the final letter of the rodent's name"
-          }
-         ]
-        },
+         "words": "rat's",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "op": "container",
+         "text": "consumed by",
+         "at": 29,
+         "note": "something consumed by another is swallowed up inside it, so the quiet letter goes within"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "consumed by",
-           "note": "consumed by means swallowed up inside something else"
+           "text": "struggling",
+           "at": 49,
+           "note": "someone struggling is thrashing about, so the letters of that word are jumbled"
           }
          ],
          "parts": [
           {
            "words": "someone",
-           "note": "the letters of someone rearranged"
-          },
-          {
-           "words": "quietly",
-           "gives": "P",
-           "note": "p for piano, the musical direction meaning quietly"
+           "at": 41
           }
          ]
+        },
+        {
+         "words": "quietly",
+         "at": 21,
+         "gives": "P",
+         "note": "P stands for piano, the musical direction meaning play quietly"
         }
        ]
       }
@@ -611,7 +614,7 @@
     },
     "explanation": {
      "surface": "Bits of a rat's tail are quietly eaten by someone in difficulty.",
-     "walkthrough": "Pieces means musical works, not bits. T then ONE(P)OEMS.",
+     "walkthrough": "Pieces means musical works, not bits. 'tail' gives T; 'struggling' turns SOMEONE into ONEOEMS, and 'consumed by' puts P inside it: ONEPOEMS.",
      "definitionFit": "Tone poems are orchestral compositions, and pieces is a common word for musical works."
     },
     "features": {
