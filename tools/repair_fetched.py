@@ -2673,7 +2673,7 @@ def grown(held, now):
     return all(j2 - j1 < 4 for op, _i1, _i2, j1, j2 in runs if op == "insert")
 
 
-def main(argv):
+def build_parser():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--spoiled-clues", nargs="?", const="2026-10-20", metavar="SINCE",
                     help="only restore the held clue of each times puzzle an 'Update times-' commit since SINCE "
@@ -2776,163 +2776,219 @@ def main(argv):
                          f"(default {FLAGS}): the queue reads those again, and no others for them")
     ap.add_argument("--write-breaks", action="store_true",
                     help=f"rebuild {fetcher.BREAKS} (the word breaks other puzzles print for an answer) and stop")
-    args = ap.parse_args(argv)
-    if args.write_breaks:
-        settled, mixed = write_breaks()
-        print(f"{settled} answers with settled word breaks, {mixed} printed both ways -> {fetcher.BREAKS}")
-        return 0
-    if args.apply and args.dry_run:
-        ap.error("--apply and --dry-run say opposite things; pass one")
-    if args.ft_dates:
-        found = repair_ft_dates(args.apply)
-        for n, stored, fixed, clash, why in found:
-            print(f"ftcryptic-{n}: dated {stored} ({clash}) -> "
-                  + (f"{fixed}" if fixed else f"left: {why}"))
-        fixed = sum(1 for r in found if r[2])
-        print(f"{len(found)} misdated, {fixed} {'redated' if args.apply else 'would be redated'}, "
-              f"{len(found) - fixed} left to look at")
-        return 0
-    if args.renumbered:
-        found = repair_renumbered(args.apply)
-        for number, when, title, why in found:
-            print(f"times-{number} ({when}): titled No {title} -> " + (f"times-{title}" if why is None else f"left: {why}"))
-        moved = [r for r in found if r[3] is None]
-        print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
-              + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
-        return 0
-    if args.crossing_fills:
-        got = repair_crossing_fills(args.apply)
-        for pid, dated, lid, word in got["filled"]:
-            print(f"{pid} ({dated}) {lid}: blank -> {word}")
-        for pid, dated, lid, word, why in got["refused"]:
-            print(f"{pid} ({dated}) {lid}: {word} left: {why}")
-        decade = lambda day: f"{(day or '0000')[:3]}0s"
-        verb = "filled" if args.apply else "would be filled"
-        print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
-              + ", ".join(f"{d} {n}" for d, n in sorted(Counter(decade(r[1]) for r in got["filled"]).items()))
-              + f"), {len(got['whole'])} made fully answered; left "
-              + ", ".join(f"{why} {n}" for why, n in Counter(r[4] for r in got["refused"]).most_common()))
-        return 0
-    if args.crossing_misreads:
-        got = repair_crossing_misreads(args.apply)
-        for pid, dated, lid, was, word in got["replaced"]:
-            print(f"{pid} ({dated}) {lid}: {was} -> {word}")
-        for pid, dated, lid, word in got["filled"]:
-            print(f"{pid} ({dated}) {lid}: blank -> {word}")
-        for pid, lid, word, why in got["left"]:
-            print(f"{pid} {lid}: {word} left: {why}")
-        verb = "" if args.apply else "would be "
-        print(f"{len(got['replaced'])} held answer(s) {verb}replaced, {len(got['filled'])} blank(s) {verb}filled, "
-              f"{len(got['whole'])} puzzle(s) made fully answered, {len(got['left'])} left")
-        return 0
-    if args.annotated_mends:
-        got = repair_annotated_mends(args.apply)
-        for pid, lid, was, now, kind in got["mended"]:
-            print(f"{pid} {lid} [{kind}]: {was!r} -> {now!r}")
-        for pid, lid, was, now in got["answers"]:
-            print(f"{pid} {lid} [answer]: {was} -> {now}")
-        for pid, lid, err in got["refused"]:
-            print(f"{pid} {lid}: refused: {err}")
-        for pid, lid, note in got["asked"]:
-            print(f"{pid} {lid}: reread: {note[:140]}")
-        for pid, lid, was, now, why in got["left"]:
-            print(f"{pid} {lid}: left {was!r} -> {now!r}: {why}")
-        verb = "" if args.apply else "would be "
-        print(f"{len({r[:2] for r in got['mended']})} clue(s) {verb}mended ({len(got['mended'])} edits), "
-              f"{len(got['answers'])} answer(s) {verb}corrected, {len(got['asked'])} light(s) {verb}asked again "
-              f"({got['requests']} request(s) filed), {len(got['refused'])} refused, {len(got['left'])} left")
-        return 0
-    if args.clue_fills:
-        got = repair_clue_fills(args.apply, define=args.define)
-        for pid, dated, lid, word, tier in got["filled"]:
-            print(f"{pid} ({dated}) {lid}: blank -> {word} [{tier}]")
-        verb = "filled" if args.apply else "would be filled"
-        print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
-              + ", ".join(f"{t} {n}" for t, n in sorted(Counter(r[4] for r in got["filled"]).items()))
-              + f"), {len(got['whole'])} made fully answered; left "
-              + ", ".join(f"{why} {n}" for why, n in Counter(
-                  r[4] if not r[4].endswith("fit") else "N listed words fit" for r in got["refused"]).most_common()))
-        return 0
-    if args.side_answers:
-        got = repair_side_answers(args.apply)
-        for pid, lid, word in got["filled"]:
-            print(f"{pid} {lid}: blank -> {word}")
-        for pid, lid, word, why in got["refused"]:
-            print(f"{pid} {lid}: {word or '-'} left: {why}")
-        verb = "filled" if args.apply else "would be filled"
-        print(f"{got['files']} side copies with answers for a held file short of some; "
-              f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} "
-              f"({got['blog']} blog-keyed file(s)), {len(got['whole'])} made fully answered; refused "
-              + ", ".join(f"{why} {n}" for why, n in Counter(
-                  "write refused" if r[3].startswith("write refused") else "provenance" if r[3].startswith("provenance")
-                  else r[3] for r in got["refused"]).most_common()))
-        return 0
-    if args.uncrossed:
-        blanked = repair_uncrossed(args.uncrossed, args.apply, args.workers)
-        for pid, lid, word, rival in blanked:
-            print(f"{pid} {lid}: {word} -> blank (the classifier reads {rival})")
-        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
-              f"{'blanked' if args.apply else 'would be blanked'}")
-        return 0
-    if args.rivals:
-        filled = repair_rivals(args.apply)
-        for pid, lid, word, rival in filled:
-            print(f"{pid} {lid}: blank (was {word}) -> {rival}")
-        print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
-              f"{'filled' if args.apply else 'would be filled'}")
-        return 0
-    if args.unwritten_answers:
-        filled = repair_unwritten_answers(args.apply)
-        for pid, lid, word in filled:
-            print(f"{pid} {lid}: blank -> {word}")
-        print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
-              f"{'filled' if args.apply else 'would be filled'}")
-        return 0
-    if args.foreign_grids:
-        blanked = repair_foreign_grids(args.apply)
-        for pid, lid, word, src in blanked:
-            print(f"{pid} {lid}: {word} -> blank (read off {src})")
-        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
-              f"{'blanked' if args.apply else 'would be blanked'}")
-        return 0
-    if args.misread_names:
-        blanked = repair_misread_names(args.apply)
-        for pid, lid, word in blanked:
-            print(f"{pid} {lid}: {word} -> blank")
-        print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
-              f"{'blanked' if args.apply else 'would be blanked'} of {len(MISREAD_NAMES)} listed")
-        return 0
-    if args.lost_answers:
-        restored, left = repair_lost_answers(args.lost_answers, args.apply)
-        for pid, lid, word, sha in restored:
-            print(f"{pid} {lid}: blank -> {word} (blanked by {sha})")
-        for pid, lid, word, why in left:
-            print(f"{pid} {lid}: {word} left blank: {why}")
-        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} answer(s) "
-              f"{'restored' if args.apply else 'would be restored'}; {len(left)} left blank "
-              + ", ".join(f"{why} {n}" for why, n in sorted(Counter(r[3] for r in left).items())))
-        return 0
-    if args.lost_breaks:
-        restored = repair_lost_breaks(args.lost_breaks, args.apply)
-        for pid, lid, was, now in restored:
-            print(f"{pid} {lid}: {was!r} -> {now!r}")
-        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} count(s) "
-              f"{'restored' if args.apply else 'would be restored'}")
-        return 0
-    if args.regressed_clues:
-        restored = repair_regressed_clues(args.regressed_clues, args.apply)
-        for pid, lid, was, now in restored:
-            print(f"{pid} {lid}: {was!r} -> {now!r}")
-        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
-              f"{'restored' if args.apply else 'would be restored'}")
-        return 0
-    if args.spoiled_clues:
-        restored = repair_spoiled_clues(args.spoiled_clues, args.apply)
-        for pid, lid, was, now in restored:
-            print(f"{pid} {lid}: {was!r} -> {now!r}")
-        print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
-              f"{'restored' if args.apply else 'would be restored'}")
-        return 0
+    return ap
+
+
+def report_write_breaks():
+    settled, mixed = write_breaks()
+    print(f"{settled} answers with settled word breaks, {mixed} printed both ways -> {fetcher.BREAKS}")
+    return 0
+
+
+def report_ft_dates(args):
+    found = repair_ft_dates(args.apply)
+    for n, stored, fixed, clash, why in found:
+        print(f"ftcryptic-{n}: dated {stored} ({clash}) -> "
+              + (f"{fixed}" if fixed else f"left: {why}"))
+    fixed = sum(1 for r in found if r[2])
+    print(f"{len(found)} misdated, {fixed} {'redated' if args.apply else 'would be redated'}, "
+          f"{len(found) - fixed} left to look at")
+    return 0
+
+
+def report_renumbered(args):
+    found = repair_renumbered(args.apply)
+    for number, when, title, why in found:
+        print(f"times-{number} ({when}): titled No {title} -> " + (f"times-{title}" if why is None else f"left: {why}"))
+    moved = [r for r in found if r[3] is None]
+    print(f"{len(found)} filed below their title, {len(moved)} {'renamed' if args.apply else 'would be renamed'}"
+          + "".join(f", {decade}s {n}" for decade, n in sorted(Counter(r[1].year // 10 * 10 for r in moved).items())))
+    return 0
+
+
+def report_crossing_fills(args):
+    got = repair_crossing_fills(args.apply)
+    for pid, dated, lid, word in got["filled"]:
+        print(f"{pid} ({dated}) {lid}: blank -> {word}")
+    for pid, dated, lid, word, why in got["refused"]:
+        print(f"{pid} ({dated}) {lid}: {word} left: {why}")
+    decade = lambda day: f"{(day or '0000')[:3]}0s"
+    verb = "filled" if args.apply else "would be filled"
+    print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
+          + ", ".join(f"{d} {n}" for d, n in sorted(Counter(decade(r[1]) for r in got["filled"]).items()))
+          + f"), {len(got['whole'])} made fully answered; left "
+          + ", ".join(f"{why} {n}" for why, n in Counter(r[4] for r in got["refused"]).most_common()))
+    return 0
+
+
+def report_crossing_misreads(args):
+    got = repair_crossing_misreads(args.apply)
+    for pid, dated, lid, was, word in got["replaced"]:
+        print(f"{pid} ({dated}) {lid}: {was} -> {word}")
+    for pid, dated, lid, word in got["filled"]:
+        print(f"{pid} ({dated}) {lid}: blank -> {word}")
+    for pid, lid, word, why in got["left"]:
+        print(f"{pid} {lid}: {word} left: {why}")
+    verb = "" if args.apply else "would be "
+    print(f"{len(got['replaced'])} held answer(s) {verb}replaced, {len(got['filled'])} blank(s) {verb}filled, "
+          f"{len(got['whole'])} puzzle(s) made fully answered, {len(got['left'])} left")
+    return 0
+
+
+def report_annotated_mends(args):
+    got = repair_annotated_mends(args.apply)
+    for pid, lid, was, now, kind in got["mended"]:
+        print(f"{pid} {lid} [{kind}]: {was!r} -> {now!r}")
+    for pid, lid, was, now in got["answers"]:
+        print(f"{pid} {lid} [answer]: {was} -> {now}")
+    for pid, lid, err in got["refused"]:
+        print(f"{pid} {lid}: refused: {err}")
+    for pid, lid, note in got["asked"]:
+        print(f"{pid} {lid}: reread: {note[:140]}")
+    for pid, lid, was, now, why in got["left"]:
+        print(f"{pid} {lid}: left {was!r} -> {now!r}: {why}")
+    verb = "" if args.apply else "would be "
+    print(f"{len({r[:2] for r in got['mended']})} clue(s) {verb}mended ({len(got['mended'])} edits), "
+          f"{len(got['answers'])} answer(s) {verb}corrected, {len(got['asked'])} light(s) {verb}asked again "
+          f"({got['requests']} request(s) filed), {len(got['refused'])} refused, {len(got['left'])} left")
+    return 0
+
+
+def report_clue_fills(args):
+    got = repair_clue_fills(args.apply, define=args.define)
+    for pid, dated, lid, word, tier in got["filled"]:
+        print(f"{pid} ({dated}) {lid}: blank -> {word} [{tier}]")
+    verb = "filled" if args.apply else "would be filled"
+    print(f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} ("
+          + ", ".join(f"{t} {n}" for t, n in sorted(Counter(r[4] for r in got["filled"]).items()))
+          + f"), {len(got['whole'])} made fully answered; left "
+          + ", ".join(f"{why} {n}" for why, n in Counter(
+              r[4] if not r[4].endswith("fit") else "N listed words fit" for r in got["refused"]).most_common()))
+    return 0
+
+
+def report_side_answers(args):
+    got = repair_side_answers(args.apply)
+    for pid, lid, word in got["filled"]:
+        print(f"{pid} {lid}: blank -> {word}")
+    for pid, lid, word, why in got["refused"]:
+        print(f"{pid} {lid}: {word or '-'} left: {why}")
+    verb = "filled" if args.apply else "would be filled"
+    print(f"{got['files']} side copies with answers for a held file short of some; "
+          f"{len({r[0] for r in got['filled']})} puzzle(s), {len(got['filled'])} answer(s) {verb} "
+          f"({got['blog']} blog-keyed file(s)), {len(got['whole'])} made fully answered; refused "
+          + ", ".join(f"{why} {n}" for why, n in Counter(
+              "write refused" if r[3].startswith("write refused") else "provenance" if r[3].startswith("provenance")
+              else r[3] for r in got["refused"]).most_common()))
+    return 0
+
+
+def report_uncrossed(args):
+    blanked = repair_uncrossed(args.uncrossed, args.apply, args.workers)
+    for pid, lid, word, rival in blanked:
+        print(f"{pid} {lid}: {word} -> blank (the classifier reads {rival})")
+    print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+          f"{'blanked' if args.apply else 'would be blanked'}")
+    return 0
+
+
+def report_rivals(args):
+    filled = repair_rivals(args.apply)
+    for pid, lid, word, rival in filled:
+        print(f"{pid} {lid}: blank (was {word}) -> {rival}")
+    print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
+          f"{'filled' if args.apply else 'would be filled'}")
+    return 0
+
+
+def report_unwritten_answers(args):
+    filled = repair_unwritten_answers(args.apply)
+    for pid, lid, word in filled:
+        print(f"{pid} {lid}: blank -> {word}")
+    print(f"{len({r[0] for r in filled})} puzzle(s), {len(filled)} answer(s) "
+          f"{'filled' if args.apply else 'would be filled'}")
+    return 0
+
+
+def report_foreign_grids(args):
+    blanked = repair_foreign_grids(args.apply)
+    for pid, lid, word, src in blanked:
+        print(f"{pid} {lid}: {word} -> blank (read off {src})")
+    print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+          f"{'blanked' if args.apply else 'would be blanked'}")
+    return 0
+
+
+def report_misread_names(args):
+    blanked = repair_misread_names(args.apply)
+    for pid, lid, word in blanked:
+        print(f"{pid} {lid}: {word} -> blank")
+    print(f"{len({r[0] for r in blanked})} puzzle(s), {len(blanked)} answer(s) "
+          f"{'blanked' if args.apply else 'would be blanked'} of {len(MISREAD_NAMES)} listed")
+    return 0
+
+
+def report_lost_answers(args):
+    restored, left = repair_lost_answers(args.lost_answers, args.apply)
+    for pid, lid, word, sha in restored:
+        print(f"{pid} {lid}: blank -> {word} (blanked by {sha})")
+    for pid, lid, word, why in left:
+        print(f"{pid} {lid}: {word} left blank: {why}")
+    print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} answer(s) "
+          f"{'restored' if args.apply else 'would be restored'}; {len(left)} left blank "
+          + ", ".join(f"{why} {n}" for why, n in sorted(Counter(r[3] for r in left).items())))
+    return 0
+
+
+def report_lost_breaks(args):
+    restored = repair_lost_breaks(args.lost_breaks, args.apply)
+    for pid, lid, was, now in restored:
+        print(f"{pid} {lid}: {was!r} -> {now!r}")
+    print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} count(s) "
+          f"{'restored' if args.apply else 'would be restored'}")
+    return 0
+
+
+def report_regressed_clues(args):
+    restored = repair_regressed_clues(args.regressed_clues, args.apply)
+    for pid, lid, was, now in restored:
+        print(f"{pid} {lid}: {was!r} -> {now!r}")
+    print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
+          f"{'restored' if args.apply else 'would be restored'}")
+    return 0
+
+
+def report_spoiled_clues(args):
+    restored = repair_spoiled_clues(args.spoiled_clues, args.apply)
+    for pid, lid, was, now in restored:
+        print(f"{pid} {lid}: {was!r} -> {now!r}")
+    print(f"{len({r[0] for r in restored})} puzzle(s), {len(restored)} clue(s) "
+          f"{'restored' if args.apply else 'would be restored'}")
+    return 0
+
+
+# The one-purpose repairs: each runs alone and ends the program, tried in this order.
+MODE_REPORTS = (
+    ("ft_dates", report_ft_dates),
+    ("renumbered", report_renumbered),
+    ("crossing_fills", report_crossing_fills),
+    ("crossing_misreads", report_crossing_misreads),
+    ("annotated_mends", report_annotated_mends),
+    ("clue_fills", report_clue_fills),
+    ("side_answers", report_side_answers),
+    ("uncrossed", report_uncrossed),
+    ("rivals", report_rivals),
+    ("unwritten_answers", report_unwritten_answers),
+    ("foreign_grids", report_foreign_grids),
+    ("misread_names", report_misread_names),
+    ("lost_answers", report_lost_answers),
+    ("lost_breaks", report_lost_breaks),
+    ("regressed_clues", report_regressed_clues),
+    ("spoiled_clues", report_spoiled_clues),
+)
+
+
+def check_options(ap, args):
     if args.only:
         import clue_repair
         is_word, uses = clue_repair.lexicon()
@@ -2944,6 +3000,9 @@ def main(argv):
     if args.series and args.series not in series_meta.SERIES:
         ap.error(f"no series {args.series!r} — " + ", ".join(sorted(series_meta.SERIES)))
 
+
+def scan_files(args):
+    """Repair the selected files; return the tallies the later reports need."""
     # One read per file. Dates are judged against a WHOLE series, so the
     # neighbours of a selected puzzle are collected even when the number range
     # excludes them — a range of ten puzzles cannot say which of the ten is out
@@ -2968,15 +3027,18 @@ def main(argv):
         if line:
             repaired += 1
             print(line)
+    return examined, repaired, by_series, wanted, unsettled
 
-    if args.mends:
-        for rule, n in sorted(Counter(r for _p, _l, r, _w, _n in MEND_LOG).items()):
-            print(f"rule {rule}: {n} clue(s)")
-        import random
-        for pid, lid, rule, was, now in random.Random(1).sample(MEND_LOG, min(args.samples, len(MEND_LOG))):
-            print(f"SAMPLE {pid} {lid} [{rule}]\n   - {was}\n   + {now}")
-        by_series, wanted = {}, set()  # a mends run says nothing of dates
 
+def report_mends(args):
+    for rule, n in sorted(Counter(r for _p, _l, r, _w, _n in MEND_LOG).items()):
+        print(f"rule {rule}: {n} clue(s)")
+    import random
+    for pid, lid, rule, was, now in random.Random(1).sample(MEND_LOG, min(args.samples, len(MEND_LOG))):
+        print(f"SAMPLE {pid} {lid} [{rule}]\n   - {was}\n   + {now}")
+
+
+def report_misfiled(by_series, wanted):
     misfiled = 0
     for series, dated in sorted(by_series.items()):
         for number, (stored, earliest, latest) in sorted(misfiled_dates(dated).items()):
@@ -2994,7 +3056,10 @@ def main(argv):
                 window = f"between {day(earliest)} and {day(latest)}"
             print(f"{pid}: dated {day(stored)}, but its neighbours put it "
                   f"{window} — mis-filed, re-fetch it")
+    return misfiled
 
+
+def report_totals(args, examined, repaired, misfiled, unsettled):
     for why, count in sorted(SKIPPED.items()):
         print(f"padding-like leaf left alone ({why}): {count}")
     if args.write_flags:
@@ -3007,6 +3072,25 @@ def main(argv):
     if repaired and not args.apply:
         print("nothing was written — pass --apply")
     return 0
+
+
+def main(argv):
+    ap = build_parser()
+    args = ap.parse_args(argv)
+    if args.write_breaks:
+        return report_write_breaks()
+    if args.apply and args.dry_run:
+        ap.error("--apply and --dry-run say opposite things; pass one")
+    for flag, report in MODE_REPORTS:
+        if getattr(args, flag):
+            return report(args)
+    check_options(ap, args)
+    examined, repaired, by_series, wanted, unsettled = scan_files(args)
+    if args.mends:
+        report_mends(args)
+        by_series, wanted = {}, set()  # a mends run says nothing of dates
+    misfiled = report_misfiled(by_series, wanted)
+    return report_totals(args, examined, repaired, misfiled, unsettled)
 
 
 if __name__ == "__main__":
