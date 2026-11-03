@@ -597,7 +597,7 @@ bag_prompt() {
   tmpl="${tmpl//@IDS@/${ids% }}"
   rule=$(bag_rule)
   if [ "$rule" != annotate ]; then
-    tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks the shape rule \`$rule\` (a validator check, not a field to add), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
+    tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks a shape rule (a validator check, not a field to add; this pool drains \`$rule\`, and the bag takes other rules' clues too), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
   fi
   printf '%s' "$tmpl"
 }
@@ -635,7 +635,11 @@ pool_bag() {
   if [ ! -s "$RUNS/$id.sid" ]; then
     rm -f "$RUNS/$id.bag"
     [ -s "/tmp/ct-prereset-$id.resume" ] && return 0
-    ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" | python3 tools/clue_bag.py --due "$RUNS" "$id") || return 0
+    # A shape-rule bag fills from every listed puzzle, not just this rule's queue (clue_bag.py --any-listed).
+    local any=()
+    [ "$(bag_rule)" = annotate ] || any=(--any-listed)
+    ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" |
+      python3 tools/clue_bag.py --due ${any[@]+"${any[@]}"} "$RUNS" "$id") || return 0
     [ "$(wc -l <<<"$ids")" -gt 1 ] || return 0
     due=$(awk '{n += $2} END {print n + 0}' <<<"$ids")
     awk '{print $1}' <<<"$ids" >"$RUNS/$id.bag"

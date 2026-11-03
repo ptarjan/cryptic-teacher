@@ -584,7 +584,7 @@ bagp=$(mktemp); printf 'pw-a\npw-b\n' >"$bagp"
 prompt_for() ( eval "$bagfns"; WAVE_WHAT="$1"; bag_prompt "$bagp" )
 p=$(prompt_for 'Backfill wordplay.anaStandIn for')
 check "a backfill bag's prompt carries its rule and the additive limit, then the bag task for its ids" \
-  "$(grep -c 'shape rule `wordplay.anaStandIn`' <<<"$p") $(grep -c 'change nothing else in any puzzle' <<<"$p") $(grep -c 'in this one session: pw-a pw-b\.' <<<"$p") $(grep -c '_ann_bag_pw-a.json' <<<"$p")" "1 1 1 1"
+  "$(grep -c 'this pool drains `wordplay.anaStandIn`' <<<"$p") $(grep -c 'change nothing else in any puzzle' <<<"$p") $(grep -c 'in this one session: pw-a pw-b\.' <<<"$p") $(grep -c '_ann_bag_pw-a.json' <<<"$p")" "1 1 1 1"
 check "an Annotate bag's prompt is the bag task alone" \
   "$(prompt_for Annotate | grep -c 'shape rule') $(prompt_for Annotate | cut -c1-24)" "0 Annotate these crossword"
 rm -f "$bagp"
