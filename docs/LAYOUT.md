@@ -3320,5 +3320,13 @@ tests/test_index_idx.py                        tools/index_idx.py's files decode
                                                same rows as puzzles/index.json, shard names
                                                never match the puzzle glob, and the head files
                                                stay small
+tools/heap_probe.js                            diagnostic only, removed once its report is in:
+                                               snapshots smoke_test.js's heap from inside the
+                                               sweep (baseline, then each +600 MB of live heap)
+                                               and logs fake_dom listener, timer and beacon
+                                               sizes
+tools/heap_report.py                           diagnostic only, removed with heap_probe.js:
+                                               summarises a V8 heap snapshot into top retainers
+                                               and a growth diff
 ```
 <!-- LAYOUT-END -->
