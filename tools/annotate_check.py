@@ -210,6 +210,19 @@ def field_due(puzzle):
     return out
 
 
+def shape_due(puzzle):
+    """The ids of the shape-list clues (shape_queue.flagged) a run can redo: none on a
+    puzzle that awaits its preamble (puzzle_integrity.awaits_preamble: a run only parks it
+    again, nation-3403), and not a clue published with no text (nothing to solve, nothing
+    owed: listener-93 15-across, 21-across), the same two the annotate pickers leave out."""
+    import puzzle_integrity
+    flagged = shape_queue.flagged(puzzle)
+    if not flagged or puzzle_integrity.awaits_preamble(puzzle):
+        return []
+    readable = {entry_id(e) for e in clued(puzzle["entries"])}
+    return [cid for cid in flagged if cid in readable]
+
+
 def to_write(puzzle, before):
     """The ids a run on this puzzle annotates: the clues that lack a hint,
     plus `before`, the list the run started with, so a clue the run has since
@@ -233,7 +246,7 @@ def to_write(puzzle, before):
              if cid in (before or ()) or not item.get("annotation")]
     # The shape re-annotation list's clues (tools/shape_queue.py): hinted
     # already, and the hint stays until the new one validates.
-    only += [cid for cid in shape_queue.flagged(puzzle) if cid not in only]
+    only += [cid for cid in shape_due(puzzle) if cid not in only]
     # The blog re-check's clues: hinted already, the hint stays until a new one lands (or is kept).
     only += [cid for cid in blog_due(puzzle) if cid not in only]
     # A field backfill's clues: hinted already, short of the field (CT_BACKFILL_FIELD).
