@@ -156,4 +156,24 @@ ordinary.feed(WIDTH, T)
 ordinary.feed("committed Annotate z-1", T + 1)
 check(len(sent), 2, "a status or a commit never wakes")
 
+# Tokens per clue: one run per puzzle at 17k tokens a clue is an alarm; the status line shows the rate.
+log = B.Log()
+sent = []
+log.notify = sent.append
+log.tokens_of = lambda pid: 17_000
+log.feed(WIDTH, T)
+lines = []
+for i in range(6):
+    lines += log.feed(f"committed Backfill wordplay.anaStandIn for azed-{100 + i}", T + 10 + i)
+check(any("tokens per clue: re-shape anagram stand-ins ran at 17k tokens per clue" in x for x in lines), True,
+      "17k tokens a clue warns, naming the rule")
+check(len(sent), 1, "and wakes the room once")
+check(any("17k tok/clue" in x for x in log.feed("sync: tree at x", T + 400)), True, "the status line carries tokens per clue")
+log = B.Log()
+log.tokens_of = lambda pid: 3_000
+lines = []
+for i in range(8):
+    lines += log.feed(f"committed Backfill wordplay.anaStandIn for azed-{100 + i}", T + i)
+check([x for x in lines if "tokens per clue" in x], [], "3k tokens a clue is fine")
+
 sys.exit(1 if fails else 0)

@@ -18,12 +18,15 @@ the width or its limit changes (and at most every 15 minutes otherwise, when
 puzzles ended since); a ⚠️ line for a real problem. Anything else is not here.
 """
 import collections
+import contextlib
 import datetime
 import json
 import os
+import pathlib
 import re
 import subprocess
 import sys
+import threading
 import time
 from zoneinfo import ZoneInfo
 
@@ -40,6 +43,8 @@ PROBLEM = re.compile(
 WASTE_SHARE = 0.15         # ⚠️ when more than this share of the last hour's finished puzzles changed nothing
 WASTE_MIN = 20             # ... out of at least this many
 SHORT_S = 15 * 60          # far fewer runs than the width, or behind pace, this long is a problem
+TOKENS_PER_CLUE_MAX = 10_000   # ⚠️ above this many tokens per clue written in the last hour (bagged Annotate is 3.5-4k)
+TOKENS_MIN_CLUES = 5
 COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
 WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM") or os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
@@ -135,6 +140,8 @@ class Log:
         self.wake_at = {}         # kind -> last wake time
         self.wake_more = collections.Counter()
         self.notify = None        # callable(text) that files a wake
+        self.tokens_of = None     # callable(puzzle) -> tokens its backfill session spent
+        self.costs = collections.deque()   # (time, tokens, clues, rule, puzzle) of the last hour's backfills
 
     def out(self, now, mark, text):
         return f"{stamp(now)} {mark} {text}"
@@ -204,6 +211,21 @@ class Log:
         top = nc.most_common(1)[0] if nc else (None, 0)
         return total_nc, self.last_hour(now), top
 
+    def tokens_window(self, now):
+        """(tokens per clue written in the last hour, clues, the costliest rule and its rate, evidence)."""
+        while self.costs and self.costs[0][0] < now - 3600:
+            self.costs.popleft()
+        clues = sum(c for _, _, c, _, _ in self.costs)
+        if clues < TOKENS_MIN_CLUES:
+            return None
+        by_rule = collections.defaultdict(lambda: [0, 0])
+        for _, tok, c, rule, _ in self.costs:
+            by_rule[rule][0] += tok
+            by_rule[rule][1] += c
+        rule, (tok, c) = max(by_rule.items(), key=lambda kv: kv[1][0])
+        evidence = [f"{pid}: {tok // 1000}k tokens for {plural(c, 'clue')}" for _, tok, c, _, pid in list(self.costs)[-3:]]
+        return sum(t for _, t, _, _, _ in self.costs) / clues, clues, (rule, tok / c), evidence
+
     def warn(self, now, kind, text, evidence, wake=True, wake_kind=None):
         """A ⚠️ line, plus a wake (at most one per kind of warning per hour) with its evidence."""
         line = self.out(now, "⚠️", text)
@@ -269,6 +291,12 @@ class Log:
             f"behind pace: {self.width} at once, {self.need} needed to spend the week by its reset"
             + (f" (limit: {self.limit})" if self.limit else ""),
             [self.width_raw] if self.width_raw else [], "back on pace", SHORT_S)
+        tw = self.tokens_window(now)
+        out += self.condition(
+            now, "tokens", bool(tw and tw[0] > TOKENS_PER_CLUE_MAX),
+            (f"tokens per clue: {phrase(tw[2][0])[0]} ran at {tw[2][1] / 1000:.0f}k tokens per clue written over the last hour "
+             f"({plural(tw[1], 'clue')} in all, {tw[0] / 1000:.0f}k overall; one run per puzzle, bagged annotation is 3.5-4k)")
+            if tw else "", tw[3] if tw else [], "tokens per clue back under 10k")
         recent = [(p, c) for t, p, c in self.meters if t > now - 3600]
         trail = [(p, c) for t, p, c in self.meters if now - 6 * 3600 < t <= now - 3600]
         pr, cr = sum(p for p, _ in recent), sum(c for _, c in recent)
@@ -314,6 +342,9 @@ class Log:
         share = f" ({nc / (nc + done):.0%})" if nc + done else ""
         parts = [f"{self.width} at once" + (f" ({self.limit})" if self.limit else ""),
                  f"{done} done/h", f"{nc} no-change/h{share}"]
+        tw = self.tokens_window(now)
+        if tw:
+            parts.append(f"{tw[0] / 1000:.0f}k tok/clue")
         if self.queued is not None:
             parts.append(f"{self.queued} queued")
         if week:
@@ -451,6 +482,9 @@ class Log:
             if labels and len(labels) <= 8:
                 where += f" ({', '.join(labels)})"
             self.finished(now, True, pid, rule)
+            tok = self.tokens_of(pid) if (self.tokens_of and field) else None
+            if tok:
+                self.costs.append((now, tok, n or 1, rule, pid))
             return [self.out(now, "✓", f"{pid} {what}{where}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] bag of (\d+) puzzles(?:, (\d+) clues)?: (\S+)", line)
         if m:  # pool_bag: one session for several puzzles of the same rule
@@ -490,6 +524,65 @@ class Log:
         return []
 
 
+class TokenIndex:
+    """Tokens each backfill session spent, by puzzle: input + output + cache writes (cache reads
+    are the re-read of the conversation and are left out), from the CLI's transcripts. Scanned in
+    a thread so the filter never stalls the pipe the burn writes to."""
+
+    PREFIX = "In this repo, add the missing"
+
+    def __init__(self, root=None):
+        self.root = pathlib.Path(root or os.environ.get("CLAUDE_CONFIG_DIR") or pathlib.Path.home() / ".claude")
+        self.by_pid = {}
+        self.seen = {}
+
+    def scan(self, window_s=3 * 3600):
+        floor = time.time() - window_s
+        for path in self.root.glob("projects/*cryptic*/*.jsonl"):
+            try:
+                mtime = path.stat().st_mtime
+            except OSError:
+                continue
+            if mtime < floor or self.seen.get(path) == mtime:
+                continue
+            self.seen[path] = mtime
+            first, tokens, ids = None, 0, set()
+            try:
+                with path.open(errors="replace") as fh:
+                    for line in fh:
+                        try:
+                            rec = json.loads(line)
+                        except ValueError:
+                            continue
+                        msg = rec.get("message") or {}
+                        if rec.get("type") == "user" and first is None:
+                            content = msg.get("content")
+                            first = content if isinstance(content, str) else json.dumps(content)
+                            if not first.startswith(self.PREFIX):
+                                break
+                        elif rec.get("type") == "assistant" and msg.get("id") not in ids:
+                            ids.add(msg.get("id"))
+                            u = msg.get("usage") or {}
+                            tokens += (u.get("input_tokens", 0) + u.get("output_tokens", 0)
+                                       + u.get("cache_creation_input_tokens", 0))
+            except OSError:
+                continue
+            m = re.search(r"/" + PUZZLE + r"\.json", first or "")
+            if m and first.startswith(self.PREFIX):
+                self.by_pid[m.group(1)] = tokens
+
+    def __call__(self, pid):
+        return self.by_pid.get(pid)
+
+    def keep_fresh(self, every=300):
+        def loop():
+            while True:
+                with contextlib.suppress(Exception):  # a bad transcript must not end the thread
+                    self.scan()
+                time.sleep(every)
+        threading.Thread(target=loop, daemon=True).start()
+
+
 def send_wake(text):
     """File a note for the room (wake.sh -q: no inference until its next turn anyway)."""
     try:
@@ -502,10 +595,13 @@ def send_wake(text):
                        stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
-def replay(path, start=0, end=None):
+def replay(path, start=0, end=None, repo=None):
     """Feed an old log through the summariser on a clock the meter lines keep (each
     'weekly A% -> B% in Xh' moves it X hours): prints what it would have written and woken."""
-    log = Log()
+    log = Log(repo)
+    index = TokenIndex()
+    index.scan(window_s=36 * 3600)
+    log.tokens_of = index
     t = 1_800_000_000.0
     lines = __import__("pathlib").Path(path).read_text(errors="replace").splitlines()[start:end]
     for raw in lines:
@@ -523,10 +619,13 @@ def replay(path, start=0, end=None):
 
 def main(argv):
     if argv[1] == "--replay":
-        return replay(argv[2], int(argv[3]) if len(argv) > 3 else 0, int(argv[4]) if len(argv) > 4 else None)
+        return replay(argv[2], int(argv[3]) if len(argv) > 3 else 0, int(argv[4]) if len(argv) > 4 else None,
+                      argv[5] if len(argv) > 5 else None)
     path = argv[1]
     log = Log(argv[2] if len(argv) > 2 else None)
     log.notify = send_wake
+    log.tokens_of = TokenIndex()
+    log.tokens_of.keep_fresh()
     fresh = not os.path.exists(path) or os.path.getsize(path) == 0
     with open(path, "a", buffering=1) as out:
         if fresh:
