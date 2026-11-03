@@ -225,7 +225,7 @@ ACQUIRED_BY = {
         "channel": "blog", "what": "a fifteensquared solution write-up"},
     "tools/file_cyclops_christmas.py": {
         "channel": "blog",
-        "what": "a fifteensquared write-up's clues over the Eye's Christmas grid image"},
+        "what": "a fifteensquared write-up's clues over the Eye's Christmas grid image (the filer is retired; filed puzzles keep this key)"},
     "tools/acquire_book.py": {
         "channel": "book",
         "what": "an archive.org book scan taken all the way to filed puzzles "
