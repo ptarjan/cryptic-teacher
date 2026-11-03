@@ -114,13 +114,6 @@ def mine_pairs(ref, since):
 
 # ---- classing -------------------------------------------------------------
 
-def _shape(s):
-    """Collapse a fragment to a short comparable shape."""
-    s = re.sub(r"[A-Za-z]", "a", s)
-    s = re.sub(r"\d", "9", s)
-    return s
-
-
 def classify_edit(a, b):
     """One word-level edit (old fragment a, new fragment b) -> class name."""
     if a == b:
@@ -178,15 +171,6 @@ def edits(old, new):
         # a space edit shows as two words <-> one; glue back to compare
         out.append((a, b))
     return out
-
-
-def clue_classes(old, new):
-    if " ".join(old.split()) == " ".join(new.split()) and old != new:
-        return ["whitespace-run"]
-    cs = []
-    for a, b in edits(old, new):
-        cs.append(classify_edit(a, b))
-    return cs or ["other"]
 
 
 def table(pairs, limit=3):

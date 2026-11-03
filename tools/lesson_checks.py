@@ -98,21 +98,6 @@ def dd_misses_wordplay(ann, clue, answer):
     return None
 
 
-def _hides(words, ans):
-    """Whether `ans` sits in the run of `words` across at least one word break."""
-    flat = "".join(words)
-    cuts, pos = set(), 0
-    for w in words:
-        pos += len(w)
-        cuts.add(pos)
-    i = flat.find(ans)
-    while i >= 0:
-        if any(i < c < i + len(ans) for c in cuts):
-            return True
-        i = flat.find(ans, i + 1)
-    return False
-
-
 def _prose(node):
     """Every string in an annotation that is the annotator's own writing, not
     clue words (`words`, a definition's or indicator's `text`) or the spelling."""

@@ -64,8 +64,8 @@ UPSCALE = 2
 #: server recognisers cost over 20 times as long), and Tesseract ("times"),
 #: a different engine whose misreads are not theirs, its English LSTM
 #: fine-tuned on Times clue lines (tools/train_archive_org_tesseract.py).
-#: The vote's misread rate on tools/data/archive_org_ocr_gold.json:
-#: tools/measure_archive_org_ocr.py.
+#: The vote's misread rate is measured against the hand transcriptions in
+#: tools/data/archive_org_ocr_gold.json.
 READERS = {"ch": None,
            "en5": Path(os.path.expanduser("~/.cache/rapidocr/en_PP-OCRv5_rec_mobile_infer.onnx")),
            "times": "tesseract"}

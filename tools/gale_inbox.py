@@ -525,14 +525,6 @@ def build_manifest(cache=CACHE, out=sys.stdout):
     return found
 
 
-def save_json(path, value):
-    """Write `value` to `path` whole or not at all (a killed tick leaves the last)."""
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    tmp.write_text(json.dumps(value, indent=0))
-    tmp.replace(path)
-
-
 def relink(pages, url):
     """Set a laid-out edition's pages.json "url" to `url` (an edition laid out
     before its document was named off its file), whole or not at all, its

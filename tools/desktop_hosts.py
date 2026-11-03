@@ -214,11 +214,6 @@ def remotes(user=USER, port=22, tailnet_first=False):
     return [f"{user}@{a}" for a in ranked(port, tailnet_first=tailnet_first)]
 
 
-def vlm_urls():
-    """The VLM's base URLs, ranked() for its port."""
-    return [f"http://{a}:{VLM_PORT}" for a in ranked(VLM_PORT, tailnet_first=True)]
-
-
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "remote"
     if what == "live":

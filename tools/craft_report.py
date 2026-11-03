@@ -118,7 +118,7 @@ duplicated here.
   python3 tools/favourites_survey.py --json votes.json
   python3 tools/craft_report.py --vs-favourites votes.json
 
-`tools/clue_quality.py` is deliberately NOT rolled in. Its checks were built to
+The old `clue_quality.py` (deleted; see git history) was deliberately NOT rolled in. Its checks were built to
 catch the lifeless shapes OUR generated clues fall into, and its own calibration
 shows them firing on 20-48% of published clues, so as a discriminator between
 published puzzles it is mostly noise. Read it per clue; do not average it here.

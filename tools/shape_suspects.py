@@ -16,7 +16,6 @@ from pathlib import Path
 
 import clue_shapes as cs
 import puzzle_paths
-import wordplay
 
 OUT = Path(__file__).resolve().parent / "data" / "shape_suspects.json"
 
@@ -95,19 +94,6 @@ def d_ind_in_leaf(r):
         return "indicator also sits inside a leaf of clue words"
 
 
-def d_leaf_in_def(r):
-    if r["andLit"] or r["wp"].get("op") == "cryptic":
-        return None
-    for lf in leaves(r["wp"]):
-        w = L(lf.get("words"))
-        if len(w) < 4 or lf.get("gives") is None or L(lf["gives"]) == w:
-            continue
-        for d in r["defs"]:
-            dt = L(d.get("text"))
-            if dt and w in dt:
-                return f"leaf '{lf['words']}' is inside the definition '{d.get('text')}'"
-
-
 def _sanctioned_unchecked(lf, parent, ancestors=()):
     """Whether an unchecked leaf is the mandatory form, not an unverified synonym:
     a sound leaf anywhere under a spoonerism (`soundsLike` says what is said aloud, and its
@@ -146,36 +132,6 @@ def d_unchecked_leaf_word(r):
         if "op" not in n and n.get("unchecked") and n.get("words") and "dropped" not in (n.get("note") or "") \
                 and not _sanctioned_unchecked(n, parent, anc):
             return f"unchecked leaf '{n['words']}'"
-
-
-def d_unchecked_rare(r, c):
-    if r["sk"].count("?") and c[r["sk"]] <= 3 and r["wp"].get("op") != "cryptic":
-        return "unchecked op in a skeleton seen at most 3 times"
-
-
-def d_op_over_charade(r):
-    for n in nodes(r["wp"]):
-        if n.get("op") in ("deletion", "container", "reversal") and any(
-                k.get("op") == "charade" for k in (n.get("parts") or [])[:1]):
-            return f"{cs.SHORT[n['op']]} applied to a whole charade"
-
-
-def d_bare(r):
-    for lf in leaves(r["wp"]):
-        if "words" not in lf and "dropped" not in (lf.get("note") or "") and "answer" not in (lf.get("note") or ""):
-            return f"bare letters {lf.get('gives')} with no clue words"
-
-
-def d_nested_same(r):
-    for n in nodes(r["wp"]):
-        for k in n.get("parts") or []:
-            if n.get("op") and n.get("op") == k.get("op") and n["op"] not in ("charade", "cryptic"):
-                return f"{cs.SHORT.get(n['op'], n['op'])} directly inside {cs.SHORT.get(n['op'], n['op'])}"
-
-
-def d_singleton(r, c):
-    if c[r["sk"]] == 1 and r["sk"].count("(") >= 3 and r["wp"].get("op") != "cryptic":
-        return "skeleton seen once, 3+ brackets"
 
 
 _WORDS = set()

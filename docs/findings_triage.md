@@ -10,7 +10,7 @@ false positive.
 
 | Finding | Count | Class | What it is and what fixes it |
 |---|---:|:---:|---|
-| `wordplay.unchecked` | 47,580 | a ~17%, b the rest | New `tools/clear_unchecked.py` re-evaluates and drops the flag when the clue passes (~8,300). About 230 of 690 sampled crash the evaluator on wrong part counts. |
+| `wordplay.unchecked` | 47,580 | a ~17%, b the rest | The (since retired) `clear_unchecked.py` re-evaluated and dropped the flag when the clue passes (~8,300). About 230 of 690 sampled crash the evaluator on wrong part counts. |
 | `wordplay.noIndicator` | 12,943 | b | Mis-nested trees, mostly lone containers. About 15% are shared-indicator siblings. |
 | `wordplay.delSingle` | 11,564 | b | Deletions that lost their removed part. |
 | `features` | 10,406 | b | Surface judgements. |

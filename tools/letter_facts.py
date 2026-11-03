@@ -1581,16 +1581,6 @@ def puzzle_clues(path):
             for eid, e in ents.items() if e.get("solution") and e["clue"].get("text")]
 
 
-def _file_pids(path):
-    """The puzzle ids of a tools/data/blog_facts file, off the start of each
-    line (rewrite_rows writes one puzzle a line), without parsing the rows."""
-    dec = json.JSONDecoder()
-    with path.open(encoding="utf-8") as f:
-        for line in f:
-            if line.startswith('"'):
-                yield dec.raw_decode(line)[0]
-
-
 def _held_clues(pids):
     """{puzzle id: puzzle_clues} for each of `pids` held in puzzles/, found
     off one listing and kept per file by tools/row_cache.py. Was a

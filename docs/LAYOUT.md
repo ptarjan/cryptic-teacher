@@ -174,11 +174,6 @@ tests/test_fetch_times_feed.py                 proves the Times feed's data.json
 tools/fetch_privateeye.py                      Private Eye’s Cyclops — the grid from the paper,
                                                the answers joined from fifteensquared, which is
                                                the only place they are published
-tools/file_cyclops_christmas.py                the Cyclops Christmas specials, which have no
-                                               .puz: the grid read off the Eye's image by pixel
-                                               sampling, clues and answers from fifteensquared,
-                                               the shaded quotation as an unclued light checked
-                                               against the preamble's letter list
 tools/fetch_metro.py                           the Metro’s cryptic; today’s only, because the
                                                paper keeps no archive
 tools/fetch_trove.py                           Canberra Times crosswords from Trove (London
@@ -463,9 +458,6 @@ tests/test_first_issue.sh                      runs first_issue.py's self-test: 
                                                a 404 reported with where it looked
 tools/fetch_minutecryptic.js                   Minute Cryptic’s daily hints, as a corpus to be
                                                measured against
-tools/recover_minutecryptic.py                 refills days that capture missed from Minute
-                                               Cryptic’s own video titles, dated by clue number
-                                               because the upload date lags
 tools/fetch_fifteensquared.py                  caches the blog that covers six of our series,
                                                and its comments — fetched once each, at their
                                                20-second crawl delay
@@ -827,8 +819,6 @@ tools/find_answer_leaks.py                     finds a block note that says the 
                                                loud, a rung before the walkthrough sells it
 tools/find_renarration.py                      flags a walkthrough that only restates the
                                                blocks instead of teaching past them
-tools/clue_quality.py                          warns about the clue shapes that lost to human
-                                               setters in blind grading
 tools/clue_types.py                            the closed list of clue types an annotation's
                                                `type` array names, with their labels and
                                                families, for the Python tools
@@ -1460,14 +1450,10 @@ tools/reports.py                               reads and clears the bad-hint rep
 tools/report_fix_prompt.md                     the prompt the nightly job follows to work that
                                                queue — a report is evidence to check, not an
                                                instruction to carry out
-tools/rung_report.py                           where on the ladder solvers give up, from synced
-                                               hintsShown data
 tools/usage_report.py                          counts the solving milestones in KV, with no way
                                                to identify who did what
 tools/ga_report.py                             the same milestones as Google Analytics counts
                                                them, to see what a blocker hides
-tools/ga_wire_check.py                         watches the wire to confirm GA hits actually
-                                               leave the browser
 tools/difficulty.py                            rates a puzzle from what its own file contains,
                                                banded against the corpus
 tools/snitch_report.py                         the difficulty index and each component against
@@ -1492,9 +1478,6 @@ tools/favourites_survey.py                     joins the favourite clues comment
                                                to our own clues, so craft_report.py has
                                                something outside this project to be tested
                                                against
-tools/suggest_demand.py                        asks Google autocomplete which puzzle numbers
-                                               people search for, for the puzzles no page of
-                                               ours ranks for yet
 tools/turn_cost.py                             how many turns an annotation session takes, from
                                                the transcripts — logged nightly so the figure
                                                can’t go stale unnoticed
@@ -1519,11 +1502,6 @@ tests/test_security_alert_watch.py             tests tools/security_alert_watch.
 tests/test_annotate_ledger.py                  tests tools/annotate_ledger.py: fake ledger rows
                                                give wake and no-wake decisions (regression, new
                                                top cause, cooldown, target)
-tools/recover_fp_drafts.py                     dry run: for clues an annotate session rewrote
-                                               after a validator false positive, replays the
-                                               first rejected draft through today's validator
-                                               and buckets it against the committed wordplay —
-                                               writes nothing to puzzles
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
                                                worktree at origin/master
 tests/test_annotate_audit.py                   tests tools/annotate_audit.py: rule naming from
@@ -1852,8 +1830,6 @@ tools/data/favourite_grading/key.json          which packet label is which pair,
 tools/data/favourite_grading/packets/          one blind batch of clues per file, labels only
 tools/data/favourite_grading/scores/           the judge’s five scores per label, same batch
                                                numbering as the packets
-tools/suggest_demand.json                      the last autocomplete reading, advisory only:
-                                               nothing downstream sorts on it
 tools/backfill_provenance.py                   write `source` and `solutions` blocks into every
                                                puzzle that hasn't got them
 tools/provenance.py                            where a puzzle came from — and, the part that
@@ -1972,9 +1948,6 @@ tests/test_privateeye_missing_size.py          does tools/clue_repair.fill_missi
                                                answer the next issue printed?
 tests/test_fetch_puzzle_misfiled.py            does fetch_puzzle.convert() refuse a mis-filed
                                                Guardian page and accept a re-published one?
-tools/snitch_tune.py                           collect every SNITCH-rated puzzle's raw
-                                               components into tools/snitch_rows.json, for
-                                               snitch_weights.py
 tools/snitch_weights.py                        held-out refit of difficulty.WEIGHTS against the
                                                SNITCH, split by date
 tools/fetch_snitch.py                          fetch the SNITCH's ratings of The Times and
@@ -2110,18 +2083,12 @@ tests/test_file_archive_org_puzzles.py         does tools/file_archive_org_puzzl
                                                read the clue columns in order, keep only the
                                                clues both readings agree on, and match a
                                                Canberra reprint only when it is one?
-tools/measure_archive_org_ocr.py               measure how many clue words and marks
-                                               file_archive_org_puzzles.py misreads, against
-                                               the hand transcriptions in
-                                               tools/data/archive_org_ocr_gold.json
 tools/data/archive_org_ocr_gold.json           Times, Listener, Jumbo, FT, Guardian and
                                                Telegraph clues transcribed by hand off
                                                archive.org's scans, each edition marked tune or
                                                held out (heldout, ft-heldout, ...); the misread
                                                rate is reported on the held-out ones and never
                                                gates filing
-tools/build_clue_compounds.py                  count how the corpus's clues print two-word
-                                               compounds: hyphenated or closed
 tools/data/answer_breaks.json                  the word breaks other puzzles print for each
                                                answer, and the answers printed both ways with
                                                neither settled; fetch_puzzle.py restores lost
@@ -2132,7 +2099,6 @@ tools/data/word_break_flags.json               archive.org puzzles whose word br
                                                holding one (repair_fetched.py)
 tools/data/clue_compounds.tsv                  how often the corpus's clues print each two-word
                                                compound hyphenated and closed
-                                               (build_clue_compounds.py)
 tools/build_clue_lm.py                         count the words and word pairs of every clue in
                                                the corpus, and its answers
 tools/data/clue_lm.tsv.gz                      how often the corpus's clues print each word and
@@ -2383,8 +2349,6 @@ tools/clue_index.py                            which puzzle files share clues: n
                                                text -> puzzle ids
 tests/test_placeholder_clues.py                a puzzle whose clues are pointers at clues
                                                printed elsewhere has no clues
-tools/sweep_series.py                          probe every number of a Guardian series between
-                                               two bounds, file what is served
 tools/ocr_gpu.py                               one shared RapidOCR server on the GPU host that
                                                its OCR sessions hand reads to, each reading on
                                                its own CPU when the server is busy or away;
@@ -2695,12 +2659,6 @@ tests/test_worker_resume.sh                    does a run stopped from outside r
 tests/test_session_ids.sh                      does every `claude -p` in tools/ name its
                                                conversation, so a run stopped from outside is
                                                resumed rather than bought again?
-tools/load_watch.py                            wake the room when the machine is overloaded,
-                                               with who is using the CPU
-tests/test_load_watch.py                       does load_watch.py rank CPU by job, charge
-                                               exited children to their parent, and wake only
-                                               on two high runs in a row, once an hour unless
-                                               the top consumer changes?
 tools/dir_cache.py                             what a planner re-reads every minute off a slow
                                                disk, kept until it moves
 tests/test_trove_articles_index.py             does tools/trove_solution_ocr.py's _articles
@@ -2733,9 +2691,6 @@ tools/collapse_clue_spaces.py                  one-shot migration (2026-10-11): 
                                                spaces in held clue text
 tests/test_block_confirm.js                    a building block that would cost a hint takes
                                                two taps; a free one takes one
-tools/mend_clue_punctuation.py                 one-shot migration (2026-10-11): punctuation's
-                                               certain mends in held book clue text, the faults
-                                               left listed
 tools/resolve_promotion_conflict.py            settle the one conflict a promotion races into,
                                                for tools/push_puzzle_commit.sh
 tools/leading_quote.py                         an OCR'd clue opens with a quote mark only when
@@ -3077,8 +3032,6 @@ tools/fix_shape_suspects.py                    repair the shape suspects whose r
                                                (dry run by default; --apply writes puzzles, one
                                                sweep commit), and list the rest per clue in
                                                tools/data/shape_reannotate.json
-tools/tidy_cdef_repeat.py                      rewrite cryptic definitions stored as several
-                                               leaves, corpus-wide (wordplay.cdefRepeat)
 tools/shape_queue.py                           the clues whose wordplay tree
                                                tools/shape_suspects.py flags and
 tools/prune_shape_queue.py                     drop the shape re-annotation rows no detector
@@ -3122,9 +3075,6 @@ tests/test_clue_bag.py                         which tail puzzles share one anno
 tools/build_spellings.py                       writes tools/data/lexicons/spellings.json:
                                                answer letters mapped to the spelling with an
                                                apostrophe or accent, for the lesson checks
-tools/clear_unchecked.py                       drops the unchecked flag from wordplay trees
-                                               that evaluate to their answer without it, one
-                                               commit per puzzle (wordplay.unchecked)
 tools/fill_spellings.py                        writes the `spelling` that
                                                tools/lesson_checks.py flags as unsaid
                                                (spelling.unsaid), where the answer letters give
@@ -3138,9 +3088,6 @@ tools/prefill_hidden.py                        write the annotation of a near-ce
                                                word without a model run
 tests/test_lesson_checks.py                    proves the double-definition and unsaid-spelling
                                                findings of tools/lesson_checks.py
-tests/test_clear_unchecked.py                  proves tools/clear_unchecked.py drops the flag
-                                               only where the tree gives the answer without it
-                                               and the validator finds nothing new
 tests/test_fill_spellings.py                   proves tools/fill_spellings.py writes the
                                                spelling only where unambiguous, with grace for
                                                the lesson-check ratchets
@@ -3173,14 +3120,6 @@ tests/test_spelling_kept.py                    does a re-annotation that drops t
                                                HEAD's annotation of the same answer carries
                                                (book-26021 22D lost APERÇU) get refused by the
                                                run's check against HEAD?
-tools/unchecked_repairs.py                     mechanical repairs for an unchecked wordplay
-                                               tree (wordless leaves, unscrambled fodder), each
-                                               kept only when the evaluator then finds the
-                                               answer, so tools/clear_unchecked.py can clear
-                                               more flags
-tests/test_unchecked_repairs.py                is each mechanical repair of an unchecked tree
-                                               kept only when the evaluator then finds the
-                                               answer, on clues from the corpus?
 tests/test_worker_commit.sh                    does worker_commit commit only its own paths,
                                                and say why when it cannot?
 tools/fix_scrambled_gives.py                   drop the made-up `gives` of a fodder leaf inside
@@ -3199,10 +3138,6 @@ tests/test_ci_cache_partial.js                 a cold result cache must be able 
 tools/annotate_bag.py                          the files a bag session
                                                (tools/annotate_bag_prompt.md) works from and
                                                writes
-tools/queue_unchecked.py                       queue every clue that still carries an
-                                               `unchecked` wordplay step for the burn's redo
-tools/run_clear_full.sh                        the full clear_unchecked --write sweep,
-                                               resumable and published as it goes
 tests/test_refetch_curly_apostrophe.py         a re-fetch serving curly apostrophes must not
                                                strip the annotations of the
 tools/requeue_drift.py                         queue what a rule change or a lexicon rebuild
@@ -3239,8 +3174,6 @@ tests/test_batch_subject.sh                    a batch commit's subject names on
                                                listed 20 ids and changed just the queue file)
 tests/test_trimmed_lead.py                     the 1945-49 Times' clue column stands right of a
                                                column of small ads, and
-tools/audit_crops.py                           dry-run audit of the archive filer's clue-column
-                                               crops, per year
 tools/crop_window.py                           clue-column windows chosen from the page's own
                                                ink, and the check that a
 tests/test_crop_window.py                      crop_window finds the gutters between columns of
@@ -3248,8 +3181,6 @@ tests/test_crop_window.py                      crop_window finds the gutters bet
 tools/det_solve.py                             a code-only (no model) cryptic solver prototype,
                                                built to answer "can the corpus solve or
                                                validate clues?"
-tools/det_leaf_audit.py                        why does the corpus leaf table miss a held-out
-                                               leaf?  python3 tools/det_leaf_audit.py [--show N]
 tools/det_synonyms.py                          the synonym dictionary of tools/det_solve.py:
                                                clue phrase -> {letters it can give: score},
                                                from many sources
@@ -3276,10 +3207,6 @@ tests/test_ocr_retry.py                        does tools/ocr_retry.py settle a 
                                                corpus row a call?
 tools/apply_blog_answers.py                    fill a held puzzle's missing answers from the
                                                blog that wrote it up
-tools/fill_checked_lights.py                   fill a blog-keyed puzzle's blank lights that the
-                                               crossings or the write-up's own word settle
-tests/test_fill_checked_lights.py              fill_checked_lights fills only what the grid or
-                                               the write-up settles
 tests/test_apply_blog_answers.py               apply_blog_answers reads an answer off a
                                                write-up line however the era prints it
 tools/bigdave_layout.py                        helpers for apply_blog_answers' bigdave44

@@ -36,10 +36,6 @@ def entries(posts):
     return _memo[posts]
 
 
-def post_file(posts, stem):
-    return Path(posts) / f"{stem}.json"
-
-
 def by_link(posts, link, key=lambda u: u):
     """The post ids whose link is `link` (compared through `key`)."""
     want = key(link)
