@@ -161,11 +161,13 @@ wave_width() {
   w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-} 2>"$err")
   # One line when the width or its caps change, not at every checkpoint.
   key=$(head -1 "$err" | grep '^width ' | sed 's/ · .*//')
-  if [ -n "$key" ] && [ "$key" != "$(cat "$said" 2>/dev/null)" ]; then
-    printf '%s\n' "$key" >"$said"
+  # Printed when the width changes (its caps move with the load every minute). stderr: this
+  # function's stdout IS the width.
+  if [ -n "$key" ] && [ "${key%% (*}" != "$(cat "$said" 2>/dev/null)" ]; then
+    printf '%s\n' "${key%% (*}" >"$said"
     printf '%s · %s in flight · %s committed last hour\n' "$key" "${#POOL_RUNS[@]}" \
-      "$(git log --since='1 hour ago' --format=%s 2>/dev/null | grep -c '^Annotate')"
-    head -1 "$err" | sed -n 's/^[^·]*· /  why: /p'
+      "$(git log --since='1 hour ago' --format=%s 2>/dev/null | grep -c '^Annotate')" >&2
+    head -1 "$err" | sed -n 's/^[^·]*· /  why: /p' >&2
   fi
   grep -v '^width ' "$err" >&2
   rm -f "$err"
