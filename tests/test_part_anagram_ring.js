@@ -4,7 +4,7 @@
 
      node tests/test_part_anagram_ring.js */
 "use strict";
-const src = require("fs").readFileSync(__dirname + "/../app.js", "utf8");
+const src = require("../tools/app_src").read(__dirname + "/..");
 const slice = (from, to) => { const a = src.indexOf(from); return src.slice(a, src.indexOf(to, a)); };
 // partAnagram and the helpers it reads, then ringHTML itself, run against
 // stubs for the drawing so only the decision is under test.

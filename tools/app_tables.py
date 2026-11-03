@@ -15,7 +15,16 @@ import re
 import sys
 from pathlib import Path
 
+# The app is the seven app-*.js scripts (tools/app_src.py joins them); APP names
+# the single-file form they were split from. Where such a file exists it is read
+# instead, which is how tests/test_page_cache.py feeds this module a fake app.
 APP = Path(__file__).resolve().parent.parent / "app.js"
+
+
+def source():
+    """The app's source: APP if that file exists, else the pieces joined."""
+    import app_src
+    return APP.read_text(encoding="utf-8") if APP.exists() else app_src.read(APP.parent)
 # A count or a puzzle number: three digits or more, or digits grouped by a comma.
 # Grid sizes (13x13) and a place in a book (No 18) stay writable.
 COUNT = re.compile(r"\d[\d,]*\d{2}|\d,\d")
@@ -37,7 +46,7 @@ def ladder(src=None):
     with no second list anywhere to disagree. Every tool that needs to know which
     rung is first reads it from here.
     """
-    src = src if src is not None else APP.read_text(encoding="utf-8")
+    src = src if src is not None else source()
     if not re.search(r"const RUNG_ORDER = Object\.keys\(LABELS\);", src):
         raise SystemExit("app_tables: app.js no longer orders the ladder by "
                          "`Object.keys(LABELS)`, so LABELS' key order is no "
@@ -51,7 +60,7 @@ def ladder(src=None):
 
 def series_blurbs(src=None):
     """{series key: the sentence app.js's picker shows about that series}."""
-    src = src if src is not None else APP.read_text(encoding="utf-8")
+    src = src if src is not None else source()
     block = _block(src, "const SERIES_BADGE = {", "\n  };")
     out = {k: re.sub(r"\s+", " ", v).strip() for k, v in
            re.findall(r'^\s{4}(\w+): \["[^"]*",\s*`([^`]*)`\]', block, re.M)}

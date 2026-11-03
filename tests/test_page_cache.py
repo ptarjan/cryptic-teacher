@@ -60,7 +60,7 @@ moved("the puzzle page's code", fp(edit("def puzzle_page(puz, meta, prev_p, next
 import tempfile
 import app_tables
 real_app = app_tables.APP
-app_src = real_app.read_text(encoding="utf-8")
+app_src = app_tables.source()
 
 def app_fp(text):
     with tempfile.TemporaryDirectory() as d:

@@ -124,10 +124,13 @@ def derived(code):
         return []
     import app_tables
     try:
-        src = app_tables.APP.read_text(encoding="utf-8")
+        src = app_tables.source()
         return [("app.js", repr((app_tables.ladder(src), app_tables.series_blurbs(src))))]
     except (OSError, SystemExit):
-        return [("app.js", file_hash(app_tables.APP) or "gone")]
+        try:
+            return [("app.js", hashlib.sha256(app_tables.source().encode()).hexdigest())]
+        except OSError:
+            return [("app.js", "gone")]
 
 
 def fingerprint(texts=None):

@@ -16,7 +16,7 @@ const path = require("path");
 const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
-const APP = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const APP = require("../tools/app_src").read(ROOT);
 const CTMerge = require("../sync/merge.js");
 const start = APP.indexOf("// ---- sync scheduler");
 const end = APP.indexOf("// ---- end sync scheduler ----");

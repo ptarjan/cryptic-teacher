@@ -8,7 +8,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const src = fs.readFileSync(path.join(__dirname, "..", "app.js"), "utf8");
+const src = require("../tools/app_src").read(path.join(__dirname, ".."));
 const from = src.indexOf("function clueTokens");
 const to = src.indexOf("const tokensOfClue", from);
 let frags = [];

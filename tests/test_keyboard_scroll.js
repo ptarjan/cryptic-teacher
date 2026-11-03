@@ -4,7 +4,7 @@
 
      node tests/test_keyboard_scroll.js */
 "use strict";
-const src = require("fs").readFileSync(__dirname + "/../app.js", "utf8");
+const src = require("../tools/app_src").read(__dirname + "/..");
 const s = src.indexOf("  const SCROLL_BLUR_GUARD_MS"), e = src.indexOf('document.addEventListener("scroll", onPageScroll)');
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };

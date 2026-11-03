@@ -17,7 +17,7 @@ const { boot, ROOT } = require("./fake_dom.js");
 const ids = process.argv.slice(2);
 if (!ids.length) { console.error("usage: node tools/hint_rungs.js <puzzle-id>..."); process.exit(2); }
 
-const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const src = require("./app_src").read(ROOT);
 const table = src.match(/const LABELS = \{([^}]*)\}/)[1];
 const keyOf = {};
 for (const m of table.matchAll(/(\w+): "([^"]+)"/g)) keyOf[m[2]] = m[1];

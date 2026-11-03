@@ -53,7 +53,7 @@ const ROOT = path.join(__dirname, "..");
 // it fails when a file the smoke test reaches is not named here.
 // Over-including costs a re-run; under-including serves a stale pass.
 const SMOKE_DEPS = [
-    "app.js", "analytics.js", "landing.js", "appnav.js", "index.html", "style.css", "qr.js", "quotes.js", "idx.js", "sw.js", "site.webmanifest",
+    "app-core.js", "app-view.js", "app-play.js", "app-teach.js", "app-paint.js", "app-picker.js", "app-boot.js", "tools/app_src.", "analytics.js", "landing.js", "appnav.js", "index.html", "style.css", "qr.js", "quotes.js", "idx.js", "sw.js", "site.webmanifest",
     "favicon", "apple-touch-icon", "icon-192.png", "icon-512.png", "og.png", "sync/", "vendor/",
     "tools/acquire_book.py", "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
     "tools/turn_cost.py", "tools/requeue_drift.py", "tools/refusal_replay.py", "tools/annotate_ledger.py", "tools/annotate_audit.py",

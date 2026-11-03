@@ -21,7 +21,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const SRC = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const SRC = require("../tools/app_src").read(ROOT);
 
 // formulaOf and the helpers it calls, lifted out of app.js by source range so
 // the check runs the app's own code, never a copy of it.

@@ -38,14 +38,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
 WORKFLOW = ".github/workflows/pages.yml"
-ASSETS = ["app.js", "style.css"]
+ASSETS = ["app-core.js", "app-view.js", "app-play.js", "app-teach.js", "app-paint.js",
+          "app-picker.js", "app-boot.js", "style.css"]
 # The progressive index's moving head: rewritten by every filing, so a puzzle-only
 # push is deployed only when the live copy matches the one CI builds from the commit.
 HEAD_LIVE = "puzzles/idx/head-live.json"
 # One round of gh/API calls per minute at most: the host is shared and CI-watch
 # polls showed up among its top CPU users when this ran every 10s.
 POLL_SECONDS = 60
-STAMP = re.compile(r'(app\.js|style\.css)\?v=([a-f0-9]+)')
+STAMP = re.compile(r'(app-[a-z]+\.js|style\.css)\?v=([a-f0-9]+)')
 
 
 def stamps(text):

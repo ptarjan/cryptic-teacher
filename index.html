@@ -425,23 +425,33 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
      (ctIdx.compose: the 300 newest rows, partial) and only then runs app.js, so
      the page downloads what it shows and the rest of the list on demand.
      If they do not load it retries a few times, then says so with a Retry
-     button; it never boots an empty page. app.js is injected rather than a
-     script tag so it can wait for the index; this preload starts its download
-     at once and names it. -->
-<link rel="preload" as="script" href="app.js">
+     button; it never boots an empty page. The app (app-*.js, seven classic
+     scripts that share the page's scope; tools/app_src.js lists them) is
+     injected rather than written as script tags so it can wait for the index;
+     these preloads start the downloads at once and name the files, in the
+     order they run. -->
+<link rel="preload" as="script" href="app-core.js">
+<link rel="preload" as="script" href="app-view.js">
+<link rel="preload" as="script" href="app-play.js">
+<link rel="preload" as="script" href="app-teach.js">
+<link rel="preload" as="script" href="app-paint.js">
+<link rel="preload" as="script" href="app-picker.js">
+<link rel="preload" as="script" href="app-boot.js">
 <script src="idx.js"></script>
 <script id="ct-boot">
 (function () {
-  var app = document.querySelector('link[rel="preload"][as="script"]').getAttribute("href");
+  var apps = [].map.call(document.querySelectorAll('link[rel="preload"][as="script"]'),
+    function (l) { return l.getAttribute("href"); });
   var parsed = false, ready = null, started = false, tries = 0;
   function add(src, ok, bad) {
     var s = document.createElement("script");
     s.src = src;
+    s.async = false; // injected scripts run in the order they were added
     s.onload = ok || null;
     s.onerror = bad || null;
     document.head.appendChild(s);
   }
-  // app.js also waits for the scripts below it in the page (abbreviations.js
+  // The app also waits for the scripts below it in the page (abbreviations.js
   // declares a const it reads), which ctBootParsed() says have run.
   function start() { if (!started && ready && parsed) { started = true; ready(); } }
   window.ctBootParsed = function () { parsed = true; start(); };
@@ -468,7 +478,7 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
           try {
             window.CRYPTIC_INDEX = window.ctIdx.compose(window.CRYPTIC_INDEX_STATIC, live);
           } catch (e) { fail(); return; }
-          ready = function () { add(app); };
+          ready = function () { apps.forEach(function (a) { add(a); }); };
           start();
         }, fail);
       })

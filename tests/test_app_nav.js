@@ -170,7 +170,7 @@ assert(run({ last: null }).tab("puzzle").href === ORIGIN + "/", "with no ct:last
   assert(n >= 2, `tools/build_seo_pages.py loads appnav.js in head() and the which-paper page (found ${n})`);
   assert(!/defer|async/.test((seo.match(/.*asset\("appnav\.js"\).*/g) || []).join("")),
     "appnav.js is not deferred: html.standalone must be set before the first paint");
-  const appJs = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const appJs = require("../tools/app_src").read(ROOT);
   assert(!/href="learn\//.test(appJs),
     "app.js writes no relative learn/ link: under /puzzles/<id>/ it resolves to /puzzles/<id>/learn/");
 }
