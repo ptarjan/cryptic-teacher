@@ -80,7 +80,7 @@ def check(index, label):
         cuts = live["percentileCuts"]
         # every shard on disk is its manifest entry's bytes, hashed as named
         for key, h in live["manifest"].items():
-            shard = json.loads((root / "shards" / f"{key.replace('/', '-')}.{h}.json")
+            shard = json.loads((root / f"{key.replace('/', '-')}.{h}.json")
                                .read_text(encoding="utf-8"))
             assert shard == bundle[key]
         out = {}
