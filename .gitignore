@@ -12,7 +12,6 @@
 # the same way it is spelled there.
 .usage_cache.json
 .alert-state
-.claude
 # Nightly work that failed, with a hash of the inputs it failed on, so it is not
 # retried until they change (tools/failed_inputs.py). Written straight to the
 # main checkout, because the nightly worktree is reset every run.
@@ -94,7 +93,10 @@ tools/_*
 # and reached from the scheduled jobs' worktrees by symlink — which is the
 # reason it is named here: those jobs `git add -A`, and an untracked symlink
 # pointing at somebody's home directory is not a thing to publish.
-.claude/
+# Only .claude/settings.json is tracked: it wires tools/local_guard.py, the hook
+# that refuses heavy work on the home server. .claude/worktrees and the rest stay out.
+.claude/*
+!.claude/settings.json
 
 # The crawlable half of the site, written by tools/build_seo_pages.py: one page
 # per puzzle, the archive hub, the lesson, the glossary and the sitemap. Every
