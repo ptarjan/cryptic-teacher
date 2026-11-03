@@ -25,6 +25,11 @@ counts. The signals:
                with a word the held clue does not contain: the blog saw words
                the file lost (toughie-144's "cad")
 
+A puzzle with a row in tools/data/reread_unfixable.json (a reread left its clue text
+unmended: unfixable from the scan until the OCR reader changes) is held out of the burn
+whatever its file shows, and no reread is asked for it (scan_queue.request_reread
+refuses it too). Deleting the row lifts both.
+
 A light with a row in SOURCE_CLUE_WRONG or SETTER_ERROR is exempt: its text was
 already read against a source. The gate acts on the file as it is, so a repair
 that changes the clue text lifts the hold by itself, and nothing is stored.
@@ -52,6 +57,14 @@ def lexicon():
             if not line.startswith("#"):
                 words.add(line.split("\t", 1)[0].lower())
     return words
+
+
+@functools.lru_cache(maxsize=1)
+def unfixable():
+    """{puzzle id: why} of the puzzles a reread could not mend (tools/data/reread_unfixable.json)."""
+    import json
+    with open(HERE / "data" / "reread_unfixable.json", encoding="utf-8") as f:
+        return {k: v[0] for k, v in json.load(f).items()}
 
 
 @functools.lru_cache(maxsize=1)
@@ -161,7 +174,11 @@ def gate(pids, read=None, log=None):
         def read(pid):
             return json.loads(puzzle_paths.find(pid).read_text(encoding="utf-8"))
     flagged = {}
+    held = unfixable()
     for pid in pids:
+        if pid in held:
+            flagged[pid] = {"*": held[pid]}
+            continue
         try:
             puzzle = read(pid)
         except (OSError, ValueError, KeyError):

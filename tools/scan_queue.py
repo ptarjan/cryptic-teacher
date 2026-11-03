@@ -828,9 +828,12 @@ def request_reread(puzzle, clues, why):
     misread. Returns the request filed, or None: not an OCR channel
     (provenance.OCR_CHANNELS, read off source.retrievedFrom), no filer
     ledger names its source (a book has no re-read), or these clues were
-    asked about already."""
+    asked about already, or the puzzle is in reread_unfixable.json."""
     import provenance
     if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return None
+    import clue_cutoff
+    if puzzle["id"] in clue_cutoff.unfixable():  # tools/data/reread_unfixable.json: a reread cannot mend it
         return None
     found = sources().get(puzzle["id"])
     if found is None:
