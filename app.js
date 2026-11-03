@@ -804,10 +804,11 @@
   // and year at a time (loadShards), and each arrival is merged in the order
   // fetch_puzzle.py sorts the index in.
   //
-  // Nothing sets INDEX.idx yet (index.html still loads index-core.js, then
-  // index.js), so today loadShards just waits for that file. And if puzzles/idx
-  // is missing or a shard will not load, it asks for puzzles/index.js itself:
-  // the page works exactly as it did before there was a puzzles/idx.
+  // index.html's loader sets INDEX.idx (ctIdx.compose of head-live and
+  // head-static). Without puzzles/idx it boots the old way, index-core.js and
+  // index.js, and loadShards waits for that file. And if a shard will not load
+  // it asks for puzzles/index.js itself: the page works exactly as it did before
+  // there was a puzzles/idx.
   const IDX_ALL_MS = 1500;        // a focus waits this long for a typed series before loading the rest
   const IDX_BUNDLE_MIN = 12;      // more shards than this come as the one bundle
   const idxHave = new Set();      // "series/year" keys merged so far
@@ -963,11 +964,12 @@
     loadShards(keys, () => { loadAllSoon(); });
   }
   // A shared link whose id is not one this list knows: a series-date alias
-  // needs that series, a bare number or anything else needs every row.
+  // ("metro-20260105") needs that series' shards, and if they do not name it
+  // either, or the link is a bare number, every row is fetched.
   function loadForLink(raw, cb) {
-    if (listFull() || IS_ID[raw]) return cb();
+    if (listFull() || IS_ID[raw] || BY_ID[raw]) return cb();
     const series = Object.keys(idxManifest()).map((k) => k.split("/")[0])
-      .filter((s, i, a) => a.indexOf(s) === i && raw.indexOf(s + "-") === 0 && !/^\d+$/.test(raw.slice(s.length + 1)));
+      .filter((s, i, a) => a.indexOf(s) === i && raw.indexOf(s + "-") === 0);
     const keys = series.length ? Object.keys(idxManifest()).filter((k) => series.indexOf(k.split("/")[0]) >= 0) : null;
     loadShards(keys, () => {
       if (!IS_ID[raw] && !ALIAS[raw] && !BY_NUMBER[raw] && keys) loadShards(null, cb); else cb();
@@ -8260,10 +8262,16 @@
     return pickerTerms.filter((t) => t.toLowerCase().includes(q));
   }
 
+  // head-live's per-paper, band and tag counts, while the list is still only
+  // the newest rows (a progressive boot); null once every row is here.
+  function headCounts() {
+    return (INDEX.partial && INDEX.idx && INDEX.idx.live && INDEX.idx.live.counts) || null;
+  }
   let pickerBands = null;
   function pickerBandList() {
     if (pickerBands) return pickerBands;
     const at = {};
+    if (headCounts()) Object.keys(headCounts().bands || {}).forEach((b) => { at[b] = Infinity; });
     INDEX.puzzles.forEach((p) => {
       const d = p.difficulty;
       if (!d || !d.band || d.percentile === null || d.percentile === undefined) return;
@@ -8323,7 +8331,13 @@
   function paperGroups() {
     const papers = INDEX.groups || {};
     const n = {};
-    pickerPuzzles().forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
+    if (headCounts()) {
+      // Only the newest rows are here: the head says how many each paper has.
+      Object.assign(n, headCounts().series);
+      (INDEX.reprints || []).forEach((r) => { n[r.series] = (n[r.series] || 0) + 1; });
+    } else {
+      pickerPuzzles().forEach((p) => { const s = p.series || "cryptic"; n[s] = (n[s] || 0) + 1; });
+    }
     const size = (keys) => keys.reduce((t, s) => t + n[s], 0);
     const biggest = (a, b) => size(b) - size(a);
     const byPub = {};
@@ -8366,7 +8380,8 @@
   // does (tools/showcase.feature_spec): the label with a capital first letter.
   function tagMenuHTML() {
     const info = INDEX.tags || {};
-    const used = Object.keys(info).filter((t) => INDEX.puzzles.some((p) => hasTag(p, t)));
+    const counted = headCounts() ? headCounts().tags || {} : null;
+    const used = Object.keys(info).filter((t) => (counted ? counted[t] > 0 : false) || INDEX.puzzles.some((p) => hasTag(p, t)));
     const name = (s) => s[0].toUpperCase() + s.slice(1);
     return `<option value="">Feature</option>`
       + used.map((t) => `<option value="${esc(t)}">${esc(name(info[t].label))}</option>`).join("");
@@ -9633,7 +9648,9 @@
     // may not hold yet: fetch them (one series for a series-date alias, all
     // for a bare number), then boot as ever.
     const linked = new URLSearchParams(location.search).get("p");
-    if (linked && !listFull() && !IS_ID[linked] && !idxLinkDone) {
+    // A canonical id fastOpen has already drawn (BY_ID holds its row, made
+    // from the puzzle's own file) opens as it is; the shards fill in later.
+    if (linked && !listFull() && !IS_ID[linked] && !BY_ID[linked] && !idxLinkDone) {
       idxLinkDone = true;
       loadForLink(linked, bootWithIndex);
       return;
