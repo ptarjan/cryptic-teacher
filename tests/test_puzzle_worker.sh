@@ -574,9 +574,9 @@ declare -A SHAPE_RULE_OF=()  # pool_what reads it; the script declares it at top
 bagfns=$(awk '/^(pool_bags|pool_what|bag_rule|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
 # shellcheck disable=SC2034  # read by the eval'd functions
 bags_for() ( eval "$bagfns"; DRY_RUN="${2:-0}" WAVE_WHAT="$1"; pool_bags && echo yes || echo no )
-check "which pools bag: Annotate, a shape rule; not a field, wordplay.unchecked, the blog re-check or a dry run" \
+check "which pools bag: Annotate, a shape rule, the blog re-check; not a field, wordplay.unchecked or a dry run" \
   "$(bags_for Annotate) $(bags_for 'Backfill wordplay.anagramCharade for') $(bags_for 'Backfill explanation.surface for') $(bags_for 'Backfill wordplay.unchecked for') $(bags_for 'Re-check against its blog:') $(bags_for Annotate 1)" \
-  "yes yes no no no no"
+  "yes yes no no yes no"
 # shellcheck disable=SC2034  # read by the eval'd functions
 rule_for() ( eval "$bagfns"; WAVE_WHAT="$1"; bag_rule )
 check "a bag names its rule" "$(rule_for Annotate) $(rule_for 'Backfill wordplay.anaStandIn for')" "annotate wordplay.anaStandIn"
@@ -592,7 +592,7 @@ rm -f "$bagp"
 check "pool_launch bags before it starts the run" \
   "$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh | awk '/pool_bag "\$id"/{b=NR} /run_claude /{r=NR} END{print (b && r && b < r)}')" "1"
 check "a re-plan, a pool refill and the shape sweep hold the ids in running bags, so none queues them again" \
-  "$(grep -c 'cat "\$RUNS"/\*\.bag' tools/prereset_backfill.sh)" "2"
+  "$(grep -c 'cat "\$RUNS"/\*\.bag' tools/prereset_backfill.sh)" "3"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
