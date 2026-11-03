@@ -117,7 +117,7 @@ function loader(root, files) {
 
   // 1
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  check(!/index(-core)?\.js/.test(html) && /puzzles\/idx\/head-live\.json/.test(html),
+  check(!/index(-core)?\.js(?!on)/.test(html) && /puzzles\/idx\/head-live\.json/.test(html),
     "index.html does not mention index-core.js or index.js and names head-live.json");
   let L = loader(root, serve);
   await tick();

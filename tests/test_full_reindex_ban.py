@@ -128,7 +128,7 @@ try:
     W.tempfile.mkdtemp = lambda prefix="": str(tmp)
     try:
         try:
-            W.shipped_index_stamp("HEAD")
+            W.shipped_head_stamp("HEAD")
             got = "stamped"
         except W.ColdRowCache:
             got = "cold"
@@ -137,7 +137,7 @@ try:
         check("it asks for the plain flag", "1", env.get("CT_ALLOW_PLAIN_REINDEX"))
         check("and not the full one", None, env.get("CT_ALLOW_FULL_REINDEX"))
 
-        W.shipped_index_stamp = lambda head: (_ for _ in ()).throw(W.ColdRowCache("cold"))
+        W.shipped_head_stamp = lambda head: (_ for _ in ()).throw(W.ColdRowCache("cold"))
         W.want_stamps = lambda: {}
         sys.argv = ["wait_for_deploy.py", "--check"]
         out, errs = io.StringIO(), io.StringIO()
