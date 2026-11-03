@@ -1814,15 +1814,15 @@ def puzzle_row(path):
 
 
 def puzzle_rows():
-    """[(path, puzzle_row(path))] for every puzzle file, in puzzle_files()
-    order. A run reads them three times (inputs_digest, load_puzzles,
+    """(path, puzzle_row(path)) for every puzzle file, in puzzle_files()
+    order, each reached once and let go: held whole they were ~1.5GB. A run reads them three times (inputs_digest, load_puzzles,
     letter_facts.annotation_rows) and the filer commits every few seconds, so
     --if-changed is nearly always a full run: rows are kept per file by
     tools/row_cache.py, keyed by the file's blob and the code puzzle_row
     reaches, and only the files that moved are viewed again."""
     import row_cache
     paths = puzzle_files()
-    return list(zip(paths, row_cache.cached_map("blog_facts", puzzle_row, paths)))
+    return zip(paths, row_cache.cached_map("blog_facts", puzzle_row, paths, lazy=True))
 
 
 def load_puzzles(extra=()):
