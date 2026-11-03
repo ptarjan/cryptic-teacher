@@ -47,7 +47,7 @@ TOKENS_PER_CLUE_MAX = 10_000   # ⚠️ above this many tokens per clue written 
 TOKENS_MIN_CLUES = 5
 COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
-WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM") or os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
+WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM", "cryptic-crosswords")
 GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|discard|held|gave up|cannot be|could not be).*)$")
 KINDS = (  # commit-message prefix -> what was done
     (re.compile(r"^Annotate\b"), "hints written"),
@@ -584,14 +584,15 @@ class TokenIndex:
 
 
 def send_wake(text):
-    """File a note for the room (wake.sh -q: no inference until its next turn anyway)."""
+    """Wake the room: a warning is news it must act on, so no -q (that only files a note for its
+    next turn). Only warnings call this, at most one per kind per hour (Log.warn)."""
     try:
         import local_config
         wake = local_config.path("household_dir") + "/tools/wake.sh"
     except Exception:  # noqa: BLE001 - any failure to find the helper just means no wake
         wake = os.environ.get("WAKE_SH", "")
     if wake and os.path.exists(wake):
-        subprocess.run([wake, "-q", "-c", WAKE_ROOM, text[:1800]], check=False, timeout=60,
+        subprocess.run([wake, "-c", WAKE_ROOM, text[:1800]], check=False, timeout=60,
                        stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
