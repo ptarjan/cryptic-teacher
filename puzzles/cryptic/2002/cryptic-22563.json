@@ -1061,54 +1061,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LACUNA",
-     "indicators": [
-      {
-       "text": "explosion",
-       "note": "an explosion scatters things, so the remaining letters are blown into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LACUNA",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "escaping",
-         "note": "escaping means getting out, so the monarch's letters leave the word"
+         "text": "explosion",
+         "at": 42,
+         "note": "an explosion blows things apart, so the remaining letters are scattered and reassembled"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        },
-        {
-         "words": "king",
-         "gives": "R",
-         "note": "R for rex, Latin for king"
-        },
-        {
-         "words": "nuclear",
-         "note": "taken as written"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "escaping",
+           "at": 25,
+           "note": "escaping means the English king's letters get out of the word nuclear"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nuclear",
+           "at": 34
+          },
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "English",
+             "at": 12,
+             "gives": "E"
+            },
+            {
+             "words": "king",
+             "at": 20,
+             "gives": "R",
+             "note": "R stands for Rex, Latin for king"
+            }
+           ]
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "by",
+       "at": 9,
+       "gives": "A",
+       "note": "by can mean per, as in paid by the day, and a means per too, as in twice a day"
       }
      ]
     },
     "explanation": {
-     "surface": "A hole left after a monarch flees an atomic blast.",
-     "walkthrough": "Removing E and R from the seven-letter word leaves only five letters with one A; the answer needs a second A, so the clue is a letter short as printed.",
-     "definitionFit": "A lacuna is a missing portion or blank space, especially in a manuscript or argument."
+     "surface": "A void is left where an English monarch fled a nuclear blast.",
+     "walkthrough": "'escaping' takes E and R out of NUCLEAR, leaving NUCLA, which 'explosion' rearranges as LACUN; 'by' supplies the final A, both meaning per.",
+     "definitionFit": "A missing portion or blank space, especially in a text or argument, is a gap."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "nuclear"
+     "misdirectedWord": "explosion"
     }
    }
   },
