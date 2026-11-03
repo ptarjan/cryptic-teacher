@@ -40,9 +40,13 @@ check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
 RUSH = ("width 15 (cap: memory 15, cpu —, load —, quota pace rush) · weekly 6% now, 140.0h to its reset; "
         "bridge 2.1 pts/h; cores unread; memory 6.2 GB available less 4 GB kept free, 250 MB a run, "
         "swap 4.0/4.0 GB used; was 13")
-check(bare(run([RUSH])), ["── 15 at once (memory: 6.2 GB free, 4 GB kept back, swap full · rushing) · 0 done/h · "
-                          "0 no-change/h · weekly 6% used"],
+check(bare(run([RUSH])), [("── 15 at once (memory: 6.2 GB free, 4 GB kept back, swap full · rushing) · 0 done/h · "
+                           "0 no-change/h · weekly 6% used")],
       "a memory limit says what memory holds, and a rush is said, not shown as a pace that ties memory")
+check(bare(run(["  why: weekly 10% now; memory 6.9 GB available less 4 GB kept free, 250 MB a run, swap 3.3/4.0 GB used; was 12",
+                 "width 11 (cap: memory 11, cpu —, load —, quota pace rush) · 0 in flight · 0 committed last hour"])),
+      ["── 11 at once (memory: 6.9 GB free, 4 GB kept back · rushing) · 0 done/h · 0 no-change/h"],
+      "the burn's width line takes the memory numbers from the why: line before it")
 check(B.limit_note("usage pace", False, "memory 9.0 GB available less 4 GB kept free"), None,
       "only a memory limit carries the memory numbers")
 
