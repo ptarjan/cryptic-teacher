@@ -2363,6 +2363,9 @@ def prune_redo_list():
         print(f"  shape redo list prune failed: {e}", file=sys.stderr)
 
 
+CUT_SHORT_LOG = Path(os.environ.get("CT_CUT_SHORT_LOG") or Path.home() / ".cache" / "cut_short_clues.jsonl")
+
+
 def print_backlog(annotate_blocked, solve_blocked):
     """The queue's ids on stdout, from the index (fresh_rows: each file written
     since it was built read again); its head and how many of it
@@ -2371,6 +2374,7 @@ def print_backlog(annotate_blocked, solve_blocked):
     like an annotate-blocked one: its clue may be misread, and the re-read
     decides. $CT_SERIES, a space-separated list of series keys, narrows it to
     those papers. Clues-only puzzles join it as clues_only_rows()."""
+    import clue_cutoff
     import scan_queue
     prune_redo_list()
     index = json.loads(INDEX.read_text(encoding="utf-8"))
@@ -2391,6 +2395,12 @@ def print_backlog(annotate_blocked, solve_blocked):
     print(f"  {sum(1 for p in todo if not p.get('hasSolutions'))} of them lack answers "
           "and are solved cold first", file=sys.stderr)
     queued = {p["id"] for p in todo}
+    cut = clue_cutoff.gate(sorted(queued), log=CUT_SHORT_LOG)
+    if cut:
+        todo = [p for p in todo if p["id"] not in cut]
+        queued -= set(cut)
+        print(f"  {len(cut)} puzzles hold a clue cut short or garbled (tools/clue_cutoff.py), left out until "
+              f"their source is read again: {' '.join(sorted(cut)[:5])}", file=sys.stderr)
     print(f"  {sum(1 for r in held if r['id'] in queued)} of those are held clues-only; "
           "their solve derives the grid", file=sys.stderr)
     print(" ".join(p["id"] for p in todo))
