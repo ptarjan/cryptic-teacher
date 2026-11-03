@@ -77,8 +77,11 @@ def load(pid):
 print("every tool named in ACQUIRED_BY is a tool that exists")
 root = Path(".")
 missing = []
+# Tools deleted after their sweep finished: the filed puzzles still carry the
+# key in source.acquiredBy, so the schema enum and ACQUIRED_BY keep it.
+RETIRED = {"tools/file_cyclops_christmas.py"}
 for key in p.ACQUIRED_BY:
-    if key == "unknown":
+    if key == "unknown" or key in RETIRED:
         continue
     # The key is a command line: the script is its first word.
     script = key.split()[0]
