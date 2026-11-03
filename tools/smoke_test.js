@@ -526,6 +526,8 @@ for (const sig of ["SIGTERM", "SIGINT"]) {
     process.exit(1);
   });
 }
+// Diagnostic heap snapshots (tools/heap_probe.js), on only under SMOKE_HEAP_DIR or a dispatched slice 1/16.
+require("./heap_probe.js")();
 process.on("exit", (code) => {
   if (code) console.error(`(smoke slice ${process.env.CI_SLICE || "-"} exits ${code} while ${stage.at}, rss ${mb()} MB)`);
 });
@@ -1782,6 +1784,7 @@ const openFromPicker = (id) => {
 // opened yet is cold already, because app.js keeps hint state per clue.
 const sweptClues = new Map();  // puzzle id -> clues opened since its last reset
 const reopenForSweep = (id, clueId) => {
+  if (global.__heapProbeSweep) global.__heapProbeSweep(id);
   const fresh = () => { registry["reset-puzzle"].onclick(); sweptClues.set(id, new Set()); };
   if (storage["ct:last"] !== id) {
     if (!openFromPicker(id)) return;
