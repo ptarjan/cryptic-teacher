@@ -84,6 +84,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+import daily_fetch  # the walk and refresh loop the numbered fetchers share
 import provenance
 import enumeration  # a clue's printed counts; tools/enumeration.py
 import puzzle_paths
@@ -1042,29 +1043,23 @@ def refresh_unsolved():
             continue
         pending.append(p["number"])
 
-    filled = 0
-    for num in pending:
+    def one(num):
         path = out_path(puzzle_paths.PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
         was_model = "model" in provenance.solution_detail(puzzle)
         guessed = provenance.model_answers(puzzle) if was_model else None
-        try:
-            fill_answers(puzzle, num, puzzle)
-            if provenance.solution_detail(puzzle).get("blog") == "fifteensquared":
-                if guessed is not None:
-                    print_grade(puzzle, grade_model_fill(puzzle, guessed), guessed,
-                                "fifteensquared's answers")
-                write_puzzle_file(path, puzzle, generator="tools/fetch_privateeye.py")
-                print(f"solutions now published for {num}")
-                filled += 1
-            elif was_model:
-                print(f"{num}: solutions still withheld — keeping our own fill")
-            else:
-                print(f"{num}: solutions still withheld")
-        except Exception as err:  # one bad puzzle is reported, not the refresh's end
-            print(f"refresh {num} failed: {type(err).__name__}: {err}")
-        time.sleep(1)
-    print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
+        fill_answers(puzzle, num, puzzle)
+        if provenance.solution_detail(puzzle).get("blog") == "fifteensquared":
+            if guessed is not None:
+                print_grade(puzzle, grade_model_fill(puzzle, guessed), guessed,
+                            "fifteensquared's answers")
+            write_puzzle_file(path, puzzle, generator="tools/fetch_privateeye.py")
+            print(f"solutions now published for {num}")
+            return True
+        print(f"{num}: solutions still withheld" + (" — keeping our own fill" if was_model else ""))
+        return False
+
+    daily_fetch.refresh(pending, one)
 
 
 DATE_LINE = re.compile(r'^ "date": (?:null|"\d{4}-\d{2}-\d{2}"),$', re.MULTILINE)
@@ -1159,10 +1154,8 @@ def date_by_cadence(out_dir, dry_run=False):
 
 
 def on_disk_numbers(out_dir):
-    prefix = f"{SERIES}-"
-    files = puzzle_files(SERIES) if is_corpus(out_dir) else out_dir.glob(f"{prefix}*.json")
-    return sorted(int(p.stem[len(prefix):]) for p in files
-                  if p.stem.startswith(prefix) and p.stem[len(prefix):].isdigit())
+    files = puzzle_files(SERIES) if is_corpus(out_dir) else out_dir.glob(f"{SERIES}-*.json")
+    return daily_fetch.numbers_in(files, SERIES)
 
 
 def find_latest_number():
@@ -1174,29 +1167,15 @@ def find_latest_number():
 
 
 def walk(numbers, out_dir, dry_run=False):
-    fetched = skipped = missing = 0
-    for num in numbers:
-        if not dry_run and out_path(out_dir, num).exists():
-            skipped += 1
-            continue
-        try:
-            fetch_number(num, out_dir, dry_run=dry_run)
-            fetched += 1
-        except urllib.error.HTTPError as err:
-            print(f"skip {num}: HTTP {err.code}")
-            missing += 1
-        except Exception as err:  # one bad puzzle is reported, not the walk's end
-            print(f"skip {num}: {type(err).__name__}: {err}")
-            missing += 1
-        time.sleep(1)  # one request per second, max
-    print(f"done: {fetched} fetched, {skipped} already present, {missing} unavailable")
-    return fetched
+    return daily_fetch.walk(numbers,
+                            lambda num: not dry_run and out_path(out_dir, num).exists(),
+                            lambda num: fetch_number(num, out_dir, dry_run=dry_run), what="")
 
 
 def extend(count, out_dir, dry_run=False):
     have = on_disk_numbers(out_dir)
     oldest = min(have) if have else find_latest_number() + 1
-    return walk(range(oldest - 1, max(oldest - 1 - count, 0), -1), out_dir, dry_run)
+    return walk(daily_fetch.older(oldest, count), out_dir, dry_run)
 
 
 def main(argv):
