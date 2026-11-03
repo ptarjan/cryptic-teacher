@@ -919,63 +919,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 47,
+       "note": "the shuffled word is placed in the three initials"
+      }
+     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially asks for the opening letter of each of the country names listed"
+         "at": 80,
+         "note": "initially means the first letter of each country"
         }
        ],
        "parts": [
         {
          "words": "Portugal",
-         "note": "the opening letter of the country"
+         "at": 50
+        },
+        {
+         "words": "Hungary",
+         "at": 60
+        },
+        {
+         "words": "Austria",
+         "at": 72
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "storm",
-         "note": "a storm throws things into turmoil, so the preceding word's letters are tossed into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "rainstorm",
-         "gives": "RAIN",
-         "note": "the first half of the word supplies the letters; its second half is the instruction to jumble them"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "HA",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Hungary and Austria",
-           "gives": "HA",
-           "select": "first",
-           "note": "the opening letters of the two countries"
-          }
-         ]
-        }
-       ]
+       "words": "rainstorm",
+       "at": 37,
+       "gives": "IRAN",
+       "note": "the word rain, stormed, gives its letters rearranged"
       }
      ]
     },
     "explanation": {
-     "surface": "A ferocious swimmer bursts out of a downpour somewhere in central and southern Europe.",
-     "walkthrough": "Rainstorm splits in two, the second half acting on the first. The jumbled letters spell another country, IRAN, sitting among the European initials.",
-     "definitionFit": "The piranha is a South American freshwater fish notorious for its razor teeth and savage feeding frenzies."
+     "surface": "A fierce fish appearing out of a downpour in three European countries.",
+     "walkthrough": "The anagram signal is fused into one word: 'storm' acts on 'rain' inside 'rainstorm'. Portugal, Hungary and Austria each give an initial.",
+     "definitionFit": "A South American freshwater fish with razor teeth, so an example of a ferocious swimmer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "rainstorm"
     }
    }

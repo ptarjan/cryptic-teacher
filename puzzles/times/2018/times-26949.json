@@ -1507,40 +1507,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
      "indicators": [
       {
        "text": "to the west",
-       "note": "west is to the left in an across entry, so those pieces are placed in front"
+       "at": 19,
+       "note": "in an across answer west is the left, so the yellow river pair is shifted to the left of the cross"
       }
      ],
      "parts": [
       {
-       "words": "Yellow",
-       "gives": "CHICKEN",
-       "note": "yellow means cowardly, chicken"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Cross",
+         "at": 0,
+         "gives": "X",
+         "note": "a cross is the letter X"
+        },
+        {
+         "words": "Yellow",
+         "at": 6,
+         "gives": "CHICKEN",
+         "note": "yellow and chicken both mean cowardly"
+        },
+        {
+         "words": "River",
+         "at": 13,
+         "gives": "PO",
+         "note": "the Po is Italy's longest river"
+        }
+       ]
       },
       {
-       "words": "River",
-       "gives": "PO",
-       "note": "the Po is Italy's longest river"
-      },
-      {
-       "words": "Cross",
-       "gives": "X",
-       "note": "a cross is the letter X"
+       "gives": "CHICKENPO"
       }
      ]
     },
     "explanation": {
-     "surface": "Sounds like an angry traveller crossing China's Yellow River westward to lodge a grievance.",
-     "walkthrough": "Yellow River suggests the Huang He in China, but it splits into cowardly and the Po. 'Complaint' means illness, not grievance.",
-     "definitionFit": "A complaint can be an ailment, and chickenpox is a common infectious illness causing itchy spots."
+     "surface": "Cross a river eastwards to catch an illness.",
+     "walkthrough": "'Yellow River' looks like the Chinese river but is two pieces. 'To the west' moves CHICKEN PO to the left of X.",
+     "definitionFit": "Varicella is an illness, and complaint is a mild word for an ailment or disease."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "complaint"
+     "aptDefinition": false,
+     "misdirectedWord": "Yellow"
     }
    }
   },
