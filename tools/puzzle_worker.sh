@@ -855,14 +855,19 @@ worker_finish() {   # id what sidfile log
 # fix run, with that puzzle and those after it still on the bag and the
 # conversation kept. Each puzzle gets its own copy of the log, so one's fix run
 # does not overwrite another's.
+#
+# Every member is counted in one closing line, "[leader] bag of N: K changed,
+# J produced no change, F not shipped, R to solve again", so a member that
+# changed nothing is a number in the log and not only an absence from the commit.
 worker_finish_bag() {   # leader what sidfile log
-  local what="$2" sidfile="$3" log="$4" m rc
+  local what="$2" sidfile="$3" log="$4" m rc before changed=0 same=0 lost=0 again=0
   local -a seen=()
   WORKER_BAG_AGAIN=""
   WORKER_BATCH_IDS=()
   WORKER_BATCH_ON=1
   for m in $(worker_bag_ids "$sidfile"); do
     cp "$log" "$log.$m" 2>/dev/null || : >"$log.$m"
+    before=${#WORKER_BATCH_IDS[@]}
     _worker_finish "$m" "$what" "$sidfile" "$log.$m"
     rc=$?
     rm -f "$log.$m"
@@ -871,9 +876,14 @@ worker_finish_bag() {   # leader what sidfile log
       WORKER_BATCH_ON=""
       worker_commit_batch "$what"
       worker_bag_drop_all "$sidfile" "${seen[@]}"
+      echo "  [$1] bag cut off at $m's fix run (it and the rest kept to resume); before it: $changed changed, $same produced no change, $lost not shipped, $again to solve again"
       return 3
     fi
-    [ "$rc" -eq 2 ] && WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m"
+    case $rc in
+      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
+      2) again=$((again + 1)); WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m" ;;
+      *) lost=$((lost + 1)) ;;
+    esac
     worker_clean "$m"
     seen+=("$m")
   done
@@ -881,6 +891,7 @@ worker_finish_bag() {   # leader what sidfile log
   worker_commit_batch "$what"
   worker_bag_drop_all "$sidfile" "${seen[@]}"
   worker_forget "$sidfile"
+  echo "  [$1] bag of ${#seen[@]}: $changed changed, $same produced no change, $lost not shipped, $again to solve again"
   return 0
 }
 # Take each id off the bag: dealt with, committed (or left in the tree for the
