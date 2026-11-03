@@ -71,7 +71,10 @@ function sameRow(want, got, label) {
     want.difficulty = Object.assign({}, wd, { percentile: 0 });
     got.difficulty = Object.assign({}, gd, { percentile: 0 });
   }
-  assert.deepStrictEqual(got, want, label);
+  // The stored index.json has difficulty.index -0 where the decoder gives 0;
+  // JSON writes both as 0 and the page can't tell them apart, but
+  // deepStrictEqual can, so compare what survives a JSON round trip.
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(got)), JSON.parse(JSON.stringify(want)), label);
 }
 
 function check(index, label, tmp) {
