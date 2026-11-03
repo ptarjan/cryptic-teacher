@@ -182,8 +182,8 @@ at_origin() { git -C "$tmp/main" fetch -q origin master
 git -C "$tmp/main" checkout -q master
 git -C "$tmp/main" merge -q --ff-only origin/master
 cp "$ROOT/tools/stamp_assets.py" "$tmp/other/tools/"
-printf 'x\n' > "$tmp/other/app.js"
-upstream index.html '<script src="app.js"></script>'
+printf 'x\n' > "$tmp/other/app-core.js"
+upstream index.html '<script src="app-core.js"></script>'
 upstream manifest.toml 'schedule = "twice a day"'
 out="$(run "$tmp/trees")"
 check "a clean checkout behind origin/master is fast-forwarded" "$(at_origin)" yes
@@ -194,7 +194,7 @@ out="$(run "$tmp/trees")"
 check "an edit origin/master already holds does not block it" "$(at_origin)" yes
 check "and raises no alert" "$(echo "$out" | grep -c '^ALERT: ')" 0
 
-upstream index.html '<script src="app.js"></script>
+upstream index.html '<script src="app-core.js"></script>
 <p>new</p>'
 (cd "$tmp/main" && python3 tools/stamp_assets.py >/dev/null 2>&1)
 check "the stamp really dirtied index.html" "$(git -C "$tmp/main" diff --name-only)" index.html
