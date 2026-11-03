@@ -166,15 +166,11 @@ def main():
     # An unknown flag (--help included) must not fall through to the full
     # rebuild: that is a multi-process corpus pass on a shared host.
     unknown = [a for a in sys.argv[1:]
-               if a not in ("--check", "--check-layout")]
+               if a != "--check"]
     if unknown:
         print(__doc__, file=sys.stderr)
         print(f"unknown argument: {' '.join(unknown)}", file=sys.stderr)
         return 2
-    # Retired flag: tests.yml still passes it until a push with workflow scope
-    # drops that step. Nothing to check any more.
-    if "--check-layout" in sys.argv[1:]:
-        return 0
     check = "--check" in sys.argv[1:]
     stale = []
     for path in REGIONS:
