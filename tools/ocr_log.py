@@ -214,6 +214,8 @@ class Log:
                 m = re.match(r"^Update (\d+) puzzles", subject)
                 if m:
                     updated += int(m.group(1))
+                elif re.match(r"^Update [a-z]+-\d+$", subject):
+                    updated += 1        # the queue's single-puzzle commit, "Update times-727"
             counts = (filed, updated)
         except (OSError, ValueError, subprocess.SubprocessError):
             counts = None
