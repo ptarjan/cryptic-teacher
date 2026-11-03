@@ -47,6 +47,7 @@ function boot(opts) {
       this.value = "";
       this.style = { setProperty(k, v) { this[k] = String(v); } };
       this.listeners = {};
+      if (global.__heapProbeNew) global.__heapProbeNew();
       this.disabled = false;
       this.classList = {
         _set: new Set(),
@@ -118,7 +119,11 @@ function boot(opts) {
       if (at >= 0) this.children.splice(at, 0, el); else this.children.push(el);
       return el;
     }
-    addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
+    addEventListener(type, fn) {
+      const a = (this.listeners[type] = this.listeners[type] || []);
+      a.push(fn);
+      if (global.__heapProbeEl) global.__heapProbeEl(type, a.length);
+    }
     setAttribute(k, v) { (this.attrs = this.attrs || {})[k] = String(v); }
     getAttribute(k) { return this.attrs && k in this.attrs ? this.attrs[k] : null; }
     querySelector(sel) {
@@ -568,6 +573,7 @@ function boot(opts) {
     for (const t of pending.values()) realClearTimeout(t.handle);
     pending.clear();
   };
+  if (global.__heapProbeBoot) global.__heapProbeBoot({ docListeners, winListeners, pending, beacons });
   return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
            appSrc, beacons, window: global.window, stop };
 }
