@@ -586,6 +586,20 @@ del os.environ["CT_DEADLINE"]
 counted.clear()
 again, _ = l._cached_lexicons(conn2, corpus, ours, 1)
 print(same(full, again), len(counted) == n_cold - 1)
+import mem_gate
+conn3 = l._open_store(sys.argv[1] + "/u.sqlite")
+real_short = mem_gate.short
+mem_gate.short = lambda base=0, **kw: "1 MB available"
+counted.clear()
+try:
+    l._cached_lexicons(conn3, corpus, ours, 1)
+    print("not stopped")
+except budget.Stopped as e:
+    print(e.code == 0, len(counted) == 1, conn3.execute("SELECT COUNT(*) FROM chunks").fetchone()[0] == 1)
+mem_gate.short = real_short
+F = mem_gate.FLOOR
+print(real_short(0, avail=F + (50 << 20), rss=0) is None, real_short(0, avail=F - 1, rss=0) is not None,
+      real_short(100 << 20, avail=F + (50 << 20), rss=200 << 20) is not None, real_short(100 << 20, avail=F + (150 << 20), rss=200 << 20) is None)
 read = []
 l._WORKER.update(votes=l.indicator_votes(corpus), lex=full[2], ilex=full[0], dlex=full[3])
 realf = l._puzzle_facts
@@ -604,6 +618,8 @@ want="True True True True True
 True True True
 True True True
 True True
+True True True
+True True True True
 True True True True True True"
 if [ "$store" = "$want" ]; then echo "ok   the stored lexicon chunks and clue results match a full build, and a deadline stops cleanly"; else
   echo "FAIL store: expected [$want], got [$store]"; fails=$((fails + 1)); fi

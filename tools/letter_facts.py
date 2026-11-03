@@ -1998,10 +1998,13 @@ def _cached_lexicons(conn, corpus, ours, jobs):
                 h.update(raw)
             tasks.append((h.hexdigest(), [raw for _, raw in ch], defs))
     want = [t[0] for t in tasks]
-    got = {}
+    # Only which chunks are stored is held, never their counts: the merge reads
+    # each from the store in turn (a run held all ~1,100 blobs beside the
+    # merged lexicons, and the merge's fork() copy, when it was killed).
+    got = set()
     for i in range(0, len(want), 900):
         part = want[i:i + 900]
-        got.update(conn.execute(f"SELECT key, val FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
+        got.update(k for k, in conn.execute(f"SELECT key FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
     today = _today()
     with conn:
         conn.executemany("UPDATE chunks SET used=? WHERE key=?", ((today, k) for k in got))
@@ -2009,24 +2012,38 @@ def _cached_lexicons(conn, corpus, ours, jobs):
     print(f"letter_facts.write: lexicon chunks: {len(tasks) - len(missing)} stored, {len(missing)} to count",
           file=sys.stderr, flush=True)
     if missing:
+        import mem_gate
+        base = mem_gate.tree_rss([os.getpid()]).get(os.getpid(), 0)
         n = min(jobs or fallback_jobs(), len(missing))
         pool = multiprocessing.get_context("fork").Pool(n, _orphan_exits, (os.getpid(),)) if n > 1 else None
         try:
             made = (pool.imap(_chunk_counts, [(r, d) for _, r, d in missing]) if pool
                     else map(_chunk_counts, ((r, d) for _, r, d in missing)))
             for i, ((key, _, _), counts) in enumerate(zip(missing, made), 1):
-                got[key] = blob = pickle.dumps(counts, pickle.HIGHEST_PROTOCOL)
+                got.add(key)
                 with conn:
-                    conn.execute("INSERT OR REPLACE INTO chunks VALUES(?,?,?)", (key, blob, today))
+                    conn.execute("INSERT OR REPLACE INTO chunks VALUES(?,?,?)",
+                                 (key, pickle.dumps(counts, pickle.HIGHEST_PROTOCOL), today))
+                del counts
                 if i < len(missing) and budget.spent():
                     budget.stop(f"letter_facts: counted {i} of {len(missing)} missing lexicon chunks"
+                                f" ({len(tasks) - len(missing)} were stored); the rest next run")
+                if i < len(missing) and (why := mem_gate.short(base)):
+                    budget.stop(f"letter_facts: {why}; counted {i} of {len(missing)} missing lexicon chunks"
                                 f" ({len(tasks) - len(missing)} were stored); the rest next run")
         finally:
             if pool:
                 pool.terminate()
     del tasks
-    ind, both, lex, defs = _merged(pickle.loads(got[k]) for k in want)
-    del got
+
+    def stored():
+        for i in range(0, len(want), 100):
+            part = want[i:i + 100]
+            blobs = dict(conn.execute(f"SELECT key, val FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
+            for k in part:
+                yield pickle.loads(blobs[k])
+
+    ind, both, lex, defs = _merged(stored())
     lexicons = {"ilex": Indicators.of_counts(*ind, extra=ours),
                 "both": Lexicon.__new__(Lexicon)._made(*both),
                 "lex": Lexicon.__new__(Lexicon)._made(*lex),

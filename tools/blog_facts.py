@@ -2514,6 +2514,13 @@ def main():
         if why:
             print(f"the desktop is busy ({why}): not run here, tried again later")
             sys.exit(DEFERRED_RC)
+    # The lexicon pass alone grew past 5 GB on a host with swap full and was
+    # OOM-killed (rc 137, 11-03), which alerts as a failure: with no room to
+    # begin, put it off as the busy desktop does. Its stored chunks carry over.
+    import mem_gate
+    if why := mem_gate.short():
+        print(f"no memory to begin ({why}): not run, tried again later")
+        sys.exit(DEFERRED_RC)
     if args.from_dump:
         lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
         best, spool = {}, Spool()
