@@ -155,7 +155,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
       assert(got === pinned[1],
         `vendor/${named[1]} hashes to the sha256 in vendor/README.md (got ${got})`);
     }
-    assert(fs.readFileSync(path.join(ROOT, "app.js"), "utf8").includes(`"vendor/${named[1]}"`),
+    assert(require("./app_src").read(ROOT).includes(`"vendor/${named[1]}"`),
       "app.js fetches the decoder by the pinned filename, so a bump cannot leave a 404 behind");
   }
 }
@@ -201,7 +201,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   assert(assetBlock, "tools/stamp_assets.py still declares ASSETS = [...]");
   const stamped = (assetBlock ? assetBlock[1].match(/"([^"]+)"/g) || [] : [])
     .map((s) => s.slice(1, -1));
-  assert(stamped.includes("app.js") && stamped.includes("sync/merge.js"),
+  assert(stamped.includes("app-core.js") && stamped.includes("sync/merge.js"),
     "the stamped-asset list still covers the app and the sync merge rules");
   // The reference has to be there; the stamp does not. Stamping is a build
   // step, so index.html is stored bare and the deploy workflow rewrites it on
@@ -348,7 +348,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 
   // The hint's link has to land on that page: the glossary has its own URL,
   // separate from the lesson at /learn/.
-  const appSrcGloss = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const appSrcGloss = require("./app_src").read(ROOT);
   assert(appSrcGloss.includes('"abbreviations/#abbr-"'),
     "a hint's glossary link points at the /abbreviations/ page");
 
@@ -603,7 +603,7 @@ const shape = (name, found) => {
 // Which blocks are building blocks and what each shows, read out of app.js, so
 // the test and the app cannot disagree about which piece is which.
 const APP_BLOCKS = (() => {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("function wholeWord");
   const end = src.indexOf("const buildingBlocks", from);
   const to = src.indexOf("\n", end);
@@ -614,7 +614,7 @@ const APP_BLOCKS = (() => {
 // tools/enumeration.py WORDED), and it is still the enumeration, so it is never
 // a word to tap: a wrong-definition tap on "words)" graded a count as a clue word.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("function clueTokens");
   const to = src.indexOf("\n  }\n", from) + 4;
   const clueTokens = new Function(src.slice(from, to) + "\nreturn clueTokens;")();
@@ -628,7 +628,7 @@ const APP_BLOCKS = (() => {
 // definition rung called "disconnect" in "Can everyone initially disconnect?"
 // mid-clue, with "?" quoted as the wordplay after it.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("function defPlace");
   const to = src.indexOf("\n  }\n", from) + 4;
   const defPlace = new Function("cpToIdx", "esc", src.slice(from, to) + "\nreturn defPlace;")((s, n) => n, (s) => s);
@@ -641,7 +641,7 @@ const APP_BLOCKS = (() => {
 // mark a definition can sit inside or after is checked here, not the corpus
 // sweep below, which only finds a quoted case when a sample happens to hold one.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("const EDGE_WORDS");
   const to = src.indexOf("\n  }\n", src.indexOf("function edgeTokens", from)) + 4;
   const edgeTokens = new Function(src.slice(from, to) + "\nreturn edgeTokens;")();
@@ -674,7 +674,7 @@ const APP_BLOCKS = (() => {
 // does not store it), and a liberty named when an indicator is not next to its
 // fodder. Fixtures are the three clues Paul could not follow.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("const WP_FUNCTION_WORDS");
   const to = src.indexOf("\n  // \"Entered as SAPIR", from);
   assert(from > 0 && to > from, "wordplaySteps is still in app.js to be read");
@@ -4329,7 +4329,7 @@ registry["reset-puzzle"].onclick();
 // the failure mode is a tag rendering as a tag, seen on the Independent, and
 // it comes back the moment someone escapes a clue directly.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   assert(!/esc\(\s*(e\.clue\.text|clueText\(e\))/.test(src),
     "no clue is escaped straight to the page — that path drops the setter's italics");
   assert(/\bclue\.italics\b/.test(src),
@@ -4374,7 +4374,7 @@ registry["reset-puzzle"].onclick();
 // on it every night. clue.missing is written by the fetchers off ONE definition
 // of wordless (fetch_puzzle.has_words) so the app never re-derives it.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   assert(/\bclue\.missing\b/.test(src),
     "app.js reads clue.missing — otherwise a blank clue reads as 'not annotated yet', "
     + "which promises a ladder that can never be written");
@@ -4429,7 +4429,7 @@ registry["reset-puzzle"].onclick();
 // against every answer in the corpus: wherever it claims a division, the answer
 // really does break there.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const from = src.indexOf("const ENUM_SEPS");
   const to = src.indexOf("\n  }", src.indexOf("function enumBreaks")) + 4;
   assert(from > 0 && to > from, "enumBreaks is still in app.js to be tested");
@@ -4526,7 +4526,7 @@ registry["reset-puzzle"].onclick();
 {
   assert(!storage["ct:sync"],
     "sync stays off until it is switched on — no code is minted just by loading the page");
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const page = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   assert(/const SYNC_ENDPOINT = "http/.test(src), "the sync endpoint is configured");
   // Structural, not a search for the words: the page must never grow a field
@@ -5140,7 +5140,7 @@ global.realSetTimeout(() => {
 // against the one file, because a name that drifts is not an error anywhere —
 // it is a counter that reads zero, which looks exactly like a thing nobody does.
 {
-  const app = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const app = require("./app_src").read(ROOT);
   const worker = fs.readFileSync(path.join(ROOT, "sync/worker.js"), "utf8");
   const page = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
@@ -7579,7 +7579,7 @@ global.realSetTimeout(() => {
   assert(cells.length === 51 * 7 + new Date().getDay() + 1, "52 weeks of days up to today: " + cells.length);
   // The day as app.js's localDay writes it, read out of app.js so the two cannot drift.
   const dayLabel = (() => {
-    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+    const src = require("./app_src").read(ROOT);
     const from = src.indexOf("const MONTHS = ");
     const to = src.indexOf("\n", src.indexOf("function localDay", from));
     assert(from > 0 && to > from, "MONTHS and localDay are still in app.js to be read");
@@ -7669,7 +7669,7 @@ global.realSetTimeout(() => {
 // way. Every clue type and every family needs a rule, and every `learn` id has
 // to be an id in tools/tutorial.html, or the link lands at the top of the page.
 {
-  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const src = require("./app_src").read(ROOT);
   const tableOf = (name) => {
     const at = src.indexOf(`const ${name} = {`);
     assert(at >= 0, `app.js defines ${name}`);

@@ -33,6 +33,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import app_src
+
 REPO = Path(__file__).resolve().parent.parent
 README = REPO / "README.md"
 NIGHTLY_DOC = REPO / "docs" / "NIGHTLY.md"
@@ -104,7 +106,7 @@ RUNG_NOTES = {
 
 def build_ladder():
     """The ladder, named with app.js's own button labels and in its own order."""
-    app = (REPO / "app.js").read_text(encoding="utf-8")
+    app = app_src.read(REPO)
     import app_tables
     # The numbering is app.js's own: `ladder()` reads the ordered LABELS map the
     # app sorts its rungs by, and raises if app.js stops deriving the order from

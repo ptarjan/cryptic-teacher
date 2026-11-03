@@ -129,7 +129,7 @@ for (const [why, opts] of [
 // The contract: names on the shared list, the same Worker as app.js.
 for (const n of [...SRC.matchAll(/beacon\("([^"]+)"\)/g)].map((m) => m[1]))
   assert(EVENTS.indexOf(n) >= 0, `landing.js reports "${n}", which is not on sync/events.js's list`);
-const app = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const app = require("../tools/app_src").read(ROOT);
 const ep = (s) => (s.match(/SYNC_ENDPOINT = "([^"]+)"/) || [])[1];
 assert(ep(app) && ep(app) === ep(SRC), `landing.js posts to app.js's SYNC_ENDPOINT: ${ep(SRC)} vs ${ep(app)}`);
 

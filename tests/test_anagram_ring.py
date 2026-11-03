@@ -48,7 +48,7 @@ if fails:
     sys.exit(1)
 
 JS = r"""
-const src = require("fs").readFileSync("app.js", "utf8");
+const src = require("./tools/app_src").read(".");
 const s = src.indexOf("  const bareLetters"), e = src.indexOf("function ringFodder");
 const f = new Function(src.slice(s, src.indexOf("\n  }\n", e) + 4) + "; return { ringFodder };")();
 let fails = 0;

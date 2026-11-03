@@ -4,7 +4,7 @@
 
      node tests/test_ladder_advance.js */
 "use strict";
-const src = require("fs").readFileSync(__dirname + "/../app.js", "utf8");
+const src = require("../tools/app_src").read(__dirname + "/..");
 const a = src.indexOf("  function nextQuestion"), b = src.indexOf("  // Opens the rung and ends the guess");
 const code = src.slice(a, b);
 let failures = 0;

@@ -95,7 +95,7 @@ function loader(root, files) {
   };
   ctx.document = {
     getElementById: () => ({ getAttribute: attr }),
-    querySelector: () => ({ getAttribute: () => "app.js?v=1" }),
+    querySelectorAll: () => ["app-core.js?v=1", "app-boot.js?v=1"].map((h) => ({ getAttribute: () => h })),
     createElement: () => ({ appendChild() {}, style: {}, setAttribute() {} }),
     createTextNode: (t) => ({ t }),
     body: { firstChild: null, insertBefore: (el) => { shown.push(el); } },
@@ -129,7 +129,9 @@ function loader(root, files) {
     "the partial index is composed from the two heads");
   check(L.srcs().length === 1, "app.js is held back until the parser has reached the end of the page");
   L.ctx.ctBootParsed();
-  check(L.srcs().length === 2 && L.srcs()[1] === "app.js?v=1", "then app.js is injected: " + L.srcs().join(", "));
+  check(L.srcs().length === 3 && L.srcs()[1] === "app-core.js?v=1" && L.srcs()[2] === "app-boot.js?v=1",
+    "then the app's scripts are injected, in order: " + L.srcs().join(", "));
+  check(L.added.slice(1).every((e) => e.async === false), "and they are not async, so they run in the order added");
   check(!L.srcs().concat(L.asked).some((u) => /index(-core)?\.js/.test(u)),
     "neither index-core.js nor index.js is asked for");
   check(L.ctx.CRYPTIC_INDEX.puzzles.length === catalogue().puzzles.length,
@@ -157,7 +159,7 @@ function loader(root, files) {
   L.ctx.CRYPTIC_INDEX_STATIC = null;      // compose throws on it
   L.added[0].onload();
   L.ctx.ctBootParsed();
-  check(!L.srcs().some((u) => /app\.js/.test(u)) && L.timers.length === 1, "a compose that throws: retried, app.js not injected");
+  check(!L.srcs().some((u) => /app-/.test(u)) && L.timers.length === 1, "a compose that throws: retried, app.js not injected");
   check(![].concat(L.srcs(), L.asked).some((u) => /index(-core)?\.js/.test(u)), "no legacy index file is ever asked for");
 
   // 3

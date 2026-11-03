@@ -116,7 +116,7 @@ def section2():
         num = int("20260922"[len(S.meta(k)["numberIsDate"]):])
         cases.append({"series": k, "number": num, "date": S.number_date(k, num).isoformat()})
     js = r"""
-    const src = require("fs").readFileSync("app.js", "utf8");
+    const src = require("./tools/app_src").read(".");
     const cut = (a, b) => { const s = src.indexOf(a), e = src.indexOf(b, s); return src.slice(s, src.indexOf("\n  }\n", e) + 4); };
     const body = cut("  const BOOKS = INDEX.books", "function displayNumber")
       + cut("  const WEEKDAYS", "function puzzleDate");
@@ -160,7 +160,7 @@ def section3():
             cases.append({"series": k, "number": num, "date": iso, "name": name})
     cases.append({"series": "cryptic", "number": 30127, "date": "2026-10-02", "name": "Cryptic No 30,127"})
     js = r"""
-    const src = require("fs").readFileSync("app.js", "utf8");
+    const src = require("./tools/app_src").read(".");
     const cut = (a, b) => { const s = src.indexOf(a), e = src.indexOf(b, s); return src.slice(s, src.indexOf("\n  }\n", e) + 4); };
     const body = cut("  const WEEKDAYS", "function puzzleDate") + cut("  function puzzleDate", "function puzzleDate")
       + cut("  function headingParts", "function headingParts");

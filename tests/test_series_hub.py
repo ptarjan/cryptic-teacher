@@ -98,7 +98,7 @@ result("YEARSTRIP", listing.count('class="chart strip"') == 1)
 result("HUBLINK", all(B.hub_link() in pg and "All papers" not in pg for pg in (today, listing)))
 import pathlib, series as S
 src = pathlib.Path(B.__file__).read_text()
-app = (pathlib.Path(B.__file__).parent.parent / "app.js").read_text()
+app = __import__("app_src").read(pathlib.Path(B.__file__).parent.parent)
 result("ONEWAY", src.count('class="badge diff') == 1 and src.count('class="badge series"') == 1
       and src.count("harder than ") == 1
       and B.harder_than("${d.percentile}") in app and app.count('class="badge diff') == 1)

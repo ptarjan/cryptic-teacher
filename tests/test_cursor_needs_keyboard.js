@@ -4,7 +4,7 @@
 
      node tests/test_cursor_needs_keyboard.js */
 "use strict";
-const src = require("fs").readFileSync(__dirname + "/../app.js", "utf8");
+const src = require("../tools/app_src").read(__dirname + "/..");
 const a = src.indexOf("  function cursorVisible"), b = src.indexOf("  // Redraw only on a change");
 const code = src.slice(a, b);
 let failures = 0;

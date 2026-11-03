@@ -254,7 +254,9 @@ print("app.js reads both keys through a guard")
 # app.js is the reader that matters most and cannot be imported here, so its
 # guards are read out of the source. A bare e.clue.separators.forEach or
 # e.annotation.type throws on every puzzle this repo ships.
-app = (REPO / "app.js").read_text(encoding="utf-8", errors="replace").splitlines()
+sys.path.insert(0, str(REPO / "tools"))
+import app_src
+app = app_src.read(REPO).splitlines()
 reads = sum(1 for ln in app if re.search(r"\be\.clue\.separators\b", ln))
 guarded = sum(1 for ln in app if re.search(r"\be\.clue\.separators \|\| \[\]", ln))
 same("app.js reads clue.separators only through a || []", reads, guarded)
@@ -265,7 +267,7 @@ same("app.js reads clue.separators only through a || []", reads, guarded)
 strict_re = re.compile(r"annotation\s*(===|!==)\s*null|['\"]annotation['\"]\s+in\b|hasOwnProperty\(['\"]annotation")
 strict = 0
 for f in ("app.js", "tools/smoke_test.js", "tools/make_hint_packets.js"):
-    text = (REPO / f).read_text(encoding="utf-8", errors="replace").splitlines()
+    text = (app_src.read(REPO) if f == "app.js" else (REPO / f).read_text(encoding="utf-8", errors="replace")).splitlines()
     strict += any(strict_re.search(ln) for ln in text)
 same("nothing in the app tells a null annotation from an absent one", strict, 0)
 
