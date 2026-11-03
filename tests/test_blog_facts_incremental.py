@@ -12,6 +12,8 @@
 #     only those whose result or sidecar moved since a run laid them out;
 #   - the blogs-only write regrafts (blog_facts._Regrafts) only the sidecars
 #     whose line or bytes moved.
+#   - the corpus pack (letter_facts.packed_rows) re-encodes only the puzzles whose
+#     sidecar or clues moved, and none when nothing did.
 # All on fixtures in a temp dir: no corpus, no network.
 import collections
 import os
@@ -232,6 +234,48 @@ def regrafts(tmp):
     print("ok   the blogs-only write regrafts only moved sidecars, as the full write does")
 
 
+def pack(tmp):
+    conn = l._open_store(str(tmp / "pack.sqlite"))
+    sides = sidecars(tmp, 8)
+    clues = [("5-down", "Ape in rage (5)", "LEMUR"), ("6-down", "Bird on wire (4)", "ERIW"), ("7-down", "No sidecar entry (3)", "ABC")]
+    real_held, real_rows = l._held_clues, l._puzzle_rows
+    l._held_clues = lambda pids: {pid: clues for pid in pids}
+    made = []
+    l._puzzle_rows = lambda *a, **k: made.append(a[0]) or real_rows(*a, **k)
+
+    def same(got, want, what):
+        assert got._state() == want._state() and list(got.pickled()) == list(want.pickled()), what
+
+    want = l.Packed(l.rows())
+    assert len(want) == 8 * 3
+    same(l.packed_rows(None), want, "no store")
+    same(l.packed_rows(conn), want, "cold pack differs from a full one")
+    assert len(made) == 8, made
+    made.clear()
+    same(l.packed_rows(conn), want, "warm pack differs from a full one")
+    assert not made, f"nothing moved, yet {len(made)} puzzles packed"
+
+    # One sidecar moves: that puzzle alone is packed again, and the pack is a full one's.
+    (sides / f"p003{blog_store.SUFFIX}").write_text(blog_store.encode({**REC, "entries": {"5-down": {"type": ["anagram"]}}}))
+    want = l.Packed(l.rows())
+    made.clear()
+    same(l.packed_rows(conn), want, "after a move the pack differs from a full one")
+    assert made == ["p003"], made
+    made.clear()
+    same(l.packed_rows(conn), want, "warm again")
+    assert not made
+
+    # One puzzle's clues move.
+    clues[:] = [("5-down", "Ape in rage (5)", "LEMUR")]
+    want = l.Packed(l.rows())
+    made.clear()
+    same(l.packed_rows(conn), want, "all clues moved")
+    assert len(made) == 8
+    l._held_clues, l._puzzle_rows = real_held, real_rows
+    conn.close()
+    print("ok   the pack re-encodes only moved puzzles, skips when none moved, and is a full pack's bytes")
+
+
 def main():
     tmp = Path(tempfile.mkdtemp())
     os.environ.pop("CT_DEADLINE", None)
@@ -239,6 +283,7 @@ def main():
         lexicons(tmp)
         lay_out(tmp)
         regrafts(tmp)
+        pack(tmp)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     print("all incremental blog_facts checks passed")
