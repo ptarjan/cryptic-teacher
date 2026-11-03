@@ -85,6 +85,7 @@ check("the list did not grow", len(json.loads(Q.PATH.read_text())) <= 2)
 
 # The detectors are the gate: a listed clue whose tree they still flag (a real
 # row of the live list) cannot be re-filed with that tree, prose changed or not.
+import puzzle_integrity as PI
 real = None
 for r in (json.loads(Q.REAL.read_text()) if Q.REAL.exists() else []):
     if r.get("tried"):
@@ -94,6 +95,8 @@ for r in (json.loads(Q.REAL.read_text()) if Q.REAL.exists() else []):
     if src2 is None:
         continue
     p2 = F.read_puzzle_file(src2)
+    if PI.awaits_preamble(p2):
+        continue  # a run is not sent its clues (annotate_check.shape_due)
     e2 = next((e for e in p2["entries"] if Q.clue_key(e) == ck and e.get("annotation")), None)
     if e2 is not None and Q.findings(e2):
         real = (src2, p2, e2, r)
