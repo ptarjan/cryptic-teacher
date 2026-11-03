@@ -2124,11 +2124,14 @@ def _cached_lexicons(conn, corpus, ours, jobs, with_both=None):
     groups = _stored_groups(conn, chunks, today)
 
     def stored():
-        for i in range(0, len(groups), 100):
-            part = groups[i:i + 100]
-            blobs = dict(conn.execute(f"SELECT key, val FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
-            for k in part:
-                yield pickle.loads(blobs[k])
+        # One group's pickle at a time: a group is ~GROUP chunks' worth, and
+        # ~35 of them held at once would sit beside the merge.
+        for k in groups:
+            blob, = conn.execute("SELECT val FROM chunks WHERE key=?", (k,)).fetchone()
+            got = pickle.loads(blob)
+            del blob
+            yield got
+            del got
 
     # Two passes over the stored groups, so "both" (export_lexicons' alone)
     # is never held beside the other three, nor are the indicator runs no
@@ -2217,11 +2220,8 @@ def _stored_groups(conn, chunks, today):
     base = mem_gate.tree_rss([os.getpid()]).get(os.getpid(), 0) if todo else 0
     for i, (g, run) in enumerate(todo, 1):
         def members(run=run):
-            for at in range(0, len(run), 100):
-                part = run[at:at + 100]
-                blobs = dict(conn.execute(f"SELECT key, val FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
-                for k in part:
-                    yield pickle.loads(blobs.pop(k))
+            for k in run:
+                yield pickle.loads(conn.execute("SELECT val FROM chunks WHERE key=?", (k,)).fetchone()[0])
         counts = _summed(members())
         with conn:
             conn.execute("INSERT OR REPLACE INTO chunks VALUES(?,?,?)",
