@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Which tail puzzles one annotate session takes together: a bag.
 
-    ids | python3 tools/clue_bag.py [--due] RUNS_DIR LEADER [RESUME_DIR]
+    ids | python3 tools/clue_bag.py [--due] [--any-listed] RUNS_DIR LEADER [RESUME_DIR]
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
@@ -14,6 +14,10 @@ line is "<id> <clues due>", for the burn's log line naming the bag's size.
 The shape-rule backfills (Backfill wordplay.<rule>) bag the same way: their
 puzzles are hinted with a clue or two on the shape redo list, which is a tail,
 and a bag of them pays the session's fixed cost once instead of per clue.
+With --any-listed the candidates after the queue are every puzzle on the shape
+redo list, whatever its rule: a bag's view lists each puzzle's flagged clues of
+every rule anyway, and most rules' queues hold too few clues to fill one (11-03:
+26 of the 33 rules left under 30 clues; 50 sessions per rule, 29 across them).
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
@@ -121,15 +125,32 @@ def bag_of(leader, queue, rows, runs, resume_dir, target=BAG_TARGET, due=tail_du
     return bag
 
 
+def with_listed(queue, listed, held=()):
+    """`queue`, then the ids of `listed` it lacks, in id order (--any-listed), less
+    `held`: the puzzles already in a bag in flight. Those left the queue when their
+    bag formed, but the list still holds them until their run is committed."""
+    seen = set(queue) | set(held)
+    return list(queue) + sorted(p for p in listed if p not in seen)
+
+
+def held_in_bags(runs):
+    """Every id the bag files in RUNS_DIR name: the bags in flight."""
+    return {line.strip() for b in Path(runs).glob("*.bag") for line in b.read_text().splitlines() if line.strip()}
+
+
 def main(argv):
-    with_due = argv[:1] == ["--due"]
-    argv = argv[1:] if with_due else argv
+    with_due = "--due" in argv
+    any_listed = "--any-listed" in argv
+    argv = [a for a in argv if a not in ("--due", "--any-listed")]
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
         return 2
     import prereset_plan
     rows = {r["id"]: r for r in prereset_plan.index_rows()}
     queue = sys.stdin.read().split()
+    if any_listed:
+        import shape_queue
+        queue = with_listed(queue, shape_queue.puzzle_ids(), held_in_bags(argv[0]))
     resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
     counts = {}
     bag = bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir, counts=counts)

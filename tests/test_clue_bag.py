@@ -48,6 +48,12 @@ check("a short queue gives a short bag",
       clue_bag.bag_of("t0", ["t1"], rows, runs, resume, due=due) == ["t0", "t1"])
 check("an id twice in the queue is bagged once",
       clue_bag.bag_of("t0", ["t1", "t1", "t0"], rows, runs, resume, due=due) == ["t0", "t1"])
+check("--any-listed: the queue first, then the listed puzzles it lacks, in id order",
+      clue_bag.with_listed(["t2", "t1"], {"t1", "z9", "a1"}) == ["t2", "t1", "a1", "z9"])
+heldrun = Path(tempfile.mkdtemp())
+(heldrun / "lead.bag").write_text("lead\nz9\n")
+check("--any-listed never takes a puzzle a bag in flight holds",
+      clue_bag.with_listed(["t2"], {"z9", "a1"}, clue_bag.held_in_bags(heldrun)) == ["t2", "a1"])
 counts = {}
 clue_bag.bag_of("t0", ["big", "t1", "t2"], rows, runs, resume, due=due, counts=counts)
 check("counts holds each bagged puzzle's clues due, for the burn's log line (--due)",
