@@ -19459,29 +19459,30 @@ def tail_restored(old, new):
     clue window ended inside its down column, so each line that ran to its edge lost its last letters and
     words ("Humorist overwhelmed by tr to become brighter"); the lost words must all be dictionary words
     and a fragment that is a word itself must lose a word besides (so "has" is never "hasten" alone).
-    Without a cut word, only a run of two or more words counts: one word gained anywhere ("out of sen service",
-    "I have oil cut") is corrects()'s own business, with its fragment, opener and corpus-pair checks."""
+    Without a cut word, only words after the held clue's end count: a run put between held words ("by fiddler"
+    to "by For the fiddler") or one word gained anywhere ("out of sen service", "I have oil cut") is
+    corrects()'s own business, with its fragment, opener and corpus-pair checks."""
     n = 0
     while n < len(old) and n < len(new) and old[n] == new[n]:
         n += 1
     if n == len(old):
         gap = new[n:]
         return 1 < len(gap) <= TAIL_RESTORED_WORDS and all(ocr_clues.is_word(w) for w in gap)
-    for frag in (True, False):
-        # `frag`: old[n] is the start of the word new[n] (cut short); else it is the first word after the lost run.
-        if frag and not (len(old[n]) < len(new[n]) if n < len(new) else False) \
-                or frag and not new[n].startswith(old[n]):
+    # Only a cut word marks a line end lost inside the clue: old[n] is the start of the word new[n] (cut short).
+    # A run of words put between two intact held words ("by fiddler" to "by For the fiddler", times-18379) is a
+    # neighbour's stray print, never a lost line end, so it is not taken.
+    if n >= len(old) or n >= len(new) or not len(old[n]) < len(new[n]) or not new[n].startswith(old[n]):
+        return False
+    rest = old[n + 1:]
+    at = n + 1
+    for k in range(0, TAIL_RESTORED_WORDS + 1):
+        if new[at + k:] != rest or at + k > len(new):
             continue
-        rest = old[n + 1:] if frag else old[n:]
-        at = n + 1 if frag else n
-        for k in range(0 if frag else 2, TAIL_RESTORED_WORDS + 1):
-            if new[at + k:] != rest or at + k > len(new):
-                continue
-            gap = new[at:at + k]
-            if frag and (not ocr_clues.is_word(new[n]) or ocr_clues.is_word(old[n]) and not gap):
-                continue
-            if all(ocr_clues.is_word(w) for w in gap):
-                return True
+        gap = new[at:at + k]
+        if not ocr_clues.is_word(new[n]) or ocr_clues.is_word(old[n]) and not gap:
+            continue
+        if all(ocr_clues.is_word(w) for w in gap):
+            return True
     return False
 
 
