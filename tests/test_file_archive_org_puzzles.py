@@ -7215,6 +7215,13 @@ check("a reading losing or swapping a real word, blank, unchanged, marks only or
                     f.corrects("Frontier cantonment.", ""),
                     f.corrects("A town", "A town"),
                     f.corrects("A town", "A town xqzvb")])
+check("a reading that puts back a line end the held clue lost (a cut word, then words) corrects it; a swap does not",
+      [True, True, True, False, False],
+      [f.corrects("Humorist overwhelmed by tr to become brighter", "Humorist overwhelmed by trouble to become brighter"),
+       f.corrects("Old clothing Pacific nation has name for", "Old clothing Pacific nation has no name for"),
+       f.corrects("So", "So many people go"),
+       f.corrects("Fish in pond", "Fish by the pond"),
+       f.corrects("A town", "A town xqzvb")])
 check("a reread that cuts a word at its edge or turns a word to a non-word corrects nothing",
       [False] * 6, [f.corrects("The servant behind the 1st Earl of Ypres", "The servant behind the st Earl of Ypres"),
                     f.corrects("Scoundrel but good at heart", "Scoundrel but good at hear"),
