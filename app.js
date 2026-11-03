@@ -760,6 +760,10 @@
   const IS_ID = {}, BY_NUMBER = {}, BY_ID = {}, ALIAS = {};
   const REPRINTS_OF = {};
   function buildTables() {
+  // Run again whenever rows arrive (loadShards), so the tables that depend on
+  // the order of the list, or that push, start empty: BY_ID and IS_ID only ever
+  // gain an id, and a row is replaced by its own id.
+  [BY_NUMBER, ALIAS, REPRINTS_OF].forEach((t) => { Object.keys(t).forEach((k) => { delete t[k]; }); });
   INDEX.puzzles.forEach((p) => {
     IS_ID[p.id] = 1;
     BY_ID[p.id] = p;
@@ -790,6 +794,185 @@
     const s = String(id == null ? "" : id);
     return IS_ID[s] ? s : (ALIAS[s] || BY_NUMBER[s] || s);
   };
+
+  // ---------- the list, on demand ----------
+  // Paul 11-02: "It should be progressive. Download what we show."
+  // (DESIGN-progressive-index.md.) A progressive boot hands this file a PARTIAL
+  // index: INDEX.puzzles is only the newest rows, INDEX.partial is true and
+  // INDEX.idx = {live, stat} is head-live.json and head-static's table. The
+  // rest of the list comes from puzzles/idx/ when something needs it, a series
+  // and year at a time (loadShards), and each arrival is merged in the order
+  // fetch_puzzle.py sorts the index in.
+  //
+  // Nothing sets INDEX.idx yet (index.html still loads index-core.js, then
+  // index.js), so today loadShards just waits for that file. And if puzzles/idx
+  // is missing or a shard will not load, it asks for puzzles/index.js itself:
+  // the page works exactly as it did before there was a puzzles/idx.
+  const IDX_ALL_MS = 1500;        // a focus waits this long for a typed series before loading the rest
+  const IDX_BUNDLE_MIN = 12;      // more shards than this come as the one bundle
+  const idxHave = new Set();      // "series/year" keys merged so far
+  const idxFlight = {};           // key -> true while its fetch is out
+  let idxWaiters = [];            // callbacks for the list being whole
+  let idxBundleOut = false;
+  let idxAllTimer = null;
+  const idxManifest = () => (INDEX.idx && INDEX.idx.live && INDEX.idx.live.manifest) || {};
+  const idxDay = (p) => (p.year !== undefined ? p.year + "-01-01" : (p.date || ""));
+  // fetch_puzzle.py: newest day first, the daily cryptic first on a tie, then the larger number.
+  function idxOrder(a, b) {
+    const da = idxDay(a), db = idxDay(b);
+    if (da !== db) return da < db ? 1 : -1;
+    const ca = a.series === "cryptic", cb = b.series === "cryptic";
+    if (ca !== cb) return ca ? -1 : 1;
+    return (Number(b.number) || 0) - (Number(a.number) || 0);
+  }
+  // Whether INDEX.puzzles is every listed puzzle.
+  function listFull() { return !INDEX.partial; }
+  function idxFinish(ok) {
+    const w = idxWaiters;
+    idxWaiters = [];
+    w.forEach((f) => f(ok));
+  }
+  // New rows in; everything computed from the old list is stale, so rebuild and redraw.
+  function idxMerge(rows, unlisted) {
+    const seen = new Set(INDEX.puzzles.map((p) => p.id));
+    rows.forEach((r) => { if (!seen.has(r.id)) { seen.add(r.id); INDEX.puzzles.push(r); } });
+    if (unlisted && unlisted.length) {
+      INDEX.unlisted = INDEX.unlisted || [];
+      const have = new Set(INDEX.unlisted.map((p) => p.id));
+      unlisted.forEach((r) => { if (!have.has(r.id)) INDEX.unlisted.push(r); });
+    }
+    INDEX.puzzles.sort(idxOrder);
+    if (Object.keys(idxManifest()).every((k) => idxHave.has(k))) INDEX.partial = false;
+    idxRefresh();
+  }
+  function idxRefresh() {
+    buildTables();
+    resetListCaches();
+    migrateSavedIds();
+    const panel = $("picker-panel");
+    if (panel && !panel.classList.contains("hidden")) renderPicker();
+  }
+  // The shards named (keys: "series/year" strings; all when omitted) are
+  // fetched, merged, and cb(true) called; cb(false) if the list could not be
+  // completed at all. Safe to call again before an answer: a shard already in
+  // flight is not asked for twice.
+  function loadShards(keys, cb) {
+    cb = cb || function () {};
+    if (listFull()) return cb(true);
+    if (!INDEX.idx || !window.ctIdx || typeof fetch !== "function") { idxWaiters.push(cb); return undefined; }
+    const manifest = idxManifest();
+    const want = (keys || Object.keys(manifest)).filter((k) => k in manifest && !idxHave.has(k));
+    if (!want.length) return cb(true);
+    const live = INDEX.idx.live, stat = INDEX.idx.stat, cuts = live.percentileCuts;
+    const rows = [], unlisted = [];
+    const take = (key, compact) => {
+      idxHave.add(key);
+      window.ctIdx.expandShard(key, compact, stat, cuts).forEach((r) => { (r.unlisted ? unlisted : rows).push(r); });
+    };
+    const json = (name) => fetch(at("puzzles/idx/" + name))
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+    const settle = (ok) => {
+      if (ok) { idxMerge(rows, unlisted); cb(true); return; }
+      // puzzles/idx is not there or not whole: keep what did arrive, then the old
+      // way, one file with every row.
+      if (rows.length) idxMerge(rows, unlisted);
+      idxLegacy(cb);
+    };
+    if (want.length > IDX_BUNDLE_MIN && live.bundle) {
+      if (idxBundleOut) { idxWaiters.push(cb); return undefined; }
+      idxBundleOut = true;
+      json(live.bundle).then((b) => {
+        Object.keys(manifest).forEach((k) => { if (!idxHave.has(k) && b[k]) take(k, b[k]); });
+        idxBundleOut = false;
+        settle(true);
+        idxFinish(true);
+      }).catch(() => { idxBundleOut = false; settle(false); });
+      return undefined;
+    }
+    let left = want.length, bad = false;
+    want.forEach((key) => {
+      if (idxFlight[key]) { left -= 1; return; }
+      idxFlight[key] = true;
+      json(key.replace("/", "-") + "." + manifest[key] + ".json")
+        .then((c) => { take(key, c); }, () => { bad = true; })
+        .then(() => {
+          delete idxFlight[key];
+          if (--left === 0) settle(!bad);
+        });
+    });
+    if (left === 0) { settle(!bad); }
+    return undefined;
+  }
+  // The pre-progressive list: puzzles/index.js, every row.
+  let idxLegacyOut = false;
+  function idxLegacy(cb) {
+    idxWaiters.push(cb);
+    if (idxLegacyOut) return;
+    idxLegacyOut = true;
+    const adopt = () => {
+      const full = window.ctFullIndex;
+      if (!full || !full.puzzles) { idxFinish(false); return; }
+      const idx = INDEX.idx;
+      Object.assign(INDEX, full, { partial: false, idx });
+      window.CRYPTIC_INDEX = INDEX;
+      idxRefresh();
+      idxFinish(true);
+    };
+    if (window.ctFullIndex) { adopt(); return; }
+    const s = document.createElement("script");
+    s.src = at("puzzles/index.js");
+    s.onload = () => { window.ctFullIndex = window.CRYPTIC_INDEX; window.CRYPTIC_INDEX = INDEX; adopt(); };
+    s.onerror = () => { idxLegacyOut = false; idxFinish(false); };
+    (document.head || document.body || document.documentElement).appendChild(s);
+  }
+  // Everything, in a moment: a focus on the search box says a search may be
+  // coming, but a series typed first should be answered by its own shards.
+  function loadAllSoon() {
+    if (listFull() || idxAllTimer !== null) return;
+    idxAllTimer = setTimeout(() => { idxAllTimer = null; loadShards(); }, IDX_ALL_MS);
+  }
+  function loadAllNow() {
+    if (idxAllTimer !== null) { clearTimeout(idxAllTimer); idxAllTimer = null; }
+    loadShards();
+  }
+  // The series a search term or the paper menu names.
+  function idxSeriesNamed(term) {
+    const out = [];
+    Object.keys(idxManifest()).forEach((k) => {
+      const s = k.split("/")[0];
+      if (out.indexOf(s) < 0 && (s === term || (SERIES_BADGE[s] || [""])[0].toLowerCase() === term)) out.push(s);
+    });
+    return out;
+  }
+  // What a query needs from the shards not here yet. A term that names a
+  // series ("281 genius") asks for that series' shards first and the rest
+  // follow in a moment; any other query or menu needs every row now.
+  function loadForQuery(q) {
+    if (listFull()) return;
+    const terms = q.split(/\s+/).filter(Boolean);
+    const paper = (($("picker-paper") || {}).value || "");
+    const narrowed = terms.length || paper || (($("picker-band") || {}).value) || (($("picker-tag") || {}).value);
+    if (!narrowed) return;
+    const series = paper ? paper.split(",") : [];
+    terms.forEach((t) => { idxSeriesNamed(t).forEach((s) => { if (series.indexOf(s) < 0) series.push(s); }); });
+    const others = (($("picker-band") || {}).value) || (($("picker-tag") || {}).value) ||
+      terms.some((t) => !idxSeriesNamed(t).length && !/^\d+$/.test(t));
+    if (!series.length || others) { loadAllNow(); return; }
+    // Only a number beside the series: its shards answer it.
+    const keys = Object.keys(idxManifest()).filter((k) => series.indexOf(k.split("/")[0]) >= 0);
+    loadShards(keys, () => { loadAllSoon(); });
+  }
+  // A shared link whose id is not one this list knows: a series-date alias
+  // needs that series, a bare number or anything else needs every row.
+  function loadForLink(raw, cb) {
+    if (listFull() || IS_ID[raw]) return cb();
+    const series = Object.keys(idxManifest()).map((k) => k.split("/")[0])
+      .filter((s, i, a) => a.indexOf(s) === i && raw.indexOf(s + "-") === 0 && !/^\d+$/.test(raw.slice(s.length + 1)));
+    const keys = series.length ? Object.keys(idxManifest()).filter((k) => series.indexOf(k.split("/")[0]) >= 0) : null;
+    loadShards(keys, () => {
+      if (!IS_ID[raw] && !ALIAS[raw] && !BY_NUMBER[raw] && keys) loadShards(null, cb); else cb();
+    });
+  }
 
   // Saved progress moves with the id, once. Anyone mid-grid keeps their grid.
   function migrateSavedIds() {
@@ -8013,7 +8196,7 @@
   // measurement goes the other way: 20M lookups cost 423 ms against the object
   // and 991 ms against the Map. It is read once per row per render, so that IS
   // the search.
-  const staticHay = {};
+  let staticHay = {};
   function pickerStaticHay(p) {
     const had = staticHay[p.id];
     if (had !== undefined) return had;
@@ -8165,6 +8348,14 @@
       + (single.length ? `<optgroup label="${multi.length ? "Other papers" : "Papers"}">`
         + single.map(seriesOpt).join("") + "</optgroup>" : "");
     return paperMenu;
+  }
+  // The list grew: every memo above was made from the shorter one.
+  function resetListCaches() {
+    staticHay = {};
+    pickerTerms = null;
+    pickerBands = null;
+    pickable = null;
+    paperMenu = null;
   }
   function bandMenuHTML() {
     return `<option value="">Difficulty</option>`
@@ -8413,7 +8604,7 @@
       // panel it is inside, so the lookahead would silently be no lookahead and
       // rows would arrive only once the scroll had already stopped on them.
       pickerWatch = new IntersectionObserver((seen) => {
-        if (seen.some((r) => r.isIntersecting)) drawMore();
+        if (seen.some((r) => r.isIntersecting)) { loadAllNow(); drawMore(); }
       }, { root: $("picker-panel"), rootMargin: "400px" });
       pickerWatch.observe(ul.children[ul.children.length - 1]);
     };
@@ -8515,6 +8706,7 @@
       // focus raises the soft keyboard over the list before anyone has chosen
       // to search; tapping the box still focuses it.
       if (box && box.focus && !isTouchPrimary()) box.focus();
+      loadAllSoon();
     }
     return want;
   }
@@ -9200,11 +9392,21 @@
     // the box is focused on open and Enter takes the top row — number in, puzzle
     // open, no mouse. Escape gets you back out; the global key handler ignores
     // inputs, so it has to be handled here.
-    $("picker-search").addEventListener("input", () => renderPicker());
+    // Rows the list does not hold yet are asked for as the query needs them (loadForQuery).
+    $("picker-search").addEventListener("input", () => {
+      renderPicker();
+      loadForQuery(($("picker-search").value || "").trim().toLowerCase());
+    });
+    $("picker-search").addEventListener("focus", loadAllSoon);
+    ["picker-paper", "picker-band", "picker-tag"].forEach((id) => {
+      $(id).addEventListener("focus", loadAllNow);
+      $(id).addEventListener("mousedown", loadAllNow);
+    });
     const keepMenus = () => {
       store.set("ct:picker", { paper: $("picker-paper").value || "", band: $("picker-band").value || "",
                                tag: $("picker-tag").value || "" });
       renderPicker();
+      loadForQuery(($("picker-search").value || "").trim().toLowerCase());
     };
     $("picker-paper").addEventListener("change", keepMenus);
     $("picker-band").addEventListener("change", keepMenus);
@@ -9400,11 +9602,15 @@
       focusKbd(); refreshAll();
     });
 
+    let idxLinkDone = false;
     // Partial index: draw the puzzle the URL (or the last one) names from its
     // own file now, and run the rest of the boot once the full index is in.
     if (INDEX.partial) {
       fastOpen(() => {
-        if (window.ctFullIndex) completeIndex();
+        // A progressive boot (INDEX.idx) has the newest rows already: it draws
+        // from them and loadShards fetches the rest as it is needed.
+        if (INDEX.idx) bootWithIndex();
+        else if (window.ctFullIndex) completeIndex();
         else window.ctOnFull = completeIndex;
       });
     } else {
@@ -9419,9 +9625,19 @@
       window.CRYPTIC_INDEX = INDEX;
       buildTables();
       bootWithIndex();
+      idxFinish(true);
     }
 
     function bootWithIndex() {
+    // A link that names a puzzle by anything but its id needs rows this list
+    // may not hold yet: fetch them (one series for a series-date alias, all
+    // for a bare number), then boot as ever.
+    const linked = new URLSearchParams(location.search).get("p");
+    if (linked && !listFull() && !IS_ID[linked] && !idxLinkDone) {
+      idxLinkDone = true;
+      loadForLink(linked, bootWithIndex);
+      return;
+    }
     if (!INDEX.puzzles.length) {
       $("puzzle-title").textContent = "No puzzles found — run tools/fetch_puzzle.py first.";
       showApp();
@@ -9657,8 +9873,11 @@
     saveOffline(true);
   }
 
-  function saveOffline(quiet) {
+  function saveOffline(quiet, listed) {
     if (isOffline()) { offlineNote("You’re offline. Connect to wifi and try again."); return; }
+    // Offline search and the Library need every row, so the list is completed
+    // first (once: a list that cannot be completed saves what it has).
+    if (!listed && !listFull()) { loadShards(null, () => saveOffline(quiet, true)); return; }
     const more = !quiet;
     const rows = offlineBatch(more);
     if (offlineBusy) return;

@@ -432,6 +432,10 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
      app.js at the end rather than blocking the first paint. -->
 <script src="qr.js"></script>
+<!-- idx.js decodes puzzles/idx/ (the progressive index): app.js asks it for
+     rows only when something needs them, so it is loaded before app.js but is
+     idle on the current boot. -->
+<script src="idx.js"></script>
 <script src="app.js"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.

@@ -533,6 +533,9 @@ function boot(opts) {
   // quotes.js the same way: app.js curls every clue it shows through CTQuotes.
   new Function("window", fs.readFileSync(path.join(ROOT, "quotes.js"), "utf8"))(global.window);
   global.window.CTQuotes = global.CTQuotes;
+  // idx.js the same way: the progressive index's decoder, which app.js's
+  // loadShards calls (window.ctIdx) to turn a fetched shard back into rows.
+  new Function("window", fs.readFileSync(path.join(ROOT, "idx.js"), "utf8"))(global.window);
   // The manifest is generated and untracked, so it is rebuilt from the puzzle
   // files before it is read — in a fresh clone there is no index.js at all, and
   // in a working tree there is whatever the last rebuild left. Memoised, so
