@@ -106,7 +106,7 @@ check(bare(log.feed("committed Backfill wordplay.anagramCharade for azed-1759", 
       ["✓ azed-1759 re-shaped anagram fodder filed as a charade in 2 clues (1A, 3D)"], "several clues")
 log.touched = lambda subject, pid: []
 check(bare(log.feed("committed Backfill wordplay.anagramCharade for azed-2689", T + 32)),
-      ["· azed-2689 nothing to change (1 clue)"], "a run that changed nothing is quiet")
+      ["· azed-2689 nothing to change (1 clue) [re-shape anagram fodder filed as a charade]"], "a run that changed nothing is quiet")
 check(bare(run(["  [azed-2422] skipped: already fully hinted and nothing is due on it"])),
       ["· azed-2422 nothing to change (already hinted)"], "a skipped puzzle is quiet")
 log2 = B.Log()

@@ -48,7 +48,7 @@ TOKENS_MIN_CLUES = 5
 COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
 WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM", "cryptic-crosswords")
-GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|discard|held|gave up|cannot be|could not be).*)$")
+GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|(?<!rather than )discard|held|gave up|cannot be|could not be).*)$")
 KINDS = (  # commit-message prefix -> what was done
     (re.compile(r"^Annotate\b"), "hints written"),
     (re.compile(r"^Re-check against its blog"), "re-checked against its blog"),
@@ -404,7 +404,9 @@ class Log:
             self.fill.append(m.group(1))
             return self.flush_fill(now)
         self.raw.append(line)
-        return self.flush_fill(now) + self.handle(line, now) + self.idle_check(now) + self.checks(now)
+        # Any line carries the five-minute status: the burn's width and pool lines can be far apart.
+        return (self.flush_fill(now) + self.handle(line, now) + self.idle_check(now) + self.status(now)
+                + self.checks(now))
 
     def idle_check(self, now):
         """"idle" only once nothing has been queued for IDLE_AFTER_S: the pool also shows an

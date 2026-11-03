@@ -260,7 +260,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
   const { blockLetters, buildingBlocks } = APP_BLOCKS;
   const pairsOf = (e) => {
     const a = e.annotation;
-    if (!a) return [];
+    if (!a || a.redo) return [];  // a clue flagged for redo has no blocks rung
     return buildingBlocks(a).map((b) => ({ ...b, gives: blockLetters(a, b) }))
       .filter((b) => b.clueFragment && b.gives && bare(b.clueFragment) !== bare(b.gives));
   };
@@ -299,7 +299,7 @@ const { APP_BLOCKS, ROOT, assert, clueText, defTexts, dismissNext, docListeners,
       // and the same one the questions are numbered off. A clue whose first two
       // pieces give the same letters cannot answer "is piece 2 on screen yet",
       // so it is skipped rather than guessed at.
-      const bl = (a && a.blocks) || [];
+      const bl = (a && !a.redo && a.blocks) || [];  // a redo clue has no blocks rung
       if (bl.length < 2) continue;
       // The growth check below taps a wrong definition, so the clue needs one in
       // its own words: not one its puzzle's preamble supplies.

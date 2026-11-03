@@ -45,7 +45,9 @@ RELOAD_ASKED=0      # the script sets it at its top level; reload_due reads it
 EXHAUSTED=99        # the script exports it at its top level; pool_topup_room compares the weekly meter to it
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 declare -A NOTHING_DUE=()   # pool_nothing_due keeps its answers here; the script declares it at top level
-for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
+declare -A SHAPE_RULE_OF=()  # pool_what reads the rule that listed a puzzle; the script declares it at top level
+ROUND_LAUNCHED=0            # pool_launch counts into it; the script sets it at top level
+for fn in pool_what bag_rule pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done pool_nothing_due \
           needs_solve solve_applied resumed_first reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
@@ -348,7 +350,7 @@ set -uo pipefail
 CODE=old
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 declare -A NOTHING_DUE=()   # pool_nothing_due keeps its answers here; the script declares it at top level
-for fn in pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_nothing_due pool_interval_start \
+for fn in pool_what bag_rule pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_nothing_due pool_interval_start \
           pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room reload_due; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
