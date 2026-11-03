@@ -879,7 +879,7 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   assert(new Set(CLUE_TYPES.types.map((t) => t.name)).size === CLUE_TYPES.types.length,
     "every clue type is named once");
   assert(JSON.stringify(global.CRYPTIC_INDEX.clueTypes) === JSON.stringify(CLUE_TYPES),
-    "puzzles/index.js carries clue_types.json as it stands — run python3 tools/fetch_puzzle.py --reindex");
+    "the index (head-static, composed by fake_dom) carries clue_types.json as it stands — run python3 tools/fetch_puzzle.py --reindex");
 }
 
 // --- the chips are offered commonest first, and `n` still says how common ---

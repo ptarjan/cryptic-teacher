@@ -2,7 +2,7 @@
 // DESIGN-progressive-index.md). It turns what tools/index_idx.py writes into
 // puzzles/idx/ (head-static, head-live, the series-year shards, the bundle)
 // back into the exact row objects index.json holds, so nothing downstream of
-// the index has to know the rows were ever compact. Not loaded by any page yet.
+// the index has to know the rows were ever compact. index.html loads it ahead of the boot loader, which composes the first index from the heads.
 //
 // Two losses by design, both the writer's: `v` is the row's first 5 hex chars
 // (it only tells versions of one file apart), and `percentile` is not shipped
@@ -83,7 +83,44 @@
     return out;
   }
 
-  const api = { expandRow, expandShard, expandRecent, expandBundle, percentile };
+  // The partial window.CRYPTIC_INDEX a boot from the heads starts with: the
+  // static head's tables, head-live's latest/build/snitchRanges, and the newest
+  // rows (expanded) as the list, flagged partial. INDEX.idx keeps both heads so
+  // app.js's loadShards can fetch and decode the rest.
+  function compose(stat, live) {
+    const index = {};
+    for (const k of Object.keys(stat)) index[k] = stat[k];
+    for (const k of ["latest", "build", "snitchRanges"]) if (k in live) index[k] = live[k];
+    index.puzzles = expandRecent(live, stat);
+    index.partial = true;
+    index.idx = { live: live, stat: stat };
+    return index;
+  }
+
+  // The complete index a test or tool can build from the files alone: compose()
+  // with every shard of the bundle merged in the order index.json holds them.
+  function full(stat, live, bundle) {
+    const index = compose(stat, live);
+    const seen = new Set(index.puzzles.map((p) => p.id));
+    const unlisted = [];
+    for (const r of expandBundle(bundle, stat, live.percentileCuts)) {
+      if (r.unlisted) unlisted.push(r);
+      else if (!seen.has(r.id)) { seen.add(r.id); index.puzzles.push(r); }
+    }
+    const day = (p) => (p.year !== undefined ? p.year + "-01-01" : (p.date || ""));
+    index.puzzles.sort((a, b) => {
+      const da = day(a), db = day(b);
+      if (da !== db) return da < db ? 1 : -1;
+      const ca = a.series === "cryptic", cb = b.series === "cryptic";
+      if (ca !== cb) return ca ? -1 : 1;
+      return (Number(b.number) || 0) - (Number(a.number) || 0);
+    });
+    if (unlisted.length) index.unlisted = unlisted;
+    index.partial = false;
+    return index;
+  }
+
+  const api = { compose, full, expandRow, expandShard, expandRecent, expandBundle, percentile };
   root.ctIdx = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : this);

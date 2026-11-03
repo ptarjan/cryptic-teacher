@@ -19,6 +19,7 @@
 const fs = require("fs");
 const path = require("path");
 const { reindex } = require("./reindex.js");
+const idxBundles = {};
 const ROOT = path.join(__dirname, "..");
 const NATIVE_FETCH = global.fetch;
 // Node's own timers, taken once. A boot that read global.setTimeout instead
@@ -541,7 +542,22 @@ function boot(opts) {
   // in a working tree there is whatever the last rebuild left. Memoised, so
   // every boot in one process costs one rebuild.
   reindex();
-  new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
+  // The index is compiled the way the page does it: head-static and head-live
+  // are composed into the partial index, and the bundle's rows (every shard)
+  // are merged in, so the app sees the decoded rows (v to 5 chars, percentile
+  // read off the head's cut points), not index.js's. A tree whose reindex
+  // predates puzzles/idx falls back to index.js.
+  const idxDir = path.join(ROOT, "puzzles/idx");
+  if (fs.existsSync(path.join(idxDir, "head-live.json"))) {
+    const live = JSON.parse(fs.readFileSync(path.join(idxDir, "head-live.json"), "utf8"));
+    new Function("window", fs.readFileSync(path.join(idxDir, live.static), "utf8"))(global.window);
+    // Parsed once per process: boot() runs many times and only reads it.
+    const bundle = idxBundles[live.bundle] || (idxBundles[live.bundle] =
+      JSON.parse(fs.readFileSync(path.join(idxDir, live.bundle), "utf8")));
+    global.window.CRYPTIC_INDEX = global.window.ctIdx.full(global.window.CRYPTIC_INDEX_STATIC, live, bundle);
+  } else {
+    new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
+  }
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
   // options.index edits the index BEFORE app.js reads it, for a shape the
   // corpus does not hold yet.

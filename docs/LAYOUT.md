@@ -75,7 +75,9 @@ idx.js                                         the browser's decoder for the pro
                                                index (puzzles/idx/): rebuilds index.json's rows
                                                from head-static, head-live and the shards;
                                                app.js's loadShards calls it, and index.html
-                                               loads it ahead of app.js
+                                               loads it ahead of app.js, whose boot loader
+                                               composes the first (partial) index from the
+                                               heads with its compose()
 inflate.js                                     gunzip for the browsers without
                                                DecompressionStream, loaded only when one has to
                                                inflate a gzipped puzzle by hand
@@ -2941,6 +2943,15 @@ tests/test_progressive_list.js                 does the page fetch the puzzle li
                                                paper menu) are rebuilt after a merge, and a
                                                failed shard or a missing puzzles/idx falls back
                                                to index.js
+tests/test_boot_from_head.js                   does the page boot from the progressive index's
+                                               heads: index.html's loader fetches head-live and
+                                               head-static, composes the partial index and only
+                                               then injects app.js (or boots the old way from
+                                               index-core.js and index.js when puzzles/idx is
+                                               missing), the paper menu counts papers from the
+                                               head, and a canonical id, a series-date alias, a
+                                               bare number and an unknown id each fetch only
+                                               the shards they need
 tests/test_idx_decoder.js                      does idx.js decode what tools/index_idx.py
                                                writes (head-static, head-live, every shard, the
                                                bundle) back into index.json's rows, v to 5

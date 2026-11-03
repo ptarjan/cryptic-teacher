@@ -420,23 +420,68 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
 </footer>
 
-<!-- index-core.js is the catalogue without its 2 MB puzzle list: app.js draws the
-     puzzle the URL names from its own file at once, and finishes booting when
-     index.js (async, so it neither blocks nor delays that) has arrived. If
-     index.js runs before app.js it is the whole index and app.js boots as ever. -->
-<script src="puzzles/index-core.js"></script>
-<script src="puzzles/index.js" async
-        onload="window.ctFullIndex=window.CRYPTIC_INDEX;if(window.ctOnFull)window.ctOnFull()"></script>
+<!-- The boot loads the progressive index's two heads (puzzles/idx/head-live.json
+     and the head-static file it names), composes the partial index from them
+     (ctIdx.compose: the 300 newest rows, partial) and only then runs app.js, so
+     the page downloads what it shows and the rest of the list on demand.
+     If puzzles/idx is missing or does not load, it boots the old way:
+     index-core.js (the catalogue without its puzzle list), then index.js (every
+     row, async) alongside app.js, which draws the named puzzle from its own
+     file meanwhile. app.js is injected rather than a script tag so it can wait
+     for the index; this preload starts its download at once and names it. -->
+<link rel="preload" as="script" href="app.js">
+<script src="idx.js"></script>
+<script id="ct-boot" data-core="puzzles/index-core.js" data-full="puzzles/index.js">
+(function () {
+  var me = document.getElementById("ct-boot");
+  var app = document.querySelector('link[rel="preload"][as="script"]').getAttribute("href");
+  var parsed = false, ready = null, started = false;
+  function add(src, ok, bad) {
+    var s = document.createElement("script");
+    s.src = src;
+    s.onload = ok || null;
+    s.onerror = bad || null;
+    document.head.appendChild(s);
+  }
+  // app.js also waits for the scripts below it in the page (abbreviations.js
+  // declares a const it reads), which ctBootParsed() says have run.
+  function start() { if (!started && ready && parsed) { started = true; ready(); } }
+  window.ctBootParsed = function () { parsed = true; start(); };
+  function legacy() {
+    if (ready) return;
+    var go = function () {
+      ready = function () {
+        add(me.getAttribute("data-full"), function () {
+          window.ctFullIndex = window.CRYPTIC_INDEX;
+          if (window.ctOnFull) window.ctOnFull();
+        });
+        add(app);
+      };
+      start();
+    };
+    add(me.getAttribute("data-core"), go, go);
+  }
+  if (!window.fetch || !window.ctIdx) { legacy(); return; }
+  fetch("puzzles/idx/head-live.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (live) {
+      add("puzzles/idx/" + live.static, function () {
+        try {
+          window.CRYPTIC_INDEX = window.ctIdx.compose(window.CRYPTIC_INDEX_STATIC, live);
+        } catch (e) { legacy(); return; }
+        ready = function () { add(app); };
+        start();
+      }, legacy);
+    })
+    .catch(legacy);
+})();
+</script>
 <script src="abbreviations.js"></script>
 <script src="quotes.js"></script>
 <!-- Only the sync panel draws one, and only once it is opened, so this sits with
-     app.js at the end rather than blocking the first paint. -->
+     the boot rather than blocking the first paint. -->
 <script src="qr.js"></script>
-<!-- idx.js decodes puzzles/idx/ (the progressive index): app.js asks it for
-     rows only when something needs them, so it is loaded before app.js but is
-     idle on the current boot. -->
-<script src="idx.js"></script>
-<script src="app.js"></script>
+<script>window.ctBootParsed();</script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
@@ -464,10 +509,11 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   var FLAG = "ct:reloaded-for-stamps";
   if (!window.fetch || !window.sessionStorage) return;
   try { if (sessionStorage.getItem(FLAG)) { sessionStorage.removeItem(FLAG); return; } } catch (e) { return; }
+  function uniq(u, i, a) { return !i || u !== a[i - 1]; }
   function key(u) { return u.replace(/^[^?]*\//, ""); }
   var mine = [].slice.call(document.querySelectorAll("script[src], link[href]"))
     .map(function (n) { return n.getAttribute("src") || n.getAttribute("href"); })
-    .filter(function (u) { return u && /\?v=[a-f0-9]+$/.test(u); }).map(key).sort().join("|");
+    .filter(function (u) { return u && /\?v=[a-f0-9]+$/.test(u); }).map(key).sort().filter(uniq).join("|");
   if (!mine) return;
   fetch(location.pathname + "?_=" + Date.now(), { cache: "no-store" })
     .then(function (r) { return r.ok ? r.text() : null; })
@@ -475,7 +521,7 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
       if (!html) return;
       var live = (html.match(/(?:src|href)="([^"]*\?v=[a-f0-9]+)"/g) || [])
         .map(function (m) { return key(m.replace(/^(?:src|href)="/, "").replace(/"$/, "")); })
-        .sort().join("|");
+        .sort().filter(uniq).join("|");
       if (!live || live === mine) return;
       try { sessionStorage.setItem(FLAG, "1"); } catch (e) { return; }
       location.reload();
