@@ -133,8 +133,8 @@ check("alert carries the unit's error line", "TLS 1622: no crossword image in th
 rows.rows += ends([1] * 5, t0=2000)
 du.alert_fetch_streaks(rows, now=1000 + 30 * H)
 check("throttled within a streak", len(sent), 1)
-rows.rows += ends([3], t0=3000) + ends([1] * n, t0=4000)
-du.alert_fetch_streaks(rows, now=4000 + H)
+rows.rows += ends([3], t0=10 * H) + ends([1] * n, t0=11 * H)   # after the alert's own time, so rc 3 comes after it
+du.alert_fetch_streaks(rows, now=12 * H)
 check("rc 3 ends a streak; the next one alerts again", len(sent), 2)
 sent.clear()
 du.alert_fetch_streaks(Rows(ends([1] * n, key="solutions")), now=1000 + 99 * H)
