@@ -35,6 +35,7 @@ import sqlite3
 import subprocess
 import sys
 import time
+import zlib
 from pathlib import Path
 
 import budget
@@ -152,14 +153,16 @@ def _key(code, path, blob):
 LEGACY_PROBE = 200
 
 
-def _lookup(conn, code, keys):
+def _lookup(conn, code, keys, pack=bytes):
     """({key: (val, deps, used)}, {key: legacy key}) for the wanted keys
     (the values of `keys`) stored under `code`: one range scan, then, for
     keys it lacks, their legacy keys if a probe of LEGACY_PROBE finds any.
-    A row found only under its legacy key has used None, to be written anew."""
+    A row found only under its legacy key has used None, to be written anew.
+    Each value is held as `pack(blob)`: a lazy map holds ~70k of them (390MB
+    of pickles) squeezed, as they are read, not whole."""
     lo = _prefix(code) + ":"
     want = set(keys.values())
-    stored = {k: (v, d, u) for k, v, d, u in conn.execute(
+    stored = {k: (pack(v), d, u) for k, v, d, u in conn.execute(
         "SELECT key, val, deps, used FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";")) if k in want}
     legacy = {k: k[len(lo):] for k in want if k not in stored}
     names = list(legacy.values())
@@ -168,7 +171,7 @@ def _lookup(conn, code, keys):
     for n, part in enumerate(p for p in parts if p):
         if n and not found:
             break
-        found.update((k, (v, d)) for k, v, d in conn.execute(
+        found.update((k, (pack(v), d)) for k, v, d in conn.execute(
             f"SELECT key, val, deps FROM rows WHERE key IN ({','.join('?' * len(part))})", part))
     moved = {}
     for k, old in legacy.items():
@@ -290,7 +293,7 @@ class TooManyMisses(Exception):
 
 
 def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None, stale_ok=False,
-               max_miss=None):
+               max_miss=None, lazy=False):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
     code_reach.key(name, {fn.__name__, *roots}). `listed` is
@@ -308,24 +311,33 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     always has a complete answer and the rows catch up across runs.
 
     `max_miss`: raise TooManyMisses, making nothing, when more rows than this
-    are missing."""
+    are missing.
+
+    `lazy` (no `deps`): the rows come back as a generator, a stored row
+    unpickled as it is reached and its blob let go, never all ~33k rows held
+    at once (blog_facts.puzzle_rows' were ~1.5GB beside the blobs). Read it
+    through once; the rows made here are held until they are reached."""
+    assert not (lazy and deps), "lazy rows are not checked against deps"
     paths = list(paths)
     try:
         conn = _open()
         code = code_for(name, fn.__name__, roots, salt)
         blobs = _blobs(paths, listed)
         keys = {p: _key(code, p, b) for p, b in blobs.items()}
-        stored, moved = _lookup(conn, code, keys)
+        stored, moved = _lookup(conn, code, keys, **({"pack": lambda v: zlib.compress(v, 1)} if lazy else {}))
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)
         if prepare:
             prepare()
-        return parallel.pmap(fn, paths)
+        rows = parallel.pmap(fn, paths)
+        return iter(rows) if lazy else rows
     deps = deps or (lambda path, row: None)
     out, miss = {}, []
     for p in paths:
         hit = stored.get(keys[p])
         if hit is not None:
+            if lazy:
+                continue
             row = pickle.loads(hit[0])
             if pickle.loads(hit[1]) == deps(p, row):
                 out[p] = row
@@ -409,7 +421,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             # A row found under its legacy key is written under its new one;
             # the legacy row ages out with the prune.
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
-                             ((k, stored[k][0], stored[k][1], today)
+                             ((k, zlib.decompress(stored[k][0]) if lazy else stored[k][0], stored[k][1], today)
                               for k in {keys[p] for p in paths if p not in missed and keys[p] in moved}))
             if stale_ok:
                 conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
@@ -432,4 +444,16 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
         print(f"row cache for {name}.{fn.__name__}: could not store {len(miss)} rows: {err!r}", file=sys.stderr)
     finally:
         conn.close()
+    if lazy:
+        return _reached(paths, out, stored, keys)
     return [out[p] for p in paths]
+
+
+def _reached(paths, out, stored, keys):
+    """cached_map's lazy rows: a row made here off `out`, a stored one
+    unpickled off `stored`, each let go as it is yielded."""
+    for p in paths:
+        if p in out:
+            yield out.pop(p)
+        else:
+            yield pickle.loads(zlib.decompress(stored.pop(keys[p])[0]))

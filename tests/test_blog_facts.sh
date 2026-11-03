@@ -448,10 +448,10 @@ for f in real:
     shutil.copy(f, tmp / "puzzles" / f.parent.parent.name / f.parent.name / f.name)
 viewed = []
 bf.read_puzzle_view = lambda p: (viewed.append(p), read_puzzle_view(p))[1]
-cold = bf.puzzle_rows(); n_cold = len(viewed); viewed.clear()
-warm = bf.puzzle_rows(); n_warm = len(viewed); viewed.clear()
+cold = list(bf.puzzle_rows()); n_cold = len(viewed); viewed.clear()
+warm = list(bf.puzzle_rows()); n_warm = len(viewed); viewed.clear()
 f = bf.puzzle_files()[0]; f.write_text(f.read_text().replace("\"solution\": \"", "\"solution\": \"X", 1))
-edited = bf.puzzle_rows(); n_edit = len(viewed)
+edited = list(bf.puzzle_rows()); n_edit = len(viewed)
 fresh = [(p, bf.puzzle_row(p)) for p in bf.puzzle_files()]
 same = cold == warm and edited == fresh and edited[0] != cold[0] \
     and list(lf.annotation_rows()) == [a for _, r in fresh for a in r["annotated"]]
