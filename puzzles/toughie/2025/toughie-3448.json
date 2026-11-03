@@ -514,57 +514,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "after",
-       "note": "after sets the order, the second copy following straight on from the first"
+       "text": "loading",
+       "at": 6,
+       "note": "what is loaded sits inside the cargo, so only the inner letters across the join are kept"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "repeat",
        "indicators": [
         {
-         "text": "loading",
-         "note": "only the part of the load visible at the join is kept, the rest of each case being dropped"
+         "text": "one",
+         "at": 14,
+         "note": "with after another, this says the word crateful is written out twice in a row"
+        },
+        {
+         "text": "after another",
+         "at": 27,
+         "note": "together with one, this says one copy of crateful follows the other"
         }
        ],
        "parts": [
         {
-         "words": "one crateful",
+         "words": "crateful",
+         "at": 18,
          "gives": "CRATEFUL",
-         "note": "taken as written"
-        },
-        {
-         "gives": "CRATE"
+         "note": "the word as written, the load being repeated"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "another",
-         "gives": "CRATEFUL",
-         "note": "a second crateful following the first"
-        },
-        {
-         "gives": "TEFUL"
-        }
-       ]
+       "gives": "CRATETEFUL"
       }
      ]
     },
     "explanation": {
-     "surface": "Stagehands carry props, one crateful following the next.",
-     "walkthrough": "Write crateful twice in a row: the letters straddle the join, the end of one crateful and the start of the next.",
-     "definitionFit": "Fulcra, plural of fulcrum, are the supports on which levers pivot, so props in the sense of supports."
+     "surface": "Stagehands load props into a van, one crate after another.",
+     "walkthrough": "'one crateful after another' writes CRATEFULCRATEFUL, and 'loading' keeps what is carried inside, across the join: crateFUL CRAteful, dropping CRATE and TEFUL.",
+     "definitionFit": "Fulcra is the plural of fulcrum, the support or pivot on which a lever rests, so these are supports."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Props"
+     "misdirectedWord": "loading"
     }
    }
   },
