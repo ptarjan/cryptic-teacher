@@ -152,17 +152,17 @@ def lay_out(tmp):
     real = l._laid
     l._laid = lambda data, new: calls.append(1) or real(data, new)
 
+    sides = sidecars(tmp)
     want_tally = full_lay_out(6, results())
-    want = snapshot(sidecars(tmp))  # full_lay_out ran on the first copy; lay the same out from fresh files
-    sides = sidecars(tmp)
-    full_lay_out(6, results())
     want = snapshot(sides)
-    sides = sidecars(tmp)
+    sides = sidecars(tmp)  # the same sidecars afresh, laid out the incremental way
     tally = l._lay_out(conn, stream(results()))
     assert snapshot(sides) == want and tally == want_tally, "a cold lay-out differs from the full loop"
     calls.clear()
-    tally = l._lay_out(conn, stream(results()))  # the bytes moved last time: each is laid out once more
-    assert snapshot(sides) == want and tally == want_tally and len(calls) == 6
+    # The five whose bytes moved last time are laid out once more (a write is never
+    # kept, being made of bytes no longer there); p001, left as it was, is not.
+    tally = l._lay_out(conn, stream(results()))
+    assert snapshot(sides) == want and tally == want_tally and len(calls) == 5, len(calls)
     calls.clear()
     tally = l._lay_out(conn, stream(results()))
     assert snapshot(sides) == want and tally == want_tally and not calls, f"nothing moved, yet {len(calls)} laid out"
