@@ -3323,6 +3323,15 @@ check("non_times_held: held at the cap while Times is due, free below it or with
       (True, False, False, False),
       (eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 2, 2), eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 1, 2),
        eq.non_times_held(_nt_units["galeft"], _nt_papers, False, 9, 2), eq.non_times_held(_nt_units["times"], _nt_papers, True, 9, 2)))
+_orw_fix = {"kind": "read", "paper": "gale", "reason": "fix"}
+_orw_ft = {"kind": "read", "paper": "ft", "reason": "never read"}
+check("other_reason_waits: another reason counts only with pool room and not held by its own cap",
+      (True, False, False, False, False),
+      (eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], set(), {"read": 1}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], set(), {"read": 1}, lambda v: True),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "listener")], set(), {"read": 1, "listener": 0}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_ft, "k1", "read")], {"k1"}, {"read": 1}, lambda v: False),
+       eq.other_reason_waits("fix", [(_orw_fix, "k2", "read")], set(), {"read": 1}, lambda v: False)))
 check("NON_TIMES_BESIDE_TIMES defaults to 2", True, eq.NON_TIMES_BESIDE_TIMES >= 1)
 del os.environ["CT_NEWEST_FIRST"]
 check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
