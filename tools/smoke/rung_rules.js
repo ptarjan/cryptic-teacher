@@ -285,7 +285,8 @@ const { APP_BLOCKS, ARMED, CLUE_TYPES, ROOT, assert, clueText, defTexts, dismiss
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
-      if (!a || defTexts(a).length > 1 || !claimed(e, a)) continue;
+      // A clue flagged for redo (a.redo) has no blocks rung until it is rewritten.
+      if (!a || a.redo || defTexts(a).length > 1 || !claimed(e, a)) continue;
       const bl = a.blocks || [];
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
       // Fodder written as its own letters is never asked anyway; fodder that

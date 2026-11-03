@@ -249,6 +249,7 @@ def pack(tmp):
     want = l.Packed(l.rows())
     assert len(want) == 8 * 3
     same(l.packed_rows(None), want, "no store")
+    made.clear()  # the full rows and the no-store pack built every puzzle too; count the cold pack alone
     same(l.packed_rows(conn), want, "cold pack differs from a full one")
     assert len(made) == 8, made
     made.clear()
