@@ -2961,6 +2961,8 @@ def scan_anywhere(d):
     found = scan(d) if found is None else found
     # No title read on a 1935-39 Gale Times page: its footer's spelt number and solution heading title it.
     found = footer_titled(d, found)
+    # No title read on a 1930-33 Gale Times page: its 1-3 digit title and solution heading, off the cached page reads.
+    found = small_titled(d, found)
     # Read whole and no title found (grid_first_scan reads such a page whole): a GF_TITLE rescan is done.
     if not found.get("failed") and not any(not p.get("fromSolutions") for p in found["puzzles"]):
         found = {**found, WHOLE_UNTITLED: True}
@@ -3123,6 +3125,116 @@ def footer_titled(d, found):
             return {**found, "puzzles": hits, FOOTER_READ: True,
                     "solutions": [s for s in found.get("solutions") or () if s["number"] not in titled]}
     return {**found, FOOTER_READ: True}
+
+
+#: The key of a Gale Times scan (scan_anywhere's) of a SMALL_YEARS page no title was read on whose cached
+#: whole-page reads were looked over for a 1-3 digit title (small_titled), titled by them or not: its SMALL_TITLE
+#: rescan is done.
+SMALL_READ = "smallRead"
+#: The (first, last) years of the Gale Times whose puzzle numbers run under 1,000 for all or part of the year
+#: (No 1, 1930-02-01; No 1,000, 1933-04): the title reads "THE TIMES CROSSWORD PUZZLE No. 357" and the day
+#: before's "SOLUTION OF PUZZLE No. 356", no thousands comma, where TITLE and SOLUTION read four digits.
+#: 11-02: 1930 ~243, 1931 308, 1932 304 and 1933 94 pages stood scanned to no puzzle, every read ending
+#: "nothing filed (vlm 0)" in ~25 s (the cached whole-page reads hold the title and heading, 1931-03-27's 357).
+SMALL_YEARS = ("1930", "1933")
+#: The last puzzle number the title prints without a thousands comma.
+SMALL_TOP = 1099
+#: How far a small title's number may stray from times1930_expected_number's (the Gale pages skip a few more
+#: closed days than TIMES_1930_CLOSED holds).
+SMALL_SLACK = 12
+#: The 1930-33 title as the OCR reads it, its words often run together ("THETIMESCROSSWORDPUZZLENo.357"): a
+#: 1-3 digit number, not the head of a "1,041".
+TITLE_SMALL = re.compile(r"cross\s?w[o0]rd\W{0,3}\s*p\w{2,5}\W{0,3}\s*n[o0x]\W{0,3}\s*(\d{1,4})(?![\d,]|\.\d)", re.IGNORECASE)
+#: "SOLUTION OF PUZZLE No. 356", under the clues.
+SOLUTION_SMALL = re.compile(r"^\W*(?:\S{1,2}\s+)?s[o0]luti[o0]n\s*(?:[o0][fpv]|t[o0])\s*p\w{2,5}\s*n[o0x]\W{0,3}\s*(\d{1,4})(?![\d,]|\.\d)(?!\W{0,3}\s*w[il1]{2})",
+                            re.IGNORECASE)
+#: The footer under the clues: "Solution of puzzle No. 357, will appear in The Times to-morrow", the puzzle on
+#: its page in figures.
+FOOTER_SMALL = re.compile(r"s[o0]luti[o0]n\s*[o0][fpv]\s*p\w{2,5}\s*n[o0x]\W{0,3}\s*(\d{3,4})\W{0,3}\s*w[il1]{2}", re.IGNORECASE)
+#: A word of a title's "THE TIMES", ahead of its "Crossword".
+TITLE_LEAD = re.compile(r"\W*(?:t[hb]?[eo]|t[il1]m\w{0,4})\W*$", re.IGNORECASE)
+
+
+def small_titles(reads, day, leaf):
+    """([{"number", "leaf", "box"}], [{"number", "leaf", "box"}]) of the title and the solution headings of a
+    1930-33 Gale Times leaf read from its page readers' `reads` (lists of (x0, y0, x1, y1, text) words):
+    a title (TITLE_SMALL) within SMALL_SLACK of the number `day` implies (times1930_expected_number) that at
+    least two prints back: reads of the title, of the footer's figures (FOOTER_SMALL), of a solution heading
+    (SOLUTION_SMALL) one SOLUTION_LAGS before it; one title only (the best backed, none on a tie). Its solution
+    headings are those SOLUTION_LAGS before it. The boxes are the first read's. With no such title, ([], the
+    heading) of the one solution heading two reads give, a day before the date's number, that no footer
+    figures name another puzzle than (the title unread, boxed over the grid by solution_titled)."""
+    want = times1930_expected_number(day)
+    titles, sols, feet = {}, {}, {}
+    for words in reads:
+        lines = printed_lines(words)
+        lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+        # A title set on two lines ("THE TIMES SCrossword" over "PUZZLE No.382"): the pair is one line.
+        lines += [a + b for a, b in zip(lines, lines[1:])
+                  if re.search(r"cross\s?w\S*$", " ".join(str(w[4]) for w in a), re.IGNORECASE)
+                  and 0 <= b[0][1] - a[0][3] <= 2 * (a[0][3] - a[0][1])]
+        seen = set()
+        for ws in lines:
+            text = " ".join(str(w[4]) for w in ws)
+            heading = SOLUTION_SMALL.match(text)
+            hits = [(sols, heading, 0)] if heading else []
+            hits += [(feet, m, 0) for m in [FOOTER_SMALL.search(text)] if m]
+            t = None if heading else TITLE_SMALL.search(text)
+            if t:  # the title's box opens on the "THE TIMES" ahead of "Crossword"
+                at = [len(" ".join(str(w[4]) for w in ws[:j])) + (j > 0) for j in range(len(ws))]
+                k = max([j for j, a in enumerate(at) if a <= t.start()] or [0])
+                while k > 0 and TITLE_LEAD.match(str(ws[k - 1][4])):
+                    k -= 1
+                hits.append((titles, t, k))
+            for table, m, k in hits:
+                if (id(table), int(m[1])) not in seen:
+                    seen.add((id(table), int(m[1])))
+                    table.setdefault(int(m[1]), []).append(box_of(ws[k:]))
+    backed = {n: len(titles.get(n, ())) + len(feet.get(n, ())) + sum(len(sols.get(n - lag, ())) for lag in SOLUTION_LAGS)
+              for n in titles if 0 < n <= SMALL_TOP and abs(n - want) <= SMALL_SLACK}
+    backed = {n: v for n, v in backed.items() if v >= 2}
+    best = sorted(backed.values(), reverse=True)
+    if best and best[1:2] != best[:1]:
+        n = next(k for k, v in backed.items() if v == best[0])
+        return ([{"number": n, "leaf": leaf, "box": tuple(titles[n][0])}],
+                [{"number": s, "leaf": leaf, "box": tuple(sols[s][0])} for s in sorted(sols) if n - s in SOLUTION_LAGS])
+    # No title read twice or beside a heading: the solution headings two reads give (the day before's, within
+    # SMALL_SLACK of the date's number) and no footer figures naming another puzzle, a title not read but for
+    # its number (solution_titled boxes it over the grid the heading is printed under).
+    heads = [s for s, b in sols.items() if len(b) >= 2 and 0 < s + 1 <= SMALL_TOP and abs(s + 1 - want) <= SMALL_SLACK
+             and all(n == s + 1 for n in feet)]
+    heads.sort()
+    if len(heads) == 2 and heads[1] - heads[0] == 5:  # (a Saturday's prize heading beside the day before's)
+        heads = heads[1:]
+    if len(heads) != 1:
+        return [], []
+    return [], [{"number": s, "leaf": leaf, "box": tuple(sols[s][0])} for s in sorted(sols) if heads[0] - s in (0, 5)]
+
+
+def small_titled(d, found):
+    """Scan `found` of edition directory `d` with its puzzle and solution headings read from the whole-page
+    reads its scan left in the crop cache (cached_page_words, none made) by small_titles, where it is a Gale
+    Times page of SMALL_YEARS with no title read and no failure; stamped SMALL_READ. Outside scan(), whose key
+    a change here would move: it titles only pages scan() titled none on."""
+    date = str(found.get("date", ""))
+    if found.get("failed") or any(not p.get("fromSolutions") for p in found.get("puzzles") or ()) \
+            or not SMALL_YEARS[0] <= date[:4] <= SMALL_YEARS[1] or paper_of(d) is not GALE:
+        return found
+    try:
+        leaves = sorted({p["leaf"] for p in json.loads((d / "pages.json").read_text()).get("crossword_pages", ())})
+        day = datetime.date.fromisoformat(date)
+    except (OSError, ValueError, KeyError, TypeError):
+        return found
+    for leaf in leaves:
+        hits, sols = small_titles(cached_page_words(f"{d.parent.name}_{d.name}_{leaf}"), day, leaf)
+        if not hits and sols:  # headings alone: the title boxed over the grid they are printed under
+            hits = solution_titled(d, sols)
+        if hits:
+            have = {s["number"] for s in found.get("solutions") or ()}
+            return {**found, "puzzles": hits, SMALL_READ: True,
+                    "solutions": [s for s in found.get("solutions") or () if s["number"] != hits[0]["number"]]
+                    + [s for s in sols if s["number"] not in have]}
+    return {**found, SMALL_READ: True}
 
 
 #: Thread-local state of grid_first_scan: the paper being scanned, the windows
@@ -10636,7 +10748,7 @@ def rekey_scans(ledger):
             new = scan_key(paper)
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
-                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r))) \
+                    and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
                     and not failed_rescan(r):
                 moved[k] = new
         if moved:
@@ -11543,6 +11655,28 @@ def footer_rescan(row):
     year = str(scan.get("date", ""))[:4]
     if not (str(scan.get("item", "")).startswith("GaleTimes") and FOOTER_YEARS[0] <= year <= FOOTER_YEARS[1]
             and "inputs" in row and not row.get("verdicts") and not scan.get("failed") and not scan.get(FOOTER_READ)
+            and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+        return False
+    return row.get("scanKey") in current_keys(GALE)
+
+
+#: The reason of a Gale Times page of SMALL_YEARS read with no verdict, its scan (not failed, under a current
+#: key) holding no title and never looked over for a 1-3 digit title (no SMALL_READ): small_titled titles such a
+#: page from its cached whole-page reads. 11-02: ~950 pages of 1930-33.04 stood so, the scanner's TITLE and
+#: SOLUTION patterns read four digits ("THE TIMES CROSSWORD PUZZLE No. 357", "SOLUTION OF PUZZLE No. 356": the
+#: numbers run 1 to 999 until 1933-04), every read ending "nothing filed (vlm 0)" in ~25 s with the GPU idle;
+#: the cached reads title ~850 of them. Scanned once again (the crop cache's page reads, no OCR), then read.
+SMALL_TITLE = "untitled 1930-33 page, titled since by its 1-3 digit number"
+
+
+def small_rescan(row):
+    """Whether Gale Times ledger `row` is due SMALL_TITLE: an edition of SMALL_YEARS read with no verdict, its
+    scan (not failed) under a current key holding no title (none, or only one solution_titled gave) and not
+    stamped SMALL_READ. Its scan is stale (scan_current) and rekey_scans leaves it, so it is scanned again once."""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and SMALL_YEARS[0] <= year <= SMALL_YEARS[1]
+            and "inputs" in row and not row.get("verdicts") and not scan.get("failed") and not scan.get(SMALL_READ)
             and not any(not p.get("fromSolutions") for p in scan.get("puzzles") or ())):
         return False
     return row.get("scanKey") in current_keys(GALE)
@@ -16568,6 +16702,8 @@ def fix_reason(row):
         return GF_UNREAD
     if footer_rescan(row):
         return FOOTER_TITLE
+    if small_rescan(row):
+        return SMALL_TITLE
     if failed_rescan(row):
         return FAILED_SCAN
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -17141,7 +17277,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 10-31 r40: a 1939-12 to 1940 Gale Times page refused no reading parses, the columns right of its grid read (right_wide_due).
                   RIGHT_WIDE,
                   # 11-02 r41: a page unfiled over a light only the VLM's list-less column reading holds (vlm_laid_due).
-                  VLM_LAID)
+                  VLM_LAID,
+                  # 11-02 r42: an untitled 1930-33 Gale Times page its 1-3 digit title and heading title (small_rescan).
+                  SMALL_TITLE)
 
 
 def refusal_passes(why):
@@ -17386,7 +17524,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -17423,7 +17561,7 @@ def scan_current(row, fh, rel=None):
         if isinstance(rel, str):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
-        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row))) \
+        and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
         and not failed_rescan(row)
 
 
