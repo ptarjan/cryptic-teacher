@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,60 @@
     "text": "Innkeeper makes one lie in other building",
     "enumeration": "8"
    },
-   "solution": "HOTELIER"
+   "solution": "HOTELIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Innkeeper",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in tells us the word lie sits inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "building",
+         "at": 33,
+         "note": "building is read as constructing something new, so the letters of 'other' are put together in a fresh order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "other",
+         "at": 27,
+         "note": "the word other supplies the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "lie",
+       "at": 20,
+       "gives": "LIE",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord persuades someone to tell an untruth inside a different property.",
+     "walkthrough": "'building' looks like a noun for the property, but it is the anagram signal; 'makes one' merely links the definition to the wordplay.",
+     "definitionFit": "Someone who keeps an inn runs a hotel, so they are the hotel's proprietor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +100,63 @@
     "text": "Founder's church is in right surroundings",
     "enumeration": "6"
    },
-   "solution": "CHRIST"
+   "solution": "CHRIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Founder's",
+      "at": 0,
+      "note": "the clue's 's is read as 'is', so the definition is the founder of a faith, followed by a link word"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 10,
+       "gives": "CH"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in says the word is goes inside the abbreviation for right"
+        },
+        {
+         "text": "surroundings",
+         "at": 29,
+         "note": "surroundings says the abbreviation for right wraps round the word is"
+        }
+       ],
+       "parts": [
+        {
+         "words": "right",
+         "at": 23,
+         "gives": "RT"
+        },
+        {
+         "words": "is",
+         "at": 17,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sentence about a founder's church standing amid the right setting.",
+     "walkthrough": "Read the 's of 'Founder's' as 'is', a link word; 'in' and 'surroundings' together signal the container.",
+     "definitionFit": "Jesus is regarded as the founder of the faith that bears his title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "surroundings"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +170,36 @@
     "text": "Carol's little town",
     "enumeration": "9"
    },
-   "solution": "BETHLEHEM"
+   "solution": "BETHLEHEM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Carol's little town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Carol's little town",
+       "at": 0,
+       "note": "the carol 'O Little Town of ...' names this town in its very first line"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It reads like a woman named Carol and her small home town.",
+     "walkthrough": "'Carol' looks like a woman's name, but it is a song sung at the festive season: the carol 'O Little Town of Bethlehem'.",
+     "definitionFit": "The carol's first line addresses the small town in Judea where the nativity took place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carol's"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +213,75 @@
     "text": "Reign shown by star moving above cupola, leaving East",
     "enumeration": "7"
    },
-   "solution": "TSARDOM"
+   "solution": "TSARDOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reign",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "above",
+       "at": 27,
+       "note": "in a down clue, above places the first piece over the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 20,
+         "note": "moving says the letters of star shift into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star",
+         "at": 15,
+         "note": "the word star supplies the letters"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 41,
+         "note": "leaving says one letter departs from the word for a cupola"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cupola",
+         "at": 33,
+         "gives": "DOME",
+         "note": "a cupola is a dome"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reign is shown by a star travelling over a domed roof and heading away from the East.",
+     "walkthrough": "'moving' rearranges STAR into TSAR; 'leaving' takes E (East) out of DOME, leaving DOM; 'above' puts TSAR over DOM in the down entry.",
+     "definitionFit": "The period or realm of rule of an emperor of Russia is called by this name, so it means a reign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +295,30 @@
     "text": "Pan panto character Simon",
     "enumeration": "5"
    },
-   "solution": "PETER"
+   "solution": "PETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pan panto character",
+      "at": 0,
+      "meaning": "the boy who never grew up is ... Pan, a staple of British Christmas pantomime"
+     },
+     {
+      "text": "Simon",
+      "at": 20,
+      "meaning": "the apostle Simon was renamed by Jesus"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A pantomime is a comic family stage show put on in Britain around the festive season.",
+     "definitionFit": "Both the pantomime hero Pan and the apostle Simon share this first name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Pan"
+    }
+   }
   },
   {
    "number": 6,
@@ -100,7 +332,31 @@
     "text": "Cold that hangs about now?",
     "enumeration": "8"
    },
-   "solution": "STREAMER"
+   "solution": "STREAMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0,
+      "meaning": "a heavy cold with a runny nose is said to be a streaming one"
+     },
+     {
+      "text": "that hangs about now?",
+      "at": 5,
+      "meaning": "a festive decoration of paper ribbon hangs across rooms at this season"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cold' looks like an adjective about weather; it is a head cold that makes the nose run.",
+     "definitionFit": "A long paper ribbon is hung up as decoration, and a running cold can be called by the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 7,
@@ -114,7 +370,41 @@
     "text": "Commercial opening that covers four Sundays",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that covers four Sundays",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Commercial",
+       "at": 0,
+       "gives": "AD",
+       "note": "a commercial is an advertisement, an AD"
+      },
+      {
+       "words": "opening",
+       "at": 11,
+       "gives": "VENT",
+       "note": "a vent is an opening or outlet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert that launches something over a month of weekends.",
+     "definitionFit": "The church season before the Nativity spans the four Sundays leading up to the feast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Commercial"
+    }
+   }
   },
   {
    "number": 8,
@@ -128,7 +418,43 @@
     "text": "Character who made 'The More It Snows' ring round",
     "enumeration": "4"
    },
-   "solution": "POOH"
+   "solution": "POOH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Character who made 'The More It Snows'",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 44,
+       "note": "round says the word for a ring is turned the other way about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ring",
+       "at": 39,
+       "gives": "HOOP",
+       "note": "a hoop is a ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A character who composed a snowy song makes it ring out all around.",
+     "walkthrough": "'round' reverses HOOP. A. A. Milne's bear hums 'The more it snows, tiddely pom'.",
+     "definitionFit": "Milne's honey-loving bear composes the hum 'The More It Snows' in The House at Pooh Corner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 9,
@@ -142,7 +468,70 @@
     "text": "Diner consumes seconds — change diet for period after religious festival",
     "enumeration": "10"
    },
-   "solution": "EASTERTIDE"
+   "solution": "EASTERTIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "period after religious festival",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "consumes",
+         "at": 6,
+         "note": "consumes says the diner swallows up the abbreviation for seconds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Diner",
+         "at": 0,
+         "gives": "EATER",
+         "note": "a diner is an eater"
+        },
+        {
+         "words": "seconds",
+         "at": 15,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "change",
+         "at": 25,
+         "note": "change tells us to rearrange the letters of diet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diet",
+         "at": 32,
+         "note": "the word diet supplies the letters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eating takes second helpings, then has to rethink their diet.",
+     "walkthrough": "'consumes' signals the container and 'change' the anagram; 'for' just links wordplay to definition.",
+     "definitionFit": "The season following the spring feast of the Resurrection is named for it with the old word for time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 10,
@@ -156,7 +545,56 @@
     "text": "Understand pressure on the woman after start of festive month",
     "enumeration": "8"
    },
-   "solution": "DECIPHER"
+   "solution": "DECIPHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Understand",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 33,
+       "note": "after says the rest follows the first piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "start of festive month",
+       "at": 39,
+       "gives": "DECI",
+       "note": "the first day of December is Dec 1, written DEC plus the numeral I"
+      },
+      {
+       "words": "pressure",
+       "at": 11,
+       "gives": "P",
+       "note": "P is the abbreviation for pressure in physics"
+      },
+      {
+       "words": "the woman",
+       "at": 23,
+       "gives": "HER",
+       "note": "the woman is her"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grasping the strain placed on a woman once the festive month begins.",
+     "walkthrough": "'start of festive month' is 1 December, written DEC I with the Roman numeral, not just the first letter of a word.",
+     "definitionFit": "To decode something is to make sense of it, which is to understand it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 11,
@@ -170,7 +608,31 @@
     "text": "Team members needed to carry out piping",
     "enumeration": "6"
    },
-   "solution": "ELEVEN"
+   "solution": "ELEVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0,
+      "meaning": "a cricket or football side has this many players, so the number names the team"
+     },
+     {
+      "text": "members needed to carry out piping",
+      "at": 5,
+      "meaning": "in the carol 'The Twelve Days of Christmas' there are this many pipers piping"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In the carol, the true love sends this many pipers piping on the eleventh day.",
+     "definitionFit": "A football or cricket side is named after its number of players, the same number of pipers in the carol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "piping"
+    }
+   }
   },
   {
    "number": 12,
@@ -184,7 +646,42 @@
     "text": "Plant removed from motel site",
     "enumeration": "9"
    },
-   "solution": "MISTLETOE"
+   "solution": "MISTLETOE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "removed",
+       "at": 6,
+       "note": "removed is read as re-moved, moved again, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "motel site",
+       "at": 19,
+       "note": "these two words supply the letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrub that has been dug up and taken away from a motel's grounds.",
+     "walkthrough": "'removed' reads as re-moved: the letters of MOTEL SITE are moved round.",
+     "definitionFit": "This parasitic evergreen with white berries is a plant, hung up for kissing under at the festive season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "removed"
+    }
+   }
   },
   {
    "number": 13,
@@ -198,7 +695,31 @@
     "text": "Like the sherry decanter by the time gran's jolly vacant?",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like the sherry decanter by the time gran's jolly",
+      "at": 0,
+      "meaning": "once grandmother is merry, the sherry has all been drunk"
+     },
+     {
+      "text": "vacant?",
+      "at": 50,
+      "meaning": "vacant means having nothing inside"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading is a joke: by the time gran is tipsy, the decanter has been drained.",
+     "definitionFit": "A drained decanter holds nothing, and something vacant is likewise unoccupied and has nothing in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 14,
@@ -218,7 +739,36 @@
      }
     ]
    },
-   "solution": "ROBINHOOD"
+   "solution": "ROBINHOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He takes a bow in pantomime",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He takes a bow in pantomime",
+       "at": 0,
+       "note": "the outlaw of Sherwood Forest is an archer carrying a bow, and a favourite subject for festive pantomime"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor taking his bow at the end of a pantomime.",
+     "walkthrough": "'takes a bow' suggests a curtain call; here the bow is the archer's weapon. A pantomime is a British festive stage show.",
+     "definitionFit": "The legendary archer outlaw carries a longbow and is a common pantomime title role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 15,
@@ -232,7 +782,30 @@
     "text": "Biscuit that should be on the table tomorrow",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0,
+      "meaning": "a thin crisp savoury biscuit eaten with cheese"
+     },
+     {
+      "text": "that should be on the table tomorrow",
+      "at": 8,
+      "meaning": "a paper tube that bangs when pulled, set at each place for the festive dinner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'tomorrow' places the puzzle on Christmas Eve, when the festive table is laid with paper tubes that snap when pulled.",
+     "definitionFit": "The word names both a crisp savoury biscuit and the paper tube pulled apart at the festive dinner table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tomorrow"
+    }
+   }
   },
   {
    "number": 16,
@@ -246,7 +819,59 @@
     "text": "Little certainty in company refusal to offer musical entertainment",
     "enumeration": "8"
    },
-   "solution": "CONCERTO"
+   "solution": "CONCERTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical entertainment",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "company",
+       "at": 20,
+       "gives": "CO"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "in says the shortened word sits inside the word for refusal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "refusal",
+         "at": 28,
+         "gives": "NO",
+         "note": "a refusal is a no"
+        },
+        {
+         "words": "Little certainty",
+         "at": 0,
+         "gives": "CERT",
+         "note": "a cert is a shortened certainty, a sure thing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company doubtfully declining to put on a musical show.",
+     "walkthrough": "'Little' shortens the word rather than meaning small: a cert is everyday British slang for a sure thing.",
+     "definitionFit": "A work for soloist and orchestra is a kind of musical performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 17,
@@ -260,7 +885,36 @@
     "text": "Caroller scored highly?",
     "enumeration": "7"
    },
-   "solution": "SOPRANO"
+   "solution": "SOPRANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caroller scored highly?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Caroller scored highly?",
+       "at": 0,
+       "note": "a carol singer whose part is written in the highest range of the score"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carol singer who did well in some contest.",
+     "walkthrough": "'scored highly' sounds like winning marks; in music, a part is scored, here at the top of the vocal range.",
+     "definitionFit": "The highest female or boy singing voice has its part written at the top of the musical score."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 18,
@@ -280,7 +934,59 @@
      }
     ]
    },
-   "solution": "NOAHSARK"
+   "solution": "NOAHSARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vessel found in older book",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wrapping",
+       "at": 15,
+       "note": "wrapping says the shuffled letters enclose the letter a"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "about says the letters of harks on are shuffled around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harks on",
+         "at": 0,
+         "note": "these two words supply the letters"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 24
+      }
+     ]
+    },
+    "spelling": "NOAH'S ARK",
+    "explanation": {
+     "surface": "Someone harks on about wrapping a boat mentioned in an old book.",
+     "walkthrough": "'about' rearranges HARKS ON, and 'wrapping' puts the A inside it. 'older book' is the Old Testament.",
+     "definitionFit": "The great boat built before the Flood appears in Genesis, the first book of the Old Testament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "older"
+    }
+   }
   },
   {
    "number": 19,
@@ -294,7 +1000,54 @@
     "text": "Party performance of Parisian, with cleaner answer given first",
     "enumeration": "7"
    },
-   "solution": "CHARADE"
+   "solution": "CHARADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Party performance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "given first",
+       "at": 51,
+       "note": "given first says the cleaner and answer come before the French word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cleaner",
+       "at": 36,
+       "gives": "CHAR",
+       "note": "a char, or charwoman, is a cleaner"
+      },
+      {
+       "words": "answer",
+       "at": 44,
+       "gives": "A"
+      },
+      {
+       "words": "of Parisian",
+       "at": 18,
+       "gives": "DE",
+       "note": "de is French for of, as a Parisian would say it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party turn put on by a Frenchman, with a cleaner's reply coming first.",
+     "walkthrough": "A char is an old British word for a cleaning lady; 'given first' fixes the order of the charade.",
+     "definitionFit": "The guessing game of acting out words in mime is a classic performance at family parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 20,
@@ -314,7 +1067,31 @@
      }
     ]
    },
-   "solution": "ATONE"
+   "solution": "ATONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Agreed",
+      "at": 0,
+      "meaning": "agreed means in harmony, of one mind"
+     },
+     {
+      "text": "time to enjoy 21 and 15s?",
+      "at": 7,
+      "meaning": "one o'clock is a time to sit down to the festive bird and pull the paper novelties at lunch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "21 is the festive bird and 15 the paper tubes pulled at the table, enjoyed at lunch, say one o'clock.",
+     "definitionFit": "Being in harmony with someone means being reconciled and in accord, which is what agreed means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 21,
@@ -328,7 +1105,30 @@
     "text": "Country fare for 22",
     "enumeration": "6"
    },
-   "solution": "TURKEY"
+   "solution": "TURKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0,
+      "meaning": "the nation spanning Anatolia and Thrace"
+     },
+     {
+      "text": "fare for 22",
+      "at": 8,
+      "meaning": "the roast bird traditionally eaten at the festive dinner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'22' refers to the answer at 22, the festive season; 'fare' is food, not a ticket price.",
+     "definitionFit": "The nation straddling Europe and Asia shares its name with the large roast bird of the festive dinner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1152,49 @@
    "group": [
     "22-across",
     "28-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "seasonal message",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 12,
+       "note": "following puts the playing card after the word for Noel"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Noel's",
+       "at": 22,
+       "gives": "CHRISTMAS",
+       "note": "Noel is another word for the festive season of the Nativity"
+      },
+      {
+       "words": "Queen maybe",
+       "at": 0,
+       "gives": "CARD",
+       "note": "a queen is an example of a playing card"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch, perhaps, coming after Noel with a festive broadcast.",
+     "walkthrough": "'Queen' suggests the monarch's festive broadcast; here it is a queen among playing cards.",
+     "definitionFit": "The greeting sent by post at the end of the year is a seasonal message of goodwill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1208,53 @@
     "text": "Hurried to get to church after time, in a sleepy state",
     "enumeration": "6"
    },
-   "solution": "TRANCE"
+   "solution": "TRANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sleepy state",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "after says the remaining pieces follow the abbreviation for time"
+      }
+     ],
+     "parts": [
+      {
+       "words": "time",
+       "at": 31,
+       "gives": "T"
+      },
+      {
+       "words": "Hurried",
+       "at": 0,
+       "gives": "RAN",
+       "note": "hurried means ran"
+      },
+      {
+       "words": "church",
+       "at": 18,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushed to church late and arrived drowsy.",
+     "definitionFit": "A dazed, half-conscious condition is a sleepy state, as if hypnotised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hurried"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1268,36 @@
     "text": "Bedding down in the stable",
     "enumeration": "5"
    },
-   "solution": "STRAW"
+   "solution": "STRAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bedding down in the stable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bedding down in the stable",
+       "at": 0,
+       "note": "dried stalks are spread on a stable floor as bedding, as in the manger at the Nativity"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settling in for the night in a stable.",
+     "walkthrough": "'Bedding down' sounds like going to sleep; it is the bedding material laid on the stable floor.",
+     "definitionFit": "Dried cereal stalks are the usual bedding laid for animals in a stable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1311,60 @@
     "text": "Wise men's origin that is recorded in gold book",
     "enumeration": "6"
    },
-   "solution": "ORIENT"
+   "solution": "ORIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wise men's origin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "recorded in",
+       "at": 26,
+       "note": "recorded in says the abbreviation is written inside the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "gold",
+         "at": 38,
+         "gives": "OR",
+         "note": "OR is gold in heraldry"
+        },
+        {
+         "words": "book",
+         "at": 43,
+         "gives": "NT",
+         "note": "NT is the New Testament, a book"
+        }
+       ]
+      },
+      {
+       "words": "that is",
+       "at": 18,
+       "gives": "IE",
+       "note": "IE is the abbreviation of id est, that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where the wise men came from, as written in a golden book.",
+     "walkthrough": "Gold is 'or' in heraldry, a crossword staple; 'recorded in' signals the container.",
+     "definitionFit": "The Magi came from the East, and the old poetic name for the East is this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1378,48 @@
     "text": "Researcher, not Roman Catholic, arranged to run through Nativity play perhaps",
     "enumeration": "8"
    },
-   "solution": "REHEARSE"
+   "solution": "REHEARSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "run through",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "arranged",
+       "at": 32,
+       "note": "arranged says the remaining letters of researcher are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Researcher",
+       "at": 0,
+       "note": "the word researcher supplies the letters"
+      },
+      {
+       "words": "Roman Catholic",
+       "at": 16,
+       "gives": "RC",
+       "note": "RC is the abbreviation for Roman Catholic, and 'not' takes these letters away"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A researcher who isn't Catholic organised a practice of the school nativity.",
+     "walkthrough": "'not Roman Catholic' takes R and C out of RESEARCHER, and 'arranged' rearranges RESEAHER. 'Nativity play perhaps' is an example of what is run through.",
+     "definitionFit": "To practise a play before performing it is to go over it from start to finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1439,42 @@
      }
     ]
    },
-   "solution": "WESTWARDHO"
+   "solution": "WESTWARDHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place in Devon",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Way three kings travelled",
+       "at": 0,
+       "gives": "WESTWARD",
+       "note": "the Magi travelled from the East, so they headed west"
+      },
+      {
+       "words": "a bit of a laugh from Santa's",
+       "at": 31,
+       "gives": "HO",
+       "note": "Santa's laugh is ho ho ho, and a bit of it is one ho"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The route of the three kings, with a chuckle from Father Christmas, leads to a Devon spot.",
+     "walkthrough": "Westward Ho! is a seaside village in Devon, a county in south-west England.",
+     "definitionFit": "The Devon village is named after Charles Kingsley's novel, and is a real place in that county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kings"
+    }
+   }
   },
   {
    "number": 28,
