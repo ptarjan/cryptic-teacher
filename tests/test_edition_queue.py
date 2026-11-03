@@ -687,6 +687,14 @@ check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fi
       [f.RANKS[f.FOOTER_TITLE], eq.evidence_reason(f.FOOTER_TITLE), f.FOOTER_TITLE in eq.FIX_LANDED,
        f.FOOTER_TITLE in eq.UNFILED_FIRST,
        eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
+# ---- an untitled verdict-less 1930-33 Gale Times page (numbers of 1-3 digits, fa.small_rescan) is due SMALL_TITLE:
+# ranked, evidence, fix-landed, the newest unfiled-first fix, first tier, and it feeds the VLM (its read asks).
+check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix-landed, last of unfiled-first, tier 0",
+      [2, True, True, True, None, 0],
+      [f.RANKS[f.SMALL_TITLE], eq.evidence_reason(f.SMALL_TITLE), f.SMALL_TITLE in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SMALL_TITLE) > eq.UNFILED_FIRST.index(f.VLM_LAID),
+       eq.canary_failed({"paper": "gale", "reason": f.SMALL_TITLE, "date": "1931-03-27"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_TITLE, "date": "1931-03-27"})])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",

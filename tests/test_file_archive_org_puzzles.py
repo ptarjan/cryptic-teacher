@@ -3534,6 +3534,82 @@ check("an untitled verdict-less 1938 Gale Times page never looked over for its f
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "date": "1940-08-11", "item": "GaleTimes1940UKEnglish"}}),
        f.footer_rescan({**_ft, "scan": {**_ft["scan"], "item": "GaleTelegraph1938UKEnglish"}}),
        f.footer_rescan({**_ft, "scanKey": "0000000000000000"}), f.RANKS[f.FOOTER_TITLE]])
+# small_titles (r42): the 1930-33 Gale Times prints puzzle numbers of 1-3 digits ("PUZZLE No. 357"); TITLE and
+# SOLUTION read four. 1931-03-27 as the two page readers read it (the date implies 358; Gale's pages skip a few more
+# closed days than TIMES_1930_CLOSED holds).
+_sday = _d.date(1931, 3, 27)
+_sch = [(2053, 2353, 2749, 2401, "THETIMESCROSSWORDPUZZLENo.357"), (2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE No. 356"),
+        (2042, 3739, 2753, 3794, "Solution of puzzle No. 357, will appear in The Times to-morrow.")]
+_sen = [(2053, 2353, 2749, 2401, "THE TIMES CROSSWORD PUZZLE No. 357"), (2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE NO. 350")]
+check("small_titles: a 1-3 digit title two reads give, the heading before it kept (the misread 350 not), its box the "
+      "title's line; a title one read gives beside a heading; one alone, or far from the date's number, none",
+      [([{"number": 357, "leaf": 0, "box": (2053, 2353, 2749, 2401)}], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([{"number": 357, "leaf": 0, "box": (2053, 2353, 2749, 2401)}], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([], []), ([], [])],
+      [f.small_titles([_sch, _sen], _sday, 0), f.small_titles([_sch[:2]], _sday, 0),
+       f.small_titles([_sch[:1]], _sday, 0), f.small_titles([_sch], _d.date(1932, 3, 27), 0)])
+# ... a title on two lines ("THE TIMES SCrossword" over "PUZZLE No.382"), its words apart; a heading two reads give
+# alone (the day before's, no footer naming another) is the heading of a title the grid boxes; a footer naming
+# another puzzle, or one read, none.
+_s2 = [(1500, 400, 1900, 450, "THE TIMES SCrossword"), (1500, 455, 1800, 505, "PUZZLE No.382")]
+_sh = [(2430, 3325, 2731, 3364, "SOLUTION OF PUZZLE No. 356")]
+_sd = _d.date(1931, 4, 27)
+check("small_titles: a title set on two lines is one; two reads of the day before's heading alone give it, one "
+      "read or a footer naming another puzzle does not",
+      [([{"number": 382, "leaf": 0, "box": (1500, 400, 1900, 505)}], []), ([], [{"number": 356, "leaf": 0, "box": (2430, 3325, 2731, 3364)}]),
+       ([], []), ([], [])],
+      [f.small_titles([_s2, _s2], _sd, 0), f.small_titles([_sh, _sh], _sday, 0), f.small_titles([_sh], _sday, 0),
+       f.small_titles([_sh + [(2042, 3739, 2753, 3794, "Solution of puzzle No. 360, will appear in The Times to-morrow.")], _sh],
+                      _sday, 0)])
+# small_titled: off the crop cache's page reads (cached_page_words, stubbed); a heading-only page is boxed by
+# solution_titled (stubbed: it reads the page image); stamped SMALL_READ; a titled scan, a failed one and a 1934 page
+# stand as they are.
+_sdir = Path(tempfile.mkdtemp()) / "GaleTimes1931UKEnglish" / "1931-03-27"
+_sdir.mkdir(parents=True)
+(_sdir / "pages.json").write_text(json.dumps({"date": "1931-03-27", "crossword_pages": [{"leaf": 0}]}))
+_s34 = Path(tempfile.mkdtemp()) / "GaleTimes1934UKEnglish" / "1934-03-27"
+_s34.mkdir(parents=True)
+(_s34 / "pages.json").write_text(json.dumps({"date": "1934-03-27", "crossword_pages": [{"leaf": 0}]}))
+_sscan = {"date": "1931-03-27", "item": "GaleTimes1931UKEnglish", "puzzles": [], "solutions": []}
+_real_cpw, _real_st = f.cached_page_words, f.solution_titled
+f.cached_page_words = lambda key: [_sch, _sen] if key == "GaleTimes1931UKEnglish_1931-03-27_0" else []
+try:
+    _std = f.small_titled(_sdir, _sscan)
+    f.cached_page_words = lambda key: [_sh, _sh]
+    f.solution_titled = lambda d, sols: [{"number": max(s["number"] for s in sols) + 1, "leaf": 0, "box": (1, 2, 3, 4),
+                                          "fromSolutions": [s["number"] for s in sols]}]
+    _sbox = f.small_titled(_sdir, _sscan)
+    f.cached_page_words = lambda key: []
+    _snone = f.small_titled(_sdir, _sscan)
+    check("small_titled titles an untitled 1931 Gale Times scan from its cached page reads, boxes a heading-only "
+          "page by solution_titled, stamps one it cannot title, and leaves a titled, failed or 1934 scan",
+          [[357], [356], True, [357], [356], True, ([], True), [{"number": 357, "leaf": 0}], False, False],
+          [[p["number"] for p in _std["puzzles"]], [s["number"] for s in _std["solutions"]], _std.get(f.SMALL_READ),
+           [p["number"] for p in _sbox["puzzles"]], [s["number"] for s in _sbox["solutions"]], _sbox.get(f.SMALL_READ),
+           (_snone["puzzles"], _snone.get(f.SMALL_READ)),
+           f.small_titled(_sdir, {**_sscan, "puzzles": [{"number": 357, "leaf": 0}]})["puzzles"],
+           f.SMALL_READ in f.small_titled(_sdir, {**_sscan, "failed": "x"}),
+           f.SMALL_READ in f.small_titled(_s34, {**_sscan, "date": "1934-03-27", "item": "GaleTimes1934UKEnglish"})])
+finally:
+    f.cached_page_words, f.solution_titled = _real_cpw, _real_st
+# small_rescan: a 1930-33 Gale Times page read with no verdict, its scan under a current key untitled and never
+# looked over for a small title, is due SMALL_TITLE once (its scan stale, past blanket_or_fix); stamped SMALL_READ,
+# titled, with a verdict, failed, of 1934, of another paper or under a key no longer current it is not.
+_sr = {"edition": "GaleTimes1931UKEnglish/1931-03-27", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "verdicts": [], "readAt": "2026-11-02T01:00:00+00:00",
+       "scan": {"date": "1931-03-27", "item": "GaleTimes1931UKEnglish", "puzzles": [], "solutions": [], f.WHOLE_UNTITLED: True}}
+check("an untitled verdict-less 1931 Gale Times page never looked over for a small title is due SMALL_TITLE (its scan "
+      "stale); stamped, titled, with a verdict, failed, of 1934, a Gale Telegraph's or under an old key it is not",
+      [True, False, f.SMALL_TITLE, f.SMALL_TITLE, True, False, False, False, False, False, False, False, 2],
+      [f.small_rescan(_sr), f.scan_current(_sr, "h"), f.fix_reason(_sr), f.blanket_or_fix(_sr, "inputs changed"),
+       f.scan_current({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True}}, "h"),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], f.SMALL_READ: True}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "puzzles": [{"number": 357, "leaf": 0}]}}),
+       f.small_rescan({**_sr, "verdicts": [{"number": 357, "id": "times-357"}]}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "failed": "x"}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "date": "1934-03-27", "item": "GaleTimes1934UKEnglish"}}),
+       f.small_rescan({**_sr, "scan": {**_sr["scan"], "item": "GaleTelegraph1931UKEnglish"}}),
+       f.small_rescan({**_sr, "scanKey": "0000000000000000"}), f.RANKS[f.SMALL_TITLE]])
 # HELD_LINKED: a Times row a held-title read left answerless (no id, no solutionFrom) whose number a host's heading
 # links now (sol_seen holds it, its solutionsSeen did not) is due HELD_LINKED, not the blanket "inputs changed";
 # not one already linked, one that read its answers, one whose number is not linked, or another paper's.

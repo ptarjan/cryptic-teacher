@@ -798,7 +798,7 @@ def evidence_reason(reason):
             or (reason.startswith("refused ") and reason.endswith(" before its fix"))
             or reason == fa.NO_TITLE_RESCAN  # a Gale 1957-62 or 2000-14 page no title was found on, scan code since
             # A Gale 1930-69 page no title was found on before grids_on took a grid with inset blocks (fa.inset_rescan).
-            or reason in (fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE)
+            or reason in (fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE)
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
             or reason == fa.TOUCHING_GRID
@@ -1219,7 +1219,7 @@ def only_evidence(paper, scans, reads, out=None):
     scans = [u for u in scans if u["reason"] in ("never scanned", *fa.HOST_REASONS) or u["rel"] in needed]
     # The scans a year_evidence read waits on go with it (a "scan stale" scan is tier 2, so those reads, tier 1,
     # waited behind every other unit for the scan they need: 2007's 312 pages stood unread for that).
-    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE)
+    fixed = {rel for u in reads if year_evidence(u) or u["reason"] in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE)
              for rel in u.get("needs") or ()}
     scans = [{**u, "fix": True} if u["rel"] in fixed and u["reason"] == "scan stale" else u for u in scans]
     if gated and out is not None:
@@ -1745,7 +1745,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.RIGHT_WIDE,
                  # r41 11-02: a Times page unfiled with every answer for a light only the VLM's list-less column
                  # reading holds; the newest fix goes first.
-                 fa.VLM_LAID)
+                 fa.VLM_LAID,
+                 # r42 11-02: an untitled 1930-33 Gale Times page (numbers of 1-3 digits: "PUZZLE No. 357") its cached
+                 # page reads title, scanned again with no OCR then read; the newest fix goes first.
+                 fa.SMALL_TITLE)
 
 
 def times_solution_work(unit):
@@ -1772,7 +1775,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE)
 
 
 def unproven_first(unit):
@@ -1800,7 +1803,7 @@ def files_likely_tier(rank, unit):
     # newest first among them.
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
-    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.LOST_WRITE,
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.LOST_WRITE,
                                                                     fa.HELD_TITLE, fa.HELD_LINKED):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):
