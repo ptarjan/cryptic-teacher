@@ -96,8 +96,7 @@ git commit -qam "upstream rebuilt the README"
 git checkout -q -B nightly "$base"
 poke README.md "$corpus" '5. **Full walkthrough** — nightly-side'
 # A second, non-colliding change, so the pick is not empty once the index is
-# rebuilt. It has to be an existing tracked file: build_readme.py refuses to run
-# against a new file with no row in its layout table, and this function runs it.
+# rebuilt.
 printf '\n<!-- the night'"'"'s own work -->\n' >> docs/APP.md
 git commit -qam "the night's work"
 git rebase -q upstream >/dev/null 2>&1
@@ -117,10 +116,8 @@ check "index.html is not in the rebuilt pick" \
   "$(git diff --name-only HEAD~1 HEAD -- index.html)" ""
 
 echo "a file master deleted while the night wrote to it stays deleted:"
-# Master retires a tracked file and its layout row while the nightly rewrites
-# the file. The modify/delete leaves it in the index, and build_readme.py
-# refuses a tracked file with no row. Only build_readme.py runs: it is the
-# builder that refuses.
+# Master retires a tracked file while the nightly rewrites it. The
+# modify/delete leaves it in the index; only build_readme.py runs.
 rebase_running && git rebase --abort
 only_build=tools/build_readme.py
 retired=tools/data/difficulty_check.json

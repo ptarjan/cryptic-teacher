@@ -40,7 +40,7 @@ python3 tools/fetch_puzzle.py --backfill 30   # the last 30, skipping ones you h
 ```
 
 Other papers have their own `tools/fetch_*.py` scripts, listed in
-`docs/LAYOUT.md`.
+`tools/`.
 
 Then annotate the new puzzle file (`python3 tools/puzzle_paths.py cryptic-30123`
 its path), by hand or with Claude Code
@@ -94,19 +94,18 @@ with no cache, for anything the cache could hide.
 
 `tools/build_readme.py` generates one region of `README.md` (the hint
 ladder), one of `docs/NIGHTLY.md` (the scheduling
-defaults) and the file table in `docs/LAYOUT.md`. Each region sits between `<!-- NAME-START -->` and
+defaults). Each region sits between `<!-- NAME-START -->` and
 `<!-- NAME-END -->` markers. The sources are the puzzle files, `app.js`,
 `git ls-files` and the shell scripts.
 
 - **Do not hand-edit inside the markers.**
 - `python3 tools/build_readme.py` rewrites the regions.
   `python3 tools/build_readme.py --check` exits 1 if they are out of date.
-- The check fails instead of leaving a wrong sentence. That happens when a tool
-  has no description line, a described tool has been deleted, or a quoted default has been renamed. A rung renamed in
+- The check fails instead of leaving a wrong sentence. That happens when a quoted
+  default has been renamed. A rung renamed in
   `app.js` renames itself in the README.
 - Each region has one builder function in `tools/build_readme.py`:
   `build_ladder()` reads `LABELS` in `app.js` for the rung list, and
   `build_knobs()` parses the defaults out of the shell scripts (`KNOB_FILES`).
-  `build_layout()` writes the table in `docs/LAYOUT.md` from `LAYOUT`.
 - To put a number in the prose, add it to the builder in
   `tools/build_readme.py`. A number typed by hand is never checked again.

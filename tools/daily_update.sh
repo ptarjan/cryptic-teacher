@@ -1078,7 +1078,7 @@ unit_commit() {  # subject
       # in a rebase "us" is master) stays deleted: master retired the file, and
       # what this run wrote there came from tools master has since changed not to
       # write it. Before the builders, because a conflicted path is still in the
-      # index, and build_readme.py refuses a tracked file with no layout row.
+      # index, and a conflicted path would otherwise be rebuilt into the commit.
       local gone path
       gone=$(git status --porcelain --untracked-files=no | sed -n 's/^DU //p') || return 1
       while IFS= read -r path; do
