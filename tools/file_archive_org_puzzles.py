@@ -5381,6 +5381,18 @@ def ft_dated(n, day, held, sure):
     return day, None
 
 
+def small_headed(paper, day, hit):
+    """Whether `hit` (a solution_titled puzzle, "fromSolutions") of a Gale Times page of `day` is a 1-3 digit title
+    small_titled gave from its heading read twice: the number one over its highest heading, within SMALL_SLACK of the
+    number the date implies (times1930_expected_number). small_titles tested those prints already, and the filed
+    neighbours of a 1930-33 page lie too far off to count to one number (11-03: 1933-03-11's No 965 under the
+    heading 964 refused "fit more than one" of [965, 970]), so solution_title does not judge it again."""
+    heads = hit.get("fromSolutions") or ()
+    return paper is GALE and SMALL_YEARS[0] <= str(day)[:4] <= SMALL_YEARS[1] and bool(heads) \
+        and hit["number"] == max(heads) + 1 <= SMALL_TOP \
+        and abs(hit["number"] - times1930_expected_number(day)) <= SMALL_SLACK
+
+
 def filed_number(d, found, hit):
     """(number, day, None) that a title files as, or (None, day, why) it is
     refused."""
@@ -5402,7 +5414,7 @@ def filed_number(d, found, hit):
         if why:
             return None, day, why
         day = moved
-    if "fromSolutions" in hit:
+    if "fromSolutions" in hit and not small_headed(paper, day, hit):
         n, why = solution_title(day, hit["fromSolutions"], held)
         if why:
             return None, day, why
@@ -11682,6 +11694,29 @@ def small_rescan(row):
     return row.get("scanKey") in current_keys(GALE)
 
 
+#: The reason of a 1930-33 Gale Times page small_titled titled from its solution heading alone (a "fromSolutions"
+#: puzzle, SMALL_READ) whose SMALL_TITLE read was refused "no title read; the solution headings No 964 fit more
+#: than one of the numbers the filed neighbours give" (solution_title counted from filed neighbours months
+#: off): filed_number takes such a title as small_titles judged it (small_headed). 11-03: 10 of ~24 first
+#: SMALL_TITLE reads ended so (1933-03-08..11, 15, 17, 04-04, 10, 11). Read again once, before REREAD_SMALL_HEADED.
+SMALL_HEADED = "heading-titled 1930-33 page refused for its neighbours' count, read again by its heading"
+REREAD_SMALL_HEADED = "2026-11-03T08:00:00+00:00"
+
+
+def small_headed_due(row):
+    """Whether Gale Times ledger `row` is due SMALL_HEADED: its scan holds a "fromSolutions" puzzle of SMALL_YEARS
+    (stamped SMALL_READ), a verdict of it refused "no title read; the solution headings", read before
+    REREAD_SMALL_HEADED."""
+    scan = (row or {}).get("scan") or {}
+    year = str(scan.get("date", ""))[:4]
+    if not (str(scan.get("item", "")).startswith("GaleTimes") and SMALL_YEARS[0] <= year <= SMALL_YEARS[1]
+            and scan.get(SMALL_READ) and "inputs" in row
+            and any(p.get("fromSolutions") for p in scan.get("puzzles") or ())):
+        return False
+    return any(str(v.get("refused") or "").startswith("no title read; the solution headings")
+               for v in row.get("verdicts", ())) and scan_queue.read_before(row, scan_queue.when(REREAD_SMALL_HEADED))
+
+
 #: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
 #: was read before REREAD_FAILED_SCAN: a failed scan stood as current under its key (scan_current), and every
 #: untitled-page rescan (inset_rescan, lone_rescan, gf_rescan, untitled_rescan) leaves failed scans out, so
@@ -16704,6 +16739,8 @@ def fix_reason(row):
         return FOOTER_TITLE
     if small_rescan(row):
         return SMALL_TITLE
+    if small_headed_due(row):
+        return SMALL_HEADED
     if failed_rescan(row):
         return FAILED_SCAN
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
@@ -17279,7 +17316,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-02 r41: a page unfiled over a light only the VLM's list-less column reading holds (vlm_laid_due).
                   VLM_LAID,
                   # 11-02 r42: an untitled 1930-33 Gale Times page its 1-3 digit title and heading title (small_rescan).
-                  SMALL_TITLE)
+                  SMALL_TITLE,
+                  # 11-03 r43: a heading-titled 1930-33 page refused for its neighbours' count (small_headed_due).
+                  SMALL_HEADED)
 
 
 def refusal_passes(why):
@@ -17524,7 +17563,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -17852,7 +17891,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
                                       SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ, STRAY_LINK_READ,
-                                      TAIL_READ, QUARTER_READ, RIGHT_WIDE, VLM_LAID) else {}),
+                                      TAIL_READ, QUARTER_READ, RIGHT_WIDE, VLM_LAID, SMALL_HEADED) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]

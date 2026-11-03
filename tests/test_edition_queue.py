@@ -695,6 +695,16 @@ check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix
        eq.UNFILED_FIRST.index(f.SMALL_TITLE) > eq.UNFILED_FIRST.index(f.VLM_LAID),
        eq.canary_failed({"paper": "gale", "reason": f.SMALL_TITLE, "date": "1931-03-27"}),
        eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_TITLE, "date": "1931-03-27"})])
+# ---- a heading-titled 1930-33 Gale Times page refused for its neighbours' count (fa.small_headed_due) is due
+# SMALL_HEADED: ranked, evidence, fix-landed, after SMALL_TITLE in unfiled-first, tier 0, blanket-passing.
+check("a heading-titled 1933 Gale Times page due SMALL_HEADED is ranked, evidence, fix-landed, after SMALL_TITLE in "
+      "unfiled-first, tier 0, never canary-held, blanket-passing",
+      [2, True, True, True, None, 0, True],
+      [f.RANKS[f.SMALL_HEADED], eq.evidence_reason(f.SMALL_HEADED), f.SMALL_HEADED in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SMALL_HEADED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
+       eq.canary_failed({"paper": "gale", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
+       f.SMALL_HEADED in f.BLANKET_PASSES])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
