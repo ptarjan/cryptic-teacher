@@ -11717,6 +11717,29 @@ def small_headed_due(row):
                for v in row.get("verdicts", ())) and scan_queue.read_before(row, scan_queue.when(REREAD_SMALL_HEADED))
 
 
+#: The reason of the Gale Times puzzles whose stored clue text came out cut or garbled and that Paul asked be
+#: fixed from the source (11-03, #cryptic-crosswords; annotation withdrew them). 16 are 2014 pages read 10-18
+#: to 10-22, before crop_window.cut_edge: the right clue window (RIGHT_SPAN) ended inside the down column, so
+#: every line that ran to its edge lost its last letters and words ("Timid son retreating from fro picnic"; all
+#: three RapidOCR readings' boxes end at the window's edge). They were filed, so no unfiled reason read them
+#: again; the reread widens the window, and corrects() now takes the longer text (tail_restored). The rest
+#: (1933-34, 1949, 2004-06, 2013) hold furniture or a neighbour's print in a clue, or a clue a column's wrap
+#: lost, which a full read by current code may mend. Once each, rows read before REREAD_CLUE_GARBLED.
+CLUE_GARBLED = "stored clue text cut or garbled, read again from the source"
+REREAD_CLUE_GARBLED = "2026-11-03T16:30:00+00:00"
+CLUE_GARBLED_IDS = frozenset(f"times-{n}" for n in (
+    1120, 1230, 6117, 22815, 23239, 23431, 25461, 25725, 25738, 25739, 25742, 25744, 25751, 25752, 25755,
+    25760, 25763, 25802, 25804, 25808, 25814, 25842))
+
+
+def clue_garbled_due(row):
+    """Whether Gale Times ledger `row` has a verdict of a CLUE_GARBLED_IDS puzzle, read before REREAD_CLUE_GARBLED."""
+    if paper_of(Path(row.get("edition") or "")).key not in ("gale", "times"):
+        return False
+    return any(v.get("id") in CLUE_GARBLED_IDS and not v.get("refused") for v in row.get("verdicts", ())) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_GARBLED))
+
+
 #: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
 #: was read before REREAD_FAILED_SCAN: a failed scan stood as current under its key (scan_current), and every
 #: untitled-page rescan (inset_rescan, lone_rescan, gf_rescan, untitled_rescan) leaves failed scans out, so
@@ -16697,6 +16720,9 @@ def fix_reason(row):
     its grids. Due
     whether its scan stands or not, so a stale scan never sinks it to the
     whole-corpus rank."""
+    # Named puzzles Paul asked be fixed from the source: first, whatever else the row is due for.
+    if clue_garbled_due(row):
+        return CLUE_GARBLED
     # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
     if see_run_lost(row):
         return SEE_RUNS_ON
@@ -17318,7 +17344,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-02 r42: an untitled 1930-33 Gale Times page its 1-3 digit title and heading title (small_rescan).
                   SMALL_TITLE,
                   # 11-03 r43: a heading-titled 1930-33 page refused for its neighbours' count (small_headed_due).
-                  SMALL_HEADED)
+                  SMALL_HEADED,
+                  # 11-03 r44: named Gale Times puzzles with cut or garbled clue text (clue_garbled_due).
+                  CLUE_GARBLED)
 
 
 def refusal_passes(why):
@@ -17563,7 +17591,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -19419,6 +19447,42 @@ def regressed(was, now, printed=()):
     return bool(regressions(was, now, printed))
 
 
+#: The most words a line's cut-off end may restore in one clue (tail_restored).
+TAIL_RESTORED_WORDS = 8
+
+
+def tail_restored(old, new):
+    """Whether the words `new` (lower-cased tokens of a reread's clue) are the held `old` with the end of a
+    line it lost put back: `old` reads `new` up to a point, a word there cut short (a fragment of the word
+    `new` has, "tr" for "trouble") or none, a run of at most TAIL_RESTORED_WORDS words `new` has missing,
+    and every word after it as `new` has it (or none after: the clue's own end cut off). The 2014 Times'
+    clue window ended inside its down column, so each line that ran to its edge lost its last letters and
+    words ("Humorist overwhelmed by tr to become brighter"); the lost words must all be dictionary words
+    and a fragment that is a word itself must lose a word besides (so "has" is never "hasten" alone)."""
+    n = 0
+    while n < len(old) and n < len(new) and old[n] == new[n]:
+        n += 1
+    if n == len(old):
+        gap = new[n:]
+        return 0 < len(gap) <= TAIL_RESTORED_WORDS and all(ocr_clues.is_word(w) for w in gap)
+    for frag in (True, False):
+        # `frag`: old[n] is the start of the word new[n] (cut short); else it is the first word after the lost run.
+        if frag and not (len(old[n]) < len(new[n]) if n < len(new) else False) \
+                or frag and not new[n].startswith(old[n]):
+            continue
+        rest = old[n + 1:] if frag else old[n:]
+        at = n + 1 if frag else n
+        for k in range(0 if frag else 1, TAIL_RESTORED_WORDS + 1):
+            if new[at + k:] != rest or at + k > len(new):
+                continue
+            gap = new[at:at + k]
+            if frag and (not ocr_clues.is_word(new[n]) or ocr_clues.is_word(old[n]) and not gap):
+                continue
+            if all(ocr_clues.is_word(w) for w in gap):
+                return True
+    return False
+
+
 def corrects(was, now, printed=()):
     """Whether the clue text `now` may replace the held `was` as a better
     reading of the same print. `now` has words, none OCR made up
@@ -19470,6 +19534,8 @@ def corrects(was, now, printed=()):
     old, new = [m.group().lower() for m in old_t], [m.group().lower() for m in new_t]
     if old == new:
         return lone_stops_dropped(was, now)
+    if tail_restored(old, new):
+        return True
     for m in re.finditer(r"([^\W\d_]+)-\s+([^\W\d_]+)", now):
         if any(ocr_clues.within_one((m[1] + m[2]).lower(), w) for w in old):
             return False
