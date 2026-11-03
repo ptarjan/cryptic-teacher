@@ -40,7 +40,7 @@ check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
 
 check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 hints written"], "annotate commit")
 check(bare(run(["committed Backfill wordplay.anaLoneEdge for azed-2581"])),
-      ["✓ azed-2581 backfilled wordplay.anaLoneEdge"], "backfill commit")
+      ["✓ azed-2581 re-shaped anagram of a lone edge letter"], "backfill commit")
 check(bare(run(["committed Re-check against its blog: times-25738"])),
       ["✓ times-25738 re-checked against its blog"], "blog re-check commit")
 check(bare(run(["  [everyman-3470] the run withdrew its own work, so nothing it wrote ships — 1-down MUNTJAC has no clean parse"])),
@@ -68,9 +68,31 @@ log.feed(WIDTH, T)
 got = []
 for i, line in enumerate(["wordplay.anagramCharade backlog: a-1 a-2", "--- pool of 15: 0 in flight (0 running), 290 queued ---"]):
     got += log.feed(line, T + 10 + i)
-check(bare(got), ["── next: wordplay.anagramCharade, 290 queued",
+check(bare(got), ["── next: re-shape anagram fodder filed as a charade, 290 queued",
                   "── 15 at once (memory) · 0 done/h · 290 queued · weekly 98% used"],
-      "a switch of backlog is a next: line and a full status line")
+      "a switch of backlog is a next: line in plain words and a full status line")
+
+log = B.Log()
+log.backlog = {"wordplay.anagramCharade": {"azed-1759": 2, "azed-2689": 1}, "unknown.key": {"x-1": 3}}
+log.feed(WIDTH, T)
+got = []
+for i, line in enumerate(["wordplay.anagramCharade backlog: azed-1759 azed-2689", "--- pool of 15: 0 in flight (0 running), 2 queued ---"]):
+    got += log.feed(line, T + 10 + i)
+check(bare(got)[0], "── next: re-shape anagram fodder filed as a charade: 2 puzzles, 3 clues", "next: gives the totals")
+log.touched = lambda subject, pid: ["14A"]
+check(bare(log.feed("committed Backfill wordplay.anagramCharade for azed-2689", T + 30)),
+      ["✓ azed-2689 re-shaped anagram fodder filed as a charade in 1 clue (14A)"], "a commit names the rule, count and clues")
+log.touched = lambda subject, pid: ["1A", "3D"]
+check(bare(log.feed("committed Backfill wordplay.anagramCharade for azed-1759", T + 31)),
+      ["✓ azed-1759 re-shaped anagram fodder filed as a charade in 2 clues (1A, 3D)"], "several clues")
+log.touched = lambda subject, pid: []
+check(bare(log.feed("committed Backfill wordplay.anagramCharade for azed-2689", T + 32)),
+      ["· azed-2689 nothing to change (1 clue)"], "a run that changed nothing is quiet")
+check(bare(run(["  [azed-2422] skipped: already fully hinted and nothing is due on it"])),
+      ["· azed-2422 nothing to change (already hinted)"], "a skipped puzzle is quiet")
+log2 = B.Log()
+check(bare(log2.feed("committed Backfill some.unknownKey for azed-5", T)), ["✓ azed-5 backfilled some.unknownKey"],
+      "a field with no phrase shows its key")
 
 log = B.Log()
 got = []
