@@ -421,40 +421,78 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cracking",
-       "note": "something cracking breaks apart, so these letters are broken up and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Priest",
-       "gives": "PR",
-       "note": "PR is a standard abbreviation for priest"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cracking",
+         "at": 7,
+         "note": "the priest cracks the hints open, breaking into them so it ends up within"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 22,
+           "note": "about here means turned round, so the word for hints runs backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hints",
+           "at": 16,
+           "gives": "CLUES",
+           "note": "hints are clues, as in the clues to a puzzle"
+          }
+         ]
+        },
+        {
+         "words": "Priest",
+         "at": 0,
+         "gives": "P"
+        }
+       ]
       },
       {
-       "words": "hints",
-       "gives": "CLUES",
-       "note": "hints are clues"
-      },
-      {
-       "words": "early cardinal's",
-       "gives": "HE",
-       "note": "HE, His Eminence, is the formal style of a cardinal"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contents of",
+         "at": 28,
+         "note": "the contents are what is inside, so the outer letters of the number are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "early cardinal's",
+         "at": 40,
+         "gives": "THREE",
+         "note": "three is a cardinal number that comes early in the count"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A priest breaks into an old cardinal's tomb, prompted by clues about what lies inside.",
-     "walkthrough": "A cardinal is addressed as His Eminence, abbreviated HE. The parse is uncertain: these pieces supply every letter, but how 'about contents of early' fits the setter's design is unclear.",
-     "definitionFit": "A sepulchre is a burial chamber or vault cut in rock or built of stone, the same thing as a tomb."
+     "surface": "A cleric breaks into an old cardinal's grave, guided by clues to what lies inside.",
+     "walkthrough": "'Cardinal' looks like a churchman but is a counting number (one, two, three); 'early' picks a low one. 'about' turns CLUES into SEULC, which 'cracking' splits around P.",
+     "definitionFit": "A sepulchre is a burial vault cut in rock or built of stone, the same thing as a grave chamber."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cracking"
+     "misdirectedWord": "cardinal's"
     }
    }
   },
