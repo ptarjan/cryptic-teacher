@@ -1944,6 +1944,9 @@ class Index:
         self.db = sqlite3.connect(path)
         self.db.execute("CREATE TABLE IF NOT EXISTS post (path TEXT PRIMARY KEY, size INT, mtime INT, sha TEXT, title TEXT)")
         self.db.execute("CREATE TABLE IF NOT EXISTS join_ (key TEXT PRIMARY KEY, json TEXT)")
+        # Per puzzle, the inputs whose regraft (_regraft) an earlier write found
+        # was one of them unchanged: "old", the sidecar's bytes, or "body", the line's.
+        self.db.execute("CREATE TABLE IF NOT EXISTS regraft (pid TEXT PRIMARY KEY, key TEXT, kept TEXT)")
         self.writes = 0
 
     def _wrote(self):
@@ -1980,6 +1983,14 @@ class Index:
 
     def put_join(self, key, text):
         self.db.execute("INSERT OR REPLACE INTO join_ VALUES (?,?)", (key, text))
+        self._wrote()
+
+    def regrafts(self):
+        """{puzzle id: (key, kept)} of every regraft held."""
+        return {pid: (k, kept) for pid, k, kept in self.db.execute("SELECT pid, key, kept FROM regraft")}
+
+    def put_regraft(self, pid, key, kept):
+        self.db.execute("INSERT OR REPLACE INTO regraft VALUES (?,?,?)", (pid, key, kept))
         self._wrote()
 
     def prune(self, keys):
@@ -2399,6 +2410,52 @@ def regrafted(rec, old):
     return {**rec, "entries": entries}
 
 
+def _regraft(body, data):
+    """What write() makes a held puzzle's sidecar: its line's `body` (the
+    blogs' side) regrafted onto `data`, the bytes of the sidecar there."""
+    import blog_store
+    rec = json.loads(body)
+    got = regrafted(rec, json.loads(data.decode("utf-8")))
+    return body if got is rec else blog_store.encode(got)
+
+
+class _Regrafts:
+    """_regraft, done only where its inputs moved: a puzzle whose line and
+    sidecar bytes are those an earlier write regrafted to one of them is
+    given that one unread. Kept in INDEX under a key of the inputs and of
+    the code and schema _regraft reaches."""
+
+    def __init__(self):
+        import code_reach
+        import puzzle_schema
+        self.index = Index()
+        self.held = self.index.regrafts()
+        self.code = "\0".join([code_reach.key("blog_facts", {"_regraft"}),
+                               code_reach.key("letter_facts", {"stated"}),
+                               hashlib.sha1(puzzle_schema.SCHEMA_PATH.read_bytes()).hexdigest()]).encode()
+        self.done = 0
+
+    def __call__(self, pid, body, path):
+        data = Path(path).read_bytes()
+        h = hashlib.sha1(self.code)
+        for part in (pid.encode(), body.encode("utf-8"), data):
+            h.update(len(part).to_bytes(8, "big"))
+            h.update(part)
+        key = h.hexdigest()
+        k, kept = self.held.get(pid, (None, None))
+        if k == key:
+            return data.decode("utf-8") if kept == "old" else body
+        self.done += 1
+        out = _regraft(body, data)
+        kept = "body" if out == body else "old" if out.encode("utf-8") == data else None
+        if kept:
+            self.index.put_regraft(pid, key, kept)
+        return out
+
+    def close(self):
+        self.index.close()
+
+
 def write(best, series, spool, previous=None):
     """Lay out the published lines `spool` holds for `best`, extract's joins:
     one sidecar a puzzle (tools/blog_store.py; only those whose bytes moved are
@@ -2414,6 +2471,7 @@ def write(best, series, spool, previous=None):
     # One puzzle a line, so letter_facts.Leads can parse a puzzle's only when it is asked for.
     _write_lines(LEADS, (r["leads"] for _, r in sorted(best.items()) if r["leads"]), spool)
     n = 0
+    regraft = _Regrafts() if previous else None
 
     def bodies():
         nonlocal n
@@ -2422,12 +2480,13 @@ def write(best, series, spool, previous=None):
                 n += 1
                 body = blog_store.body_of_line(spool.get(r["line"]))
                 if previous and pid in held:
-                    rec = json.loads(body)
-                    got = regrafted(rec, blog_store.read(held[pid]))
-                    body = body if got is rec else blog_store.encode(got)
+                    body = regraft(pid, body, held[pid])
                 yield pid, body
 
     written, deleted, unfiled = blog_store.sync(bodies())
+    if regraft:
+        regraft.close()
+        print(f"blog facts: {regraft.done} sidecars regrafted, the rest as an earlier run left them", file=sys.stderr)
     print(f"blog facts: {written} sidecars written, {deleted} deleted, {unfiled} for puzzles not held", file=sys.stderr)
     return n
 
