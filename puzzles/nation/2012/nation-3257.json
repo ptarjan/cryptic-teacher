@@ -1559,54 +1559,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BRONZEAGE",
-     "indicators": [
-      {
-       "text": "ravaged",
-       "note": "something ravaged is wrecked, so its letters lie in disorder"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 18,
+         "note": "about means going round, so the word for boast wraps what follows"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "about means going round, enclosing what follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "boast",
-           "gives": "BRAG",
-           "note": "to boast is to brag"
-          },
-          {
-           "words": "zone",
-           "gives": "ONZE",
-           "note": "the letters of zone, rearranged"
-          }
-         ]
+         "words": "boast",
+         "at": 12,
+         "gives": "BRAG",
+         "note": "to boast is to brag"
         },
         {
-         "op": "first",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "onset of",
-           "note": "'onset of' keeps only the first letter of 'epoch'"
+           "text": "ravaged",
+           "at": 24,
+           "note": "something ravaged is wrecked, so the letters of zone lie in disorder"
           }
          ],
          "parts": [
           {
-           "words": "epoch",
-           "note": "the first letter of epoch"
+           "words": "zone",
+           "at": 32
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "onset of",
+         "at": 40,
+         "note": "the onset of something is its start, so only the opening letter of epoch is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "epoch",
+         "at": 49
         }
        ]
       }
@@ -1615,6 +1616,7 @@
     "spelling": "BRONZE-AGE",
     "explanation": {
      "surface": "A tale of early humans bragging about a land laid waste at the dawn of an era.",
+     "walkthrough": "'ravaged' turns ZONE into ONZE, which 'about' puts inside BRAG to give BRONZEAG; 'onset of' adds E from epoch.",
      "definitionFit": "The Bronze Age is the period before written history when bronze tools were made, so prehistoric."
     },
     "features": {
