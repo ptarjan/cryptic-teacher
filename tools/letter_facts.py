@@ -49,8 +49,11 @@ clue's "inferred". It is read before the indicators, which want one.
     python3 tools/letter_facts.py --clue 'Men on phone exchange will be a rarity' PHENOMENON
 """
 import argparse
+import array
+import bisect
 import collections
 import copy
+import copyreg
 import functools
 import hashlib
 import itertools
@@ -1033,6 +1036,14 @@ class Indicators:
         self.own = extra if isinstance(extra, Ours) else {(r[2], r[3]): r for r in extra}
         self.votes, self.left, self.inner, self.edge = votes, left, inner, edge
         self.left = {k: v for k, v in self.left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
+        return self.pruned()
+
+    def pruned(self):
+        """This lexicon less the `inner` runs whose counts and the times they
+        were named whole are under MIN_INDICATOR: trim answers False for them
+        with their counts or without, and nothing else reads `inner`. Kept out
+        of __init__, which the stored chunks' key reaches (_chunk_counts)."""
+        self.inner = {k: v for k, v in self.inner.items() if sum(v.values()) + self.left.get(k, (0, 0))[1] >= MIN_INDICATOR}
         return self
 
     def less(self, clue, answer):
@@ -1967,12 +1978,15 @@ def _interned(k):
     return k
 
 
-def _add(into, part):
+def _add(into, part, keep=None):
     """Add one chunk's counts (a dict of Counters, or of [n, n] lists) into
-    `into`, keys in the order one pass would first meet them."""
+    `into`, keys in the order one pass would first meet them; with `keep`,
+    only the keys it is true of."""
     for k, v in part.items():
         cur = into.get(k)
         if cur is None:
+            if keep is not None and not keep(k):
+                continue
             k = _interned(k)
             into[k] = (collections.Counter({_interned(a): n for a, n in v.items()})
                        if isinstance(v, collections.Counter) else list(v))
@@ -1984,55 +1998,91 @@ def _add(into, part):
             cur[1] += v[1]
 
 
-def _merged(parts):
-    """(ilex, both, lex, dlex) counts, as their constructors take them, from
-    the chunks' (lex, ind, defs) counts: the corpus's chunks (defs set), then
-    our annotations' (defs None)."""
+#: The buckets _reach counts indicator runs in, by the low bits of a run's
+#: hash: runs that share one are only kept where one alone would not be.
+REACH_BUCKETS = 1 << 22
+
+
+def _reach(parts):
+    """("both"'s counts, as Lexicon._made takes them, and what of the
+    indicator counts can matter once merged) off one pass over the chunks'
+    (lex, ind, defs) counts, as _merged reads them.
+
+    Of Indicators' `left` only runs some write-up named, and single words, are
+    kept (of_counts drops the rest), and of `inner` only runs whose counts
+    with the times they were named whole reach MIN_INDICATOR (trim reads no
+    other): ~1.1M and ~570k runs merged, ~80k and ~160k kept. This pass marks
+    the buckets of those runs, a bucket's runs counted together, so _merged
+    keeps every run it must and a few it need not."""
+    seen, edge, keys, more_keys = {}, {}, _Keys(), _Keys()
+    named, total = bytearray(REACH_BUCKETS), array.array("I", bytes(4 * REACH_BUCKETS))
+    mask, ours_met = REACH_BUCKETS - 1, False
+    for lex_c, ind_c, defs_c in parts:
+        # "both" is the corpus's counts with our annotations' added after them
+        # (Lexicon.pair): the corpus's chunks come first.
+        ours_met |= defs_c is None
+        if defs_c is not None and ours_met:
+            raise ValueError("_reach: a corpus chunk after our annotations' chunks")
+        _add(seen, lex_c[0])
+        _add(edge, lex_c[1])
+        (keys if defs_c is not None else more_keys).extend(lex_c[2])
+        _, left, inner, _ = ind_c
+        for k, (_, n) in left.items():
+            if n:
+                h = hash(k) & mask
+                named[h] = 1
+                total[h] += n
+        for k, c in inner.items():
+            total[hash(k) & mask] += sum(c.values())
+    return (seen, edge, keys + more_keys), (named, total)
+
+
+def _merged(parts, reach=None):
+    """(ilex, lex, dlex) counts, as their constructors take them, from the
+    chunks' (lex, ind, defs) counts: the corpus's chunks (defs set), then our
+    annotations' (defs None); with `reach`, _reach's of the same chunks,
+    only the indicator runs it marks."""
     seen, edge, keys = {}, {}, _Keys()
     ind = ({}, {}, {}, {})
     of, dedge = {}, {}
-    both_seen = both_edge = None
-    more_keys = _Keys()
-
-    def fork():
-        # "lex" is done, and "both" goes on from a copy of it (Lexicon.pair).
-        return {k: collections.Counter(v) for k, v in seen.items()}, {k: list(v) for k, v in edge.items()}
-
+    keep = (None, None, None, None)
+    if reach is not None:
+        named, total = reach
+        mask = REACH_BUCKETS - 1
+        keep = (None, lambda k: len(k) == 1 or named[hash(k) & mask],
+                lambda k: total[hash(k) & mask] >= MIN_INDICATOR, None)
     for lex_c, ind_c, defs_c in parts:
-        if defs_c is None:
-            if both_seen is None:
-                both_seen, both_edge = fork()
-            _add(both_seen, lex_c[0])
-            _add(both_edge, lex_c[1])
-            more_keys.extend(lex_c[2])
-        else:
+        if defs_c is not None:
             _add(seen, lex_c[0])
             _add(edge, lex_c[1])
             keys.extend(lex_c[2])
             _add(of, defs_c[0])
             _add(dedge, defs_c[1])
-        for into, got in zip(ind, ind_c):
-            _add(into, got)
-    if both_seen is None:
-        both_seen, both_edge = fork()
-    return ind, (both_seen, both_edge, keys + more_keys), (seen, edge, keys), (of, dedge)
+        for into, got, k in zip(ind, ind_c, keep):
+            _add(into, got, k)
+    return ind, (seen, edge, keys), (of, dedge)
 
 
-def _cached_lexicons(conn, corpus, ours, jobs):
+def _cached_lexicons(conn, corpus, ours, jobs, with_both=None):
     """(LEXICONS in their order, their generation): _lexicons off the store's
     chunk counts, counting the chunks it lacks here in up to `jobs` (unset,
-    fallback_jobs()) processes, each stored as it is made."""
+    fallback_jobs()) processes, each stored as it is made. With `with_both`,
+    "both" is passed to it before the others are built, and is None in the
+    tuple: write() exports it then, and holds it no longer."""
     import budget
     code = code_reach.key("letter_facts", {"_chunk_counts"})
-    tasks = []
-    for pairs, defs in ((zip(corpus, corpus.pickled()), True),
-                        (((r, pickle.dumps(r, pickle.HIGHEST_PROTOCOL)) for r in ours), False)):
-        for ch in _chunked(pairs):
-            h = hashlib.sha1(f"{code}\0{defs}".encode())
-            for _, raw in ch:
-                h.update(raw)
-            tasks.append((h.hexdigest(), [raw for _, raw in ch], defs))
-    want = [t[0] for t in tasks]
+
+    def tasks():
+        # (key, its rows' pickles, defs) of each chunk in order: walked for the
+        # keys alone, and again for the pickles only where the store lacks some.
+        for pairs, defs in ((corpus.with_pickled(), True),
+                            (((r, pickle.dumps(r, pickle.HIGHEST_PROTOCOL)) for r in ours), False)):
+            for ch in _chunked(pairs):
+                h = hashlib.sha1(f"{code}\0{defs}".encode())
+                for _, raw in ch:
+                    h.update(raw)
+                yield h.hexdigest(), [raw for _, raw in ch], defs
+    want = [k for k, _, _ in tasks()]
     # Only which chunks are stored is held, never their counts: the merge reads
     # each from the store in turn (a run held all ~1,100 blobs beside the
     # merged lexicons, and the merge's fork() copy, when it was killed).
@@ -2043,8 +2093,8 @@ def _cached_lexicons(conn, corpus, ours, jobs):
     today = _today()
     with conn:
         conn.executemany("UPDATE chunks SET used=? WHERE key=?", ((today, k) for k in got))
-    missing = [t for t in tasks if t[0] not in got]
-    print(f"letter_facts.write: lexicon chunks: {len(tasks) - len(missing)} stored, {len(missing)} to count",
+    missing = [t for t in tasks() if t[0] not in got] if set(want) - got else []
+    print(f"letter_facts.write: lexicon chunks: {len(want) - len(missing)} stored, {len(missing)} to count",
           file=sys.stderr, flush=True)
     if missing:
         import mem_gate
@@ -2062,14 +2112,14 @@ def _cached_lexicons(conn, corpus, ours, jobs):
                 del counts
                 if i < len(missing) and budget.spent():
                     budget.stop(f"letter_facts: counted {i} of {len(missing)} missing lexicon chunks"
-                                f" ({len(tasks) - len(missing)} were stored); the rest next run")
+                                f" ({len(want) - len(missing)} were stored); the rest next run")
                 if i < len(missing) and (why := mem_gate.short(base)):
                     budget.stop(f"letter_facts: {why}; counted {i} of {len(missing)} missing lexicon chunks"
-                                f" ({len(tasks) - len(missing)} were stored); the rest next run")
+                                f" ({len(want) - len(missing)} were stored); the rest next run")
         finally:
             if pool:
                 pool.terminate()
-    del tasks
+    del missing
 
     def stored():
         for i in range(0, len(want), 100):
@@ -2078,13 +2128,34 @@ def _cached_lexicons(conn, corpus, ours, jobs):
             for k in part:
                 yield pickle.loads(blobs[k])
 
-    ind, both, lex, defs = _merged(stored())
+    # Two passes over the stored chunks, so "both" (export_lexicons' alone)
+    # is never held beside the other three, nor are the indicator runs no
+    # lookup can reach (see _reach): merged in one pass they were ~1GB.
+    both, reach = _reach(stored())
+    both = Lexicon.__new__(Lexicon)._made(*both)
+    if with_both is not None:
+        with_both(both)
+        both = None
+        _give_back()
+    ind, lex, defs = _merged(stored(), reach)
+    del reach
     lexicons = {"ilex": Indicators.of_counts(*ind, extra=ours),
-                "both": Lexicon.__new__(Lexicon)._made(*both),
+                "both": both,
                 "lex": Lexicon.__new__(Lexicon)._made(*lex),
                 "dlex": Definitions.__new__(Definitions)._made(*defs)}
     gen = hashlib.sha1("\0".join([code_reach.key("letter_facts", {"_puzzle_facts"}), *want]).encode())
     return tuple(lexicons[name] for name in LEXICONS), gen.hexdigest()[:16]
+
+
+def _give_back():
+    """Return the freed heap to the system where the C library can (glibc)."""
+    import ctypes
+    import gc
+    gc.collect()
+    try:
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except OSError:  # not glibc
+        pass
 
 
 def _joined(rows_, got):
@@ -2099,7 +2170,7 @@ def _cached_clues(conn, corpus, said, jobs, gen):
     off the store."""
     import budget
     inkeys = {}
-    for pid, rs in itertools.groupby(zip(corpus, corpus.pickled()), key=lambda p: p[0][0]):
+    for pid, rs in itertools.groupby(corpus.with_pickled(), key=lambda p: p[0][0]):
         h = hashlib.sha1()
         for _, raw in rs:
             h.update(raw)
@@ -2123,7 +2194,7 @@ def _cached_clues(conn, corpus, said, jobs, gen):
                     yield pid, _joined(rs, said.get(pid, {}))
         return itertools.islice(itertools.chain(pass_(moved_set), pass_(set(again))), skip, None)
 
-    out, today, buf = {}, _today(), []
+    read, today, buf = set(), _today(), []
 
     def flush():
         with conn:
@@ -2134,7 +2205,7 @@ def _cached_clues(conn, corpus, said, jobs, gen):
         reader = _read_clues(None, said, jobs, items=items)
         try:
             for n, (pid, new) in enumerate(reader, 1):
-                out[pid] = new
+                read.add(pid)
                 buf.append((pid, inkeys[pid], gen, pickle.dumps(new, pickle.HIGHEST_PROTOCOL), today, today))
                 if len(buf) >= STORE_EVERY:
                     flush()
@@ -2150,22 +2221,22 @@ def _cached_clues(conn, corpus, said, jobs, gen):
             reader.close()
             if buf:
                 flush()
-    rest = [p for p in inkeys if p not in out]
+    rest = [p for p in inkeys if p not in read]
     with conn:
         conn.executemany("UPDATE clues SET used=? WHERE pid=?", ((today, p) for p in rest))
         if conn.execute("PRAGMA user_version").fetchone()[0] != today:
             conn.execute("DELETE FROM chunks WHERE used < ?", (today - STORE_DAYS,))
             conn.execute("DELETE FROM clues WHERE used < ?", (today - STORE_DAYS,))
             conn.execute(f"PRAGMA user_version={today}")
-    # The stored results are read 900 at a time as the walk reaches them, never
-    # all held at once (a run held every puzzle's result, ~4 GB, when it was killed).
+    # The results, those just read too, are read off the store 900 at a time as
+    # the walk reaches them, never all held at once (a run held every puzzle's
+    # result, ~4 GB, when it was killed).
+    del read
     pids = list(inkeys)
     for i in range(0, len(pids), 900):
         part = pids[i:i + 900]
-        need = [p for p in part if p not in out]
-        if need:
-            out.update((pid, pickle.loads(v)) for pid, v in
-                       conn.execute(f"SELECT pid, val FROM clues WHERE pid IN ({','.join('?' * len(need))})", need))
+        out = {pid: pickle.loads(v) for pid, v in
+               conn.execute(f"SELECT pid, val FROM clues WHERE pid IN ({','.join('?' * len(part))})", part)}
         for pid in part:
             yield pid, out.pop(pid)
 
@@ -2184,13 +2255,20 @@ def write(corpus, votes, said=None, jobs=None):
               file=sys.stderr, flush=True)
         conn = None
     with timed("lexicons built"):
+        ours = Ours(annotation_rows())
+        _give_back()  # the annotation rows', before the lexicons are built
         if conn is None:
-            ilex, both, lex, dlex = _lexicons(corpus, Ours(annotation_rows()), jobs)
+            ilex, both, lex, dlex = _lexicons(corpus, ours, jobs)
         else:
-            (ilex, both, lex, dlex), gen = _cached_lexicons(conn, corpus, Ours(annotation_rows()), jobs)
+            # "both" is exported as it is made, and dropped before the others are built.
+            blocks = []
+            (ilex, both, lex, dlex), gen = _cached_lexicons(conn, corpus, ours, jobs,
+                                                            with_both=lambda b: blocks.append(exported_blocks(b)))
+        del ours  # ilex holds it
     with timed("lexicons exported"):
-        n = collections.Counter(export_lexicons(both, ilex))
+        n = collections.Counter(export_lexicons(both, ilex) if conn is None else export_lexicons(None, ilex, blocks[0]))
     del both
+    _give_back()
     _WORKER.update(votes=votes, lex=lex, ilex=ilex, dlex=dlex)
     with timed("clues read and written"):
         done = (_read_clues(corpus, said or {}, jobs) if conn is None
@@ -2403,6 +2481,8 @@ def _build_lexicon(names):
     for name in names:
         cls, with_ours = LEXICONS[name]
         got[name] = cls(corpus, extra=ours) if with_ours else cls(corpus)
+    if "ilex" in got:
+        got["ilex"].pruned()  # as of_counts leaves it
     return got
 
 
@@ -2436,7 +2516,7 @@ def _lexicons(corpus, ours, jobs):
 
 def _desktop_lexicons(corpus, ours):
     """_lexicons built on the desktop, by serve_lexicons."""
-    got = [g for g in _desktop("--serve-lexicons", [(corpus.pickled(), ours)]) if g != BEAT]
+    got = [g for g in _desktop("--serve-lexicons", [(corpus, ours)]) if g != BEAT]
     if len(got) != 1:
         raise _Unavailable(f"the desktop sent {len(got)} results, not the lexicons")
     return got[0]
@@ -2445,8 +2525,35 @@ def _desktop_lexicons(corpus, ours):
 def _desktop_clues(puzzles):
     """_puzzle_facts for each of `puzzles` read on the desktop, DESKTOP_JOBS
     at a time there, by serve_clues."""
-    lexicons = pickle.dumps({k: _WORKER[k] for k in ("votes", "lex", "ilex", "dlex")}, pickle.HIGHEST_PROTOCOL)
+    lexicons = _AsBytes({k: _WORKER[k] for k in ("votes", "lex", "ilex", "dlex")})
     yield from _desktop("--serve-clues", itertools.chain([lexicons], puzzles))
+
+
+class _AsBytes:
+    """`obj` sent as the bytes pickle.dumps(obj) is, which serve_clues reads,
+    but pickled into a file once _desktop reaches it (a desktop has answered),
+    never held whole: the lexicons' bytes were ~500MB beside the lexicons."""
+
+    def __init__(self, obj):
+        self.obj = obj
+
+    def dump(self, f):
+        """Write to `f` what pickle.dump(pickle.dumps(obj), f) would."""
+        import shutil
+        import struct
+        with tempfile.TemporaryFile() as tmp:
+            pickler = pickle.Pickler(tmp, pickle.HIGHEST_PROTOCOL)
+            # A Counter pickles as a dict(self) copy the memo keeps until the
+            # end (~200MB of them); its items, streamed, load as the same Counter.
+            pickler.dispatch_table = {**copyreg.dispatch_table,
+                                      collections.Counter: lambda c: (collections.Counter, (), None, None, iter(c.items()))}
+            pickler.dump(self.obj)
+            n = tmp.tell()
+            tmp.seek(0)
+            f.write(pickle.PROTO + bytes([pickle.HIGHEST_PROTOCOL])
+                    + (pickle.BINBYTES + struct.pack("<I", n) if n < 1 << 32 else pickle.BINBYTES8 + struct.pack("<Q", n)))
+            shutil.copyfileobj(tmp, f)
+            f.write(pickle.STOP)
 
 
 def _desktop(flag, request):
@@ -2477,7 +2584,10 @@ def _desktop(flag, request):
     with tempfile.TemporaryFile() as sent, tempfile.TemporaryFile() as err:
         pickle.dump(tuple(sys.version_info[:2]), sent)
         for p in request:
-            pickle.dump(p, sent, pickle.HIGHEST_PROTOCOL)
+            if isinstance(p, _AsBytes):
+                p.dump(sent)
+            else:
+                pickle.dump(p, sent, pickle.HIGHEST_PROTOCOL)
         pickle.dump(None, sent)
         sent.seek(0)
         cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py {flag}"
@@ -2636,7 +2746,7 @@ def _served():
 
 def serve_lexicons():
     """--serve-lexicons, on the desktop: _desktop_lexicons' request off stdin
-    (the Python, then the corpus's pickled rows and our annotation rows),
+    (the Python, then the corpus, a Packed, and our annotation rows),
     LEXICON_TASKS built one process each and pickled to stdout as a tuple of
     LEXICONS, a BEAT once the request is read and every HEARTBEAT seconds
     after until then, then None."""
@@ -2697,6 +2807,10 @@ class Ours:
                 buf = []
         if buf:
             self._chunks.append(zlib.compress(pickle.dumps(buf, pickle.HIGHEST_PROTOCOL), 1))
+        # The index as two arrays, hashes sorted and their rows' places, searched
+        # by bisection: as a dict of ints it was ~90MB, these ~9MB.
+        keys = sorted(self._at)
+        self._at = (array.array("Q", keys), array.array("I", [self._at[k] for k in keys]))
 
     @staticmethod
     def _hash(key):
@@ -2724,37 +2838,60 @@ class Ours:
         return sum(len(self._load(i)) for i in range(len(self._chunks)))
 
     def get(self, key, default=None):
-        at = self._at.get(self._hash(key))
-        if at is None:
+        h, (hashes, places) = self._hash(key), self._at
+        i = bisect.bisect_left(hashes, h)
+        if i == len(hashes) or hashes[i] != h:
             return default
+        at = places[i]
         row = self._load(at // self.CHUNK)[at % self.CHUNK]
         return row if (row[2], row[3]) == key else default
 
 
 class Packed:
-    """Rows kept pickled, one bytes object each, and unpickled on every pass:
+    """Rows kept pickled, one pickle.dumps each, and unpickled on every pass:
     write() takes several passes, and the clue rows held as dicts would be
-    the largest thing in the run."""
+    the largest thing in the run. The pickles are kept zlib-compressed GROUP
+    at a time: one bytes object each (~1M of them) was ~250MB, a quarter of
+    the letter pass's peak, these ~50MB."""
+
+    GROUP = 256
 
     def __init__(self, rows_):
-        self._rows = [pickle.dumps(r, pickle.HIGHEST_PROTOCOL) for r in rows_]
+        self._raws(pickle.dumps(r, pickle.HIGHEST_PROTOCOL) for r in rows_)
+
+    def _raws(self, raws):
+        self._groups, self._sizes, self._n = [], [], 0
+        for group in itertools.batched(raws, self.GROUP):
+            self._groups.append(zlib.compress(b"".join(group), 1))
+            self._sizes.append(array.array("I", map(len, group)))
+            self._n += len(group)
 
     def __iter__(self):
-        return map(pickle.loads, self._rows)
+        return map(pickle.loads, self.pickled())
 
     def pickled(self):
-        """The rows as kept, for Packed.of."""
-        return self._rows
+        """Each row's pickle, as pickle.dumps made it, in order, for Packed.of."""
+        for packed, sizes in zip(self._groups, self._sizes):
+            data, at = zlib.decompress(packed), 0
+            for n in sizes:
+                yield data[at:at + n]
+                at += n
+
+    def with_pickled(self):
+        """(row, its pickle) for each row, in order."""
+        return ((pickle.loads(raw), raw) for raw in self.pickled())
 
     @classmethod
     def of(cls, pickled):
-        """A Packed of rows another's pickled() gave."""
-        new = cls(())
-        new._rows = pickled
+        """A Packed of rows another's pickled() gave, or that Packed itself."""
+        if isinstance(pickled, Packed):
+            return pickled
+        new = cls.__new__(cls)
+        new._raws(pickled)
         return new
 
     def __len__(self):
-        return len(self._rows)
+        return self._n
 
 
 #: The combined lexicons as write() leaves them, for the site: clue words
@@ -2762,23 +2899,29 @@ class Packed:
 LEXICON_OUT = ROOT / "tools" / "data" / "lexicons"
 
 
-def export_lexicons(lex, ilex):
-    """Write what infer_blocks and infer_indicators read clue words as, the
-    blogs' and our annotations' together, to LEXICON_OUT: blocks.json, clue
-    words -> {letters: blocks}, only readings spellings() takes; and
-    indicators.json, type part -> {indicator: clues}, only those indicates()
-    takes; each largest first. {file: entries}."""
+def exported_blocks(lex):
+    """blocks.json as export_lexicons writes it from `lex`."""
     blocks = {}
     for key, got in lex.seen.items():
         keep = lex.spellings(key) & set(got)
         if keep:
             blocks[" ".join(key)] = dict(sorted(((b, got[b]) for b in keep), key=lambda kv: (-kv[1], kv[0])))
+    return dict(sorted(blocks.items(), key=lambda kv: (-sum(kv[1].values()), kv[0])))
+
+
+def export_lexicons(lex, ilex, blocks=None):
+    """Write what infer_blocks and infer_indicators read clue words as, the
+    blogs' and our annotations' together, to LEXICON_OUT: blocks.json, clue
+    words -> {letters: blocks}, only readings spellings() takes; and
+    indicators.json, type part -> {indicator: clues}, only those indicates()
+    takes; each largest first. `blocks`, exported_blocks(lex) taken earlier,
+    stands in for `lex`. {file: entries}."""
     parts = collections.defaultdict(dict)
     for key, v in ilex.votes.items():
         for part, n in v.items():
             if ilex.indicates(key, part):
                 parts[part][" ".join(key)] = n
-    out = {"blocks.json": dict(sorted(blocks.items(), key=lambda kv: (-sum(kv[1].values()), kv[0]))),
+    out = {"blocks.json": exported_blocks(lex) if blocks is None else blocks,
            "indicators.json": {p: dict(sorted(d.items(), key=lambda kv: (-kv[1], kv[0])))
                                for p, d in sorted(parts.items(), key=lambda kv: -sum(kv[1].values()))}}
     LEXICON_OUT.mkdir(exist_ok=True)

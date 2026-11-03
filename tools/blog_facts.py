@@ -2011,6 +2011,12 @@ def _bounded_map(ex, fn, items, window):
         yield r
 
 
+#: The fewest posts to parse that extract forks its pool for: a night's few
+#: are parsed in this process, as two forks of it (~700MB resident, shared
+#: until written) would each show its whole size to a tree's resident sum.
+POOL_MIN = 64
+
+
 def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, reparse=()):
     """Every post of `blogs` joined to the puzzle it writes up: {id: record},
     one per puzzle, the post whose clues were found most completely, and
@@ -2052,7 +2058,7 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
                 del hit
     del by_number
     misses = [w for w, _, miss, _ in work if miss]
-    if jobs == 1 or not misses:
+    if jobs == 1 or len(misses) < POOL_MIN:
         ex, parsed = None, map(_work, misses)
     else:
         ex = ProcessPoolExecutor(jobs)
@@ -2083,18 +2089,32 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     return best, series, spool
 
 
-def give_back_memory():
-    """Return what extract freed to the system: the joins were hundreds of MB
-    of small objects, and a freed heap stays in the process's resident size
-    (the letter pass that follows started from ~1GB, and was killed at 4.3GB)."""
-    import ctypes
-    import gc
-    entries_of.cache_clear()
-    gc.collect()
-    try:
-        ctypes.CDLL("libc.so.6").malloc_trim(0)
-    except OSError:  # not glibc
-        pass
+def in_child(fn):
+    """Run fn() in a forked child, exiting as it does: a non-zero exit (a
+    budget stop's DEFERRED_RC, an error's 1) is this process's too."""
+    sys.stdout.flush()
+    sys.stderr.flush()
+    pid = os.fork()
+    if pid == 0:
+        code = 1  # an interrupt's, which leaves no traceback
+        try:
+            fn()
+            code = 0
+        except SystemExit as e:
+            code = e.code if isinstance(e.code, int) else 0 if e.code is None else 1
+            if not isinstance(e.code, (int, type(None))):
+                print(e.code, file=sys.stderr)
+        except Exception:
+            import traceback
+            traceback.print_exc()
+        finally:
+            atexit._run_exitfuncs()
+            sys.stdout.flush()
+            sys.stderr.flush()
+            os._exit(code)
+    code = os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1])
+    if code:
+        sys.exit(code if code > 0 else 128 - code)
 
 
 def inputs_digest():
@@ -2557,35 +2577,46 @@ def main():
     if why := mem_gate.short():
         print(f"no memory to begin ({why}): not run, tried again later")
         sys.exit(DEFERRED_RC)
-    if args.from_dump:
-        lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
-        best, spool = {}, Spool()
-        for r in map(json.loads, lines):
-            r["line"], r["leads"] = published(r["id"], r["blog"], r["url"], r["facts"])
-            keep(best, r, spool)
-        series = load_puzzles(bigdave_records())[1]
-    else:
-        best, series, spool = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs,
-                                      keep_facts=bool(args.dump or args.measure or args.sample),
-                                      reparse=args.reparse or ())
-    if args.dump:
-        with open(args.dump, "w", encoding="utf-8") as f:
-            f.writelines(json.dumps({k: v for k, v in r.items() if k not in ("line", "leads")}, ensure_ascii=False)
-                         + "\n" for r in best.values())
-    if args.measure:
-        measure(best, series)
-    if args.sample:
-        rng = random.Random(args.seed)
-        pool = [(r, eid, publishable(f)) for r in best.values() for eid, f in r["facts"].items()]
-        pool = [p for p in pool if p[2]]
-        for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
-            print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     # The letter pass (lexicons over the whole corpus) runs once a day; the other
     # runs keep each puzzle's inferred fields as they stand. A run limited to some
     # blogs, or from a dump, is not the nightly and never stamps the day.
     nightly = not (args.blog or args.from_dump)
     skip_letters = nightly and not args.letter_pass and not letter_pass_due()
-    print(f"wrote blog facts for {write(best, series, spool, previous=True)} puzzles to {OUT.relative_to(ROOT)}")
+
+    def joined_and_written():
+        if args.from_dump:
+            lines = Path(args.from_dump).read_text(encoding="utf-8").splitlines()
+            best, spool = {}, Spool()
+            for r in map(json.loads, lines):
+                r["line"], r["leads"] = published(r["id"], r["blog"], r["url"], r["facts"])
+                keep(best, r, spool)
+            series = load_puzzles(bigdave_records())[1]
+        else:
+            best, series, spool = extract(args.blog or sorted(BLOGS), with_bigdave_records=True, jobs=args.jobs,
+                                          keep_facts=bool(args.dump or args.measure or args.sample),
+                                          reparse=args.reparse or ())
+        if args.dump:
+            with open(args.dump, "w", encoding="utf-8") as f:
+                f.writelines(json.dumps({k: v for k, v in r.items() if k not in ("line", "leads")}, ensure_ascii=False)
+                             + "\n" for r in best.values())
+        if args.measure:
+            measure(best, series)
+        if args.sample:
+            rng = random.Random(args.seed)
+            pool = [(r, eid, publishable(f)) for r in best.values() for eid, f in r["facts"].items()]
+            pool = [p for p in pool if p[2]]
+            for r, eid, f in rng.sample(pool, min(args.sample, len(pool))):
+                print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
+        print(f"wrote blog facts for {write(best, series, spool, previous=True)} puzzles to {OUT.relative_to(ROOT)}")
+
+    # Before the letter pass the joins are parsed and written in a child of
+    # their own: what they freed stayed in this process's heap (~400MB, with
+    # the lexicons on top the run passed 1.5GB), where a child's goes back
+    # whole when it exits.
+    if skip_letters:
+        joined_and_written()
+    else:
+        in_child(joined_and_written)
     if skip_letters:
         print(f"letter pass already ran today ({LETTER_STAMP}): inferred fields kept")
         # The same wall and CPU figures a full run's steps print (letter_facts.timed), so the saving can be measured.
@@ -2594,10 +2625,6 @@ def main():
               f"{cpu:.0f}s CPU", file=sys.stderr, flush=True)
         STAMP.write_text(digest + "\n")
         return
-    # letter_facts reads back what was just written, so the joins it came from
-    # are not held under its corpus: both at once would be the run's peak memory.
-    del best, series, spool
-    give_back_memory()
     import letter_facts
     with letter_facts.timed("leads read"):
         said = letter_facts.read_leads(required=True)
