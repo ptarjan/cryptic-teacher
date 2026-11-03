@@ -2952,6 +2952,14 @@ tests/test_boot_from_head.js                   does the page boot from the progr
                                                head, and a canonical id, a series-date alias, a
                                                bare number and an unknown id each fetch only
                                                the shards they need
+tests/test_sw_idx_cache.js                     the service worker's rules for the progressive
+                                               index: head-live is network-first with the cache
+                                               as the offline copy, the content-named shards,
+                                               bundle and head-static are cache-first, all in
+                                               the shell cache and not the puzzle cache; a new
+                                               head-live deletes the idx files it no longer
+                                               names; index-core.js and puzzles/idx/ are never
+                                               filed as puzzles
 tests/test_idx_decoder.js                      does idx.js decode what tools/index_idx.py
                                                writes (head-static, head-live, every shard, the
                                                bundle) back into index.json's rows, v to 5
