@@ -14,7 +14,7 @@ limit, ledger row and worktree, then exits. The units are:
    six hours. Two
    series are not fetched, and `tools/daily_units.py` `SLOW_FETCHERS` says
    why: the Listener's clues are printed only behind the Times' paywall, and
-   the Nation's weekly cryptic ended in April 2020. `tools/coverage_report.py`
+   the Nation's weekly cryptic ended in April 2020. `tools/series_health.py`
    `STALE_AFTER_DAYS` alarms on a series silent past its cadence;
 2. `blog:times`, `blog:telegraph`, `bucket:telegraph`, `xval:globe`, `ft`,
    `azed`: the puzzles rebuilt from blogs and other copies, each on its own

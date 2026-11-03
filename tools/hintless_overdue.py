@@ -5,7 +5,7 @@
 
 Every other failure of the annotate step announces itself: a run that errors or
 times out alerts (tools/daily_update.sh), a fetch that fails alerts, a series
-that goes quiet alerts (coverage_report.py --stale-only). What none of them
+that goes quiet alerts (series_health.py --stale-only). What none of them
 catches is the silent one: a puzzle is filed, solved, and annotation simply
 never reaches it -- no error, no timeout, the queue just did not pick it. The
 site then shows the newest puzzle with answers and no hints, and nobody is told.

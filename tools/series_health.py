@@ -3,9 +3,9 @@
 
 Run it:
 
-    python3 tools/coverage_report.py            # the table
-    python3 tools/coverage_report.py --quiet    # only the series with a problem
-    python3 tools/coverage_report.py --stale-only   # only STALE, as the nightly alerts on
+    python3 tools/series_health.py            # the table
+    python3 tools/series_health.py --quiet    # only the series with a problem
+    python3 tools/series_health.py --stale-only   # only STALE, as the nightly alerts on
 
 Every series is meant to be walked back to its source's floor and then kept
 current nightly. Two different things stop that happening and neither one

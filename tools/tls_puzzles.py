@@ -271,7 +271,7 @@ def latest(log=print):
     if rows is None:
         # Weather, not a fault: exit 3 like "nothing new", so the unit does
         # not fail and back off. A challenge that never lifts shows as a
-        # silent series: coverage_report.py STALE_AFTER_DAYS["tls"] alerts.
+        # silent series: series_health.py STALE_AFTER_DAYS["tls"] alerts.
         log("the TLS listing answered with no JSON (a bot challenge page?); skipped")
         return 3
     if not rows:

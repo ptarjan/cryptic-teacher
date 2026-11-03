@@ -39,7 +39,7 @@ REASON = ("Paul: run it in CI, not on this box - push and let tests.yml (or a "
 # Scripts that are heavy however they are called (--help is always fine).
 HEAVY = {
     "blog_facts.py", "difficulty_check.py", "snitch_report.py",
-    "requeue_drift.py", "coverage.py", "coverage_report.py", "coverage.sh",
+    "requeue_drift.py", "coverage.py", "series_health.py", "coverage.sh",
     "archive_coverage.py", "smoke_test.js", "build_seo_pages.py",
     "build_clue_joints.py", "build_fill_floors.py", "code_checks.py",
     "ci_shards.js", "check_shapes.js",
