@@ -547,7 +547,8 @@ pool_nothing_due() {
 # where each puzzle is named by the rule that listed it, not by the rule whose
 # pool happened to take the whole list, so "Backfill <rule> for" counts stay true.
 pool_what() {
-  local rule="${SHAPE_RULE_OF[$1]:-}"
+  local rule=""
+  [ -n "${1:-}" ] && rule="${SHAPE_RULE_OF[$1]:-}"
   if [ -n "$rule" ] && [[ $WAVE_WHAT == "Backfill wordplay."* ]]; then
     echo "Backfill $rule for"
   else
