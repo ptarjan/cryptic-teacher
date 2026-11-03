@@ -658,6 +658,7 @@ def apply(path, annotations, by=None, only=None, partial=False):
     committed = committed_entries(path) or {}
     held = []
     unchanged = []   # redone clues whose tree and letters did not change
+    refused = []     # clues whose new annotation was refused: the old one stays
     # A clue on the shape re-annotation list (tools/shape_queue.py) keeps its
     # old hint against a null too, committed or not: it is live until a new
     # one validates.
@@ -729,6 +730,8 @@ def apply(path, annotations, by=None, only=None, partial=False):
             if new is not None:
                 entry["annotation"] = new
                 move_alteration(entry)
+            else:
+                refused.append(entry_id(entry))
     apply_also(puzzle, annotations, errors)
     if errors and partial:
         # A bag run: each failing clue is already left as it was (its new tree is
@@ -760,9 +763,13 @@ def apply(path, annotations, by=None, only=None, partial=False):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
+    # A refused redo (a bag run writes the rest, --partial) is not a written clue:
+    # done() would judge the old hint on file and prune a row whose reason no
+    # detector re-checks (sundaytimes-4689 23a, "unchecked_step", 11-03), so it
+    # is marked tried like a held one.
     shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held
-                      and k not in unchanged and (only is None or k in only)},
-                     {k for k in [*held, *unchanged] if k in relisted})
+                      and k not in unchanged and k not in refused and (only is None or k in only)},
+                     {k for k in [*held, *unchanged, *refused] if k in relisted})
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
