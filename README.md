@@ -49,7 +49,7 @@ anything.
 - [docs/AI_SOLVING.md](docs/AI_SOLVING.md): how the AI solves and hints the puzzles: the models, how the procedure evolved, the system's shape, its shortcomings and future work.
 - [docs/ARCHIVE_COVERAGE.md](docs/ARCHIVE_COVERAGE.md): filling the archive years from newspaper scans, and the coverage ledger.
 - [docs/findings_triage.md](docs/findings_triage.md): the annotation backlog by finding class, and which classes need no model.
-- [docs/LAYOUT.md](docs/LAYOUT.md): every tracked file and what it is for (generated), and where downloads live.
+- [docs/LAYOUT.md](docs/LAYOUT.md): the directory overview, and where downloads live.
 - [APP.md](docs/APP.md): how the app presents annotations, and how the site is built and deployed.
 - [STYLE.md](docs/STYLE.md): how to write an annotation. The nightly annotator reads it whole.
 - [BACKFILLS.md](docs/BACKFILLS.md): optional sweeps over already-published clues.

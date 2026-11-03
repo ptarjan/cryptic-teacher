@@ -48,10 +48,8 @@ const ROOT = path.join(__dirname, "..");
 // build_abbreviations.py and every tools/ module they import) and the data
 // under tools/data/. Left out on purpose: puzzles/ (keyed per puzzle), docs/,
 // the *.md files, scratch/, household-plugins/, .github/ and the rest of
-// tools/. The one assertion over the whole tree, build_readme.py
-// --check-layout (every tracked file has a row in docs/LAYOUT.md), and the
-// shelled-out sub-tests are made by slice 0, which is never skipped, so a
-// docs-only push still gets them and they need no key. tests/test_ci_cache_deps.js keeps the list from going stale:
+// tools/. The shelled-out sub-tests are made by slice 0,
+// which is never skipped, so a docs-only push still gets them and they need no key. tests/test_ci_cache_deps.js keeps the list from going stale:
 // it fails when a file the smoke test reaches is not named here.
 // Over-including costs a re-run; under-including serves a stale pass.
 const SMOKE_DEPS = [

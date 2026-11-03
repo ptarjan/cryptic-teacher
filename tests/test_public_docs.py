@@ -7,8 +7,6 @@
 # the data disk whose path tools/downloads.py sets), never by a local path,
 # a home directory, a LAN address or whose machine it is. This fails on any of
 # those in README.md, docs/*.md, docs/BACKFILLS.md, docs/APP.md or tools/data/README.md.
-# docs/LAYOUT.md is generated from tools/build_readme.py's table, so a hit
-# there is fixed in that table.
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
 import os
 import sys

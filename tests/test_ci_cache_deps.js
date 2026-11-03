@@ -38,7 +38,7 @@ assert(CHECKS["tools/smoke_test.js"].deps === SMOKE_DEPS,
 
 // Named by the scripts, but not an input to a per-puzzle result.
 const IGNORED = {
-  "docs/": "prose; the layout check that reads docs/LAYOUT.md is made by slice 0, which is never skipped",
+  "docs/": "prose",
   ".github/": "workflow files are named in messages, not read",
   "README.md": "named in messages, not read",
 };
