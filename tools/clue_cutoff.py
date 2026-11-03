@@ -172,7 +172,10 @@ def gate(pids, read=None, log=None):
         import puzzle_paths
 
         def read(pid):
-            return json.loads(puzzle_paths.find(pid).read_text(encoding="utf-8"))
+            path = puzzle_paths.find(pid)
+            if path is None:  # queued, then renamed or removed: skip it like an unreadable file
+                raise FileNotFoundError(pid)
+            return json.loads(path.read_text(encoding="utf-8"))
     flagged = {}
     held = unfixable()
     for pid in pids:
