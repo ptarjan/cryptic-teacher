@@ -47,6 +47,8 @@ eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 declare -A NOTHING_DUE=()   # pool_nothing_due keeps its answers here; the script declares it at top level
 declare -A SHAPE_RULE_OF=()  # pool_what reads the rule that listed a puzzle; the script declares it at top level
 ROUND_LAUNCHED=0            # pool_launch counts into it; the script sets it at top level
+NAP_SAID=0 SHAPE_SWEPT=0 BURN_ROUND=1 annotate_stopped=0   # the script sets these at top level; run_pool and REEXEC_VARS read them
+ledger_tick() { :; }        # the sync's cost-ledger tick; run_pool calls it
 for fn in pool_what bag_rule pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
           pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done pool_nothing_due \
           needs_solve solve_applied resumed_first reload_due; do
@@ -158,7 +160,9 @@ ids=()
 for i in $(seq 1 16); do ids+=("pooltest-$$-$i"); done
 queue=("${ids[@]}") at=0
 out=$(run_pool "Annotate" "Annotate @ in @PATH@" 0 2>&1)
-check "run_pool returns 0 with nothing stopping it" 0 $?
+rc=$?
+[ "$rc" = 0 ] || { echo "--- run_pool output, last lines"; tail -n 15 <<<"$out"; }
+check "run_pool returns 0 with nothing stopping it" 0 $rc
 
 # One verdict per property, computed from the event log in time order.
 verdicts=$(awk -v gap="$POOL_LAUNCH_GAP" -v n="${#ids[@]}" '
@@ -359,6 +363,9 @@ done
 eval "$(sed -n '/^REEXEC_VARS=(/,/)$/p' "$SCRIPT")"
 POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
 RELOAD_ASKED=0 WATCH_PID=""
+declare -A SHAPE_RULE_OF=()
+ROUND_LAUNCHED=0 NAP_SAID=0 SHAPE_SWEPT=0 BURN_ROUND=1 annotate_stopped=0   # top-level state REEXEC_VARS carries
+ledger_tick() { :; }
 RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
 queue=($IDS) at=0 requeued=" " resumed=" " WAVE_FAILED_IDS=() wide=""
 resets_in=1 RESET_AT=0 STOP_AT=0 POOL_PHASE=annotate fields=() field_i=0

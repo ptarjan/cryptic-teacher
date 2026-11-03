@@ -29,7 +29,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
     const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
-    assert(btn, "the type rung is offered: " + registry["hint-next"].innerHTML);
+    assert(btn, `${found.id} ${entryId(found.e)} (type ${JSON.stringify(found.e.annotation.type)}, redo ${!!found.e.annotation.redo}): the type rung is offered: ` + registry["hint-next"].innerHTML);
     cold = registry["hint-body"].innerHTML;
     const before = registry["scorebar"].innerHTML;
     btn.onclick();
@@ -145,7 +145,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
       for (const id of Object.keys(puzzles).sort()) {
         for (const e of puzzles[id].entries || []) {
           const t = (e.annotation && e.annotation.type) || [];
-          if (t.length && TYPE_FAMILY[t[0]] === f.name && t.every((k) => TYPE_FAMILY[k] === f.name)) { hit = { id, e }; break; }
+          if (e.annotation && !e.annotation.redo && t.length && TYPE_FAMILY[t[0]] === f.name && t.every((k) => TYPE_FAMILY[k] === f.name)) { hit = { id, e }; break; }
         }
         if (hit) break;
       }

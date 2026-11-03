@@ -880,7 +880,7 @@ worker_finish_bag() {   # leader what sidfile log
       return 3
     fi
     case $rc in
-      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "$WORKER_ROWS_ONLY" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
+      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "${WORKER_ROWS_ONLY:-}" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
       2) again=$((again + 1)); WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m" ;;
       *) lost=$((lost + 1)) ;;
     esac
