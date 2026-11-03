@@ -575,7 +575,7 @@ def first_clue(texts):
     return " ".join(ocr_clues.alone(text, "-across", None).lower().split())[:40] if text else None
 
 
-def main(argv=None):
+def build_parser():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     # The identifier is the whole answer to "which book is this". It names the
     # item this run reads AND the row in tools/data/books.json that says what
@@ -606,48 +606,27 @@ def main(argv=None):
     ap.add_argument("--limit", type=int, help="only the first N puzzles, for a smoke run")
     ap.add_argument("--only", type=int, nargs="*",
                     help="only these book numbers, for checking a known result")
-    args = ap.parse_args(argv)
+    return ap
 
-    work = args.out / args.identifier
-    work.mkdir(parents=True, exist_ok=True)
-    puzzle_dir = args.puzzle_dir or (work / "puzzles")
-    report_path = work / "report.json"
 
-    # ---- stage 1
-    text_path, how, status = fetch_text(args.identifier, args.text,
-                                         allow_borrow=not args.no_borrow,
-                                         max_pages=args.max_pages)
-    if text_path is None:
-        report = {"identifier": args.identifier, "stage": "text",
-                  "status": status, "reason": how, "puzzles": []}
-        report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
-        # The reason IS the message. Whoever reads this run is reading this
-        # line, not a log somewhere, and the three stops want three different
-        # things done about them.
-        print(f"{args.identifier}: {status} — {how}", file=sys.stderr)
-        print(f"report -> {report_path}")
-        if status == "not-lendable":
-            book_queue.record_not_lendable(args.identifier, how)
-            return EXIT_NOT_LENDABLE
-        return EXIT_LENDING_LIMIT if status == "lending-limit" else 1
-    print(f"text: {how}")
-    if args.text_only:
-        return 0
+def stop_without_text(args, report_path, how, status):
+    """Stage 1 found no text: write the report, say why, return the exit code."""
+    report = {"identifier": args.identifier, "stage": "text",
+              "status": status, "reason": how, "puzzles": []}
+    report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
+    # The reason IS the message. Whoever reads this run is reading this
+    # line, not a log somewhere, and the three stops want three different
+    # things done about them.
+    print(f"{args.identifier}: {status} — {how}", file=sys.stderr)
+    print(f"report -> {report_path}")
+    if status == "not-lendable":
+        book_queue.record_not_lendable(args.identifier, how)
+        return EXIT_NOT_LENDABLE
+    return EXIT_LENDING_LIMIT if status == "lending-limit" else 1
 
-    # ---- stage 2
-    try:
-        puzzles = parse_book(text_path)
-    except NoPuzzleRegion as err:
-        book_queue.record_no_puzzles(args.identifier, str(err))
-        print(f"{args.identifier}: no-puzzles — {err}", file=sys.stderr)
-        return EXIT_NO_PUZZLES
-    quality = {p["book_number"]: p for p in build_quality_report(puzzles)["puzzles"]}
-    if args.only:
-        puzzles = [p for p in puzzles if p["book_number"] in set(args.only)]
-    if args.limit:
-        puzzles = puzzles[:args.limit]
-    print(f"split: {len(puzzles)} puzzles")
-    split_count = len(puzzles)
+
+def select_unfiled(args, puzzles, puzzle_dir):
+    """Drop the leaves the corpus already holds; return (puzzles still to read, report rows, held positions)."""
     # A leaf the corpus already holds is not read again: re-reading a book is
     # how a reader change reaches it, and the filed copy may carry answers.
     held = filed_positions(args.identifier, puzzle_dir) if args.file else {}
@@ -672,16 +651,20 @@ def main(argv=None):
             fresh.append(p)
     if held:
         print(f"skip: {len(puzzles) - len(fresh)} already filed, {len(fresh)} to read")
-    puzzles = fresh
+    return fresh, rows, held
 
+
+def clues_only_dir(puzzle_dir, work):
     import puzzle_paths
     # Clues-only puzzles go beside the puzzles: the corpus's clues_only/ when
     # filing for real, the scratch tree's otherwise.
-    clues_dir = (None if puzzle_paths.in_corpus(puzzle_dir / "x.json")
-                 else work / "clues_only")
-    clues_filed = 0
+    return (None if puzzle_paths.in_corpus(puzzle_dir / "x.json")
+            else work / "clues_only")
 
-    # ---- stage 3a, screening, before any search is paid for
+
+def screen_puzzles(args, puzzles, quality, rows, clues_dir):
+    """Stage 3a: screen each leaf before any search is paid for; return (search jobs, clues-only filed)."""
+    clues_filed = 0
     jobs = []
     # The leaves of this read headed for filing, by their clues: a scan that
     # holds one page twice yields one puzzle at two positions, and the second
@@ -759,62 +742,68 @@ def main(argv=None):
             jobs.append({"book_number": bn, "across": across, "down": down})
     print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected "
           f"or held clues-only")
+    return jobs, clues_filed
 
-    def file_row(bn, row):
-        """Stage 4 for one searched puzzle; 1 when it was filed with a grid."""
-        nonlocal clues_filed
-        row["filed"] = None
-        if not args.file:
-            row["filing"] = "not attempted (--file not given)"
+
+def file_row(args, jobs, counts, clues_dir, puzzle_dir, bn, row):
+    """Stage 4 for one searched puzzle; 1 when it was filed with a grid."""
+    row["filed"] = None
+    if not args.file:
+        row["filing"] = "not attempted (--file not given)"
+        return 0
+    meta = {"book_number": bn, "setter": row["setter"]}
+    spec = next(j for j in jobs if j["book_number"] == bn)
+    if row["status"] != "exact-unique":
+        # Only the clues are mandatory: a search that did not settle on
+        # one grid leaves the answers to settle it.
+        if row["status"] == "unparseable":
             return 0
-        meta = {"book_number": bn, "setter": row["setter"]}
-        spec = next(j for j in jobs if j["book_number"] == bn)
-        if row["status"] != "exact-unique":
-            # Only the clues are mandatory: a search that did not settle on
-            # one grid leaves the answers to settle it.
-            if row["status"] == "unparseable":
-                return 0
-            path, problems = file_clues_only(meta, spec["across"], spec["down"],
-                                             args.identifier, clues_dir)
-            if path is None:
-                row["filing"] = "refused clues-only"
-                row["filing_problems"] = problems
-            else:
-                row["filed"] = str(path)
-                row["filing"] = "filed clues-only"
-                clues_filed += 1
-            return 0
-        path, problems = file_unsolved(meta, tuple(row["grids"][0]),
-                                        spec["across"], spec["down"],
-                                        args.identifier, puzzle_dir)
+        path, problems = file_clues_only(meta, spec["across"], spec["down"],
+                                         args.identifier, clues_dir)
         if path is None:
-            row["filing"] = "refused"
+            row["filing"] = "refused clues-only"
             row["filing_problems"] = problems
-            return 0
-        row["filed"] = str(path)
-        row["filing"] = "filed unsolved"
-        return 1
+        else:
+            row["filed"] = str(path)
+            row["filing"] = "filed clues-only"
+            counts["clues"] += 1
+        return 0
+    path, problems = file_unsolved(meta, tuple(row["grids"][0]),
+                                    spec["across"], spec["down"],
+                                    args.identifier, puzzle_dir)
+    if path is None:
+        row["filing"] = "refused"
+        row["filing_problems"] = problems
+        return 0
+    row["filed"] = str(path)
+    row["filing"] = "filed unsolved"
+    return 1
 
-    # ---- stage 3b, the search
+
+def save_report(args, report_path, rows, jobs, counts, how, split_count, started):
+    """report.json as it stands. Written as each search lands, so a run
+    killed by its bound leaves every unlanded search marked cut-short."""
+    ordered = [dict(rows[k], status=rows[k].get("status", "cut-short"))
+               for k in sorted(rows)]
+    report = {"identifier": args.identifier,
+              "text_source": how, "puzzles_found": split_count,
+              "searched": len(jobs), "filed": counts["filed"], "filed_clues_only": counts["clues"],
+              "elapsed_sec": round(time.time() - started, 1),
+              "thresholds": grid_verdict.THRESHOLDS,
+              "discarded_rules": grid_verdict.DISCARDED,
+              "puzzles": ordered}
+    report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
+    return ordered
+
+
+def search_and_file(args, report_path, rows, jobs, counts, how, split_count, clues_dir, puzzle_dir):
+    """Stages 3b and 4: search the jobs, filing each puzzle as its search lands; return save()."""
     started = time.time()
-    filed = 0
 
-    def save_report():
-        """report.json as it stands. Written as each search lands, so a run
-        killed by its bound leaves every unlanded search marked cut-short."""
-        ordered = [dict(rows[k], status=rows[k].get("status", "cut-short"))
-                   for k in sorted(rows)]
-        report = {"identifier": args.identifier,
-                  "text_source": how, "puzzles_found": split_count,
-                  "searched": len(jobs), "filed": filed, "filed_clues_only": clues_filed,
-                  "elapsed_sec": round(time.time() - started, 1),
-                  "thresholds": grid_verdict.THRESHOLDS,
-                  "discarded_rules": grid_verdict.DISCARDED,
-                  "puzzles": ordered}
-        report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
-        return ordered
+    def save():
+        return save_report(args, report_path, rows, jobs, counts, how, split_count, started)
 
-    save_report()
+    save()
     if jobs:
         for done, r in enumerate(_searched(jobs, args.jobs), 1):
             row = rows[r["book_number"]]
@@ -828,28 +817,74 @@ def main(argv=None):
                   f"nodes={r['nodes']} t={r['elapsed_sec']}s", flush=True)
             # ---- stage 4, as each search lands: a run killed by its
             # timeout keeps every puzzle it had already derived.
-            filed += file_row(r["book_number"], row)
-            save_report()
+            counts["filed"] += file_row(args, jobs, counts, clues_dir, puzzle_dir, r["book_number"], row)
+            save()
+    return save
 
+
+def report_run(args, report_path, rows, puzzles, counts, held, split_count, save):
+    """Stage 5: record the read, rewrite the report, print the tally."""
     for row in rows.values():
         row.setdefault("grids", [])
         row.setdefault("filed", None)
 
     # ---- stage 5
     if args.file and args.max_pages is None and not (args.only or args.limit):
-        book_queue.record_read(args.identifier, split_count, filed + len(held))
-    ordered = save_report()
+        book_queue.record_read(args.identifier, split_count, counts["filed"] + len(held))
+    ordered = save()
 
     from collections import Counter
     tally = Counter(r["status"] for r in ordered)
-    print(f"\n{args.identifier}: {len(puzzles)} puzzles, {filed} filed with a grid, "
-          f"{clues_filed} clues-only")
+    print(f"\n{args.identifier}: {len(puzzles)} puzzles, {counts['filed']} filed with a grid, "
+          f"{counts['clues']} clues-only")
     for status, n in tally.most_common():
         print(f"  {n:>3}  {status}")
     unique = [r for r in ordered if r["status"] == "exact-unique"]
     if unique:
         print("  exact-unique: " + ", ".join(f"#{r['book_number']}" for r in unique))
     print(f"report -> {report_path}")
+
+
+def main(argv=None):
+    ap = build_parser()
+    args = ap.parse_args(argv)
+
+    work = args.out / args.identifier
+    work.mkdir(parents=True, exist_ok=True)
+    puzzle_dir = args.puzzle_dir or (work / "puzzles")
+    report_path = work / "report.json"
+
+    # ---- stage 1
+    text_path, how, status = fetch_text(args.identifier, args.text,
+                                         allow_borrow=not args.no_borrow,
+                                         max_pages=args.max_pages)
+    if text_path is None:
+        return stop_without_text(args, report_path, how, status)
+    print(f"text: {how}")
+    if args.text_only:
+        return 0
+
+    # ---- stage 2
+    try:
+        puzzles = parse_book(text_path)
+    except NoPuzzleRegion as err:
+        book_queue.record_no_puzzles(args.identifier, str(err))
+        print(f"{args.identifier}: no-puzzles — {err}", file=sys.stderr)
+        return EXIT_NO_PUZZLES
+    quality = {p["book_number"]: p for p in build_quality_report(puzzles)["puzzles"]}
+    if args.only:
+        puzzles = [p for p in puzzles if p["book_number"] in set(args.only)]
+    if args.limit:
+        puzzles = puzzles[:args.limit]
+    print(f"split: {len(puzzles)} puzzles")
+    split_count = len(puzzles)
+    puzzles, rows, held = select_unfiled(args, puzzles, puzzle_dir)
+
+    clues_dir = clues_only_dir(puzzle_dir, work)
+    jobs, clues_filed = screen_puzzles(args, puzzles, quality, rows, clues_dir)
+    counts = {"filed": 0, "clues": clues_filed}
+    save = search_and_file(args, report_path, rows, jobs, counts, how, split_count, clues_dir, puzzle_dir)
+    report_run(args, report_path, rows, puzzles, counts, held, split_count, save)
     return 0
 
 
