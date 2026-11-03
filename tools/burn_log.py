@@ -612,7 +612,7 @@ def send_wake(text):
     try:
         import local_config
         wake = local_config.path("household_dir") + "/tools/wake.sh"
-    except Exception:  # noqa: BLE001 - any failure to find the helper just means no wake
+    except ImportError:  # no local_config beside us: fall back to the WAKE_SH override
         wake = os.environ.get("WAKE_SH", "")
     if wake and os.path.exists(wake):
         subprocess.run([wake, "-c", WAKE_ROOM, text[:1800]], check=False, timeout=60,
