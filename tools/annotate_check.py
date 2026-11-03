@@ -74,7 +74,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from annotate_audit import load_templates, rule_name
+from annotate_audit import load_templates, rule_name, validator_source
 import annotation
 import apply_annotations
 import await_preamble
@@ -1009,7 +1009,7 @@ def name_checks(report):
 
     Without the name, a run wanting `--explain` guesses one from the message's
     words (`definition-overlap`) and is refused, a turn each time."""
-    templates = load_templates(Path(validate_annotations.__file__).read_text(encoding="utf-8"))
+    templates = load_templates(validator_source())
     out = []
     for line in report.splitlines():
         if line.startswith((validate_annotations.ERROR_PREFIX, validate_annotations.WARN_PREFIX)):
