@@ -888,6 +888,8 @@ LAYOUT = [
     ("building and checking the site", "tests/test_ladder_advance.js", "paul 10-30: \"When you finish a hint ring it should go to the next.\" Finishing a rung with a right answer (or crossing off the whole anagram wheel) asks the ladder's next question; it never opens a rung that would cost a hint"),
     ("building and checking the site", "tests/test_part_anagram_ring.js", "paul 10-30: \"An anagram for part of a clue shouldn't show the wheel the building blocks. Only when it is all.\" A part-anagram's blocks rung carries no anagram wheel; a whole-answer anagram's still does"),
     ("building and checking the site", "tests/test_sw_shell_recovery.js", "the home-screen app must never boot as bare HTML (Paul 10-30: \"My css seems broken in my app\" \u2014 Times text, every panel open, no app). sw.js is run here in a vm against an in-memory Cache Storage and a network that can be switched off:"),
+    ("building and checking the site", "tools/index_idx.py", "the progressive puzzle index (Paul 11-02: \"It should be progressive. Download what we show\"): writes puzzles/idx/ at build time, a small head-static and head-live plus one content-hashed shard per series and year and a bundle, so the site can load only what it shows"),
+    ("building and checking the site", "tests/test_index_idx.py", "tools/index_idx.py's files decode back to the same rows as puzzles/index.json, shard names never match the puzzle glob, and the head files stay small"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

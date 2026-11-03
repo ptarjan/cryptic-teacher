@@ -71,6 +71,10 @@ quotes.js                                      curls the straight quotes clue te
 qr.js                                          the QR encoder, drawn in the page: the sync code
                                                is the account, so it is never handed to an
                                                image service
+idx.js                                         the browser's decoder for the progressive puzzle
+                                               index (puzzles/idx/): rebuilds index.json's rows
+                                               from head-static, head-live and the shards; not
+                                               loaded by any page yet
 inflate.js                                     gunzip for the browsers without
                                                DecompressionStream, loaded only when one has to
                                                inflate a gzipped puzzle by hand
@@ -2929,6 +2933,10 @@ tests/test_ocr_text_central.py                 does any source reader or fetcher
                                                table) instead of tools/clue_text.py?
 
 building and checking the site
+tests/test_idx_decoder.js                      does idx.js decode what tools/index_idx.py
+                                               writes (head-static, head-live, every shard, the
+                                               bundle) back into index.json's rows, v to 5
+                                               chars and percentile within 1
 tests/test_inflate.js                          does inflate.js, the gunzip app.js falls back on
                                                where a browser has no DecompressionStream, give
                                                back exactly what zlib compressed? Over every
@@ -3302,5 +3310,15 @@ tests/test_sw_shell_recovery.js                the home-screen app must never bo
                                                Times text, every panel open, no app). sw.js is
                                                run here in a vm against an in-memory Cache
                                                Storage and a network that can be switched off:
+tools/index_idx.py                             the progressive puzzle index (Paul 11-02: "It
+                                               should be progressive. Download what we show"):
+                                               writes puzzles/idx/ at build time, a small
+                                               head-static and head-live plus one
+                                               content-hashed shard per series and year and a
+                                               bundle, so the site can load only what it shows
+tests/test_index_idx.py                        tools/index_idx.py's files decode back to the
+                                               same rows as puzzles/index.json, shard names
+                                               never match the puzzle glob, and the head files
+                                               stay small
 ```
 <!-- LAYOUT-END -->
