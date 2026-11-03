@@ -216,7 +216,8 @@ def should_wake(rows, since_commit, state, now, no_lever=None):
     left = clues_left(mean_clues)
     saving = per_clue * left * SUCCESS_RATE
     rate = cause_rate(rows, top_cause.get("key"))
-    facts = {"cur": cur, "best": best, "rate": rate, "saving": saving, "left": left}
+    facts = {"cur": cur, "best": best, "rate": rate, "saving": saving, "left": left,
+             "per_clue": per_clue, "key": top_cause.get("key")}
     woken = state.get("woken")
     if woken and (now - parse(woken)).total_seconds() < COOLDOWN_H * 3600:
         return None, f"woken {woken}, inside the {COOLDOWN_H}h cooldown"
@@ -287,18 +288,36 @@ def clues_left(mean_clues, days=None):
 
 
 def work_order(reason, facts, rows, commit):
+    """The wake text: facts a human reads at a glance first (cost and trend, top cause with
+    its payback, the next action), the agent's instructions in a separate trailing block."""
     last = rows[-ROLL:]
-    lines = [f"Annotate cost hill-climb: {reason}. Now ${facts['cur']:.3f}/clue "
-             f"(best since the last code commit ${facts['best']:.3f}). Latest ledger rows (end, sessions, $/clue, turns/clue):"]
+    cur, best = facts["cur"], facts["best"]
+    first = last[0].get("cost_per_clue") if last else None
+    trend = ""
+    if first and len(last) > 1:
+        trend = f", {cur / first - 1:+.0%} over the last {len(last)} runs"
+    lines = [f"Annotate cost: ${cur:.3f}/clue now (best since the last code change ${best:.3f}{trend})."]
+    top = (last[-1].get("top_causes") or [None])[0]
+    saving = facts.get("saving")
+    if top:
+        pc = facts.get("per_clue")
+        spend = f"${pc:.4f}/clue" if pc is not None else f"${top['cost_after_check']:.2f} total"
+        lines.append(f"Top cause: {top['label']} - {top['sessions']} sessions, {spend} spent after the check"
+                     + (f", ${facts['rate']:.2f}/h." if facts.get("rate") is not None else "."))
+    if saving is not None:
+        verdict = "worth fixing" if saving > FIX_COST else "not worth a fix"
+        lines.append(f"Payback: saves ~${saving:,.0f} over ~{facts['left']:,.0f} clues left "
+                     f"vs ~${FIX_COST:.0f} to fix - {verdict}.")
+    else:
+        lines.append(f"Why: {reason}.")
+    lines.append("Next: find a fix already landed for this cause; if none, have one Sonnet worker fix it.")
+    lines.append("Recent runs (end, sessions, clues, $/clue, turns/clue):")
     for r in last:
         pc, tc = r.get("cost_per_clue"), r.get("turns_per_clue")
-        lines.append(f"  {r['end'][:16]}  {r['sessions']} sessions, {r.get('clues', 0)} clues, "
-                     f"${pc or 0:.3f}/clue, {tc or 0:.2f} turns/clue")
-    top = (last[-1].get("top_causes") or [None])[0]
-    if top:
-        lines.append(f"Top cause: {top['label']} - {top['sessions']} sessions, "
-                     f"${top['cost_after_check']:.2f} spent after the check in them.")
-    lines.append("Last annotate-code commit: %s %s" % (commit[0] or "?", commit[2] or ""))
+        lines.append(f"  {r['end'][:16]}  {r['sessions']} sess, {r.get('clues', 0)} clues, "
+                     f"${pc or 0:.3f}, {tc or 0:.2f} turns")
+    lines.append("Last code change: %s %s" % (commit[0] or "?", commit[2] or ""))
+    lines.append("--- Instructions for the agent ---")
     lines.append("Ledger: ~/.cache/annotate_cost_ledger.jsonl; `python3 tools/annotate_audit.py --since "
                  "<ISO> --json` re-audits a window. Check git log for a fix already landed for this "
                  "cause; if none, spawn ONE Sonnet worker in a sparse worktree to fix it, code-side if "

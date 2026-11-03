@@ -199,8 +199,9 @@ python3 tools/annotate_check.py <ID>
 It applies, validates and audits the file and prints everything wrong in one report, each
 line saying what to do (it names the part of a `wp` that breaks; a `block` is a leaf).
 Fix everything in one edit, run again, and stop the moment it says `clean` or `done`
-(warns alone are advisory: never re-run to chase them): end with one short line, and
-no summary, no further pass. "Worth knowing now" is advice, not failure.
+(warns alone are advisory: never re-run to chase them). Then stop: no summary, no further
+pass. Nothing reads your last message, so make it exactly `ok` (or `withdrawn`). Reasons
+go in `--withdraw`, never in prose. "Worth knowing now" is advice, not failure.
 
 Four first runs in ten fail, mostly on these:
 
