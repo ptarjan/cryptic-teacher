@@ -245,6 +245,24 @@ def room(charged=0, reader=None, floor=FLOOR, unit=UNIT):
     return avail is None or avail - charged >= floor + unit
 
 
+def short(base=0, avail=None, rss=None):
+    """Why a long build should stop here, or None: what is available has
+    fallen under FLOOR plus how far this process (and its children) has grown
+    past `base` resident bytes, the size when it began. A build that goes on
+    past that swaps, and the container's OOM killer takes it (rc 137, 11-03
+    01:57: the lexicon chunks, 488s wall for 114s CPU) with its work half
+    done; stopping clean lets a retry resume. No figure, no reason."""
+    avail = available() if avail is None else avail
+    if avail is None:
+        return None
+    if rss is None:
+        rss = tree_rss([os.getpid()]).get(os.getpid(), base)
+    need = FLOOR + max(0, rss - base)
+    if avail < need:
+        return f"{avail >> 20} MB available, under the {need >> 20} MB floor plus growth"
+    return None
+
+
 def tree_rss(pids, table=None):
     """{pid: resident bytes of it and its descendants} for each of `pids`
     found in `table` ([(pid, ppid, rss KiB)], else this host's ps)."""
