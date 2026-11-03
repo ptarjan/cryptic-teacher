@@ -234,17 +234,21 @@ def after_tick(ledger, now):
     alert_fetch_streaks(ledger)
 
 
-#: A fetch:* unit that fails this many ticks in a row (rc not 0, and not 3 =
-#: "nothing new") is alerted once per streak with its own last error line. The
-#: unit retries about hourly, so 12 is about half a day to a day; before this
-#: tls_puzzles failed 27 in a row (rc=1) and only the 18-day staleness check spoke.
-FETCH_FAIL_ALERT = 12
+#: A fetch:* unit is alerted, once per streak and with its own last error
+#: line, when it has failed (rc not 0, and not 3 = "nothing new") this many
+#: runs in a row, or when the streak's first failure is over FETCH_FAIL_AGE
+#: old, whichever comes first. A failing fetcher runs only about every 6h
+#: (fetch:tls_puzzles failed 27 in a row, 20:14, 02:16, 08:24, ... and only the
+#: 18-day staleness check spoke), so a count alone would take days.
+FETCH_FAIL_ALERT = 3
+FETCH_FAIL_AGE = 24 * 3600
 
 
 def fetch_streaks(rows):
-    """{key: (failures in a row, last error line)} for each fetch:* unit whose
-    most recent end rows are failures; an end with rc 0 or 3 ends a streak."""
-    run, err = {}, {}
+    """{key: (failures in a row, last error line, time of the first)} for each
+    fetch:* unit whose most recent end rows are failures; an end with rc 0 or
+    3 ends a streak."""
+    run, err, first = {}, {}, {}
     for r in rows:
         k = r.get("key", "")
         if r.get("event") != "end" or not k.startswith("fetch:"):
@@ -252,24 +256,27 @@ def fetch_streaks(rows):
         if r.get("rc") in (0, 3):
             run[k] = 0
         else:
+            if not run.get(k):
+                first[k] = r["at"]
             run[k] = run.get(k, 0) + 1
             err[k] = r.get("err") or err.get(k, "")
-    return {k: (n, err.get(k, "")) for k, n in run.items() if n}
+    return {k: (n, err.get(k, ""), first[k]) for k, n in run.items() if n}
 
 
-def alert_fetch_streaks(ledger):
+def alert_fetch_streaks(ledger, now=None):
     """Alert once per streak: an "alerted" row in the ledger marks it, and the
     streak's next success (or rc 3) clears it by coming after that row."""
     from unit_queue import alert
-    for key, (n, err) in fetch_streaks(ledger.rows).items():
-        if n < FETCH_FAIL_ALERT:
+    now = time.time() if now is None else now
+    for key, (n, err, first) in fetch_streaks(ledger.rows).items():
+        if n < FETCH_FAIL_ALERT and now - first <= FETCH_FAIL_AGE:
             continue
         last_alert = max((r["at"] for r in ledger.rows if r.get("event") == "alerted" and r.get("key") == key), default=0)
         last_good = max((r["at"] for r in ledger.rows if r.get("event") == "end" and r.get("key") == key
                          and r.get("rc") in (0, 3)), default=0)
         if last_alert > last_good:
             continue
-        ledger.append({"key": key, "event": "alerted", "at": time.time(), "fails": n})
+        ledger.append({"key": key, "event": "alerted", "at": now, "fails": n})
         alert(f"`{key}` has failed {n} runs in a row: {err or 'no error line recorded'}. "
               "Its lines are in .update.log, `[" + key + "]`.")
 
