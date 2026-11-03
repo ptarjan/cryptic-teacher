@@ -2418,8 +2418,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 // the carrier with the run in capitals, the note our own hidden words carry;
 // and the question in front of it never names the letters either.
 // Blog facts live one sidecar a puzzle: puzzles/<series>/<year>/<id>.blog, keyed by id.
-function blogSidecars() {
-  const rows = {};
+// Streamed one file at a time: holding the whole archive parsed costs ~350 MB.
+function* blogSidecars() {
   const base = path.join(ROOT, "puzzles");
   for (const s of fs.readdirSync(base).sort()) {
     const sd = path.join(base, s);
@@ -2428,18 +2428,16 @@ function blogSidecars() {
       const yd = path.join(sd, y);
       if (!fs.statSync(yd).isDirectory()) continue;
       for (const n of fs.readdirSync(yd).sort()) {
-        if (n.endsWith(".blog")) rows[n.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(yd, n), "utf8"));
+        if (n.endsWith(".blog")) yield [n.slice(0, -5), JSON.parse(fs.readFileSync(path.join(yd, n), "utf8"))];
       }
     }
   }
-  return rows;
 }
 {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   let target = null;
   for (const f of [0]) {
-    const rows = blogSidecars();
-    for (const [pid, rec] of Object.entries(rows)) {
+    for (const [pid, rec] of blogSidecars()) {
       const file = pp.find(pid);
       if (!file) continue;
       const ents = JSON.parse(fs.readFileSync(file, "utf8")).entries;
@@ -2482,8 +2480,7 @@ function blogSidecars() {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   let target = null;
   for (const f of [0]) {
-    const rows = blogSidecars();
-    for (const [pid, rec] of Object.entries(rows)) {
+    for (const [pid, rec] of blogSidecars()) {
       const hit = Object.entries(rec.entries).find(([, fa]) => JSON.stringify(fa.type) === '["homophone"]'
         && (fa.blocks || []).length === 1 && /^[A-Z]+$/.test(fa.blocks[0].soundsLike || ""));
       if (!hit) continue;
