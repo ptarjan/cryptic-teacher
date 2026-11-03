@@ -1235,23 +1235,45 @@
      }
     ],
     "wordplay": {
-     "op": "cryptic",
+     "op": "charade",
      "parts": [
       {
-       "words": "First off the album!",
-       "note": "surface reading: the opening track of a record, announced with excitement; setter's reading: the Beatles record whose title track opens it and whose name ends in an exclamation mark"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "First off",
+         "at": 0,
+         "note": "taking the first off a word removes its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 10
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "album",
+       "at": 14,
+       "gives": "LP",
+       "note": "an LP is a long-playing record, an album"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "walkthrough": "The exclamation mark is part of the title: the Beatles' 1965 album's name carries one, and its title track is the first song.",
-     "definitionFit": "The Beatles' album of that name opens with its own title song, so the first track shares the album's name."
+     "surface": "Excited news that the album's opening track is out.",
+     "walkthrough": "'First off' drops the T of 'the', leaving HE, and LP is the album; the whole clue also describes the Beatles' 1965 album, whose title track opens it.",
+     "definitionFit": "The Beatles' album of that name, exclamation mark and all, opens with its own title song."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "album"
+     "misdirectedWord": "First"
     }
    }
   },
