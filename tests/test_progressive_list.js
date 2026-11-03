@@ -81,10 +81,20 @@ function page(root, broken) {
   const stat = {};
   vm.runInNewContext(fs.readFileSync(path.join(root, live.static), "utf8"), { window: stat });
   const d = boot({ storage: { "ct:nux": "9" }, index: (ix) => {
-    ix.puzzles = ix.puzzles.slice(0, 12);
+    // The real newest rows, minus the series the synthetic catalogue stands in
+    // for: the corpus has genius rows of its own (even a genius 281, which would
+    // win the id dedupe against the synthetic one and hide its setter).
+    ix.puzzles = ix.puzzles.filter((p) => !["genius", "penguin", "secret"].includes(p.series)).slice(0, 12);
     ix.partial = true;
     ix.idx = { live, stat: stat.CRYPTIC_INDEX_STATIC };
   } });
+  // The fake head runs an appended script at once; hold puzzles/index.js back so
+  // the test decides when it "answers" (script.onload below).
+  const head = d.document.head, append = head.appendChild;
+  head.appendChild = function (el) {
+    if (el.tagName === "SCRIPT" && /puzzles\/index\.js/.test(el.src || "")) { this.children.push(el); return el; }
+    return append.call(this, el);
+  };
   d.reg = d.registry;
   d.asked = asked;
   d.reg["btn-picker"].onclick();
