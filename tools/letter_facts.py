@@ -2205,7 +2205,6 @@ def _stored_groups(conn, chunks, today):
     a group the store lacks is summed from its chunks (stored by now) and
     stored, so a run sums again only the groups whose chunks moved."""
     import budget
-    import mem_gate
     groups = _groups(chunks, code_reach.key("letter_facts", {"_summed"}))
     keys = [g for g, _ in groups]
     got = set()
@@ -2217,7 +2216,39 @@ def _stored_groups(conn, chunks, today):
     todo = [(g, run) for g, run in groups if g not in got]
     print(f"letter_facts.write: lexicon groups: {len(groups) - len(todo)} stored, {len(todo)} to sum",
           file=sys.stderr, flush=True)
-    base = mem_gate.tree_rss([os.getpid()]).get(os.getpid(), 0) if todo else 0
+    if todo and GROUPS_IN_CHILD:
+        # Summed in a child: what the sums leave on the heap goes back whole
+        # when it exits, not under the merge (a cold store's 36 groups held
+        # ~90MB more than the merge's peak, 11-03).
+        from blog_facts import in_child
+        path = conn.execute("PRAGMA database_list").fetchone()[2]
+
+        def child():
+            c = _open_store(path)
+            _sum_groups(c, todo, today)
+            c.close()
+        in_child(child)
+        stored = set()
+        for i in range(0, len(todo), 900):
+            part = [g for g, _ in todo[i:i + 900]]
+            stored.update(k for k, in conn.execute(f"SELECT key FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
+        if len(stored) < len(todo):
+            budget.stop(f"letter_facts: summed {len(stored)} of {len(todo)} missing lexicon groups; the rest next run")
+    elif todo:
+        _sum_groups(conn, todo, today)
+    return keys
+
+
+#: Whether _stored_groups sums the groups a store lacks in a forked child (tests count them in-process).
+GROUPS_IN_CHILD = True
+
+
+def _sum_groups(conn, todo, today):
+    """Sum and store each (group key, its chunk keys) of `todo`, stopping
+    cleanly (tools/budget.py) past the deadline or short of memory."""
+    import budget
+    import mem_gate
+    base = mem_gate.tree_rss([os.getpid()]).get(os.getpid(), 0)
     for i, (g, run) in enumerate(todo, 1):
         def members(run=run):
             for k in run:
@@ -2231,7 +2262,6 @@ def _stored_groups(conn, chunks, today):
             budget.stop(f"letter_facts: summed {i} of {len(todo)} missing lexicon groups; the rest next run")
         if i < len(todo) and (why := mem_gate.short(base)):
             budget.stop(f"letter_facts: {why}; summed {i} of {len(todo)} missing lexicon groups; the rest next run")
-    return keys
 
 
 def _give_back():
