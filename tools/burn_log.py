@@ -134,6 +134,7 @@ class Log:
         self.width = None
         self.limit = None
         self.limit_note = None    # the limit as shown: memory with its numbers, a rush said
+        self.mem_said = ""        # the last "  why:" line: the burn prints the width's inputs there
         self.week = None          # (percent used, hours to reset)
         self.done = collections.deque()  # times of the last hour's finished puzzles
         self.said_status = (None, None)
@@ -411,6 +412,9 @@ class Log:
         return [self.out(now, "──", "idle: nothing queued")] + self.status(now, force=True)
 
     def handle(self, line, now):
+        if line.startswith("  why: ") and MEM_DETAIL.search(line):
+            self.mem_said = line
+            return []
         old = re.match(r"^width (\d+): need (\d+) .*?\(([\d.]+)% now, ([\d.]+)h to its reset.*?memory cap (\w+), "
                        r"cpu cap (\w+).*?load cap (\w+)", line)
         if old:  # the format before 11-03, so a replay of the older log works
@@ -429,7 +433,10 @@ class Log:
             self.need = caps.get("quota pace")
             if self.limit == "quota pace":
                 self.limit = "usage pace"
-            self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2), m.group(3) or "")
+            # The burn's width line ends "· N in flight"; the planner's inputs (memory among them)
+            # follow on a "  why:" line, so the last one seen stands in until the next arrives.
+            self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2),
+                                         m.group(3) if MEM_DETAIL.search(m.group(3) or "") else self.mem_said)
             w = re.search(r"weekly ([\d.]+)% now, ([\d.]+)h to its reset", m.group(3) or "")
             if w:
                 self.week = (float(w.group(1)), float(w.group(2)))
