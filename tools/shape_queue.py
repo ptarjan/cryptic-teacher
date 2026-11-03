@@ -109,7 +109,26 @@ def rearmed(row, sha=None):
     try (tried_code differs; rows tried before it was kept count as changed) and it is under
     MAX_TRIES. Past the cap it stays hidden; exhausted() lists it."""
     sha = sha or code_sha()
-    return bool(sha) and tries(row) < MAX_TRIES and row.get("tried_code") != sha
+    tried = row.get("tried_code")
+    return bool(sha) and tries(row) < MAX_TRIES and tried != sha and not _has(tried, sha)
+
+
+_has_cache = {}
+
+
+def _has(tried, sha):
+    """True when commit `tried` already contains `sha`: the row was tried on code no older than
+    the current annotate code, so a later commit to a REARM_SKIP path does not make it new.
+    58c703df9dc moved code_sha back from aad9da48dfb (clue_bag.py only) to bcd92a35b94 and so
+    rearmed every row tried in between (times-18, cryptic-22199 re-sent)."""
+    if not tried:
+        return False
+    if (tried, sha) not in _has_cache:
+        import subprocess
+        r = subprocess.run(["git", "-C", str(PATH.parent), "merge-base", "--is-ancestor", sha, tried],
+                           check=False, capture_output=True)
+        _has_cache[(tried, sha)] = r.returncode == 0
+    return _has_cache[(tried, sha)]
 
 
 def exhausted():
@@ -615,6 +634,31 @@ def mark_tried(pid):
     return marked
 
 
+def unshipped(pid):
+    """How many of puzzle `pid`'s rows differ in the tree from HEAD's: what a commit of its rows
+    would carry. A no-change run commits its rows when this is non-zero, not only when
+    mark_tried() marked one just now: apply's done() marks held clues tried during the run, so
+    mark_tried() then finds nothing to mark, and the run committed nothing (11-03 12:07,
+    cyclops-225, everyman-3776/3898, ftcryptic-18475, independent-10110 sat tried 5-6 times in
+    the burn tree's uncommitted list while master still listed them pending)."""
+    import subprocess
+    root = PATH.parent.parent.parent
+    head = subprocess.run(["git", "-C", str(root), "show", f"HEAD:{PATH.relative_to(root)}"],
+                          check=False, capture_output=True, text=True)
+    if head.returncode:
+        return 0
+
+    def mine(rs):
+        return {r["id"]: r for r in rs if r["id"].partition("#")[0] == pid}
+    try:
+        was = mine(json.loads(head.stdout))
+    except ValueError:
+        return 0
+    with locked():
+        now = mine(json.loads(PATH.read_text()))
+    return sum(was.get(k) != now.get(k) for k in set(was) | set(now))
+
+
 @contextlib.contextmanager
 def locked():
     """Exclusive lock for a read-modify-write of the list. The lock is a file of
@@ -669,6 +713,9 @@ def splice(base, donor, pid):
 
 if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[1] == "--mark-tried":
-        print(mark_tried(sys.argv[2]))
+        mark_tried(sys.argv[2])
+        print(unshipped(sys.argv[2]))
+    elif len(sys.argv) == 3 and sys.argv[1] == "--unshipped":
+        print(unshipped(sys.argv[2]))
     else:
-        sys.exit("usage: shape_queue.py --mark-tried PUZZLE")
+        sys.exit("usage: shape_queue.py --mark-tried|--unshipped PUZZLE")

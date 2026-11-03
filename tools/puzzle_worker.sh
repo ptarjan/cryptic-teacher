@@ -1095,11 +1095,14 @@ _worker_finish() {
     # no _ann key was filed for them, so apply's done() never marked them tried and the rule
     # queued the puzzle again (11-03: 6 of 7 no-change runs an hour were ddMissesWordplay's).
     # Marked now, and the rows committed like any queue-only change (worker_commit_batch).
+    # Committed whenever the puzzle's rows differ from HEAD, not only when --mark-tried
+    # marked one: apply's done() may have marked them during the run, and then nothing
+    # shipped them (11-03 12:07: 5 of 10 no-change marks never left the burn tree).
     WORKER_ROWS_ONLY=""
-    case "$what" in
-      "Backfill wordplay."*)
-        [ "$(python3 tools/shape_queue.py --mark-tried "$id" 2>/dev/null || echo 0)" -gt 0 ] && WORKER_ROWS_ONLY=1 ;;
-    esac
+    # Not for Annotate: its commit's worker_settle would clear the failure just recorded.
+    local rows_op=--unshipped
+    case "$what" in "Backfill wordplay."*) rows_op=--mark-tried ;; Annotate) rows_op="" ;; esac
+    [ -n "$rows_op" ] && [ "$(python3 tools/shape_queue.py "$rows_op" "$id" 2>/dev/null || echo 0)" -gt 0 ] && WORKER_ROWS_ONLY=1
     [ -n "$WORKER_ROWS_ONLY" ] || return 0
   fi
   # -A, so a file that changed year folders goes in as a rename rather than as
