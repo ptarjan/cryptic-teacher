@@ -162,6 +162,10 @@ check(log.git_counts(log.t), (2, 7), "two filed commits and 3+4 puzzles updated 
 check(log.feed("09:05:01 vlm stage: 0 asks spooled, 2 reads waiting")[0].split(" · ")[1:3],
       ["2 Times filed/h", "7 puzzles updated/h"], "the status line reads them")
 check(O.Log(os.path.join(HOME, "nowhere"), day=DAY).git_counts(1_800_000_000), None, "a missing repo is unknown, not zero")
+git("commit", "-q", "--allow-empty", "-m", "Update times-727", when=local_iso(8, 30))
+log = O.Log(repo, day=DAY)
+log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
+check(log.git_counts(log.t), (2, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
 
 # a day change moves the clock on
 log = O.Log(None, day=DAY)
