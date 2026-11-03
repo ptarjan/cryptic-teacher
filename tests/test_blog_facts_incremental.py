@@ -76,6 +76,13 @@ def lexicons(tmp):
         assert deep(both) == deep(flat_both) and deep(reach) == deep(flat_reach), cuts
         assert deep(l._merged(groups, reach)) == deep(l._merged(parts, flat_reach)), cuts
 
+    # The groups a store lacks are summed in a forked child: the same lexicons.
+    forked = l._open_store(str(tmp / "forked.sqlite"))
+    assert shape(l._cached_lexicons(forked, corpus, ours, 1)[0]) == shape(l._lexicons(corpus, ours, 1)), \
+        "groups summed in a child differ from a full build"
+    forked.close()
+    l.GROUPS_IN_CHILD = False  # counted in this process from here on
+
     conn = l._open_store(str(tmp / "s.sqlite"))
     summed = []
     real = l._summed
