@@ -189,6 +189,27 @@ def blog_due(puzzle):
     return blog_compare.clue_warnings(path) if path else {}
 
 
+def field_due(puzzle):
+    """{entry id: [warning, ...]} for a field backfill bag (CT_BACKFILL_FIELD=<field> set by
+    tools/prereset_backfill.sh for that pool): the clues the validator warns lack the field
+    (validate_annotations.BACKLOG_MARKERS), the warning saying what to write. {} in every other
+    run. A puzzle-level warning (no clue to name, e.g. the preamble's hidden-letter device) is
+    no clue's: that field is not backfilled in a bag."""
+    field = os.environ.get("CT_BACKFILL_FIELD")
+    markers = validate_annotations.BACKLOG_MARKERS.get(field or "")
+    if not markers:
+        return {}
+    import copy
+
+    import blog_compare
+    out = {}
+    for w in validate_annotations.validate_puzzle(copy.deepcopy(puzzle))[2]:
+        cid = blog_compare.tag_id(w.split(":", 1)[0]) if any(m in w for m in markers) else None
+        if cid:
+            out.setdefault(cid, []).append(w.split(": ", 1)[-1])
+    return out
+
+
 def to_write(puzzle, before):
     """The ids a run on this puzzle annotates: the clues that lack a hint,
     plus `before`, the list the run started with, so a clue the run has since
@@ -215,6 +236,8 @@ def to_write(puzzle, before):
     only += [cid for cid in shape_queue.flagged(puzzle) if cid not in only]
     # The blog re-check's clues: hinted already, the hint stays until a new one lands (or is kept).
     only += [cid for cid in blog_due(puzzle) if cid not in only]
+    # A field backfill's clues: hinted already, short of the field (CT_BACKFILL_FIELD).
+    only += [cid for cid in field_due(puzzle) if cid not in only]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
     return only
@@ -393,8 +416,13 @@ def write_view(path):
         blog = {c: " | ".join(w) for c, w in blog_due(puzzle).items() if c in only}
         if blog:
             view["blogFlagged"] = blog
+        # A field backfill: what each clue lacks, with the hint on file to add it to.
+        missing = {c: " | ".join(w) for c, w in field_due(puzzle).items() if c in only}
+        if missing:
+            view["fieldMissing"] = missing
+        if blog or missing:
             view["ourAnnotations"] = {entry_id(e): in_notation(e["annotation"], e, puzzle) for e in puzzle["entries"]
-                                      if entry_id(e) in blog and e.get("annotation")}
+                                      if (entry_id(e) in blog or entry_id(e) in missing) and e.get("annotation")}
         keep = keep_words(puzzle, only)
         if keep:
             view["keepWords"] = keep

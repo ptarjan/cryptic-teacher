@@ -624,6 +624,8 @@ bag_prompt() {
   rule=$(bag_rule "${2:-}")
   if [ "$rule" = blog ]; then
     tmpl="These crosswords are already annotated, and their hints are fine except the clues the bag's view lists under \`blogFlagged\`: for each, the blog the puzzle is written up on marks a definition, type or building blocks that disagree with our hint (shown beside it under \`ourAnnotations\`). For each listed clue solve it fresh from the clue and answer. If the blog is right, write the corrected annotation (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, do not rewrite it: list it under \"_keep\" with one sentence why ours stands. The blog can be wrong; never copy its wording. Change nothing else in any puzzle. $tmpl"
+  elif [ -n "$(bag_field)" ]; then
+    tmpl="These crosswords are already annotated, and their hints are fine except that each clue the bag's view lists under \`fieldMissing\` lacks the field \`$rule\`: ${FIELD_WHAT}. Write each listed clue's hint on file again (shown under \`ourAnnotations\`) with that field added: ADDITIVE, so keep its definition, type, wordplay tree, blocks and every other note exactly as they are, and change nothing else in any puzzle. docs/STYLE.md sets the voice. $tmpl"
   elif [ "$rule" != annotate ]; then
     tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks a shape rule (a validator check, not a field to add; this pool drains \`$rule\`, and the bag takes other rules' clues too), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
   fi
@@ -647,9 +649,22 @@ bag_rule() {
 # (290 puzzles / 317 clues for wordplay.anagramCharade, 11-03): one session each
 # paid ~28k tokens of fixed cost for ~3.5k of work. A field backfill (a note or
 # a sentence added in place to every clue) is not a tail's work and runs alone.
+# The fields a bag backfills, one clue at a time (the validator warns clue by clue what it lacks:
+# annotate_check.field_due). Not messages: its warning is the puzzle's (a preamble device), which a
+# session must see whole. Not spelling.unsaid, wordplay.unchecked (never backfilled), nor the derived
+# indicators.for and assembly.anagrams.
+BAG_FIELDS=" explanation.definitionFit indicators.note blocks.note features explanation.surface "
+# The field of the pool running now when it bags, else nothing.
+bag_field() {
+  local f="${WAVE_WHAT#Backfill }"
+  f="${f% for}"
+  [ "$f" != "$WAVE_WHAT" ] && [[ $BAG_FIELDS == *" $f "* ]] && echo "$f"
+  return 0
+}
 pool_bags() {
   [ "$DRY_RUN" != 1 ] || return 1
   [ "$WAVE_WHAT" = Annotate ] && return 0
+  [ -n "$(bag_field)" ] && return 0
   # The blog re-check: 1-3 clues a puzzle, ~7.3k tokens a clue alone (11-03), bagged like a tail.
   [ "$WAVE_WHAT" = "Re-check against its blog:" ] && return 0
   case "$WAVE_WHAT" in "Backfill wordplay.unchecked for") return 1 ;; "Backfill wordplay."*) return 0 ;; esac
@@ -680,6 +695,7 @@ pool_bag() {
     case "$(bag_rule)" in
       annotate) ;;
       blog) any=(--blog --spread "$free") ;;
+      "$(bag_field)") any=(--field --spread "$free") ;;
       *) any=(--any-listed --spread "$free") ;;
     esac
     ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" |
@@ -1700,6 +1716,9 @@ p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))
   fi
   echo "$field backlog: ${nums:-none}"
   name="\`$field\`"
+  # CT_BACKFILL_FIELD: annotate_check.field_due, the clues a bag of this field's pool writes.
+  unset CT_BACKFILL_FIELD
+  [[ $BAG_FIELDS == *" $field "* ]] && export CT_BACKFILL_FIELD=$field
   case "$field" in
     explanation.definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
     indicators.note) name="\`note\` on each indicator object (the \`indicators\` on the \`wordplay\` tree's ops and on \`definitions\`)"
@@ -1726,6 +1745,7 @@ p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))
       what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
+  FIELD_WHAT="$name, $what"
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and docs/STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
   # "Add the missing wordplay.anaStandIn" read as a field to add, and runs said
   # there was none and stopped (7 of 27 no-change runs had a clue listed).
@@ -1755,6 +1775,8 @@ p = shape_queue.puzzle_ids(); print("\n".join(n for n in sys.stdin.read().split(
     run_pool "Backfill $field for" "$prompt" || { burn_stopped=1; break; }
   fi
 done
+
+unset CT_BACKFILL_FIELD
 
 # --- 3. re-check what the blogs read another way ------------------------------
 # tools/blog_compare.py compares every annotated clue with what its blog marked
@@ -1787,6 +1809,7 @@ BURN_ROUND=$((BURN_ROUND + 1))
 ROUND_LAUNCHED=0
 SHAPE_SWEPT=0
 SHAPE_RULE_OF=()
+unset CT_BLOG_RECHECK CT_BACKFILL_FIELD   # an Annotate bag takes no blog or field clue it was not sent
 echo "=== round $BURN_ROUND: back to the un-annotated backlog ==="
 read_annotate_backlog
 POOL_PHASE=annotate

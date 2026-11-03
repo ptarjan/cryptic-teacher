@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 
 import annotate_bag
 import annotate_check
+import apply_annotations
 
 fails = 0
 
@@ -106,7 +107,6 @@ check("--help prints the usage and exits 0", help_rc == 0 and "annotate_bag.py v
 
 # the redo gate runs in check: a listed clue whose new tree is still flagged fails
 import shape_queue
-import apply_annotations
 wp_old = {"op": "anagram", "parts": [{"words": "x", "gives": "X"}]}
 gpuz = {"id": "g-1", "entries": [{"number": 5, "direction": "down", "annotation": {"wordplay": wp_old},
                                   "clue": {"text": "x"}}]}
@@ -134,6 +134,21 @@ block = annotate_bag.puzzle_block("p-1", blogview)
 check("a blog bag's block carries the blog's warning and our hint beside it",
       "blog disagrees" in block and "3-across: definition: the blog underlines" in block
       and 'ourAnnotations: {"3-across":{"def":"old"}}' in block)
+
+fieldview = dict(view, fieldMissing={"3-across": "no indicator notes — give every indicator a `note`"},
+                 ourAnnotations={"3-across": {"def": "x"}})
+fblock = annotate_bag.puzzle_block("p-1", fieldview)
+check("a field backfill bag's block names what each clue lacks and carries our hint beside it",
+      "lacks a field" in fblock and "3-across: no indicator notes" in fblock and "ourAnnotations" in fblock)
+os.environ.pop("CT_BACKFILL_FIELD", None)
+check("field_left is empty outside a field backfill pool", annotate_bag.field_left("p-1") == "")
+check("field_due is empty outside a field backfill pool", annotate_check.field_due({"entries": []}) == {})
+import apply_annotations
+old = {"wordplay": "x"}
+check("a redo that only adds a field is reverted outside a field backfill", apply_annotations.redo_adds_nothing(old, dict(old)))
+os.environ["CT_BACKFILL_FIELD"] = "indicators.note"
+check("... and kept inside one", not apply_annotations.redo_adds_nothing(old, dict(old)))
+del os.environ["CT_BACKFILL_FIELD"]
 
 import blog_compare
 filed = []

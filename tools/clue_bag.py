@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Which tail puzzles one annotate session takes together: a bag.
 
-    ids | python3 tools/clue_bag.py [--due] [--any-listed | --blog] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
+    ids | python3 tools/clue_bag.py [--due] [--any-listed | --blog | --field] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
@@ -25,6 +25,12 @@ bags the same way with --blog: a puzzle's clues due are the ones tools/blog_comp
 measured ~7.3k tokens a clue run alone, one session each). Its session is the same bag as
 any other: one view (tools/annotate_bag.py, with the blog's warnings and our hints beside
 them), one write, one check; a hint that stands is filed under "_keep".
+
+A field backfill ("Backfill indicators.note", explanation.surface, features, blocks.note,
+explanation.definitionFit) bags the same way with --field, the field named in CT_BACKFILL_FIELD: a
+puzzle's clues due are the ones annotate_check.field_due finds the validator warning lack it. Those
+fields were a session per puzzle (a whole puzzle's worth of clues for most, 1-10 for a few); a
+puzzle with more than MAX_DUE clues due is its own bag, through the same view, write and check.
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
@@ -200,6 +206,40 @@ def blog_spread_target(leader, queue, table, slots, target=BAG_TARGET, least=MIN
     return max(least, min(target, -(-total // slots)))
 
 
+def field_clues(pid):
+    """How many clues of pid a field backfill run (CT_BACKFILL_FIELD, the pool's field) has
+    due, by its file; 0 when it will not read."""
+    import annotate_check
+    from fetch_puzzle import read_puzzle_file, resolve_puzzle
+    try:
+        return len(annotate_check.field_due(read_puzzle_file(resolve_puzzle(pid))))
+    except (SystemExit, OSError, ValueError, KeyError):
+        return 0
+
+
+def field_tail_due(pid, row, runs, resume_dir):
+    """The clues a field backfill run has due on pid, when it is worth bagging (1..MAX_DUE and
+    no conversation already holds it); None otherwise. Read from the file: the index knows no field."""
+    if (runs / f"{pid}.sid").exists() or (resume_dir / f"ct-prereset-{pid}.resume").exists():
+        return None
+    n = field_clues(pid)
+    return n if 1 <= n <= MAX_DUE else None
+
+
+def field_spread_target(leader, queue, slots, target=BAG_TARGET, least=MIN_TARGET):
+    """spread_target for a field backfill: the clues the field's allowance
+    (tools/annotation_backlog.json, the clues a puzzle lacks it on) holds for the leader and queue[:SCAN]."""
+    import os
+    if slots <= 1:
+        return target
+    try:
+        held = json.loads((TOOLS / "annotation_backlog.json").read_text(encoding="utf-8")).get(os.environ.get("CT_BACKFILL_FIELD", ""), {})
+    except (OSError, ValueError):
+        return target
+    total = sum(min(MAX_DUE, held.get(p, 0)) for p in [leader, *queue[:SCAN]])
+    return max(least, min(target, -(-total // slots)))
+
+
 def main(argv):
     with_due = "--due" in argv
     any_listed = "--any-listed" in argv
@@ -209,7 +249,8 @@ def main(argv):
         slots = int(argv[i + 1])
         del argv[i:i + 2]
     blog = "--blog" in argv
-    argv = [a for a in argv if a not in ("--due", "--any-listed", "--blog")]
+    field = "--field" in argv
+    argv = [a for a in argv if a not in ("--due", "--any-listed", "--blog", "--field")]
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
         return 2
@@ -221,6 +262,16 @@ def main(argv):
         bag = bag_of(argv[1], queue, {}, Path(argv[0]), resume_dir,
                      target=blog_spread_target(argv[1], queue, table, slots), counts=counts,
                      due=lambda pid, row, runs, resume: blog_tail_due(pid, row, runs, resume, table))
+        counts.setdefault(argv[1], len(table.get(argv[1]) or ()))  # a leader too big to bag still counts its clues
+        print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
+        return 0
+    if field:
+        resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
+        counts = {}
+        bag = bag_of(argv[1], queue, {}, Path(argv[0]), resume_dir,
+                     target=field_spread_target(argv[1], queue, slots), counts=counts, due=field_tail_due)
+        if not counts.get(argv[1]):
+            counts[argv[1]] = field_clues(argv[1])
         print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
         return 0
     import prereset_plan
