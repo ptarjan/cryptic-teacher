@@ -134,6 +134,7 @@ class Log:
         self.width = None
         self.limit = None
         self.limit_note = None    # the limit as shown: memory with its numbers, a rush said
+        self.reset_plan = None    # the planner's rush decision: "pacing to ... reset, 0 of 15 manual resets left"
         self.mem_said = ""        # the last "  why:" line: the burn prints the width's inputs there
         self.week = None          # (percent used, hours to reset)
         self.done = collections.deque()  # times of the last hour's finished puzzles
@@ -351,10 +352,10 @@ class Log:
         or the caller forces it (after a restart, a "next:" or an "idle:" line)."""
         if self.width is None or self.restart:  # a restart says its own status first
             return []
-        changed = (self.width, self.limit) != self.said_status
+        changed = (self.width, self.limit, self.reset_plan) != self.said_status
         if not (changed or force or now - self.status_at >= HEARTBEAT_S):
             return []
-        self.said_status, self.status_at = (self.width, self.limit), now
+        self.said_status, self.status_at = (self.width, self.limit, self.reset_plan), now
         week = f"weekly {self.week[0]:g}% used" if self.week else None
         if self.width == 0:
             if self.week and self.week[0] >= 99:
@@ -372,6 +373,8 @@ class Log:
             parts.append(f"{self.queued} queued")
         if week:
             parts.append(week)
+        if self.reset_plan:
+            parts.append(self.reset_plan)
         return [self.out(now, "──", " · ".join(parts))]
 
     def nothing(self, now, pid, rule, allowed):
@@ -423,6 +426,9 @@ class Log:
         m = re.match(r"^width (\d+) \(cap: ([^)]*)\)(?: · (.*))?$", line)
         if m:
             self.width_raw = line
+            # prereset_plan.rush_choice's words, ";" for "," so the caps split keeps them whole.
+            rp = re.search(r"reset plan ([^,]*)", m.group(2))
+            self.reset_plan = rp.group(1).replace("; ", ", ") if rp else None
             caps = {}
             for part in m.group(2).split(", "):
                 name, _, val = part.rpartition(" ")
