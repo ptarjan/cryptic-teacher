@@ -189,7 +189,10 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         f"loudly instead: it names the clue, a blank does not.{likely} Only a "
         f"clue you cannot parse without inventing wordplay stays null: the "
         f"puzzle fails and can be retried, whereas a confident wrong "
-        f"explanation ships and nothing catches it")
+        f"explanation ships and nothing catches it. If you left it null because the "
+        f"clue as held is cut short or wrong and no source gives the rest, running "
+        f"the check again cannot change that: run it once with "
+        f"`--withdraw \"<clue, and what is missing>\"` and stop")
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):
