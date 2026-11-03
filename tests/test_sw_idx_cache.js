@@ -2,7 +2,7 @@
 // head-live.json is network-first with the cache as the offline copy, the
 // content-named head-static, shards and bundle are cache-first, all of them in
 // the shell cache and never in ct-puzzles-1; a new head-live deletes the idx
-// files it no longer names; and index-core.js or anything in idx/ is never
+// files it no longer names; and anything in idx/ is never
 // filed as a puzzle (the "ready offline" count was off by one).
 //
 //     node tests/test_sw_idx_cache.js
@@ -130,10 +130,8 @@ const names = async (h, cacheName) => (await (await h.caches.open(cacheName)).ke
   assert(st && (await st).ok, "offline head-static is the held copy");
 
   // Puzzle files still go to the puzzle cache; the list files and idx never do.
-  const h2 = harness({ "/puzzles/x/times-1.js.gz": ["p", "application/gzip"], "/puzzles/index-core.js": ["c", "text/javascript"], "/puzzles/index.js": ["i", "text/javascript"] });
+  const h2 = harness({ "/puzzles/x/times-1.js.gz": ["p", "application/gzip"] });
   await h2.request(SCOPE + "puzzles/x/times-1.js.gz?v=aa");
-  await h2.request(SCOPE + "puzzles/index-core.js?v=bb");
-  await h2.request(SCOPE + "puzzles/index.js?v=cc");
   assert((await names(h2, "ct-puzzles-1")).length === 1, "only the puzzle is in the puzzle cache: " + (await names(h2, "ct-puzzles-1")));
 
   if (fails.length) { console.error(fails.map((f) => "FAIL: " + f).join("\n")); process.exit(1); }

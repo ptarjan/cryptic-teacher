@@ -68,9 +68,8 @@ PUBLISH = [
     "puzzles/*/index.html", "puzzles/series/**/*",
 ]
 
-# A puzzle's shim, which ships as SHIM.gz; puzzles/index.js, the catalogue
-# index.html loads as a script, stays plain.
-SHIM = re.compile(r"puzzles/(?!index(?:-core)?\.js$)[^/]+\.js")
+# A puzzle's shim, which ships as SHIM.gz; no other .js is published there.
+SHIM = re.compile(r"puzzles/[^/]+\.js")
 # md5 of each shim's bytes as of its .gz: not published (no PUBLISH glob).
 SHIM_GZ_MANIFEST = "puzzles/shims.gz.json"
 

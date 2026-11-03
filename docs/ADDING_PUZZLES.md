@@ -10,7 +10,7 @@ committed. After a fresh clone, build them once. It takes about ten seconds:
 python3 tools/fetch_puzzle.py --reindex
 ```
 
-This writes `puzzles/index.json`, `puzzles/index.js`, and one
+This writes `puzzles/index.json`, `puzzles/idx/`, and one
 `puzzles/<series>-<n>.js` per puzzle. It leaves `index.html` alone: the
 `?v=` hashes are stamped by the deploy workflow (see "Cache busting" in
 `APP.md`).

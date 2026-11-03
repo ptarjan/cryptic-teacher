@@ -64,7 +64,7 @@ instead — same shape the app already uses for a prize puzzle whose answers
 haven't been published (see hasSolutions in fetch_puzzle.reindex).
 
 Writes <out>/cyclops-<number>.json (preserving any existing per-clue annotations
-via merge_annotations). It does not rebuild puzzles/index.json or index.js:
+via merge_annotations). It does not rebuild puzzles/index.json or puzzles/idx/:
 those are generated, and tools/fetch_puzzle.py --reindex (which
 tools/daily_update.sh runs after its fetchers) rebuilds them.
 """

@@ -10,10 +10,10 @@ import pathlib
 
 d = pathlib.Path("puzzles")
 index = json.loads((d / "index.json").read_text(encoding="utf-8"))
-keep = {"index.js", "index-core.js"} | {p["file"] for p in index["puzzles"] + index.get("unlisted", [])}
+keep = {p["file"] for p in index["puzzles"] + index.get("unlisted", [])}
 gone = [f for f in d.glob("*.js") if f.name not in keep]
-# and the .gz stage_site.py made of one (index.js is never gzipped)
-gone += [f for f in d.glob("*.js.gz") if f.name[:-3] not in keep or f.name == "index.js.gz"]
+# and the .gz stage_site.py made of one
+gone += [f for f in d.glob("*.js.gz") if f.name[:-3] not in keep]
 for f in gone:
     f.unlink()
 print(f"removed {len(gone)} shim(s) no puzzle has")

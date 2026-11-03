@@ -538,25 +538,22 @@ function boot(opts) {
   // loadShards calls (window.ctIdx) to turn a fetched shard back into rows.
   new Function("window", fs.readFileSync(path.join(ROOT, "idx.js"), "utf8"))(global.window);
   // The manifest is generated and untracked, so it is rebuilt from the puzzle
-  // files before it is read — in a fresh clone there is no index.js at all, and
+  // files before it is read — in a fresh clone there is no puzzles/idx at all, and
   // in a working tree there is whatever the last rebuild left. Memoised, so
   // every boot in one process costs one rebuild.
   reindex();
   // The index is compiled the way the page does it: head-static and head-live
   // are composed into the partial index, and the bundle's rows (every shard)
   // are merged in, so the app sees the decoded rows (v to 5 chars, percentile
-  // read off the head's cut points), not index.js's. A tree whose reindex
-  // predates puzzles/idx falls back to index.js.
+  // read off the head's cut points).
   const idxDir = path.join(ROOT, "puzzles/idx");
-  if (fs.existsSync(path.join(idxDir, "head-live.json"))) {
+  {
     const live = JSON.parse(fs.readFileSync(path.join(idxDir, "head-live.json"), "utf8"));
     new Function("window", fs.readFileSync(path.join(idxDir, live.static), "utf8"))(global.window);
     // Parsed once per process: boot() runs many times and only reads it.
     const bundle = idxBundles[live.bundle] || (idxBundles[live.bundle] =
       JSON.parse(fs.readFileSync(path.join(idxDir, live.bundle), "utf8")));
     global.window.CRYPTIC_INDEX = global.window.ctIdx.full(global.window.CRYPTIC_INDEX_STATIC, live, bundle);
-  } else {
-    new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   }
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
   // options.index edits the index BEFORE app.js reads it, for a shape the

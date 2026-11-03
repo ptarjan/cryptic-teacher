@@ -21,6 +21,7 @@ Exit 0 live, 1 timed out or mismatched. Run it as the last step of the deploy
 pipeline, after the push.
 """
 import argparse
+import hashlib
 import http.client
 import json
 import os
@@ -37,11 +38,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
 WORKFLOW = ".github/workflows/pages.yml"
-ASSETS = ["app.js", "style.css", "puzzles/index.js"]
+ASSETS = ["app.js", "style.css"]
+# The progressive index's moving head: rewritten by every filing, so a puzzle-only
+# push is deployed only when the live copy matches the one CI builds from the commit.
+HEAD_LIVE = "puzzles/idx/head-live.json"
 # One round of gh/API calls per minute at most: the host is shared and CI-watch
 # polls showed up among its top CPU users when this ran every 10s.
 POLL_SECONDS = 60
-STAMP = re.compile(r'(app\.js|style\.css|puzzles/index\.js)\?v=([a-f0-9]+)')
+STAMP = re.compile(r'(app\.js|style\.css)\?v=([a-f0-9]+)')
 
 
 def stamps(text):
@@ -66,8 +70,12 @@ class ColdRowCache(Exception):
     """The local index build hit the row-cache miss guard: it cannot be made cheaply."""
 
 
-def shipped_index_stamp(head):
-    """The stamp CI gives puzzles/index.js when it builds `head`.
+def head_digest(data):
+    return hashlib.sha256(data).hexdigest()[:10]
+
+
+def shipped_head_stamp(head):
+    """The digest of the head-live.json CI publishes when it builds `head`.
 
     The index is gitignored and CI rebuilds it from the commit, so the copy in
     this working tree is whatever the last local --reindex left, and it can
@@ -92,10 +100,21 @@ def shipped_index_stamp(head):
             if run.returncode:
                 raise RuntimeError(f"{' '.join(step)} failed building the index to "
                                    f"compare: {(run.stderr or run.stdout).strip()[-400:]}")
-        return digest(os.path.join(tmp, "puzzles/index.js"))
+        with open(os.path.join(tmp, HEAD_LIVE), "rb") as f:
+            return head_digest(f.read())
     finally:
         subprocess.run(["git", "worktree", "remove", "--force", tmp],
                        cwd=ROOT, capture_output=True)
+
+
+def fetch_head():
+    """The digest of the head-live.json the site serves now."""
+    req = urllib.request.Request(URL + HEAD_LIVE, headers={
+        "Cache-Control": "no-cache", "Pragma": "no-cache",
+        "User-Agent": "cryptic-teacher-deploy-check",
+    })
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return head_digest(r.read())
 
 
 def fetch():
@@ -220,7 +239,7 @@ def main():
     head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                           text=True, cwd=ROOT).stdout.strip()
     try:
-        want["puzzles/index.js"] = shipped_index_stamp(head)
+        want[HEAD_LIVE] = shipped_head_stamp(head)
     except ColdRowCache:
         # Not a failed deploy: this machine just cannot afford the comparison.
         print("can't verify locally: row cache cold (index stamp unverified; "
@@ -232,6 +251,7 @@ def main():
         try:
             built = built_commit()
             live = stamps(fetch())
+            live[HEAD_LIVE] = fetch_head()
             diff = {k: (v, live.get(k)) for k, v in want.items() if live.get(k) != v}
             if built and built != head and contains(built, head):
                 # A later build carries this commit; its assets are its own.

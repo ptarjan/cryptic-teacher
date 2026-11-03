@@ -97,9 +97,10 @@ difficulty/                                    how the difficulty badge is worke
                                                generated, not committed
 og/                                            one 1200x630 social card per puzzle, drawn from
                                                one of its clues — generated, not committed
-puzzles/index.json, puzzles/index.js           manifest: one row per puzzle, latest first, and
-                                               the same as a script so file:// works — built by
-                                               tools/fetch_puzzle.py --reindex, not committed
+puzzles/index.json, puzzles/idx/               manifest: one row per puzzle, latest first, read
+                                               by the Python tools and --reindex-from-deploy;
+                                               the browser reads puzzles/idx/ instead — built
+                                               by tools/fetch_puzzle.py --reindex, not committed
 puzzles/<series>/<year>/<series>-<n>.json      one puzzle per file, plain JSON: the whole file
                                                is the payload; <year> is the UTC year of its
                                                date, or a book puzzle's `year`, or `undated` —

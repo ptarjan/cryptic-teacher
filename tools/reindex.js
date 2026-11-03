@@ -1,4 +1,4 @@
-/* Rebuild puzzles/index.json, puzzles/index.js and the per-puzzle .js shims,
+/* Rebuild puzzles/index.json, puzzles/idx/ and the per-puzzle .js shims,
    for the node harnesses.
 
    All of them are generated from the puzzles/<series>/<year>/<id>.json sources and none are
@@ -85,7 +85,7 @@ function newest(dir, keep) {
    the manifest but not the shims cannot load a puzzle, and that is what this
    catches. */
 function current() {
-  const out = ["index.json", "index.js"].map((f) => {
+  const out = ["index.json", "idx/head-live.json"].map((f) => {
     try { return fs.statSync(path.join(PUZZLES, f)).mtimeMs; } catch (e) { return 0; }
   });
   const builtAt = Math.min(out[0], out[1]);
@@ -127,7 +127,7 @@ function reindex() {
 //
 // Not when the full index is already current: it lists every id, so there is
 // nothing to save, and overwriting it with a few would hand every other reader
-// of puzzles/index.js a corpus of a few puzzles. In CI that is a smoke slice
+// of puzzles/index.json a corpus of a few puzzles. In CI that is a smoke slice
 // booting beside test_ctc_hintcheck (shards run their PARALLEL items beside the
 // serial ones): its late boots found only times-28739 and listener-111 was "not
 // loaded".

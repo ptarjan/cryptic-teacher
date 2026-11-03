@@ -13,7 +13,7 @@
 #   * The reverse: while the job is mid-run, its half-fetched puzzle
 #     files are in the tree, so a person cannot commit their own work
 #     either. The asset stamps span both sets of files, so a partial commit
-#     ships an index.html pointing at a puzzles/index.js that isn't there.
+#     ships an index.html pointing at puzzles/idx files that aren't there.
 #   * `git pull --rebase --autostash` before a push stashes whatever the other
 #     writer has in flight, out from under them.
 #

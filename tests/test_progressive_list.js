@@ -18,10 +18,8 @@
    3. memosReset: after a merge, the memos built from the shorter list are
       gone: the setter suggestions and the paper menu show the new rows. A
       stale pickerTerms / paperMenu would still answer from the recent rows.
-   4. fallback: when a shard will not load, the page asks for puzzles/index.js
-      (the way it worked before puzzles/idx) instead of staying half a list.
-   5. noIdx: with no INDEX.idx a partial index waits for index.js and the
-      triggers fetch nothing from puzzles/idx (today's boot). */
+   4. failure: when a shard will not load, the page stays a partial list and
+      asks for nothing else (no puzzles/index.js exists any more). */
 "use strict";
 const assert = require("assert");
 const fs = require("fs");
@@ -88,13 +86,6 @@ function page(root, broken) {
     ix.partial = true;
     ix.idx = { live, stat: stat.CRYPTIC_INDEX_STATIC };
   } });
-  // The fake head runs an appended script at once; hold puzzles/index.js back so
-  // the test decides when it "answers" (script.onload below).
-  const head = d.document.head, append = head.appendChild;
-  head.appendChild = function (el) {
-    if (el.tagName === "SCRIPT" && /puzzles\/index\.js/.test(el.src || "")) { this.children.push(el); return el; }
-    return append.call(this, el);
-  };
   d.reg = d.registry;
   d.asked = asked;
   d.reg["btn-picker"].onclick();
@@ -156,31 +147,9 @@ const check = (ok, msg) => {
   d = page(root, "genius-2025");
   d.search("281 genius");
   await tick();
-  const script = d.document.head.children.find((c) => c.tagName === "SCRIPT" && /puzzles\/index\.js$/.test(c.src || ""));
-  check(!!script, "a shard that will not load makes the page ask for puzzles/index.js");
-  check(d.window.CRYPTIC_INDEX.partial === true, "and the list stays partial until that file answers");
-  if (script) {
-    // index.js runs: it replaces window.CRYPTIC_INDEX with the whole index.
-    const whole = { puzzles: catalogue().puzzles.concat(d.window.CRYPTIC_INDEX.puzzles) };
-    const INDEX = d.window.CRYPTIC_INDEX;
-    d.window.CRYPTIC_INDEX = whole;
-    script.onload();
-    check(INDEX.partial === false && INDEX.puzzles.length === whole.puzzles.length && d.window.CRYPTIC_INDEX === INDEX,
-      "the whole index is adopted as it was before puzzles/idx");
-    check(/data-number="281"/.test(d.rows()), "and the search is answered from it");
-  }
-  d.stop();
-
-  // 5
-  global.fetch = (url) => { asked5.push(String(url)); return new Promise(() => {}); };
-  const asked5 = [];
-  d = boot({ storage: { "ct:nux": "9" }, index: (ix) => { ix.puzzles = ix.puzzles.slice(0, 12); ix.partial = true; } });
-  d.registry["btn-picker"].onclick();
-  d.registry["picker-search"].value = "zzy";
-  d.registry["picker-search"].listeners.input.forEach((f) => f());
-  await tick();
-  check(!asked5.some((u) => /puzzles\/idx\//.test(u)) && d.window.CRYPTIC_INDEX.partial === true,
-    "with no INDEX.idx a search fetches nothing from puzzles/idx and waits for index.js");
+  const script = d.document.head.children.find((c) => c.tagName === "SCRIPT" && /index\.js$/.test(c.src || ""));
+  check(!script, "a shard that will not load does not make the page ask for an index.js");
+  check(d.window.CRYPTIC_INDEX.partial === true, "and the list stays partial");
   d.stop();
 
   console.log(failures ? failures + " FAILED" : "all passed");

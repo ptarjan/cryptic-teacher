@@ -64,8 +64,7 @@ try:
     check("the rest are as they were", True,
           all(rows[i] == before[i] for i in before if i != held[0].stem))
     check("the touched row is the file's", before[held[0].stem], rows[held[0].stem])
-    check("index.js matches index.json", True,
-          (tmp / "index.js").read_text().endswith(json.dumps(after, ensure_ascii=False, separators=F.COMPACT) + ";\n"))
+    check("no index.js is written", False, (tmp / "index.js").exists())
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 
