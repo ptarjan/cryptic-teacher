@@ -841,38 +841,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "half-hearted",
-       "note": "SUPPER's heart is PP; half of it goes"
-      },
-      {
-       "text": "left unfinished",
-       "note": "the bird is left without its final letter"
-      }
-     ],
      "parts": [
       {
-       "words": "meal",
-       "gives": "SUPER",
-       "note": "SUPPER losing one of the two Ps at its heart"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-hearted",
+         "at": 15,
+         "note": "half-hearted takes away half of the doubled middle of the meal word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "meal",
+         "at": 28,
+         "gives": "SUPPER",
+         "note": "supper is an evening meal"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       },
       {
-       "words": "bird",
-       "gives": "HERO",
-       "note": "HERON without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left unfinished",
+         "at": 40,
+         "note": "left unfinished means the bird word is not completed, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 35,
+         "gives": "HERON",
+         "note": "a heron is a wading bird"
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comic-book hero picking half-heartedly at a meal and abandoning the bird on the plate.",
-     "walkthrough": "Wolverine is the clawed X-Men character, and 'Eg' flags him as one example of the class.",
-     "definitionFit": "Definition by example: Wolverine, of the X-Men, is a superhero."
+     "surface": "A comic-book fan's notes: Wolverine's lukewarm dinner, a bird left half-eaten.",
+     "walkthrough": "'half-hearted' drops one P of SUPPER's PP; 'unfinished' cuts the N from HERON. The 's is 'is'.",
+     "definitionFit": "Wolverine is a Marvel character with superpowers, an example of a costumed comic-book champion."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "bird"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "meal"
     }
    }
   },
