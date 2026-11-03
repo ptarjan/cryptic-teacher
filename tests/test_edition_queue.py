@@ -3302,6 +3302,18 @@ check("listener_free: nothing else due takes every ceiling slot left; other work
       (16, 0, 3, -4, 5),
       (eq.listener_free(0, False, 16), eq.listener_free(0, True, 16), eq.listener_free(3, False, 0),
        eq.listener_free(-4, True, 10), eq.listener_free(5, False, 2)))
+_nt = {"galeft": "scan", "ft": "read", "guardian": "scan", "gale": "scan", "times": "read", "listener": "read",
+       "trove": "read"}
+_nt_units = {p: {"kind": k, "paper": p} for p, k in _nt.items()}
+_nt_papers = frozenset({"gale", "times"})
+check("non_times_unit: FT/other papers' scans and reads only; Times, Listener, Trove and fetches not",
+      ["galeft", "ft", "guardian"], [p for p, u in _nt_units.items() if eq.non_times_unit(u, _nt_papers)])
+check("non_times_unit: a fetch is none", False, eq.non_times_unit({"kind": "fetch", "paper": "ft"}, _nt_papers))
+check("non_times_held: held at the cap while Times is due, free below it or with no Times work",
+      (True, False, False, False),
+      (eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 2, 2), eq.non_times_held(_nt_units["galeft"], _nt_papers, True, 1, 2),
+       eq.non_times_held(_nt_units["galeft"], _nt_papers, False, 9, 2), eq.non_times_held(_nt_units["times"], _nt_papers, True, 9, 2)))
+check("NON_TIMES_BESIDE_TIMES defaults to 2", True, eq.NON_TIMES_BESIDE_TIMES >= 1)
 del os.environ["CT_NEWEST_FIRST"]
 check("times_scans_pending: without CT_NEWEST_FIRST, none", [], eq.times_scans_pending([_tsc], set(), set(), set()))
 check("gpu_fill: without CT_NEWEST_FIRST the VLM is fed too", ["t0", "t1"],
