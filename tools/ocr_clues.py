@@ -63,7 +63,7 @@ UPSCALE = 2
 #: and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's 56%; the
 #: server recognisers cost over 20 times as long), and Tesseract ("times"),
 #: a different engine whose misreads are not theirs, its English LSTM
-#: fine-tuned on Times clue lines (tools/train_archive_org_tesseract.py).
+#: fine-tuned on Times clue lines.
 #: The vote's misread rate is measured against the hand transcriptions in
 #: tools/data/archive_org_ocr_gold.json.
 READERS = {"ch": None,

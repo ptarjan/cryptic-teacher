@@ -95,8 +95,7 @@ the GPU host (`tools/ocr_clues.py`):
   from 1974, 1990 and 1995: 22% and 26% of tokens, against 50% and 56% for the
   English PP-OCRv3 and v4 models.
 - **Tesseract.** Its LSTM model is fine-tuned on the archive's own print
-  (`tools/data/archive_org_tess.traineddata`, trained by
-  `tools/train_archive_org_tesseract.py`), plus a whole-page read.
+  (`tools/data/archive_org_tess.traineddata`), plus a whole-page read.
 - **A vision-language model.** It runs in `tools/vlm_reader.py` at temperature
   0 and does two jobs. `tools/vlm_column_prompt.md` asks it to transcribe a
   whole clue column exactly as printed, and that reading becomes one more
