@@ -43,7 +43,10 @@ PROBLEM = re.compile(
 WASTE_SHARE = 0.15         # ⚠️ when more than this share of the last hour's finished puzzles changed nothing
 WASTE_MIN = 20             # ... out of at least this many
 SHORT_S = 15 * 60          # far fewer runs than the width, or behind pace, this long is a problem
-TOKENS_PER_CLUE_MAX = 10_000   # ⚠️ above this many tokens per clue written in the last hour (bagged Annotate is 3.5-4k)
+# ⚠️ above this many tokens per clue written in the last hour. Weighted (TokenIndex: cache reads at 0.1,
+# so a bag's turns show): a finished 30-clue blog bag measured ~12k a clue, 18k when it hit its turn cap
+# (11-03, 53 bags; 3-4k before cache reads were counted); a session per puzzle is several times that.
+TOKENS_PER_CLUE_MAX = 30_000
 TOKENS_MIN_CLUES = 5
 COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
@@ -330,8 +333,8 @@ class Log:
         out += self.condition(
             now, "tokens", bool(tw and tw[0] > TOKENS_PER_CLUE_MAX),
             (f"tokens per clue: {phrase(tw[2][0])[0]} ran at {tw[2][1] / 1000:.0f}k tokens per clue written over the last hour "
-             f"({plural(tw[1], 'clue')} in all, {tw[0] / 1000:.0f}k overall; one run per puzzle, bagged annotation is 3.5-4k)")
-            if tw else "", tw[3] if tw else [], "tokens per clue back under 10k")
+             f"({plural(tw[1], 'clue')} in all, {tw[0] / 1000:.0f}k overall; one run per puzzle; a bag is about 12k)")
+            if tw else "", tw[3] if tw else [], "tokens per clue back under 30k")
         recent = [(p, c) for t, p, c in self.meters if t > now - 3600]
         trail = [(p, c) for t, p, c in self.meters if now - 6 * 3600 < t <= now - 3600]
         pr, cr = sum(p for p, _ in recent), sum(c for _, c in recent)
@@ -545,6 +548,9 @@ class Log:
             words = "write the missing hints" if rule == "annotate" else phrase(rule)[0]
             clues = f", {m.group(3)} clues" if m.group(3) else ""
             return [self.out(now, "▶", f"bag of {m.group(2)} puzzles{clues}: {words}")]
+        m = re.match(r"^  \[" + PUZZLE + r"\] (bag hit its turn limit after .*?)(?: \(\d+ changed.*)?$", line)
+        if m:  # puzzle_worker.worker_finish_bag: what it finished shipped, the rest is requeued
+            return [self.out(now, "✂", m.group(2))]
         m = re.match(r"^  \[" + PUZZLE + r"\] skipped: already fully hinted", line)
         if m:
             return [self.out(now, "·", f"{m.group(1)} nothing to change (already hinted)")]
@@ -582,14 +588,17 @@ class Log:
 
 
 class TokenIndex:
-    """Tokens each backfill session spent, by puzzle: input + output + cache writes (cache reads
-    are the re-read of the conversation and are left out), from the CLI's transcripts. Scanned in
+    """Tokens each backfill session spent, by puzzle: input + output + cache writes + cache reads
+    at 0.1 (a turn re-reads the whole conversation, so reads are what a long session costs: left
+    out, a bag of 57 turns and one of 20 looked alike), from the CLI's transcripts. Scanned in
     a thread so the filter never stalls the pipe the burn writes to."""
 
-    # A backfill's prompt, the wordplay-rule one, and the blog re-check's (solo, or a bag naming
-    # several puzzles by their files: its tokens are shared out evenly among them).
+    # A backfill's prompt, the blog re-check's solo one, and a bag's (tools/annotate_bag_prompt.md,
+    # under a shape or blog preface or alone): a bag names its puzzles after "this one session:", and
+    # its tokens are shared out evenly among them.
     PREFIXES = ("In this repo, add the missing", "In this repo, the annotated crossword",
-                "In this repo, these annotated crosswords have clues")
+                "These crosswords are already annotated", "Annotate these crosswords in this one session:")
+    BAG_IDS = re.compile(r"this one session: (.*?)\. Read tools/_bag_")
 
     def __init__(self, root=None):
         self.root = pathlib.Path(root or os.environ.get("CLAUDE_CONFIG_DIR") or pathlib.Path.home() / ".claude")
@@ -606,7 +615,7 @@ class TokenIndex:
             if mtime < floor or self.seen.get(path) == mtime:
                 continue
             self.seen[path] = mtime
-            first, tokens, ids = None, 0, set()
+            first, tokens, ids = None, 0.0, set()
             try:
                 with path.open(errors="replace") as fh:
                     for line in fh:
@@ -624,15 +633,21 @@ class TokenIndex:
                             ids.add(msg.get("id"))
                             u = msg.get("usage") or {}
                             tokens += (u.get("input_tokens", 0) + u.get("output_tokens", 0)
-                                       + u.get("cache_creation_input_tokens", 0))
+                                       + u.get("cache_creation_input_tokens", 0)
+                                       + 0.1 * u.get("cache_read_input_tokens", 0))
             except OSError:
                 continue
             if first and first.startswith(self.PREFIXES):
+                tokens = int(tokens)
+                bag = self.BAG_IDS.search(first) if first.startswith(self.PREFIXES[2:]) else None
+                if bag:
+                    members = bag.group(1).split()
+                    for pid in members:
+                        self.by_pid[pid] = tokens // len(members)
+                    continue
                 members = list(dict.fromkeys(re.findall(r"/" + PUZZLE + r"\.json", first)))
-                if members and first.startswith(self.PREFIXES[:2]):
+                if members:
                     self.by_pid[members[0]] = tokens
-                for pid in members if first.startswith(self.PREFIXES[2]) else ():
-                    self.by_pid[pid] = tokens // len(members)
 
     def __call__(self, pid):
         return self.by_pid.get(pid)
