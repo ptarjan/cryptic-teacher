@@ -1567,10 +1567,16 @@ def rows(said=None, as_written=False):
     what the write-up says short of its blocks, where `said` (read_leads) has
     it. The facts are as the blog stated them (see stated), or `as_written`,
     with what this file inferred."""
+    for pid, data, clues in _sources():
+        yield from _puzzle_rows(pid, json.loads(data.decode("utf-8")), clues, (said or {}).get(pid, {}), as_written)
+
+
+def _sources():
+    """(puzzle id, its sidecar's bytes, its clues as puzzle_clues gives them)
+    for each puzzle blog_facts has a post for, in id order."""
     files = blog_store.files()
     held = _held_clues(list(files))
     for pid, f in files.items():
-        rec = blog_store.read(f)
         if pid in held:
             clues = held[pid]
         else:  # an id _held_clues did not see: looked up as it always was
@@ -1578,11 +1584,87 @@ def rows(said=None, as_written=False):
             if path is None:
                 continue
             clues = puzzle_clues(path)
-        got = (said or {}).get(pid, {})
-        for eid, clue, answer in clues:
-            facts = fact_from_json(rec["entries"].get(eid, {}))
-            facts = facts if as_written else stated(facts)
-            yield (pid, eid, clue, answer, {**facts, "leads": got[eid]} if eid in got else facts)
+        yield pid, f.read_bytes(), clues
+
+
+def _puzzle_rows(pid, rec, clues, got, as_written):
+    """rows() of one puzzle: its sidecar `rec`, its `clues`, and `got` the
+    leads read for it."""
+    for eid, clue, answer in clues:
+        facts = fact_from_json(rec["entries"].get(eid, {}))
+        facts = facts if as_written else stated(facts)
+        yield (pid, eid, clue, answer, {**facts, "leads": got[eid]} if eid in got else facts)
+
+
+def open_pack_store():
+    """The store packed_rows keeps its work in, or None where it cannot be opened."""
+    try:
+        return _open_store() if STORE else None
+    except Exception as e:  # sqlite3.Error, or OSError outside a checkout
+        print(f"letter_facts: no store for the pack ({e!r}): packing in full", file=sys.stderr, flush=True)
+        return None
+
+
+def packed_rows(conn):
+    """Packed(rows()), made incrementally off the store `conn` (None: in
+    full). Each puzzle's row pickles are kept under a key of its sidecar's
+    bytes, its clues and the code that makes rows; a puzzle whose key held is
+    not parsed or pickled again, and when no puzzle's key moved the pack
+    itself is read back whole. The result is the bytes Packed(rows()) makes."""
+    if conn is None:
+        return Packed(rows())
+    conn.execute("CREATE TABLE IF NOT EXISTS packrows(pid TEXT PRIMARY KEY, key TEXT, val BLOB, used INTEGER) WITHOUT ROWID")
+    conn.execute("CREATE TABLE IF NOT EXISTS pack(id INTEGER PRIMARY KEY, key TEXT, val BLOB)")
+    import puzzle_schema
+    code = "\0".join([code_reach.key("letter_facts", {"_puzzle_rows", "Packed"}),
+                      hashlib.sha1(puzzle_schema.SCHEMA_PATH.read_bytes()).hexdigest(),
+                      str(Packed.GROUP), str(pickle.HIGHEST_PROTOCOL)]).encode()
+    keys = {}
+    for pid, data, clues in _sources():
+        h = hashlib.sha1(code)
+        for part in (pid.encode(), data, repr(clues).encode()):
+            h.update(len(part).to_bytes(8, "big"))
+            h.update(part)
+        keys[pid] = h.hexdigest()
+    whole = hashlib.sha1("\n".join(f"{p} {k}" for p, k in keys.items()).encode()).hexdigest()
+    got = conn.execute("SELECT key, val FROM pack WHERE id=1").fetchone()
+    today = _today()
+    if got and got[0] == whole:
+        print(f"letter_facts.packed_rows: none of {len(keys)} puzzles moved: pack read back whole",
+              file=sys.stderr, flush=True)
+        with conn:
+            conn.execute("UPDATE packrows SET used=? WHERE used<?", (today, today))
+        return Packed._restored(*pickle.loads(got[1]))
+    held = dict(conn.execute("SELECT pid, key FROM packrows"))
+    moved = [p for p in keys if held.get(p) != keys[p]]
+    print(f"letter_facts.packed_rows: {len(moved)} of {len(keys)} puzzles moved: packing them, the rest off the store",
+          file=sys.stderr, flush=True)
+    todo = set(moved)
+    fresh = {}
+    if todo:
+        for pid, data, clues in _sources():
+            if pid in todo:
+                fresh[pid] = pickle.dumps([pickle.dumps(r, pickle.HIGHEST_PROTOCOL) for r in
+                                           _puzzle_rows(pid, json.loads(data.decode("utf-8")), clues, {}, False)],
+                                          pickle.HIGHEST_PROTOCOL)
+        with conn:
+            conn.executemany("INSERT OR REPLACE INTO packrows VALUES(?,?,?,?)",
+                             ((p, keys[p], v, today) for p, v in fresh.items()))
+
+    def raws():
+        pids = list(keys)
+        for i in range(0, len(pids), 900):
+            part = pids[i:i + 900]
+            have = dict(conn.execute(f"SELECT pid, val FROM packrows WHERE pid IN ({','.join('?' * len(part))})", part))
+            for pid in part:
+                yield from pickle.loads(have[pid])
+    pack = Packed.of(raws())
+    with conn:
+        conn.execute("UPDATE packrows SET used=? WHERE used<?", (today, today))
+        conn.execute("DELETE FROM packrows WHERE used < ?", (today - STORE_DAYS,))
+        conn.execute("INSERT OR REPLACE INTO pack VALUES(1,?,?)",
+                     (whole, pickle.dumps(pack._state(), pickle.HIGHEST_PROTOCOL)))
+    return pack
 
 
 def puzzle_clues(path):
@@ -3075,6 +3157,18 @@ class Packed:
             return pickled
         new = cls.__new__(cls)
         new._raws(pickled)
+        return new
+
+    def _state(self):
+        return self._groups, [bytes(a) for a in self._sizes], self._n
+
+    @classmethod
+    def _restored(cls, groups, sizes, n):
+        new = cls.__new__(cls)
+        new._groups, new._n = groups, n
+        new._sizes = [array.array("I") for _ in sizes]
+        for a, b in zip(new._sizes, sizes):
+            a.frombytes(b)
         return new
 
     def __len__(self):

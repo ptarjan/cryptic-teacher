@@ -2688,7 +2688,10 @@ def main():
     with letter_facts.timed("leads read"):
         said = letter_facts.read_leads(required=True)
     with letter_facts.timed("corpus packed"):
-        corpus = letter_facts.Packed(letter_facts.rows())
+        pack_store = letter_facts.open_pack_store()
+        corpus = letter_facts.packed_rows(pack_store)
+        if pack_store is not None:
+            pack_store.close()
     with letter_facts.timed("indicator votes"):
         votes = letter_facts.indicator_votes(corpus)
     n = letter_facts.write(corpus, votes, said)
