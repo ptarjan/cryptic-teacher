@@ -516,6 +516,12 @@ def settled(entry, reason):
     is never settled: only the model can say those are done. "model-fixable" and
     "walkthrough" are re-checked (the tree gives the answer now; no walkthrough gap)."""
     ann = entry.get("annotation")
+    if ann and str(reason).split(":")[0].strip() == "ddMissesWordplay":
+        # A double definition has no tree, so the checks below never see it: stale once the
+        # lesson check no longer fires on the clue (telegraph-18307 26a, once an anagram needs
+        # an indicator among the other words).
+        import lesson_checks
+        return not lesson_checks.dd_misses_wordplay(ann, (entry.get("clue") or {}).get("text", ""), _answer(entry))
     if not ann or ann.get("wordplay") is None:
         return False
     # A hint may hold "; " itself (unindicatedBare's): a class starts only at "<word>:" after one.
@@ -581,6 +587,27 @@ def done(puzzle, written, held=()):
     return len(mine)
 
 
+def mark_tried(pid):
+    """Mark every pending row of puzzle `pid` tried, for a run that ended with the puzzle's file
+    unchanged: the model looked at its flagged clues and kept them (11-03: 7 of 42 backfill runs in
+    an hour, 6 on ddMissesWordplay), and with no _ann key for them done() never saw them, so the
+    same rule queued the puzzle again and again. A tried row waits for the annotate code to change
+    (rearmed(), at most MAX_TRIES). Returns how many rows it marked."""
+    sha = code_sha()
+    marked = 0
+    with locked():
+        out = []
+        for r in json.loads(PATH.read_text()):
+            p, _, _ = r["id"].partition("#")
+            if p == pid and (not r.get("tried") or rearmed(r, sha)):
+                r = {**r, "tried": True, "tries": tries(r) + 1, "tried_code": sha}
+                marked += 1
+            out.append(r)
+        if marked:
+            write(dump(out))
+    return marked
+
+
 @contextlib.contextmanager
 def locked():
     """Exclusive lock for a read-modify-write of the list. The lock is a file of
@@ -631,3 +658,10 @@ def splice(base, donor, pid):
         if not ours(r):
             out += [r] + after.get(r["id"], [])
     return dump(out)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 3 and sys.argv[1] == "--mark-tried":
+        print(mark_tried(sys.argv[2]))
+    else:
+        sys.exit("usage: shape_queue.py --mark-tried PUZZLE")

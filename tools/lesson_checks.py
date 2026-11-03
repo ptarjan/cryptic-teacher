@@ -53,13 +53,42 @@ def _def_spans(ann, clue):
     return out
 
 
+@functools.lru_cache(maxsize=None)
+def _anagram_indicators():
+    """The anagram indicator phrases (indicator_key spelling) the corpus has seen, or None when the
+    lexicon is not here (the anagram check then asks for no indicator)."""
+    path = Path(__file__).resolve().parent / "data" / "lexicons" / "indicators.json"
+    try:
+        return frozenset(json.loads(path.read_text())["anagram"])
+    except (OSError, ValueError, KeyError):
+        return None
+
+
+def _indicator_outside(words, i, j):
+    """True when a run of 1-3 clue words (letters only, as `words` holds them) outside words i..j
+    is a known anagram indicator; True too when the lexicon is not here."""
+    known = _anagram_indicators()
+    if known is None:
+        return True
+    out = [(k, w) for k, w in enumerate(words) if not i <= k <= j]
+    for a in range(len(out)):
+        for n in (1, 2, 3):
+            seg = out[a:a + n]
+            if len(seg) == n and seg[-1][0] - seg[0][0] == n - 1 and " ".join(w for _, w in seg) in known:
+                return True
+    return False
+
+
 def dd_misses_wordplay(ann, clue, answer):
     """'hidden' or 'anagram' when a double definition's clue holds the answer
     as a hidden word (read either way, not the whole of a word) or as the
     letters of a run of whole clue words in another order; else None. A run that
     lies wholly inside one definition is that definition's own words, not hidden
     wordplay: "for trees" scrambles to FORESTER by chance in the genuine double
-    definition "A novelist, perhaps, for trees?" (round 12)."""
+    definition "A novelist, perhaps, for trees?" (round 12). An anagram also needs an indicator
+    among the other clue words (tools/data/lexicons/indicators.json): "Mating males' main attribute"
+    holds the letters of ANIMAL MAGNETISM with no word to shuffle them, a bonus the annotation
+    rightly calls one (telegraph-18307 26a, left as it was by the 11-03 backfill run)."""
     if not double_definition(ann) or not clue or not answer:
         return None
     ans = letters(answer)
@@ -93,7 +122,8 @@ def dd_misses_wordplay(ann, clue, answer):
                 run += w
                 if len(run) >= len(ans):
                     break
-            if len(run) == len(ans) and run != ans and sorted(run) == sorted(ans) and not inside(i, j):
+            if len(run) == len(ans) and run != ans and sorted(run) == sorted(ans) and not inside(i, j) \
+                    and _indicator_outside(words, i, j):
                 return "anagram"
     return None
 
