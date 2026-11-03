@@ -370,7 +370,7 @@ lock_turn() (   # prints "ran after release" when the command waited for the hol
 )
 check "under_index_lock waits for a holder of ct-index.lock" "$(lock_turn)" "ran after release"
 check "the sync's tree-wide checkout and reset are taken in turn" \
-  "$(grep -c '^ *under_index_lock git checkout -q -- \. \|flock -w 300 7 && {$' tools/prereset_backfill.sh)" "2"
+  "$(grep -c '^ *under_index_lock git checkout -q -- \. \|flock -w 300 7 && {$' tools/prereset_backfill.sh)" "3"
 check "no git status in the worker or burn takes an optional index lock" \
   "$(grep -c '^[^#]*git status --porcelain' tools/puzzle_worker.sh tools/prereset_backfill.sh | tr '\n' ' ')" \
   "tools/puzzle_worker.sh:0 tools/prereset_backfill.sh:0 "
@@ -570,7 +570,8 @@ check "a cut-off bag commits what validated so far, keeping the cut-off puzzle b
 echo "the burn bags in the Annotate pool and the shape-rule backfills, and a bag's ids stay held"
 check "pool_bag asks pool_bags first" \
   "$(awk '/^pool_bag\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^  pool_bags || return 0$')" "1"
-bagfns=$(awk '/^(pool_bags|bag_rule|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
+declare -A SHAPE_RULE_OF=()  # pool_what reads it; the script declares it at top level
+bagfns=$(awk '/^(pool_bags|pool_what|bag_rule|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
 # shellcheck disable=SC2034  # read by the eval'd functions
 bags_for() ( eval "$bagfns"; DRY_RUN="${2:-0}" WAVE_WHAT="$1"; pool_bags && echo yes || echo no )
 check "which pools bag: Annotate, a shape rule; not a field, wordplay.unchecked, the blog re-check or a dry run" \
@@ -590,7 +591,7 @@ check "an Annotate bag's prompt is the bag task alone" \
 rm -f "$bagp"
 check "pool_launch bags before it starts the run" \
   "$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh | awk '/pool_bag "\$id"/{b=NR} /run_claude /{r=NR} END{print (b && r && b < r)}')" "1"
-check "a re-plan holds the ids in running bags, so it does not queue them again" \
+check "a re-plan, a pool refill and the shape sweep hold the ids in running bags, so none queues them again" \
   "$(grep -c 'cat "\$RUNS"/\*\.bag' tools/prereset_backfill.sh)" "2"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"

@@ -19,15 +19,17 @@ def check(name, want, got):
 
 DD = {"definitions": [{"text": "a", "at": 0}, {"text": "b", "at": 2}]}
 check("an anagram of whole clue words filed as a double definition",
-      "anagram", L.dd_misses_wordplay(DD, "Strip, like piles do", "DESPOIL"))
+      "anagram", L.dd_misses_wordplay(DD, "Strip, broken piles do", "DESPOIL"))
+check("an anagram with no indicator among the other clue words is a bonus, not a miss", None,
+      L.dd_misses_wordplay(DD, "Strip, like piles do", "DESPOIL"))
 check("a word hidden across clue words", "hidden", L.dd_misses_wordplay(DD, "Lift off is no longer early", "REAR"))
 check("a word hidden backwards", "hidden", L.dd_misses_wordplay(DD, "Is pinching more than just a dram", "NIPS"))
 check("a hidden word inside one clue word is chance", None, L.dd_misses_wordplay(DD, "One who is offering", "RING"))
 check("the answer as a whole clue word is the definition", None, L.dd_misses_wordplay(DD, "Good news", "GOOD"))
 check("a parsed clue is not a double definition", None, L.dd_misses_wordplay(
-    {**DD, "wordplay": {"op": "charade", "parts": []}}, "Strip, like piles do", "DESPOIL"))
+    {**DD, "wordplay": {"op": "charade", "parts": []}}, "Strip, broken piles do", "DESPOIL"))
 check("one definition is not a double definition", None, L.dd_misses_wordplay(
-    {"definitions": [{"text": "a"}]}, "Strip, like piles do", "DESPOIL"))
+    {"definitions": [{"text": "a"}]}, "Strip, broken piles do", "DESPOIL"))
 # The collapsed double definitions of the study (ANUS from MEAN MUSE less MEME, AVE from
 # AVERAGE less RAGE, SEEMED from SEE + MED, TARANDS from TARS round AND) hide nothing the
 # clue's letters show, so these checks leave them alone.
@@ -58,7 +60,7 @@ check("and holds only spellings with a mark", [], [s for s in spellings.values()
 
 for field in ("wordplay.ddMissesWordplay", "spelling.unsaid"):
     check(f"{field} is a ratchet field", True, field in v.BACKLOG_MARKERS)
-held = {"clue": {"text": "Strip, like piles do", "enumeration": "7"}, "solution": "DESPOIL"}
+held = {"clue": {"text": "Strip, broken piles do", "enumeration": "7"}, "solution": "DESPOIL"}
 warn = v.lesson_warnings("1A", DD, held)
 check("the validator warns of a double definition that hides its answer", 1, len(warn))
 check("the ratchet refuses one more than a puzzle is allowed", 1, len(v.backlog_errors("x-1", warn, {"wordplay.ddMissesWordplay": {}})))

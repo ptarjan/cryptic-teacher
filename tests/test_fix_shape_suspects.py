@@ -574,8 +574,9 @@ mlt = {"op": "charade", "indicators": [{"text": "introducing", "at": 8}], "parts
     {"words": "Company", "at": 0, "gives": "CO"},
     {"op": "anagram", "indicators": [{"text": "various", "at": 20}], "parts": [{"words": "menus", "at": 28}]}]}
 new, used = F.repair_tree(mlt, mlc, "CONSUME", MP)
-check("a link word touching one synonym leaf joins its words", used == ["misplacedIndicator"]
-      and "indicators" not in new and new["parts"][0]["words"] == "Company introducing")
+# A charade of a leaf and an in-place anagram is no longer a misplaced indicator (7d42bfb753b: the container
+# word on it is the clue's link, UPBEAT), so the validator flags nothing here and the repair leaves it be.
+check("a link word on a charade of a leaf and an in-place anagram is not a miss", used == [])
 mlc2 = "Company introducing ring various menus"
 mlt2 = {"op": "charade", "indicators": [{"text": "introducing", "at": 8}], "parts": [
     {"words": "Company", "at": 0, "gives": "CO"}, {"words": "ring", "at": 20, "gives": "O"},
