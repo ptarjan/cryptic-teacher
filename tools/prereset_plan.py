@@ -772,7 +772,7 @@ def show_resets():
     natural = natural_only(_read(home / NATURAL_ONLY), now)
     slots = [] if natural else reset_slots(used, now, until)
     bridge, rate = bridge_spend()
-    rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.log") or "").splitlines()))
+    rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.debug.log") or "").splitlines()))
     cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
     sleep = awake.load(home, now)
     k, fill, need_rate = reset_plan(pct, now, until, slots, cap, sleep)
@@ -832,7 +832,7 @@ def width(arg=None, floor=1):
     bridge's measured spend, the burn's rate and last width, and the machine.
     The inputs go to stderr."""
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
-    lines = (_read(home / ".prereset.log") or "").splitlines()
+    lines = (_read(home / ".prereset.debug.log") or "").splitlines()
     current = current_width(arg, lines)
     runs_needed = bridge = pct = hours_left = plan = night = None
     slots = []

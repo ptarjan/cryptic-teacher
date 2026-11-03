@@ -46,6 +46,23 @@
 # never as well — see daily_update.sh's header.
 
 set -uo pipefail
+# Two logs in the main checkout. .prereset.debug.log gets everything the burn and its fires
+# print (the planner reads its meter lines); .prereset.log is the human one, written from
+# the same stream by tools/burn_log.py: a line per puzzle and a status line. A fire's own
+# lines (watchdog, "holds its tree") are debug too, so they go there from the first byte.
+HUMAN_LOG="" DEBUG_LOG=""
+if [ "${DRY_RUN:-0}" != 1 ]; then
+  _main="${CT_MAIN_CHECKOUT:-$(cd "$(dirname "$0")/.." && pwd)}"
+  HUMAN_LOG="$_main/.prereset.log" DEBUG_LOG="$_main/.prereset.debug.log"
+  # First start of the split: the old combined log is the debug log's first chapter
+  # (a burn that re-execs onto this code keeps writing to that same file, renamed).
+  [ -e "$DEBUG_LOG" ] || { [ ! -s "$HUMAN_LOG" ] || mv "$HUMAN_LOG" "$DEBUG_LOG"; }
+  if [ -z "${CT_PRERESET_STATE:-}" ]; then
+    # Rotation: one generation kept.
+    [ "$(stat -c %s "$DEBUG_LOG" 2>/dev/null || echo 0)" -lt 20000000 ] || mv -f "$DEBUG_LOG" "$DEBUG_LOG.1"
+    exec >>"$DEBUG_LOG" 2>&1
+  fi
+fi
 # The whole burn yields to the bridge: its checks and syncs as well as its runs.
 # A setsid'd job is its own autogroup, which the CPU is shared between by the
 # group's nice: renice alone only ranks it inside the group, so lower both.
@@ -112,6 +129,7 @@ export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" rem
 # Each run's sid file and fill, kept where a restart and the tree's reset leave
 # them (worker_runs), so a run the restart stopped resumes.
 RUNS="$(worker_runs prereset_backfill)" || exit 1
+rm -f "$RUNS/.width_said"  # a new process says its width once
 
 # This run's own output, so the exit trap can report any failure line nobody
 # wrote an alert for. See alert_run_failures in alert.sh.
@@ -119,21 +137,22 @@ RUNS="$(worker_runs prereset_backfill)" || exit 1
 # but a template that must contain X's on GNU, so the one spelling cannot mean
 # the same thing on both. Every mktemp below is written this way.
 # A re-exec keeps the log and the tee its output already goes to.
+# BURN_SPLIT marks a process whose output already goes through the human-log filter; a burn
+# that re-execs from before the split lacks it, and gets the filter here.
+tee_split() {
+  if [ -n "$DEBUG_LOG" ]; then
+    export BURN_SPLIT=1
+    exec > >(tee -a "$RUN_LOG" "$DEBUG_LOG" >(python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG") >/dev/null) 2>&1
+  else
+    exec > >(tee -a "$RUN_LOG") 2>&1
+  fi
+}
 if [ -n "$REEXEC_STATE" ]; then
   RUN_LOG="${REEXEC_STATE%.state}"
+  [ -n "${BURN_SPLIT:-}" ] || tee_split
 else
   RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
-  # The main checkout's .prereset.log is the job's log whoever started it:
-  # the Burn lane tails it (tools/track_prereset.sh) and prereset_plan.py reads
-  # its meter lines. The hourly fire already appends there; a start by hand or
-  # through track_prereset.sh does not, and without this its lines went only to
-  # the track-job log, leaving the lane on the fires' "holds its tree" line.
-  main_log="${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log"
-  if [ /dev/stdout -ef "$main_log" ] || [ "${DRY_RUN:-0}" = 1 ]; then
-    exec > >(tee -a "$RUN_LOG") 2>&1
-  else
-    exec > >(tee -a "$RUN_LOG" "$main_log") 2>&1
-  fi
+  tee_split
 fi
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
@@ -264,7 +283,7 @@ rm -f /tmp/ct-prereset-*.resume
 # still the right bound: the week is a fixed length.
 resets_in=$(python3 tools/weekly_usage.py --resets-in)
 if [ -z "$resets_in" ]; then
-  alert "pre-reset backfill can't read when the weekly window resets, so it can't bound the run. Skipped — see .prereset.log. Nothing is being backfilled until this reads again."
+  alert "pre-reset backfill can't read when the weekly window resets, so it can't bound the run. Skipped — see .prereset.debug.log. Nothing is being backfilled until this reads again."
   exit 1
 fi
 RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 3600}')
@@ -907,11 +926,11 @@ pool_checkpoint() {
 ledger_tick() {
   [ "$DRY_RUN" = 1 ] && return 0
   ( setsid nice -n 19 timeout 600 python3 "$REPO/tools/annotate_ledger.py" record \
-      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log" 2>&1 & ) 2>/dev/null || true
+      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.debug.log" 2>&1 & ) 2>/dev/null || true
   # A new GitHub security alert wakes the room (Paul 10-23); the script gates itself
   # to once an hour. Same detached, niced, time-boxed shape.
   ( setsid nice -n 19 timeout 120 python3 "$REPO/tools/security_alert_watch.py" \
-      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log" 2>&1 & ) 2>/dev/null || true
+      </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.debug.log" 2>&1 & ) 2>/dev/null || true
 }
 
 run_pool() {
@@ -1273,7 +1292,7 @@ sync_wave() {
   local out ref stale_s=$(( (${EPOCHREALTIME/[.,]/} - SYNC_OK_US) / 1000000 ))
   if ! push_race_retry sync_attempt; then
     if [ "$stale_s" -lt "$SYNC_STALL_SECS" ]; then
-      alert "pre-reset backfill could not push what its worktree holds onto origin/master, so it stays where it is and runs old code — see .prereset.log."
+      alert "pre-reset backfill could not push what its worktree holds onto origin/master, so it stays where it is and runs old code — see .prereset.debug.log."
       return 0
     fi
     # Bounded: past SYNC_STALL_SECS the unpublished commits are parked (kept,
@@ -1281,7 +1300,7 @@ sync_wave() {
     # the tree goes to origin/master, since staying is what keeps it stuck.
     ref="refs/prereset-parked/$(date +%Y%m%d-%H%M%S)"
     git update-ref "$ref" HEAD
-    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min: parked its $(git cherry origin/master HEAD | grep -c '^+') unpublished commits at ${ref#refs/} (retried at every sync) and moved onto origin/master — see .prereset.log."
+    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min: parked its $(git cherry origin/master HEAD | grep -c '^+') unpublished commits at ${ref#refs/} (retried at every sync) and moved onto origin/master — see .prereset.debug.log."
   fi
   if out=$(sync_tree 2>&1); then
     SYNC_OK_US=${EPOCHREALTIME/[.,]/}
@@ -1291,7 +1310,7 @@ sync_wave() {
     return 0
   fi
   [ "$stale_s" -ge "$SYNC_STALL_SECS" ] &&
-    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min (reset refused: $out) — see .prereset.log."
+    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min (reset refused: $out) — see .prereset.debug.log."
   SYNC_BEHIND=$(( SYNC_BEHIND + 1 ))
   if [ "$SYNC_BEHIND" -ge "$SYNC_BEHIND_MAX" ]; then
     echo "ALERT: tree stuck at $(git rev-parse --short HEAD), $(git rev-list --count HEAD..origin/master) commits behind origin/master for $SYNC_BEHIND syncs in a row, so it runs old code: $out"
@@ -1617,7 +1636,7 @@ if [ -n "$(git --no-optional-locks status --porcelain)" ]; then
   left=$(git --no-optional-locks status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
   push_race_retry sync_attempt ||
-    alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
+    alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.debug.log."
 fi
 
 ledger_tick

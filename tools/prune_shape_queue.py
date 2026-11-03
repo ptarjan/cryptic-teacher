@@ -147,7 +147,7 @@ def log_line(msg):
     appends to the burn's own log (.prereset.log in $CT_MAIN_CHECKOUT, else this tree)
     when that file exists."""
     import os
-    log = Path(os.environ.get("CT_MAIN_CHECKOUT") or Path(__file__).resolve().parent.parent) / ".prereset.log"
+    log = Path(os.environ.get("CT_MAIN_CHECKOUT") or Path(__file__).resolve().parent.parent) / ".prereset.debug.log"
     try:
         if log.is_file():
             with log.open("a") as f:
