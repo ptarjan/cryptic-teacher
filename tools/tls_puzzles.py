@@ -51,8 +51,11 @@ UA = {"User-Agent": "Mozilla/5.0"}
 LISTING = ("https://www.the-tls.com/wp-json/wp/v2/tls_articles?article_category=95&per_page=3"
            "&_fields=id,date,link,title,content")
 TITLE = re.compile(r"Crossword\s+(\d{3,5})\b")
-IMAGE = re.compile(r'<img[^>]+src="([^"?]+/crossword-\d+[^"?]*\.(?:jpe?g|png))', re.IGNORECASE)
+#: The article's one picture, whatever its file is called: 1621 was "Crossword-1621.png",
+#: 1622 "TLS.047.1GM.30oct_..._cropped_page-0001.jpg".
+IMAGE = re.compile(r'<img[^>]+src="([^"?]+/wp-content/uploads/[^"?]+\.(?:jpe?g|png))', re.IGNORECASE)
 #: The clue reader: English PP-OCRv5 keeps the spaces RapidOCR's "ch" loses here.
+PAGE_WIDTH = 2166
 READER = "en5"
 BYLINE = re.compile(r"Crossword\s*(\d{3,5})\s*by\s*([A-Z][A-Za-z]+)")
 FOOTER_DATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
@@ -89,7 +92,9 @@ def lattice(centres):
                 continue
             chain, at = [c], c
             for e in centres:
-                if e > at and abs(e - at - pitch) <= max(2, pitch * 0.06):
+                # A whole number of pitches on: a line lost in a black cell's run is skipped.
+                k = round((e - at) / pitch)
+                if e > at and 1 <= k <= 8 and abs(e - at - k * pitch) <= max(2, pitch * 0.06):
                     chain.append(e)
                     at = e
             if len(chain) >= 5 and (best is None or len(chain) > len(best)):
@@ -104,7 +109,8 @@ def grid_box(a):
     import numpy as np
     h, w = a.shape
     ink = a < 0.8
-    cols = runs(ink[:, : int(w * 0.6)].sum(axis=0) > 0.5 * h)
+    # A rule is a thin run; wider ones are columns of black cells.
+    cols = [(s, e) for s, e in runs(ink[:, : int(w * 0.6)].sum(axis=0) > 0.5 * h) if e - s <= 8]
     xs = lattice([(s + e - 1) / 2 for s, e in cols])
     if not xs:
         return None
@@ -184,6 +190,10 @@ def read_image(img, web_date):
     """{number, setter, date, clues, grid, preamble, origin} off the page image,
     or raises ValueError saying what could not be read."""
     import numpy as np
+    from PIL import Image
+    # The thresholds are tuned for the 2166-wide page; 1622's was cropped at 1617.
+    if img.width != PAGE_WIDTH:
+        img = img.convert("RGB").resize((PAGE_WIDTH, round(img.height * PAGE_WIDTH / img.width)), Image.LANCZOS)
     a = np.asarray(img.convert("L"), dtype=np.float32) / 255
     h, w = a.shape
     box = grid_box(a)
@@ -196,9 +206,11 @@ def read_image(img, web_date):
     below = (gx0 - pad, gy1 + pad, gx1 + pad, h)
     right = (gx1 + pad, gy0 - pad, w, h)
     # The footer line (date, title, page) is below every column: stop above it.
+    # A page cropped with no footer (1622) ends in a clue row, set close under the one above.
     foot = h
-    for s, e in runs((a[gy1:, :] < 0.5).any(axis=1)):
-        foot = gy1 + s
+    bands = runs((a[gy1:, :] < 0.5).any(axis=1))
+    if len(bands) > 1 and bands[-1][0] - bands[-2][1] > bands[-1][1] - bands[-1][0]:
+        foot = gy1 + bands[-1][0]
     columns = []
     for bx0, by0, bx1, by1 in (below, right):
         cuts = [bx0] + rules(a, bx0, by0, bx1, min(by1, foot)) + [bx1]
