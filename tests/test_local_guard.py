@@ -19,7 +19,7 @@ DENY = [
     "python3 tools/blog_facts.py --measure", "python3 tools/blog_facts.py",
     "python3 tools/validate_annotations.py", "python3 tools/puzzle_integrity.py --quiet",
     "python3 tools/difficulty.py --validate", "python3 tools/requeue_drift.py --write",
-    "python3 tools/coverage_report.py", "bash tools/coverage.sh",
+    "python3 tools/series_health.py", "bash tools/coverage.sh",
     "git log | pytest", "echo hi; pytest", "timeout 60 pytest", "env A=1 nohup pytest",
     "bash -c 'python3 -m pytest'", "echo $(python3 -m pytest)",
     "track-job.sh ch --run lbl -- python3 -m pytest",

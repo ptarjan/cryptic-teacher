@@ -9,7 +9,7 @@ Run it:
     python3 tools/puzzle_integrity.py --refused FILE... # those of the files the pre-push would refuse, a line each
 
 Everything else in tools/ checks the work we ADD to a puzzle: validate_annotations.py
-grades the annotation, coverage_report.py counts what each series holds. This
+grades the annotation, series_health.py counts what each series holds. This
 checks the puzzle underneath, because a puzzle that arrives wrong stays wrong and
 the cost lands later — a duplicate gets annotated twice at full model price and then
 shows up twice on the site, and a clue whose enumeration contradicts its own answer

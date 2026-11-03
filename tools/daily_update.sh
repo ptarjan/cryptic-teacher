@@ -553,12 +553,12 @@ unit_checks() {
     if past_deadline; then echo "step $1 put off: past the unit's deadline; the next tick runs it"; unit_backlog_left; return 1; fi
     echo "step $1 from $(date +%H:%M:%S)"
   }
-  if step coverage_report; then
+  if step series_health; then
     # A series that has stopped arriving. A feed that stops answering leaves its
     # series frozen at the day it broke, and the run cannot tell that from a quiet
     # night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
-    # table is `python3 tools/coverage_report.py`.
-    coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
+    # table is `python3 tools/series_health.py`.
+    coverage_stale=$(python3 tools/series_health.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
     printf '%s\n' "$coverage_stale" | grep "^out of time" || true
     # A newly filed puzzle still hintless 36h on, with no failure recorded: the
     # silent miss (tools/hintless_overdue.py). A gate-held one lands here too, and

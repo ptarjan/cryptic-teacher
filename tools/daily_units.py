@@ -147,7 +147,7 @@ GENERATED = {
     "minute": False,
     # Only its Claude fix pass does, which builds them first (daily_update.sh).
     "reports": False,
-    # coverage_report.py reads the puzzle rows through the shared row cache,
+    # series_health.py reads the puzzle rows through the shared row cache,
     # puzzle_integrity.py and turn_cost.py nothing generated. Waiting for the
     # rebuild took 35 of its 45 minutes and got it killed (2026-10-15).
     "checks": False,
