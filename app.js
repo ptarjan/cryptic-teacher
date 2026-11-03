@@ -9894,7 +9894,10 @@
     if (isOffline()) { offlineNote("You’re offline. Connect to wifi and try again."); return; }
     // Offline search and the Library need every row, so the list is completed
     // first (once: a list that cannot be completed saves what it has).
-    if (!listed && !listFull()) { loadShards(null, () => saveOffline(quiet, true)); return; }
+    // Only the installed app does that on its own (it needs everything offline);
+    // the automatic save in a browser tab saves what the page already has and
+    // fetches no shard it was not asked for. Save now always completes the list.
+    if (!listed && !listFull() && (!quiet || isAppMode())) { loadShards(null, () => saveOffline(quiet, true)); return; }
     const more = !quiet;
     const rows = offlineBatch(more);
     if (offlineBusy) return;
@@ -9921,7 +9924,8 @@
     // puzzles merely opened once. The open puzzle stays.
     const cur = P && BY_ID[P.reprintOf || P.id];
     const stale = more || !offlineFiles ? [] : [...offlineFiles].filter((f) => !(cur && cur.file === f));
-    let dropFiles = syncFails ? [] : [...new Set([...prev, ...solved, ...stale])].filter((f) => !solved.has(f) ? !want.has(f) && !started.has(f) : true);
+    // A partial list does not know every started puzzle, so it drops nothing.
+    let dropFiles = syncFails || !listFull() ? [] : [...new Set([...prev, ...solved, ...stale])].filter((f) => !solved.has(f) ? !want.has(f) && !started.has(f) : true);
     if (offlineFiles) for (let i = dropFiles.length - 1; i >= 0; i--) if (!offlineFiles.has(dropFiles[i])) dropFiles.splice(i, 1);
     // Both stored forms of a file: the .gz and the plain script.
     const drop = [];

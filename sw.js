@@ -17,6 +17,10 @@
      load (at most every 6h) and after a solve, with no tap needed. A new
      worker skips waiting and claims the page, so the first load is covered.
      One puzzle file holds the grid, the annotations and the hints.
+   - puzzles/idx/ (the progressive puzzle list) is kept in the shell cache:
+     head-live.json network-first, the content-named head-static, shards and
+     bundle cache-first. When a new head-live arrives, idx files it no longer
+     names are deleted. Offline, the boot reads all of it from there.
    - sw.js itself is never cached here, so a new worker is always picked up.
    Old stamped copies of a file are dropped when the page announces its current
    set of assets in a "precache" message (the first visit has no worker yet to
@@ -36,7 +40,32 @@ self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
 
 const SCOPE = new URL("./", self.location).href;
-const isPuzzleFile = (url) => /\/puzzles\/.+\.js(\.gz)?$/.test(url.pathname) && !/\/index\.js$/.test(url.pathname);
+// Not puzzles: the list files (index.js, index-core.js) and all of puzzles/idx/.
+const isPuzzleFile = (url) => /\/puzzles\/.+\.js(\.gz)?$/.test(url.pathname)
+  && !/\/index(-core)?\.js$/.test(url.pathname) && !isIdxFile(url);
+// The progressive index (tools/index_idx.py): head-live.json is rewritten on
+// every filing; head-static.<hash>.js, <series>-<year>.<hash>.json and
+// bundle.<hash>.json are named by their content and never change.
+const IDX_PATH = new URL("puzzles/idx/", SCOPE).pathname;
+function isIdxFile(url) { return url.pathname.startsWith(IDX_PATH); }
+const isIdxLive = (url) => url.pathname === IDX_PATH + "head-live.json";
+// The idx files head-live names, as file names: all other held versions go.
+function idxNamed(live) {
+  const keep = new Set(["head-live.json", live.static, live.bundle]);
+  const m = live.manifest || {};
+  for (const k of Object.keys(m)) keep.add(k.replace("/", "-") + "." + m[k] + ".json");
+  return keep;
+}
+async function sweepIdx(res) {
+  try {
+    const keep = idxNamed(await res.json());
+    const cache = await caches.open(SHELL);
+    for (const k of await cache.keys()) {
+      const u = new URL(k.url);
+      if (isIdxFile(u) && !keep.has(u.pathname.slice(IDX_PATH.length))) await cache.delete(k);
+    }
+  } catch (e) { /* unreadable: keep everything */ }
+}
 // The home page however it was opened (?p=<id>, a Home Screen start URL).
 const isHome = (url) => {
   const at = url.origin + url.pathname;
@@ -88,11 +117,11 @@ function offlineHome(url) {
 
 // `key` is what the copy is filed under: the home page is one entry however
 // many ?p=<id> addresses it was opened as.
-async function networkFirst(req, name, key) {
+async function networkFirst(req, name, key, onFresh) {
   const cache = await caches.open(name);
   const held = await cache.match(key);
   const net = fetch(req).then((res) => {
-    if (res.ok && !res.redirected) cache.put(key, res.clone());
+    if (res.ok && !res.redirected) { cache.put(key, res.clone()); if (onFresh) onFresh(res.clone()); }
     return res;
   });
   if (!held) return net;
@@ -120,6 +149,18 @@ self.addEventListener("fetch", (event) => {
       // online; offline, a redirect to the app (see offlineHome).
       event.respondWith(fetch(req).catch(() =>
         caches.match(new Request(SCOPE)).then((r) => (r ? Response.redirect(offlineHome(url), 302) : Response.error()))));
+    }
+    return;
+  }
+  if (isIdxFile(url)) {
+    // Beside the shell, never in the evictable puzzle cache. head-live is
+    // network-first (the cache is the offline copy); the rest is content-named.
+    if (isIdxLive(url)) {
+      const key = new Request(url.origin + url.pathname);
+      event.respondWith(networkFirst(req, SHELL, key, (res) => event.waitUntil(sweepIdx(res))).catch(() =>
+        caches.match(key).then((r) => r || Response.error())));
+    } else {
+      event.respondWith(cacheFirst(req, SHELL));
     }
     return;
   }
