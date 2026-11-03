@@ -2,7 +2,6 @@
 """Which tail puzzles one annotate session takes together: a bag.
 
     ids | python3 tools/clue_bag.py [--due] [--any-listed | --blog] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
-    python3 tools/clue_bag.py --blog-list BAGFILE    # the blog bag prompt's list of puzzles
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
@@ -23,8 +22,9 @@ every rule anyway, and most rules' queues hold too few clues to fill one (11-03:
 The blog re-check ("Re-check against its blog:", tools/prereset_backfill.sh section 3)
 bags the same way with --blog: a puzzle's clues due are the ones tools/blog_compare.py
 --due flags for it (the `due` of tools/data/blog_compare.json, 1-3 clues a puzzle: 11-03
-measured ~7.3k tokens a clue run alone, one session each). The session edits each
-puzzle's own file, as the solo run does (tools/blog_bag_prompt.md), so no view is built.
+measured ~7.3k tokens a clue run alone, one session each). Its session is the same bag as
+any other: one view (tools/annotate_bag.py, with the blog's warnings and our hints beside
+them), one write, one check; a hint that stands is filed under "_keep".
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
@@ -200,21 +200,7 @@ def blog_spread_target(leader, queue, table, slots, target=BAG_TARGET, least=MIN
     return max(least, min(target, -(-total // slots)))
 
 
-def blog_list(bagfile):
-    """The blog bag prompt's list: one line a puzzle, "id (path): 10-across, 17-down"."""
-    import puzzle_paths
-    table = blog_due()
-    lines = []
-    for pid in Path(bagfile).read_text().split():
-        path = puzzle_paths.find(pid)
-        lines.append(f"{pid} ({path.relative_to(puzzle_paths.ROOT) if path else '?'}): " + ", ".join(table.get(pid) or ["see annotate_check"]))
-    return "\n".join(lines)
-
-
 def main(argv):
-    if len(argv) == 2 and argv[0] == "--blog-list":
-        print(blog_list(argv[1]))
-        return 0
     with_due = "--due" in argv
     any_listed = "--any-listed" in argv
     slots = 1

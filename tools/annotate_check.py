@@ -69,6 +69,7 @@ import yield_cpu  # a nice-19 burn's session yields too
 import contextlib
 import io
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -176,6 +177,18 @@ VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "preamble
              "themeClue", "cluesUnplaced", "entries")
 
 
+def blog_due(puzzle):
+    """{entry id: [blog warning, ...]} for a blog re-check bag (CT_BLOG_RECHECK set by
+    tools/prereset_backfill.sh for that phase); {} in every other run, so an ordinary
+    annotate run never takes a blog-flagged clue it was not sent."""
+    if not os.environ.get("CT_BLOG_RECHECK"):
+        return {}
+    import blog_compare
+    import puzzle_paths
+    path = puzzle_paths.find(puzzle.get("id"))
+    return blog_compare.clue_warnings(path) if path else {}
+
+
 def to_write(puzzle, before):
     """The ids a run on this puzzle annotates: the clues that lack a hint,
     plus `before`, the list the run started with, so a clue the run has since
@@ -200,6 +213,8 @@ def to_write(puzzle, before):
     # The shape re-annotation list's clues (tools/shape_queue.py): hinted
     # already, and the hint stays until the new one validates.
     only += [cid for cid in shape_queue.flagged(puzzle) if cid not in only]
+    # The blog re-check's clues: hinted already, the hint stays until a new one lands (or is kept).
+    only += [cid for cid in blog_due(puzzle) if cid not in only]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
     return only
@@ -375,6 +390,11 @@ def write_view(path):
                                   f"parse the clue again and write a new `wp`; the check refuses "
                                   f"a tree with that fault, the old one included"
                                for c, r in flagged.items()}
+        blog = {c: " | ".join(w) for c, w in blog_due(puzzle).items() if c in only}
+        if blog:
+            view["blogFlagged"] = blog
+            view["ourAnnotations"] = {entry_id(e): in_notation(e["annotation"], e, puzzle) for e in puzzle["entries"]
+                                      if entry_id(e) in blog and e.get("annotation")}
         keep = keep_words(puzzle, only)
         if keep:
             view["keepWords"] = keep

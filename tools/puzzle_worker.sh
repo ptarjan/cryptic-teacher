@@ -62,13 +62,21 @@ worker_runs_root() {   # [tree] -> where every job's records live
   g="$(git ${1:+-C "$1"} rev-parse --path-format=absolute --git-common-dir)" &&
     printf '%s\n' "$(dirname "$g")/.ct-runs"
 }
+# The turn limit of a run: 200 for a cold solve; a bag's own (tools/bag_turns.py, from its clue
+# count, written beside its sid file as <id>.turns by the pool); 80 otherwise.
+worker_max_turns() {   # kind sidfile
+  local n
+  [ "$1" = solve ] && { echo 200; return; }
+  n=$(cat "${2%.sid}.turns" 2>/dev/null)
+  case "$n" in ''|*[!0-9]*) echo 80 ;; *) echo "$n" ;; esac
+}
 worker_runs() {   # job -> its record directory, made if missing
   local d
   d="$(worker_runs_root)/$1" && mkdir -p "$d" && printf '%s\n' "$d"
 }
 worker_forget() {   # sidfile
   local rec="${1%.sid}"
-  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside" "$rec.mended" "$rec.bag"
+  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside" "$rec.mended" "$rec.bag" "$rec.turns"
 }
 # The puzzles conversation $1 (a sid file) is working: the ones its bag still
 # lists, or just its own id when it is not a bag.
@@ -241,7 +249,7 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     --model "$WORKER_MODEL" \
     --effort "$WORKER_EFFORT" \
     --allowedTools "$tools" \
-    --max-turns "$([ "$kind" = solve ] && echo 200 || echo 80)" >"$log" 2>&1
+    --max-turns "$(worker_max_turns "$kind" "$sidfile")" >"$log" 2>&1
 }
 
 # The one line that says why output $1 failed, for logs and the solve ledger.
@@ -863,13 +871,18 @@ worker_finish_bag() {   # leader what sidfile log
   local what="$2" sidfile="$3" log="$4" m rc before changed=0 same=0 lost=0 again=0 kept=0
   local -a seen=()
   WORKER_BAG_AGAIN=""
+  WORKER_BAG_REQUEUE=""
   WORKER_BATCH_IDS=()
   WORKER_BATCH_ON=1
+  local total=0
+  total=$(worker_bag_ids "$sidfile" | wc -w)
   for m in $(worker_bag_ids "$sidfile"); do
     cp "$log" "$log.$m" 2>/dev/null || : >"$log.$m"
     before=${#WORKER_BATCH_IDS[@]}
+    WORKER_RETURNED=""
     _worker_finish "$m" "$what" "$sidfile" "$log.$m"
     rc=$?
+    [ "$rc" -eq 1 ] && [ -n "$WORKER_RETURNED" ] && WORKER_BAG_REQUEUE="${WORKER_BAG_REQUEUE:+$WORKER_BAG_REQUEUE }$m"
     rm -f "$log.$m"
     if [ "$rc" -eq 3 ]; then
       # Cut off: what validated so far is committed now, the rest stays bagged.
@@ -882,7 +895,7 @@ worker_finish_bag() {   # leader what sidfile log
     case $rc in
       0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "${WORKER_ROWS_ONLY:-}" ]; then changed=$((changed + 1))
          elif [ -n "${WORKER_BLOG_KEPT:-}" ]; then kept=$((kept + 1))  # a re-check that only filed "ours stands" (b3d2c43d498) is work, not no-change
-         else same=$((same + 1)); fi ;;
+         else same=$((same + 1)); [ -n "${WORKER_TURN_LIMIT:-}" ] && WORKER_BAG_REQUEUE="${WORKER_BAG_REQUEUE:+$WORKER_BAG_REQUEUE }$m"; fi ;;
       2) again=$((again + 1)); WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m" ;;
       *) lost=$((lost + 1)) ;;
     esac
@@ -893,6 +906,12 @@ worker_finish_bag() {   # leader what sidfile log
   worker_commit_batch "$what"
   worker_bag_drop_all "$sidfile" "${seen[@]}"
   worker_forget "$sidfile"
+  if [ -n "${WORKER_TURN_LIMIT:-}" ]; then
+    local back=0
+    [ -n "$WORKER_BAG_REQUEUE" ] && back=$(wc -w <<<"$WORKER_BAG_REQUEUE")
+    echo "  [$1] bag hit its turn limit after $((total - back)) of $total puzzles; $back untouched go back in the queue ($changed changed, $kept kept ours, $lost not shipped)"
+    return 0
+  fi
   echo "  [$1] bag of ${#seen[@]}: $changed changed$([ "$kept" -gt 0 ] && echo ", $kept kept ours"), $same produced no change, $lost not shipped, $again to solve again"
   return 0
 }
@@ -947,6 +966,15 @@ _worker_finish() {
       discard_puzzle "$id"
       rm -f "$vlog"
       worker_await_preamble "$id" "$wants"
+      return 1
+    fi
+    # A bag stopped by its turn limit was cut off mid-edit on this one: no fix run into that
+    # bloated conversation, the file goes back as committed and the puzzle stays due.
+    if [ -n "${WORKER_TURN_LIMIT:-}" ]; then
+      echo "  [$id] was mid-edit when the bag hit its turn limit — file put back, it stays due"
+      discard_puzzle "$id"
+      rm -f "$vlog"
+      WORKER_RETURNED=1
       return 1
     fi
     echo "  [$id] did not validate — handing the errors back rather than discarding the puzzle"

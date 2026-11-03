@@ -15,6 +15,9 @@ bag has ONE view and ONE annotations file:
          each puzzle's `tools/_puzzle_<id>.json` (annotate_check.write_view),
          which stays: apply_annotations reads `annotateOnly` back out of it, so
          the guard against rewriting a hinted clue is unchanged.
+         A blog re-check bag (CT_BLOG_RECHECK) lists, per puzzle, the clues its blog
+         disagrees on (`blogFlagged`) with our hint beside them (`ourAnnotations`); a clue
+         whose hint stands is filed in the puzzle's "_keep" object (blog_compare.keep_ours).
   check  FILE is one object {puzzle id: {entry id: annotation}}. Each puzzle's
          part is split to its own tools/_ann_<id>.json and annotate_check.main
          runs on it as it always did; a clean puzzle prints one line, a failing
@@ -24,6 +27,7 @@ bag has ONE view and ONE annotations file:
 import contextlib
 import io
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -78,11 +82,17 @@ def puzzle_block(pid, view):
                    + ". Passing = a re-parsed tree with none of those faults (new prose on the "
                    "same tree is refused), losing no clue word the old one explained; "
                    "`check` runs this gate")
+    blog = view.get("blogFlagged")
+    if blog:  # blog re-check clues: what its blog marks against ours (annotate_check.blog_due)
+        out.append("blog disagrees with the hint on file (ourAnnotations, below), clue by clue: "
+                   + " ## ".join(f"{c}: {w}" for c, w in blog.items())
+                   + ". Solve each fresh; if the blog is right write the corrected annotation, "
+                   "if ours stands list it under \"_keep\" (see the bag's head); the blog can be wrong, never copy its wording")
     keep = view.get("keepWords")
     if keep:  # the words the redo gate refuses to lose (annotate_check.keep_words)
         out.append("keep these words in the new tree unless wrong: "
                    + "; ".join(f"{c}: {w}" for c, w in keep.items()))
-    for k in ("draftAnnotations", "existingAnnotations", "grid", "scan"):
+    for k in ("ourAnnotations", "draftAnnotations", "existingAnnotations", "grid", "scan"):
         if view.get(k):
             out.append(f"{k}: {json.dumps(view[k], ensure_ascii=False, separators=(',', ':'))}")
     return "\n".join(out)
@@ -98,7 +108,9 @@ def write_bag_view(ids):
         blocks.append(puzzle_block(pid, view))
     head = (f"Bag of {len(ids)} puzzles. Write every puzzle's annotations as one JSON object "
             f"{{puzzle id: {{entry id: annotation}}}} to tools/{ann_path(ids[0]).name}, "
-            f"only for the lines below.")
+            f"only for the lines below. A clue whose hint on file stands (a blog re-check clue "
+            f"where ours is right) is not rewritten: list it in that puzzle's \"_keep\" object as "
+            f"{{\"<entry id>\": [\"definition,type,blocks (the ones to keep)\", \"one sentence: why ours stands\"]}}.")
     out = bag_path(ids[0])
     out.write_text(head + "\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8")
     done_path(ids[0]).unlink(missing_ok=True)
@@ -222,6 +234,36 @@ def patch_bag(path, fix):
     return None
 
 
+def file_keeps(pid, keeps):
+    """File each "_keep" row {entry id: [fields, why]} of puzzle pid (blog_compare.keep_ours);
+    the problems, one line each."""
+    import blog_compare
+    bad = []
+    for eid, row in keeps.items():
+        if not (isinstance(row, list) and len(row) == 2):
+            bad.append(f"_keep {eid}: write [\"definition,type,blocks (which)\", \"one sentence why ours stands\"]")
+        elif err := blog_compare.keep_ours(pid, eid, row[0], row[1]):
+            bad.append(f"_keep {eid}: {err}")
+    return bad
+
+
+def blog_left(pid):
+    """A blog re-check clue (CT_BLOG_RECHECK) still disagreeing with its blog, neither fixed nor
+    kept: the report line for it, or "". Nothing outside that phase."""
+    import annotate_check
+    if not os.environ.get("CT_BLOG_RECHECK"):
+        return ""
+    from fetch_puzzle import resolve_puzzle
+    try:
+        left = annotate_check.blog_due(annotate_check.read_puzzle_file(resolve_puzzle(pid)))
+    except Exception:
+        return ""
+    if not left:
+        return ""
+    return (f"{pid}: the blog still disagrees on " + "; ".join(f"{c}: {' | '.join(w)}" for c, w in left.items())
+            + ". Fix each (a patch) or list it under \"_keep\" with why ours stands.")
+
+
 def check(path):
     path = Path(path)
     first = path.stem.removeprefix("_ann_bag_")
@@ -238,9 +280,15 @@ def check(path):
     for pid, part in data.items():
         if pid in done:
             continue
+        part = dict(part)
+        kept_msgs = file_keeps(pid, part.pop("_keep", None) or {})
         (TOOLS / f"_ann_{pid}.json").write_text(json.dumps(part, ensure_ascii=False, indent=1) + "\n",
                                                 encoding="utf-8")
         rc, text, state = run_one(pid)
+        if kept_msgs:
+            text, state, rc = "\n".join(kept_msgs) + "\n" + text, "failing", rc or 1
+        elif state != "failing" and (left := blog_left(pid)):
+            text, state, rc = left, "failing", 1
         gate = bag_redo_gate(pid, part) if state != "failing" else []
         # a clue the apply step already left out is reported above; the gate would
         # only say the same again about the old annotation still on file

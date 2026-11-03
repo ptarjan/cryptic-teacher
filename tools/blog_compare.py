@@ -160,7 +160,24 @@ def keep_ours(pid, eid, fields, why):
     rows = json.loads(TABLE.read_text(encoding="utf-8"))
     rows[f"{pid}/{eid}"] = [fields, why.strip()]
     TABLE.write_text(dump_lines(rows), encoding="utf-8")
+    V.BLOG_DISAGREE[(pid, eid)] = (fields, why.strip())  # this process's checks see it at once
     return None
+
+
+def clue_warnings(path):
+    """{entry id: [warning, ...]} what the blog checks say about the puzzle at `path`
+    as it stands, one "kind: text" per disagreement the clue has not been filed
+    (--keep) as checked. The one source of a bag's due clues for the blog kind
+    (annotate_check.blog_due), so its view and the survey agree."""
+    p = read_puzzle_view(path)
+    hits = {k: warned(c, p) for k, c in KINDS.items() if c}
+    hits["type"] = {**warned(V.check_type_against_blog, p),
+                    **warned(V.check_cryptic_definition_against_blog, p)}
+    out = {}
+    for kind, found in hits.items():
+        for eid, w in found.items():
+            out.setdefault(eid, []).append(f"{kind}: {w.split(': ', 1)[-1]}")
+    return out
 
 
 def unshipped(pid):

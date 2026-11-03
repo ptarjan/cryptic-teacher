@@ -124,5 +124,25 @@ shape_queue.regressions = lambda e, n: ["dropped 'mixed'"]
 check("a redo losing words fails the gate", "dropped 'mixed'" in annotate_bag.redo_gate(gpuz, {"5-down": {"wordplay": wp_old}})[0])
 shape_queue.listed, shape_queue.findings, shape_queue.regressions, apply_annotations.landed = saved
 
+import bag_turns
+check("a bag's turn limit is 20 plus a turn a clue, never under 40",
+      [bag_turns.turns(n) for n in (0, 5, 30, 39)] == [40, 40, 50, 59])
+
+blogview = dict(view, blogFlagged={"3-across": "definition: the blog underlines 'x'"},
+                ourAnnotations={"3-across": {"def": "old"}})
+block = annotate_bag.puzzle_block("p-1", blogview)
+check("a blog bag's block carries the blog's warning and our hint beside it",
+      "blog disagrees" in block and "3-across: definition: the blog underlines" in block
+      and 'ourAnnotations: {"3-across":{"def":"old"}}' in block)
+
+import blog_compare
+filed = []
+blog_compare.keep_ours = lambda pid, eid, fields, why: filed.append((pid, eid, fields, why)) or None
+check("a _keep row is filed through blog_compare.keep_ours",
+      annotate_bag.file_keeps("p-1", {"3-across": ["definition", "ours is the surface reading"]}) == []
+      and filed == [("p-1", "3-across", "definition", "ours is the surface reading")])
+check("a malformed _keep row is reported, not filed",
+      len(annotate_bag.file_keeps("p-1", {"5-down": "because"})) == 1 and len(filed) == 1)
+
 print("annotate_bag: all checks passed" if not fails else f"annotate_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)

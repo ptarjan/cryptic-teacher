@@ -543,6 +543,9 @@ batchflow() (   # mode: finish | cutoff
   : >"$runs/log"
   worker_clean() { :; }
   _worker_finish() {   # a, c and d validate (queued, not committed); b fails; nochange: d changed nothing
+    if [ "$MODE" = turnlimit ]; then   # a changed, b mid-edit (put back), c untouched, d withdrew
+      case "$1" in pw-b) WORKER_RETURNED=1; return 1 ;; pw-c) return 0 ;; pw-d) return 1 ;; esac
+    fi
     case "$1" in pw-b) return 1 ;; pw-c) [ "$MODE" = cutoff ] && return 3 ;; esac
     [ "$MODE:$1" = nochange:pw-d ] && return 0
     [ -n "$WORKER_BATCH_ON" ] && WORKER_BATCH_IDS+=("$1")
@@ -550,8 +553,10 @@ batchflow() (   # mode: finish | cutoff
   }
   worker_commit_batch() { echo "commit $1 ${WORKER_BATCH_IDS[*]}"; WORKER_BATCH_IDS=(); }
   MODE="$1"
+  [ "$MODE" = turnlimit ] && WORKER_TURN_LIMIT=1
   worker_finish_bag pw-a Annotate "$sid" "$runs/log"; echo "rc=$?"
   echo "left=$(cat "$runs/pw-a.bag" 2>/dev/null | tr '\n' ' ')"
+  echo "requeue=$WORKER_BAG_REQUEUE"
 )
 out=$(batchflow finish)
 check "the puzzles that validated are committed once, together; the failed one is left out" \
@@ -563,6 +568,14 @@ out=$(batchflow nochange)
 check "a member that changed nothing is counted, not silently dropped" \
   "$(grep '^commit' <<<"$out")|$(grep '^  \[pw-a\] bag of' <<<"$out")" \
   "commit Annotate pw-a pw-c|  [pw-a] bag of 4: 2 changed, 1 produced no change, 1 not shipped, 0 to solve again"
+out=$(batchflow turnlimit)
+check "a bag that hit its turn limit ships what it finished and hands back the untouched and the mid-edit one" \
+  "$(grep '^commit' <<<"$out")|$(got requeue)" "commit Annotate pw-a|pw-b pw-c"
+check "and says so in one line, not one per puzzle" \
+  "$(grep -c 'turn limit' <<<"$out")|$(grep '^  \[pw-a\] bag hit' <<<"$out")" \
+  "1|  [pw-a] bag hit its turn limit after 2 of 4 puzzles; 2 untouched go back in the queue (1 changed, 0 kept ours, 2 not shipped)"
+check "a bag's turn limit comes from its .turns file, 80 without one, 200 for a solve" \
+  "$(echo 52 >"$stub/x.turns"; (. tools/puzzle_worker.sh; worker_max_turns annotate "$stub/x.sid"; worker_max_turns annotate "$stub/none.sid"; worker_max_turns solve "$stub/x.sid") | tr '\n' ' ')" "52 80 200 "
 out=$(batchflow cutoff)
 check "a cut-off bag commits what validated so far, keeping the cut-off puzzle bagged" \
   "$(grep '^commit' <<<"$out")|$(got rc)|$(got left)" "commit Annotate pw-a|3|pw-c pw-d "
