@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Artist's medium in van, say",
     "enumeration": "7"
    },
-   "solution": "VEHICLE"
+   "solution": "VEHICLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist's medium",
+      "at": 0,
+      "meaning": "the liquid such as linseed oil that carries a painter's pigment"
+     },
+     {
+      "text": "van, say",
+      "at": 19,
+      "meaning": "a van is one example of a road conveyance"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders what a painter would make of a delivery van as a material.",
+     "walkthrough": "In painting, the substance pigment is mixed into is called the medium or carrier, and that same word names any conveyance.",
+     "definitionFit": "A painter's binding liquid is technically termed the carrier for the pigment, and a van is a motor conveyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +71,42 @@
     "text": "Two short men, one suffering a crime?",
     "enumeration": "6"
    },
-   "solution": "VICTIM"
+   "solution": "VICTIM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one suffering a crime?",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two short men",
+       "at": 0,
+       "gives": "VIC",
+       "note": "Vic is short for Victor"
+      },
+      {
+       "words": "Two short men",
+       "at": 0,
+       "gives": "TIM",
+       "note": "Tim is short for Timothy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two small men, one of whom was attacked.",
+     "walkthrough": "'short' means shortened names, not small stature.",
+     "definitionFit": "A person harmed by an offence is the injured party in a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +120,30 @@
     "text": "Toast in sound condition",
     "enumeration": "6"
    },
-   "solution": "HEALTH"
+   "solution": "HEALTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Toast",
+      "at": 0,
+      "meaning": "drinking someone's ... is a toast to them"
+     },
+     {
+      "text": "sound condition",
+      "at": 9,
+      "meaning": "a state of physical wellbeing"
+     }
+    ],
+    "explanation": {
+     "surface": "Raising a glass while in fine fettle.",
+     "definitionFit": "A drinking salute is said to wish wellbeing, and a body in good shape is in good fitness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +157,59 @@
     "text": "In church, unexpectedly let in men bringing fruit",
     "enumeration": "10"
    },
-   "solution": "CLEMENTINE"
+   "solution": "CLEMENTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In means the rearranged letters sit inside the church letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "church",
+       "at": 3,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unexpectedly",
+         "at": 11,
+         "note": "unexpectedly means the following letters come out in a surprising order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "let in men",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inside a church, some men are unexpectedly admitted, carrying fruit.",
+     "walkthrough": "'In church' reads as a setting but is the container: the shuffled men sit between the two church letters, signalled by 'In' and 'unexpectedly'.",
+     "definitionFit": "A small citrus like a mandarin orange is an example of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +223,40 @@
     "text": "Parade a selfie? It's restricting support for artist",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "support for artist",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "restricting",
+       "at": 22,
+       "note": "restricting means the phrase holds the answer within its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Parade a selfie",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off a self-portrait photo held in a stand for painters.",
+     "definitionFit": "A painter rests a canvas on this wooden stand while working, a support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "selfie"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +270,47 @@
     "text": "Ministry in charge expressed hesitation a bit",
     "enumeration": "7"
    },
-   "solution": "MODICUM"
+   "solution": "MODICUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bit",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ministry",
+       "at": 0,
+       "gives": "MOD",
+       "note": "MOD is the Ministry of Defence"
+      },
+      {
+       "words": "in charge",
+       "at": 9,
+       "gives": "IC"
+      },
+      {
+       "words": "expressed hesitation",
+       "at": 19,
+       "gives": "UM",
+       "note": "um is the sound someone makes when hesitating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government department official, when questioned, hesitated slightly.",
+     "walkthrough": "MOD is Britain's Ministry of Defence.",
+     "definitionFit": "A small amount, a little quantity of something, is a synonym for a bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ministry"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +324,48 @@
     "text": "Thin figure entering boggy area in African city",
     "enumeration": "9"
    },
-   "solution": "MARRAKESH"
+   "solution": "MARRAKESH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African city",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 12,
+       "note": "entering means the thin figure goes inside the word for a boggy area"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boggy area",
+       "at": 21,
+       "gives": "MARSH",
+       "note": "a marsh is boggy land"
+      },
+      {
+       "words": "Thin figure",
+       "at": 0,
+       "gives": "RAKE",
+       "note": "a rake is a very thin person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skinny person wades into a swamp in an African city.",
+     "definitionFit": "A major city in Morocco, North Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +379,42 @@
     "text": "Unpleasantly damp part of old Ankara",
     "enumeration": "4"
    },
-   "solution": "DANK"
+   "solution": "DANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unpleasantly damp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "at": 18,
+       "note": "part of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "old Ankara",
+       "at": 26,
+       "gives": "DANK",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of the old Turkish capital is wet and musty.",
+     "definitionFit": "A cold, musty moisture, as in a cellar, is a synonym for disagreeable damp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ankara"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +428,40 @@
     "text": "A PC in mag rebooted for operations",
     "enumeration": "8"
    },
-   "solution": "CAMPAIGN"
+   "solution": "CAMPAIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "operations",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rebooted",
+       "at": 12,
+       "note": "rebooted suggests a restarted computer, so the letters come back up in a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A PC in mag",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer in a magazine gets restarted.",
+     "definitionFit": "A series of organised military operations is called this, as in a wartime offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operations"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +481,59 @@
      }
     ]
    },
-   "solution": "MINDSEYE"
+   "solution": "MINDSEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "contemplation",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Object",
+       "at": 0,
+       "gives": "MIND",
+       "note": "to mind something is to object to it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 15,
+         "note": "around means the view word wraps the yard letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "view",
+         "at": 10,
+         "gives": "SEE",
+         "note": "to see is to view"
+        },
+        {
+         "words": "yard",
+         "at": 22,
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "MIND'S EYE",
+    "explanation": {
+     "surface": "Someone protests at a view surrounding a yard, lost in thought.",
+     "definitionFit": "The faculty of imagining or picturing things mentally, a kind of inner contemplation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +547,48 @@
     "text": "Pursue hospital in legal matter",
     "enumeration": "5"
    },
-   "solution": "CHASE"
+   "solution": "CHASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pursue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in places the hospital letter inside the word for a legal matter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "legal matter",
+       "at": 19,
+       "gives": "CASE",
+       "note": "a case is a matter brought before a court"
+      },
+      {
+       "words": "hospital",
+       "at": 7,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to follow up a lawsuit involving a hospital.",
+     "definitionFit": "To run after or hunt something down is a plain synonym for pursuing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pursue"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +602,68 @@
     "text": "Powerful guy amongst assembled number around Republican",
     "enumeration": "9"
    },
-   "solution": "STRONGMAN"
+   "solution": "STRONGMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Powerful guy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 38,
+       "note": "around means the rearranged letters wrap the Republican letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "assembled",
+           "at": 21,
+           "note": "assembled means the letters are put together in a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "amongst",
+           "at": 13
+          }
+         ]
+        },
+        {
+         "words": "number",
+         "at": 31,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "Republican",
+       "at": 45,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burly man stands in a crowd of people gathered around a Republican politician.",
+     "walkthrough": "'assembled' rearranges AMONGST plus N into STONGMAN, and 'around' wraps that round R.",
+     "definitionFit": "A man of great physical strength or a forceful political leader is called a powerful guy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amongst"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +687,41 @@
      }
     ]
    },
-   "solution": "INTHECLEAR"
+   "solution": "INTHECLEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without suspicion",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abroad",
+       "at": 12,
+       "note": "abroad means scattered widely, so the letters are spread into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Reach inlet",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting to a coastal inlet in a foreign country while nobody suspects you.",
+     "walkthrough": "'abroad' looks like travel but signals rearranging REACH INLET.",
+     "definitionFit": "An idiom for being free of blame or no longer under suspicion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +735,45 @@
     "text": "Interpret for audience quiz answer",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quiz answer",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PASS",
+     "indicators": [
+      {
+       "text": "for audience",
+       "at": 10,
+       "note": "for audience means the word is as heard by listeners, not as written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Interpret",
+       "at": 0,
+       "gives": "PARSE",
+       "note": "to parse a sentence is to interpret its grammar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quizmaster's instruction to explain an answer to the watching audience.",
+     "walkthrough": "In a non-rhotic British accent PARSE is pronounced the same as PASS.",
+     "definitionFit": "A contestant who cannot reply says this word, declining the question in a quiz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 13,
@@ -242,7 +787,52 @@
     "text": "Note place for eggs by river — and singular soup",
     "enumeration": "10"
    },
-   "solution": "MINESTRONE"
+   "solution": "MINESTRONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Note",
+       "at": 0,
+       "gives": "MI",
+       "note": "mi is the third note of the sol-fa scale"
+      },
+      {
+       "words": "place for eggs",
+       "at": 5,
+       "gives": "NEST",
+       "note": "a bird lays eggs in a nest"
+      },
+      {
+       "words": "river",
+       "at": 23,
+       "gives": "R"
+      },
+      {
+       "words": "singular",
+       "at": 35,
+       "gives": "ONE",
+       "note": "singular means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe list: a note, a nest, a river, and an unusual soup.",
+     "definitionFit": "A thick Italian vegetable broth with pasta is a classic example of a soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singular"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +846,58 @@
     "text": "Dog with German entering alone in amazing fashion",
     "enumeration": "12"
    },
-   "solution": "STAGGERINGLY"
+   "solution": "STAGGERINGLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in amazing fashion",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 16,
+       "note": "entering means the dog and German pieces go inside the word for alone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alone",
+       "at": 25,
+       "gives": "SINGLY",
+       "note": "doing something singly is doing it alone"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dog",
+         "at": 0,
+         "gives": "TAG",
+         "note": "to dog someone is to tag along after them"
+        },
+        {
+         "words": "German",
+         "at": 9,
+         "gives": "GER"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog and a German walk in alone, which is surprising.",
+     "definitionFit": "An adverb meaning astonishingly or in a way that shocks, synonymous with amazing fashion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +917,49 @@
      }
     ]
    },
-   "solution": "GREENBELT"
+   "solution": "GREENBELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "protected area",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 18,
+       "note": "before places the course feature ahead of the strike word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Feature on course",
+       "at": 0,
+       "gives": "GREEN",
+       "note": "a green is part of a golf course"
+      },
+      {
+       "words": "strike",
+       "at": 25,
+       "gives": "BELT",
+       "note": "to belt is to hit hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf course feature comes before a hit in a nature reserve.",
+     "walkthrough": "In Britain a green belt is a ring of countryside round a town where building is restricted.",
+     "definitionFit": "Land kept undeveloped around towns by planning law is a protected zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +973,73 @@
     "text": "Get in way of old boy with lorry largely occupying street",
     "enumeration": "8"
    },
-   "solution": "OBSTRUCT"
+   "solution": "OBSTRUCT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get in way of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "at": 14,
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "occupying",
+         "at": 41,
+         "note": "occupying means the shortened lorry sits inside the street letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "street",
+         "at": 51,
+         "gives": "ST"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 33,
+           "note": "largely means most but not all of the word, so its last letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lorry",
+           "at": 27,
+           "gives": "TRUCK",
+           "note": "a truck is a lorry"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old man with a big lorry parked in the road blocks traffic.",
+     "definitionFit": "To block or hinder something is to get in its path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "largely"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1053,47 @@
     "text": "Fish left in sink",
     "enumeration": "8"
    },
-   "solution": "FLOUNDER"
+   "solution": "FLOUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in places the left letter inside the word for sink"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sink",
+       "at": 13,
+       "gives": "FOUNDER",
+       "note": "a ship that founders sinks"
+      },
+      {
+       "words": "left",
+       "at": 5,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish has been abandoned in the kitchen basin.",
+     "definitionFit": "A flatfish such as a flounder is a type of fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1113,48 @@
      }
     ]
    },
-   "solution": "BALANCESHEET"
+   "solution": "BALANCESHEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "financial summary",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 17,
+       "note": "over places the scale word before the cover word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Adjustable scale",
+       "at": 0,
+       "gives": "BALANCE",
+       "note": "a balance is a weighing scale adjusted until both sides level"
+      },
+      {
+       "words": "cover",
+       "at": 22,
+       "gives": "SHEET",
+       "note": "a sheet is a bed cover"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weighing scales placed above a covering, in an accountant's report.",
+     "definitionFit": "An accounting statement of a company's assets and liabilities on one date is a summary of its finances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1168,69 @@
     "text": "Calm soprano with glasses and tenor haggle after vacation",
     "enumeration": "6"
    },
-   "solution": "SOOTHE"
+   "solution": "SOOTHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 43,
+       "note": "after places the emptied word at the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soprano",
+       "at": 5,
+       "gives": "S"
+      },
+      {
+       "words": "glasses",
+       "at": 18,
+       "gives": "OO",
+       "note": "two round lenses look like the letters OO"
+      },
+      {
+       "words": "tenor",
+       "at": 30,
+       "gives": "T"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "vacation",
+         "at": 49,
+         "note": "vacation means emptying, so only the outer letters of haggle remain"
+        }
+       ],
+       "parts": [
+        {
+         "words": "haggle",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soprano in spectacles and a tenor bargain once the holidays are over.",
+     "walkthrough": "'vacation' suggests a holiday but means emptying the word out.",
+     "definitionFit": "To pacify or settle someone's nerves is to make them calm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1244,63 @@
     "text": "Skilful medic probing a round object",
     "enumeration": "6"
    },
-   "solution": "ADROIT"
+   "solution": "ADROIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skilful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "probing",
+       "at": 14,
+       "note": "probing means the medic goes inside the following letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 22
+        },
+        {
+         "words": "round",
+         "at": 24,
+         "gives": "O",
+         "note": "a round shape looks like the letter O"
+        },
+        {
+         "words": "object",
+         "at": 30,
+         "gives": "IT",
+         "note": "it is a pronoun that can stand as the object of a verb"
+        }
+       ]
+      },
+      {
+       "words": "medic",
+       "at": 8,
+       "gives": "DR",
+       "note": "DR is the abbreviation for doctor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor examines a spherical thing with expert hands.",
+     "definitionFit": "Deft and dexterous, clever with the hands, a synonym for skilful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1314,41 @@
     "text": "Tense thoroughfare in Paris? That's constant",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "constant",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tense",
+       "at": 0,
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
+      },
+      {
+       "words": "thoroughfare in Paris",
+       "at": 6,
+       "gives": "RUE",
+       "note": "rue is French for street"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy Parisian street seems never to change.",
+     "definitionFit": "Constant in the sense of loyal and faithful, as a steadfast friend is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1362,36 @@
     "text": "A result of being dubbed?",
     "enumeration": "10"
    },
-   "solution": "KNIGHTHOOD"
+   "solution": "KNIGHTHOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A result of being dubbed?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A result of being dubbed?",
+       "at": 0,
+       "note": "dubbed suggests a film given a new soundtrack, but here it is being touched on the shoulder with a sword by the monarch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What follows when a film's dialogue is re-recorded?",
+     "walkthrough": "Being dubbed is the ceremony that makes someone Sir, so the title conferred is the result.",
+     "definitionFit": "The rank of Sir is conferred in an accolade ceremony where the sovereign touches the shoulder with a sword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dubbed"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1405,48 @@
     "text": "Uniform, perhaps, put on old film star",
     "enumeration": "5"
    },
-   "solution": "GARBO"
+   "solution": "GARBO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "film star",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put on",
+       "at": 18,
+       "note": "in a down entry, put on means placed above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Uniform, perhaps",
+       "at": 0,
+       "gives": "GARB",
+       "note": "a uniform is one example of garb, clothing"
+      },
+      {
+       "words": "old",
+       "at": 25,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aged screen idol dons a uniform.",
+     "walkthrough": "Greta Garbo was a Swedish-born Hollywood actress.",
+     "definitionFit": "Greta Garbo was a celebrated Hollywood screen actress of the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uniform"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1460,47 @@
     "text": "Rupees given in payment — or no charge",
     "enumeration": "4"
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "no charge",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "given in",
+       "at": 7,
+       "note": "given in means the rupees letter is placed inside the payment word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "payment",
+       "at": 16,
+       "gives": "FEE",
+       "note": "a fee is a payment for a service"
+      },
+      {
+       "words": "Rupees",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rupees are handed over as a payment, or nothing is charged.",
+     "definitionFit": "Something that costs nothing comes at no charge; the adjective serves for that phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1514,73 @@
     "text": "Slips etc in foreign articles on Spain amid conflict",
     "enumeration": "9"
    },
-   "solution": "UNDERWEAR"
+   "solution": "UNDERWEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slips etc",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 30,
+       "note": "on means the articles come before the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "foreign articles",
+       "at": 13,
+       "gives": "UN",
+       "note": "un is a French article and der a German one"
+      },
+      {
+       "words": "foreign articles",
+       "at": 13,
+       "gives": "DER",
+       "note": "the second of the two articles, the German der"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amid",
+         "at": 39,
+         "note": "amid puts the Spain letter in the middle of the conflict word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "conflict",
+         "at": 44,
+         "gives": "WAR",
+         "note": "war is armed conflict"
+        },
+        {
+         "words": "Spain",
+         "at": 33,
+         "gives": "E",
+         "note": "E is the international vehicle code for Spain (España)"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foreign newspaper articles about Spain in the middle of a war.",
+     "walkthrough": "'articles' suggests newspaper pieces, but means grammatical articles: French UN and German DER.",
+     "definitionFit": "Slips are petticoats, examples of garments worn beneath outer clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1594,32 @@
     "text": "Better kind of barbecue?",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Better",
+      "at": 0,
+      "meaning": "to better someone is to surpass them"
+     },
+     {
+      "text": "kind of barbecue?",
+      "at": 7,
+      "meaning": "read as two words it is an outdoor do, a party held outside, as a barbecue is"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether one style of grilled cookout is superior.",
+     "walkthrough": "DO is British slang for a party, so the answer split OUT DO is a party held outside.",
+     "definitionFit": "To surpass or beat a rival is to better them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1633,48 @@
     "text": "Gold found in river stream",
     "enumeration": "7"
    },
-   "solution": "TORRENT"
+   "solution": "TORRENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stream",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 5,
+       "note": "found in places the gold letters inside the river name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 14,
+       "gives": "TRENT",
+       "note": "the Trent is a major river in the English Midlands"
+      },
+      {
+       "words": "Gold",
+       "at": 0,
+       "gives": "OR",
+       "note": "or is the heraldic term for gold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gold is discovered in a river's flow.",
+     "definitionFit": "A rushing, violent flow of water is a type of stream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gold"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1688,36 @@
     "text": "Have too much of board?",
     "enumeration": "7"
    },
-   "solution": "OVEREAT"
+   "solution": "OVEREAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have too much of board?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Have too much of board?",
+       "at": 0,
+       "note": "board suggests wood or a committee, but here means meals provided, as in bed and board"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Questioning whether someone has an excess of planks.",
+     "walkthrough": "Board here means food, as in full board at a hotel.",
+     "definitionFit": "Board is food and meals, so consuming too much of it means gorging at the table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   }
  ]
 }
