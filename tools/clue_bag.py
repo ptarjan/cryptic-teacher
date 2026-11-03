@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Which tail puzzles one annotate session takes together: a bag.
 
-    ids | python3 tools/clue_bag.py [--due] [--any-listed] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
+    ids | python3 tools/clue_bag.py [--due] [--any-listed | --blog] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
+    python3 tools/clue_bag.py --blog-list BAGFILE    # the blog bag prompt's list of puzzles
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
@@ -18,6 +19,12 @@ With --any-listed the candidates after the queue are every puzzle on the shape
 redo list, whatever its rule: a bag's view lists each puzzle's flagged clues of
 every rule anyway, and most rules' queues hold too few clues to fill one (11-03:
 26 of the 33 rules left under 30 clues; 50 sessions per rule, 29 across them).
+
+The blog re-check ("Re-check against its blog:", tools/prereset_backfill.sh section 3)
+bags the same way with --blog: a puzzle's clues due are the ones tools/blog_compare.py
+--due flags for it (the `due` of tools/data/blog_compare.json, 1-3 clues a puzzle: 11-03
+measured ~7.3k tokens a clue run alone, one session each). The session edits each
+puzzle's own file, as the solo run does (tools/blog_bag_prompt.md), so no view is built.
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
@@ -37,11 +44,13 @@ grid or a jumbo has none and may be bagged. Not by setter or series. One a
 conversation is already paid for (a sid file in RUNS_DIR, a resume note in
 RESUME_DIR) or with nothing due is left to the queue.
 """
+import json
 import sys
 from pathlib import Path
 
 BAG_TARGET = 30
 MAX_DUE = 10
+TOOLS = Path(__file__).resolve().parent
 MIN_TARGET = 6  # --spread never shrinks a bag below this many clues
 SCAN = 3000  # queue entries looked at past the leader; tails sit at its head
 
@@ -160,7 +169,52 @@ def spread_target(leader, queue, rows, slots, target=BAG_TARGET, least=MIN_TARGE
     return max(least, min(target, -(-total // slots)))
 
 
+def blog_due():
+    """{puzzle id: [entry id, ...]} the blog re-check has due (blog_compare.py --due's
+    puzzles): the clues whose definition, type or blocks disagree with the blog and
+    that nobody has filed as kept. Read from the report the phase began with."""
+    try:  # not blog_compare.OUT: importing it loads the validator and the corpus code
+        held = json.loads((TOOLS.parent / "tools" / "data" / "blog_compare.json").read_text(encoding="utf-8")).get("due") or {}
+    except (OSError, ValueError):
+        return {}
+    return {pid: sorted({row[0] for row in rows}) for pid, rows in held.items()}
+
+
+def blog_tail_due(pid, row, runs, resume_dir, table=None):
+    """The clues a blog re-check run has due on pid, when it is worth bagging: 1..MAX_DUE
+    of them and no conversation already holds it. None otherwise (it runs alone). `row`
+    is unused (the index knows nothing of the blogs); `table` is blog_due()."""
+    n = len((table if table is not None else blog_due()).get(pid) or ())
+    if not 1 <= n <= MAX_DUE:
+        return None
+    if (runs / f"{pid}.sid").exists() or (resume_dir / f"ct-prereset-{pid}.resume").exists():
+        return None
+    return n
+
+
+def blog_spread_target(leader, queue, table, slots, target=BAG_TARGET, least=MIN_TARGET):
+    """spread_target for the blog re-check: the clues due on the leader and queue[:SCAN]."""
+    if slots <= 1:
+        return target
+    total = sum(len(table.get(p) or ()) for p in [leader, *queue[:SCAN]])
+    return max(least, min(target, -(-total // slots)))
+
+
+def blog_list(bagfile):
+    """The blog bag prompt's list: one line a puzzle, "id (path): 10-across, 17-down"."""
+    import puzzle_paths
+    table = blog_due()
+    lines = []
+    for pid in Path(bagfile).read_text().split():
+        path = puzzle_paths.find(pid)
+        lines.append(f"{pid} ({path.relative_to(puzzle_paths.ROOT) if path else '?'}): " + ", ".join(table.get(pid) or ["see annotate_check"]))
+    return "\n".join(lines)
+
+
 def main(argv):
+    if len(argv) == 2 and argv[0] == "--blog-list":
+        print(blog_list(argv[1]))
+        return 0
     with_due = "--due" in argv
     any_listed = "--any-listed" in argv
     slots = 1
@@ -168,13 +222,23 @@ def main(argv):
         i = argv.index("--spread")
         slots = int(argv[i + 1])
         del argv[i:i + 2]
-    argv = [a for a in argv if a not in ("--due", "--any-listed")]
+    blog = "--blog" in argv
+    argv = [a for a in argv if a not in ("--due", "--any-listed", "--blog")]
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
         return 2
+    queue = sys.stdin.read().split()
+    if blog:
+        table = blog_due()
+        resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
+        counts = {}
+        bag = bag_of(argv[1], queue, {}, Path(argv[0]), resume_dir,
+                     target=blog_spread_target(argv[1], queue, table, slots), counts=counts,
+                     due=lambda pid, row, runs, resume: blog_tail_due(pid, row, runs, resume, table))
+        print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
+        return 0
     import prereset_plan
     rows = {r["id"]: r for r in prereset_plan.index_rows()}
-    queue = sys.stdin.read().split()
     if any_listed:
         import shape_queue
         queue = with_listed(queue, shape_queue.puzzle_ids(), held_in_bags(argv[0]))
