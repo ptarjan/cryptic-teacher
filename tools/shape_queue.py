@@ -216,7 +216,7 @@ def _why(rule):
 
 def gated():
     """The validator rules the redo gate enforces: all of _validator_rules() except
-    unchecked_step, which is a status tools/clear_unchecked.py settles (a tree with
+    unchecked_step, a status the sweep that cleared the flag settled (a tree with
     an unchecked op is not refused here, only the unchecked_leaf detector's leaves are).
     A rule added to the validator and to _validator_rules() is gated with no edit here."""
     return tuple(k for k in _validator_rules() if k != "unchecked_step" and k not in WARN_ONLY)
@@ -257,7 +257,7 @@ def _shape_names():
 
 def shape_finding(name):
     """True for a finding the convention-series exemption drops: every shape rule or detector,
-    not the unchecked leaf/step ones (a status clear_unchecked settles)."""
+    not the unchecked leaf/step ones (a status the finished unchecked sweep settled)."""
     return not name.startswith("unchecked")
 
 
@@ -462,7 +462,7 @@ def _validator_rules():
             "delWrapsCharade": lambda t, a, c: V.del_wraps_charade(t, c),
             "movedLetter": lambda t, a, c: V.moved_letters(t),
             "indInLeaf": lambda t, a, c: V.ind_in_leaf(t, c),
-            # A step taken as filed that tools/clear_unchecked.py could not verify:
+            # A step taken as filed that the validator could not verify:
             # fires while any node of the tree still carries the flag.
             # (steps V.step_verified computes from their leaf do not count: fix round 4)
             "unchecked_step": lambda t, a, c: bool(V.unverified_unchecked(t, a.get("_answer") or None))}

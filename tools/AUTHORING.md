@@ -261,7 +261,7 @@ So the rule is about *order of work*:
 > mechanism into it. Assembling parts and then smoothing the result produced
 > every clue we lost with.
 
-Two habits to break. `tools/clue_quality.py` flags both.
+Two habits to break (the retired `clue_quality.py` linter, in git history, flagged both).
 
 - **Do not attach the definition with a copula.** `Cold heap is inexpensive`
   makes the clue state its own answer. Real setters make the definition part of
@@ -272,8 +272,8 @@ Two habits to break. `tools/clue_quality.py` flags both.
   indicator directly against it**. `Naples rebuilt` is the normal shape, not a
   giveaway. The part worth keeping: choose an indicator that reads as ordinary
   description in the surface. Whether it sounds like an instruction matters far
-  more than where it sits. The concealment section of `tools/clue_quality.py`
-  has the measurement, including why an apparently significant position effect
+  more than where it sits. The concealment section of the retired `clue_quality.py`
+  (git history) had the measurement, including why an apparently significant position effect
   (p=0.03) does not survive being one of six cuts tried on thirteen clues.
 
 Do not over-correct: **economy was already fine** (+0.15), so the answer is not
@@ -522,8 +522,8 @@ backfires? (10)` = TRAGICOMIC has "A gag in which the cigar goes off in
 Groucho Marx's face", with its pun on `minute`. Each is a scene
 you could tell someone about, and the mechanism was found inside it.
 
-`tools/clue_quality.py` also flags `imperative-opening` and
-`unattested-phrasing`, but read its vote table before trusting them. Against
+The retired `clue_quality.py` (git history) also flagged `imperative-opening` and
+`unattested-phrasing`, but its vote table said to read them with care. Against
 2,082 solver favourites, both point the right way but are too rare to
 establish. The two tests above remain judgements, made aloud.
 
@@ -938,7 +938,7 @@ grading found". That advice said an indicator next to its fodder is a
 *giveaway*, and measurement killed it (88.9% of published anagrams do it). This
 rule says a separated indicator is *unsound*. They are different claims, and the
 same measurement supports both: adjacency is the norm because adjacency is how
-indicators work. `tools/clue_quality.py` still has the `indicator-abuts-fodder`
+indicators work. The retired `clue_quality.py` had an `indicator-abuts-fodder`
 smell, based only on its correlation with judge score, and says so. The only
 valid response to that smell is a different indicator, never a moved one.
 

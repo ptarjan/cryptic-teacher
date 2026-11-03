@@ -43,7 +43,6 @@ CENTRAL = {
     "punctuation.py": "clue punctuation",
     "leading_quote.py": "a clue's opening quote",
     "collapse_clue_spaces.py": "space collapsing in clues",
-    "mend_clue_punctuation.py": "clue punctuation mending",
     "vlm_reader.py": "the VLM reader",
 }
 

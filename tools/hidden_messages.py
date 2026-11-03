@@ -42,16 +42,6 @@ def entry_id(e):
     return f"{e['number']}-{e['direction']}"
 
 
-def one_more(longer, shorter):
-    """The letter whose deletion from `longer` leaves `shorter`, or None."""
-    if len(longer) != len(shorter) + 1:
-        return None
-    for i in range(len(longer)):
-        if longer[:i] + longer[i + 1:] == shorter:
-            return longer[i]
-    return None
-
-
 def base_letters(ann, entry):
     """The word the clue defines, before any hidden-letter step: the
     alteration's `from` where the preamble alters entries, else the answer."""

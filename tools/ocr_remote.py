@@ -736,12 +736,6 @@ def gone_for():
         return 0.0
 
 
-def defer_when_busy():
-    """Raise DesktopBusy, in this process and those it starts, rather than
-    read here while the desktop is busy."""
-    os.environ[DEFER] = "1"
-
-
 def _busy_here(why):
     """Raise DesktopBusy(why) when the desktop is busy and this process defers."""
     if why and os.environ.get(DEFER):

@@ -19653,11 +19653,6 @@ def _fill_writeup_blanks(old, new, cells):
     return changed
 
 
-def solution_read(verdict):
-    """Whether a title's read took its answers off its solution grid."""
-    return "solution" in verdict and "refused" not in verdict["solution"]
-
-
 def save(ledger, known):
     ledger.parent.mkdir(parents=True, exist_ok=True)
     tmp = ledger.with_suffix(".tmp")

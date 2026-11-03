@@ -280,12 +280,6 @@ def _cells(data, size, transpose):
     return out
 
 
-def _png_bytes(img):
-    buf = io.BytesIO()
-    img.save(buf, format="PNG")
-    return buf.getvalue()
-
-
 def read_lines(reply, lines):
     """{(i, j): letter} for square j of line i, from the model's lines, kept
     only for a line whose letter runs (split at any number of blocks: the

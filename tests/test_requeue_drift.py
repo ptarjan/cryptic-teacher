@@ -60,7 +60,7 @@ class Publish(unittest.TestCase):
         self.assertEqual(list(out["wordplay.wrongRole"].items()), [("a-1", 2), ("a-2", 1)])
 
     def test_store_backlog_writes_the_stored_layout(self):
-        """Every backlog writer (shrink, fill_spellings, clear_unchecked, ...) goes
+        """Every backlog writer (shrink, fill_spellings, ...) goes
         through V.store_backlog; a layout the clean filter would change shows up
         as a code edit in the pre-reset backfill."""
         import json_merge

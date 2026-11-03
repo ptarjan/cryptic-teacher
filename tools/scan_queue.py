@@ -573,13 +573,6 @@ def _by_source(known):
     return {(filer, key): row for filer, key, row in known.values()}
 
 
-def is_open(req, ledgers=None):
-    """Whether request `req` waits on its source's re-read: the ledger row for
-    it was last read before the request (no row: never read since)."""
-    row = _by_source(ledgers or sources()).get((req["filer"], req["source"]))
-    return row is None or read_before(row, when(req["requestedAt"]))
-
-
 def requests():
     return jsonl_rows(REQUESTS)
 
