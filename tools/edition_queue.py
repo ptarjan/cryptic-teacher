@@ -2709,1448 +2709,6 @@ def desktop_room(reading, opened, closed=()):
     return free - DESKTOP_SESSION_MB * (desktop_sessions(t, opened, closed) + 1) >= DESKTOP_FLOOR_MB
 
 
-# dispatch() is split by what each part of a pass does, over one state (_Dispatch): _Poller (the units that
-# ended, origin/master, the code on disk, the plan), _FetchPool, _Children (starting and reaping units),
-# _SlotBalancer (the unit ceiling, the caps and the CPU / RAM / VLM gates) and _RankPicker (the walk of the
-# queue by rank). What a pass's `settle` tells the loop:
-END = "end"  # the run is over
-AGAIN = "again"  # the next pass starts at once
-
-
-class _Poller:
-    """What a pass looks at before it starts anything: the units that ended, origin/master (hot reload),
-    the code on disk (re-exec), the editions just laid out and the plan being made."""
-
-    def replan_after(self):
-        """Seconds after the last plan the next is made: `replan`, or
-        IDLE_BACKOFF times it while no core is idle and the last plan still
-        holds more untried units than the pools are wide (read at most every
-        FRESH_POLL seconds)."""
-        if self.planned_took[0] * PLAN_DUTY > self.replan and self.planned_took[0]:
-            wait = min(self.planned_took[0] * PLAN_DUTY, PLAN_WAIT_MAX)
-        else:
-            wait = 0
-        # Counting stops past pool_width: the queue is ~25k units and the untried come early.
-        if sum(1 for _ in itertools.islice((u for u in self.queue if key_of(u) not in self.tried), self.pool_width + 1)) <= self.pool_width:
-            return self.replan
-        if self.idle_seen[0] is None or time.monotonic() - self.idle_seen[0] >= FRESH_POLL:
-            self.idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
-        return max(wait, self.replan if self.idle_seen[1] else self.replan * IDLE_BACKOFF)
-
-    def replan_all(self, notes=None):
-        sc, rd = plan(self.papers, self.cache, self.reread, notes)
-        return sc, rd, self.plan_fetch_units(notes)
-
-    def may_start(self):
-        return not self.stop and not self.reload and (self.seconds is None or time.monotonic() - self.begun < self.seconds)
-
-    def reload_check(self):
-        """A reload asked (SIGHUP, or the watcher saw code change on origin/master):
-        say so once and, at once, have what is filed committed (the wrapper's
-        move to origin/master follows). With a handoff the main loop then hands
-        the running units over and ends; without one they are waited for, and
-        after CT_RELOAD_GRACE TERMed and left deferred, as a game does."""
-        if self.watcher is not None and self.watcher.hit and not self.reload:
-            self.reload.append(f"origin/master changed {hot_reload.summary(self.watcher.hit)}")
-        if not self.reload:
-            return
-        now = time.monotonic()
-        if self.reload_since[0] is None:
-            self.reload_since[0] = now
-            flag = os.environ.get("DURABLE_NOW")
-            if flag:
-                try:
-                    Path(flag).touch()
-                except OSError:
-                    pass
-            log(f"reload: {self.reload[0]}; no unit starts, {len(self.running) + len(self.adopted)} running "
-                + ("are handed to the next run" if self.handoff else f"get {hot_reload.grace_seconds():.0f}s to finish, then are stopped and left deferred"))
-        if self.handoff or now - self.reload_since[0] < hot_reload.grace_seconds():
-            return
-        for pid, (unit, _) in self.units_running():
-            if pid not in self.yield_termed:
-                self.yield_termed.add(pid)
-                log(f"reload: grace over, TERM to {unit['kind']} {unit['rel']}")
-                try:
-                    os.killpg(pid, signal.SIGTERM)
-                except ProcessLookupError:
-                    pass
-        if self.reload_termed_at[0] is None:
-            self.reload_termed_at[0] = now
-        elif now - self.reload_termed_at[0] >= STOP_GRACE:
-            for pid in list(self.yield_termed):
-                if pid in self.running or pid in self.adopted:
-                    try:
-                        os.killpg(pid, signal.SIGKILL)
-                    except ProcessLookupError:
-                        pass
-
-    def keep_untried(self):
-        # What the next run starts from: the plan in force less the units
-        # this one started (done, running or failed), so its first pass
-        # fills the slots with new work, not units already done.
-        if self.plan_at is not None:
-            keep_plan(self.plan_file, self.plan_key, [[u for u in us if key_of(u) not in self.tried]
-                                            for us in (self.scans, self.reads, self.fetches)], self.plan_at, self.planned_took[0])
-
-    def reexec(self, why=None):
-        """Hand the running units to this run's new image and become it."""
-        path = self.handoff or self.resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
-        self.thaw()  # the next image does not know the filers are stopped
-        hand_over(path, self.units_running())
-        self.keep_untried()
-        argv =[sys.executable, *sys.argv]
-        if self.seconds is not None:
-            argv += ["--seconds", str(max(0.0, self.seconds - (time.monotonic() - self.begun)))]
-        if not self.handoff:
-            argv += ["--resume", str(path)]
-        log(f"{why or 'code changed (' + ', '.join(sorted(f.name for f, h in self.code.items() if digest(f) != h)) + ')'}; "
-            f"re-exec, {len(self.running) + len(self.adopted)} running unit(s) kept")
-        sys.stdout.flush()
-        sys.stderr.flush()
-        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
-        os.environ[REEXEC_ENV] = "1"
-        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight: queued again, not left claimed
-        os.execv(argv[0], argv)
-
-    # A slice's first image (started by the shell, not by a re-exec) runs the
-    # plan the last slice kept, which can be a whole plan (half an hour on a
-    # loaded host) older than the code it was started on, so it re-execs on a
-    # change at once, mid-plan. Every image after a re-exec makes a plan of
-    # its own first: changes landing faster than a plan takes still get plans
-    # made on new code, and the chain re-execs without one at most once.
-    def may_reexec(self):
-        return self.plan_done is not None or not os.environ.get(REEXEC_ENV)
-
-    def poll_units(self):
-        self.reap()
-        self.reap_adopted()
-        self.overdue()
-        self.reload_check()
-        if self.ceiling_ctl:
-            for line in self.ceiling_ctl.poll():
-                log(line)
-        for b in self.beside:
-            b.poll(self.may_start() and not self.game_now[0], None if self.seconds is None else self.seconds - (time.monotonic() - self.begun))
-
-    def media_waits(self):
-        """Whether the pass is over because the media share is down (True: the loop goes on to the next)."""
-        # The media share down: nothing is planned, looked for or started (each would meet it) until a
-        # probe finds it answering; units running are reaped and kept to their limits meanwhile. A stop,
-        # a reload or the slice's end goes on as ever (none starts a unit).
-        if self.may_start():
-            try:
-                media_holds = self.media.hold()
-            except MediaGone as e:
-                log(f"media down: giving up, {e}; stopping")
-                self.media_gone.append(str(e))
-                self.stop.append("media")
-                media_holds = False
-            if media_holds:
-                nap(MEDIA_NAP)
-                return True
-        return False
-
-    def reexec_on_new_code(self):
-        # A plan stats every edition and article (minutes on the media
-        # mount), so after the first it is made on a thread while this loop
-        # goes on reaping and starting from the plan before it.
-        # Checked apart from planning: a plan can take minutes (a cold cache
-        # on the media mount), and the code it would run is the old. An image
-        # a re-exec started re-execs only once it has made a whole plan of
-        # its own (kept in plan_file for the next), or changes landing faster
-        # than a plan takes would leave every image running the last kept,
-        # stale plan; a slice's first image need not (may_reexec).
-        if self.may_start() and self.may_reexec() and time.monotonic() - self.code_checked >= self.replan:
-            self.code_checked = time.monotonic()
-            if not any(b.busy() for b in self.beside) and any(digest(f) != h for f, h in self.code.items()):
-                self.reexec()
-
-    def poll_fresh(self):
-        if self.may_start() and (self.fresh_at is None or time.monotonic() - self.fresh_at >= min(self.replan, FRESH_POLL)):
-            self.fresh_at = time.monotonic()
-            try:
-                self.new_scans, self.new_reads = fresh(self.papers, self.cache)
-            except OSError as e:
-                if not self.media.down(e):
-                    raise
-                self.new_scans, self.new_reads = self.fresh_scans, self.fresh_reads  # looked for again once the share answers
-            self.fresh_scans, self.fresh_reads = unchanged_eq(self.fresh_scans, self.new_scans), unchanged_eq(self.fresh_reads, self.new_reads)
-
-    def poll_plan(self):
-        if self.may_start() and self.planner is None and not self.media.held() and (
-                self.plan_done is None or time.monotonic() - self.plan_done >= self.replan and time.monotonic() - self.plan_done >= self.replan_after()):
-            box = {"begun": time.monotonic(), "notes": []}
-
-            def make(box=box):
-                try:
-                    while self.upkept:
-                        self.upkept.pop()()
-                    box["plan"] = self.replan_all(box["notes"])
-                except BaseException as e:  # raised again on the dispatch loop
-                    box["error"] = e
-            self.planner = (threading.Thread(target=make, daemon=True), box)
-            if self.planned is None and self.fetch:
-                # Scans and reads start first; the fetch plan (every done
-                # edition's siblings, minutes off a cold cache) is made on
-                # the thread at once after.
-                try:
-                    while self.upkept:
-                        self.upkept.pop()()
-                    box["plan"], box["partial"] = (*plan(self.papers, self.cache, self.reread, box["notes"]), []), True
-                except BaseException as e:  # raised again below, as make()'s
-                    box["error"] = e
-            elif self.planned is None:
-                make()
-            else:
-                self.planner[0].start()
-        if self.planner is not None and not self.planner[0].is_alive() and "error" in self.planner[1] and self.media.down(self.planner[1]["error"]):
-            self.planner = None  # the plan met the media share down: made again once it answers (media.hold)
-        if self.planner is not None and not self.planner[0].is_alive():
-            box, self.planner = self.planner[1], None
-            if "error" in box:
-                raise box["error"]
-            self.scans, self.reads, self.fetches = box["plan"]
-            self.planned, self.plan_done = box["begun"], None if box.get("partial") else time.monotonic()
-            if self.plan_done is not None:
-                self.planned_took[0] = self.plan_done - self.planned
-                self.plan_at = time.time()
-                keep_plan(self.plan_file, self.plan_key, box["plan"], self.plan_at, self.planned_took[0])
-            for n in box["notes"]:
-                log(n)
-            log(f"planned: {len(self.scans)} scans, {len(self.reads)} reads"
-                + (", fetches next" if box.get("partial") else f", {len(self.fetches)} fetches" if self.fetch else "")
-                + f" due in {time.monotonic() - self.planned:.0f}s; running {len(self.running) + len(self.adopted)}")
-
-
-class _FetchPool:
-    """The fetch sources' pools: their plans, their outages, and the sources stopped for the run."""
-
-    def plan_fetch_units(self, notes=None):
-        """The units of the fetch sources not stopped, each source's plan made again `fetch_replan` seconds after the last."""
-        live = [s for s in self.fetch if s not in self.stopped]
-        for src in live:
-            if src not in self.fetch_made or time.monotonic() - self.fetch_made[src][0] >= (
-                    FETCH_REPLAN if self.fetch_replan is None else self.fetch_replan):
-                t0 = time.monotonic()
-                units = plan_fetches([src])
-                self.fetch_made[src] = (time.monotonic(), units)
-                if notes is not None and self.fetch_made[src][0] - t0 >= SLOW_PLAN:
-                    notes.append(f"slow plan: {src} fetches took {self.fetch_made[src][0] - t0:.0f}s")
-        return [u for src in live for u in self.fetch_made[src][1]]
-
-    def drop_stopped_fetches(self):
-        self.fetches = unchanged(self.fetches, [u for u in self.fetches if u["paper"] not in self.stopped])
-
-    def fetch_ended(self, unit, rc):
-        """A fetch unit ended with `rc`: its source's outages, its pool narrowed on a 429, the source stopped for the run."""
-        src = unit["paper"]
-        self.outages[src] = self.outages[src] + 1 if rc == 5 else 0
-        if rc == 6 and self.pools[f"fetch {src}"] > 1:
-            self.pools[f"fetch {src}"] -= 1
-            log(f"{src}: answered 429; at most {self.pools[f'fetch {src}']} fetches at once from now on")
-        if (rc == 7 or self.outages[src] >= FETCH_OUTAGES) and src not in self.stopped:
-            self.stopped.add(src)
-            log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{self.outages[src]} in a row found it down'})")
-
-
-class _Children:
-    """The units this run started (or took over): starting, reaping, limits, and the desktop yielding."""
-
-    def units_running(self):
-        return list(self.running.items()) + list(self.adopted.items())
-
-    def yield_stop(self, yielding):
-        if not yielding:
-            self.yield_held.clear()
-        if not (yielding and os.environ.get("CT_YIELD_HOSTS", "").split()):
-            self.yield_since[0] = self.yield_termed_at[0] = None
-            self.yield_killed[0] = False
-            return
-        now = time.monotonic()
-        if self.yield_since[0] is None:
-            self.yield_since[0] = now
-            flag = os.environ.get("DURABLE_NOW")  # durable.sh commits what is filed now, before units stop
-            if flag:
-                try:
-                    Path(flag).touch()
-                except OSError:
-                    pass
-            log(f"yield: {yielding}; no read starts, the {len([1 for _, (u, _) in self.units_running() if u['kind'] == 'read'])} "
-                f"running get {yield_grace()}s to finish, then are stopped and left for after the game")
-        if now - self.yield_since[0] < yield_grace():
-            return
-        fresh_pids = [pid for pid, (u, _) in self.units_running() if u["kind"] == "read" and pid not in self.yield_termed]
-        if fresh_pids:
-            if self.yield_termed_at[0] is None:
-                self.yield_termed_at[0] = now
-                log(f"yield: grace over, TERM to {len(fresh_pids)} unit(s), up to {STOP_GRACE}s")
-            for pid in fresh_pids:
-                self.yield_termed.add(pid)
-                try:
-                    os.killpg(pid, signal.SIGTERM)
-                except ProcessLookupError:
-                    pass
-        if self.yield_termed_at[0] is not None and not self.yield_killed[0] and now - self.yield_termed_at[0] >= STOP_GRACE:
-            self.yield_killed[0] = True
-            for pid in list(self.yield_termed):
-                if pid in self.running or pid in self.adopted:
-                    try:
-                        os.killpg(pid, signal.SIGKILL)
-                    except ProcessLookupError:
-                        pass
-
-    def drop_cache(self, now):
-        cmd = os.environ.get("CT_GAME_DROP_CACHE", "").strip()
-        if not cmd:
-            return
-        began, last = self.drop_at
-        if last is None:
-            if any(u["kind"] != "fetch" for _, (u, _) in self.units_running()) and now - began < 2 * STOP_GRACE + yield_grace():
-                return
-        elif now - last < GAME_DROP_EVERY:
-            return
-        self.drop_at[1] = now
-        try:
-            subprocess.Popen(["sh", "-c", cmd], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
-                             stderr=subprocess.DEVNULL, start_new_session=True)
-            log("game: dropping the VM's page cache so Windows gets the RAM back")
-        except OSError as e:
-            log(f"game: page-cache drop failed: {e}")
-
-    def freeze(self, game):
-        self.game_now[0] = game
-        if not game:
-            self.thaw()
-            self.shed.clear()
-            self.drop_at[:] = [None, None]
-            return
-        now = time.monotonic()
-        if self.drop_at[0] is None:
-            self.drop_at[0] = now
-        live = sorted((t0, pid) for pid, (u, t0) in self.units_running() if u["kind"] == "scan" and pid not in self.shed)
-        new = [pid for _, pid in live[game_scans():]]  # the oldest scans keep running
-        for pid in new:
-            self.shed[pid] = now
-            self.yield_termed.add(pid)
-            try:
-                os.killpg(pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-        for pid, at in list(self.shed.items()):
-            if pid not in self.running and pid not in self.adopted:
-                del self.shed[pid]
-            elif now - at >= STOP_GRACE:
-                try:
-                    os.killpg(pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-        for b in self.beside:
-            b.pause()
-        if new:
-            log(f"game: TERM to {len(new)} scan(s) beyond the {game_scans()} that may run on; they are left for after it")
-        self.drop_cache(now)
-
-    def thaw(self):
-        """SIGCONT the stopped --beside filers, crediting them the time stopped."""
-        for b in self.beside:
-            b.resume()
-
-    def brief_of(self, unit):
-        """The prepare() result of read `unit`, made on a pool thread so the
-        loop goes on reaping and starting others meanwhile: PENDING until it
-        is made (asked again every pass), then the result, once."""
-        key = key_of(unit)
-        if key not in self.preparing:
-            self.preparing[key] = (time.monotonic(), self.briefers.submit(lambda: prepare(unit, self.cache, self.puzzles, self.reread)))
-            concurrent.futures.wait([self.preparing[key][1]], timeout=BRIEF_WAIT)  # a quick one starts this pass
-        if not self.preparing[key][1].done():
-            return PENDING
-        return self.preparing.pop(key)[1].result()
-
-    def drop_stale_briefs(self):
-        """Forget the briefs no pass asked for in BRIEF_KEEP seconds (a
-        unit that left the plan), removing the file each made."""
-        for key, (t, fut) in list(self.preparing.items()):
-            if time.monotonic() - t >= BRIEF_KEEP and fut.done():
-                del self.preparing[key]
-                path = fut.result()
-                if path and path is not SCAN_FIRST:
-                    Path(path).unlink(missing_ok=True)
-
-    def start(self, unit, mates=()):
-        """Start `unit`; False when it is not started: a read whose own scan
-        is stale or missing waits on a scan unit queued for it (first).
-        PENDING while its brief is being made. `mates` (batch_mates): more
-        answers-linked reads of its item read in the same process, whole
-        (answers_only needs no desktop), each logged and tracked as a unit."""
-        sys.stdout.flush()
-        sys.stderr.flush()
-        alone = self.losses.get(key_of(unit), 0) >= LOST_TRIES
-        if mates and not alone:
-            unit = {**unit, "batch": [v["rel"] for v in mates]}
-        else:
-            mates = ()
-        argv = unit_argv(unit)
-        if alone or mates or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
-            made = None
-        else:
-            made = self.brief_of(unit)
-            if made is PENDING:
-                return PENDING
-        if made == SCAN_FIRST and (unit["paper"], unit["rel"]) in self.scanned:
-            made = whole(unit, "own scan stale or missing, scanned this run already")
-        elif made == SCAN_FIRST:
-            self.first.append({"kind": "scan", "paper": unit["paper"], "rel": unit["rel"], "rank": unit["rank"],
-                          "reason": "its read's own scan is stale or missing"})
-            return False
-        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**self.spec, "unit": unit, **({"brief": made} if made else {})}),
-               # setproctitle then keeps /proc/<pid>/environ (the title fits
-               # in its argv), so the room tag the bridge's watchdog reads stays.
-               "SPT_NOENV": "1"}
-        if unit["kind"] == "read":
-            # A read needing the VLM while it is down ends deferred, never read without it (vlm_reader.wanted).
-            env[vlm_reader.DEFER_ENV] = "1"
-            # ... and its ask the VLM has not answered is spooled for the drainer, not waited for (vlm_reader.SPOOL_ENV).
-            if os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0":
-                env[vlm_reader.SPOOL_ENV] = "1"
-        if alone:
-            env["OCR_REMOTE"] = ""
-        elif unit["kind"] != "fetch":
-            # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
-            env[ocr_remote.DEFER] = "1"
-        pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
-        self.running[pid] = (unit, time.monotonic())
-        self.tried.add(key_of(unit))
-        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
-            + (f" in a batch of {len(mates) + 1}" if mates else ""))
-        for v in mates:
-            self.tried.add(key_of(v))
-            log(f"start {v['kind']} {v['rel']} ({v['reason']}) in the batch of {unit['rel']}")
-        return True
-
-    def ended(self, unit, t0):
-        # Its desktop session has closed: desktop_room credits it back.
-        if not load_gated(unit):
-            now = time.time()
-            self.closed.append((now - (time.monotonic() - t0), now))
-
-    def reap(self):
-        # A unit this process started before a re-exec is adopted and still its child.
-        while self.running or self.adopted:
-            try:
-                pid, status = os.waitpid(-1, os.WNOHANG)
-            except ChildProcessError:
-                return
-            if pid == 0:
-                return
-            if pid not in self.running and pid not in self.adopted:
-                continue
-            unit, t0 = self.running.pop(pid) if pid in self.running else self.adopted.pop(pid)
-            self.ended(unit, t0)
-            rc = os.waitstatus_to_exitcode(status)
-            # TERMed or KILLed for a game (yield_stop): left for the next run, never a failure.
-            parked = pid in self.yield_termed and rc in (-signal.SIGTERM, -signal.SIGKILL, 128 + signal.SIGTERM)
-            self.yield_termed.discard(pid)
-            if parked:
-                self.tried.discard(key_of(unit))
-                self.tried.difference_update(batch_mate_keys(unit))
-                self.outcomes["deferred"] = self.outcomes.get("deferred", 0) + 1
-                log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
-                continue
-            if rc == EXITS["lost"]:
-                self.losses[key_of(unit)] = self.losses.get(key_of(unit), 0) + 1
-            # The media share did not answer: deferred, and no unit starts until it does (media.hold).
-            # One deferred for it MEDIA_TRIES times this run fails: that path's error, not an outage.
-            media_retry = False
-            if rc == EXITS["media"]:
-                self.media_tries[key_of(unit)] = self.media_tries.get(key_of(unit), 0) + 1
-                media_retry = self.media_tries[key_of(unit)] <= MEDIA_TRIES
-                self.media.down()
-            if rc == EXITS["vlm"]:
-                spooled_by = vlm_reader.spooled_by(pid)
-                spooled_end = bool(spooled_by)
-                full_end = vlm_reader.full_mark(pid).exists()
-                if full_end:
-                    vlm_reader.full_mark(pid).unlink(missing_ok=True)
-                    self.full_wait.pop(key_of(unit), None)
-                    self.full_wait[key_of(unit)] = None  # started again once the spool has room for it
-                if spooled_by or full_end:
-                    n = self.defer_runs[key_of(unit)] = self.defer_runs.get(key_of(unit), 0) + 1
-                    if n >= 2:
-                        self.defer_until[key_of(unit)] = time.monotonic() + min(DEFER_BACKOFF_MAX, DEFER_BACKOFF * 2 ** (n - 2))
-                    if self.defer_file:
-                        keep_defers(self.defer_file, self.defer_runs, self.defer_until)
-                if spooled_by:
-                    self.spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
-                    self.full_wait.pop(key_of(unit), None)  # its asks are spooled: the answers, not the cap, release it
-                elif not full_end:
-                    self.vlm_held.add(key_of(unit))
-                    self.vlm_lost_at[0] = time.monotonic()
-            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) or media_retry:
-                self.tried.discard(key_of(unit))  # started again once the desktop is idle, the VLM or the media share answers
-                self.tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
-                if unit.get("batch"):
-                    self.unbatched.update(batch_mate_keys(unit))
-                    self.unbatched.add(key_of(unit))
-                if self.desktop_bound and unit["kind"] == "scan":
-                    self.yield_held.add(key_of(unit))
-            else:
-                self.finished[key_of(unit)] = time.monotonic()
-                for k in batch_mate_keys(unit):
-                    self.finished[k] = self.finished[key_of(unit)]
-                if self.defer_runs.pop(key_of(unit), None) is not None and self.defer_file:
-                    self.defer_until.pop(key_of(unit), None)
-                    keep_defers(self.defer_file, self.defer_runs, self.defer_until)
-                self.defer_until.pop(key_of(unit), None)
-            if unit["kind"] == "scan" and rc == 0:
-                self.scanned.add((unit["paper"], unit["rel"]))
-            elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
-                self.scan_failed.add((unit["paper"], unit["rel"]))
-            what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
-                    5: "failed, the source looks down", 6: "done, but throttled (429)",
-                    7: "not started: the disk is full",
-                    EXITS["media"]: "deferred (the media share is down)" if media_retry
-                    else f"failed (the media share's error {MEDIA_TRIES + 1} times this run)",
-                    EXITS["deferred"]: "deferred (the desktop is busy)",
-                    EXITS["lost"]: "deferred (the desktop was lost)",
-                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
-                    else "deferred: VLM spool full" if rc == EXITS["vlm"] and full_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
-            if unit["kind"] == "fetch":
-                self.fetch_ended(unit, rc)
-            self.outcomes[what.split(" ")[0]] = self.outcomes.get(what.split(" ")[0], 0) + 1
-            log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
-            for r in unit.get("batch") or ():
-                log(f"end {unit['kind']} {r}: {what} in the batch of {unit['rel']}")
-
-    def reap_adopted(self):
-        for pid, (unit, t0) in list(self.adopted.items()):
-            if not alive(pid):
-                del self.adopted[pid]
-                self.ended(unit, t0)
-                if pid in self.yield_termed:  # stopped for a game: left for the next run
-                    self.yield_termed.discard(pid)
-                    self.tried.discard(key_of(unit))
-                    self.tried.difference_update(batch_mate_keys(unit))
-                    log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
-                    continue
-                self.finished[key_of(unit)] = time.monotonic()
-                for k in batch_mate_keys(unit):
-                    self.finished[k] = self.finished[key_of(unit)]
-                log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
-
-    def overdue(self):
-        for pid, (unit, t0) in self.units_running():
-            limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
-                     LISTENER_SECONDS if unit["paper"] == "listener" else
-                     unit_limit(unit, self.read_seconds) if unit["kind"] == "read" else self.scan_seconds)
-            if time.monotonic() - t0 > limit:
-                log(f"{unit['kind']} {unit['rel']}{batch_note(unit)} ran past {limit}s; killed, left for the next run")
-                try:
-                    os.killpg(pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-
-
-class _SlotBalancer:
-    """How many units may start this pass: the unit ceiling, the per-reason, CPU-only and non-Times
-    caps, and the CPU / RAM / VLM gates, each logged once as it binds."""
-
-    def drainer_early(self):
-        # A fresh image (a re-exec, a new slice) makes its first plan before the dispatch loop starts,
-        # minutes on a loaded host, while the units it adopted spool asks: 10-29 01:14-01:19 nothing
-        # drained, and with a push every ~5 min the drainer was down most of the hour. So the drainer
-        # starts as soon as anything is spooled, until the loop's own check runs (or an hour passes).
-        end = time.monotonic() + 3600
-        while not self.drainer_looped.is_set() and not self.drainer and time.monotonic() < end:
-            if vlm_reader.spooled():
-                vlm_drainer(self.drainer_stop, self.drainer)
-                return
-            self.drainer_looped.wait(5)
-
-    def count_slots(self):
-        self.busy = {key_of(u) for _, (u, _) in self.units_running()}
-        # A read of an edition read before, waiting only on a new scan, starts
-        # after the plan that follows its scans: the scan may leave it not due.
-        self.rescanned = {(p, r) for (k, p, r), t in self.finished.items() if k == "scan" and t > (self.planned or 0)}
-        # A read waits on the scans it needs while they run, and on its own
-        # edition's planned scan until that ends done (a scan that failed or
-        # was killed leaves the read for the next run); a days-after scan
-        # still queued behind a full scan pool stands as last scanned.
-        self.scanning = {(p, r) for k, p, r in self.busy if k == "scan"}
-        # The (paper, rel) of every queued scan, made again only when one of
-        # its lists is replaced or grows (~25k units, a pass a second).
-        scan_lists = tuple((id(us), len(us)) for us in (self.fresh_scans, self.scans, self.first))
-        if self.scan_keys[0] != scan_lists:
-            self.scan_keys[:] = [scan_lists, frozenset((u["paper"], u["rel"]) for u in self.fresh_scans + self.scans + self.first),
-                            (self.fresh_scans, self.scans, self.first)]  # held, so no id is reused while keyed
-        self.unscanned = set(self.scan_keys[1])
-        self.unscanned -= self.scanned
-        self.free = dict(self.pools)
-        for _, (u, _) in self.units_running():
-            self.free[slot_of(u)] = self.free.get(slot_of(u), 0) - 1
-        # The unit-children ceiling (mem_gate.unit_ceiling) over every pool but the
-        # fetches: the pools' widths stay, the slots left are zeroed once it is met.
-        self.ceiling_left = mem_gate.unit_ceiling() - sum(1 for _, (u, _) in self.units_running() if u["kind"] != "fetch")
-        if self.ceiling_left <= 0:
-            self.free.update({sl: 0 for sl in self.free if not sl.startswith("fetch ")})
-            if not self.ceiling_bound and any(self.pools[sl] for sl in self.pools if not sl.startswith("fetch ")):
-                self.ceiling_bound = True
-                log(f"unit ceiling: {mem_gate.unit_ceiling()} unit children running; no read or scan starts until one exits")
-        else:
-            self.ceiling_bound = False
-
-    def gate_vlm(self):
-        vlm_waiting = vlm_reader.waiting_now()
-        self.queued = vlm_reader.spooled()
-        self.drainer_looped.set()  # the early start (drainer_early) is done: this check is the drainer's now
-        if self.queued and (not self.drainer or not all(t.is_alive() for t in self.drainer)):
-            vlm_drainer(self.drainer_stop, self.drainer)
-        stage = (len(self.queued), len(self.spool_wait))
-        if stage != self.stage_seen[0] and (stage[0] or self.stage_seen[0]) and time.monotonic() - self.stage_seen[1] >= 30:
-            self.stage_seen[:] = [stage, time.monotonic()]
-            log(f"vlm stage: {stage[0]} asks spooled, {stage[1]} reads waiting")
-        # With the spool on, a spooled read holds no RAM and no slot, so it never counts: the gate is the
-        # spool's depth (CT_VLM_SPOOL_MAX) plus the OTHER processes blocked in an ask. The queue's own mark
-        # (its drainer threads asking, slots()+PIPELINE) is not one: counting it held every read start
-        # while the GPU drained, so the CPU idled. Spool off: the old cap on reads waiting in the VLM's lock.
-        spool_on = os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0"
-        if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
-            vlm_waiting -= 1
-        if spool_on:
-            # A full spool does not stop reads: one that needs an uncached ask then ends deferred
-            # ("VLM spool full", vlm_reader.ask_png) and waits in full_wait; OCR-only reads go on.
-            self.vlm_full = vlm_waiting >= vlm_waiting_cap()
-        else:
-            vlm_waiting += len(self.queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
-            self.vlm_full = vlm_waiting >= vlm_waiting_cap()
-        if self.vlm_full != self.vlm_bound:
-            self.vlm_bound = self.vlm_full
-            if self.vlm_full:
-                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
-                    f"{len(self.queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
-        self.spool_cap_hit = len(self.queued) >= vlm_spool_max()
-        # Of the reads held for a full spool only as many as the spool has room for start this pass, oldest first:
-        # all at once they would OCR their pages and defer again as it fills.
-        self.full_free = list(self.full_wait)[:max(0, vlm_spool_max() - len(self.queued))]
-
-    def gate_host(self):
-        self.begun_now = self.charged = 0
-        self.costs = None  # unit_costs, measured at this pass's first start
-        self.held_back = self.cpu_held = self.idle_held = False
-        self.local_now = 0  # local_cpu units begun this pass, a core each
-        self.idle_read = {}
-        self.starved = mem_gate.burn_starved(burn_gate_reader)
-        if self.starved and not self.burn_bound:
-            log(f"{mem_gate.burn_line(self.starved)} ({len(self.running) + len(self.adopted)} running are left alone)")
-        self.burn_bound = bool(self.starved)
-        # While the desktop yields, its OCR would fall back to this host's
-        # CPU: only fetches start until it is idle again.
-        self.yielding = desktop_yielding()
-        if self.yielding and not self.desktop_bound:
-            log(f"desktop-bound: desktop yielding ({self.yielding}); only fetches start until it is idle "
-                f"({len(self.running) + len(self.adopted)} running are left alone)")
-        self.desktop_bound = bool(self.yielding)
-        self.yield_stop(self.yielding)
-        self.game = bool(self.yielding) and str(self.yielding).startswith("game")  # desktop_busy's "game: ..."
-        self.freeze(self.game)
-        self.live_scans = sum(1 for pid, (u, _) in self.units_running() if u["kind"] == "scan")
-        self.yield_opt_in = bool(os.environ.get("CT_YIELD_HOSTS", "").split())  # scans go on during a game only then
-        self.desk_mem = desktop_free() if not self.yielding else None
-        self.opened[:] = [s for s in self.opened if s > time.time() - 3600]
-        self.closed[:] = [c for c in self.closed if c[1] > time.time() - 3600]
-        self.desk_held = False
-        self.vlm_now = []  # whether the VLM answers, asked once a pass and only when a read needs it
-        self.full_held = set()  # reads this pass held for a full spool (full_wait)
-
-
-    def cap_listener(self):
-        # Paul 10-24: the plan held only Listener reads (local OCR, no VLM) and its fixed pool ran 8 of the
-        # 24 ceiling slots, 16 idle. While no other read or scan is due (queued untried) or running, the
-        # Listener pool takes every ceiling slot left; once one is, it is back to LISTENER_WORKERS.
-        other_due = bool(self.other_keys - self.tried) or any(
-            slot_of(v) != "listener" and v["kind"] != "fetch" for _, (v, _) in self.units_running())
-        widen = not other_due and bool(self.listener_keys - self.tried)
-        if widen:
-            self.free["listener"] = listener_free(self.free.get("listener", 0), other_due, self.ceiling_left)
-        if widen != self.listener_wide and (widen or self.listener_wide):
-            n_listener = sum(1 for _, (v, _) in self.units_running() if slot_of(v) == "listener")
-            log(f"listener pool: widened to {n_listener + max(0, self.free['listener'])}, nothing else due "
-                f"(unit ceiling {mem_gate.unit_ceiling()})" if widen else
-                f"listener pool: back to {self.pools['listener']} (CT_LISTENER_WORKERS), "
-                + ("other work due" if other_due else "no Listener read left"))
-        self.listener_wide = widen
-        # Times first (Paul 10-24): while its work is due or running, the Listener keeps at most
-        # LISTENER_BESIDE_TIMES units.
-        self.times_due = bool(self.times_keys - self.tried) or any(v["paper"] in self.times_papers and slot_of(v) in ("read", "scan")
-                                                    for _, (v, _) in self.units_running())
-        self.non_times_live = sum(1 for _, (v, _) in self.units_running() if non_times_unit(v, self.times_papers))
-        self.non_times_capped = False
-        if self.times_due:
-            n_listener = sum(1 for _, (v, _) in self.units_running() if slot_of(v) == "listener")
-            self.free["listener"] = max(0, min(self.free.get("listener", 0), LISTENER_BESIDE_TIMES - n_listener))
-
-    def share_scans(self):
-        # Reads feed the VLM and file puzzles; scans only find them. While a read is due the scans
-        # keep to scan_share of the unit ceiling, so they cannot crowd the reads out of it.
-        # Paul 10-21: "Read the remaining times puzzles before doing ft". While the CT_NEWEST_FIRST papers'
-        # scans are pending, their reads wait on them (1,123 Times answer fills behind ~1,200 scans), so FT
-        # reads, FT scans and the scan share took the slots: the scans those reads need take every slot
-        # the ready Times reads will not, and FT fills only what is left, plus the few gpu_fill reads that
-        # keep an otherwise idle VLM fed.
-        named_now = newest_first_papers()
-        tf_pending = times_scans_pending(self.scan_keys[2], self.tried, self.busy, self.scanned) if named_now else []
-        tf_ready = sum(1 for u, k in self.read_cands if u["paper"] in named_now and k not in self.tried and k not in self.busy
-                       and not self.waits(u)) if named_now else 0
-        reads_due = not self.vlm_full and not self.yielding and (
-            tf_ready > 0 or (not tf_pending and any(k not in self.tried and not self.waits(u) for u, k in self.read_cands)))
-        share = scan_share(mem_gate.unit_ceiling(), reads_due)
-        if self.free.get("scan", 0) > 0 and share is not None:
-            live = sum(1 for _, (v, _) in self.units_running() if v["kind"] == "scan")
-            if live + self.free["scan"] > share:
-                self.free["scan"] = max(0, share - live)
-                if not self.scan_held and self.free["scan"] == 0:
-                    self.scan_held = True
-                    log(f"scan held for reads: {live} scans running of {share} allowed while reads are due "
-                        f"(unit ceiling {mem_gate.unit_ceiling()})")
-        if tf_pending and not self.yielding and self.ceiling_left > 0 and self.may_start():
-            room = times_scan_room(len(tf_pending), tf_ready, self.free.get("scan", 0), self.free.get("read", 0), self.ceiling_left)
-            if room > self.free.get("scan", 0):
-                self.free["scan"] = room
-                if not self.times_first[0]:
-                    self.times_first[0] = True
-                    log(f"times first: {len(tf_pending)} Times/Gale scans pending for {tf_ready} ready reads and "
-                        f"the reads waiting on them; scans may use {room} slots, FT fills only what is left")
-        elif self.times_first[0] and not tf_pending:
-            self.times_first[0] = False
-        if self.free.get("scan", 0) > 0 or share is None:
-            self.scan_held = False
-
-    def count_reasons(self):
-        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
-        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
-        self.reason_cap = reason_cap_for(mem_gate.unit_ceiling())
-        self.reason_live = {}
-        if self.reason_cap:
-            for _, (v, _at) in self.units_running():
-                if v["kind"] != "fetch" and v.get("reason"):
-                    self.reason_live[v["reason"]] = self.reason_live.get(v["reason"], 0) + 1
-
-
-    def set_caps(self):
-        # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
-        # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
-        self.reserve = min(len(self.fill), max(1, mem_gate.unit_ceiling() // 3)) if self.fill else 0
-        self.reserve_hit = False
-        # While the GPU is underfed the CPU-only units (stale scans, answer-linked rereads) share at most a
-        # third of the ceiling, so the rest goes to reads that ask the VLM.
-        self.cpu_cap = mem_gate.unit_ceiling() // 3 if len(self.queued) < vlm_feed_target() else None
-        self.cpu_live = sum(1 for _, (v, _at) in self.units_running() if cpu_only_unit(v)) if self.cpu_cap is not None else 0
-        self.cpu_capped = False
-        self.reason_other = {}  # reason -> whether a unit of another reason is queued and untried
-        self.reason_capped = []
-
-    def log_walk_bounds(self):
-        if not self.skip_walk:
-            if len(self.full_held) != self.spool_held[0] and (time.monotonic() - self.spool_held[1] >= 60 or len(self.full_held) // 10 != self.spool_held[0] // 10):
-                self.spool_held[:] = [len(self.full_held), time.monotonic()]
-                if self.full_held:
-                    log(f"spool full: {len(self.full_held)} reads that ended deferred for it held until it is below its cap "
-                        f"({len(self.queued)} asks spooled, CT_VLM_SPOOL_MAX {vlm_spool_max()}); reads with spooled asks go on")
-            if self.reserve_hit and not self.reserve_bound:
-                log(f"slot reserve: {self.reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
-                    f"({len(self.queued)} asks spooled, target {vlm_feed_target()}); other starts wait")
-            self.reserve_bound = self.reserve_hit
-            if self.cpu_capped and not self.cpu_cap_bound:
-                log(f"cpu-only cap: {self.cpu_live} stale scans/answer-linked rereads running of {self.cpu_cap} allowed "
-                    f"while {len(self.queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
-            self.cpu_cap_bound = self.cpu_capped
-            if self.non_times_capped and not self.non_times_bound[0]:
-                log(f"non-Times cap: {self.non_times_live} FT/other-paper scans and reads running of "
-                    f"{NON_TIMES_BESIDE_TIMES} allowed (CT_NON_TIMES_BESIDE_TIMES) while Times work is due; "
-                    f"the rest of the {mem_gate.unit_ceiling()} slots are for it")
-            self.non_times_bound[0] = self.non_times_capped
-            reason_hit = self.reason_capped[0] if self.reason_capped else None
-            if reason_hit and reason_hit != self.reason_cap_logged[0]:
-                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {self.reason_cap}); other work starts")
-            self.reason_cap_logged[0] = reason_hit
-
-    def log_bounds(self):
-        if self.held_back and not self.memory_bound:
-            self.memory_bound = True
-            log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "
-                f"memory pressure {mem_gate.pressure()} (max {mem_gate.psi_max()}), "
-                f"{self.charged >> 20} MB charged to {self.begun_now} begun this pass; a unit costs "
-                + ", ".join(f"{k} {v >> 20} MB" for k, v in sorted((self.costs or {}).items()))
-                + f" (else {mem_gate.UNIT >> 20} MB); no unit starts until a later pass finds room "
-                f"({len(self.running) + len(self.adopted)} running are left alone)")
-        if self.desk_held and not self.desk_mem_bound:
-            log(f"desktop-memory-bound: {self.desk_mem[1]} MB free there {time.time() - self.desk_mem[0]:.0f}s ago, "
-                f"{desktop_sessions(self.desk_mem[0], self.opened, self.closed)} session(s) opened since and still open "
-                f"at {DESKTOP_SESSION_MB} MB each, "
-                f"floor {DESKTOP_FLOOR_MB} MB; only fetches start until it has room "
-                f"({len(self.running) + len(self.adopted)} running are left alone)")
-        self.desk_mem_bound = self.desk_held
-        if self.walked:
-            self.vlm_pending[0] = self.vlm_deferred
-        if self.vlm_deferred and (self.vlm_logged[0] is None or time.monotonic() - self.vlm_logged[0] >= 600):
-            self.vlm_logged[:] = [time.monotonic(), self.vlm_deferred]
-            log(f"VLM down ({vlm_reader.cause() or 'unreachable'}): {self.vlm_deferred} scans deferred; their reads start once it answers, "
-                f"scans, fetches and reads that do not ask it go on ({len(self.running) + len(self.adopted)} running)")
-        if self.cpu_held and not self.cpu_bound:
-            self.cpu_bound = True
-            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
-                f"({len(self.running) + len(self.adopted)} running are left alone)")
-        if self.idle_held and not self.idle_bound:
-            idle = (idle_gate_reader or mem_gate.idle_cores)()
-            log(f"idle-bound: {idle if idle is None else round(idle, 1)} idle core(s), {self.local_now} local unit(s) "
-                f"begun this pass; no unit that works on this host's CPU (local_cpu) starts until a core "
-                f"is idle, those waiting on the desktop or the network go on "
-                f"({sum(local_cpu(v) for _, (v, _) in self.units_running())} local running are left alone)")
-        self.idle_bound = self.idle_held
-
-
-class _RankPicker:
-    """Which units start, in what order: the queue by rank, the urgent ones first, the GPU-fill reads, and
-    the walk that starts what the slots and gates leave room for."""
-
-    def vlm_waits(self, u):
-        """Whether read `u` waits for the VLM: it needs it (needs_vlm,
-        or it ended deferred for it) and it is down."""
-        if u["kind"] == "read" and key_of(u) in self.full_wait and key_of(u) not in self.spool_wait:
-            # Ended deferred for a full spool with no ask spooled (any paper, needs_vlm or not): its
-            # OCR would be redone for nothing. A read with spooled asks is in spool_wait and never held here.
-            if key_of(u) not in self.full_free:
-                self.full_held.add(key_of(u))
-                return True  # not again until the spool has room for it
-            self.full_wait.pop(key_of(u), None)
-        if u["kind"] != "read" or not (key_of(u) in self.vlm_held or needs_vlm(u)):
-            return False
-        if self.spool_cap_hit and key_of(u) not in self.spool_wait and key_of(u) not in self.full_wait:
-            # The spool is at its cap: a fresh read that may ask would OCR its pages (~25 CPU-s),
-            # be refused ("VLM spool full") and start again once held, churning while the drainer
-            # works. It waits here, free, until the spool is below its cap.
-            self.full_held.add(key_of(u))
-            return True
-        if key_of(u) in self.spool_wait:
-            if any(vlm_reader.pending(k) for k in self.spool_wait[key_of(u)]):
-                return True
-            del self.spool_wait[key_of(u)]  # answered: its asks hit the cache now
-            # ... and it starts at once: the backoff spares OCR redone for asks still unanswered, and
-            # 10-24 held reads whose asks an idle drainer answered in seconds for 120 s+ (the GPU at 0%).
-            self.defer_until.pop(key_of(u), None)
-        elif self.defer_until.get(key_of(u), 0) > time.monotonic():
-            return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
-        if not self.vlm_now:
-            self.vlm_now.append(time.monotonic() - self.vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
-            if self.vlm_now[0] and self.vlm_held:
-                log(f"VLM back: {len(self.vlm_held)} read(s) deferred for it start again")
-                self.vlm_held.clear()
-            if self.vlm_now[0]:
-                self.vlm_logged[0] = None
-        return not self.vlm_now[0]
-
-    def load_queue(self):
-        self.vlm_deferred = 0
-        # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
-        # urgent is left to start, in any pool: new and fixed work first
-        # (a read waiting for the VLM holds none back).
-        lists = (self.first, self.fresh_scans, self.fresh_reads, self.scans, self.reads, self.fetches)
-        sig = tuple((id(l), len(l)) for l in lists)
-        self.times_papers = newest_first_papers()
-        if self.queue_memo[0] != sig:
-            q = self.first + self.fresh_scans + self.fresh_reads + self.scans + self.reads + self.fetches
-            self.qkeys, self.qslots, self.last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
-            for i, sl in enumerate(self.qslots):
-                self.last_of[sl] = i
-            body = self.fresh_scans + self.fresh_reads + self.scans + self.reads
-            cands = [(u, key_of(u), slot_of(u)) for u in body
-                     if (u["rank"] < fa.BLANKET or newest_first(u)) and self.pools.get(slot_of(u))]
-            first_at = {}  # each urgent candidate's key: its first index in cands
-            for i, (_, k, _) in enumerate(cands):
-                first_at.setdefault(k, i)
-            self.queue_memo[:] = [sig, q, self.qkeys, self.qslots, self.last_of, cands,
-                             [(v, key_of(v)) for v in self.fresh_reads + self.reads if slot_of(v) == "read"], lists,  # lists held: no id reused
-                             frozenset(first_at), first_at,
-                             # A whole-corpus re-read (fa.BLANKET) waits behind the Listener's due reads anyway, so it
-                             # is not "other work due": 10-24 five held FT/Guardian --reread units kept the pool at 8
-                             # of 24 slots while it, in turn, held them (load 8, one File in 25 min).
-                             frozenset(k for u, k, sl in zip(q, self.qkeys, self.qslots) if sl != "listener" and not sl.startswith("fetch ")
-                                       and (u["rank"] < fa.BLANKET or newest_first(u))),
-                             frozenset(k for k, sl in zip(self.qkeys, self.qslots) if sl == "listener"),
-                             frozenset(k for u, k, sl in zip(q, self.qkeys, self.qslots) if sl in ("read", "scan") and u["paper"] in self.times_papers)]
-        (_, self.queue, self.qkeys, self.qslots, self.last_of, self.urgent_cands, self.read_cands, _, self.urgent_keys, self.urgent_first,
-         self.other_keys, self.listener_keys, self.times_keys) = self.queue_memo
-
-    def find_urgent(self):
-        # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
-        # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
-        # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
-        # vlm_waits is asked of the same units in the same order as a walk of them all.
-        untried_urgent = self.urgent_keys - self.tried
-        self.urgent = bool(untried_urgent) and any(
-            k not in self.tried and not self.vlm_waits(u)
-            for u, k, _ in itertools.islice(self.urgent_cands, min(map(self.urgent_first.__getitem__, untried_urgent)), None))
-
-    def start_reads(self):
-        # A pass with no free slot starts nothing; and once a gate holds
-        # one unit back it holds every later one (begun_now only grows), so
-        # the gates are read at most once a unit begun, not once a unit due.
-        self.mem_read, self.cpu_read = {}, {}
-        # Each ledger read once a pass, not once a queued scan: a scan unit
-        # checks its row again before it scans (scan_unit's "current").
-        self.stands = {}
-        self.stand_keys, self.cache_s = {}, os.fspath(self.cache)  # current_keys by paper, a pass's; the cache's str, not a Path to fspath each ask
-
-
-    def stood(self, u):
-        paper = fa.FILERS[u["paper"]]
-        if u["paper"] not in self.stands:
-            self.stands[u["paper"]] = fa.standing(paper, self.cache)
-        return fa.scan_stands(paper, u["rel"], self.cache_s, self.stands[u["paper"]], self.stand_keys, u.get("reason") in fa.HOST_REASONS)
-
-    def stage_reads(self):
-        self.scanning_by = rels_by_paper(self.scanning)  # kept in step as scans begin below
-
-        # Whether a read waits on a scan; a partial, not a closure: no Python frame of its own.
-        self.waits = functools.partial(read_waits, scanning=self.scanning_by, unscanned=self.unscanned,
-                                  rescanned=rels_by_paper(self.rescanned))
-
-    def begin_pick(self):
-        # A fresh scan is never held for a backlog's reads (fed).
-        self.firsts = {key_of(u) for u in self.first + self.fresh_scans}
-        self.ready = []
-        self.heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
-
-        self.walked = self.may_start() and any(v > 0 for v in self.free.values())
-
-    def ready_reads(self):
-        # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
-        # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
-        return [v for v, k in self.read_cands if k not in self.tried and k not in self.busy and not self.waits(v) and not self.vlm_waits(v)
-                and not (self.reason_cap and v.get("reason") and self.reason_live.get(v["reason"], 0) >= self.reason_cap)]
-
-    def fed(self, u):
-        """Whether scan `u` only feeds a backlog: the next full read pool
-        of ready reads ranked as it or more urgent, in the queue's order,
-        are there and none needs it. Then its desktop CPU (scans run above
-        reads there) is the reads' instead. Worked out once a pass per
-        rank: a pass asks it of every queued scan (~12k)."""
-        if self.vlm_full:
-            return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
-        if not self.ready:
-            self.ready.append(self.ready_reads())
-        if u["rank"] not in self.heads:
-            nxt = [v for v in self.ready[0] if v["rank"] <= u["rank"]][:self.pools["read"]]
-            self.heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
-                                if len(nxt) >= self.pools["read"] else None)
-        needed = self.heads[u["rank"]]
-        return needed is not None and (u["paper"], u["rel"]) not in needed
-
-    def fill_scan(self, u):
-        """The queued scan read `u` waits on (its own, not yet done), or None."""
-        if (u["paper"], u["rel"]) not in self.unscanned:
-            return None
-        if self.scan_of_rel[0] is not self.scan_keys[2]:
-            self.scan_of_rel[:] = [self.scan_keys[2], {(s["paper"], s["rel"]): s for us in self.scan_keys[2] for s in us}]
-        return self.scan_of_rel[1].get((u["paper"], u["rel"]))
-
-    def feed_gpu(self):
-        # An idle GPU is a bug: with the VLM stage short of asks, other papers' never-read reads (which
-        # ask the VLM) go ahead of the CT_NEWEST_FIRST papers' OCR-only rereads (gpu_fill).
-        fills_running = sum(1 for _, (v, _at) in self.units_running() if fills_gpu(v))
-        self.fill = gpu_fill(self.read_cands, self.tried, self.busy, self.waits, self.vlm_waits, len(self.queued), self.vlm_full or self.spool_cap_hit,
-                        fills_running,
-                        # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
-                        # idle". Fills run up to CT_VLM_FEED_READS at once (each spends minutes on OCR before
-                        # its first ask), never past the free read slots; Times work still starts first.
-                        min(vlm_feed_reads(), fills_running + self.free.get("read", 0)),
-                        self.fill_scan, self.scanning,
-                        # Paul 10-23: no fill read ready, GPU 0%: the scans they wait on start, a few at once.
-                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3)),
-                        vlm_feed_ahead(), vlm_fill_asks()
-                        ) if (self.free.get("read", 0) > 0 and self.may_start() and not self.yielding and not self.starved) else []
-        self.fill_keys = {key_of(u) for u in self.fill}
-        fill_scans = sum(1 for u in self.fill if u["kind"] == "scan")
-        if fill_scans and self.free.get("scan", 0) < fill_scans and self.ceiling_left > 0:
-            # The scan share held scans for reads, but no fill read can start until these end.
-            self.free["scan"] = min(fill_scans, self.ceiling_left)
-            if fill_scans != self.fill_scan_logged[0]:
-                log(f"vlm feed: no VLM-asking read ready ({len(self.queued)} asks spooled, target {vlm_feed_target()}); "
-                    f"{fill_scans} scan(s) they wait on start ahead of the queue")
-        self.fill_scan_logged[0] = fill_scans
-        if self.fill and self.free.get("scan", 0) > 0 and not self.vlm_full:
-            # The fill reads start ahead of the queue: the pool fed() asks about is the one before they begin,
-            # else a scan no read waits on is "not fed" the moment they take the last read slot and starts
-            # ahead of them (the queue lists scans first).
-            self.ready.append(self.ready_reads())
-
-    def others_wait(self, reason):
-        if reason not in self.reason_other:
-            self.reason_other[reason] = other_reason_waits(
-                reason, zip(self.queue, self.qkeys, self.qslots), self.tried, self.free,
-                lambda v: non_times_held(v, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES))
-        return self.reason_other[reason]
-
-    def idle_key(self, gates):
-        """What a walk of the queue (~12k units) that begins nothing
-        depends on: the plan, the units running and tried, the gates it
-        read (`gates`: the (mem, cpu, idle) readings by their arguments),
-        and the IDLE_WALK slot of time (a ledger another process moved,
-        the VLM back, a desktop session aged out: noticed within
-        IDLE_WALK seconds)."""
-        return (self.planned, self.plan_done, self.fresh_at, len(self.queue), len(self.first), len(self.tried), len(self.scanned), len(self.scan_failed),
-                sum(self.losses.values()), len(self.vlm_held), len(self.spool_wait), len(self.full_wait), self.spool_cap_hit, self.vlm_full, tuple(self.running), tuple(self.adopted), tuple(sorted(self.free.items())),
-                len(self.stopped), self.urgent, tuple(self.fill_keys), bool(self.starved), bool(self.yielding), self.desk_mem, len(self.opened), len(self.closed),
-                int(time.monotonic() // IDLE_WALK), gates)
-
-    def gates_again(self, gates):
-        """The gates the last idle walk read, read again with the same
-        arguments: once each, as that walk did."""
-        mem, cpu, idle = gates
-        return (tuple((k, mem_gate.room(k[0], mem_gate_reader, unit=k[1])) for k, _ in mem),
-                tuple((k, mem_gate.cpu_room(k, cpu_gate_reader)) for k, _ in cpu),
-                tuple((k, mem_gate.idle_room(k, idle_gate_reader)) for k, _ in idle))
-
-    def skip_idle_walk(self):
-        # A pass the last idle one's state and gates stand for would begin
-        # nothing again: its outcome stands, the walk is skipped. The state
-        # is compared first: the gates are read only when it matches.
-        self.skip_walk = (self.walked and self.idle_walk[0] is not None and self.idle_key(self.idle_walk[0][-1]) == self.idle_walk[0]
-                     and self.gates_again(self.idle_walk[0][-1]) == self.idle_walk[0][-1])
-        if self.skip_walk:
-            self.held_back, self.desk_held, self.cpu_held, self.idle_held, self.vlm_deferred = self.idle_walk[1]
-
-    def walk(self):
-        # The walk ends past the last unit of any pool with a free slot: no later unit can start.
-        reach = max((self.last_of.get(sl, -1) for sl, v in self.free.items() if v > 0), default=-1)
-        may_start, free, tried = self.may_start, self.free, self.tried  # the walk's hot lines (same objects all pass)
-        for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in self.fill), zip(self.queue, self.qkeys, self.qslots))
-                                             if reach >= 0 and not self.skip_walk else (), -len(self.fill)):
-            if i > reach or self.media.held():
-                break  # (the media share noted down this pass: nothing more starts until it answers)
-            if not may_start() or free[uslot] <= 0 or ukey in tried:
-                continue
-            if non_times_held(u, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES):
-                self.non_times_capped = True  # Times first: the slots left are for its scans and reads
-                continue
-            if self.reserve and ukey not in self.fill_keys and not uslot.startswith("fetch ") and self.ceiling_left <= self.reserve:
-                self.reserve_hit = True  # the last slots are for reads that ask the VLM
-                continue
-            if (self.cpu_cap is not None and self.cpu_live >= self.cpu_cap and cpu_only_unit(u) and ukey not in self.fill_keys
-                    and not (self.listener_wide and uslot == "listener")):  # no VLM-asking read is due to keep slots for
-                self.cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
-                continue
-            if (self.reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in self.fill_keys
-                    and self.reason_live.get(u["reason"], 0) >= self.reason_cap and self.others_wait(u["reason"])):
-                self.reason_capped.append((self.reason_live[u["reason"]], u["reason"]))
-                continue  # waits (not dropped): other work starts first
-            if self.urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
-                continue
-            # Held before its ledger row is checked: stood() stats the
-            # edition's files, and a held scan is asked again every pass.
-            if u["kind"] == "scan" and ukey not in self.firsts and ukey not in self.fill_keys and self.fed(u) and not newest_first(u):
-                continue
-            try:
-                stands_now = u["kind"] == "scan" and u["paper"] in fa.FILERS and self.stood(u)
-            except OSError as e:  # its ledger or files on the media share, which did not answer (10-20, 10-23)
-                if not self.media.down(e):
-                    raise
-                break
-            if stands_now:
-                # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
-                self.tried.add(ukey)
-                self.scanned.add((u["paper"], u["rel"]))
-                continue
-            if u["kind"] == "read" and self.waits(u):
-                if (u["paper"], u["rel"]) in self.unscanned and (u["paper"], u["rel"]) in self.scan_failed:
-                    self.tried.add(ukey)
-                continue
-            # A game stops the VLM: no read starts (nor a scan its desktop deferred) while it yields;
-            # scans and fetches go on (CPU work).
-            # Nor does a scan during a game beyond CT_GAME_SCAN_WORKERS running (the rest are shed).
-            if self.starved or (self.yielding and (u["kind"] == "read" or ukey in self.yield_held
-                                         or (u["kind"] == "scan" and (not self.yield_opt_in or (self.game and self.live_scans >= game_scans()))))):
-                continue
-            if self.vlm_waits(u):
-                self.vlm_deferred += ukey not in self.spool_wait and ukey not in self.full_wait and ukey not in self.defer_until  # a read for the drainer is no "VLM down"
-                continue
-            if self.vlm_full and u["kind"] == "read":
-                continue
-            if self.costs is None:
-                self.costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in self.units_running()})
-            cost = self.costs.get(uslot, mem_gate.UNIT)
-            if not self.held_back and (self.charged, cost) not in self.mem_read:
-                self.mem_read[self.charged, cost] = mem_gate.room(self.charged, mem_gate_reader, unit=cost)
-            if self.held_back or not self.mem_read[self.charged, cost]:
-                self.held_back = True
-                continue
-            if not load_gated(u):
-                if self.desk_held or not desktop_room(self.desk_mem, self.opened, self.closed):
-                    self.desk_held = True
-                    continue
-            if load_gated(u):
-                if not self.cpu_held and self.begun_now not in self.cpu_read:
-                    self.cpu_read[self.begun_now] = mem_gate.cpu_room(self.begun_now, cpu_gate_reader)
-                if self.cpu_held or not self.cpu_read[self.begun_now]:
-                    self.cpu_held = True
-                    continue
-            local = local_cpu(u)
-            if local:
-                if not self.idle_held and self.local_now not in self.idle_read:
-                    self.idle_read[self.local_now] = mem_gate.idle_room(self.local_now, idle_gate_reader)
-                if self.idle_held or not self.idle_read[self.local_now]:
-                    self.idle_held = True
-                    continue
-            # Answers-linked rereads of one item go in one process: the setup is ~all of their cost.
-            # (An edition of a batch that ended deferred is read alone from then on: one needing the VLM's
-            # asks would end its whole batch again, the other editions unread.)
-            began = self.start(u, [] if ukey in self.unbatched else batch_mates(
-                u, self.read_cands, self.tried, self.busy | self.unbatched,
-                lambda v: not self.waits(v) and not self.vlm_waits(v) and key_of(v) not in self.firsts))
-            if not began and began is not PENDING:
-                self.unscanned.add((u["paper"], u["rel"]))
-                continue
-            if ukey in self.fill_keys:
-                log(f"vlm feed: start {ukey[0]} {ukey[1]} {ukey[2]} ({u.get('reason') or 'rank ' + str(u['rank'])}; "
-                    f"{len(self.queued)} asks spooled, target {vlm_feed_target()})")
-            # A unit whose brief is being made holds its slot and its gates' charges as if begun.
-            self.local_now += local
-            self.begun_now += 1
-            self.live_scans += u["kind"] == "scan"
-            self.cpu_live += cpu_only_unit(u)
-            self.non_times_live += non_times_unit(u, self.times_papers)
-            if self.reason_cap and u["kind"] != "fetch" and u.get("reason"):
-                self.reason_live[u["reason"]] = self.reason_live.get(u["reason"], 0) + 1
-            self.charged += cost
-            if began is not PENDING and not load_gated(u):
-                self.opened.append(time.time())
-            self.free[uslot] -= 1
-            if not uslot.startswith("fetch "):
-                self.ceiling_left -= 1
-                if self.ceiling_left <= 0:
-                    self.free.update({sl: 0 for sl in self.free if not sl.startswith("fetch ")})
-            if self.free[uslot] <= 0:
-                reach = max((self.last_of.get(sl, -1) for sl, v in self.free.items() if v > 0), default=-1)
-            if began is PENDING:
-                continue
-            if u["kind"] == "scan":
-                self.scanning.add((u["paper"], u["rel"]))
-                self.scanning_by.setdefault(u["paper"], set()).add(u["rel"])
-
-    def remember_idle_walk(self):
-        if self.walked and not self.skip_walk and not self.begun_now:
-            self.idle_walk[:] = [self.idle_key((tuple(sorted(self.mem_read.items())), tuple(sorted(self.cpu_read.items())),
-                                      tuple(sorted(self.idle_read.items())))),
-                            (self.held_back, self.desk_held, self.cpu_held, self.idle_held, self.vlm_deferred)]
-        elif not self.skip_walk:
-            self.idle_walk[:] = [None, None]
-
-
-class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
-    """One run of the queue: `run` loops the passes of the pieces above over this one state."""
-
-    def __init__(self, papers, cache, puzzles, reread, seconds, workers, scan_workers, beside, read_seconds, scan_seconds, replan, fetch, trove_workers, handoff, resume, fetch_replan, upkeep, plan_reuse, watch):
-        self.papers = papers
-        self.cache = cache
-        self.puzzles = puzzles
-        self.reread = reread
-        self.seconds = seconds
-        self.beside = beside
-        self.read_seconds = read_seconds
-        self.scan_seconds = scan_seconds
-        self.replan = replan
-        self.fetch = fetch
-        self.handoff = handoff
-        self.resume = resume
-        self.fetch_replan = fetch_replan
-        self.stop = []
-        signal.signal(signal.SIGTERM, lambda *_: self.stop.append(signal.SIGTERM))
-        signal.signal(signal.SIGINT, lambda *_: self.stop.append(signal.SIGINT))
-        # SIGHUP (or the watcher: origin/master's tools/ code moved) reloads: see reload_check.
-        self.reload = []  # why a reload was asked, once
-        self.reload_since = [None]  # when this run began to wind down for it
-        self.reload_termed_at = [None]  # when the first TERM went at the end of the grace
-        signal.signal(signal.SIGHUP, lambda *_: self.reload.append("SIGHUP"))
-        # A re-exec blocks these across it (reexec); the handlers are in place now.
-        signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
-        self.code = code_files()
-        self.watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure()).start() if hot_reload.enabled() and watch else None
-        self.begun = self.code_checked = time.monotonic()
-        self.running = {}  # pid: (unit, started)
-        self.tried = set()
-        self.finished = {}
-        self.scanned, self.scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
-        self.outcomes = {}
-        self.losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
-        self.unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
-        # Paul 10-13: "If the vision model is down and you need it just go onto
-        # the next scan and do it when it is back". The reads that ended deferred
-        # for the VLM (EXITS["vlm"]), held with needs_vlm's while it is down.
-        self.vlm_held = set()
-        self.vlm_lost_at = [float("-inf")]  # when a read last ended deferred for it
-        self.vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
-        self.vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
-        self.idle_walk = [None, None]  # (idle_key, (held flags, vlm_deferred)) of the last pass whose walk began nothing
-        # The media share down (a unit's EXITS["media"], or this loop's own error on a media path):
-        # no unit starts until it answers, and past CT_MEDIA_WAIT the run ends 1 (MediaGate).
-        self.media = MediaGate()
-        self.media_tries = {}  # key_of(unit): times it ended deferred for the share this run (MEDIA_TRIES)
-        self.media_gone = []  # why the run gave up on the share
-        self.beside = [Beside(argv) for argv in self.beside or ()]
-        self.scans = self.reads = self.fetches = []
-        # The editions just laid out (fresh), looked for every FRESH_POLL
-        # seconds on this loop, not the planner's thread, and started first.
-        self.fresh_scans = self.fresh_reads = []
-        self.fresh_at = None
-        self.first = []  # scan units of reads whose own scan was stale when they were to start (start)
-        self.planned = None  # when the plan in force was begun
-        self.plan_done = None  # when it was made
-        self.planner = None  # (thread, its result box) making the next plan
-        # The last plan is kept beside the hand-over, so a re-exec or the next
-        # slice starts units from it at once while its own plan is made.
-        self.plan_file = Path(f"{self.handoff or self.resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
-        self.plan_key = [list(self.papers), str(self.cache), self.reread and self.reread.isoformat(), sorted(self.fetch), plan_version(self.code)]
-        self.plan_at = None  # when the plan in force was made (wall clock), once one is kept
-        plan_reuse = PLAN_REUSE if plan_reuse is None else plan_reuse
-        self.planned_took = [0.0]  # seconds the last whole plan took (replan_after)
-        if self.handoff or self.resume:
-            kept, self.plan_at, kept_took = last_plan(self.plan_file, self.plan_key)
-            if kept:
-                self.scans, self.reads, self.fetches = kept
-                self.planned = time.monotonic()
-                log(f"started from the last plan: {len(self.scans)} scans, {len(self.reads)} reads, {len(self.fetches)} fetches")
-                if time.time() - self.plan_at < plan_reuse:
-                    # Young enough to stand as made: the next whole plan comes when it
-                    # would have without the re-exec (fresh() already looks for new
-                    # editions every FRESH_POLL), and the image may re-exec again at once.
-                    self.plan_done = self.planned
-                    self.planned_took[0] = kept_took
-                    log(f"the plan is {time.time() - self.plan_at:.0f}s old: kept, not made again now")
-        self.queue = []  # the units of the last pass, started or not
-        self.idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
-        self.pool_width = scan_workers + workers
-
-        self.upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
-        self.left = 0
-        self.pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
-                 **{f"fetch {src}": FETCHERS[src]["workers"] for src in self.fetch}}
-        self.outages = dict.fromkeys(self.fetch, 0)
-        self.memory_bound = self.cpu_bound = self.desktop_bound = self.desk_mem_bound = False  # logged once per slice
-        self.idle_bound = False  # logged once each time the idle cores run out
-        self.vlm_bound = False  # logged once each time the VLM-waiting cap is met
-        self.drainer = []  # the VLM stage's threads, started with the first spooled ask
-        self.drainer_stop = threading.Event()
-        self.drainer_looped = threading.Event()  # set once the dispatch loop has looked at the spool (drainer_early)
-        self.spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
-        self.full_wait = {}  # {key_of(read): None} of the reads deferred for a full spool, oldest first: released as the spool has room
-        self.spool_held = [0, 0.0]  # reads the last log line said were held for a full spool, and when (once a minute, or per 10)
-        self.defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
-        self.defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
-        self.defer_file = Path(f"{self.handoff or self.resume}.defer") if self.handoff or self.resume else None  # kept across re-execs
-        if self.defer_file:
-            self.defer_runs, self.defer_until = last_defers(self.defer_file)
-        self.stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
-        self.reason_cap_logged = [None]  # (running, reason) last logged by the per-reason cap
-        self.non_times_bound = [False]  # logged once each time the non-Times cap holds a start back
-        self.cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
-        self.reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
-        self.ceiling_bound = False  # logged once each time the unit-children ceiling is met
-        self.listener_wide = False  # logged once each time the Listener pool widens to the ceiling or narrows back
-        self.times_first = [False]  # logged once each time the Times scans take the slots FT would
-        self.scan_held = False  # logged once each time the scans are held to their share for the reads
-        self.opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
-        self.closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
-        self.burn_bound = False  # logged once each time the burn starts starving
-        self.stopped = set()  # fetch sources started no more this run
-        self.adopted = {**(take_over(self.handoff) if self.handoff else {}), **(take_over(self.resume) if self.resume else {})}  # pid: (unit, started)
-        if not titled():
-            log("setproctitle is not installed: every unit's command line shows the queue's (pip install setproctitle)")
-        for unit, _ in self.adopted.values():
-            self.tried.add(key_of(unit))
-            log(f"taken over: {unit['kind']} {unit['rel']}")
-
-        # Opt-in (CT_YIELD_HOSTS set): when a game starts, no new unit starts, the running ones get
-        # CT_YIELD_GRACE seconds to finish, then are TERMed (STOP_GRACE, then KILLed) and left deferred.
-        self.yield_since = [None]  # when this yield began
-        self.yield_termed = set()  # pids stopped for it
-        self.yield_termed_at = [None]  # when the first TERM went
-        self.yield_killed = [False]
-        self.yield_held = set()  # scans that ended deferred (desktop busy) during a yield: not retried until it ends
-
-        # A game also sheds the CPU work (Paul 10-17: WoW choppy, WSL2's VM competes as a whole, nice does not
-        # help; a SIGSTOPped scan keeps its ~0.6 GB, and Windows paged at 3.8k/s): the scans beyond
-        # CT_GAME_SCAN_WORKERS (3; the oldest keep running) are TERMed, then KILLed after STOP_GRACE, and end
-        # deferred (a scan is ~200 s of work; yield_termed makes reap count it deferred, never a failure) to run
-        # again once the game ends. No scan starts beyond that cap. Fetches (network) go on. The --beside filers
-        # (a long batch, costly to lose) are SIGSTOPped instead, their --seconds clock stopped with them (resume
-        # credits the time), and SIGCONTed when the game ends, on a TERM, or before a hand-over.
-        self.shed = {}  # pid: when its TERM went
-        self.game_now = [False]
-
-        # A game also wants the RAM the WSL VM holds: Linux's page cache stays in the VM (Windows sees it
-        # as vmmemWSL) after the units end (Paul 10-18: "wow is slow ... you're not freeing your ram hog
-        # thing"; Windows was down to 1 GB free, 7 GB after a drop). CT_GAME_DROP_CACHE, a shell command
-        # (unset runs none), runs once the stopped units are gone (or their grace is over), then
-        # every GAME_DROP_EVERY seconds while the game lasts, in the background.
-        self.drop_at = [None, None]  # (when the game began, when the last drop ran)
-
-    def run(self):
-        """The passes, until nothing due is left to start (or a stop, a reload or the slice's end); the exit status."""
-        while True:
-            self.poll_units()
-            if self.media_waits():
-                continue
-            self.reexec_on_new_code()
-            self.poll_fresh()
-            self.poll_plan()
-            self.drop_stopped_fetches()
-            self.count_slots()
-            self.gate_vlm()
-            self.gate_host()
-            self.load_queue()
-            self.cap_listener()
-            self.find_urgent()
-            self.start_reads()
-            self.stage_reads()
-            self.share_scans()
-            self.begin_pick()
-            self.count_reasons()
-            self.feed_gpu()
-            self.set_caps()
-            self.skip_idle_walk()
-            self.walk()
-            self.log_walk_bounds()
-            self.remember_idle_walk()
-            self.log_bounds()
-            verdict = self.settle()
-            if verdict == END:
-                break
-            if verdict == AGAIN:
-                continue
-            self.rest()
-        return self.finish()
-
-    def settle(self):
-        """END when the run is over, AGAIN when the next pass starts at once, else None (the pass rests)."""
-        if self.stop:
-            return END
-        if self.handoff and not self.may_start() and not any(b.busy() for b in self.beside):
-            self.left = sum(k not in self.tried for k in self.qkeys) + len(self.running) + len(self.adopted)
-            self.thaw()
-            hand_over(self.handoff, self.units_running())
-            self.keep_untried()
-            log(f"slice over: {len(self.running) + len(self.adopted)} unit(s) handed over to the next run, still running")
-            self.running.clear()
-            self.adopted.clear()
-            return END
-        if not self.running and not self.adopted and self.planner is None and not any(b.busy() for b in self.beside) and not (
-                self.media.held() and self.may_start()):
-            untried = sum(k not in self.tried for k in self.qkeys)
-            if not self.may_start():
-                self.left = untried + sum(b.again and not b.done for b in self.beside)
-                return END
-            if not untried:
-                # Nothing left to start: one more plan, in case something
-                # landed, made on the new code when it changed.
-                if self.may_reexec() and any(digest(f) != h for f, h in self.code.items()):
-                    self.reexec()
-                try:
-                    self.scans, self.reads, self.fetches = self.replan_all()
-                    self.new_scans, self.new_reads = fresh(self.papers, self.cache)
-                except OSError as e:
-                    if not self.media.down(e):
-                        raise
-                    return AGAIN  # planned again once the media share answers (media.hold)
-                self.fresh_scans, self.fresh_reads = unchanged_eq(self.fresh_scans, self.new_scans), unchanged_eq(self.fresh_reads, self.new_reads)
-                self.fresh_at = time.monotonic()
-                self.drop_stopped_fetches()
-                self.planned = time.monotonic()
-                if all(key_of(u) in self.tried for u in self.first + self.fresh_scans + self.fresh_reads + self.scans + self.reads + self.fetches) and not any(b.again and not b.done
-                                                                             for b in self.beside):
-                    return END
-                return AGAIN
-        return None
-
-    def rest(self):
-        # Only reads waiting for the VLM left to start, and nothing running:
-        # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
-        self.drop_stale_briefs()
-        if self.vlm_deferred and not self.begun_now and not self.running and not self.adopted:
-            time.sleep(VLM_IDLE)
-        elif not self.begun_now and not any(v > 0 for v in self.free.values()):
-            nap(1 if self.game_now[0] else QUIET_NAP)  # a game: shed scans past the cap soon. Every slot full: only an exit (or a stop) can change what this pass would start
-        else:
-            time.sleep(1)
-
-    def finish(self):
-        if self.stop:
-            log(f"stop asked: TERM to {len(self.running) + len(self.adopted)} running unit(s), up to {STOP_GRACE}s")
-            self.thaw()  # SIGCONT first: a stopped filer would sit on the TERM, then be left stopped
-            for pid in list(self.running) + list(self.adopted):
-                try:
-                    os.killpg(pid, signal.SIGTERM)
-                except ProcessLookupError:
-                    pass
-            for b in self.beside:
-                b.stop(signal.SIGTERM)
-            end = time.monotonic() + STOP_GRACE
-            while (self.running or self.adopted) and time.monotonic() < end:
-                self.reap()
-                self.reap_adopted()
-                time.sleep(0.2)
-            for pid in list(self.running) + list(self.adopted):
-                try:
-                    os.killpg(pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-            for b in self.beside:
-                b.stop(signal.SIGKILL)
-            self.reap()
-            if self.media_gone:
-                print(f"edition queue: the media share stayed down; {self.media_gone[0]}")
-                return 1
-            return 143
-        print(f"edition queue: {len(self.tried)} units started; " + ", ".join(f"{v} {k}" for k, v in sorted(self.outcomes.items())))
-        if self.vlm_pending[0]:
-            print(f"  VLM down: {self.vlm_pending[0]} scans deferred")
-        if self.left:
-            print(f"  {self.left:5d}  left for the next run")
-        if self.reload:
-            print(f"reload: {self.reload[0]}; exiting {hot_reload.RELOAD_RC} for the wrapper to move the tree and start again")
-            return hot_reload.RELOAD_RC
-        return 0
-
-
-
-        self.fetch_made = {}  # source: (when its plan was made, its units)
-        # The queue's units with their key and slot, made once per plan (the lists' (id, len)
-        # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
-        # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
-        # the urgent candidates' keys, {key: its first index among them}).
-        self.queue_memo = [None] * 13
-        self.scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
-        self.fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
-        self.scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
-
-        self.spec = {"cache": str(self.cache), "puzzles": self.puzzles and str(self.puzzles), "reread": self.reread and self.reread.isoformat()}
-
-        self.preparing = {}  # key: (when submitted, the future of prepare(unit)) of the reads being briefed
-        self.briefers = ThreadPoolExecutor(PREPARERS, "brief")
-
-        # A media error this loop does not catch itself ends dispatch; main waits for the share
-        # and hands the running units to a new image through this (media_restart).
-        _media_reexec[:] = [self.reexec, lambda: [pid for pid, _ in self.units_running()]]
-
-        # The unit ceiling follows the Windows host's free RAM and CPU (mem_gate.ceiling_controller; opt-in by
-        # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
-        self.ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
-        if self.ceiling_ctl:
-            log(f"ceiling controller on: host {self.ceiling_ctl.host}, metrics {self.ceiling_ctl.metrics}, every {self.ceiling_ctl.every} s")
-
-        threading.Thread(target=self.drainer_early, daemon=True, name="vlm drainer start").start()
-
-
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
@@ -4169,10 +2727,1292 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     here: on the planner thread when the run starts units from the last
     plan, so a slice's or re-exec's slots refill at once, not after it.
     Returns the exit status: 0, or 143 after a TERM."""
+    stop = []
+    signal.signal(signal.SIGTERM, lambda *_: stop.append(signal.SIGTERM))
+    signal.signal(signal.SIGINT, lambda *_: stop.append(signal.SIGINT))
+    # SIGHUP (or the watcher: origin/master's tools/ code moved) reloads: see reload_check.
+    reload = []  # why a reload was asked, once
+    reload_since = [None]  # when this run began to wind down for it
+    reload_termed_at = [None]  # when the first TERM went at the end of the grace
+    signal.signal(signal.SIGHUP, lambda *_: reload.append("SIGHUP"))
+    # A re-exec blocks these across it (reexec); the handlers are in place now.
+    signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
+    code = code_files()
+    watcher = hot_reload.Watcher(TOOLS.parent, closure=queue_closure()).start() if hot_reload.enabled() and watch else None
+    begun = code_checked = time.monotonic()
+    running = {}  # pid: (unit, started)
+    tried = set()
+    finished = {}
+    scanned, scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
+    outcomes = {}
+    losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
+    unbatched = set()  # keys of the editions of a batch that ended deferred: read alone from then on (batch_mates)
+    # Paul 10-13: "If the vision model is down and you need it just go onto
+    # the next scan and do it when it is back". The reads that ended deferred
+    # for the VLM (EXITS["vlm"]), held with needs_vlm's while it is down.
+    vlm_held = set()
+    vlm_lost_at = [float("-inf")]  # when a read last ended deferred for it
+    vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
+    vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
+    idle_walk = [None, None]  # (idle_key, (held flags, vlm_deferred)) of the last pass whose walk began nothing
+    # The media share down (a unit's EXITS["media"], or this loop's own error on a media path):
+    # no unit starts until it answers, and past CT_MEDIA_WAIT the run ends 1 (MediaGate).
+    media = MediaGate()
+    media_tries = {}  # key_of(unit): times it ended deferred for the share this run (MEDIA_TRIES)
+    media_gone = []  # why the run gave up on the share
+    beside = [Beside(argv) for argv in beside or ()]
+    scans = reads = fetches = []
+    # The editions just laid out (fresh), looked for every FRESH_POLL
+    # seconds on this loop, not the planner's thread, and started first.
+    fresh_scans = fresh_reads = []
+    fresh_at = None
+    first = []  # scan units of reads whose own scan was stale when they were to start (start)
+    planned = None  # when the plan in force was begun
+    plan_done = None  # when it was made
+    planner = None  # (thread, its result box) making the next plan
+    # The last plan is kept beside the hand-over, so a re-exec or the next
+    # slice starts units from it at once while its own plan is made.
+    plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
+    plan_key = [list(papers), str(cache), reread and reread.isoformat(), sorted(fetch), plan_version(code)]
+    plan_at = None  # when the plan in force was made (wall clock), once one is kept
+    plan_reuse = PLAN_REUSE if plan_reuse is None else plan_reuse
+    planned_took = [0.0]  # seconds the last whole plan took (replan_after)
+    if handoff or resume:
+        kept, plan_at, kept_took = last_plan(plan_file, plan_key)
+        if kept:
+            scans, reads, fetches = kept
+            planned = time.monotonic()
+            log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
+            if time.time() - plan_at < plan_reuse:
+                # Young enough to stand as made: the next whole plan comes when it
+                # would have without the re-exec (fresh() already looks for new
+                # editions every FRESH_POLL), and the image may re-exec again at once.
+                plan_done = planned
+                planned_took[0] = kept_took
+                log(f"the plan is {time.time() - plan_at:.0f}s old: kept, not made again now")
+    queue = []  # the units of the last pass, started or not
+    idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
     scan_workers = min(scan_workers, scan_cap())
-    return _Dispatch(papers, cache, puzzles, reread, seconds, workers, scan_workers, beside, read_seconds,
-                     scan_seconds, replan, fetch, trove_workers, handoff, resume, fetch_replan, upkeep,
-                     plan_reuse, watch).run()
+    pool_width = scan_workers + workers
+
+    def replan_after():
+        """Seconds after the last plan the next is made: `replan`, or
+        IDLE_BACKOFF times it while no core is idle and the last plan still
+        holds more untried units than the pools are wide (read at most every
+        FRESH_POLL seconds)."""
+        if planned_took[0] * PLAN_DUTY > replan and planned_took[0]:
+            wait = min(planned_took[0] * PLAN_DUTY, PLAN_WAIT_MAX)
+        else:
+            wait = 0
+        # Counting stops past pool_width: the queue is ~25k units and the untried come early.
+        if sum(1 for _ in itertools.islice((u for u in queue if key_of(u) not in tried), pool_width + 1)) <= pool_width:
+            return replan
+        if idle_seen[0] is None or time.monotonic() - idle_seen[0] >= FRESH_POLL:
+            idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
+        return max(wait, replan if idle_seen[1] else replan * IDLE_BACKOFF)
+
+    upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
+    left = 0
+    pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
+             **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
+    outages = dict.fromkeys(fetch, 0)
+    memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
+    idle_bound = False  # logged once each time the idle cores run out
+    vlm_bound = False  # logged once each time the VLM-waiting cap is met
+    drainer = []  # the VLM stage's threads, started with the first spooled ask
+    drainer_stop = threading.Event()
+    drainer_looped = threading.Event()  # set once the dispatch loop has looked at the spool (drainer_early)
+    spool_wait = {}  # {key_of(read): its spooled asks' keys} of the reads deferred for the drainer
+    full_wait = {}  # {key_of(read): None} of the reads deferred for a full spool, oldest first: released as the spool has room
+    spool_held = [0, 0.0]  # reads the last log line said were held for a full spool, and when (once a minute, or per 10)
+    defer_runs = {}  # {key_of(read): times in a row it ended deferred for the VLM's asks}
+    defer_until = {}  # {key_of(read): monotonic time before which it is not started again (DEFER_BACKOFF)}
+    defer_file = Path(f"{handoff or resume}.defer") if handoff or resume else None  # kept across re-execs
+    if defer_file:
+        defer_runs, defer_until = last_defers(defer_file)
+    stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
+    reason_cap_logged = [None]  # (running, reason) last logged by the per-reason cap
+    non_times_bound = [False]  # logged once each time the non-Times cap holds a start back
+    cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
+    reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
+    ceiling_bound = False  # logged once each time the unit-children ceiling is met
+    listener_wide = False  # logged once each time the Listener pool widens to the ceiling or narrows back
+    times_first = [False]  # logged once each time the Times scans take the slots FT would
+    scan_held = False  # logged once each time the scans are held to their share for the reads
+    opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
+    closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
+    burn_bound = False  # logged once each time the burn starts starving
+    stopped = set()  # fetch sources started no more this run
+    adopted = {**(take_over(handoff) if handoff else {}), **(take_over(resume) if resume else {})}  # pid: (unit, started)
+    if not titled():
+        log("setproctitle is not installed: every unit's command line shows the queue's (pip install setproctitle)")
+    for unit, _ in adopted.values():
+        tried.add(key_of(unit))
+        log(f"taken over: {unit['kind']} {unit['rel']}")
+
+    def units_running():
+        return list(running.items()) + list(adopted.items())
+
+    # Opt-in (CT_YIELD_HOSTS set): when a game starts, no new unit starts, the running ones get
+    # CT_YIELD_GRACE seconds to finish, then are TERMed (STOP_GRACE, then KILLed) and left deferred.
+    yield_since = [None]  # when this yield began
+    yield_termed = set()  # pids stopped for it
+    yield_termed_at = [None]  # when the first TERM went
+    yield_killed = [False]
+    yield_held = set()  # scans that ended deferred (desktop busy) during a yield: not retried until it ends
+
+    def yield_stop(yielding):
+        if not yielding:
+            yield_held.clear()
+        if not (yielding and os.environ.get("CT_YIELD_HOSTS", "").split()):
+            yield_since[0] = yield_termed_at[0] = None
+            yield_killed[0] = False
+            return
+        now = time.monotonic()
+        if yield_since[0] is None:
+            yield_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")  # durable.sh commits what is filed now, before units stop
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"yield: {yielding}; no read starts, the {len([1 for _, (u, _) in units_running() if u['kind'] == 'read'])} "
+                f"running get {yield_grace()}s to finish, then are stopped and left for after the game")
+        if now - yield_since[0] < yield_grace():
+            return
+        fresh_pids = [pid for pid, (u, _) in units_running() if u["kind"] == "read" and pid not in yield_termed]
+        if fresh_pids:
+            if yield_termed_at[0] is None:
+                yield_termed_at[0] = now
+                log(f"yield: grace over, TERM to {len(fresh_pids)} unit(s), up to {STOP_GRACE}s")
+            for pid in fresh_pids:
+                yield_termed.add(pid)
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if yield_termed_at[0] is not None and not yield_killed[0] and now - yield_termed_at[0] >= STOP_GRACE:
+            yield_killed[0] = True
+            for pid in list(yield_termed):
+                if pid in running or pid in adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
+    # A game also sheds the CPU work (Paul 10-17: WoW choppy, WSL2's VM competes as a whole, nice does not
+    # help; a SIGSTOPped scan keeps its ~0.6 GB, and Windows paged at 3.8k/s): the scans beyond
+    # CT_GAME_SCAN_WORKERS (3; the oldest keep running) are TERMed, then KILLed after STOP_GRACE, and end
+    # deferred (a scan is ~200 s of work; yield_termed makes reap count it deferred, never a failure) to run
+    # again once the game ends. No scan starts beyond that cap. Fetches (network) go on. The --beside filers
+    # (a long batch, costly to lose) are SIGSTOPped instead, their --seconds clock stopped with them (resume
+    # credits the time), and SIGCONTed when the game ends, on a TERM, or before a hand-over.
+    shed = {}  # pid: when its TERM went
+    game_now = [False]
+
+    # A game also wants the RAM the WSL VM holds: Linux's page cache stays in the VM (Windows sees it
+    # as vmmemWSL) after the units end (Paul 10-18: "wow is slow ... you're not freeing your ram hog
+    # thing"; Windows was down to 1 GB free, 7 GB after a drop). CT_GAME_DROP_CACHE, a shell command
+    # (unset runs none), runs once the stopped units are gone (or their grace is over), then
+    # every GAME_DROP_EVERY seconds while the game lasts, in the background.
+    drop_at = [None, None]  # (when the game began, when the last drop ran)
+
+    def drop_cache(now):
+        cmd = os.environ.get("CT_GAME_DROP_CACHE", "").strip()
+        if not cmd:
+            return
+        began, last = drop_at
+        if last is None:
+            if any(u["kind"] != "fetch" for _, (u, _) in units_running()) and now - began < 2 * STOP_GRACE + yield_grace():
+                return
+        elif now - last < GAME_DROP_EVERY:
+            return
+        drop_at[1] = now
+        try:
+            subprocess.Popen(["sh", "-c", cmd], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                             stderr=subprocess.DEVNULL, start_new_session=True)
+            log("game: dropping the VM's page cache so Windows gets the RAM back")
+        except OSError as e:
+            log(f"game: page-cache drop failed: {e}")
+
+    def freeze(game):
+        game_now[0] = game
+        if not game:
+            thaw()
+            shed.clear()
+            drop_at[:] = [None, None]
+            return
+        now = time.monotonic()
+        if drop_at[0] is None:
+            drop_at[0] = now
+        live = sorted((t0, pid) for pid, (u, t0) in units_running() if u["kind"] == "scan" and pid not in shed)
+        new = [pid for _, pid in live[game_scans():]]  # the oldest scans keep running
+        for pid in new:
+            shed[pid] = now
+            yield_termed.add(pid)
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        for pid, at in list(shed.items()):
+            if pid not in running and pid not in adopted:
+                del shed[pid]
+            elif now - at >= STOP_GRACE:
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+        for b in beside:
+            b.pause()
+        if new:
+            log(f"game: TERM to {len(new)} scan(s) beyond the {game_scans()} that may run on; they are left for after it")
+        drop_cache(now)
+
+    def thaw():
+        """SIGCONT the stopped --beside filers, crediting them the time stopped."""
+        for b in beside:
+            b.resume()
+
+    fetch_made = {}  # source: (when its plan was made, its units)
+    # The queue's units with their key and slot, made once per plan (the lists' (id, len)
+    # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
+    # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
+    # the urgent candidates' keys, {key: its first index among them}).
+    queue_memo = [None] * 13
+    scan_of_rel = [None, {}]  # the scan_keys lists, their scans by (paper, rel): gpu_fill's scan_of
+    fill_scan_logged = [0]  # the fill scans last logged: logged again when their count changes
+    scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
+
+    def replan_all(notes=None):
+        sc, rd = plan(papers, cache, reread, notes)
+        live = [s for s in fetch if s not in stopped]
+        for src in live:
+            if src not in fetch_made or time.monotonic() - fetch_made[src][0] >= (
+                    FETCH_REPLAN if fetch_replan is None else fetch_replan):
+                t0 = time.monotonic()
+                units = plan_fetches([src])
+                fetch_made[src] = (time.monotonic(), units)
+                if notes is not None and fetch_made[src][0] - t0 >= SLOW_PLAN:
+                    notes.append(f"slow plan: {src} fetches took {fetch_made[src][0] - t0:.0f}s")
+        return sc, rd, [u for src in live for u in fetch_made[src][1]]
+
+    def may_start():
+        return not stop and not reload and (seconds is None or time.monotonic() - begun < seconds)
+
+    def reload_check():
+        """A reload asked (SIGHUP, or the watcher saw code change on origin/master):
+        say so once and, at once, have what is filed committed (the wrapper's
+        move to origin/master follows). With a handoff the main loop then hands
+        the running units over and ends; without one they are waited for, and
+        after CT_RELOAD_GRACE TERMed and left deferred, as a game does."""
+        if watcher is not None and watcher.hit and not reload:
+            reload.append(f"origin/master changed {hot_reload.summary(watcher.hit)}")
+        if not reload:
+            return
+        now = time.monotonic()
+        if reload_since[0] is None:
+            reload_since[0] = now
+            flag = os.environ.get("DURABLE_NOW")
+            if flag:
+                try:
+                    Path(flag).touch()
+                except OSError:
+                    pass
+            log(f"reload: {reload[0]}; no unit starts, {len(running) + len(adopted)} running "
+                + ("are handed to the next run" if handoff else f"get {hot_reload.grace_seconds():.0f}s to finish, then are stopped and left deferred"))
+        if handoff or now - reload_since[0] < hot_reload.grace_seconds():
+            return
+        for pid, (unit, _) in units_running():
+            if pid not in yield_termed:
+                yield_termed.add(pid)
+                log(f"reload: grace over, TERM to {unit['kind']} {unit['rel']}")
+                try:
+                    os.killpg(pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+        if reload_termed_at[0] is None:
+            reload_termed_at[0] = now
+        elif now - reload_termed_at[0] >= STOP_GRACE:
+            for pid in list(yield_termed):
+                if pid in running or pid in adopted:
+                    try:
+                        os.killpg(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
+    spec = {"cache": str(cache), "puzzles": puzzles and str(puzzles), "reread": reread and reread.isoformat()}
+
+    preparing = {}  # key: (when submitted, the future of prepare(unit)) of the reads being briefed
+    briefers = ThreadPoolExecutor(PREPARERS, "brief")
+
+    def brief_of(unit):
+        """The prepare() result of read `unit`, made on a pool thread so the
+        loop goes on reaping and starting others meanwhile: PENDING until it
+        is made (asked again every pass), then the result, once."""
+        key = key_of(unit)
+        if key not in preparing:
+            preparing[key] = (time.monotonic(), briefers.submit(lambda: prepare(unit, cache, puzzles, reread)))
+            concurrent.futures.wait([preparing[key][1]], timeout=BRIEF_WAIT)  # a quick one starts this pass
+        if not preparing[key][1].done():
+            return PENDING
+        return preparing.pop(key)[1].result()
+
+    def drop_stale_briefs():
+        """Forget the briefs no pass asked for in BRIEF_KEEP seconds (a
+        unit that left the plan), removing the file each made."""
+        for key, (t, fut) in list(preparing.items()):
+            if time.monotonic() - t >= BRIEF_KEEP and fut.done():
+                del preparing[key]
+                path = fut.result()
+                if path and path is not SCAN_FIRST:
+                    Path(path).unlink(missing_ok=True)
+
+    def start(unit, mates=()):
+        """Start `unit`; False when it is not started: a read whose own scan
+        is stale or missing waits on a scan unit queued for it (first).
+        PENDING while its brief is being made. `mates` (batch_mates): more
+        answers-linked reads of its item read in the same process, whole
+        (answers_only needs no desktop), each logged and tracked as a unit."""
+        sys.stdout.flush()
+        sys.stderr.flush()
+        alone = losses.get(key_of(unit), 0) >= LOST_TRIES
+        if mates and not alone:
+            unit = {**unit, "batch": [v["rel"] for v in mates]}
+        else:
+            mates = ()
+        argv = unit_argv(unit)
+        if alone or mates or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+            made = None
+        else:
+            made = brief_of(unit)
+            if made is PENDING:
+                return PENDING
+        if made == SCAN_FIRST and (unit["paper"], unit["rel"]) in scanned:
+            made = whole(unit, "own scan stale or missing, scanned this run already")
+        elif made == SCAN_FIRST:
+            first.append({"kind": "scan", "paper": unit["paper"], "rel": unit["rel"], "rank": unit["rank"],
+                          "reason": "its read's own scan is stale or missing"})
+            return False
+        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})}),
+               # setproctitle then keeps /proc/<pid>/environ (the title fits
+               # in its argv), so the room tag the bridge's watchdog reads stays.
+               "SPT_NOENV": "1"}
+        if unit["kind"] == "read":
+            # A read needing the VLM while it is down ends deferred, never read without it (vlm_reader.wanted).
+            env[vlm_reader.DEFER_ENV] = "1"
+            # ... and its ask the VLM has not answered is spooled for the drainer, not waited for (vlm_reader.SPOOL_ENV).
+            if os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0":
+                env[vlm_reader.SPOOL_ENV] = "1"
+        if alone:
+            env["OCR_REMOTE"] = ""
+        elif unit["kind"] != "fetch":
+            # Its OCR is not moved onto this host while the desktop yields: it ends deferred, run again once idle.
+            env[ocr_remote.DEFER] = "1"
+        pid = os.posix_spawn(argv[0], argv, env, setpgroup=0, setsigmask=())
+        running[pid] = (unit, time.monotonic())
+        tried.add(key_of(unit))
+        log(f"start {unit['kind']} {unit['rel']} ({unit['reason']}{': ' + unit['detail'] if unit.get('detail') else ''})"
+            + (f" in a batch of {len(mates) + 1}" if mates else ""))
+        for v in mates:
+            tried.add(key_of(v))
+            log(f"start {v['kind']} {v['rel']} ({v['reason']}) in the batch of {unit['rel']}")
+        return True
+
+    def ended(unit, t0):
+        # Its desktop session has closed: desktop_room credits it back.
+        if not load_gated(unit):
+            now = time.time()
+            closed.append((now - (time.monotonic() - t0), now))
+
+    def reap():
+        # A unit this process started before a re-exec is adopted and still its child.
+        while running or adopted:
+            try:
+                pid, status = os.waitpid(-1, os.WNOHANG)
+            except ChildProcessError:
+                return
+            if pid == 0:
+                return
+            if pid not in running and pid not in adopted:
+                continue
+            unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
+            ended(unit, t0)
+            rc = os.waitstatus_to_exitcode(status)
+            # TERMed or KILLed for a game (yield_stop): left for the next run, never a failure.
+            parked = pid in yield_termed and rc in (-signal.SIGTERM, -signal.SIGKILL, 128 + signal.SIGTERM)
+            yield_termed.discard(pid)
+            if parked:
+                tried.discard(key_of(unit))
+                tried.difference_update(batch_mate_keys(unit))
+                outcomes["deferred"] = outcomes.get("deferred", 0) + 1
+                log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game) in {time.monotonic() - t0:.0f}s")
+                continue
+            if rc == EXITS["lost"]:
+                losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
+            # The media share did not answer: deferred, and no unit starts until it does (media.hold).
+            # One deferred for it MEDIA_TRIES times this run fails: that path's error, not an outage.
+            media_retry = False
+            if rc == EXITS["media"]:
+                media_tries[key_of(unit)] = media_tries.get(key_of(unit), 0) + 1
+                media_retry = media_tries[key_of(unit)] <= MEDIA_TRIES
+                media.down()
+            if rc == EXITS["vlm"]:
+                spooled_by = vlm_reader.spooled_by(pid)
+                spooled_end = bool(spooled_by)
+                full_end = vlm_reader.full_mark(pid).exists()
+                if full_end:
+                    vlm_reader.full_mark(pid).unlink(missing_ok=True)
+                    full_wait.pop(key_of(unit), None)
+                    full_wait[key_of(unit)] = None  # started again once the spool has room for it
+                if spooled_by or full_end:
+                    n = defer_runs[key_of(unit)] = defer_runs.get(key_of(unit), 0) + 1
+                    if n >= 2:
+                        defer_until[key_of(unit)] = time.monotonic() + min(DEFER_BACKOFF_MAX, DEFER_BACKOFF * 2 ** (n - 2))
+                    if defer_file:
+                        keep_defers(defer_file, defer_runs, defer_until)
+                if spooled_by:
+                    spool_wait[key_of(unit)] = set(spooled_by)  # started again once the drainer has answered them
+                    full_wait.pop(key_of(unit), None)  # its asks are spooled: the answers, not the cap, release it
+                elif not full_end:
+                    vlm_held.add(key_of(unit))
+                    vlm_lost_at[0] = time.monotonic()
+            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]) or media_retry:
+                tried.discard(key_of(unit))  # started again once the desktop is idle, the VLM or the media share answers
+                tried.difference_update(batch_mate_keys(unit))  # ... each batched edition on its own
+                if unit.get("batch"):
+                    unbatched.update(batch_mate_keys(unit))
+                    unbatched.add(key_of(unit))
+                if desktop_bound and unit["kind"] == "scan":
+                    yield_held.add(key_of(unit))
+            else:
+                finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    finished[k] = finished[key_of(unit)]
+                if defer_runs.pop(key_of(unit), None) is not None and defer_file:
+                    defer_until.pop(key_of(unit), None)
+                    keep_defers(defer_file, defer_runs, defer_until)
+                defer_until.pop(key_of(unit), None)
+            if unit["kind"] == "scan" and rc == 0:
+                scanned.add((unit["paper"], unit["rel"]))
+            elif unit["kind"] == "scan" and rc != EXITS["deferred"] and not media_retry:
+                scan_failed.add((unit["paper"], unit["rel"]))
+            what = {0: "done", 3: "busy (another unit has it)", 4: "held (a run holds the ledger)",
+                    5: "failed, the source looks down", 6: "done, but throttled (429)",
+                    7: "not started: the disk is full",
+                    EXITS["media"]: "deferred (the media share is down)" if media_retry
+                    else f"failed (the media share's error {MEDIA_TRIES + 1} times this run)",
+                    EXITS["deferred"]: "deferred (the desktop is busy)",
+                    EXITS["lost"]: "deferred (the desktop was lost)",
+                    EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
+                    else "deferred: VLM spool full" if rc == EXITS["vlm"] and full_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
+            if unit["kind"] == "fetch":
+                src = unit["paper"]
+                outages[src] = outages[src] + 1 if rc == 5 else 0
+                if rc == 6 and pools[f"fetch {src}"] > 1:
+                    pools[f"fetch {src}"] -= 1
+                    log(f"{src}: answered 429; at most {pools[f'fetch {src}']} fetches at once from now on")
+                if (rc == 7 or outages[src] >= FETCH_OUTAGES) and src not in stopped:
+                    stopped.add(src)
+                    log(f"{src}: no more fetches this run ({'disk full' if rc == 7 else f'{outages[src]} in a row found it down'})")
+            outcomes[what.split(" ")[0]] = outcomes.get(what.split(" ")[0], 0) + 1
+            log(f"end {unit['kind']} {unit['rel']}: {what} in {time.monotonic() - t0:.0f}s")
+            for r in unit.get("batch") or ():
+                log(f"end {unit['kind']} {r}: {what} in the batch of {unit['rel']}")
+
+    def reap_adopted():
+        for pid, (unit, t0) in list(adopted.items()):
+            if not alive(pid):
+                del adopted[pid]
+                ended(unit, t0)
+                if pid in yield_termed:  # stopped for a game: left for the next run
+                    yield_termed.discard(pid)
+                    tried.discard(key_of(unit))
+                    tried.difference_update(batch_mate_keys(unit))
+                    log(f"end {unit['kind']} {unit['rel']}{batch_note(unit)}: deferred (stopped for a game, taken over) in {time.monotonic() - t0:.0f}s")
+                    continue
+                finished[key_of(unit)] = time.monotonic()
+                for k in batch_mate_keys(unit):
+                    finished[k] = finished[key_of(unit)]
+                log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
+
+    def overdue():
+        for pid, (unit, t0) in units_running():
+            limit = (FETCHERS[unit["paper"]]["seconds"] if unit["kind"] == "fetch" else
+                     LISTENER_SECONDS if unit["paper"] == "listener" else
+                     unit_limit(unit, read_seconds) if unit["kind"] == "read" else scan_seconds)
+            if time.monotonic() - t0 > limit:
+                log(f"{unit['kind']} {unit['rel']}{batch_note(unit)} ran past {limit}s; killed, left for the next run")
+                try:
+                    os.killpg(pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+
+    def keep_untried():
+        # What the next run starts from: the plan in force less the units
+        # this one started (done, running or failed), so its first pass
+        # fills the slots with new work, not units already done.
+        if plan_at is not None:
+            keep_plan(plan_file, plan_key, [[u for u in us if key_of(u) not in tried]
+                                            for us in (scans, reads, fetches)], plan_at, planned_took[0])
+
+    def reexec(why=None):
+        """Hand the running units to this run's new image and become it."""
+        path = handoff or resume or Path(f"/tmp/edition-queue-{os.getpid()}.json")
+        thaw()  # the next image does not know the filers are stopped
+        hand_over(path, units_running())
+        keep_untried()
+        argv =[sys.executable, *sys.argv]
+        if seconds is not None:
+            argv += ["--seconds", str(max(0.0, seconds - (time.monotonic() - begun)))]
+        if not handoff:
+            argv += ["--resume", str(path)]
+        log(f"{why or 'code changed (' + ', '.join(sorted(f.name for f, h in code.items() if digest(f) != h)) + ')'}; "
+            f"re-exec, {len(running) + len(adopted)} running unit(s) kept")
+        sys.stdout.flush()
+        sys.stderr.flush()
+        signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT, signal.SIGHUP})
+        os.environ[REEXEC_ENV] = "1"
+        vlm_reader.release_claims()  # the exec ends the drainer's asks in flight: queued again, not left claimed
+        os.execv(argv[0], argv)
+
+    # A slice's first image (started by the shell, not by a re-exec) runs the
+    # plan the last slice kept, which can be a whole plan (half an hour on a
+    # loaded host) older than the code it was started on, so it re-execs on a
+    # change at once, mid-plan. Every image after a re-exec makes a plan of
+    # its own first: changes landing faster than a plan takes still get plans
+    # made on new code, and the chain re-execs without one at most once.
+    def may_reexec():
+        return plan_done is not None or not os.environ.get(REEXEC_ENV)
+
+    # A media error this loop does not catch itself ends dispatch; main waits for the share
+    # and hands the running units to a new image through this (media_restart).
+    _media_reexec[:] = [reexec, lambda: [pid for pid, _ in units_running()]]
+
+    # The unit ceiling follows the Windows host's free RAM and CPU (mem_gate.ceiling_controller; opt-in by
+    # env, hosts default from CT_YIELD_HOSTS and the VLM's /metrics); its probes run on a thread.
+    ceiling_ctl = mem_gate.ceiling_controller(f"{vlm_reader.URLS[0]}/metrics" if vlm_reader.URLS else None)
+    if ceiling_ctl:
+        log(f"ceiling controller on: host {ceiling_ctl.host}, metrics {ceiling_ctl.metrics}, every {ceiling_ctl.every} s")
+
+    def drainer_early():
+        # A fresh image (a re-exec, a new slice) makes its first plan before the dispatch loop starts,
+        # minutes on a loaded host, while the units it adopted spool asks: 10-29 01:14-01:19 nothing
+        # drained, and with a push every ~5 min the drainer was down most of the hour. So the drainer
+        # starts as soon as anything is spooled, until the loop's own check runs (or an hour passes).
+        end = time.monotonic() + 3600
+        while not drainer_looped.is_set() and not drainer and time.monotonic() < end:
+            if vlm_reader.spooled():
+                vlm_drainer(drainer_stop, drainer)
+                return
+            drainer_looped.wait(5)
+    threading.Thread(target=drainer_early, daemon=True, name="vlm drainer start").start()
+
+    while True:
+        reap()
+        reap_adopted()
+        overdue()
+        reload_check()
+        if ceiling_ctl:
+            for line in ceiling_ctl.poll():
+                log(line)
+        for b in beside:
+            b.poll(may_start() and not game_now[0], None if seconds is None else seconds - (time.monotonic() - begun))
+        # The media share down: nothing is planned, looked for or started (each would meet it) until a
+        # probe finds it answering; units running are reaped and kept to their limits meanwhile. A stop,
+        # a reload or the slice's end goes on as ever (none starts a unit).
+        if may_start():
+            try:
+                media_holds = media.hold()
+            except MediaGone as e:
+                log(f"media down: giving up, {e}; stopping")
+                media_gone.append(str(e))
+                stop.append("media")
+                media_holds = False
+            if media_holds:
+                nap(MEDIA_NAP)
+                continue
+        # A plan stats every edition and article (minutes on the media
+        # mount), so after the first it is made on a thread while this loop
+        # goes on reaping and starting from the plan before it.
+        # Checked apart from planning: a plan can take minutes (a cold cache
+        # on the media mount), and the code it would run is the old. An image
+        # a re-exec started re-execs only once it has made a whole plan of
+        # its own (kept in plan_file for the next), or changes landing faster
+        # than a plan takes would leave every image running the last kept,
+        # stale plan; a slice's first image need not (may_reexec).
+        if may_start() and may_reexec() and time.monotonic() - code_checked >= replan:
+            code_checked = time.monotonic()
+            if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
+                reexec()
+        if may_start() and (fresh_at is None or time.monotonic() - fresh_at >= min(replan, FRESH_POLL)):
+            fresh_at = time.monotonic()
+            try:
+                new_scans, new_reads = fresh(papers, cache)
+            except OSError as e:
+                if not media.down(e):
+                    raise
+                new_scans, new_reads = fresh_scans, fresh_reads  # looked for again once the share answers
+            fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
+        if may_start() and planner is None and not media.held() and (
+                plan_done is None or time.monotonic() - plan_done >= replan and time.monotonic() - plan_done >= replan_after()):
+            box = {"begun": time.monotonic(), "notes": []}
+
+            def make(box=box):
+                try:
+                    while upkept:
+                        upkept.pop()()
+                    box["plan"] = replan_all(box["notes"])
+                except BaseException as e:  # raised again on the dispatch loop
+                    box["error"] = e
+            planner = (threading.Thread(target=make, daemon=True), box)
+            if planned is None and fetch:
+                # Scans and reads start first; the fetch plan (every done
+                # edition's siblings, minutes off a cold cache) is made on
+                # the thread at once after.
+                try:
+                    while upkept:
+                        upkept.pop()()
+                    box["plan"], box["partial"] = (*plan(papers, cache, reread, box["notes"]), []), True
+                except BaseException as e:  # raised again below, as make()'s
+                    box["error"] = e
+            elif planned is None:
+                make()
+            else:
+                planner[0].start()
+        if planner is not None and not planner[0].is_alive() and "error" in planner[1] and media.down(planner[1]["error"]):
+            planner = None  # the plan met the media share down: made again once it answers (media.hold)
+        if planner is not None and not planner[0].is_alive():
+            box, planner = planner[1], None
+            if "error" in box:
+                raise box["error"]
+            scans, reads, fetches = box["plan"]
+            planned, plan_done = box["begun"], None if box.get("partial") else time.monotonic()
+            if plan_done is not None:
+                planned_took[0] = plan_done - planned
+                plan_at = time.time()
+                keep_plan(plan_file, plan_key, box["plan"], plan_at, planned_took[0])
+            for n in box["notes"]:
+                log(n)
+            log(f"planned: {len(scans)} scans, {len(reads)} reads"
+                + (", fetches next" if box.get("partial") else f", {len(fetches)} fetches" if fetch else "")
+                + f" due in {time.monotonic() - planned:.0f}s; running {len(running) + len(adopted)}")
+        fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
+        busy = {key_of(u) for _, (u, _) in units_running()}
+        # A read of an edition read before, waiting only on a new scan, starts
+        # after the plan that follows its scans: the scan may leave it not due.
+        rescanned = {(p, r) for (k, p, r), t in finished.items() if k == "scan" and t > (planned or 0)}
+        # A read waits on the scans it needs while they run, and on its own
+        # edition's planned scan until that ends done (a scan that failed or
+        # was killed leaves the read for the next run); a days-after scan
+        # still queued behind a full scan pool stands as last scanned.
+        scanning = {(p, r) for k, p, r in busy if k == "scan"}
+        # The (paper, rel) of every queued scan, made again only when one of
+        # its lists is replaced or grows (~25k units, a pass a second).
+        scan_lists = tuple((id(us), len(us)) for us in (fresh_scans, scans, first))
+        if scan_keys[0] != scan_lists:
+            scan_keys[:] = [scan_lists, frozenset((u["paper"], u["rel"]) for u in fresh_scans + scans + first),
+                            (fresh_scans, scans, first)]  # held, so no id is reused while keyed
+        unscanned = set(scan_keys[1])
+        unscanned -= scanned
+        free = dict(pools)
+        for _, (u, _) in units_running():
+            free[slot_of(u)] = free.get(slot_of(u), 0) - 1
+        # The unit-children ceiling (mem_gate.unit_ceiling) over every pool but the
+        # fetches: the pools' widths stay, the slots left are zeroed once it is met.
+        ceiling_left = mem_gate.unit_ceiling() - sum(1 for _, (u, _) in units_running() if u["kind"] != "fetch")
+        if ceiling_left <= 0:
+            free.update({sl: 0 for sl in free if not sl.startswith("fetch ")})
+            if not ceiling_bound and any(pools[sl] for sl in pools if not sl.startswith("fetch ")):
+                ceiling_bound = True
+                log(f"unit ceiling: {mem_gate.unit_ceiling()} unit children running; no read or scan starts until one exits")
+        else:
+            ceiling_bound = False
+        vlm_waiting = vlm_reader.waiting_now()
+        queued = vlm_reader.spooled()
+        drainer_looped.set()  # the early start (drainer_early) is done: this check is the drainer's now
+        if queued and (not drainer or not all(t.is_alive() for t in drainer)):
+            vlm_drainer(drainer_stop, drainer)
+        stage = (len(queued), len(spool_wait))
+        if stage != stage_seen[0] and (stage[0] or stage_seen[0]) and time.monotonic() - stage_seen[1] >= 30:
+            stage_seen[:] = [stage, time.monotonic()]
+            log(f"vlm stage: {stage[0]} asks spooled, {stage[1]} reads waiting")
+        # With the spool on, a spooled read holds no RAM and no slot, so it never counts: the gate is the
+        # spool's depth (CT_VLM_SPOOL_MAX) plus the OTHER processes blocked in an ask. The queue's own mark
+        # (its drainer threads asking, slots()+PIPELINE) is not one: counting it held every read start
+        # while the GPU drained, so the CPU idled. Spool off: the old cap on reads waiting in the VLM's lock.
+        spool_on = os.environ.get(vlm_reader.SPOOL_ENV, "1") != "0"
+        if spool_on and (vlm_reader._waiting_dir() / str(os.getpid())).exists():
+            vlm_waiting -= 1
+        if spool_on:
+            # A full spool does not stop reads: one that needs an uncached ask then ends deferred
+            # ("VLM spool full", vlm_reader.ask_png) and waits in full_wait; OCR-only reads go on.
+            vlm_full = vlm_waiting >= vlm_waiting_cap()
+        else:
+            vlm_waiting += len(queued) * vlm_waiting_cap() // vlm_spool_max()  # a full spool counts as a full cap
+            vlm_full = vlm_waiting >= vlm_waiting_cap()
+        if vlm_full != vlm_bound:
+            vlm_bound = vlm_full
+            if vlm_full:
+                log(f"vlm-bound: {vlm_waiting} reads wait for the VLM (CT_VLM_WAITING {vlm_waiting_cap()}), "
+                    f"{len(queued)} asks spooled (CT_VLM_SPOOL_MAX {vlm_spool_max()}); no read starts until it drains")
+        spool_cap_hit = len(queued) >= vlm_spool_max()
+        # Of the reads held for a full spool only as many as the spool has room for start this pass, oldest first:
+        # all at once they would OCR their pages and defer again as it fills.
+        full_free = list(full_wait)[:max(0, vlm_spool_max() - len(queued))]
+        begun_now = charged = 0
+        costs = None  # unit_costs, measured at this pass's first start
+        held_back = cpu_held = idle_held = False
+        local_now = 0  # local_cpu units begun this pass, a core each
+        idle_read = {}
+        starved = mem_gate.burn_starved(burn_gate_reader)
+        if starved and not burn_bound:
+            log(f"{mem_gate.burn_line(starved)} ({len(running) + len(adopted)} running are left alone)")
+        burn_bound = bool(starved)
+        # While the desktop yields, its OCR would fall back to this host's
+        # CPU: only fetches start until it is idle again.
+        yielding = desktop_yielding()
+        if yielding and not desktop_bound:
+            log(f"desktop-bound: desktop yielding ({yielding}); only fetches start until it is idle "
+                f"({len(running) + len(adopted)} running are left alone)")
+        desktop_bound = bool(yielding)
+        yield_stop(yielding)
+        game = bool(yielding) and str(yielding).startswith("game")  # desktop_busy's "game: ..."
+        freeze(game)
+        live_scans = sum(1 for pid, (u, _) in units_running() if u["kind"] == "scan")
+        yield_opt_in = bool(os.environ.get("CT_YIELD_HOSTS", "").split())  # scans go on during a game only then
+        desk_mem = desktop_free() if not yielding else None
+        opened[:] = [s for s in opened if s > time.time() - 3600]
+        closed[:] = [c for c in closed if c[1] > time.time() - 3600]
+        desk_held = False
+        vlm_now = []  # whether the VLM answers, asked once a pass and only when a read needs it
+        full_held = set()  # reads this pass held for a full spool (full_wait)
+
+        def vlm_waits(u, vlm_now=vlm_now):
+            """Whether read `u` waits for the VLM: it needs it (needs_vlm,
+            or it ended deferred for it) and it is down."""
+            if u["kind"] == "read" and key_of(u) in full_wait and key_of(u) not in spool_wait:
+                # Ended deferred for a full spool with no ask spooled (any paper, needs_vlm or not): its
+                # OCR would be redone for nothing. A read with spooled asks is in spool_wait and never held here.
+                if key_of(u) not in full_free:
+                    full_held.add(key_of(u))
+                    return True  # not again until the spool has room for it
+                full_wait.pop(key_of(u), None)
+            if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
+                return False
+            if spool_cap_hit and key_of(u) not in spool_wait and key_of(u) not in full_wait:
+                # The spool is at its cap: a fresh read that may ask would OCR its pages (~25 CPU-s),
+                # be refused ("VLM spool full") and start again once held, churning while the drainer
+                # works. It waits here, free, until the spool is below its cap.
+                full_held.add(key_of(u))
+                return True
+            if key_of(u) in spool_wait:
+                if any(vlm_reader.pending(k) for k in spool_wait[key_of(u)]):
+                    return True
+                del spool_wait[key_of(u)]  # answered: its asks hit the cache now
+                # ... and it starts at once: the backoff spares OCR redone for asks still unanswered, and
+                # 10-24 held reads whose asks an idle drainer answered in seconds for 120 s+ (the GPU at 0%).
+                defer_until.pop(key_of(u), None)
+            elif defer_until.get(key_of(u), 0) > time.monotonic():
+                return True  # deferred again and again for its asks: backed off (DEFER_BACKOFF)
+            if not vlm_now:
+                vlm_now.append(time.monotonic() - vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
+                if vlm_now[0] and vlm_held:
+                    log(f"VLM back: {len(vlm_held)} read(s) deferred for it start again")
+                    vlm_held.clear()
+                if vlm_now[0]:
+                    vlm_logged[0] = None
+            return not vlm_now[0]
+        vlm_deferred = 0
+        # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
+        # urgent is left to start, in any pool: new and fixed work first
+        # (a read waiting for the VLM holds none back).
+        lists = (first, fresh_scans, fresh_reads, scans, reads, fetches)
+        sig = tuple((id(l), len(l)) for l in lists)
+        times_papers = newest_first_papers()
+        if queue_memo[0] != sig:
+            q = first + fresh_scans + fresh_reads + scans + reads + fetches
+            qkeys, qslots, last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
+            for i, sl in enumerate(qslots):
+                last_of[sl] = i
+            body = fresh_scans + fresh_reads + scans + reads
+            cands = [(u, key_of(u), slot_of(u)) for u in body
+                     if (u["rank"] < fa.BLANKET or newest_first(u)) and pools.get(slot_of(u))]
+            first_at = {}  # each urgent candidate's key: its first index in cands
+            for i, (_, k, _) in enumerate(cands):
+                first_at.setdefault(k, i)
+            queue_memo[:] = [sig, q, qkeys, qslots, last_of, cands,
+                             [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists,  # lists held: no id reused
+                             frozenset(first_at), first_at,
+                             # A whole-corpus re-read (fa.BLANKET) waits behind the Listener's due reads anyway, so it
+                             # is not "other work due": 10-24 five held FT/Guardian --reread units kept the pool at 8
+                             # of 24 slots while it, in turn, held them (load 8, one File in 25 min).
+                             frozenset(k for u, k, sl in zip(q, qkeys, qslots) if sl != "listener" and not sl.startswith("fetch ")
+                                       and (u["rank"] < fa.BLANKET or newest_first(u))),
+                             frozenset(k for k, sl in zip(qkeys, qslots) if sl == "listener"),
+                             frozenset(k for u, k, sl in zip(q, qkeys, qslots) if sl in ("read", "scan") and u["paper"] in times_papers)]
+        (_, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first,
+         other_keys, listener_keys, times_keys) = queue_memo
+        # Paul 10-24: the plan held only Listener reads (local OCR, no VLM) and its fixed pool ran 8 of the
+        # 24 ceiling slots, 16 idle. While no other read or scan is due (queued untried) or running, the
+        # Listener pool takes every ceiling slot left; once one is, it is back to LISTENER_WORKERS.
+        other_due = bool(other_keys - tried) or any(
+            slot_of(v) != "listener" and v["kind"] != "fetch" for _, (v, _) in units_running())
+        widen = not other_due and bool(listener_keys - tried)
+        if widen:
+            free["listener"] = listener_free(free.get("listener", 0), other_due, ceiling_left)
+        if widen != listener_wide and (widen or listener_wide):
+            n_listener = sum(1 for _, (v, _) in units_running() if slot_of(v) == "listener")
+            log(f"listener pool: widened to {n_listener + max(0, free['listener'])}, nothing else due "
+                f"(unit ceiling {mem_gate.unit_ceiling()})" if widen else
+                f"listener pool: back to {pools['listener']} (CT_LISTENER_WORKERS), "
+                + ("other work due" if other_due else "no Listener read left"))
+        listener_wide = widen
+        # Times first (Paul 10-24): while its work is due or running, the Listener keeps at most
+        # LISTENER_BESIDE_TIMES units.
+        times_due = bool(times_keys - tried) or any(v["paper"] in times_papers and slot_of(v) in ("read", "scan")
+                                                    for _, (v, _) in units_running())
+        non_times_live = sum(1 for _, (v, _) in units_running() if non_times_unit(v, times_papers))
+        non_times_capped = False
+        if times_due:
+            n_listener = sum(1 for _, (v, _) in units_running() if slot_of(v) == "listener")
+            free["listener"] = max(0, min(free.get("listener", 0), LISTENER_BESIDE_TIMES - n_listener))
+        # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
+        # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
+        # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
+        # vlm_waits is asked of the same units in the same order as a walk of them all.
+        untried_urgent = urgent_keys - tried
+        urgent = bool(untried_urgent) and any(
+            k not in tried and not vlm_waits(u)
+            for u, k, _ in itertools.islice(urgent_cands, min(map(urgent_first.__getitem__, untried_urgent)), None))
+        # A pass with no free slot starts nothing; and once a gate holds
+        # one unit back it holds every later one (begun_now only grows), so
+        # the gates are read at most once a unit begun, not once a unit due.
+        mem_read, cpu_read = {}, {}
+        # Each ledger read once a pass, not once a queued scan: a scan unit
+        # checks its row again before it scans (scan_unit's "current").
+        stands = {}
+        stand_keys, cache_s = {}, os.fspath(cache)  # current_keys by paper, a pass's; the cache's str, not a Path to fspath each ask
+
+        def stood(u, stands=stands):
+            paper = fa.FILERS[u["paper"]]
+            if u["paper"] not in stands:
+                stands[u["paper"]] = fa.standing(paper, cache)
+            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys, u.get("reason") in fa.HOST_REASONS)
+
+        scanning_by = rels_by_paper(scanning)  # kept in step as scans begin below
+
+        # Whether a read waits on a scan; a partial, not a closure: no Python frame of its own.
+        waits = functools.partial(read_waits, scanning=scanning_by, unscanned=unscanned,
+                                  rescanned=rels_by_paper(rescanned))
+        # Reads feed the VLM and file puzzles; scans only find them. While a read is due the scans
+        # keep to scan_share of the unit ceiling, so they cannot crowd the reads out of it.
+        # Paul 10-21: "Read the remaining times puzzles before doing ft". While the CT_NEWEST_FIRST papers'
+        # scans are pending, their reads wait on them (1,123 Times answer fills behind ~1,200 scans), so FT
+        # reads, FT scans and the scan share took the slots: the scans those reads need take every slot
+        # the ready Times reads will not, and FT fills only what is left, plus the few gpu_fill reads that
+        # keep an otherwise idle VLM fed.
+        named_now = newest_first_papers()
+        tf_pending = times_scans_pending(scan_keys[2], tried, busy, scanned) if named_now else []
+        tf_ready = sum(1 for u, k in read_cands if u["paper"] in named_now and k not in tried and k not in busy
+                       and not waits(u)) if named_now else 0
+        reads_due = not vlm_full and not yielding and (
+            tf_ready > 0 or (not tf_pending and any(k not in tried and not waits(u) for u, k in read_cands)))
+        share = scan_share(mem_gate.unit_ceiling(), reads_due)
+        if free.get("scan", 0) > 0 and share is not None:
+            live = sum(1 for _, (v, _) in units_running() if v["kind"] == "scan")
+            if live + free["scan"] > share:
+                free["scan"] = max(0, share - live)
+                if not scan_held and free["scan"] == 0:
+                    scan_held = True
+                    log(f"scan held for reads: {live} scans running of {share} allowed while reads are due "
+                        f"(unit ceiling {mem_gate.unit_ceiling()})")
+        if tf_pending and not yielding and ceiling_left > 0 and may_start():
+            room = times_scan_room(len(tf_pending), tf_ready, free.get("scan", 0), free.get("read", 0), ceiling_left)
+            if room > free.get("scan", 0):
+                free["scan"] = room
+                if not times_first[0]:
+                    times_first[0] = True
+                    log(f"times first: {len(tf_pending)} Times/Gale scans pending for {tf_ready} ready reads and "
+                        f"the reads waiting on them; scans may use {room} slots, FT fills only what is left")
+        elif times_first[0] and not tf_pending:
+            times_first[0] = False
+        if free.get("scan", 0) > 0 or share is None:
+            scan_held = False
+        # A fresh scan is never held for a backlog's reads (fed).
+        firsts = {key_of(u) for u in first + fresh_scans}
+        ready = []
+        heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
+
+        # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
+        # and the VLM got no asks. While other reads wait, units of one reason run at most reason_cap at once.
+        reason_cap = reason_cap_for(mem_gate.unit_ceiling())
+        reason_live = {}
+        if reason_cap:
+            for _, (v, _at) in units_running():
+                if v["kind"] != "fetch" and v.get("reason"):
+                    reason_live[v["reason"]] = reason_live.get(v["reason"], 0) + 1
+
+        def ready_reads(reads=read_cands, busy=busy, waits=waits):
+            # 10-30: a read whose reason is at its cap is not ready: the walk skips it while a scan waits, so
+            # counting it held every scan back as "fed" for reads that could not start (load 8 on 28 threads).
+            return [v for v, k in reads if k not in tried and k not in busy and not waits(v) and not vlm_waits(v)
+                    and not (reason_cap and v.get("reason") and reason_live.get(v["reason"], 0) >= reason_cap)]
+
+        def fed(u, ready=ready, heads=heads):
+            """Whether scan `u` only feeds a backlog: the next full read pool
+            of ready reads ranked as it or more urgent, in the queue's order,
+            are there and none needs it. Then its desktop CPU (scans run above
+            reads there) is the reads' instead. Worked out once a pass per
+            rank: a pass asks it of every queued scan (~12k)."""
+            if vlm_full:
+                return False  # reads cannot start (vlm-bound), so no scan is held for their CPU
+            if not ready:
+                ready.append(ready_reads())
+            if u["rank"] not in heads:
+                nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
+                heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
+                                    if len(nxt) >= pools["read"] else None)
+            needed = heads[u["rank"]]
+            return needed is not None and (u["paper"], u["rel"]) not in needed
+        walked = may_start() and any(v > 0 for v in free.values())
+        # An idle GPU is a bug: with the VLM stage short of asks, other papers' never-read reads (which
+        # ask the VLM) go ahead of the CT_NEWEST_FIRST papers' OCR-only rereads (gpu_fill).
+        def fill_scan(u, scan_keys=scan_keys, unscanned=unscanned):
+            """The queued scan read `u` waits on (its own, not yet done), or None."""
+            if (u["paper"], u["rel"]) not in unscanned:
+                return None
+            if scan_of_rel[0] is not scan_keys[2]:
+                scan_of_rel[:] = [scan_keys[2], {(s["paper"], s["rel"]): s for us in scan_keys[2] for s in us}]
+            return scan_of_rel[1].get((u["paper"], u["rel"]))
+        fills_running = sum(1 for _, (v, _at) in units_running() if fills_gpu(v))
+        fill = gpu_fill(read_cands, tried, busy, waits, vlm_waits, len(queued), vlm_full or spool_cap_hit,
+                        fills_running,
+                        # Paul 10-21: "you should also be letting things through which use gpu so it doesn't sit
+                        # idle". Fills run up to CT_VLM_FEED_READS at once (each spends minutes on OCR before
+                        # its first ask), never past the free read slots; Times work still starts first.
+                        min(vlm_feed_reads(), fills_running + free.get("read", 0)),
+                        fill_scan, scanning,
+                        # Paul 10-23: no fill read ready, GPU 0%: the scans they wait on start, a few at once.
+                        min(vlm_feed_scans(), max(1, mem_gate.unit_ceiling() // 3)),
+                        vlm_feed_ahead(), vlm_fill_asks()
+                        ) if (free.get("read", 0) > 0 and may_start() and not yielding and not starved) else []
+        fill_keys = {key_of(u) for u in fill}
+        fill_scans = sum(1 for u in fill if u["kind"] == "scan")
+        if fill_scans and free.get("scan", 0) < fill_scans and ceiling_left > 0:
+            # The scan share held scans for reads, but no fill read can start until these end.
+            free["scan"] = min(fill_scans, ceiling_left)
+            if fill_scans != fill_scan_logged[0]:
+                log(f"vlm feed: no VLM-asking read ready ({len(queued)} asks spooled, target {vlm_feed_target()}); "
+                    f"{fill_scans} scan(s) they wait on start ahead of the queue")
+        fill_scan_logged[0] = fill_scans
+        if fill and free.get("scan", 0) > 0 and not vlm_full:
+            # The fill reads start ahead of the queue: the pool fed() asks about is the one before they begin,
+            # else a scan no read waits on is "not fed" the moment they take the last read slot and starts
+            # ahead of them (the queue lists scans first).
+            ready.append(ready_reads())
+        # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
+        # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
+        reserve = min(len(fill), max(1, mem_gate.unit_ceiling() // 3)) if fill else 0
+        reserve_hit = False
+        # While the GPU is underfed the CPU-only units (stale scans, answer-linked rereads) share at most a
+        # third of the ceiling, so the rest goes to reads that ask the VLM.
+        cpu_cap = mem_gate.unit_ceiling() // 3 if len(queued) < vlm_feed_target() else None
+        cpu_live = sum(1 for _, (v, _at) in units_running() if cpu_only_unit(v)) if cpu_cap is not None else 0
+        cpu_capped = False
+        reason_other = {}  # reason -> whether a unit of another reason is queued and untried
+        reason_capped = []
+
+        def others_wait(reason):
+            if reason not in reason_other:
+                reason_other[reason] = other_reason_waits(
+                    reason, zip(queue, qkeys, qslots), tried, free,
+                    lambda v: non_times_held(v, times_papers, times_due, non_times_live, NON_TIMES_BESIDE_TIMES))
+            return reason_other[reason]
+
+        def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
+            """What a walk of the queue (~12k units) that begins nothing
+            depends on: the plan, the units running and tried, the gates it
+            read (`gates`: the (mem, cpu, idle) readings by their arguments),
+            and the IDLE_WALK slot of time (a ledger another process moved,
+            the VLM back, a desktop session aged out: noticed within
+            IDLE_WALK seconds)."""
+            return (planned, plan_done, fresh_at, len(queue), len(first), len(tried), len(scanned), len(scan_failed),
+                    sum(losses.values()), len(vlm_held), len(spool_wait), len(full_wait), spool_cap_hit, vlm_full, tuple(running), tuple(adopted), tuple(sorted(free.items())),
+                    len(stopped), urgent, tuple(fill_keys), bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
+                    int(time.monotonic() // IDLE_WALK), gates)
+
+        def gates_again(gates):
+            """The gates the last idle walk read, read again with the same
+            arguments: once each, as that walk did."""
+            mem, cpu, idle = gates
+            return (tuple((k, mem_gate.room(k[0], mem_gate_reader, unit=k[1])) for k, _ in mem),
+                    tuple((k, mem_gate.cpu_room(k, cpu_gate_reader)) for k, _ in cpu),
+                    tuple((k, mem_gate.idle_room(k, idle_gate_reader)) for k, _ in idle))
+        # A pass the last idle one's state and gates stand for would begin
+        # nothing again: its outcome stands, the walk is skipped. The state
+        # is compared first: the gates are read only when it matches.
+        skip_walk = (walked and idle_walk[0] is not None and idle_key(idle_walk[0][-1]) == idle_walk[0]
+                     and gates_again(idle_walk[0][-1]) == idle_walk[0][-1])
+        if skip_walk:
+            held_back, desk_held, cpu_held, idle_held, vlm_deferred = idle_walk[1]
+        # The walk ends past the last unit of any pool with a free slot: no later unit can start.
+        reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
+        for i, (u, ukey, uslot) in enumerate(itertools.chain(((v, key_of(v), slot_of(v)) for v in fill), zip(queue, qkeys, qslots))
+                                             if reach >= 0 and not skip_walk else (), -len(fill)):
+            if i > reach or media.held():
+                break  # (the media share noted down this pass: nothing more starts until it answers)
+            if not may_start() or free[uslot] <= 0 or ukey in tried:
+                continue
+            if non_times_held(u, times_papers, times_due, non_times_live, NON_TIMES_BESIDE_TIMES):
+                non_times_capped = True  # Times first: the slots left are for its scans and reads
+                continue
+            if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
+                reserve_hit = True  # the last slots are for reads that ask the VLM
+                continue
+            if (cpu_cap is not None and cpu_live >= cpu_cap and cpu_only_unit(u) and ukey not in fill_keys
+                    and not (listener_wide and uslot == "listener")):  # no VLM-asking read is due to keep slots for
+                cpu_capped = True  # the GPU is underfed: the rest of the ceiling is for reads that ask the VLM
+                continue
+            if (reason_cap and u["kind"] != "fetch" and u.get("reason") and ukey not in fill_keys
+                    and reason_live.get(u["reason"], 0) >= reason_cap and others_wait(u["reason"])):
+                reason_capped.append((reason_live[u["reason"]], u["reason"]))
+                continue  # waits (not dropped): other work starts first
+            if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET and not newest_first(u):
+                continue
+            # Held before its ledger row is checked: stood() stats the
+            # edition's files, and a held scan is asked again every pass.
+            if u["kind"] == "scan" and ukey not in firsts and ukey not in fill_keys and fed(u) and not newest_first(u):
+                continue
+            try:
+                stands_now = u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u)
+            except OSError as e:  # its ledger or files on the media share, which did not answer (10-20, 10-23)
+                if not media.down(e):
+                    raise
+                break
+            if stands_now:
+                # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
+                tried.add(ukey)
+                scanned.add((u["paper"], u["rel"]))
+                continue
+            if u["kind"] == "read" and waits(u):
+                if (u["paper"], u["rel"]) in unscanned and (u["paper"], u["rel"]) in scan_failed:
+                    tried.add(ukey)
+                continue
+            # A game stops the VLM: no read starts (nor a scan its desktop deferred) while it yields;
+            # scans and fetches go on (CPU work).
+            # Nor does a scan during a game beyond CT_GAME_SCAN_WORKERS running (the rest are shed).
+            if starved or (yielding and (u["kind"] == "read" or ukey in yield_held
+                                         or (u["kind"] == "scan" and (not yield_opt_in or (game and live_scans >= game_scans()))))):
+                continue
+            if vlm_waits(u):
+                vlm_deferred += ukey not in spool_wait and ukey not in full_wait and ukey not in defer_until  # a read for the drainer is no "VLM down"
+                continue
+            if vlm_full and u["kind"] == "read":
+                continue
+            if costs is None:
+                costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})
+            cost = costs.get(uslot, mem_gate.UNIT)
+            if not held_back and (charged, cost) not in mem_read:
+                mem_read[charged, cost] = mem_gate.room(charged, mem_gate_reader, unit=cost)
+            if held_back or not mem_read[charged, cost]:
+                held_back = True
+                continue
+            if not load_gated(u):
+                if desk_held or not desktop_room(desk_mem, opened, closed):
+                    desk_held = True
+                    continue
+            if load_gated(u):
+                if not cpu_held and begun_now not in cpu_read:
+                    cpu_read[begun_now] = mem_gate.cpu_room(begun_now, cpu_gate_reader)
+                if cpu_held or not cpu_read[begun_now]:
+                    cpu_held = True
+                    continue
+            local = local_cpu(u)
+            if local:
+                if not idle_held and local_now not in idle_read:
+                    idle_read[local_now] = mem_gate.idle_room(local_now, idle_gate_reader)
+                if idle_held or not idle_read[local_now]:
+                    idle_held = True
+                    continue
+            # Answers-linked rereads of one item go in one process: the setup is ~all of their cost.
+            # (An edition of a batch that ended deferred is read alone from then on: one needing the VLM's
+            # asks would end its whole batch again, the other editions unread.)
+            began = start(u, [] if ukey in unbatched else batch_mates(
+                u, read_cands, tried, busy | unbatched,
+                lambda v: not waits(v) and not vlm_waits(v) and key_of(v) not in firsts))
+            if not began and began is not PENDING:
+                unscanned.add((u["paper"], u["rel"]))
+                continue
+            if ukey in fill_keys:
+                log(f"vlm feed: start {ukey[0]} {ukey[1]} {ukey[2]} ({u.get('reason') or 'rank ' + str(u['rank'])}; "
+                    f"{len(queued)} asks spooled, target {vlm_feed_target()})")
+            # A unit whose brief is being made holds its slot and its gates' charges as if begun.
+            local_now += local
+            begun_now += 1
+            live_scans += u["kind"] == "scan"
+            cpu_live += cpu_only_unit(u)
+            non_times_live += non_times_unit(u, times_papers)
+            if reason_cap and u["kind"] != "fetch" and u.get("reason"):
+                reason_live[u["reason"]] = reason_live.get(u["reason"], 0) + 1
+            charged += cost
+            if began is not PENDING and not load_gated(u):
+                opened.append(time.time())
+            free[uslot] -= 1
+            if not uslot.startswith("fetch "):
+                ceiling_left -= 1
+                if ceiling_left <= 0:
+                    free.update({sl: 0 for sl in free if not sl.startswith("fetch ")})
+            if free[uslot] <= 0:
+                reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
+            if began is PENDING:
+                continue
+            if u["kind"] == "scan":
+                scanning.add((u["paper"], u["rel"]))
+                scanning_by.setdefault(u["paper"], set()).add(u["rel"])
+        if not skip_walk:
+            if len(full_held) != spool_held[0] and (time.monotonic() - spool_held[1] >= 60 or len(full_held) // 10 != spool_held[0] // 10):
+                spool_held[:] = [len(full_held), time.monotonic()]
+                if full_held:
+                    log(f"spool full: {len(full_held)} reads that ended deferred for it held until it is below its cap "
+                        f"({len(queued)} asks spooled, CT_VLM_SPOOL_MAX {vlm_spool_max()}); reads with spooled asks go on")
+            if reserve_hit and not reserve_bound:
+                log(f"slot reserve: {reserve} of {mem_gate.unit_ceiling()} unit slots held for VLM-asking reads "
+                    f"({len(queued)} asks spooled, target {vlm_feed_target()}); other starts wait")
+            reserve_bound = reserve_hit
+            if cpu_capped and not cpu_cap_bound:
+                log(f"cpu-only cap: {cpu_live} stale scans/answer-linked rereads running of {cpu_cap} allowed "
+                    f"while {len(queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
+            cpu_cap_bound = cpu_capped
+            if non_times_capped and not non_times_bound[0]:
+                log(f"non-Times cap: {non_times_live} FT/other-paper scans and reads running of "
+                    f"{NON_TIMES_BESIDE_TIMES} allowed (CT_NON_TIMES_BESIDE_TIMES) while Times work is due; "
+                    f"the rest of the {mem_gate.unit_ceiling()} slots are for it")
+            non_times_bound[0] = non_times_capped
+            reason_hit = reason_capped[0] if reason_capped else None
+            if reason_hit and reason_hit != reason_cap_logged[0]:
+                log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {reason_cap}); other work starts")
+            reason_cap_logged[0] = reason_hit
+        if walked and not skip_walk and not begun_now:
+            idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
+                                      tuple(sorted(idle_read.items())))),
+                            (held_back, desk_held, cpu_held, idle_held, vlm_deferred)]
+        elif not skip_walk:
+            idle_walk[:] = [None, None]
+        if held_back and not memory_bound:
+            memory_bound = True
+            log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "
+                f"memory pressure {mem_gate.pressure()} (max {mem_gate.psi_max()}), "
+                f"{charged >> 20} MB charged to {begun_now} begun this pass; a unit costs "
+                + ", ".join(f"{k} {v >> 20} MB" for k, v in sorted((costs or {}).items()))
+                + f" (else {mem_gate.UNIT >> 20} MB); no unit starts until a later pass finds room "
+                f"({len(running) + len(adopted)} running are left alone)")
+        if desk_held and not desk_mem_bound:
+            log(f"desktop-memory-bound: {desk_mem[1]} MB free there {time.time() - desk_mem[0]:.0f}s ago, "
+                f"{desktop_sessions(desk_mem[0], opened, closed)} session(s) opened since and still open "
+                f"at {DESKTOP_SESSION_MB} MB each, "
+                f"floor {DESKTOP_FLOOR_MB} MB; only fetches start until it has room "
+                f"({len(running) + len(adopted)} running are left alone)")
+        desk_mem_bound = desk_held
+        if walked:
+            vlm_pending[0] = vlm_deferred
+        if vlm_deferred and (vlm_logged[0] is None or time.monotonic() - vlm_logged[0] >= 600):
+            vlm_logged[:] = [time.monotonic(), vlm_deferred]
+            log(f"VLM down ({vlm_reader.cause() or 'unreachable'}): {vlm_deferred} scans deferred; their reads start once it answers, "
+                f"scans, fetches and reads that do not ask it go on ({len(running) + len(adopted)} running)")
+        if cpu_held and not cpu_bound:
+            cpu_bound = True
+            log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
+                f"({len(running) + len(adopted)} running are left alone)")
+        if idle_held and not idle_bound:
+            idle = (idle_gate_reader or mem_gate.idle_cores)()
+            log(f"idle-bound: {idle if idle is None else round(idle, 1)} idle core(s), {local_now} local unit(s) "
+                f"begun this pass; no unit that works on this host's CPU (local_cpu) starts until a core "
+                f"is idle, those waiting on the desktop or the network go on "
+                f"({sum(local_cpu(v) for _, (v, _) in units_running())} local running are left alone)")
+        idle_bound = idle_held
+        if stop:
+            break
+        if handoff and not may_start() and not any(b.busy() for b in beside):
+            left = sum(k not in tried for k in qkeys) + len(running) + len(adopted)
+            thaw()
+            hand_over(handoff, units_running())
+            keep_untried()
+            log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
+            running.clear()
+            adopted.clear()
+            break
+        if not running and not adopted and planner is None and not any(b.busy() for b in beside) and not (
+                media.held() and may_start()):
+            untried = sum(k not in tried for k in qkeys)
+            if not may_start():
+                left = untried + sum(b.again and not b.done for b in beside)
+                break
+            if not untried:
+                # Nothing left to start: one more plan, in case something
+                # landed, made on the new code when it changed.
+                if may_reexec() and any(digest(f) != h for f, h in code.items()):
+                    reexec()
+                try:
+                    scans, reads, fetches = replan_all()
+                    new_scans, new_reads = fresh(papers, cache)
+                except OSError as e:
+                    if not media.down(e):
+                        raise
+                    continue  # planned again once the media share answers (media.hold)
+                fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
+                fresh_at = time.monotonic()
+                fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
+                planned = time.monotonic()
+                if all(key_of(u) in tried for u in first + fresh_scans + fresh_reads + scans + reads + fetches) and not any(b.again and not b.done
+                                                                             for b in beside):
+                    break
+                continue
+        # Only reads waiting for the VLM left to start, and nothing running:
+        # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
+        drop_stale_briefs()
+        if vlm_deferred and not begun_now and not running and not adopted:
+            time.sleep(VLM_IDLE)
+        elif not begun_now and not any(v > 0 for v in free.values()):
+            nap(1 if game_now[0] else QUIET_NAP)  # a game: shed scans past the cap soon. Every slot full: only an exit (or a stop) can change what this pass would start
+        else:
+            time.sleep(1)
+    if stop:
+        log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")
+        thaw()  # SIGCONT first: a stopped filer would sit on the TERM, then be left stopped
+        for pid in list(running) + list(adopted):
+            try:
+                os.killpg(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+        for b in beside:
+            b.stop(signal.SIGTERM)
+        end = time.monotonic() + STOP_GRACE
+        while (running or adopted) and time.monotonic() < end:
+            reap()
+            reap_adopted()
+            time.sleep(0.2)
+        for pid in list(running) + list(adopted):
+            try:
+                os.killpg(pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+        for b in beside:
+            b.stop(signal.SIGKILL)
+        reap()
+        if media_gone:
+            print(f"edition queue: the media share stayed down; {media_gone[0]}")
+            return 1
+        return 143
+    print(f"edition queue: {len(tried)} units started; " + ", ".join(f"{v} {k}" for k, v in sorted(outcomes.items())))
+    if vlm_pending[0]:
+        print(f"  VLM down: {vlm_pending[0]} scans deferred")
+    if left:
+        print(f"  {left:5d}  left for the next run")
+    if reload:
+        print(f"reload: {reload[0]}; exiting {hot_reload.RELOAD_RC} for the wrapper to move the tree and start again")
+        return hot_reload.RELOAD_RC
+    return 0
 
 
 def alive(pid):
