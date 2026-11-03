@@ -145,6 +145,7 @@ class Log:
         self.problems = {}        # text -> when last said
         self.events = collections.deque()    # (time, "ok"|"nc", rule) of finished puzzles
         self.nc_lines = collections.deque(maxlen=3)   # the last no-change lines: evidence
+        self.kept = {}   # puzzle -> clues a blog re-check kept ours on, until its commit line
         self.fail_count = collections.Counter()       # puzzle -> failures and no-changes
         self.waste_tier = 0
         self.waste_said = 0.0
@@ -510,7 +511,11 @@ class Log:
                 what = "hints written"
             else:
                 what = msg
-            labels = self.touched(msg, pid)
+            kept = self.kept.pop(pid, None) if what == "re-checked against its blog" else None
+            labels = self.touched(msg, pid) if not kept else None
+            if kept:  # a re-check that filed "ours stands" and left the puzzle alone: work, not waste
+                self.finished(now, True, pid, "blog re-check")
+                return [self.out(now, "✓", f"{pid} kept ours on {plural(kept, 'clue')} against its blog")]
             allowed = (self.snap.get(field) or {}).get(pid) if field else None
             rule = field or ("blog re-check" if "Re-check" in msg else "annotate")
             if labels == [] and field:
@@ -533,6 +538,10 @@ class Log:
         m = re.match(r"^  \[" + PUZZLE + r"\] skipped: already fully hinted", line)
         if m:
             return [self.out(now, "·", f"{m.group(1)} nothing to change (already hinted)")]
+        m = re.match(r"^Re-check against its blog:? " + PUZZLE + r" kept ours on (\d+) clues?$", line)
+        if m:  # remembered for the "committed" line that follows
+            self.kept[m.group(1)] = int(m.group(2))
+            return []
         m = re.match(r"^(.*) " + PUZZLE + r" produced no change$", line)
         if m:
             field = (re.match(r"^Backfill (\S+) for", m.group(1)) or [None, None])[1]

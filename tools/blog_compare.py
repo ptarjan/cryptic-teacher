@@ -163,6 +163,22 @@ def keep_ours(pid, eid, fields, why):
     return None
 
 
+def unshipped(pid):
+    """How many of puzzle `pid`'s rows of blog_disagree.json differ in the tree from HEAD's:
+    the clues a re-check run kept ours on and nobody has committed yet. A run that only
+    files keeps leaves the puzzle's own file as it was, so this is its only trace."""
+    import subprocess
+    head = subprocess.run(["git", "-C", str(ROOT), "show", "HEAD:tools/data/blog_disagree.json"],
+                          check=False, capture_output=True, text=True)
+    try:
+        was = json.loads(head.stdout) if head.returncode == 0 else {}
+        now = json.loads(TABLE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return 0
+    mine = {k for k in set(was) | set(now) if k.split("/", 1)[0] == pid}
+    return sum(was.get(k) != now.get(k) for k in mine)
+
+
 def rate(n, d):
     return round(100 * n / d, 2) if d else None
 
@@ -173,7 +189,12 @@ def main():
     ap.add_argument("--due", action="store_true", help="print the due puzzle ids and exit")
     ap.add_argument("--keep", nargs=4, metavar=("PUZZLE", "ENTRY", "FIELDS", "WHY"),
                     help="file one clue as checked against its blog and kept")
+    ap.add_argument("--unshipped", metavar="PUZZLE",
+                    help="print how many of its kept clues are not committed yet and exit")
     args = ap.parse_args()
+    if args.unshipped:
+        print(unshipped(args.unshipped))
+        return 0
     if args.keep:
         err = keep_ours(*args.keep)
         print(err or f"filed {args.keep[0]}/{args.keep[1]} in tools/data/blog_disagree.json")

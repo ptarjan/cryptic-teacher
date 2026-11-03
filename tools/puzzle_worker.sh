@@ -1084,6 +1084,15 @@ _worker_finish() {
   # again, so the OCR learns what the annotator mended.
   python3 tools/annotate_check.py --reread "$id" || true
   if [ -z "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ]; then
+    # A blog re-check that filed "ours stands" (blog_compare.py --keep) wrote tools/data/blog_disagree.json
+    # and left the puzzle's file alone: that is the work, not a wasted run (11-03 12:25: 8 of 12 runs
+    # logged "nothing to change" and never committed their rows). Its rows ride out in the commit below.
+    blog_kept=0
+    case "$what" in "Re-check against its blog"*) blog_kept=$(python3 tools/blog_compare.py --unshipped "$id" 2>/dev/null || echo 0) ;; esac
+    if [ "${blog_kept:-0}" -gt 0 ]; then
+      echo "$what $id kept ours on $blog_kept clues"
+      WORKER_ROWS_ONLY=1
+    else
     echo "$what $id produced no change"
     # A clean exit is not evidence of hints: a run can finish its turns having
     # written nothing, and the validator is happy with a file with nothing in
@@ -1104,6 +1113,7 @@ _worker_finish() {
     case "$what" in "Backfill wordplay."*) rows_op=--mark-tried ;; Annotate) rows_op="" ;; esac
     [ -n "$rows_op" ] && [ "$(python3 tools/shape_queue.py "$rows_op" "$id" 2>/dev/null || echo 0)" -gt 0 ] && WORKER_ROWS_ONLY=1
     [ -n "$WORKER_ROWS_ONLY" ] || return 0
+    fi
   fi
   # -A, so a file that changed year folders goes in as a rename rather than as
   # a new copy beside the old one, and a cold solve's promoted clues-only file
