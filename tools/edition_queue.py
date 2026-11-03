@@ -2090,6 +2090,26 @@ def times_scans_pending(scan_lists, tried, busy, scanned):
             and (u["paper"], u["rel"]) not in scanned]
 
 
+#: Paul 11-03: never-scanned Gale FT 2003 scans (600-1500 s each, 25 of 27 found no puzzle) held up to ~10
+#: of the ~18-20 unit slots while Times 1933 reads waited and the VLM idled. While a Times (CT_NEWEST_FIRST
+#: paper) read or scan is due or running, the other papers' scans and reads (FT, Guardian, Telegraph ...;
+#: not the Listener's or Trove's own pools, nor fetches) keep at most this many units, as the Listener does.
+NON_TIMES_BESIDE_TIMES = int(os.environ.get("CT_NON_TIMES_BESIDE_TIMES") or 2)
+
+
+def non_times_unit(unit, times_papers):
+    """Whether `unit` is a scan or read of a paper outside the CT_NEWEST_FIRST set `times_papers` and
+    outside the Listener's and Trove's own pools (fetches are no scan or read)."""
+    return (unit["kind"] in ("scan", "read") and unit["paper"] not in times_papers
+            and unit["paper"] not in ("listener", "trove"))
+
+
+def non_times_held(unit, times_papers, times_due, live, cap):
+    """Whether `unit` waits for Times work: Times work is `times_due`, the non-Times units running
+    (`live`) are at `cap`, and `unit` is another one."""
+    return times_due and live >= cap and non_times_unit(unit, times_papers)
+
+
 def listener_free(free_listener, other_due, ceiling_left):
     """The Listener pool's free slots this pass: its fixed pool's (LISTENER_WORKERS, `free_listener`)
     while other read or scan work is due or running (`other_due`), else every unit-ceiling slot left
@@ -2793,6 +2813,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         defer_runs, defer_until = last_defers(defer_file)
     stage_seen = [None, float("-inf")]  # the "vlm stage" line's last (spooled, waiting) and when
     reason_cap_logged = [None]  # (running, reason) last logged by the per-reason cap
+    non_times_bound = [False]  # logged once each time the non-Times cap holds a start back
     cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
     reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
     ceiling_bound = False  # logged once each time the unit-children ceiling is met
@@ -3530,8 +3551,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         listener_wide = widen
         # Times first (Paul 10-24): while its work is due or running, the Listener keeps at most
         # LISTENER_BESIDE_TIMES units.
-        if (times_keys - tried) or any(v["paper"] in times_papers and slot_of(v) in ("read", "scan")
-                                        for _, (v, _) in units_running()):
+        times_due = bool(times_keys - tried) or any(v["paper"] in times_papers and slot_of(v) in ("read", "scan")
+                                                    for _, (v, _) in units_running())
+        non_times_live = sum(1 for _, (v, _) in units_running() if non_times_unit(v, times_papers))
+        non_times_capped = False
+        if times_due:
             n_listener = sum(1 for _, (v, _) in units_running() if slot_of(v) == "listener")
             free["listener"] = max(0, min(free.get("listener", 0), LISTENER_BESIDE_TIMES - n_listener))
         # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
@@ -3721,6 +3745,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 break  # (the media share noted down this pass: nothing more starts until it answers)
             if not may_start() or free[uslot] <= 0 or ukey in tried:
                 continue
+            if non_times_held(u, times_papers, times_due, non_times_live, NON_TIMES_BESIDE_TIMES):
+                non_times_capped = True  # Times first: the slots left are for its scans and reads
+                continue
             if reserve and ukey not in fill_keys and not uslot.startswith("fetch ") and ceiling_left <= reserve:
                 reserve_hit = True  # the last slots are for reads that ask the VLM
                 continue
@@ -3806,6 +3833,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             begun_now += 1
             live_scans += u["kind"] == "scan"
             cpu_live += cpu_only_unit(u)
+            non_times_live += non_times_unit(u, times_papers)
             if reason_cap and u["kind"] != "fetch" and u.get("reason"):
                 reason_live[u["reason"]] = reason_live.get(u["reason"], 0) + 1
             charged += cost
@@ -3837,6 +3865,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 log(f"cpu-only cap: {cpu_live} stale scans/answer-linked rereads running of {cpu_cap} allowed "
                     f"while {len(queued)} asks spooled (target {vlm_feed_target()}); the rest wait for VLM-asking reads")
             cpu_cap_bound = cpu_capped
+            if non_times_capped and not non_times_bound[0]:
+                log(f"non-Times cap: {non_times_live} FT/other-paper scans and reads running of "
+                    f"{NON_TIMES_BESIDE_TIMES} allowed (CT_NON_TIMES_BESIDE_TIMES) while Times work is due; "
+                    f"the rest of the {mem_gate.unit_ceiling()} slots are for it")
+            non_times_bound[0] = non_times_capped
             reason_hit = reason_capped[0] if reason_capped else None
             if reason_hit and reason_hit != reason_cap_logged[0]:
                 log(f"reason cap: {reason_hit[0]} running of '{reason_hit[1][:60]}' (cap {reason_cap}); other work starts")
