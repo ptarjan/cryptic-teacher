@@ -134,9 +134,11 @@ def window(rows):
     return []
 
 
-def code_commit(repo=REPO):
-    """(sha, ISO committer time, subject) of the last commit touching annotate code."""
-    out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS + LEDGER_FILES,
+def code_commit(repo=REPO, skip=()):
+    """(sha, ISO committer time, subject) of the last commit touching annotate code,
+    less the paths in `skip` (shape_queue.REARM_SKIP)."""
+    out = subprocess.run(["git", "log", "-1", "--format=%h%x09%cI%x09%s", "--"] + CODE_PATHS + LEDGER_FILES
+                         + [f":(exclude){x}" for x in skip],
                          cwd=repo, capture_output=True, text=True, check=False).stdout.strip()
     parts = out.split("\t")
     return tuple(parts) if len(parts) == 3 else (None, None, None)
