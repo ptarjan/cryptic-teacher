@@ -2114,6 +2114,17 @@ def non_times_held(unit, times_papers, times_due, live, cap):
     return times_due and live >= cap and non_times_unit(unit, times_papers)
 
 
+def other_reason_waits(reason, queued, tried, free, held):
+    """Whether a unit of another reason than `reason` could start in its place: one of `queued`
+    ((unit, key, slot) triples) that is no fetch, untried, has room in its slot's pool (`free`) and is
+    not `held` by its own cap. 11-03: FT reads waiting behind the non-Times cap and Listener reads
+    behind their full pool counted as "other work", so the reason cap held the 788 1930-33 Times
+    rereads (the only Times work due) at 8 and 12 of 24 slots sat idle."""
+    return any(v["kind"] != "fetch" and v.get("reason") != reason and k not in tried
+               and free.get(slot, 0) > 0 and not held(v)
+               for v, k, slot in queued)
+
+
 def listener_free(free_listener, other_due, ceiling_left):
     """The Listener pool's free slots this pass: its fixed pool's (LISTENER_WORKERS, `free_listener`)
     while other read or scan work is due or running (`other_due`), else every unit-ceiling slot left
@@ -3710,9 +3721,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
 
         def others_wait(reason):
             if reason not in reason_other:
-                reason_other[reason] = any(
-                    v["kind"] != "fetch" and v.get("reason") != reason and k not in tried
-                    for v, k in zip(queue, qkeys))
+                reason_other[reason] = other_reason_waits(
+                    reason, zip(queue, qkeys, qslots), tried, free,
+                    lambda v: non_times_held(v, times_papers, times_due, non_times_live, NON_TIMES_BESIDE_TIMES))
             return reason_other[reason]
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
