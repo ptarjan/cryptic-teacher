@@ -860,7 +860,7 @@ worker_finish() {   # id what sidfile log
 # J produced no change, F not shipped, R to solve again", so a member that
 # changed nothing is a number in the log and not only an absence from the commit.
 worker_finish_bag() {   # leader what sidfile log
-  local what="$2" sidfile="$3" log="$4" m rc before changed=0 same=0 lost=0 again=0
+  local what="$2" sidfile="$3" log="$4" m rc before changed=0 same=0 lost=0 again=0 kept=0
   local -a seen=()
   WORKER_BAG_AGAIN=""
   WORKER_BATCH_IDS=()
@@ -880,7 +880,9 @@ worker_finish_bag() {   # leader what sidfile log
       return 3
     fi
     case $rc in
-      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "${WORKER_ROWS_ONLY:-}" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
+      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "${WORKER_ROWS_ONLY:-}" ]; then changed=$((changed + 1))
+         elif [ -n "${WORKER_BLOG_KEPT:-}" ]; then kept=$((kept + 1))  # a re-check that only filed "ours stands" (b3d2c43d498) is work, not no-change
+         else same=$((same + 1)); fi ;;
       2) again=$((again + 1)); WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m" ;;
       *) lost=$((lost + 1)) ;;
     esac
@@ -891,7 +893,7 @@ worker_finish_bag() {   # leader what sidfile log
   worker_commit_batch "$what"
   worker_bag_drop_all "$sidfile" "${seen[@]}"
   worker_forget "$sidfile"
-  echo "  [$1] bag of ${#seen[@]}: $changed changed, $same produced no change, $lost not shipped, $again to solve again"
+  echo "  [$1] bag of ${#seen[@]}: $changed changed$([ "$kept" -gt 0 ] && echo ", $kept kept ours"), $same produced no change, $lost not shipped, $again to solve again"
   return 0
 }
 # Take each id off the bag: dealt with, committed (or left in the tree for the
@@ -929,6 +931,7 @@ worker_sweep_scratch() {   # [minutes]
 _worker_finish() {
   local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0 partial="" verdict="" first_ok=""
   WORKER_ROWS_ONLY=""   # set below when a no-change run still has queue rows to commit
+  WORKER_BLOG_KEPT=""   # set below when a blog re-check only filed "ours stands" (its rows ship, the puzzle's file does not change)
   # A run that took its work back ships none of it, however it validates.
   if why=$(worker_withdrawn "$id" "$log"); then
     worker_withdraw "$id" "$why"
@@ -1092,6 +1095,7 @@ _worker_finish() {
     if [ "${blog_kept:-0}" -gt 0 ]; then
       echo "$what $id kept ours on $blog_kept clues"
       WORKER_ROWS_ONLY=1
+      WORKER_BLOG_KEPT=1
     else
     echo "$what $id produced no change"
     # A clean exit is not evidence of hints: a run can finish its turns having

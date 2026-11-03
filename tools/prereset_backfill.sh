@@ -411,7 +411,7 @@ run_claude() {
     [ -z "$m" ] || "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view $m >/dev/null 2>&1
   }
   # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
-  if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ]; then
+  if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ] && [ "$WAVE_WHAT" != "Re-check against its blog:" ]; then
     python3 tools/annotate_bag.py view $(worker_bag_ids "$RUNS/$tag.sid") >/dev/null
   fi
   worker_annotate "$tag" "$log" "$RUNS/$tag.sid" "$prompt" "$note" "$fill"
@@ -610,6 +610,11 @@ pool_launch() {
 # below): a re-parse of those hints only, nothing else touched.
 bag_prompt() {
   local tmpl ids rule
+  if [ "$(bag_rule "${2:-}")" = blog ]; then  # the solo BLOG_PROMPT's rules, per puzzle (clue_bag.py --blog-list)
+    tmpl=$(<tools/blog_bag_prompt.md)
+    printf '%s%s' "${tmpl//@LIST@/$(python3 tools/clue_bag.py --blog-list "$1")}" "${SHAPE_EXCEPTION//@/<id>}"
+    return
+  fi
   tmpl=$(<tools/annotate_bag_prompt.md)
   ids=$(tr '\n' ' ' <"$1")
   tmpl="${tmpl//@FIRST@/$(head -n1 "$1")}"
@@ -627,6 +632,7 @@ bag_prompt() {
 bag_rule() {
   local what rule
   what=$(pool_what "${1:-}")
+  [ "$what" = "Re-check against its blog:" ] && { echo blog; return; }
   rule="${what#Backfill }"
   [ "$rule" = "$what" ] && { echo annotate; return; }
   echo "${rule% for}"
@@ -640,6 +646,8 @@ bag_rule() {
 pool_bags() {
   [ "$DRY_RUN" != 1 ] || return 1
   [ "$WAVE_WHAT" = Annotate ] && return 0
+  # The blog re-check: 1-3 clues a puzzle, ~7.3k tokens a clue alone (11-03), bagged like a tail.
+  [ "$WAVE_WHAT" = "Re-check against its blog:" ] && return 0
   case "$WAVE_WHAT" in "Backfill wordplay.unchecked for") return 1 ;; "Backfill wordplay."*) return 0 ;; esac
   return 1
 }
@@ -665,7 +673,11 @@ pool_bag() {
     # whole puzzles fill the other slots.
     local free=$(( ${wide:-1} - ${#POOL_RUNS[@]} ))
     [ "$free" -ge 1 ] || free=1
-    [ "$(bag_rule)" = annotate ] || any=(--any-listed --spread "$free")
+    case "$(bag_rule)" in
+      annotate) ;;
+      blog) any=(--blog --spread "$free") ;;
+      *) any=(--any-listed --spread "$free") ;;
+    esac
     ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" |
       python3 tools/clue_bag.py --due ${any[@]+"${any[@]}"} "$RUNS" "$id") || return 0
     [ "$(wc -l <<<"$ids")" -gt 1 ] || return 0

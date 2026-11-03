@@ -188,4 +188,14 @@ for i in range(8):
     lines += log.feed(f"committed Backfill wordplay.anaStandIn for azed-{100 + i}", T + i)
 check([x for x in lines if "tokens per clue" in x], [], "3k tokens a clue is fine")
 
+# A blog re-check, kept-only or changed, counts its tokens too: the status line shows tok/clue during it.
+log = B.Log()
+log.tokens_of = lambda pid: 8_000
+log.feed(WIDTH, T)
+for i in range(3):
+    log.feed(f"Re-check against its blog: quiptic-{200 + i} kept ours on 2 clues", T + 10 + i)
+    log.feed(f"committed Re-check against its blog: quiptic-{200 + i}", T + 10 + i)
+check(any("4k tok/clue" in x for x in log.feed("sync: tree at x", T + 400)), True,
+      "blog re-checks (6 clues, 24k tokens) show tok/clue on the status line")
+
 sys.exit(1 if fails else 0)

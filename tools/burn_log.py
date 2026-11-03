@@ -188,9 +188,13 @@ class Log:
             return None
         try:
             git = ["git", "-C", self.repo]
-            log = subprocess.run(git + ["log", "-n", "40", "--format=%H%x09%s"], capture_output=True, text=True,
-                                 timeout=20, check=True).stdout.splitlines()
-            sha = next(x.split("\t")[0] for x in log if x.split("\t", 1)[1:] == [subject])
+            log = subprocess.run(git + ["log", "-n", "40", "--format=%H%x1f%s%x1f%b%x1e"], capture_output=True, text=True,
+                                 timeout=20, check=True).stdout.split("\x1e")
+            rows = [r.strip("\n").split("\x1f") for r in log if r.strip()]
+            # A bag's puzzles ride in one commit, "<what> N puzzles" with the ids in its body.
+            lead = subject.rsplit(" ", 1)[0] + " "
+            sha = next(r[0] for r in rows if len(r) > 2 and (r[1] == subject or (
+                r[1].startswith(lead) and r[1].endswith(" puzzles") and pid in r[2].split())))
             names = subprocess.run(git + ["diff-tree", "--no-commit-id", "--name-only", "-r", sha],
                                    capture_output=True, text=True, timeout=20, check=True).stdout.split()
             path = next(n for n in names if n.endswith(f"/{pid}.json"))
@@ -249,6 +253,13 @@ class Log:
         rule, (tok, c) = max(by_rule.items(), key=lambda kv: kv[1][0])
         evidence = [f"{pid}: {tok // 1000}k tokens for {plural(c, 'clue')}" for _, tok, c, _, pid in list(self.costs)[-3:]]
         return sum(t for _, t, _, _, _ in self.costs) / clues, clues, (rule, tok / c), evidence
+
+    def cost(self, now, pid, rule, clues, counted=True):
+        """The session's tokens for puzzle pid, against the clues it wrote or checked, into the hour's
+        tokens-per-clue window (a backfill, or a blog re-check solo or bagged)."""
+        tok = self.tokens_of(pid) if (self.tokens_of and counted) else None
+        if tok:
+            self.costs.append((now, tok, clues or 1, rule, pid))
 
     def warn(self, now, kind, text, evidence, wake=True, wake_kind=None):
         """A ⚠️ line, plus a wake (at most one per kind of warning per hour) with its evidence."""
@@ -515,6 +526,7 @@ class Log:
             labels = self.touched(msg, pid) if not kept else None
             if kept:  # a re-check that filed "ours stands" and left the puzzle alone: work, not waste
                 self.finished(now, True, pid, "blog re-check")
+                self.cost(now, pid, "blog re-check", kept)
                 return [self.out(now, "✓", f"{pid} kept ours on {plural(kept, 'clue')} against its blog")]
             allowed = (self.snap.get(field) or {}).get(pid) if field else None
             rule = field or ("blog re-check" if "Re-check" in msg else "annotate")
@@ -525,9 +537,7 @@ class Log:
             if labels and len(labels) <= 8:
                 where += f" ({', '.join(labels)})"
             self.finished(now, True, pid, rule)
-            tok = self.tokens_of(pid) if (self.tokens_of and field) else None
-            if tok:
-                self.costs.append((now, tok, n or 1, rule, pid))
+            self.cost(now, pid, rule, n, field or what == "re-checked against its blog")
             return [self.out(now, "✓", f"{pid} {what}{where}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] bag of (\d+) puzzles(?:, (\d+) clues)?: (\S+)", line)
         if m:  # pool_bag: one session for several puzzles of the same rule
@@ -576,7 +586,10 @@ class TokenIndex:
     are the re-read of the conversation and are left out), from the CLI's transcripts. Scanned in
     a thread so the filter never stalls the pipe the burn writes to."""
 
-    PREFIX = "In this repo, add the missing"
+    # A backfill's prompt, the wordplay-rule one, and the blog re-check's (solo, or a bag naming
+    # several puzzles by their files: its tokens are shared out evenly among them).
+    PREFIXES = ("In this repo, add the missing", "In this repo, the annotated crossword",
+                "In this repo, these annotated crosswords have clues")
 
     def __init__(self, root=None):
         self.root = pathlib.Path(root or os.environ.get("CLAUDE_CONFIG_DIR") or pathlib.Path.home() / ".claude")
@@ -605,7 +618,7 @@ class TokenIndex:
                         if rec.get("type") == "user" and first is None:
                             content = msg.get("content")
                             first = content if isinstance(content, str) else json.dumps(content)
-                            if not first.startswith(self.PREFIX):
+                            if not first.startswith(self.PREFIXES):
                                 break
                         elif rec.get("type") == "assistant" and msg.get("id") not in ids:
                             ids.add(msg.get("id"))
@@ -614,9 +627,12 @@ class TokenIndex:
                                        + u.get("cache_creation_input_tokens", 0))
             except OSError:
                 continue
-            m = re.search(r"/" + PUZZLE + r"\.json", first or "")
-            if m and first.startswith(self.PREFIX):
-                self.by_pid[m.group(1)] = tokens
+            if first and first.startswith(self.PREFIXES):
+                members = list(dict.fromkeys(re.findall(r"/" + PUZZLE + r"\.json", first)))
+                if members and first.startswith(self.PREFIXES[:2]):
+                    self.by_pid[members[0]] = tokens
+                for pid in members if first.startswith(self.PREFIXES[2]) else ():
+                    self.by_pid[pid] = tokens // len(members)
 
     def __call__(self, pid):
         return self.by_pid.get(pid)

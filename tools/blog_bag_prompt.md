@@ -1,0 +1,5 @@
+In this repo, these annotated crosswords have clues whose definition, type or building blocks disagree with what their blog marked (each line: puzzle id, its file, the clues the report listed; the warnings are the authority): handle them one after another in this one session.
+
+@LIST@
+
+For each puzzle: run python3 tools/annotate_check.py <id> and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in the puzzle's file (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep <id> <entry id> <definition|type|blocks> "<one sentence: why ours stands>". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py <id> until no blog warning is left and it reports clean, then go on to the next puzzle. A puzzle that cannot be made clean is no reason to stop the others: finish the rest, and leave that one as it is. Do not commit — the calling script commits.

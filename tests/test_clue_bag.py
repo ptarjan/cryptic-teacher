@@ -129,6 +129,15 @@ check("missing plus redo add up", clue_bag.row_is_tail({**base, "id": "r1", "una
       and not clue_bag.row_is_tail({**base, "id": "r1", "unannotated": 9}))
 check("a preamble-awaiting redo row stays whole", not clue_bag.row_is_tail({**base, "id": "r1", "awaitsPreamble": True}))
 
+print("the blog re-check bags the puzzles blog_compare.py --due flags, 1..MAX_DUE clues each")
+table = {"b1": ["1-across", "2-down"], "b2": ["3-down"], "b3": ["4-across"] * 1, "big": [f"{i}-across" for i in range(11)]}
+blogdue = lambda pid, row, runs, resume: clue_bag.blog_tail_due(pid, row, runs, resume, table)
+counts = {}
+bag = clue_bag.bag_of("b1", ["big", "b2", "none", "b3"], {}, Path(tempfile.mkdtemp()), Path(tempfile.mkdtemp()),
+                      due=blogdue, counts=counts)
+check("blog bag skips a puzzle over MAX_DUE and one with nothing due", bag == ["b1", "b2", "b3"] and counts == {"b1": 2, "b2": 1, "b3": 1})
+check("a blog leader with too many clues runs alone", clue_bag.bag_of("big", ["b1"], {}, Path("/nonexistent"), Path("/nonexistent"), due=blogdue) == ["big"])
+
 print("the bag is committed per puzzle: the worker's side is in tests/test_puzzle_worker.sh")
 print("clue_bag: all checks passed" if not fails else f"clue_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)
