@@ -21,7 +21,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
 
   // Back to cold every time: reset clears the score, so what a wrong answer and
   // a right one each cost can be read off the same starting point.
-  const open = () => {
+  const open = (soft) => {
     registry["btn-picker"].onclick();
     const li = pickerRowFor(found.id);
     assert(li, "picker finds the puzzle to be asked about");
@@ -29,6 +29,7 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     registry["reset-puzzle"].onclick();
     registry["clue-" + entryId(found.e)].listeners.click[0]();
     const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
+    if (!btn && soft) return null;  // a clue the app gives no type rung (a bare-letters rebus) is not the one to test
     assert(btn, `${found.id} ${entryId(found.e)} (type ${JSON.stringify(found.e.annotation.type)}, redo ${!!found.e.annotation.redo}): the type rung is offered: ` + registry["hint-next"].innerHTML);
     cold = registry["hint-body"].innerHTML;
     const before = registry["scorebar"].innerHTML;
@@ -141,13 +142,17 @@ const { CLUE_TYPES, ROOT, TYPE_FAMILY, assert, clueText, entryId, fs, path, pick
     assert(rare.length === 2 && rare.every((f) => f.picker), "two folded families, each with a picker: " + JSON.stringify(rare));
     for (const f of rare) {
       const target = fams.find((g) => g.name === f.picker).label;
-      let hit = null;
+      // The first clues purely of the family that the app does offer a type rung on.
+      let hit = null, tried = 0;
       for (const id of Object.keys(puzzles).sort()) {
         for (const e of puzzles[id].entries || []) {
           const t = (e.annotation && e.annotation.type) || [];
-          if (e.annotation && !e.annotation.redo && t.length && TYPE_FAMILY[t[0]] === f.name && t.every((k) => TYPE_FAMILY[k] === f.name)) { hit = { id, e }; break; }
+          if (!(e.annotation && !e.annotation.redo && t.length && TYPE_FAMILY[t[0]] === f.name && t.every((k) => TYPE_FAMILY[k] === f.name))) continue;
+          found = { id, e };
+          if (++tried > 25) break;
+          if (open(true) !== null) { hit = found; break; }
         }
-        if (hit) break;
+        if (hit || tried > 25) break;
       }
       // A family this rare is in a sixteenth of the corpus at best: a slice or the
       // sample may hold no clue purely of it. shape() skips this family then, and
