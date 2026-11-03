@@ -890,8 +890,6 @@ LAYOUT = [
     ("building and checking the site", "tests/test_sw_shell_recovery.js", "the home-screen app must never boot as bare HTML (Paul 10-30: \"My css seems broken in my app\" \u2014 Times text, every panel open, no app). sw.js is run here in a vm against an in-memory Cache Storage and a network that can be switched off:"),
     ("building and checking the site", "tools/index_idx.py", "the progressive puzzle index (Paul 11-02: \"It should be progressive. Download what we show\"): writes puzzles/idx/ at build time, a small head-static and head-live plus one content-hashed shard per series and year and a bundle, so the site can load only what it shows"),
     ("building and checking the site", "tests/test_index_idx.py", "tools/index_idx.py's files decode back to the same rows as puzzles/index.json, shard names never match the puzzle glob, and the head files stay small"),
-    ("building and checking the site", "tools/heap_probe.js", "diagnostic only, removed once its report is in: snapshots smoke_test.js's heap from inside the sweep (baseline, then each +600 MB of live heap) and logs fake_dom listener, timer and beacon sizes"),
-    ("building and checking the site", "tools/heap_report.py", "diagnostic only, removed with heap_probe.js: summarises a V8 heap snapshot into top retainers and a growth diff"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
