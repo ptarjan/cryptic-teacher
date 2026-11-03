@@ -149,17 +149,17 @@ echo "a conflict no builder owns is left alone:"
 rebase_running && git rebase --abort
 skip_builds=1
 git checkout -q -B upstream2 "$base"
-printf '\n// upstream edited this by hand\n' >> app.js
-git commit -qam "a human edited app.js"
+printf '\n// upstream edited this by hand\n' >> app-core.js
+git commit -qam "a human edited app-core.js"
 git checkout -q -B nightly2 "$base"
-printf '\n// the night edited this by hand\n' >> app.js
-git commit -qam "the night edited app.js"
+printf '\n// the night edited this by hand\n' >> app-core.js
+git commit -qam "the night edited app-core.js"
 git rebase -q upstream2 >/dev/null 2>&1
 rebuild_generated_conflicts; check "returns non-zero" "$?" "1"
 check "the rebase is still in progress for the caller to abort" \
   "$(rebase_running && echo yes)" "yes"
-check "app.js was not resolved behind anyone's back" \
-  "$(git diff --name-only --diff-filter=U)" "app.js"
+check "app-core.js was not resolved behind anyone's back" \
+  "$(git diff --name-only --diff-filter=U)" "app-core.js"
 git rebase --abort
 
 if [ "$fails" -eq 0 ]; then echo "push conflict: all checks passed"; else
