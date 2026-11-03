@@ -35,7 +35,17 @@ HEARTBEAT_S = 5 * 60       # the status line is written at least this often
 IDLE_AFTER_S = 5 * 60      # nothing queued this long before the log says "idle"
 FILL_WINDOW_S = 120        # starts this close together are one pool fill
 DONE_KINDS = re.compile(r"^(Annotate|Backfill|Re-check)\b")
+BAG_COUNT = re.compile(r"\b(\d+) puzzles\b")
 PUZZLE = r"([a-z][a-z0-9]*-\d+)"
+
+
+def puzzles_in(subject):
+    """How many puzzles one burn commit finished: a bag's commit names its count
+    ("Re-check against its blog: 12 puzzles", "Backfill x for 16 puzzles"), any other is one."""
+    if not DONE_KINDS.match(subject):
+        return 0
+    m = BAG_COUNT.search(subject)
+    return int(m.group(1)) if m else 1
 CAP_ORDER = ("load", "cpu", "memory", "quota pace")  # which cap is named when several tie
 PROBLEM = re.compile(
     r"^ERROR|Traceback \(most recent|could not push|push (failed|refused)|push_puzzle_commit.*(failed|rejected|conflict)"
@@ -357,7 +367,7 @@ class Log:
                 import subprocess
                 res = subprocess.run(["git", "-C", self.repo, "log", "--since=1 hour ago", "--format=%s"],
                                      capture_output=True, text=True, timeout=20, check=True)
-                self.done_cache = (now, sum(bool(DONE_KINDS.match(x)) for x in res.stdout.splitlines()))
+                self.done_cache = (now, sum(puzzles_in(x) for x in res.stdout.splitlines()))
             except (OSError, ValueError, subprocess.SubprocessError):
                 self.done_cache = (now, -1)
         return self.done_cache[1] if self.done_cache[1] >= 0 and self.repo else len(self.done)
