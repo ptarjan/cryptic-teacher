@@ -85,7 +85,7 @@ try:
     def unstamped():
         page = (scratch / "index.html").read_text()
         print("unstamped" if not w.stamps(page) else "still stamped", len(w.want_stamps()))
-    check("the expected stamps come from the assets, not from the page", section(unstamped), "unstamped 3")
+    check("the expected stamps come from the assets, not from the page", section(unstamped), "unstamped 2")
 
     print("no verdict is reached without reading the live page")
 
@@ -94,7 +94,8 @@ try:
         want = w.want_stamps()
         live_page = " ".join(f'"{k}?v={v}"' for k, v in want.items())
         w.built_commit = lambda: head
-        w.shipped_index_stamp = lambda sha: want["puzzles/index.js"]
+        w.shipped_head_stamp = lambda sha: "h1"
+        w.fetch_head = lambda: "h1"
         w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
 
         looked = []
@@ -138,7 +139,8 @@ try:
         stale = " ".join(f'"{k}?v=deadbeef"' for k in want)
         w.fetch = lambda: stale
         w.built_commit = lambda: "f" * 40
-        w.shipped_index_stamp = lambda sha: w.want_stamps()["puzzles/index.js"]
+        w.shipped_head_stamp = lambda sha: "h1"
+        w.fetch_head = lambda: "h0"
         w.subprocess.run = lambda *a, **k: type("R", (), {"stdout": head, "returncode": 0})()
         w.time.sleep = lambda _s: None
         w.contains = lambda built, sha: built == sha

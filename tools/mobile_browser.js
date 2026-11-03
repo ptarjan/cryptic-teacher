@@ -32,9 +32,9 @@ function findChromium() {
 async function withPhone(body) {
   const bin = findChromium();
   if (!bin || typeof WebSocket !== "function") { console.log("SKIP: no Chromium (set CHROMIUM) or no global WebSocket"); return false; }
-  // puzzles/index.js is generated, as for fake_dom; a rebuild reads every puzzle
+  // puzzles/idx is generated, as for fake_dom; a rebuild reads every puzzle
   // file (minutes), so one already on disk is used as it is.
-  if (!fs.existsSync(path.join(ROOT, "puzzles", "index.js"))) require("./reindex.js").reindex();
+  if (!fs.existsSync(path.join(ROOT, "puzzles", "idx", "head-live.json"))) require("./reindex.js").reindex();
   // `up` false is a dead connection: every request, the service worker's too,
   // has its socket dropped unanswered.
   let up = true;

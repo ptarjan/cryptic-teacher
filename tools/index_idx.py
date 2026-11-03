@@ -9,7 +9,7 @@ puzzles/idx/ holds beside index.json, written by fetch_puzzle.write_index.
     bundle.<hash8>.json        every shard in one file, {"series/year": [rows]}
 
 All of it is build output (gitignored, rebuilt by every --reindex), never
-committed. index.json, index.js and index-core.js are untouched.
+committed. index.json is untouched.
 
 A row is compact: {n, d, v, s?, a?, h?, u?, df?, ...}. expand_row() rebuilds
 the index.json row, with two losses by design: `v` is its first 5 hex chars,

@@ -424,18 +424,16 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
      and the head-static file it names), composes the partial index from them
      (ctIdx.compose: the 300 newest rows, partial) and only then runs app.js, so
      the page downloads what it shows and the rest of the list on demand.
-     If puzzles/idx is missing or does not load, it boots the old way:
-     index-core.js (the catalogue without its puzzle list), then index.js (every
-     row, async) alongside app.js, which draws the named puzzle from its own
-     file meanwhile. app.js is injected rather than a script tag so it can wait
-     for the index; this preload starts its download at once and names it. -->
+     If they do not load it retries a few times, then says so with a Retry
+     button; it never boots an empty page. app.js is injected rather than a
+     script tag so it can wait for the index; this preload starts its download
+     at once and names it. -->
 <link rel="preload" as="script" href="app.js">
 <script src="idx.js"></script>
-<script id="ct-boot" data-core="puzzles/index-core.js" data-full="puzzles/index.js">
+<script id="ct-boot">
 (function () {
-  var me = document.getElementById("ct-boot");
   var app = document.querySelector('link[rel="preload"][as="script"]').getAttribute("href");
-  var parsed = false, ready = null, started = false;
+  var parsed = false, ready = null, started = false, tries = 0;
   function add(src, ok, bad) {
     var s = document.createElement("script");
     s.src = src;
@@ -447,33 +445,36 @@ setTimeout(function () { document.documentElement.classList.remove("ct-boot"); }
   // declares a const it reads), which ctBootParsed() says have run.
   function start() { if (!started && ready && parsed) { started = true; ready(); } }
   window.ctBootParsed = function () { parsed = true; start(); };
-  function legacy() {
+  function fail() {
     if (ready) return;
-    var go = function () {
-      ready = function () {
-        add(me.getAttribute("data-full"), function () {
-          window.ctFullIndex = window.CRYPTIC_INDEX;
-          if (window.ctOnFull) window.ctOnFull();
-        });
-        add(app);
-      };
-      start();
-    };
-    add(me.getAttribute("data-core"), go, go);
+    if (++tries < 3) { setTimeout(load, 1000 * tries); return; }
+    var box = document.createElement("div");
+    box.id = "ct-boot-error";
+    box.setAttribute("role", "alert");
+    box.style.cssText = "padding:2em;text-align:center;font:16px sans-serif";
+    box.appendChild(document.createTextNode("The puzzle list could not be loaded. Check your connection and try again. "));
+    var b = document.createElement("button");
+    b.textContent = "Retry";
+    b.onclick = function () { location.reload(); };
+    box.appendChild(b);
+    document.body.insertBefore(box, document.body.firstChild);
   }
-  if (!window.fetch || !window.ctIdx) { legacy(); return; }
-  fetch("puzzles/idx/head-live.json", { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(function (live) {
-      add("puzzles/idx/" + live.static, function () {
-        try {
-          window.CRYPTIC_INDEX = window.ctIdx.compose(window.CRYPTIC_INDEX_STATIC, live);
-        } catch (e) { legacy(); return; }
-        ready = function () { add(app); };
-        start();
-      }, legacy);
-    })
-    .catch(legacy);
+  function load() {
+    if (!window.fetch || !window.ctIdx) { fail(); return; }
+    fetch("puzzles/idx/head-live.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (live) {
+        add("puzzles/idx/" + live.static, function () {
+          try {
+            window.CRYPTIC_INDEX = window.ctIdx.compose(window.CRYPTIC_INDEX_STATIC, live);
+          } catch (e) { fail(); return; }
+          ready = function () { add(app); };
+          start();
+        }, fail);
+      })
+      .catch(fail);
+  }
+  load();
 })();
 </script>
 <script src="abbreviations.js"></script>

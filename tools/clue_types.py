@@ -2,7 +2,7 @@
 """The closed list of clue types, read from tools/data/clue_types.json.
 
 An annotation's `type` is an array of these names, in the order the devices
-are applied. app.js reads the same file (embedded in puzzles/index.js by
+are applied. app.js reads the same file (embedded in the index by
 tools/fetch_puzzle.py --reindex), so the list exists once.
 
 A `letter_selection` says which letters on the block that keeps them, as

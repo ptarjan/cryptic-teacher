@@ -4,7 +4,7 @@
    Offline caching, by kind of request (same-origin GETs only; the sync Worker
    is another origin and is never touched here):
    - A STAMPED asset (a URL with ?v=<content hash>, tools/stamp_assets.py: the
-     JS, CSS, icons, puzzles/index.js, and each puzzle's .gz) is CACHE-FIRST. Its
+     JS, CSS, icons, and each puzzle's .gz) is CACHE-FIRST. Its
      URL changes whenever its bytes do, so a cached copy can never be stale.
    - The home page (HTML), and anything unstamped (puzzles/index.json, the
      manifest), is NETWORK-FIRST with the cache as the fallback, so an online
@@ -40,9 +40,9 @@ self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
 
 const SCOPE = new URL("./", self.location).href;
-// Not puzzles: the list files (index.js, index-core.js) and all of puzzles/idx/.
+// Not puzzles: all of puzzles/idx/.
 const isPuzzleFile = (url) => /\/puzzles\/.+\.js(\.gz)?$/.test(url.pathname)
-  && !/\/index(-core)?\.js$/.test(url.pathname) && !isIdxFile(url);
+  && !isIdxFile(url);
 // The progressive index (tools/index_idx.py): head-live.json is rewritten on
 // every filing; head-static.<hash>.js, <series>-<year>.<hash>.json and
 // bundle.<hash>.json are named by their content and never change.

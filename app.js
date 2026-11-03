@@ -662,12 +662,12 @@
     window.addEventListener("resize", spotlightDraw);
   }
 
-  // ---------- puzzles/index.js: the catalogue, not the puzzles ----------
+  // ---------- the catalogue, not the puzzles ----------
   // index.html loads it before this file. Without it there is no catalogue and
   // no clue types, so the app stops here rather than drawing itself empty.
   if (!window.CRYPTIC_INDEX || !window.CRYPTIC_INDEX.clueTypes) {
-    throw new Error("app.js: puzzles/index.js must load first (window.CRYPTIC_INDEX.clueTypes is missing); " +
-                    "build it with python3 tools/fetch_puzzle.py --reindex");
+    throw new Error("app.js: the index must be composed first (window.CRYPTIC_INDEX.clueTypes is missing); " +
+                    "index.html's boot builds it from puzzles/idx/head-live.json");
   }
   const INDEX = window.CRYPTIC_INDEX;
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
@@ -753,10 +753,8 @@
             `${b.row.was}${b.row.volume}-${b.position}`];
   }
 
-  // INDEX.partial: index-core.js was loaded (no puzzle list yet). The page then
-  // draws the puzzle it names from the puzzle's own file (fastOpen, below) and
-  // the full puzzles/index.js, loaded async, completes these tables later
-  // (completeIndex), when the rest of the boot runs.
+  // INDEX.partial: only the newest rows are here. The page draws the puzzle it
+  // names from the puzzle's own file (fastOpen, below) while the shards fill in.
   const IS_ID = {}, BY_NUMBER = {}, BY_ID = {}, ALIAS = {};
   const REPRINTS_OF = {};
   function buildTables() {
@@ -805,10 +803,7 @@
   // fetch_puzzle.py sorts the index in.
   //
   // index.html's loader sets INDEX.idx (ctIdx.compose of head-live and
-  // head-static). Without puzzles/idx it boots the old way, index-core.js and
-  // index.js, and loadShards waits for that file. And if a shard will not load
-  // it asks for puzzles/index.js itself: the page works exactly as it did before
-  // there was a puzzles/idx.
+  // head-static). If a shard will not load, loadShards calls back false.
   const IDX_ALL_MS = 1500;        // a focus waits this long for a typed series before loading the rest
   const IDX_BUNDLE_MIN = 12;      // more shards than this come as the one bundle
   const idxHave = new Set();      // "series/year" keys merged so far
@@ -874,10 +869,9 @@
       .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
     const settle = (ok) => {
       if (ok) { idxMerge(rows, unlisted); cb(true); return; }
-      // puzzles/idx is not there or not whole: keep what did arrive, then the old
-      // way, one file with every row.
+      // puzzles/idx is not whole: keep what did arrive and say the list is not complete.
       if (rows.length) idxMerge(rows, unlisted);
-      idxLegacy(cb);
+      cb(false);
     };
     if (want.length > IDX_BUNDLE_MIN && live.bundle) {
       if (idxBundleOut) { idxWaiters.push(cb); return undefined; }
@@ -903,28 +897,6 @@
     });
     if (left === 0) { settle(!bad); }
     return undefined;
-  }
-  // The pre-progressive list: puzzles/index.js, every row.
-  let idxLegacyOut = false;
-  function idxLegacy(cb) {
-    idxWaiters.push(cb);
-    if (idxLegacyOut) return;
-    idxLegacyOut = true;
-    const adopt = () => {
-      const full = window.ctFullIndex;
-      if (!full || !full.puzzles) { idxFinish(false); return; }
-      const idx = INDEX.idx;
-      Object.assign(INDEX, full, { partial: false, idx });
-      window.CRYPTIC_INDEX = INDEX;
-      idxRefresh();
-      idxFinish(true);
-    };
-    if (window.ctFullIndex) { adopt(); return; }
-    const s = document.createElement("script");
-    s.src = at("puzzles/index.js");
-    s.onload = () => { window.ctFullIndex = window.CRYPTIC_INDEX; window.CRYPTIC_INDEX = INDEX; adopt(); };
-    s.onerror = () => { idxLegacyOut = false; idxFinish(false); };
-    (document.head || document.body || document.documentElement).appendChild(s);
   }
   // Everything, in a moment: a focus on the search box says a search may be
   // coming, but a series typed first should be answered by its own shards.
@@ -3620,7 +3592,7 @@
   const FILL_LABEL = "Fill in answer";
 
   // The clue types and their families, from tools/data/clue_types.json by way
-  // of puzzles/index.js. An annotation's `type` is an array of type names.
+  // of the list. An annotation's `type` is an array of type names.
   //
   // The type rung must not hand the mechanism over. It names the FAMILY — the
   // shape of the job — and the precise (honest, compound) type is held back
@@ -9621,26 +9593,11 @@
     // Partial index: draw the puzzle the URL (or the last one) names from its
     // own file now, and run the rest of the boot once the full index is in.
     if (INDEX.partial) {
-      fastOpen(() => {
-        // A progressive boot (INDEX.idx) has the newest rows already: it draws
-        // from them and loadShards fetches the rest as it is needed.
-        if (INDEX.idx) bootWithIndex();
-        else if (window.ctFullIndex) completeIndex();
-        else window.ctOnFull = completeIndex;
-      });
+      // The newest rows are here already: draw from them, and loadShards
+      // fetches the rest as it is needed.
+      fastOpen(bootWithIndex);
     } else {
       bootWithIndex();
-    }
-
-    function completeIndex() {
-      window.ctOnFull = null;
-      const full = window.ctFullIndex;
-      if (!full || !full.puzzles) return;
-      Object.assign(INDEX, full, { partial: false });
-      window.CRYPTIC_INDEX = INDEX;
-      buildTables();
-      bootWithIndex();
-      idxFinish(true);
     }
 
     function bootWithIndex() {
@@ -9724,7 +9681,7 @@
   }
 
   // The puzzle the address names (?p=), or else the one played last, drawn
-  // from its own file before puzzles/index.js (2 MB) has arrived. `fast.id` is
+  // from its own file before the rest of the list has arrived. `fast.id` is
   // set only when it was drawn; any miss (an old spelling of an id, a reprint,
   // offline with nothing cached) leaves the normal boot to open it. The
   // unversioned .gz is what sw.js serves network-first, cache when offline.

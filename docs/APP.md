@@ -151,7 +151,7 @@ Terms used below:
 
   The families and the 15 types live in `tools/data/clue_types.json`; each
   type names its one family there. The app reads that file through
-  `puzzles/index.js`.
+  the progressive index (`puzzles/idx/`).
 
   The type rung offers a button only for a family that is at least 0.5% of
   the family counts (computed from `n`: seven of nine). A rarer family

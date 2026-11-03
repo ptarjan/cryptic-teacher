@@ -37,7 +37,6 @@ SITE = "https://cryptic.paultarjan.com/"
 # ones; both forms are stamped, so the same file is one cache entry either way.
 ASSETS = ["style.css", "app.js", "analytics.js", "landing.js", "appnav.js", "abbreviations.js", "qr.js", "quotes.js", "idx.js", "sync/merge.js",
           "sync/events.js",
-          "puzzles/index.js", "puzzles/index-core.js",
           "og.png", "favicon.svg", "favicon.ico", "apple-touch-icon.png"]
 
 
@@ -48,8 +47,7 @@ def _build_abbreviations():
 
 # The gitignored assets a pure function of tracked files builds, so stamping a
 # checkout that has never built one builds it instead of stopping: a fresh
-# worktree has no abbreviations.js. puzzles/index.js is not here: it needs
-# fetch_puzzle.py --reindex, which pages.yml runs before it stamps.
+# worktree has no abbreviations.js. 
 BUILDERS = {"abbreviations.js": _build_abbreviations}
 
 

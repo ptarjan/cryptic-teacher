@@ -10,11 +10,10 @@
 
    1. loaderUsesHeads: index.html's boot loader fetches head-live.json, then the
       head-static file it names, composes the partial index, and only after the
-      parser has reached the end of the page injects app.js. It asks for neither
-      index-core.js nor index.js.
-   2. loaderFallsBack: a head-live that 404s, a head-static that will not load,
-      and a compose that throws each boot the old way (index-core.js, then
-      index.js beside app.js).
+      parser has reached the end of the page injects app.js.
+   2. loaderFails: a head-live that 404s, a head-static that will not load,
+      and a compose that throws are each retried, then shown as an error with a
+      Retry button; app.js is never injected and no other index file is tried.
    3. compose: ctIdx.compose is the head's partial index (newest rows expanded,
       partial, INDEX.idx = both heads); ctIdx.full adds every shard and equals
       what the bundle holds, with the unlisted row kept apart.
@@ -80,10 +79,11 @@ const tick = async () => { for (let i = 0; i < 20; i++) await new Promise((r) =>
 function loader(root, files) {
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   const m = /<script id="ct-boot"[^>]*>([\s\S]*?)<\/script>/.exec(html);
-  const attrs = /<script id="ct-boot"([^>]*)>/.exec(html)[1];
-  const attr = (n) => (new RegExp(n + '="([^"]*)"').exec(attrs) || [])[1];
+  const attr = () => undefined;
   const added = [], asked = [];
   const ctx = { Promise, Error };
+  const timers = [], shown = [];
+  ctx.setTimeout = (f) => { timers.push(f); };
   ctx.window = ctx;
   ctx.ctIdx = ctIdx;
   ctx.fetch = (url) => {
@@ -96,11 +96,13 @@ function loader(root, files) {
   ctx.document = {
     getElementById: () => ({ getAttribute: attr }),
     querySelector: () => ({ getAttribute: () => "app.js?v=1" }),
-    createElement: () => ({}),
+    createElement: () => ({ appendChild() {}, style: {}, setAttribute() {} }),
+    createTextNode: (t) => ({ t }),
+    body: { firstChild: null, insertBefore: (el) => { shown.push(el); } },
     head: { appendChild: (el) => { added.push(el); } },
   };
   vm.runInNewContext(m[1], ctx);
-  return { ctx, added, asked, srcs: () => added.map((e) => e.src) };
+  return { ctx, added, asked, timers, shown, srcs: () => added.map((e) => e.src) };
 }
 
 (async () => {
@@ -115,8 +117,8 @@ function loader(root, files) {
 
   // 1
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  check(!/<script[^>]*src="puzzles\/index(-core)?\.js/.test(html) && /puzzles\/idx\/head-live\.json/.test(html),
-    "index.html has no script tag for index-core.js or index.js and names head-live.json");
+  check(!/index(-core)?\.js/.test(html) && /puzzles\/idx\/head-live\.json/.test(html),
+    "index.html does not mention index-core.js or index.js and names head-live.json");
   let L = loader(root, serve);
   await tick();
   check(L.srcs().length === 1 && L.srcs()[0] === "puzzles/idx/" + live.static,
@@ -133,27 +135,30 @@ function loader(root, files) {
   check(L.ctx.CRYPTIC_INDEX.puzzles.length === catalogue().puzzles.length,
     "the recent rows are the whole (small) head list: " + L.ctx.CRYPTIC_INDEX.puzzles.length);
 
-  // 2
+  // 2: each failure is retried (the timers), then the error box is shown
+  const exhaust = async (L, again) => {
+    for (let i = 0; i < 6 && L.timers.length; i++) { L.timers.shift()(); await tick(); if (again) again(L); }
+  };
   L = loader(root, () => null);
   await tick();
+  await exhaust(L);
   L.ctx.ctBootParsed();
-  check(L.srcs().length === 1 && L.srcs()[0] === "puzzles/index-core.js",
-    "head-live.json missing: the old boot starts with index-core.js: " + L.srcs().join(", "));
-  L.added[0].onload();
-  check(L.srcs().join(",") === "puzzles/index-core.js,puzzles/index.js,app.js?v=1",
-    "then index.js and app.js: " + L.srcs().join(", "));
+  check(L.shown.length === 1 && L.srcs().length === 0 && L.asked.length === 3,
+    "head-live.json missing: three tries, then an error box and nothing injected: " + L.asked.length + " asks, " + L.shown.length + " boxes");
 
   L = loader(root, serve);
   await tick();
   L.added[0].onerror();
   L.ctx.ctBootParsed();
-  check(L.srcs()[1] === "puzzles/index-core.js", "head-static that will not load: the old boot: " + L.srcs().join(", "));
+  check(L.srcs().length === 1 && L.timers.length === 1, "head-static that will not load: retried, app.js not injected: " + L.srcs().join(", "));
 
   L = loader(root, serve);
   await tick();
   L.ctx.CRYPTIC_INDEX_STATIC = null;      // compose throws on it
   L.added[0].onload();
-  check(L.srcs()[1] === "puzzles/index-core.js", "a compose that throws: the old boot: " + L.srcs().join(", "));
+  L.ctx.ctBootParsed();
+  check(!L.srcs().some((u) => /app\.js/.test(u)) && L.timers.length === 1, "a compose that throws: retried, app.js not injected");
+  check(![].concat(L.srcs(), L.asked).some((u) => /index(-core)?\.js/.test(u)), "no legacy index file is ever asked for");
 
   // 3
   const c = ctIdx.compose(STAT, live);
