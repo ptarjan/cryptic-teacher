@@ -1452,38 +1452,47 @@
      "indicators": [
       {
        "text": "inside",
-       "note": "inside means placed within, so this piece goes into the jumbled letters"
+       "at": 40,
+       "note": "inside means placed within, so this piece goes into the letters around it"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "out of sorts",
-         "note": "out of sorts means upset and disordered, so these letters are reshuffled"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "A",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "op": "deletion",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the last letter is dropped"
+           "text": "out of sorts",
+           "at": 14,
+           "note": "out of sorts means upset and disordered, so these letters are reshuffled"
           }
          ],
          "parts": [
           {
-           "words": "team",
-           "note": "taken as written, then trimmed"
-          },
-          {
-           "gives": "M"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "mostly",
+             "at": 7,
+             "note": "mostly means not quite all, so the last letter is dropped"
+            }
+           ],
+           "parts": [
+            {
+             "words": "team",
+             "at": 2,
+             "note": "taken as written, then trimmed"
+            },
+            {
+             "gives": "M"
+            }
+           ]
           }
          ]
         }
@@ -1491,6 +1500,7 @@
       },
       {
        "words": "right",
+       "at": 34,
        "gives": "LIEN",
        "note": "a lien is a legal right to keep property until a debt is paid"
       }
