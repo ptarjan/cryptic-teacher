@@ -58,10 +58,6 @@ ALLOWED = {
     ("ft_pdf_puzzles.py", "parse_clues"): "possessive 's stripped to compare words for a layout test",
     ("genius_puzzles.py", "read_pdf"): "layout: drops the numbers of a jigsaw's alphabetical list from its preamble",
     ("parse_bigdave44.py", "rendered_lines"): "HTML parsing: writes the blog's answer separator, not repairing text",
-    ("train_archive_org_tesseract.py", "<module>"): "the ASCII table of tesseract's training charset",
-    ("train_archive_org_tesseract.py", "words"): "training-corpus word key",
-    ("train_archive_org_tesseract.py", "real"): "ASCII fold to the tesseract model's charset",
-    ("train_archive_org_tesseract.py", "corpus_clues"): "ASCII fold to the tesseract model's charset",
 }
 
 CONFUSION_CLASS = re.compile(r"\[[^\]]*(?:1l|l1|0O|O0|Il|lI|1I|I1|\|[lI1])[^\]]*\]")
