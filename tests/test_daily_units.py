@@ -102,4 +102,37 @@ text = (REPO / "tools" / "daily_update.sh").read_text()
 block = re.search(r"^unit_ratings\(\) \{.*?^\}", text, re.S | re.M)
 first = re.search(r"^  if step [a-z_]+", block.group(0), re.M) if block else None
 check("unit_ratings records /progress/'s row first", first.group(0) if first else "", "  if step progress_record")
+# A fetch:* unit failing FETCH_FAIL_ALERT ticks in a row alerts once, with its own last error line.
+import unit_queue
+sent = []
+unit_queue.alert = sent.append
+
+
+class Rows:
+    def __init__(self, rows): self.rows = rows
+    def append(self, r): self.rows.append(r)
+
+
+def ends(rcs, key="fetch:tls_puzzles", t0=1000):
+    return [{"key": key, "event": "end", "at": t0 + i, "rc": rc, **({"err": "TLS 1622: no crossword image in the article"} if rc else {})}
+            for i, rc in enumerate(rcs)]
+
+
+n = du.FETCH_FAIL_ALERT
+short = Rows(ends([1] * (n - 1)))
+du.alert_fetch_streaks(short)
+check("no alert one failure short", sent, [])
+rows = Rows(ends([1] * n))
+du.alert_fetch_streaks(rows)
+check("alert at N failures", len(sent), 1)
+check("alert carries the unit's error line", "TLS 1622: no crossword image in the article" in sent[0] and "fetch:tls_puzzles" in sent[0], True)
+rows.rows += ends([1] * 5, t0=2000)
+du.alert_fetch_streaks(rows)
+check("throttled within a streak", len(sent), 1)
+rows.rows += ends([3], t0=3000) + ends([1] * n, t0=4000)
+du.alert_fetch_streaks(rows)
+check("rc 3 ends a streak; the next one alerts again", len(sent), 2)
+sent.clear()
+du.alert_fetch_streaks(Rows(ends([1] * n, key="solutions")))
+check("only fetch:* units", sent, [])
 sys.exit(1 if fails else 0)

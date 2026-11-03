@@ -521,8 +521,9 @@ def run(queue, key, timeout, cls, argv, tag=""):
     secs = time.time() - t0
     left = more.exists()
     more.unlink(missing_ok=True)
+    last_line = next((t.strip()[:200] for t in reversed(tail) if t.strip()), "")
     ledger.append({"key": key, "event": "end", "at": time.time(), "rc": rc, "secs": round(secs),
-                   **({"more": True} if left else {})})
+                   **({"more": True} if left else {}), **({"err": last_line} if rc and last_line else {})})
     log(f"[{key}] end: rc={rc} in {secs:.0f}s{', backlog left' if left else ''}")
     if timed_out:
         last = "\n".join(t[:200] for t in tail[-6:])
