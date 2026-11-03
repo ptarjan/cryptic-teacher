@@ -137,8 +137,7 @@ rm -f "$RUNS/.width_said"  # a new process says its width once
 # but a template that must contain X's on GNU, so the one spelling cannot mean
 # the same thing on both. Every mktemp below is written this way.
 # A re-exec keeps the log and the tee its output already goes to.
-# BURN_SPLIT marks a process whose output already goes through the human-log filter; a burn
-# that re-execs from before the split lacks it, and gets the filter here.
+# The human-log filter (tools/burn_log.py) reads the same stream; the old one ends with its pipe.
 tee_split() {
   if [ -n "$DEBUG_LOG" ]; then
     export BURN_SPLIT=1
@@ -149,7 +148,8 @@ tee_split() {
 }
 if [ -n "$REEXEC_STATE" ]; then
   RUN_LOG="${REEXEC_STATE%.state}"
-  [ -n "${BURN_SPLIT:-}" ] || tee_split
+  # Every re-exec starts the filter afresh, so a new tools/burn_log.py takes effect at once.
+  tee_split
 else
   RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
   tee_split
