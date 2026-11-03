@@ -142,7 +142,7 @@ const check = (ok, msg) => {
   d = page(root);
   const menu = () => d.reg["picker-paper"].innerHTML;
   const chips = () => d.reg["picker-filters"].innerHTML;
-  check(!/value="genius"/.test(menu()), "before the merge the paper menu has no genius");
+  check(/value="genius"/.test(menu()), "before the merge the paper menu already lists genius, counted from the head");
   d.search("zzy");
   check(!/Zzyzx/.test(chips()), "before the merge nobody suggests the setter Zzyzx");
   await tick();

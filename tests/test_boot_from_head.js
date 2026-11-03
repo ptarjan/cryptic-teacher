@@ -50,8 +50,8 @@ function catalogue() {
     row("genius", 280, { date: "2026-09-01", extra: { setter: "Hob" } }),
     row("genius", 270, { date: "2025-03-01", extra: { setter: "Hob" } }),
     row("metro", 10001, { date: "2026-01-05" }),
-    row("penguin", 5, { year: 1998, extra: { name: "Penguin book 5" } }),
     row("cryptic", 30001, { date: "2019-01-01" }),
+    row("penguin", 5, { year: 1998, extra: { name: "Penguin book 5" } }),
   ];
   const unlisted = [Object.assign(row("secret", 1, { date: "2019-05-05" }), { unlisted: true })];
   return { latest: "genius-281", build: { commit: "abc" }, snitchRanges: {}, clueTypes: { types: [] },
@@ -180,14 +180,19 @@ function loader(root, files) {
       const file = path.join(root, m[1]);
       return Promise.resolve({ ok: true, status: 200, json: () => Promise.resolve(JSON.parse(fs.readFileSync(file, "utf8"))) });
     };
+    let real = null;
     const d = boot({ query, storage: { "ct:nux": "9" }, index: (ix) => {
-      // Only the three newest rows are "recent"; the rest are in the shards.
-      ix.puzzles = catalogue().puzzles.slice(0, 3);
+      // A real annotated puzzle (its file exists, so the page can open it) and
+      // two synthetic genius rows are "recent"; the rest are in the shards.
+      real = ix.puzzles.find((p) => p.annotated && !/^(genius|metro|penguin|cryptic|secret)$/.test(p.series)) ||
+        ix.puzzles.find((p) => p.annotated);
+      ix.puzzles = [real].concat(catalogue().puzzles.slice(0, 2));
       ix.reprints = [];
       ix.partial = true;
       ix.idx = { live, stat: STAT };
     } });
     d.asked = asked;
+    d.real = real;
     return d;
   }
   const shardsOf = (d) => d.asked.filter((n) => /\.[0-9a-f]{8}\.json$/.test(n) && !/^bundle/.test(n));
@@ -199,11 +204,14 @@ function loader(root, files) {
   const nCryptic = (live.counts.series.cryptic || 0);
   check(/value="cryptic"/.test(menu) && /value="metro"/.test(menu) && /value="penguin"/.test(menu),
     "the paper menu lists the papers the head counts, though their rows are not here yet");
-  check(nCryptic === 1 && d.window.CRYPTIC_INDEX.puzzles.every((p) => p.series === "genius"),
-    "(the rows held are all genius)");
+  check(nCryptic === 1 && d.window.CRYPTIC_INDEX.puzzles.length === 3 && !d.window.CRYPTIC_INDEX.puzzles.some((p) => p.series === "metro"),
+    "(and only three rows are held, none of them metro)");
   d.stop();
 
-  d = page("?p=genius-280");
+  d = page("");
+  const realId = d.real.id;
+  d.stop();
+  d = page("?p=" + realId);
   await tick();
   check(d.asked.length === 0, "a canonical id in the recent rows opens with no request to puzzles/idx");
   d.stop();
