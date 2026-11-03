@@ -19,8 +19,10 @@ puzzles ended since); a ⚠️ line for a real problem. Anything else is not her
 """
 import collections
 import datetime
+import json
 import os
 import re
+import subprocess
 import sys
 import time
 from zoneinfo import ZoneInfo
@@ -41,6 +43,37 @@ KINDS = (  # commit-message prefix -> what was done
     (re.compile(r"^Re-check against its blog"), "re-checked against its blog"),
     (re.compile(r"^Backfill (\S+)"), lambda m: f"backfilled {m.group(1)}"),
 )
+
+
+#: backlog field -> (what the run does, what it did): the plain words for tools/annotation_backlog.json's keys.
+PHRASES = {
+    "wordplay.anagramCharade": ("re-shape anagram fodder filed as a charade", "re-shaped anagram fodder filed as a charade"),
+    "wordplay.anaStandIn": ("re-shape anagram stand-ins", "re-shaped anagram stand-ins"),
+    "wordplay.anaSelectEdge": ("re-shape anagram edge-letter picks", "re-shaped anagram edge-letter picks"),
+    "wordplay.anaDoubleInd": ("re-shape anagrams with two indicators", "re-shaped anagrams with two indicators"),
+    "wordplay.anaIsMove": ("re-shape anagrams that are a letter move", "re-shaped anagrams that are a letter move"),
+    "wordplay.anaLoneEdge": ("re-shape anagram of a lone edge letter", "re-shaped anagram of a lone edge letter"),
+    "wordplay.anaLiteralEdge": ("re-shape anagram holding a clue word at its edge", "re-shaped anagram holding a clue word at its edge"),
+    "wordplay.delWide": ("re-shape deletion listing several pieces", "re-shaped deletion listing several pieces"),
+    "wordplay.delStraddle": ("re-shape deletion across two pieces", "re-shaped deletion across two pieces"),
+    "wordplay.delWrapsCharade": ("re-shape deletion wrapping a charade", "re-shaped deletion wrapping a charade"),
+    "wordplay.charadeInCharade": ("flatten a charade inside a charade", "flattened a charade inside a charade"),
+    "blocks.note": ("add block notes", "added block notes"),
+    "explanation.surface": ("add surface reading", "added surface reading"),
+    "explanation.definitionFit": ("add definition-fit notes", "added definition-fit notes"),
+    "indicators.note": ("add indicator notes", "added indicator notes"),
+    "features": ("add clue features", "added clue features"),
+    "messages": ("add hidden-letter messages", "added hidden-letter messages"),
+}
+
+
+def phrase(field):
+    """(base, past) for a backlog field; the key itself when it has no phrase."""
+    return PHRASES.get(field) or (field, f"backfilled {field}")
+
+
+def plural(n, word):
+    return f"{n} {word}" + ("" if n == 1 else "s")
 
 
 def clip(text, n=150):
@@ -64,6 +97,8 @@ class Log:
         self.fill = []            # ids started in the pool fill being gathered
         self.fill_at = 0.0
         self.restart = None
+        self.backlog = None       # field -> {puzzle: clues}, read when a backlog starts
+        self.snap = {}            # field -> its counts when its backlog started
         self.width = None
         self.limit = None
         self.week = None          # (percent used, hours to reset)
@@ -76,6 +111,41 @@ class Log:
 
     def out(self, now, mark, text):
         return f"{stamp(now)} {mark} {text}"
+
+    def load_backlog(self):
+        """tools/annotation_backlog.json of the burn's worktree: field -> {puzzle: clues}."""
+        if self.backlog is not None:
+            return self.backlog
+        try:
+            with open(os.path.join(self.repo, "tools", "annotation_backlog.json")) as f:
+                data = json.load(f)
+            return {k: v for k, v in data.items() if isinstance(v, dict)}
+        except (OSError, ValueError, TypeError):
+            return {}
+
+    def touched(self, subject, pid):
+        """The clue labels (14A, 3D) the commit with this subject changed in puzzle pid; None
+        when the history cannot say."""
+        if not self.repo:
+            return None
+        try:
+            git = ["git", "-C", self.repo]
+            log = subprocess.run(git + ["log", "-n", "40", "--format=%H%x09%s"], capture_output=True, text=True,
+                                 timeout=20, check=True).stdout.splitlines()
+            sha = next(x.split("\t")[0] for x in log if x.split("\t", 1)[1:] == [subject])
+            names = subprocess.run(git + ["diff-tree", "--no-commit-id", "--name-only", "-r", sha],
+                                   capture_output=True, text=True, timeout=20, check=True).stdout.split()
+            path = next(n for n in names if n.endswith(f"/{pid}.json"))
+
+            def entries(rev):
+                raw = subprocess.run(git + ["show", f"{rev}:{path}"], capture_output=True, text=True,
+                                     timeout=30, check=True).stdout
+                return {(e["number"], e["direction"]): e for e in json.loads(raw)["entries"]}
+            before, after = entries(sha + "^"), entries(sha)
+            keys = sorted(k for k in after if after[k] != before.get(k))
+            return [f"{n}{d[:1].upper()}" for n, d in keys]
+        except (OSError, ValueError, KeyError, StopIteration, subprocess.SubprocessError):
+            return None
 
     def finished(self, now, ok):
         self.outcomes_since += 1
@@ -176,12 +246,19 @@ class Log:
                 return self.status(now)
             self.nothing_since, self.idle = None, False
             if self.next_work:
-                name, self.next_work = self.next_work[0], None
-                return [self.out(now, "──", f"next: {name}, {self.queued} queued")] + self.status(now, force=True)
+                field, self.next_work = self.next_work[0], None
+                counts = self.snap.get(field)
+                totals = (f": {plural(len(counts), 'puzzle')}, {plural(sum(counts.values()), 'clue')}"
+                          if counts else f", {self.queued} queued")
+                return [self.out(now, "──", f"next: {phrase(field)[0]}{totals}")] + self.status(now, force=True)
             return self.status(now)
         m = re.match(r"^(\S+) backlog: (.*)$", line)
         if m:
-            self.next_work = (m.group(1), m.group(2).split())
+            field = m.group(1)
+            counts = self.load_backlog().get(field)
+            if counts is not None:
+                self.snap[field] = dict(counts)
+            self.next_work = (field, m.group(2).split())
             return []
         if line.startswith("  not a backfill"):
             self.next_work = None
@@ -201,18 +278,31 @@ class Log:
             ids = re.findall(PUZZLE, msg)
             if not ids:
                 return []
-            what = msg
-            for rx, kind in KINDS:
-                k = rx.match(msg)
-                if k:
-                    what = kind(k) if callable(kind) else kind
-                    break
+            pid = ids[-1]
+            field = (re.match(r"^Backfill (\S+) for ", msg) or [None, None])[1]
+            if field:
+                what = phrase(field)[1]
+            elif re.match(r"^Re-check against its blog", msg):
+                what = "re-checked against its blog"
+            elif re.match(r"^Annotate\b", msg):
+                what = "hints written"
+            else:
+                what = msg
+            labels = self.touched(msg, pid)
+            allowed = (self.snap.get(field) or {}).get(pid) if field else None
+            if labels == [] and field:
+                self.finished(now, True)
+                return [self.out(now, "·", f"{pid} nothing to change" + (f" ({plural(allowed, 'clue')})" if allowed else ""))]
+            n = len(labels) if labels else allowed
+            where = f" in {plural(n, 'clue')}" if n else ""
+            if labels and len(labels) <= 8:
+                where += f" ({', '.join(labels)})"
             self.finished(now, True)
-            return [self.out(now, "✓", f"{ids[-1]} {what}")]
+            return [self.out(now, "✓", f"{pid} {what}{where}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] skipped: already fully hinted", line)
         if m:
             self.finished(now, True)
-            return [self.out(now, "✓", f"{m.group(1)} already hinted, nothing to change")]
+            return [self.out(now, "·", f"{m.group(1)} nothing to change (already hinted)")]
         m = re.match(r"^  \[" + PUZZLE + r"\] the run withdrew its own work, so nothing it wrote ships — (.*)$", line)
         if m:
             self.finished(now, False)
