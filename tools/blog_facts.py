@@ -46,6 +46,7 @@ import collections
 import hashlib
 import html
 import html.parser
+import itertools
 import json
 import os
 import random
@@ -1995,6 +1996,21 @@ class Index:
         self.db.close()
 
 
+def _bounded_map(ex, fn, items, window):
+    """ex.map(fn, items) in order, with at most `window` tasks submitted
+    beyond the one being waited on, so the results of a long list do not pile
+    up in the parent while it writes the earlier ones."""
+    pending = collections.deque()
+    items = iter(items)
+    for item in itertools.islice(items, window):
+        pending.append(ex.submit(fn, item))
+    while pending:
+        r = pending.popleft().result()
+        for item in itertools.islice(items, 1):
+            pending.append(ex.submit(fn, item))
+        yield r
+
+
 def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, reparse=()):
     """Every post of `blogs` joined to the puzzle it writes up: {id: record},
     one per puzzle, the post whose clues were found most completely, and
@@ -2030,18 +2046,21 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
                             index.put_join(key, hit)
                         except FileNotFoundError:
                             pass
-                work.append(((blog, path, cands, keep_facts), hit, cached))
+                # A hit's text is read again from INDEX as the loop reaches it,
+                # never held for every post at once.
+                work.append(((blog, path, cands, keep_facts), None if hit is None else key, not hit, cached))
+                del hit
     del by_number
-    misses = [w for w, hit, _ in work if not hit]
+    misses = [w for w, _, miss, _ in work if miss]
     if jobs == 1 or not misses:
         ex, parsed = None, map(_work, misses)
     else:
         ex = ProcessPoolExecutor(jobs)
-        parsed = ex.map(_work, misses, chunksize=16)
+        parsed = _bounded_map(ex, _work, misses, (jobs or os.cpu_count() or 1) * 32)
     best, spool = {}, Spool()
-    for _, hit, cached in work:
-        if hit is not None:
-            r = json.loads(hit)
+    for _, hit_key, _, cached in work:
+        if hit_key is not None:
+            r = json.loads(index.join(hit_key))
         else:
             r = next(parsed)
             if cached:
@@ -2055,7 +2074,7 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     if ex:
         ex.shutdown()
     if not keep_facts and set(blogs) == set(BLOGS):
-        used = {cached.name for _, _, cached in work}
+        used = {cached.name for _, _, _, cached in work}
         # The joins INDEX holds are the cached ones: CACHE is not listed.
         for key in index.prune(name.removesuffix(".json") for name in used):
             (CACHE / key[:2] / f"{key}.json").unlink(missing_ok=True)

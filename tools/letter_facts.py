@@ -2116,18 +2116,23 @@ def _cached_clues(conn, corpus, said, jobs, gen):
             if buf:
                 flush()
     rest = [p for p in inkeys if p not in out]
-    for i in range(0, len(rest), 900):
-        part = rest[i:i + 900]
-        out.update((pid, pickle.loads(v)) for pid, v in
-                   conn.execute(f"SELECT pid, val FROM clues WHERE pid IN ({','.join('?' * len(part))})", part))
     with conn:
         conn.executemany("UPDATE clues SET used=? WHERE pid=?", ((today, p) for p in rest))
         if conn.execute("PRAGMA user_version").fetchone()[0] != today:
             conn.execute("DELETE FROM chunks WHERE used < ?", (today - STORE_DAYS,))
             conn.execute("DELETE FROM clues WHERE used < ?", (today - STORE_DAYS,))
             conn.execute(f"PRAGMA user_version={today}")
-    for pid in inkeys:
-        yield pid, out.pop(pid)
+    # The stored results are read 900 at a time as the walk reaches them, never
+    # all held at once (a run held every puzzle's result, ~4 GB, when it was killed).
+    pids = list(inkeys)
+    for i in range(0, len(pids), 900):
+        part = pids[i:i + 900]
+        need = [p for p in part if p not in out]
+        if need:
+            out.update((pid, pickle.loads(v)) for pid, v in
+                       conn.execute(f"SELECT pid, val FROM clues WHERE pid IN ({','.join('?' * len(need))})", need))
+        for pid in part:
+            yield pid, out.pop(pid)
 
 
 def write(corpus, votes, said=None, jobs=None):
