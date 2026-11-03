@@ -11,14 +11,14 @@
 # run's slot is refilled at once.
 #
 # The only stops are the meters and the reset itself:
-#   - the weekly meter at EXHAUSTED: the run stops (Paul resets it);
+#   - the weekly meter at EXHAUSTED: the run stops (the owner resets it);
 #   - the weekly reset: the run stops five minutes short of it rather than spend
 #     the next week's quota, and the next hourly fire starts the new week.
 #
 # What it backfills, in priority order (the planner, tools/prereset_plan.py,
 # sets the queue; explicit hand requests in tools/data/burn_requests.json come
 # first, then the recent tier below, then the rest as listed):
-#   0. Recent tier, Paul 10-20: "puzzles newer than a year should go first".
+#   0. Recent tier, owner 10-20: "puzzles newer than a year should go first".
 #      Queued puzzles dated within 365 days of today: never-annotated ones
 #      first, newest date first, then that tier's redo/backlog work, newest
 #      first. Everything older keeps the order below behind it.
@@ -1030,7 +1030,7 @@ pool_checkpoint() {
 #   $3   1 to re-plan the queue's order at every checkpoint
 # Returns non-zero when the run should stop: the deadline, or after_wave said so.
 # Either way no new run starts and the ones in flight finish and are handled.
-# Each burn checkpoint measures its own annotate cost (Paul 10-20, "hill climb on the
+# Each burn checkpoint measures its own annotate cost (owner 10-20, "hill climb on the
 # cost"): one ledger row for the window since the last, and the wake rule over the
 # ledger (tools/annotate_ledger.py). Code only, no model call. Detached, niced and
 # time-boxed so it can neither hold the pool nor fail the burn.
@@ -1038,7 +1038,7 @@ ledger_tick() {
   [ "$DRY_RUN" = 1 ] && return 0
   ( setsid nice -n 19 timeout 600 python3 "$REPO/tools/annotate_ledger.py" record \
       </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.debug.log" 2>&1 & ) 2>/dev/null || true
-  # A new GitHub security alert wakes the room (Paul 10-23); the script gates itself
+  # A new GitHub security alert wakes the room (owner 10-23); the script gates itself
   # to once an hour. Same detached, niced, time-boxed shape.
   ( setsid nice -n 19 timeout 120 python3 "$REPO/tools/security_alert_watch.py" \
       </dev/null >>"${CT_MAIN_CHECKOUT:-$REPO}/.prereset.debug.log" 2>&1 & ) 2>/dev/null || true
@@ -1148,7 +1148,7 @@ reexec_self() {
   SHELL_SUM=$(shell_sum)
 }
 # --- hot reload ----------------------------------------------------------------
-# Paul 10-18: "I hate wait queue cycles... kill hup them." Two triggers, as for
+# owner 10-18: "I hate wait queue cycles... kill hup them." Two triggers, as for
 # tools/edition_queue.py (tools/hot_reload.py): `kill -USR1` this shell (the pid
 # whose command line is `. "$0"`; HUP too, but track-job starts the burn with
 # SIGHUP ignored, which bash cannot trap, so USR1 is the one that works), or the

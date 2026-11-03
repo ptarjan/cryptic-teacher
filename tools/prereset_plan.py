@@ -3,14 +3,14 @@
 
 The job's goal is the paced meter spent to EXHAUSTED right at its reset (aim_hours):
 quota left on a window when it turns over is gone, and quota spent early locks
-Paul's rooms out until it turns over. Interactive bridge work comes first, so
+the owner's rooms out until it turns over. Interactive bridge work comes first, so
 the burn takes only what would otherwise be wasted. It keeps in flight the
 width that would spend, evenly until the reset, what it has left
 after the bridge's own projected spend (paced_need), and no more than the
 machine has free once everything else on it is counted: memory over the size
 of a run, and idle cores over a run's measured CPU.
 
-The meter paced is the weekly one. Paul may also reset it by hand
+The meter paced is the weekly one. The owner may also reset it by hand
 MANUAL_RESETS times in any 30 days (the natural reset stays put), so the need's
 deadline is not always the natural reset: reset_plan counts the manual resets
 in usage-history.csv's trailing 30 days (a fall with resets_at unmoved), the
@@ -19,7 +19,7 @@ window of EXHAUSTED points per slot it uses, the last ending at the natural
 reset. Under the staircase "no more than EXHAUSTED before the next slot frees"
 it takes the taut string (the lowest top rate), uses the most slots whose top
 rate the memory cap can spend, and paces to the first window's fill, moved out
-of Paul's predicted night: tools/awake.py learns it from the times of his own
+of the owner's predicted night: tools/awake.py learns it from the times of his own
 messages (23:00-07:00 Pacific when they are too few), and a message in the last
 75 minutes says he is up now. Unless the meter is due full before his bedtime,
 the burn is capped (overnight_cap) so that the bridge alone, at 1.5 times its
@@ -35,12 +35,12 @@ grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first, the hand requests,
 then the series to finish off (finish_off_series: under FINISH_OFF unhinted
-puzzles left, fewest left first; Paul 10-22: "Can we finish off series who has
+puzzles left, fewest left first; owner 10-22: "Can we finish off series who has
 less than 200 unhinted puzzles first?"),
 then the recent tier (recent_first: dated within a year of today, never
-annotated first, then its redo work, newest first; Paul 10-20: "puzzles newer
+annotated first, then its redo work, newest first; owner 10-20: "puzzles newer
 than a year should go first"), then the partly hinted ones (some clues hinted, some not; fewest clues missing
-first; Paul 10-15: "Partly hinted puzzles should be first"), then the nearly-done and small series' puzzles (small_series: those at least
+first; owner 10-15: "Partly hinted puzzles should be first"), then the nearly-done and small series' puzzles (small_series: those at least
 NEARLY_DONE hinted whatever their size, then those under SMALL_SERIES known,
 then filed; each tier fewest left to hint first, so a set completes soonest),
 then the puzzles /showcase/ would pick
@@ -49,7 +49,7 @@ each series' first puzzle (series.is_first_issue), then each series'
 OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
 tag (tools/puzzle_tags.py), then the indicator cover (tools/indicator_cover.py),
 then the rest round-robin across the series, newest first inside each one.
-Answered first (Paul 10-21: "Should we do the ones with solutions first"): one
+Answered first (owner 10-21: "Should we do the ones with solutions first"): one
 stable partition of all those pins, after the lockout cut-offs and hand
 requests, which stay at the very front. The puzzles with every answer keep
 their order; the cold solves and clues-only ones (cold solves fail about 86%)
@@ -95,7 +95,7 @@ WINDOW_HOURS = 7 * 24.0
 # The level the paced meter's need aims at: prereset_backfill.sh stops at it on
 # the weekly meter, and exports its own value.
 EXHAUSTED = float(os.environ.get("EXHAUSTED") or 99)
-# The need aims at the reset itself (Paul 2026-10-01: "finish much closer to
+# The need aims at the reset itself (owner 2026-10-01: "finish much closer to
 # the hour in case I need some"; 10-16: "the burn should aim for being done
 # right at the time not so early"). A margin before the reset spent the window
 # early; what it guarded is feasibility, which the width already answers: when
@@ -123,17 +123,17 @@ RUN_RSS_KB = 250 * 1024
 CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
-# `--rush` (Paul 10-26 "burn your whole quota quickly and I can reset
+# `--rush` (owner 10-26 "burn your whole quota quickly and I can reset
 # you", then "fit another seven day reset in before the Wednesday reset"): RUSH
 # holds the weekly meter's reset epoch at arming. While it is armed and the
 # weekly meter is under RUSH_TARGET the need is the memory cap (flat out, no cpu
 # cap: burn runs are API-bound, about 0.1 core each; only a truly high load
-# shrinks the pool, via load_cap). After Paul resets (the meter falls under
+# shrinks the pool, via load_cap). After the owner resets (the meter falls under
 # RUSH_TARGET) it resumes flat out with nobody re-arming it. It disarms
 # (width() deletes the file) only when the weekly reaches RUSH_TARGET or the
 # weekly reset passes. The weekly meter reaching RUSH_SPENT wakes our room once
-# per window (RUSH_SPENT_STAMP, cleared when the meter falls) so Paul can reset.
-# Since 11-03 width() sets both switches itself (auto_rush, Paul: "spend any
+# per window (RUSH_SPENT_STAMP, cleared when the meter falls) so the owner can reset.
+# Since 11-03 width() sets both switches itself (auto_rush, owner: "spend any
 # resets we have so rush when we have one and don't when we don't"): a manual
 # reset free arms RUSH, none free writes NATURAL_ONLY to the natural reset.
 RUSH = ".prereset.rush"
@@ -142,9 +142,9 @@ RUSH_TARGET = 100.0
 RUSH_SPENT = 99.0
 RUSH_SPENT_STAMP = ".prereset.rush-spent-{}"
 RUSH_ROOM = "cryptic-crosswords"
-# The manual resets (Paul 11-01: "Are we burning at the right rate now to make
+# The manual resets (owner 11-01: "Are we burning at the right rate now to make
 # me use all my resets? Did you take into account the natural reset I get
-# too?"). Paul may reset the weekly meter MANUAL_RESETS times in any trailing
+# too?"). The owner may reset the weekly meter MANUAL_RESETS times in any trailing
 # RESET_SPAN_S; a manual reset empties it but leaves the natural reset where it
 # is. reset_plan paces the meter to EXHAUSTED once per reset free before the
 # natural one, the last window ending at it, and RUSH_SPENT wakes our room
@@ -157,7 +157,7 @@ MANUAL_DROP = 20.0
 NATURAL_SLACK_S = 3600  # a drop this near resets_at is the natural reset
 PLAN_SHARE = 0.8
 PACIFIC = awake.PACIFIC
-# Lockout safety (Paul 11-01: "try to know when I'm awake so you don't lock me
+# Lockout safety (owner 11-01: "try to know when I'm awake so you don't lock me
 # out when I'm sleeping"). Unless the plan fills the meter before his next
 # night (tools/awake.py), the burn is capped so that, were it to stop, the
 # bridge alone at NIGHT_BRIDGE_FACTOR times its measured rate would leave the
@@ -176,7 +176,7 @@ WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
 # Six hours, not one: a one-hour window read a short spike (18-27 points an
 # hour) as the rate for the whole rest of the window, so the pacer found the
 # bridge alone would reach 99%, gave the burn 0, and the quota went unspent
-# (Paul 2026-10-17: "Why aren't we burning").
+# (owner 2026-10-17: "Why aren't we burning").
 SPEND_WINDOW_S = 6 * 3600
 METER_STALE_S = 900
 TOKEN_WEIGHT = {"input_tokens": 1.0, "cache_creation_input_tokens": 1.25,
@@ -236,7 +236,7 @@ def rush_disarmed(stamp, week_pct, now):
 def rush_notify(home, name, pct, say, now=None, due=True, text=None, sleep=None):
     """Wake our room once per window when meter `name` reaches RUSH_SPENT and
     a reset is `due`; the stamp goes when it falls, so the next window wakes it
-    again. While Paul is asleep (`sleep`, tools/awake.py) the wake waits (no
+    again. While the owner is asleep (`sleep`, tools/awake.py) the wake waits (no
     stamp) for the morning."""
     mark = home / RUSH_SPENT_STAMP.format(name)
     if pct is None:
@@ -342,7 +342,7 @@ def manual_resets(csv_text, since=0.0):
 
 
 def reset_slots(resets, now, until, allowed=MANUAL_RESETS, span=RESET_SPAN_S):
-    """When each manual reset Paul may still use before `until` (the natural
+    """When each manual reset the owner may still use before `until` (the natural
     reset) is free: `now` for each of the `allowed` left in the trailing span,
     then one as each of `resets` turns `span` old."""
     recent = sorted(t for t in resets if now - span < t <= now)
@@ -361,12 +361,12 @@ def steepest(start, done, total, corners, until):
 
 def reset_due(plan, slots, now):
     """True when the plan uses a manual reset, one is free now, and the meter
-    is due full now: the moment to wake Paul to reset."""
+    is due full now: the moment to wake the owner to reset."""
     return bool(plan and plan[0] and slots and slots[0] <= now and plan[1] <= now + 600)
 
 
 def quiet(epoch, sleep=None):
-    """True when Paul is predicted asleep at `epoch` (tools/awake.py; None:
+    """True when the owner is predicted asleep at `epoch` (tools/awake.py; None:
     the fixed 23:00-07:00 Pacific)."""
     return awake.asleep(epoch, sleep)
 
@@ -386,7 +386,7 @@ def overnight_cap(pct, now, end, rate, bridge):
 
 
 def abt(epoch):
-    """`epoch` as Paul reads times: Alberta, to the nearest minute, "Wed 04:00 ABT"."""
+    """`epoch` as the owner reads times: Alberta, to the nearest minute, "Wed 04:00 ABT"."""
     from zoneinfo import ZoneInfo
     t = dt.datetime.fromtimestamp(round(epoch / 60) * 60, ZoneInfo("America/Edmonton"))
     return f"{t:%a %H:%M} ABT"
@@ -394,7 +394,7 @@ def abt(epoch):
 
 def rush_choice(left, until):
     """(rush, words) for `left` manual resets free now and the natural reset at
-    `until` (Paul 11-03: "spend any resets we have so rush when we have one and
+    `until` (owner 11-03: "spend any resets we have so rush when we have one and
     don't when we don't"). Words are the status line's: "rushing, 2 of 15 manual
     resets left" or "pacing to Wed 04:00 ABT reset, 0 of 15 manual resets left"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
@@ -435,9 +435,9 @@ def natural_only(text, now):
 
 def night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural=False):
     """(overnight_cap's runs, the epoch it guards to) unless the meter is due
-    full (the plan's fill, else the reset) by Paul's next bedtime; None then
+    full (the plan's fill, else the reset) by the owner's next bedtime; None then
     or when the meter is unread. `natural`: the target is the natural reset,
-    which needs no Paul, so nothing holds the meter back for his sleep."""
+    which needs no owner, so nothing holds the meter back for his sleep."""
     if natural or pct is None or hours_left is None or hours_left <= 0 or not rate:
         return None
     until = now + hours_left * 3600
@@ -457,7 +457,7 @@ def reset_plan(pct, now, until, slots, cap_rate=None, sleep=None):
     slot frees, so the schedule is the taut string under that staircase. It
     uses the most slots (earliest first) whose steepest leg the machine's
     cap_rate holds (None: no cap). With none used the fill is the natural reset.
-    A fill in Paul's predicted night (`sleep`, tools/awake.py) moves to its
+    A fill in the owner's predicted night (`sleep`, tools/awake.py) moves to its
     nearer edge the rates allow (his bedtime only while the cap holds it), so
     he is awake to reset."""
     head = max(0.0, EXHAUSTED - pct)
@@ -609,7 +609,7 @@ def mem_cap(meminfo, rss_kb):
 
 def mem_detail(meminfo, rss_kb):
     """The memory cap's inputs in words, for the width line after its dot: "memory 6.2 GB
-    available less 4 GB kept free, 250 MB a run, swap 4.0/4.0 GB used". Paul 11-03 ("it says
+    available less 4 GB kept free, 250 MB a run, swap 4.0/4.0 GB used". owner 11-03 ("it says
     memory is the limiter but memory looks fine"): available is MemAvailable (free plus the
     cache the kernel can drop, no swap), and the MEM_HEADROOM_KB kept for the bridge and
     Docker comes off it first, so 6 GB available holds ~8 more runs, not ~24. None unread."""
@@ -1328,7 +1328,7 @@ PLAN_CASES = [
 ]
 
 # A learned night of 22:30-06:30 Pacific (tools/awake.py's span), then the
-# same with a message from Paul at 22:00 (awake now: his night starts 23:15).
+# same with a message from the owner at 22:00 (awake now: his night starts 23:15).
 LEARNED = {"span": (22.5, 30.5), "last": None}
 UP_LATE = dict(LEARNED, last=MON22)
 # (pct, now, natural reset, slots, capacity, sleep) -> as PLAN_CASES
@@ -1669,7 +1669,7 @@ def small_self_test():
     if small_series({}) != []:
         print("FAIL small_series with no history is not empty", file=sys.stderr)
         bad += 1
-    # finish-off (Paul 10-22): under FINISH_OFF unhinted, fewest first; none
+    # finish-off (owner 10-22): under FINISH_OFF unhinted, fewest first; none
     # left, LAST and the big ones stay out
     want = ["timesclub", "tls", "metro", "dimmy", "nation", "quiptic", "everyman"]
     if finish_off_series(_SMALL_DAYS) != want or finish_off_series({}) != []:
@@ -1687,7 +1687,7 @@ def small_self_test():
         print(f"FAIL head_of_queue finish off pins {pinned} at {stages} (want {want})",
               file=sys.stderr)
         bad += 1
-    # Paul 10-22: a finish-off puzzle on the failure ledger (tls-6) or without
+    # owner 10-22: a finish-off puzzle on the failure ledger (tls-6) or without
     # answers (tls-4) is not lifted; it stays where the normal ordering puts it
     xf = frows + [_dated("tls-4", "2019-01-01")]
     xf[-1]["hasSolutions"] = False
@@ -1710,7 +1710,7 @@ def small_self_test():
               file=sys.stderr)
         bad += 1
     # partly hinted puzzles go right behind the cut-offs, ahead of the small
-    # series, fewest clues missing first (Paul 10-15)
+    # series, fewest clues missing first (owner 10-15)
     prows = [dict(r, unannotated={"cryptic-1": 5, "book-7": 2}.get(r["id"], 0)) for r in rows]
     _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"], prows,
                                       {"cryptic-2"}, small=["tls", "book"])
@@ -1731,7 +1731,7 @@ def small_self_test():
     if pinned != want or stages[6] != 3:
         print(f"FAIL head_of_queue tails first pins {pinned} (want {want})", file=sys.stderr)
         bad += 1
-    # answered first (Paul 10-21): a cold solve in the pinned head drops behind
+    # answered first (owner 10-21): a cold solve in the pinned head drops behind
     # the whole queue; the lockout pin and a hand request stay in front
     arows = [dict(r, hasSolutions=r["id"] not in ("tls-6", "cryptic-1", "cryptic-2")) for r in rows]
     ordered, pinned, _ = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["tls-6"],
@@ -1821,7 +1821,7 @@ def reannotate_self_test():
                 bad += 1
             shuffled = ["quiptic-5", "times-100", "azed-7", "times-90", "times-99"]
             got, pinned, _ = head_of_queue(shuffled, [], rows, tagged=["times-100"], small=["quiptic"])
-            # Paul 10-17: a listed puzzle with a few clues due is a redo tail, so it
+            # owner 10-17: a listed puzzle with a few clues due is a redo tail, so it
             # is pinned at the head (bagged); backlog() above still queues it last.
             if sorted(got) != sorted(shuffled) or not {"times-100", "quiptic-5"} <= set(pinned):
                 print(f"FAIL head_of_queue tier = {got}, pinned {pinned} (the listed redo tails are pinned)",
@@ -2128,7 +2128,7 @@ BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
 # Lanes run after every other lane is empty, not in the round-robin. Canberra's
 # 1967-85 puzzles are London Times reprints whose originals Gale is filing (a
 # match renames the reprint to times-N), so solving the reprint first buys the
-# puzzle twice. Its 1986-95 Guardian reprints go last with it (Paul 10-11).
+# puzzle twice. Its 1986-95 Guardian reprints go last with it (owner 10-11).
 LAST = ["canberra"]
 
 
@@ -2548,11 +2548,11 @@ def newest_first(queue, rows):
 
 # A series is small, and hinting finishes it before the big dailies, when the
 # coverage ledger knows of fewer than "known" of its puzzles, or failing that
-# when fewer than "filed" of them are on file (Paul 10-12: "Finishing some of
+# when fewer than "filed" of them are on file (owner 10-12: "Finishing some of
 # the smaller puzzles fully might be more useful than getting all the times").
 SMALL_SERIES = {"known": 500, "filed": 1500}
 # A series this much hinted (hinted / filed) is nearly done, and goes ahead of
-# the small ones whatever its size (Paul 10-13: "Like the quiptic says 90%
+# the small ones whatever its size (owner 10-13: "Like the quiptic says 90%
 # hinted maybe that's a better set to complete", nation at 65% having taken
 # all day).
 NEARLY_DONE = 0.85
@@ -2581,7 +2581,7 @@ def small_series(days=None):
 
 
 # A series with fewer unhinted puzzles than this (and at least one) is finished
-# off ahead of everything but the lockout cut-offs and hand requests (Paul
+# off ahead of everything but the lockout cut-offs and hand requests (owner
 # 10-22: "Can we finish off series who has less than 200 unhinted puzzles
 # first?").
 FINISH_OFF = 200
@@ -2620,7 +2620,7 @@ REQUESTS = REPO / "tools" / "data" / "burn_requests.json"
 
 
 def requested(rows, path=None):
-    """The hand-request list (tools/data/burn_requests.json, puzzle ids Paul wants
+    """The hand-request list (tools/data/burn_requests.json, puzzle ids the owner wants
     hinted first, e.g. rebus puzzles) minus the puzzles now fully annotated: an id
     drops out once the index shows its puzzle annotated with no clue missing."""
     try:
@@ -2647,7 +2647,7 @@ TODAY = None
 
 def recent_first(queue, pinned, rows, today=None):
     """pinned, then the queue's puzzles dated within RECENT_DAYS of today
-    (Paul 10-20: "puzzles newer than a year should go first"): never-annotated
+    (owner 10-20: "puzzles newer than a year should go first"): never-annotated
     ones first, then the tier's redo/backlog work, each newest first. queue is
     already newest first. Returns (order, never annotated count, redo count)."""
     today = today or TODAY or dt.date.today()
@@ -2705,7 +2705,7 @@ def cold_row(row, kept=False):
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(), finish=(), tried=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
     (cut off by a lockout), then the hand requests (asked, requested()), then
-    the series to finish off (finish, finish_off_series(); Paul 10-22: "Can we
+    the series to finish off (finish, finish_off_series(); owner 10-22: "Can we
     finish off series who has less than 200 unhinted puzzles first?"), then the
     recent tier (recent_first), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
@@ -2728,7 +2728,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
     asked_end = len(pinned)
-    # Paul 10-22: "don't add the ones that we tried before or see unlikely to
+    # owner 10-22: "don't add the ones that we tried before or see unlikely to
     # work": only an answered puzzle with no annotate or solve failure on record
     # is lifted; the rest stay where the ordering below puts them.
     liftable = [pid for pid in cryptic if pid not in tried
@@ -2754,7 +2754,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
     marks.append(len(pinned))
     pinned = promote(cryptic, pinned, tagged)
     marks.append(len(pinned))
-    # Answered puzzles first (Paul 10-21: "Should we do the ones with
+    # Answered puzzles first (owner 10-21: "Should we do the ones with
     # solutions first"): one stable partition of the pins. Cold solves and
     # clues-only ones (cold solves fail ~86%) leave the head for the back of
     # the whole queue; lockout cut-offs and hand requests stay at the front.
@@ -2781,7 +2781,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=(),
 
 
 # One queue slot in SHAPE_EVERY after the pinned head goes to the shape
-# re-annotation tier (Paul: reannotate until clean, but keep the hinting slope
+# re-annotation tier (owner: reannotate until clean, but keep the hinting slope
 # of new puzzles steepest), so the tier drains instead of waiting behind all.
 SHAPE_EVERY = 4
 
