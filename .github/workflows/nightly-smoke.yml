@@ -97,28 +97,65 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           pip: numpy pillow pypdf opencv-python-headless
-      # The deploy's row cache (tools/row_cache.py), newest first; restore only.
+      # No-op when nothing but the outputs changed since the commit that last made them
+      # (its "Inputs:" trailer names the tree they were built from). Steps carry the
+      # `if:`, never the job, so the badge still reads green.
+      - name: Check for changes since the last output commit
+        id: plan
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          outs=(tools/data/clue_joints.json tools/data/fill_floors.json tools/data/difficulty_check.json tools/data/snitch_report.txt)
+          run=true
+          last=$(gh api "repos/${{ github.repository }}/commits?path=tools/data/clue_joints.json&per_page=1" --jq '.[0].commit.message' 2>/dev/null \
+            | sed -n 's/^Inputs: \([0-9a-f]\{40\}\)$/\1/p' | head -1)
+          if [ -n "$last" ] && git fetch -q --no-tags --depth=1 origin "$last"; then
+            if git diff --quiet "$last" "$GITHUB_SHA" -- . ":(exclude)${outs[0]}" ":(exclude)${outs[1]}" ":(exclude)${outs[2]}" ":(exclude)${outs[3]}"; then
+              run=false
+            fi
+          fi
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+          echo "ratings: inputs since last output commit ($last) changed: $run"
+      # The row cache (tools/row_cache.py): this job's own newest save first, then the
+      # deploy's as a fallback. Saved under a key per run below, so tomorrow's run
+      # reuses tonight's rows.
       - uses: actions/cache/restore@v5
+        if: steps.plan.outputs.run == 'true'
         with:
           path: .git/ct-rows.sqlite*
-          key: row-cache-ratings-${{ github.sha }}
-          restore-keys: row-cache-
-      - run: |
+          key: row-cache-ratings-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            row-cache-ratings-
+            row-cache-
+      - if: steps.plan.outputs.run == 'true'
+        run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
       - name: build_clue_joints
+        if: steps.plan.outputs.run == 'true'
         run: python3 tools/build_clue_joints.py
       - name: build_fill_floors
+        if: steps.plan.outputs.run == 'true'
         run: python3 tools/build_fill_floors.py
       - name: difficulty_check
+        if: steps.plan.outputs.run == 'true'
         run: python3 tools/difficulty_check.py --write
       - name: snitch_report
+        if: steps.plan.outputs.run == 'true'
         run: python3 tools/snitch_report.py --write
+      - name: Save the row cache
+        if: always() && steps.plan.outputs.run == 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .git/ct-rows.sqlite*
+          key: row-cache-ratings-${{ github.run_id }}-${{ github.run_attempt }}
       # One commit of the four outputs on master. The checkout is rebuilt on the new tip
       # when the push loses a race to the burn (the pattern of tools/requeue_drift.py
       # --publish): the files are generated, so there is nothing to merge. Needs the
       # network, so it is not under offline.sh.
       - name: Push the outputs
+        if: steps.plan.outputs.run == 'true'
         shell: bash
         run: |
           files="tools/data/clue_joints.json tools/data/fill_floors.json tools/data/difficulty_check.json tools/data/snitch_report.txt"
@@ -137,7 +174,7 @@ jobs:
               exit 0
             fi
             git commit -q -m "Refresh the ratings measures (clue joints, fill floors, difficulty check, SNITCH report)" \
-              -m "Made by nightly-smoke.yml's ratings job."
+              -m "Made by nightly-smoke.yml's ratings job." -m "Inputs: $GITHUB_SHA"
             if git push -q origin HEAD:refs/heads/master; then
               echo "ratings: pushed $(git rev-parse --short HEAD)"
               exit 0
