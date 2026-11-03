@@ -3842,7 +3842,8 @@ def reload_run(sig_after=1.5, grace=None, handoff=None, watcher=None, hold=30):
     os.environ["CT_AUTO_RELOAD"] = "0"
     os.environ.pop("CT_RELOAD_GRACE", None)
     # Wait for the first unit to actually start (a loaded box may take many seconds), not a fixed sleep.
-    until = time.monotonic() + 90
+    # The event is the log holding a start line; the bound is only a hang guard, generous for a memory-starved runner.
+    until = time.monotonic() + 400
     while time.monotonic() < until and not (log.exists() and " start " in log.read_text()):
         time.sleep(0.05)
     started = time.monotonic()  # the bounds below are measured from the first unit running
@@ -3879,15 +3880,15 @@ for p in pids:
         os.killpg(p, signal.SIGKILL)
     except ProcessLookupError:
         pass
-starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+starts = [line.split()[3] for line in (log.read_text() if log.exists() else "").splitlines() if line.split()[1] == "start"]
 check("SIGHUP with a handoff: exits 75 at once, every unit running (the ceiling lets some start) is handed over alive",
       (hr.RELOAD_RC, True, True), (rc, took < 10, len(pids) == len(alive_after) == len(starts) >= 1))
 rc, took, _ = reload_run(grace=1)
-ev = [line.split() for line in log.read_text().splitlines()]
+ev = [line.split() for line in (log.read_text() if log.exists() else "").splitlines()]
 check("SIGHUP without a handoff: CT_RELOAD_GRACE passes, the units are TERMed (left deferred), exit 75, not 30s later",
       (hr.RELOAD_RC, True, 0), (rc, 2.5 < took < 20, sum(1 for e in ev if e[1] == "end")))
 rc, took, _ = reload_run(grace=60, hold=6, sig_after=4)
-ev = [line.split() for line in log.read_text().splitlines()]
+ev = [line.split() for line in (log.read_text() if log.exists() else "").splitlines()]
 check("units that end inside the grace are waited for, not stopped; exit 75 after them",
       (hr.RELOAD_RC, True, True), (rc, sum(1 for e in ev if e[1] == "end") == sum(1 for e in ev if e[1] == "start") >= 1, 5 < took < 40))
 class FiresSoon:  # the watcher saw tools/ code change on origin/master
