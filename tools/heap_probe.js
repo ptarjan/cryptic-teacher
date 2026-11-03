@@ -23,7 +23,7 @@ const dir = process.env.SMOKE_HEAP_DIR || (auto ? path.join(process.env.RUNNER_T
 const REPORT = path.join(__dirname, "heap_report.py");
 const MB = (n) => Math.round(n / 1048576);
 const STEP_MB = Number(process.env.SMOKE_HEAP_STEP_MB || 600);
-const MAX_SNAPS = 3;
+const MAX_SNAPS = 1;
 
 v8.setFlagsFromString("--expose-gc");
 const gc = () => vm.runInNewContext("gc")();
@@ -83,7 +83,9 @@ function sweep(id) {
     baseLive = MB(process.memoryUsage().heapUsed);
     nextLive = baseLive + STEP_MB;
     nextCheck = nextLive;
-    return snap("baseline", id);
+    snap("baseline", id);
+    console.log("heap-probe done: baseline only, exiting");
+    process.exit(0);
   }
   if (MB(process.memoryUsage().heapUsed) < nextCheck) return;
   gc();

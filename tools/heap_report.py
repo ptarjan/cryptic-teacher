@@ -161,6 +161,40 @@ def main(path, out):
             print(f"{'  ' * ind}{ret[c]/MB:8.1f}MB {edge_to(i, c)} {label(c)}  (self {size[c]/MB:.1f}MB)")
             walk(c, ind + 1)
     walk(0, 0)
+
+    print("\n## context holders (context nodes retaining >= 100MB): edges with raw type/name, ScopeInfo names in order")
+    ctxn = [i for i in np.where(ret >= 100 * MB)[0] if strings[nname[i]] in ("system / Context", "system / NativeContext")]
+    sinfo_name = "system / ScopeInfo"
+    def edges_of(i):
+        for e in range(first[i], first[i + 1]):
+            yield e
+    def ename_s(e):
+        t = etypes[etype[e]]
+        return f"{t}:{strings[ename[e]] if t not in ('element','hidden') else ename[e]}"
+    for c in ctxn[:6]:
+        print(f"\ncontext node {c} ret={ret[c]/MB:.0f}MB depth={depth[c]} {label(c)}")
+        for e in edges_of(c):
+            t = eto[e]
+            if etypes[etype[e]] == "weak":
+                continue
+            if strings[nname[t]] == sinfo_name:
+                names = [f"{k}={strings[nname[eto[x]]][:40]}" for k, x in enumerate(edges_of(t))
+                         if ntypes[ntype[eto[x]]] in ("string", "concatenated string", "sliced string")]
+                print("  ScopeInfo string slots:", names[:200])
+        rows = []
+        for e in edges_of(c):
+            t = eto[e]
+            if pred[t] == c and ret[t] >= 5 * MB:
+                rows.append((ret[t], e, t))
+        for r, e, t in sorted(rows, reverse=True)[:10]:
+            kids = []
+            for x in edges_of(t):
+                k = eto[x]
+                kids.append(f"{ename_s(x)}->{ntypes[ntype[k]]}:{strings[nname[k]][:30]!r}({ret[k]/MB:.0f}MB)")
+                if len(kids) >= 8:
+                    break
+            print(f"  {r/MB:7.1f}MB edge {ename_s(e)} -> {label(t)} edges={ecount[t]}")
+            print(f"        first edges: {kids}")
     print("\n## 20 biggest strings, with path to root")
     sidx = np.where(isstr)[0]
     for i in sidx[np.argsort(-size[sidx])][:20]:
