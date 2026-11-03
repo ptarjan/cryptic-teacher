@@ -156,6 +156,12 @@ RESET_SPAN_S = 30 * 86400
 MANUAL_DROP = 20.0
 NATURAL_SLACK_S = 3600  # a drop this near resets_at is the natural reset
 PLAN_SHARE = 0.8
+# Resets never rushed into (11-03 17:30, the last of 15 left: "we don't want to need
+# one"). A rush spends the meter to RUSH_TARGET flat out, at ~12 points an hour 24
+# wide in Annotate, so with 11.6h to the natural reset it would lock every room out
+# from ~22:00 ABT unless the last reset were spent. The last one is kept for an
+# emergency; with only it free the burn paces to EXHAUSTED at the natural reset.
+MANUAL_RESERVE = 1
 PACIFIC = awake.PACIFIC
 # Lockout safety (owner 11-01: "try to know when I'm awake so you don't lock me
 # out when I'm sleeping"). Unless the plan fills the meter before his next
@@ -395,18 +401,19 @@ def abt(epoch):
 def rush_choice(left, until):
     """(rush, words) for `left` manual resets free now and the natural reset at
     `until` (owner 11-03: "spend any resets we have so rush when we have one and
-    don't when we don't"). Words are the status line's: "rushing, 2 of 15 manual
+    don't when we don't"), the last MANUAL_RESERVE kept unspent. Words are the status line's: "rushing, 2 of 15 manual
     resets left" or "pacing to Wed 04:00 ABT reset, 0 of 15 manual resets left"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
-    if left > 0:
+    if left > MANUAL_RESERVE:
         return True, f"rushing; {tally}"
     return False, f"pacing to {abt(until)} reset; {tally}"
 
 
 def auto_rush(home, left, until, now):
-    """Arm or disarm the rush from the manual resets free: one free arms RUSH
-    (to the natural reset) and clears NATURAL_ONLY, so the meter is spent and
-    the room woken to reset; none free removes RUSH and writes NATURAL_ONLY to
+    """Arm or disarm the rush from the manual resets free: more than
+    MANUAL_RESERVE free arms RUSH (to the natural reset) and clears
+    NATURAL_ONLY, so the meter is spent and the room woken to reset; no more
+    free removes RUSH and writes NATURAL_ONLY to
     the natural reset, so the burn paces the meter to EXHAUSTED by then. The
     files stay the burn's switches (--rush, --natural-only), now set from the
     count each call instead of by hand. Returns rush_choice's words."""
@@ -1028,7 +1035,7 @@ def self_test():
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES) + len(MEM_DETAIL_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
+         + len(BACKLOG_CASES) + 4 + 4 + 3 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
          + 4 + 5 + len(PLAN_CASES) + 5 + 4 + 4
          + len(SLEEP_PLAN_CASES) + len(OVERNIGHT_CASES) + len(GUARD_CASES) + 2)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
@@ -1246,6 +1253,7 @@ def width_self_test():
         print(f"FAIL abt() = {abt(when)!r}, want 'Wed HH:00 ABT'", file=sys.stderr)
         bad += 1
     for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of 15 manual resets left")),
+                       (1, (False, f"pacing to {abt(when)} reset; 1 of 15 manual resets left")),
                        (2, (True, "rushing; 2 of 15 manual resets left"))]:
         got = rush_choice(left, when)
         if got != want:
