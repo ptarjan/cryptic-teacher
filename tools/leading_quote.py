@@ -178,7 +178,7 @@ def main(argv=None):
     if args.listed:
         args.files += [l.strip() for l in open(args.listed, encoding="utf-8") if l.strip()]
     paths = [Path(a) for a in args.files] or (
-        sorted(puzzle_paths.PUZZLE_DIR.glob("*/*/*.json"))
+        puzzle_paths.puzzle_files()
         + sorted((puzzle_paths.PUZZLE_DIR.parent / "clues_only").glob("**/*.json")))
     files = clues = 0
     for path in paths:

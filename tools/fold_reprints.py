@@ -159,7 +159,7 @@ def times_dates(readings=downloads.ARCHIVE_ORG_SOURCE):
     winning."""
     out = {}
     paths = [*sorted(Path(readings).glob("times-*.json")),
-             *puzzle_paths.PUZZLE_DIR.joinpath("times").glob("*/times-*.json")]
+             *puzzle_paths.puzzle_files("times")]
     for path in paths:
         try:
             p = json.loads(path.read_text(encoding="utf-8"))

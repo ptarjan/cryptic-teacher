@@ -8,6 +8,7 @@ os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))
 
 import copy
 import fetch_puzzle as fp
+import puzzle_paths
 import showcase as sc
 
 fails = 0
@@ -49,7 +50,7 @@ check("a count that disagrees with its squares sets no record",
 check("the 90-clue Jumbo counts 90 clues", facts("timesjumbo-1423")["answers"] == 90,
       facts("timesjumbo-1423")["answers"])
 # Any book puzzle: one is dropped when its newspaper original is filed.
-book = min(fp.ROOT.glob("puzzles/book/*/book-*.json")).stem
+book = min(puzzle_paths.puzzle_files("book")).stem
 check("a book's year is not a print date", not facts(book)["dated"])
 check("a book's number is volume and position, not an issue",
       not facts(book)["counted"])

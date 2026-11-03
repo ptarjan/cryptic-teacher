@@ -210,7 +210,7 @@ def record(pid, rows, posted=None, fuller=None, previous=None):
 def held_numbers():
     """{series: sorted numbers our corpus holds}."""
     out = collections.defaultdict(list)
-    for p in puzzle_paths.PUZZLE_DIR.glob("*/*/*.json"):
+    for p in puzzle_paths.puzzle_files():
         try:
             s, n = series_meta.parse_id(p.stem)
         except (ValueError, TypeError):

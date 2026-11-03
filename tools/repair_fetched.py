@@ -1879,7 +1879,7 @@ def repair_crossing_fills(apply_it=False, paths=None):
     import file_archive_org_puzzles as archive
     import provenance
     if paths is None:
-        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+        paths = puzzle_paths.puzzle_files("times")
     out = {"filled": [], "whole": [], "refused": [], "files": 0}
     for path in paths:
         try:
@@ -2152,7 +2152,7 @@ def repair_clue_fills(apply_it=False, paths=None, define=False):
     import file_archive_org_puzzles as archive
     import provenance
     if paths is None:
-        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+        paths = puzzle_paths.puzzle_files("times")
     out = {"filled": [], "whole": [], "refused": [], "files": 0}
     for path in paths:
         try:
@@ -2560,7 +2560,7 @@ def repair_annotated_mends(apply_it=False, paths=None, request=True):
     from json_merge import dump_lines
     is_word, _ = clue_repair.lexicon()
     if paths is None:
-        paths = sorted((puzzle_paths.PUZZLE_DIR / "times").glob("*/times-*.json"))
+        paths = puzzle_paths.puzzle_files("times")
     out = {"mended": [], "answers": [], "asked": [], "left": [], "refused": [], "requests": 0}
     rows = json.loads(CLUE_ROWS.read_text(encoding="utf-8"))
     rows_added = False

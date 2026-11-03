@@ -50,6 +50,7 @@ import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_listener
 import media_manifest
+import puzzle_paths
 import renamed_ids
 import scan_queue
 
@@ -174,7 +175,7 @@ def trove_puzzle(row, held, renamed, london=()):
 def trove_ids(series=ftp.SERIES):
     """(the ids filed under series, off the file names; the ids renamed; the
     articles numbered as London Times reprints)."""
-    held = {p.stem for p in (renamed_ids.ROOT / "puzzles" / series).glob(f"*/{series}-*.json")}
+    held = {p.stem for p in puzzle_paths.puzzle_files(series)}
     try:
         renamed = set(renamed_ids.read())
     except (OSError, ValueError):

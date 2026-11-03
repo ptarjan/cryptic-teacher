@@ -33,6 +33,7 @@ import file_blog_puzzles
 import file_times_puzzles as ftp
 import ft_puzzles as ft
 import puzzle_integrity
+import puzzle_paths
 import times_grids as tg
 from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
 
@@ -71,7 +72,7 @@ def known_setters():
     """{lowercased name: name} for every setter filed under either paper."""
     out = {}
     for series in (DAILY, SUNDAY):
-        for f in (TOOLS.parent / "puzzles" / series).glob("*/*.json"):
+        for f in puzzle_paths.puzzle_files(series):
             with f.open(encoding="utf-8") as fh:
                 m = SETTER_FIELD.search(fh.read(600))
             if m and not re.search(r"\d", m.group(1)):

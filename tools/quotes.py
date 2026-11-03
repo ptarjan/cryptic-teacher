@@ -187,7 +187,7 @@ def curly(puzzle):
 def main(argv):
     import puzzle_paths
     from fetch_puzzle import read_puzzle_file
-    paths = [Path(a) for a in argv] or sorted(puzzle_paths.PUZZLE_DIR.glob("*/*/*.json"))
+    paths = [Path(a) for a in argv] or puzzle_paths.puzzle_files()
     files = chars = 0
     for path in paths:
         puzzle = read_puzzle_file(path)

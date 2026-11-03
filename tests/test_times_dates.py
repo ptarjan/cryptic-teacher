@@ -24,6 +24,7 @@ sys.path.insert(0, str(REPO / "tools"))
 
 import datetime
 import json
+import puzzle_paths
 import pathlib
 
 from series import puzzle_day
@@ -32,7 +33,7 @@ SATURDAY, SUNDAY = 5, 6
 held = {}
 for series in ("times", "timesjumbo", "sundaytimes"):
     rows = []
-    for path in (REPO / "puzzles").glob(f"{series}/*/{series}-[0-9]*.json"):
+    for path in puzzle_paths.puzzle_files(series):
         p = json.loads(path.read_text(encoding="utf-8"))
         if day := puzzle_day(p):
             posted = (p.get("solutions") or {}).get("date")

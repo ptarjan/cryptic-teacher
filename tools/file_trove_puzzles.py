@@ -107,6 +107,7 @@ from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
 from clue_text import SEE_RE, see_number
+import puzzle_paths
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
@@ -1321,7 +1322,7 @@ def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
 def held_files(puzzles=None):
     """{article id: path} of each file this tool filed, by its source url:
     a ledger row whose read now waits names no puzzle."""
-    paths = Path(puzzles).glob("*.json") if puzzles else (ROOT / "puzzles" / SERIES).glob("*/*.json")
+    paths = Path(puzzles).glob("*.json") if puzzles else puzzle_paths.puzzle_files(SERIES)
     out = {}
     for path in paths:
         by, url = dir_cache.derived(path, acquired_from)

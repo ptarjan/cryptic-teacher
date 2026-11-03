@@ -3265,7 +3265,7 @@ def orphans(files):
     removed — an unexpected file under puzzles/ is a question, not a target.
     """
     series_dir = puzzle_paths.PUZZLE_DIR / "series"
-    sources = {p.parent.parent for p in puzzle_paths.PUZZLE_DIR.glob("*/*/*.json")}
+    sources = {p.parent.parent for p in puzzle_paths.puzzle_files()}
     wanted = {p.parent for p in files} | {series_dir} | sources
     dead, unexpected = [], []
     # series/<series>/<year>/ is the one nested shape, so it gets the same test.

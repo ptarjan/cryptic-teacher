@@ -50,6 +50,7 @@ import sys
 from pathlib import Path
 
 import fetch_puzzle
+import puzzle_paths
 import file_penguin_puzzle as filing
 import provenance
 
@@ -297,7 +298,7 @@ except SystemExit as exc:
 
 print("every linked answer in the book series on disk still reads leader form")
 groups_seen = 0
-for path in sorted(Path("puzzles/book").glob("*/book-*.json")):
+for path in puzzle_paths.puzzle_files("book"):
     puzzle = fetch_puzzle.read_puzzle_file(path)
     entries = {entry_id(e): e for e in puzzle["entries"]}
     for eid, entry in entries.items():
