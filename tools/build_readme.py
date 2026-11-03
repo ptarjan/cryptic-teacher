@@ -88,6 +88,23 @@ def build_knobs(k):
     )
 
 
+#: The tools that turn a job's raw log into the human log Paul reads.
+HUMAN_LOGS = ("burn_log", "ocr_log")
+
+
+def build_logs():
+    """One row per human-log tool, from the first line of its own docstring."""
+    import ast
+    rows = []
+    for name in HUMAN_LOGS:
+        tree = ast.parse((REPO / "tools" / f"{name}.py").read_text(encoding="utf-8"))
+        doc = ast.get_docstring(tree)
+        if not doc:
+            fail(f"tools/{name}.py has no docstring, so the README cannot say what its log is.")
+        rows.append(f"- `tools/{name}.py` — {doc.splitlines()[0]}")
+    return "\n".join(rows)
+
+
 # What each rung is FOR. The name beside it is not written here: app.js owns the
 # labels, because they are what the buttons say, and a README that renamed them
 # in prose would be describing a site that does not exist. A rung added to app.js with no line here fails this
@@ -139,7 +156,7 @@ def build_ladder():
 # nightly jobs it describes.
 REGIONS = {
     README: {"LADDER": build_ladder},
-    NIGHTLY_DOC: {"KNOBS": lambda: build_knobs(read_knobs())},
+    NIGHTLY_DOC: {"KNOBS": lambda: build_knobs(read_knobs()), "LOGS": build_logs},
 }
 
 
