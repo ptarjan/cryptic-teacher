@@ -266,7 +266,8 @@ same("app.js reads clue.separators only through a || []", reads, guarded)
 # so that is what is forbidden here rather than a shape the code never has.
 strict_re = re.compile(r"annotation\s*(===|!==)\s*null|['\"]annotation['\"]\s+in\b|hasOwnProperty\(['\"]annotation")
 strict = 0
-for f in ("app.js", "tools/smoke_test.js", "tools/make_hint_packets.js"):
+for f in ("app.js", "tools/smoke_test.js", *sorted(p.relative_to(REPO).as_posix() for p in (REPO / "tools/smoke").glob("*.js")),
+          "tools/make_hint_packets.js"):
     text = (app_src.read(REPO) if f == "app.js" else (REPO / f).read_text(encoding="utf-8", errors="replace")).splitlines()
     strict += any(strict_re.search(ln) for ln in text)
 same("nothing in the app tells a null annotation from an absent one", strict, 0)
