@@ -592,56 +592,46 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "at first",
-       "note": "take the first letters of regularly and assume"
-      }
-     ],
      "parts": [
       {
-       "words": "thing",
-       "gives": "NIGHT",
-       "note": "THING rearranged"
-      },
-      {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "when retiring",
-         "note": "those two letters go backwards"
+         "text": "Tailored",
+         "at": 0,
+         "note": "something tailored is cut and reshaped, so the letters of the clue word thing are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "Tailored",
-           "note": "THING is cut and restyled into new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "you and I",
-           "gives": "WE",
-           "note": "you and I = we"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "RA",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "regularly assume",
-             "gives": "RA",
-             "select": "first",
-             "note": "first letters of Regularly Assume"
-            }
-           ]
-          }
-         ]
+         "words": "thing",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "you and I",
+       "at": 15,
+       "gives": "WE",
+       "note": "you and I together are we"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 42,
+         "note": "at first asks for the opening letter of each of the two words assume and retiring"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assume",
+         "at": 35
+        },
+        {
+         "words": "retiring",
+         "at": 56
         }
        ]
       }
@@ -649,14 +639,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of pyjamas: the fitted garment we routinely put on when going to bed.",
-     "walkthrough": "The whole clue is both wordplay and definition: nightwear is what you and I regularly put on when retiring to bed. \"Retiring\" does double duty as bedtime and reversal.",
-     "definitionFit": "Nightwear is clothing worn in bed, which is exactly what we assume on retiring."
+     "surface": "A couple routinely putting on a made-to-measure garment just as they head off to bed.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: NIGHT (thing reworked by 'Tailored'), then WE, then the first letters of 'assume' and 'retiring'. 'regularly' belongs only to the definition reading.",
+     "definitionFit": "Pyjamas and nightgowns are what people habitually put on when going to bed, which the whole clue describes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "retiring"
+     "misdirectedWord": "Tailored"
     }
    }
   },
@@ -1434,49 +1424,36 @@
        "words": "Child in game",
        "at": 0,
        "gives": "IT",
-       "note": "in tag the child doing the chasing is 'it'"
+       "note": "in the playground game of tag the child who must chase the others is called it"
       },
       {
-       "op": "container",
+       "words": "about boxer's",
+       "at": 32,
+       "gives": "ALI",
+       "note": "Muhammad Ali is the crossword's favourite boxer"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "about",
-         "at": 32,
-         "note": "about here means on or around, so the end letters attach to the boxer, placed after him"
+         "text": "extremely",
+         "at": 14,
+         "note": "extremely asks for the outermost letters of the word curious, its first and last"
         }
        ],
        "parts": [
         {
-         "words": "boxer's",
-         "at": 38,
-         "gives": "ALIS",
-         "note": "Muhammad Ali was the famous heavyweight boxer"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "extremely",
-           "at": 14,
-           "note": "extremely means the two end letters of curious"
-          }
-         ],
-         "parts": [
-          {
-           "words": "curious",
-           "at": 24,
-           "note": "its first and last letters"
-          }
-         ]
+         "words": "curious",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child in a game is very curious about a boxer's handwriting.",
-     "walkthrough": "The 's of boxer's is kept as a letter, and 'extremely' takes just one extreme of curious, which sits before that S.",
-     "definitionFit": "Italics is a typeface whose letters slope to the right, so it is a sloping style of print."
+     "surface": "A youngster playing a game wonders about a fighter's handwriting, which leans to one side.",
+     "walkthrough": "'extremely' takes C and S, the ends of 'curious'; 'about' sets them by the boxer ALI rather than around him.",
+     "definitionFit": "Italic type is the sloping typeface, so a slanting script is a plain description of it."
     },
     "features": {
      "answerInScene": false,
