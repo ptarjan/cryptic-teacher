@@ -48,8 +48,8 @@ function catalogue() {
   const rows = [
     row("genius", 281, { date: "2026-10-01", extra: { setter: "Zzyzx" } }),
     row("genius", 280, { date: "2026-09-01", extra: { setter: "Hob" } }),
-    row("genius", 270, { date: "2025-03-01", extra: { setter: "Hob" } }),
     row("metro", 10001, { date: "2026-01-05" }),
+    row("genius", 270, { date: "2025-03-01", extra: { setter: "Hob" } }),
     row("cryptic", 30001, { date: "2019-01-01" }),
     row("penguin", 5, { year: 1998, extra: { name: "Penguin book 5" } }),
   ];
