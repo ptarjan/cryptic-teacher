@@ -16,6 +16,7 @@ import failed_inputs
 import puzzle_integrity
 import puzzle_schema
 import validate_annotations as v
+import validate_committed as vc
 
 import annotation
 
@@ -63,14 +64,14 @@ puzzle_integrity.check_theme_clue(puzzle(themeClue="1-across"), flags)
 check("integrity takes a worded entry", not flags, flags)
 
 # The annotator may not add, change or drop it.
-real = v.committed_top
+real = vc.committed_top
 for head, now, want in ((None, "1-across", True), ("1-across", None, True),
                         ("1-across", "1-across", False), (None, None, False)):
-    v.committed_top = lambda path, h=head: puzzle(**({"themeClue": h} if h else {}))
+    vc.committed_top = lambda path, h=head: puzzle(**({"themeClue": h} if h else {}))
     errs = []
     v.check_theme_clue_unchanged(puzzle(**({"themeClue": now} if now else {})), Path("x"), errs)
     check(f"HEAD {head} -> run {now} refused={want}", bool(errs) == want, errs)
-v.committed_top = real
+vc.committed_top = real
 
 apply_annotations.read_puzzle_file = lambda path: puzzle()
 try:

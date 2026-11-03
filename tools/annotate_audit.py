@@ -54,6 +54,21 @@ from turn_cost import (
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 VALIDATOR = REPO / "tools" / "validate_annotations.py"
+
+
+def validator_files():
+    """The validator's source files: the entry point and the validate_* modules it re-exports
+    (the checks, and so their messages, live in those). validate_scope.py is the CI scope
+    decider, not a check."""
+    return [VALIDATOR] + sorted(p for p in VALIDATOR.parent.glob("validate_*.py")
+                                if p != VALIDATOR and p.name != "validate_scope.py")
+
+
+def validator_source():
+    """All of the validator's code as one text, for load_templates."""
+    return "\n".join(p.read_text(encoding="utf-8") for p in validator_files())
+
+
 # The scheduled run executes in a worktree (tools/annotate_audit.sh); what it
 # last told the room lives in the main checkout so it survives the worktree.
 STATE_DIR = pathlib.Path(os.environ.get("CT_MAIN_CHECKOUT", REPO)) / ".annotate_audit"
@@ -137,16 +152,18 @@ def retired_templates(since, current):
     current validator no longer has."""
     revs = subprocess.run(
         ["git", "log", "--format=%H", f"--since={since.isoformat()}", "--",
-         str(VALIDATOR.relative_to(REPO))],
+         *[str(p.relative_to(REPO)) for p in validator_files()]],
         cwd=REPO, capture_output=True, text=True, check=False).stdout.split()
     out = {}
     for rev in revs:
-        shown = subprocess.run(["git", "show", f"{rev}^:{VALIDATOR.relative_to(REPO).as_posix()}"],
-                               cwd=REPO, capture_output=True, text=True, check=False)
-        if shown.returncode:
+        shown = [subprocess.run(["git", "show", f"{rev}^:{p.relative_to(REPO).as_posix()}"],
+                                cwd=REPO, capture_output=True, text=True, check=False)
+                 for p in validator_files()]
+        shown = [r.stdout for r in shown if not r.returncode]
+        if not shown:
             continue
         try:
-            old = load_templates(shown.stdout)
+            old = load_templates("\n".join(shown))
         except SyntaxError:
             continue
         out.update((rx.pattern, t) for t in retire(old, current) for rx in [t[0]])
@@ -711,7 +728,7 @@ def _touches(r, key):
 
 def window_audit(since, until):
     """The exact window [since, until) as one dict: what the ledger row and --json print."""
-    templates = load_templates(VALIDATOR.read_text(encoding="utf-8"))
+    templates = load_templates(validator_source())
     retired = retired_templates(since, templates)
     rows = [r for r in sessions(since, templates, retired) if not until or r["start"] < until]
     s = summarise(rows)
@@ -751,7 +768,7 @@ def main(argv=None):
             for i, c in enumerate(res["causes"][:10], 1):
                 print(f"{i:3d}. {c['sessions']:3d} sessions ${c['cost_after_check']:.2f}  {c['label']}")
         return 0
-    templates = load_templates(VALIDATOR.read_text(encoding="utf-8"))
+    templates = load_templates(validator_source())
     window = datetime.timedelta(hours=args.hours)
     retired = retired_templates(now - 2 * window, templates)
     rows = list(sessions(now - 2 * window, templates, retired))

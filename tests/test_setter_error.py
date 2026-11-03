@@ -9,6 +9,7 @@ import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
 
 import validate_annotations as v
+import validate_anagram
 
 fails = 0
 def check(name, want, got):
@@ -17,7 +18,7 @@ def check(name, want, got):
     fails += not ok
     print(("ok  " if ok else "FAIL"), name, "" if ok else f"want {want!r}, got {got!r}")
 
-v.SETTER_ERROR = {("p-1", "13-down"): ("skis Elf oil", "KISSOFLIFE", "the page prints it"),
+validate_anagram.SETTER_ERROR = {("p-1", "13-down"): ("skis Elf oil", "KISSOFLIFE", "the page prints it"),
                   ("p-1", "2-down"): ("abcdef", "ghijkl", "too far out")}
 WALK = {"walkthrough": "The printed clue has ELF OIL where KISS OF LIFE needs one more F, one less L."}
 

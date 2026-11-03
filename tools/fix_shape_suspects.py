@@ -107,6 +107,7 @@ import puzzle_paths
 import puzzle_schema
 import shape_suspects as ss
 import validate_annotations as V
+import validate_committed as VC
 import wordplay as W
 from fix_shape_base import (
     UNARY, TAIL, HEAD, MID, walk, leaf, span, vals, gives_ok, checked, charade, clue_text, simplicity,
@@ -298,12 +299,12 @@ def puzzle_errors(puzzle, path, allowed, committed=None):
     text and notes, which no repair touches; --deploy runs them all after --apply)."""
     _, errors, warnings = V.validate_puzzle(copy.deepcopy(puzzle))
     if committed is not None:
-        real = V.committed_entries
-        V.committed_entries = lambda _path: {V.entry_id(e): e for e in committed.get("entries", [])}
+        real = VC.committed_entries
+        VC.committed_entries = lambda _path: {V.entry_id(e): e for e in committed.get("entries", [])}
         try:
             V.check_selectors_are_indicators(copy.deepcopy(puzzle), path, errors)
         finally:
-            V.committed_entries = real
+            VC.committed_entries = real
     return set(errors + V.backlog_errors(path.stem, warnings, allowed))
 
 

@@ -8,11 +8,12 @@ import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
 
 import validate_annotations as v
+import validate_blog
 
 def run(clue, blocks, theirs):
     puzzle = {"entries": [{"number": 1, "direction": "across",
                            "clue": {"text": clue}, "annotation": {"blocks": blocks}}]}
-    v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
+    validate_blog.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
                                   "entries": {"1-across": {"blocks": theirs}}}
     warnings = []
     v.check_blocks_against_blog(puzzle, warnings)
@@ -39,7 +40,7 @@ check("a piece nobody of ours spells or takes", True, run("x", [b("top", "CAP")]
 def typed(ours, theirs, **fact):
     puzzle = {"entries": [{"number": 1, "direction": "across",
                            "clue": {"text": "x"}, "annotation": {"type": ours}}]}
-    v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
+    validate_blog.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
                                   "entries": {"1-across": {"type": theirs, **fact}}}
     warnings = []
     v.check_cryptic_definition_against_blog(puzzle, warnings)
@@ -57,7 +58,7 @@ check("a cryptic definition against an inferred core type is reported as at leas
 def family(ours, theirs, pid="x-1", **fact):
     puzzle = {"id": pid, "entries": [{"number": 1, "direction": "across",
                                       "clue": {"text": "x"}, "annotation": {"type": ours}}]}
-    v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
+    validate_blog.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
                                   "entries": {"1-across": {"type": theirs, **fact}}}
     warnings = []
     v.check_type_against_blog(puzzle, warnings)

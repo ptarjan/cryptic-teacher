@@ -298,11 +298,11 @@ check "the site, the validator and --score take an inferred block as ours, not t
   "$(REPO="$REPO" python3 -c '
 import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
-import blog_facts as bf, fetch_puzzle as fp, validate_annotations as va
+import blog_facts as bf, fetch_puzzle as fp, validate_annotations as va, validate_blog
 blocks = [["CAP", "hat"], ["OUCH", "one", "inferred"]]
 e = {"number": 1, "direction": "across", "clue": {"text": "Polar covering: one hat", "enumeration": "6"}, "solution": "ICECAP",
      "annotation": {"blocks": [{"clueFragment": "hat", "gives": "CAP"}]}}
-va.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": bf.fact_json({"blocks": blocks}, e["clue"]["text"])}}
+validate_blog.blog_facts_for = lambda p: {"name": "Blog", "url": "u", "entries": {"1-across": bf.fact_json({"blocks": blocks}, e["clue"]["text"])}}
 w = []
 va.check_blocks_against_blog({"entries": [e]}, w)
 ann = fp.blog_annotation({**e, "blog": bf.fact_json({"blocks": [["CAP", "hat"], ["I", "one", "inferred"]]}, e["clue"]["text"])})
@@ -341,14 +341,14 @@ check "the site and the validator take an inferred definition as ours, not the b
   "$(REPO="$REPO" python3 -c '
 import os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
-import blog_facts as bf, build_seo_pages as sp, letter_facts as lf, validate_annotations as va
+import blog_facts as bf, build_seo_pages as sp, letter_facts as lf, validate_annotations as va, validate_blog
 clue = "Teacher expresses disapproval over minerals (8)"
 f = bf.fact_json(lf.with_definition({"blocks": [["TUTS", "expresses disapproval"], ["ORES", "minerals"]]}, ["Teacher"]), clue)
 html = sp.clue_html({"number": 1, "direction": "across", "solution": "TUTORESS", "clue": {"text": clue}, "blog": f})
 e = {"number": 1, "direction": "across", "clue": {"text": clue},
      "annotation": {"definitions": [{"text": "minerals", "at": 35}]}}
 def warned(fact):
-    va.blog_facts_for = lambda p: {"name": "b", "url": "u", "entries": {"1-across": fact}}
+    validate_blog.blog_facts_for = lambda p: {"name": "b", "url": "u", "entries": {"1-across": fact}}
     w = []
     va.check_definition_against_blog({"entries": [e]}, w)
     return len(w)

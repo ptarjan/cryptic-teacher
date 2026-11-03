@@ -138,7 +138,7 @@ half = [entry("1-across", annotation=stored()), entry("1-down"),
         entry("2-down"), entry("3-down", solutionConfidence="LIKELY")]
 errs, warns = [], []
 V.check_every_clue_is_annotated(half, errs, warns)
-tmpl = annotate_audit.load_templates(open(V.__file__).read())
+tmpl = annotate_audit.load_templates(annotate_audit.validator_source())
 say("blanks_one_line", len(errs) == 1 and errs[0].startswith("1D,2D,3D: no annotation")
     and "half-written" in errs[0] and "3D: a model's LIKELY fill" in errs[0]
     and annotate_audit.rule_name("  ERROR: " + errs[0], tmpl) == "check_every_clue_is_annotated")
