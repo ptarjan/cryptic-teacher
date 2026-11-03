@@ -1339,21 +1339,49 @@
      }
     ],
     "wordplay": {
-     "op": "cryptic",
+     "op": "charade",
      "parts": [
       {
-       "words": "One taken from a genus of bulbs?",
-       "note": "surface reading: a single specimen picked from a plant group; setter's reading: the genus gives its own name to each member, so one plant from it carries the genus name"
+       "words": "a",
+       "at": 15,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taken from",
+         "at": 4,
+         "note": "something taken from a word is removed from it, so the letter for one comes out of what follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "genus of bulbs",
+         "at": 17,
+         "gives": "LILIUM",
+         "note": "Lilium is the botanical genus of the lilies, which grow from bulbs"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "one is I, the Roman numeral"
+        }
+       ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "walkthrough": "The genus that includes onions, leeks and garlic shares its name with any one of its plants.",
-     "definitionFit": "An allium is any plant of the onion genus, which grows from bulbs."
+     "surface": "A gardener lifts a single specimen out of a bed of bulbous plants.",
+     "walkthrough": "'taken from' removes one of the two Is in A + LILIUM, leaving the onion genus. The whole clue also reads as the definition: a plant of a related bulb genus, hence the question mark.",
+     "definitionFit": "Allium is the onion genus, bulb-forming plants such as garlic and leeks, so one of its plants comes from a genus of bulbs."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": true,
+     "misdirectedWord": "One"
     }
    }
   },
