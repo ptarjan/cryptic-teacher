@@ -231,6 +231,47 @@ def after_tick(ledger, now):
         from unit_queue import alert
         alert(f"every fetcher's last run failed ({' '.join(FETCHERS)}), so no new puzzle can arrive from any paper "
               "until this is fixed. Their lines are in .update.log, `[fetch:...]`.")
+    alert_fetch_streaks(ledger)
+
+
+#: A fetch:* unit that fails this many ticks in a row (rc not 0, and not 3 =
+#: "nothing new") is alerted once per streak with its own last error line. The
+#: unit retries about hourly, so 12 is about half a day to a day; before this
+#: tls_puzzles failed 27 in a row (rc=1) and only the 18-day staleness check spoke.
+FETCH_FAIL_ALERT = 12
+
+
+def fetch_streaks(rows):
+    """{key: (failures in a row, last error line)} for each fetch:* unit whose
+    most recent end rows are failures; an end with rc 0 or 3 ends a streak."""
+    run, err = {}, {}
+    for r in rows:
+        k = r.get("key", "")
+        if r.get("event") != "end" or not k.startswith("fetch:"):
+            continue
+        if r.get("rc") in (0, 3):
+            run[k] = 0
+        else:
+            run[k] = run.get(k, 0) + 1
+            err[k] = r.get("err") or err.get(k, "")
+    return {k: (n, err.get(k, "")) for k, n in run.items() if n}
+
+
+def alert_fetch_streaks(ledger):
+    """Alert once per streak: an "alerted" row in the ledger marks it, and the
+    streak's next success (or rc 3) clears it by coming after that row."""
+    from unit_queue import alert
+    for key, (n, err) in fetch_streaks(ledger.rows).items():
+        if n < FETCH_FAIL_ALERT:
+            continue
+        last_alert = max((r["at"] for r in ledger.rows if r.get("event") == "alerted" and r.get("key") == key), default=0)
+        last_good = max((r["at"] for r in ledger.rows if r.get("event") == "end" and r.get("key") == key
+                         and r.get("rc") in (0, 3)), default=0)
+        if last_alert > last_good:
+            continue
+        ledger.append({"key": key, "event": "alerted", "at": time.time(), "fails": n})
+        alert(f"`{key}` has failed {n} runs in a row: {err or 'no error line recorded'}. "
+              "Its lines are in .update.log, `[" + key + "]`.")
 
 
 def keyed(text):
