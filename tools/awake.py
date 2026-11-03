@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""When Paul is asleep, learned from the times of his own messages.
+"""When the owner is asleep, learned from the times of his own messages.
 
 The burn must not fill the weekly meter while he sleeps: at 100% every room is
-locked out until he resets it, and he can reset only when awake (Paul 11-01:
+locked out until he resets it, and he can reset only when awake (owner 11-01:
 "try to know when I'm awake so you don't lock me out when I'm sleeping").
 
 The source is the bridge's message store, STORE/*.jsonl: one row per post in
 every room, Discord and Telegram ones included, with `from` "user" for his own.
 The bridge's own notices
-filed as his ("\U0001f511 Paul gave the secrets deputy ...") are skipped. Over
+filed as his ("\U0001f511 The owner gave the secrets deputy ...") are skipped. Over
 LEARN_SPAN_S the profile is, for each SLOTS-th of the day (Pacific), the share
 of the days he wrote at all on which he wrote in it; his night is the longest
 run of slots under SLEEP_SHARE of the median slot's share, widened by BED_PAD_H
@@ -53,7 +53,7 @@ NOTICE = "\U0001f511"
 
 
 def _his(row):
-    """The epoch of a row that is one of Paul's own messages, else None."""
+    """The epoch of a row that is one of the owner's own messages, else None."""
     if not isinstance(row, dict) or row.get("from") != "user":
         return None
     if str(row.get("text") or "").startswith(NOTICE):
@@ -75,7 +75,7 @@ def _rows(data):
 
 
 def user_times(store, since):
-    """Sorted epochs of Paul's messages in `store` at or after `since`."""
+    """Sorted epochs of the owner's messages in `store` at or after `since`."""
     out = []
     for path in Path(store).glob("*.jsonl"):
         try:
@@ -89,7 +89,7 @@ def user_times(store, since):
 
 
 def last_message(store, now, recent=AWAKE_RECENT_S):
-    """The epoch of Paul's newest message in the last `recent` seconds, else None."""
+    """The epoch of the owner's newest message in the last `recent` seconds, else None."""
     best = None
     for path in Path(store).glob("*.jsonl"):
         try:
@@ -197,7 +197,7 @@ def next_sleep(epoch, sleep=None, tz=PACIFIC):
 
 
 def asleep(epoch, sleep=None):
-    """True when Paul is predicted asleep at `epoch`."""
+    """True when the owner is predicted asleep at `epoch`."""
     start, end = next_sleep(epoch, sleep)
     return start <= epoch < end
 
@@ -214,10 +214,10 @@ def describe(sleep, now=None, nights=3):
     sleep = sleep or {}
     bed, wake = span(sleep)
     if sleep.get("span"):
-        head = (f"awake model: Paul's messages on {sleep['days']} days in {STORE}: "
+        head = (f"awake model: the owner's messages on {sleep['days']} days in {STORE}: "
                 f"asleep {clock(bed)}-{clock(wake)} Pacific")
     else:
-        head = (f"awake model: {sleep.get('days', 0)} days of Paul's messages, under "
+        head = (f"awake model: {sleep.get('days', 0)} days of the owner's messages, under "
                 f"{MIN_DAYS}: the fixed {clock(bed)}-{clock(wake)} Pacific")
     share = sleep.get("shares") or []
     bars = "".join(" .:-=+*#%@"[min(9, int(x * 10))] for x in share)
@@ -278,7 +278,7 @@ def self_test():
         home.mkdir()
         rows = [{"from": "user", "at": t, "text": "hi"} for t in times]
         rows += [{"from": "bot", "at": mon + 26 * 3600, "text": "a bot at 02:00"},
-                 {"from": "user", "at": mon + 27 * 3600, "text": NOTICE + " Paul gave ..."}]
+                 {"from": "user", "at": mon + 27 * 3600, "text": NOTICE + " The owner gave ..."}]
         (store / "web.room.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
         now = times[-1] + 600
         os.utime(store / "web.room.jsonl", (now, now))

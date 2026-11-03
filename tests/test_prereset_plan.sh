@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # The burn's planner: width from the meter, the bridge's measured spend and the
 # machine's free memory and cores, the manual resets counted off
-# usage-history.csv and the windows planned for them, Paul's predicted nights
+# usage-history.csv and the windows planned for them, the owner's predicted nights
 # (tools/awake.py: the profile from synthetic message times, a fill moved out of
 # his night, the overnight cap), and the queue order. Their cases live in the
 # scripts themselves (--self-test).
