@@ -29,10 +29,10 @@ def bare(lines):  # without the HH:MM stamp
 
 WIDTH = ("width 15 (cap: memory 15, cpu —, load 20, quota pace 22) · weekly 98% now, 19.4h to its reset, "
          "aiming 19.40h out; bridge 2.1 pts/h; was 21")
-check(bare(run([WIDTH])), ["── 15 at once (memory) · 0 done/h · weekly 98% used"],
+check(bare(run([WIDTH])), ["── 15 at once (memory) · 0 done/h · 0 no-change/h · weekly 98% used"],
       "a width line becomes a status line naming the cap that binds")
 check(bare(run(["width 22 (cap: memory 22, cpu —, load —, quota pace 22) · weekly 50% now, 80.0h to its reset"])),
-      ["── 22 at once (memory) · 0 done/h · weekly 50% used"],
+      ["── 22 at once (memory) · 0 done/h · 0 no-change/h · weekly 50% used"],
       "a tie between caps names the first in order")
 check(bare(run(["width 0 (cap: memory 0, cpu —, load —, quota pace 0) · weekly 100% now, 3.0h to its reset"])),
       ["── paused: weekly 100% used, resets in 3h"], "width 0 with the week spent is a pause")
@@ -69,7 +69,7 @@ got = []
 for i, line in enumerate(["wordplay.anagramCharade backlog: a-1 a-2", "--- pool of 15: 0 in flight (0 running), 290 queued ---"]):
     got += log.feed(line, T + 10 + i)
 check(bare(got), ["── next: re-shape anagram fodder filed as a charade, 290 queued",
-                  "── 15 at once (memory) · 0 done/h · 290 queued · weekly 98% used"],
+                  "── 15 at once (memory) · 0 done/h · 0 no-change/h · 290 queued · weekly 98% used"],
       "a switch of backlog is a next: line in plain words and a full status line")
 
 log = B.Log()
@@ -110,14 +110,43 @@ for line in ["=== pre-reset backfill re-execed onto 35ec545 2026-11-03 10:00 ===
              "--- pool of 15: 3 in flight (3 running), 40 queued ---", "adopted 3 runs in flight: 1 2 3"]:
     got += log.feed(line, T)
 check(bare(got), ["── restarted on 35ec545, 3 runs carried on",
-                  "── 15 at once (memory) · 0 done/h · 40 queued · weekly 98% used"],
+                  "── 15 at once (memory) · 0 done/h · 0 no-change/h · 40 queued · weekly 98% used"],
       "a restart says so and restates the status at once")
 
 log = B.Log()
 log.feed(WIDTH, T)
-check(bare(log.feed("sync: tree at x", T + 301)), ["── 15 at once (memory) · 0 done/h · weekly 98% used"],
+check(bare(log.feed("sync: tree at x", T + 301)), ["── 15 at once (memory) · 0 done/h · 0 no-change/h · weekly 98% used"],
       "the status is written every five minutes")
 
 check(bare(run(["ERROR: boom", "ERROR: boom"])), ["⚠️ ERROR: boom"], "a problem is said once inside the repeat window")
+
+# Waste: a run that changed nothing is a quiet line, and an hour of them is one warning and one wake.
+log = B.Log()
+sent = []
+log.notify = sent.append
+got = log.feed("Annotate azed-9 produced no change", T)
+check(bare(got), ["· azed-9 nothing to change [annotate]"], "no-change run, quiet line")
+lines = []
+for i in range(30):
+    lines += log.feed(f"Annotate x-{i} produced no change", T + 10 + i)
+for i in range(10):
+    lines += log.feed(f"committed Annotate y-{i}", T + 50 + i)
+warns = [x for x in lines if "⚠️" in x]
+check(len(warns) >= 1 and "wasted runs" in warns[0], True, "an hour of no-change runs warns")
+check(len(sent), 1, "the warning wakes the room once")
+check(sent[0].startswith("Burn: wasted runs") and sent[0].count("\n") == 3, True, "the wake carries the line and three lines of evidence")
+more = log.feed("ERROR: boom", T + 100) + log.feed("ERROR: other", T + 101)
+check(len(sent), 2, "a different kind of warning wakes once")
+log.feed("ERROR: third thing", T + 102)
+check(len(sent), 2, "a second ERROR inside the hour is counted, not sent")
+for pid in ("p-1", "p-1"):
+    rep = log.feed(f"Annotate {pid} produced no change", T + 200)
+check([x for x in rep if "twice" in x][:1] != [], True, "the same puzzle twice is a warning line")
+check(len(sent), 2, "a repeat puzzle alone does not wake")
+ordinary = B.Log()
+ordinary.notify = sent.append
+ordinary.feed(WIDTH, T)
+ordinary.feed("committed Annotate z-1", T + 1)
+check(len(sent), 2, "a status or a commit never wakes")
 
 sys.exit(1 if fails else 0)

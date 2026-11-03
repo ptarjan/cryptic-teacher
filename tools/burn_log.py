@@ -36,7 +36,13 @@ PUZZLE = r"([a-z][a-z0-9]*-\d+)"
 CAP_ORDER = ("load", "cpu", "memory", "quota pace")  # which cap is named when several tie
 PROBLEM = re.compile(
     r"^ERROR|Traceback \(most recent|could not push|push (failed|refused)|push_puzzle_commit.*(failed|rejected|conflict)"
-    r"|lost track of its runs|cannot authenticate|^ALERT: |CI (is )?red")
+    r"|lost track of its runs|cannot authenticate|^ALERT: |CI (is )?red|\bKilled\b|timed out|terminated by signal")
+WASTE_SHARE = 0.15         # ⚠️ when more than this share of the last hour's finished puzzles changed nothing
+WASTE_MIN = 20             # ... out of at least this many
+SHORT_S = 15 * 60          # far fewer runs than the width, or behind pace, this long is a problem
+COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
+WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
+WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM") or os.environ.get("ANNOTATE_WAKE_ROOM", "-1003929432016:61")
 GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|discard|held|gave up|cannot be|could not be).*)$")
 KINDS = (  # commit-message prefix -> what was done
     (re.compile(r"^Annotate\b"), "hints written"),
@@ -97,6 +103,7 @@ class Log:
         self.fill = []            # ids started in the pool fill being gathered
         self.fill_at = 0.0
         self.restart = None
+        self.pool_raw = self.width_raw = None
         self.backlog = None       # field -> {puzzle: clues}, read when a backlog starts
         self.snap = {}            # field -> its counts when its backlog started
         self.width = None
@@ -108,6 +115,26 @@ class Log:
         self.outcomes_since = 0
         self.idle = False
         self.problems = {}        # text -> when last said
+        self.events = collections.deque()    # (time, "ok"|"nc", rule) of finished puzzles
+        self.nc_lines = collections.deque(maxlen=3)   # the last no-change lines: evidence
+        self.fail_count = collections.Counter()       # puzzle -> failures and no-changes
+        self.waste_tier = 0
+        self.waste_said = 0.0
+        self.repeats = []         # puzzles past their second failure since the last repeat line
+        self.repeat_said = -WAKE_EVERY_S
+        self.warned = set()       # one-shot warnings already said
+        self.active = {}          # warning kind -> text while it holds
+        self.since = {}           # warning kind -> when its condition began
+        self.raw = collections.deque(maxlen=3)        # the last raw lines: evidence
+        self.pool = None          # (width, in flight, queued) of the latest pool line
+        self.need = None          # runs the week needs, from the latest width line
+        self.meters = collections.deque(maxlen=400)   # (time, points spent, commits since the last)
+        self.commits_since_meter = 0
+        self.last_meter = collections.deque(maxlen=3)
+        self.wakes = []           # (time, kind, text) sent
+        self.wake_at = {}         # kind -> last wake time
+        self.wake_more = collections.Counter()
+        self.notify = None        # callable(text) that files a wake
 
     def out(self, now, mark, text):
         return f"{stamp(now)} {mark} {text}"
@@ -147,10 +174,112 @@ class Log:
         except (OSError, ValueError, KeyError, StopIteration, subprocess.SubprocessError):
             return None
 
-    def finished(self, now, ok):
+    def finished(self, now, ok, pid=None, rule=None, nochange=False):
+        """Record a puzzle's end; returns ⚠️ lines when it is a puzzle's second failure."""
         self.outcomes_since += 1
-        if ok:
+        if ok and not nochange:
             self.done.append(now)
+            self.commits_since_meter += 1
+            self.events.append((now, "ok", rule))
+        if nochange:
+            self.events.append((now, "nc", rule))
+        if pid and (nochange or not ok):
+            self.fail_count[pid] += 1
+            if self.fail_count[pid] == 2 and pid not in self.warned:
+                self.warned.add(pid)
+                # The first is said at once; the rest of the hour's are one summary line (checks).
+                if now - self.repeat_said >= WAKE_EVERY_S:
+                    self.repeat_said = now
+                    return self.warn(now, f"repeat:{pid}", f"{pid} failed or changed nothing twice",
+                                     list(self.nc_lines)[-2:] + [f"rule: {rule or 'annotate'}"], wake=False)
+                self.repeats.append(pid)
+        return []
+
+    def window(self, now):
+        """(no-change count, finished count by commits, top rule and its count) over the last hour."""
+        while self.events and self.events[0][0] < now - 3600:
+            self.events.popleft()
+        nc = collections.Counter(r for _, k, r in self.events if k == "nc")
+        total_nc = sum(nc.values())
+        top = nc.most_common(1)[0] if nc else (None, 0)
+        return total_nc, self.last_hour(now), top
+
+    def warn(self, now, kind, text, evidence, wake=True, wake_kind=None):
+        """A ⚠️ line, plus a wake (at most one per kind of warning per hour) with its evidence."""
+        line = self.out(now, "⚠️", text)
+        key = wake_kind or kind.split(":")[0]
+        if not wake:
+            return [line]
+        if now - self.wake_at.get(key, -WAKE_EVERY_S) >= WAKE_EVERY_S:
+            more = self.wake_more.pop(key, 0)
+            body = "Burn: " + text + (f" ({more} more warnings of this kind in the last hour)" if more else "")
+            body += "".join("\n  " + clip(e, 200) for e in list(evidence)[-3:])
+            self.wake_at[key] = now
+            self.wakes.append((now, key, body))
+            if self.notify:
+                self.notify(body)
+        else:
+            self.wake_more[key] += 1
+        return [line]
+
+    def condition(self, now, kind, bad, text, evidence, clear_text, held_for=0):
+        """Warn once when `bad` has held for held_for seconds, and say once when it clears."""
+        if bad:
+            self.since.setdefault(kind, now)
+            if kind not in self.active and now - self.since[kind] >= held_for:
+                self.active[kind] = text
+                return self.warn(now, kind, text, evidence)
+            return []
+        self.since.pop(kind, None)
+        if kind in self.active:
+            del self.active[kind]
+            return [self.out(now, "──", f"cleared: {clear_text}")]
+        return []
+
+    def checks(self, now):
+        """The warnings that hold over time: wasted runs, too few runs, behind pace, cost."""
+        out = []
+        if self.repeats and now - self.repeat_said >= WAKE_EVERY_S:
+            ids, self.repeats, self.repeat_said = self.repeats, [], now
+            # A storm of repeats is the waste warning's own evidence: it shares its hourly wake.
+            out += self.warn(now, "repeat:more", f"{plural(len(ids), 'more puzzle')} failed or changed nothing twice in the last hour",
+                             [", ".join(ids[:12])], wake=len(ids) >= 10, wake_kind="waste")
+        nc, done, (top, top_n) = self.window(now)
+        total = nc + done
+        share = nc / total if total else 0.0
+        rule = phrase(top)[0] if top and top != "annotate" else top
+        tier = 0 if total < WASTE_MIN or share <= WASTE_SHARE else 1 + (share > 2 * WASTE_SHARE) + (share > 3 * WASTE_SHARE)
+        if tier > self.waste_tier >= 1 and now - self.waste_said >= 600:  # worse than when it was said: the new number
+            self.waste_said = now
+            out += self.warn(now, "waste", f"wasted runs worse: {nc} of {total} puzzles ({share:.0%}) in the last hour changed "
+                             f"nothing, most from {rule} ({top_n})", self.nc_lines)
+        self.waste_tier = max(self.waste_tier, tier) if tier else 0
+        out += self.condition(
+            now, "waste", total >= WASTE_MIN and share > WASTE_SHARE,
+            f"wasted runs: {nc} of {total} puzzles ({share:.0%}) in the last hour changed nothing, most from {rule} ({top_n})",
+            self.nc_lines, f"wasted runs down to {share:.0%}")
+        if self.pool:
+            w, n, q = self.pool
+            out += self.condition(
+                now, "short", w > 0 and n < 0.75 * w and q > 0,
+                f"only {n} runs in flight against a width of {w}, with {q} queued", [self.pool_raw] if self.pool_raw else [],
+                f"{n} of {w} runs in flight", SHORT_S)
+        out += self.condition(
+            now, "pace", self.width is not None and self.need is not None and self.width < self.need and self.limit != "memory",
+            f"behind pace: {self.width} at once, {self.need} needed to spend the week by its reset"
+            + (f" (limit: {self.limit})" if self.limit else ""),
+            [self.width_raw] if self.width_raw else [], "back on pace", SHORT_S)
+        recent = [(p, c) for t, p, c in self.meters if t > now - 3600]
+        trail = [(p, c) for t, p, c in self.meters if now - 6 * 3600 < t <= now - 3600]
+        pr, cr = sum(p for p, _ in recent), sum(c for _, c in recent)
+        pt, ct = sum(p for p, _ in trail), sum(c for _, c in trail)
+        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and (pr / cr) > COST_FACTOR * (pt / ct))
+        out += self.condition(
+            now, "cost", costly,
+            f"cost per puzzle doubled: {pr} meter points for {cr} committed in the last hour, "
+            + (f"against {pt / ct * 100:.0f} points per 100 before" if ct else ""),
+            self.last_meter, "cost per puzzle back to normal")
+        return out
 
     def last_hour(self, now):
         """Puzzles committed in the last hour, from the burn's own commit history (a restart
@@ -181,13 +310,22 @@ class Log:
             if self.week and self.week[0] >= 99:
                 return [self.out(now, "──", f"paused: {week}, resets in {self.week[1]:.0f}h")]
             return [self.out(now, "──", "waiting: nothing may start right now" + (f" · {week}" if week else ""))]
+        nc, done, _ = self.window(now)
+        share = f" ({nc / (nc + done):.0%})" if nc + done else ""
         parts = [f"{self.width} at once" + (f" ({self.limit})" if self.limit else ""),
-                 f"{self.last_hour(now)} done/h"]
+                 f"{done} done/h", f"{nc} no-change/h{share}"]
         if self.queued is not None:
             parts.append(f"{self.queued} queued")
         if week:
             parts.append(week)
         return [self.out(now, "──", " · ".join(parts))]
+
+    def nothing(self, now, pid, rule, allowed):
+        """A run that changed nothing: a quiet line, and it counts as waste."""
+        line = self.out(now, "·", f"{pid} nothing to change" + (f" ({plural(allowed, 'clue')})" if allowed else "")
+                        + (f" [{phrase(rule)[0]}]" if rule not in ("annotate", "blog re-check") else f" [{rule}]"))
+        self.nc_lines.append(line)
+        return [line] + self.finished(now, True, pid, rule, nochange=True)
 
     def flush_fill(self, now, force=False):
         """One ▶ line for a pool fill (three or more runs started within FILL_WINDOW_S)."""
@@ -208,7 +346,8 @@ class Log:
                 self.fill_at = now
             self.fill.append(m.group(1))
             return self.flush_fill(now)
-        return self.flush_fill(now) + self.handle(line, now) + self.idle_check(now)
+        self.raw.append(line)
+        return self.flush_fill(now) + self.handle(line, now) + self.idle_check(now) + self.checks(now)
 
     def idle_check(self, now):
         """"idle" only once nothing has been queued for IDLE_AFTER_S: the pool also shows an
@@ -219,14 +358,22 @@ class Log:
         return [self.out(now, "──", "idle: nothing queued")] + self.status(now, force=True)
 
     def handle(self, line, now):
+        old = re.match(r"^width (\d+): need (\d+) .*?\(([\d.]+)% now, ([\d.]+)h to its reset.*?memory cap (\w+), "
+                       r"cpu cap (\w+).*?load cap (\w+)", line)
+        if old:  # the format before 11-03, so a replay of the older log works
+            line = (f"width {old.group(1)} (cap: memory {old.group(5)}, cpu {old.group(6)}, load {old.group(7)}, "
+                    f"quota pace {old.group(2)}) · weekly {old.group(3)}% now, {old.group(4)}h to its reset")
         m = re.match(r"^width (\d+) \(cap: ([^)]*)\)(?: · (.*))?$", line)
         if m:
+            self.width_raw = line
             caps = {}
             for part in m.group(2).split(", "):
                 name, _, val = part.rpartition(" ")
                 caps[name] = int(val) if val.isdigit() else None
+            caps.setdefault("quota pace", None)
             self.width = int(m.group(1))
             self.limit = next((n for n in CAP_ORDER if caps.get(n) == self.width), None)
+            self.need = caps.get("quota pace")
             if self.limit == "quota pace":
                 self.limit = "usage pace"
             w = re.search(r"weekly ([\d.]+)% now, ([\d.]+)h to its reset", m.group(3) or "")
@@ -235,11 +382,17 @@ class Log:
             self.idle = False
             return self.status(now)
         m = re.match(r"^weekly (\d+)% -> (\d+)%", line.strip())
-        if m and self.week:
-            self.week = (float(m.group(2)), self.week[1])
-            return []
-        m = re.match(r"^--- pool of \d+: (\d+) in flight \(\d+ running\), (\d+) queued", line)
         if m:
+            self.last_meter.append(line.strip())
+            self.meters.append((now, int(m.group(2)) - int(m.group(1)), self.commits_since_meter))
+            self.commits_since_meter = 0
+            if self.week:
+                self.week = (float(m.group(2)), self.week[1])
+            return []
+        m = re.match(r"^--- pool of (\d+): (\d+) in flight \(\d+ running\), (\d+) queued", line)
+        if m:
+            self.pool, self.pool_raw = (int(m.group(1)), int(m.group(2)), int(m.group(3))), line.strip("- ")
+            m = re.match(r"^--- pool of \d+: (\d+) in flight \(\d+ running\), (\d+) queued", line)
             self.queued = int(m.group(2))
             if m.group(1) == "0" and self.queued == 0:
                 self.nothing_since = self.nothing_since or now
@@ -290,49 +443,84 @@ class Log:
                 what = msg
             labels = self.touched(msg, pid)
             allowed = (self.snap.get(field) or {}).get(pid) if field else None
+            rule = field or ("blog re-check" if "Re-check" in msg else "annotate")
             if labels == [] and field:
-                self.finished(now, True)
-                return [self.out(now, "·", f"{pid} nothing to change" + (f" ({plural(allowed, 'clue')})" if allowed else ""))]
+                return self.nothing(now, pid, rule, allowed)
             n = len(labels) if labels else allowed
             where = f" in {plural(n, 'clue')}" if n else ""
             if labels and len(labels) <= 8:
                 where += f" ({', '.join(labels)})"
-            self.finished(now, True)
+            self.finished(now, True, pid, rule)
             return [self.out(now, "✓", f"{pid} {what}{where}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] skipped: already fully hinted", line)
         if m:
-            self.finished(now, True)
             return [self.out(now, "·", f"{m.group(1)} nothing to change (already hinted)")]
+        m = re.match(r"^(.*) " + PUZZLE + r" produced no change$", line)
+        if m:
+            field = (re.match(r"^Backfill (\S+) for", m.group(1)) or [None, None])[1]
+            rule = field or ("blog re-check" if "Re-check" in m.group(1) else "annotate")
+            return self.nothing(now, m.group(2), rule, (self.snap.get(field) or {}).get(m.group(2)) if field else None)
         m = re.match(r"^  \[" + PUZZLE + r"\] the run withdrew its own work, so nothing it wrote ships — (.*)$", line)
         if m:
-            self.finished(now, False)
-            return [self.out(now, "✗", f"{m.group(1)} gave up: {clip(m.group(2))} — skipped until the puzzle changes")]
+            return [self.out(now, "✗", f"{m.group(1)} gave up: {clip(m.group(2))} — skipped until the puzzle changes")] + \
+                self.finished(now, False, m.group(1), "annotate")
         m = re.match(r"^  \[" + PUZZLE + r"\] (transient failure) — its conversation is kept", line)
         if m:
-            self.finished(now, False)
             return [self.out(now, "✗", f"{m.group(1)} cut off (limit or crash), will resume")]
         m = re.match(r"^  \[" + PUZZLE + r"\] failed with the weekly meter below", line)
         if m:
-            self.finished(now, False)
             return [self.out(now, "✗", f"{m.group(1)} stopped by the usage limit, dropped for this run")]
         m = GAVE_UP.match(line)
         if m:
-            self.finished(now, False)
-            return [self.out(now, "✗", f"{m.group(1)} {clip(m.group(2))}")]
+            return [self.out(now, "✗", f"{m.group(1)} {clip(m.group(2))}")] + self.finished(now, False, m.group(1), "annotate")
         if re.match(r"^(deadline reached|paused \()", line):
             return [self.out(now, "──", f"stopping: {clip(line)}")]
         if PROBLEM.search(line):
             text = clip(line.removeprefix("ALERT: "), 200)
-            if now - self.problems.get(text, 0) < HEARTBEAT_S:
+            if now - self.problems.get(text, -1e18) < 6 * 3600:
                 return []
             self.problems[text] = now
-            return [self.out(now, "⚠️", text)]
+            return self.warn(now, "problem", text, list(self.raw)[:-1])
         return []
 
 
+def send_wake(text):
+    """File a note for the room (wake.sh -q: no inference until its next turn anyway)."""
+    try:
+        import local_config
+        wake = local_config.path("household_dir") + "/tools/wake.sh"
+    except Exception:  # noqa: BLE001 - any failure to find the helper just means no wake
+        wake = os.environ.get("WAKE_SH", "")
+    if wake and os.path.exists(wake):
+        subprocess.run([wake, "-q", "-c", WAKE_ROOM, text[:1800]], check=False, timeout=60,
+                       stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def replay(path, start=0, end=None):
+    """Feed an old log through the summariser on a clock the meter lines keep (each
+    'weekly A% -> B% in Xh' moves it X hours): prints what it would have written and woken."""
+    log = Log()
+    t = 1_800_000_000.0
+    lines = __import__("pathlib").Path(path).read_text(errors="replace").splitlines()[start:end]
+    for raw in lines:
+        m = re.match(r"^\s*weekly \d+% -> \d+% in ([\d.]+)h", raw)
+        out = log.feed(raw, t)
+        if m:
+            t += float(m.group(1)) * 3600
+        for text in out:
+            print(text)
+    print(f"--- {len(lines)} lines, {t - 1_800_000_000:.0f}s of meter time; wakes that would have gone out:")
+    for when, kind, body in log.wakes:
+        print(f"  +{(when - 1_800_000_000) / 3600:.1f}h [{kind}] {body}")
+    return 0
+
+
 def main(argv):
+    if argv[1] == "--replay":
+        return replay(argv[2], int(argv[3]) if len(argv) > 3 else 0, int(argv[4]) if len(argv) > 4 else None)
     path = argv[1]
     log = Log(argv[2] if len(argv) > 2 else None)
+    log.notify = send_wake
     fresh = not os.path.exists(path) or os.path.getsize(path) == 0
     with open(path, "a", buffering=1) as out:
         if fresh:
