@@ -564,6 +564,28 @@ def mem_cap(meminfo, rss_kb):
     return len(rss_kb) + max(0, int(m[1]) - MEM_HEADROOM_KB) // max(1, int(each))
 
 
+def mem_detail(meminfo, rss_kb):
+    """The memory cap's inputs in words, for the width line after its dot: "memory 6.2 GB
+    available less 4 GB kept free, 250 MB a run, swap 4.0/4.0 GB used". Paul 11-03 ("it says
+    memory is the limiter but memory looks fine"): available is MemAvailable (free plus the
+    cache the kernel can drop, no swap), and the MEM_HEADROOM_KB kept for the bridge and
+    Docker comes off it first, so 6 GB available holds ~8 more runs, not ~24. None unread."""
+    def kb(name):
+        m = re.search(rf"^{name}:\s+(\d+) kB", meminfo or "", re.MULTILINE)
+        return int(m[1]) if m else None
+    avail = kb("MemAvailable")
+    if avail is None:
+        return None
+    gb = lambda k: f"{k / 1048576:.1f}"
+    each = sum(rss_kb) / len(rss_kb) if rss_kb else RUN_RSS_KB
+    out = (f"memory {gb(avail)} GB available less {MEM_HEADROOM_KB / 1048576:g} GB kept free, "
+           f"{each / 1024:.0f} MB a run")
+    st, sf = kb("SwapTotal"), kb("SwapFree")
+    if st and sf is not None:
+        out += f", swap {gb(st - sf)}/{gb(st)} GB used"
+    return out
+
+
 def cpu_cap(others, burn, cores, runs):
     """Runs the cores other load leaves idle can hold: (cores - others) over one
     run's share of the burn's CPU (runs being the burn's claude processes now),
@@ -838,7 +860,8 @@ def width(arg=None, floor=1):
     slots = []
     rushing = natural = False
     rss = burn_rss_kb()
-    mem = mem_cap(_read("/proc/meminfo"), rss)
+    meminfo = _read("/proc/meminfo")
+    mem = mem_cap(meminfo, rss)
     try:
         now = time.time()
         bridge, rate = bridge_spend()
@@ -901,9 +924,14 @@ def width(arg=None, floor=1):
     dash = lambda v: "—" if v is None else v
     # "width W (cap: ...)" is the part that says how wide and why; what follows the dot
     # changes every call, so the burn prints this line only when the part before it does.
+    # Rushing, the need IS the memory cap (flat out), so it is shown as "rush", not as a pace
+    # that always ties memory (11-03: "memory 15 ... quota pace 15" on every line, and the log
+    # said memory binds while the meter, not the machine, was the reason to go that wide).
+    pace = "rush" if rushing else runs_needed
+    detail = mem_detail(meminfo, rss)
     print(f"width {w} (cap: memory {dash(mem)}, cpu {dash(cpu)}, load {dash(busy)}, "
-          f"quota pace {runs_needed}) · weekly {at}{aim}; bridge {shown}; {cores}; "
-          f"was {current}", file=sys.stderr)
+          f"quota pace {pace}) · weekly {at}{aim}; bridge {shown}; {cores}; "
+          f"{detail + '; ' if detail else ''}was {current}", file=sys.stderr)
     return w
 
 
@@ -935,7 +963,7 @@ def self_test():
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
            + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
-    n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
+    n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES) + len(MEM_DETAIL_CASES)
          + len(CPU_CASES) + len(LOAD_CASES) + len(METER_CASES) + len(REPLAY_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 2 + len(RUSH_CASES) + len(RUSH_OFF_CASES) + 3 + 6
          + 4 + 5 + len(PLAN_CASES) + 5 + 4 + 4
@@ -1034,6 +1062,13 @@ MEM_CASES = [
     ("garbage", [], None),
     (None, [], None),
 ]
+# (meminfo, RSS of runs in flight) -> the memory cap's inputs in words (mem_detail)
+MEM_DETAIL_CASES = [
+    (f"MemAvailable: {6 * GB} kB\nSwapTotal: {4 * GB} kB\nSwapFree: 0 kB\n", [],
+     "memory 6.0 GB available less 4 GB kept free, 250 MB a run, swap 4.0/4.0 GB used"),
+    (f"MemAvailable: {6 * GB} kB\n", [512000], "memory 6.0 GB available less 4 GB kept free, 500 MB a run"),
+    ("garbage", [], None),
+]
 # (cores other processes use, cores the burn uses, cores, runs) -> cpu cap
 CPU_CASES = [
     (0.5, 1.0, 4, 4, 14),     # idle box: 3.5 cores at 0.25 a run
@@ -1092,6 +1127,7 @@ def width_self_test():
     checks = ([(width_for, a, w) for a, w in WIDTH_CASES]
               + [(paced_need, a, w) for a, w in NEED_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
+              + [(mem_detail, (m, r), w) for m, r, w in MEM_DETAIL_CASES]
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
               + [(load_cap, (l, c, w), x) for l, c, w, x in LOAD_CASES]
               + [(cpu_runs, (n, s), w) for n, s, w in CPU_RUNS_CASES]

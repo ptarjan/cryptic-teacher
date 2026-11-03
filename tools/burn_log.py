@@ -83,6 +83,26 @@ def phrase(field):
     return PHRASES.get(field) or (field, f"backfilled {field}")
 
 
+MEM_DETAIL = re.compile(r"memory ([\d.]+) GB available less ([\d.]+) GB kept free"
+                        r"(?:, \d+ MB a run)?(?:, swap ([\d.]+)/([\d.]+) GB used)?")
+
+
+def limit_note(limit, rush, rest):
+    """The limit as the status line shows it. Memory comes with what it is made of
+    (Paul 11-03: "it says memory is the limiter but memory looks fine": 6 GB available,
+    of which the planner keeps 4 GB free, with swap full); a rush, where the planner asks
+    for as many runs as memory holds, says so instead of passing for a usage pace."""
+    if limit != "memory":
+        return None
+    m = MEM_DETAIL.search(rest)
+    note = "memory"
+    if m:
+        note += f": {m.group(1)} GB free, {m.group(2)} GB kept back"
+        if m.group(3) and float(m.group(4)) > 0 and float(m.group(3)) >= 0.9 * float(m.group(4)):
+            note += ", swap full"
+    return note + (" · rushing" if rush else "") if (m or rush) else None
+
+
 def plural(n, word):
     return f"{n} {word}" + ("" if n == 1 else "s")
 
@@ -113,6 +133,7 @@ class Log:
         self.snap = {}            # field -> its counts when its backlog started
         self.width = None
         self.limit = None
+        self.limit_note = None    # the limit as shown: memory with its numbers, a rush said
         self.week = None          # (percent used, hours to reset)
         self.done = collections.deque()  # times of the last hour's finished puzzles
         self.said_status = (None, None)
@@ -340,7 +361,8 @@ class Log:
             return [self.out(now, "──", "waiting: nothing may start right now" + (f" · {week}" if week else ""))]
         nc, done, _ = self.window(now)
         share = f" ({nc / (nc + done):.0%})" if nc + done else ""
-        parts = [f"{self.width} at once" + (f" ({self.limit})" if self.limit else ""),
+        shown = self.limit_note or self.limit
+        parts = [f"{self.width} at once" + (f" ({shown})" if shown else ""),
                  f"{done} done/h", f"{nc} no-change/h{share}"]
         tw = self.tokens_window(now)
         if tw:
@@ -407,6 +429,7 @@ class Log:
             self.need = caps.get("quota pace")
             if self.limit == "quota pace":
                 self.limit = "usage pace"
+            self.limit_note = limit_note(self.limit, "quota pace rush" in m.group(2), m.group(3) or "")
             w = re.search(r"weekly ([\d.]+)% now, ([\d.]+)h to its reset", m.group(3) or "")
             if w:
                 self.week = (float(w.group(1)), float(w.group(2)))

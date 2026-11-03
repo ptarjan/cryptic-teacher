@@ -37,6 +37,14 @@ check(bare(run(["width 22 (cap: memory 22, cpu —, load —, quota pace 22) · 
 check(bare(run(["width 0 (cap: memory 0, cpu —, load —, quota pace 0) · weekly 100% now, 3.0h to its reset"])),
       ["── paused: weekly 100% used, resets in 3h"], "width 0 with the week spent is a pause")
 check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
+RUSH = ("width 15 (cap: memory 15, cpu —, load —, quota pace rush) · weekly 6% now, 140.0h to its reset; "
+        "bridge 2.1 pts/h; cores unread; memory 6.2 GB available less 4 GB kept free, 250 MB a run, "
+        "swap 4.0/4.0 GB used; was 13")
+check(bare(run([RUSH])), ["── 15 at once (memory: 6.2 GB free, 4 GB kept back, swap full · rushing) · 0 done/h · "
+                          "0 no-change/h · weekly 6% used"],
+      "a memory limit says what memory holds, and a rush is said, not shown as a pace that ties memory")
+check(B.limit_note("usage pace", False, "memory 9.0 GB available less 4 GB kept free"), None,
+      "only a memory limit carries the memory numbers")
 
 check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 hints written"], "annotate commit")
 check(bare(run(["committed Backfill wordplay.anaLoneEdge for azed-2581"])),

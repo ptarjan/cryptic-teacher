@@ -133,6 +133,8 @@ class Publish(unittest.TestCase):
                 os.chdir(cwd)
                 R._git = real
             self.assertEqual(len(tries), 1)
+            # a full clone stays full: a --depth=1 fetch there writes .git/shallow for every worktree
+            self.assertEqual(git("rev-parse", "--is-shallow-repository", cwd=mine).strip(), "false")
             log = git("log", "--format=%s", "master", cwd=origin).splitlines()
             self.assertEqual(len(log), 3)
             self.assertIn("a-1#1a", git("show", f"master:{R.QUEUE_FILE}", cwd=origin))
