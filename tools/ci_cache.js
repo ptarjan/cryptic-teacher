@@ -79,7 +79,7 @@ const SMOKE_DEPS = [
     "tools/puzzle_integrity.py", "tools/puzzle_paths.js", "tools/puzzle_paths.py",
     "tools/punctuation.py", "tools/puzzle_schema.py", "tools/puzzle_style.py", "tools/puzzle_tags.py", "tools/quotes.py", "tools/reconstruct_grid.py", "tools/reprints.py",
     "tools/reindex.js", "tools/repair_fetched.py", "tools/puzzle_rows.py", "tools/renamed_ids.py", "tools/row_cache.py", "tools/budget.py", "tools/scan_crop.py", "tools/scan_queue.py", "tools/series.py",
-    "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
+    "tools/showcase.py", "tools/smoke_test.js", "tools/smoke/", "tools/stamp_assets.py",
     "tests/test_alert_claimed.sh", "tests/test_nightly_worktree.sh",
     "tests/test_notify_race.js", "tests/test_prereset_paths.sh", "tests/test_push_hold.js",
     "tools/clue_repair.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
