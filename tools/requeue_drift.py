@@ -25,6 +25,16 @@ through and writing what it flagged, and --publish pushes the raises as a commit
 rule edit or the nightly lexicon rebuild needs no local survey; run this by hand to preview one
 (report) or to queue without waiting for CI (--write).
 Nothing is written when the run has an error other than an allowance.
+
+    python3 tools/requeue_drift.py --backlog FIELD --drift-out F   # survey only FIELD's backlog
+    python3 tools/requeue_drift.py --publish F --why "..."         # push what it found
+
+--backlog surveys only the puzzles on a field's backlog (or every requeueable field's: `all`),
+not the corpus, and queues every hit, as --all does. A grandfathered hit (within its allowance)
+is otherwise never queued, and the burn's shape-rule backfill bags only queued clues: 11-03,
+176 of wordplay.anagramCharade's puzzles had no row, so each ran alone (~18k tokens a clue)
+instead of in a bag of ~30 clues (tools/clue_bag.py). Allowances are set to the count found,
+which never raises one (a puzzle within its allowance has at most that many hits).
 """
 import argparse
 import json
@@ -139,13 +149,31 @@ def _git(*args, stdin=None, env=None):
     return subprocess.run(["git", *args], input=stdin, capture_output=True, text=True, env=env)
 
 
-def publish(over, fields, tries=30, sleep=time.sleep):
+DEPLOY_WHY = "Made by the deploy's full check (tools/requeue_drift.py --publish)."
+
+
+def backlog_paths(fields, allowed):
+    """The files of the puzzles on these fields' backlogs, each once."""
+    from fetch_puzzle import resolve_puzzle
+    out = []
+    for pid in sorted({p for f in fields for p in allowed.get(f, {})}):
+        try:
+            out.append(resolve_puzzle(pid))
+        except (SystemExit, OSError, ValueError, KeyError):
+            continue
+    return out
+
+
+def publish(over, fields, tries=30, sleep=time.sleep, why=DEPLOY_WHY):
     """Push the allowance raises and queue rows for `over` as a commit of their own on origin/master,
     built on its tip from its copies of the two files (a plumbing commit: the checkout is the deploy's
     and stays as it is). A push that loses the race to the burn is built again on the new tip.
     Returns 0 when pushed or nothing was left to do, 1 when every try lost."""
+    # --depth=1 only in a clone already shallow (the deploy's): in a full one it writes .git/shallow,
+    # shared by every worktree, and the next rebase there replays the whole history (11-03).
+    thin = ["--depth=1", "--filter=blob:none"] if _git("rev-parse", "--is-shallow-repository").stdout.strip() == "true" else []
     for n in range(tries):
-        if _git("fetch", "-q", "--no-tags", "--depth=1", "--filter=blob:none", "origin", "master").returncode:
+        if _git("fetch", "-q", "--no-tags", *thin, "origin", "master").returncode:
             sleep(5)
             continue
         old = {p: _git("show", f"origin/master:{p}").stdout for p in (QUEUE_FILE, BACKLOG_FILE)}
@@ -164,7 +192,7 @@ def publish(over, fields, tries=30, sleep=time.sleep):
             _git("update-index", "--add", "--cacheinfo", f"100644,{blob},{path}", env=index)
         tree = _git("write-tree", env=index).stdout.strip()
         msg = ("Requeue puzzles newly flagged by a validator rule or lexicon change\n\n"
-               "Made by the deploy's full check (tools/requeue_drift.py --publish).\n")
+               f"{why}\n")
         commit = _git("commit-tree", tree, "-p", "origin/master", "-m", msg, env=index).stdout.strip()
         pushed = _git("push", "-q", "origin", f"{commit}:refs/heads/master")
         if pushed.returncode == 0:
@@ -185,24 +213,38 @@ def main():
                     help="queue every current hit of this backlog field (e.g. wordplay.halfLeaf), "
                          "not just the puzzles past their allowance: for a rule whose existing hits "
                          "were grandfathered by --tighten. Repeatable. Allowances are set to the count.")
+    ap.add_argument("--backlog", action="append", default=[], metavar="FIELD",
+                    help="as --all, but survey only the puzzles on FIELD's backlog (`all`: every "
+                         "requeueable field's), not the corpus. Repeatable.")
+    ap.add_argument("--drift-out", metavar="FILE", help="write what is found as --publish's JSON")
+    ap.add_argument("--why", default=DEPLOY_WHY, help="--publish: the commit body")
     a = ap.parse_args()
     fields = rule_fields()
     if a.publish:
         over = merged_drift(a.publish)
         for field, puzzles in over.items():
-            print(f"{field}: {len(puzzles)} puzzle(s), {sum(len(k) for k in puzzles.values())} clue(s) past their allowance")
-        return publish(over, fields) if over else 0
-    bad = [f for f in a.all if f not in fields]
+            print(f"{field}: {len(puzzles)} puzzle(s), {sum(len(k) for k in puzzles.values())} clue(s) to queue")
+        return publish(over, fields, why=a.why) if over else 0
+    if a.backlog == ["all"]:
+        a.backlog = sorted(fields)
+    bad = [f for f in a.all + a.backlog if f not in fields]
     if bad:
-        ap.error(f"--all: not a requeueable backlog field: {', '.join(bad)}")
+        ap.error(f"--all/--backlog: not a requeueable backlog field: {', '.join(bad)}")
     allowed = V.load_backlog()
-    surveyed = list(survey_all(V.puzzle_files()))
+    if a.backlog:
+        a.all = sorted(set(a.all) | set(a.backlog))
+        fields = {f: r for f, r in fields.items() if f in a.backlog}
+    surveyed = list(survey_all(backlog_paths(a.backlog, allowed) if a.backlog else V.puzzle_files()))
     if any(bad for _, _, bad in surveyed):
         print("requeue_drift: the corpus has errors of its own; fix them first (nothing written)")
         return 1
     over = drift(surveyed, allowed, fields, a.all)
+    if a.backlog:  # only the puzzles on the backlog surveyed: never a new allowance
+        over = {f: {s: k for s, k in v.items() if s in allowed.get(f, {})} for f, v in over.items()}
     for field, puzzles in over.items():
         print(f"{field}: {len(puzzles)} puzzle(s), {sum(len(k) for k in puzzles.values())} clue(s) flagged in puzzles over their allowance")
+    if a.drift_out:
+        Path(a.drift_out).write_text(json.dumps({f: v for f, v in over.items() if v}, indent=1) + "\n")
     if not a.write or not any(over.values()):
         return 0
     with Q.locked():

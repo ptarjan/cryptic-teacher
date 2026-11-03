@@ -1601,6 +1601,17 @@ p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))
     POOL_PHASE=$field
     queue=($nums)
     at=0
+  elif [[ $field == wordplay.* && $field != wordplay.unchecked ]] && [ "$at" -lt ${#queue[@]} ]; then
+    # ...but held to the same filter as $nums: a queue carried across re-execs from
+    # before the filter (11-03 10:41: 176 of wordplay.anagramCharade's, none with a
+    # clue on the shape list) is no tail to clue_bag.py, so every one of them ran
+    # alone at ~18k tokens a clue. Kept: what the list holds, and a conversation
+    # already under way (its sid file).
+    mapfile -t kept < <(printf '%s\n' "${queue[@]:$at}" | python3 -c 'import sys, os; sys.path.insert(0, "tools"); import shape_queue
+p = shape_queue.puzzle_ids(); print("\n".join(n for n in sys.stdin.read().split() if n in p or os.path.exists(os.path.join(sys.argv[1], n + ".sid"))))' "$RUNS" | grep .)
+    [ ${#kept[@]} -lt $(( ${#queue[@]} - at )) ] &&
+      echo "$field: $(( ${#queue[@]} - at - ${#kept[@]} )) carried-over puzzles have no clue on the shape list — dropped from the queue"
+    queue=("${queue[@]:0:$at}" ${kept[@]+"${kept[@]}"})
   fi
   if [ ${#queue[@]} -gt 0 ]; then
     run_pool "Backfill $field for" "$prompt" || { burn_stopped=1; break; }
