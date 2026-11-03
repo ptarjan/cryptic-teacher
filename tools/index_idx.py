@@ -4,7 +4,8 @@ puzzles/idx/ holds beside index.json, written by fetch_puzzle.write_index.
     head-static.<hash>.js      tables that rarely change; window.CRYPTIC_INDEX_STATIC
     head-live.json             latest, the newest rows, counts, percentile cut
                                points, and the manifest {"series/year": hash8}
-    shards/<series>-<year>.<hash8>.json   one list of compact rows each
+    <series>-<year>.<hash8>.json   one list of compact rows each (flat, not in a
+                               shards/ folder: puzzle_files() globs */*/*-N.json)
     bundle.<hash8>.json        every shard in one file, {"series/year": [rows]}
 
 All of it is build output (gitignored, rebuilt by every --reindex), never
@@ -218,7 +219,7 @@ def build(index):
     for key, compact in sorted(shards.items()):
         text = _dump(compact)
         manifest[key] = h = _hash(text)
-        files[f"shards/{key.replace('/', '-')}.{h}.json"] = text
+        files[f"{key.replace('/', '-')}.{h}.json"] = text
         bundle[key] = compact
     static = {k: v for k, v in index.items()
               if k not in SKIP_KEYS | LIVE_KEYS}

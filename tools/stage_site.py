@@ -64,7 +64,7 @@ PUBLISH = [
     "learn/index.html", "abbreviations/index.html", "indicators/index.html",
     "difficulty/index.html", "progress/index.html", "showcase/index.html", "showcase/*/index.html",
     "puzzles/index.html", "puzzles/index.json", "puzzles/*.js",
-    "puzzles/idx/*", "puzzles/idx/shards/*",
+    "puzzles/idx/*",
     "puzzles/*/index.html", "puzzles/series/**/*",
 ]
 
