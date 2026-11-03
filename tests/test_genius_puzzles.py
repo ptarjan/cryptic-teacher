@@ -51,6 +51,7 @@ import glob, json
 import genius_puzzles as G
 import enumeration as E
 import validate_annotations as V
+import puzzle_paths
 
 page = ('<div data-gu-name="standfirst" class="dcr-47amn7"></div>'
         '<aside data-gu-name="meta" class="dcr-1mjlkeb">byline</aside>'
@@ -92,7 +93,7 @@ for i, s in enumerate(['class="dcr-47amn7">', "dcr-47amn7", '<p>x</p>', "Plain w
     V.text_errors({"preamble": s}, errs)
     emit(f"markup{i}", bool(errs))
 
-bad = [f for f in glob.glob("puzzles/genius/*/genius-*.json")
+bad = [f for f in puzzle_paths.puzzle_files("genius")
        if V.MARKUP_RE.search(json.dumps(json.load(open(f)), ensure_ascii=False).replace('\\"', '"'))]
 emit("corpus-genius-clean", bad)
 
@@ -114,7 +115,7 @@ emit("kern-rejoin", G.flat("T earful T going T his T urpin X and"))
 # enciphered ("Pof pg uiftf"); NAMES are names the lexicon lacks.
 import re, ft_pdf_puzzles as fpp
 glued, NAMES = [], {"Edam", "Fred", "Jones", "Ron", "Vera"}
-for f in sorted(glob.glob("puzzles/genius/*/*.json")):
+for f in puzzle_paths.puzzle_files("genius"):
     p = json.load(open(f))
     if p["id"] == "genius-210":
         continue

@@ -86,6 +86,7 @@ from PIL import Image, ImageFilter
 import downloads
 import grid_ocr_cache
 import media_manifest
+import puzzle_paths
 import trove_grid
 
 TOOLS = Path(__file__).resolve().parent
@@ -3115,7 +3116,7 @@ def fill_corpus(cache=CACHE, write=True, ledger=None):
             done[row["id"]] = row
     articles = _articles(cache)
     total = 0
-    for path in sorted((TOOLS.parent / "puzzles" / "canberra").glob("*/*.json")):
+    for path in puzzle_paths.puzzle_files("canberra"):
         p = read_puzzle_file(path)
         if p["id"] in done or all(e.get("solution") for e in p["entries"]):
             continue

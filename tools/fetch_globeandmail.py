@@ -452,7 +452,7 @@ def days_between(start, end):
 def recorded():
     """{Globe number: its print date} for every print recorded on a Quick."""
     out = {}
-    for f in puzzle_paths.PUZZLE_DIR.glob("timesquick/*/timesquick-*.json"):
+    for f in puzzle_paths.puzzle_files("timesquick"):
         for p in (read_puzzle_file(f).get("source") or {}).get("reprintedIn") or []:
             if p["series"] == "globeandmail":
                 out[p["number"]] = date.fromisoformat(p["date"])

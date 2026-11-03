@@ -21,7 +21,6 @@ import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.environ["PYTHONPATH"] = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools")
 
-import glob
 import json
 import sys
 
@@ -31,6 +30,7 @@ import fetch_puzzle
 import genius_puzzles
 import groups
 import parse_timesforthetimes as tftt
+import puzzle_paths
 from normalise_linked_enumerations import continuation_target, resolve_groups
 
 fails = []
@@ -96,7 +96,7 @@ check("preamble_of: a real note stays",
 # The corpus: no nation light sits in a group whose clue has words of its own
 # after "See N" — that is a clue, not a continuation leg.
 bad, seen = [], 0
-for path in sorted(glob.glob("puzzles/nation/*/*.json")):
+for path in puzzle_paths.puzzle_files("nation"):
     puzzle = json.load(open(path))
     by_id = {groups.entry_id(e): e for e in puzzle.get("entries") or []}
     for e in by_id.values():

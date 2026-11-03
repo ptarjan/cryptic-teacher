@@ -225,7 +225,7 @@ def main(argv=None):
     ap.add_argument("files", nargs="*")
     args = ap.parse_args(argv)
     paths = [Path(a) for a in args.files] or (
-        sorted(puzzle_paths.PUZZLE_DIR.glob("*/*/*.json"))
+        puzzle_paths.puzzle_files()
         + sorted((puzzle_paths.PUZZLE_DIR.parent / "clues_only").glob("**/*.json")))
     files = clues = quoted = 0
     for path in paths:

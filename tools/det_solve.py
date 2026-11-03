@@ -31,6 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 import det_synonyms  # the synonym dictionary: sources, ranking, leaf coverage
+import puzzle_paths
 CACHE = Path.home() / ".cache" / "detsolve"
 SERIES = ("times", "sundaytimes", "timesjumbo", "timesquick", "timesclub")
 LINK = {"and", "with", "then", "by", "to", "for", "of", "on", "in", "from", "is", "has", "gets", "get", "given",
@@ -87,7 +88,7 @@ def load_corpus(force=False):
     if f.exists() and not force:
         return json.load(gzip.open(f, "rt"))
     CACHE.mkdir(parents=True, exist_ok=True)
-    paths = sorted(glob.glob(str(ROOT / "puzzles" / "*" / "*" / "*.json")))
+    paths = [str(p) for p in puzzle_paths.puzzle_files()]
     from multiprocessing import Pool
     with Pool(min(8, os.cpu_count() or 2)) as pool:
         rows = [r for part in pool.imap(_load_one, paths, chunksize=64) for r in part]

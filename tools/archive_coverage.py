@@ -35,6 +35,7 @@ import canberra_london_numbers
 import downloads
 import fetch_archive_org_editions as fetcher
 import media_manifest
+import puzzle_paths
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -123,7 +124,7 @@ def corpus(series):
     except (OSError, ValueError):
         cache = {}
     fresh, by_date, by_number = {}, {}, {}
-    for path in sorted((ROOT / "puzzles" / series).glob("*/*.json")):
+    for path in puzzle_paths.puzzle_files(series):
         try:
             st = path.stat()
         except OSError:

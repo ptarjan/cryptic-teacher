@@ -42,6 +42,8 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import puzzle_paths
+
 REPO = pathlib.Path(__file__).resolve().parent.parent
 LINE = re.compile(r"^\s+(\d+-(?:across|down)): the wordplay does not give ([A-Z]+): "
                   r"(.*?) gives (.*?); the answer needs (.*)$", re.M)
@@ -100,7 +102,7 @@ def _wordplay():
 
 
 def puzzle_index():
-    return {pathlib.Path(f).stem: f for f in glob.glob(str(REPO / "puzzles" / "*" / "*" / "*.json"))}
+    return {f.stem: str(f) for f in puzzle_paths.puzzle_files()}
 
 
 def clue_text(index, pid, eid):

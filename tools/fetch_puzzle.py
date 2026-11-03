@@ -4132,7 +4132,7 @@ LATEST_GAP_FILL = 8
 
 def newest_held(series):
     """The highest number of `series` on disk, or None."""
-    nums = [int(m.group(1)) for f in puzzle_paths.PUZZLE_DIR.glob(f"{series}/*/{series}-*.json")
+    nums = [int(m.group(1)) for f in puzzle_paths.puzzle_files(series)
             if (m := re.fullmatch(rf"{series}-(\d+)", f.stem))]
     return max(nums, default=None)
 

@@ -33,6 +33,7 @@ from pathlib import Path
 import numpy as np
 
 import trove_solution_ocr as T
+import puzzle_paths
 
 G, S = T.GLYPH, T.GLYPH_SHIFT
 
@@ -57,7 +58,7 @@ def harvest(out, origins, min_date="", start=0, step=1, limit=None):
     fa.CROPS = out
     real = fa.trove_solution_ocr.read_answers
     fa.trove_solution_ocr.read_answers = lambda *a, **k: ({}, {"blocks": 1.0})
-    files = {Path(f).stem: f for f in glob.glob(str(T.TOOLS.parent / "puzzles" / "times" / "*" / "*.json"))}
+    files = {f.stem: str(f) for f in puzzle_paths.puzzle_files("times")}
     heads, last = {}, {}
     try:
         for paper in (fa.TIMES, fa.GALE):
