@@ -2350,8 +2350,11 @@ def write(best, series, spool, previous=None):
     """Lay out the published lines `spool` holds for `best`, extract's joins:
     one sidecar a puzzle (tools/blog_store.py; only those whose bytes moved are
     rewritten, those that lost their facts deleted), and the leads file.
-    `previous`: the letter pass is skipped, so a puzzle keeps the inferred
-    fields of the sidecar it has (regrafted) where the blogs' side is unchanged."""
+    `previous`: a puzzle keeps the inferred fields of the sidecar it has (regrafted)
+    where the blogs' side is unchanged. Always passed: a letter pass that is put off,
+    out of memory or killed (rc 75, 137) leaves these files as this write made them, and
+    the next unit's commit takes them, so a blogs-only write would commit every
+    inferred type, block and definition away (11-03: 59042892, smoke_test red)."""
     import blog_store
     OUT.mkdir(parents=True, exist_ok=True)
     held = blog_store.files() if previous else {}
@@ -2549,7 +2552,7 @@ def main():
     # blogs, or from a dump, is not the nightly and never stamps the day.
     nightly = not (args.blog or args.from_dump)
     skip_letters = nightly and not args.letter_pass and not letter_pass_due()
-    print(f"wrote blog facts for {write(best, series, spool, previous=skip_letters)} puzzles to {OUT.relative_to(ROOT)}")
+    print(f"wrote blog facts for {write(best, series, spool, previous=True)} puzzles to {OUT.relative_to(ROOT)}")
     if skip_letters:
         print(f"letter pass already ran today ({LETTER_STAMP}): inferred fields kept")
         # The same wall and CPU figures a full run's steps print (letter_facts.timed), so the saving can be measured.
