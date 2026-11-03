@@ -73,8 +73,9 @@ qr.js                                          the QR encoder, drawn in the page
                                                image service
 idx.js                                         the browser's decoder for the progressive puzzle
                                                index (puzzles/idx/): rebuilds index.json's rows
-                                               from head-static, head-live and the shards; not
-                                               loaded by any page yet
+                                               from head-static, head-live and the shards;
+                                               app.js's loadShards calls it, and index.html
+                                               loads it ahead of app.js
 inflate.js                                     gunzip for the browsers without
                                                DecompressionStream, loaded only when one has to
                                                inflate a gzipped puzzle by hand
@@ -2933,6 +2934,13 @@ tests/test_ocr_text_central.py                 does any source reader or fetcher
                                                table) instead of tools/clue_text.py?
 
 building and checking the site
+tests/test_progressive_list.js                 does the page fetch the puzzle list only as it
+                                               is needed: a head-only boot searched for "281
+                                               genius" fetches just the genius shards, the rest
+                                               follows, the memo caches (setter suggestions,
+                                               paper menu) are rebuilt after a merge, and a
+                                               failed shard or a missing puzzles/idx falls back
+                                               to index.js
 tests/test_idx_decoder.js                      does idx.js decode what tools/index_idx.py
                                                writes (head-static, head-live, every shard, the
                                                bundle) back into index.json's rows, v to 5

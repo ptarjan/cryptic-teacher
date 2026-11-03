@@ -238,8 +238,10 @@ def build(index):
                 recent=[dict(compact_row(r, ctx), k=r["series"]) for r in listed[:RECENT]],
                 counts={k: dict(sorted(v.items())) for k, v in counts.items()},
                 manifest=manifest)
+    bname = f"bundle.{_hash(_dump(manifest))}.json"
+    live["bundle"] = bname
     files["head-live.json"] = _dump(live)
-    files[f"bundle.{_hash(_dump(manifest))}.json"] = _dump(bundle)
+    files[bname] = _dump(bundle)
     return files
 
 
