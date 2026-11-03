@@ -138,6 +138,20 @@ bag = clue_bag.bag_of("b1", ["big", "b2", "none", "b3"], {}, Path(tempfile.mkdte
 check("blog bag skips a puzzle over MAX_DUE and one with nothing due", bag == ["b1", "b2", "b3"] and counts == {"b1": 2, "b2": 1, "b3": 1})
 check("a blog leader with too many clues runs alone", clue_bag.bag_of("big", ["b1"], {}, Path("/nonexistent"), Path("/nonexistent"), due=blogdue) == ["big"])
 
+print("a field backfill (CT_BACKFILL_FIELD) bags the puzzles short of the field, 1..MAX_DUE clues each")
+fieldn = {"f1": 2, "f2": 1, "big": 25, "none": 0}
+clue_bag.field_clues = lambda pid: fieldn.get(pid, 0)
+counts = {}
+bag = clue_bag.bag_of("f1", ["big", "none", "f2"], {}, Path(tempfile.mkdtemp()), Path(tempfile.mkdtemp()),
+                      due=clue_bag.field_tail_due, counts=counts)
+check("field bag skips a puzzle over MAX_DUE and one with nothing due", bag == ["f1", "f2"] and counts == {"f1": 2, "f2": 1})
+check("a field leader with a whole puzzle's clues runs alone, through the same path",
+      clue_bag.bag_of("big", ["f1"], {}, Path("/nonexistent"), Path("/nonexistent"), due=clue_bag.field_tail_due) == ["big"])
+held = Path(tempfile.mkdtemp())
+(held / "f2.sid").write_text("x")
+check("a field puzzle a conversation holds is left alone",
+      clue_bag.bag_of("f1", ["f2"], {}, held, Path(tempfile.mkdtemp()), due=clue_bag.field_tail_due) == ["f1"])
+
 print("the bag is committed per puzzle: the worker's side is in tests/test_puzzle_worker.sh")
 print("clue_bag: all checks passed" if not fails else f"clue_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)

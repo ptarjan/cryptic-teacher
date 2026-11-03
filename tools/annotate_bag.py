@@ -18,6 +18,8 @@ bag has ONE view and ONE annotations file:
          A blog re-check bag (CT_BLOG_RECHECK) lists, per puzzle, the clues its blog
          disagrees on (`blogFlagged`) with our hint beside them (`ourAnnotations`); a clue
          whose hint stands is filed in the puzzle's "_keep" object (blog_compare.keep_ours).
+         A field backfill bag (CT_BACKFILL_FIELD, e.g. indicators.note) lists the clues short
+         of the field (`fieldMissing`) with the hint on file beside them (`ourAnnotations`).
   check  FILE is one object {puzzle id: {entry id: annotation}}. Each puzzle's
          part is split to its own tools/_ann_<id>.json and annotate_check.main
          runs on it as it always did; a clean puzzle prints one line, a failing
@@ -88,6 +90,11 @@ def puzzle_block(pid, view):
                    + " ## ".join(f"{c}: {w}" for c, w in blog.items())
                    + ". Solve each fresh; if the blog is right write the corrected annotation, "
                    "if ours stands list it under \"_keep\" (see the bag's head); the blog can be wrong, never copy its wording")
+    missing = view.get("fieldMissing")
+    if missing:  # field backfill clues (annotate_check.field_due): what each lacks; ourAnnotations has the hint
+        out.append("lacks a field its hint must have (ourAnnotations, below), clue by clue: "
+                   + " ## ".join(f"{c}: {w}" for c, w in missing.items())
+                   + ". Write the hint on file again with that added and nothing else changed")
     keep = view.get("keepWords")
     if keep:  # the words the redo gate refuses to lose (annotate_check.keep_words)
         out.append("keep these words in the new tree unless wrong: "
@@ -264,6 +271,24 @@ def blog_left(pid):
             + ". Fix each (a patch) or list it under \"_keep\" with why ours stands.")
 
 
+def field_left(pid):
+    """A field backfill clue (CT_BACKFILL_FIELD) still lacking the field: the report line for
+    it, or "". Nothing outside that pool."""
+    import annotate_check
+    if not os.environ.get("CT_BACKFILL_FIELD"):
+        return ""
+    from fetch_puzzle import resolve_puzzle
+    try:
+        left = annotate_check.field_due(annotate_check.read_puzzle_file(resolve_puzzle(pid)))
+    except (SystemExit, OSError, ValueError, KeyError):
+        return ""
+    if not left:
+        return ""
+    return (f"{pid}: still lacking {os.environ['CT_BACKFILL_FIELD']} on "
+            + "; ".join(f"{c}: {' | '.join(w)}" for c, w in left.items())
+            + ". Add it to each (a patch).")
+
+
 def check(path):
     path = Path(path)
     first = path.stem.removeprefix("_ann_bag_")
@@ -287,7 +312,7 @@ def check(path):
         rc, text, state = run_one(pid)
         if kept_msgs:
             text, state, rc = "\n".join(kept_msgs) + "\n" + text, "failing", rc or 1
-        elif state != "failing" and (left := blog_left(pid)):
+        elif state != "failing" and (left := blog_left(pid) or field_left(pid)):
             text, state, rc = left, "failing", 1
         gate = bag_redo_gate(pid, part) if state != "failing" else []
         # a clue the apply step already left out is reported above; the gate would

@@ -519,7 +519,8 @@ def redo_adds_nothing(old, new, reason=None):
     """True when the redo `new` of the hint `old` is the same tree and letters
     in other words (or not different at all): the old hint stays, byte for
     byte (10-16..18: ~6% of reruns). A clue listed for its prose is exempt."""
-    if not old or not new or any(r in str(reason or "") for r in PROSE_REASONS):
+    if (not old or not new or os.environ.get("CT_BACKFILL_FIELD")  # a field backfill adds what bones() ignore
+            or any(r in str(reason or "") for r in PROSE_REASONS)):
         return False
     return bones(old) == bones(new)
 
