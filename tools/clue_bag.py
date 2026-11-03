@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Which tail puzzles one annotate session takes together: a bag.
 
-    ids | python3 tools/clue_bag.py [--due] [--any-listed] RUNS_DIR LEADER [RESUME_DIR]
+    ids | python3 tools/clue_bag.py [--due] [--any-listed] [--spread SLOTS] RUNS_DIR LEADER [RESUME_DIR]
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
@@ -24,7 +24,9 @@ due add up to BAG_TARGET (the last one added may pass it; there is no hard
 cap: with MAX_DUE 10 a bag runs 30 to 39 clues). MAX_DUE is 10 because, over the
 shape redo queue (34,292 clues in 11,680 puzzles), cutoff 5 costs ~172M tokens
 with 1,498 puzzles solo, 10 costs ~147M with 191 solo, 15 only ~145M, and at 10
-every bag still mixes at least three puzzles. Whole puzzles only, so a linked group ("see 5") is never split: a puzzle's
+every bag still mixes at least three puzzles. With --spread SLOTS (the burn's
+free runs) the target drops to the tails' clues left over SLOTS, never below
+MIN_TARGET, so the last of a list fills the width instead of one slot. Whole puzzles only, so a linked group ("see 5") is never split: a puzzle's
 due clues are what annotate_check.to_write lists, groups whole.
 
 A puzzle is bagged only when it is partly hinted (or hinted with a few clues on the shape redo list) with at most MAX_DUE clues due,
@@ -40,6 +42,7 @@ from pathlib import Path
 
 BAG_TARGET = 30
 MAX_DUE = 10
+MIN_TARGET = 6  # --spread never shrinks a bag below this many clues
 SCAN = 3000  # queue entries looked at past the leader; tails sit at its head
 
 
@@ -138,9 +141,33 @@ def held_in_bags(runs):
     return {line.strip() for b in Path(runs).glob("*.bag") for line in b.read_text().splitlines() if line.strip()}
 
 
+def est_due(pid, row):
+    """The clues a candidate has due by the index and the shape list alone (no
+    file read), 0 when it is no tail: what spread_target adds up."""
+    if not row_is_tail(row):
+        return 0
+    return row.get("unannotated", 0) + redo_due(pid)
+
+
+def spread_target(leader, queue, rows, slots, target=BAG_TARGET, least=MIN_TARGET):
+    """The bag target with `slots` free runs to fill: the tails' clues left
+    (leader and queue[:SCAN]) shared over the slots, between `least` and `target`.
+    A full bag is cheapest per clue, but one bag of the last 30 clues holds one
+    slot of 14 while the rest idle; with the week's quota to spend, width wins."""
+    if slots <= 1:
+        return target
+    total = est_due(leader, rows.get(leader)) + sum(est_due(p, rows.get(p)) for p in queue[:SCAN])
+    return max(least, min(target, -(-total // slots)))
+
+
 def main(argv):
     with_due = "--due" in argv
     any_listed = "--any-listed" in argv
+    slots = 1
+    if "--spread" in argv:
+        i = argv.index("--spread")
+        slots = int(argv[i + 1])
+        del argv[i:i + 2]
     argv = [a for a in argv if a not in ("--due", "--any-listed")]
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
@@ -153,7 +180,8 @@ def main(argv):
         queue = with_listed(queue, shape_queue.puzzle_ids(), held_in_bags(argv[0]))
     resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
     counts = {}
-    bag = bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir, counts=counts)
+    target = spread_target(argv[1], queue, rows, slots)
+    bag = bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir, target=target, counts=counts)
     print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
     return 0
 

@@ -543,6 +543,18 @@ pool_nothing_due() {
   [ "${NOTHING_DUE[$id]:-0}" = 1 ]
 }
 
+# The commit prefix for $1: the pool's own, except in the shape sweep (shape_widen),
+# where each puzzle is named by the rule that listed it, not by the rule whose
+# pool happened to take the whole list, so "Backfill <rule> for" counts stay true.
+pool_what() {
+  local rule="${SHAPE_RULE_OF[$1]:-}"
+  if [ -n "$rule" ] && [[ $WAVE_WHAT == "Backfill wordplay."* ]]; then
+    echo "Backfill $rule for"
+  else
+    echo "$WAVE_WHAT"
+  fi
+}
+
 pool_launch() {
   local id="$1" prompt wait_us fill=""
   # A clue list no grid can hold is recorded, not solved (worker_implausible);
@@ -560,7 +572,7 @@ pool_launch() {
   local again=""
   # A run the restart stopped: its files back, and the note to resume it with.
   [ -s "/tmp/ct-prereset-$id.resume" ] ||
-    worker_put_back "$id" "$WAVE_WHAT" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" >/dev/null
+    worker_put_back "$id" "$(pool_what "$id")" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" >/dev/null
   [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
   pool_bag "$id"
   pool_mark
@@ -571,9 +583,10 @@ pool_launch() {
     again="$again, solving it first"
     fill="$RUNS/$id.fill"
   fi
-  prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
+  prompt="${POOL_TMPL//@RULE@/$(bag_rule "$id")}"
+  prompt="${prompt//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
   prompt="${prompt//@/$id}"
-  [ -s "$RUNS/$id.bag" ] && prompt=$(bag_prompt "$RUNS/$id.bag")
+  [ -s "$RUNS/$id.bag" ] && prompt=$(bag_prompt "$RUNS/$id.bag" "$id")
   # The run leaves its status in a file too, for a shell that re-execed while
   # it ran and so cannot wait for it (pool_reap).
   rm -f "/tmp/ct-prereset-$id.rc"
@@ -581,6 +594,7 @@ pool_launch() {
   [ -n "$fill" ] && POOL_SOLVING[$!]=1
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
+  ROUND_LAUNCHED=$((ROUND_LAUNCHED + 1))
   echo "  [$id] started$again"
 }
 
@@ -595,7 +609,7 @@ bag_prompt() {
   ids=$(tr '\n' ' ' <"$1")
   tmpl="${tmpl//@FIRST@/$(head -n1 "$1")}"
   tmpl="${tmpl//@IDS@/${ids% }}"
-  rule=$(bag_rule)
+  rule=$(bag_rule "${2:-}")
   if [ "$rule" != annotate ]; then
     tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks a shape rule (a validator check, not a field to add; this pool drains \`$rule\`, and the bag takes other rules' clues too), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
   fi
@@ -603,10 +617,13 @@ bag_prompt() {
 }
 
 # What a bag of the pool running now works on, as burn_log.py names it: "annotate",
-# or the backfill's shape rule (wordplay.<rule>).
+# or the backfill's shape rule (wordplay.<rule>); with a puzzle id $1, that
+# puzzle's own rule in the shape sweep (pool_what).
 bag_rule() {
-  local rule="${WAVE_WHAT#Backfill }"
-  [ "$rule" = "$WAVE_WHAT" ] && { echo annotate; return; }
+  local what rule
+  what=$(pool_what "${1:-}")
+  rule="${what#Backfill }"
+  [ "$rule" = "$what" ] && { echo annotate; return; }
   echo "${rule% for}"
 }
 
@@ -637,7 +654,13 @@ pool_bag() {
     [ -s "/tmp/ct-prereset-$id.resume" ] && return 0
     # A shape-rule bag fills from every listed puzzle, not just this rule's queue (clue_bag.py --any-listed).
     local any=()
-    [ "$(bag_rule)" = annotate ] || any=(--any-listed)
+    # A shape bag shrinks to the free slots, this one among them: a bag of 30
+    # clues when the whole list left is 30 holds one slot while the rest idle
+    # (11-03 11:33-11:49, one bag of 30 puzzles at width 14). Not Annotate's: its
+    # whole puzzles fill the other slots.
+    local free=$(( ${wide:-1} - ${#POOL_RUNS[@]} ))
+    [ "$free" -ge 1 ] || free=1
+    [ "$(bag_rule)" = annotate ] || any=(--any-listed --spread "$free")
     ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" |
       python3 tools/clue_bag.py --due ${any[@]+"${any[@]}"} "$RUNS" "$id") || return 0
     [ "$(wc -l <<<"$ids")" -gt 1 ] || return 0
@@ -655,7 +678,7 @@ pool_bag() {
   fi
   queue=("${queue[@]:0:$((at + 1))}" ${kept[@]+"${kept[@]}"})
   size=$(( $(wc -l <"$RUNS/$id.bag") ))
-  echo "  [$id] bag of $size puzzles${due:+, $due clues}: $(bag_rule) — with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
+  echo "  [$id] bag of $size puzzles${due:+, $due clues}: $(bag_rule "$id") — with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
 }
 
 # Whether an adopted run has ended: its status file is written, or it is gone
@@ -730,7 +753,7 @@ pool_reap() {
     # Cut off, most likely by a lockout, before its fill went in: requeued to
     # resume that conversation, its fill as it left it.
     if [ "$rc" -ne 0 ] && [ -z "$(git --no-optional-locks status --porcelain -- "$(puzzle_spec "$id")")" ]; then
-      handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
+      handle_failed_run "$id" "$(pool_what "$id")" && WAVE_FAILED_IDS+=("$id")
       return
     fi
     solve_applied "$id" || return
@@ -738,9 +761,9 @@ pool_reap() {
   if [ "$rc" -eq 0 ]; then
     # The run's closing words are a one-line sign-off (tools/annotate_prompt.md); the outcome
     # is the commit line below, and a withdrawal or failure says its own reason.
-    commit_puzzle "$id" "$WAVE_WHAT"
+    commit_puzzle "$id" "$(pool_what "$id")"
   else
-    handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
+    handle_failed_run "$id" "$(pool_what "$id")" && WAVE_FAILED_IDS+=("$id")
   fi
 }
 
@@ -1055,7 +1078,8 @@ SHELL_SUM=$(shell_sum)
 REEXEC_VARS=(queue at requeued resumed WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
   POOL_REORDER POOL_PLANNED POOL_RUNS POOL_SOLVING POOL_RUN_US POOL_MARK_US POOL_STARTED_US
   POOL_SYNCED_US SYNC_OK_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE wide
-  resets_in RESET_AT STOP_AT POOL_PHASE fields field_i burn_stopped)
+  resets_in RESET_AT STOP_AT POOL_PHASE fields field_i burn_stopped
+  SHAPE_RULE_OF SHAPE_SWEPT ROUND_LAUNCHED BURN_ROUND annotate_stopped)
 reexec_self() {
   local state="$RUN_LOG.state" err
   # New code that does not parse would kill the burn with its runs in flight.
@@ -1460,12 +1484,69 @@ commit_puzzle() {
   esac
 }
 
+# The shape rules drain as one pool, not one pool each. Each rule's own list,
+# less what the bags already took, held 0-7 puzzles (11-03 11:04-11:52: 18 rule
+# pools, 8 empty), and the first launch's bag (clue_bag.py --any-listed, 30
+# clues) took all of them, so each pool ran one bag at a time: 1.12 runs in
+# flight on average against a width of 10.1, with 1,041 puzzles still listed
+# across the rules. So the first shape rule's queue is every listed puzzle not
+# already in flight, $1's own first, then each rule's in key order, and the
+# rules after it this round find nothing left. Each puzzle keeps the rule that
+# listed it for its commit line (SHAPE_RULE_OF, pool_what).
+shape_widen() {
+  local lead="$1" id rule n=0
+  local -A have=()
+  for id in "${queue[@]:$at}" "${POOL_RUNS[@]}" $(cat "$RUNS"/*.bag 2>/dev/null); do have[$id]=1; done
+  while read -r id rule; do
+    [ -n "$id" ] && [ -z "${have[$id]:-}" ] || continue
+    have[$id]=1
+    queue+=("$id")
+    SHAPE_RULE_OF[$id]=$rule
+    n=$((n + 1))
+  done < <(python3 - "$lead" <<'PY'
+import json, sys
+sys.path.insert(0, "tools")
+import shape_queue
+lead = sys.argv[1]
+listed = shape_queue.puzzle_ids()
+backlog = json.load(open("tools/annotation_backlog.json"))
+rules = sorted((k for k in backlog if k.startswith("wordplay.") and k != "wordplay.unchecked"),
+               key=lambda k: k != lead)
+seen = set()
+for rule in rules:
+    for pid, _ in sorted(backlog[rule].items(), key=lambda kv: kv[1]):
+        if pid in listed and pid not in seen:
+            seen.add(pid)
+            print(pid, rule)
+for pid in sorted(listed - seen):
+    print(pid, lead)
+PY
+)
+  SHAPE_SWEPT=1
+  echo "  $lead: the whole shape list drains in this pool — $n more puzzles from the other rules, $(( ${#queue[@]} - at )) queued"
+}
+
+# The Annotate queue, as at the start: tools/prereset_plan.py's backlog().
+read_annotate_backlog() {
+  local annotate_blocked solve_blocked
+  echo "un-annotated backlog, newest first:"
+  annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
+  solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
+  queue=($(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked"))
+  at=0
+}
+
 if ! command -v claude >/dev/null 2>&1; then
   echo "ERROR: claude CLI not on PATH ($PATH) — nothing to do."
   exit 1
 fi
 
-POOL_PHASE="" fields=() field_i=0 burn_stopped=0
+POOL_PHASE="" fields=() field_i=0 burn_stopped=0 annotate_stopped=0
+# The shape sweep (shape_widen) and the rounds (the loop below): a shell
+# re-execed from code before them starts a round with them at these values.
+declare -A SHAPE_RULE_OF=()
+SHAPE_SWEPT=0 BURN_ROUND=1
+ROUND_LAUNCHED=1  # a round counts as busy until one has launched nothing
 if [ -n "$REEXEC_STATE" ]; then
   reexec_load "$REEXEC_STATE" || { alert "the pre-reset backfill re-execed but could not read its state $REEXEC_STATE — stopping; the runs it had in flight resume at the next start."; exit 1; }
   # The width and the queue now, so the human log's restart line comes with a full status.
@@ -1506,12 +1587,7 @@ fi
 # backlog(). A puzzle without all its answers is solved cold by the run that
 # annotates it (pool_launch): its clues are all a puzzle has to come with. A puzzle
 # held as its clues alone is queued too; its solve files its grid.
-echo "un-annotated backlog, newest first:"
-annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
-solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
-todo=$(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked")
-queue=($todo)
-at=0
+read_annotate_backlog
 fi
 
 # Not "Guardian crossword": the queue spans every series. The puzzle file
@@ -1530,11 +1606,17 @@ ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers 
 # reason daily_update.sh does it: the run should not have to grep for a rule.
 python3 "$REPO/tools/build_annotate_prompt.py"
 
+# Rounds: Annotate, the field and shape backfills, the blog re-check, and then
+# Annotate again while the deadline is ahead. A burn used to make one pass:
+# 11-03 09:2x an Annotate pool that bailed on a bad width (37fb42e60bc, fixed in
+# 3eb60373a36) left 35,142 puzzles queued, and the burn spent the rest of the
+# week's window on backfill lists a bag or two long, never coming back to them.
+while :; do
 # Reordered at every checkpoint (pool_interval_start). A stop here still runs
 # the backfills below, which stop at once if it was the deadline.
 if [ "$POOL_PHASE" = "" ] || [ "$POOL_PHASE" = annotate ]; then
   POOL_PHASE=annotate
-  [ ${#queue[@]} -gt 0 ] && run_pool "Annotate" "$ANNOTATE_PROMPT" 1
+  if [ ${#queue[@]} -gt 0 ]; then run_pool "Annotate" "$ANNOTATE_PROMPT" 1 || annotate_stopped=1; fi
   # Read here, so a re-exec in the field backfills keeps the list it was
   # draining.
   fields=($(python3 -c 'import json;print(" ".join(k for k in json.load(open("tools/annotation_backlog.json")) if not k.startswith("_")))'))
@@ -1552,6 +1634,20 @@ fi
 # tools/validate_annotations.py (write_backlog writes them so).
 for ((; field_i < ${#fields[@]}; field_i++)); do
   field=${fields[$field_i]}
+  shape=0
+  [[ $field == wordplay.* && $field != wordplay.unchecked ]] && shape=1
+  # The shape sweep took every rule's puzzles this round (shape_widen).
+  if [ "$shape" = 1 ] && [ "$SHAPE_SWEPT" = 1 ] && [ "$POOL_PHASE" != "$field" ]; then
+    echo "($field: drained with the shape sweep this round)"
+    continue
+  fi
+  # A field (not a shape rule) list is what tools/annotation_backlog.json held at
+  # the start, re-read only by the --tighten after the last round: a later round
+  # would redo the puzzles the first one filled.
+  if [ "$shape" = 0 ] && [ "$BURN_ROUND" -gt 1 ] && [ "$POOL_PHASE" != "$field" ]; then
+    echo "($field: drained in round 1; its list is re-read at the next start)"
+    continue
+  fi
   # Smallest backlog first: with an unknown amount of quota left, finishing four
   # puzzles beats getting most of the way through one.
   nums=$(python3 -c 'import json,sys
@@ -1599,7 +1695,7 @@ p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))
   # "Add the missing wordplay.anaStandIn" read as a field to add, and runs said
   # there was none and stopped (7 of 27 no-change runs had a clue listed).
   [[ $field == wordplay.* ]] &&
-    prompt="In this repo, the annotated crossword @ (@PATH@) has hints whose wordplay tree breaks the shape rule \`$field\` (a validator check, not a field to add). Run python3 tools/annotate_check.py --view @: the entries it lists under \`flagged\` in tools/_puzzle_@.json are the ones to redo. Write a new annotation for each as the view says, following tools/annotate_prompt.md (appended to your system prompt), and change nothing else. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+    prompt="In this repo, the annotated crossword @ (@PATH@) has hints whose wordplay tree breaks the shape rule \`@RULE@\` (a validator check, not a field to add). Run python3 tools/annotate_check.py --view @: the entries it lists under \`flagged\` in tools/_puzzle_@.json are the ones to redo. Write a new annotation for each as the view says, following tools/annotate_prompt.md (appended to your system prompt), and change nothing else. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   # The field a re-exec came back into keeps its queue.
   if [ "$POOL_PHASE" != "$field" ]; then
     POOL_PHASE=$field
@@ -1616,7 +1712,10 @@ p = shape_queue.puzzle_ids(); print("\n".join(n for n in sys.stdin.read().split(
     [ ${#kept[@]} -lt $(( ${#queue[@]} - at )) ] &&
       echo "$field: $(( ${#queue[@]} - at - ${#kept[@]} )) carried-over puzzles have no clue on the shape list — dropped from the queue"
     queue=("${queue[@]:0:$at}" ${kept[@]+"${kept[@]}"})
+    # The prompt as this code words it (@RULE@ per puzzle), not as the pool began.
+    POOL_TMPL=$prompt
   fi
+  [ "$shape" = 1 ] && [ "$SHAPE_SWEPT" != 1 ] && shape_widen "$field"
   if [ ${#queue[@]} -gt 0 ]; then
     run_pool "Backfill $field for" "$prompt" || { burn_stopped=1; break; }
   fi
@@ -1638,8 +1737,24 @@ if [ "$burn_stopped" = 0 ] && ! past_deadline; then
     echo "blog re-check backlog: ${#queue[@]} puzzles"
   fi
   BLOG_PROMPT="In this repo, the annotated crossword @ (@PATH@) has clues whose definition, type or building blocks disagree with what its blog marked: run python3 tools/annotate_check.py @ and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in @PATH@ (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep @ <entry id> <definition|type|blocks> \"<one sentence: why ours stands>\". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py @ until no blog warning is left and it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
-  [ ${#queue[@]} -gt 0 ] && run_pool "Re-check against its blog:" "$BLOG_PROMPT"
+  [ ${#queue[@]} -gt 0 ] && { run_pool "Re-check against its blog:" "$BLOG_PROMPT" || burn_stopped=1; }
 fi
+
+# --- 4. the next round ---------------------------------------------------------
+# Back to Annotate, its backlog read again, while the deadline is ahead and
+# nothing said stop. A round that launched nothing ends the burn: the backlog
+# read again would launch nothing either.
+[ "$DRY_RUN" = 1 ] && break
+[ "$burn_stopped" = 0 ] && [ "$annotate_stopped" = 0 ] && ! past_deadline || break
+[ "$ROUND_LAUNCHED" -gt 0 ] || { echo "=== round $BURN_ROUND launched nothing: done ==="; break; }
+BURN_ROUND=$((BURN_ROUND + 1))
+ROUND_LAUNCHED=0
+SHAPE_SWEPT=0
+SHAPE_RULE_OF=()
+echo "=== round $BURN_ROUND: back to the un-annotated backlog ==="
+read_annotate_backlog
+POOL_PHASE=annotate
+done
 
 if [ "$DRY_RUN" = 1 ]; then
   echo "=== dry run — nothing spent, nothing built, nothing committed $(date '+%H:%M') ==="
