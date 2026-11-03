@@ -85,7 +85,7 @@ try:
     def unstamped():
         page = (scratch / "index.html").read_text()
         print("unstamped" if not w.stamps(page) else "still stamped", len(w.want_stamps()))
-    check("the expected stamps come from the assets, not from the page", section(unstamped), "unstamped 2")
+    check("the expected stamps come from the assets, not from the page", section(unstamped), "unstamped 8")
 
     print("no verdict is reached without reading the live page")
 
