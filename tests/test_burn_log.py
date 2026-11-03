@@ -29,13 +29,13 @@ def bare(lines):  # without the HH:MM stamp
 
 WIDTH = ("width 15 (cap: memory 15, cpu —, load 20, quota pace 22) · weekly 98% now, 19.4h to its reset, "
          "aiming 19.40h out; bridge 2.1 pts/h; was 21")
-check(bare(run([WIDTH])), ["── 15 at once (limit: memory) · 0 done last hour · week 98% used, resets in 19h"],
+check(bare(run([WIDTH])), ["── 15 at once (memory) · 0 done/h · weekly 98% used"],
       "a width line becomes a status line naming the cap that binds")
 check(bare(run(["width 22 (cap: memory 22, cpu —, load —, quota pace 22) · weekly 50% now, 80.0h to its reset"])),
-      ["── 22 at once (limit: memory) · 0 done last hour · week 50% used, resets in 80h"],
+      ["── 22 at once (memory) · 0 done/h · weekly 50% used"],
       "a tie between caps names the first in order")
 check(bare(run(["width 0 (cap: memory 0, cpu —, load —, quota pace 0) · weekly 100% now, 3.0h to its reset"])),
-      ["── paused: week 100% used, resets in 3h"], "width 0 with the week spent is a pause")
+      ["── paused: weekly 100% used, resets in 3h"], "width 0 with the week spent is a pause")
 check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
 
 check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 hints written"], "annotate commit")
@@ -56,16 +56,46 @@ noise = ["annotation loss check: 1 puzzle(s), none left short", "push_puzzle_com
          "(JSON: `entries` is a list of strings", "x-1 failed on this puzzle and is skipped until it changes"]
 check(run(noise), [], "debug lines produce nothing")
 
-check(bare(run(["--- pool of 6: 0 in flight (0 running), 0 queued ---"] * 2)), ["── idle: nothing queued"],
-      "idle is said once")
-check(bare(run(["ERROR: boom", "ERROR: boom"])), ["⚠️ ERROR: boom"], "a problem is said once inside the repeat window")
+EMPTY = "--- pool of 6: 0 in flight (0 running), 0 queued ---"
+check(run([EMPTY]), [], "an empty queue for a moment is not idle")
+log = B.Log()
+log.feed(EMPTY, T)
+check(bare(log.feed("sync: tree at x", T + 301)), ["── idle: nothing queued"], "idle after five empty minutes")
+check(log.feed("sync: tree at x", T + 400), [], "idle is said once")
+
+log = B.Log()
+log.feed(WIDTH, T)
+got = []
+for i, line in enumerate(["wordplay.anagramCharade backlog: a-1 a-2", "--- pool of 15: 0 in flight (0 running), 290 queued ---"]):
+    got += log.feed(line, T + 10 + i)
+check(bare(got), ["── next: wordplay.anagramCharade, 290 queued",
+                  "── 15 at once (memory) · 0 done/h · 290 queued · weekly 98% used"],
+      "a switch of backlog is a next: line and a full status line")
 
 log = B.Log()
 got = []
-for i, line in enumerate([WIDTH, "committed Annotate a-1", "committed Annotate b-2"]):
-    got += log.feed(line, T + i)
-got += log.feed("--- pool of 15: 3 in flight (3 running), 9 queued ---", T + 20 * 60)
-check(bare(got)[-1], "── 15 at once (limit: memory) · 2 done last hour · week 98% used, resets in 19h",
-      "the status repeats after 15 minutes when puzzles ended")
+for i in range(15):
+    got += log.feed(f"  [azed-{1000 + i}] started", T + 5 * i)
+got += log.feed("sync: tree at x", T + 200)
+check(bare(got), ["▶ started 15: azed-1000, azed-1001, azed-1002, … (+12)"], "a pool fill is one line")
+log = B.Log()
+log.feed("  [azed-1] started", T)
+check(log.feed("sync: tree at x", T + 200), [], "one or two starts are not a fill")
+
+log = B.Log()
+got = []
+for line in ["=== pre-reset backfill re-execed onto 35ec545 2026-11-03 10:00 ===", WIDTH,
+             "--- pool of 15: 3 in flight (3 running), 40 queued ---", "adopted 3 runs in flight: 1 2 3"]:
+    got += log.feed(line, T)
+check(bare(got), ["── restarted on 35ec545, 3 runs carried on",
+                  "── 15 at once (memory) · 0 done/h · 40 queued · weekly 98% used"],
+      "a restart says so and restates the status at once")
+
+log = B.Log()
+log.feed(WIDTH, T)
+check(bare(log.feed("sync: tree at x", T + 301)), ["── 15 at once (memory) · 0 done/h · weekly 98% used"],
+      "the status is written every five minutes")
+
+check(bare(run(["ERROR: boom", "ERROR: boom"])), ["⚠️ ERROR: boom"], "a problem is said once inside the repeat window")
 
 sys.exit(1 if fails else 0)

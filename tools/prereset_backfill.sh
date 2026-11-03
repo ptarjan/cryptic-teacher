@@ -142,7 +142,7 @@ rm -f "$RUNS/.width_said"  # a new process says its width once
 tee_split() {
   if [ -n "$DEBUG_LOG" ]; then
     export BURN_SPLIT=1
-    exec > >(tee -a "$RUN_LOG" "$DEBUG_LOG" >(python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG") >/dev/null) 2>&1
+    exec > >(tee -a "$RUN_LOG" "$DEBUG_LOG" >(python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG" "$REPO") >/dev/null) 2>&1
   else
     exec > >(tee -a "$RUN_LOG") 2>&1
   fi
@@ -1426,6 +1426,9 @@ fi
 POOL_PHASE="" fields=() field_i=0 burn_stopped=0
 if [ -n "$REEXEC_STATE" ]; then
   reexec_load "$REEXEC_STATE" || { alert "the pre-reset backfill re-execed but could not read its state $REEXEC_STATE — stopping; the runs it had in flight resume at the next start."; exit 1; }
+  # The width and the queue now, so the human log's restart line comes with a full status.
+  wave_width >/dev/null
+  echo "--- pool of ${wide:-0}: ${#POOL_RUNS[@]} in flight ($(pool_live) running), $(( ${#queue[@]} - at )) queued ---"
   echo "adopted ${#POOL_ADOPTED[@]} runs in flight: ${POOL_RUNS[*]}"
 fi
 reload_watch
