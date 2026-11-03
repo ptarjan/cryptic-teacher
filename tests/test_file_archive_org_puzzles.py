@@ -8078,6 +8078,43 @@ check("a misread 1930 number (200 for 209) is the page's solution's next",
 found30["solutions"] = []
 check("with no solution heading to say so it is refused",
       (None, True), (lambda r: (r[0], bool(r[2])))(f.filed_number(d1930, found30, {"number": 200, "leaf": 4})))
+# A 1933 Gale Times page small_titled titled from its heading alone (No 965 over "SOLUTION OF PUZZLE No. 964", read
+# twice): its filed neighbours count to different numbers ([965, 970] on 1933-03-11), and filed_number files the
+# heading's number (small_headed) instead of refusing "fit more than one"; a number far from the date's is not so
+# trusted. SMALL_HEADED is due once for a row refused so before REREAD_SMALL_HEADED.
+_g33 = Path("x/GaleTimes1933UKEnglish/1933-03-11")
+_f33 = {"date": "1933-03-11", "item": "GaleTimes1933UKEnglish", "puzzles": [{"number": 965, "leaf": 0, "fromSolutions": [964]}],
+        "solutions": [{"number": 964, "leaf": 0}]}
+_held_before = f.held_dates
+f.held_dates = lambda series: {975: datetime.date(1933, 3, 17), 960: datetime.date(1933, 3, 6)}
+_far = {"number": 965, "leaf": 0, "fromSolutions": [964]}
+_h33 = f.filed_number(_g33, _f33, _far)
+_why33 = f.solution_title(datetime.date(1933, 3, 11), [964], f.held_dates("times"))
+f.held_dates = _held_before
+check("a 1933 Gale Times page titled by its heading alone files as the heading's next, where the neighbours' count "
+      "refused it (solution_title still does); a heading far from the date's number, a page of 1934 or a Telegraph's is not "
+      "trusted; a Saturday's two headings are",
+      [965, True, True, False, False, False, True],
+      [_h33[0], _why33[0] is None, f.small_headed(f.GALE, datetime.date(1933, 3, 11), _far),
+       f.small_headed(f.GALE, datetime.date(1933, 3, 11), {"number": 301, "leaf": 0, "fromSolutions": [300]}),
+       f.small_headed(f.GALE, datetime.date(1934, 3, 12), {"number": 965, "leaf": 0, "fromSolutions": [964]}),
+       f.small_headed(f.GALE_TELEGRAPH, datetime.date(1933, 3, 11), _far),
+       f.small_headed(f.GALE, datetime.date(1933, 3, 13), {"number": 967, "leaf": 0, "fromSolutions": [962, 966]})])
+_sh = {"edition": "GaleTimes1933UKEnglish/1933-03-11", "scanKey": f.scan_key(f.GALE), "filesHash": "h", "inputs": "h",
+       "readAt": "2026-11-03T06:57:56+00:00",
+       "scan": {"date": "1933-03-11", "item": "GaleTimes1933UKEnglish", f.SMALL_READ: True, "solutions": [],
+                "puzzles": [{"number": 965, "leaf": 0, "fromSolutions": [964]}]},
+       "verdicts": [{"number": 965, "leaf": 0, "cause": "number-date-mismatch",
+                     "refused": "no title read; the solution headings No 964 fit more than one of the numbers the filed neighbours give 1933-03-11: [965, 970]"}]}
+check("a heading-titled 1933 row refused for its neighbours' count is due SMALL_HEADED once; read after the cutoff, "
+      "refused otherwise, of 1934, unstamped or titled outright it is not",
+      [f.SMALL_HEADED, 2, False, False, False, False, False],
+      [f.fix_reason(_sh), f.RANKS[f.SMALL_HEADED],
+       f.small_headed_due({**_sh, "readAt": "2026-11-03T09:00:00+00:00"}),
+       f.small_headed_due({**_sh, "verdicts": [{**_sh["verdicts"][0], "refused": "No 965 is not near"}]}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], "date": "1934-03-11", "item": "GaleTimes1934UKEnglish"}}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], f.SMALL_READ: False}}),
+       f.small_headed_due({**_sh, "scan": {**_sh["scan"], "puzzles": [{"number": 965, "leaf": 0}]}})])
 ft83 = {"date": "1983-02-18", "puzzles": [{"number": 5401, "leaf": 1}], "solutions": []}
 check("an FT title read 5,401 on 1983-02-18 files as 5,101, not refused as misdated",
       (5101, None), f.filed_number(Path("x/FinancialTimes1983UKEnglish/1983-02-18_29003"), ft83,
