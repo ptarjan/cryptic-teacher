@@ -26,7 +26,10 @@ import time
 from zoneinfo import ZoneInfo
 
 ABT = ZoneInfo("America/Edmonton")
-HEARTBEAT_S = 15 * 60
+HEARTBEAT_S = 5 * 60       # the status line is written at least this often
+IDLE_AFTER_S = 5 * 60      # nothing queued this long before the log says "idle"
+FILL_WINDOW_S = 120        # starts this close together are one pool fill
+DONE_KINDS = re.compile(r"^(Annotate|Backfill|Re-check)\b")
 PUZZLE = r"([a-z][a-z0-9]*-\d+)"
 CAP_ORDER = ("load", "cpu", "memory", "quota pace")  # which cap is named when several tie
 PROBLEM = re.compile(
@@ -52,7 +55,15 @@ def stamp(now):
 class Log:
     """Raw burn lines in, human lines out (returned, so a test can read them)."""
 
-    def __init__(self):
+    def __init__(self, repo=None):
+        self.repo = repo          # the burn's worktree: its commits are the done count
+        self.done_cache = (0.0, 0)
+        self.queued = None
+        self.nothing_since = None
+        self.next_work = None     # (name, ids) of the backlog line last seen
+        self.fill = []            # ids started in the pool fill being gathered
+        self.fill_at = 0.0
+        self.restart = None
         self.width = None
         self.limit = None
         self.week = None          # (percent used, hours to reset)
@@ -72,35 +83,72 @@ class Log:
             self.done.append(now)
 
     def last_hour(self, now):
+        """Puzzles committed in the last hour, from the burn's own commit history (a restart
+        loses nothing); the lines this filter saw are the fallback."""
         while self.done and self.done[0] < now - 3600:
             self.done.popleft()
-        return len(self.done)
+        if self.repo and now - self.done_cache[0] >= 60:
+            try:
+                import subprocess
+                res = subprocess.run(["git", "-C", self.repo, "log", "--since=1 hour ago", "--format=%s"],
+                                     capture_output=True, text=True, timeout=20, check=True)
+                self.done_cache = (now, sum(bool(DONE_KINDS.match(x)) for x in res.stdout.splitlines()))
+            except (OSError, ValueError, subprocess.SubprocessError):
+                self.done_cache = (now, -1)
+        return self.done_cache[1] if self.done_cache[1] >= 0 and self.repo else len(self.done)
 
     def status(self, now, force=False):
-        """The width line, when the width or its limit changed or the heartbeat is due."""
-        if self.width is None:
+        """The full status line, whenever the width or its limit changed, five minutes passed,
+        or the caller forces it (after a restart, a "next:" or an "idle:" line)."""
+        if self.width is None or self.restart:  # a restart says its own status first
             return []
         changed = (self.width, self.limit) != self.said_status
-        due = self.outcomes_since and now - self.status_at >= HEARTBEAT_S
-        if not (changed or due or force):
+        if not (changed or force or now - self.status_at >= HEARTBEAT_S):
             return []
-        self.said_status, self.status_at, self.outcomes_since = (self.width, self.limit), now, 0
-        week = ""
-        if self.week:
-            week = f"week {self.week[0]:g}% used, resets in {self.week[1]:.0f}h"
+        self.said_status, self.status_at = (self.width, self.limit), now
+        week = f"weekly {self.week[0]:g}% used" if self.week else None
         if self.width == 0:
             if self.week and self.week[0] >= 99:
-                return [self.out(now, "──", f"paused: {week}")]
+                return [self.out(now, "──", f"paused: {week}, resets in {self.week[1]:.0f}h")]
             return [self.out(now, "──", "waiting: nothing may start right now" + (f" · {week}" if week else ""))]
-        parts = [f"{self.width} at once" + (f" (limit: {self.limit})" if self.limit else ""),
-                 f"{self.last_hour(now)} done last hour"]
+        parts = [f"{self.width} at once" + (f" ({self.limit})" if self.limit else ""),
+                 f"{self.last_hour(now)} done/h"]
+        if self.queued is not None:
+            parts.append(f"{self.queued} queued")
         if week:
             parts.append(week)
         return [self.out(now, "──", " · ".join(parts))]
 
+    def flush_fill(self, now, force=False):
+        """One ▶ line for a pool fill (three or more runs started within FILL_WINDOW_S)."""
+        if not self.fill or not (force or now - self.fill_at >= FILL_WINDOW_S):
+            return []
+        ids, self.fill = self.fill, []
+        if len(ids) < 3:
+            return []
+        more = f", … (+{len(ids) - 3})" if len(ids) > 3 else ""
+        return [self.out(self.fill_at, "▶", f"started {len(ids)}: {', '.join(ids[:3])}{more}")]
+
     def feed(self, line, now=None):
         now = time.time() if now is None else now
         line = line.rstrip("\n")
+        m = re.match(r"^  \[" + PUZZLE + r"\] started", line)
+        if m:
+            if not self.fill:
+                self.fill_at = now
+            self.fill.append(m.group(1))
+            return self.flush_fill(now)
+        return self.flush_fill(now) + self.handle(line, now) + self.idle_check(now)
+
+    def idle_check(self, now):
+        """"idle" only once nothing has been queued for IDLE_AFTER_S: the pool also shows an
+        empty queue for a moment between two backlogs."""
+        if self.nothing_since is None or self.idle or now - self.nothing_since < IDLE_AFTER_S:
+            return []
+        self.idle = True
+        return [self.out(now, "──", "idle: nothing queued")] + self.status(now, force=True)
+
+    def handle(self, line, now):
         m = re.match(r"^width (\d+) \(cap: ([^)]*)\)(?: · (.*))?$", line)
         if m:
             caps = {}
@@ -122,13 +170,31 @@ class Log:
             return []
         m = re.match(r"^--- pool of \d+: (\d+) in flight \(\d+ running\), (\d+) queued", line)
         if m:
-            nothing = m.group(1) == "0" and m.group(2) == "0"
-            if nothing and not self.idle:
-                self.idle = True
-                return [self.out(now, "──", "idle: nothing queued")]
-            if not nothing:
-                self.idle = False
+            self.queued = int(m.group(2))
+            if m.group(1) == "0" and self.queued == 0:
+                self.nothing_since = self.nothing_since or now
+                return self.status(now)
+            self.nothing_since, self.idle = None, False
+            if self.next_work:
+                name, self.next_work = self.next_work[0], None
+                return [self.out(now, "──", f"next: {name}, {self.queued} queued")] + self.status(now, force=True)
             return self.status(now)
+        m = re.match(r"^(\S+) backlog: (.*)$", line)
+        if m:
+            self.next_work = (m.group(1), m.group(2).split())
+            return []
+        if line.startswith("  not a backfill"):
+            self.next_work = None
+            return []
+        m = re.match(r"^=== pre-reset backfill re-execed onto (\w+)", line)
+        if m:
+            self.restart = m.group(1)
+            return []
+        m = re.match(r"^adopted (\d+) runs in flight", line)
+        if m and self.restart:
+            sha, self.restart = self.restart, None
+            self.said_status = (None, None)  # the next width line, or the one known, restates it
+            return [self.out(now, "──", f"restarted on {sha}, {m.group(1)} runs carried on")] + self.status(now, force=True)
         m = re.match(r"^committed (.*)$", line)
         if m:
             msg = m.group(1)
@@ -176,7 +242,7 @@ class Log:
 
 def main(argv):
     path = argv[1]
-    log = Log()
+    log = Log(argv[2] if len(argv) > 2 else None)
     fresh = not os.path.exists(path) or os.path.getsize(path) == 0
     with open(path, "a", buffering=1) as out:
         if fresh:
