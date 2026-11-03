@@ -880,7 +880,7 @@ worker_finish_bag() {   # leader what sidfile log
       return 3
     fi
     case $rc in
-      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
+      0) if [ "${#WORKER_BATCH_IDS[@]}" -gt "$before" ] && [ -z "$WORKER_ROWS_ONLY" ]; then changed=$((changed + 1)); else same=$((same + 1)); fi ;;
       2) again=$((again + 1)); WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m" ;;
       *) lost=$((lost + 1)) ;;
     esac
@@ -928,6 +928,7 @@ worker_sweep_scratch() {   # [minutes]
 }
 _worker_finish() {
   local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0 partial="" verdict="" first_ok=""
+  WORKER_ROWS_ONLY=""   # set below when a no-change run still has queue rows to commit
   # A run that took its work back ships none of it, however it validates.
   if why=$(worker_withdrawn "$id" "$log"); then
     worker_withdraw "$id" "$why"
@@ -1090,7 +1091,16 @@ _worker_finish() {
     [ "$what" = Annotate ] &&
       python3 tools/failed_inputs.py record annotate "$id" --judged \
         --reason "the run exited cleanly but wrote no annotation"
-    return 0
+    # A shape-rule backfill that left the file as it was has declined every clue it was shown;
+    # no _ann key was filed for them, so apply's done() never marked them tried and the rule
+    # queued the puzzle again (11-03: 6 of 7 no-change runs an hour were ddMissesWordplay's).
+    # Marked now, and the rows committed like any queue-only change (worker_commit_batch).
+    WORKER_ROWS_ONLY=""
+    case "$what" in
+      "Backfill wordplay."*)
+        [ "$(python3 tools/shape_queue.py --mark-tried "$id" 2>/dev/null || echo 0)" -gt 0 ] && WORKER_ROWS_ONLY=1 ;;
+    esac
+    [ -n "$WORKER_ROWS_ONLY" ] || return 0
   fi
   # -A, so a file that changed year folders goes in as a rename rather than as
   # a new copy beside the old one, and a cold solve's promoted clues-only file
