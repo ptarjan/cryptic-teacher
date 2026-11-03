@@ -60,9 +60,11 @@ if [ "$(readlink "/proc/$$/fd/9" 2>/dev/null)" != "$_ct_lease" ]; then
   exec 9>"$_ct_lease"
 fi
 if ! flock -n 9; then
-  echo "$(date '+%F %H:%M') another $_ct_job run holds its tree — leaving it alone"
+  # Said once per busy stretch: every hourly fire used to repeat it.
+  [ -e "$_ct_lease.said" ] || { echo "$(date '+%F %H:%M') another $_ct_job run holds its tree — leaving it alone"; : >"$_ct_lease.said"; }
   exit "${CT_LEASE_BUSY_RC:-0}"
 fi
+rm -f "$_ct_lease.said"
 if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
 
 # The merge driver and clean filter .gitattributes names for the keyed JSON

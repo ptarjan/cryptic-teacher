@@ -156,8 +156,19 @@ WORKER_JOB="pre-reset backfill"
 # by it, since by the time the re-plan is done most of those runs have exited
 # and the few still alive would each look like the whole burn's CPU.
 wave_width() {
-  local w
-  w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-})
+  local w err said="${RUNS:-/tmp}/.width_said" key
+  err=$(mktemp)
+  w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-} 2>"$err")
+  # One line when the width or its caps change, not at every checkpoint.
+  key=$(head -1 "$err" | grep '^width ' | sed 's/ · .*//')
+  if [ -n "$key" ] && [ "$key" != "$(cat "$said" 2>/dev/null)" ]; then
+    printf '%s\n' "$key" >"$said"
+    printf '%s · %s in flight · %s committed last hour\n' "$key" "${#POOL_RUNS[@]}" \
+      "$(git log --since='1 hour ago' --format=%s 2>/dev/null | grep -c '^Annotate')"
+    head -1 "$err" | sed -n 's/^[^·]*· /  why: /p'
+  fi
+  grep -v '^width ' "$err" >&2
+  rm -f "$err"
   case "$w" in ''|*[!0-9]*) echo "${wide:-14}" ;; *) echo "$w" ;; esac
 }
 # Above this the weekly window really is gone and a failing run means it. The
@@ -366,7 +377,7 @@ run_claude() {
   [ -n "$fill" ] || {
     m=$(worker_bag_ids "$RUNS/$tag.sid")
     # shellcheck disable=SC2086
-    [ -z "$m" ] || "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view $m >/dev/null
+    [ -z "$m" ] || "$(dirname "$0")/low_cpu.sh" python3 tools/annotate_check.py --view $m >/dev/null 2>&1
   }
   # A bag has one combined view too (tools/annotate_bag.py), the file its prompt names.
   if [ -z "$fill" ] && [ "$(worker_bag_ids "$RUNS/$tag.sid" | wc -w)" -gt 1 ]; then
@@ -458,6 +469,7 @@ SYNC_STALL_SECS="${SYNC_STALL_SECS:-7200}"
 SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # when the tree last reached origin/master
 SYNC_BEHIND=0                      # syncs in a row that left the tree behind
 SYNC_BEHIND_MAX="${SYNC_BEHIND_MAX:-3}"  # past this many, sync_wave prints an ALERT line
+NAP_SAID=0             # the "napping" line was logged for this stretch of width 0
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
 declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
 declare -A POOL_ADOPTED=()  # pid -> 1 for each of those the shell before a re-exec started
@@ -542,7 +554,7 @@ pool_launch() {
   [ -n "$fill" ] && POOL_SOLVING[$!]=1
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
-  echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
+  echo "  [$id] started$again"
 }
 
 # The task for a bag (tools/annotate_bag_prompt.md): the ids in bag file $1.
@@ -661,7 +673,8 @@ pool_reap() {
     solve_applied "$id" || return
   fi
   if [ "$rc" -eq 0 ]; then
-    tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
+    # The run's closing words are a one-line sign-off (tools/annotate_prompt.md); the outcome
+    # is the commit line below, and a withdrawal or failure says its own reason.
     commit_puzzle "$id" "$WAVE_WHAT"
   else
     handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
@@ -939,9 +952,11 @@ run_pool() {
       # Width 0 with nothing left to checkpoint: nap, then ask for the width again.
       if [ "$stop" = 0 ] && [ "$wide" = 0 ] && [ "$POOL_DONE" = 0 ] &&
          [ "$at" -lt "${#queue[@]}" ]; then
-        echo "--- pool of 0: napping ${POOL_CHECK_SECS}s ---"
+        [ "$NAP_SAID" = 1 ] || echo "--- pool of 0: napping ${POOL_CHECK_SECS}s at a time until the width is above 0 ---"
+        NAP_SAID=1
         sleep "$POOL_CHECK_SECS"
         wide=$(wave_width)
+        [ "$wide" = 0 ] || NAP_SAID=0
         continue
       fi
       # Nothing in flight and nothing left to start: one last checkpoint for the

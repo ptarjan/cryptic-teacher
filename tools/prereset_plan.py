@@ -898,9 +898,12 @@ def width(arg=None, floor=1):
     if night is not None:
         aim += (f", overnight cap {night[0]} to his wake "
                 f"{dt.datetime.fromtimestamp(night[1], PACIFIC):%a %H:%M} Pacific")
-    print(f"width {w}: need {runs_needed} for weekly {ceiling(rushing):g}% before its {'rush ends' if rushing else 'reset'} ({at}{aim}; "
-          f"bridge {shown}), memory cap {mem}, "
-          f"cpu cap {cpu} ({cores}), load cap {busy}, current {current}", file=sys.stderr)
+    dash = lambda v: "—" if v is None else v
+    # "width W (cap: ...)" is the part that says how wide and why; what follows the dot
+    # changes every call, so the burn prints this line only when the part before it does.
+    print(f"width {w} (cap: memory {dash(mem)}, cpu {dash(cpu)}, load {dash(busy)}, "
+          f"quota pace {runs_needed}) · weekly {at}{aim}; bridge {shown}; {cores}; "
+          f"was {current}", file=sys.stderr)
     return w
 
 
