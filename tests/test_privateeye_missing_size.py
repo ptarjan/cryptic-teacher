@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 import clue_repair as pw
 
 across = [[1, 5, "plain"], [17, None, "plain"], [11, None, "linked"], [20, None, "plain"]]

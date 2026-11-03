@@ -19,7 +19,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-sys.path.insert(0, str(TOOLS))
+import _path  # noqa: F401
 
 # Each section below ran as its own python3 in the shell, with its own
 # environment and modules it stubs or patches (os.stat, io.open, ...): main()

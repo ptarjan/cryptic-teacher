@@ -28,7 +28,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO / "tools")
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
 tmp = Path(tempfile.mkdtemp())
 

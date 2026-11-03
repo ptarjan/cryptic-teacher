@@ -13,9 +13,8 @@
 import re
 import sys
 from datetime import date, timedelta
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import build_seo_pages as B
 
 results = {}

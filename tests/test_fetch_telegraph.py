@@ -16,7 +16,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import datetime
 import sys
 
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import fetch_telegraph as ft
 
 fails = 0

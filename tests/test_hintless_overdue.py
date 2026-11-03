@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """hintless_overdue.overdue() on fixtures: only a recent, solved, hintless, unblocked puzzle past the threshold."""
 import datetime
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import hintless_overdue as H
 
 NOW = 1_800_000_000.0

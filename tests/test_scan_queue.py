@@ -40,7 +40,7 @@ print("ok   a run loads the write path's modules before any item")
 
 
 os.chdir(REPO / "tools")
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 
 import io, json, os, time
 from pathlib import Path

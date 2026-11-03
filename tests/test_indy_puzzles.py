@@ -13,7 +13,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import indy_puzzles as I
 import ft_puzzles as F
 

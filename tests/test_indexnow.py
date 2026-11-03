@@ -10,7 +10,7 @@ import pathlib
 import sys
 import tempfile
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import indexnow as I
 import stage_site
 

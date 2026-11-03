@@ -13,7 +13,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import sys
 
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 from fetch_puzzle import enumeration_separators
 import enumeration
 

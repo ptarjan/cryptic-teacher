@@ -5,10 +5,9 @@
 #     python3 tests/test_drop_restores_hint.py
 import copy
 import os
-import sys
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import drop_failed_clues as D
 import fetch_puzzle as F
 import groups

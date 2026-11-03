@@ -13,9 +13,8 @@
 #
 # A synthetic index, so nothing here reads the corpus or writes to the tree.
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 
 fails = []
 

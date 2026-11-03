@@ -3,12 +3,10 @@
 #
 #     python3 tests/test_apply_refusal.py
 import os
-import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import sys, copy, io
 from pathlib import Path
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import apply_annotations as A, fetch_puzzle, puzzle_integrity, groups
 
 fails = 0

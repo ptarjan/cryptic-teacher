@@ -9,12 +9,11 @@
 # `percentile` within 1 (the cut points make it exact for a monotone rank).
 import json
 import os
-import sys
 import tempfile
 from pathlib import Path
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import index_idx as ix
 
 

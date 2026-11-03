@@ -8,9 +8,8 @@
 # text pypdf extracts from such a page, and a post in the 2010 answers-only
 # layout. Nothing here reads the network, the PDF cache or the corpus.
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import ft_pdf_puzzles as F
 import genius_puzzles as G
 

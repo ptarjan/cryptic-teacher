@@ -3,7 +3,7 @@
 
 Run directly: python3 tests/test_reconstruct_budget.py
 """
-import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 import sys
 import time
 from pathlib import Path

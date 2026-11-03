@@ -10,9 +10,8 @@
 # read as heard (cryptic-28363 27-across), a clue the blog added since, and one
 # whose blog side moved.
 import os
-import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 
 import blog_facts
 

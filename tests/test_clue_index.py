@@ -22,7 +22,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import clue_index
 import puzzle_paths
 from clue_index import ClueIndex, StoredClueIndex

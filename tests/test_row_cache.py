@@ -21,7 +21,7 @@ from pathlib import Path
 
 os.environ["CT_JOBS"] = "1"
 os.chdir(Path(__file__).resolve().parent.parent)
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import code_reach
 import puzzle_paths
 import row_cache

@@ -14,7 +14,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import copy, json, sys
 
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import enumeration
 import puzzle_integrity as pi
 

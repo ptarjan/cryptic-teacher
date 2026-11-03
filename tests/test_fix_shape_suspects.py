@@ -3,9 +3,8 @@
 # parts 1+3 when the letters say so and no other reading spells the answer.
 #
 #     python3 tests/test_fix_shape_suspects.py
-import os
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 
 import fix_shape_suspects as F
 import validate_annotations as V

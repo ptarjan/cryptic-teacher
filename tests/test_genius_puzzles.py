@@ -17,7 +17,7 @@ import tempfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 os.chdir(REPO)
 import enumeration as E
 import file_blog_puzzles as F

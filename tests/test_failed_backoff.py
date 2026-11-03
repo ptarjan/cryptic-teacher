@@ -7,12 +7,11 @@
 # because every edit to puzzle_integrity.py made their rows due again. A puzzle
 # change still releases at once; a code-only change waits 1, 2, 4... days.
 import os
-import sys
 import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 tmp = tempfile.mkdtemp()
 os.environ["FAILED_INPUTS_FILE"] = str(Path(tmp) / "ledger.json")
 import failed_inputs as fi

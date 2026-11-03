@@ -8,7 +8,7 @@
 # could only fail and alert. The index row says so (writeupKeyed) and
 # fetch_puzzle.cold_solvable, which the daily solve queue and the burn's
 # backlog share, reads it.
-import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

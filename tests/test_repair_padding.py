@@ -7,9 +7,8 @@ a leaf whose note is not padding."""
 
 import copy
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import repair_fetched as R
 
 fails = 0
