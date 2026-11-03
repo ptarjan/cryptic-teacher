@@ -89,6 +89,32 @@ def redo_due(pid):
                if not str(why).startswith(CODE_FIXED))
 
 
+def shape_clues(pid):
+    """How many clues of pid a shape-rule run would redo: annotate_check.shape_due (none when it
+    awaits its preamble, none for a clue with no published text), less the reasons code fixes.
+    None when its file will not read."""
+    import annotate_check
+    import shape_queue
+    from fetch_puzzle import read_puzzle_file, resolve_puzzle
+    try:
+        puzzle = read_puzzle_file(resolve_puzzle(pid))
+        flagged = shape_queue.flagged(puzzle)
+        return sum(1 for cid in annotate_check.shape_due(puzzle)
+                   if not str(flagged.get(cid, "")).startswith(CODE_FIXED))
+    except (SystemExit, OSError, ValueError, KeyError):
+        return None
+
+
+def pickable_ids(rows=None):
+    """shape_queue.puzzle_ids() less the puzzles the index marks awaitsPreamble: the shape-rule
+    pickers' list, as the annotate picker (prereset_plan.backlog) leaves those out."""
+    import shape_queue
+    if rows is None:
+        import prereset_plan
+        rows = {r["id"]: r for r in prereset_plan.index_rows()}
+    return {pid for pid in shape_queue.puzzle_ids() if not (rows.get(pid) or {}).get("awaitsPreamble")}
+
+
 def row_is_tail(row, redo=True):
     """Whether an index row is a tail by the index alone: 1..MAX_DUE clues due
     (missing an annotation, plus those on the shape redo list), answers present,
@@ -277,12 +303,15 @@ def main(argv):
     import prereset_plan
     rows = {r["id"]: r for r in prereset_plan.index_rows()}
     if any_listed:
-        import shape_queue
-        queue = with_listed(queue, shape_queue.puzzle_ids(), held_in_bags(argv[0]))
+        queue = with_listed(queue, pickable_ids(rows), held_in_bags(argv[0]))
     resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
     counts = {}
     target = spread_target(argv[1], queue, rows, slots)
     bag = bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir, target=target, counts=counts)
+    if any_listed and argv[1] not in counts:
+        # A leader that is no tail still has a count: 0 here is real (it awaits its preamble, or
+        # its listed clues have no text), and the burn drops a bag with none due.
+        counts[argv[1]] = shape_clues(argv[1]) or 0
     print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
     return 0
 

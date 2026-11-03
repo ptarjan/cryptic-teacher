@@ -152,6 +152,27 @@ held = Path(tempfile.mkdtemp())
 check("a field puzzle a conversation holds is left alone",
       clue_bag.bag_of("f1", ["f2"], {}, held, Path(tempfile.mkdtemp()), due=clue_bag.field_tail_due) == ["f1"])
 
+print("shape-rule pickers: no clue on a puzzle awaiting its preamble, none with no published text, and a zero count is real")
+import annotate_check
+ents = [{"number": n, "direction": "across", "solution": "ABC", "length": 3,
+         "clue": {"text": txt}, "annotation": {"x": 1}} for n, txt in ((15, ""), (21, ""), (1, "A clue here (3)"))]
+sp = {"id": "zz-1", "entries": ents}
+shape_queue.flagged = lambda puzzle: {"15-across": "delSingle", "21-across": "delSingle", "1-across": "delSingle"}
+check("shape_due leaves out the clues published with no text", annotate_check.shape_due(sp) == ["1-across"])
+check("shape_due is empty for a puzzle awaiting its preamble",
+      annotate_check.shape_due(dict(sp, awaitsPreamble=True)) == [])
+only_blank = dict(sp, entries=ents[:2])
+check("a puzzle whose listed clues all lack text has nothing due", annotate_check.shape_due(only_blank) == [])
+F.resolve_puzzle = lambda pid: pid
+F.read_puzzle_file = lambda path: {"zz-1": sp, "zz-2": dict(sp, awaitsPreamble=True), "zz-3": only_blank}[path]
+check("shape_clues counts the clues a shape run would redo", clue_bag.shape_clues("zz-1") == 1)
+check("shape_clues is 0 for the awaiting puzzle and the wordless one",
+      clue_bag.shape_clues("zz-2") == 0 and clue_bag.shape_clues("zz-3") == 0)
+check("shape_clues is None for a file that will not read", clue_bag.shape_clues("zz-9") is None)
+shape_queue.puzzle_ids = lambda: {"a", "b", "c"}
+check("pickable_ids drops the index rows that await their preamble",
+      clue_bag.pickable_ids({"a": {"awaitsPreamble": True}, "b": {}}) == {"b", "c"})
+
 print("the bag is committed per puzzle: the worker's side is in tests/test_puzzle_worker.sh")
 print("clue_bag: all checks passed" if not fails else f"clue_bag: {fails} FAILED")
 sys.exit(1 if fails else 0)

@@ -586,7 +586,7 @@ pool_launch() {
   [ -s "/tmp/ct-prereset-$id.resume" ] ||
     worker_put_back "$id" "$(pool_what "$id")" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" >/dev/null
   [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
-  pool_bag "$id"
+  pool_bag "$id" || { echo "  [$id] skipped: no clue due on it ($(bag_rule "$id")): it awaits its preamble, or its listed clues have no published text"; return 1; }
   pool_mark
   # A conversation that began with a cold solve keeps its fill, and has it
   # checked, however much of the grid its edits filled in.
@@ -706,6 +706,9 @@ pool_bag() {
     [ "$(wc -l <<<"$ids")" -gt 1 ] || [ "$(bag_rule)" != annotate ] || return 0
     [ -n "$ids" ] || return 0
     due=$(awk '{n += $2} END {print n + 0}' <<<"$ids")
+    # Nothing due on any of them (the leader awaits its preamble, or its listed clues have no
+    # published text): a session would only park it again (11-03: nation-3403, listener-93).
+    [ "$due" -gt 0 ] || [ "$(bag_rule)" = annotate ] || return 1
     awk '{print $1}' <<<"$ids" >"$RUNS/$id.bag"
     # Every bag gets the same turn budget from its clue count (tools/bag_turns.py).
     python3 tools/bag_turns.py "$due" >"$RUNS/$id.turns"
@@ -1553,9 +1556,9 @@ shape_widen() {
   done < <(python3 - "$lead" <<'PY'
 import json, sys
 sys.path.insert(0, "tools")
-import shape_queue
+import shape_queue, clue_bag
 lead = sys.argv[1]
-listed = shape_queue.puzzle_ids()
+listed = clue_bag.pickable_ids()  # not the puzzles awaiting a preamble
 backlog = json.load(open("tools/annotation_backlog.json"))
 rules = sorted((k for k in backlog if k.startswith("wordplay.") and k != "wordplay.unchecked"),
                key=lambda k: k != lead)
@@ -1711,8 +1714,8 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   # there is no field to add. Kept on the backlog; the queue decides.
   if [[ $field == wordplay.* && $field != wordplay.unchecked && -n $nums ]]; then
     # shellcheck disable=SC2086  # $nums is a list of puzzle ids
-    nums=$(python3 -c 'import sys; sys.path.insert(0, "tools"); import shape_queue
-p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))' $nums)
+    nums=$(python3 -c 'import sys; sys.path.insert(0, "tools"); import clue_bag
+p = clue_bag.pickable_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))' $nums)
   fi
   echo "$field backlog: ${nums:-none}"
   name="\`$field\`"
@@ -1762,8 +1765,8 @@ p = shape_queue.puzzle_ids(); print(" ".join(n for n in sys.argv[1:] if n in p))
     # clue on the shape list) is no tail to clue_bag.py, so every one of them ran
     # alone at ~18k tokens a clue. Kept: what the list holds, and a conversation
     # already under way (its sid file).
-    mapfile -t kept < <(printf '%s\n' "${queue[@]:$at}" | python3 -c 'import sys, os; sys.path.insert(0, "tools"); import shape_queue
-p = shape_queue.puzzle_ids(); print("\n".join(n for n in sys.stdin.read().split() if n in p or os.path.exists(os.path.join(sys.argv[1], n + ".sid"))))' "$RUNS" | grep .)
+    mapfile -t kept < <(printf '%s\n' "${queue[@]:$at}" | python3 -c 'import sys, os; sys.path.insert(0, "tools"); import shape_queue, clue_bag
+p = clue_bag.pickable_ids(); print("\n".join(n for n in sys.stdin.read().split() if n in p or os.path.exists(os.path.join(sys.argv[1], n + ".sid"))))' "$RUNS" | grep .)
     [ ${#kept[@]} -lt $(( ${#queue[@]} - at )) ] &&
       echo "$field: $(( ${#queue[@]} - at - ${#kept[@]} )) carried-over puzzles have no clue on the shape list — dropped from the queue"
     queue=("${queue[@]:0:$at}" ${kept[@]+"${kept[@]}"})
