@@ -76,16 +76,23 @@ MAX_TRIES = 3
 _sha_cache = {}
 
 
+#: Annotate-code paths that only pack and commit the burn's bags: a change there does not change
+#: what the model sees or which clue a fixer mends, so it must not rearm tried rows (11-03 11:58,
+#: aad9da48dfb touched clue_bag.py, rearmed 138 tried rows, and the next bag re-sent them: 3776,
+#: 3898, 22608... all "nothing to change").
+REARM_SKIP = ("tools/clue_bag.py", "tools/puzzle_worker.sh")
+
+
 def code_sha():
-    """Short sha of the last commit touching annotate code (annotate_ledger.code_commit), the same
-    signal the cost ledger judges by; None when git or the module is not there. Looked up at most
+    """Short sha of the last commit touching annotate code (annotate_ledger.code_commit, less
+    REARM_SKIP), the same signal the cost ledger judges by; None when git or the module is not there. Looked up at most
     every 10 minutes: pending() asks on every call."""
     import time
     now = time.monotonic()
     if "at" not in _sha_cache or now - _sha_cache["at"] > 600:
         try:
             import annotate_ledger
-            sha = annotate_ledger.code_commit()[0]
+            sha = annotate_ledger.code_commit(skip=REARM_SKIP)[0]
         except Exception:
             sha = None
         _sha_cache.update(at=now, sha=sha)

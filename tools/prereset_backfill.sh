@@ -1523,8 +1523,12 @@ for rule in rules:
         if pid in listed and pid not in seen:
             seen.add(pid)
             print(pid, rule)
+# a puzzle listed only by a detector row (poolGap, nestedContainer, ...) is named by that row's rule,
+# not by the lead's: 11-03 12:07 "wasted runs ... from wordplay.delSingle" were 10 such fill-ins
+pend = shape_queue.pending()
 for pid in sorted(listed - seen):
-    print(pid, lead)
+    why = pend[pid][min(pend[pid])]
+    print(pid, "wordplay." + (why.split(":")[0].split(";")[0].strip() or lead.split(".", 1)[-1]))
 PY
 )
   SHAPE_SWEPT=1
