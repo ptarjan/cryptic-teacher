@@ -50,6 +50,7 @@ set -uo pipefail
 # print (the planner reads its meter lines); .prereset.log is the human one, written from
 # the same stream by tools/burn_log.py: a line per puzzle and a status line. A fire's own
 # lines (watchdog, "holds its tree") are debug too, so they go there from the first byte.
+exec 3>&1   # the fire's own stdout, for the one line a fire says to the human log
 HUMAN_LOG="" DEBUG_LOG=""
 if [ "${DRY_RUN:-0}" != 1 ]; then
   _main="${CT_MAIN_CHECKOUT:-$(cd "$(dirname "$0")/.." && pwd)}"
@@ -81,6 +82,11 @@ fi
 PRERESET_PAUSE="${CT_PRERESET_PAUSE:-${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/prereset.pause}"
 if [ -z "${CT_PRERESET_STATE:-}" ] && [ -e "$PRERESET_PAUSE" ]; then
   echo "pre-reset backfill paused ($PRERESET_PAUSE exists, since $(date -r "$PRERESET_PAUSE" '+%F %H:%M')) — not starting"
+  # Said once per pause in the human log too (fd 3 is the fire's own stdout), not every fire.
+  if [ ! -e "$PRERESET_PAUSE.said" ] || [ "$PRERESET_PAUSE" -nt "$PRERESET_PAUSE.said" ]; then
+    echo "$(TZ=America/Edmonton date +%H:%M) ── paused by hand: pre-reset backfill is not starting while $PRERESET_PAUSE exists" >&3
+    : >"$PRERESET_PAUSE.said"
+  fi
   exit 0
 fi
 # Every fire looks first at a burn that is alive but stuck, or dead with orphans
