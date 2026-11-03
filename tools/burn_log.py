@@ -452,6 +452,12 @@ class Log:
                 where += f" ({', '.join(labels)})"
             self.finished(now, True, pid, rule)
             return [self.out(now, "✓", f"{pid} {what}{where}")]
+        m = re.match(r"^  \[" + PUZZLE + r"\] bag of (\d+) puzzles(?:, (\d+) clues)?: (\S+)", line)
+        if m:  # pool_bag: one session for several puzzles of the same rule
+            rule = m.group(4)
+            words = "write the missing hints" if rule == "annotate" else phrase(rule)[0]
+            clues = f", {m.group(3)} clues" if m.group(3) else ""
+            return [self.out(now, "▶", f"bag of {m.group(2)} puzzles{clues}: {words}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] skipped: already fully hinted", line)
         if m:
             return [self.out(now, "·", f"{m.group(1)} nothing to change (already hinted)")]

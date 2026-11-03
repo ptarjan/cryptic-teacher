@@ -41,6 +41,12 @@ check(len(run([WIDTH, WIDTH])), 1, "the same width twice says nothing new")
 check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 hints written"], "annotate commit")
 check(bare(run(["committed Backfill wordplay.anaLoneEdge for azed-2581"])),
       ["✓ azed-2581 re-shaped anagram of a lone edge letter"], "backfill commit")
+check(bare(run(["  [azed-2581] bag of 4 puzzles, 6 clues: wordplay.anaLoneEdge — with: a-1 b-2 c-3 "])),
+      ["▶ bag of 4 puzzles, 6 clues: re-shape anagram of a lone edge letter"], "a backfill bag names its rule in plain words")
+check(bare(run(["  [azed-2581] bag of 9 puzzles, 31 clues: annotate — with: a-1"])),
+      ["▶ bag of 9 puzzles, 31 clues: write the missing hints"], "an annotate bag")
+check(bare(run(["  [azed-2581] bag of 3 puzzles: wordplay.anaLoneEdge — with: a-1 b-2"])),
+      ["▶ bag of 3 puzzles: re-shape anagram of a lone edge letter"], "a resumed bag, its clue count not known")
 check(bare(run(["committed Re-check against its blog: times-25738"])),
       ["✓ times-25738 re-checked against its blog"], "blog re-check commit")
 check(bare(run(["  [everyman-3470] the run withdrew its own work, so nothing it wrote ships — 1-down MUNTJAC has no clean parse"])),
@@ -53,7 +59,8 @@ noise = ["annotation loss check: 1 puzzle(s), none left short", "push_puzzle_com
          "  [azed-2702] started", "sync: tree at 34b6b4e82dd, 0 runs in flight", "annotate ledger: 0 sessions since 2026-11-03",
          "wordplay.anaSelectEdge backlog: azed-1 azed-2", "  weekly 99% -> 99% in 0.087h at width 6.18",
          "  [x-1] did not validate — handing the errors back rather than discarding the puzzle",
-         "(JSON: `entries` is a list of strings", "x-1 failed on this puzzle and is skipped until it changes"]
+         "(JSON: `entries` is a list of strings", "  [a-1] bag of 4: 2 changed, 1 produced no change, 1 not shipped, 0 to solve again",
+         "x-1 failed on this puzzle and is skipped until it changes"]
 check(run(noise), [], "debug lines produce nothing")
 
 EMPTY = "--- pool of 6: 0 in flight (0 running), 0 queued ---"

@@ -48,6 +48,10 @@ check("a short queue gives a short bag",
       clue_bag.bag_of("t0", ["t1"], rows, runs, resume, due=due) == ["t0", "t1"])
 check("an id twice in the queue is bagged once",
       clue_bag.bag_of("t0", ["t1", "t1", "t0"], rows, runs, resume, due=due) == ["t0", "t1"])
+counts = {}
+clue_bag.bag_of("t0", ["big", "t1", "t2"], rows, runs, resume, due=due, counts=counts)
+check("counts holds each bagged puzzle's clues due, for the burn's log line (--due)",
+      counts == {"t0": 4, "t1": 4, "t2": 4})
 
 print("what a bag will not take")
 (runs / "t1.sid").write_text("sid-1")

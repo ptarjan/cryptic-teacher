@@ -542,8 +542,9 @@ batchflow() (   # mode: finish | cutoff
   echo "sid-9" >"$sid"; printf 'pw-a\npw-b\npw-c\npw-d\n' >"$runs/pw-a.bag"
   : >"$runs/log"
   worker_clean() { :; }
-  _worker_finish() {   # a, c and d validate (queued, not committed); b fails
+  _worker_finish() {   # a, c and d validate (queued, not committed); b fails; nochange: d changed nothing
     case "$1" in pw-b) return 1 ;; pw-c) [ "$MODE" = cutoff ] && return 3 ;; esac
+    [ "$MODE:$1" = nochange:pw-d ] && return 0
     [ -n "$WORKER_BATCH_ON" ] && WORKER_BATCH_IDS+=("$1")
     return 0
   }
@@ -556,13 +557,37 @@ out=$(batchflow finish)
 check "the puzzles that validated are committed once, together; the failed one is left out" \
   "$(grep -c '^commit' <<<"$out") $(grep '^commit' <<<"$out")" "1 commit Annotate pw-a pw-c pw-d"
 check "and all leave the bag" "$(got left)" ""
+check "every member is counted in the bag's closing line" \
+  "$(grep '^  \[pw-a\] bag of' <<<"$out")" "  [pw-a] bag of 4: 3 changed, 0 produced no change, 1 not shipped, 0 to solve again"
+out=$(batchflow nochange)
+check "a member that changed nothing is counted, not silently dropped" \
+  "$(grep '^commit' <<<"$out")|$(grep '^  \[pw-a\] bag of' <<<"$out")" \
+  "commit Annotate pw-a pw-c|  [pw-a] bag of 4: 2 changed, 1 produced no change, 1 not shipped, 0 to solve again"
 out=$(batchflow cutoff)
 check "a cut-off bag commits what validated so far, keeping the cut-off puzzle bagged" \
   "$(grep '^commit' <<<"$out")|$(got rc)|$(got left)" "commit Annotate pw-a|3|pw-c pw-d "
 
-echo "the burn bags only in the Annotate pool, and a bag's ids stay held"
-check "pool_bag does nothing outside the Annotate pool or in a dry run" \
-  "$(awk '/^pool_bag\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '"\$WAVE_WHAT" = Annotate \] && \[ "\$DRY_RUN" != 1 \] || return 0')" "1"
+echo "the burn bags in the Annotate pool and the shape-rule backfills, and a bag's ids stay held"
+check "pool_bag asks pool_bags first" \
+  "$(awk '/^pool_bag\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^  pool_bags || return 0$')" "1"
+bagfns=$(awk '/^(pool_bags|bag_rule|bag_prompt)\(\) \{/,/^\}/' tools/prereset_backfill.sh)
+# shellcheck disable=SC2034  # read by the eval'd functions
+bags_for() ( eval "$bagfns"; DRY_RUN="${2:-0}" WAVE_WHAT="$1"; pool_bags && echo yes || echo no )
+check "which pools bag: Annotate, a shape rule; not a field, wordplay.unchecked, the blog re-check or a dry run" \
+  "$(bags_for Annotate) $(bags_for 'Backfill wordplay.anagramCharade for') $(bags_for 'Backfill explanation.surface for') $(bags_for 'Backfill wordplay.unchecked for') $(bags_for 'Re-check against its blog:') $(bags_for Annotate 1)" \
+  "yes yes no no no no"
+# shellcheck disable=SC2034  # read by the eval'd functions
+rule_for() ( eval "$bagfns"; WAVE_WHAT="$1"; bag_rule )
+check "a bag names its rule" "$(rule_for Annotate) $(rule_for 'Backfill wordplay.anaStandIn for')" "annotate wordplay.anaStandIn"
+bagp=$(mktemp); printf 'pw-a\npw-b\n' >"$bagp"
+# shellcheck disable=SC2034  # read by the eval'd functions
+prompt_for() ( eval "$bagfns"; WAVE_WHAT="$1"; bag_prompt "$bagp" )
+p=$(prompt_for 'Backfill wordplay.anaStandIn for')
+check "a backfill bag's prompt carries its rule and the additive limit, then the bag task for its ids" \
+  "$(grep -c 'shape rule `wordplay.anaStandIn`' <<<"$p") $(grep -c 'change nothing else in any puzzle' <<<"$p") $(grep -c 'in this one session: pw-a pw-b\.' <<<"$p") $(grep -c '_ann_bag_pw-a.json' <<<"$p")" "1 1 1 1"
+check "an Annotate bag's prompt is the bag task alone" \
+  "$(prompt_for Annotate | grep -c 'shape rule') $(prompt_for Annotate | cut -c1-24)" "0 Annotate these crossword"
+rm -f "$bagp"
 check "pool_launch bags before it starts the run" \
   "$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh | awk '/pool_bag "\$id"/{b=NR} /run_claude /{r=NR} END{print (b && r && b < r)}')" "1"
 check "a re-plan holds the ids in running bags, so it does not queue them again" \

@@ -579,12 +579,41 @@ pool_launch() {
 }
 
 # The task for a bag (tools/annotate_bag_prompt.md): the ids in bag file $1.
+# A shape-rule backfill's bag (pool_bags) is the same session over hinted
+# puzzles: the clues its view lists are each puzzle's `flagged` hints, so the
+# prompt says first what the per-puzzle backfill prompt says (the field loop
+# below): a re-parse of those hints only, nothing else touched.
 bag_prompt() {
-  local tmpl ids
+  local tmpl ids rule
   tmpl=$(<tools/annotate_bag_prompt.md)
   ids=$(tr '\n' ' ' <"$1")
   tmpl="${tmpl//@FIRST@/$(head -n1 "$1")}"
-  printf '%s' "${tmpl//@IDS@/${ids% }}"
+  tmpl="${tmpl//@IDS@/${ids% }}"
+  rule=$(bag_rule)
+  if [ "$rule" != annotate ]; then
+    tmpl="These crosswords are already annotated, and their hints are fine except the ones the bag's view lists: each listed clue's hint on file has a wordplay tree that breaks the shape rule \`$rule\` (a validator check, not a field to add), and its puzzle's \`flagged\` line in the view names the fault. Redo only those: write a new annotation for each listed clue whose tree has none of those faults (new prose on the same tree is refused), keeping every clue word the old one explained, and change nothing else in any puzzle. $tmpl"
+  fi
+  printf '%s' "$tmpl"
+}
+
+# What a bag of the pool running now works on, as burn_log.py names it: "annotate",
+# or the backfill's shape rule (wordplay.<rule>).
+bag_rule() {
+  local rule="${WAVE_WHAT#Backfill }"
+  [ "$rule" = "$WAVE_WHAT" ] && { echo annotate; return; }
+  echo "${rule% for}"
+}
+
+# Whether the pool running now bags its tails: Annotate, and the shape-rule
+# backfills, whose puzzles are hinted with a clue or two on the shape redo list
+# (290 puzzles / 317 clues for wordplay.anagramCharade, 11-03): one session each
+# paid ~28k tokens of fixed cost for ~3.5k of work. A field backfill (a note or
+# a sentence added in place to every clue) is not a tail's work and runs alone.
+pool_bags() {
+  [ "$DRY_RUN" != 1 ] || return 1
+  [ "$WAVE_WHAT" = Annotate ] && return 0
+  case "$WAVE_WHAT" in "Backfill wordplay.unchecked for") return 1 ;; "Backfill wordplay."*) return 0 ;; esac
+  return 1
 }
 
 # Decide whether launching $1 takes other puzzles with it (tools/clue_bag.py):
@@ -592,16 +621,18 @@ bag_prompt() {
 # the queue, ~30 clues in all, because a session's fixed cost is paid per
 # session. The bag is named in $RUNS/<id>.bag, which the worker reads, and its
 # other puzzles leave the queue, so nothing launches them again. A conversation
-# already under way keeps the bag it began with. Only the Annotate pool bags.
+# already under way keeps the bag it began with. Only the pools pool_bags names bag.
+# The log line "[id] bag of N puzzles, M clues: <rule>" is burn_log.py's ▶ line.
 pool_bag() {
-  local id="$1" m ids rest=() kept=()
-  [ "$WAVE_WHAT" = Annotate ] && [ "$DRY_RUN" != 1 ] || return 0
+  local id="$1" m ids rest=() kept=() due="" size
+  pool_bags || return 0
   if [ ! -s "$RUNS/$id.sid" ]; then
     rm -f "$RUNS/$id.bag"
     [ -s "/tmp/ct-prereset-$id.resume" ] && return 0
-    ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" | python3 tools/clue_bag.py "$RUNS" "$id") || return 0
-    [ "$(wc -w <<<"$ids")" -gt 1 ] || return 0
-    printf '%s\n' $ids >"$RUNS/$id.bag"
+    ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" | python3 tools/clue_bag.py --due "$RUNS" "$id") || return 0
+    [ "$(wc -l <<<"$ids")" -gt 1 ] || return 0
+    due=$(awk '{n += $2} END {print n + 0}' <<<"$ids")
+    awk '{print $1}' <<<"$ids" >"$RUNS/$id.bag"
   fi
   [ -s "$RUNS/$id.bag" ] || return 0
   # The members are no longer queued; this puzzle's own place at queue[at] stays.
@@ -613,7 +644,8 @@ pool_bag() {
     mapfile -t kept < <(printf '%s\n' "${rest[@]}" | grep -vxFf "$RUNS/$id.bag")
   fi
   queue=("${queue[@]:0:$((at + 1))}" ${kept[@]+"${kept[@]}"})
-  echo "  [$id] bagged with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
+  size=$(( $(wc -l <"$RUNS/$id.bag") ))
+  echo "  [$id] bag of $size puzzles${due:+, $due clues}: $(bag_rule) — with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
 }
 
 # Whether an adopted run has ended: its status file is written, or it is gone

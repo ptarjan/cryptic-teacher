@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """Which tail puzzles one annotate session takes together: a bag.
 
-    ids | python3 tools/clue_bag.py RUNS_DIR LEADER [RESUME_DIR]
+    ids | python3 tools/clue_bag.py [--due] RUNS_DIR LEADER [RESUME_DIR]
 
 A run pays ~25-30k tokens before its first clue, and a puzzle missing ten clues
 or fewer (a tail) has ~3.4k of work in it: measured per clue, 28.5k alone and
 3.5-4k at 21-32 clues in a session, with the same quality. So the burn
 (tools/prereset_backfill.sh pool_launch) asks here, with the queue after LEADER
 on stdin, for the puzzles to annotate in LEADER's session. Prints the bag's ids,
-LEADER first, one per line; LEADER alone when it is not bagged.
+LEADER first, one per line; LEADER alone when it is not bagged. With --due each
+line is "<id> <clues due>", for the burn's log line naming the bag's size.
+
+The shape-rule backfills (Backfill wordplay.<rule>) bag the same way: their
+puzzles are hinted with a clue or two on the shape redo list, which is a tail,
+and a bag of them pays the session's fixed cost once instead of per clue.
 
 A bag is LEADER plus the next tails in queue order until the clues they have
 due add up to BAG_TARGET (the last one added may pass it; there is no hard
@@ -91,13 +96,16 @@ def tail_due(pid, row, runs, resume_dir):
         return None
 
 
-def bag_of(leader, queue, rows, runs, resume_dir, target=BAG_TARGET, due=tail_due):
+def bag_of(leader, queue, rows, runs, resume_dir, target=BAG_TARGET, due=tail_due, counts=None):
     """[leader, *members]: the leader and the tails after it in `queue` (ids),
     `rows` the index rows by id. Just [leader] unless the leader is a tail
-    itself, and when too few others are found."""
+    itself, and when too few others are found. `counts`, a dict, is filled with
+    each bagged id's clues due."""
+    counts = {} if counts is None else counts
     total = due(leader, rows.get(leader), runs, resume_dir)
     if total is None:
         return [leader]
+    counts[leader] = total
     bag, seen = [leader], {leader}
     for pid in queue[:SCAN]:
         if total >= target:
@@ -108,11 +116,14 @@ def bag_of(leader, queue, rows, runs, resume_dir, target=BAG_TARGET, due=tail_du
         n = due(pid, rows.get(pid), runs, resume_dir)
         if n is not None:
             bag.append(pid)
+            counts[pid] = n
             total += n
     return bag
 
 
 def main(argv):
+    with_due = argv[:1] == ["--due"]
+    argv = argv[1:] if with_due else argv
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
         return 2
@@ -120,7 +131,9 @@ def main(argv):
     rows = {r["id"]: r for r in prereset_plan.index_rows()}
     queue = sys.stdin.read().split()
     resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
-    print("\n".join(bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir)))
+    counts = {}
+    bag = bag_of(argv[1], queue, rows, Path(argv[0]), resume_dir, counts=counts)
+    print("\n".join(f"{pid} {counts.get(pid, 0)}" if with_due else pid for pid in bag))
     return 0
 
 
