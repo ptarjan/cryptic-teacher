@@ -12,7 +12,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-sys.path.insert(0, str(TOOLS))
+import _path  # noqa: F401
 from PIL import Image, ImageDraw
 import file_archive_org_puzzles as f
 

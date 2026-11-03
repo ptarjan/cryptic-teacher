@@ -24,7 +24,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO)
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 
 
 def writers():
@@ -254,7 +254,6 @@ print("app.js reads both keys through a guard")
 # app.js is the reader that matters most and cannot be imported here, so its
 # guards are read out of the source. A bare e.clue.separators.forEach or
 # e.annotation.type throws on every puzzle this repo ships.
-sys.path.insert(0, str(REPO / "tools"))
 import app_src
 app = app_src.read(REPO).splitlines()
 reads = sum(1 for ln in app if re.search(r"\be\.clue\.separators\b", ln))

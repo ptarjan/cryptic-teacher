@@ -28,7 +28,7 @@ os.environ["TMPDIR"] = tmp
 os.environ["OCR_REMOTE"] = ""
 tempfile.tempdir = None
 os.chdir(TOOLS)
-sys.path.insert(0, str(TOOLS))
+import _path  # noqa: F401
 import desktop_hosts as dh
 
 fails = 0

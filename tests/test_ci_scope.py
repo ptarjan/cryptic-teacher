@@ -1,11 +1,10 @@
 """tools/ci_scope.py: which pushes may skip the sharded suite, and how tests.yml wires that in."""
 import json
 import re
-import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 
 import ci_scope as S
 

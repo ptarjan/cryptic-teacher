@@ -15,7 +15,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import build_seo_pages as B
 import difficulty as D
 import difficulty_check as C

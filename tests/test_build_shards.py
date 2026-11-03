@@ -11,7 +11,7 @@ import sys
 import tempfile
 from pathlib import Path
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import build_seo_pages as b
 import page_cache
 

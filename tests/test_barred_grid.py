@@ -10,9 +10,8 @@
 # come back must be the bars that went in. A wrong answer must find no grid
 # rather than some other one.
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import barred_grid as bg
 import reconstruct_grid as rg
 

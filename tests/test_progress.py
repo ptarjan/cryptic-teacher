@@ -22,7 +22,7 @@ os.chdir(REPO)
 TMPDIR = tempfile.mkdtemp()
 atexit.register(shutil.rmtree, TMPDIR, ignore_errors=True)
 import subprocess
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 os.environ["TMP"] = TMPDIR
 
 import os

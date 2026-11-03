@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 os.chdir(Path(__file__).resolve().parent.parent / "tools")
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import fold_reprints as F
 import reprints as R
 

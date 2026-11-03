@@ -56,7 +56,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO)
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 
 
 def group0():

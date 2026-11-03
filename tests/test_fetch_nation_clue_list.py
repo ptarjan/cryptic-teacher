@@ -13,9 +13,8 @@
 # (3510, 3482). Synthetic markup in the pages' own shapes: no held page is read.
 import io
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 _real_stdout, sys.stdout = sys.stdout, io.StringIO()
 
 import fetch_nation as F

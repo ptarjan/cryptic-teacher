@@ -24,7 +24,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import apply_solution
 import clues_only
 import jigsaw_fit

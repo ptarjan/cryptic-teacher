@@ -7,11 +7,10 @@
 # beside `wp`; annotation.from_model refused the file ("unknown key assembly").
 # annotate_check.drop_derived_keys removes those keys, which view() derives.
 import json
-import os
 import sys
 import tempfile
 from pathlib import Path
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 import annotate_check as AC
 
 fails = 0

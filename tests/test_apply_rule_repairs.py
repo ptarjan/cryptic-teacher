@@ -6,7 +6,7 @@
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import apply_annotations as A
 import fix_shape_suspects as F
 

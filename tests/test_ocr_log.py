@@ -13,7 +13,7 @@ import tempfile
 HOME = tempfile.mkdtemp(prefix="ocr_log_home_")   # a fake HOME: nothing here may read the real one
 os.environ["HOME"] = HOME
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import ocr_log as O
 
 fails = 0

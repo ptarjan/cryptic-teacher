@@ -7,10 +7,8 @@
 #
 #     python3 tests/test_parallel.py
 import os
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 os.environ.pop("CT_JOBS", None)
 
 import parallel as par

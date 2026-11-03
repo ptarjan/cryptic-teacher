@@ -11,12 +11,11 @@ import atexit
 import os
 import shutil
 import site
-import sys
 import tempfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "tools"))
+import _path  # noqa: F401
 os.chdir(REPO)
 
 tmp = tempfile.mkdtemp()

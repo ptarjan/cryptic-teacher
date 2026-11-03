@@ -11,7 +11,7 @@ import os
 import sys
 import tempfile
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import annotate_audit as aud
 import refusal_replay as r
 

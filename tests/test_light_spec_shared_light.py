@@ -6,9 +6,8 @@
 # Cyclops 147: across "15/52dn" (4,5), down "45/52" (6,3,5) and down
 # "52 See 15". Both groups name 52 down; build_spec must give one 52 down.
 import os
-import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import light_spec
 
 rows = {

@@ -4,11 +4,10 @@
 #
 #     python3 tests/test_model_answers.py
 import os
-import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import copy, sys
-sys.path.insert(0, "tools")
+import copy
+import _path  # noqa: F401
 import apply_annotations as A, fetch_puzzle, provenance, reopen_answers as R
 from groups import entry_id
 

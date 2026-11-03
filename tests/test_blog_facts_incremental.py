@@ -24,7 +24,7 @@ import tempfile
 from pathlib import Path
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 sys.path.insert(0, "tests")
 
 import blog_facts

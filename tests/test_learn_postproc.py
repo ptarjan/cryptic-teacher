@@ -2,9 +2,8 @@
 """tools/learn_postproc.py: the classes a rewrite is counted under, and the
 scoring of a rule (hits, closer, worse, fixpoint) on old/new pairs.
 """
-import os
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 
 import learn_postproc as L
 

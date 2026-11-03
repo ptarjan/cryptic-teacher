@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # corpus_queue.yield_collapse: the last 100 scans with under 5 puzzles are a
 # collapse; a healthy window, a short one, or other log lines are not.
-import os
-import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 
 import corpus_queue as q
 

@@ -6,11 +6,9 @@
 # genius-280 (2026-10-05) was fetched and held clues-only for its answers, but
 # series_health read only puzzles/, so the report said "genius ... STALE
 # nothing since 2026-09-07 (41d)" while the feed had answered on time.
-import sys
 from datetime import date
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import series_health
 
 held = [{"id": f"genius-{n}", "series": "genius", "number": n, "date": d}

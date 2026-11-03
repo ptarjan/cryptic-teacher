@@ -9,12 +9,10 @@
 # for it, and the verdict file must pass its own check, so a typo in a regular expression or a verdict
 # name fails here and not in the nightly. docs/CLUE_SHAPES.md, if present, must keep its markers.
 import os
-import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import re
-import sys
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import clue_shapes as cs
 
 v = cs.load_verdicts()

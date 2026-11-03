@@ -1,10 +1,9 @@
 """tools/requeue_drift.py: a puzzle past its allowance gets its flagged clues queued once."""
 import json
-import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 
 import requeue_drift as R
 

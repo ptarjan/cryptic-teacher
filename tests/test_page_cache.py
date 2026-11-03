@@ -11,7 +11,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import sys
 from pathlib import Path
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import page_cache as pc
 
 src = open("tools/build_seo_pages.py", encoding="utf-8").read()

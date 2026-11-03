@@ -3,11 +3,10 @@
 # before it by what that reading said, not as "not read"?
 #
 #     python3 tests/test_read_scans.py
-import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import privateeye_scans
 import privateeye_wayback as W
 

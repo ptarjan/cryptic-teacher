@@ -8,9 +8,8 @@
 # Synthetic rows, so nothing here reads the corpus or the comment cache.
 import random
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import _path  # noqa: F401
 import difficulty as D
 
 fails = 0

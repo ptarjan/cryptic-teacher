@@ -4,10 +4,8 @@
 #
 #     python3 tests/test_annotate_note_skeleton.py
 import json
-import os
-import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 import annotate_check as AC
 import validate_annotations as V
 

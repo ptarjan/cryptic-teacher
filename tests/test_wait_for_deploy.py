@@ -22,7 +22,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO)
-sys.path.insert(0, "tools")
+import _path  # noqa: F401
 import stamp_assets
 import wait_for_deploy as w
 

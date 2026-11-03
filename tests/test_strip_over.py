@@ -4,9 +4,7 @@ grid (1945-07-12: 26 and 27 down): strip_over() finds it and where its columns
 split, windows() adds a column for each with its own foot, and columns() reads
 the words there (and nothing else's) into them.
 """
-import os
-import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+import _path  # noqa: F401
 
 import numpy as np
 from PIL import Image
