@@ -2083,6 +2083,20 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     return best, series, spool
 
 
+def give_back_memory():
+    """Return what extract freed to the system: the joins were hundreds of MB
+    of small objects, and a freed heap stays in the process's resident size
+    (the letter pass that follows started from ~1GB, and was killed at 4.3GB)."""
+    import ctypes
+    import gc
+    entries_of.cache_clear()
+    gc.collect()
+    try:
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except OSError:  # not glibc
+        pass
+
+
 def inputs_digest():
     """A digest of the inputs the output is read from: each blog's cached
     posts, bigdave44's parsed light lists, and the clues of every puzzle. Posts
@@ -2583,6 +2597,7 @@ def main():
     # letter_facts reads back what was just written, so the joins it came from
     # are not held under its corpus: both at once would be the run's peak memory.
     del best, series, spool
+    give_back_memory()
     import letter_facts
     with letter_facts.timed("leads read"):
         said = letter_facts.read_leads(required=True)

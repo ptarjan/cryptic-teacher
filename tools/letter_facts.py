@@ -66,6 +66,7 @@ import sys
 import tempfile
 import threading
 import time
+import zlib
 from pathlib import Path
 import code_reach
 import desktop_hosts
@@ -1029,7 +1030,7 @@ class Indicators:
         """The Indicators that _count's merged (votes, left, inner, edge) of a
         corpus and then `extra` make: Indicators(corpus, extra=extra)."""
         self = cls.__new__(cls)
-        self.own = {(r[2], r[3]): r for r in extra}
+        self.own = extra if isinstance(extra, Ours) else {(r[2], r[3]): r for r in extra}
         self.votes, self.left, self.inner, self.edge = votes, left, inner, edge
         self.left = {k: v for k, v in self.left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
         return self
@@ -1935,15 +1936,49 @@ def _chunk_counts(task):
     return Lexicon._count(rows_), Indicators._count(rows_), Definitions._count(rows_) if defs else None
 
 
+class _Keys:
+    """The clue-word tuples Lexicon._uses counts, one per clue (~1.9M, 200MB
+    as tuples), kept as each chunk's pickle, compressed, and iterated in
+    order: only _uses reads them, once."""
+
+    def __init__(self, parts=()):
+        self._parts = list(parts)
+
+    def extend(self, keys):
+        self._parts.append(zlib.compress(pickle.dumps(list(keys), pickle.HIGHEST_PROTOCOL), 1))
+
+    def __add__(self, other):
+        return _Keys(self._parts + other._parts)
+
+    def __iter__(self):
+        for c in self._parts:
+            yield from pickle.loads(zlib.decompress(c))
+
+
+def _interned(k):
+    """`k`, a word or a tuple of them, as the one string objects every other
+    copy of those words is: a chunk read off the store holds its own copy of
+    each, and ~1,400 chunks merged held a million tuples of them (1.6GB for
+    counts that pickle to 170MB)."""
+    if isinstance(k, str):
+        return sys.intern(k)
+    if isinstance(k, tuple):
+        return tuple(sys.intern(x) if isinstance(x, str) else x for x in k)
+    return k
+
+
 def _add(into, part):
     """Add one chunk's counts (a dict of Counters, or of [n, n] lists) into
     `into`, keys in the order one pass would first meet them."""
     for k, v in part.items():
         cur = into.get(k)
         if cur is None:
-            into[k] = collections.Counter(v) if isinstance(v, collections.Counter) else list(v)
+            k = _interned(k)
+            into[k] = (collections.Counter({_interned(a): n for a, n in v.items()})
+                       if isinstance(v, collections.Counter) else list(v))
         elif isinstance(cur, collections.Counter):
-            cur.update(v)
+            for a, n in v.items():
+                cur[_interned(a)] += n
         else:
             cur[0] += v[0]
             cur[1] += v[1]
@@ -1953,11 +1988,11 @@ def _merged(parts):
     """(ilex, both, lex, dlex) counts, as their constructors take them, from
     the chunks' (lex, ind, defs) counts: the corpus's chunks (defs set), then
     our annotations' (defs None)."""
-    seen, edge, keys = {}, {}, []
+    seen, edge, keys = {}, {}, _Keys()
     ind = ({}, {}, {}, {})
     of, dedge = {}, {}
     both_seen = both_edge = None
-    more_keys = []
+    more_keys = _Keys()
 
     def fork():
         # "lex" is done, and "both" goes on from a copy of it (Lexicon.pair).
@@ -1969,11 +2004,11 @@ def _merged(parts):
                 both_seen, both_edge = fork()
             _add(both_seen, lex_c[0])
             _add(both_edge, lex_c[1])
-            more_keys += lex_c[2]
+            more_keys.extend(lex_c[2])
         else:
             _add(seen, lex_c[0])
             _add(edge, lex_c[1])
-            keys += lex_c[2]
+            keys.extend(lex_c[2])
             _add(of, defs_c[0])
             _add(dedge, defs_c[1])
         for into, got in zip(ind, ind_c):
@@ -2150,9 +2185,9 @@ def write(corpus, votes, said=None, jobs=None):
         conn = None
     with timed("lexicons built"):
         if conn is None:
-            ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
+            ilex, both, lex, dlex = _lexicons(corpus, Ours(annotation_rows()), jobs)
         else:
-            (ilex, both, lex, dlex), gen = _cached_lexicons(conn, corpus, list(annotation_rows()), jobs)
+            (ilex, both, lex, dlex), gen = _cached_lexicons(conn, corpus, Ours(annotation_rows()), jobs)
     with timed("lexicons exported"):
         n = collections.Counter(export_lexicons(both, ilex))
     del both
@@ -2635,6 +2670,65 @@ def _serve_worker(state):
     import ocr_remote
     ocr_remote.full_speed(SERVE_PRIORITY)
     _WORKER.update(pickle.loads(Path(state).read_bytes()))
+
+
+class Ours:
+    """annotation_rows kept compressed: ~1M rows are ~2GB as tuples and dicts, and
+    held whole they were the largest thing in the run (a run reached 4.3GB).
+    Rows are pickled CHUNK at a time and zlib-compressed (~110MB), iterable
+    any number of times, and get() is Indicators.own's {(clue, answer): row}
+    for the rows with indicators, the only ones Indicators.less changes
+    anything for (a row with none adds nothing to its counts)."""
+
+    CHUNK = 256
+
+    def __init__(self, rows_):
+        self._chunks, self._at = [], {}
+        buf = []
+        for r in rows_:
+            key = self._hash((r[2], r[3]))
+            if r[4].get("indicators"):
+                self._at[key] = len(self._chunks) * self.CHUNK + len(buf)
+            else:
+                self._at.pop(key, None)  # the last row of a clue is the one Indicators.own held
+            buf.append(r)
+            if len(buf) == self.CHUNK:
+                self._chunks.append(zlib.compress(pickle.dumps(buf, pickle.HIGHEST_PROTOCOL), 1))
+                buf = []
+        if buf:
+            self._chunks.append(zlib.compress(pickle.dumps(buf, pickle.HIGHEST_PROTOCOL), 1))
+
+    @staticmethod
+    def _hash(key):
+        """A hash that is the same in every process (str's is not), so the
+        index survives being sent to the desktop."""
+        return int.from_bytes(hashlib.blake2b("\0".join(key).encode(), digest_size=8).digest(), "big")
+
+    def _load(self, i):
+        """Chunk i's rows, the last few kept: get() is asked in corpus order."""
+        held = self.__dict__.setdefault("_held", {})
+        if i not in held:
+            if len(held) >= 16:
+                held.pop(next(iter(held)))
+            held[i] = pickle.loads(zlib.decompress(self._chunks[i]))
+        return held[i]
+
+    def __getstate__(self):
+        return {"_chunks": self._chunks, "_at": self._at}
+
+    def __iter__(self):
+        for c in self._chunks:
+            yield from pickle.loads(zlib.decompress(c))
+
+    def __len__(self):
+        return sum(len(self._load(i)) for i in range(len(self._chunks)))
+
+    def get(self, key, default=None):
+        at = self._at.get(self._hash(key))
+        if at is None:
+            return default
+        row = self._load(at // self.CHUNK)[at % self.CHUNK]
+        return row if (row[2], row[3]) == key else default
 
 
 class Packed:
