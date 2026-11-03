@@ -529,10 +529,7 @@ for (const sig of ["SIGTERM", "SIGINT"]) {
 process.on("exit", (code) => {
   if (code) console.error(`(smoke slice ${process.env.CI_SLICE || "-"} exits ${code} while ${stage.at}, rss ${mb()} MB)`);
 });
-// Diagnostic heap snapshots, only under SMOKE_HEAP_DIR (tools/heap_probe.js).
-require("./heap_probe.js")(stage);
 function load(p) {
-  if (global.__heapProbe) global.__heapProbe("load");
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
 }
@@ -577,7 +574,6 @@ const corpus = (() => {
 stage.at = `loading ${corpus.length} puzzles`;
 corpus.forEach(load);
 stage.at = "sweeping the corpus";
-if (global.__heapProbeSnap) global.__heapProbeSnap("loaded");
 assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
   "the corpus is loaded for the checks below");
 if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}, `

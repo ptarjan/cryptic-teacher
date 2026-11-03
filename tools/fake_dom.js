@@ -29,7 +29,6 @@ const NATIVE_FETCH = global.fetch;
 const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
 
 function boot(opts) {
-  if (global.__heapProbe) global.__heapProbe("boot");
   const options = opts || {};
   const registry = {};
   const unpublish = (el) => {
