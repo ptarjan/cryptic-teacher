@@ -60,6 +60,7 @@ from pathlib import Path
 import series as series_meta  # what each series IS; see tools/series.py
 import provenance  # where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
+import daily_fetch  # the walk and refresh loop the numbered fetchers share
 import clue_types  # the closed list of clue types; see tools/clue_types.py
 import puzzle_schema  # the file's shape and presence rule; see tools/puzzle_schema.py
 import puzzle_paths  # where each file lives; see tools/puzzle_paths.py
@@ -3923,43 +3924,18 @@ def walk(numbers, series, what="backfill"):
     """Fetch each number in turn, skipping what's on disk and what 404s.
 
     Guardian numbers are sequential within a series but not gapless, so a
-    missing one is normal and must not stop the walk. Polite ~1s delay per
-    request, paid only for numbers actually requested. Returns how many arrived.
+    missing one is normal and must not stop the walk. A status http_bytes has
+    already backed off four times on (RETRY_STATUSES) stops it instead: see
+    daily_fetch.walk. Returns how many arrived.
     """
-    fetched, skipped, missing = 0, 0, 0
-    for num in numbers:
-        if puzzle_path(series, num).exists():
-            skipped += 1
-            continue
-        try:
-            fetch_number(num, series)
-            fetched += 1
-        except urllib.error.HTTPError as err:
-            # http_bytes has already backed off four times by here, so this is
-            # not a blip. Recording it as a gap would bake a lie into the
-            # archive; stopping costs one source for one run.
-            if err.code in RETRY_STATUSES:
-                print(f"STOPPING at {num}: HTTP {err.code} after every retry — "
-                      f"{fetched} fetched before it started refusing")
-                reindex()
-                raise
-            print(f"skip {num}: HTTP {err.code}")
-            missing += 1
-        except Exception as err:  # malformed page etc. — keep going
-            print(f"skip {num}: {err}")
-            missing += 1
-        time.sleep(1)
-    reindex()
-    print(f"{what} done: {fetched} fetched, {skipped} already present, "
-          f"{missing} unavailable")
-    return fetched
+    return daily_fetch.walk(numbers, lambda num: puzzle_path(series, num).exists(),
+                            lambda num: fetch_number(num, series), what,
+                            finish=reindex, stop_statuses=RETRY_STATUSES)
 
 
 def on_disk_numbers(series):
     """Every number of `series` we hold, read off the file names."""
-    prefix = f"{series}-"
-    return sorted(int(p.stem[len(prefix):]) for p in puzzle_files()
-                  if p.stem.startswith(prefix) and p.stem[len(prefix):].isdigit())
+    return daily_fetch.numbers_in(puzzle_files(), series)
 
 
 def backfill(count, series="cryptic"):
@@ -4008,7 +3984,7 @@ def extend(count, series="cryptic"):
     if oldest <= floor:
         print(f"extend done: {series} starts at {floor}; nothing older exists here")
         return 0
-    return walk(range(oldest - 1, max(oldest - 1 - count, floor - 1), -1), series, "extend")
+    return walk(daily_fetch.older(oldest, count, floor), series, "extend")
 
 
 # How long a nightly refresh keeps asking after a puzzle's real answers before
@@ -4090,39 +4066,37 @@ def refresh_unsolved():
         # all three.
         if series_meta.of(p) not in FETCHABLE:
             continue
-        if not still_worth_refreshing(p):
-            continue
-        if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
+        if still_worth_refreshing(p) and daily_fetch.needs_answers(p):
             pending.append((p["number"], series_meta.of(p)))
-    filled = 0
     # A reindex is a whole-corpus pass (difficulty over every puzzle plus every
     # index row), the bulk of this pass on a loaded host: it ran once inside
     # fetch_number and again below for a single still-withheld puzzle whose
     # re-fetch wrote back the same bytes. One reindex at the end, and only when
     # a file on disk actually changed — the index is built from those files
     # and nothing else here, so an unchanged corpus is an unchanged index.
-    moved = False
-    for num, series in pending:
-        try:
-            before = _file_bytes(puzzle_path(series, num))
-            puzzle, _ = fetch_number(num, series, reindexed=False)
-            moved |= _file_bytes(puzzle_path(series, num)) != before
-            # A carried-over model fill fills every entry too, so "has letters
-            # everywhere" is not the test — "the paper said so" is.
-            if all(e.get("solution") for e in puzzle["entries"]) and not provenance.solution_detail(puzzle):
-                print(f"solutions now published for {num}")
-                filled += 1
-            elif provenance.solution_detail(puzzle):
-                print(f"{num}: solutions still withheld — keeping our own fill")
-            else:
-                print(f"{num}: solutions still withheld")
-        except Exception as err:
-            print(f"refresh {num} failed: {err}")
-            moved = True  # a failure part-way may still have written: rebuild to be safe
-        time.sleep(1)
-    if moved:
+    moved = []
+
+    def one(item):
+        num, series = item
+        before = _file_bytes(puzzle_path(series, num))
+        puzzle, _ = fetch_number(num, series, reindexed=False)
+        if _file_bytes(puzzle_path(series, num)) != before:
+            moved.append(num)
+        # A carried-over model fill fills every entry too, so "has letters
+        # everywhere" is not the test — "the paper said so" is.
+        if not daily_fetch.needs_answers(puzzle):
+            print(f"solutions now published for {num}")
+            return True
+        if provenance.solution_detail(puzzle):
+            print(f"{num}: solutions still withheld — keeping our own fill")
+        else:
+            print(f"{num}: solutions still withheld")
+        return False
+
+    _, failed = daily_fetch.refresh(pending, one, label=lambda item: item[0])
+    # A failure part-way may still have written: rebuild to be safe.
+    if moved or failed:
         reindex()
-    print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
 
 # How many numbers below the index's newest --latest will fill when some are
@@ -4132,9 +4106,7 @@ LATEST_GAP_FILL = 8
 
 def newest_held(series):
     """The highest number of `series` on disk, or None."""
-    nums = [int(m.group(1)) for f in puzzle_paths.puzzle_files(series)
-            if (m := re.fullmatch(rf"{series}-(\d+)", f.stem))]
-    return max(nums, default=None)
+    return max(daily_fetch.numbers_in(puzzle_paths.puzzle_files(series), series), default=None)
 
 
 def find_latest_number(series="cryptic"):
