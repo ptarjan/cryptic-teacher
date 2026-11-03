@@ -133,6 +133,9 @@ CPU_STATE = ".prereset.cpu"
 # (width() deletes the file) only when the weekly reaches RUSH_TARGET or the
 # weekly reset passes. The weekly meter reaching RUSH_SPENT wakes our room once
 # per window (RUSH_SPENT_STAMP, cleared when the meter falls) so Paul can reset.
+# Since 11-03 width() sets both switches itself (auto_rush, Paul: "spend any
+# resets we have so rush when we have one and don't when we don't"): a manual
+# reset free arms RUSH, none free writes NATURAL_ONLY to the natural reset.
 RUSH = ".prereset.rush"
 NATURAL_ONLY = ".prereset.natural_until"  # epoch: until then plan no manual resets
 RUSH_TARGET = 100.0
@@ -380,6 +383,46 @@ def overnight_cap(pct, now, end, rate, bridge):
         return max(0, int(room / (hours * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
+
+
+def abt(epoch):
+    """`epoch` as Paul reads times: Alberta, to the nearest minute, "Wed 04:00 ABT"."""
+    from zoneinfo import ZoneInfo
+    t = dt.datetime.fromtimestamp(round(epoch / 60) * 60, ZoneInfo("America/Edmonton"))
+    return f"{t:%a %H:%M} ABT"
+
+
+def rush_choice(left, until):
+    """(rush, words) for `left` manual resets free now and the natural reset at
+    `until` (Paul 11-03: "spend any resets we have so rush when we have one and
+    don't when we don't"). Words are the status line's: "rushing, 2 of 15 manual
+    resets left" or "pacing to Wed 04:00 ABT reset, 0 of 15 manual resets left"."""
+    tally = f"{left} of {MANUAL_RESETS} manual resets left"
+    if left > 0:
+        return True, f"rushing; {tally}"
+    return False, f"pacing to {abt(until)} reset; {tally}"
+
+
+def auto_rush(home, left, until, now):
+    """Arm or disarm the rush from the manual resets free: one free arms RUSH
+    (to the natural reset) and clears NATURAL_ONLY, so the meter is spent and
+    the room woken to reset; none free removes RUSH and writes NATURAL_ONLY to
+    the natural reset, so the burn paces the meter to EXHAUSTED by then. The
+    files stay the burn's switches (--rush, --natural-only), now set from the
+    count each call instead of by hand. Returns rush_choice's words."""
+    rush, words = rush_choice(left, until)
+    try:
+        if rush:
+            if not rush_active(_read(home / RUSH), 0.0, now):
+                (home / RUSH).write_text(f"{until:.0f}\n")
+            (home / NATURAL_ONLY).unlink(missing_ok=True)
+        else:
+            (home / RUSH).unlink(missing_ok=True)
+            if not natural_only(_read(home / NATURAL_ONLY), now):
+                (home / NATURAL_ONLY).write_text(f"{until:.0f}\n")
+    except OSError as exc:
+        print(f"width: rush switch not written: {exc}", file=sys.stderr)
+    return words
 
 
 def natural_only(text, now):
@@ -871,6 +914,7 @@ def width(arg=None, floor=1):
     runs_needed = bridge = pct = hours_left = plan = night = None
     slots = []
     rushing = natural = False
+    choice = None
     rss = burn_rss_kb()
     meminfo = _read("/proc/meminfo")
     mem = mem_cap(meminfo, rss)
@@ -880,6 +924,10 @@ def width(arg=None, floor=1):
         rate = capped_rate(rate, per_run_rate(lines))
         pct = weekly_usage.usage_pct("weekly")
         hours_left, _ = weekly_usage.resets_in_hours("weekly")
+        if hours_left is not None and hours_left > 0 and pct is not None:
+            used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
+            left = max(0, MANUAL_RESETS - len(used))
+            choice = auto_rush(home, left, now + hours_left * 3600, now)
         stamp = _read(home / RUSH)
         armed = stamp is not None
         if armed:
@@ -940,9 +988,12 @@ def width(arg=None, floor=1):
     # that always ties memory (11-03: "memory 15 ... quota pace 15" on every line, and the log
     # said memory binds while the meter, not the machine, was the reason to go that wide).
     pace = "rush" if rushing else runs_needed
+    # The rush decision rides in the caps (";" inside, so the ", " split there
+    # keeps it whole), so a change prints the line again and burn_log.py says it.
+    plan_words = f", reset plan {choice}" if choice else ""
     detail = mem_detail(meminfo, rss)
     print(f"width {w} (cap: memory {dash(mem)}, cpu {dash(cpu)}, load {dash(busy)}, "
-          f"quota pace {pace}) · weekly {at}{aim}; bridge {shown}; {cores}; "
+          f"quota pace {pace}{plan_words}) · weekly {at}{aim}; bridge {shown}; {cores}; "
           f"{detail + '; ' if detail else ''}was {current}", file=sys.stderr)
     return w
 
@@ -1189,6 +1240,17 @@ def width_self_test():
                   f"(want {want})", file=sys.stderr)
             bad += 1
     bad += spend_self_test() + tree_self_test() + reset_self_test() + sleep_self_test()
+    # The hour is tzdata's (Alberta's offset is the zone file's call); 10:59:40 rounds up a minute.
+    when = _utc(2026, 11, 4, 10, 59, 40)
+    if not re.fullmatch(r"Wed \d\d:00 ABT", abt(when)):
+        print(f"FAIL abt() = {abt(when)!r}, want 'Wed HH:00 ABT'", file=sys.stderr)
+        bad += 1
+    for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of 15 manual resets left")),
+                       (2, (True, "rushing; 2 of 15 manual resets left"))]:
+        got = rush_choice(left, when)
+        if got != want:
+            print(f"FAIL rush_choice({left}) = {got!r}, want {want!r}", file=sys.stderr)
+            bad += 1
     real = weekly_usage.usage_pct
     def unreadable(_group):
         raise RuntimeError("no reading")
