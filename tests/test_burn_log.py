@@ -74,6 +74,8 @@ noise = ["annotation loss check: 1 puzzle(s), none left short", "push_puzzle_com
          "(JSON: `entries` is a list of strings", "  [a-1] bag of 4: 2 changed, 1 produced no change, 1 not shipped, 0 to solve again",
          "x-1 failed on this puzzle and is skipped until it changes"]
 check(run(noise), [], "debug lines produce nothing")
+check(bare(run(["  [a-1] bag hit its turn limit after 9 of 30 puzzles; 21 untouched go back in the queue (3 changed, 6 kept ours, 0 not shipped)"])),
+      ["✂ bag hit its turn limit after 9 of 30 puzzles; 21 untouched go back in the queue"], "a bag stopped by its turn limit is one plain line")
 
 EMPTY = "--- pool of 6: 0 in flight (0 running), 0 queued ---"
 check(run([EMPTY]), [], "an empty queue for a moment is not idle")
@@ -172,21 +174,21 @@ check(len(sent), 2, "a status or a commit never wakes")
 log = B.Log()
 sent = []
 log.notify = sent.append
-log.tokens_of = lambda pid: 17_000
+log.tokens_of = lambda pid: 45_000
 log.feed(WIDTH, T)
 lines = []
 for i in range(6):
     lines += log.feed(f"committed Backfill wordplay.anaStandIn for azed-{100 + i}", T + 10 + i)
-check(any("tokens per clue: re-shape anagram stand-ins ran at 17k tokens per clue" in x for x in lines), True,
-      "17k tokens a clue warns, naming the rule")
+check(any("tokens per clue: re-shape anagram stand-ins ran at 45k tokens per clue" in x for x in lines), True,
+      "45k tokens a clue warns, naming the rule")
 check(len(sent), 1, "and wakes the room once")
-check(any("17k tok/clue" in x for x in log.feed("sync: tree at x", T + 400)), True, "the status line carries tokens per clue")
+check(any("45k tok/clue" in x for x in log.feed("sync: tree at x", T + 400)), True, "the status line carries tokens per clue")
 log = B.Log()
-log.tokens_of = lambda pid: 3_000
+log.tokens_of = lambda pid: 12_000
 lines = []
 for i in range(8):
     lines += log.feed(f"committed Backfill wordplay.anaStandIn for azed-{100 + i}", T + i)
-check([x for x in lines if "tokens per clue" in x], [], "3k tokens a clue is fine")
+check([x for x in lines if "tokens per clue" in x], [], "12k tokens a clue (a bag) is fine")
 
 # A blog re-check, kept-only or changed, counts its tokens too: the status line shows tok/clue during it.
 log = B.Log()
