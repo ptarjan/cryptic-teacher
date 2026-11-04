@@ -50,7 +50,7 @@ check(bare(run(["  why: weekly 10% now; memory 6.9 GB available less 4 GB kept f
 check(B.limit_note("usage pace", False, "memory 9.0 GB available less 4 GB kept free"), None,
       "only a memory limit carries the memory numbers")
 
-check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 hints written"], "annotate commit")
+check(bare(run(["committed Annotate azed-2702"])), ["✓ azed-2702 wrote hints"], "annotate commit")
 check(bare(run(["committed Backfill wordplay.anaLoneEdge for azed-2581"])),
       ["✓ azed-2581 re-shaped anagram of a lone edge letter"], "backfill commit")
 check(bare(run(["  [azed-2581] bag of 4 puzzles, 6 clues: wordplay.anaLoneEdge — with: a-1 b-2 c-3 "])),
