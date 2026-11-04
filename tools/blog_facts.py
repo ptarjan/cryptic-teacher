@@ -1739,7 +1739,10 @@ def facts_for_post(blog, entries, post):
             or (["double_definition"] if two_ends(defs, body) and not blk and "+" not in expl else None)
         if t:
             fact["type"] = t
-        if blk and "hidden_word" not in (t or ()):
+        # A hidden word's letters are no blocks; nor are a definition-only
+        # clue's: what its write-up spells out ("N[arc]O becomes NO") is the
+        # pun explained, not wordplay, and the site would show both ladders.
+        if blk and not {"hidden_word", "cryptic_definition", "double_definition"} & set(t or ()):
             fact["blocks"] = heard_blocks(t, blk, answer, body)
         whole_clue = defs and projection(" ".join(defs))[0] == projection(body)[0]  # &lit
         ind = indicators(blog, expl_marked, body, brackets,
