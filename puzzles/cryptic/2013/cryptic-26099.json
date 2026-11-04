@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Delivery man at the door",
     "enumeration": "7"
    },
-   "solution": "BOUNCER"
+   "solution": "BOUNCER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Delivery",
+      "at": 0,
+      "meaning": "in cricket, a short ball that rears up at the batsman"
+     },
+     {
+      "text": "man at the door",
+      "at": 9,
+      "meaning": "a doorman who keeps unwanted guests out of a club"
+     }
+    ],
+    "explanation": {
+     "surface": "A courier waiting on the doorstep.",
+     "definitionFit": "Both senses: a short-pitched cricket ball, and a nightclub's doorman who throws out troublemakers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Delivery"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,30 @@
     "text": "Flaming, as red",
     "enumeration": "6"
    },
-   "solution": "BLOODY"
+   "solution": "BLOODY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flaming",
+      "at": 0,
+      "meaning": "a mild British swear word, as in 'flaming nuisance'"
+     },
+     {
+      "text": "red",
+      "at": 12,
+      "meaning": "blood-coloured, crimson"
+     }
+    ],
+    "explanation": {
+     "surface": "Something burning and glowing crimson.",
+     "definitionFit": "Two senses: a British expletive intensifier like 'flaming', and the colour of blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flaming"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +109,62 @@
     "text": "Headless cockroach, say, with a place in Africa",
     "enumeration": "6"
    },
-   "solution": "UGANDA"
+   "solution": "UGANDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "place in Africa",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Headless",
+         "at": 0,
+         "note": "without a head means the first letter of the insect word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cockroach, say",
+         "at": 9,
+         "gives": "BUG",
+         "note": "a cockroach is an example of a bug"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "with",
+       "at": 25,
+       "gives": "AND",
+       "note": "with means and"
+      },
+      {
+       "words": "a",
+       "at": 30,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decapitated insect found somewhere in Africa.",
+     "walkthrough": "'Headless' removes B from BUG, leaving UG.",
+     "definitionFit": "A landlocked East African country, a place on that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cockroach"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +184,80 @@
      }
     ]
    },
-   "solution": "COTTAGEPIE"
+   "solution": "COTTAGEPIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fare traditionally served",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held in",
+         "at": 36,
+         "note": "held in means the ticket word sits inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "kind of",
+           "at": 44,
+           "note": "kind of signals a variant form of the word poetic, its letters shuffled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "poetic",
+           "at": 52
+          }
+         ]
+        },
+        {
+         "words": "ticket",
+         "at": 29,
+         "gives": "TAG",
+         "note": "a tag is a label or ticket"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 68,
+         "note": "ultimately points to the final letter of justice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "justice",
+         "at": 59
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poetic justice as a ticket being dished out.",
+     "walkthrough": "'kind of' makes an anagram of the clue word, opened by 'held in' around the label; 'ultimately' takes only the last letter of 'justice'. 'Fare' means food here, not a ticket price.",
+     "definitionFit": "A traditional British dish of minced meat topped with mashed potato, served as food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poetic"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +271,41 @@
     "text": "Something to restore, because it's an old instrument",
     "enumeration": "5"
    },
-   "solution": "REBEC"
+   "solution": "REBEC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an old instrument",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Something to",
+       "at": 0,
+       "note": "something to the words means a part of them, the letters concealed inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "restore, because",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An antique instrument that needs restoring.",
+     "walkthrough": "The letters run across the end of 'restore' and the start of 'because'.",
+     "definitionFit": "A medieval bowed stringed instrument, an early ancestor of the fiddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restore"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +319,62 @@
     "text": "Demonic spirit in political opponents, one detailed",
     "enumeration": "7"
    },
-   "solution": "INCUBUS"
+   "solution": "INCUBUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Demonic spirit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 15,
+       "gives": "IN"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "one detailed",
+         "at": 39,
+         "note": "one of the pair loses its tail, so the last letter of the first country goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "political opponents",
+         "at": 18,
+         "gives": "CUBA",
+         "note": "Cuba and the US are long-time political foes"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "political opponents",
+       "at": 18,
+       "gives": "US",
+       "note": "the United States, Cuba's long-time political foe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devil lurking among one's political rivals.",
+     "walkthrough": "The political opponents are the Caribbean island nation and its big northern neighbour; 'one detailed' means only the first of the pair loses its tail.",
+     "definitionFit": "A male demon of folklore said to lie upon sleepers, an evil supernatural being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +394,29 @@
      }
     ]
    },
-   "solution": "INCONCERT"
+   "solution": "INCONCERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Performing",
+      "at": 0,
+      "meaning": "giving a live musical show"
+     },
+     {
+      "text": "as one",
+      "at": 11,
+      "meaning": "together, in unison"
+     }
+    ],
+    "explanation": {
+     "surface": "Acting together on stage.",
+     "definitionFit": "The phrase means both playing live on stage and acting jointly in agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -154,7 +443,47 @@
     "text": "Rocky, as in sea",
     "enumeration": "8"
    },
-   "solution": "BASALTIC"
+   "solution": "BASALTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rocky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in means the small word goes inside the sea's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sea",
+       "at": 13,
+       "gives": "BALTIC",
+       "note": "the Baltic is a sea of northern Europe"
+      },
+      {
+       "words": "as",
+       "at": 7,
+       "gives": "AS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choppy conditions at sea.",
+     "definitionFit": "Made of basalt, a dark volcanic stone, so consisting of rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rocky"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +503,48 @@
      }
     ]
    },
-   "solution": "STEAMAGE"
+   "solution": "STEAMAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "long-gone train times",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to buttonhole",
+       "at": 5,
+       "note": "to buttonhole is to grab someone, here the wise word holds the crew word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wise",
+       "at": 0,
+       "gives": "SAGE",
+       "note": "sage means wise"
+      },
+      {
+       "words": "crew",
+       "at": 19,
+       "gives": "TEAM",
+       "note": "a team is a crew"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise person collaring a train crew about old timetables.",
+     "definitionFit": "The historical era when railways ran on locomotives powered by boiling water, now passed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "buttonhole"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +564,40 @@
      }
     ]
    },
-   "solution": "OPART"
+   "solution": "OPART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "modern works",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "component",
+       "at": 4,
+       "gives": "PART",
+       "note": "a part is a component"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping an antique part into something contemporary.",
+     "definitionFit": "Optical art, a 1960s style of painting built on visual illusions, so a body of modern pictures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +617,41 @@
      }
     ]
    },
-   "solution": "BACKISSUE"
+   "solution": "BACKISSUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old newspaper",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 0,
+       "gives": "BACK",
+       "note": "to second a proposal is to back it"
+      },
+      {
+       "words": "question",
+       "at": 7,
+       "gives": "ISSUE",
+       "note": "an issue is a question under discussion"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking a follow-up question about an old paper.",
+     "definitionFit": "A previously published copy of a periodical, no longer the current edition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +671,37 @@
      }
     ]
    },
-   "solution": "DADDANCING"
+   "solution": "DADDANCING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "embarrassing mid-life performance?",
+      "at": 7
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "DAD + DANCING",
+     "parts": [
+      {
+       "words": "Add",
+       "at": 0,
+       "note": "the word Add is what results when the letters of a father's pet name are jumbled up, as if jigging about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to include an awkward middle-aged display.",
+     "walkthrough": "Read the answer as wordplay: 'dancing' acts on DAD, rearranging it to ADD, the clue's first word.",
+     "definitionFit": "The awkward jigging of middle-aged fathers at parties, a cringeworthy show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Add"
+    }
+   }
   },
   {
    "number": 12,
@@ -248,7 +715,48 @@
     "text": "Fifty boards to stick down",
     "enumeration": "4"
    },
-   "solution": "GLUM"
+   "solution": "GLUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "down",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boards",
+       "at": 6,
+       "note": "boards means gets on, so the Roman numeral climbs inside the sticking word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stick",
+       "at": 16,
+       "gives": "GUM",
+       "note": "to gum is to stick"
+      },
+      {
+       "words": "Fifty",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the Roman numeral for fifty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fifty planks to be glued down.",
+     "definitionFit": "Feeling down means being miserable or dejected, a matching mood adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 13,
@@ -272,7 +780,30 @@
      }
     ]
    },
-   "solution": "OUTOFORDER"
+   "solution": "OUTOFORDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Letters in an anagram are so",
+      "at": 0,
+      "meaning": "an anagram's letters are jumbled out of their proper sequence"
+     },
+     {
+      "text": "not working!",
+      "at": 29,
+      "meaning": "broken, out of action"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble that a jumbled word puzzle is broken.",
+     "definitionFit": "The phrase means both muddled in sequence and broken, like a faulty machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -286,7 +817,50 @@
     "text": "Putting off green, child has us beaten",
     "enumeration": "12"
    },
-   "solution": "RESCHEDULING"
+   "solution": "RESCHEDULING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Putting off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "beaten",
+       "at": 32,
+       "note": "beaten as eggs are, so the letters are whisked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "green",
+       "at": 12
+      },
+      {
+       "words": "child",
+       "at": 19
+      },
+      {
+       "words": "us",
+       "at": 29
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child beating us on the golf green.",
+     "walkthrough": "'beaten' mixes the letters of GREEN, CHILD and US together; 'has' is only a link.",
+     "definitionFit": "Postponing means moving an event to a later date, which is delaying it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Putting"
+    }
+   }
   },
   {
    "number": 15,
@@ -300,7 +874,109 @@
     "text": "Needlewoman sees Manx cat biting Manx cat biting cat's tail",
     "enumeration": "9"
    },
-   "solution": "CLEOPATRA"
+   "solution": "CLEOPATRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Needlewoman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "biting",
+       "at": 26,
+       "note": "biting means the first cut-short cat holds the rest in its mouth"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Manx",
+         "at": 17,
+         "note": "a Manx cat has no tail, so the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 22,
+         "gives": "CAT",
+         "note": "taken as written, then shortened"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "biting",
+         "at": 42,
+         "note": "biting again means the second shortened cat encloses one more letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Manx",
+           "at": 33,
+           "note": "tailless again, so the spotted big cat loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cat",
+           "at": 38,
+           "gives": "LEOPARD",
+           "note": "a leopard is a big cat"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "tail",
+           "at": 55,
+           "note": "tail means the last letter of the word cat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cat's",
+           "at": 49,
+           "gives": "CAT"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seamstress watching tailless cats nibbling at each other.",
+     "walkthrough": "A Manx cat is a tailless breed from the Isle of Man, so 'Manx' clips the last letter of each cat; the second cat is a big one, the spotted kind.",
+     "definitionFit": "The Egyptian queen gave her name to the obelisk in London called her Needle, so she is jokingly a woman with a needle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Needlewoman"
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +990,57 @@
     "text": "Quiet thus, vacuum won't start",
     "enumeration": "8"
    },
-   "solution": "SOOTHING"
+   "solution": "SOOTHING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quiet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "thus",
+       "at": 6,
+       "gives": "SO",
+       "note": "so means thus"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "won't start",
+         "at": 19,
+         "note": "won't start means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vacuum",
+         "at": 12,
+         "gives": "NOTHING",
+         "note": "a vacuum contains nothing"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vacuum cleaner that is silent because it will not switch on.",
+     "walkthrough": "'won't start' drops N from NOTHING.",
+     "definitionFit": "Calming and gentle, as quiet music is restful; an adjective for something that soothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacuum"
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1054,50 @@
     "text": "Eating heartily, scoff as setter, perhaps?",
     "enumeration": "8"
    },
-   "solution": "JEWELLER"
+   "solution": "JEWELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "setter, perhaps?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Eating",
+       "at": 0,
+       "note": "eating means the mocking word takes in the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "scoff",
+       "at": 17,
+       "gives": "JEER",
+       "note": "to jeer is to scoff"
+      },
+      {
+       "words": "heartily",
+       "at": 7,
+       "gives": "WELL",
+       "note": "well means heartily, as in eating well"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle setter wolfing down food and sneering.",
+     "walkthrough": "'setter' suggests the crossword compiler; here it is someone who sets gems in rings.",
+     "definitionFit": "A craftsman who sets precious stones into mounts is one kind of stone setter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1117,30 @@
      }
     ]
    },
-   "solution": "ONEDIRECTION"
+   "solution": "ONEDIRECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A pop sensation",
+      "at": 0,
+      "meaning": "a hugely successful British-Irish boy band"
+     },
+     {
+      "text": "no two ways about it!",
+      "at": 17,
+      "meaning": "a single way, only the one route"
+     }
+    ],
+    "explanation": {
+     "surface": "A pop star whose fame is beyond doubt.",
+     "definitionFit": "The name of a chart-topping boy band, and literally a single way rather than two."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -372,7 +1164,36 @@
    "group": [
     "19-down",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Facial feature two inches out?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Facial feature two inches out?",
+       "at": 0,
+       "note": "a fold of fat beneath the jaw makes the lower face jut out, as if two jaws stacked"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A face feature protruding a couple of inches.",
+     "walkthrough": "The answer is in two lights; the facial feature is twice what it should be, sticking out.",
+     "definitionFit": "A fold of fatty flesh below the jaw line, a feature of the lower face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "inches"
+    }
+   }
   },
   {
    "number": 20,
@@ -386,7 +1207,49 @@
     "text": "Probing of Milibands by computers, censored",
     "enumeration": "6"
    },
-   "solution": "EDITED"
+   "solution": "EDITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "censored",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Probing of",
+       "at": 0,
+       "note": "probing means pushing into, so the computer word goes inside the pair of names"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Milibands",
+       "at": 11,
+       "gives": "EDED",
+       "note": "Ed Miliband, former Labour leader; two of him give two Eds"
+      },
+      {
+       "words": "computers",
+       "at": 24,
+       "gives": "IT",
+       "note": "IT, information technology, means computers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Computers prying into the Miliband brothers, with results suppressed.",
+     "walkthrough": "Ed Miliband is a British Labour politician, brother of David; the plural is taken cheekily as two of Ed.",
+     "definitionFit": "Cut and revised, as a censor prunes material before release."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Milibands"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1263,31 @@
     "text": "One joining the bank",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One joining",
+      "at": 0,
+      "meaning": "someone who ties things together"
+     },
+     {
+      "text": "bank",
+      "at": 16,
+      "meaning": "a row or level, such as a bank of seats"
+     }
+    ],
+    "explanation": {
+     "surface": "A new member signing up at the bank.",
+     "definitionFit": "Both a person who ties knots and a row in a stepped series, like a bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 22,
@@ -428,7 +1315,49 @@
      }
     ]
    },
-   "solution": "UPTONOGOOD"
+   "solution": "UPTONOGOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mischievous",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to steal",
+       "at": 26,
+       "note": "to steal means to slip in quietly, so the zero letter creeps inside the phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Where atheists might look",
+       "at": 0,
+       "gives": "UPTONOGOD",
+       "note": "atheists looking heavenward see no god, so they look up to no god"
+      },
+      {
+       "words": "love",
+       "at": 35,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Godless people searching for love and getting into mischief.",
+     "definitionFit": "Being engaged in mischief or plotting something naughty is the idiom's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "atheists"
+    }
+   }
   },
   {
    "number": 23,
@@ -448,7 +1377,54 @@
      }
     ]
    },
-   "solution": "OWNUP"
+   "solution": "OWNUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "that was painful",
+       "at": 8,
+       "gives": "OW",
+       "note": "ow is a cry of pain"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "not written down",
+         "at": 31,
+         "note": "in a down clue, not written down means written upwards, so the word is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "joke",
+         "at": 25,
+         "gives": "PUN",
+         "note": "a pun is a joke"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Admitting that a joke was dreadful and best not recorded.",
+     "walkthrough": "'not written down' reverses PUN to NUP.",
+     "definitionFit": "To admit to something, such as a misdeed, is the phrasal verb's meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "painful"
+    }
+   }
   },
   {
    "number": 24,
@@ -462,7 +1438,30 @@
     "text": "Sweet ass",
     "enumeration": "4"
    },
-   "solution": "FOOL"
+   "solution": "FOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0,
+      "meaning": "a dessert of stewed fruit and cream"
+     },
+     {
+      "text": "ass",
+      "at": 6,
+      "meaning": "an idiot or dolt"
+     }
+    ],
+    "explanation": {
+     "surface": "An endearing donkey.",
+     "definitionFit": "Both a creamy fruit pudding and a silly person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 25,
@@ -482,7 +1481,44 @@
      }
     ]
    },
-   "solution": "ILLGOTTEN"
+   "solution": "ILLGOTTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crooked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "misplaced",
+       "at": 30,
+       "note": "misplaced means the letters are put in the wrong places, mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "long",
+       "at": 19
+      },
+      {
+       "words": "title",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long title spelt with its letters jumbled.",
+     "definitionFit": "Obtained by dishonest means, like crooked gains or stolen goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crooked"
+    }
+   }
   },
   {
    "number": 26,
@@ -496,7 +1532,50 @@
     "text": "Start due, no middle though",
     "enumeration": "5"
    },
-   "solution": "DEBUT"
+   "solution": "DEBUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "no middle",
+         "at": 11,
+         "note": "no middle means the central letter of due is dropped, keeping its ends"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "words": "though",
+       "at": 21,
+       "gives": "BUT",
+       "note": "but means though"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something about to begin, though not halfway yet.",
+     "definitionFit": "A first appearance or launch, the beginning of a career."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -510,7 +1589,59 @@
     "text": "Beast who's thuggish or evil in silverback?",
     "enumeration": "7"
    },
-   "solution": "GORILLA"
+   "solution": "GORILLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beast who's thuggish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "in means the two words sit inside the reversed silver symbol"
+      }
+     ],
+     "parts": [
+      {
+       "words": "silverback",
+       "at": 32,
+       "gives": "GA",
+       "note": "Ag is silver's chemical symbol; back reverses it"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "or",
+         "at": 21,
+         "gives": "OR"
+        },
+        {
+         "words": "evil",
+         "at": 24,
+         "gives": "ILL",
+         "note": "ill means evil, as in ill deeds"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the silverback ape a brute or evil?",
+     "walkthrough": "'silverback' splits as 'silver back', the chemical symbol for silver turned round; a silverback is also a mature male of the very beast defined.",
+     "definitionFit": "A great ape, and slang for a burly heavy or thug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "silverback"
+    }
+   }
   },
   {
    "number": 28,
@@ -524,7 +1655,41 @@
     "text": "Left back, mean",
     "enumeration": "7"
    },
-   "solution": "PORTEND"
+   "solution": "PORTEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Left",
+       "at": 0,
+       "gives": "PORT",
+       "note": "port is the left side of a ship"
+      },
+      {
+       "words": "back",
+       "at": 5,
+       "gives": "END",
+       "note": "the end is the back"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something left behind with nasty intent.",
+     "definitionFit": "To foreshadow or signify is to mean, as clouds mean rain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   }
  ]
 }
