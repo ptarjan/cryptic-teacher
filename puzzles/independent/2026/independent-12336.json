@@ -149,36 +149,47 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the phrase: its last letter is dropped"
-      },
-      {
        "text": "to kick out",
-       "note": "the letters for 'professional' are thrown out"
+       "at": 20,
+       "note": "kicking something out removes it from the letters"
       }
      ],
      "parts": [
       {
-       "words": "No problem",
-       "gives": "NOPROBLE",
-       "note": "NO PROBLEM without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 12,
+         "note": "mostly means most but not all of the phrase, so its last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "No problem",
+         "at": 0
+        },
+        {
+         "gives": "M"
+        }
+       ]
       },
       {
        "words": "professional",
+       "at": 32,
        "gives": "PRO",
-       "note": "pro = professional; these three letters are lifted out of the middle"
+       "note": "pro is short for professional"
       }
      ]
     },
     "explanation": {
-     "surface": "An easygoing boss who is happy to sack an expert.",
-     "walkthrough": "Two cuts in sequence: trim the M, then lift PRO out of the middle, and NO + BLE closes up.",
-     "definitionFit": "Noble describes someone of high rank by birth, an aristocrat."
+     "surface": "Getting rid of a professional is mostly no trouble for a high-ranking figure.",
+     "definitionFit": "A noble is an aristocrat, a person of exalted rank and birth."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "professional"
+     "misdirectedWord": "problem"
     }
    }
   },

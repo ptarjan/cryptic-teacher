@@ -305,46 +305,62 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "without ends means both the first and last letters are cut away"
-      },
-      {
        "text": "not",
-       "note": "saying a thing is not present means taking that letter out of the word"
+       "at": 24,
+       "note": "not says the letter that follows is left out"
       }
      ],
      "parts": [
       {
-       "words": "Swiss chocolate",
-       "gives": "OBLERON",
-       "note": "Toblerone is the triangular Swiss chocolate bar; without its ends it leaves these letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means with both ends removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Swiss chocolate",
+         "at": 8,
+         "gives": "TOBLERONE",
+         "note": "Toblerone is the triangular Swiss chocolate bar"
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means at the very end, so only the final letter is wanted"
+         "at": 28,
+         "note": "ultimately points to the last letter of the word"
         }
        ],
        "parts": [
         {
          "words": "beneficial",
-         "note": "the final letter of the word"
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone claims a trimmed-down Toblerone isn't good for your body.",
-     "walkthrough": "'Heavenly body' plays on 'body' in a health sense; the chocolate loses both ends and then its L.",
-     "definitionFit": "Oberon is one of the moons of Uranus, and any moon counts as a celestial object in space."
+     "surface": "A Swiss chocolate bar, never-ending, is not in the end good for the body.",
+     "definitionFit": "Oberon is one of the moons of Uranus, so it is a celestial object."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heavenly"
+     "misdirectedWord": "body"
     }
    }
   },
