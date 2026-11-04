@@ -74,7 +74,10 @@ def find(pid):
     """(blog name, url, post, comments) for this puzzle, or None."""
     src = source(pid)
     got = src and cached(pid, *src)
-    return got and (BLOGS[src[0]][1], src[1], *got)
+    if got:
+        return BLOGS[src[0]][1], src[1], *got
+    import blog_prefetch  # the post fetched just before this run, when the nightly cache has none
+    return blog_prefetch.load(pid)
 
 
 def main(argv):
