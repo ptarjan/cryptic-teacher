@@ -1317,33 +1317,23 @@
      "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "op": "move",
        "indicators": [
         {
-         "text": "inside",
-         "at": 45,
-         "note": "inside means the head letter is moved within the rest of the word"
+         "text": "with head inside",
+         "at": 35,
+         "note": "the head letter is put inside, so the first letter moves into the middle"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Not",
-           "at": 31,
-           "note": "the word not, without its first letter"
-          },
-          {
-           "gives": "N"
-          }
-         ]
+         "words": "Not",
+         "at": 31,
+         "gives": "NOT",
+         "note": "taken as written"
         },
         {
-         "words": "head",
-         "at": 40,
-         "gives": "N",
-         "note": "the head of Not is its first letter, N"
+         "gives": "N"
         }
        ]
       },
@@ -1351,18 +1341,19 @@
        "words": "oven",
        "at": 52,
        "gives": "OAST",
-       "note": "an oast is a kiln or oven for drying hops"
+       "note": "an oast is a kiln, a drying oven for hops"
       }
      ]
     },
     "explanation": {
-     "surface": "A kitchen question, answered with a warning not to put your head in the oven.",
-     "walkthrough": "Take the head, N, off NOT to leave OT, and put it inside, giving ONT; add OAST, a hop-drying oven common in Kent.",
-     "definitionFit": "Cheese and baked beans are classically served on a slice of toasted bread."
+     "surface": "A question about serving a snack, answered: not with your head in the oven.",
+     "walkthrough": "Cheese on toast and beans on toast are classic British snacks; the oven is an oast, a hop-drying kiln.",
+     "definitionFit": "Beans or cheese are commonly served on top of a slice of toast."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "head"
     }
    }

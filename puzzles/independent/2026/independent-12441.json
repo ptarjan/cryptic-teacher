@@ -650,48 +650,60 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Short",
-       "note": "cut short means stopping before the end, so the word turns up one letter shy"
+       "text": "steals",
+       "at": 10,
+       "note": "something that steals takes in goods, so the trimmed boy holds the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "lad",
-       "gives": "LA",
-       "note": "LAD with its last letter cut off"
-      },
-      {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "steals",
-         "note": "a thief takes a thing into his own keeping, so the word doing the stealing closes round what it takes"
+         "text": "Short",
+         "at": 0,
+         "note": "short means missing its last letter"
         }
        ],
        "parts": [
         {
+         "words": "lad",
+         "at": 6,
+         "gives": "LAD",
+         "note": "taken as written before trimming"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "old",
-         "gives": "O",
-         "note": "o is the usual abbreviation for old"
+         "at": 17,
+         "gives": "O"
         },
         {
          "words": "literary",
+         "at": 21,
          "gives": "LIT",
-         "note": "lit is the standard short form for literature"
+         "note": "LIT is short for literary or literature"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small boy pinches an old literary novel.",
-     "walkthrough": "'Old literary novel' reads as one description of a dusty book, and the seam falls right at the end of it: only the last word is the definition.",
-     "definitionFit": "Nabokov published Lolita in 1955, so 'novel' defines it by example — one famous title standing in for the whole class of thing."
+     "surface": "A small boy pinches an old book.",
+     "walkthrough": "'Short' cuts LAD to LA, which 'steals' O and LIT.",
+     "definitionFit": "Nabokov's Lolita is a famous 1955 novel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "novel"
+     "misdirectedWord": "Short"
     }
    }
   },
