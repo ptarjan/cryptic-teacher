@@ -19627,7 +19627,7 @@ def regressed(was, now, printed=()):
 TAIL_RESTORED_WORDS = 8
 
 
-def tail_restored(old, new):
+def tail_restored(old, new, held=""):
     """Whether the words `new` (lower-cased tokens of a reread's clue) are the held `old` with the end of a
     line it lost put back: `old` reads `new` up to a point, a word there cut short (a fragment of the word
     `new` has, "tr" for "trouble") or none, a run of at most TAIL_RESTORED_WORDS words `new` has missing,
@@ -19643,6 +19643,10 @@ def tail_restored(old, new):
         n += 1
     if n == len(old):
         gap = new[n:]
+        # A held clue that ends on a stop ("Skim.", "Give out in time.") is whole: the words after it are the
+        # next line's or a neighbouring column's prose (times-204, 1930-09-27), never a lost line end.
+        if held.rstrip().endswith((".", "!", "?")):
+            return False
         return 1 < len(gap) <= TAIL_RESTORED_WORDS and all(ocr_clues.is_word(w) for w in gap)
     # Only a cut word marks a line end lost inside the clue: old[n] is the start of the word new[n] (cut short).
     # A run of words put between two intact held words ("by fiddler" to "by For the fiddler", times-18379) is a
@@ -19713,7 +19717,7 @@ def corrects(was, now, printed=()):
     old, new = [m.group().lower() for m in old_t], [m.group().lower() for m in new_t]
     if old == new:
         return lone_stops_dropped(was, now)
-    if tail_restored(old, new):
+    if tail_restored(old, new, was):
         return True
     for m in re.finditer(r"([^\W\d_]+)-\s+([^\W\d_]+)", now):
         if any(ocr_clues.within_one((m[1] + m[2]).lower(), w) for w in old):
