@@ -86,20 +86,23 @@ check("the list did not grow", len(json.loads(Q.PATH.read_text())) <= 2)
 # The detectors are the gate: a listed clue whose tree they still flag cannot be
 # re-filed with that tree, prose changed or not. The flagged clue is a fixed
 # fixture (times-29652 10a as it was listed: a charade that deletes with one part and
-# files its indicator on the wrong op), grafted onto a clue of the puzzle above, so the
+# files its indicator on the wrong op), alone in a one-clue puzzle, so the
 # test does not depend on which live row happens to be on the list. The write
 # normalizes the tree, so the refusal may call it the same tree or still flagged.
 FLAGGED = json.loads(r'''{"clue": {"text": "Grasping matter, ultimately extensive, skipping chapter", "enumeration": "9"}, "solution": "RAPACIOUS", "length": 9, "annotation": {"definitions": [{"text": "Grasping", "at": 0}], "wordplay": {"op": "deletion", "unchecked": true, "gives": "RAPACIOUS", "parts": [{"op": "charade", "indicators": [{"text": "ultimately", "note": "'ultimately' means in the end, so take the last letter of matter"}], "parts": [{"op": "last", "unchecked": true, "gives": "R", "indicators": [{"text": "skipping", "note": "to skip something is to leave it out, so CAPACIOUS leaves out C"}], "parts": [{"unchecked": true, "words": "matter, ultimately", "gives": "R", "select": "last", "note": "last letter of matter"}]}, {"words": "extensive, skipping chapter", "gives": "APACIOUS", "note": "CAPACIOUS, extensive, without C for chapter"}]}]}, "explanation": {"surface": "Someone struggles to grasp a large, sprawling subject and skips a chapter.", "walkthrough": "'Grasping matter' reads as understanding a topic; 'Grasping' alone is the definition, meaning greedy.", "definitionFit": "Plain synonym in the greedy sense: always grabbing for more, not understanding."}, "features": {"answerInScene": false, "aptDefinition": false, "joke": "pun", "misdirectedWord": "Grasping"}}}''')
-pz2 = json.loads(json.dumps(pz))
-t2 = next(e for e in pz2["entries"] if groups.entry_id(e) == groups.entry_id(clues[2]))
-t2.update(json.loads(json.dumps(FLAGGED)))
+# A one-clue puzzle: the host's header, a 9x1 grid holding only the fixture clue (the
+# host's own grid would disagree with its letters).
+pz2 = {k: v for k, v in json.loads(json.dumps(pz)).items() if k != "bars"}
+pz2["id"] = "azed-9999"
+pz2["dimensions"] = {"cols": 9, "rows": 1}
+pz2["entries"] = [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, **json.loads(json.dumps(FLAGGED))}]
 (tmp / "flagged").mkdir()
-path2 = tmp / "flagged" / path.name   # a puzzle file keeps its own name
+path2 = tmp / "flagged" / "azed-9999.json"   # a puzzle file keeps its own name
 path2.write_text(json.dumps(pz2))
 for old in tmp.glob(f"_*{pz2['id']}.json"):
     old.unlink()
 p2 = F.read_puzzle_file(path2)
-e2 = next(e for e in p2["entries"] if groups.entry_id(e) == groups.entry_id(clues[2]))
+e2 = next(e for e in p2["entries"] if groups.entry_id(e) == "1-across")
 eid = groups.entry_id(e2)
 r = {"id": f"{p2['id']}#{Q.clue_key(e2)}", "reason": "fixture: flagged"}
 check("the fixture tree is flagged by the detectors", bool(Q.findings(e2)))
@@ -117,15 +120,15 @@ if True:
     check(f"the old tree with new prose is refused ({r['id']})", refused)
     check("the file is unchanged", json.dumps(F.read_puzzle_file(path2)["entries"], sort_keys=True) == before2)
     check("the row is still pending", eid in Q.flagged(p2))
-    A.apply(path2, {eid: None}, by="human")
-    check("a null keeps the old hint", json.dumps(F.read_puzzle_file(path2)["entries"], sort_keys=True) == before2)
-    check("and marks the row tried, so it is not requeued", eid not in Q.flagged(p2) and eid in Q.listed(p2))
+    # (The null and the tried mark on a listed clue are checked on the first puzzle above; this
+    # one-clue grid cannot be written, so the tried row is set by hand.)
+    Q.PATH.write_text(json.dumps([{**r, "tried": True}]))
     try:
         A.apply(path2, {eid: same}, by="human")
         refused = False
     except SystemExit:
         refused = True
-    check("a tried row is still gated", refused)
+    check("a tried row is still gated", refused and eid not in Q.flagged(p2) and eid in Q.listed(p2))
 
 # The row changes ship in the puzzle's commit: splice takes one puzzle's rows.
 base = Q.dump([{"id": "p-1#1a", "reason": "x"}, {"id": "q-2#3d", "reason": "y"}, {"id": "p-1#2d", "reason": "z"}])
