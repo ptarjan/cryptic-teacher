@@ -1615,20 +1615,31 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WEEP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "covering",
-         "note": "A word's covering is its outer layer, so take its first and last letters."
-        },
+         "text": "skin",
+         "at": 8,
+         "note": "the skin of a word is its outermost letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Whale's",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
          "text": "up",
-         "note": "In a down entry, up means reading bottom to top, so the letters run backwards."
+         "at": 37,
+         "note": "in a down clue up means reading upwards, so the pair is reversed"
         }
        ],
        "parts": [
@@ -1636,35 +1647,30 @@
          "op": "outer",
          "indicators": [
           {
-           "text": "skin",
-           "note": "A word's skin is its outside, so take the first and last letters."
+           "text": "covering",
+           "at": 28,
+           "note": "a covering is the outside, so the first and last letters are taken"
           }
          ],
          "parts": [
           {
-           "words": "Whale's",
-           "gives": "WHALE",
-           "note": "the outer letters of WhalE"
+           "words": "porpoise's",
+           "at": 17
           }
          ]
-        },
-        {
-         "words": "porpoise's",
-         "gives": "EP",
-         "note": "the outer letters of PorpoisE, PE, turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A description of marine mammal anatomy: skin and an outer layer of fat.",
-     "walkthrough": "'Blubber' looks like the whale fat; it is the verb, to cry noisily.",
-     "definitionFit": "A plain synonym, as verbs: to blubber is to cry noisily and without restraint."
+     "surface": "A whale's skin and a porpoise's coat are layered over fat.",
+     "walkthrough": "'skin' gives WE; 'covering' gives PE, which 'up' reverses to EP. Blubber looks like whale fat but means to cry.",
+     "definitionFit": "To cry noisily and tearfully is to sob, the verb sense of blubber."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "blubber"
     }

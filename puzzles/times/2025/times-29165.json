@@ -526,52 +526,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "fake",
-       "note": "the letters of 'hopes to' are faked into a new word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "at the end",
-         "note": "only the final letter of death is wanted"
+         "text": "fake",
+         "at": 35,
+         "note": "to fake is to concoct, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "hopes to",
-         "note": "anagram fodder"
+         "words": "hopes",
+         "at": 26
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "H",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "death",
-           "gives": "H",
-           "select": "last",
-           "note": "last letter of death"
-          }
-         ]
+         "words": "to",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the end",
+         "at": 46,
+         "note": "the letter at the end of death is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "death",
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone of faith planning to fake their own death.",
-     "walkthrough": "'To fake' reads as part of the plot; 'to' is fodder and 'fake' alone is the signal.",
-     "definitionFit": "A theosoph is a theosophist, who claims mystical knowledge of God; theosophy literally means divine wisdom."
+     "surface": "A mystic hopes to stage a pretended death.",
+     "walkthrough": "'fake' rearranges HOPES and TO to THEOSOP; 'at the end' adds H, the last letter of death.",
+     "definitionFit": "A follower of theosophy claims mystical insight into God's nature, a doctrine of divine wisdom."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fake"
     }

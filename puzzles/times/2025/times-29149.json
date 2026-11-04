@@ -1034,57 +1034,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEAHORSE",
-     "indicators": [
-      {
-       "text": "swimming",
-       "note": "the letters of ashore move about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 16,
+         "note": "regularly means taking every other letter of the word seen"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "SE",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "take every other letter of seen"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "regularly seen",
-           "gives": "SE",
-           "select": "alternate",
-           "note": "1st and 3rd letters of seen"
-          }
-         ]
-        },
+         "words": "seen",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swimming",
+         "at": 31,
+         "note": "swimming suggests moving about, so the letters of ashore are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "ashore",
-         "note": "ASHORE rearranged"
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sea animal spotted swimming towards the beach.",
-     "walkthrough": "The question mark admits the joke: a seahorse swimming ashore would indeed be a horse on land.",
-     "definitionFit": "The seahorse is a small upright marine fish."
+     "surface": "A sea animal is often spotted swimming to the shore.",
+     "walkthrough": "'regularly' takes S and E from SEEN; 'swimming' rearranges ASHORE.",
+     "definitionFit": "The small upright fish of the genus Hippocampus lives in the sea."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "swimming"
+     "misdirectedWord": "ashore"
     }
    }
   },

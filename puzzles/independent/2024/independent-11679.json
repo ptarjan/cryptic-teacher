@@ -220,51 +220,63 @@
      "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "around means the rearranged letters surround the next piece"
-      },
-      {
        "text": "arresting",
-       "note": "arresting means seizing and holding something inside"
+       "at": 29,
+       "note": "arresting means holding, so the rogue is held inside"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "deployed",
-         "note": "deployed troops are spread out and rearranged, so the letters are reorganised"
+         "text": "around",
+         "at": 16,
+         "note": "around places the rearranged letters about the pound sign"
         }
        ],
        "parts": [
         {
-         "words": "Police",
-         "note": "taken as written"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "deployed",
+           "at": 7,
+           "note": "deployed means spread out in new positions, so the letters of police are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Police",
+           "at": 0
+          }
+         ]
         },
         {
          "words": "pound",
+         "at": 23,
          "gives": "L",
-         "note": "L, from Latin libra, is the pound sign"
+         "note": "L is the abbreviation for a pound sterling, from libra"
         }
        ]
       },
       {
        "words": "rogue",
+       "at": 39,
        "gives": "CAD",
-       "note": "a cad is a dishonourable man"
+       "note": "a cad is a dishonourable man, a rogue"
       }
      ]
     },
     "explanation": {
-     "surface": "Officers sent out around town, pulling in a scoundrel, all for a trivial offence.",
-     "walkthrough": "Two containers stack here: the jumbled letters first take in the pound sign, and that result then takes in the rogue near its front.",
-     "definitionFit": "A peccadillo is a small fault or trivial offence, from the Spanish for little sin."
+     "surface": "Police officers spread around a dog pound to arrest a villain for a petty offence.",
+     "walkthrough": "'deployed' makes PECILO, 'around' wraps that round the pound sign to make PECILLO, and 'arresting' holds the rogue inside.",
+     "definitionFit": "A small fault or trivial offence is a slight lapse of conduct, a venial misdemeanour."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "deployed"
+     "misdirectedWord": "pound"
     }
    }
   },

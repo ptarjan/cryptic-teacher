@@ -1630,34 +1630,49 @@
      "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "cut short, so the last letter is dropped"
-      },
-      {
        "text": "concealing",
-       "note": "to conceal is to hide inside"
+       "at": 20,
+       "note": "concealing means hiding inside, so the letter is put within"
       }
      ],
      "parts": [
       {
-       "words": "Vast number",
-       "gives": "HORD",
-       "note": "a horde is a vast number; HORDE less its last letter; split around A"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 12,
+         "note": "briefly means cut short, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vast number",
+         "at": 0,
+         "gives": "HORDE",
+         "note": "a horde is a vast crowd"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "used as printed"
+       "at": 31,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A huge crowd briefly hiding a secret stash.",
-     "walkthrough": "HOARD and HORDE sound alike, which makes the construction neat.",
-     "definitionFit": "A hoard is a hidden store of valuables: a cache."
+     "surface": "A huge number of people are hiding a secret store.",
+     "walkthrough": "'briefly' cuts HORDE to HORD, and 'concealing' hides A inside it.",
+     "definitionFit": "A hidden store of valuables or supplies is a stash, a secret reserve."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concealing"
     }
    }
   },
