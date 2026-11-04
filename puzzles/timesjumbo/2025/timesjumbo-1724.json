@@ -438,31 +438,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "gutted",
-       "note": "a gutted fish has its insides removed, so MATE loses its middle"
-      }
-     ],
      "parts": [
       {
-       "words": "Mate",
-       "gives": "ME",
-       "note": "MATE with its middle letters AT removed"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "gutted",
+         "at": 5,
+         "note": "a gutted word loses its insides, keeping only first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mate",
+         "at": 0
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "around",
-         "note": "'around' as in turned around, so the fish faces the other way"
+         "at": 17,
+         "note": "turned around, the fish is read backwards"
         }
        ],
        "parts": [
         {
          "words": "fish",
+         "at": 12,
          "gives": "EEL",
-         "note": "the eel"
+         "note": "an eel is a fish"
         }
        ]
       }
@@ -470,13 +477,13 @@
     },
     "spelling": "MÊLÉE",
     "explanation": {
-     "surface": "A shipmate cleans fish somewhere around an Irish place.",
-     "walkthrough": "Donnybrook, a Dublin district once famous for a riotous fair, gives its name to any brawl; 'around' makes it look like geography.",
-     "definitionFit": "Plain synonym: a donnybrook is a free-for-all fight, and so is a mêlée."
+     "surface": "A friend cleaning a fish in an Irish town.",
+     "walkthrough": "'gutted' and 'around' signal the two steps. Donnybrook looks like an Irish place, which it is, but the fair held there gave its name to any brawl.",
+     "definitionFit": "A donnybrook is a free-for-all brawl, named after a riotous Dublin fair, just like a confused fight."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Donnybrook"
     }
    }

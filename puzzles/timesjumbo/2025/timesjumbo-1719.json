@@ -327,49 +327,55 @@
      "parts": [
       {
        "words": "Lack of",
+       "at": 0,
        "gives": "NO",
-       "note": "no = a lack of, as in 'no money'"
+       "note": "no means none, a lack of"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "must put out the last of",
-         "note": "to put out is to eject, and what gets ejected is the last letter of 'cafeteria'"
+         "text": "must put out",
+         "at": 27,
+         "note": "putting out a letter means removing it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "cutting implements",
-           "gives": "SHEARS",
-           "note": "shears cut"
-          },
-          {
-           "words": "the last of cafeteria",
-           "gives": "SHERS",
-           "note": "the final A of cafeteria is removed from SHEARS"
-          }
-         ]
+         "words": "cutting implements",
+         "at": 8,
+         "gives": "SHEARS",
+         "note": "shears are large cutting implements"
         },
         {
-         "gives": "SHEARS"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "the last of",
+           "at": 40,
+           "note": "the final letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cafeteria",
+           "at": 52
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A canteen has run out of cutlery and has to turn away its last customers.",
-     "walkthrough": "'Put out the last of cafeteria diners' reads as evicting customers. Nosh is informal British for food.",
-     "definitionFit": "Informal British: people who nosh, that is eat, are the ones having a meal."
+     "surface": "With no scissors, the cafeteria's last diners must be thrown out.",
+     "walkthrough": "'the last of cafeteria' is a single letter, which 'must put out' removes from the cutting implements; nosh is British slang for food.",
+     "definitionFit": "Noshers are people eating, nosh being slang for food, so they are diners."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "put"
+     "misdirectedWord": "cutting"
     }
    }
   },

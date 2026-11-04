@@ -1635,61 +1635,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SWAMPBOAT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 36,
+       "note": "the reworked letters sit outside the single letter, enclosing it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fashioned",
-         "note": "fashioned means the letters are made into a new shape"
+         "at": 26,
+         "note": "fashioned means shaped anew, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 11
         },
         {
+         "words": "bow",
+         "at": 13
+        },
+        {
+         "words": "mast",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
          "text": "entrance to",
+         "at": 44,
          "note": "the entrance to a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "a bow and mast",
-         "gives": "SWAMBOAT",
-         "note": "A BOW MAST rearranged; 'and' joins the two"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "outside",
-           "note": "the first letter of the word it picks from"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Portsmouth",
-           "gives": "P",
-           "select": "first",
-           "note": "the first letter of Portsmouth, placed after SWAM"
-          }
-         ]
+         "words": "Portsmouth",
+         "at": 56
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vessel with bow and mast is built around a Portsmouth dock entrance.",
-     "walkthrough": "SWAM(P)BOAT. Portsmouth, the naval port on England's south coast, fits the ship picture, but gives only its first letter.",
-     "definitionFit": "A swamp boat is a flat-bottomed craft, often fan-driven, for shallow wetlands."
+     "surface": "A vessel with a bow and a mast built just outside Portsmouth harbour.",
+     "walkthrough": "'fashioned' signals the anagram and 'outside' the container; 'entrance to Portsmouth' is just its first letter, not a harbour mouth.",
+     "definitionFit": "This is a flat-bottomed boat driven by an air propeller, a kind of craft for wetlands."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Portsmouth"
+     "misdirectedWord": "fashioned"
     }
    }
   },

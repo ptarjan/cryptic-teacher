@@ -467,30 +467,47 @@
      "op": "charade",
      "parts": [
       {
-       "words": "cooker missing lid",
-       "gives": "VEN",
-       "note": "OVEN without its first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing lid",
+         "at": 12,
+         "note": "losing its lid means the top letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cooker",
+         "at": 5,
+         "gives": "OVEN",
+         "note": "an oven is a cooker"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "words": "is",
-       "note": "used as it stands"
+       "at": 24
       },
       {
        "words": "working",
+       "at": 27,
        "gives": "ON",
-       "note": "a machine that is working is on"
+       "note": "a machine that is on is working"
       }
      ]
     },
     "explanation": {
-     "surface": "The meat is cooking even though the oven has no lid on it.",
-     "walkthrough": "'Lid' only works because this is a down clue: the top of the vertical word is its lid.",
-     "definitionFit": "Meat by category: venison is the flesh of deer, served as game."
+     "surface": "Meat cooks even when the oven is missing its lid.",
+     "walkthrough": "'missing lid' takes O off the top of OVEN, leaving VEN, then IS and ON.",
+     "definitionFit": "Venison is deer flesh, eaten as meat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lid"
+     "misdirectedWord": "cooker"
     }
    }
   },
@@ -1245,62 +1262,64 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in tells you the Roman numeral for five is placed inside the shortened horse race"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
+       "words": "a",
+       "at": 8
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "with no",
-         "note": "with no unknown means the mathematician's unknown letter is taken out of the race"
+         "text": "in",
+         "at": 5,
+         "note": "the Roman five is put inside the other pieces"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "with no",
+           "at": 21,
+           "note": "with no means the unknown letter is removed"
+          }
+         ],
          "parts": [
           {
-           "words": "a",
-           "note": "used as it stands"
-          },
-          {
            "words": "horse race",
-           "gives": "DERB",
-           "note": "the Derby, minus Y"
+           "at": 10,
+           "gives": "DERBY",
+           "note": "the Derby is the famous flat race at Epsom"
           },
           {
            "words": "unknown",
+           "at": 29,
            "gives": "Y",
-           "note": "Y is a mathematical unknown, removed"
+           "note": "Y is an algebraic unknown, like x and z"
           }
          ]
         },
         {
-         "gives": "Y"
+         "words": "Five",
+         "at": 0,
+         "gives": "V",
+         "note": "V is the Roman numeral for five"
         }
        ]
-      },
-      {
-       "words": "Five",
-       "gives": "V",
-       "note": "V is the Roman numeral for five"
       }
      ]
     },
     "explanation": {
-     "surface": "Five horses run in a race without an outsider, perhaps oddly.",
-     "walkthrough": "'perhaps unusually' is the definition by example: 'unusually' is an adverb.",
-     "definitionFit": "'Unusually' is one example of an adverb, hence 'perhaps'."
+     "surface": "Five runners in a horse race, oddly with nobody unknown.",
+     "walkthrough": "'with no unknown' drops Y from DERBY; 'in' puts V after the D of A DERB. The Derby is England's premier flat race.",
+     "definitionFit": "Unusually is a word modifying a verb or adjective, an example of this part of speech, hence 'perhaps'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "unusually"
     }
    }

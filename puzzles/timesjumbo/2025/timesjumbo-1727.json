@@ -1047,29 +1047,50 @@
      "indicators": [
       {
        "text": "round",
-       "note": "the shortened word goes round the party, enclosing it"
+       "at": 23,
+       "note": "the shortened word goes round the party, holding it inside"
       }
      ],
      "parts": [
       {
-       "words": "A few dropping ecstasy",
-       "gives": "SOM",
-       "note": "SOME = a few, minus E (ecstasy)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping",
+         "at": 6,
+         "note": "dropping a letter means it is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A few",
+         "at": 0,
+         "gives": "SOME",
+         "note": "some means a few, a small number"
+        },
+        {
+         "words": "ecstasy",
+         "at": 15,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
       },
       {
        "words": "party",
+       "at": 29,
        "gives": "DO",
-       "note": "a do is a party"
+       "note": "a do is an informal party"
       }
      ]
     },
     "explanation": {
-     "surface": "A handful of people give up ecstasy at a party in a den of vice.",
-     "walkthrough": "E for the drug ecstasy is a standard crossword abbreviation. Sodom is the Biblical city destroyed for its wickedness.",
-     "definitionFit": "Sodom, the Biblical city destroyed by God for its sins, stands for any wicked place."
+     "surface": "A few clubbers giving up ecstasy at a party in a den of vice.",
+     "walkthrough": "'dropping' signals the deletion of the drug letter and 'round' the container; 'A few' is one phrase for the synonym.",
+     "definitionFit": "Sodom is the biblical city destroyed for its sinfulness, a byword for any place of depravity."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ecstasy"
     }
