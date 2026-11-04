@@ -1099,7 +1099,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     errata.apply(puzzle)
     # A puzzle awaiting its preamble awaits it until one is filed, whatever
     # writer rewrites it; then it is annotated again.
-    if puzzle.get("preamble"):
+    # A themeClue stands in for the preamble (tools/file_preambles.py).
+    if puzzle.get("preamble") or puzzle.get("themeClue"):
         puzzle.pop("awaitsPreamble", None)
     elif old is not None and old.get("awaitsPreamble") is True:
         puzzle["awaitsPreamble"] = True
