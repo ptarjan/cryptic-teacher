@@ -577,7 +577,12 @@ class Log:
             return self.nothing(now, m.group(2), rule, (self.snap.get(field) or {}).get(m.group(2)) if field else None)
         m = re.match(r"^  \[" + PUZZLE + r"\] the run withdrew its own work, so nothing it wrote ships — (.*)$", line)
         if m:
+            # Nobody read these reasons and the same puzzles were bought again and withdrawn
+            # again (11-03: ~50 retries), so each new withdrawal wakes the room to triage it
+            # (`failed_inputs.py triage annotate`; the record is held until it is cleared).
             return [self.out(now, "✗", f"{m.group(1)} gave up: {clip(m.group(2))} — skipped until the puzzle changes")] + \
+                self.warn(now, "withdrawal", f"{m.group(1)} withdrew its own work; triage it with "
+                          f"`failed_inputs.py triage annotate`", [f"{m.group(1)}: {m.group(2)[:200]}"]) + \
                 self.finished(now, False, m.group(1), "annotate")
         m = re.match(r"^  \[" + PUZZLE + r"\] (transient failure) — its conversation is kept", line)
         if m:
