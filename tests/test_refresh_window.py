@@ -21,7 +21,7 @@ from pathlib import Path
 from unittest import mock
 
 REPO = Path(__file__).resolve().parent.parent
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 os.chdir(REPO)
 import fetch_observer as obs
 import fetch_puzzle as fetcher

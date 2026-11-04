@@ -8,7 +8,7 @@
 # nothing since 2026-09-07 (41d)" while the feed had answered on time.
 from datetime import date
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import series_health
 
 held = [{"id": f"genius-{n}", "series": "genius", "number": n, "date": d}

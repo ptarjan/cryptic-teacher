@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # tools/fill_spellings.py: the spelling it writes where unambiguous, the grace for
 # the lesson-check ratchets, and the burn leaving spelling.unsaid to the filler.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import re
 import sys

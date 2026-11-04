@@ -2,7 +2,7 @@
 # An indicator note may name a block's clue words but never its letters or the
 # answer: the indicator rung is shown before the blocks, and every note in the
 # corpus is held to it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

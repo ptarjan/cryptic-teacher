@@ -7,7 +7,7 @@
 # mechanical `def`/`wp`/`notes` under `draftAnnotations` in its view, computed
 # on the fly; a clue outside `annotateOnly` gets none; a prefill that blows up
 # costs the view nothing; the prompt tells the run what to do with a draft.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

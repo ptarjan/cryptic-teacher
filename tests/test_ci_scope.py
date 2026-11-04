@@ -4,7 +4,7 @@ import re
 import unittest
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import ci_scope as S
 

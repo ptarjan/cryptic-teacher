@@ -9,7 +9,7 @@
 #     python3 tests/test_gale_idle.py
 #
 # Files in a temp dir; no network, no git.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 import atexit

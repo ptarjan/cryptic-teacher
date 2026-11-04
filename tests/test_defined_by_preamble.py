@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # definedByPreamble stands in for `definitions` only where the puzzle prints a
 # preamble, and never beside a definition.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """apply_blog_answers reads an answer off a write-up line however the era prints it."""
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import apply_blog_answers as a
 
 CASES = [

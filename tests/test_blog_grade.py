@@ -18,7 +18,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import cross_validate as cv
 import fetch_puzzle
 import provenance

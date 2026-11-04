@@ -9,7 +9,7 @@
 # or the annotation rules can leave it unbuildable without failing anything.
 # This builds it through the real write path into a scratch puzzles/ tree and
 # holds the result to the schema, puzzle_integrity and validate_annotations.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

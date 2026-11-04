@@ -2,7 +2,7 @@
 """hintless_overdue.overdue() on fixtures: only a recent, solved, hintless, unblocked puzzle past the threshold."""
 import datetime
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import hintless_overdue as H
 
 NOW = 1_800_000_000.0

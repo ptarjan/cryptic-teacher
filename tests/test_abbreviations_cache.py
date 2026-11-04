@@ -15,7 +15,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 tmp = Path(tempfile.mkdtemp())
 os.environ["ABBREVIATIONS_CACHE"] = str(tmp / "table.json")
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import build_abbreviations as b
 
 fails = 0

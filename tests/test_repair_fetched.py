@@ -511,7 +511,7 @@ finally:
     shutil.rmtree(work, ignore_errors=True)
 
 print("a scan's slips in a clue's text are mended in place, annotation offsets moved with the words")
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 os.environ["VLM_READER_URL"] = ""
 import repair_fetched as rf
 slips = {"entries": [

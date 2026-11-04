@@ -8,7 +8,7 @@
 # those ids as `annotateOnly`, apply_annotations.py needs keys for them alone
 # and refuses to change any other annotation, and a run that started on the
 # whole puzzle stays on the whole puzzle.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

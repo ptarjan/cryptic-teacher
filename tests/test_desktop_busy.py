@@ -25,7 +25,7 @@ from pathlib import Path
 os.environ["DESKTOP_HOSTS_STATIC"] = "1"  # desktop_hosts.ranked: the json order, no network probe
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 tmp = Path(tempfile.mkdtemp())
 try:

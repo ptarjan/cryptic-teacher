@@ -3,7 +3,7 @@
 neutral, by glitch class; and the alerts the recurring runner wakes on.
 """
 import sys
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import audit_updates as A
 

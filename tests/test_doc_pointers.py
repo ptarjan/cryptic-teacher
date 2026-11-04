@@ -19,7 +19,7 @@
 #   - `name()` needs `name` to appear in some tracked .py/.js/.sh/.html file.
 # Tokens with spaces, placeholders (<x>, *, {}, $), URLs, flags and absolute or
 # home paths are prose, not pointers, and are skipped.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 from pathlib import Path

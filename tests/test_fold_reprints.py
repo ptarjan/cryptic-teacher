@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 os.chdir(Path(__file__).resolve().parent.parent / "tools")
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import fold_reprints as F
 import reprints as R
 

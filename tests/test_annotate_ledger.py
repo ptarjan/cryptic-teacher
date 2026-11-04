@@ -9,7 +9,7 @@ import os
 import pathlib
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import annotate_ledger as L
 
 # Hermetic: the live /progress/ backlog must not decide these checks. 1,000 clues left makes

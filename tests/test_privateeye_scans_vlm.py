@@ -3,7 +3,7 @@
 # through ocr_clues.vlm_pick, and defers (clue stays blank) with the VLM down.
 #
 #     python3 tests/test_privateeye_scans_vlm.py
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

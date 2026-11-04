@@ -35,7 +35,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 scratch = Path(tempfile.mkdtemp())
 fails = 0
 

@@ -7,7 +7,7 @@ import os
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import copy
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import apply_annotations as A, fetch_puzzle, provenance, reopen_answers as R
 from groups import entry_id
 

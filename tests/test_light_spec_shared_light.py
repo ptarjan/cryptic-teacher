@@ -7,7 +7,7 @@
 # "52 See 15". Both groups name 52 down; build_spec must give one 52 down.
 import os
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import light_spec
 
 rows = {

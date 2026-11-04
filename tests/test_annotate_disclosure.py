@@ -10,7 +10,7 @@
 # quiet on the right one, so each is tested from both sides here. The blog
 # lookup most of all: it must appear once only the last few clues are null, and
 # never earlier, never on a blind run and never for a series nobody blogs.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import re
 import subprocess

@@ -8,7 +8,7 @@ a leaf whose note is not padding."""
 import copy
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import repair_fetched as R
 
 fails = 0

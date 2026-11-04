@@ -4,7 +4,7 @@
 #
 #     python3 tests/test_fix_shape_suspects.py
 import sys
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import fix_shape_suspects as F
 import validate_annotations as V

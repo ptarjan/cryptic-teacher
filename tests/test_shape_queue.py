@@ -4,7 +4,7 @@
 # leaves the list. The queue tier's ordering is in prereset_plan.py --self-test.
 #
 #     python3 tests/test_shape_queue.py
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

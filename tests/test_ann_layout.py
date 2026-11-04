@@ -3,7 +3,7 @@
 # tools/_ann_<ID>.json, so the run's next Edit of text it wrote still matches.
 #
 #     python3 tests/test_ann_layout.py
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

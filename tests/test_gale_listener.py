@@ -16,7 +16,7 @@
 #
 # Synthetic rows and words in a temp dir: no OCR, nothing asked of the Mac,
 # Gale or listenercrossword.com, nothing written outside it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 import atexit

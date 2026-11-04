@@ -6,7 +6,7 @@
 after the day after the video's publish date; with no publish date it names no
 date.
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import sys
 
 from ctc_transcripts import title_facts

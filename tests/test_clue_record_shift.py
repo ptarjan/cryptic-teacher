@@ -17,7 +17,7 @@ import copy
 import sys
 from datetime import date
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import fetch_puzzle
 import puzzle_integrity
 

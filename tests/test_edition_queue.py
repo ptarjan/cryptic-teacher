@@ -40,7 +40,7 @@ os.environ["TMP"] = _tmp
 os.makedirs(os.path.join(_tmp, "home"))
 os.environ["HOME"] = os.path.join(_tmp, "home")
 os.chdir(REPO / "tools")
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import contextlib, io, json, os, signal, sys, time
 from pathlib import Path

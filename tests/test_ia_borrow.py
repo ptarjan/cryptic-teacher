@@ -42,7 +42,7 @@ import json
 import sys
 import types
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import importlib.util
 if importlib.util.find_spec("requests") is None:
     # fetch_ia_book.py needs requests only to BUILD a session. Every session

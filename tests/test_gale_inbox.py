@@ -20,7 +20,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 tmp = tempfile.mkdtemp()
 atexit.register(shutil.rmtree, tmp, True)
 # A temp downloads root, its manifests beside it (media_manifest.DIR), as the

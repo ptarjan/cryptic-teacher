@@ -10,7 +10,7 @@
 # clues Paul refused, a surface that is not a real sentence ("Hacks are on the
 # stouts") and a definition that needs a football fan ("Milan side" for INTER,
 # explained by the nerazzurri), and wants those two refused and A001 passed.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

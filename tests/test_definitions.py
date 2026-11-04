@@ -3,7 +3,7 @@
 # tools/definitions.py, refused where they leave it ambiguous, and checked by
 # validate_annotations against the clue; a definitionFit that reads the
 # definition back is refused.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

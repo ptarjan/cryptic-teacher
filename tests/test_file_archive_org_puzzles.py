@@ -20,7 +20,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 os.environ["TMP"] = tempfile.mkdtemp()
 atexit.register(shutil.rmtree, os.environ["TMP"], True)
 

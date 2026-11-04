@@ -11,7 +11,7 @@
 # rather than some other one.
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import barred_grid as bg
 import reconstruct_grid as rg
 

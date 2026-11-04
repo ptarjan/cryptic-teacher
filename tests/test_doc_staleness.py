@@ -14,7 +14,7 @@
 #
 # It checks README.md, docs/APP.md, docs/BACKFILLS.md, docs/STYLE.md, tools/data/README.md
 # and docs/*.md, and first checks itself on a fixture.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

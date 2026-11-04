@@ -22,7 +22,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import clues_only
 import file_blog_puzzles as fbp
 import puzzle_integrity

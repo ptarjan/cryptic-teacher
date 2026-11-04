@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # When a clue's blocks give too many letters and none too few, the warning names
 # the single-block edits that take exactly the surplus away.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

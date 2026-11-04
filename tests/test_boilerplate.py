@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # A paper's publishing boilerplate in the preamble goes; a puzzle's
 # instructions, tributes and kept errata stay; the write gate refuses it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -2,7 +2,7 @@
 # fetch_abbreviations.senses() reads what a wiktextract entry says an
 # abbreviation stands for, and nothing it only mentions; list_senses() reads
 # the crossword list's readings and skips the synonyms it mentions.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

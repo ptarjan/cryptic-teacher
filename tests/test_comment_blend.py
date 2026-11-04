@@ -9,7 +9,7 @@
 import random
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import difficulty as D
 
 fails = 0

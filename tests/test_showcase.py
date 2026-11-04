@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # tools/showcase.py picks only what a file states: each detector on a real
 # puzzle that has the feature and off the look-alike that does not.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

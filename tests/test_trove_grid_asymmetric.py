@@ -10,7 +10,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import trove_grid
 from PIL import Image, ImageDraw
 

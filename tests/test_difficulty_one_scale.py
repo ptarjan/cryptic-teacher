@@ -7,7 +7,7 @@
 # no function that measures or rates a puzzle may name a series. (The Times'
 # SNITCH ranges and comment blend are data only the Times has, and live outside
 # these functions; the blend is restandardised onto the series' own clue index.)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import inspect
 import os
 import sys

@@ -15,7 +15,7 @@
 #     python3 tests/test_file_gale_listener.py
 #
 # Synthetic readings, grids and letters in a temp dir: no OCR, no page image.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 import atexit

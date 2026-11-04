@@ -24,7 +24,7 @@ text fix (a comparison key, a search index) is listed in ALLOWED with a reason;
 a fix goes into tools/clue_text.py (or quotes.py, dashes.py, enumeration.py)
 where every source gets it. The test fails with the file, line and call.
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import ast
 import re
 import sys
