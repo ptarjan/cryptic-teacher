@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,49 @@
     "text": "Drug in wrong receptacle for narcotic user",
     "enumeration": "7"
    },
-   "solution": "ASHTRAY"
+   "solution": "ASHTRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "receptacle for narcotic user",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in tells us the drug letter sits inside the word for wrong"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wrong",
+       "at": 8,
+       "gives": "ASTRAY",
+       "note": "to go wrong is to go astray"
+      },
+      {
+       "words": "Drug",
+       "at": 0,
+       "gives": "H",
+       "note": "H is slang shorthand for heroin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone put their drugs in the wrong container for a user of narcotics.",
+     "walkthrough": "The narcotic user is a smoker: tobacco's nicotine is the narcotic, so the receptacle is where the smoker taps ash.",
+     "definitionFit": "A smoker uses nicotine, a mild narcotic, and the dish that holds the ash is the receptacle meant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "narcotic"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +90,65 @@
     "text": "Problem broadcasting Doctor Who, one way or another",
     "enumeration": "7"
    },
-   "solution": "SOMEHOW"
+   "solution": "SOMEHOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one way or another",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SOME",
+       "indicators": [
+        {
+         "text": "broadcasting",
+         "at": 8,
+         "note": "broadcasting means the word is heard over the air, so a sound-alike is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Problem",
+         "at": 0,
+         "gives": "SUM",
+         "note": "a sum is an arithmetic problem"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Doctor",
+         "at": 21,
+         "note": "to doctor something is to tamper with it, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Who",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster's trouble getting Doctor Who on air, one way or another.",
+     "walkthrough": "'Doctor Who' looks like the TV series, but 'Doctor' rearranges WHO into HOW.",
+     "definitionFit": "Somehow means by some means or other, however it may be done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +162,69 @@
     "text": "Lacking acceleration, 26 attempt it to attain notable speeds",
     "enumeration": "5"
    },
-   "solution": "TEMPI"
+   "solution": "TEMPI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "notable speeds",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lacking",
+       "at": 0,
+       "note": "lacking means letters are taken away from the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "attempt",
+         "at": 25,
+         "note": "taken as written"
+        },
+        {
+         "words": "it",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "acceleration",
+         "at": 8,
+         "gives": "A",
+         "note": "a is the symbol for acceleration in physics"
+        },
+        {
+         "words": "26",
+         "at": 22,
+         "gives": "TTT",
+         "note": "26 reads three times, with T standing for time, so three Ts"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow motorist trying, without acceleration, to reach impressive speeds.",
+     "walkthrough": "From ATTEMPTIT remove the A and three of its four Ts. 'Notable' is a pun: musical tempos are given by notes.",
+     "definitionFit": "Tempi is the plural of tempo, the speed at which music is played."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notable"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +238,11 @@
     "text": "A drink served up after Greek character's eaten ham",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotationWithheld": {
+    "why": "A drink served up after Greek character's eaten ham (7): the parse is A + (ETA in RUM) reversed, one indicator 'served up' standing between the two pieces it turns together, which the reversal-split check refuses",
+    "clue": "A drink served up after Greek character's eaten ham"
+   }
   },
   {
    "number": 5,
@@ -87,7 +256,42 @@
     "text": "Part of train with kind of light meals provider",
     "enumeration": "7"
    },
-   "solution": "CARVERY"
+   "solution": "CARVERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "meals provider",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of train",
+       "at": 0,
+       "gives": "CAR",
+       "note": "a car is a carriage, one section of a train"
+      },
+      {
+       "words": "kind of light",
+       "at": 19,
+       "gives": "VERY",
+       "note": "a Very light is a flare fired from a pistol as a signal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway carriage serving light meals, a buffet car of sorts.",
+     "walkthrough": "'light meals' reads as one phrase, but 'light' belongs with 'kind of': a Very light is a signal flare.",
+     "definitionFit": "A carvery is a restaurant serving carved roast joints, so it provides meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +305,64 @@
     "text": "Old tape machine with a 26 alternating screen image",
     "enumeration": "6"
    },
-   "solution": "AVATAR"
+   "solution": "AVATAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "screen image",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a 26",
+       "at": 22,
+       "gives": "A",
+       "note": "26 reads three times, so the letter A is supplied three times"
+      },
+      {
+       "words": "Old tape machine",
+       "at": 0,
+       "gives": "V",
+       "note": "VTR is a video tape recorder, now largely obsolete"
+      },
+      {
+       "words": "a 26",
+       "at": 22,
+       "gives": "A"
+      },
+      {
+       "words": "Old tape machine",
+       "at": 0,
+       "gives": "T",
+       "note": "VTR is a video tape recorder, now largely obsolete"
+      },
+      {
+       "words": "a 26",
+       "at": 22,
+       "gives": "A"
+      },
+      {
+       "words": "Old tape machine",
+       "at": 0,
+       "gives": "R",
+       "note": "VTR is a video tape recorder, now largely obsolete"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old video recorder alternately showing a picture on screen.",
+     "walkthrough": "'alternating' tells you to interleave the three As with V, T and R in turn: A V A T A R.",
+     "definitionFit": "An avatar is the figure that stands for a user on a computer screen or in a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternating"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +376,59 @@
     "text": "Civil unrest involves group of 26 dropping by, becoming bitterly abusive",
     "enumeration": "9"
    },
-   "solution": "VITRIOLIC"
+   "solution": "VITRIOLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bitterly abusive",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involves",
+       "at": 13,
+       "note": "involves means the rearranged word takes the group inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unrest",
+         "at": 6,
+         "note": "unrest suggests disorder, so the letters of civil are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Civil",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "group of 26",
+       "at": 22,
+       "gives": "TRIO",
+       "note": "a trio is a group of three, the number in 26"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Civil disorder draws in a group who drop by, and it all turns nasty.",
+     "walkthrough": "'unrest' scrambles the first word, and 'involves' wraps it round the trio. The rest, 'dropping by, becoming', is linking surface: the trio drops in.",
+     "definitionFit": "Vitriolic language is caustic and full of bitter malice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unrest"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +442,55 @@
     "text": "Verbally attacked by man of God over shoplifting",
     "enumeration": "7"
    },
-   "solution": "REVILED"
+   "solution": "REVILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Verbally attacked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "man of God",
+       "at": 21,
+       "gives": "REV",
+       "note": "Rev is short for Reverend, a clergyman"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "lifting",
+         "at": 41,
+         "note": "lifting, in a down answer, raises the word so it reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 37,
+         "gives": "DELI",
+         "note": "a deli is a delicatessen, a kind of shop"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman accused of shoplifting is attacked with words.",
+     "walkthrough": "'shoplifting' splits into two words: 'shop' gives the delicatessen and 'lifting' turns it upwards, as this is a down answer.",
+     "definitionFit": "To revile someone is to criticise them abusively, so reviled means verbally attacked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shoplifting"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +522,54 @@
      }
     ]
    },
-   "solution": "ITSALLONETOME"
+   "solution": "ITSALLONETOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'm OK either way",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Italian",
+       "at": 0,
+       "gives": "IT",
+       "note": "It is a short form of Italian, as in It vermouth"
+      },
+      {
+       "words": "girl",
+       "at": 8,
+       "gives": "SAL",
+       "note": "Sal is a girl's name, short for Sally"
+      },
+      {
+       "words": "not married",
+       "at": 13,
+       "gives": "LONE",
+       "note": "lone means single, without a partner"
+      },
+      {
+       "words": "book",
+       "at": 32,
+       "gives": "TOME",
+       "note": "a tome is a large book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian girl, unmarried and doing things by the book, shrugs that she does not mind.",
+     "walkthrough": "The surface suggests strict propriety, but 'by the book' simply places TOME at the end.",
+     "definitionFit": "The phrase is an idiom saying the speaker has no preference between the options."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +583,61 @@
     "text": "US city backed removing one Arab leader",
     "enumeration": "4"
    },
-   "solution": "IMAM"
+   "solution": "IMAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arab leader",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backed",
+       "at": 8,
+       "note": "backed means the remaining letters of the city are run in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removing",
+         "at": 15,
+         "note": "removing tells us a letter is dropped from the city's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US city",
+         "at": 0,
+         "gives": "MIAMI",
+         "note": "Miami is a city in Florida"
+        },
+        {
+         "words": "one",
+         "at": 24,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Florida city supported getting rid of an Arab leader.",
+     "walkthrough": "Take the first I out of MIAMI to leave MAMI, then 'backed' turns MAMI around.",
+     "definitionFit": "An imam leads prayers in a mosque and can be a Muslim community's religious leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +651,79 @@
     "text": "Wrecked a car 26? The fourth time's close, to be fair",
     "enumeration": "10"
    },
-   "solution": "ATTRACTIVE"
+   "solution": "ATTRACTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wrecked",
+         "at": 0,
+         "note": "wrecked suggests something smashed up, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 10,
+         "note": "taken as written"
+        },
+        {
+         "words": "26",
+         "at": 14,
+         "gives": "TTT",
+         "note": "26 across reads three times; T stands for time, so three Ts"
+        }
+       ]
+      },
+      {
+       "words": "The fourth",
+       "at": 18,
+       "gives": "IV",
+       "note": "IV is the Roman numeral four"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close",
+         "at": 36,
+         "note": "the close of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time's",
+         "at": 29
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man wonders whether wrecking his car a third time is acceptable, and whether a fourth would be fair game.",
+     "walkthrough": "The cross-reference 26 is read as 'three times', with T the usual abbreviation for time, so three Ts join the anagram. 'The fourth' is a Roman numeral.",
+     "definitionFit": "Fair in its old sense of beautiful or good-looking means pleasing to look at."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +737,49 @@
     "text": "26 as hard in a moment",
     "enumeration": "6"
    },
-   "solution": "THRICE"
+   "solution": "THRICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "26",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in places the hard letter inside the word for a moment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a moment",
+       "at": 14,
+       "gives": "TRICE",
+       "note": "in a trice means in a moment"
+      },
+      {
+       "words": "hard",
+       "at": 6,
+       "gives": "H",
+       "note": "H is the pencil-grade abbreviation for hard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic fragment, with hardness arriving in an instant.",
+     "walkthrough": "The definition is the cross-reference: 26 across begins THREE TIMES, which is what the answer means.",
+     "definitionFit": "Thrice is an old-fashioned word for on three occasions, the meaning of the first half of 26."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +793,67 @@
     "text": "A stream running through a second US city",
     "enumeration": "8"
    },
-   "solution": "AMARILLO"
+   "solution": "AMARILLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 25
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "running through",
+         "at": 9,
+         "note": "running through suggests one thing flowing through the middle of another, so it is placed inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "second",
+         "at": 27,
+         "gives": "MO",
+         "note": "MO is short for moment, a second"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "at": 0
+          },
+          {
+           "words": "stream",
+           "at": 2,
+           "gives": "RILL",
+           "note": "a rill is a small stream"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brook flowing past a second American city.",
+     "walkthrough": "The trick is spotting two 'a' words: one opens the brook, the other opens the brief second, and the brook goes in after that second's first letter.",
+     "definitionFit": "Amarillo is a city in the Texas Panhandle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +873,70 @@
      }
     ]
    },
-   "solution": "SWISSROLL"
+   "solution": "SWISSROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included",
+         "at": 26,
+         "note": "included means the short pair of letters is put within the run of S letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "26 small",
+         "at": 0,
+         "gives": "SSS",
+         "note": "26 reads three times, and S is small, so SSS"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "with",
+           "at": 35,
+           "gives": "W"
+          },
+          {
+           "words": "one",
+           "at": 40,
+           "gives": "I",
+           "note": "I is the Roman numeral one"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "piece of bread's",
+       "at": 9,
+       "gives": "ROLL",
+       "note": "a roll is a small piece of bread"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker's order: a bread roll included alongside a cake.",
+     "walkthrough": "The cross-reference 26 means 'three times', so 'small' (S) is tripled; 'with one' are standard abbreviations dropped inside.",
+     "definitionFit": "A Swiss roll is a sponge cake spread with jam and rolled into a log."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +950,61 @@
     "text": "Utter contempt, say, in poor Sir Alec's case",
     "enumeration": "9"
    },
-   "solution": "SACRILEGE"
+   "solution": "SACRILEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Utter contempt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places the abbreviation for say inside the rearranged name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 24,
+         "note": "poor suggests something in bad shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sir Alec's",
+         "at": 29,
+         "gives": "SIRALEC",
+         "note": "the name is taken as written, with the possessive giving no letter"
+        }
+       ]
+      },
+      {
+       "words": "say",
+       "at": 16,
+       "gives": "EG",
+       "note": "eg, for example, is what say means here"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor Sir Alec's legal case is treated with utter contempt.",
+     "walkthrough": "'poor' rearranges SIR ALEC into SACRILE, with EG inside before the last E.",
+     "definitionFit": "Sacrilege is the violation of something sacred, the utmost disrespect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,7 +1037,31 @@
     "text": "Pink hit (26?)",
     "enumeration": "5"
    },
-   "solution": "KNOCK"
+   "solution": "KNOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pink",
+      "at": 0,
+      "meaning": "pinking is the rattling an engine makes when fuel ignites too early"
+     },
+     {
+      "text": "hit",
+      "at": 5,
+      "meaning": "to strike or rap something sharply"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The '(26?)' points to the 1970 Dawn hit 'Knock Three Times', which ties the answer to the theme.",
+     "definitionFit": "An engine that pinks makes the same rattle mechanics call knocking, and a rap or blow is also one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pink"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1075,59 @@
     "text": "Bad as a thug on the loose in Manhattan?",
     "enumeration": "7"
    },
-   "solution": "NAUGHTY"
+   "solution": "NAUGHTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bad",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the scrambled thug inside the city letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Manhattan",
+       "at": 30,
+       "gives": "NY",
+       "note": "Manhattan is part of New York, NY"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "on the loose",
+         "at": 14,
+         "note": "on the loose suggests a thug running free, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a thug",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a thug running wild in Manhattan bad?",
+     "walkthrough": "'on the loose' rearranges A THUG to AUGHT, which goes between N and Y.",
+     "definitionFit": "Naughty means badly behaved, as a mischievous child is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loose"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1141,72 @@
     "text": "Paint mixed on a crude table top",
     "enumeration": "9"
    },
-   "solution": "UNDERCOAT"
+   "solution": "UNDERCOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mixed",
+         "at": 6,
+         "note": "mixed means these letters are stirred into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 12,
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "at": 15
+        },
+        {
+         "words": "crude",
+         "at": 17,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top",
+         "at": 29,
+         "note": "the top of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "table",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paint stirred up on the top of a rough table.",
+     "walkthrough": "'mixed' rearranges ON A CRUDE into UNDERCOA, and 'top' gives the T of table.",
+     "definitionFit": "An undercoat is the layer of paint put on before the final coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crude"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1226,65 @@
      }
     ]
    },
-   "solution": "ENMASSE"
+   "solution": "ENMASSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the altogether?",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "in places the mother's word inside the trimmed sense"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 28,
+         "note": "topless means the first letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sight, possibly",
+         "at": 12,
+         "gives": "SENSE",
+         "note": "sight is one example of a sense"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "Mother's",
+       "at": 0,
+       "gives": "MAS",
+       "note": "Ma is mother, and the possessive keeps its S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother appears in sight, possibly topless or even fully naked.",
+     "walkthrough": "'In the altogether' usually means naked, which fits 'topless'; here it is read as all together. The sense word loses its first letter and wraps round mother's.",
+     "definitionFit": "En masse means as a group, all at once, which the question mark reads into the naked idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "altogether"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1298,44 @@
     "text": "Charge for the audience as a rule",
     "enumeration": "7"
    },
-   "solution": "ARRAIGN"
+   "solution": "ARRAIGN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARRAIGN",
+     "indicators": [
+      {
+       "text": "for the audience",
+       "at": 7,
+       "note": "for the audience means the words are heard spoken rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a rule",
+       "at": 27,
+       "gives": "AREIGN",
+       "note": "a reign is a period of rule"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charging the audience, as a rule.",
+     "walkthrough": "'as a rule' looks like the idiom for usually; 'as' only links, and 'a rule' is a reign.",
+     "definitionFit": "To arraign is to bring someone before a court to answer a formal charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1353,42 @@
    "group": [
     "22-down",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "car",
+       "at": 5,
+       "gives": "BEETLE",
+       "note": "the Volkswagen Beetle is a car"
+      },
+      {
+       "words": "gas",
+       "at": 17,
+       "gives": "JUICE",
+       "note": "juice is slang for fuel, gas in American English"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film about a car getting fuel, whose title character appears when his name is said three times.",
+     "walkthrough": "The tail '26 it's said for effect' alludes to the film: saying the ghost's name three times summons him.",
+     "definitionFit": "Tim Burton's 1988 comedy about a mischievous ghost bears this title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1402,71 @@
     "text": "Basic principle by which Piglet holds stupid Eeyore's tail",
     "enumeration": "8"
    },
-   "solution": "RUDIMENT"
+   "solution": "RUDIMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Basic principle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 32,
+       "note": "holds means the small animal's word wraps around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piglet",
+       "at": 25,
+       "gives": "RUNT",
+       "note": "a runt is the smallest piglet of a litter"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "stupid",
+         "at": 38,
+         "gives": "DIM",
+         "note": "dim means stupid"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "tail",
+           "at": 54,
+           "note": "the tail of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Eeyore's",
+           "at": 45
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scene from Winnie-the-Pooh, with Piglet clutching gloomy Eeyore's tail.",
+     "walkthrough": "Piglet is not the character here but a small pig: the runt. DIM plus the E ending Eeyore's goes inside it. Eeyore's tail is famously pinned on.",
+     "definitionFit": "A rudiment is one of the first, most basic principles of a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Piglet"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1480,64 @@
     "text": "God has never-ending position within the big leagues",
     "enumeration": "6"
    },
-   "solution": "MAJORS"
+   "solution": "MAJORS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the big leagues",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 30,
+       "note": "within places the shortened job word inside the god's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "God",
+       "at": 0,
+       "gives": "MARS",
+       "note": "Mars is the Roman god of war"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never-ending",
+         "at": 8,
+         "note": "never-ending means the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "position",
+         "at": 21,
+         "gives": "JOB",
+         "note": "a job is a post or position"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god holds a permanent position in the major leagues of sport.",
+     "walkthrough": "'The big leagues' looks like a sporting phrase in the surface; the Roman war god is the container, and 'has' only links.",
+     "definitionFit": "In American sport the majors are the top-level professional leagues, such as baseball's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1578,11 @@
    "group": [
     "26-across",
     "16-across"
-   ]
+   ],
+   "annotationWithheld": {
+    "why": "Gag? A gag! A gag? A chart-topper! (5,5,1,4): the wordplay is the answer read as an instruction (a Lady Gaga, three times) over the whole phrase, a reverse reading the check refuses, and no charade or cd states it",
+    "clue": "Gag? A gag! A gag? A chart-topper!"
+   }
   },
   {
    "number": 27,
@@ -447,7 +1596,42 @@
     "text": "Bird, one taking fewer than 26",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "fewer than 26",
+       "at": 17,
+       "gives": "BIS",
+       "note": "bis means twice, one fewer than the three times of 26"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird, one that takes less than a third helping.",
+     "walkthrough": "Bis is a musical direction to repeat a passage, i.e. play it twice.",
+     "definitionFit": "The ibis is a long-legged wading bird with a downcurved bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1645,92 @@
     "text": "Prepared for print last of the 26, finally entering petty revision",
     "enumeration": "7"
    },
-   "solution": "TYPESET"
+   "solution": "TYPESET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepared for print",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 43,
+       "note": "entering means the two final letters go into the reworked word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "revision",
+         "at": 58,
+         "note": "revision suggests a rewrite, so the letters of the word petty are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "petty",
+         "at": 52
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "last of",
+           "at": 19,
+           "note": "the last of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 27
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 35,
+           "note": "finally picks the final letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "26",
+           "at": 31,
+           "gives": "TIMES",
+           "note": "26 across reads three times, whose last word ends the pick"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor's note about the last paragraph of The Times getting a petty rewrite before going to press.",
+     "walkthrough": "'revision' turns PETTY into TYPET; the E ending 'the' and the S ending times go inside.",
+     "definitionFit": "Copy that has been typeset is set in type, ready for printing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revision"
+    }
+   }
   },
   {
    "number": 29,
@@ -475,7 +1744,71 @@
     "text": "Shakespeare's Midsummer Night's Dream starts with European 26 going round estate",
     "enumeration": "7"
    },
-   "solution": "DEMESNE"
+   "solution": "DEMESNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "estate",
+      "at": 74
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 62,
+       "note": "going round suggests the letters spin into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts",
+         "at": 38,
+         "note": "starts picks the first letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shakespeare's",
+         "at": 0
+        },
+        {
+         "words": "Midsummer",
+         "at": 14
+        },
+        {
+         "words": "Night's",
+         "at": 24
+        },
+        {
+         "words": "Dream",
+         "at": 32
+        }
+       ]
+      },
+      {
+       "words": "European 26",
+       "at": 50,
+       "gives": "EEE",
+       "note": "E is European, and 26 reads three times, so EEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tour of a country estate begins with a Shakespeare comedy performed for European visitors.",
+     "walkthrough": "The opening letters S, M, N and D are shuffled with three Es.",
+     "definitionFit": "A demesne is land attached to a manor and kept for the owner's own use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   }
  ]
 }
