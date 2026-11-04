@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "US tip: party is at hotel over the weekend",
     "enumeration": "8"
    },
-   "solution": "BAKSHISH"
+   "solution": "BAKSHISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US tip",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 26,
+         "note": "the party word sits over, that is covers and surrounds, the end of the week"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 8,
+         "gives": "BASH",
+         "note": "a bash is a lively party"
+        },
+        {
+         "words": "weekend",
+         "at": 35,
+         "gives": "K",
+         "note": "the end of the word week is its last letter K"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 14,
+       "gives": "IS",
+       "note": "taken as written"
+      },
+      {
+       "words": "hotel",
+       "at": 20,
+       "gives": "H",
+       "note": "H is hotel in the NATO phonetic alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American explains a tipping rule involving a party at a hotel on a weekend.",
+     "walkthrough": "'US' points to the American spelling of the word more often written baksheesh; the end of the word 'week' is K.",
+     "definitionFit": "Baksheesh, in this variant spelling listed by American dictionaries, is a gratuity or small bribe in the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weekend"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,46 @@
     "text": "10 and 21's field, where being concise is silly, when no good comes from it",
     "enumeration": "10"
    },
-   "solution": "BIOSCIENCE"
+   "solution": "BIOSCIENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "10 and 21's field",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "silly",
+       "at": 42,
+       "note": "silly signals the phrase's letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being concise",
+       "at": 25
+      },
+      {
+       "words": "no good",
+       "at": 54,
+       "gives": "NG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two scientists' discipline, where brevity would be foolish if it achieves nothing.",
+     "walkthrough": "BEING CONCISE has the answer's letters plus N and G: 'when no good comes from it' takes NG out.",
+     "definitionFit": "Watson and Crick, numbered 10 and 21, worked in molecular biology, a life-sciences discipline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concise"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,19 @@
     "text": "Taking a snooze after a ransom?",
     "enumeration": "10"
    },
-   "solution": "KIDNAPPING"
+   "solution": "KIDNAPPING",
+   "alteration": {
+    "from": "KIPPING",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotationWithheld": {
+    "why": "Taking a snooze after a ransom? (10): KIPPING ('Taking a snooze') with the preamble's DNA put inside unclued; the only wordplay is one synonym leaf plus an insertion no clue word signals, so no parse passes the indicator and single-leaf rules",
+    "clue": "Taking a snooze after a ransom?"
+   }
   },
   {
    "number": 3,
@@ -75,7 +188,50 @@
     "text": "Where deer stores energy?",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where deer stores energy?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stores",
+       "at": 11,
+       "note": "stores means keeps inside, so the deer holds the physics letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deer",
+       "at": 6,
+       "gives": "HART",
+       "note": "a hart is a male red deer"
+      },
+      {
+       "words": "energy",
+       "at": 18,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A naturalist asks in which organ a stag keeps its energy.",
+     "walkthrough": "The whole clue defines too: the heart is the organ that powers the stag.",
+     "definitionFit": "The heart is the body's central pump, a fair answer to which organ powers an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stores"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +251,67 @@
      }
     ]
    },
-   "solution": "SECONDNATURE"
+   "solution": "SECONDNATURE",
+   "alteration": {
+    "from": "SECONTURE",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's bent perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept in",
+       "at": 32,
+       "note": "kept in says the shuffled word is held inside the word for safe"
+      }
+     ],
+     "parts": [
+      {
+       "words": "safe",
+       "at": 40,
+       "gives": "SECURE",
+       "note": "secure means safe"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 24,
+         "note": "broken signals the short word is smashed and reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is bent, but not broken, is kept locked in a safe.",
+     "walkthrough": "'One's bent' reads as a crooked person; it is an inclination. A themed answer: after the clue's letters are built, the preamble's discovery is added unclued after SEC-ON.",
+     "definitionFit": "A bent is a natural inclination, and second nature is a habit so ingrained it feels innate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +325,19 @@
     "text": "Having grown attached, had a meal",
     "enumeration": "6"
    },
-   "solution": "ADNATE"
+   "solution": "ADNATE",
+   "alteration": {
+    "from": "ATE",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotationWithheld": {
+    "why": "Having grown attached, had a meal (6): ATE ('had a meal') with the preamble's DNA put inside unclued; the only wordplay is one synonym leaf plus an insertion that no clue word signals, so no parse passes the indicator and single-leaf rules",
+    "clue": "Having grown attached, had a meal"
+   }
   },
   {
    "number": 6,
@@ -123,7 +351,59 @@
     "text": "Drastic changes suppress mother's tantrums",
     "enumeration": "9"
    },
-   "solution": "DRAMATICS"
+   "solution": "DRAMATICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tantrums",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "suppress",
+       "at": 16,
+       "note": "the shuffled word holds down the parent within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 8,
+         "note": "changes signals the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drastic",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "mother's",
+       "at": 25,
+       "gives": "MA",
+       "note": "ma is mother"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strict new measures are needed to stop a mother's angry outbursts.",
+     "walkthrough": "'changes' turns DRASTIC into DRATICS, which 'suppress' makes hold the mother word after its third letter.",
+     "definitionFit": "Dramatics, as in histrionics, means exaggerated emotional displays, so outbursts of temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suppress"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +417,52 @@
     "text": "Part of church a priest should enter first",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of church",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 37,
+       "note": "first takes the opening letter of each word that precedes it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 15
+      },
+      {
+       "words": "priest",
+       "at": 17
+      },
+      {
+       "words": "should",
+       "at": 24
+      },
+      {
+       "words": "enter",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar should go ahead into a section of the building.",
+     "definitionFit": "An apse is the vaulted semicircular recess, usually at the east end, of a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +476,47 @@
     "text": "Wise to avoid independent Irish banker",
     "enumeration": "4"
    },
-   "solution": "ERNE"
+   "solution": "ERNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irish banker",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to avoid",
+       "at": 5,
+       "note": "the comic's name keeps clear of the independent letter, dropping it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wise",
+       "at": 0,
+       "gives": "ERNIE",
+       "note": "Ernie Wise was the straight man of the British comedy double act Morecambe and Wise"
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wise counsel to steer clear of a freelance Irish bank manager.",
+     "walkthrough": "'Wise' looks like an adjective; it is the comedian Ernie Wise. A banker in crosswords is a river, something with banks.",
+     "definitionFit": "The Erne is a river in Ireland, flowing through Fermanagh, so a watercourse with banks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +530,58 @@
     "text": "Artillery formerly suppressed resistance",
     "enumeration": "8"
    },
-   "solution": "ORDNANCE"
+   "solution": "ORDNANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artillery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "suppressed",
+       "at": 19,
+       "note": "the time word holds down, keeping within it, the letter for resistance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "formerly",
+       "at": 10,
+       "gives": "ONCE",
+       "note": "once means at a former time"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "resistance",
+         "at": 30,
+         "gives": "R",
+         "note": "R is the physics symbol for electrical resistance"
+        },
+        {
+         "gives": "DNA",
+         "note": "the preamble's discovery, unclued in the themed answers"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old military force once crushed an underground resistance movement.",
+     "walkthrough": "R goes into ONCE to make ORNCE; the themed DNA is then slipped in unclued, giving OR-DNA-NCE.",
+     "definitionFit": "Ordnance is the collective term for big guns and military supplies, so a synonym for artillery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suppressed"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +595,46 @@
     "text": "Literary doctor's agenda ignores hospital",
     "enumeration": "6"
    },
-   "solution": "WATSON"
+   "solution": "WATSON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Literary doctor's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ignores",
+       "at": 25,
+       "note": "the phrase passes over and so drops the hospital letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agenda",
+       "at": 18,
+       "gives": "WHATSON",
+       "note": "what's on is the programme of events, an agenda"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sherlock Holmes's friend draws up a schedule that leaves out any hospital visit.",
+     "walkthrough": "Dr Watson, Holmes's companion, is also James Watson, the '10' of the preamble who co-discovered DNA's structure.",
+     "definitionFit": "Dr Watson is the physician who narrates Conan Doyle's Sherlock Holmes stories, fiction's best-known medical man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "agenda"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +658,79 @@
      }
     ]
    },
-   "solution": "TOOTHANDNAIL"
+   "solution": "TOOTHANDNAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Furiously",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "parp",
+       "at": 10,
+       "gives": "TOOT",
+       "note": "parp is the noise of a car horn, as is toot"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 23,
+         "note": "over says the call word covers the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "call",
+         "at": 18,
+         "gives": "HAIL",
+         "note": "to hail is to call out to, as one hails a cab"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "last of",
+             "at": 28,
+             "note": "last of takes the final letter of the following word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "taximen",
+             "at": 36
+            }
+           ]
+          },
+          {
+           "gives": "DNA",
+           "note": "the preamble's discovery, unclued in the themed answers"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taxi drivers angrily honk their horns at the last cab to be called.",
+     "walkthrough": "'over' puts the call round N, the last letter of 'taximen'. A themed answer: the preamble's discovery sits inside unclued. Parp is a British word for a horn's honk.",
+     "definitionFit": "To fight with every possible effort and ferocity is to fight this way, an idiom for fierce effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parp"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +744,52 @@
     "text": "After tea, engineer got on at a station in Tennessee",
     "enumeration": "11"
    },
-   "solution": "CHATTANOOGA"
+   "solution": "CHATTANOOGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "station in Tennessee",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tea",
+       "at": 6,
+       "gives": "CHA",
+       "note": "cha is a colloquial word for tea"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "engineer",
+         "at": 11,
+         "note": "to engineer is to contrive or rework, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "got on at a",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a cup of tea, a railway engineer boarded a train at a stop in the American South.",
+     "walkthrough": "'After' sets CHA in front; 'engineer' is a verb working on GOT ON AT A. The station is the one of the song 'Chattanooga Choo Choo'.",
+     "definitionFit": "Chattanooga is a Tennessee city famous for its railway terminal, the stop in the swing-era song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +803,60 @@
     "text": "State of beauty with power to captivate the Italian?",
     "enumeration": "10"
    },
-   "solution": "DISHABILLE"
+   "solution": "DISHABILLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "beauty",
+       "at": 9,
+       "gives": "DISH",
+       "note": "a dish is an attractive person"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to captivate",
+         "at": 27,
+         "note": "to captivate, literally to take captive, means the able word holds the Italian article inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with power",
+         "at": 16,
+         "gives": "ABLE",
+         "note": "able means having the power or ability"
+        },
+        {
+         "words": "the Italian",
+         "at": 40,
+         "gives": "IL",
+         "note": "il is the Italian for the"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Does a beauty's power succeed in charming an Italian man?",
+     "walkthrough": "'State of' seems to ask for a nation; the definition is just 'State', a condition. 'to captivate' means hold inside.",
+     "definitionFit": "Dishabille is a state of being partly or carelessly dressed, a condition of undress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +870,71 @@
     "text": "English males get sandwiches after a fight",
     "enumeration": "10"
    },
-   "solution": "ENGAGEMENT"
+   "solution": "ENGAGEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 29,
+       "note": "after places the following piece behind the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "ENG"
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "sandwiches",
+         "at": 18,
+         "note": "the word get sandwiches the males between its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 14,
+         "gives": "GET",
+         "note": "taken as written"
+        },
+        {
+         "words": "males",
+         "at": 8,
+         "gives": "MEN",
+         "note": "men are males"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "English men grab sandwiches after a punch-up.",
+     "walkthrough": "'sandwiches' looks like food but is a verb meaning holds between.",
+     "definitionFit": "An engagement is a battle or clash between armed forces, a military term for a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +948,54 @@
     "text": "Kick out expert right away, then lecturer",
     "enumeration": "5"
    },
-   "solution": "EXPEL"
+   "solution": "EXPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kick out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 22,
+         "note": "away says the abbreviation for right is taken off the word before"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expert",
+         "at": 9
+        },
+        {
+         "gives": "RT"
+        }
+       ]
+      },
+      {
+       "words": "lecturer",
+       "at": 33,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college dismisses its expert straight away and then a lecturer.",
+     "walkthrough": "'away' removes the abbreviation for right from inside the expert word.",
+     "definitionFit": "To expel someone is to force them out, much as a bouncer or school might eject them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1009,42 @@
     "text": "Treatment of celeb left clearing the air?",
     "enumeration": "9"
    },
-   "solution": "LIONISING"
+   "solution": "LIONISING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treatment of celeb",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 19,
+       "gives": "L"
+      },
+      {
+       "words": "clearing the air?",
+       "at": 24,
+       "gives": "IONISING",
+       "note": "an ioniser freshens a room's air, so ionising is cleaning it, the question mark flagging the loose sense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous person walks out, glad to clear the air after a row.",
+     "walkthrough": "'clearing the air' wants to mean settling a quarrel; here it is the action of an air ioniser.",
+     "definitionFit": "To lionise someone is to treat them as a celebrity, making a great fuss of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clearing"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1058,41 @@
     "text": "Run into it in need of refreshing food",
     "enumeration": "9"
    },
-   "solution": "NUTRITION"
+   "solution": "NUTRITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "refreshing",
+       "at": 23,
+       "note": "refreshing means renewing or remaking, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Run into it",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tired runner spots it and needs something to perk them up.",
+     "walkthrough": "'in need of' is a link: the phrase RUN INTO IT is what wants refreshing.",
+     "definitionFit": "Nutrition means nourishment, the food a body takes in to sustain itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "refreshing"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1106,54 @@
     "text": "Philip, say, gets excellent backing for business groups",
     "enumeration": "9"
    },
-   "solution": "CONSORTIA"
+   "solution": "CONSORTIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "business groups",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Philip, say",
+       "at": 0,
+       "gives": "CONSORT",
+       "note": "Prince Philip was the royal consort of Queen Elizabeth II"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 28,
+         "note": "backing means going in reverse, so the excellence letters run backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excellent",
+         "at": 18,
+         "gives": "AI",
+         "note": "A1 means first-rate; read as letters it is AI"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Prince Philip is praised for supporting company syndicates.",
+     "walkthrough": "'say' marks Philip as an example of a consort. A1 is written with the letter I for the figure one.",
+     "definitionFit": "Consortia are associations of companies joined for a common commercial venture, plural of consortium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Philip"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1167,46 @@
     "text": "Dame Elisabeth started with indistinct sound",
     "enumeration": "5"
    },
-   "solution": "SCHWA"
+   "solution": "SCHWA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "indistinct sound",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "started",
+       "at": 15,
+       "note": "only the start of the singer's surname is kept, the rest dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dame Elisabeth",
+       "at": 0,
+       "gives": "SCHWARZKOPF",
+       "note": "Dame Elisabeth Schwarzkopf was a celebrated German-born soprano"
+      },
+      {
+       "gives": "RZKOPF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous soprano began her concert with a muffled note.",
+     "walkthrough": "Just the opening five letters of the soprano's surname are wanted.",
+     "definitionFit": "A schwa is the neutral, unstressed vowel heard in the first syllable of 'about', a vague murmur of a vowel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "started"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1220,65 @@
     "text": "Irish socialist usurps my credit? It couldn't be simpler",
     "enumeration": "11"
    },
-   "solution": "IRREDUCIBLE"
+   "solution": "IRREDUCIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It couldn't be simpler",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "usurps",
+       "at": 16,
+       "note": "usurps means seizes the place of something, so new letters replace old ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "my",
+       "at": 23,
+       "gives": "CRUCIBLE",
+       "note": "the setter of this puzzle is Crucible, so my means the setter's name"
+      },
+      {
+       "words": "credit",
+       "at": 26,
+       "gives": "CR",
+       "note": "CR is the accounting abbreviation for credit"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Irish",
+         "at": 0,
+         "gives": "IR"
+        },
+        {
+         "words": "socialist",
+         "at": 6,
+         "gives": "RED",
+         "note": "a red is a left-winger or socialist"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that an Irish leftist has stolen the credit owed to them.",
+     "walkthrough": "The setter Crucible plays on their pseudonym: IRRED takes the place of CR at the front, leaving UCIBLE.",
+     "definitionFit": "Something irreducible cannot be simplified or broken down any further, a phrase-style definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1292,59 @@
     "text": "Neck problem — Kent's regulars don't finish game",
     "enumeration": "5"
    },
-   "solution": "CRICK"
+   "solution": "CRICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Neck problem",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "don't finish",
+       "at": 31,
+       "note": "the game word is left without its finishing letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "game",
+       "at": 44,
+       "gives": "CRICKET",
+       "note": "cricket is the bat-and-ball game"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regulars",
+         "at": 22,
+         "note": "regulars takes the letters at regular intervals, here the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kent's",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Kent cricket club's regular players have a neck injury and can't complete the match.",
+     "walkthrough": "The even letters of KENT'S are E and T, which come off the end of CRICKET. Kent is an English county with a famous cricket team.",
+     "definitionFit": "A crick is a painful muscle spasm, typically in the neck or back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regulars"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1358,50 @@
     "text": "Dame's premature end",
     "enumeration": "4"
    },
-   "solution": "EDNA"
+   "solution": "EDNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dame's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "premature",
+         "at": 7,
+         "note": "premature means coming early, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "gives": "DNA",
+       "note": "the preamble's discovery, unclued in the themed answers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand old lady meets an untimely death.",
+     "walkthrough": "The themed DNA follows E unclued. Dame Edna Everage was Barry Humphries's comic stage character.",
+     "definitionFit": "Dame Edna Everage is the comedian Barry Humphries's famous drag persona, so a dame by name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1415,49 @@
     "text": "Slow down bypassing Kelvin Hill in Glasgow",
     "enumeration": "4"
    },
-   "solution": "BRAE"
+   "solution": "BRAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hill in Glasgow",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "bypassing",
+       "at": 10,
+       "note": "bypassing means skipping, so the kelvin letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Slow down",
+       "at": 0,
+       "gives": "BRAKE",
+       "note": "to brake is to slow down"
+      },
+      {
+       "words": "Kelvin",
+       "at": 20,
+       "gives": "K",
+       "note": "K is the symbol for the kelvin unit of temperature"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver slows to avoid the Kelvin hill in Glasgow.",
+     "walkthrough": "Kelvin looks like Glasgow's River Kelvin; it is the temperature unit. A brae is Scots for a hillside.",
+     "definitionFit": "Brae is the Scots word for a hill or steep slope, fitting a Glasgow setting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kelvin"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1471,57 @@
     "text": "Challenge inconclusive victory somewhere in Australia",
     "enumeration": "6"
    },
-   "solution": "DARWIN"
+   "solution": "DARWIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in Australia",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "inconclusive",
+         "at": 10,
+         "note": "inconclusive means lacking its conclusion, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Challenge",
+         "at": 0,
+         "gives": "DARE",
+         "note": "a dare is a challenge"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "victory",
+       "at": 23,
+       "gives": "WIN",
+       "note": "a win is a victory"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team dares an opponent and scrapes an indecisive win down under.",
+     "walkthrough": "DARE without its final letter gives DAR. Charles Darwin also nods to the biology theme.",
+     "definitionFit": "Darwin is the capital city of Australia's Northern Territory, a place on the continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inconclusive"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1535,49 @@
     "text": "Jaws writer clutches armpit",
     "enumeration": "8"
    },
-   "solution": "MAXILLAE"
+   "solution": "MAXILLAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jaws",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "clutches",
+       "at": 12,
+       "note": "the setter's word grips the anatomical term inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "writer",
+       "at": 5,
+       "gives": "ME",
+       "note": "the writer of the clue is the setter, me"
+      },
+      {
+       "words": "armpit",
+       "at": 21,
+       "gives": "AXILLA",
+       "note": "the axilla is the anatomical name for the armpit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist keeps a firm grip under the arm, perhaps writing about a shark film.",
+     "walkthrough": "'Jaws' looks like the film; it is a plain anatomical plural.",
+     "definitionFit": "Maxillae are the upper jawbones, plural of maxilla, the bones that hold the upper teeth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jaws"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1591,45 @@
     "text": "On holiday, say, and just up out of bed",
     "enumeration": "6"
    },
-   "solution": "AWEIGH"
+   "solution": "AWEIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "just up out of bed",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "AWEIGH",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 12,
+       "note": "say signals that the word is spoken and a lookalike sound gives the spelling"
+      }
+     ],
+     "parts": [
+      {
+       "words": "On holiday",
+       "at": 0,
+       "gives": "AWAY",
+       "note": "someone on holiday is away"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker has only just got up from bed.",
+     "walkthrough": "The bed is the sea bed: an anchor is aweigh when just lifted clear of the bottom.",
+     "definitionFit": "An anchor described as aweigh has just been raised clear of the seabed, ready for sailing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1643,77 @@
     "text": "Least reliable butcher likes wrapping article in paper",
     "enumeration": "8"
    },
-   "solution": "FLAKIEST"
+   "solution": "FLAKIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Least reliable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 46,
+       "note": "in puts the whole assembly inside the paper's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "paper",
+       "at": 49,
+       "gives": "FT",
+       "note": "the FT is the Financial Times newspaper"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wrapping",
+         "at": 29,
+         "note": "the shuffled word wraps around the article"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "butcher",
+           "at": 15,
+           "note": "to butcher is to mangle, so these letters are reordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "likes",
+           "at": 23
+          }
+         ]
+        },
+        {
+         "words": "article",
+         "at": 38,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most untrustworthy butcher likes to wrap goods in newspaper.",
+     "walkthrough": "'butcher' looks like a noun but is the anagram signal on 'likes'; 'wrapping' puts the article inside that, and 'in' puts it all within the paper.",
+     "definitionFit": "Flaky means unreliable or erratic, so the superlative describes the most untrustworthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "butcher"
+    }
+   }
   }
  ]
 }
