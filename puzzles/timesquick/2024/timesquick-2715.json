@@ -821,34 +821,33 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "climbing",
-       "note": "in a down answer, climbing means reading upwards, so the letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Yes",
-         "note": "taken as written"
-        },
+         "text": "climbing",
+         "at": 21,
+         "note": "climbing in a down clue means the shortened vehicle reads upwards"
+        }
+       ],
+       "parts": [
         {
          "op": "deletion",
          "indicators": [
           {
            "text": "mostly",
-           "note": "'mostly' means all but the final letter is kept"
+           "at": 14,
+           "note": "mostly means the last letter of the vehicle word is dropped"
           }
          ],
          "parts": [
           {
            "words": "lorry",
+           "at": 8,
            "gives": "TRUCK",
-           "note": "a truck is the American name for a lorry"
+           "note": "a truck is a lorry"
           },
           {
            "gives": "K"
@@ -856,18 +855,33 @@
          ]
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "at": 36,
+         "note": "the second climbing again means this word reads upwards in the column"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yes",
+         "at": 31
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Bob owns a lorry that labours uphill.",
-     "walkthrough": "'Bob' looks like a name, but it is the quick dip of a curtsey. 'climbing' appears twice, reversing each part separately.",
-     "definitionFit": "To bob is to make a quick bending movement, the short curtsey a woman makes in greeting."
+     "surface": "A lorry struggles uphill, and someone cheerfully agrees it is climbing.",
+     "walkthrough": "'Bob' looks like a name or haircut; it is a quick bend of the knee. 'mostly' cuts TRUCK to TRUC, and each 'climbing' reads its piece upwards: CURT, then SEY.",
+     "definitionFit": "Synonym: to bob is to dip the knees briefly in a respectful gesture."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Bob"
     }
    }

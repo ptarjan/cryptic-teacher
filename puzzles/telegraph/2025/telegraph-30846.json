@@ -965,43 +965,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Spoiled",
-       "note": "something spoiled is ruined and messed up, so the letters are jumbled"
+       "text": "about",
+       "at": 19,
+       "note": "about means the rearranged letters wrap round the single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "'about' means around, so the jumbled letters go round the next piece"
+         "text": "Spoiled",
+         "at": 0,
+         "note": "spoiled means the letters of one raged are messed up"
         }
        ],
        "parts": [
         {
-         "words": "one raged",
-         "note": "these words rearranged"
+         "words": "one",
+         "at": 9
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "words": "raged",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A spoilt child flies into a temper over a soft drink.",
-     "definitionFit": "Orangeade is a carbonated orange-flavoured soft drink, so it is a fizzy drink."
+     "surface": "Someone spoiled flies into a rage over a fizzy drink.",
+     "walkthrough": "'Spoiled' turns ONERAGED into ORANGEDE, and 'about' puts A between ORANGE and DE.",
+     "definitionFit": "Example: a carbonated citrus soft drink is one kind of fizzy drink."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Spoiled"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

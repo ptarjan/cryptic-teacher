@@ -316,6 +316,7 @@
      "parts": [
       {
        "words": "Vehicle",
+       "at": 0,
        "gives": "VAN",
        "note": "a van is a vehicle"
       },
@@ -324,52 +325,59 @@
        "indicators": [
         {
          "text": "climbing",
-         "note": "in a down clue climbing means reading upwards, so the letters go backwards"
+         "at": 30,
+         "note": "climbing in a down clue means the three pieces before it read upwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "moving",
-           "note": "letters that are moving are shifted out of their order and rearranged"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
+           "words": "exercises",
+           "at": 11,
+           "gives": "PE",
+           "note": "PE is physical education, school exercises"
+          },
+          {
            "words": "good",
-           "gives": "G",
-           "note": "G is the abbreviation for good"
+           "at": 22,
+           "gives": "G"
           },
           {
            "words": "at",
-           "note": "taken as written"
-          },
-          {
-           "words": "exercises",
-           "gives": "PE",
-           "note": "PE is physical education"
-          },
-          {
-           "words": "into",
-           "note": "taken as written"
+           "at": 27
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 40,
+         "note": "moving means the letters of into are shifted around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A van labours uphill during training until it reaches a spot with a fine panorama.",
-     "walkthrough": "'into' looks like a link to the definition, but it is anagram fodder along with the exercises.",
-     "definitionFit": "A vantage point is a spot giving a commanding outlook, such as a hilltop from which the surroundings are seen."
+     "surface": "A van out on training runs, climbing well, moves into a spot with a fine view.",
+     "walkthrough": "'climbing' turns PEGAT into TAGEP; 'moving' rearranges INTO as OINT.",
+     "definitionFit": "Synonym: a spot giving a commanding outlook over the surroundings, such as a hilltop."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "into"
+     "aptDefinition": false
     }
    }
   },

@@ -42,53 +42,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "strange",
-       "note": "something strange is out of its usual order, so the next word is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starts to",
+         "at": 6,
+         "note": "starts to means the opening letters of the next three words are taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "starts to",
-           "note": "the starts of the following words are their opening letters only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "puff really oddly",
-           "note": "the first letters of these three words"
-          }
-         ]
+         "words": "puff",
+         "at": 16
         },
         {
-         "words": "constant",
-         "gives": "C",
-         "note": "C is the usual symbol for a constant, such as the speed of light"
+         "words": "really",
+         "at": 21
         },
+        {
+         "words": "oddly",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "constant",
+       "at": 39,
+       "gives": "C",
+       "note": "C is the symbol for a constant, such as the speed of light"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 49,
+         "note": "strange means the letters of noises are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "noises",
-         "note": "these six letters rearranged"
+         "at": 57
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A steam train chugs along, puffing erratically and making constant odd noises.",
-     "walkthrough": "'Train' looks like a locomotive, but here it is a line of people moving in order. 'oddly' belongs to the surface, not to the letter picking.",
-     "definitionFit": "A train can mean a long line of followers or attendants moving along, which is what a procession is."
+     "surface": "A steam train puffs along making odd, regular, peculiar sounds.",
+     "walkthrough": "'Train' is a line of followers, not a railway. 'strange' rearranges NOISES as ESSION.",
+     "definitionFit": "Synonym: a train can mean a long line of people or vehicles moving along, like a parade."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Train"
     }
    }

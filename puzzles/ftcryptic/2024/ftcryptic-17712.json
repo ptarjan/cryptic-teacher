@@ -1618,16 +1618,36 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Fulham's two up front",
-       "at": 0,
-       "gives": "FU",
-       "note": "the first two letters of the London football club Fulham"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "two up front",
+         "at": 9,
+         "note": "two up front means the first two letters of the club name are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fulham's",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "halved Manchester",
-       "at": 22,
-       "gives": "MANCH",
-       "note": "the first half of the word Manchester"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "halved",
+         "at": 22,
+         "note": "halved means only the first half of the city name is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Manchester",
+         "at": 29
+        }
+       ]
       },
       {
        "op": "first",
@@ -1635,29 +1655,26 @@
         {
          "text": "lead",
          "at": 49,
-         "note": "the first letter of United is taken"
+         "note": "lead means the opening letter of united is used"
         }
        ],
        "parts": [
         {
          "words": "United's",
-         "at": 40,
-         "gives": "U",
-         "note": "Manchester United, the football club"
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: Fulham's front two cut Manchester United's lead.",
-     "walkthrough": "Fulham and Manchester United are English football clubs. Fu Manchu was created by Sax Rohmer and appears in Alan Moore's League of Extraordinary Gentlemen comics.",
-     "definitionFit": "Fu Manchu is a pulp-fiction master villain who features in Alan Moore's comic about Victorian adventurers."
+     "surface": "A football report: Fulham's front pair cut Manchester United's lead in half.",
+     "walkthrough": "Fulham is a London football club; 'halved' keeps MANCH, five of ten letters. Alan Moore's comics revive this villain.",
+     "definitionFit": "Example: the sinister mastermind created by Sax Rohmer reappears in Alan Moore's graphic novels."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "lead"
+     "aptDefinition": false
     }
    }
   },
