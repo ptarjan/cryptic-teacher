@@ -26,6 +26,19 @@ class NoCrop(Exception):
     """Why a puzzle has no crop."""
 
 
+def _rows_naming(path, needle):
+    """The ledger rows whose line mentions `needle`, in order. The ledger is
+    hundreds of MB once parsed (scan_queue.jsonl_rows made every annotate_check
+    on a scan puzzle peak near 700 MB, on a box whose swap was full), and one
+    puzzle is a handful of its lines: only those are parsed. A final line still
+    being appended (no newline yet) is not a row, as in scan_queue._parsed."""
+    import scan_queue
+    with open(path, "rb") as f:
+        for n, line in enumerate(f, 1):
+            if line.endswith(b"\n") and needle.encode() in line:
+                yield from scan_queue.parse_line(line, f"{path.name}:{n}")
+
+
 def verdict(pid, cache):
     """(edition dir, verdict) of the ledger row that filed `pid`."""
     ledgers = [p for p in (cache / "filed.jsonl", cache / downloads.GALE_LEDGER.name) if p.exists()]
@@ -33,8 +46,7 @@ def verdict(pid, cache):
         raise NoCrop(f"no ledger at {cache / 'filed.jsonl'}")
     ledger = ", ".join(map(str, ledgers))
     found = None
-    import scan_queue
-    for row in (r for p in ledgers for r in scan_queue.jsonl_rows(p)):
+    for row in (r for p in ledgers for r in _rows_naming(p, pid)):
         for v in (row.get("verdicts") or []) if "edition" in row else []:  # skip a stray fragment row
             if v.get("id") == pid and (found is None or v.get("wrote") or not found[1].get("wrote")):
                 found = (cache / row["edition"], v)
