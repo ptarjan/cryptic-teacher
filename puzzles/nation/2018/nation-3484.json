@@ -415,23 +415,33 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Lee",
-       "at": 9,
-       "gives": "STAN",
-       "note": "Stan Lee, the comic-book writer"
-      },
-      {
        "op": "deletion",
        "indicators": [
         {
          "text": "cut",
          "at": 13,
-         "note": "together with short, says the end of the word is lopped off"
+         "note": "cut means the surname is chopped off the full name, keeping only the first name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lee",
+         "at": 9,
+         "gives": "STANLEE",
+         "note": "Stan Lee was the Marvel Comics writer"
         },
+        {
+         "gives": "LEE"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
          "text": "short",
          "at": 22,
-         "note": "a word made short loses its last letter here"
+         "note": "short means the word for fool loses its last letter"
         }
        ],
        "parts": [
@@ -439,7 +449,7 @@
          "words": "fool",
          "at": 17,
          "gives": "DUPE",
-         "note": "a dupe is someone easily fooled"
+         "note": "a dupe is someone easily fooled, a sap"
         },
         {
          "gives": "E"
@@ -449,13 +459,14 @@
      ]
     },
     "explanation": {
-     "surface": "A comedian named Lee interrupts a fool before he finishes.",
-     "definitionFit": "A stand-up is a comic who performs solo routines in front of a live audience."
+     "surface": "A remark that a comedian called Lee has cut a fool down to size.",
+     "walkthrough": "'Cut' trims STAN LEE to STAN; 'short' drops the E of DUPE, leaving DUP.",
+     "definitionFit": "A stand-up is a comic who performs alone in front of a live audience, telling jokes into a microphone."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Comedian"
+     "misdirectedWord": "Lee"
     }
    }
   },
