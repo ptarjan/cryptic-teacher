@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,51 @@
     "text": "Put in amount that's to be coughed up",
     "enumeration": "6"
    },
-   "solution": "SPUTUM"
+   "solution": "SPUTUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's to be coughed up",
+      "at": 14,
+      "note": "a noun phrase: something brought up by coughing"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "the word put is placed inside a word for amount, so in signals the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "amount",
+       "at": 7,
+       "gives": "SUM",
+       "note": "a sum is an amount, as of money"
+      },
+      {
+       "words": "Put",
+       "at": 0,
+       "gives": "PUT",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to add a sum to a payment that must be handed over reluctantly.",
+     "walkthrough": "'Coughed up' reads as paying unwillingly; here it is literal, phlegm brought up from the chest.",
+     "definitionFit": "Sputum is the mucus and saliva brought up from the lungs by coughing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "coughed"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +92,60 @@
     "text": "Sausage Evita got in burst pipe",
     "enumeration": "9"
    },
-   "solution": "PEPPERONI"
+   "solution": "PEPPERONI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sausage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "got in",
+       "at": 14,
+       "note": "Evita gets inside the scrambled pipe, so got in marks the container"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "burst",
+         "at": 21,
+         "note": "a burst pipe is broken open, so its letters are scattered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pipe",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "Evita",
+       "at": 8,
+       "gives": "PERON",
+       "note": "Eva Peron, wife of the Argentine president, was known as Evita"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Argentine first lady stuck in a broken water pipe with a sausage.",
+     "walkthrough": "'Burst' shuffles the pipe's letters to PEPI; 'got in' then sets Evita's surname inside that run, after its first three letters.",
+     "definitionFit": "Pepperoni is a spicy dried Italian-American salami often used on pizza."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "burst"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +159,34 @@
     "text": "Global hotline?",
     "enumeration": "6"
    },
-   "solution": "TROPIC"
+   "solution": "TROPIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Global hotline?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Global hotline?",
+       "at": 0,
+       "note": "a line drawn on the globe that bounds the hot zone near the equator"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Cancer and Capricorn are parallels of latitude enclosing the world's hottest band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hotline"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +200,59 @@
     "text": "The domestic, non-CE, might be this",
     "enumeration": "9"
    },
-   "solution": "METHODIST"
+   "solution": "METHODIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The domestic, non-CE, might be this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "might be",
+       "at": 22,
+       "note": "might be this suggests the remaining letters could turn into something else"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "non",
+         "at": 14,
+         "note": "non tells us the letters C and E are left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "The domestic",
+         "at": 0
+        },
+        {
+         "words": "CE",
+         "at": 18,
+         "gives": "EC",
+         "note": "the Church of England, abbreviated"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A household servant who isn't Anglican could belong to another church.",
+     "walkthrough": "Drop C and E from THE DOMESTIC to leave nine letters and rearrange them; a Methodist is indeed outside the Church of England.",
+     "definitionFit": "Methodists are a Protestant denomination that broke away from the Church of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +266,49 @@
     "text": "Vegetable in general is sticky stuff",
     "enumeration": "6"
    },
-   "solution": "LEGUME"
+   "solution": "LEGUME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "the sticky stuff sits within the general's name, so in marks the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "general",
+       "at": 13,
+       "gives": "LEE",
+       "note": "Robert E. Lee, the Confederate general, is the crossword's stock general"
+      },
+      {
+       "words": "sticky stuff",
+       "at": 24,
+       "gives": "GUM",
+       "note": "gum is a sticky substance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that, generally speaking, a vegetable is a gluey substance.",
+     "walkthrough": "'In general' looks like the phrase meaning usually; it splits into the container signal 'in' and General Lee.",
+     "definitionFit": "A legume is a pod vegetable such as a pea, bean or lentil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +322,51 @@
     "text": "Deposit English gold pieces",
     "enumeration": "5"
    },
-   "solution": "LODGE"
+   "solution": "LODGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deposit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pieces",
+         "at": 21,
+         "note": "pieces suggests the letters are broken up and reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gold",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 8,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Banking English gold coins.",
+     "walkthrough": "'Pieces' reads as coins; it is the signal to break up E and GOLD.",
+     "definitionFit": "To lodge is to deposit, as in lodging money or a document with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +380,44 @@
     "text": "Scientific study gets nice muddle",
     "enumeration": "8"
    },
-   "solution": "GENETICS"
+   "solution": "GENETICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scientific study",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "muddle",
+       "at": 27,
+       "note": "a muddle is a jumble, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gets",
+       "at": 17
+      },
+      {
+       "words": "nice",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field of research becomes a pleasant mess.",
+     "definitionFit": "Genetics is the branch of biology studying heredity and genes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "muddle"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +431,51 @@
     "text": "To a degree mother can be deadly",
     "enumeration": "5"
    },
-   "solution": "MAMBA"
+   "solution": "MAMBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "can be deadly",
+      "at": 19,
+      "note": "a phrase describing the snake, which can kill"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "To",
+       "at": 0,
+       "note": "to means attached to, so the mother is joined onto the degree"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mother",
+       "at": 12,
+       "gives": "MA",
+       "note": "ma is a familiar word for mother"
+      },
+      {
+       "words": "degree",
+       "at": 5,
+       "gives": "MBA",
+       "note": "an MBA is a Master of Business Administration"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "To some extent, a mother can be lethal.",
+     "walkthrough": "'To a degree' looks like the phrase meaning somewhat; it supplies the joining signal and MBA.",
+     "definitionFit": "The mamba is a highly venomous African snake whose bite can kill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +489,59 @@
     "text": "Being cross in polite fashion is an achievement",
     "enumeration": "7"
    },
-   "solution": "EXPLOIT"
+   "solution": "EXPLOIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "achievement",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "the cross mark is set inside the rearranged word, so in signals the container"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fashion",
+         "at": 22,
+         "note": "to fashion is to shape or make anew, so the letters of polite are reshaped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polite",
+         "at": 15
+        }
+       ]
+      },
+      {
+       "words": "cross",
+       "at": 6,
+       "gives": "X",
+       "note": "X is the shape of a cross"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Managing to be angry while staying courteous counts as a real accomplishment.",
+     "walkthrough": "'Cross' reads as angry but gives the letter X, which goes into EPLOIT, the letters of 'polite' reshaped by 'fashion'.",
+     "definitionFit": "An exploit is a daring or notable deed, a feat worth recording."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +555,34 @@
     "text": "Ineligible for joining the green party?",
     "enumeration": "11"
    },
-   "solution": "EXPERIENCED"
+   "solution": "EXPERIENCED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ineligible for joining the green party?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Ineligible for joining the green party?",
+       "at": 0,
+       "note": "green means new to something, so a seasoned veteran would not belong to a gathering of novices"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Being skilled through practice is the opposite of being green or new to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +596,61 @@
     "text": "In police department a lot are backward, if forceful …",
     "enumeration": "7"
    },
-   "solution": "DYNAMIC"
+   "solution": "DYNAMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "forceful",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backward",
+       "at": 31,
+       "note": "backward tells us the whole assembled run is read from its end to its start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "at": 0,
+         "note": "a lot is placed inside the police department, so In marks the container"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police department",
+         "at": 3,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department of British police"
+        },
+        {
+         "words": "a lot",
+         "at": 21,
+         "gives": "MANY",
+         "note": "many means a lot of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that many in a police unit lag behind, even if they are energetic.",
+     "walkthrough": "The container makes CIMANYD, and 'backward' turns that whole run round; 'if' and 'are' are only links, with the ellipsis tying the clue to the next one.",
+     "definitionFit": "Dynamic describes someone vigorous and energetic, full of driving force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +670,43 @@
      }
     ]
    },
-   "solution": "CRYSTALSETS"
+   "solution": "CRYSTALSETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that once ruled the waves?",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cut glass",
+       "at": 0,
+       "gives": "CRYSTAL",
+       "note": "crystal is fine cut glass"
+      },
+      {
+       "words": "collections",
+       "at": 10,
+       "gives": "SETS",
+       "note": "sets are collections of things"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fine glassware sets that once dominated the seas.",
+     "walkthrough": "'Ruled the waves' evokes Britannia's navy; the waves are radio waves, which early crystal radio receivers picked up.",
+     "definitionFit": "Early radio receivers using a crystal detector dominated broadcast listening before valve sets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +720,59 @@
     "text": "… with full authority half of police are deployed in jail",
     "enumeration": "15"
    },
-   "solution": "PLENIPOTENTIARY"
+   "solution": "PLENIPOTENTIARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with full authority",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "deployed",
+       "at": 41,
+       "note": "deployed means spread out and placed strategically, so the three letters are scattered through the jail word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 22,
+         "note": "half of takes the first three of the six letters of police"
+        }
+       ],
+       "parts": [
+        {
+         "words": "police",
+         "at": 30
+        }
+       ]
+      },
+      {
+       "words": "jail",
+       "at": 53,
+       "gives": "PENITENTIARY",
+       "note": "a penitentiary is a prison, especially in the US"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: officers with full powers being sent into a prison.",
+     "walkthrough": "The three letters from 'police' do not stay together: 'deployed' scatters them, one after the jail word's first letter and two later, so the parse shows a mix of both pieces.",
+     "definitionFit": "A plenipotentiary is an envoy invested with full power to act for a government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deployed"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +786,41 @@
     "text": "Crossover door",
     "enumeration": "4"
    },
-   "solution": "ROOD"
+   "solution": "ROOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 5,
+       "note": "over means turned over, so the word door is flipped end to end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "door",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A door that changes sides, like a crossover in a building.",
+     "walkthrough": "'Crossover' looks like one word; split it into the definition 'Cross' and the reversal signal 'over'.",
+     "definitionFit": "A rood is a crucifix, especially the large cross over a church's chancel screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crossover"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +834,45 @@
     "text": "Choice of boats — but for the spelling!",
     "enumeration": "10"
    },
-   "solution": "WITCHCRAFT"
+   "solution": "WITCHCRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spelling",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WITCHCRAFT",
+     "indicators": [
+      {
+       "text": "but for the",
+       "at": 18,
+       "note": "but for the spelling says the phrase is identical when heard, differing only on paper"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Choice of boats",
+       "at": 0,
+       "gives": "WHICHCRAFT",
+       "note": "which craft? is the question when choosing between boats"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Picking a boat, where only the written form tells two phrases apart.",
+     "walkthrough": "'Spelling' does double duty in the joke: it is the definition (casting spells) and the surface says the two phrases differ only in how they are written.",
+     "definitionFit": "Casting spells is the practice of magic, so spelling here means sorcery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spelling"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +892,43 @@
      }
     ]
    },
-   "solution": "CLIPJOINT"
+   "solution": "CLIPJOINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where trim ankle maybe sets one back a lot?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trim",
+       "at": 6,
+       "gives": "CLIP",
+       "note": "to clip is to trim"
+      },
+      {
+       "words": "ankle maybe",
+       "at": 11,
+       "gives": "JOINT",
+       "note": "an ankle is an example of a joint"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A place where a shapely ankle proves expensive to the visitor.",
+     "walkthrough": "'Sets one back a lot' means costs a great deal, the hallmark of a venue that overcharges.",
+     "definitionFit": "A clip joint is a nightclub or bar that overcharges or swindles customers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trim"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +942,35 @@
     "text": "Boeing aircraft once based down under?",
     "enumeration": "9"
    },
-   "solution": "ABORIGINE"
+   "solution": "ABORIGINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boeing aircraft once based down under?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Boeing aircraft once based down under?",
+       "at": 0,
+       "note": "posing as a plane once stationed in Australia, the letters of Boeing and air mix to describe an original Australian"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Within 'aircraft', 'craft' works as a shuffle signal on BOEING and AIR; since a word cannot be split here, the clue is shown whole.",
+     "definitionFit": "Aboriginal Australians are the continent's first inhabitants, there long before European settlement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boeing"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +984,44 @@
     "text": "Awful fuss with bill ends up happy",
     "enumeration": "8"
    },
-   "solution": "BLISSFUL"
+   "solution": "BLISSFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "happy",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Awful",
+       "at": 0,
+       "note": "awful means dreadful, so these letters are put in bad order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fuss",
+       "at": 6
+      },
+      {
+       "words": "bill",
+       "at": 16
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a dreadful row over the bill, things end on a cheerful note.",
+     "definitionFit": "Blissful means full of great joy, extremely happy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Awful"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1035,41 @@
     "text": "Piglet, so it might appear, stops food going the wrong way",
     "enumeration": "10"
    },
-   "solution": "EPIGLOTTIS"
+   "solution": "EPIGLOTTIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stops food going the wrong way",
+      "at": 28,
+      "note": "a verb phrase describing what the flap does, standing for the noun"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "might appear",
+       "at": 14,
+       "note": "might appear says these letters could show up in another arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Piglet, so it",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Winnie-the-Pooh's friend Piglet is seen, apparently, preventing choking.",
+     "definitionFit": "This flap of cartilage closes over the windpipe during swallowing, keeping food out of the airway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piglet"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1083,42 @@
     "text": "Get in a twist about fuel?",
     "enumeration": "4"
    },
-   "solution": "COIL"
+   "solution": "COIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get in a twist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 15,
+       "gives": "C",
+       "note": "c, short for circa, means about"
+      },
+      {
+       "words": "fuel",
+       "at": 21,
+       "gives": "OIL",
+       "note": "oil is a fuel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Becoming flustered over the price of fuel.",
+     "walkthrough": "'Get in a twist' sounds like getting upset; read literally it is winding into loops.",
+     "definitionFit": "To coil is to wind into rings or spirals, twisting round on itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twist"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1132,42 @@
     "text": "It's very large to attack",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "very",
+       "at": 5,
+       "gives": "ASSAI",
+       "note": "assai is the Italian musical term for very, as in allegro assai"
+      },
+      {
+       "words": "large",
+       "at": 10,
+       "gives": "L",
+       "note": "L is the abbreviation for large, as in clothing sizes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something enormous enough to go on the offensive.",
+     "walkthrough": "ASSAI is a musical direction meaning very, worth knowing from scores.",
+     "definitionFit": "To assail is to attack violently, physically or with words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1191,48 @@
      }
     ]
    },
-   "solution": "COURSEOFJUSTICE"
+   "solution": "COURSEOFJUSTICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something liable to perversion",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Part of meal",
+       "at": 0,
+       "gives": "COURSEOF",
+       "note": "a course of a meal is one part of it, such as the main"
+      },
+      {
+       "words": "mere",
+       "at": 16,
+       "gives": "JUST",
+       "note": "just means merely, nothing more than"
+      },
+      {
+       "words": "cold sweet",
+       "at": 21,
+       "gives": "ICE",
+       "note": "an ice is a frozen dessert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner remarks that one dish is only a chilled pudding.",
+     "walkthrough": "The definition plays on the offence of perverting the course of justice, obstructing the legal process.",
+     "definitionFit": "English law names the offence of perverting legal process, so this phrase is what gets perverted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1246,59 @@
     "text": "Single leading lady kept in the dark",
     "enumeration": "5"
    },
-   "solution": "UNLIT"
+   "solution": "UNLIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the dark",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "kept",
+       "at": 20,
+       "note": "the lady's initial is held within the single, so kept marks the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Single",
+       "at": 0,
+       "gives": "UNIT",
+       "note": "a unit is a single thing"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "at": 7,
+         "note": "leading picks the first letter of lady"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lady",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unmarried leading actress kept uninformed.",
+     "walkthrough": "'Leading lady' reads as a star actress; it gives just L, put inside UNIT.",
+     "definitionFit": "Unlit means without light, so anything unlit is left in darkness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1312,60 @@
     "text": "Rejected overture, if not drunk",
     "enumeration": "5"
    },
-   "solution": "OILED"
+   "solution": "OILED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drunk",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 22,
+       "note": "if not tells us the letters of if are removed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rejected",
+         "at": 0,
+         "note": "rejected means thrown back, so the overture's name is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "overture",
+         "at": 9,
+         "gives": "FIDELIO",
+         "note": "Fidelio, Beethoven's only opera, has a well-known overture"
+        }
+       ]
+      },
+      {
+       "words": "if",
+       "at": 19,
+       "gives": "IF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An opening offer turned down, as if one weren't sober.",
+     "walkthrough": "FIDELIO reversed is OILEDIF; 'not' then removes IF. 'Overture' looks like an offer, but it is the opera's.",
+     "definitionFit": "Well oiled is slang for drunk, so oiled alone means tipsy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overture"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1379,34 @@
     "text": "Attitude of one on benefit?",
     "enumeration": "7"
    },
-   "solution": "DOLEFUL"
+   "solution": "DOLEFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attitude of one on benefit?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Attitude of one on benefit?",
+       "at": 0,
+       "note": "the dole is British state unemployment benefit, so someone on it might be said to be full of it"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Doleful means sorrowful and gloomy, the mood one might expect of someone out of work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "benefit"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1420,64 @@
     "text": "Aussie town detailed in its leaning uprights",
     "enumeration": "7"
    },
-   "solution": "ITALICS"
+   "solution": "ITALICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leaning uprights",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "the shortened town is set within the word its, so in marks the container"
+      }
+     ],
+     "parts": [
+      {
+       "words": "its",
+       "at": 24,
+       "gives": "ITS",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 12,
+         "note": "detailed means with its tail cut off, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Aussie town",
+         "at": 0,
+         "gives": "ALICE",
+         "note": "Alice Springs, the Northern Territory town, is known simply as Alice"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian town described in close detail, with its upright posts tilting.",
+     "walkthrough": "'Detailed' looks like thorough; read as de-tailed it removes the last letter of ALICE.",
+     "definitionFit": "Italic type slopes to the right, so its letters are slanted versions of upright characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1491,40 @@
     "text": "It's old — oddly unemotional",
     "enumeration": "6"
    },
-   "solution": "STOLID"
+   "solution": "STOLID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unemotional",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "oddly",
+       "at": 11,
+       "note": "oddly means in a strange way, so the letters of these words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's old",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something aged, which strangely shows no feeling.",
+     "definitionFit": "Stolid means impassive, calm and showing little emotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1538,31 @@
     "text": "German dramatist — rings a bell?",
     "enumeration": "6"
    },
-   "solution": "TOLLER"
+   "solution": "TOLLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German dramatist",
+      "at": 0,
+      "meaning": "Ernst ... was a German expressionist playwright of the 1920s"
+     },
+     {
+      "text": "rings a bell?",
+      "at": 19,
+      "meaning": "one who tolls is someone who rings a bell slowly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rings a bell' suggests the name is familiar; it is a literal description of a bell-ringer.",
+     "definitionFit": "Ernst Toller wrote expressionist plays, and a bell-tolling person is also so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rings"
+    }
+   }
   }
  ]
 }
