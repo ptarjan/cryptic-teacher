@@ -188,7 +188,7 @@ write("nn-5", "2012-12-10"); write("nn-6", "2012-12-04")
 reason = "puzzle_integrity.RefusedWrite: refusing to write nn-5: DATE dated 2012-12-10, not before nn-6's 2012-12-04"
 rec = {"puzzle": fi.input_hash("nn-5"), "code": fi.code_version("solve", "nn-5", reason), "reason": reason}
 def state(label):
-    fi._module_version.cache_clear()
+    fi._module_version.cache_clear(); fi._module_source.cache_clear()
     print(label, "due" if fi.due("solve", "nn-5", rec) else "held")
 state("unchanged:")
 (tools / "apply_solution.py").write_text("# unrelated to this refusal\n")

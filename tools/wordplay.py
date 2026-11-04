@@ -191,7 +191,9 @@ def run_slip(text, gives):
 
 
 _SLIP_TABLE = ("", None)   # (stamp, {(fodder letters, gives letters)})
-SLIP_FILE = Path(__file__).resolve().parent / "data" / "setter_error.json"   # the tests point it elsewhere
+# A str, not a Path: row_cache keys a row on every tools/data Path its code reaches, and the card rows of
+# og_list reach wordplay without reading this table (tests/test_og_card_key.py).
+SLIP_FILE = str(Path(__file__).resolve().parent / "data" / "setter_error.json")   # the tests point it elsewhere
 
 
 def slipped_run(text, gives):
@@ -201,7 +203,7 @@ def slipped_run(text, gives):
     row mid-run. A row's key is its puzzle and light, but the pair (fodder, gives)
     is what is looked up, so evaluating a tree needs no puzzle."""
     global _SLIP_TABLE
-    path = SLIP_FILE
+    path = Path(SLIP_FILE)
     try:
         stamp = f"{path}:{path.stat().st_mtime_ns}"
     except OSError:
