@@ -159,9 +159,10 @@ PLAN_SHARE = 0.8
 # Resets never rushed into (11-03 17:30, the last of 15 left: "we don't want to need
 # one"). A rush spends the meter to RUSH_TARGET flat out, at ~12 points an hour 24
 # wide in Annotate, so with 11.6h to the natural reset it would lock every room out
-# from ~22:00 ABT unless the last reset were spent. The last one is kept for an
-# emergency; with only it free the burn paces to EXHAUSTED at the natural reset.
-MANUAL_RESERVE = 1
+# from ~22:00 ABT unless the last reset were spent. Owner 11-04: "In general I want them all
+# burned when they are available and I'm awake to do it": none is kept back, so the last
+# one rushes too and the room is woken (only while he is awake) to reset when it is full.
+MANUAL_RESERVE = 0
 PACIFIC = awake.PACIFIC
 # Lockout safety (owner 11-01: "try to know when I'm awake so you don't lock me
 # out when I'm sleeping"). Unless the plan fills the meter before his next
@@ -1255,7 +1256,7 @@ def width_self_test():
         print(f"FAIL abt() = {abt(when)!r}, want 'Wed HH:00 ABT'", file=sys.stderr)
         bad += 1
     for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of 15 manual resets left")),
-                       (1, (False, f"pacing to {abt(when)} reset; 1 of 15 manual resets left")),
+                       (1, (True, "rushing; 1 of 15 manual resets left")),
                        (2, (True, "rushing; 2 of 15 manual resets left"))]:
         got = rush_choice(left, when)
         if got != want:
