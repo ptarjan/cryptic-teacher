@@ -834,6 +834,85 @@ def file_rows(path, pending, data=DATA):
     return [f"{field} {eid}" for field, eid, _ in wants], None
 
 
+def mend_json(pending):
+    """Mend a stray closing brace or bracket in `pending`; what was done, or None.
+
+    The run's Write sometimes shuts the top-level object early, after its first
+    entry (`...}}` then `,` and the next key), or leaves one closer too many at the
+    end: json.loads says "Extra data" and apply_annotations stops on it, 16 of the
+    59 STOPPED first checks in the 11-04 08:00-09:40 UTC window. Deleting that one
+    closer is the only edit that parses, so it is made; any other parse error is
+    the run's to read, with the text around it (apply_annotations says where)."""
+    try:
+        text = pending.read_text(encoding="utf-8")
+        json.loads(text)
+        return None
+    except OSError:
+        return None
+    except ValueError as e:
+        if getattr(e, "msg", "") != "Extra data":
+            return None
+    try:
+        _, end = _DECODER.raw_decode(text, _ws(text, 0))
+    except ValueError:
+        return None
+    rest = text[_ws(text, end):]
+    if text[end - 1:end] not in ("}", "]"):
+        return None
+    if rest.startswith(",") and len(rest) > 1:      # object shut early: drop its closer
+        fixed = text[:end - 1] + text[end:]
+        what = "closed the object early, after its first entry"
+    elif rest and not rest.strip("}] \t\r\n"):    # closers after the end
+        fixed = text[:end]
+        what = "had closing brackets after the end"
+    else:
+        return None
+    try:
+        data = json.loads(fixed)
+    except ValueError:
+        return None
+    if not isinstance(data, dict):
+        return None
+    pending.write_text(fixed, encoding="utf-8")
+    return f"a stray closing bracket removed ({what})"
+
+
+def fix_directions(path, pending):
+    """Rename each key naming a clue in the wrong direction (`21-down` in a puzzle
+    whose only 21 is across); returns ["21-down -> 21-across"].
+
+    Done only when the key is no clue of the puzzle, its other direction is one
+    that has no annotation yet, and the two are the only possible reading: the
+    run's typo cost a whole STOPPED turn (2 of 59, 11-04)."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    if not isinstance(ann, dict):
+        return []
+    entries = read_puzzle_file(path)["entries"]
+    ids = {entry_id(e) for e in entries}
+    ids |= set(groups.leader_of(entries))
+    ids |= {cid for cid, _, _, _ in groups.also_clues(entries)}
+    flip = {"across": "down", "down": "across"}
+    renamed = {}
+    for key in ann:
+        num, _, direction = key.partition("-")
+        other = f"{num}-{flip.get(direction, '')}"
+        if key not in ids and num.isdigit() and other in ids and ann.get(other) is None \
+                and other not in renamed.values():
+            renamed[key] = other
+    if renamed:
+        mended = {}
+        for k, v in ann.items():
+            if k in renamed:
+                mended[renamed[k]] = v
+            elif not (v is None and k in renamed.values()):    # its null placeholder
+                mended[k] = v
+        write_pending(pending, mended)
+    return [f"{k} -> {v}" for k, v in renamed.items()]
+
+
 def fill_missing(path, pending):
     """Write null into `pending` for every entry it has no key for; the ids filled.
 
@@ -1240,6 +1319,9 @@ def main(argv):
         print(f"merged {patched} into {pending.name} and deleted it\n")
 
     if pending.exists():
+        mended = mend_json(pending)
+        if mended:
+            print(f"{pending.name} did not parse; {mended}\n")
         filed, err = file_rows(path, pending)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")
@@ -1259,6 +1341,10 @@ def main(argv):
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "
                   f"{pending.name}: {', '.join(unnamed)}\n")
+        flipped = fix_directions(path, pending)
+        if flipped:
+            print(f"keys naming a clue in the wrong direction, renamed in {pending.name}: "
+                  f"{', '.join(flipped)}\n")
         filled = fill_missing(path, pending)
         if filled:
             print(f"{pending.name} had no key for {', '.join(filled)}: filled in as null "

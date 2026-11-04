@@ -131,8 +131,12 @@ def load_annotations(spec):
         data = json.loads(raw)
     except json.JSONDecodeError as e:
         # The whole point is that this file is hand-written, so say where.
+        near = raw[max(e.pos - 50, 0):e.pos].replace("\n", " ")
         raise SystemExit(f"apply_annotations: {where} is not valid JSON — "
-                         f"{e.msg} at line {e.lineno} column {e.colno}")
+                         f"{e.msg} at line {e.lineno} column {e.colno}, right after "
+                         f"`{near}` and before `{raw[e.pos:e.pos + 30]!r}`: fix that spot "
+                         f"in the file (a quote not escaped, a comma or bracket missing "
+                         f"or extra) and re-run")
     if not isinstance(data, dict):
         raise SystemExit(f"apply_annotations: {where} must be a JSON object keyed "
                          f"by entry id, got {type(data).__name__}")
@@ -675,7 +679,12 @@ def apply(path, annotations, by=None, only=None, partial=False):
                        " — every entry needs a key, and null means you could not "
                        "solve it")
         if extra:
-            why.append("not a clue in this puzzle: " + ", ".join(extra) +
+            near = []
+            for k in extra:
+                same = [i for i in ids if i.partition("-")[0] == k.partition("-")[0]]
+                near.append(f"{k} (this puzzle has {' and '.join(same)}: key it so)"
+                            if same else k)
+            why.append("not a clue in this puzzle: " + ", ".join(near) +
                        " — the ids are " + ", ".join(ids[:4]) + ", ...")
         if covered:
             why.append("continues a linked answer, so it takes null and its "
