@@ -202,13 +202,16 @@ class Log:
             return None
         if self.git_cache[0] is not None and abs(t - self.git_cache[0]) < 60:
             return self.git_cache[1]
-        def iso(x):
-            return f"{int(x)} +0000"          # epoch seconds: no local-zone guesswork on either side
         try:
-            res = subprocess.run(["git", "-C", self.repo, "log", f"--since={iso(t - 3600)}", f"--until={iso(t)}",
-                                  "--format=%s"], capture_output=True, text=True, timeout=30, check=True)
+            # Filter by commit time here, not with --since: git stops walking at the first commit older
+            # than --since, so a back-dated or rebased tip hides every commit behind it.
+            res = subprocess.run(["git", "-C", self.repo, "log", "-n", "5000", "--format=%ct %s"],
+                                 capture_output=True, text=True, timeout=30, check=True)
             filed = updated = 0
-            for subject in res.stdout.splitlines():
+            for row in res.stdout.splitlines():
+                when, _, subject = row.partition(" ")
+                if not t - 3600 <= int(when) <= t:
+                    continue
                 if subject.startswith("File times-"):
                     filed += 1
                 m = re.match(r"^Update (\d+) puzzles", subject)
