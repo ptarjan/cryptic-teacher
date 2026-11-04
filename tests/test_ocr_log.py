@@ -214,5 +214,16 @@ check([p for p in ("/" + "home/", "/" + "data/", "/" + "Users/", "/" + "Volumes/
       "no machine path in the tool")
 check("no" + "qa" in src, False, "no lint-silencing comment in the tool")
 
+# A warm-up that starts in yesterday's lines rolls today's onto tomorrow; settle_day pulls it back.
+day = O.Log(day=datetime.date(2026, 11, 4))
+day.set_clock(23, 0, 0)
+day.set_clock(9, 46, 0)
+now = datetime.datetime(2026, 11, 4, 9, 50).timestamp()
+check(day.t > now + 3600, True, "yesterday's lines push the warmed clock a day ahead")
+day.settle_day(now)
+check(abs(day.t - datetime.datetime(2026, 11, 4, 9, 46).timestamp()) < 1, True, "settle_day brings it back to today")
+day.set_clock(9, 50, 0)
+check(abs(day.t - now) < 1, True, "later lines stay on today")
+
 print("FAIL" if fails else "all ok")
 sys.exit(1 if fails else 0)

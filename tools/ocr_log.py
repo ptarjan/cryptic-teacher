@@ -143,6 +143,16 @@ class Log:
             cand += 86400
         self.t = cand
 
+    def settle_day(self, now):
+        """The raw log stamps only the time of day, and the clock starts on today's date, so a warm-up
+        that begins in yesterday's lines rolls today's onto tomorrow (11-04: every hourly count read 0).
+        Pull the clock back whole days until its last line is not in the future."""
+        while self.t is not None and self.t > now + 3600:
+            self.t -= 86400
+            self.day0 -= 86400
+            if self.status_at is not None:
+                self.status_at -= 86400
+
     def advance(self, wall):
         """Live: the clock keeps moving between lines."""
         if wall is not None:
@@ -534,6 +544,7 @@ def follow(raw_path, out_path, repo=None, poll=1.0):
         if resume and pos <= size:
             for raw, _ in open_lines(raw_path, max(0, pos - WARM_BYTES), pos):
                 log.feed(raw)       # warms the state; what it would say was said before
+            log.settle_day(time.time())
             log.agg.clear()
             log.status_at = log.t
         else:
@@ -544,6 +555,7 @@ def follow(raw_path, out_path, repo=None, poll=1.0):
                 out.writelines(text + "\n" for text in log.feed(raw))
                 pos = p
             save(pos)
+            log.settle_day(time.time())
         ino = os.stat(raw_path).st_ino
         while True:
             try:
