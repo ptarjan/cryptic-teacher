@@ -110,7 +110,9 @@ DEFAULT_WIDTH = 14
 DEFAULT_CEILING = 28
 
 # Memory kept free for the bridge and Docker, which share this box, and the size
-# of one run when none of the burn's runs is in flight to measure.
+# of one run when none of the burn's runs is in flight to measure. Measured
+# 11-04 over 19 runs sampled every 3 s: the session plus its annotate_check
+# averaged 251 MB (session 207, peak of a run 387 on average).
 MEM_HEADROOM_KB = 4 * 1024 * 1024
 RUN_RSS_KB = 250 * 1024
 
@@ -746,20 +748,32 @@ def _read(path):
 
 
 def burn_rss_kb():
-    """RSS of the `claude -p` runs working in this checkout."""
-    rss = []
+    """RSS of each `claude -p` run working in this checkout, with the processes
+    under it (its annotate_check, 40-120 MB a run on average): a run's cost is
+    the tree, and counting the session alone read ~20% low."""
+    table, runs = {}, []
     for proc in Path("/proc").glob("[0-9]*"):
         try:
-            args = (proc / "cmdline").read_bytes().split(b"\0")
-            if os.path.basename(args[0]) != b"claude" or b"-p" not in args:
-                continue
-            if Path(os.readlink(proc / "cwd")).resolve() != REPO:
-                continue
+            stat = (proc / "stat").read_text()
             m = re.search(r"^VmRSS:\s+(\d+) kB", (proc / "status").read_text(), re.MULTILINE)
-            if m:
-                rss.append(int(m[1]))
-        except (OSError, IndexError):
+            table[int(proc.name)] = (int(stat[stat.rindex(")") + 2:].split()[1]), int(m[1]) if m else 0)
+            args = (proc / "cmdline").read_bytes().split(b"\0")
+            if (os.path.basename(args[0]) == b"claude" and b"-p" in args
+                    and Path(os.readlink(proc / "cwd")).resolve() == REPO):
+                runs.append(int(proc.name))
+        except (OSError, ValueError, IndexError):
             continue
+    kids = {}
+    for pid, (ppid, _) in table.items():
+        kids.setdefault(ppid, []).append(pid)
+    rss = []
+    for run in runs:
+        total, todo = 0, [run]
+        while todo:
+            pid = todo.pop()
+            total += table[pid][1]
+            todo += kids.get(pid, [])
+        rss.append(total)
     return rss
 
 
