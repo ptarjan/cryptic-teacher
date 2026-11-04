@@ -26,6 +26,9 @@
    "28-across"
   ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,49 @@
     "text": "Author's touch of inspiration runs to the end",
     "enumeration": "6"
    },
-   "solution": "STOKER"
+   "solution": "STOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "to the end",
+       "at": 35,
+       "note": "to the end tells us the runs letter is shifted from its place to the last position of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "touch of inspiration",
+       "at": 9,
+       "gives": "STROKE",
+       "note": "a stroke of inspiration is a sudden brilliant idea, so touch here means stroke"
+      },
+      {
+       "words": "runs",
+       "at": 30,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer gets a flash of inspiration that carries all the way to the finish.",
+     "walkthrough": "'Author's' is the definition with 's standing for 'is'. Moving the R of STROKE to the end gives STOKE plus R.",
+     "definitionFit": "Bram Stoker was the Irish novelist who wrote Dracula, so he is an author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +98,28 @@
     "text": "School transport",
     "enumeration": "5"
    },
-   "solution": "TRAIN"
+   "solution": "TRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0,
+      "meaning": "to school someone is to teach or drill them, a verb sense"
+     },
+     {
+      "text": "transport",
+      "at": 7,
+      "meaning": "a railway locomotive with its carriages carries passengers and goods"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means to school or coach; as a noun it is a form of rail transport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +133,69 @@
     "text": "Wartime commander supplies food and drink about end of campaign",
     "enumeration": "9"
    },
-   "solution": "KITCHENER"
+   "solution": "KITCHENER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wartime commander",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "supplies",
+       "at": 18,
+       "gives": "KIT",
+       "note": "kit is a set of supplies or equipment"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 42,
+         "note": "about means the food-and-drink word goes round the final letter of campaign"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food and drink",
+         "at": 27,
+         "gives": "CHEER",
+         "note": "cheer in the old sense means food and drink, as in good cheer"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 48,
+           "note": "end of picks out the last letter of the word campaign"
+          }
+         ],
+         "parts": [
+          {
+           "words": "campaign",
+           "at": 55
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military leader provides refreshments as a campaign draws to a close.",
+     "walkthrough": "'cheer' in its old sense of food and drink, as in 'good cheer', is the piece most solvers miss.",
+     "definitionFit": "Lord Kitchener was the British Secretary of State for War in the First World War, famous from the recruiting poster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +209,79 @@
     "text": "Turnover for shopkeeper not good, finally revealed in account",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "account",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 24,
+         "note": "not tells us the good letter is dropped from the turned word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "Turnover for",
+           "at": 0,
+           "note": "turnover suggests flipping the shopkeeper word end to end so it reads backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shopkeeper",
+           "at": 13,
+           "gives": "GROCER",
+           "note": "a grocer is a shopkeeper selling food"
+          }
+         ]
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 34,
+         "note": "finally picks out the last letter of the word revealed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "revealed",
+         "at": 42
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper's turnover is poor, as the accounts finally show.",
+     "walkthrough": "'Turnover for' reverses GROCER to RECORG; 'not' removes G, leaving RECOR, and the last letter of 'revealed' adds D.",
+     "definitionFit": "A record is a written account of events or facts, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turnover"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +301,57 @@
      }
     ]
    },
-   "solution": "COPILOTS"
+   "solution": "COPILOTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aviators",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "firm",
+       "at": 14,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to circle",
+         "at": 25,
+         "note": "to circle means the plans word surrounds the island letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plans",
+         "at": 19,
+         "gives": "PLOTS",
+         "note": "plots are schemes or plans"
+        },
+        {
+         "words": "island",
+         "at": 35,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pilots working for a company make plans to fly round an island.",
+     "definitionFit": "Copilots are the second pilots who share flying duties in an aircraft cockpit, hence aviators."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +379,41 @@
      }
     ]
    },
-   "solution": "CLEANASAWHISTLE"
+   "solution": "CLEANASAWHISTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "completely empty",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "production",
+       "at": 20,
+       "note": "a production is a new staging, so these letters are put on in a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Is the new La Scala",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a new staging at the Milan opera house is playing to an empty theatre.",
+     "walkthrough": "'production' looks like part of the opera picture but signals rearranging the fifteen letters of IS THE NEW LA SCALA.",
+     "definitionFit": "The idiom means spotless or entirely bare, with nothing left in it, so it can stand for totally empty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +427,58 @@
     "text": "South American inhabitant exercises by means of joining in race",
     "enumeration": "8"
    },
-   "solution": "PERUVIAN"
+   "solution": "PERUVIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "South American inhabitant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "exercises",
+       "at": 26,
+       "gives": "PE",
+       "note": "PE is physical education, school exercises"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "joining in",
+         "at": 48,
+         "note": "joining in means the by-means-of word goes inside the race word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "race",
+         "at": 59,
+         "gives": "RUN",
+         "note": "a run is a race"
+        },
+        {
+         "words": "by means of",
+         "at": 36,
+         "gives": "VIA",
+         "note": "via is Latin for by way of, so by means of"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local of South America works out by taking part in a running event.",
+     "definitionFit": "A Peruvian is a native or inhabitant of Peru, a country in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +492,41 @@
     "text": "Means of identifying murder victim at length",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Means of identifying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "length",
+       "at": 38,
+       "gives": "L"
+      },
+      {
+       "words": "murder victim",
+       "at": 21,
+       "gives": "ABEL",
+       "note": "Abel was killed by his brother Cain in Genesis, the first murder victim"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clue about how to identify a murder victim at great length.",
+     "walkthrough": "'at' is a link placing L beside ABEL.",
+     "definitionFit": "A label is a tag attached to something to identify it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "length"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +540,57 @@
     "text": "Bird starts work on nest? No way",
     "enumeration": "9"
    },
-   "solution": "TURNSTONE"
+   "solution": "TURNSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "starts work",
+       "at": 5,
+       "gives": "TURNSTO",
+       "note": "to turn to is to start work on something"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "No",
+         "at": 26,
+         "note": "no tells us the way letters are dropped from the word nest"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nest",
+         "at": 20
+        },
+        {
+         "words": "way",
+         "at": 29,
+         "gives": "ST",
+         "note": "ST is the abbreviation for street, a way"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird begins building a nest, or perhaps decides it will not.",
+     "walkthrough": "'starts work on' must be read as the phrasal verb 'turns to', not as an anagram signal for 'nest'.",
+     "definitionFit": "The turnstone is a small wading shorebird that flips over pebbles looking for food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +604,41 @@
     "text": "Each purist disconcerted by this imitative artist?",
     "enumeration": "10"
    },
-   "solution": "PASTICHEUR"
+   "solution": "PASTICHEUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "imitative artist",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disconcerted",
+       "at": 12,
+       "note": "disconcerted means thrown into confusion, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Each purist",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A purist is upset by someone who merely copies others' styles.",
+     "walkthrough": "'by this' links the shuffled letters of EACH PURIST to the definition.",
+     "definitionFit": "A pasticheur makes pastiches, works imitating another artist's style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disconcerted"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +652,54 @@
     "text": "Char having to polish all round before noon",
     "enumeration": "4"
    },
-   "solution": "BURN"
+   "solution": "BURN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Char",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "all round",
+         "at": 22,
+         "note": "all round tells us the polish word is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polish",
+         "at": 15,
+         "gives": "RUB",
+         "note": "to rub is to polish"
+        }
+       ]
+      },
+      {
+       "words": "noon",
+       "at": 39,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaning lady has to polish everything before midday.",
+     "walkthrough": "'Char' looks like a British cleaning lady, but it is the verb to scorch.",
+     "definitionFit": "To char is to scorch or blacken by fire, a synonym of burn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Char"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +723,44 @@
      }
     ]
    },
-   "solution": "ONTHERUN"
+   "solution": "ONTHERUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fugitive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wounded",
+       "at": 9,
+       "note": "wounded means damaged, so these letters are broken up and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hunter",
+       "at": 20
+      },
+      {
+       "words": "No",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a person running away was wounded by a hunter, and the answer is no.",
+     "walkthrough": "'wounded' rearranges HUNTER and NO together.",
+     "definitionFit": "Someone on the run is fleeing capture, the adjective sense of escaped or runaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +774,61 @@
     "text": "Case is carried by servant, mostly",
     "enumeration": "6"
    },
-   "solution": "VALISE"
+   "solution": "VALISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Case",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carried by",
+       "at": 8,
+       "note": "carried by means the word is goes inside the servant word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 28,
+         "note": "mostly tells us the servant word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "servant",
+         "at": 19,
+         "gives": "VALET",
+         "note": "a valet is a manservant"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 5,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suitcase is carried by a servant, at least for most of the way.",
+     "definitionFit": "A valise is a small travelling bag or suitcase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +842,39 @@
     "text": "Old prison in the States, hardly high-security",
     "enumeration": "4"
    },
-   "solution": "OPEN"
+   "solution": "OPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hardly high-security",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "words": "prison in the States",
+       "at": 4,
+       "gives": "PEN",
+       "note": "pen is American slang for a penitentiary, a prison"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old American jail with very lax security.",
+     "definitionFit": "Something open is unguarded and accessible, the opposite of tightly secure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +894,40 @@
      }
     ]
    },
-   "solution": "PULLROUND"
+   "solution": "PULLROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recover from illness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cancel",
+       "at": 26,
+       "gives": "PULL",
+       "note": "to pull an event is to cancel it"
+      },
+      {
+       "words": "game of golf",
+       "at": 33,
+       "gives": "ROUND",
+       "note": "a round of golf is one complete game"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recovers from sickness but has to call off a golf match.",
+     "definitionFit": "To pull round is an idiom for recovering health after being ill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +941,52 @@
     "text": "Moves camera slowly round, before attempt to get photo",
     "enumeration": "8"
    },
-   "solution": "SNAPSHOT"
+   "solution": "SNAPSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "photo",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 20,
+         "note": "round tells us the camera-moving word is turned backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Moves camera slowly",
+         "at": 0,
+         "gives": "PANS",
+         "note": "to pan is to swing a camera slowly across a scene"
+        }
+       ]
+      },
+      {
+       "words": "attempt",
+       "at": 34,
+       "gives": "SHOT",
+       "note": "a shot is an attempt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A photographer sweeps the camera round before trying to take a picture.",
+     "definitionFit": "A snapshot is an informal, quickly taken photograph."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1000,61 @@
     "text": "Begging to drink pint? A litre ordered",
     "enumeration": "9"
    },
-   "solution": "SUPPLIANT"
+   "solution": "SUPPLIANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Begging",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to drink",
+       "at": 8,
+       "gives": "SUP",
+       "note": "to sup is to drink in small mouthfuls"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "at": 31,
+         "note": "ordered means put in a new order, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pint",
+         "at": 17
+        },
+        {
+         "words": "A",
+         "at": 23
+        },
+        {
+         "words": "litre",
+         "at": 25,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pleads for a pint while ordering a litre.",
+     "walkthrough": "'to drink' supplies the opening, not 'Begging to', which is the definition alone.",
+     "definitionFit": "Suppliant describes someone humbly pleading or entreating, so it means begging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1074,72 @@
      }
     ]
    },
-   "solution": "THIRDAGE"
+   "solution": "THIRDAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "later years of one's life",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in means the other pieces are placed inside the word the"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the",
+       "at": 28
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "One's",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral one; the 's stands for 'is'"
+        },
+        {
+         "words": "right",
+         "at": 6,
+         "gives": "R"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 19,
+           "note": "about tells us the word gad is turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gad",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Older people claim the right to roam freely in their later years.",
+     "walkthrough": "'in the' is not a link: the word 'the' is the container.",
+     "definitionFit": "The third age is the period of active retirement following working life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1153,56 @@
     "text": "To finish early, vicar cut verse",
     "enumeration": "8"
    },
-   "solution": "CLERIHEW"
+   "solution": "CLERIHEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "verse",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "To finish early",
+         "at": 0,
+         "note": "finishing early means the vicar word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vicar",
+         "at": 17,
+         "gives": "CLERIC",
+         "note": "a vicar is a cleric, a member of the clergy"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "cut",
+       "at": 23,
+       "gives": "HEW",
+       "note": "to hew is to cut"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar trims his sermon of poetry so as to finish early.",
+     "walkthrough": "'To finish early' cuts CLERIC to CLERI.",
+     "definitionFit": "A clerihew is a comic four-line biographical verse invented by E. C. Bentley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1216,43 @@
     "text": "Mind coming round to take a look?",
     "enumeration": "4"
    },
-   "solution": "PEEK"
+   "solution": "PEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take a look",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "coming round",
+       "at": 5,
+       "note": "coming round means the mind word is turned to read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mind",
+       "at": 0,
+       "gives": "KEEP",
+       "note": "to mind something is to keep or look after it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a person waking up would mind a quick glance.",
+     "walkthrough": "'Mind' here means to look after, like minding a house, not the intellect.",
+     "definitionFit": "To peek is to take a quick, sly look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mind"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1266,42 @@
     "text": "We're told to stop means of payment",
     "enumeration": "6"
    },
-   "solution": "CHEQUE"
+   "solution": "CHEQUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "means of payment",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHEQUE",
+     "indicators": [
+      {
+       "text": "We're told",
+       "at": 0,
+       "note": "we're told signals that the word is heard rather than read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stop",
+       "at": 14,
+       "gives": "CHECK",
+       "note": "to check is to stop or halt"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being instructed to halt a method of paying.",
+     "definitionFit": "A cheque is a written order to a bank to pay money, the British spelling of check."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1315,63 @@
     "text": "People in bar refusing a drink",
     "enumeration": "6"
    },
-   "solution": "BRACER"
+   "solution": "BRACER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in places the people word inside the shortened bar"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "refusing",
+         "at": 14,
+         "note": "refusing means turning down, so the letter a is dropped from bar"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 10
+        },
+        {
+         "words": "a",
+         "at": 23,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "People",
+       "at": 0,
+       "gives": "RACE",
+       "note": "a race is a people, an ethnic group"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Customers in a pub turn down a drink.",
+     "walkthrough": "'bar refusing a' is bar without its A, not a reversal.",
+     "definitionFit": "A bracer is a reviving alcoholic drink, a pick-me-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1385,42 @@
     "text": "Clubs bore the best people",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the best people",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Clubs",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the abbreviation for clubs, the card suit"
+      },
+      {
+       "words": "bore",
+       "at": 6,
+       "gives": "REAM",
+       "note": "to ream is to bore or widen a hole"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Members of golf or social clubs find the elite tedious.",
+     "walkthrough": "'bore' looks like a tiresome person but is the verb to drill.",
+     "definitionFit": "The cream of something is its finest part, so the elite people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1434,61 @@
     "text": "In hospital man's beginning to take medicinal preparation",
     "enumeration": "8"
    },
-   "solution": "INHALANT"
+   "solution": "INHALANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medicinal preparation",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In",
+       "at": 0,
+       "gives": "IN"
+      },
+      {
+       "words": "hospital",
+       "at": 3,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      },
+      {
+       "words": "man's",
+       "at": 12,
+       "gives": "ALAN",
+       "note": "Alan is any man's name; the 's is a possessive joining the pieces"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 18,
+         "note": "beginning to picks out the first letter of the word take"
+        }
+       ],
+       "parts": [
+        {
+         "words": "take",
+         "at": 31
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in hospital starts taking some medicine.",
+     "definitionFit": "An inhalant is a medication breathed in as a vapour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1502,40 @@
     "text": "Family member showing anti-teacher traits quite regularly",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Family member",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "quite regularly",
+       "at": 42,
+       "note": "quite regularly picks out every second letter of the word anti-teacher"
+      }
+     ],
+     "parts": [
+      {
+       "words": "anti-teacher",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A relative who displays hostility towards teachers.",
+     "walkthrough": "Taking letters 2, 4, 6, 8 and 10 of ANTI-TEACHER gives the answer; 'traits' is surface padding.",
+     "definitionFit": "A niece is the daughter of one's brother or sister, a relative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1549,34 @@
     "text": "One of the Calendar Girls?",
     "enumeration": "4"
    },
-   "solution": "JUNE"
+   "solution": "JUNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of the Calendar Girls?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One of the Calendar Girls?",
+       "at": 0,
+       "note": "Calendar Girls is a British film about Women's Institute members posing for a calendar; here the girls are the months, one of which is also a woman's name"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Calendar Girls is a 2003 British film about middle-aged women who posed for a charity calendar; the clue reads the calendar's 'girls' as months with female names.",
+     "definitionFit": "A summer month that is also a girl's name, so it is a calendar girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1590,64 @@
     "text": "Old opponent's a delinquent, without question",
     "enumeration": "10"
    },
-   "solution": "ANTIQUATED"
+   "solution": "ANTIQUATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 29,
+       "note": "without in the old sense of outside, so the other pieces surround the question letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "opponent's",
+         "at": 4,
+         "gives": "ANTI",
+         "note": "anti means someone opposed; the 's stands for 'is'"
+        },
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A"
+        },
+        {
+         "words": "delinquent",
+         "at": 17,
+         "gives": "TED",
+         "note": "Ted, short for Teddy boy, was a 1950s British youth delinquent"
+        }
+       ]
+      },
+      {
+       "words": "question",
+       "at": 37,
+       "gives": "QU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly adversary is a criminal, no doubt about it.",
+     "walkthrough": "'without' means outside here. A Teddy boy (TED) was a 1950s British youth subculture linked with delinquency.",
+     "definitionFit": "Antiquated means outdated or very old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1667,57 @@
      }
     ]
    },
-   "solution": "ADAMBEDE"
+   "solution": "ADAMBEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "devoured",
+         "at": 21,
+         "note": "devoured means swallowed, so the mother word goes inside the lying-down word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lying down",
+         "at": 0,
+         "gives": "ABED",
+         "note": "abed means in bed, lying down"
+        },
+        {
+         "words": "mother's",
+         "at": 12,
+         "gives": "DAM",
+         "note": "a dam is an animal's mother; the 's is a possessive joining the pieces"
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 30,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother lying down has gobbled up an English novel.",
+     "definitionFit": "Adam Bede is George Eliot's first novel, published in 1859."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1731,39 @@
     "text": "Section of Bible suppressed by fiercest heretics",
     "enumeration": "6"
    },
-   "solution": "ESTHER"
+   "solution": "ESTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Section of Bible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "suppressed by",
+       "at": 17,
+       "note": "suppressed by means the letters are held down within the words fiercest heretics"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fiercest heretics",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of scripture was banned by the most ferocious heretics.",
+     "definitionFit": "Esther is a book of the Old Testament, one section of the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
