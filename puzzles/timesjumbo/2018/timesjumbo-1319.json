@@ -313,19 +313,25 @@
       {
        "text": "swirling",
        "at": 17,
-       "note": "swirling water churns things about, so these letters are mixed into a new order"
+       "note": "swirling says the letters churn about into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Froth",
-       "at": 0
-      },
-      {
-       "words": "doubled",
-       "at": 6,
-       "gives": "FROTH",
-       "note": "doubled says the word froth appears a second time, supplying another copy of it"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "doubled",
+         "at": 6,
+         "note": "doubled says the word froth is written out twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Froth",
+         "at": 0
+        }
+       ]
       },
       {
        "words": "if",
@@ -334,14 +340,13 @@
      ]
     },
     "explanation": {
-     "surface": "Foam builds up twice over where water swirls into a river mouth.",
-     "walkthrough": "'doubled' supplies a second FROTH; 'swirling' rearranges both with IF. 'in' is a link.",
-     "definitionFit": "The Firth of Forth is the estuary of the River Forth in Scotland; firth is Scots for estuary."
+     "surface": "Foam on the water twice over if the tide swirls in the river mouth.",
+     "walkthrough": "'swirling' mixes FROTHFROTHIF, twelve letters, into the Scottish place name.",
+     "definitionFit": "The Firth of Forth is the wide estuary of the River Forth by Edinburgh; a firth is a Scottish sea inlet."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Froth"
+     "aptDefinition": false
     }
    }
   },

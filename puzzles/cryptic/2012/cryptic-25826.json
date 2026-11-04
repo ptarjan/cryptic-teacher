@@ -2166,41 +2166,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENDGAMES",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "almost means not quite all, so the final letter is cut"
-      },
-      {
-       "text": "loveless",
-       "note": "love is zero in tennis, so going without love means losing an O"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "marriage within tribe",
-       "gives": "ENDOGAMY",
-       "note": "endogamy is the custom of marrying inside one's own group"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 0,
+         "note": "almost says the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "loveless",
+           "at": 7,
+           "note": "loveless says the O, love being nil in tennis, is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "marriage within tribe",
+           "at": 16,
+           "gives": "ENDOGAMY",
+           "note": "endogamy is the custom of marrying only within one's own tribe or group"
+          },
+          {
+           "gives": "O"
+          }
+         ]
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "directions",
+       "at": 40,
        "gives": "ES",
-       "note": "E and S, two compass points"
+       "note": "E and S are east and south, compass directions"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold arranged marriage within the clan, with guidance for how it ends.",
-     "walkthrough": "The anthropology term ENDOGAMY is the key: lose its Y and its O, then add two compass points.",
-     "definitionFit": "Endgames are the final phases of a chess game or any contest, where the result is settled."
+     "surface": "A loveless marriage within a clan, with instructions for its final phase.",
+     "walkthrough": "Taking O from ENDOGAMY gives ENDGAMY; 'Almost' cuts the Y; then E and S follow.",
+     "definitionFit": "In chess the late phases of play, with few pieces left, are called the final games."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "loveless"
+     "misdirectedWord": "marriage"
     }
    }
   },

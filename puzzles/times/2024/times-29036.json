@@ -1649,53 +1649,74 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Device that rocks",
+      "text": "Device that rocks cradle, with short wooden bar, not chromium",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
-     "parts": [
+     "indicators": [
       {
-       "words": "wooden bar",
-       "gives": "TRE",
-       "note": "a tree is a wooden bar or beam, as in axle-tree or shoe tree, here cut short"
-      },
+       "text": "with",
+       "at": 26,
+       "note": "with joins the cut-down beam to the remaining piece"
+      }
+     ],
+     "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "short",
-         "note": "something short is cut down, so the final letter is lost"
+         "at": 31,
+         "note": "short says the last letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wooden bar",
+         "at": 37,
+         "gives": "TREE",
+         "note": "a tree is a wooden bar or beam, as in an axletree"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
          "text": "not",
-         "note": "'not' excludes the named element, so its letters are taken away"
+         "at": 49,
+         "note": "not says the chromium symbol is taken out"
         }
        ],
        "parts": [
         {
          "words": "cradle",
-         "note": "taken as written"
+         "at": 18
         },
         {
          "words": "chromium",
+         "at": 53,
          "gives": "CR",
-         "note": "CR is the chemical symbol for chromium"
+         "note": "Cr is the chemical symbol for chromium"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A gadget that rocks a baby's cradle, fitted with a wooden rod but no chrome.",
-     "walkthrough": "'rocks cradle' looks like the mechanism, but the definition ends at 'rocks'. A tree is an old word for a wooden beam, as in axle-tree.",
-     "definitionFit": "A treadle is a foot-operated lever that rocks up and down to drive a machine such as an old sewing machine."
+     "surface": "A foot lever that rocks a baby's cot, made with a stubby wooden beam and no chrome.",
+     "walkthrough": "Old cradles were rocked by a foot pedal; TREE short is TRE, and CRADLE without CR is ADLE.",
+     "definitionFit": "A foot-operated lever driving a mechanism is exactly such a pedal device."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "cradle"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },

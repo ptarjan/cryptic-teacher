@@ -350,54 +350,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "break",
-       "note": "to break something is to smash it into pieces, which are then reassembled in a new order"
+       "text": "in",
+       "at": 21,
+       "note": "in says the middle letters sit inside the shuffled word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in the middle of",
-         "note": "the middle of a word is its central letters, here the two at the heart of jury"
+         "text": "break",
+         "at": 15,
+         "note": "break says the letters of service are broken up and reassembled"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "UR",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "jury",
-           "gives": "UR",
-           "select": "middle",
-           "note": "the two central letters of jURy"
-          }
-         ]
-        },
-        {
          "words": "service",
-         "note": "taken as it stands"
+         "at": 43
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "the middle of",
+         "at": 24,
+         "note": "the middle of picks the central letters of jury"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jury",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Coming back from a break partway through doing jury service.",
-     "walkthrough": "The surface pictures a juror back from lunch; 'break' is the anagram instruction, and only the middle of 'jury' joins the mix.",
-     "definitionFit": "A mathematical sense: a process that calls or loops back on itself keeps returning to its own start."
+     "surface": "Coming back from a holiday halfway through jury duty.",
+     "walkthrough": "'Returning' looks like coming back from the break; it is the definition, and 'break' is the anagram signal on 'service'.",
+     "definitionFit": "A recursive procedure is one that calls on itself, coming back round to its own start."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "break"
+     "misdirectedWord": "Returning"
     }
    }
   },

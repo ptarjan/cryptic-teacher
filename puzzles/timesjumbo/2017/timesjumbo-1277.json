@@ -395,49 +395,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "upset letters are knocked over and land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Sweetheart",
+       "at": 0,
+       "gives": "BEAU",
+       "note": "a beau is a sweetheart or boyfriend"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "about means the letters go round the last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Sweetheart",
-         "gives": "BEAU",
-         "note": "a beau is a boyfriend"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means going around, so the shuffled letters sit either side of the single letter"
+           "text": "upset",
+           "at": 16,
+           "note": "upset says the letters of gets are knocked into a new order"
           }
          ],
          "parts": [
           {
            "words": "gets",
-           "note": "the word gets, rearranged"
-          },
+           "at": 11
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
           {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "ending in",
-             "note": "the ending in a word is its last letter alone"
-            }
-           ],
-           "parts": [
-            {
-             "words": "feature",
-             "note": "last letter of feature"
-            }
-           ]
+           "text": "ending in",
+           "at": 28,
+           "note": "ending in picks the last letter of feature"
+          }
+         ],
+         "parts": [
+          {
+           "words": "feature",
+           "at": 38
           }
          ]
         }
@@ -446,14 +450,13 @@
      ]
     },
     "explanation": {
-     "surface": "A girlfriend gets annoyed about how a feature film ends.",
-     "walkthrough": "'feature film' looks like one phrase, but 'film' alone is the definition. Beau Geste is P C Wren's Foreign Legion story, filmed several times.",
-     "definitionFit": "The adventure novel was made into several famous Hollywood pictures, notably the 1939 version with Gary Cooper."
+     "surface": "A boyfriend is troubled by how a feature film ends.",
+     "walkthrough": "'upset' rearranges GETS around E, the last letter of 'feature', to give GESTE.",
+     "definitionFit": "The 1939 Gary Cooper adventure about the French Foreign Legion is a well-known feature film."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "feature"
+     "aptDefinition": false
     }
    }
   },
