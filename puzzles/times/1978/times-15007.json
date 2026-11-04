@@ -499,56 +499,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAHDI",
+     "op": "container",
      "indicators": [
       {
-       "text": "1 ac",
-       "note": "1 across is TROUBLE, and letters in trouble are thrown into disorder"
+       "text": "in",
+       "at": 23,
+       "note": "in places the jumbled letters inside the half-word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places the jumbled word inside the other piece"
+         "text": "half",
+         "at": 30,
+         "note": "half takes the first two of the four letters of mile"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "MI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the half-mile",
-           "gives": "MI",
-           "select": "first",
-           "note": "the first half of the word mile"
-          }
-         ]
-        },
+         "words": "mile",
+         "at": 35
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "1 ac",
+         "at": 18,
+         "note": "1 ac points to the answer at 1 across, meaning disturbance, so the letters of had are disturbed"
+        }
+       ],
+       "parts": [
         {
          "words": "had",
-         "note": "the word had, jumbled"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Muslim leader had a spot of bother during a half-mile race.",
-     "walkthrough": "'1 ac' is the cross-reference to 1 across, TROUBLE, used here as the anagram signal: had in trouble. Put that inside MI to get MAHDI.",
-     "definitionFit": "The Mahdi is the prophesied redeemer of Islam, a title claimed by the Sudanese leader who fought Gordon at Khartoum."
+     "surface": "A Muslim leader struggled over half a mile.",
+     "walkthrough": "'1 ac' (1 across, a word for disturbance) works as an anagram signal on 'had', and the result sits inside the front half of 'mile'.",
+     "definitionFit": "The expected redeemer of Islam, or a Sudanese leader claiming that title, is a Muslim leader."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half-mile"
+     "misdirectedWord": "mile"
     }
    }
   },

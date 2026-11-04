@@ -256,43 +256,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HOSTILE",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means turned round, so the word reads from its end"
+       "text": "in",
+       "at": 30,
+       "note": "in places the turned word inside the hole"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "hole",
+       "at": 35,
+       "gives": "HOLE",
+       "note": "hole is taken as written"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "the turned word goes inside the other"
+         "text": "back",
+         "at": 25,
+         "note": "back means the three letters of its are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "a hole",
-         "gives": "HOLE",
-         "note": "taken as written, split around the other piece"
-        },
-        {
          "words": "its",
-         "gives": "STI",
-         "note": "the word turned round"
+         "at": 21,
+         "gives": "ITS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal turns surly when its back is down a burrow.",
-     "walkthrough": "The paper prints 'its' for 'it's'; HO-STI-LE.",
-     "definitionFit": "Hostile means openly antagonistic, the opposite of friendly."
+     "surface": "Someone turns nasty when an item comes back down a hole.",
+     "walkthrough": "'its' is printed without an apostrophe, so it reads as 'it's back'; it is the plain word, turned round.",
+     "definitionFit": "Antagonistic and aggressive means very unfriendly."
     },
     "features": {
      "answerInScene": false,
