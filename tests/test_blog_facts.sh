@@ -99,6 +99,10 @@ check "a hedged type is not a type" \
   '{"definition": ["Sack"]}' \
   "$(facts fifteensquared 'Sack one likely to get fired (5)' '<p><u>Sack</u> one likely to get fired (5)<br/>RIFLE: almost a double definition</p>' RIFLE)"
 
+check "a cryptic definition's explained pun ships no blocks" \
+  '{"definition": ["source of illumination"], "type": ["cryptic_definition"]}' \
+  "$(facts fifteensquared "So narco's no source of illumination (3-5)" "<p>So narco's no <u>source of illumination</u> (3-5)<br/>Cryptic definition<br/>N[arc]O becomes NO when it is without ARC (or ARC-LIGHT)</p>" ARCLIGHT)"
+
 # timesforthetimes: brackets are indicators only where the post's key says so.
 KEY='<p>definitions underlined, [anagrinds, containment, reversal and other indicators in square ones]</p>'
 TT='<tr><td>6</td><td><span><i><b><u>Pick</u></b></i> brief lecture arranged during afternoon (8)</span></td></tr>
