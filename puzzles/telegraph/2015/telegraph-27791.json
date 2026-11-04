@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,69 @@
     "text": "Urchin found torn mag in funfair roundabout",
     "enumeration": "10"
    },
-   "solution": "RAGAMUFFIN"
+   "solution": "RAGAMUFFIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Urchin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the word in tells us one scrambled group sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "roundabout",
+         "at": 33,
+         "note": "a roundabout goes round and round, so the letters of funfair are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "funfair",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "torn",
+         "at": 13,
+         "note": "something torn is ripped apart, so the letters of mag are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mag",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A street kid is discovered among shredded magazines on a fairground carousel.",
+     "walkthrough": "'funfair roundabout' looks like a fairground ride, but 'roundabout' only signals a rearrangement of the word before it.",
+     "definitionFit": "Both words describe a ragged, scruffy street child, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roundabout"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +109,48 @@
     "text": "Fellow coming in to recycle rubbish",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "coming in",
+       "at": 7,
+       "note": "coming in means one piece enters the middle of the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "recycle",
+       "at": 20,
+       "gives": "REUSE",
+       "note": "to recycle something is to use it again"
+      },
+      {
+       "words": "Fellow",
+       "at": 0,
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man arrives at the dump to sort out the household waste.",
+     "walkthrough": "'coming in' puts F inside REUSE.",
+     "definitionFit": "Waste material thrown away is called both rubbish and refuse, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +164,46 @@
     "text": "Excessively bright nameless embellishment",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excessively bright",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "nameless",
+       "at": 19,
+       "note": "nameless means without a name, and N is the usual abbreviation for name, so that letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "embellishment",
+       "at": 28,
+       "gives": "GARNISH",
+       "note": "a garnish is a decorative addition, especially on food"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An anonymous decoration is far too loud and colourful.",
+     "walkthrough": "'nameless' removes N (name) from GARNISH.",
+     "definitionFit": "Gaudy colours that are overly vivid and showy are described with this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nameless"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +227,29 @@
      }
     ]
    },
-   "solution": "MATTEROFFACT"
+   "solution": "MATTEROFFACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prosaic",
+      "at": 0,
+      "meaning": "prosaic means plain, unimaginative and down-to-earth"
+     },
+     {
+      "text": "in reality",
+      "at": 8,
+      "meaning": "the phrase used adverbially in 'as a ___', meaning actually or in truth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense uses the phrase in 'as a matter of fact', meaning really.",
+     "definitionFit": "An unemotional, practical person is described this way, and the same phrase means actually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +263,31 @@
     "text": "Experienced hat-maker",
     "enumeration": "4"
    },
-   "solution": "FELT"
+   "solution": "FELT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Experienced",
+      "at": 0,
+      "meaning": "past tense of feel, meaning underwent or sensed"
+     },
+     {
+      "text": "hat-maker",
+      "at": 12,
+      "meaning": "a matted woollen fabric from which hats such as trilbies and fedoras are made"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'hat-maker' looks like a milliner, but here it is the material that makes hats.",
+     "definitionFit": "Sensed or underwent is the past tense of feel; the matted cloth is used for hats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hat-maker"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +301,60 @@
     "text": "Balls bowled by popular footballer on board",
     "enumeration": "10"
    },
-   "solution": "INSWINGERS"
+   "solution": "INSWINGERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Balls bowled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "at": 16,
+       "gives": "IN",
+       "note": "something popular is said to be in"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 35,
+         "note": "being on board means being placed within a ship, so the ship's letters wrap round the player"
+        }
+       ],
+       "parts": [
+        {
+         "words": "board",
+         "at": 38,
+         "gives": "SS",
+         "note": "SS stands for steamship, the vessel one is aboard"
+        },
+        {
+         "words": "footballer",
+         "at": 24,
+         "gives": "WINGER",
+         "note": "a winger is a footballer who plays out on the flank"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-liked football player on a club's board makes some cricket deliveries.",
+     "walkthrough": "'on board' is the convention for going inside SS, a steamship. In cricket, a bowler delivers balls; inswingers curve in towards the batsman.",
+     "definitionFit": "These are cricket deliveries that swerve in the air towards the batter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +368,55 @@
     "text": "A cut-price ticket a long way off",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a long way off",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 2,
+         "note": "a cut item loses its last part, so the final letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "price ticket",
+         "at": 6,
+         "gives": "FARE",
+         "note": "a fare is the price of a travel ticket"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A discounted ticket for a distant destination.",
+     "walkthrough": "'cut-price' reads as one discount word, but 'cut' docks the last letter of the fare.",
+     "definitionFit": "Distance at a remove, as in 'from a great distance', is the sense of this adverb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut-price"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +430,42 @@
     "text": "Bird's ring of fire",
     "enumeration": "8"
    },
-   "solution": "FLAMINGO"
+   "solution": "FLAMINGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fire",
+       "at": 15,
+       "gives": "FLAMING",
+       "note": "on fire is flaming"
+      },
+      {
+       "words": "ring",
+       "at": 7,
+       "gives": "O",
+       "note": "O is ring-shaped"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird appears to own a circle of flames.",
+     "walkthrough": "The 's is 'is': the bird is O of FLAMING, written FLAMING then O.",
+     "definitionFit": "This pink wading bird of lagoons is an example of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +479,44 @@
     "text": "Varying tones are to resound",
     "enumeration": "8"
    },
-   "solution": "RESONATE"
+   "solution": "RESONATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resound",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Varying",
+       "at": 0,
+       "note": "varying means changing, so the letters of these two words are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tones",
+       "at": 8
+      },
+      {
+       "words": "are",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Different musical tones are made to ring out.",
+     "walkthrough": "'Varying' rearranges TONES and ARE.",
+     "definitionFit": "To echo or ring loudly is a synonym, both verbs of sound carrying and reverberating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +536,36 @@
      }
     ]
    },
-   "solution": "FIRSTCLASS"
+   "solution": "FIRSTCLASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way to travel on A1?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Way to travel on A1?",
+       "at": 0,
+       "note": "the A1 is a major British road, but A1 also means top-quality, so the best way to travel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about how to drive up the A1, Britain's long north-south trunk road.",
+     "walkthrough": "A1 here means excellent, so the top-grade way to travel on trains or planes.",
+     "definitionFit": "The premium tier of travel on trains and planes is excellent, just as A1 means excellent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "A1"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +579,41 @@
     "text": "Bachelor's second fish",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bachelor's",
+       "at": 0,
+       "gives": "BAS",
+       "note": "BA is a bachelor's degree (Bachelor of Arts), and the 's gives S"
+      },
+      {
+       "words": "second",
+       "at": 11,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unmarried man's second fish of the day.",
+     "walkthrough": "BA (Bachelor of Arts) plus the S of 's, then S for second.",
+     "definitionFit": "The sea bass is a common edible species, an example of a fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bachelor's"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +627,40 @@
     "text": "Go mad when it is not affecting the whole",
     "enumeration": "12"
    },
-   "solution": "DEPARTMENTAL"
+   "solution": "DEPARTMENTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not affecting the whole",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Go",
+       "at": 0,
+       "gives": "DEPART",
+       "note": "to go is to depart"
+      },
+      {
+       "words": "mad",
+       "at": 3,
+       "gives": "MENTAL",
+       "note": "mental is informal for mad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on going crazy when something only partly applies.",
+     "definitionFit": "Something limited to one section or division of an organisation does not involve all of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +674,40 @@
     "text": "Resist being corrupted by one of the family",
     "enumeration": "6"
    },
-   "solution": "SISTER"
+   "solution": "SISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of the family",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "being corrupted",
+       "at": 7,
+       "note": "something corrupted is altered from its true form, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Resist",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fight off being led astray by a relative.",
+     "walkthrough": "'being corrupted' rearranges RESIST.",
+     "definitionFit": "A female sibling is a member of one's family, an example of a relative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +721,62 @@
     "text": "Emil broke new link at furnace",
     "enumeration": "8"
    },
-   "solution": "LIMEKILN"
+   "solution": "LIMEKILN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "furnace",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broke",
+         "at": 5,
+         "note": "something broke is smashed apart, so the letters of the name are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Emil",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 11,
+         "note": "new means remade in a fresh form, so the letters of link are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "link",
+         "at": 15
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Emil snapped a fresh chain link at the forge.",
+     "walkthrough": "'broke' turns EMIL into LIME; 'new' turns LINK into KILN.",
+     "definitionFit": "A kiln for burning limestone into quicklime is a kind of furnace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +790,41 @@
     "text": "So inspired about range of deviation",
     "enumeration": "10"
    },
-   "solution": "DISPERSION"
+   "solution": "DISPERSION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range of deviation",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 12,
+       "note": "about can mean around or in a different arrangement, so these letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "So inspired",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling so motivated about the spread of variation.",
+     "walkthrough": "'about' rearranges SO INSPIRED.",
+     "definitionFit": "In statistics, the spread of values around a mean is measured as this quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +844,36 @@
      }
     ]
    },
-   "solution": "MOVINGTARGET"
+   "solution": "MOVINGTARGET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It is not still being fired at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It is not still being fired at",
+       "at": 0,
+       "note": "something shot at which keeps going rather than standing still; still looks like 'yet' but means motionless"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads as if something has stopped being fired at.",
+     "walkthrough": "'still' reads as 'any longer' but means stationary.",
+     "definitionFit": "A target in motion is one that is not stationary while being shot at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +887,42 @@
     "text": "Deliberate swindle on partisan",
     "enumeration": "8"
    },
-   "solution": "CONSIDER"
+   "solution": "CONSIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deliberate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "swindle",
+       "at": 11,
+       "gives": "CON",
+       "note": "a con is a swindle"
+      },
+      {
+       "words": "partisan",
+       "at": 22,
+       "gives": "SIDER",
+       "note": "a sider is one who takes a side, a partisan"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calculated fraud practised on a supporter.",
+     "walkthrough": "'Deliberate' looks like an adjective, but it is the verb meaning to think over.",
+     "definitionFit": "To deliberate is to think carefully about something, a synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliberate"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +942,49 @@
      }
     ]
    },
-   "solution": "STONEAGE"
+   "solution": "STONEAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hard time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entered",
+       "at": 19,
+       "note": "entered means went into, so one word goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "theatre",
+       "at": 27,
+       "gives": "STAGE",
+       "note": "the stage stands for the theatre as a profession"
+      },
+      {
+       "words": "one",
+       "at": 15,
+       "gives": "ONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A difficult period began when someone went into acting.",
+     "walkthrough": "'Hard time' looks like a spell of hardship, but it is an era named after a hard material.",
+     "definitionFit": "The prehistoric era when tools were made of rock is a period named after a hard material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1008,30 @@
      }
     ]
    },
-   "solution": "OUTOFSPIRITS"
+   "solution": "OUTOFSPIRITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeling depressed",
+      "at": 0,
+      "meaning": "low in mood, downcast"
+     },
+     {
+      "text": "without whisky, rum etc.",
+      "at": 18,
+      "meaning": "literally having run out of distilled liquors"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Spirits means both mood and strong liquor.",
+     "definitionFit": "Being low in mood is the idiom; lacking strong liquor is the literal sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1051,42 @@
      }
     ]
    },
-   "solution": "CHINUP"
+   "solution": "CHINUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep cheerful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "feature",
+       "at": 14,
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      },
+      {
+       "words": "at university",
+       "at": 22,
+       "gives": "UP",
+       "note": "up means in residence at university, as in 'up at Oxford'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's facial trait helps them stay positive.",
+     "walkthrough": "In British usage, being up means attending university.",
+     "definitionFit": "The exhortation is an idiom urging someone to stay brave and cheerful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1100,48 @@
     "text": "Spaniard embraces international elder",
     "enumeration": "6"
    },
-   "solution": "SENIOR"
+   "solution": "SENIOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "elder",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraces",
+       "at": 9,
+       "note": "embraces means holds within, so one piece goes inside another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spaniard",
+       "at": 0,
+       "gives": "SENOR",
+       "note": "señor is a Spanish man, the form of address"
+      },
+      {
+       "words": "international",
+       "at": 18,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Spain hugs a veteran of the national team.",
+     "walkthrough": "'embraces' puts I inside SENOR.",
+     "definitionFit": "An older person, or one higher in rank by age, is a synonym of elder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "international"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1155,48 @@
     "text": "Cushy job at home in safe environment",
     "enumeration": "8"
    },
-   "solution": "SINECURE"
+   "solution": "SINECURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cushy job",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "environment",
+       "at": 26,
+       "note": "an environment surrounds something, so the safe word wraps round the home word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "safe",
+       "at": 21,
+       "gives": "SECURE",
+       "note": "safe means secure"
+      },
+      {
+       "words": "at home",
+       "at": 10,
+       "gives": "IN",
+       "note": "at home is in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An easy post working from home in a protected setting.",
+     "definitionFit": "A post with pay but little work is a soft, easy position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "environment"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1210,41 @@
     "text": "Compensate chieftain retaining expert in applied science",
     "enumeration": "6"
    },
-   "solution": "TECHIE"
+   "solution": "TECHIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "expert in applied science",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "retaining",
+       "at": 21,
+       "note": "retaining means holding within, so the letters are found inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Compensate chieftain",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pay off a clan leader who is keeping a scientist on the payroll.",
+     "walkthrough": "'retaining' signals the run spanning the end of Compensate and the start of chieftain.",
+     "definitionFit": "Informally, a technical specialist, especially in computing, is called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chieftain"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1258,41 @@
     "text": "Just yours truly again",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "yours truly",
+       "at": 5,
+       "gives": "ME",
+       "note": "yours truly is a jocular way of saying me"
+      },
+      {
+       "words": "again",
+       "at": 17,
+       "gives": "RE",
+       "note": "re- is a prefix meaning again"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Only me once more.",
+     "definitionFit": "Only or simply, as in 'a mere child', is the adjective's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1306,40 @@
     "text": "Drink prescribed by doctor early in the day",
     "enumeration": "4"
    },
-   "solution": "DRAM"
+   "solution": "DRAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 20,
+       "gives": "DR"
+      },
+      {
+       "words": "early in the day",
+       "at": 27,
+       "gives": "AM",
+       "note": "a.m. denotes the morning"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipple recommended by the GP for the morning.",
+     "definitionFit": "A small measure of whisky or spirits is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prescribed"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1353,53 @@
     "text": "Diane, the Parisian teetotaller, was not in favour of those who dabble",
     "enumeration": "10"
    },
-   "solution": "DILETTANTI"
+   "solution": "DILETTANTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "those who dabble",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Diane",
+       "at": 0,
+       "gives": "DI",
+       "note": "Di is a short form of Diane"
+      },
+      {
+       "words": "the Parisian",
+       "at": 7,
+       "gives": "LE",
+       "note": "le is French for the"
+      },
+      {
+       "words": "teetotaller",
+       "at": 20,
+       "gives": "TT",
+       "note": "TT stands for teetotal, a teetotaller"
+      },
+      {
+       "words": "was not in favour of",
+       "at": 33,
+       "gives": "ANTI",
+       "note": "anti means against, opposed to"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A non-drinking French woman named Diane disapproved of amateurs.",
+     "definitionFit": "Plural of an Italian loanword for amateurs who take up an art superficially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1413,45 @@
     "text": "Regretted impolite sound",
     "enumeration": "4"
    },
-   "solution": "RUED"
+   "solution": "RUED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regretted",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RUED",
+     "indicators": [
+      {
+       "text": "sound",
+       "at": 19,
+       "note": "sound here signals that the word is said aloud and a like-sounding word is entered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "impolite",
+       "at": 10,
+       "gives": "RUDE",
+       "note": "impolite means rude"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Was sorry for a bad-mannered noise.",
+     "walkthrough": "'sound' looks like a noun after impolite, but it signals the like-sounding word.",
+     "definitionFit": "Felt sorry about is the past tense of rue, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1465,41 @@
     "text": "Cover runner, one who has not been invited",
     "enumeration": "10"
    },
-   "solution": "INTERLOPER"
+   "solution": "INTERLOPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one who has not been invited",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Cover",
+       "at": 0,
+       "gives": "INTER",
+       "note": "to inter is to bury, covering with earth"
+      },
+      {
+       "words": "runner",
+       "at": 6,
+       "gives": "LOPER",
+       "note": "a loper runs with long strides"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A substitute athlete turns out to be a gatecrasher.",
+     "definitionFit": "An intruder who pushes into places or affairs where unwelcome is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cover"
+    }
+   }
   }
  ]
 }
