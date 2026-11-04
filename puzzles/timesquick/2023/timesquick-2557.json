@@ -776,26 +776,43 @@
      "op": "charade",
      "parts": [
       {
-       "words": "president shortly",
-       "gives": "PRES",
-       "note": "Pres is the short form of president"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 23,
+         "note": "shortly means briefly, so the word is cut short"
+        }
+       ],
+       "parts": [
+        {
+         "words": "president",
+         "at": 13,
+         "gives": "PRESIDENT",
+         "note": "the full title is shortened"
+        },
+        {
+         "gives": "IDENT"
+        }
+       ]
       },
       {
        "words": "to come in",
+       "at": 31,
        "gives": "ENTER",
-       "note": "to enter is to come in"
+       "note": "to come in is to enter"
       }
      ]
     },
     "explanation": {
-     "surface": "A television host is told the president will arrive soon.",
-     "walkthrough": "'Shortly' seems to mean soon, but it signals an abbreviation.",
-     "definitionFit": "A presenter is the person who fronts a broadcast programme, the British term for a TV host."
+     "surface": "A broadcaster arrives with the head of state.",
+     "walkthrough": "'shortly' cuts president to PRES, the usual abbreviation.",
+     "definitionFit": "A presenter is the person who introduces or hosts a television programme."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "shortly"
+     "misdirectedWord": "host"
     }
    }
   },

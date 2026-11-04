@@ -1219,31 +1219,46 @@
      "op": "charade",
      "parts": [
       {
-       "words": "endless crime",
-       "gives": "CRIM",
-       "note": "crime with its last letter removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 18,
+         "note": "endless means without its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crime",
+         "at": 26
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "Start to",
-         "note": "the start of a word is its opening letter"
+         "at": 0,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "panic",
-         "note": "the opening letter of panic"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone begins to panic at a never-ending crime wave.",
-     "walkthrough": "'Crime wave' reads as one phrase, but 'wave' alone is the definition.",
-     "definitionFit": "To crimp hair is to press it into small waves or curls, so a crimp is a wave."
+     "surface": "Panic begins at a never-ending crime spree.",
+     "walkthrough": "The order follows the answer: the first letter comes ahead of CRIM, though 'at' sets it beside.",
+     "definitionFit": "To crimp hair is to make it wavy, so a crimp is a wave."
     },
     "features": {
      "answerInScene": false,

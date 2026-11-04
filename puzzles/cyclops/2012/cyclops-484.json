@@ -1202,7 +1202,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "knightly equipment",
+      "text": "knightly equipment?",
       "at": 35
      }
     ],
@@ -1211,37 +1211,52 @@
      "parts": [
       {
        "words": "Very",
-       "gives": "V",
-       "note": "v is the standard abbreviation for very"
+       "at": 0,
+       "gives": "V"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "shake",
-         "note": "shaking something jumbles it, so the remaining letters of the name are rearranged"
+         "at": 29,
+         "note": "shake means jumble, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Boris to go topless",
-         "gives": "ORIS",
-         "note": "Boris Johnson's first name minus its opening letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to go topless",
+           "at": 11,
+           "note": "going topless means losing the top, so the first letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Boris",
+           "at": 5
+          },
+          {
+           "gives": "B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid image of Boris stripping off and shaking his, er, equipment like a knight.",
-     "walkthrough": "'Knightly equipment' is a double-entendre in the surface; it is the face guard on a helmet.",
-     "definitionFit": "The visor is the movable front of a medieval helmet that shields the face in combat."
+     "surface": "Boris Johnson strips off and dances in front of the knights.",
+     "walkthrough": "'to go topless' leaves ORIS from Boris, and 'shake' makes ISOR. Boris Johnson was a British prime minister with a famously comic public image.",
+     "definitionFit": "A visor is the movable face guard on a knight's helmet, part of armour."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "equipment"
+     "joke": "absurd",
+     "misdirectedWord": "topless"
     }
    }
   },
