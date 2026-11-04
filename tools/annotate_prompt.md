@@ -8,11 +8,13 @@ annotate that one and no other. The ID is series plus number (`cryptic-30089`,
 ## What to produce
 
 One file, `tools/_ann_<ID>.json`: one object with a key for every entry id, `null` for
-a clue not done yet. A linked answer is annotated once, on its leader (the entry with a
+a clue not done yet, each clue on one line with no indentation. A linked answer is annotated once, on its leader (the entry with a
 `group`), with wordplay for the whole answer; every other light in the group ("See 21") is `null`.
 
 ```json
-{"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
+{"1-across": {...annotation...},
+"5-across": {...annotation...},
+"12-across": null}
 ```
 
 - `annotateOnly` in the puzzle file: key only those entries (no `null` for the rest). Every other annotation is
@@ -23,9 +25,9 @@ a clue not done yet. A linked answer is annotated once, on its leader (the entry
   it with null).
 - An entry under `draftAnnotations` has a draft hidden word that a program checked
   against the answer (`def`, `wp`, `notes`). Write it with those three as they are, plus
-  the `explanation` (`surface`, `definitionFit`) and `features` the draft lacks. Change
+  the `surface`, `definitionFit` and flags the draft lacks. Change
   the draft only when you can show it is wrong (definition is another part of the clue,
-  fodder or indicator misread, a reversal missed), and say why in `explanation.walkthrough`.
+  fodder or indicator misread, a reversal missed), and say why in `walkthrough`.
 - Write annotations only; no script. Each `"solution"` is ground truth: `wp` must
   produce exactly those letters, else rethink the parse rather than stretch it. A solution
   marked `(MODEL)` is a cold solve's guess: if no parse gives it and the clue plainly
@@ -42,7 +44,7 @@ a clue not done yet. A linked answer is annotated once, on its leader (the entry
   `"Scan reads: <what the page shows>"`; any number of letters may differ.
 - A clue shown exactly as printed whose anagram still cannot give the answer is the
   setter's slip: `"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`,
-  `wp` with the fodder as it should be, and what is wrong in `explanation.walkthrough`.
+  `wp` with the fodder as it should be, and what is wrong in `walkthrough`.
   The same for a slip in another kind of clue: a hidden run printed one letter wrong or two
   swapped (`hid()` over the printed words, giving the run the setter meant), or a spelt-out
   piece of a charade or container. The row is `["<the printed words>", "<the corrected letters>", "<evidence>"]`.
@@ -63,28 +65,26 @@ no word list: `/usr/share/dict/words` is out of reach and other puzzles are not 
 
 ## Schema
 
-Each clue is one object. `wp` is the parse as one line in the grammar of the Reference
+Each clue is one flat object, on one line in the file. `wp` is the parse as one line in the grammar of the Reference
 below; the check works out its letters at every step, and from it the clue type, link
-words, indicator operations and pieces, so you write none of those.
+words, indicator operations and pieces, so you write none of those. The last four keys
+are flags: leave out one that is null or false.
 
-```json
-{
-  "def": "exact clue words that define the answer; [\"first\", \"second\"] for a double definition",
-  "wp": "ins<in>([order]SORT, [Bird]TIT + [Chinese]CH + [woman]W)",
-  "notes": {"<words as written in wp or def>": "why these words do this job here; every indicator and every leaf with letters"},
-  "explanation": {
-    "surface": "one sentence, 25 words max: what the clue pretends to be about",
-    "walkthrough": "optional, 1-2 sentences, 45 words max: what the parse cannot show",
-    "definitionFit": "one sentence, 30 words max: why the answer means the definition"
-  },
-  "features": {
-    "misdirectedWord": "the one clue word, spelt as printed, whose surface sense is furthest from its job",
-    "joke": "\"pun\" (a word's second sense or sound) or \"absurd\" (silly on purpose)",
-    "answerInScene": "true if the solution belongs in the picture the surface paints",
-    "aptDefinition": "true if the definition is fresh or witty rather than a dictionary synonym"
-  }
-}
 ```
+def              exact clue words that define the answer; ["first", "second"] for a double definition
+wp               ins<in>([order]SORT, [Bird]TIT + [Chinese]CH + [woman]W)
+notes            {"<words as written in wp or def>": "why these words do this job here"}: every indicator and every leaf with letters
+surface          one sentence, 25 words max: what the clue pretends to be about
+walkthrough      optional, 1-2 sentences, 45 words max: what the parse cannot show
+definitionFit    one sentence, 30 words max: why the answer means the definition
+misdirectedWord  the one clue word, spelt as printed, whose surface sense is furthest from its job
+joke             "pun" (a word's second sense or sound) or "absurd" (silly on purpose)
+answerInScene    true if the solution belongs in the picture the surface paints
+aptDefinition    true if the definition is fresh or witty rather than a dictionary synonym
+```
+
+The check names these by where they are filed (`explanation.surface`, `features.joke`):
+that is your `surface`, your `joke`.
 
 **Parsing.**
 - Every clue word has one job: in `def`, in a `[leaf]`, or in an `<indicator>` right
@@ -180,10 +180,10 @@ these. `docs/STYLE.md` holds the product feedback behind them and wins any disag
 - A link word joins and says nothing else. Don't borrow another mechanism's signal
   words in any prose field: "aloud" means homophone, "shuffle" anagram, "hidden"
   extraction, "reversed" turnaround.
-- `explanation.surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
+- `surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
   and gave birth` is one person's bad week. A clue of four or more words has one unless
   it is a pure double or cryptic definition, even a clue that reads as bare mechanism.
-- `explanation.walkthrough` says only what the parse cannot: why the surface misleads, a
+- `walkthrough` says only what the parse cannot: why the surface misleads, a
   convention the solver may not know (`ER` = Queen), why a definition is fair; not
   fragment-to-letters narration. It names every indicator by its words and any letters an
   anagram, reversal or deletion makes that the parse does not state: `'getting into' puts
@@ -195,8 +195,7 @@ these. `docs/STYLE.md` holds the product feedback behind them and wins any disag
   county, soap, cricket position, old coin, rhyming slang, banger, jumper), say what it is
   in one clause, never dropped for brevity: `THE OVAL is a London cricket ground`. Not for
   crossword conventions, which the app teaches.
-- `features` is data, never shown. Leave out a key that is null or false (`{}` when all
-  are): an honest no is a usable row; a guessed `joke` poisons it. `joke` asks whether one is present, not whether it is funny.
+- The flags are data, never shown. Leave out one that is null or false: an honest no is a usable row; a guessed `joke` poisons it. `joke` asks whether one is present, not whether it is funny.
 
 ## Check
 
@@ -232,13 +231,13 @@ Four first runs in ten fail, mostly on these:
     clue's fragment ("the outside letters are S and Y"), never the assembled answer;
   - a note on one fragment that mentions another light's solution: leave it out.
 - A `cd()` has exactly one leaf, no letters, and no note that spells the answer.
-- `features.misdirectedWord` is one word, copied exactly as printed in the clue.
+- `misdirectedWord` is one word, copied exactly as printed in the clue.
 
 Working here:
 
 - To change many clues, Write `{"8-down": {"field": value}}` under `tools/`
   (`tools/_patch_<ID>.json`, never `/tmp`) and add `--patch <file>` to the check. Each
-  field is replaced and null removes it, except `notes`, `explanation` and `features`, merged key by key.
+  field is replaced and null removes it, except `notes`, merged key by key.
 - Run the check as a single command: no `&&`, `;`, pipes or `rm`; a compound command
   needs an approval this run cannot give and runs nothing.
 - **Your tools are Read, Write, Edit, `python3`, `node`, WebSearch and WebFetch, nothing else.** `grep`,
@@ -364,13 +363,7 @@ Rendered from the corpus in the shape you write; each passes every check.
 quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), solution DEFAMATORY:
 
 ```json
-{"11-across": {
-  "def": "libellous",
-  "wp": "ana<Fake>([folio]F + [made]) + [a] + [conservative]TORY",
-  "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
-  "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio) and MADE to get FMADE, and rearrange those letters to make DEFAM. Then add A, which the clue gives as it is, and TORY, the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
-  "features": {"answerInScene": true, "misdirectedWord": "Fake"}
-}}
+{"11-across": {"def": "libellous", "wp": "ana<Fake>([folio]F + [made]) + [a] + [conservative]TORY", "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"}, "surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio) and MADE to get FMADE, and rearrange those letters to make DEFAM. Then add A, which the clue gives as it is, and TORY, the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely.", "answerInScene": true, "misdirectedWord": "Fake"}}
 ```
 
 <!-- REFERENCE-END -->

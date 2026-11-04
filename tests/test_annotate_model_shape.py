@@ -131,31 +131,58 @@ n = json.loads(pending.read_text())["11-across"]["notes"]
 check("one note replaced, one removed, the rest kept",
       n["Fake"].startswith("a new note") and "made" not in n and n["conservative"] == model["11-across"]["notes"]["conservative"])
 
-# A run leaves out a false flag: to_model shows none, from_model files both,
-# and the stored block survives the round trip as it was.
+# The run writes the explanation's sentences and the flags flat in the clue,
+# false flags left out: to_model shows that shape, from_model files the stored
+# blocks back exactly, and the old nested shape (a run mid-flight) still lands.
 stored = by["11-across"]["annotation"]
-shown = model["11-across"].get("features", {})
+flat = model["11-across"]
+check("to_model writes the clue flat",
+      "explanation" not in flat and "features" not in flat and flat["surface"] == stored["explanation"]["surface"],
+      str(sorted(flat)))
 check("to_model leaves the false flags out",
-      not any(shown.get(k) is False for k in annotation.FEATURE_DEFAULTS))
-filed = annotation.from_model(json.loads(json.dumps(model["11-across"])), by["11-across"], p)["features"]
-check("from_model files the stored features back exactly", filed == stored["features"],
-      f"{filed} != {stored['features']}")
-bare = dict(model["11-across"], features={})
-check("an empty features block is filed as two falses",
+      not any(flat.get(k) is False for k in annotation.FEATURE_DEFAULTS))
+filed = annotation.from_model(json.loads(json.dumps(flat)), by["11-across"], p)
+check("from_model files the stored features back exactly", filed["features"] == stored["features"],
+      f"{filed['features']} != {stored['features']}")
+check("from_model files the stored explanation back exactly", filed["explanation"] == stored["explanation"])
+nested = {k: v for k, v in flat.items() if k not in annotation.NESTED["explanation"] + annotation.NESTED["features"]}
+nested["explanation"], nested["features"] = stored["explanation"], {"misdirectedWord": "Fake", "answerInScene": True}
+check("the old nested shape files the same", annotation.from_model(nested, by["11-across"], p) == filed)
+mixed = dict(nested, explanation={"surface": stored["explanation"]["surface"]},
+             walkthrough=stored["explanation"]["walkthrough"], definitionFit=stored["explanation"]["definitionFit"])
+check("a clue half nested, half flat files the same", annotation.from_model(mixed, by["11-across"], p) == filed)
+bare = {k: v for k, v in flat.items() if k not in annotation.NESTED["features"]}
+check("a clue with no flag written is filed with two falses",
       annotation.from_model(bare, by["11-across"], p)["features"]
       == {"answerInScene": False, "aptDefinition": False})
+check("a flat flag is not an unknown key",
+      annotation.from_model(dict(bare, joke="pun"), by["11-across"], p)["features"]["joke"] == "pun")
+check("nest and flatten undo each other", annotation.flatten(annotation.nest(flat)) == flat)
 
-# --patch merges features and explanation key by key too.
-pending.write_text(json.dumps({"11-across": dict(model["11-across"], features={"aptDefinition": True})}))
-fix.write_text(json.dumps({"11-across": {"features": {"joke": "pun"},
-                                         "explanation": {"walkthrough": "a new walkthrough sentence"}}}))
-check("--patch merges features", AC.patch(pending, fix) is None)
+# --patch merges flags and sentences one by one, whichever shape the file or
+# the patch nests them in, and leaves the clue in the run's flat shape.
+for file_shape, patch_shape in (("flat", "flat"), ("nested", "nested"), ("nested", "flat"), ("flat", "nested")):
+    clue = dict(flat, aptDefinition=True) if file_shape == "flat" else dict(nested, features={"aptDefinition": True})
+    pending.write_text(json.dumps({"11-across": clue}))
+    change = ({"joke": "pun", "walkthrough": "a new walkthrough sentence"} if patch_shape == "flat"
+              else {"features": {"joke": "pun"}, "explanation": {"walkthrough": "a new walkthrough sentence"}})
+    fix.write_text(json.dumps({"11-across": change}))
+    tag = f"{file_shape} file, {patch_shape} patch"
+    check(f"--patch merges ({tag})", AC.patch(pending, fix) is None)
+    got = json.loads(pending.read_text())["11-across"]
+    check(f"a flag patch keeps the other flags ({tag})",
+          got.get("aptDefinition") is True and got.get("joke") == "pun", str(got))
+    check(f"a sentence patch keeps the other sentences ({tag})",
+          got.get("surface") == stored["explanation"]["surface"]
+          and got.get("walkthrough") == "a new walkthrough sentence", str(got))
+    check(f"the patched clue is flat ({tag})", "explanation" not in got and "features" not in got, str(sorted(got)))
+pending.write_text(json.dumps({"11-across": flat}))
+fix.write_text(json.dumps({"11-across": {"explanation": None, "misdirectedWord": None}}))
+check("--patch takes a null block", AC.patch(pending, fix) is None)
 got = json.loads(pending.read_text())["11-across"]
-check("a features patch keeps the other flags", got["features"] == {"aptDefinition": True, "joke": "pun"},
-      str(got["features"]))
-check("an explanation patch keeps the other sentences",
-      got["explanation"]["surface"] == model["11-across"]["explanation"]["surface"]
-      and got["explanation"]["walkthrough"] == "a new walkthrough sentence", str(got["explanation"]))
+check("a null block removes its flat sentences, a null flag its flag",
+      not set(got) & {"surface", "walkthrough", "definitionFit", "misdirectedWord"} and got.get("answerInScene") is True,
+      str(sorted(got)))
 
 print("model shape:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)

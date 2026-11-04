@@ -57,7 +57,7 @@ try:
 
     prompt = Path("tools/annotate_prompt.md").read_text()
     check("the prompt names draftAnnotations and what the run adds",
-          "draftAnnotations" in prompt and "`features`" in prompt)
+          "draftAnnotations" in prompt and "`surface`, `definitionFit` and flags the draft lacks" in prompt)
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 
