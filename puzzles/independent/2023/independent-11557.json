@@ -1869,51 +1869,60 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SQUAT",
      "indicators": [
       {
        "text": "working",
-       "note": "working means in operation or being worked over, so the letters are rearranged"
+       "at": 28,
+       "note": "working suggests the letters are worked into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SQUAT",
+       "op": "first",
        "indicators": [
         {
          "text": "Half of",
-         "note": "only half the word survives, so its back three letters are thrown away"
-        },
-        {
-         "text": "detailed",
-         "note": "de-tailed means with the tail cut off, so the last letter goes"
+         "at": 0,
+         "note": "half of takes the first three of the six letters"
         }
        ],
        "parts": [
         {
          "words": "Status",
-         "note": "the first word of the rock band's name"
-        },
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 19,
+         "note": "detailed means having its tail, the final letter, cut off"
+        }
+       ],
+       "parts": [
         {
          "words": "Quo",
-         "note": "the second word of the band's name"
+         "at": 15
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half the band Status Quo, playing on despite being behind with the rent.",
-     "walkthrough": "STA, the front half of the first word, plus QU, the second word minus its tail, are mixed together.",
-     "definitionFit": "A squat is a building occupied without the owner's permission, so it is an illegal occupation of property."
+     "surface": "Part of the rock band Status Quo was found running a scam on occupied premises.",
+     "walkthrough": "STA and QU are rearranged by 'working'. Status Quo is a British rock band.",
+     "definitionFit": "Occupying an empty building without permission is the act of a squatter."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "detailed"
+     "misdirectedWord": "Quo"
     }
    }
   }

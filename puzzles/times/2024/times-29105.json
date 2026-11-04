@@ -1729,31 +1729,34 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WESTIE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collars",
+       "at": 16,
+       "note": "collars means encloses, as a collar goes round a neck"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Little Scottish",
+       "at": 0,
+       "gives": "WEE",
+       "note": "wee is the Scottish word for small"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "collars"
-        },
-        {
          "text": "on reflection",
-         "note": "a reflection is reversed, so ITS turns round"
+         "at": 29,
+         "note": "on reflection means seen in a mirror, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "Little Scottish",
-         "gives": "WEE",
-         "note": "wee is Scots for little; split WE…E"
-        },
-        {
          "words": "its",
-         "gives": "STI",
-         "note": "ITS reversed"
+         "at": 24
         }
        ]
       }
@@ -1761,13 +1764,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A small Scottish dog regarding its own collar in a mirror.",
-     "walkthrough": "The whole clue is also the definition: a westie is a little Scottish dog, and dogs wear collars. The question mark flags that double duty.",
-     "definitionFit": "A westie is a West Highland white terrier, a small Scottish breed that wears a collar like any dog."
+     "surface": "A small Scottish dog wearing its collar, seen in a mirror.",
+     "walkthrough": "Read whole, the clue pictures the dog itself, a West Highland terrier in its collar.",
+     "definitionFit": "A West Highland white terrier is a small Scottish dog that wears a collar."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "collars"
     }
    }

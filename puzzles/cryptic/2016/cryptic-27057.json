@@ -1413,35 +1413,40 @@
      "indicators": [
       {
        "text": "taking",
-       "note": "the doctor takes the rest in, holding it inside"
+       "at": 7,
+       "note": "taking means the doctor holds the other letters inside"
       }
      ],
      "parts": [
       {
        "words": "Doctor",
+       "at": 0,
        "gives": "BM",
-       "note": "Bachelor of Medicine"
+       "note": "BM is Bachelor of Medicine, a doctor's degree"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "poor",
-         "note": "a poor lad is in a bad way, so his letters are in bad order"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "drug",
+         "at": 14,
+         "gives": "E",
+         "note": "E is ecstasy"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "poor",
+           "at": 22,
+           "note": "poor suggests the letters are in a bad way, out of order"
+          }
+         ],
          "parts": [
           {
-           "words": "drug",
-           "gives": "E",
-           "note": "ecstasy"
-          },
-          {
            "words": "lad",
-           "note": "the three letters rearranged"
+           "at": 27,
+           "note": "taken as written as letters to rearrange"
           }
          ]
         }
@@ -1450,14 +1455,14 @@
      ]
     },
     "explanation": {
-     "surface": "A doctor giving medicine to a sad boy in an asylum.",
-     "walkthrough": "'Doctor' is not an anagram indicator here but a degree abbreviation, and it takes in both the drug and the shuffled boy.",
-     "definitionFit": "An eponym: London's Bethlem asylum was nicknamed Bedlam, so the word came to mean a madhouse or uproar."
+     "surface": "A medic prescribing narcotics to a needy boy in an asylum.",
+     "walkthrough": "BM takes E plus LAD rearranged as DLA. Bedlam was a notorious London asylum.",
+     "definitionFit": "Bedlam, from London's Bethlem Hospital, means a scene of uproar like an asylum."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "poor"
+     "misdirectedWord": "Doctor"
     }
    }
   },
@@ -1659,49 +1664,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "diverted",
-       "note": "a diverted flight changes course, so the letters change order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Aircraft",
+       "at": 0,
+       "gives": "PLANE",
+       "note": "a plane is an aircraft"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 22,
+         "note": "around places the rearranged letters about the single letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Aircraft",
-         "gives": "PLANE",
-         "note": "an aircraft"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "around",
-           "note": "around has the letters of got go round the Zimbabwean leader, like a plane circling before it lands"
+           "text": "diverted",
+           "at": 13,
+           "note": "diverted means sent off course, so the letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "got",
-           "note": "the three letters rearranged"
-          },
+           "at": 9,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "leader's",
-             "note": "the leader of a word is its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Zimbabwean",
-             "note": "first letter of Zimbabwean"
-            }
-           ]
+           "text": "leader's",
+           "at": 40,
+           "note": "leader's takes the first letter of the following word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Zimbabwean",
+           "at": 29
           }
          ]
         }
@@ -1710,14 +1720,14 @@
      ]
     },
     "explanation": {
-     "surface": "A plane rerouted around a dictator's fantasy world.",
-     "walkthrough": "'Zimbabwean leader' suggests Mugabe, but only the letter Z is wanted. Planet Zog is British slang for an imaginary place where out-of-touch people live.",
-     "definitionFit": "A slang equivalent: both phrases name an imaginary place for someone out of touch with reality."
+     "surface": "A plane has been rerouted around Zimbabwe's president to a fantasy land.",
+     "walkthrough": "GOT rearranged to TOG goes around Z.",
+     "definitionFit": "A fictional planet name used jokingly for a state of being out of touch with reality."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "leader's"
+     "aptDefinition": false,
+     "misdirectedWord": "diverted"
     }
    }
   },

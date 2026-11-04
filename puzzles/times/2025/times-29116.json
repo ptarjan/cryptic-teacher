@@ -1202,61 +1202,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ETHICAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 15,
+       "note": "across means the fabric stretches over the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "hoisted",
-         "note": "hoisting lifts something, and in a down clue lifted letters read bottom to top"
-        },
-        {
-         "text": "tops of",
-         "note": "the top of a word is its first letter, so each word gives its initial"
+         "at": 7,
+         "note": "hoisted means raised, so in a down entry the word reads upwards"
         }
        ],
        "parts": [
         {
          "words": "Fabric",
-         "gives": "ECAL",
-         "note": "LACE, a fabric, raised up the column; it holds the tops"
+         "at": 0,
+         "gives": "LACE",
+         "note": "lace is a delicate fabric"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tops of",
+         "at": 22,
+         "note": "tops of takes the first letter of each of the next three words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 30
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "THI",
-         "indicators": [
-          {
-           "text": "across",
-           "note": "stretched across something, so the fabric spans over the next letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the hips isn't",
-           "gives": "THI",
-           "select": "first",
-           "note": "first letters of THE HIPS ISN’T"
-          }
-         ]
+         "words": "hips",
+         "at": 34
+        },
+        {
+         "words": "isn't",
+         "at": 39
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lace pulled up over the hips is judged indecent.",
-     "walkthrough": "The surface is a dress-code complaint, which sits neatly beside an answer meaning proper.",
-     "definitionFit": "A plain synonym in the moral sense: ethical conduct is right and proper."
+     "surface": "Wearing cloth pulled up over the hips is not decent.",
+     "walkthrough": "LACE reversed is ECAL, which goes across THI from the three words.",
+     "definitionFit": "Ethical conduct is morally right, the proper thing to do."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "across"
+     "misdirectedWord": "Fabric"
     }
    }
   },

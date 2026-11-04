@@ -180,37 +180,51 @@
        "indicators": [
         {
          "text": "not",
-         "note": "'not' tells us to leave the following letters out of the reprimand"
-        },
-        {
-         "text": "short",
-         "note": "something short has lost its end, so the word for very is cut down"
+         "at": 11,
+         "note": "not means without, so the very loud letters are dropped"
         }
        ],
        "parts": [
         {
          "words": "Reprimand",
+         "at": 0,
          "gives": "TICKINGOFF",
-         "note": "a ticking-off is a telling-off"
+         "note": "a ticking-off is a reprimand"
         },
         {
          "words": "very loud",
+         "at": 15,
          "gives": "FF",
-         "note": "fortissimo in music"
+         "note": "FF is fortissimo, very loud in music"
         }
        ]
       },
       {
-       "words": "very",
-       "gives": "VER",
-       "note": "the word cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 35,
+         "note": "short means cut, removing the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very",
+         "at": 30,
+         "note": "taken as written before trimming"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet, brief telling-off given to someone for being lazy.",
-     "walkthrough": "Take FF (fortissimo, very loud) out of TICKING OFF, then add VER(y).",
-     "definitionFit": "An engine ticking over runs slowly without doing work, which is exactly what idling means."
+     "surface": "A telling-off that is quiet and brief for loafing about.",
+     "walkthrough": "TICKING OFF minus FF gives TICKINGO; 'short' trims VERY to VER.",
+     "definitionFit": "An engine ticking over runs slowly without doing work."
     },
     "features": {
      "answerInScene": false,
