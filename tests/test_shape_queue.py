@@ -83,43 +83,36 @@ A.apply(path, {aid: full[aid]}, by="human")
 check("a filed clue leaves the pending list", aid not in Q.flagged(pz))
 check("the list did not grow", len(json.loads(Q.PATH.read_text())) <= 2)
 
-# The detectors are the gate: a listed clue whose tree they still flag (a real
-# row of the live list) cannot be re-filed with that tree, prose changed or not.
-import puzzle_integrity as PI
-real = None
-for r in (json.loads(Q.REAL.read_text()) if Q.REAL.exists() else []):
-    if r.get("tried"):
-        continue  # a tried row is not pending: the view skips it by design
-    pid, _, ck = r["id"].partition("#")
-    src2 = next(Path("puzzles").glob(f"**/{pid}.json"), None)
-    if src2 is None:
-        continue
-    p2 = F.read_puzzle_file(src2)
-    if PI.awaits_preamble(p2):
-        continue  # a run is not sent its clues (annotate_check.shape_due)
-    e2 = next((e for e in p2["entries"] if Q.clue_key(e) == ck and e.get("annotation")), None)
-    if e2 is not None and Q.findings(e2):
-        real = (src2, p2, e2, r)
-        break
-if real is None:
-    print("  skip: no live row whose tree is still flagged (the list is clean)")
-else:
-    src2, p2, e2, r = real
-    path2 = tmp / src2.name
-    for old in tmp.glob(f"_*{p2['id']}.json"):
-        old.unlink()
-    shutil.copy(src2, path2)
-    eid = groups.entry_id(e2)
+# The detectors are the gate: a listed clue whose tree they still flag cannot be
+# re-filed with that tree, prose changed or not. The flagged clue is a fixed
+# fixture (times-29652 10a as it was listed: a charade that deletes with one part and
+# files its indicator on the wrong op), grafted onto a clue of the puzzle above, so the
+# test does not depend on which live row happens to be on the list. The write
+# normalizes the tree, so the refusal may call it the same tree or still flagged.
+FLAGGED = json.loads(r'''{"clue": {"text": "Grasping matter, ultimately extensive, skipping chapter", "enumeration": "9"}, "solution": "RAPACIOUS", "length": 9, "annotation": {"definitions": [{"text": "Grasping", "at": 0}], "wordplay": {"op": "deletion", "unchecked": true, "gives": "RAPACIOUS", "parts": [{"op": "charade", "indicators": [{"text": "ultimately", "note": "'ultimately' means in the end, so take the last letter of matter"}], "parts": [{"op": "last", "unchecked": true, "gives": "R", "indicators": [{"text": "skipping", "note": "to skip something is to leave it out, so CAPACIOUS leaves out C"}], "parts": [{"unchecked": true, "words": "matter, ultimately", "gives": "R", "select": "last", "note": "last letter of matter"}]}, {"words": "extensive, skipping chapter", "gives": "APACIOUS", "note": "CAPACIOUS, extensive, without C for chapter"}]}]}, "explanation": {"surface": "Someone struggles to grasp a large, sprawling subject and skips a chapter.", "walkthrough": "'Grasping matter' reads as understanding a topic; 'Grasping' alone is the definition, meaning greedy.", "definitionFit": "Plain synonym in the greedy sense: always grabbing for more, not understanding."}, "features": {"answerInScene": false, "aptDefinition": false, "joke": "pun", "misdirectedWord": "Grasping"}}}''')
+pz2 = json.loads(json.dumps(pz))
+t2 = next(e for e in pz2["entries"] if groups.entry_id(e) == groups.entry_id(clues[2]))
+t2.update(json.loads(json.dumps(FLAGGED)))
+path2 = tmp / ("flagged_" + path.name)
+path2.write_text(json.dumps(pz2))
+for old in tmp.glob(f"_*{pz2['id']}.json"):
+    old.unlink()
+p2 = F.read_puzzle_file(path2)
+e2 = next(e for e in p2["entries"] if groups.entry_id(e) == groups.entry_id(clues[2]))
+eid = groups.entry_id(e2)
+r = {"id": f"{p2['id']}#{Q.clue_key(e2)}", "reason": "fixture: flagged"}
+check("the fixture tree is flagged by the detectors", bool(Q.findings(e2)))
+if True:
     Q.PATH.write_text(json.dumps([r]))
     check("the run's view writes just that clue", json.loads(AC.write_view(path2).read_text()).get("annotateOnly") == [eid])
-    before2 = json.dumps(F.read_puzzle_file(path2)["entries"], sort_keys=True)
     same = json.loads(json.dumps(e2["annotation"]))
     same.setdefault("explanation", {})["walkthrough"] = "new prose, same tree"
+    before2 = json.dumps(F.read_puzzle_file(path2)["entries"], sort_keys=True)
     try:
         A.apply(path2, {eid: same}, by="human")
         refused = False
     except SystemExit as err:
-        refused = "shape re-annotation list" in str(err) and "same tree" in str(err)
+        refused = "shape re-annotation list" in str(err) and ("same tree" in str(err) or "still flagged" in str(err))
     check(f"the old tree with new prose is refused ({r['id']})", refused)
     check("the file is unchanged", json.dumps(F.read_puzzle_file(path2)["entries"], sort_keys=True) == before2)
     check("the row is still pending", eid in Q.flagged(p2))
