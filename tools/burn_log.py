@@ -58,7 +58,7 @@ SHORT_S = 15 * 60          # far fewer runs than the width, or behind pace, this
 # (11-03, 53 bags; 3-4k before cache reads were counted); a session per puzzle is several times that.
 TOKENS_PER_CLUE_MAX = 30_000
 TOKENS_MIN_CLUES = 5
-COST_FACTOR = 2.0          # ⚠️ when meter points per committed puzzle pass this x the trailing average
+COST_FACTOR = 2.0          # ⚠️ when meter points per clue written pass this x the trailing average
 WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are counted
 WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM", "cryptic-crosswords")
 GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|(?<!rather than )discard|held|gave up|cannot be|could not be).*)$")
@@ -171,8 +171,9 @@ class Log:
         self.pool = None          # (width, in flight, queued) of the latest pool line
         self.stopping = False     # the burn said it is stopping (deadline, pause): an empty pool is meant
         self.need = None          # runs the week needs, from the latest width line
-        self.meters = collections.deque(maxlen=400)   # (time, points spent, commits since the last)
+        self.meters = collections.deque(maxlen=400)   # (time, points spent, commits since the last, clues since the last)
         self.commits_since_meter = 0
+        self.clues_since_meter = 0
         self.last_meter = collections.deque(maxlen=3)
         self.wakes = []           # (time, kind, text) sent
         self.wake_at = {}         # kind -> last wake time
@@ -223,12 +224,13 @@ class Log:
         except (OSError, ValueError, KeyError, StopIteration, subprocess.SubprocessError):
             return None
 
-    def finished(self, now, ok, pid=None, rule=None, nochange=False):
+    def finished(self, now, ok, pid=None, rule=None, nochange=False, clues=None):
         """Record a puzzle's end; returns ⚠️ lines when it is a puzzle's second failure."""
         self.outcomes_since += 1
         if ok and not nochange:
             self.done.append(now)
             self.commits_since_meter += 1
+            self.clues_since_meter += clues or 1  # per clue: a 1-hint mend and a 29-hint puzzle are not one unit
             self.events.append((now, "ok", rule))
         if nochange:
             self.events.append((now, "nc", rule))
@@ -346,16 +348,18 @@ class Log:
             (f"tokens per clue: {phrase(tw[2][0])[0]} ran at {tw[2][1] / 1000:.0f}k tokens per clue written over the last hour "
              f"({plural(tw[1], 'clue')} in all, {tw[0] / 1000:.0f}k overall; one run per puzzle; a bag is about 12k)")
             if tw else "", tw[3] if tw else [], "tokens per clue back under 30k")
-        recent = [(p, c) for t, p, c in self.meters if t > now - 3600]
-        trail = [(p, c) for t, p, c in self.meters if now - 6 * 3600 < t <= now - 3600]
-        pr, cr = sum(p for p, _ in recent), sum(c for _, c in recent)
-        pt, ct = sum(p for p, _ in trail), sum(c for _, c in trail)
-        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and (pr / cr) > COST_FACTOR * (pt / ct))
+        # Per clue written, not per puzzle: the queue moves between one-hint mends and whole
+        # puzzles of ~29 hints, and a per-puzzle rate called that mix change a cost spike.
+        recent = [(p, c, k) for t, p, c, k in self.meters if t > now - 3600]
+        trail = [(p, c, k) for t, p, c, k in self.meters if now - 6 * 3600 < t <= now - 3600]
+        pr, cr, kr = (sum(x[i] for x in recent) for i in range(3))
+        pt, ct, kt = (sum(x[i] for x in trail) for i in range(3))
+        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and (pr / kr) > COST_FACTOR * (pt / kt))
         out += self.condition(
             now, "cost", costly,
-            f"cost per puzzle doubled: {pr} meter points for {cr} committed in the last hour, "
-            + (f"against {pt / ct * 100:.0f} points per 100 before" if ct else ""),
-            self.last_meter, "cost per puzzle back to normal")
+            f"cost per clue doubled: {pr} meter points for {kr} clues ({cr} puzzles) committed in the last hour, "
+            f"against {pt / kt * 1000:.1f} points per 1000 clues before",
+            self.last_meter, "cost per clue back to normal")
         return out
 
     def last_hour(self, now):
@@ -479,8 +483,8 @@ class Log:
         m = re.match(r"^weekly (\d+)% -> (\d+)%", line.strip())
         if m:
             self.last_meter.append(line.strip())
-            self.meters.append((now, int(m.group(2)) - int(m.group(1)), self.commits_since_meter))
-            self.commits_since_meter = 0
+            self.meters.append((now, int(m.group(2)) - int(m.group(1)), self.commits_since_meter, self.clues_since_meter))
+            self.commits_since_meter = self.clues_since_meter = 0
             if self.week:
                 self.week = (float(m.group(2)), self.week[1])
             return []
@@ -552,7 +556,7 @@ class Log:
                 what, where = f"wrote {plural(n, 'hint')}", ""
             if labels and len(labels) <= 8:
                 where += f" ({', '.join(labels)})"
-            self.finished(now, True, pid, rule)
+            self.finished(now, True, pid, rule, clues=n)
             self.cost(now, pid, rule, n, field or what == "re-checked against its blog")
             return [self.out(now, "✓", f"{pid} {what}{where}")]
         m = re.match(r"^  \[" + PUZZLE + r"\] bag of (\d+) puzzles(?:, (\d+) clues)?: (\S+)", line)
