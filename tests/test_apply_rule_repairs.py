@@ -339,4 +339,14 @@ clue = lead["clue"]["text"]
 tree = W.normalize(W.parse("ana<surprisingly>([goes] + [at] + [us]) + [right]R", clue), clue, "STEGOSAUR")[0]
 mended = A.repair_pool_gap({"wordplay": tree}, lead, [lead, tail])["wordplay"]
 check("a linked answer's pool gap is mended against the whole answer", not V.pool_gaps(mended, clue))
+
+# A leaf that gives a letter while holding its selector ("[socialist leader]S") is refused by the committed-file
+# check as a block with its selector inside it (39 sessions' first checks): the fixer makes it first<leader>([socialist]).
+clue = "Elected socialist leader"
+wp = {"op": "charade", "parts": [leaf("Elected", "CHOSE"), leaf("socialist leader", "S")]}
+check("selectorInLeaf fires on a leaf holding its selector", A.rule_counters()["selectorInLeaf"](wp, {}, clue) == 1)
+new = A.repair_pool_gap({"wordplay": wp}, {"solution": "CHOSES", "clue": {"text": clue}})["wordplay"]
+check("selectorInLeaf: the leaf becomes the selection op over its source",
+      new["parts"][1].get("op") == "first" and new["parts"][1]["indicators"][0]["text"] == "leader"
+      and not A.rule_counters()["selectorInLeaf"](new, {}, clue))
 sys.exit(1 if fails else 0)

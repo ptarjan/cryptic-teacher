@@ -478,6 +478,19 @@ def _gives_not(tree, answer):
         return 1
 
 
+def _selectors_in_leaves(tree):
+    """How many leaves give a letter while holding its selector word ("[socialist leader]S",
+    "[leading Italian]I"): the committed-file check refuses these as a block with its selector
+    inside (39 sessions' first checks), and r_leaf_select turns each into the selection op."""
+    import fix_shape_suspects as F
+    import validate_annotations as V
+    import wordplay
+    return sum(1 for n, parent in F.walk(tree)
+               if F.leaf(n) and n.get("gives") and n.get("words") and not n.get("unchecked")
+               and (parent or {}).get("op") not in wordplay.SELECT
+               and V.selector_in_block({"clueFragment": n["words"], "gives": n["gives"]}))
+
+
 def rule_counters():
     """{validator rule: fn(tree, full annotation with _answer, clue) -> hits}: the one table
     that says which RULE_REPAIRS fixers the first check runs (test_apply_rule_repairs.py keeps
@@ -491,6 +504,7 @@ def rule_counters():
     table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
     table["spanOverlap"] = lambda t, a, c: _span_overlaps(t, c)
     table["doesNotGive"] = lambda t, a, c: _gives_not(t, a.get("_answer"))
+    table["selectorInLeaf"] = lambda t, a, c: _selectors_in_leaves(t)
     return table
 
 

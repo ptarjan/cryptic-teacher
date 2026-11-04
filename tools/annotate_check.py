@@ -4,6 +4,8 @@
     python3 tools/annotate_check.py cryptic-30098
     python3 tools/annotate_check.py --view cryptic-30098   # the run's input
     python3 tools/annotate_check.py --view ID ID ...       # a bag: one load, a path per line
+    python3 tools/annotate_check.py --show ID 6-down ...   # clues as filed: answer and annotation
+    python3 tools/annotate_check.py --try ID 6-down "<wp>"  # does this wp give the answer?
     python3 tools/annotate_check.py --nothing-due-many ID ...  # "ID 1|0" per line (1: nothing due); ids on stdin if none
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
     python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
@@ -1177,6 +1179,12 @@ def main(argv):
         for pid in (argv[1:] or sys.stdin.read().split()):
             print(pid, nothing_due_id(pid))
         return 0
+    if argv[0] in ("--show", "--try") and len(argv) > 3 - (argv[0] == "--show"):
+        import clue_peek
+        puzzle = read_puzzle_file(resolve_puzzle(argv[1]))
+        print(clue_peek.show(puzzle, argv[2:]) if argv[0] == "--show"
+              else clue_peek.try_wp(puzzle, argv[2], " ".join(argv[3:])))
+        return 0
     if argv[0] == "--view" and len(argv) > 2:  # a bag: one load, each id's view path
         failed = 0
         for pid in argv[1:]:
@@ -1195,7 +1203,7 @@ def main(argv):
         print("(JSON: `entries` is a list of strings '1-across | group | ANSWER | clue (enum)', "
               "not objects: Read the file, no script needed. The full puzzle is "
               "puzzles/<series>/<year>/<id>.json, whose entries have `number` and "
-              "`direction`, no `id`.)", file=sys.stderr)
+              "`direction`, no `id`: see them with `annotate_check.py --show <ID> 6-down`.)", file=sys.stderr)
         return 0
     if argv[1:2] == ["--withdraw"]:
         return withdraw(resolve_puzzle(argv[0]), " ".join(argv[2:]))
