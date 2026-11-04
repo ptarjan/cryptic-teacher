@@ -20,7 +20,7 @@ import tempfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import fetch_puzzle as fp
 
 STRIDE = 20

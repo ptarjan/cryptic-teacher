@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # A paper's erratum in the preamble fixes its clue and leaves the preamble;
 # the instructions beside it stay, and the write gate refuses one left behind.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

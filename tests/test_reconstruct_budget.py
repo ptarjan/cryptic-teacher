@@ -3,7 +3,7 @@
 
 Run directly: python3 tests/test_reconstruct_budget.py
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import sys
 import time
 from pathlib import Path

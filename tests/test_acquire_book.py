@@ -67,7 +67,7 @@ import json, re, tempfile
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import grid_verdict
 from light_spec import build_spec
 from reconstruct_grid import reconstruct

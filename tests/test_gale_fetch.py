@@ -12,7 +12,7 @@
 #
 # Gale, the Mac and the clock are stand-ins: nothing is asked of Gale or the
 # Mac, nobody is woken, nothing is written outside a temp dir.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 import atexit

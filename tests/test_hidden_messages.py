@@ -3,7 +3,7 @@
 # text, a message is spelt by its clues' letters in order, a preamble naming
 # a device without `messages` is counted by the ratchet, and the converter reads
 # letters off existing blocks.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

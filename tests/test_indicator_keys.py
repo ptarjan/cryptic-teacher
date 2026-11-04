@@ -2,7 +2,7 @@
 # The (type, key) pairs a clue's indicators give /indicators/ and the burn's
 # indicator cover: each phrase under its own `for` only, the longest key inside
 # it, and never through link words alone. /learn/ shows each type's most used, with counts.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

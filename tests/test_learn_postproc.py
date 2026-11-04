@@ -3,7 +3,7 @@
 scoring of a rule (hits, closer, worse, fixpoint) on old/new pairs.
 """
 import sys
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import learn_postproc as L
 

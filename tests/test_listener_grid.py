@@ -8,7 +8,7 @@
 # grid), and a 7 x 9 grid (not square, not symmetric) with thin rules, thick
 # bars, a block and a number in each cell's corner, turned a fraction of a
 # degree. The reader must find exactly one grid and give back the rows drawn.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

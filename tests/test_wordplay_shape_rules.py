@@ -2,7 +2,7 @@
 # Wordplay shapes that read wrongly are counted by validate_annotations under their
 # own ratchet fields, and tidy_wordplay_shapes.py joins a charade inside a charade
 # without changing what view() shows.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

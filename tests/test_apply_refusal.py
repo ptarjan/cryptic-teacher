@@ -6,7 +6,7 @@ import os
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pathlib import Path
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import apply_annotations as A, fetch_puzzle, puzzle_integrity, groups
 
 fails = 0

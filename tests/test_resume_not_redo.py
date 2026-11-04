@@ -9,7 +9,7 @@
 
     python3 tests/test_resume_not_redo.py
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import re
 from pathlib import Path
 

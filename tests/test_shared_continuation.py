@@ -15,7 +15,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import copy
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import fetch_puzzle
 import groups
 

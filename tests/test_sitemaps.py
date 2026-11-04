@@ -14,7 +14,7 @@ import re
 import sys
 from datetime import date, timedelta
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import build_seo_pages as B
 
 results = {}

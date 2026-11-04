@@ -9,7 +9,7 @@
 #
 # A synthetic Trove cache in a temp dir: no scan, no OCR, nothing written
 # outside it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 import atexit

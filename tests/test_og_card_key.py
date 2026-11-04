@@ -26,7 +26,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 os.chdir(REPO)
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import make_og_card as m
 import puzzle_paths

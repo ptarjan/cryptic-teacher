@@ -3,7 +3,7 @@
 # whatever the source spelt; hyphens, blanks and a continued clue's leader
 # stay; every offset into the clue moves with the text; the write gate refuses
 # any other spelling.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

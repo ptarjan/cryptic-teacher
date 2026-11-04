@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """clue_text: ACROSS/DOWN heading readings every old copy accepted."""
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import re
 import clue_text as ct
 

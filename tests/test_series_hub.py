@@ -14,7 +14,7 @@
 # A synthetic index, so nothing here reads the corpus or writes to the tree.
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 fails = []
 

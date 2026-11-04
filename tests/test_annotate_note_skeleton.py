@@ -5,7 +5,7 @@
 #     python3 tests/test_annotate_note_skeleton.py
 import json
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import annotate_check as AC
 import validate_annotations as V
 

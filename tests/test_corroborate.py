@@ -7,7 +7,7 @@
 # Offline: every source here is a stub, so nothing reads a cache or the
 # network. One case per rule, each built so that rule and no earlier one
 # decides it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import subprocess
 import sys

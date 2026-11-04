@@ -20,7 +20,7 @@
 # enough to accept "Cryptic Across" will read it as a section header and
 # throw away every clue above it. That failure is silent and looks like a
 # short puzzle, which is why it is asserted directly.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 from clue_text import tolerant_heading as ct_tolerant
 import sys

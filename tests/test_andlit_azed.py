@@ -6,7 +6,7 @@
 #     python3 tests/test_andlit_azed.py
 #
 # Hand-built inputs only. Nothing here reads the network, the cache or the corpus.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import subprocess
 import sys
 from pathlib import Path

@@ -7,7 +7,7 @@ adds no class. A rung before the blocks that spells the answer is an
 early_giveaway, but one that only quotes the clue is not. A template word no
 solver says is jargon_unsaid.
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import collections
 import sys
 

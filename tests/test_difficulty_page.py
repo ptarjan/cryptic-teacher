@@ -15,7 +15,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import build_seo_pages as B
 import difficulty as D
 import difficulty_check as C

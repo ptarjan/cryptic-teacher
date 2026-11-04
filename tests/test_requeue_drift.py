@@ -3,7 +3,7 @@ import json
 import unittest
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import requeue_drift as R
 

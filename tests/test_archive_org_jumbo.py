@@ -10,7 +10,7 @@
 #     python3 tests/test_archive_org_jumbo.py
 #
 # Pure functions on made-up words and drawn grids: no scan, no OCR, nothing written.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

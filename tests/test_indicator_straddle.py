@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # An indicator may sit inside a definition (an &lit) but not across its edge,
 # where app.js cannot mark both.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

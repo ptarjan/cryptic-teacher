@@ -3,7 +3,7 @@
 # tools/data/setter_error.json names for that light passes, with a walkthrough
 # saying so, and every other mismatch still fails. A row is a whole-answer or a
 # partial anagram of what the clue prints, or it is refused.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

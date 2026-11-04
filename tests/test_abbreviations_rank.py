@@ -2,7 +2,7 @@
 # /abbreviations/ ranks every list by clue count and shows the count: the most
 # common list, the families and the members of each, and each A-to-Z row's
 # readings. A reading no clue uses keeps its place, last, with no count.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

@@ -5,7 +5,7 @@
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import annotate_bag
 import annotate_check

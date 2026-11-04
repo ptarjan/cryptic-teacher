@@ -8,7 +8,7 @@
 #     python3 tests/test_parallel.py
 import os
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 os.environ.pop("CT_JOBS", None)
 
 import parallel as par

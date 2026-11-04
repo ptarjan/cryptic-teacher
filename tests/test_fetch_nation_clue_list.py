@@ -14,7 +14,7 @@
 import io
 import sys
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 _real_stdout, sys.stdout = sys.stdout, io.StringIO()
 
 import fetch_nation as F

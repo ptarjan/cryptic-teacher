@@ -15,7 +15,7 @@
 # Also: the page chrome above The Nation's clue list (share bar, byline, issue
 # line, newsletter blurbs) is not a preamble (fetch_nation.preamble_of,
 # tools/boilerplate.py).
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

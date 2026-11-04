@@ -7,7 +7,7 @@
 # the data disk whose path tools/downloads.py sets), never by a local path,
 # a home directory, a LAN address or whose machine it is. This fails on any of
 # those in README.md, docs/*.md, docs/BACKFILLS.md, docs/APP.md or tools/data/README.md.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

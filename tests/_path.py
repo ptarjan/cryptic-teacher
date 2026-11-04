@@ -1,4 +1,4 @@
-"""Put tools/ first on sys.path. Tests do `import _path  # noqa: F401` first.
+"""Put tools/ first on sys.path. Tests do `import _path` first.
 
 A test run as a plain script has tests/ on sys.path, so this module is
 importable without pytest or a conftest.

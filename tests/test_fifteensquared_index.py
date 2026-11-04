@@ -18,7 +18,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 TMP = tempfile.mkdtemp()
 os.environ["CT_DOWNLOADS"] = TMP
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 fails = 0
 

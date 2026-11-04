@@ -2,7 +2,7 @@
 # The Times's crossword numbers ran four digits until No 10,000 (May 1962):
 # the title and solution headings of those editions read as puzzles, and a
 # five-digit title still reads as before.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import file_archive_org_puzzles as f
 

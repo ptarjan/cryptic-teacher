@@ -13,7 +13,7 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import numpy as np
 from PIL import Image
 

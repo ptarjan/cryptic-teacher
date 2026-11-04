@@ -20,7 +20,7 @@ import tempfile
 
 TOOLS = pathlib.Path(__file__).resolve().parent.parent / "tools"
 REPO = TOOLS.parent
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import punctuation as p
 import puzzle_integrity as pi

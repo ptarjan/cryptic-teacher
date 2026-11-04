@@ -3,7 +3,7 @@
 alone, lists the ones near a window's edge nearest first, and judges a
 reading's crop: refused, no grid-fitting list or lights left blank is poor.
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import numpy as np
 from PIL import Image

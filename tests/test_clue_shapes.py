@@ -12,7 +12,7 @@ import os
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import re
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import clue_shapes as cs
 
 v = cs.load_verdicts()

@@ -6,7 +6,7 @@
 # A barred grid is checked far more by convention, so against the blocked
 # grids' spread every Listener would rate Gentle. More crossing letters still mean
 # easier, against its own kind.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

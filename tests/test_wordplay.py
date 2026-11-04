@@ -5,7 +5,7 @@
 # (type, answer, indicators' for, linkWords, blocks, assembly) from the tree?
 #
 #     python3 tests/test_wordplay.py
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

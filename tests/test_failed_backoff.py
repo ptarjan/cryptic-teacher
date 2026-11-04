@@ -11,7 +11,7 @@ import tempfile
 from datetime import date, timedelta
 from pathlib import Path
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 tmp = tempfile.mkdtemp()
 os.environ["FAILED_INPUTS_FILE"] = str(Path(tmp) / "ledger.json")
 import failed_inputs as fi

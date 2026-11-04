@@ -1,5 +1,5 @@
 """tree_normalize: canonical rewrites by code, letters proved unchanged (r10 sample rows)."""
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import copy
 import unittest
 

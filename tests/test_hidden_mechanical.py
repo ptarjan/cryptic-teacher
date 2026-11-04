@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # The near-certain hidden words of tools/hidden_mechanical.py and the annotation
 # tools/prefill_hidden.py builds from one.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import copy
 import os
 import sys

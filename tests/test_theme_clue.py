@@ -3,7 +3,7 @@
 # puzzle that prints no preamble. It lets a block with no clue words stand as
 # a preamble would, must name a worded entry, re-queues a recorded annotate
 # failure, survives clues-only promotion, and no annotation may set or change it.
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import os
 import sys
 os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))

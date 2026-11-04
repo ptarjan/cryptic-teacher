@@ -3,7 +3,7 @@
 lead_column()'s window starts 100px into them: trimmed_lead() moves it to
 the gutter, and leaves a window with only a number margin (1950s) alone.
 """
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 
 import numpy as np
 from PIL import Image

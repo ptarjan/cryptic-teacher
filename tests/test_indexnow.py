@@ -10,7 +10,7 @@ import pathlib
 import sys
 import tempfile
 
-import _path  # noqa: F401
+import _path  # puts tools/ on sys.path
 import indexnow as I
 import stage_site
 
