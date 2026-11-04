@@ -835,46 +835,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "retreat",
-       "at": 24,
-       "note": "retreat means go backwards, so the whole string is read in reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "with",
+       "at": 10,
+       "gives": "W"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retreat",
+         "at": 24,
+         "note": "to retreat is to go back, so the two words before it are read in reverse as one run"
+        }
+       ],
        "parts": [
         {
-         "words": "no",
-         "at": 15,
-         "gives": "NAY",
-         "note": "nay is an old word for no"
-        },
-        {
-         "words": "other",
-         "at": 18,
-         "gives": "ELSE",
-         "note": "else means other, as in someone else"
-        },
-        {
-         "words": "with",
-         "at": 10,
-         "gives": "W"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "no",
+           "at": 15,
+           "gives": "NAY",
+           "note": "nay is an old word for no"
+          },
+          {
+           "words": "other",
+           "at": 18,
+           "gives": "ELSE",
+           "note": "else means other, as in someone else"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Methodist goes off on a retreat alone, without company.",
-     "walkthrough": "'retreat' looks like a religious retreat but signals reversal of NAY ELSE W.",
-     "definitionFit": "Methodism was founded by John Wesley, so his followers are called by his name."
+     "surface": "A churchgoer with no other place to go into seclusion.",
+     "walkthrough": "'retreat' reads NAY ELSE backwards as ESLEYAN behind W.",
+     "definitionFit": "A Wesleyan follows John Wesley, founder of Methodism, so is a member of that church."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "retreat"
     }

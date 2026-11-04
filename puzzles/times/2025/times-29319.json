@@ -678,61 +678,69 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "one thing in another sits inside it"
-      }
-     ],
      "parts": [
       {
-       "words": "bellboy",
-       "gives": "Y",
-       "note": "last letter of bellboy"
-      },
-      {
-       "op": "reversal",
+       "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "what comes finally comes last, so take bellboy’s last letter"
+         "at": 27,
+         "note": "finally means the last letter of the word before it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "bellboy",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 45,
+         "note": "in places one piece inside another"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "turning",
-           "note": "turning round means facing the other way"
+           "at": 48,
+           "note": "turning means reversing, so the word is read backwards"
           }
          ],
          "parts": [
           {
            "words": "handle",
+           "at": 56,
            "gives": "NAME",
-           "note": "a handle is a name"
-          },
-          {
-           "words": "succeeded",
-           "gives": "S",
-           "note": "s = succeeded, as in family trees"
+           "note": "a handle is slang for a name"
           }
          ]
+        },
+        {
+         "words": "succeeded",
+         "at": 35,
+         "gives": "S",
+         "note": "S is the abbreviation for succeeded in genealogies"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful bellboy finally manages to turn a door handle.",
-     "walkthrough": "‘Handle’ is a door fitting on the surface and slang for a name in the wordplay.",
-     "definitionFit": "A playful paraphrase: someone who always says yes is agreeable in the most literal sense."
+     "surface": "A pleasant bellboy has ended up succeeding at turning a door handle.",
+     "walkthrough": "'turning' makes EMAN from NAME; S goes 'in' it after the E, and the Y from bellboy leads.",
+     "definitionFit": "A yes-man always agrees with a superior, so is an obsequiously agreeable person."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "handle"
     }
    }

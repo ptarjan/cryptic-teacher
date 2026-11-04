@@ -813,55 +813,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "awful",
-       "note": "something awful is in a terrible state, so these letters are scrambled"
+       "text": "Over",
+       "at": 0,
+       "note": "over in a down clue places the anagram above the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Over",
-         "note": "in a down clue being over means placed above, so the scrambled storm comes first"
+         "text": "awful",
+         "at": 29,
+         "note": "awful means dreadful, so the letters of the word after it are jumbled"
         }
        ],
        "parts": [
         {
          "words": "gale",
-         "note": "the four letters of gale rearranged"
+         "at": 35,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "in places one piece inside another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "square",
+         "at": 21,
+         "gives": "NINE",
+         "note": "nine is a square number, three times three"
         },
         {
-         "op": "container",
+         "op": "first",
          "indicators": [
           {
-           "text": "in",
-           "note": "one piece sits inside the number word"
+           "text": "top of",
+           "at": 5,
+           "note": "the top of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "words": "square",
-           "gives": "NINE",
-           "note": "nine is a square number, three times three"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "top of",
-             "note": "the top of a word in a down clue is its first letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "tower",
-             "note": "the first letter of tower"
-            }
-           ]
+           "words": "tower",
+           "at": 12
           }
          ]
         }
@@ -870,12 +876,12 @@
      ]
     },
     "explanation": {
-     "surface": "A dreadful gale blows over the top of a tower in a town square, and a rose is caught in it.",
-     "walkthrough": "T goes into NINE after its first letter, giving NTINE, with the scrambled gale placed over it.",
-     "definitionFit": "Eglantine is another name for the sweetbriar, a wild rose with fragrant leaves."
+     "surface": "Above the summit of a tower in a town square, a terrible wind got up.",
+     "walkthrough": "'awful' makes EGLA from GALE; 'Over' sets it above NINE with T placed 'in' it. 'Rose' looks like a verb for the gale but is the flower.",
+     "definitionFit": "Eglantine is the sweet briar, a wild rose with fragrant leaves."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rose"
     }

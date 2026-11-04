@@ -866,65 +866,75 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BANISHMENT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "close to",
-         "note": "only the last letter of 'priest'"
-        },
-        {
-         "text": "revolutionary",
-         "note": "a revolution is a full turn, so the word beside it is flipped end to end"
+         "text": "protecting",
+         "at": 30,
+         "note": "protecting means wrapping around, so the pieces before it surround the next"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Attack",
+         "at": 0,
+         "gives": "BASH",
+         "note": "to bash is to strike or attack"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "protecting",
-           "note": "to protect is to shield all round"
+           "text": "revolutionary",
+           "at": 41,
+           "note": "revolutionary means turned round, so the little word after it is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "Attack",
-           "gives": "BASH",
-           "note": "bash = assault"
-          },
-          {
            "words": "in",
-           "gives": "NI",
-           "note": "IN, reversed"
+           "at": 55,
+           "gives": "IN",
+           "note": "taken as written before being turned round"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "words": "people",
+       "at": 7,
+       "gives": "MEN",
+       "note": "men is a common crossword word for people"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "people",
-         "gives": "MEN",
-         "note": "men = people"
-        },
+         "text": "close to",
+         "at": 14,
+         "note": "close to means the very end, so only the final letter is taken"
+        }
+       ],
+       "parts": [
         {
          "words": "priest",
-         "gives": "T",
-         "note": "last letter of priesT"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An assault on a priest's circle protects a rebel who has fled abroad.",
-     "walkthrough": "'Revolutionary' looks like a rebel, but it tells IN to turn over. 'In exile' reads as a phrase; only 'exile' is the definition.",
-     "definitionFit": "A plain synonym: the noun for being expelled from your country, matching 'exile' as a noun."
+     "surface": "Assailants near a clergyman are shielding a rebel who has been sent abroad.",
+     "walkthrough": "'revolutionary' looks like a noun for the person protected, but it is the reversal signal on the little word after it.",
+     "definitionFit": "Banishment is the state of being expelled from one's country, which is what exile means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "revolutionary"
     }

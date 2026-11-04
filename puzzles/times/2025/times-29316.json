@@ -511,45 +511,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "without",
-       "note": "without means lacking here, so the letter is taken away"
-      }
-     ],
      "parts": [
       {
-       "words": "due, without international",
-       "gives": "OWNG",
-       "note": "due is OWING; take away I for international"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without international",
+         "at": 13,
+         "note": "without international means lacking the letter I, the abbreviation for international"
+        }
+       ],
+       "parts": [
+        {
+         "words": "due",
+         "at": 8,
+         "gives": "OWING",
+         "note": "owing means due, as money still to pay"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "being recalled",
-         "note": "something recalled is called back, so the word runs backwards"
+         "at": 44,
+         "note": "recalled means called back, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "language",
+         "at": 35,
          "gives": "LAO",
-         "note": "Lao is the language of Laos; reversed it reads OAL"
+         "note": "Lao is the language of Laos"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slip in an exam, with an international language being called to mind.",
-     "walkthrough": "‘Due’ is owing, as money is owed. An own goal in football is one a player accidentally scores against their own side.",
-     "definitionFit": "An own goal is figuratively any blunder that harms your own cause."
+     "surface": "A mistake is about to happen when a global language is withdrawn.",
+     "walkthrough": "'without' takes I out of OWING to leave OWNG; 'being recalled' turns LAO into OAL.",
+     "definitionFit": "Scoring against one's own side in football is the classic self-inflicted blunder."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "recalled"
+     "misdirectedWord": "due"
     }
    }
   },

@@ -312,58 +312,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WHIMSICAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "binding",
+       "at": 21,
+       "note": "binding means tying around, so the reversed piece encloses the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "from east",
-         "note": "an across entry read from the east starts at the right-hand end, so it runs backwards"
+         "at": 11,
+         "note": "from east means read right to left in an across answer"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "binding",
-           "note": "binding wraps round something, so the reversed word wraps round the middle"
-          }
-         ],
-         "parts": [
-          {
-           "words": "law",
-           "gives": "WAL",
-           "note": "LAW read backwards"
-          },
-          {
-           "words": "that chap",
-           "gives": "HIM",
-           "note": "him = that chap"
-          }
-         ]
+         "words": "law",
+         "at": 7,
+         "gives": "LAW",
+         "note": "taken as written before being turned round"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that chap",
+         "at": 29,
+         "gives": "HIM",
+         "note": "him refers to a man already mentioned"
         },
         {
          "words": "thus",
+         "at": 39,
          "gives": "SIC",
-         "note": "sic is Latin for thus"
+         "note": "sic is Latin for thus, used to mark a quotation as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An odd statute arrives from the Orient to tie some fellow down.",
-     "walkthrough": "Sic is the Latin 'thus' printed in brackets after a quoted error, and a staple for 'thus' in crosswords.",
-     "definitionFit": "Whimsical means playfully quirky or fanciful, a plain synonym."
+     "surface": "A strange legal rule from eastern parts constrains that fellow in this way.",
+     "walkthrough": "SIC is the Latin word printed after a quotation to say it is given exactly as written.",
+     "definitionFit": "Whimsical means playfully odd or fanciful, so quirky in character."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "binding"
+     "misdirectedWord": "east"
     }
    }
   },
@@ -1901,43 +1904,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "in a down entry, rising means reading from the bottom upwards, so the word runs backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "with",
+       "at": 20,
+       "gives": "W"
+      },
+      {
+       "words": "that man's",
+       "at": 25,
+       "gives": "HIS",
+       "note": "his means belonging to that man"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 47,
+         "note": "rising in a down clue means the word reads upwards"
+        }
+       ],
        "parts": [
         {
          "words": "reputation",
-         "gives": "REP",
-         "note": "REP (reputation, as in street cred) turned upwards"
-        },
-        {
-         "words": "that man's",
-         "gives": "SIH",
-         "note": "his = that man's"
-        },
-        {
-         "words": "with",
-         "gives": "W",
-         "note": "w = with"
+         "at": 36,
+         "gives": "REP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man speaks softly as his standing improves.",
-     "walkthrough": "'Rising' reads as a reputation improving, but in a down clue it turns the word upside down.",
-     "definitionFit": "To whisper is to speak under the breath, the softest way to communicate aloud."
+     "surface": "Talk softly as that man's good name improves.",
+     "walkthrough": "'rising' turns REP into PER in this down answer.",
+     "definitionFit": "To whisper is to speak very softly, conveying something in a hushed voice."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "rising"
     }

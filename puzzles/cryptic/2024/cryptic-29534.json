@@ -1442,45 +1442,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means nearly all, so the last letter is cut"
-      },
-      {
-       "text": "topped",
-       "note": "topped means having its top cut off, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 7,
+         "note": "almost means the word is not quite complete, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "a pound",
+         "at": 14,
          "gives": "QUID",
          "note": "a quid is British slang for one pound sterling"
         },
         {
-         "words": "once",
-         "note": "the letters as written"
+         "gives": "D"
         }
        ]
       },
       {
-       "gives": "DO"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topped",
+         "at": 27,
+         "note": "topped means having its top cut off, so the first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "once",
+         "at": 22,
+         "gives": "ONCE",
+         "note": "taken as written before its head is removed"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit that once cost nearly a pound.",
-     "definitionFit": "The quince is a hard, pear-shaped yellow fruit used for jelly and preserves."
+     "surface": "A piece of fruit that once cost nearly a pound has been decapitated.",
+     "walkthrough": "'almost' trims QUID to QUI; 'topped' trims ONCE to NCE. QUID is British slang for a pound.",
+     "definitionFit": "A quince is a hard, aromatic, pear-shaped fruit used for jelly and jam."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "pound"
+     "misdirectedWord": "topped"
     }
    }
   },

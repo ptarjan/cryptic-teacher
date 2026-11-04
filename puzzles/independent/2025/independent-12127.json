@@ -627,45 +627,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "changes",
-       "note": "the word made undergoes changes, so its letters are reordered"
+       "text": "inside",
+       "at": 20,
+       "note": "inside means the scrambled piece goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Expert",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is an expert"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places the altered letters within the expert"
+         "text": "changes",
+         "at": 12,
+         "note": "changes means the letters of the word before it are altered in order"
         }
        ],
        "parts": [
         {
-         "words": "Expert",
-         "gives": "ACE",
-         "note": "an ace is a highly skilled person"
-        },
-        {
          "words": "made",
-         "note": "made rearranged"
+         "at": 7,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A specialist has introduced reforms at a university.",
-     "walkthrough": "'Expert made changes' reads as a sentence, but 'made' is the word being altered.",
-     "definitionFit": "Academe is the world of scholarship and higher learning, of which a university is one instance."
+     "surface": "A specialist altered things within a university.",
+     "walkthrough": "'university, say' marks the definition as an example: the world of universities and scholars.",
+     "definitionFit": "Academe means the academic world, of which a university is an example, hence 'say'."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "made"
+     "misdirectedWord": "changes"
     }
    }
   },
