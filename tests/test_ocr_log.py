@@ -167,6 +167,23 @@ log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
 check(log.git_counts(log.t), (2, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
 
+# live, the ask count is the image reader's own call log (UTC clock), not the queue's "N asks spooled"
+asks_path = os.path.join(HOME, "vlm_asks.log")
+log = O.Log(None, day=DAY, ask_log=asks_path)
+log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting", 1000.0)
+utc = lambda secs_ago: datetime.datetime.fromtimestamp(log.t - secs_ago, datetime.timezone.utc).strftime("%H:%M:%S")
+with open(asks_path, "w") as fh:
+    for ago in (700, 590, 300, 90, 3):
+        fh.write(f"{utc(ago)} vlm ask gale/GaleTimes1932UKEnglish/1932-02-18 pick 358b451a27e9 why=pick:1a(blank)\n")
+    fh.write(f"{utc(300)} vlm something else\n")
+log.feed("09:00:01 read GaleTimes1947UKEnglish/1947-05-10: deferred, 7 VLM asks spooled", 1001.0)
+check(log.ask_count(), 4, "four asks in the last ten minutes (an older one aged out, other lines are not asks)")
+log.feed("09:04:00 vlm stage: 0 asks spooled, 2 reads waiting", 1240.0)
+out = log.feed("09:05:10 vlm stage: 0 asks spooled, 2 reads waiting", 1310.0)
+check([x for x in out if "at once" in x][0].split(" · ")[3], "2 image-reader asks/10 min",
+      "the status line counts the reader's real calls, not the 7 spooled on one read")
+check(O.Log(None, day=DAY, ask_log=os.path.join(HOME, "no_asks.log")).ask_count(), 0, "a missing call log counts none")
+
 # a day change moves the clock on
 log = O.Log(None, day=DAY)
 log.feed("23:59:30 start read x (never read)")
