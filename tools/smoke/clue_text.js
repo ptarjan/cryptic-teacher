@@ -96,8 +96,11 @@ const { ROOT, assert, clueText, entryId, fs, groupsOf, path, pp, registry } = T;
     if (annotatedInIndex.has(puz.id)) {
       const continuations = new Set(puz.entries.flatMap((e) => groupsOf(e).flatMap((grp) => grp.slice(1))));
       const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(entryId(e)));
+      // A clue withheld for the text it still has is done too (fetch_puzzle.withheld_stands).
+      const withheldStands = (e) => !e.annotation && e.annotationWithheld
+        && e.annotationWithheld.clue === (e.clue.text || "");
       // A clue entered off the grid is annotated too (unannotated_clues counts it).
-      assert(annotatedInIndex.get(puz.id) === (answerable.every((e) => e.annotation)
+      assert(annotatedInIndex.get(puz.id) === (answerable.every((e) => e.annotation || withheldStands(e))
         && (puz.offGrid || []).every((item) => item.annotation)),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
