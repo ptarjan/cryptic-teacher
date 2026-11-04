@@ -85,6 +85,15 @@ log.feed(EMPTY, T)
 check(bare(log.feed("sync: tree at x", T + 301)), ["── idle: nothing queued"], "idle after five empty minutes")
 check(log.feed("sync: tree at x", T + 400), [], "idle is said once")
 
+# Past its deadline the burn drains and runs its end-of-run passes (the validator's
+# --tighten can take half an hour): no runs in flight then is meant, not short.
+log = B.Log()
+log.feed(WIDTH, T)
+log.feed("deadline reached — stopping", T + 1)
+log.feed("--- pool of 16: 0 in flight (0 running), 2 queued ---", T + 2)
+check([x for x in log.feed("sync: tree at x", T + 2 + B.SHORT_S + 60) if "in flight against" in x], [],
+      "a burn stopping at its deadline is not warned short of runs")
+
 log = B.Log()
 log.feed(WIDTH, T)
 got = []

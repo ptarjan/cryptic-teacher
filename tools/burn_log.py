@@ -169,6 +169,7 @@ class Log:
         self.since = {}           # warning kind -> when its condition began
         self.raw = collections.deque(maxlen=3)        # the last raw lines: evidence
         self.pool = None          # (width, in flight, queued) of the latest pool line
+        self.stopping = False     # the burn said it is stopping (deadline, pause): an empty pool is meant
         self.need = None          # runs the week needs, from the latest width line
         self.meters = collections.deque(maxlen=400)   # (time, points spent, commits since the last)
         self.commits_since_meter = 0
@@ -331,7 +332,7 @@ class Log:
         if self.pool:
             w, n, q = self.pool
             out += self.condition(
-                now, "short", w > 0 and n < 0.75 * w and q > 0,
+                now, "short", w > 0 and n < 0.75 * w and q > 0 and not self.stopping,
                 f"only {n} runs in flight against a width of {w}, with {q} queued", [self.pool_raw] if self.pool_raw else [],
                 f"{n} of {w} runs in flight", SHORT_S)
         out += self.condition(
@@ -594,6 +595,7 @@ class Log:
         if m:
             return [self.out(now, "✗", f"{m.group(1)} {clip(m.group(2))}")] + self.finished(now, False, m.group(1), "annotate")
         if re.match(r"^(deadline reached|paused \()", line):
+            self.stopping = True
             return [self.out(now, "──", f"stopping: {clip(line)}")]
         if PROBLEM.search(line):
             text = clip(line.removeprefix("ALERT: "), 200)
