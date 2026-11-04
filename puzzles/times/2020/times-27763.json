@@ -367,13 +367,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "introducing",
-       "at": 14,
-       "note": "the graduates introduce, that is come before, the book"
-      }
-     ],
      "parts": [
       {
        "op": "container",
@@ -381,15 +374,27 @@
         {
          "text": "about",
          "at": 31,
-         "note": "about means surrounding, so the pair of degrees goes round the letter for old"
+         "note": "the letters go around the next piece, holding it"
         }
        ],
        "parts": [
         {
-         "words": "Two graduates",
-         "at": 0,
-         "gives": "BABA",
-         "note": "BA is Bachelor of Arts, a graduate; two of them give BABA"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "Two",
+           "at": 0,
+           "note": "two of them, so the abbreviation is written twice"
+          }
+         ],
+         "parts": [
+          {
+           "words": "graduates",
+           "at": 4,
+           "gives": "BA",
+           "note": "BA is a Bachelor of Arts, a graduate"
+          }
+         ]
         },
         {
          "words": "old",
@@ -399,21 +404,22 @@
        ]
       },
       {
-       "words": "book",
-       "at": 26,
-       "gives": "B"
+       "words": "introducing book",
+       "at": 14,
+       "gives": "B",
+       "note": "B is the abbreviation for book, brought in after the two graduates"
       }
      ]
     },
     "explanation": {
-     "surface": "A pair of graduates presents a book about an ancient tree in Africa.",
-     "walkthrough": "'about' sets O between the two BAs, and 'introducing' puts that in front of the book's letter.",
-     "definitionFit": "The baobab is a massive, long-lived tree of the African savanna with a swollen trunk."
+     "surface": "Two graduates bring in an old book about an African tree.",
+     "walkthrough": "'introducing' just adds B after BABA; 'about' puts the whole run around O.",
+     "definitionFit": "The baobab is a massive-trunked tree of the African savanna."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "graduates"
     }
    }
   },

@@ -1556,34 +1556,50 @@
      "indicators": [
       {
        "text": "back",
-       "note": "back means the assembled string is turned round to read right to left"
+       "at": 28,
+       "note": "back means read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 18,
+         "note": "taking in, so the extra word goes inside"
+        }
+       ],
        "parts": [
         {
-         "words": "Caught",
-         "gives": "C",
-         "note": "C is the cricket scorecard abbreviation for caught"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Caught",
+           "at": 0,
+           "gives": "C",
+           "note": "C is the cricket abbreviation for caught"
+          },
+          {
+           "words": "volunteers",
+           "at": 7,
+           "gives": "TA",
+           "note": "TA is the Territorial Army, volunteer soldiers"
+          }
+         ]
         },
         {
          "words": "it",
-         "note": "taken as written"
-        },
-        {
-         "words": "volunteers",
-         "gives": "TA",
-         "note": "TA, the Territorial Army, Britain's volunteer reserve force"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Volunteers bring a captured item back to a room.",
-     "definitionFit": "An attic is a room in the roof space just below the top of a house."
+     "surface": "Caught volunteers return it to a room.",
+     "walkthrough": "IT goes inside CTA to make CITTA, which 'back' reverses.",
+     "definitionFit": "An attic is a room in the roof space of a house."
     },
     "features": {
      "answerInScene": false,

@@ -575,45 +575,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CINEMA",
+     "op": "container",
      "indicators": [
       {
-       "text": "returning",
-       "note": "going back means the word for people is read in the opposite direction"
+       "text": "beset",
+       "at": 7,
+       "note": "to beset is to surround, so one piece goes around the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Spooks",
+       "at": 0,
+       "gives": "CIA",
+       "note": "the CIA is the American spy agency, spooks"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "beset",
-         "note": "to beset is to surround on all sides, so the spooks enclose the people"
+         "text": "returning",
+         "at": 20,
+         "note": "returning means read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Spooks",
-         "gives": "CIA",
-         "note": "spooks are spies; the CIA is the US spy agency"
-        },
-        {
          "words": "people",
-         "gives": "NEM",
-         "note": "men, read backwards"
+         "at": 13,
+         "gives": "MEN",
+         "note": "men are people"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spies ambush people on their way home from a night out.",
-     "definitionFit": "A cinema is a building where films are shown, a place people go to be entertained."
+     "surface": "Spies surround people coming back from a show.",
+     "walkthrough": "'Spooks' are spies, not ghosts: the American agency, around the reversed people.",
+     "definitionFit": "A cinema is a venue where films are shown for entertainment."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Spooks"
     }
