@@ -521,39 +521,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "after puts the victory word behind the supporter, so it is written second"
-      },
-      {
-       "text": "losing heart",
-       "note": "a word's heart is its middle letter, so WIN loses its central I"
-      }
-     ],
      "parts": [
       {
        "words": "supporter",
+       "at": 6,
        "gives": "BRA",
-       "note": "a bra supports"
+       "note": "a bra is an item of underwear that supports"
       },
       {
-       "words": "be victorious",
-       "gives": "WN",
-       "note": "WIN with its central I removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing heart",
+         "at": 30,
+         "note": "the word is taken once it loses its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "be victorious",
+         "at": 16,
+         "gives": "WIN",
+         "note": "to win is to be victorious"
+        },
+        {
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question of whether a football fan could win despite being disheartened.",
-     "walkthrough": "'Might' opens the clue like a modal verb in a question; it is the noun, meaning strength.",
-     "definitionFit": "A plain synonym: both mean physical strength, muscle power."
+     "surface": "Could a fan triumph when they have lost their nerve?",
+     "walkthrough": "'supporter' looks like a fan; it is BRA. 'losing heart' takes the I from WIN.",
+     "definitionFit": "Physical strength or muscle is might, as in 'might and main'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Might"
+     "aptDefinition": false,
+     "misdirectedWord": "supporter"
     }
    }
   },

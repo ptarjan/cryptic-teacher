@@ -872,49 +872,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a kiss",
-      "at": 38
+      "text": "kiss",
+      "at": 40
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "losing heart",
-       "note": "A word that loses its heart gives up the letter sitting at its exact centre."
-      },
-      {
-       "text": "back",
-       "note": "An across answer read back runs right to left, so this piece is written the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 6,
+         "note": "the word loses its middle letter, its heart"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boy",
+         "at": 20,
+         "gives": "SON",
+         "note": "a son is a male child"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 29,
+         "note": "the word for an attempt is turned round"
+        }
+       ],
        "parts": [
         {
          "words": "shot",
+         "at": 24,
          "gives": "GO",
-         "note": "A shot at something is a go, turned round here."
-        },
-        {
-         "words": "boy",
-         "gives": "NS",
-         "note": "A boy is a son, with the letter at its centre taken out."
+         "note": "a shot at something is a go, an attempt"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nervous lad having one more try at getting a kiss.",
-     "walkthrough": "'Losing heart' is losing your nerve in the surface, which is the whole story the sentence tells and the instruction at the same time.",
-     "definitionFit": "A snog is a long kiss, British and informal, and the definition keeps its article so that it stays a noun like the answer."
+     "surface": "A heartbroken lad whose attempt failed now wants a kiss.",
+     "walkthrough": "'losing heart' takes the middle O from SON, leaving SN; 'back' turns GO into OG.",
+     "definitionFit": "A snog is British slang for a long, passionate kiss."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heart"
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -1925,50 +1939,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Barking",
-       "note": "Barking is British slang for raving mad, and letters called that will not stay in any sensible order."
+       "text": "stops",
+       "at": 42,
+       "note": "a letter that stops a gap plugs it, so the middle letter is put inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "heart stops",
-         "note": "The heart of a word is the letter at its dead centre, and stopping it lifts that letter out."
+         "text": "Barking",
+         "at": 17,
+         "note": "barking means mad, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Ghost in",
-         "note": "Seven letters of fodder, the film's title and the little word after it taken as printed."
-        },
+         "at": 8,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "parts": [
-          {
-           "words": "Whoopie's",
-           "gives": "WHOOPIE",
-           "note": "The letter at the exact centre of the seven-letter name."
-          }
-         ]
+         "text": "heart",
+         "at": 36,
+         "note": "the heart of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Whoopie's",
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A film crew making Ghost out in Barking, and Whoopi Goldberg's heart giving out.",
-     "walkthrough": "Whoopi Goldberg was in Ghost and Barking is a district of east London, so every proper noun pulls towards a location shoot while all three are only doing letter work.",
-     "definitionFit": "Shooting is the film industry's own verb for recording a scene, so it swaps straight in for 'filming'."
+     "surface": "During the making of the film Ghost in Barking, east London, Whoopi Goldberg's heart stops.",
+     "walkthrough": "Ghost is the 1990 film co-starring Whoopi Goldberg, and Barking is a district of east London. 'Barking' rearranges GHOSTIN into SHOTING, and 'stops' plugs the O from the middle of WHOOPIE into it.",
+     "definitionFit": "Shooting is the stage of making a film when the cameras roll."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Barking"
     }
    }

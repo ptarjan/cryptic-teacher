@@ -361,52 +361,67 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "popping",
-       "note": "a pill is popped by putting it in, so what is popped goes inside the word standing beside it"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "topless",
-         "note": "something topless has lost what was on top of it, so the word goes without its first letter"
+         "text": "popping",
+         "at": 5,
+         "note": "a pill popped goes in, so the letter is put inside the singer's name"
         }
        ],
        "parts": [
         {
          "words": "pop star",
+         "at": 13,
          "gives": "CHER",
-         "note": "Cher has been a pop star since the 1960s, and her name opens after the second letter"
+         "note": "Cher is a famous American singer"
         },
         {
          "words": "Pill",
+         "at": 0,
          "gives": "E",
-         "note": "E is ecstasy, the tablet of the dance floor"
+         "note": "E is short for ecstasy, a pill"
         }
        ]
       },
       {
        "words": "in",
-       "note": "two letters taken down exactly as they stand"
+       "at": 22,
+       "gives": "IN",
+       "note": "taken as written"
       },
       {
-       "words": "soldier's canteen",
-       "gives": "ESS",
-       "note": "soldiers eat in the mess, and the M on top of it comes away"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 44,
+         "note": "without its top, the word loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soldier's canteen",
+         "at": 25,
+         "gives": "MESS",
+         "note": "a mess is where soldiers eat"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pop star on pills lifting the mood in an army canteen.",
-     "walkthrough": "Cher is the crossword's standby pop star, four letters and a household name, and E is the ecstasy tablet. A canteen in barracks is the mess, the army's word for where the eating is done.",
-     "definitionFit": "Cheeriness is the good spirits somebody brings into a room, which is joy of the everyday, unremarkable sort."
+     "surface": "A drug-taking singer, half-dressed in the army canteen, delights everyone.",
+     "walkthrough": "'Pill' is E, ecstasy; 'popping' places it inside the singer, and 'topless' drops the first letter of the soldiers' dining hall.",
+     "definitionFit": "Cheerfulness and high spirits amount to joy."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "topless"
     }
@@ -991,56 +1006,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRANSMITTAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intercepted by",
+       "at": 35,
+       "note": "the outer letters cut into the other pieces, so they go inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "travelling",
-         "note": "things travelling are on the move and away from where they set out, so the letters beside it come to rest in another order"
-        },
-        {
-         "text": "following evacuation",
-         "note": "a building evacuated has had everybody out of the middle of it, leaving only what stands at the two ends"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "martians left",
-         "gives": "TRANSMIAL",
-         "note": "the eight letters of martians re-set with L for left joining them, and the run parts after the seventh"
-        },
-        {
-         "op": "outer",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "intercepted by",
-           "note": "what is intercepted is caught on its way through, so the letters named next cut into the middle of the ones before them"
+           "text": "travelling",
+           "at": 10,
+           "note": "travelling suggests moving about, so the letters are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "telegraphist",
-           "note": "the two ends of telegraphist, everything between them emptied out"
+           "words": "martians",
+           "at": 21,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "left",
+         "at": 30,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "following evacuation",
+         "at": 63,
+         "note": "a word evacuated is emptied of its middle, leaving its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "telegraphist",
+         "at": 50
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wandering Martians whose signal is picked off by a telegraph operator once the building has been cleared.",
-     "walkthrough": "Left is L, one of the handful of letters a clue may hand over without naming anything. A telegraphist worked a Morse key for a living, which is what makes the intercepted signal read as a story rather than an instruction.",
-     "definitionFit": "A transmittal is the sending of a signal out to whoever is listening, which is what a broadcast is."
+     "surface": "Wandering aliens, departed, are picked up by a radio operator after leaving.",
+     "walkthrough": "'travelling' rearranges MARTIANS, L follows, and the T and T of 'telegraphist' cut in after the I.",
+     "definitionFit": "Sending a message or signal out is a broadcast or transmission."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "evacuation"
+     "aptDefinition": false
     }
    }
   },
@@ -1823,35 +1850,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Revolutionary",
-       "note": "a revolution turns a thing right round, so the word beside it is written the other way up in a down entry"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "something revolving turns round, so the word is reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "Guevara",
-         "gives": "EHC",
-         "note": "Che Guevara, the Argentine revolutionary known by his first name alone"
-        },
-        {
          "words": "provided",
+         "at": 14,
          "gives": "IF",
-         "note": "provided is if, and the two letters are set down upwards"
+         "note": "if means provided that"
         }
        ]
+      },
+      {
+       "words": "Guevara's",
+       "at": 28,
+       "gives": "CHE",
+       "note": "Che Guevara was the Argentine revolutionary"
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary handed Che Guevara's own roll of film.",
-     "walkthrough": "Revolutionary and Guevara pull the same way in the surface, and only one of them is doing that job. A fiche is the sheet of shrunken pages libraries kept their catalogues and back numbers on.",
-     "definitionFit": "A fiche, short for microfiche, is the card of microfilm carrying page after page of text too small to read without a machine."
+     "surface": "A revolutionary is supplied with Che Guevara's microfilm.",
+     "walkthrough": "'Revolutionary' looks like Che's job description, but it turns IF into FI.",
+     "definitionFit": "A fiche is a sheet of microfilm carrying miniature pages."
     },
     "features": {
      "answerInScene": true,
