@@ -99,6 +99,11 @@ REFUSED = {  # tool_result error text -> kind; these are the permission layer sa
 
 # ---------------------------------------------------------------- rule names
 
+# A message template with fewer literal characters than this matches nearly any line, so it
+# would name every unmatched ERROR after itself (273 lines in 102 sessions were "shape_warnings").
+MIN_TEMPLATE_CHARS = 12
+
+
 def load_templates(source):
     """[(regex, check name, literal chars)] for every `f"{tag}: ..."` and
     `f"puzzle: ..."` message."""
@@ -134,6 +139,8 @@ def load_templates(source):
                 str(v.value) for v in body if isinstance(v, ast.Constant))).split()
             if not words:
                 continue
+            if chars < MIN_TEMPLATE_CHARS:
+                continue    # shape_warnings' `{tag}: {k} {NAME}` is 5 literal chars: it matched every line
             name = fn.name
             if not name.startswith("check_"):
                 name = f"{fn.name}: {' '.join(first[2:].split()[:4])}"

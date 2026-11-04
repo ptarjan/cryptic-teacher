@@ -186,7 +186,7 @@ RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": 
                 or r_container_gap(n, p, c) or r_hidden_possessive(n, p, c) or r_unindicated_move(n, p, c, V.unindicated_ops) or r_unindicated_spare(n, p, c, V.unindicated_ops), "spanOverlap": r_span_overlap,
                 "del_single": r_del_single, "indInLeaf": r_ind_in_leaf, "ind_in_leaf": r_ind_in_leaf,
                 "selectWordInLeaf": r_own_ind_leaf, "ownIndInLeaf": r_own_ind_leaf, "truncInLeaf": r_trunc_leaf, "doesNotGive": r_does_not_give,
-                "indicatorNote": r_indicator_note, "blockNote": r_block_note}
+                "indicatorNote": r_indicator_note, "blockNote": r_block_note, "selectorInLeaf": r_leaf_select}
 
 
 #: Chained after a rule's own repair, on the tree it produced: a role move leaves the selection

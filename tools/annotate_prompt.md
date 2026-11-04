@@ -243,9 +243,12 @@ Working here:
   needs an approval this run cannot give and runs nothing.
 - **Your tools are Read, Write, Edit, `python3`, `node`, WebSearch and WebFetch, nothing else.** `grep`,
   `sed`, `cat`, `ls`, `awk`, `mkdir`, `rm`, `cd`, heredocs and any `>` redirect are
-  refused and cost a turn. The puzzle file's `entries` are strings
-  (`id | group | SOLUTION | clue`), not objects: Read it rather than `python3 -c` it.
-  Another puzzle's file is a different shape; you do not need one. WebFetch is refused
+  refused and cost a turn. Never `python3 -c` a puzzle file: the view's `entries` are strings
+  (`id | group | SOLUTION | clue`), so Read it; the stored file's are objects with `number` and
+  `direction`, no `id`. To see clues as filed (answer and annotation) run
+  `python3 tools/annotate_check.py --show <ID> 6-down 9-across`; to test a `wp` against a
+  clue's answer, `python3 tools/annotate_check.py --try <ID> 6-down "<wp>"`. Another
+  puzzle's file is a different shape; you do not need one. WebFetch is refused
   for theguardian.com.
 - Before you withdraw, or leave a clue `null` as garbled or unparsable, WebSearch its exact
   text in quotes: clue databases and blogs often give the parse. A misread of the clue (a
