@@ -705,7 +705,7 @@
       {
        "text": "maybe",
        "at": 18,
-       "note": "maybe suggests a possible version, so the letters that follow are taken in another order"
+       "note": "maybe suggests the letters could be arranged differently"
       }
      ],
      "parts": [
@@ -718,21 +718,31 @@
        "at": 32
       },
       {
-       "words": "twice, OK",
-       "at": 36,
-       "gives": "OKOK",
-       "note": "OK written twice gives the four letters of two OKs"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 36,
+         "note": "twice means the letters of OK are used two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "OK",
+         "at": 43
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worried question about whether frying something twice is acceptable.",
-     "walkthrough": "'twice' doubles OK; 'maybe' rearranges DUE, FRY and the two OKs.",
-     "definitionFit": "In the nursery rhyme the grand old Duke of York had ten thousand men and marched them up the hill."
+     "surface": "A request to cook something twice, okay?",
+     "walkthrough": "The nursery rhyme's Grand Old Duke marched ten thousand men up and down a hill.",
+     "definitionFit": "The nursery-rhyme commander had ten thousand men, so he led ten thousand."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "fry"
     }
    }

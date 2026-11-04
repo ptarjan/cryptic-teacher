@@ -486,59 +486,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "perverted",
-       "note": "perverted means twisted out of its proper form, so the letters are distorted"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 6,
+         "note": "in means the judge goes inside the outer letters"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "outer",
          "indicators": [
           {
-           "text": "in",
-           "note": "in places one piece inside the other"
+           "text": "case of",
+           "at": 9,
+           "note": "case of means only the outside letters of extreme are kept"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "indicators": [
-            {
-             "text": "case of",
-             "note": "the case of a word is its outside, so only its first and last letters are used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "extreme",
-             "note": "the outer letters of extreme"
-            }
-           ]
-          },
-          {
-           "words": "Judge",
-           "gives": "J",
-           "note": "J is the abbreviation for judge"
+           "words": "extreme",
+           "at": 17
           }
          ]
         },
         {
+         "words": "Judge",
+         "at": 0,
+         "gives": "J"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "perverted",
+         "at": 25,
+         "note": "perverted means the letters of act are twisted"
+        }
+       ],
+       "parts": [
+        {
          "words": "act",
-         "note": "the letters of act rearranged"
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A judge hearing an extreme case of perversion orders material expelled.",
-     "definitionFit": "Ejecta is the material thrown out by a volcano or impact, a plural noun for expelled matter."
+     "surface": "A judge presides over a case of an extremely deviant act.",
+     "walkthrough": "'case of' keeps the outer letters, 'in' puts the judge inside them, and 'perverted' is the anagram signal for the last piece.",
+     "definitionFit": "Material ejected, especially from a volcano, is matter thrown out."
     },
     "features": {
      "answerInScene": false,
@@ -1250,48 +1254,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "condemned",
-       "note": "something condemned is ruined, so the letters are wrecked into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 32,
+         "note": "originally means the first letter of each of those four words"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "originally",
-           "note": "originally points to the opening letter of each word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "New Yorker magazine's pages",
-           "note": "the opening letters of the four words"
-          }
-         ]
+         "words": "New",
+         "at": 4
         },
         {
+         "words": "Yorker",
+         "at": 8
+        },
+        {
+         "words": "magazine's",
+         "at": 15
+        },
+        {
+         "words": "pages",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "condemned",
+         "at": 43,
+         "note": "condemned means the word The is damned into a new order"
+        }
+       ],
+       "parts": [
+        {
          "words": "The",
-         "note": "the letters of the word rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A literary magazine condemning Nabokov's notorious novel.",
-     "walkthrough": "The question mark flags Lolita as an example: the novel's heroine is the archetype.",
-     "definitionFit": "Nabokov's Humbert coins the word for a sexually precocious young girl, and Lolita is the type."
+     "surface": "A New York magazine condemns pages about a notorious novel's girl.",
+     "walkthrough": "'originally' gives NYMP; 'condemned' turns THE into HET.",
+     "definitionFit": "Lolita, in Nabokov's novel, is the archetypal sexually precocious young girl, hence the question mark."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "condemned"
     }
    }

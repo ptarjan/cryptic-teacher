@@ -449,7 +449,7 @@
       {
        "text": "another",
        "at": 14,
-       "note": "another here means a different version, so the letters are put in a new order"
+       "note": "another suggests a different version, so the letters are rearranged"
       }
      ],
      "parts": [
@@ -463,7 +463,7 @@
         {
          "text": "ends",
          "at": 35,
-         "note": "ends picks the first and last letters of the word both"
+         "note": "ends means only the first and last letters of both"
         }
        ],
        "parts": [
@@ -474,22 +474,32 @@
        ]
       },
       {
-       "words": "pay twice",
-       "at": 40,
-       "gives": "PAYPAY",
-       "note": "the word pay written two times over"
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 44,
+         "note": "twice means the word pay is used two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pay",
+         "at": 40
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A celebration of a third anniversary, where each side pays double.",
-     "walkthrough": "'another' rearranges THIRD, BH ('both ends') and PAYPAY ('pay twice') into the greeting.",
-     "definitionFit": "Happy birthday is the greeting given on the anniversary of someone's birth."
+     "surface": "Wishing well on another third, with both sides paying double.",
+     "walkthrough": "THIRD + BH (ends of both) + PAYPAY are rearranged as one pool.",
+     "definitionFit": "The phrase is the customary greeting on an anniversary of one's birth."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "third"
+     "misdirectedWord": "another"
     }
    }
   },

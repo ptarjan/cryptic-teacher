@@ -794,58 +794,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FAMILYTREE",
-     "indicators": [
-      {
-       "text": "ruined",
-       "note": "something ruined is wrecked, so its letters are broken up and rebuilt"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "FAMILYTREE",
        "indicators": [
         {
          "text": "curtailed",
-         "note": "curtailed means cut short, so the last letter goes"
-        },
-        {
-         "text": "lost",
-         "note": "lost means the letter for name is taken out before rebuilding"
+         "at": 25,
+         "note": "curtailed means the word for renown loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "renown",
+         "at": 18,
          "gives": "FAME",
          "note": "fame is renown"
         },
         {
-         "words": "entirely",
-         "note": "taken as written"
-        },
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name"
+         "text": "ruined",
+         "at": 45,
+         "note": "ruined means what is left of entirely is wrecked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lost",
+           "at": 58,
+           "note": "lost means the letter for name goes missing from entirely"
+          }
+         ],
+         "parts": [
+          {
+           "words": "entirely",
+           "at": 36
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A biography in which a reputation is cut down, wholly wrecked, and the name forgotten.",
-     "walkthrough": "FAME loses its E; ENTIRELY loses its N and the remaining letters are rearranged.",
-     "definitionFit": "A family tree charts one's ancestry, a record of the lineage behind an individual."
+     "surface": "A biography of fame cut short and reputation wholly wrecked, with the name gone.",
+     "walkthrough": "'curtailed' gives FAM; 'lost' takes N from ENTIRELY to leave ETIRELY, which 'ruined' rearranges as ILYTREE.",
+     "definitionFit": "A genealogical chart of ancestors records one's personal history."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "entirely"
+     "misdirectedWord": "ruined"
     }
    }
   },

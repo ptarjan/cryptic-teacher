@@ -46,60 +46,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "rocks",
-       "note": "to rock something is to shake it about, so the letters are jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amongst",
+         "at": 10,
+         "note": "amongst means the rearranged letters go inside the loot"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "amongst",
-           "note": "the jumbled letters sit among the letters of the following word, which wraps them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "loot",
-           "gives": "HAUL",
-           "note": "a haul is a thief's loot"
-          },
-          {
-           "words": "Dry",
-           "note": "the three letters of dry, rearranged"
-          }
-         ]
+         "words": "loot",
+         "at": 18,
+         "gives": "HAUL",
+         "note": "a haul is loot from a robbery"
         },
         {
-         "op": "alternate",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "ditching odd bits",
-           "note": "throwing away the first, third and so on leaves only the even-placed letters"
+           "text": "rocks",
+           "at": 4,
+           "note": "rocks means the letters of Dry are shaken up"
           }
          ],
          "parts": [
           {
-           "words": "Discuss",
-           "note": "the 2nd, 4th and 6th letters of discuss"
+           "words": "Dry",
+           "at": 0
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "ditching odd bits",
+         "at": 32,
+         "note": "ditching odd bits means the 1st, 3rd, 5th and 7th letters of Discuss are dropped, keeping the even ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Discuss",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling scene: dry rocks among a pile of loot, then a discussion that somehow leads to fluid science.",
-     "walkthrough": "The jumbled letters of dry go inside the word for loot, and the even letters of discuss finish it off.",
-     "definitionFit": "Hydraulics is the branch of engineering science dealing with liquids in motion and under pressure."
+     "surface": "Thieves hide stones among the swag and talk about it.",
+     "walkthrough": "Loot here is the thief's takings, 'rocks' is the anagram signal, 'amongst' the container, and 'ditching odd bits' keeps only the even letters of Discuss.",
+     "definitionFit": "The branch of engineering concerned with liquids in motion is the study of fluids."
     },
     "features": {
      "answerInScene": false,
