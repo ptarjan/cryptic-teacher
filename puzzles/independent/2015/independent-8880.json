@@ -900,53 +900,63 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "the doctor and drug follow the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "words": "flu",
-       "gives": "FUL",
-       "note": "rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "outbreak",
+         "at": 33,
+         "note": "an outbreak breaks the word up into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flu",
+         "at": 29
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "recalled",
-         "note": "recalled means called back, so the letters run backwards"
+         "at": 9,
+         "note": "recalled means called back, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "outbreak",
-           "note": "an outbreak bursts the word apart so its letters come out in a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Doctor's",
-           "gives": "MOS",
-           "note": "MO is a medical officer, plus the S of the possessive"
-          },
-          {
-           "words": "drug",
-           "gives": "E",
-           "note": "E is slang for the drug ecstasy"
-          }
-         ]
+         "words": "Doctor's",
+         "at": 0,
+         "gives": "MOS",
+         "note": "MO, medical officer, is a doctor; with the possessive that is MO'S"
         }
        ]
+      },
+      {
+       "words": "drug",
+       "at": 18,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A GP's withdrawn medicine after an influenza epidemic is said to be overblown.",
-     "walkthrough": "The final 's means 'is', linking the wordplay to the definition.",
-     "definitionFit": "Fulsome praise is excessive or overdone, laid on too thick, so fulsome means exaggerated."
+     "surface": "A doctor's withdrawal of a drug after a flu epidemic is overblown.",
+     "walkthrough": "MO, medical officer, is the doctor and E is ecstasy; 'outbreak' shuffles 'flu', 'recalled' turns the doctor's letters round, and 'after' puts all that behind.",
+     "definitionFit": "Fulsome praise is overdone, excessive to the point of insincerity."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "outbreak"
     }

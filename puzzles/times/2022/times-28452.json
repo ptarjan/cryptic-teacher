@@ -735,49 +735,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Travelling",
-       "note": "letters that are travelling are on the move, so they shift into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Travelling",
+         "at": 0,
+         "note": "travelling letters move about into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "near",
-         "note": "the letters of near, rearranged"
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 35,
+         "note": "the first letter is put in the word for clean"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clean",
+         "at": 38,
+         "gives": "PURE",
+         "note": "pure means clean, unsullied"
         },
         {
-         "op": "container",
+         "op": "first",
          "indicators": [
           {
-           "text": "in",
-           "note": "in places one piece inside the other"
+           "text": "capital",
+           "at": 27,
+           "note": "the capital of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "words": "clean",
-           "gives": "PURE",
-           "note": "pure means clean or unsullied"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "capital",
-             "note": "'capital' keeps only the first letter of 'Thailand'"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Thailand",
-             "note": "the opening letter of Thailand"
-            }
-           ]
+           "words": "Thailand's",
+           "at": 16
           }
          ]
         }
@@ -786,14 +790,13 @@
      ]
     },
     "explanation": {
-     "surface": "A trip near Bangkok in clean, green vehicles.",
-     "walkthrough": "'Transport' looks like a noun for vehicles but is the verb: to transport someone is to delight them.",
-     "definitionFit": "To transport someone is to fill them with rapture, an older sense of carrying away with emotion."
+     "surface": "Going around near Bangkok on spotless trains.",
+     "walkthrough": "'Travelling' shuffles 'near'; Thailand's capital is its first letter, not Bangkok, and 'in' puts it into the word for clean.",
+     "definitionFit": "To transport someone is to carry them away with joy, the verb sense of delight."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "transport"
     }
    }

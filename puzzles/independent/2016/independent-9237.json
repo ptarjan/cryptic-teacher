@@ -157,63 +157,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SICILIANVESPERS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 15,
+       "note": "in a down answer this piece goes under the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "switches",
-         "note": "the letters of PRESS switch places"
-        },
-        {
-         "text": "network of",
-         "note": "a network is a tangle, so the letters of VEINS are rearranged"
+         "text": "keeping",
+         "at": 38,
+         "note": "the jumbled letters keep, hold, the hairs inside them"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "under",
-           "note": "in a down clue, the second part goes below the first"
-          },
-          {
-           "text": "keeping",
-           "note": "keeping means holding, so the scrambled letters of veins hold the word for hairs within them"
+           "text": "network of",
+           "at": 21,
+           "note": "a network is a tangle, so the letters are criss-crossed into a new order"
           }
          ],
          "parts": [
           {
            "words": "veins",
-           "note": "VEINS rearranged, split as SI...NVE"
-          },
-          {
-           "words": "hairs",
-           "gives": "CILIA",
-           "note": "cilia are tiny hairs"
+           "at": 32
           }
          ]
         },
         {
+         "words": "hairs",
+         "at": 46,
+         "gives": "CILIA",
+         "note": "cilia are tiny hairs on cells"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "switches",
+         "at": 6,
+         "note": "switches means the letters swap places"
+        }
+       ],
+       "parts": [
+        {
          "words": "Press",
-         "note": "PRESS rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something medical or cosmetic: pressing on a network of veins while hairs stand up.",
-     "walkthrough": "The definition is the last word: \"rising\" as a noun, an uprising. Both anagrams are short, and CILIA sits inside the first.",
-     "definitionFit": "The Sicilian Vespers was the 1282 rising in Sicily against French rule."
+     "surface": "A clothes press flicks on beneath a mesh of veins holding hairs.",
+     "walkthrough": "'network of' shuffles 'veins', 'keeping' holds the hairs inside, and 'switches' shuffles 'Press'. 'rising' looks like a reversal signal but is the definition: the 1282 Palermo revolt.",
+     "definitionFit": "The Sicilian Vespers was a 1282 revolt in Palermo against French rule, so it was an uprising."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "rising"
     }
    }
@@ -782,45 +794,43 @@
      "indicators": [
       {
        "text": "failing",
-       "note": "failing, going wrong, so the letters are rearranged"
+       "at": 44,
+       "note": "failing means going wrong, so these letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a partly",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 36,
+         "note": "the leader of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "a partly",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "abhorrent",
-           "note": "first letter of Abhorrent"
-          }
-         ]
+         "words": "abhorrent",
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plot to seize a leader who is, to some degree, abhorrent and now failing.",
-     "walkthrough": "\"Partly\" looks like a hidden-word signal, but it is anagram fodder along with the A before it.",
-     "definitionFit": "An idiom: setting a snare, literal or figurative, is an attempt to catch whoever walks into it."
+     "surface": "Someone partly loathsome is a leader in decline.",
+     "walkthrough": "'failing' shuffles the letters of 'a partly' together with the first letter of 'abhorrent', which 'leader' picks out.",
+     "definitionFit": "To lay a trap is to set up a snare, an attempt to catch someone out."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "partly"
+     "misdirectedWord": "failing"
     }
    }
   },
@@ -1202,26 +1212,44 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue on means placed above, so the word for settled sits on top of the trimmed potato"
+       "at": 14,
+       "note": "in a down answer the first piece sits on top of the second"
       }
      ],
      "parts": [
       {
        "words": "settled",
+       "at": 6,
        "gives": "LIT",
-       "note": "a bird lit on a branch: settled"
+       "note": "a bird that has settled has lit, alighted"
       },
       {
-       "words": "potato, dropping root",
-       "gives": "CHI",
-       "note": "CHIP loses its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping root",
+         "at": 25,
+         "note": "the root is the bottom of a down answer, so its last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "potato",
+         "at": 17,
+         "gives": "CHIP",
+         "note": "a chip is a fried piece of potato"
+        },
+        {
+         "gives": "P"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit fly settling on a potato that is losing its root.",
-     "walkthrough": "A chip is a fried potato slice. \"Root\" is the bottom of a down entry, its last letter.",
-     "definitionFit": "A definition by example: the lychee, spelt litchi in older books, is a sweet fruit with a rough red skin."
+     "surface": "Fruit perched on a spud that has lost its root.",
+     "walkthrough": "In a down light the 'root' is the bottom letter, so 'dropping root' cuts the last letter from the potato word.",
+     "definitionFit": "The litchi, more often spelt lychee, is a sweet white-fleshed Chinese fruit."
     },
     "features": {
      "answerInScene": false,

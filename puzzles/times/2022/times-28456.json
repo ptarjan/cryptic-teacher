@@ -1102,37 +1102,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "off",
-       "note": "off means gone wrong, so the first word's letters are disordered"
-      },
-      {
-       "text": "out",
-       "note": "out can mean out of order, so the second word is also rearranged"
+       "text": "clothes",
+       "at": 9,
+       "note": "the first jumble clothes, wraps round, the second"
       }
      ],
      "parts": [
       {
-       "words": "Ship",
-       "note": "rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 5,
+         "note": "off here means wrong or awry, so the word is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ship",
+         "at": 0
+        }
+       ]
       },
       {
-       "words": "tried",
-       "note": "rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 23,
+         "note": "out means not right, so these letters are rearranged too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tried",
+         "at": 17
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's crew trying on clothes, with a nod to an art gallery.",
-     "walkthrough": "Culture here is a bacterial growth, not the arts.",
-     "definitionFit": "A petri dish is a shallow lab dish in which microbial cultures are grown and shown."
+     "surface": "Someone tries on outfits after leaving a ship, in a cultured place.",
+     "walkthrough": "Two separate anagrams: 'off' shuffles 'Ship', 'out' shuffles 'tried', and 'clothes' wraps the first round the second. Culture here is a lab culture of bacteria.",
+     "definitionFit": "A petri dish is the shallow glass dish in which bacteria are grown for study in a lab."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "culture's"
     }
    }
