@@ -4,6 +4,7 @@ Moved out of validate_annotations.py unchanged; that module re-exports every nam
 """
 
 import copy
+import itertools
 import re
 import wordplay
 
@@ -261,6 +262,25 @@ _ORDER_NEXT = re.compile(r"\s+(?:before|after|behind|following|ahead of)\b")
 REVERSAL_SPLIT = "reversal whose indicator sits between two of the pieces it reverses"
 
 
+def _whole_reversal_needed(node):
+    """True when the reversal turns a run of pieces together and no other tree can give its letters: the
+    answer is the whole run backwards (CRANIAL = rev<back>(LAIN + ARC)), and reversing just one piece, the
+    others kept forwards in any order, spells something else. Then the one indicator rightly turns every
+    piece, wherever it stands among them. Undecidable (a piece without letters) counts as not needed."""
+    kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    if len(kids) == 1 and kids[0].get("op") == "charade" and not kids[0].get("indicators"):
+        kids = [p for p in kids[0].get("parts") or [] if isinstance(p, dict)]
+    pieces = [wordplay.letters(p.get("gives")) for p in kids]
+    if len(pieces) < 2 or len(pieces) > 5 or not all(pieces):
+        return False
+    target = "".join(pieces)[::-1]
+    for i in range(len(pieces)):
+        for order in itertools.permutations(range(len(pieces))):
+            if "".join(pieces[k][::-1] if k == i else pieces[k] for k in order) == target:
+                return False
+    return True
+
+
 def reversal_split(tree, clue):
     """Reversals over several pieces with their indicator word standing between those pieces in the clue:
     the indicator acts on the piece beside it (mephisto DEGAS "editor repelled with flatulence" reverses
@@ -280,6 +300,8 @@ def reversal_split(tree, clue):
             continue
         if any(m.get("op") in ("hidden", "alternate", "deletion") for m in _walk(node) if m is not node):
             continue  # round 22c: 12 of 14 judged-fine hits reversed a hidden, alternate-letters or deletion result, one stretch of the clue
+        if _whole_reversal_needed(node):
+            continue  # the one indicator turns every piece: no single-piece reversal gives the answer
         kids = [p for p in node.get("parts") or [] if isinstance(p, dict)]
         if len(kids) == 1 and (kids[0].get("op") in wordplay.SELECT or kids[0].get("op") == "substitution"):
             continue  # r42 judged: a reversal of one pick or substitution (rev<up>(middle<>(Bottoms))) is one piece, 2 of 4 fine, 0 of 38 errors

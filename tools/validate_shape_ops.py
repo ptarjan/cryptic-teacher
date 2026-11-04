@@ -607,12 +607,16 @@ def leaf_folds(tree):
 def repeated_selections(tree):
     """Charades holding two or more of the same letter selection, each over one
     leaf (an acrostic written word by word): one selection over a multi-word leaf
-    is the same pick."""
+    is the same pick. Picks each signalled by their own different indicator are separate
+    picks, not one acrostic (GRAPH: first<first>([Group's]) + RAP + first<top of>([hip-hop]);
+    PULSE: first<opening>([poet's]) ... first<at first>([enthusiasts])): one indicator
+    covering several words is what a multi-word leaf says."""
     n = 0
     for node in _walk(tree):
         if node.get("op") == "charade" and not node.get("unchecked"):
             picks = collections.Counter(
-                (p["op"], p.get("n")) for p in node.get("parts") or []
+                (p["op"], p.get("n"), tuple(sorted(
+                    str(i.get("text") if isinstance(i, dict) else i).lower() for i in p.get("indicators") or []))) for p in node.get("parts") or []
                 if isinstance(p, dict) and p.get("op") in wordplay.SELECT and not p.get("unchecked")
                 and len(p.get("parts") or []) == 1 and "words" in p["parts"][0])
             n += sum(k > 1 for k in picks.values())

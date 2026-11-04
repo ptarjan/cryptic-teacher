@@ -99,7 +99,10 @@ words, indicator operations and pieces, so you write none of those.
 - A leaf's letters come before any operation (`rev([papers]ID)` makes DI). A charade
   is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
 - A reversal wraps only the piece its indicator sits by, and that piece keeps its forward
-  letters inside (`SURF + rev<looking up>(TIE)`); never `rev(TIE + FRUS)` with the clue's pieces swapped.
+  letters inside (`SURF + rev<looking up>(TIE)`); never `rev(TIE + FRUS)` with the clue's pieces swapped. When ONE indicator turns
+  every piece and the answer is the whole run backwards, wrap the charade:
+  `rev<back>([Rested]LAIN + [bow]ARC)` for CRANIAL (the indicator may stand between the
+  pieces). Only when no single-piece reversal could give the answer.
 - Every clue piece that gives letters is a term of the wordplay: leave none out, even a
   short query phrase ("look up where?" supplying part of AUSTRIA). Before writing a
   `wp`, spell each piece's letters in answer order and count them: the total must equal
@@ -107,7 +110,9 @@ words, indicator operations and pieces, so you write none of those.
   are a charade (`+`), not `ins`; `ins` only where one piece is cut open by another.
 - Selection ops (first, last, middle, outer, alt, hid...) take the words picked FROM,
   never the pick. Over several words use a comma list, one indicator:
-  `first<heads of>([a], [b], [c])`, not `first([a] + [b] + [c])`.
+  `first<heads of>([a], [b], [c])`, not `first([a] + [b] + [c])`. Picks that each have their
+  OWN indicator, with other pieces between them, are separate ops joined by `+`:
+  `first<first>([Group's]) + [hit]RAP + first<top of>([hip-hop])` for GRAPH.
 - `answer` only to correct a `(MODEL)` answer, or to spell one with an apostrophe or
   accent (`"CAT-O'-NINE-TAILS"`).
 
