@@ -3007,11 +3007,42 @@ def puzzle_is_solved(puzzle):
 
 
 def unannotated_clues(puzzle):
-    """The clues puzzle_is_annotated is still waiting on."""
+    """The clues puzzle_is_annotated is still waiting on. A clue withheld on
+    purpose (withheld_stands) is not waiting: the run that met it shipped the
+    rest of the puzzle round it, and a nightly retry of the same text would
+    meet the same wall."""
     continuations = groups.leader_of(puzzle["entries"])
     return [e for e in clued(puzzle["entries"])
-            if "annotation" not in e and entry_id(e) not in continuations] + [
+            if "annotation" not in e and entry_id(e) not in continuations
+            and not withheld_stands(e)] + [
         groups.as_entry(puzzle, cid) for cid, item in groups.off_grid(puzzle) if "annotation" not in item]
+
+
+#: An entry's record of a clue its annotation run could not annotate honestly:
+#: {"why": the run's reason, "clue": the clue text it read}.
+WITHHELD = "annotationWithheld"
+
+
+def withheld_stands(entry):
+    """Whether `entry` is withheld and its clue still reads as it did when the
+    run withheld it. A clue cut short in the OCR, mended since (a re-read, a
+    source_clue_wrong.json row), is due again; so is any clue whose text moved."""
+    held = entry.get(WITHHELD)
+    return (isinstance(held, dict) and "annotation" not in entry
+            and held.get("clue") == entry["clue"].get("text", ""))
+
+
+def withheld_clues(puzzle):
+    """{entry id: why} for every withheld clue that still stands.
+
+    One per clue rather than one per puzzle, because the alternative was the
+    puzzle: until 11-04 a run that met one clue it could not annotate honestly
+    (a clue cut short in the copy we hold, or a word doing two jobs that the
+    wordplay grammar refuses) withdrew the whole puzzle, and 46 puzzles that
+    day lost the hints for every other clue over one or two. The reason is kept
+    on the entry so the clue can be fixed or retried later; the app does not
+    read it."""
+    return {entry_id(e): e[WITHHELD].get("why", "") for e in puzzle["entries"] if withheld_stands(e)}
 
 
 def clue_coverage(puzzle):

@@ -8,7 +8,8 @@ annotate that one and no other. The ID is series plus number (`cryptic-30089`,
 ## What to produce
 
 One file, `tools/_ann_<ID>.json`: one object with a key for every entry id, `null` for
-a clue not done yet, each clue on one line with no indentation. A linked answer is annotated once, on its leader (the entry with a
+a clue not done yet, `{"withheld": "<why>"}` for one you cannot annotate honestly
+(Working here), each clue on one line with no indentation. A linked answer is annotated once, on its leader (the entry with a
 `group`), with wordplay for the whole answer; every other light in the group ("See 21") is `null`.
 
 ```json
@@ -38,7 +39,7 @@ a clue not done yet, each clue on one line with no indentation. A linked answer 
 - When `source.retrievedFrom` is `newspaper` or `book`, clues are OCR and a letter can
   be misread ("judge" for "fudge"). If the answer and wordplay need a word a letter or
   two off, give `"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay needs>"]`
-  (refused beyond 3 letters changed). A clue missing, or shown on two lights, is lost: `null`.
+  (refused beyond 3 letters changed). A clue missing is `null`; one shown on two lights is withheld.
 - A `scan` is the printed page. For a clue that looks cut short, garbled, blank or wrong
   for its answer, give `printedClue` as the page prints it, evidence
   `"Scan reads: <what the page shows>"`; any number of letters may differ.
@@ -249,11 +250,20 @@ Working here:
   clue's answer, `python3 tools/annotate_check.py --try <ID> 6-down "<wp>"`. Another
   puzzle's file is a different shape; you do not need one. WebFetch is refused
   for theguardian.com.
-- Before you withdraw, or leave a clue `null` as garbled or unparsable, WebSearch its exact
-  text in quotes: clue databases and blogs often give the parse. A misread of the clue (a
-  word like "in" as a link, not an insertion) is not garble; if it proves sound, annotate it.
-- To take back hints you would not stand by, run the check with `--withdraw "<why>"` and
-  stop: the puzzle file is put back and nothing you wrote ships. Never use git.
+- A clue you cannot annotate honestly costs that clue, not the puzzle: give it
+  `{"withheld": "<the clue as held, and what is missing or which word does two jobs>"}`
+  and annotate the rest. That is a clue cut short, garbled or wrong for its answer as held,
+  when neither the scan nor a WebSearch of its exact text in quotes gives the rest; or one
+  whose only parse has a word doing two jobs (indicator and fodder at once, "preserved" as
+  CAN and the container), which the check refuses on purpose. The rest ships, and the
+  reason is kept so the clue can be fixed later. Search first: clue databases and blogs
+  often give the parse, and a misread of the clue (a word like "in" as a link, not an
+  insertion) is not garble; if it proves sound, annotate it. Never withhold a clue to get
+  past a rule you could meet.
+- Withdraw only a puzzle that cannot be annotated as a whole: more than half its clues
+  withheld, or a device (misplaced clues, letters added to every clue) the puzzle file
+  does not describe. Run the check with `--withdraw "<why>"` and stop: the puzzle file is
+  put back and nothing you wrote ships. Never use git.
 - Don't open `validate_annotations.py`. For a line you cannot act on,
   `python3 tools/validate_annotations.py --explain <check-name>` prints that check.
 

@@ -103,8 +103,13 @@ def is_blank_clue(clue):
     return not (clue or "").strip()
 
 
+#: A puzzle ships round its withheld clues until they are more than this share
+#: of its clues; then most of it is unusable and the run withdraws.
+WITHHELD_MOST = 0.5
+
+
 def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False, reopened=(),
-                                  dropped=()):
+                                  dropped=(), withheld=()):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
     A blank annotation is the one failure no other check can see: it claims
@@ -140,13 +145,33 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     of the view because its tree does not give the answer. Its `wordplay:`
     error already names it; calling it blank too sent toughie-2626 (10-23,
     1D MOBIUS) hunting for a clue it had written, for five turns.
+
+    And a clue in `withheld` (fetch_puzzle.withheld_clues): one the run could
+    not annotate honestly and said why, because the clue as held is cut short
+    or garbled and no source gives the rest, or because its only parse has one
+    word doing two jobs, which the grammar refuses on purpose. Before 11-04
+    this error's only way out for such a clue was to withdraw the puzzle, and
+    46 were withdrawn that day, nearly all over one or two clues, throwing away
+    every other clue's hints. A withheld clue names itself and its reason, so
+    it is not the silent blank this check exists to stop; it ships with answers
+    only, and the reason stays on the entry until the clue is fixed. Only when
+    withheld clues are more than WITHHELD_MOST of the puzzle is it unusable
+    as a whole.
     """
     continuations = groups.leader_of(entries)
-    blank = []
+    blank, held, total = [], [], 0
     for e in entries:
+        if entry_id(e) not in continuations and not is_blank_clue(e["clue"].get("text", "")):
+            total += 1
         if e.get("annotation") or entry_id(e) in dropped:
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        if entry_id(e) in withheld:
+            held.append(tag)
+            if not corpus:
+                warnings.append(f"{tag}: withheld — {withheld[entry_id(e)]}. It ships with "
+                                f"answers only, and the reason is kept for whoever fixes the clue")
+            continue
         if entry_id(e) in misses:
             warnings.append(
                 f"{tag}: no annotation — the cold solve answered "
@@ -170,6 +195,12 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
             warnings.append(f"{tag}: no annotation — queued to be annotated again")
             continue
         blank.append((tag, e.get("solutionConfidence") == "LIKELY"))
+    if not corpus and held and len(held) > WITHHELD_MOST * total:
+        tag = ",".join(held)
+        errors.append(
+            f"{tag}: withheld, {len(held)} of {total} clues — too much of the "
+            f"puzzle to ship round. Annotate the ones you can after all, or run the check "
+            f"once with `--withdraw \"<what is wrong with the clues>\"` and stop")
     if not blank:
         return
     # One line for every blank: a run that checks a half-written file would
@@ -186,13 +217,13 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         f"{tag}: no annotation. Every clue in an annotated puzzle needs one — "
         f"a blank ships a clue with nothing to teach, and no other check can "
         f"see it.{unwritten} If a rule elsewhere is what stopped you, break that rule "
-        f"loudly instead: it names the clue, a blank does not.{likely} Only a "
-        f"clue you cannot parse without inventing wordplay stays null: the "
-        f"puzzle fails and can be retried, whereas a confident wrong "
-        f"explanation ships and nothing catches it. If you left it null because the "
-        f"clue as held is cut short or wrong and no source gives the rest, running "
-        f"the check again cannot change that: run it once with "
-        f"`--withdraw \"<clue, and what is missing>\"` and stop")
+        f"loudly instead: it names the clue, a blank does not.{likely} A clue "
+        f"you cannot annotate honestly (cut short or garbled as held and no source "
+        f"gives the rest, or parsed only with one word doing two jobs, which the "
+        f"check refuses) is withheld rather than left null: give it "
+        f"{{\"withheld\": \"<the clue as held, and what is missing or which word does "
+        f"two jobs>\"}} and the rest of the puzzle ships round it. A confident wrong "
+        f"explanation ships and nothing catches it; a withheld clue can be fixed later")
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):

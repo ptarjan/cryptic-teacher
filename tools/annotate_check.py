@@ -241,8 +241,10 @@ def to_write(puzzle, before):
         # A clue the OCR lost is the run's too: the scan may print it, and
         # a source_clue_wrong.json row with "" served restores it.
         readable |= {entry_id(e) for e in clues if validate_annotations.is_blank_clue(e["clue"].get("text", ""))}
+    # A clue withheld for the text it still has is not due (fetch_puzzle.withheld_stands).
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
-            or (not e.get("annotation") and entry_id(e) in readable)]
+            or (not e.get("annotation") and entry_id(e) in readable
+                and not fetch_puzzle.withheld_stands(e))]
     only += [cid for cid, _, _, item in groups.also_clues(puzzle["entries"])
              if cid in (before or ()) or not item.get("annotation")]
     only += [cid for cid, item in groups.off_grid(puzzle)
