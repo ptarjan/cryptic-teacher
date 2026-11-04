@@ -800,7 +800,8 @@ def evidence_reason(reason):
             # A Gale 1930-69 page no title was found on before grids_on took a grid with inset blocks (fa.inset_rescan).
             or reason in (fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE,
                           fa.SMALL_HEADED,  # a 1930-33 heading-titled page refused for its neighbours' count
-                          fa.CLUE_GARBLED)  # named Gale Times puzzles whose stored clue text is cut or garbled
+                          fa.CLUE_GARBLED,  # named Gale Times puzzles whose stored clue text is cut or garbled
+                          fa.VLM_PLAIN)  # a 1930-33 page unfiled over a count-less clue the VLM's column reply holds
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
             or reason == fa.TOUCHING_GRID
@@ -1756,7 +1757,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.SMALL_HEADED,
                  # r44 11-03: named Gale Times puzzles with cut or garbled clue text, read again whole; the newest
                  # fix goes first.
-                 fa.CLUE_GARBLED)
+                 fa.CLUE_GARBLED,
+                 # r45 11-03: a 1930-33 Gale Times page unfiled over a count-less clue only the VLM's column reply
+                 # holds (vlm_laid_plain), read again; the newest fix goes first.
+                 fa.VLM_PLAIN)
 
 
 def times_solution_work(unit):
@@ -1783,7 +1787,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN)
 
 
 def unproven_first(unit):
@@ -1811,7 +1815,7 @@ def files_likely_tier(rank, unit):
     # newest first among them.
     # A puzzle its read wrote that the corpus lost (fa.LOST_WRITE) is as good as never read: its page
     # filed once, so it files again (10-25: ~1,800 Gale Times pages, 1945-2014).
-    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.LOST_WRITE,
+    if unit.get("fix") or year_evidence(unit) or reason in (fa.NO_TITLE_RESCAN, fa.INSET_GRID, fa.LONE_TITLE, fa.GF_TITLE, fa.FAILED_SCAN, fa.GF_UNREAD, fa.FOOTER_TITLE, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.LOST_WRITE,
                                                                     fa.HELD_TITLE, fa.HELD_LINKED):
         return 0
     if unit.get("fix") or reason in FIX_LANDED or (reason.startswith("refused ") and reason.endswith(" before its fix")):

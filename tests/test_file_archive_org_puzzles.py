@@ -7677,6 +7677,36 @@ check("but not where the number names another light of that length, the count fi
 check("and a light blank for another reason is left to the pick",
       {"4-down": "'Murat': a word misread as a name"},
       f.vlm_laid({"ch": _vlmread, "vlm": _vlmcol}, _vllaid, {"4-down": "'Murat': a word misread as a name"}, {"4-down": 7})[1])
+# Gale 1932-03-11's 22 down: the 1930-33 lists print no counts, so the VLM's reply (one tail column of the down
+# list, no heading) had none for vlm_laid to fit; the clue stands in the list between its grid neighbours' clues.
+_vplain = ("17 Arrange.\n19 This plot is\ngenerally culti-\nvated secretly.\n20 Defeat.\n22 I'd look more\n"
+           "orderly in a row.\n23 English first edi-\ntion expert.\nSOLUTION OF PUZZLE No. 653\n")
+_vpread = "22 I'd look more orderly in a row. 23 English first edition expert."
+_vplens = {"17-down": 7, "19-down": 6, "20-down": 6, "22-down": 7, "23-down": 7}
+_vpblank = {"22-down": "no reading laid a clue on it"}
+_vplaid = {"22-down": ("", None, None)}
+check("a reply's numbered entries take their wrapped lines up to the next number or a heading",
+      [(17, "Arrange.", 1), (19, "This plot is generally culti- vated secretly.", 3), (20, "Defeat.", 1),
+       (22, "I'd look more orderly in a row.", 2), (23, "English first edi- tion expert.", 2)],
+      f.vlm_plain_entries(_vplain))
+check("a count-less page's light no reading laid takes the reply's clue between its grid neighbours' when the readers spell it",
+      [{"22-down": ("I'd look more orderly in a row.", None, None)}, {}],
+      [f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, _vplens)[0],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, _vplens)[1]])
+check("but not where a light between sits in the grid, the number names another light, the readers share none of its words, "
+      "the page prints counts, or the blank is for another reason",
+      [_vpblank] * 4 + [{"22-down": "'Murat': a word misread as a name"}],
+      [f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, {**_vplens, "21-down": 5})[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, _vpblank, {**_vplens, "22-across": 5})[1],
+       f.vlm_laid_plain({"ch": "Quite unrelated print about gardens", "vlm": _vplain}, _vplaid, _vpblank, _vplens)[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain + "4 Foo bar (3).\n5 Bar foo (4).\n6 Baz qux (5).\n"},
+                        _vplaid, _vpblank, _vplens)[1],
+       f.vlm_laid_plain({"ch": _vpread, "vlm": _vplain}, _vplaid, {"22-down": "'Murat': a word misread as a name"}, _vplens)[1]])
+check("and a racing line that opens on the number is no clue (no entry beside it is a grid neighbour's)",
+      {"20-down": "no reading laid a clue on it"},
+      f.vlm_laid_plain({"ch": _vpread + " each agst the others", "vlm": "TOTALISATOR PRICES.\n20 to 1 each agst the others.\nWon by four lengths.\n"},
+                       {"20-down": ("", None, None)}, {"20-down": "no reading laid a clue on it"},
+                       {"19-down": 6, "20-down": 6, "22-down": 7})[1])
 # A 3x3 grid: 1 across and down, 2 down, 3 across.
 _g3 = ["...", ".#.", "..."]
 check("a light number no reading opens a clue on is unread",

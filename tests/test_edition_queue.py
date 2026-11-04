@@ -913,6 +913,29 @@ check("a Times page unfiled with every answer over a light no reading laid is du
        f.VLM_LAID in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.VLM_LAID) > eq.UNFILED_FIRST.index(f.RIGHT_WIDE),
        eq.canary_failed({"paper": "gale", "reason": f.VLM_LAID, "date": "1964-10-16"}),
        f.VLM_LAID in f.BLANKET_PASSES])
+# ---- a 1930-33 Gale Times page written unfiled over a light no reading laid, read with the VLM (the lists print no
+# counts, so vlm_laid had none to fit) is due once (fa.VLM_PLAIN), ahead of VLM_LAID, at the end of unfiled-first.
+_vp = {"id": "times-9999981", "number": 9999981, "complete": False, "wrote": True, "unfiled": 1, "clues": 27,
+       "lights": 28, "blank": {"22-down": "no reading laid a clue on it"}}
+_vprow = {"edition": "GaleTimes1932UKEnglish/1932-03-11", "verdicts": [_vp], "readAt": "2026-11-04T01:03:08+00:00",
+          "vlm": "3518fba64a",
+          "scan": {"date": "1932-03-11", "item": "GaleTimes1932UKEnglish", "puzzles": [{"number": 9999981, "leaf": 0}]}}
+check("a 1932 Gale Times page unfiled over a light no reading laid is due as VLM_PLAIN (ahead of VLM_LAID), ranked, "
+      "evidence, fix-landed, tier 0, blanket-passing, in unfiled-first after VLM_LAID, never canary-held",
+      [f.VLM_PLAIN, 2, True, True, True, True, True, None, 0],
+      [f.fix_reason(_vprow), f.RANKS[f.VLM_PLAIN], eq.evidence_reason(f.VLM_PLAIN), f.VLM_PLAIN in eq.FIX_LANDED,
+       f.VLM_PLAIN in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.VLM_PLAIN) > eq.UNFILED_FIRST.index(f.VLM_LAID),
+       f.VLM_PLAIN in f.BLANKET_PASSES,
+       eq.canary_failed({"paper": "gale", "reason": f.VLM_PLAIN, "date": "1932-03-11"}),
+       eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.VLM_PLAIN, "date": "1932-03-11"})])
+check("not read since the fix, read without the VLM, another year, a refused or unblank verdict, another paper",
+      [False] * 6,
+      [f.vlm_plain_due({**_vprow, "readAt": "2026-11-04T03:00:00+00:00"}),
+       f.vlm_plain_due({**_vprow, "vlm": None}),
+       f.vlm_plain_due({**_vprow, "edition": "GaleTimes1936UKEnglish/1936-03-11"}),
+       f.vlm_plain_due({**_vprow, "verdicts": [{**_vp, "refused": "not a grid"}]}),
+       f.vlm_plain_due({**_vprow, "verdicts": [{**_vp, "blank": {"22-down": "'Murat': a word misread as a name"}}]}),
+       f.vlm_plain_due({**_vprow, "edition": "TheGuardian1932UKEnglish/1932-03-11"})])
 check("not read since, nor a light unanswered, nor another blank, nor another paper",
       [False] * 4,
       [f.vlm_laid_due({**_vlrow, "readAt": _after}),
