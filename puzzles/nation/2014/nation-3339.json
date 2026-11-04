@@ -1761,60 +1761,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Rejecting",
-       "note": "something rejected is turned back, so the string is read from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Rejecting",
+         "at": 0,
+         "note": "rejecting means sending back, so the word for craft is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "Toss",
-           "note": "tossing something out removes it from the snack word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Mexican snacks",
-           "gives": "NACHOS",
-           "note": "tortilla chips with toppings"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "orange",
-             "note": "the first letter of orange"
-            }
-           ]
-          }
-         ]
+         "words": "craft",
+         "at": 10,
+         "gives": "ART",
+         "note": "art is craft or skill"
+        }
+       ]
+      },
+      {
+       "op": "composite",
+       "indicators": [
+        {
+         "text": "Toss",
+         "at": 35,
+         "note": "toss means throw out and also throw about, so one letter goes and the rest are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mexican snacks",
+         "at": 19,
+         "gives": "NACHOS",
+         "note": "nachos are Mexican tortilla chips"
         },
         {
-         "words": "craft",
-         "gives": "ART",
-         "note": "a craft is an art"
+         "words": "orange",
+         "at": 40,
+         "gives": "O",
+         "note": "an orange is round, like the letter O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spurns a nacho-making craft and lobs an orange into the bin.",
-     "walkthrough": "NACHOS + ART loses its O, leaving NACHSART, which read from the end is the answer.",
-     "definitionFit": "A trash can is the American term for a bin for rubbish, the same thing as a wastebasket."
+     "surface": "A puzzle about turning away from snack-making and binning the fruit.",
+     "walkthrough": "'Rejecting' turns ART to TRA; 'Toss' throws the O out of NACHOS and shakes the rest into SHCAN.",
+     "definitionFit": "American English for a bin where rubbish is thrown, the same thing as a wastebasket."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "orange"
     }
    }

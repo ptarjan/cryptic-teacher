@@ -128,50 +128,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "diabolical",
-       "note": "something diabolical is a terrible mess, so the following word's letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 24,
+         "note": "in places the conditional word inside the shuffled letters"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "one piece is placed inside the scrambled word"
+           "text": "diabolical",
+           "at": 27,
+           "note": "diabolical means dreadful, so the letters are put into a terrible order"
           }
          ],
          "parts": [
           {
            "words": "clue",
-           "note": "the four letters rearranged"
-          },
-          {
-           "words": "provided",
-           "gives": "IF",
-           "note": "provided that means if"
+           "at": 38
           }
          ]
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the usual abbreviation for right"
+         "words": "provided",
+         "at": 15,
+         "gives": "IF",
+         "note": "if means provided, as a condition"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 44,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A solver asks whether a fiendish clue has correctly hidden the devil's name.",
-     "walkthrough": "'Diabolical' suits the devil in the surface, but its job is only to scramble the next word.",
-     "definitionFit": "Lucifer is a traditional name for Satan, the fallen angel of Christian tradition."
+     "surface": "A setter asks whether a fiendish clue really names the devil.",
+     "walkthrough": "'diabolical' fits the devil of the surface, but it signals the shuffle; 'in' places the conditional word within it, and right ends it.",
+     "definitionFit": "Satan's name as the fallen angel, the morning star cast out of heaven."
     },
     "features": {
      "answerInScene": true,

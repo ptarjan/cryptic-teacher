@@ -922,54 +922,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "New",
-       "note": "new means made afresh, so the word that follows is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cops",
+         "at": 9,
+         "note": "cops as a verb means catches or takes in, so it holds the next piece"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "cops",
-           "note": "to cop is to catch or seize, so the word holds the next piece inside"
+           "text": "New",
+           "at": 0,
+           "note": "new means made afresh, so the letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "vice",
-           "note": "rearranged, and split around the next piece"
-          },
-          {
-           "words": "study",
-           "gives": "DEN",
-           "note": "a den is a private study room"
+           "at": 4
           }
          ]
         },
         {
-         "words": "ecstasy",
-         "gives": "E",
-         "note": "E is slang for the drug ecstasy"
+         "words": "study",
+         "at": 14,
+         "gives": "DEN",
+         "note": "a den is a private study"
         }
        ]
+      },
+      {
+       "words": "ecstasy",
+       "at": 20,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "surface": "A new vice squad seizes ecstasy and hard drugs during an investigation.",
-     "walkthrough": "Dope and hard look like drugs, but dope is slang for information and hard means solid.",
-     "definitionFit": "Evidence is the solid factual information presented in a court case, firm facts being hard dope."
+     "surface": "A new vice squad gathers ecstasy and hard drugs for a prosecution.",
+     "walkthrough": "'New' signals the shuffle and 'cops' means takes in, not police. 'dope' here is information, not a drug.",
+     "definitionFit": "Dope is slang for information, and the hard facts presented in a court case are its proof."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "dope"
     }
