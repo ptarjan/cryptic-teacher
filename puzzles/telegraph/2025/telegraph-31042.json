@@ -465,37 +465,52 @@
      "indicators": [
       {
        "text": "rising",
-       "note": "in a down clue rising means reading upwards, so the letters run backwards"
+       "at": 35,
+       "note": "rising in a down clue means the whole assembly is read from the bottom up"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "across",
+         "at": 42,
+         "note": "across means spanning, so the combined pieces go around the letter for Italy"
+        }
+       ],
        "parts": [
         {
-         "words": "numbers",
-         "gives": "NOS",
-         "note": "NOS is the abbreviation for numbers"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "numbers",
+           "at": 6,
+           "gives": "NOS"
+          },
+          {
+           "op": "alternate",
+           "indicators": [
+            {
+             "text": "at intervals",
+             "at": 14,
+             "note": "at intervals means every other letter of rapidly is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "rapidly",
+             "at": 27
+            }
+           ]
+          }
+         ]
         },
         {
          "words": "Italy",
+         "at": 49,
          "gives": "I",
          "note": "I is the international vehicle code for Italy"
-        },
-        {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "at intervals",
-           "note": "at intervals means taking letters with gaps between, so every other letter of the next word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "rapidly",
-           "note": "second, fourth and sixth letters of rapidly"
-          }
-         ]
         }
        ]
       }
@@ -503,8 +518,8 @@
     },
     "explanation": {
      "surface": "A trade union's membership is climbing fast across Italy.",
-     "walkthrough": "NOS, I and AIL together read upwards in the grid, giving SON, I and LIA from bottom to top.",
-     "definitionFit": "A liaison is a close connection or relationship, often a romantic one, which is a kind of union."
+     "walkthrough": "'at intervals' picks AIL from rapidly; NOS and AIL go 'across' I to make NOSIAIL, which 'rising' turns upward.",
+     "definitionFit": "A liaison is a close connection or relationship, a joining together."
     },
     "features": {
      "answerInScene": false,

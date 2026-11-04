@@ -790,53 +790,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "comic",
-       "note": "comic means funny or absurd, so the following word is jumbled about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "style",
+       "at": 8,
+       "gives": "TYPE",
+       "note": "a type is a style or kind"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "used in",
+         "at": 22,
+         "note": "used in means put inside, so the circa letter goes within"
+        }
+       ],
        "parts": [
         {
-         "words": "style",
-         "gives": "TYPE",
-         "note": "a type is a kind or style"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "used in",
-           "note": "used inside, so the preceding item goes within the jumbled letters"
+           "text": "comic",
+           "at": 30,
+           "note": "comic means funny or odd, so the letters of strip are rearranged"
           }
          ],
          "parts": [
           {
            "words": "strip",
-           "note": "the letters of strip rearranged"
-          },
-          {
-           "words": "roughly",
-           "gives": "C",
-           "note": "C stands for circa, Latin for about or roughly"
+           "at": 36
           }
          ]
+        },
+        {
+         "words": "roughly",
+         "at": 14,
+         "gives": "C",
+         "note": "C, short for circa, means roughly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cartoon strip uses a roughly drawn lettering style.",
-     "walkthrough": "'Comic strip' reads as one thing, but comic is the jumble signal for strip.",
-     "definitionFit": "Typescript is text produced on a typewriter, so it is a form of writing."
+     "surface": "A rough writing style is used in a comic strip.",
+     "walkthrough": "'roughly' is C for circa, and 'comic strip' is split: 'comic' rearranges STRIP into SRIPT, with C put inside after S.",
+     "definitionFit": "Typescript is typed text, a form of writing as opposed to manuscript."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "comic"
     }

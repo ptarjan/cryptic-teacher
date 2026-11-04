@@ -242,53 +242,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "absurd",
-       "note": "an absurd arrangement is a nonsensical one, so the letters of the preceding word get jumbled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 14,
+         "note": "about means around, so the scrambled letters surround the other piece"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about",
-           "note": "about means surrounding, so the jumbled letters go around the next item"
+           "text": "absurd",
+           "at": 7,
+           "note": "absurd means ridiculous, so the letters of what are scrambled"
           }
          ],
          "parts": [
           {
-           "words": "What",
-           "note": "the word rearranged"
-          },
-          {
-           "words": "clubs",
-           "gives": "C",
-           "note": "C is the card-game abbreviation for clubs"
+           "words": "What's",
+           "at": 0,
+           "gives": "WHAT",
+           "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
           }
          ]
         },
         {
-         "words": "boxer, perhaps",
-         "gives": "DOG",
-         "note": "a boxer is a breed of dog, hence the 'perhaps'"
+         "words": "clubs",
+         "at": 20,
+         "gives": "C",
+         "note": "C is the abbreviation for clubs in card games"
         }
        ]
+      },
+      {
+       "words": "boxer, perhaps",
+       "at": 33,
+       "gives": "DOG",
+       "note": "a boxer is a breed of dog, the perhaps marking an example"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scoffs at a nightclub hiring a prizefighter as its bouncer.",
-     "walkthrough": "The boxer here is not a fighter but the dog breed.",
-     "definitionFit": "A watchdog is a dog kept to guard property, and by extension any body that guards against wrongdoing."
+     "surface": "Someone asks what is ridiculous about a club employing a boxer as a security guard.",
+     "walkthrough": "'absurd' turns WHAT into WATH and 'about' puts it round C; 'boxer' looks like a fighter but is the breed.",
+     "definitionFit": "A watchdog is a guard, literally a dog kept to guard property."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "boxer"
@@ -1494,48 +1500,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "exploded",
-       "note": "something exploded is blown apart, so its letters land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader of",
+         "at": 6,
+         "note": "leader of means the first letter of dissidents"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader of",
-           "note": "the leader is the one at the front, so only the opening letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dissidents",
-           "note": "the first letter"
-          }
-         ]
-        },
+         "words": "dissidents",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exploded",
+         "at": 27,
+         "note": "exploded means blown apart, so the letters of grenade are scattered"
+        }
+       ],
+       "parts": [
         {
          "words": "grenade",
-         "note": "the word rearranged"
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mad rebel chief has set off a hand grenade.",
-     "definitionFit": "Deranged means mentally unbalanced, an established synonym for insane."
+     "surface": "A mad rebel chief set off a grenade.",
+     "walkthrough": "'exploded' signals the rearrangement of the grenade, which follows the dissidents' leader.",
+     "definitionFit": "Deranged means mentally unbalanced, which is a synonym of crazy."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "exploded"
+     "aptDefinition": false
     }
    }
   },
