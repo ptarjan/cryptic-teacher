@@ -273,7 +273,7 @@ def _whole_reversal_needed(node):
     pieces = [wordplay.letters(p.get("gives")) for p in kids]
     if len(pieces) < 2 or len(pieces) > 5 or not all(pieces):
         return False
-    target = "".join(pieces)[::-1]
+    target = wordplay.letters(node.get("gives")) or "".join(pieces)[::-1]
     for i in range(len(pieces)):
         for order in itertools.permutations(range(len(pieces))):
             if "".join(pieces[k][::-1] if k == i else pieces[k] for k in order) == target:

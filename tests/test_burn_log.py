@@ -62,8 +62,9 @@ check(bare(run(["  [azed-2581] bag of 3 puzzles: wordplay.anaLoneEdge — with: 
 check(bare(run(["committed Re-check against its blog: times-25738"])),
       ["✓ times-25738 re-checked against its blog"], "blog re-check commit")
 check(bare(run(["  [everyman-3470] the run withdrew its own work, so nothing it wrote ships — 1-down MUNTJAC has no clean parse"])),
-      ["✗ everyman-3470 gave up: 1-down MUNTJAC has no clean parse — skipped until the puzzle changes"],
-      "a withdrawal keeps its reason in one line")
+      ["✗ everyman-3470 gave up: 1-down MUNTJAC has no clean parse — skipped until the puzzle changes",
+       "⚠️ everyman-3470 withdrew its own work; triage it with `failed_inputs.py triage annotate`"],
+      "a withdrawal keeps its reason in one line, then wakes the room to triage it (b4596de9b92)")
 check(bare(run(["  [a-1] transient failure — its conversation is kept to resume at the next start"])),
       ["✗ a-1 cut off (limit or crash), will resume"], "a cut-off run")
 

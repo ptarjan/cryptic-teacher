@@ -702,8 +702,11 @@ DODGE = {"op": "charade", "parts": [lf("party", "DO"), lf("Duke", "D"), {"op": "
 check("pieces joined against the clue's order are counted (DODGE)", 1, v.charade_out_of_order(DODGE, "Duke flipped for one party"))
 check("a joiner word between them is not (after)", 0, v.charade_out_of_order(
     {"op": "charade", "parts": [lf("party", "DO"), lf("Duke", "D")]}, "Duke after party"))
-DEGAS = {"op": "reversal", "indicators": [{"text": "repelled"}], "parts": [{"op": "charade", "parts": [lf("flatulence", "SAG"), lf("editor", "ED")]}]}
+DEGAS = {"op": "reversal", "gives": "DEGAS", "indicators": [{"text": "repelled"}], "parts": [{"op": "charade", "parts": [lf("editor", "ED"), lf("flatulence", "GAS")]}]}
 check("a reversal indicator between its pieces is counted (DEGAS)", 1, v.reversal_split(DEGAS, "Painter editor repelled with flatulence"))
+check("one that must turn every piece is not (SAG+ED reversed whole)", 0, v.reversal_split(
+    {"op": "reversal", "gives": "DEGAS", "indicators": [{"text": "repelled"}], "parts": [{"op": "charade", "parts": [lf("flatulence", "SAG"), lf("editor", "ED")]}]},
+    "Painter editor repelled with flatulence"))
 check("one at the edge is not", 0, v.reversal_split(
     {"op": "reversal", "indicators": [{"text": "repelled"}], "parts": [lf("editor", "ED")]}, "Painter editor repelled with flatulence"))
 check("a cut word opening a leaf that gives less is counted (IDEA)", 1, v.cut_in_leaf(
