@@ -46,7 +46,7 @@ def _plain_cut(d):
     """Whether the deletion `d`'s indicator is a plain truncation (endless, without finishing)."""
     said = " ".join(str(i.get("text") or "") for i in d.get("indicators") or [] if isinstance(i, dict))
     return bool(_DEL_END.search(said) or _DEL_HEAD.search(said)
-                or re.search(r"\b(?:losing|largely|mostly|made|less)\b", said, re.I))
+                or re.search(r"\b(?:losing|largely|mostly|most of|made|less)\b", said, re.I))
 
 
 def _sibling_gives(kids, d, cut_part):

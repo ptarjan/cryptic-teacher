@@ -61,6 +61,31 @@ def expand_cross_references(clue, entries):
     return REFERENCE_RE.sub(sub, ENUMERATION_RE.sub(" ", clue or ""))
 
 
+#: A number written out in words (NINETEENEIGHTYTWO), letters only: nothing but number words.
+SPELLED_NUMBER = re.compile(
+    r"(?:ZERO|NOUGHT|OH|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|ELEVEN|TWELVE|THIRTEEN|FOURTEEN|"
+    r"FIFTEEN|SIXTEEN|SEVENTEEN|EIGHTEEN|NINETEEN|TWENTY|THIRTY|FORTY|FIFTY|SIXTY|SEVENTY|EIGHTY|NINETY|"
+    r"HUNDRED|THOUSAND|MILLION|AND)+")
+
+
+def spelled_numbers(ann):
+    """The letters of each numeral a hidden word reads written out: hid<in>([1982]NINETEENEIGHTYTWO)
+    hides NEIGH in nineteEN EIGHty (toughie-336 4d). Only a hid() leaf whose words hold digits and whose
+    `gives` is made of number words counts, so the spelling is the annotation's own, stated, and the
+    clue's printed letters are not widened for any other leaf."""
+    out, stack = [], [ann.get("wordplay")]
+    while stack:
+        node = stack.pop()
+        if not isinstance(node, dict):
+            continue
+        stack += node.get("parts") or []
+        leaf = (node.get("parts") or [None])[0]
+        if node.get("op") == "hidden" and isinstance(leaf, dict) and "op" not in leaf \
+                and re.search(r"\d", str(leaf.get("words"))) and SPELLED_NUMBER.fullmatch(letters(leaf.get("gives"))):
+            out.append(letters(leaf["gives"]))
+    return out
+
+
 def check_coverage(tag, ann, clue, warnings):
     """Every content word of the clue must be claimed by the parse.
 

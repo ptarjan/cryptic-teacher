@@ -178,9 +178,18 @@ def _flat_insert_reaches(outer, inner, answer):
     B, then MEDICI after BIO, two insertions with an indicator each): the nesting is the
     only parse. Unreadable pieces count as reaching, so the flag stays."""
     try:
-        holder = wordplay.values(inner["parts"][0])
         xs, ys = wordplay.values(inner["parts"][1]), wordplay.values(outer["parts"][1])
         target = wordplay.letters(answer)
+        try:
+            holder = wordplay.values(inner["parts"][0])
+        except wordplay._NeedTarget:
+            # An anagram holds the first piece (PRERAPHAELITES: RA and ELITE into PERHAPS*): its order is the
+            # answer's own, so what must hold is that the answer less one joined piece is the holder's letters.
+            bags = wordplay._bag(inner["parts"][0])
+            return any(target[:i] + target[i + len(a + b):] for a in xs for b in ys for xy in (a + b, b + a)
+                       for i in range(1, len(target) - len(xy))
+                       if target[i:i + len(xy)] == xy
+                       and "".join(sorted(target[:i] + target[i + len(xy):])) in bags)
         if target not in wordplay.values(outer):
             return True  # the nesting does not even give the answer: a wrong tree, not a double gap
         return any(o[:k] + a + b + o[k:] == target for o in holder for x in xs for y in ys

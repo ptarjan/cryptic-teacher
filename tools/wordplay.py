@@ -146,13 +146,16 @@ NAMES = {v: k for k, v in OPS.items()}
 # filed as one leaf with `soundsLike` (HAD MATTER), a substitution of the centre (sub(x, NEW)).
 _STORED_SHORT = {"spoonerism": 2, "substitution": 3}
 SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
+# A selection over a list takes at most this many words (the middle letter of each of the 10 words
+# of "it's not about odd man Charlie and the Chocolate Factory's", TOO DARN HOT).
+SELECT_MAX = 12
 # How many parts each op takes: (fewest, most).
 # ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 9),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (1, 3),
          "substitution": (2, 3), "cycling": (1, 1), "move": (2, 2), "cryptic": (1, 9), "palindrome": (0, 1),
          "rebus": (2, 2), "composite": (2, 2), "reverse": (2, 2), "repeat": (1, 1),
-         **{s: (1, 9) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
+         **{s: (1, SELECT_MAX) for s in SELECT}}  # a selection over a list: several parts, each giving its pick
 # A search that grows past this many candidate strings stops: no clue needs it.
 CAP = 20000
 
@@ -745,11 +748,13 @@ def _words(node):
     return None
 
 
-def _select(op, n, s, words):
+def _select(op, n, s, words, half=False):
     """Every string `op` can pick from `s`. Where the leaf's words are known the pick
     is also made from any run of them (the leaf may carry an indicator word, "strain
     of MRSA"), and a first/last/outer pick is a stretch of any length ("40% of Truro"
-    is TR), a middle pick any centred stretch (ACHE from teachers)."""
+    is TR), a middle pick any centred stretch (ACHE from teachers). `half`: the middle op's
+    indicator says "half", so the pick is also half the letters, from the middle (LIC, the central
+    three of POLICE: a half of an even length cannot be centred, so either side of the centre)."""
     out = set()
     if not s:
         return out
@@ -772,6 +777,9 @@ def _select(op, n, s, words):
             # the plain centre (a lone letter is its own middle), then wider stretches
             out.add(t[h] if len(t) % 2 else t[h - 1:h + 1])
             out |= {t[k:len(t) - k] for k in range(1, (len(t) + 1) // 2)}
+            if half and len(t) >= 4:
+                for size in {len(t) // 2, (len(t) + 1) // 2}:
+                    out |= {t[k:k + size] for k in {(len(t) - size) // 2, (len(t) - size + 1) // 2}}
         elif op == "outer":
             out |= {t[:k] + t[-k:] for k in range(1, len(t) // 2 + 1)}
             out.add("".join(w[0] + w[-1] for w in run if len(w) > 1))
@@ -1027,6 +1035,8 @@ def values(node):
         return out
     if op in SELECT:
         leaf = parts[0]
+        half = op == "middle" and any(re.search(r"\bhalf\b", i.get("text", ""), re.I)
+                                      for i in node.get("indicators") or [])
         if "op" not in leaf and leaf.get("words") and (leaf.get("select") or "gives" not in leaf):
             # a leaf that names its own pick (select: last, gives AM), or the bare clue words
             # (last<last>([Observer's]) is R): the pick is made here from the clue words, with
@@ -1035,10 +1045,10 @@ def values(node):
             out = set()
             for drop in (False, True):
                 ws = [w for w in (letters(re.sub(r"['’]s$", "", w) if drop else w) for w in raw) if w]
-                out |= _select(op, node.get("n"), "".join(ws), ws)
+                out |= _select(op, node.get("n"), "".join(ws), ws, half)
             return out
         words = _words(leaf)
-        return set().union(*(_select(op, node.get("n"), v, words) for v in values(leaf)))
+        return set().union(*(_select(op, node.get("n"), v, words, half) for v in values(leaf)))
     raise WordplayError(f"unknown op {op!r}")
 
 
