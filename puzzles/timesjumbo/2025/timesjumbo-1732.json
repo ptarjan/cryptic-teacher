@@ -1335,49 +1335,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "fair target?",
+      "text": "fair target",
       "at": 45
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rolled over",
-       "at": 32,
-       "note": "rolled over means turned around, so the whole string runs backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 26,
+         "note": "twice says the officer abbreviation appears two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "officer commanding",
+         "at": 7,
+         "gives": "CO",
+         "note": "CO is the abbreviation for commanding officer"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolled over",
+         "at": 32,
+         "note": "rolled over says the barrel word is turned round"
+        }
+       ],
        "parts": [
         {
          "words": "Barrel",
          "at": 0,
          "gives": "TUN",
          "note": "a tun is a large barrel for wine or beer"
-        },
-        {
-         "words": "twice",
-         "at": 26,
-         "gives": "OC",
-         "note": "twice gives the officer's abbreviation a second time, another copy of it"
-        },
-        {
-         "words": "officer commanding",
-         "at": 7,
-         "gives": "OC",
-         "note": "OC is the military abbreviation for Officer Commanding"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barrel and a commanding officer roll over twice, asking if that's a fair target.",
-     "walkthrough": "A coconut shy is a fairground stall where players throw balls at coconuts, hence 'fair target'.",
-     "definitionFit": "Coconuts are the traditional targets at a fairground coconut shy, knocked off stands with balls."
+     "surface": "A barrel rolls over its commander twice at a fairground.",
+     "walkthrough": "A coconut shy is a British fairground stall where people throw balls to knock coconuts off stands, so the nut is a fair target.",
+     "definitionFit": "At a funfair stall the round nut perched on a post is what players aim to knock off."
     },
     "features": {
      "answerInScene": false,
@@ -2818,39 +2824,54 @@
     "definitions": [
      {
       "text": "Word",
-      "at": 0,
-      "note": "'Word' is singular in form but means news, like the plural tidings."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "not",
-       "note": "'not hard' means without the H, so it is removed from THINGS"
-      },
-      {
        "text": "in",
-       "note": "one thing in another sits inside it"
+       "at": 29,
+       "note": "in places the identification letters inside the other piece"
       }
      ],
      "parts": [
       {
-       "words": "hard in articles",
-       "gives": "TINGS",
-       "note": "articles = THINGS; H = hard is removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 20,
+         "note": "not means the hard abbreviation is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "articles",
+         "at": 32,
+         "gives": "THINGS",
+         "note": "things are articles or items"
+        },
+        {
+         "words": "hard",
+         "at": 24,
+         "gives": "H",
+         "note": "H is the pencil abbreviation for hard"
+        }
+       ]
       },
       {
        "words": "identification",
-       "gives": "ID",
-       "note": "ID = identification"
+       "at": 5,
+       "gives": "ID"
       }
      ]
     },
     "explanation": {
-     "surface": "Identifying a word is easy in grammar articles.",
-     "walkthrough": "'Articles' sounds like grammar ('a', 'the'), but it means objects.",
-     "definitionFit": "A plain synonym: word, as in 'send word', means news, and tidings is an old word for news."
+     "surface": "A card proves who you are, but it is not hard to carry among your belongings.",
+     "walkthrough": "'articles' looks like grammar (a, the), but here it means THINGS; losing H leaves TINGS.",
+     "definitionFit": "Word in the sense of news or a message, as in sending word, means tidings."
     },
     "features": {
      "answerInScene": false,

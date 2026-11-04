@@ -916,55 +916,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WALRUS",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "rejected suggests something sent back, so the word is read the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 17,
+         "note": "rejected means sent back, so law is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "law",
-         "gives": "WAL",
-         "note": "law written backwards"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "the leader of a group of letters is the first one"
-          }
-         ],
-         "parts": [
-          {
-           "words": "RSPC",
-           "note": "first letter of RSPC"
-          }
-         ]
-        },
-        {
-         "words": "The Guardian",
-         "gives": "US",
-         "note": "the clue appears in The Guardian, which can refer to itself as we or us"
+         "at": 13,
+         "gives": "LAW",
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 34,
+         "note": "leader says only the first letter of RSPC is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "RSPC",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "The Guardian",
+       "at": 44,
+       "gives": "US",
+       "note": "in its own crossword the Guardian is us, the newspaper speaking"
       }
      ]
     },
     "explanation": {
-     "surface": "A mock newspaper headline about a marine protection law being turned down by an animal charity's boss.",
-     "walkthrough": "The RSPCA is Britain's animal welfare charity; dropping its A makes RSPC look like it, though only its first letter is used.",
-     "definitionFit": "A walrus is a large tusked sea mammal of Arctic waters, an example of sea creatures."
+     "surface": "A newspaper quotes a sea-creature welfare law that an animal charity boss turned down.",
+     "walkthrough": "The RSPCA is a British animal welfare charity; here only its leader R is used.",
+     "definitionFit": "A large tusked marine mammal is an example of marine life."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Guardian"
     }

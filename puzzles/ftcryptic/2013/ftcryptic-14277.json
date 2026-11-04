@@ -439,42 +439,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GUTROT",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "with no ends at either side, the word loses its first and last letters"
-      },
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is left off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "fit",
-       "gives": "AGUE",
-       "note": "an ague is a fit of shivering, as with fever"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 20,
+         "note": "endless says both end letters of the word for fit are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fit",
+         "at": 28,
+         "gives": "AGUE",
+         "note": "an ague is a fit of shivering fever"
+        },
+        {
+         "gives": "AE"
+        }
+       ]
       },
       {
-       "words": "diarrhoea",
-       "gives": "TROTS",
-       "note": "the trots is a slang name for diarrhoea"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 47,
+         "note": "almost says the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diarrhoea",
+         "at": 36,
+         "gives": "TROTS",
+         "note": "the trots is slang for diarrhoea"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about what could cause both shivering fits and a stomach upset.",
-     "walkthrough": "AGUE without both ends is GU; TROTS without its last letter is TROT. Read whole, the clue also describes the answer: cheap rough drink can bring on shakes and a runny stomach.",
-     "definitionFit": "Gut-rot is British slang for cheap, nasty alcohol or food likely to upset the stomach and cause sickness."
+     "surface": "What sort of thing brings on shivering fits and nearly gives you the runs?",
+     "walkthrough": "Bad liquor or food would indeed give you those symptoms, so the whole clue defines the answer.",
+     "definitionFit": "Cheap rough drink or bad food that upsets the stomach, which the whole clue describes."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "fit"
     }
    }

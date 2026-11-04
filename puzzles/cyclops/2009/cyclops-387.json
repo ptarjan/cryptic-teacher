@@ -1371,11 +1371,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means read backwards, right to left"
+       "text": "holding",
+       "at": 30,
+       "note": "holding says the jumbled letters contain the other piece"
       }
      ],
      "parts": [
@@ -1383,37 +1384,47 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "holding",
-         "note": "holding takes the extra piece into the mixture of letters"
-        },
-        {
          "text": "crappily",
-         "note": "done crappily means done badly and messily, so the letters are jumbled"
+         "at": 20,
+         "note": "crappily means badly done, so these letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "Flirted so",
-         "note": "taken as written"
-        },
+         "at": 9,
+         "note": "taken as written to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 38,
+         "note": "back says the bill abbreviation is turned round"
+        }
+       ],
+       "parts": [
         {
          "words": "Bill",
+         "at": 43,
          "gives": "AC",
-         "note": "a bill is an account, abbreviated AC"
+         "note": "AC is short for account, a bill"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bill Clinton's clumsy flirting with a former head of state.",
-     "walkthrough": "'Bill' suggests Clinton, but it is an account.",
-     "definitionFit": "Fidel Castro was Cuba's leader and president until 2008, so a former president."
+     "surface": "Someone flirted badly while hiding the bill from a former leader.",
+     "walkthrough": "Bill here is an account; the former Cuban leader's two names are split across two lights, so one clue serves both.",
+     "definitionFit": "The Cuban revolutionary leader was formerly president of Cuba."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Bill"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
