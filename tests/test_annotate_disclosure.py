@@ -503,6 +503,29 @@ pending.write_text(json.dumps({"1-across": {
 say("rebus_note_found_inside_block_note", AC.unname_block_notes(rebus, pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["notes"]["Somewhat excessive"]
     == "part of the word excessive is XC")
+# A stray closing bracket in the _ann file is removed (16 STOPPED first checks, 11-04); other
+# parse errors are left alone.
+pending.write_text('{"1-across": {"def": "a", "notes": {"x": "y"}}},\n"2-down": null}')
+say("stray_brace_mended", AC.mend_json(pending) is not None
+    and sorted(json.loads(pending.read_text())) == ["1-across", "2-down"])
+pending.write_text('{"1-across": null, "2-down": null}\n}\n')
+say("trailing_closer_mended", AC.mend_json(pending) is not None
+    and json.loads(pending.read_text()) == {"1-across": None, "2-down": None})
+broken = '{"1-across": {"def": "a" "wp": "b"}}'
+pending.write_text(broken)
+say("other_json_errors_left", AC.mend_json(pending) is None and pending.read_text() == broken)
+# A key naming a clue in the wrong direction is renamed when the other reading is the only one.
+wrong = path.parent / "cyclops-99994.json"
+wrong.write_text(json.dumps({"id": "cyclops-99994", "number": 99994, "entries": [
+    entry("1-across", "Drain cover rasping (7)", "GRATING"),
+    entry("21-across", "Archbishop's church (6)", "TEMPLE"),
+    entry("2-down", "Rag every day (5)", "DAILY")]}))
+pending.write_text(json.dumps({"1-across": None, "21-down": {"def": "church"}, "2-down": None}))
+say("wrong_direction_renamed", AC.fix_directions(wrong, pending) == ["21-down -> 21-across"]
+    and list(json.loads(pending.read_text())) == ["1-across", "21-across", "2-down"]
+    and json.loads(pending.read_text())["21-across"] == {"def": "church"})
+pending.write_text(json.dumps({"1-across": None, "21-across": {"def": "c"}, "21-down": {"def": "d"}}))
+say("wrong_direction_kept_when_taken", AC.fix_directions(wrong, pending) == [])
 # The derived abbreviation gloss names an answer that is itself a word of it.
 import annotation as ANN
 gl = [b["note"] for b in ANN.unname_derived_block_text(
@@ -606,7 +629,12 @@ unname_gives_the_answer
 unname_partial_block_drops_clause
 unname_hidden_display
 unname_leaves_mid_thought
-fodder_reuse_says_leave_it""".split()
+fodder_reuse_says_leave_it
+stray_brace_mended
+trailing_closer_mended
+other_json_errors_left
+wrong_direction_renamed
+wrong_direction_kept_when_taken""".split()
 lines_out = out.split("\n")
 for k in KEYS:
     same(k, str(lines_out.count(k + "=yes")), "1")
