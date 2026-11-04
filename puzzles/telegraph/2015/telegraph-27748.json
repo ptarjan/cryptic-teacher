@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "New student may be given that coat",
     "enumeration": "6"
    },
-   "solution": "PRIMER"
+   "solution": "PRIMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New student may be given that",
+      "at": 0,
+      "meaning": "an elementary textbook handed to a beginner learning a subject"
+     },
+     {
+      "text": "coat",
+      "at": 30,
+      "meaning": "the first layer of paint put on a surface before the top coat"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses hold: a basic schoolbook for beginners, and the undercoat painters apply first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +69,48 @@
     "text": "Servant goes after farm animal that's run amok",
     "enumeration": "7"
    },
-   "solution": "RAMPAGE"
+   "solution": "RAMPAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "run amok",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "goes after",
+       "at": 8,
+       "note": "tells us the servant's word comes after the animal's word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "farm animal",
+       "at": 19,
+       "gives": "RAM",
+       "note": "a ram is a male sheep kept on a farm"
+      },
+      {
+       "words": "Servant",
+       "at": 0,
+       "gives": "PAGE",
+       "note": "a page is a young servant or attendant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant chases a farm animal that has broken loose.",
+     "definitionFit": "To behave violently and wildly is to run amok, the verb sense of the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Servant"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +124,43 @@
     "text": "Like coal maybe, as material brought to surface",
     "enumeration": "5"
    },
-   "solution": "MINED"
+   "solution": "MINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like coal maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "brought to surface",
+       "at": 29,
+       "note": "in a down clue, raising the word from the bottom to the top reads it backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "material",
+       "at": 20,
+       "gives": "DENIM",
+       "note": "denim is a tough cotton fabric used for jeans"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coal is a material dug up and brought to the surface.",
+     "walkthrough": "'Brought to surface' looks like a description of mining; in a down entry it lifts DENIM upwards, so it reads bottom to top.",
+     "definitionFit": "Coal is extracted from the ground by digging, so it is dug out from pits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +174,41 @@
     "text": "Sort of course in Religious Education given to new student",
     "enumeration": "9"
    },
-   "solution": "REFRESHER"
+   "solution": "REFRESHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Religious Education",
+       "at": 18,
+       "gives": "RE",
+       "note": "RE is the school-subject abbreviation for Religious Education"
+      },
+      {
+       "words": "new student",
+       "at": 47,
+       "gives": "FRESHER",
+       "note": "a fresher is a first-year student at a British university"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new student is put on some sort of RE course.",
+     "definitionFit": "A short course that updates someone's training is a well-known type of course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Religious"
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +222,59 @@
     "text": "Powder in lotion or resin seen around a pit",
     "enumeration": "8"
    },
-   "solution": "CALAMINE"
+   "solution": "CALAMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Powder in lotion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "seen around",
+         "at": 26,
+         "note": "turned around, so the resin's word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "resin",
+         "at": 20,
+         "gives": "LAC",
+         "note": "lac is a resin secreted by certain insects, used for shellac"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 38,
+       "gives": "A"
+      },
+      {
+       "words": "pit",
+       "at": 40,
+       "gives": "MINE",
+       "note": "a mine is a coal pit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lotion containing powder, or resin found near a mine pit.",
+     "walkthrough": "'Seen around' sounds like a container, but here it means turned round; 'or' only joins the definition to the wordplay.",
+     "definitionFit": "A pink zinc-oxide powder is the active ingredient of the soothing skin lotion used on sunburn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +294,57 @@
      }
     ]
    },
-   "solution": "CASTOFF"
+   "solution": "CASTOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discarded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "actors",
+       "at": 10,
+       "gives": "CAST",
+       "note": "the cast is the group of actors in a play"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 17,
+         "note": "only the opening letter of the word object is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "object",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "very loudly",
+       "at": 33,
+       "gives": "FF",
+       "note": "ff (fortissimo) is the musical marking for very loud"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors begin to protest at the top of their voices.",
+     "definitionFit": "Something thrown away or no longer wanted is described with this adjective, as in used clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +358,40 @@
     "text": "Certainly not the most exciting tales",
     "enumeration": "5"
    },
-   "solution": "LEAST"
+   "solution": "LEAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Certainly not the most",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exciting",
+       "at": 23,
+       "note": "exciting means stirring up, so the letters of tales are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tales",
+       "at": 32
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "These stories are far from the most thrilling ones around.",
+     "definitionFit": "The superlative of little is the opposite extreme from the most."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exciting"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +405,41 @@
     "text": "Drug addict in sea ship",
     "enumeration": "9"
    },
-   "solution": "MAINLINER"
+   "solution": "MAINLINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drug addict",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sea",
+       "at": 15,
+       "gives": "MAIN",
+       "note": "the main is a poetic word for the open sea"
+      },
+      {
+       "words": "ship",
+       "at": 19,
+       "gives": "LINER",
+       "note": "a liner is a large passenger ship"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drug addict found aboard a ship at sea.",
+     "definitionFit": "Slang for someone who injects drugs straight into a vein."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +459,61 @@
      }
     ]
    },
-   "solution": "NONCOMS"
+   "solution": "NONCOMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldiers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "terribly",
+       "at": 47,
+       "note": "terribly signals the letters being badly jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mons",
+       "at": 12
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "coming to premature end",
+         "at": 22,
+         "note": "the word once stops short, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "once",
+         "at": 17,
+         "gives": "ONCE"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers at the Battle of Mons were cut down too early, dreadfully.",
+     "walkthrough": "'Coming to premature end' trims ONCE to ONC; 'terribly' then mixes MONS and ONC.",
+     "definitionFit": "Short for non-commissioned officers, such as sergeants and corporals in the army."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mons"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +527,69 @@
     "text": "Male and one female by back of the depot for demonstration",
     "enumeration": "13"
    },
-   "solution": "MANIFESTATION"
+   "solution": "MANIFESTATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "demonstration",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Male",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a man is a male person"
+      },
+      {
+       "words": "one",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "female",
+       "at": 13,
+       "gives": "F"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back of",
+         "at": 23,
+         "note": "only the final letter of the word the is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "words": "depot",
+       "at": 35,
+       "gives": "STATION",
+       "note": "a station is a railway or bus depot"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man and a woman are seen behind the depot at a protest.",
+     "walkthrough": "'one female' looks like a single person, but gives I then F.",
+     "definitionFit": "A public display of a feeling or a quality is a showing of it, an outward sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demonstration"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +609,47 @@
      }
     ]
    },
-   "solution": "SANDIEGO"
+   "solution": "SANDIEGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "desert",
+       "at": 11,
+       "gives": "SAND",
+       "note": "sand is what a desert is made of"
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "personality",
+       "at": 27,
+       "gives": "EGO",
+       "note": "ego is a person's sense of self or personality"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city in the American desert has a character all its own.",
+     "definitionFit": "A large Californian city on the Pacific coast near Mexico."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "personality"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +663,41 @@
     "text": "Fox? Has got into hospital — bother!",
     "enumeration": "6"
    },
-   "solution": "TALBOT"
+   "solution": "TALBOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fox?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Has got into",
+       "at": 5,
+       "note": "the answer is held within the words hospital and bother, running across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hospital — bother",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Fox has ended up in hospital, which is annoying.",
+     "walkthrough": "William Henry Fox Talbot was a Victorian pioneer of photography; the question mark marks Fox as just part of a name.",
+     "definitionFit": "The surname completing the name of the photographic pioneer whose middle name was Fox."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fox"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +711,41 @@
     "text": "What's near fire? It's hot soil",
     "enumeration": "6"
    },
-   "solution": "HEARTH"
+   "solution": "HEARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's near fire?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hot",
+       "at": 23,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "words": "soil",
+       "at": 27,
+       "gives": "EARTH",
+       "note": "earth means soil"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what lies by the fire, with the answer hot soil.",
+     "definitionFit": "The floor of a fireplace, the area right in front of and under the fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "soil"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +759,59 @@
     "text": "Dog seen around Fleet Street area journalist rescued",
     "enumeration": "9"
    },
-   "solution": "RECOVERED"
+   "solution": "RECOVERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rescued",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "seen around",
+         "at": 4,
+         "note": "the dog's name surrounds the postcode area"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Dog",
+         "at": 0,
+         "gives": "ROVER",
+         "note": "Rover is a traditional name for a dog"
+        },
+        {
+         "words": "Fleet Street area",
+         "at": 16,
+         "gives": "EC",
+         "note": "EC is the London postcode district (East Central) that includes Fleet Street"
+        }
+       ]
+      },
+      {
+       "words": "journalist",
+       "at": 34,
+       "gives": "ED",
+       "note": "ed is short for editor, a journalist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist rescued a dog spotted near Fleet Street, London's old newspaper district.",
+     "definitionFit": "Something retrieved or saved has been got back, a past participle like saved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +825,41 @@
     "text": "Castle quickly established by promontory",
     "enumeration": "8"
    },
-   "solution": "FASTNESS"
+   "solution": "FASTNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Castle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quickly",
+       "at": 7,
+       "gives": "FAST",
+       "note": "fast means quickly"
+      },
+      {
+       "words": "promontory",
+       "at": 30,
+       "gives": "NESS",
+       "note": "a ness is a headland, as in Loch Ness place names"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A castle built rapidly on a headland.",
+     "definitionFit": "A stronghold or secure fortified place, like a castle, an old literary word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "established"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +873,66 @@
     "text": "Evil girl and one almost good in musical event",
     "enumeration": "9"
    },
-   "solution": "SINGALONG"
+   "solution": "SINGALONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical event",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Evil",
+       "at": 0,
+       "gives": "SIN",
+       "note": "sin is wrongdoing, evil"
+      },
+      {
+       "words": "girl",
+       "at": 5,
+       "gives": "GAL",
+       "note": "gal is an informal word for a girl"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 18,
+         "note": "the word one loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 14,
+         "gives": "ONE"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "good",
+       "at": 25,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked girl and a nearly good one perform at a concert.",
+     "definitionFit": "An informal gathering where everybody joins in the songs together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Evil"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +946,48 @@
     "text": "Got reminder about remedial treatment",
     "enumeration": "8"
    },
-   "solution": "PROCURED"
+   "solution": "PROCURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "the reminder word goes about the treatment word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reminder",
+       "at": 4,
+       "gives": "PROD",
+       "note": "a prod is a nudge or reminder"
+      },
+      {
+       "words": "remedial treatment",
+       "at": 19,
+       "gives": "CURE",
+       "note": "a cure is a remedy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone received a reminder about their medical treatment.",
+     "definitionFit": "To obtain or acquire something, often with effort, is the same as to get it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Got"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1001,41 @@
     "text": "Artist having item of furniture that can be valued",
     "enumeration": "7"
    },
-   "solution": "RATABLE"
+   "solution": "RATABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that can be valued",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Artist",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA is a Royal Academician, an artist"
+      },
+      {
+       "words": "item of furniture",
+       "at": 14,
+       "gives": "TABLE",
+       "note": "a table is a piece of furniture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist owns a piece of furniture that could be appraised.",
+     "definitionFit": "Able to be assessed or valued, especially property for local rates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Artist"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1049,41 @@
     "text": "The infernal world has possession of rejects",
     "enumeration": "7"
    },
-   "solution": "DISOWNS"
+   "solution": "DISOWNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rejects",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The infernal world",
+       "at": 0,
+       "gives": "DIS",
+       "note": "Dis is the Roman god of the underworld and a name for the underworld itself"
+      },
+      {
+       "words": "has possession of",
+       "at": 19,
+       "gives": "OWNS",
+       "note": "owns means holds as property"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The underworld takes ownership of cast-offs.",
+     "definitionFit": "To repudiate or cut off a connection with someone, as a parent cutting off a child."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejects"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1097,58 @@
     "text": "A bishop in the present time seen as bigoted",
     "enumeration": "6"
    },
-   "solution": "NARROW"
+   "solution": "NARROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bigoted",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the letters go inside the present-time word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the present time",
+       "at": 12,
+       "gives": "NOW",
+       "note": "now means the present time"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "bishop",
+         "at": 2,
+         "gives": "RR",
+         "note": "RR is Right Reverend, the title of a bishop"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modern bishop is regarded as prejudiced.",
+     "definitionFit": "Narrow-minded people are intolerant, which is what bigoted means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1162,41 @@
     "text": "Two terms of cricket go on too long",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "go on too long",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Two terms of cricket",
+       "at": 0,
+       "gives": "OVER",
+       "note": "an over is a set of six balls in cricket"
+      },
+      {
+       "words": "Two terms of cricket",
+       "at": 0,
+       "gives": "RUN",
+       "note": "a run is a unit of scoring in cricket"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two cricket words for a match that lasts too long.",
+     "definitionFit": "To exceed the allotted time, as a meeting does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terms"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1210,29 @@
     "text": "Verses of song in bars",
     "enumeration": "6"
    },
-   "solution": "STAVES"
+   "solution": "STAVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Verses of song",
+      "at": 0,
+      "meaning": "a stave is a verse or stanza of a poem or song"
+     },
+     {
+      "text": "bars",
+      "at": 18,
+      "meaning": "wooden or metal rods or poles"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses fit: stanzas of verse, and sticks or rods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1246,58 @@
     "text": "Horse let out after first hint of sunshine",
     "enumeration": "5"
    },
-   "solution": "SHIRE"
+   "solution": "SHIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 14,
+       "note": "the rented word comes after the sunshine letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first hint of",
+         "at": 20,
+         "note": "only the opening letter of sunshine is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sunshine",
+         "at": 34
+        }
+       ]
+      },
+      {
+       "words": "let out",
+       "at": 6,
+       "gives": "HIRE",
+       "note": "to hire out is to let something out for money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse is turned out after the first sign of sun.",
+     "definitionFit": "A large heavy draught horse, an English breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1311,48 @@
     "text": "Attempts to get worker joining in songs",
     "enumeration": "8"
    },
-   "solution": "SHANTIES"
+   "solution": "SHANTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "songs",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "joining in",
+       "at": 23,
+       "note": "the worker goes inside the word for attempts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Attempts",
+       "at": 0,
+       "gives": "SHIES",
+       "note": "shies are throws or attempts, as at a coconut shy"
+      },
+      {
+       "words": "worker",
+       "at": 16,
+       "gives": "ANT",
+       "note": "an ant is the classic crossword worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker tries to join in the singing.",
+     "definitionFit": "Sailors' work songs sung while hauling ropes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1366,58 @@
     "text": "Miss maybe in hat crossing end of street",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss maybe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 18,
+       "note": "the hat word goes across the letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hat",
+       "at": 14,
+       "gives": "TILE",
+       "note": "tile is old slang for a hat"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 27,
+         "note": "only the last letter of street is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "street",
+         "at": 34
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman in a hat crosses at the end of the street.",
+     "definitionFit": "Miss is an example of a form of address, like Mr or Mrs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 25,
@@ -404,7 +1437,49 @@
      }
     ]
    },
-   "solution": "BERTIEWOOSTER"
+   "solution": "BERTIEWOOSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English gentleman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 38,
+       "note": "possibly signals that the letters may be arranged another way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bow-tie",
+       "at": 20
+      },
+      {
+       "words": "sort",
+       "at": 28
+      },
+      {
+       "words": "'ere",
+       "at": 33
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dapper Englishman in a bow tie, said in a Cockney accent.",
+     "walkthrough": "The comic upper-class hero of P. G. Wodehouse's stories, an idle English gentleman.",
+     "definitionFit": "P. G. Wodehouse's idle upper-class hero is the archetypal English gentleman of comic fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bow-tie"
+    }
+   }
   },
   {
    "number": 26,
@@ -418,7 +1493,40 @@
     "text": "Taunt directed at saints is uncalled for",
     "enumeration": "8"
    },
-   "solution": "NEEDLESS"
+   "solution": "NEEDLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "uncalled for",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Taunt",
+       "at": 0,
+       "gives": "NEEDLE",
+       "note": "to needle is to provoke or taunt"
+      },
+      {
+       "words": "saints",
+       "at": 18,
+       "gives": "SS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jibes aimed at holy people are unnecessary.",
+     "definitionFit": "Unnecessary things are not required, so they are uncalled for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saints"
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1540,44 @@
     "text": "Author without much experience, we hear",
     "enumeration": "6"
    },
-   "solution": "GREENE"
+   "solution": "GREENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GREENE",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 32,
+       "note": "signals the word is said aloud"
+      }
+     ],
+     "parts": [
+      {
+       "words": "without much experience",
+       "at": 7,
+       "gives": "GREEN",
+       "note": "green means inexperienced, a novice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inexperienced writer, it is said.",
+     "walkthrough": "Graham Greene was an English novelist.",
+     "definitionFit": "Graham Greene is the novelist who wrote Brighton Rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "experience"
+    }
+   }
   }
  ]
 }
