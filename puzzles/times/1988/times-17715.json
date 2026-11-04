@@ -149,10 +149,49 @@
    },
    "length": 5,
    "clue": {
-    "enumeration": "5",
-    "missing": true
+    "text": "Deputy left commander with hesitation",
+    "enumeration": "5"
    },
-   "solution": "LOCUM"
+   "solution": "LOCUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deputy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      },
+      {
+       "words": "commander",
+       "at": 12,
+       "gives": "OC",
+       "note": "OC stands for Officer Commanding, a military commander"
+      },
+      {
+       "words": "hesitation",
+       "at": 27,
+       "gives": "UM",
+       "note": "um is the sound of someone hesitating in speech"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stand-in left the commanding officer dithering about what to do.",
+     "definitionFit": "A locum is a doctor or cleric standing in temporarily for another, so a deputy in the stand-in sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 3,
@@ -928,53 +967,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "materials",
-       "note": "materials are raw stuff to be made into something new, so the letters are worked up into another order"
+       "text": "in",
+       "at": 19,
+       "note": "in tells us one piece is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one piece placed in another is enclosed by it"
+         "text": "materials",
+         "at": 30,
+         "note": "materials are raw stuff to be worked up, so the letters of the preceding word are to be reworked"
         }
        ],
        "parts": [
         {
          "words": "striped",
-         "note": "the seven letters of the word rearranged"
-        },
+         "at": 22
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "half of",
-           "note": "half of a four-letter word keeps two of its letters, here the back pair"
-          }
-         ],
-         "parts": [
-          {
-           "words": "them",
-           "note": "the second half of the word"
-          }
-         ]
+         "text": "half of",
+         "at": 6,
+         "note": "half of picks the second pair of letters from the four-letter word them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "them",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half of some paint has gone onto striped fabrics.",
-     "walkthrough": "'Striped materials' reads as stripy cloth, but striped is the fodder and materials the anagram signal.",
-     "definitionFit": "Distemper is a water-based paint bound with glue or size, once common for walls and scenery."
+     "surface": "A decorator paints over half the striped fabrics in a room.",
+     "walkthrough": "'Paint' looks like a verb, but it names the paint itself. 'materials' is an unusual anagram signal (stuff to be worked into something new), making DISTPER; 'in' puts the half of 'them' inside it.",
+     "definitionFit": "Distemper is a type of water-based paint once widely used for walls and scenery."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "materials"
     }
