@@ -2274,60 +2274,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Doctor",
-       "note": "to doctor is to tamper with, so the letters are rearranged"
+       "text": "taking",
+       "at": 17,
+       "note": "taking means the rearranged letters take in the extra letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "taking",
-         "note": "taking something in means absorbing it"
+         "text": "Doctor",
+         "at": 0,
+         "note": "to doctor is to tamper with, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "rules out",
-         "note": "anagram fodder"
-        },
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "M",
-         "indicators": [
-          {
-           "text": "in the end",
-           "note": "in the end points to the final letter of the sedative's name"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "diazepam",
-           "gives": "M",
-           "select": "last",
-           "note": "last letter of diazepaM"
-          }
-         ]
+         "text": "in the end",
+         "at": 33,
+         "note": "the end of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diazepam",
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A physician refuses to prescribe diazepam for the shakes.",
-     "walkthrough": "'Doctor' looks like the physician; it is a verb meaning to tamper with.",
-     "definitionFit": "A plain synonym: tremulous describes a trembling voice or hand, one that is shaking."
+     "surface": "A medic refuses to prescribe tranquillisers for tremors.",
+     "walkthrough": "'Doctor' turns RULES OUT into TREULOUS, which takes M inside.",
+     "definitionFit": "Trembling or quivering, as from fear or weakness, is a synonym of shaking."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Doctor"
+     "aptDefinition": false
     }
    }
   },

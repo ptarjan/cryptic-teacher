@@ -590,15 +590,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ending in",
-       "note": "take the last letter of the next word"
-      }
-     ],
      "parts": [
       {
        "words": "Article",
+       "at": 0,
        "gives": "THE",
        "note": "the is the definite article"
       },
@@ -606,34 +601,41 @@
        "op": "last",
        "indicators": [
         {
-         "text": "Second",
-         "note": "take the second letter of the word"
+         "text": "ending in",
+         "at": 8,
+         "note": "the ending in a word is its final letter"
         }
        ],
        "parts": [
         {
          "words": "Saint",
-         "note": "the last letter of SAINT"
+         "at": 18
         }
        ]
       },
       {
        "op": "nth",
        "n": 2,
+       "indicators": [
+        {
+         "text": "Second",
+         "at": 31,
+         "note": "second picks out the second letter of the apostle's name"
+        }
+       ],
        "parts": [
         {
          "words": "Paul's",
-         "gives": "PAULSECOND",
-         "note": "the second letter of PAUL"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reference to St Paul's second epistle to the Corinthians.",
-     "walkthrough": "The Bible reference is a disguise: the Corinthians were Greek, so a letter to them is a Greek letter. \"Letter\" works in both the wordplay and the definition.",
-     "definitionFit": "Theta is a letter of the Greek alphabet, the one the Corinthians used."
+     "surface": "A biblical heading: the definite article, then Saint Paul's second epistle to Corinth.",
+     "walkthrough": "The surface points to the New Testament epistle, but the Corinthians here are simply Greeks, and the letter is one of their alphabet.",
+     "definitionFit": "Corinth is in Greece, so a letter to its people is a Greek letter, the eighth of the alphabet."
     },
     "features": {
      "answerInScene": false,
@@ -2942,41 +2944,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "flipping",
-       "note": "the word is flipped round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Peach",
+       "at": 0,
+       "gives": "BEAUTY",
+       "note": "a peach is a stunner, a beauty"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 13,
+         "note": "flipping turns something over, so the word for skins runs backwards"
+        }
+       ],
        "parts": [
         {
          "words": "skin's",
+         "at": 6,
          "gives": "PEELS",
-         "note": "skin's = PEEL'S, PEELS; flipped"
-        },
-        {
-         "words": "Peach",
-         "gives": "YTUAEB",
-         "note": "a peach is a beauty, a stunner"
+         "note": "read as skins, which as a verb means peels"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit's skin described as flipping lovely.",
-     "walkthrough": "\"Flipping\" poses as a mild British swearword qualifying \"lovely\", but it turns PEELS over.",
-     "definitionFit": "Beauty sleep is sleep supposed to keep you looking lovely; the question mark flags the play on lovely."
+     "surface": "A peach peeled and turned over makes a wonderful snooze.",
+     "walkthrough": "'skin's' is read as the verb skins, PEELS; 'flipping' also looks like a mild British curse.",
+     "definitionFit": "Sleep taken before midnight is jokingly said to keep one looking good, so it is a lovely nap."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "flipping"
+     "aptDefinition": true
     }
    }
   },
@@ -3165,40 +3168,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "in a down clue, the word is turned upside down"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Second",
+       "at": 0,
+       "gives": "MO",
+       "note": "mo is short for moment, a second"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 30,
+         "note": "in a down clue, upset turns the word upside down, reading it upwards"
+        }
+       ],
        "parts": [
         {
          "words": "unsatisfactory service",
+         "at": 7,
          "gives": "LET",
-         "note": "a let is a serve in tennis that must be retaken; turned upside down"
-        },
-        {
-         "words": "Second",
-         "gives": "OM",
-         "note": "mo = a moment, a second"
+         "note": "in tennis a let is a serve that clips the net and must be replayed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A motorist upset for a moment by poor service at a hotel.",
-     "walkthrough": "\"Service\" suggests hospitality, which fits a motel, but it is the tennis serve.",
-     "definitionFit": "A motel is roadside accommodation used by drivers."
+     "surface": "A motorist gripes about poor service at a roadside lodging.",
+     "definitionFit": "A roadside hotel built for motorists is where a driver stays overnight."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "service"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

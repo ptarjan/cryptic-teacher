@@ -1800,46 +1800,61 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "shedding",
-       "note": "shedding means losing or casting off, so a letter is removed"
-      },
-      {
        "text": "Not",
-       "note": "not here means without, so another letter is taken away"
+       "at": 37,
+       "note": "not one means without the letter standing for one"
       }
      ],
      "parts": [
       {
-       "words": "Boxer, Leonard",
-       "gives": "SUGARRAY",
-       "note": "Sugar Ray Leonard was a champion American boxer"
-      },
-      {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shedding",
+         "at": 16,
+         "note": "shedding means losing the chosen letter"
+        }
+       ],
        "parts": [
         {
-         "words": "final tear",
-         "gives": "R",
-         "note": "the last letter of tear"
+         "words": "Boxer, Leonard",
+         "at": 0,
+         "gives": "SUGARRAY",
+         "note": "Sugar Ray Leonard was an American champion boxer"
         },
         {
-         "words": "one",
-         "gives": "A",
-         "note": "a means one"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "final",
+           "at": 25,
+           "note": "final means the last letter of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tear",
+           "at": 31
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 41,
+       "gives": "A",
+       "note": "a, the indefinite article, means one"
       }
      ]
     },
     "explanation": {
-     "surface": "A tough boxer who cries now and then insists he is no softie.",
-     "walkthrough": "The question mark hints at a tearful fighter; in fact 'final tear' and 'one' name letters removed from the boxer's name.",
-     "definitionFit": "Sugary describes sweet, cloying sentiment, the way saccharine is used of mawkish feeling."
+     "surface": "A famous boxer won't shed a tear; he's no softie.",
+     "definitionFit": "Excessively sweet in feeling, mawkish or saccharine, describes something overly sentimental."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "tear"
+     "aptDefinition": false
     }
    }
   },

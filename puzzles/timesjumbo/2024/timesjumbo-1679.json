@@ -814,7 +814,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' puts one piece inside another"
+       "at": 33,
+       "note": "in places the shortened genre inside the shortened word for motion"
       }
      ],
      "parts": [
@@ -823,14 +824,16 @@
        "indicators": [
         {
          "text": "mostly",
-         "note": "'mostly' cuts a letter off"
+         "at": 44,
+         "note": "mostly means all but the final letter"
         }
        ],
        "parts": [
         {
          "words": "motion",
+         "at": 36,
          "gives": "PACE",
-         "note": "PACE, a rate of motion, cut short; wraps as PA…C"
+         "note": "pace is motion, rate of movement"
         },
         {
          "gives": "E"
@@ -838,21 +841,36 @@
        ]
       },
       {
-       "words": "Literary genre initially lacking",
-       "gives": "CIFI",
-       "note": "SCI-FI without its S"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially lacking",
+         "at": 15,
+         "note": "lacking the initial letter, the first letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Literary genre",
+         "at": 0,
+         "gives": "SCIFI",
+         "note": "science fiction, sci-fi, is a literary genre"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A literary genre that barely moves is almost soothing.",
-     "walkthrough": "The ocean's name comes from the same root: the Pacific was named for its calm.",
-     "definitionFit": "A synonym from Latin pax, peace: a still, untroubled sea or temperament."
+     "surface": "A slow-moving novel in a stalled genre, fairly placid.",
+     "walkthrough": "'initially lacking' gives CIFI from SCIFI; 'mostly' gives PAC from PACE.",
+     "definitionFit": "The ocean was named for its seemingly peaceful waters, and the word means peaceful or calm."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "motion"
+     "aptDefinition": false
     }
    }
   },
@@ -2166,40 +2184,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "PUN is called back, reading the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Very good",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is short for pious, very good"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "recalled",
+         "at": 15,
+         "note": "recalled means called back, so the word for joke runs backwards"
+        }
+       ],
        "parts": [
         {
          "words": "joke",
+         "at": 10,
          "gives": "PUN",
-         "note": "a pun is a joke, reversed"
-        },
-        {
-         "words": "Very good",
-         "gives": "IP",
-         "note": "pi = pious, very good"
+         "note": "a pun is a joke on words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cracking joke brought back seems worth putting on show.",
-     "walkthrough": "PI for pious is a crossword standard.",
-     "definitionFit": "A pin-up is a picture pinned on the wall to be displayed."
+     "surface": "A pious jest is brought back to mind: is it worth showing off?",
+     "definitionFit": "A poster of an attractive person pinned to a wall is something put up for display."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "joke"
+     "aptDefinition": false
     }
    }
   },

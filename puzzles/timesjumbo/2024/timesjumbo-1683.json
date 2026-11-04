@@ -1071,52 +1071,56 @@
      "indicators": [
       {
        "text": "protected by",
-       "note": "the pieces are protected by being wrapped inside the fellow"
+       "at": 27,
+       "note": "something protected by another sits inside it, so the fellow's letters wrap the rest"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "fellow",
-         "gives": "PEER",
-         "note": "a peer is a fellow, an equal"
-        },
-        {
-         "words": "Very good",
-         "gives": "ACE",
-         "note": "ace = very good"
-        }
-       ]
+       "words": "fellow",
+       "at": 40,
+       "gives": "PEER",
+       "note": "a peer is an equal, a fellow"
       },
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "round",
-         "note": "turned round, the quick look faces the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "quick look",
-         "gives": "PEEK",
-         "note": "PEEK, a quick look, turned round"
+         "words": "Very good",
+         "at": 0,
+         "gives": "ACE",
+         "note": "ace is slang for excellent, very good"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "round",
+           "at": 21,
+           "note": "turning round means the letters of the quick look are read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "quick look",
+           "at": 10,
+           "gives": "PEEK",
+           "note": "a peek is a quick look"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fellow UN soldier sneaks a good look round while under protection.",
-     "walkthrough": "'Fellow UN soldier' reads as one phrase; 'fellow' belongs to the wordplay and only 'UN soldier' defines.",
-     "definitionFit": "The blue-helmeted troops sent by the United Nations to monitor ceasefires carry this job title."
+     "surface": "A glance around a UN trooper who is being shielded by a comrade.",
+     "definitionFit": "A soldier serving with United Nations forces to keep warring sides apart is the classic example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fellow"
+     "misdirectedWord": "round"
     }
    }
   },
@@ -2750,46 +2754,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SADNESS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 26,
+       "note": "one thing holding another contains it, so the cheeky talk goes around"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "disrespectful talk",
+       "at": 7,
+       "gives": "SASS",
+       "note": "sass is cheeky, disrespectful talk"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "holds",
-         "note": "one word holds another by keeping it inside"
-        },
-        {
          "text": "back",
-         "note": "back tells you to read the word for objective the other way round before it goes in"
+         "at": 42,
+         "note": "back means the word for objective is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "disrespectful talk",
-         "gives": "SASS",
-         "note": "sass = cheek, disrespectful talk"
-        },
-        {
          "words": "objective",
-         "gives": "DNE",
-         "note": "END, an objective, turned back"
+         "at": 32,
+         "gives": "END",
+         "note": "an end is an aim or objective"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who regrets their cheeky backchat.",
-     "walkthrough": "'Back' reads as 'talking back', part of the cheek; it reverses END.",
-     "definitionFit": "Near synonym: sorrow or unhappiness, the feeling of remorse over something lost or done."
+     "surface": "Someone rues rude remarks that set their goals back.",
+     "definitionFit": "Sorrow over something done or lost is a near synonym of regret, both nouns for unhappiness."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "back"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
