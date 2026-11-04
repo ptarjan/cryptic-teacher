@@ -131,5 +131,31 @@ n = json.loads(pending.read_text())["11-across"]["notes"]
 check("one note replaced, one removed, the rest kept",
       n["Fake"].startswith("a new note") and "made" not in n and n["conservative"] == model["11-across"]["notes"]["conservative"])
 
+# A run leaves out a false flag: to_model shows none, from_model files both,
+# and the stored block survives the round trip as it was.
+stored = by["11-across"]["annotation"]
+shown = model["11-across"].get("features", {})
+check("to_model leaves the false flags out",
+      not any(shown.get(k) is False for k in annotation.FEATURE_DEFAULTS))
+filed = annotation.from_model(json.loads(json.dumps(model["11-across"])), by["11-across"], p)["features"]
+check("from_model files the stored features back exactly", filed == stored["features"],
+      f"{filed} != {stored['features']}")
+bare = dict(model["11-across"], features={})
+check("an empty features block is filed as two falses",
+      annotation.from_model(bare, by["11-across"], p)["features"]
+      == {"answerInScene": False, "aptDefinition": False})
+
+# --patch merges features and explanation key by key too.
+pending.write_text(json.dumps({"11-across": dict(model["11-across"], features={"aptDefinition": True})}))
+fix.write_text(json.dumps({"11-across": {"features": {"joke": "pun"},
+                                         "explanation": {"walkthrough": "a new walkthrough sentence"}}}))
+check("--patch merges features", AC.patch(pending, fix) is None)
+got = json.loads(pending.read_text())["11-across"]
+check("a features patch keeps the other flags", got["features"] == {"aptDefinition": True, "joke": "pun"},
+      str(got["features"]))
+check("an explanation patch keeps the other sentences",
+      got["explanation"]["surface"] == model["11-across"]["explanation"]["surface"]
+      and got["explanation"]["walkthrough"] == "a new walkthrough sentence", str(got["explanation"]))
+
 print("model shape:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)

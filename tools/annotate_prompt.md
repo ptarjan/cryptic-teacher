@@ -78,10 +78,10 @@ words, indicator operations and pieces, so you write none of those.
     "definitionFit": "one sentence, 30 words max: why the answer means the definition"
   },
   "features": {
-    "misdirectedWord": "the one clue word, spelt as printed, whose surface sense is furthest from its job; or null",
-    "joke": "\"pun\" (a word's second sense or sound), \"absurd\" (silly on purpose), or null",
-    "answerInScene": "true/false: does the solution belong in the picture the surface paints?",
-    "aptDefinition": "true/false: is the definition fresh or witty rather than a dictionary synonym?"
+    "misdirectedWord": "the one clue word, spelt as printed, whose surface sense is furthest from its job",
+    "joke": "\"pun\" (a word's second sense or sound) or \"absurd\" (silly on purpose)",
+    "answerInScene": "true if the solution belongs in the picture the surface paints",
+    "aptDefinition": "true if the definition is fresh or witty rather than a dictionary synonym"
   }
 }
 ```
@@ -195,8 +195,8 @@ these. `docs/STYLE.md` holds the product feedback behind them and wins any disag
   county, soap, cricket position, old coin, rhyming slang, banger, jumper), say what it is
   in one clause, never dropped for brevity: `THE OVAL is a London cricket ground`. Not for
   crossword conventions, which the app teaches.
-- `features` is data, never shown. Honest nulls and falses are a usable row; a guessed
-  `joke` poisons it. `joke` asks whether one is present, not whether it is funny.
+- `features` is data, never shown. Leave out a key that is null or false (`{}` when all
+  are): an honest no is a usable row; a guessed `joke` poisons it. `joke` asks whether one is present, not whether it is funny.
 
 ## Check
 
@@ -238,7 +238,7 @@ Working here:
 
 - To change many clues, Write `{"8-down": {"field": value}}` under `tools/`
   (`tools/_patch_<ID>.json`, never `/tmp`) and add `--patch <file>` to the check. Each
-  field is replaced and null removes it, except `notes`, merged note by note.
+  field is replaced and null removes it, except `notes`, `explanation` and `features`, merged key by key.
 - Run the check as a single command: no `&&`, `;`, pipes or `rm`; a compound command
   needs an approval this run cannot give and runs nothing.
 - **Your tools are Read, Write, Edit, `python3`, `node`, WebSearch and WebFetch, nothing else.** `grep`,
@@ -369,7 +369,7 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
   "wp": "ana<Fake>([folio]F + [made]) + [a] + [conservative]TORY",
   "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
   "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Take F (folio) and MADE to get FMADE, and rearrange those letters to make DEFAM. Then add A, which the clue gives as it is, and TORY, the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
-  "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
+  "features": {"answerInScene": true, "misdirectedWord": "Fake"}
 }}
 ```
 

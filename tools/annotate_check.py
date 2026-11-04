@@ -19,7 +19,7 @@ with a line naming the step that broke.
 
 --patch merges FILE, {"8-down": {"wp": "...", "notes": {"in": "..."}}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
-except `notes`, merged note by note (a null note removed), and deletes FILE.
+except `notes`, `explanation` and `features`, merged key by key (a null one removed), and deletes FILE.
 Many clues' fixes are one Write and this one command, not a fix script, which
 these runs cannot get approved.
 
@@ -657,8 +657,10 @@ def patch(pending, fix):
         for k, v in fields.items():
             if v is None:
                 ann[eid].pop(k, None)
-            elif k == "notes" and isinstance(v, dict) and isinstance(ann[eid].get(k), dict):
-                # One note is the usual fix: notes merge key by key, null removing one.
+            elif k in ("notes", "explanation", "features") and isinstance(v, dict) \
+                    and isinstance(ann[eid].get(k), dict):
+                # One note or sentence is the usual fix: these merge key by key, null
+                # removing one, so a patch never re-sends (or loses) the rest.
                 merged = {**ann[eid][k], **v}
                 ann[eid][k] = {n: t for n, t in merged.items() if t is not None}
             else:
