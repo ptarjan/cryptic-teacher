@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Suit and tie",
     "enumeration": "5"
    },
-   "solution": "MATCH"
+   "solution": "MATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0,
+      "meaning": "to suit is to go well with, to be a good pairing for"
+     },
+     {
+      "text": "tie",
+      "at": 9,
+      "meaning": "a tie is a sporting contest or fixture between two sides"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses fit: a colour that suits another goes with it, and a cup tie is a fixture between teams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 1,
@@ -54,7 +79,31 @@
      }
     ]
    },
-   "solution": "MIDDLEAGESPREAD"
+   "solution": "MIDDLEAGESPREAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An unwanted increase",
+      "at": 0,
+      "meaning": "the thickening waistline that tends to arrive with the forties and fifties"
+     },
+     {
+      "text": "500 to 1500, say?",
+      "at": 22,
+      "meaning": "the medieval period stretched across roughly a thousand years, read as the era's extent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition reads the answer as 'the Middle Ages' span', the medieval era stretching from about AD 500 to 1500.",
+     "definitionFit": "Weight gained round the waist in later life is an unwelcome increase, and the medieval era spread over those centuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "increase"
+    }
+   }
   },
   {
    "number": 2,
@@ -68,7 +117,58 @@
     "text": "When one line fails, fully ready to switch electrical unit",
     "enumeration": "5"
    },
-   "solution": "TESLA"
+   "solution": "TESLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "electrical unit",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to switch",
+       "at": 33,
+       "note": "to switch here means to turn round, so the remaining letters are read in reverse order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "fails",
+         "at": 14,
+         "note": "one line failing means one L drops out of the phrase for completely prepared"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fully ready",
+         "at": 21,
+         "gives": "ALLSET",
+         "note": "all set means fully ready"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician's warning: lose one supply line and the fully primed system will switch over.",
+     "walkthrough": "'When one line fails' takes one L from ALLSET, leaving ALSET, and 'to switch' turns ALSET round. A tesla is strictly a magnetic unit, a loose fit for 'electrical'.",
+     "definitionFit": "The tesla is the SI unit of magnetic flux density, named after the inventor Nikola Tesla."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "switch"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +182,42 @@
     "text": "Silent film actor playing killer at sea",
     "enumeration": "7"
    },
-   "solution": "HARPOON"
+   "solution": "HARPOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "killer at sea",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Silent film actor",
+       "at": 0,
+       "gives": "HARPO",
+       "note": "Harpo Marx never spoke on screen, playing his role in silence"
+      },
+      {
+       "words": "playing",
+       "at": 18,
+       "gives": "ON",
+       "note": "on, as in on stage, means playing or performing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silent-screen star cast as a murderer aboard ship.",
+     "walkthrough": "'Silent film actor' points to Harpo Marx, the Marx brother who never spoke on screen.",
+     "definitionFit": "A harpoon is the barbed spear used to kill whales, so a killer at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "killer"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +231,61 @@
     "text": "Creole food post taken by a remarkable pork-pie producer?",
     "enumeration": "9"
    },
-   "solution": "JAMBALAYA"
+   "solution": "JAMBALAYA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creole food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "post",
+       "at": 12,
+       "gives": "JAMB",
+       "note": "a jamb is an upright post at the side of a door or window"
+      },
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "A"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LAYA",
+       "indicators": [
+        {
+         "text": "remarkable",
+         "at": 28,
+         "note": "remarkable read as able to be remarked, that is, spoken, so the word is taken by how it sounds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pork-pie producer",
+         "at": 39,
+         "gives": "LIAR",
+         "note": "porky pies is Cockney rhyming slang for lies, so their producer is someone who tells them"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Creole dish is the post won by a brilliant pork-pie maker.",
+     "walkthrough": "'pork-pie' is British rhyming slang (porky pies = lies). A LIAR said aloud gives the ALAYA ending.",
+     "definitionFit": "Jambalaya is the spicy Louisiana rice dish of Creole and Cajun cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "remarkable"
+    }
+   }
   },
   {
    "number": 4,
@@ -110,7 +299,49 @@
     "text": "Yank gets appropriate neighbours to welcome queen",
     "enumeration": "4"
    },
-   "solution": "JERK"
+   "solution": "JERK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Yank",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to welcome",
+       "at": 33,
+       "note": "to welcome is to take someone in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appropriate neighbours",
+       "at": 10,
+       "gives": "JK",
+       "note": "J and K are neighbours in the alphabet, and in a pack of cards they flank the queen, which makes them fitting neighbours here"
+      },
+      {
+       "words": "queen",
+       "at": 44,
+       "gives": "ER",
+       "note": "ER, Elizabeth Regina, is the usual abbreviation for the queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American finds the right people next door to receive the monarch.",
+     "walkthrough": "'appropriate' because in a suit of cards the jack and king sit either side of the queen. 'Yank' looks like a noun for an American but is the verb.",
+     "definitionFit": "To yank something is to pull it suddenly, the same as a sharp tug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +355,77 @@
     "text": "American mother, fed up with nonsense, dismissed husband — he's a bore",
     "enumeration": "10"
    },
-   "solution": "MOTORMOUTH"
+   "solution": "MOTORMOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he's a bore",
+      "at": 59
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "fed",
+         "at": 17,
+         "note": "being fed means taking something in, so one piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "American mother",
+         "at": 0,
+         "gives": "MOM",
+         "note": "Mom is the American word for mother"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 21,
+           "note": "in a down clue, up means the word is read from the bottom, backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nonsense",
+           "at": 29,
+           "gives": "ROT",
+           "note": "rot means nonsense"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "dismissed",
+       "at": 39,
+       "gives": "OUT",
+       "note": "a batter who is dismissed in cricket is out"
+      },
+      {
+       "words": "husband",
+       "at": 49,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American woman, sick of rubbish, throws out her spouse, who bores her stiff.",
+     "walkthrough": "'fed up' looks like 'tired of', but the phrase splits: 'up' turns the nonsense word round and 'fed' stuffs it inside the American mother. In cricket, a batter who is dismissed is out.",
+     "definitionFit": "A motormouth talks incessantly, which makes him a tiresome bore to listeners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +439,80 @@
     "text": "In a poll, firm preference initially expressed for fizzy drink",
     "enumeration": "7"
    },
-   "solution": "ALCOPOP"
+   "solution": "ALCOPOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fizzy drink",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 3,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "In",
+         "at": 0,
+         "note": "In places the firm and the initial inside the other pieces"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poll",
+         "at": 5,
+         "gives": "LOP",
+         "note": "to poll a tree is to lop or cut off its top"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "firm",
+           "at": 11,
+           "gives": "CO",
+           "note": "CO, company, is the usual abbreviation for a firm"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "initially",
+             "at": 27,
+             "note": "initially means the first letter of the next word is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "preference",
+             "at": 16
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In an opinion poll, the drink most people prefer turns out to be a sparkling one.",
+     "walkthrough": "'poll' looks like a survey, but here it is the verb meaning cut the top off a tree.",
+     "definitionFit": "An alcopop is a sweet, fizzy, ready-mixed alcoholic drink sold in bottles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poll"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +526,69 @@
     "text": "Note included in a gratuity covering wine and starters",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTI"
+   "solution": "ANTIPASTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "starters",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included in",
+         "at": 5,
+         "note": "being included in something means going inside it"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 17,
+           "gives": "A"
+          },
+          {
+           "words": "gratuity",
+           "at": 19,
+           "gives": "TIP",
+           "note": "a tip is a gratuity"
+          }
+         ]
+        },
+        {
+         "words": "Note",
+         "at": 0,
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "covering wine",
+       "at": 28,
+       "gives": "ASTI",
+       "note": "Asti is an Italian sparkling wine, and in this down entry it sits under the first part, which covers it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small extra added to the tip to pay for the wine with the first course.",
+     "walkthrough": "In this down entry the first part sits above, or 'covering', the wine. Asti is a sparkling wine from Piedmont, Italy.",
+     "definitionFit": "Antipasti are Italian appetisers served before the main meal, so starters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +608,35 @@
      }
     ]
    },
-   "solution": "AURORAAUSTRALIS"
+   "solution": "AURORAAUSTRALIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One making a phenomenal contribution to Cook's tour down under",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One making a phenomenal contribution to Cook's tour down under",
+       "at": 0,
+       "note": "Captain Cook's southern voyage would have shown the southern lights, a natural phenomenon of the far south"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Cook's tour' suggests a package holiday, but this is Captain Cook sailing the southern oceans, where he saw the southern lights.",
+     "definitionFit": "The southern lights are a natural light display seen in far southern skies, a phenomenon of the Antipodes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "phenomenal"
+    }
+   }
   },
   {
    "number": 9,
@@ -192,7 +656,59 @@
      }
     ]
    },
-   "solution": "DESERTRAT"
+   "solution": "DESERTRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blast",
+       "at": 28,
+       "gives": "DRAT",
+       "note": "drat and blast are both mild curses"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "devastated",
+         "at": 8,
+         "note": "devastated means wrecked, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trees",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Explosions flattened the woodland.",
+     "walkthrough": "'blast' looks like an explosion, matching 'devastated', but it is the mild curse. 'devastated' rearranges the trees, and 'in' puts them inside the curse after its D.",
+     "definitionFit": "The Desert Rats were the British 7th Armoured Division in North Africa, so one is a soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blast"
+    }
+   }
   },
   {
    "number": 10,
@@ -206,7 +722,49 @@
     "text": "Provide entertainment and grub without support",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Provide entertainment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 31,
+       "note": "without means the second piece is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "grub",
+       "at": 26,
+       "gives": "CATERPILLAR",
+       "note": "a caterpillar is a grub, the larva of a butterfly or moth"
+      },
+      {
+       "words": "support",
+       "at": 39,
+       "gives": "PILLAR",
+       "note": "a pillar is a support"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laying on a show and food with no backing.",
+     "walkthrough": "'grub' looks like food, set beside 'entertainment', but it is the insect larva.",
+     "definitionFit": "To cater is to supply what is needed, including food or amusement, for guests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grub"
+    }
+   }
   },
   {
    "number": 11,
@@ -226,7 +784,42 @@
      }
     ]
    },
-   "solution": "LEADON"
+   "solution": "LEADON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trick",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "metal",
+       "at": 6,
+       "gives": "LEAD",
+       "note": "lead is a heavy metal"
+      },
+      {
+       "words": "leg",
+       "at": 12,
+       "gives": "ON",
+       "note": "the leg side in cricket is also called the on side"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A con involving a leaden limb.",
+     "walkthrough": "In cricket, the leg side of the field is also called the on side.",
+     "definitionFit": "To lead someone on is to deceive them, which is to trick them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 12,
@@ -246,7 +839,53 @@
      }
     ]
    },
-   "solution": "ARTPAPER"
+   "solution": "ARTPAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the Cartoonists' Foundation?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "played",
+         "at": 7,
+         "note": "played means acted out in a different way, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "A part",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "by",
+       "at": 14,
+       "gives": "PER",
+       "note": "per means by, as in per post"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A role taken on by the founding body of cartoonists.",
+     "walkthrough": "'played' rearranges A PART into ARTPA.",
+     "definitionFit": "Art paper is coated paper that drawings are made on, the base for cartoonists' work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Foundation"
+    }
+   }
   },
   {
    "number": 13,
@@ -266,7 +905,60 @@
      }
     ]
    },
-   "solution": "LIMPETMINE"
+   "solution": "LIMPETMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explosive",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Pathetic",
+       "at": 0,
+       "gives": "LIMP",
+       "note": "limp means feeble or pathetic"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 41,
+         "note": "in places one piece inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a German",
+         "at": 44,
+         "gives": "EINE",
+         "note": "eine is German for a"
+        },
+        {
+         "words": "device distinctively identified",
+         "at": 9,
+         "gives": "TM",
+         "note": "TM, trademark, is a device that marks out goods distinctively"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble gadget, clearly marked, inside a German bomb.",
+     "walkthrough": "'device distinctively identified' describes a trade mark, TM, a mark that identifies goods.",
+     "definitionFit": "A limpet mine is an explosive device that clings magnetically to a ship's hull."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "device"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +972,31 @@
     "text": "Slowish vote for yes … ?",
     "enumeration": "9"
    },
-   "solution": "ANDANTINO"
+   "solution": "ANDANTINO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slowish",
+      "at": 0,
+      "meaning": "a musical direction for a tempo a little slower than walking pace"
+     },
+     {
+      "text": "vote for yes … ?",
+      "at": 8,
+      "meaning": "a vote for yes is a vote with the ayes and against the noes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is cryptic: voting for yes means being, as the split answer says, AND ANTI NO. The ellipsis invites the solver to continue the phrase.",
+     "definitionFit": "Andantino is a musical tempo marking, usually a little faster than andante, so moderately slow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vote"
+    }
+   }
   },
   {
    "number": 15,
@@ -300,7 +1016,61 @@
      }
     ]
    },
-   "solution": "DAIRYFARM"
+   "solution": "DAIRYFARM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cheese-shop supplier",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about means going around something else"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 12,
+         "note": "in a down clue, upset means read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Huge number",
+         "at": 0,
+         "gives": "MYRIAD",
+         "note": "a myriad is a huge number"
+        }
+       ]
+      },
+      {
+       "words": "remote",
+       "at": 24,
+       "gives": "FAR",
+       "note": "far means distant or remote"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vast crowd, angry about something far off, supplies a cheesemonger.",
+     "walkthrough": "'upset' turns MYRIAD into DAIRYM, which goes 'about' FAR.",
+     "definitionFit": "A dairy farm produces the milk from which cheese is made, supplying the cheesemonger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +1084,43 @@
     "text": "Italian food and Spanish food in rotation",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "in rotation",
+       "at": 30,
+       "note": "rotating moves letters round from one end to the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spanish food",
+       "at": 17,
+       "gives": "TAPAS",
+       "note": "tapas are Spanish snacks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restaurants serving Italian and Spanish dishes on alternating nights.",
+     "walkthrough": "'in rotation' moves TA from the front of TAPAS to the end.",
+     "definitionFit": "Pasta is the staple Italian dough food, spaghetti and the like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rotation"
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1134,43 @@
     "text": "Writer rejecting dress material",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rejecting",
+       "at": 7,
+       "note": "rejecting means turning back, so the word is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dress material",
+       "at": 17,
+       "gives": "TOILE",
+       "note": "toile is a fine fabric used for dresses and dress patterns"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author turning down a fabric.",
+     "walkthrough": "'rejecting' turns TOILE back to front. George Eliot and T S Eliot are both writers.",
+     "definitionFit": "George Eliot and T S Eliot are both famous writers in English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejecting"
+    }
+   }
   },
   {
    "number": 18,
@@ -342,7 +1184,35 @@
     "text": "Legend delivered in two halves for the kids?",
     "enumeration": "7"
    },
-   "solution": "TOOTSIE"
+   "solution": "TOOTSIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Legend delivered in two halves for the kids?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Legend delivered in two halves for the kids?",
+       "at": 0,
+       "note": "split the word legend in two to get leg end, the foot, which children call by a pet name"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Legend' split into 'leg end' gives the foot, and 'for the kids' asks for the nursery word.",
+     "definitionFit": "Tootsie is a child's word for a foot, the lowest end of the leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Legend"
+    }
+   }
   },
   {
    "number": 19,
@@ -356,7 +1226,49 @@
     "text": "One catching fish to fill baked dishes in this area of industry",
     "enumeration": "9"
    },
-   "solution": "POTTERIES"
+   "solution": "POTTERIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "this area of industry",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to fill",
+       "at": 18,
+       "note": "to fill means going inside something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "baked dishes",
+       "at": 26,
+       "gives": "PIES",
+       "note": "pies are baked dishes"
+      },
+      {
+       "words": "One catching fish",
+       "at": 0,
+       "gives": "OTTER",
+       "note": "an otter is an animal that hunts fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman stuffing pies in an industrial district.",
+     "walkthrough": "The Potteries is the Stoke-on-Trent area of England, famous for making ceramics.",
+     "definitionFit": "The Potteries is the pottery-making district of Staffordshire, an industrial region of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dishes"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1282,35 @@
     "text": "Sign one's being talked about outside it?",
     "enumeration": "7"
    },
-   "solution": "EARSHOT"
+   "solution": "EARSHOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign one's being talked about outside it?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Sign one's being talked about outside it?",
+       "at": 0,
+       "note": "the old saying is that burning ears show people are gossiping about you out of range"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Folk belief says your ears burn when people talk about you: that would be 'ears hot', and the talk happens beyond your hearing.",
+     "definitionFit": "Earshot is the range of hearing, so gossip outside it is out of hearing distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1324,42 @@
     "text": "Keep working opening that the Pilgrims left",
     "enumeration": "8"
    },
-   "solution": "PLYMOUTH"
+   "solution": "PLYMOUTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that the Pilgrims left",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Keep working",
+       "at": 0,
+       "gives": "PLY",
+       "note": "to ply a trade is to keep working at it"
+      },
+      {
+       "words": "opening",
+       "at": 13,
+       "gives": "MOUTH",
+       "note": "a mouth is an opening"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep at it through the gap the Pilgrims went through.",
+     "walkthrough": "The Pilgrim Fathers sailed from Plymouth, in Devon, on the Mayflower in 1620.",
+     "definitionFit": "The Pilgrim Fathers sailed for America from the Devon port on the Mayflower in 1620."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1373,45 @@
     "text": "One supplying households gets more obscene on the phone",
     "enumeration": "6"
    },
-   "solution": "GROCER"
+   "solution": "GROCER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One supplying households",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GROCER",
+     "indicators": [
+      {
+       "text": "on the phone",
+       "at": 43,
+       "note": "on the phone means spoken and heard, so the word is given by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more obscene",
+       "at": 30,
+       "gives": "GROSSER",
+       "note": "grosser means more vulgar or obscene"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper turns crude when he picks up the phone.",
+     "walkthrough": "'on the phone' signals that the word is given by its sound.",
+     "definitionFit": "A grocer sells food and household goods, so supplies households."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "phone"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1425,64 @@
     "text": "Way down South, author's lost it after chapter's written",
     "enumeration": "5"
    },
-   "solution": "CHUTE"
+   "solution": "CHUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Way down",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 33,
+       "note": "after means this piece comes behind the chapter letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "chapter's written",
+       "at": 39,
+       "gives": "C",
+       "note": "C is an abbreviation for chapter, here written down first"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lost it",
+         "at": 25,
+         "note": "the writer losing it means the letter for South drops out of his name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "author's",
+         "at": 16,
+         "gives": "SHUTE",
+         "note": "Nevil Shute was an English novelist, author of A Town Like Alice"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Down south, a writer has lost the plot after finishing his chapter.",
+     "walkthrough": "'Way down South' reads as a place, but 'Way down' is the definition. The novelist Nevil Shute loses his S, and the rest follows C for chapter.",
+     "definitionFit": "A chute is a sloping channel things slide down, so a way down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "South"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1496,49 @@
     "text": "Well filled-out with one in short order",
     "enumeration": "4"
    },
-   "solution": "FIAT"
+   "solution": "FIAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short order",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Well filled-out",
+       "at": 0,
+       "gives": "FAT",
+       "note": "fat means plump or well filled-out"
+      },
+      {
+       "words": "one",
+       "at": 21,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being nicely plump, with someone in, quickly.",
+     "walkthrough": "'in short order' reads as 'quickly', but 'short order' is the definition.",
+     "definitionFit": "A fiat is a brief, authoritative command or decree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1552,41 @@
     "text": "17's riding in luggage van, somehow",
     "enumeration": "5"
    },
-   "solution": "EVANS"
+   "solution": "EVANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "17's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "riding in",
+       "at": 5,
+       "note": "riding in means sitting inside, so the word is concealed inside these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "luggage van, somehow",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author's luggage is going in a van, by some means.",
+     "walkthrough": "George Eliot's real name was Mary Ann Evans, so EVANS is 17's surname.",
+     "definitionFit": "George Eliot was the pen name of Mary Ann Evans, so this is her real surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "riding"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1606,59 @@
      }
     ]
    },
-   "solution": "IRISHBULL"
+   "solution": "IRISHBULL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "non sequitur",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "permeates",
+       "at": 13,
+       "note": "permeating means getting inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sick",
+       "at": 23,
+       "gives": "ILL",
+       "note": "ill means sick"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Awful",
+         "at": 0,
+         "note": "awful means terrible, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hubris",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Terrible arrogance spreads through an unwell person.",
+     "walkthrough": "'Awful' rearranges HUBRIS to RISHBU, which 'permeates' ILL.",
+     "definitionFit": "An Irish bull is a ludicrous, self-contradictory statement, a nonsensical logical leap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 27,
@@ -474,7 +1672,64 @@
     "text": "The very best garden bananas viewed over street",
     "enumeration": "9"
    },
-   "solution": "DAMNEDEST"
+   "solution": "DAMNEDEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The very best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "viewed over",
+         "at": 29,
+         "note": "viewed over means looked at from the other side, so read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "garden",
+           "at": 14,
+           "gives": "EDEN",
+           "note": "Eden is the garden in Genesis"
+          },
+          {
+           "words": "bananas",
+           "at": 21,
+           "gives": "MAD",
+           "note": "bananas means crazy or mad"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "street",
+       "at": 41,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bananas in the garden, seen across the road, are top quality.",
+     "walkthrough": "'viewed over' reverses EDEN + MAD to give DAMNEDE, then ST is added.",
+     "definitionFit": "To do one's damnedest is to do one's utmost, the very best one can."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 28,
@@ -488,7 +1743,46 @@
     "text": "Lock physical pressure's broken top off",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lock",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "broken top off",
+       "at": 25,
+       "note": "with its top broken off, the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "physical pressure's",
+       "at": 5,
+       "gives": "STRESS",
+       "note": "stress is physical pressure"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lock snaps under physical strain.",
+     "walkthrough": "'Lock' looks like a fastening, but it is a lock of hair.",
+     "definitionFit": "A tress is a long lock of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lock"
+    }
+   }
   }
  ]
 }
