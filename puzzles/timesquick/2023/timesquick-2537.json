@@ -442,43 +442,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "has moved",
-       "note": "letters that have moved are no longer in their original order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader in",
+         "at": 0,
+         "note": "the leader in a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Leader in",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "government",
-           "note": "first letter of government"
-          }
-         ]
-        },
+         "words": "government",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moved",
+         "at": 25,
+         "note": "moved means the letters are shifted into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "to the",
-         "note": "these two short words rearranged"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political leader has relocated to the poorest part of town.",
-     "definitionFit": "A ghetto is a deprived, crowded urban district, a slum quarter."
+     "surface": "The head of government has relocated to a deprived district.",
+     "walkthrough": "'moved' rearranges TO THE into HETTO after G.",
+     "definitionFit": "A deprived, overcrowded quarter of a city is a slum district."
     },
     "features": {
      "answerInScene": true,

@@ -892,46 +892,61 @@
      "op": "charade",
      "parts": [
       {
-       "words": "dull",
-       "gives": "DRA",
-       "note": "drab means dull, cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word is cut, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dull",
+         "at": 7,
+         "gives": "DRAB",
+         "note": "drab means dull and colourless"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "Short",
-         "note": "something short is cut down, so the word loses its final letter"
-        },
-        {
          "text": "leaving",
-         "note": "what is leaving goes away, so letters drop out of the word"
+         "at": 19,
+         "note": "leaving means one letter goes out of the painter's name"
         }
        ],
        "parts": [
         {
          "words": "artist",
+         "at": 12,
          "gives": "MATISSE",
-         "note": "Henri Matisse, the French painter"
+         "note": "Henri Matisse was a French painter"
         },
         {
          "words": "one section",
+         "at": 27,
          "gives": "S",
-         "note": "S is the abbreviation for section, and one of the two goes"
+         "note": "S is an abbreviation for section; Matisse has two, and one leaves"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull artist walks out of one part of the theatre production.",
-     "walkthrough": "The painter's name has two S's, and only one of them departs.",
-     "definitionFit": "To dramatise a story is to adapt it for the theatre, which is to put it on as a play."
+     "surface": "A brief, dreary painter quits part of a project.",
+     "walkthrough": "'Short' cuts DRAB to DRA and 'leaving' drops one S from MATISSE to give MATISE.",
+     "definitionFit": "To stage a story is to put it on as a play, and so to make drama of it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "section"
+     "misdirectedWord": "stage"
     }
    }
   },

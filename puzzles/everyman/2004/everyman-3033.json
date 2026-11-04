@@ -896,47 +896,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "something short is cut, so the title loses its last letter"
-      },
-      {
-       "text": "losing cap",
-       "note": "a cap sits on top, so losing it drops the first letter of the name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the novel's title loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "novel",
+         "at": 6,
          "gives": "KIPPS",
-         "note": "Kipps is a comic novel by H. G. Wells"
+         "note": "Kipps is a novel by H. G. Wells"
         },
         {
-         "words": "Wooster",
-         "gives": "BERTIE",
-         "note": "Bertie Wooster is P. G. Wodehouse's hapless hero"
+         "gives": "S"
         }
        ]
       },
       {
-       "gives": "SB"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing cap",
+         "at": 24,
+         "note": "losing cap means the first letter is removed, as a cap sits on top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wooster",
+         "at": 16,
+         "gives": "BERTIE",
+         "note": "Bertie Wooster is P. G. Wodehouse's hero"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short book in which Bertie Wooster loses his hat and his tie.",
-     "walkthrough": "Wooster suggests the Wodehouse world, but only his first name, minus its first letter, is used.",
-     "definitionFit": "A kipper tie is a very wide necktie, fashionable in the late 1960s and 1970s, named for its fish shape."
+     "surface": "A brief book features Wodehouse's hero mislaying his hat and a tie.",
+     "walkthrough": "'Short' cuts KIPPS to KIPP and 'losing cap' takes the B off BERTIE.",
+     "definitionFit": "This wide, flamboyant necktie was a 1960s and 70s fashion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "novel"
+     "misdirectedWord": "cap"
     }
    }
   },

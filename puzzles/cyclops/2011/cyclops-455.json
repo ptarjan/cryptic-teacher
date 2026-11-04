@@ -431,59 +431,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BAMBI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "errant",
-       "note": "straying from the right path, the letters wander into a new order"
+       "text": "After",
+       "at": 0,
+       "note": "after places the shuffled letters behind the abbreviation for book"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "unchecked": true,
-       "gives": "BAMBI",
+       "words": "book",
+       "at": 6,
+       "gives": "B"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "After",
-         "note": "the next piece follows the first one in order"
+         "text": "errant",
+         "at": 26,
+         "note": "errant means straying, so the remaining letters wander into a new order"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "BAMBI",
          "indicators": [
           {
-           "text": "taken off",
-           "note": "these letters are removed from the politician's surname"
-          },
-          {
            "text": "nameless",
-           "note": "without its name abbreviation, so that letter is dropped too"
+           "at": 43,
+           "note": "nameless means the abbreviation N for name is removed"
           }
          ],
          "parts": [
           {
-           "words": "book",
-           "gives": "B",
-           "note": "standard abbreviation for book"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "taken off",
+             "at": 16,
+             "note": "taken off means the letters L, I, D are lifted out of the surname"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Miliband",
+             "at": 33
+            },
+            {
+             "words": "lid",
+             "at": 12
+            }
+           ]
           },
           {
-           "words": "lid",
-           "note": "the three letters of this word are removed one by one"
-          },
-          {
-           "words": "Miliband",
-           "note": "the Labour politician's surname"
-          },
-          {
-           "words": "name",
-           "gives": "N",
-           "note": "N is the abbreviation for name"
+           "gives": "N"
           }
          ]
         }
@@ -492,9 +495,9 @@
      ]
     },
     "explanation": {
-     "surface": "A dishevelled Miliband, his top blown off after a book, is likened to something cute.",
-     "walkthrough": "Strike L, I and D and then N from MILIBAND to leave MIBA, which rearranges behind B to make BAMBI.",
-     "definitionFit": "Bambi is the Disney fawn, a famously sweet cartoon deer and so a cute creature."
+     "surface": "The Labour politician is mocked as a sweet, anonymous little animal after a publication.",
+     "walkthrough": "'lid taken off' removes L, I, D from MILIBAND, 'nameless' removes N, and 'errant' rearranges MIBA into AMBI.",
+     "definitionFit": "Disney's fawn is the archetypal cute young creature of film."
     },
     "features": {
      "answerInScene": false,
