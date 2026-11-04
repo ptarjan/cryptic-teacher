@@ -14,7 +14,9 @@ declare -A SHAPE_RULE_OF=()
 eval "$(sed -n '/^pool_what() {/,/^}/p;/^bag_rule() {/,/^}/p;/^bag_field() {/,/^}/p;/^pool_bags() {/,/^}/p;/^pool_bag() {/,/^}/p' "$SCRIPT")"
 BAG_FIELDS=" blocks.note "
 ANSWER=""
-python3() { case "$1" in tools/clue_bag.py) printf '%s\n' "$ANSWER" ;; *) echo 10 ;; esac; }
+# The stub reads its stdin like the real clue_bag.py: left unread, the printf feeding it dies of SIGPIPE
+# when the stub exits first, pipefail fails the pipeline and pool_bag returns 0 (flaky on a loaded runner).
+python3() { case "$1" in tools/clue_bag.py) cat >/dev/null; printf '%s\n' "$ANSWER" ;; *) echo 10 ;; esac; }
 
 ANSWER="lead 0"; pool_bag lead; rc=$?
 check "a bag of 0 clues due is refused" 1 "$rc"
