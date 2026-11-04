@@ -8,7 +8,7 @@ batching, syncs, ledger, backlog lists, pool checkpoints, planner inputs). This
 filter reads that same stream and writes only what Paul reads, one line each,
 every line starting with the Alberta time (HH:MM):
 
-    09:41 ✓ azed-2702 hints written
+    09:41 ✓ azed-2702 wrote hints
     09:42 ✗ everyman-3470 gave up: 1-down MUNTJAC has no clean parse — skipped until the puzzle changes
     09:45 ── 15 at once (limit: memory) · 93 done last hour · week 98% used, resets in 19h
     09:50 ⚠️ push failed: ...
@@ -63,7 +63,7 @@ WAKE_EVERY_S = 3600        # one wake per kind of warning per hour; the rest are
 WAKE_ROOM = os.environ.get("BURN_WAKE_ROOM", "cryptic-crosswords")
 GAVE_UP = re.compile(r"^  \[" + PUZZLE + r"\] (.*(?:solve rejected|rejected|(?<!rather than )discard|held|gave up|cannot be|could not be).*)$")
 KINDS = (  # commit-message prefix -> what was done
-    (re.compile(r"^Annotate\b"), "hints written"),
+    (re.compile(r"^Annotate\b"), "wrote hints"),
     (re.compile(r"^Re-check against its blog"), "re-checked against its blog"),
     (re.compile(r"^Backfill (\S+)"), lambda m: f"backfilled {m.group(1)}"),
 )
@@ -532,7 +532,7 @@ class Log:
             elif re.match(r"^Re-check against its blog", msg):
                 what = "re-checked against its blog"
             elif re.match(r"^Annotate\b", msg):
-                what = "hints written"
+                what = "wrote hints"
             else:
                 what = msg
             kept = self.kept.pop(pid, None) if what == "re-checked against its blog" else None
@@ -547,6 +547,8 @@ class Log:
                 return self.nothing(now, pid, rule, allowed)
             n = len(labels) if labels else allowed
             where = f" in {plural(n, 'clue')}" if n else ""
+            if what == "wrote hints" and n:  # "wrote 28 hints", not "hints written in 28 clues"
+                what, where = f"wrote {plural(n, 'hint')}", ""
             if labels and len(labels) <= 8:
                 where += f" ({', '.join(labels)})"
             self.finished(now, True, pid, rule)
