@@ -7222,6 +7222,11 @@ check("a reading that puts back a line end the held clue lost (a cut word, then 
        f.corrects("So", "So many people go"),
        f.corrects("Fish in pond", "Fish by the pond"),
        f.corrects("A town", "A town xqzvb")])
+check("a held clue ending on a stop takes no words from the next line or column (times-204)",
+      [False, False, True],
+      [f.corrects("Give out in time.", "Give out in time, arranged for use"),
+       f.corrects("Skim.", "Skim. Empire is full of"),
+       f.corrects("So", "So many people go")])
 check("a reread that cuts a word at its edge or turns a word to a non-word corrects nothing",
       [False] * 6, [f.corrects("The servant behind the 1st Earl of Ypres", "The servant behind the st Earl of Ypres"),
                     f.corrects("Scoundrel but good at heart", "Scoundrel but good at hear"),
