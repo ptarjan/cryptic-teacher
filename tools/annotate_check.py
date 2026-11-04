@@ -835,46 +835,51 @@ def file_rows(path, pending, data=DATA):
 
 
 def mend_json(pending):
-    """Mend a stray closing brace or bracket in `pending`; what was done, or None.
+    """Mend stray closing braces or brackets in `pending`; what was done, or None.
 
-    The run's Write sometimes shuts the top-level object early, after its first
-    entry (`...}}` then `,` and the next key), or leaves one closer too many at the
-    end: json.loads says "Extra data" and apply_annotations stops on it, 16 of the
-    59 STOPPED first checks in the 11-04 08:00-09:40 UTC window. Deleting that one
-    closer is the only edit that parses, so it is made; any other parse error is
-    the run's to read, with the text around it (apply_annotations says where)."""
+    The run's Write sometimes shuts the top-level object early, after an entry
+    (`...}}` then `,` and the next key), or leaves closers too many at the end:
+    json.loads says "Extra data" and apply_annotations stops on it, 16 of the 59
+    STOPPED first checks in the 11-04 08:00-09:40 UTC window. The run that does it
+    usually does it on every entry (`}},` between all 27 of telegraph-27478's, 86 of
+    90 STOPPED first checks in the 11-04 14:30-20:30 UTC window, after the single
+    mend landed), so the deletion is repeated until the file parses. Deleting the
+    one closer that ends the parsed prefix is the only edit that parses, so it is
+    made; any other parse error is the run's to read, with the text around it
+    (apply_annotations says where)."""
     try:
         text = pending.read_text(encoding="utf-8")
-        json.loads(text)
-        return None
     except OSError:
         return None
-    except ValueError as e:
-        if getattr(e, "msg", "") != "Extra data":
+    removed = 0
+    while removed <= 2000:
+        try:
+            data = json.loads(text)
+            break
+        except ValueError as e:
+            if getattr(e, "msg", "") != "Extra data":
+                return None
+        try:
+            _, end = _DECODER.raw_decode(text, _ws(text, 0))
+        except ValueError:
             return None
-    try:
-        _, end = _DECODER.raw_decode(text, _ws(text, 0))
-    except ValueError:
-        return None
-    rest = text[_ws(text, end):]
-    if text[end - 1:end] not in ("}", "]"):
-        return None
-    if rest.startswith(",") and len(rest) > 1:      # object shut early: drop its closer
-        fixed = text[:end - 1] + text[end:]
-        what = "closed the object early, after its first entry"
-    elif rest and not rest.strip("}] \t\r\n"):    # closers after the end
-        fixed = text[:end]
-        what = "had closing brackets after the end"
+        rest = text[_ws(text, end):]
+        if text[end - 1:end] not in ("}", "]"):
+            return None
+        if rest.startswith(",") and len(rest) > 1:      # object shut early: drop its closer
+            text = text[:end - 1] + text[end:]
+        elif rest and not rest.strip("}] \t\r\n"):    # closers after the end
+            text = text[:end]
+        else:
+            return None
+        removed += 1
     else:
         return None
-    try:
-        data = json.loads(fixed)
-    except ValueError:
+    if not removed or not isinstance(data, dict):
         return None
-    if not isinstance(data, dict):
-        return None
-    pending.write_text(fixed, encoding="utf-8")
-    return f"a stray closing bracket removed ({what})"
+    pending.write_text(text, encoding="utf-8")
+    return (f"{removed} stray closing bracket{'s' if removed > 1 else ''} removed "
+            f"(the object was shut early, or had closers after the end)")
 
 
 def fix_directions(path, pending):
