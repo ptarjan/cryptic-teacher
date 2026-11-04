@@ -902,48 +902,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "disposed",
-       "note": "disposed means arranged or set out, so the words are put in a new order"
+       "text": "Outside",
+       "at": 0,
+       "note": "outside means the outer letters wrap around the scrambled middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "Outside of",
-         "note": "outside of means the outer letters of Europe wrap round the rest"
+         "text": "of",
+         "at": 8,
+         "note": "of here picks the outer letters of the word Europe"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "parts": [
-          {
-           "words": "Europe",
-           "note": "the first and last letters of Europe"
-          }
-         ]
+         "words": "Europe",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disposed",
+         "at": 29,
+         "note": "disposed means arranged, so these letters are set in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "USA",
+         "at": 18,
+         "note": "taken as written"
         },
         {
-         "words": "USA aren't",
-         "note": "the letters of USA aren't rearranged"
+         "words": "aren't",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Americans outside Europe are unwilling to get down to business.",
-     "walkthrough": "Doing one's business is a euphemism for going to the toilet; the commercial reading is the trap.",
-     "definitionFit": "An old euphemism for relieving oneself, matching the modern polite phrase about the lavatory."
+     "surface": "Americans apparently aren't keen on doing their business outside Europe.",
+     "walkthrough": "To 'ease nature' is an old euphemism; 'Outside of' frames the rearranged letters with the end letters of the first word.",
+     "definitionFit": "To ease nature is an old euphemism for relieving oneself, going to the lavatory."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "business"
     }
@@ -1194,45 +1209,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Blessed",
-       "note": "blessed can mean confounded, as in 'the blessed thing', so the name is jumbled"
+       "text": "encapsulates",
+       "at": 15,
+       "note": "encapsulates means the scrambled letters enclose the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "encapsulates",
-         "note": "encapsulates means encloses, so the jumbled name holds the single letter"
+         "text": "Blessed",
+         "at": 0,
+         "note": "blessed in the sense of damned or confounded suggests these letters are muddled"
         }
        ],
        "parts": [
         {
          "words": "Teresa",
-         "note": "the name's letters rearranged around the inserted one"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Saint Teresa is held to be the most spiritual of people.",
-     "walkthrough": "'Blessed' seems to be the title of a holy woman; it is the jumble signal.",
-     "definitionFit": "Aery means ethereal or airy, so the superlative describes something most unworldly or insubstantial."
+     "surface": "A saintly nun holds one who is the most otherworldly.",
+     "walkthrough": "'Blessed' turns TERESA into AEREST, and 'encapsulates' puts I inside.",
+     "definitionFit": "Aeriest is the superlative of aery, meaning ethereal or unworldly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Blessed"
     }
    }

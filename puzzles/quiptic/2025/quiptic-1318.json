@@ -221,40 +221,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FIRSTRATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in means the scrambled letters go inside the word for sack"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "sack",
+       "at": 31,
+       "gives": "FIRE",
+       "note": "to sack someone is to fire them"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "performing",
-         "note": "letters that are performing are acting out a new arrangement"
-        },
-        {
-         "text": "in",
-         "note": "'performing in sack' puts the reworked letters of 'start' inside the word that sack means"
+         "at": 17,
+         "note": "performing suggests the word start doing tricks into a new order"
         }
        ],
        "parts": [
         {
-         "words": "sack",
-         "gives": "FIRE",
-         "note": "to sack someone is to fire them"
-        },
-        {
          "words": "start",
-         "note": "START rearranged, placed after FIR in FIRE"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A great beginning, with a show put on in a sack race.",
-     "walkthrough": "'Sack' is a verb here: to fire. FIR + STRAT + E.",
-     "definitionFit": "First-rate means of the best quality, excellent."
+     "surface": "A great beginning, acting while wearing a sack.",
+     "walkthrough": "'performing' looks like acting in the surface, but it signals the rearrangement of the word start.",
+     "definitionFit": "First-rate means of the highest class, outstanding in quality."
     },
     "features": {
      "answerInScene": false,
@@ -595,50 +598,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "shot",
-       "note": "something shot is wrecked, so its letters are rearranged"
+       "text": "in",
+       "at": 22,
+       "note": "in means the picked letters sit inside the scrambled place name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "put the scout letters inside the Verdun letters"
+         "text": "shot",
+         "at": 32,
+         "note": "shot means ruined or wrecked, so the letters of Verdun are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Verdun",
-         "note": "VERDUN rearranged, split around the inserted letters: UN…RVED"
-        },
+         "at": 25
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "indicators": [
-          {
-           "text": "Intermittently",
-           "note": "something intermittent comes and goes, so the letters of 'scout' appear only every other place"
-          }
-         ],
-         "parts": [
-          {
-           "words": "scout",
-           "note": "the second and fourth letters of sCoUt"
-          }
-         ]
+         "text": "Intermittently",
+         "at": 0,
+         "note": "intermittently means every other letter of the word scout is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scout",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scout at the battlefield of Verdun fires a straight shot.",
-     "walkthrough": "'Shot straight' reads as firing accurately, but 'shot' rearranges VERDUN and 'straight' is the definition. UN + CU + RVED.",
-     "definitionFit": "A plain synonym built by negation: a line without any curve is by definition a straight one."
+     "surface": "A scout in the First World War town of Verdun fires straight.",
+     "walkthrough": "Verdun is a French town, site of a long First World War battle; 'shot' means ruined and signals the rearrangement.",
+     "definitionFit": "Something not curved is straight, the negative prefix making the opposite of bent."
     },
     "features": {
      "answerInScene": false,
