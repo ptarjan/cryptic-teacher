@@ -1286,41 +1286,50 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the pieces before it within the piece after it"
+       "at": 31,
+       "note": "the word in tells us the polluted air, with the left-out vehicle, sits inside the messy stuff"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "polluted",
-         "note": "something polluted is spoiled and corrupted, so its letters are disordered"
-        }
-       ],
-       "parts": [
-        {
-         "words": "air",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "messy stuff",
-         "gives": "GUNGE",
-         "note": "gunge is British slang for sticky, messy matter"
-        }
-       ]
+       "words": "messy stuff",
+       "at": 34,
+       "gives": "GUNGE",
+       "note": "gunge is British slang for sticky, messy matter"
       },
       {
-       "words": " ",
-       "gives": "CAR",
-       "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "having",
+         "at": 11,
+         "gives": "CAR",
+         "note": "nothing in the clue supplies this: it is one of the three vehicles the preamble says the wordplay leaves out"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "polluted",
+           "at": 18,
+           "note": "air that is polluted is spoiled and corrupted, so its three letters are jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "air",
+           "at": 27
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "An army's horse caught up in dirty air and a filthy mess.",
-     "walkthrough": "'Mount' suggests a horse; here it is a frame that a weapon sits on. Gunge is British slang for sticky gooey matter.",
-     "definitionFit": "A gun carriage is the wheeled frame on which an artillery piece is mounted, a military mounting for the barrel."
+     "walkthrough": "'Mount' suggests a horse; here it is the frame a field gun sits on. 'Polluted' jumbles the air into RIA; the theme vehicle the preamble says is omitted must be restored before it.",
+     "definitionFit": "A gun carriage is the wheeled frame on which an artillery barrel is mounted, a military mounting."
     },
     "features": {
      "answerInScene": true,
@@ -3227,6 +3236,7 @@
      "parts": [
       {
        "words": "Works",
+       "at": 0,
        "gives": "OPERA",
        "note": "opera is the Latin plural of opus, a work"
       },
@@ -3234,28 +3244,37 @@
        "op": "container",
        "indicators": [
         {
-         "text": "included in",
-         "note": "what is included in something goes inside it"
+         "text": "in",
+         "at": 20,
+         "note": "the team sits in the word for thanks, so its letters go inside that word"
         }
        ],
        "parts": [
         {
          "words": "thanks",
+         "at": 23,
          "gives": "TA",
          "note": "ta is British informal thanks"
         },
         {
          "op": "container",
+         "indicators": [
+          {
+           "text": "included",
+           "at": 11,
+           "note": "the team has the left-out vehicle included within it, splitting its two letters"
+          }
+         ],
          "parts": [
           {
            "words": "team",
+           "at": 6,
            "gives": "II",
-           "note": "a team of eleven, its 11 read as two Roman ones"
+           "note": "a football team is an eleven, its 11 read as two Roman ones"
           },
           {
-           "words": " ",
            "gives": "CAR",
-           "note": "nothing in the clue: one of the three vehicles the preamble says are left out of the wordplay"
+           "note": "nothing in the clue supplies this: it is one of the three vehicles the preamble says the wordplay leaves out"
           }
          ]
         }
@@ -3265,8 +3284,8 @@
     },
     "explanation": {
      "surface": "A factory team gets a thank-you for a show at Milan's opera house.",
-     "walkthrough": "'Works team' looks like a factory side; works is the plural of opus. La Scala is Milan's famous opera house, and the question mark flags the example.",
-     "definitionFit": "An aria is a solo song in an opera, the kind of performance most associated with Milan's La Scala opera house."
+     "walkthrough": "'Works team' looks like a factory side; works is the plural of opus. The wordplay gives OPERATIIA, and CAR, the omitted theme word, goes between the two Is. La Scala is Milan's opera house.",
+     "definitionFit": "A solo song from an opera is exactly the kind of performance staged at Milan's famous opera house, given by example."
     },
     "features": {
      "answerInScene": true,
