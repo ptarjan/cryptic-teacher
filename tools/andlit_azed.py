@@ -63,6 +63,7 @@ from fetch_puzzle import (
     correct_source_answers,
     http_fetch,
     puzzle_path,
+    read_puzzle_file,
     write_puzzle_file,
 )
 from unit_more import backlog_left
@@ -162,6 +163,37 @@ def urls():
     return {int(k): v for k, v in json.loads(path.read_text()).items()} if path.exists() else {}
 
 
+def download(n, known, log=print):
+    """Fetch the router's copy of No n into the cache and note its address in
+    `known` and urls.json; False for one that failed and is asked again."""
+    try:
+        url, data = get(ROUTER.format(n))
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            log(f"  No {n}: HTTP {e.code}")
+            time.sleep(PAUSE)
+            return False
+        url, data = f"404 at {e.url}", b""
+    except urllib.error.URLError as e:
+        # The router sends a few numbers to an address with no host:
+        # there is no copy, so the number is not asked for again.
+        if "no host given" not in str(e.reason):
+            log(f"  No {n}: {e.reason}")
+            time.sleep(PAUSE)
+            return False
+        url, data = "the router redirects to no host", b""
+    ext = "pdf" if data[:4] == b"%PDF" else "html" if b"<html" in data[:2000].lower() else "other"
+    (CACHE / "copies").mkdir(parents=True, exist_ok=True)
+    (CACHE / "copies" / f"{n}.{ext}").write_bytes(data)
+    media_manifest.record(COPIES, CACHE / "copies" / f"{n}.{ext}", key=f"{n}.{ext}")
+    if _copies:
+        _copies.setdefault(int(n), set()).add(ext)
+    known[n] = url
+    (CACHE / "urls.json").write_text(json.dumps({str(k): v for k, v in sorted(known.items())}, indent=0))
+    time.sleep(PAUSE)
+    return True
+
+
 def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
     """Download the copies not yet cached of numbers not yet filed, oldest first;
     none is started once `budget_seconds` have passed. Returns how many the
@@ -169,37 +201,12 @@ def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
     nums = [n for n in sorted(index(refresh=True)) if not puzzle_path(SERIES, n).exists()
             and cached(n) is None]
     known, got, start = urls(), 0, clock()
-    (CACHE / "copies").mkdir(parents=True, exist_ok=True)
     walk, unasked = nums[:limit], 0
     for i, n in enumerate(walk):
         if budget_seconds is not None and clock() - start >= budget_seconds:
             unasked = len(walk) - i
             break
-        try:
-            url, data = get(ROUTER.format(n))
-        except urllib.error.HTTPError as e:
-            if e.code != 404:
-                log(f"  No {n}: HTTP {e.code}")
-                time.sleep(PAUSE)
-                continue
-            url, data = f"404 at {e.url}", b""
-        except urllib.error.URLError as e:
-            # The router sends a few numbers to an address with no host:
-            # there is no copy, so the number is not asked for again.
-            if "no host given" not in str(e.reason):
-                log(f"  No {n}: {e.reason}")
-                time.sleep(PAUSE)
-                continue
-            url, data = "the router redirects to no host", b""
-        ext = "pdf" if data[:4] == b"%PDF" else "html" if b"<html" in data[:2000].lower() else "other"
-        (CACHE / "copies" / f"{n}.{ext}").write_bytes(data)
-        media_manifest.record(COPIES, CACHE / "copies" / f"{n}.{ext}", key=f"{n}.{ext}")
-        if _copies:
-            _copies.setdefault(int(n), set()).add(ext)
-        known[n] = url
-        (CACHE / "urls.json").write_text(json.dumps({str(k): v for k, v in sorted(known.items())}, indent=0))
-        got += 1
-        time.sleep(PAUSE)
+        got += download(n, known, log)
     log(f"fetched {got} Azed copies; {max(0, len(nums) - got)} still to fetch")
     return unasked
 
@@ -1123,9 +1130,52 @@ def file(write=True, numbers=None, log=print, scan_seconds=None, clock=time.mono
     return filed, held
 
 
+def preambles(numbers, write=True, fetch_missing=False, log=print):
+    """Put the printed copy's special instructions on the filed Azed among
+    `numbers` that hold none. A puzzle filed from fifteensquared's post alone
+    (retrievedFrom blog) carries no preamble, so a special's annotator cannot
+    read its device; the copy andlit routes to has it. (filed, left): the ids
+    given a preamble, and a cause for each number left as it was. Only the
+    cached copies are read unless `fetch_missing`; a copy that is a scan, of
+    another number, or of a Plain puzzle gives nothing. A preamble already
+    there is never replaced."""
+    known, filed, left = urls(), [], {}
+    for n in sorted(numbers):
+        path = puzzle_path(SERIES, n)
+        if not path.exists():
+            left[n] = "no puzzle file"
+            continue
+        puzzle = read_puzzle_file(path)
+        if puzzle.get("preamble"):
+            left[n] = "has a preamble"
+            continue
+        if cached(n) is None and fetch_missing:
+            download(n, known, log)
+        copy_path = cached(n)
+        if copy_path is None:
+            left[n] = "copy not cached"
+            continue
+        copy = read(copy_path, n, scans=False)
+        if not isinstance(copy, dict) or copy.get("number") not in (None, n):
+            left[n] = "copy unread or of another puzzle"
+            continue
+        pre = CHAMBERS.sub("", copy["preamble"] or "").strip()
+        if not pre:
+            left[n] = "copy prints no instructions"
+            continue
+        if write:
+            write_puzzle_file(path, dict(puzzle, preamble=pre))
+        filed.append(puzzle["id"])
+    return filed, left
+
+
 def number_range(text):
-    a, _, b = text.partition("-")
-    return set(range(int(a), int(b or a) + 1))
+    """"2305,2500-2510": every number the comma-separated ranges name."""
+    out = set()
+    for part in text.split(","):
+        a, _, b = part.partition("-")
+        out |= set(range(int(a), int(b or a) + 1))
+    return out
 
 
 def main(argv=None):
@@ -1137,11 +1187,21 @@ def main(argv=None):
     g = sub.add_parser("file")
     g.add_argument("--dry-run", action="store_true")
     g.add_argument("--numbers", type=number_range)
+    q = sub.add_parser("preambles", help="give filed Azed with no preamble the printed copy's instructions")
+    q.add_argument("--numbers", type=number_range, required=True)
+    q.add_argument("--dry-run", action="store_true")
+    q.add_argument("--fetch", action="store_true", help="download copies not yet cached")
     h = sub.add_parser("nightly")
     h.add_argument("--budget-seconds", type=float)
     for p in (g, h):
         p.add_argument("--scan-seconds", type=float, help="stop reading new scans after this long")
     a = ap.parse_args(argv)
+    if a.cmd == "preambles":
+        filed, left = preambles(a.numbers, write=not a.dry_run, fetch_missing=a.fetch)
+        print(f"{'would give' if a.dry_run else 'gave'} {len(filed)} Azed a preamble: " + " ".join(filed))
+        for cause, k in collections.Counter(left.values()).most_common():
+            print(f"  left {k}: {cause}")
+        return 0
     if a.cmd in ("fetch", "nightly") and fetch(getattr(a, "limit", None), a.budget_seconds):
         backlog_left()
     if a.cmd in ("file", "nightly"):
