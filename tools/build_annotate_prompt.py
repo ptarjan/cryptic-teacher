@@ -58,10 +58,8 @@ def examples():
         clue = entry["clue"]
         out += [f"{pid} {eid}, \"{clue['text']}\" ({clue.get('enumeration', '')}), "
                 f"solution {entry['solution']}:", "",
-                "```json", f"{{\"{eid}\": {{",
-                ",\n".join(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}"
-                           for k, v in model.items()),
-                "}}", "```", ""]
+                "```json", "{" + json.dumps(eid) + ": " + json.dumps(model, ensure_ascii=False) + "}",
+                "```", ""]
     return out
 
 

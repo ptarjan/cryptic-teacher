@@ -9,7 +9,7 @@ The input is one JSON object keyed by entry id, each value an annotation in
 the model's shape `tools/annotate_prompt.md` describes:
 
     {"1-across": {"def": "...", "wp": "[can]LOO + del<losing>([accept]BUY, [you]U)",
-                  "notes": {...}, "explanation": {...}, "features": {...}},
+                  "notes": {...}, "surface": "...", "definitionFit": "...", "joke": "pun"},
      "12-across": null}
 
 Every entry in the puzzle must appear as a key. A key whose value is `null` says

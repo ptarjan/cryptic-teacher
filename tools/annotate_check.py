@@ -19,7 +19,8 @@ with a line naming the step that broke.
 
 --patch merges FILE, {"8-down": {"wp": "...", "notes": {"in": "..."}}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
-except `notes`, `explanation` and `features`, merged key by key (a null one removed), and deletes FILE.
+except `notes` (and an `explanation` or `features` block), merged key by key (a null one removed);
+a sentence or flag (`walkthrough`, `joke`) is a field of its own, nested or not. Deletes FILE.
 Many clues' fixes are one Write and this one command, not a fix script, which
 these runs cannot get approved.
 
@@ -653,10 +654,15 @@ def patch(pending, fix):
         if not isinstance(fields, dict):     # a whole annotation, or null
             ann[eid] = fields
             continue
-        ann[eid] = ann[eid] or {}
+        if not ann[eid] or annotation.is_model(ann[eid]):
+            # The run's shape: explanation and features flat in the clue, whichever
+            # shape the file or the patch nests them in, so their keys merge one by one.
+            ann[eid], fields = annotation.flatten(ann[eid] or {}), annotation.flatten(fields)
         for k, v in fields.items():
             if v is None:
                 ann[eid].pop(k, None)
+                for flat in annotation.NESTED.get(k, ()):   # a null block takes its flat keys
+                    ann[eid].pop(flat, None)
             elif k in ("notes", "explanation", "features") and isinstance(v, dict) \
                     and isinstance(ann[eid].get(k), dict):
                 # One note or sentence is the usual fix: these merge key by key, null

@@ -903,6 +903,35 @@ MODEL_PASS = ("definedByPreamble", "andLit", "explanation", "features", "hiddenL
 MODEL_KEYS = ("def", "wp", "notes", "answer") + MODEL_PASS
 # The `features` flags a model may leave out when false; from_model writes them in.
 FEATURE_DEFAULTS = {"answerInScene": False, "aptDefinition": False}
+# The model writes the explanation's sentences and the feature flags in the
+# clue object itself, one level less to write (~42 characters a clue, 7% of
+# an annotation write); nest() files them under the stored blocks. A clue
+# still nesting them (a run mid-flight, an old bag) is taken as it is.
+NESTED = {"explanation": ("surface", "walkthrough", "definitionFit"),
+          "features": ("misdirectedWord", "joke", "answerInScene", "aptDefinition")}
+
+
+def nest(m):
+    """Model clue `m` with its flat sentences and flags moved under
+    `explanation` and `features` (a flat key wins over the same key nested)."""
+    out = {k: v for k, v in m.items() if not any(k in ks for ks in NESTED.values())}
+    for block, ks in NESTED.items():
+        flat = {k: m[k] for k in ks if k in m}
+        if flat and (out.get(block) is None or isinstance(out[block], dict)):
+            out[block] = {**(out.get(block) or {}), **flat}
+    return out
+
+
+def flatten(m):
+    """Model clue (or patch) `m` with `explanation` and `features` lifted into
+    it, as the run writes it; a block holding a key of neither stays nested."""
+    out = dict(m)
+    for block, ks in NESTED.items():
+        inner = out.get(block)
+        if isinstance(inner, dict) and set(inner) <= set(ks):
+            del out[block]
+            out.update({k: v for k, v in inner.items() if k not in m})
+    return out
 # Keys a model-shape clue may not carry: view() derives them from `wp`.
 DERIVED_KEYS = ("type", "blocks", "definitions", "indicators", "linkWords", "assembly")
 
@@ -928,6 +957,7 @@ def from_model(m, entry, puzzle=None):
     unknown key, a parse whose letters are not the answer (naming the node)."""
     import definitions as D
     import wordplay
+    m = nest(m)
     unknown = sorted(set(m) - set(MODEL_KEYS))
     if unknown:
         hint = ""
@@ -1010,6 +1040,8 @@ def from_model(m, entry, puzzle=None):
     for k in ("explanation", "features", "hiddenLetter", "alteration"):
         if k in m:
             out[k] = m[k]
+    if "explanation" in out and "features" not in out:
+        out["features"] = {}    # a written clue with every flag null or false, all left out
     if isinstance(out.get("features"), dict):
         # The run leaves out a false (~1.2 a clue, ~5% of what it writes); the
         # stored block keeps every flag (validate_features: missing != false).
@@ -1131,4 +1163,4 @@ def to_model(ann):
         # Shown as the run writes it: a default flag left out (from_model puts it back).
         out["features"] = {k: v for k, v in out["features"].items()
                            if not (k in FEATURE_DEFAULTS and v == FEATURE_DEFAULTS[k])}
-    return out
+    return flatten(out)
