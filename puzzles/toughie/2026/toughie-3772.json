@@ -212,44 +212,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "poor",
-       "note": "something poor is in bad shape, so the name is broken up and rearranged"
+       "text": "about",
+       "at": 9,
+       "note": "about means placed around the rearranged name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "wrong",
+       "at": 3,
+       "gives": "BUM",
+       "note": "bum means bad or wrong, as in a bum note"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means going round, so the word for wrong surrounds the other piece"
+         "text": "poor",
+         "at": 15,
+         "note": "poor means in a bad state, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "wrong",
-         "gives": "BUM",
-         "note": "bum as an adjective means bad or wrong, as in a bum note"
-        },
-        {
          "words": "Reilly",
-         "note": "the name rearranged"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to be mistaken about poor Reilly.",
-     "walkthrough": "'Be' looks like the verb opening a command, but it is the definition: Be is a chemical symbol.",
-     "definitionFit": "Be is the chemical symbol for the element beryllium, a light grey metal."
+     "surface": "Someone is told they are mistaken about the hard-up Reilly.",
+     "walkthrough": "Be is the chemical symbol for this element; 'poor' rearranges REILLY inside BUM.",
+     "definitionFit": "The light metallic element with symbol Be, number 4 in the periodic table."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Be"
     }
    }
@@ -1252,70 +1255,74 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "new",
-       "note": "new signals a fresh arrangement of the following word"
+       "text": "under",
+       "at": 34,
+       "note": "in a down clue under puts the Strauss letter below the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "under",
-         "note": "in a down clue a piece under another comes after it"
+         "text": "holds",
+         "at": 51,
+         "note": "holds means contains, so the rearranged word grips the letter for good"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "holds",
-           "note": "holds means the rearranged word keeps another letter inside it"
+           "text": "new",
+           "at": 40,
+           "note": "new means freshly arranged"
           }
          ],
          "parts": [
           {
            "words": "order",
-           "note": "the word rearranged"
-          },
-          {
-           "words": "good",
-           "gives": "G",
-           "note": "g is short for good"
+           "at": 44
           }
          ]
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "at last",
-           "note": "at last points to the final letter only"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Strauss",
-           "note": "the final letter"
-          }
-         ]
+         "words": "good",
+         "at": 57,
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at last",
+         "at": 26,
+         "note": "at last takes the final letter of Strauss"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Strauss",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Composer Richard Strauss, reorganised at the end, keeps things good.",
-     "walkthrough": "Richard Strauss is a red herring: 'Composer Richard' is the definition, a different Richard.",
-     "definitionFit": "Richard Rodgers was the American composer of Oklahoma! and The Sound of Music."
+     "surface": "Richard Strauss, finally getting a new arrangement, keeps a fine tune.",
+     "walkthrough": "'New' turns ORDER into RODER, which 'holds' G; S from 'at last' Strauss comes 'under'. Richard Strauss is the decoy composer.",
+     "definitionFit": "Richard Rodgers wrote the music for Oklahoma! and The Sound of Music."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Strauss"
     }
    }

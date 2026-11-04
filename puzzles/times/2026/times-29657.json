@@ -313,48 +313,54 @@
        "indicators": [
         {
          "text": "hedging",
-         "note": "A hedge encloses a field, so hedging something puts it inside."
+         "at": 5,
+         "note": "hedging means surrounding, as a hedge encloses a field"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Rose",
-           "gives": "WO",
-           "note": "Rose as in got up, WOKE; WO opens it before the R."
-          },
-          {
-           "words": "Rose",
-           "gives": "KE",
-           "note": "The rest of WOKE, closing round the R."
-          }
-         ]
+         "words": "Rose",
+         "at": 0,
+         "gives": "WOKE",
+         "note": "rose as in got up, woke"
         },
         {
          "words": "runs",
+         "at": 13,
          "gives": "R",
-         "note": "R is runs in cricket scoring."
+         "note": "R is the cricket abbreviation for runs"
         }
        ]
       },
       {
-       "words": "thick, cut",
-       "gives": "THIC",
-       "note": "THICK with its last letter cut off."
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 25,
+         "note": "cut means the last letter is chopped off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thick",
+         "at": 18
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener grafting a rose, hedging thick growth and bending stems.",
-     "walkthrough": "Every gardening word misleads: \"Rose\" is the past tense of rise, \"bent\" is an aptitude, and \"grafting\" is British slang for hard work.",
-     "definitionFit": "A bent is an inclination and grafting is British slang for hard work, so a bent for grafting is a work ethic."
+     "surface": "A rose bush crowds a thick, pruned and bent graft.",
+     "walkthrough": "'Hedging' puts R in WOKE; 'cut' drops K from THICK. 'Grafting' is British slang for hard work, and 'bent' is an inclination.",
+     "definitionFit": "A disposition towards hard labour is a bent, an inclination, for graft."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "grafting"
     }
    }
@@ -783,56 +789,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ADMIT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 43,
+       "note": "before places the reversed letters ahead of the trial letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "retraction of",
-         "note": "Retracting something draws it back, so the letters are read backwards."
-        },
-        {
-         "text": "start of",
-         "note": "The start of a word is its first letter."
+         "at": 6,
+         "note": "a retraction draws back, so these letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "confession by attorney",
-         "gives": "ADMI",
-         "note": "An attorney confessing says I'M DA (District Attorney); reversed that is ADMI."
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "One piece placed before another comes first."
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "trial",
-           "note": "The first letter of trial."
+           "words": "confession",
+           "at": 20,
+           "gives": "IM",
+           "note": "a confession begins I'm, admitting what one is"
+          },
+          {
+           "words": "attorney",
+           "at": 34,
+           "gives": "DA",
+           "note": "DA is a district attorney"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 50,
+         "note": "the start of trial is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trial",
+         "at": 59
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer's confession being withdrawn before the trial begins.",
-     "walkthrough": "The confession is the attorney announcing himself: I'M plus DA, the American District Attorney.",
-     "definitionFit": "To admit someone is to allow them in, so the two verbs are synonyms."
+     "surface": "A lawyer's confession withdrawn just before the hearing opens.",
+     "walkthrough": "'Retraction of' turns IM + DA into ADMI.",
+     "definitionFit": "To let in or concede something is to allow it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "confession"
+     "misdirectedWord": "retraction"
     }
    }
   },

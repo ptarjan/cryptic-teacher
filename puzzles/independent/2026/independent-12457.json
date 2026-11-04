@@ -546,41 +546,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "move",
      "indicators": [
       {
-       "text": "king finally",
-       "note": "'Finally' takes only the last letter of the word in front of it, so 'king' is being read for its G alone."
+       "text": "moving forward",
+       "at": 36,
+       "note": "moving forward shifts the named letter towards the front of the built string"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "moving forward",
-         "note": "Moving forward means shifting towards the front, so the letter it picks up travels to the start of what has been built."
-        }
-       ],
        "parts": [
         {
          "words": "queen",
+         "at": 7,
          "gives": "R",
          "note": "R is Regina, the Latin a queen signs with"
         },
         {
-         "words": "and spare",
+         "words": "spare",
+         "at": 17,
          "gives": "ANGULAR",
-         "note": "a spare frame is a bony, angular one"
+         "note": "a spare frame is lean and bony, angular"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 28,
+         "note": "finally takes only the last letter of king"
+        }
+       ],
+       "parts": [
+        {
+         "words": "king",
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "On the chessboard a determined queen and a spare king at last advance.",
-     "walkthrough": "'Spare' is not the royal understudy but a build: lean, bony, angular. The G that 'king finally' picks out is already sitting inside that word, and it is the only letter that moves.",
-     "definitionFit": "Gritty → GRANULAR: gritty means made of grains, and granular is the technical word for that texture, sand rather than courage."
+     "surface": "On a chessboard a queen and a spare king at last advance.",
+     "walkthrough": "R + ANGULAR gives RANGULAR; 'moving forward' sends its G (the last letter of king) to the front.",
+     "definitionFit": "Gritty means made of grains, and granular is the technical word for that sandy texture."
     },
     "features": {
      "answerInScene": false,
@@ -794,31 +807,32 @@
      "indicators": [
       {
        "text": "runs",
-       "note": "Ink that runs has spread out of shape, and letters told to run will not keep the shape they were given."
+       "at": 41,
+       "note": "letters that run, like wet ink, lose their shape, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "lactose",
+       "at": 12
+      },
+      {
+       "words": "in",
+       "at": 20
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initial",
+         "at": 33,
+         "note": "an initial is the first letter, here of the athlete's name"
+        }
+       ],
        "parts": [
         {
-         "words": "lactose in",
-         "note": "nine letters of fodder"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initial",
-           "note": "An initial is the letter a name starts with, so only the first letter of the word before it is wanted."
-          }
-         ],
-         "parts": [
-          {
-           "words": "athlete's",
-           "note": "the letter this word starts with"
-          }
-         ]
+         "words": "athlete's",
+         "at": 23
         }
        ]
       }
@@ -826,8 +840,8 @@
     },
     "explanation": {
      "surface": "Lactose building up in a runner during their first outings on the track.",
-     "walkthrough": "Lactic acid is what really builds up in a runner's legs; lactose is the milk sugar, and the near-miss between them is what makes the sentence sound medical.",
-     "definitionFit": "Build-up → ESCALATION: the steady increase of something, a conflict above all, which is a build-up rather than a single jump."
+     "walkthrough": "'Runs' rearranges LACTOSE, IN and A ('initial' takes A from athlete's). Lactic acid is what really builds up in legs; lactose is the milk sugar.",
+     "definitionFit": "A steady increase, as of a conflict, is a build-up rather than a single jump."
     },
     "features": {
      "answerInScene": false,
