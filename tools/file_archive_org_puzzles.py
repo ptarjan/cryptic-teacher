@@ -11860,14 +11860,22 @@ REREAD_CLUE_GARBLED = "2026-11-03T16:30:00+00:00"
 CLUE_GARBLED_IDS = frozenset(f"times-{n}" for n in (
     1120, 1230, 6117, 22815, 23239, 23431, 25461, 25725, 25738, 25739, 25742, 25744, 25751, 25752, 25755,
     25760, 25763, 25802, 25804, 25808, 25814, 25842))
+#: 11-04, two more named for #cryptic-crosswords, read once more: times-25077 (2012-02-04) 4-down "Inn -—- do I
+#: arrive to slurp plonk?" (a dash run ate a word) and times-25164 20-down "Encourage to take new heart" (a word lost).
+REREAD_CLUE_GARBLED_2 = "2026-11-04T12:00:00+00:00"
+CLUE_GARBLED_IDS_2 = frozenset(("times-25077", "times-25164"))
 
 
 def clue_garbled_due(row):
-    """Whether Gale Times ledger `row` has a verdict of a CLUE_GARBLED_IDS puzzle, read before REREAD_CLUE_GARBLED."""
+    """Whether Gale Times ledger `row` has a verdict of a CLUE_GARBLED_IDS puzzle, read before REREAD_CLUE_GARBLED
+    (or of a CLUE_GARBLED_IDS_2 one, read before REREAD_CLUE_GARBLED_2)."""
     if paper_of(Path(row.get("edition") or "")).key not in ("gale", "times"):
         return False
-    return any(v.get("id") in CLUE_GARBLED_IDS and not v.get("refused") for v in row.get("verdicts", ())) \
-        and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_GARBLED))
+    verdicts = [v for v in row.get("verdicts", ()) if not v.get("refused")]
+    return any(v.get("id") in CLUE_GARBLED_IDS for v in verdicts) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_GARBLED)) \
+        or any(v.get("id") in CLUE_GARBLED_IDS_2 for v in verdicts) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_CLUE_GARBLED_2))
 
 
 #: The due reason of a page whose scan raised (its scan holds "failed": no title, no solution, no verdict) and
