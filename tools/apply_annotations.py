@@ -367,7 +367,7 @@ def landed(ann, entry, entries, eid, errors, puzzle=None):
     import wordplay
     try:
         return drop_spare_preamble_flag(
-            carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry), entry), puzzle)
+            carry_indicators(repair_pool_gap(normalize(ann, entry, entries), entry, entries), entry), puzzle)
     except wordplay.WordplayError as e:
         errors.append(f"{eid}: {e}")
     return None
@@ -387,7 +387,20 @@ def carry_indicators(new, entry):
         return new
 
 
-def repair_pool_gap(new, entry):
+def whole_answer(entry, entries=None):
+    """The letters the entry's wordplay must give: a linked answer's lights joined in order
+    (HEAD OF + STATE on 2-down and 28-across), not the leader's own light, which is a part."""
+    import annotation
+    solution = entry.get("solution", "")
+    if entries and entry.get("group") and solution:
+        try:
+            return letters(annotation.display_answer(entry, {"entries": entries})) or solution
+        except (KeyError, TypeError, AttributeError):
+            return solution
+    return solution
+
+
+def repair_pool_gap(new, entry, entries=None):
     """`new` with its poolGap (an anagram pool read across words the anagram does not gather)
     mended by the shape sweep's own poolGap repair, when that clears it and the tree still
     gives the answer; else `new` as it was. The model never sees a fault the fixer owns."""
@@ -398,7 +411,7 @@ def repair_pool_gap(new, entry):
     try:
         import fix_shape_suspects as F
         import wordplay
-        answer = entry.get("solution", "")
+        answer = whole_answer(entry, entries)
         counters = rule_counters()
         # Every bag fixer (F.RULE_REPAIRS, one table): when its rule fires on the fresh tree it
         # runs and the result is kept if the rule fires less, the tree still gives the answer and

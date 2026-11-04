@@ -328,4 +328,15 @@ tree, new = pool("ins<round>(ana<running>([One of Graf's partners]SPEE + [King's
 check("poolGap absorb leaves a container's pool alone", V.pool_gaps(new, "One of Graf's partners running round court \u2014 King's next outing? (7)") == 1)
 check("the poolGap refusal says to list the pieces in clue order inside one ana()",
       any("clue order" in w for w in V.shape_warnings("X", {"wordplay": tree}, "One of Graf's partners running round court \u2014 King's next outing? (7)", "SPECTRE")) if hasattr(V, "shape_warnings") else True)
+# A linked answer (one answer over several grid entries): the mends judge the tree against the whole
+# answer, not the leader's light (cryptic-26381 HEAD OF STATE on 2-down + 28-across was refused).
+lead = {"number": 2, "direction": "down", "solution": "STEGO", "group": ["2-down", "9-across"],
+        "clue": {"text": "Old beast goes right at us, surprisingly (9)", "enumeration": "9"}}
+tail = {"number": 9, "direction": "across", "solution": "SAUR", "group": ["2-down", "9-across"], "clue": {"text": "See 2"}}
+check("whole_answer joins a linked answer's lights", A.whole_answer(lead, [lead, tail]) == "STEGOSAUR")
+check("whole_answer leaves an unlinked entry alone", A.whole_answer({"solution": "STEGO"}, [lead, tail]) == "STEGO")
+clue = lead["clue"]["text"]
+tree = W.normalize(W.parse("ana<surprisingly>([goes] + [at] + [us]) + [right]R", clue), clue, "STEGOSAUR")[0]
+mended = A.repair_pool_gap({"wordplay": tree}, lead, [lead, tail])["wordplay"]
+check("a linked answer's pool gap is mended against the whole answer", not V.pool_gaps(mended, clue))
 sys.exit(1 if fails else 0)
