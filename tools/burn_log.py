@@ -354,11 +354,14 @@ class Log:
         trail = [(p, c, k) for t, p, c, k in self.meters if now - 6 * 3600 < t <= now - 3600]
         pr, cr, kr = (sum(x[i] for x in recent) for i in range(3))
         pt, ct, kt = (sum(x[i] for x in trail) for i in range(3))
-        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and (pr / kr) > COST_FACTOR * (pt / kt))
+        # A window of meter rows that wrote no clues has no rate: it never alarms, and the
+        # message (built whether or not it alarms) must not divide by it either.
+        rate_r, rate_t = (pr / kr if kr else 0.0), (pt / kt if kt else 0.0)
+        costly = bool(cr >= 5 and ct >= 20 and pt >= 8 and pr >= 4 and kr and kt and rate_r > COST_FACTOR * rate_t)
         out += self.condition(
             now, "cost", costly,
             f"cost per clue doubled: {pr} meter points for {kr} clues ({cr} puzzles) committed in the last hour, "
-            f"against {pt / kt * 1000:.1f} points per 1000 clues before",
+            f"against {rate_t * 1000:.1f} points per 1000 clues before",
             self.last_meter, "cost per clue back to normal")
         return out
 
