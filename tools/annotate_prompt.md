@@ -238,12 +238,15 @@ Working here:
   field is replaced and null removes it, except `notes`, merged note by note.
 - Run the check as a single command: no `&&`, `;`, pipes or `rm`; a compound command
   needs an approval this run cannot give and runs nothing.
-- **Your tools are Read, Write, Edit, `python3` and `node`, nothing else.** `grep`,
+- **Your tools are Read, Write, Edit, `python3`, `node`, WebSearch and WebFetch, nothing else.** `grep`,
   `sed`, `cat`, `ls`, `awk`, `mkdir`, `rm`, `cd`, heredocs and any `>` redirect are
   refused and cost a turn. The puzzle file's `entries` are strings
   (`id | group | SOLUTION | clue`), not objects: Read it rather than `python3 -c` it.
   Another puzzle's file is a different shape; you do not need one. WebFetch is refused
   for theguardian.com.
+- Before you withdraw, or leave a clue `null` as garbled or unparsable, WebSearch its exact
+  text in quotes: clue databases and blogs often give the parse. A misread of the clue (a
+  word like "in" as a link, not an insertion) is not garble; if it proves sound, annotate it.
 - To take back hints you would not stand by, run the check with `--withdraw "<why>"` and
   stop: the puzzle file is put back and nothing you wrote ships. Never use git.
 - Don't open `validate_annotations.py`. For a line you cannot act on,
