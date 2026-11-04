@@ -511,6 +511,12 @@ say("stray_brace_mended", AC.mend_json(pending) is not None
 pending.write_text('{"1-across": null, "2-down": null}\n}\n')
 say("trailing_closer_mended", AC.mend_json(pending) is not None
     and json.loads(pending.read_text()) == {"1-across": None, "2-down": None})
+# The same slip on every entry (an extra } after each, 27 of them in telegraph-27478) is
+# mended in one go, down to the extra closers after the last entry.
+pending.write_text('{"1-across": {"def": "a", "notes": {"x": "y"}}},\n"2-down": {"def": "b"}},\n'
+                   '"3-down": {"def": "c", "notes": {"x": "y"}}}}\n')
+say("stray_brace_on_every_entry_mended", AC.mend_json(pending) is not None
+    and sorted(json.loads(pending.read_text())) == ["1-across", "2-down", "3-down"])
 broken = '{"1-across": {"def": "a" "wp": "b"}}'
 pending.write_text(broken)
 say("other_json_errors_left", AC.mend_json(pending) is None and pending.read_text() == broken)
