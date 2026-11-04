@@ -153,7 +153,7 @@ from validate_sound import (
     check_sound_is_not_a_letter_swap,
 )
 from validate_features import (
-    REFERENCE_RE, ENUMERATION_RE, expand_cross_references, check_coverage, is_word, NOT_PLURALS, is_plural,
+    REFERENCE_RE, ENUMERATION_RE, expand_cross_references, spelled_numbers, check_coverage, is_word, NOT_PLURALS, is_plural,
     INVARIANT_PLURALS, NOT_GERUNDS, is_gerund, JOKE_KINDS, check_features, plain, check_part_of_speech,
 )
 from validate_answers import (
@@ -546,7 +546,8 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
             sound_ok = ("homophone" in types_of(ann)
                         and any(letters(b.get("soundsLike")) in clue_letters
                                 for b in ann.get("blocks") or [] if b.get("soundsLike")))
-            if built not in clue_letters and not reversed_ok and not sound_ok:
+            spelled_ok = any(built in w for w in spelled_numbers(ann))
+            if built not in clue_letters and not reversed_ok and not sound_ok and not spelled_ok:
                 errors.append(f"{tag}: hidden answer {built} not found inside clue letters")
         # apply_annotations derives the assembly wherever the blocks rebuild the
         # answer, so one still missing is a step the blocks cannot show, or blocks
