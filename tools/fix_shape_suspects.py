@@ -142,7 +142,7 @@ from fix_shape_cuts import (
     r_repeated_selection, r_sel_edge, r_leaf_select,
 )
 from fix_shape_ana import (
-    _ana_candidates, _ana_split_candidates, r_ana_synonym_charade, r_ana_of_container, r_ana_charade,
+    _ana_candidates, _ana_split_candidates, r_ana_synonym_charade, r_ana_stand_in, r_ana_of_container, r_ana_charade,
     _piece_options, _spells, _stand_in, r_ana_pull, r_ana_edge, r_ana_select_edge, _ana_edge_with, _path, _at,
     r_scrambled_swap, r_ana_lone_edge, r_ana_flatten,
 )
@@ -176,7 +176,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
 RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split, "reversedCharadeOrder": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
-                "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anagramOfContainer": r_ana_of_container,
+                "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anaStandIn": r_ana_stand_in, "anagramOfContainer": r_ana_of_container,
                 "containerInside": r_container_inside, "nestedContainer": r_nested_container,
                 "wrongRole": r_wrong_role, "delSelection": r_del_selection,
                 "sharedIndicator": lambda n, p, c: r_shared_indicator(n, p, c) or r_shared_charade(n, p, c), "poolGap": lambda n, p, c: r_pool_gap(n, p, c) or r_pool_absorb(n, p, c) or r_pool_eject(n, p, c),
