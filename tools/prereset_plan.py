@@ -649,8 +649,10 @@ def cpu_cap(others, burn, cores, runs):
 # The pool scales down in proportion once 1-minute load passes LOAD_PER_CORE
 # per core. Burn runs are nice 19 and mostly wait on the API (~0.1-0.17 core
 # each), so one per core is idle headroom, not a stall; the bridge stalled at
-# 5-10x cores (10-25).
-LOAD_PER_CORE = 2
+# 5-10x cores (10-25). 4 since 11-03 (owner: "you can push the load limit i
+# don't want to underspend"): at 2 the cap held the pool to 4-5 runs at load
+# 10-13 with the week at 68% and 5h left; 4 per core stays under the stall.
+LOAD_PER_CORE = 4
 
 
 def read_load1():
@@ -675,7 +677,7 @@ def load_cap(load1, cores, width):
     other work used ~3 of 6 cores and each burn run ~0.11-0.17 core, mostly
     waiting on the API). Scaling the width the quota and memory ask for this
     call has no memory of its own past cuts, and one run per core is no stall:
-    the bridge stalled at 5-10x cores, so the cap starts at 2x."""
+    the bridge stalled at 5-10x cores, so the cap starts at 4x (2x until 11-03)."""
     if load1 is None or not cores:
         return None
     limit = cores * LOAD_PER_CORE
@@ -1169,15 +1171,15 @@ RUSH_OFF_CASES = [
 # (1-minute load, cores, uncapped width) -> load cap
 LOAD_CASES = [
     (3.0, 6, 10, None),    # calm: no cap, quota use untouched
-    (12.0, 6, 10, None),   # exactly two per core: not above
+    (12.0, 6, 10, None),   # two per core: under
     (9.6, 6, 16, None),    # 2026-11-03: runs idle on the API, not a stall
-    (24.0, 6, 10, 5),      # four per core: half the pool
-    (26.0, 6, 10, 4),
-    (13.0, 6, 16, 14),     # 11-03 ratchet: the uncapped width, not the last one
+    (24.0, 6, 10, None),   # exactly four per core: not above
+    (26.0, 6, 10, 9),
+    (30.0, 6, 16, 12),     # 11-03 ratchet: the uncapped width, not the last one
     (26.0, 6, 1, 1),       # never below 1
     (26.0, 6, 0, 1),
-    (60.0, 6, 10, 2),      # swamped: a fifth
-    (38.0, 6, 7, 2),       # 2026-11-01: load 38 with 7 runs
+    (60.0, 6, 10, 4),      # swamped: two fifths
+    (38.0, 6, 7, 4),       # 2026-11-01: load 38 with 7 runs
     (63.0, 6, 3, 1),
     (None, 6, 10, None),   # unread: no cap
     (30.0, 0, 10, None),
