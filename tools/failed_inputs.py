@@ -16,6 +16,14 @@ in whichever tree reads the ledger once it holds the fix. `clear` is left for
 an item that succeeded, or a retry wanted for any other reason. There is no
 timer.
 
+The exception is an annotate run that withdrew its own work (its reason starts
+WITHDRAWN). Its reason is a judgement about the puzzle ("1-down has no clean
+parse"), and a code edit does not answer it: 11-03 19:24-20:05 ABT about 50 of
+these were released by code edits, bought again and withdrew again, because
+nobody read why. So such a record is released only by its puzzle changing or by
+`clear`, and each new one wakes the room (tools/burn_log.py) to read the reason
+and decide: `triage annotate` lists them, `clear` retries one.
+
 A transient failure is never recorded, because it says nothing about the item.
 That covers a usage lockout, an expired login, a network error, or an overloaded
 API. `record` refuses those itself (TRANSIENT below), so no caller can charge an
@@ -28,6 +36,7 @@ item by definition, and it quotes clue text that could contain any word.
     python3 tools/failed_inputs.py clear <kind> --reason "pieces"  # retry those whose reason says this
     python3 tools/failed_inputs.py clear <kind> --all              # retry every one
     python3 tools/failed_inputs.py skipped <kind>     # ids to leave out tonight
+    python3 tools/failed_inputs.py triage annotate    # withdrawn records, oldest first
     python3 tools/failed_inputs.py summary            # one line for the log
 
 The ledger is written to the main checkout, untracked. The nightly job runs in
@@ -237,6 +246,13 @@ def code_version(kind, pid, reason):
     return h.hexdigest()[:16]
 
 
+WITHDRAWN = "the run withdrew its own work: it ran annotate_check.py --withdraw:"
+
+
+def withdrawn(kind, rec):
+    return kind == "annotate" and (rec.get("reason") or "").startswith(WITHDRAWN)
+
+
 def due(kind, pid, rec):
     """Whether a recorded failure no longer holds: its puzzle changed, or the
     code or data that refused it did. A record from before code versions
@@ -246,6 +262,8 @@ def due(kind, pid, rec):
     the bulk) holds on its puzzle alone."""
     if rec["puzzle"] != input_hash(pid):
         return True
+    if withdrawn(kind, rec):
+        return False   # only its puzzle changing or `clear` (triage) releases it
     if "code" not in rec:
         return any((TOOLS / f"{m}.py").exists()
                    for m in NAMED_MODULE.findall(rec.get("reason") or ""))
@@ -350,6 +368,16 @@ def cmd_skipped(args):
         print(i)
 
 
+def cmd_triage(args):
+    """Withdrawn records, oldest first: id, date, retries, reason."""
+    rows = sorted((rec.get("date") or "", i, rec) for i, rec in load()[args.kind].items()
+                  if withdrawn(args.kind, rec))
+    for date, i, rec in rows:
+        print(f"{i}\t{date or '-'}\tretries={rec.get('retries', 0)}\t{rec.get('reason', '')}")
+    if not rows:
+        print(f"no withdrawn {args.kind} records")
+
+
 def cmd_summary(args):
     """One log line: how many items are held out, and which.
 
@@ -392,6 +420,9 @@ def main():
     p = sub.add_parser("skipped", help="ids to leave out tonight, one per line")
     p.add_argument("kind", choices=KINDS)
     p.set_defaults(func=cmd_skipped)
+    p = sub.add_parser("triage", help="withdrawn records, oldest first, to read and clear or fix")
+    p.add_argument("kind", choices=("annotate",))
+    p.set_defaults(func=cmd_triage)
     p = sub.add_parser("summary", help="count of skipped items, for the log")
     p.set_defaults(func=cmd_summary)
     args = ap.parse_args()
