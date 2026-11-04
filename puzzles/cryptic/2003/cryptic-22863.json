@@ -769,20 +769,42 @@
      "op": "anagram",
      "parts": [
       {
-       "words": "first musical",
-       "gives": "RSTMUSI",
-       "note": "seven consecutive letters run unbroken across these words"
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "first",
+         "at": 4,
+         "note": "only the tail of this word, after its opening letter, belongs to the run the preamble says conceals the jumbled solution"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "musical",
+         "at": 10,
+         "note": "only the opening three letters of this word complete the seven-letter run the preamble says is concealed in the clue"
+        },
+        {
+         "gives": "ICAL"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recalls that the first stage musical they saw was likely the Rodgers and Hammerstein show.",
-     "walkthrough": "Per the preamble, the instrument's letters are concealed in the clue in jumbled order without any signal.",
-     "definitionFit": "A sistrum is an ancient Egyptian rattle of metal rods in a frame, shaken as a percussion instrument."
+     "surface": "Someone recalls that the first stage show they ever saw was likely the Rodgers and Hammerstein classic.",
+     "walkthrough": "As the preamble sets out, seven letters run unbroken from just after the F of 'first' to the S of 'musical'. They are rearranged, and no clue word signals either step.",
+     "definitionFit": "An ancient Egyptian rattle of metal rods in a frame, shaken as a percussion instrument in temple rites."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
     }
    }
   },
