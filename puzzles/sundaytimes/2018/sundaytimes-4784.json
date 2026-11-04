@@ -352,7 +352,8 @@
      "indicators": [
       {
        "text": "to eat",
-       "note": "to eat something is to take it inside, so one piece goes within another"
+       "at": 9,
+       "note": "to eat something is to take it inside"
       }
      ],
      "parts": [
@@ -361,55 +362,59 @@
        "indicators": [
         {
          "text": "about",
-         "note": "about suggests turning round, so the word is reads backwards"
+         "at": 3,
+         "note": "about signals a word turned round"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "Is",
-           "note": "taken as written"
-          },
-          {
-           "words": "a",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Is",
+         "at": 0,
+         "gives": "IS"
         }
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "short",
-         "note": "something short is cut down, so the word loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "meat",
-         "gives": "LAMB",
-         "note": "lamb is a meat"
+         "words": "a",
+         "at": 16
         },
         {
-         "gives": "B"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 18,
+           "note": "short means cut off before the end, so the final letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "meat",
+           "at": 24,
+           "gives": "LAMB",
+           "note": "lamb is a meat"
+          },
+          {
+           "gives": "B"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is about to eat a small portion of meat sausage.",
-     "walkthrough": "Meat sausage looks like one phrase, but meat belongs to the wordplay and sausage alone is the definition.",
-     "definitionFit": "Salami is a cured, highly seasoned Italian sausage, usually eaten sliced and cold."
+     "surface": "Someone is on the point of tucking into a small portion of meat in sausage form.",
+     "walkthrough": "'about' looks like 'on the point of', setting up a picture of someone about to eat, but it is the turning signal, and 'to eat' is the container.",
+     "definitionFit": "Salami is a cured, spiced Italian sausage, so it is one kind of the general term."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "meat"
+     "misdirectedWord": "about"
     }
    }
   },

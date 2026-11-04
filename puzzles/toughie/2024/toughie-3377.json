@@ -1167,35 +1167,49 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word is all but its last letter"
-      },
-      {
        "text": "missing",
-       "note": "missing says these letters are taken out of the longer word"
+       "at": 39,
+       "note": "missing tells us part of the word is absent"
       }
      ],
      "parts": [
       {
-       "words": "unaffected",
+       "words": "unaffected by",
+       "at": 7,
        "gives": "OBLIVIOUS",
-       "note": "someone oblivious is unaware and so untouched by events"
+       "note": "someone oblivious to a thing is not touched by it"
       },
       {
-       "words": "invention",
-       "gives": "LI",
-       "note": "an invention is a lie; most of it is its first two letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 21,
+         "note": "most of a word is all but its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "invention",
+         "at": 29,
+         "gives": "LIE",
+         "note": "a lie is an invention, a made-up story"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patent is unaffected though most of the invention has gone.",
-     "walkthrough": "'Patent' suggests an intellectual-property document, but it is the adjective meaning plain to see.",
-     "definitionFit": "Patent as an adjective means evident or clear, so a patent falsehood is an unmistakable one."
+     "surface": "A patent that does not depend on most of an invention being lost.",
+     "walkthrough": "'most of' trims LIE to LI, and 'missing' takes that LI out of OBLIVIOUS. 'Patent' looks like the intellectual-property noun but is the adjective.",
+     "definitionFit": "Patent as an adjective means plain and evident, a synonym for clear to all."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Patent"
     }
    }

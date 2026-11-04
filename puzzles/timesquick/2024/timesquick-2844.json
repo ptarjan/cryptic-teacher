@@ -732,59 +732,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "letters that are moving shift out of their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 11,
+         "note": "ultimately points to the final letter of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means in the end, so only the final letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "are",
-           "note": "the last letter of the word"
-          }
-         ]
-        },
+         "words": "are",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "op": "container",
+         "text": "around",
+         "at": 34,
+         "note": "the jumbled letters go round the central letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "around",
-           "note": "to go around something is to enclose it"
+           "text": "moving",
+           "at": 27,
+           "note": "moving suggests the letters shift into a new order"
           }
          ],
          "parts": [
           {
            "words": "slow",
-           "note": "the four letters rearranged"
-          },
+           "at": 22
+          }
+         ]
+        },
+        {
+         "op": "middle",
+         "indicators": [
           {
-           "op": "middle",
-           "indicators": [
-            {
-             "text": "middle of",
-             "note": "the middle of a word is its central letter"
-            }
-           ],
-           "parts": [
-            {
-             "words": "harbour",
-             "note": "the fourth of its seven letters"
-            }
-           ]
+           "text": "middle of",
+           "at": 41,
+           "note": "the central letter of the word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "harbour",
+           "at": 51
           }
          ]
         }
@@ -793,9 +797,9 @@
      ]
     },
     "explanation": {
-     "surface": "Barges eventually move slowly around the inner harbour.",
-     "walkthrough": "'Barges' looks like a noun for boats, matching the harbour, but it is a verb meaning pushes roughly through.",
-     "definitionFit": "To elbow is to shove one's way forward with the arms, just as someone barges through a crowd."
+     "surface": "Canal boats making slow progress around the centre of a port.",
+     "walkthrough": "'moving' turns SLOW into LOWS, which goes 'around' B, the middle of harbour, after E. 'Barges' looks like a noun but is the verb.",
+     "definitionFit": "To barge is to push your way roughly through, which is what using your elbows means as a verb."
     },
     "features": {
      "answerInScene": false,
@@ -825,55 +829,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "travelling",
-       "note": "letters that are travelling are on the move, out of their printed order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Second-rate",
+       "at": 0,
+       "gives": "B",
+       "note": "B is a second-class grade, so second-rate"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "across",
+         "at": 29,
+         "note": "the jumbled letters lie across, around, the other piece"
+        }
+       ],
        "parts": [
         {
-         "words": "Second-rate",
-         "gives": "B",
-         "note": "B grade is second rate, after A"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "across",
-           "note": "to lie across something is to straddle it, so one piece wraps another"
+           "text": "travelling",
+           "at": 18,
+           "note": "travelling suggests the letters move into a new order"
           }
          ],
          "parts": [
           {
            "words": "train",
-           "note": "the five letters rearranged"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral one"
+           "at": 12
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 36,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poor-quality train service crosses a whole nation.",
-     "walkthrough": "'Train travelling' reads as a rail journey, but 'travelling' scrambles the word, and 'one' is the Roman numeral placed within it.",
-     "definitionFit": "Great Britain, shortened in everyday use, is a nation of the United Kingdom's island, so it is an example of a country."
+     "surface": "A poor-quality train journey across a country.",
+     "walkthrough": "'travelling' turns TRAIN into RTAIN, which goes 'across' I (one), after B.",
+     "definitionFit": "Britain is a nation, the island state made up of England, Scotland and Wales."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "travelling"
+     "aptDefinition": false
     }
    }
   },
