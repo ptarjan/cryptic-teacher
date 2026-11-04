@@ -193,14 +193,13 @@ NAMED_MODULE = re.compile(r"\b([a-z_][a-z0-9_]*)\.(?:py\b|[A-Z]\w*(?:Error|Write
 NAMED_PUZZLE = re.compile(r"\b[a-z]+-\d+\b")
 
 
-@functools.lru_cache(maxsize=None)
-def _module_version(name):
-    """A hash of tools/<name>.py and the tools modules it imports directly."""
-    path = TOOLS / f"{name}.py"
+@functools.cache
+def _module_source(name):
+    """The bytes of tools/<name>.py and the tools modules it imports directly."""
     try:
-        text = path.read_bytes()
+        text = (TOOLS / f"{name}.py").read_bytes()
     except OSError:
-        return "-"
+        return None, ()
     deps = set()
     try:
         for node in ast.walk(ast.parse(text)):
@@ -210,11 +209,25 @@ def _module_version(name):
                 deps.add(node.module.split(".")[0])
     except SyntaxError:
         pass
+    return text, tuple(sorted(d for d in deps - {name} if (TOOLS / f"{d}.py").exists()))
+
+
+@functools.cache
+def _module_version(name):
+    """A hash of tools/<name>.py and every tools module it reaches through
+    imports, however deep: a fix in a module two hops away must move it too."""
+    text, _ = _module_source(name)
+    if text is None:
+        return "-"
+    seen, todo = {name}, [name]
+    while todo:
+        for dep in _module_source(todo.pop())[1]:
+            if dep not in seen:
+                seen.add(dep)
+                todo.append(dep)
     h = hashlib.sha256(text)
-    for dep in sorted(deps - {name}):
-        dep_path = TOOLS / f"{dep}.py"
-        if dep_path.exists():
-            h.update(dep.encode() + b"\0" + dep_path.read_bytes())
+    for dep in sorted(seen - {name}):
+        h.update(dep.encode() + b"\0" + _module_source(dep)[0])
     return h.hexdigest()
 
 

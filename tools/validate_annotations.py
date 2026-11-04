@@ -547,7 +547,11 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
                         and any(letters(b.get("soundsLike")) in clue_letters
                                 for b in ann.get("blocks") or [] if b.get("soundsLike")))
             spelled_ok = any(built in w for w in spelled_numbers(ann))
-            if built not in clue_letters and not reversed_ok and not sound_ok and not spelled_ok:
+            # A setter's slip in the printed run (tools/data/setter_error.json
+            # names the light): the corrected run is a slip away from one.
+            slip_ok = bool(row) and any(wordplay.run_slip(clue_letters, w)
+                                        for w in (built, built[::-1] if "reversal" in types_of(ann) else built))
+            if built not in clue_letters and not reversed_ok and not sound_ok and not spelled_ok and not slip_ok:
                 errors.append(f"{tag}: hidden answer {built} not found inside clue letters")
         # apply_annotations derives the assembly wherever the blocks rebuild the
         # answer, so one still missing is a step the blocks cannot show, or blocks

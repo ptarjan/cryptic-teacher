@@ -133,6 +133,7 @@ import json
 import re
 import sys
 import unicodedata
+from pathlib import Path
 
 # Expression name -> stored op.
 OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion",
@@ -175,6 +176,41 @@ def _letters_of_str(s):
 def letters(s):
     """A-Z, accents folded (É is E), everything else dropped."""
     return _letters_of_str(str(s or ""))
+
+
+def run_slip(text, gives):
+    """Whether `gives` is a run of `text` with a setter's slip: one wrong letter, or
+    two letters swapped (TORORE printed where TORERO was meant). Both are letter
+    strings. False for a run `text` holds exactly, or one further out."""
+    n = len(gives)
+    for a in range(len(text) - n + 1):
+        d = [i for i in range(n) if text[a + i] != gives[i]]
+        if len(d) == 1 or (len(d) == 2 and text[a + d[0]] == gives[d[1]] and text[a + d[1]] == gives[d[0]]):
+            return True
+    return False
+
+
+_SLIP_TABLE = ("", None)   # (stamp, {(fodder letters, gives letters)})
+SLIP_FILE = Path(__file__).resolve().parent / "data" / "setter_error.json"   # the tests point it elsewhere
+
+
+def slipped_run(text, gives):
+    """Whether tools/data/setter_error.json names `text` (a hidden leaf's words, as
+    letters) as printed with a slip whose corrected run is `gives`, and `gives` is
+    run_slip() of it. Read again whenever the file changes: annotate_check files a
+    row mid-run. A row's key is its puzzle and light, but the pair (fodder, gives)
+    is what is looked up, so evaluating a tree needs no puzzle."""
+    global _SLIP_TABLE
+    path = SLIP_FILE
+    try:
+        stamp = f"{path}:{path.stat().st_mtime_ns}"
+    except OSError:
+        return False
+    if _SLIP_TABLE[0] != stamp:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+        _SLIP_TABLE = (stamp, {(letters(r[0]), letters(r[1])) for r in rows.values()
+                               if isinstance(r, list) and len(r) >= 2})
+    return (text, gives) in _SLIP_TABLE[1] and run_slip(text, gives)
 
 
 # ---------- parse ----------
@@ -980,7 +1016,9 @@ def values(node):
             # a cross-reference or numeral ('6', '70s'): the words it stands for are what hides the answer
             text = letters(leaf["gives"])
         elif "gives" in leaf:
-            return {leaf["gives"]} if leaf["gives"] in text or leaf["gives"] in also else set()
+            g = leaf["gives"]
+            # a setter's slip in the printed run, named in tools/data/setter_error.json
+            return {g} if g in text or g in also or slipped_run(text, g) else set()
         return {t[a:b] for t in (text, also) for a in range(len(t)) for b in range(a + 1, len(t) + 1)}
     if op == "homophone":
         return {node["spelt"]}

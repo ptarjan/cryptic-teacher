@@ -43,6 +43,9 @@ a clue not done yet. A linked answer is annotated once, on its leader (the entry
 - A clue shown exactly as printed whose anagram still cannot give the answer is the
   setter's slip: `"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`,
   `wp` with the fodder as it should be, and what is wrong in `explanation.walkthrough`.
+  The same for a slip in another kind of clue: a hidden run printed one letter wrong or two
+  swapped (`hid()` over the printed words, giving the run the setter meant), or a spelt-out
+  piece of a charade or container. The row is `["<the printed words>", "<the corrected letters>", "<evidence>"]`.
 - When the wordplay plainly builds a real word a letter or two from a printed answer
   that is not one (MINUSCULE where the grid prints MINISCULE), annotate the real word
   and give `"answerTypo": ["<letters the wordplay builds>", "<evidence>"]` (refused if a crossing disagrees).

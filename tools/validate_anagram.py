@@ -6,6 +6,7 @@ Moved out of validate_annotations.py unchanged; that module re-exports every nam
 import json
 import re
 import annotation
+import wordplay
 from annotation import assembly, explanation
 from fetch_puzzle import load_source_table
 from find_answer_leaks import light_solutions
@@ -62,7 +63,6 @@ def setter_error_problems(puzzle, eid, row, ann=None):
     if isinstance(ann, dict) and "blocks" not in ann and ("wordplay" in ann or "definitions" in ann):
         # An annotation stores a tree: its blocks are view()'s.
         import annotation as annotation_view
-        import wordplay
         try:
             ann = annotation_view.view(ann, e, puzzle)
         except (wordplay.WordplayError, KeyError, TypeError, ValueError):
@@ -88,7 +88,7 @@ def setter_error_problems(puzzle, eid, row, ann=None):
                    f"\"<evidence>\"] or the part of it the anagram gives")
     elif not unprinted:
         extra, missing = multiset_diff(letters(fodder), letters(gives))
-        if len(extra) + len(missing) > SETTER_ERROR_LETTERS:
+        if len(extra) + len(missing) > SETTER_ERROR_LETTERS and not wordplay.run_slip(letters(fodder), letters(gives)):
             out.append(f"setterError fodder {letters(fodder)} is {len(extra) + len(missing)} "
                        f"letters from {letters(gives)} (extra: {extra or '-'}, missing: "
                        f"{missing or '-'}); a slip is at most {SETTER_ERROR_LETTERS}, so "
@@ -118,6 +118,17 @@ def check_anagram_letters(pid, eid, tag, ann, errors):
     row = SETTER_ERROR.get((pid, eid))
     declared = row and (letters(row[0]), letters(row[1]))
     used = False
+    # The row may instead correct letters of any other step: a sound anagram
+    # whose fodder is the corrected letters, or a block that reads the printed
+    # words as the corrected letters (a hidden run, a charade's or a
+    # container's spelt piece).
+    if declared:
+        used = any(not any(multiset_diff(letters(a.get("fodder")), letters(a.get("gives"))))
+                   and letters(a.get("gives")) == declared[1]
+                   for a in assembly(ann).get("anagrams", [])) \
+            or any(isinstance(b, dict) and letters(b.get("gives")) == declared[1]
+                   and declared[0] in letters(b.get("clueFragment"))
+                   for b in ann.get("blocks") or [])
     for a in assembly(ann).get("anagrams", []):
         fodder, gives = letters(a["fodder"]), letters(a["gives"])
         extra, missing = multiset_diff(fodder, gives)
@@ -142,7 +153,7 @@ def check_anagram_letters(pid, eid, tag, ann, errors):
                       f"giving {declared[1]}, and no anagram of this annotation has "
                       f"that fodder and gives: annotate the clue as printed, or delete "
                       f"the row")
-    if len(extra) + len(missing) > SETTER_ERROR_LETTERS:
+    if len(extra) + len(missing) > SETTER_ERROR_LETTERS and not wordplay.run_slip(*declared):
         errors.append(f"{tag}: tools/data/setter_error.json's row is {len(extra) + len(missing)} "
                       f"letters out (extra: {extra or '-'}, missing: {missing or '-'}); a "
                       f"setter's slip is at most {SETTER_ERROR_LETTERS}, so this parse is "
