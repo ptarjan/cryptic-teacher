@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,52 @@
     "text": "A lot of the world leaders in assembly sense it's awful",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A lot of the world",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "leaders in",
+       "at": 19,
+       "note": "leaders are the front runners, so the first letter of each following word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "assembly",
+       "at": 30
+      },
+      {
+       "words": "sense",
+       "at": 39
+      },
+      {
+       "words": "it's",
+       "at": 45
+      },
+      {
+       "words": "awful",
+       "at": 50
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heads of an assembly find the whole idea dreadful.",
+     "definitionFit": "The largest continent covers a great share of the planet's land, hence a lot of the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +93,74 @@
     "text": "What's reduced hearing, for instance, including damaged otic parts",
     "enumeration": "8"
    },
-   "solution": "SECTIONS"
+   "solution": "SECTIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "parts",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 38,
+       "note": "including means the shortened word holds the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 7,
+         "note": "reduced means cut short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hearing, for instance",
+         "at": 15,
+         "gives": "SENSE",
+         "note": "hearing is one example of a sense"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 48,
+         "note": "damaged signals that the letters of otic are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "otic",
+         "at": 56
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital-style note on what makes up impaired hearing when the ear's components are hurt.",
+     "walkthrough": "'reduced' drops the last letter of the sense word; 'damaged' turns the ear word into CTIO, which 'including' places after its second letter. 'What's' only links.",
+     "definitionFit": "Sections are portions or divisions of a whole, a plain synonym for parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "otic"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +174,43 @@
     "text": "Going the wrong way, having no sense? Surprise",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Going the wrong way",
+       "at": 0,
+       "note": "going the wrong way tells us to read the word backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "having no sense",
+       "at": 21,
+       "gives": "NUTS",
+       "note": "nuts is slang for crazy, lacking sense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heading off in the wrong direction is called witless, to their astonishment.",
+     "walkthrough": "'Going the wrong way' turns NUTS into the answer.",
+     "definitionFit": "To stun someone is to astonish or amaze them, as a surprise does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Going"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +224,48 @@
     "text": "Vehicle female's taken across island is no longer sensible",
     "enumeration": "8"
    },
-   "solution": "VANISHES"
+   "solution": "VANISHES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "is no longer sensible",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Vehicle",
+       "at": 0,
+       "gives": "VAN",
+       "note": "a van is a vehicle"
+      },
+      {
+       "words": "island",
+       "at": 30,
+       "gives": "I"
+      },
+      {
+       "words": "female's",
+       "at": 8,
+       "gives": "SHES",
+       "note": "female's read as she's, a contraction of she is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's van is driven over an island and she stops being reasonable.",
+     "walkthrough": "'sensible' here means perceptible to the senses, not level-headed, which is the misdirection.",
+     "definitionFit": "Something that disappears stops being perceptible, which is the older meaning of sensible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sensible"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +279,40 @@
     "text": "Republican claims these people have lost their senses",
     "enumeration": "6"
    },
-   "solution": "RAVERS"
+   "solution": "RAVERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "these people have lost their senses",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Republican",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "words": "claims",
+       "at": 11,
+       "gives": "AVERS",
+       "note": "avers means asserts or claims"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican politician alleges that certain people have gone mad.",
+     "definitionFit": "Ravers in the old sense are those who rave, talking wildly as madmen do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +326,50 @@
     "text": "Part of PM's address, in a sense, is good for morale",
     "enumeration": "10"
    },
-   "solution": "HEARTENING"
+   "solution": "HEARTENING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "good for morale",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in places the number inside the sense word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sense",
+       "at": 25,
+       "gives": "HEARING",
+       "note": "hearing is one of the five senses"
+      },
+      {
+       "words": "Part of PM's address",
+       "at": 0,
+       "gives": "TEN",
+       "note": "the British Prime Minister lives at 10 Downing Street, so ten is part of the address"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A section of the Prime Minister's speech, in some way, boosts spirits.",
+     "walkthrough": "'address' looks like a speech, but it is the street address, 10 Downing Street.",
+     "definitionFit": "Heartening news is encouraging, lifting spirits and therefore good for morale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +383,48 @@
     "text": "With partners switching, senses points as a result",
     "enumeration": "6"
    },
-   "solution": "NESSES"
+   "solution": "NESSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "points",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "With partners switching",
+       "at": 0,
+       "note": "in bridge North and South are partners, so the first S and the N of the word swap places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "senses",
+       "at": 25
+      },
+      {
+       "gives": "SEN"
+      },
+      {
+       "gives": "NES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Couples swap around, and the senses are pointed out as a consequence.",
+     "walkthrough": "SENSES has its first S and its N exchanged, the bridge partners North and South changing seats.",
+     "definitionFit": "A ness is a headland or promontory, a point of land jutting into the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +444,54 @@
      }
     ]
    },
-   "solution": "ISAY"
+   "solution": "ISAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "surprised reaction?",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "I",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 14,
+         "note": "the organ's sound means a word spoken the same way as it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sense organ's",
+         "at": 0,
+         "gives": "EYE",
+         "note": "the eye is a sense organ"
+        }
+       ]
+      },
+      {
+       "words": "for example",
+       "at": 21,
+       "gives": "SAY",
+       "note": "say can mean for example, as in 'a fruit, say an apple'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noise made by an ear or eye prompts an astonished response.",
+     "definitionFit": "This exclamation is a mild British expression of astonishment, a typical surprised reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organ's"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +505,41 @@
     "text": "Sense what's in the air, small change for US",
     "enumeration": "5"
    },
-   "solution": "SCENT"
+   "solution": "SCENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sense what's in the air",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 25,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "change for US",
+       "at": 31,
+       "gives": "CENT",
+       "note": "a cent is a small coin in American currency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feel the atmosphere, a little change coming for America.",
+     "definitionFit": "To scent something is to detect it by smell, sensing it in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +553,68 @@
     "text": "Recognition there is conflict, in a strange sense",
     "enumeration": "9"
    },
-   "solution": "AWARENESS"
+   "solution": "AWARENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Recognition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in places the conflict word inside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 34
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "strange",
+           "at": 36,
+           "note": "strange signals that the letters of sense are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sense",
+           "at": 44
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "conflict",
+       "at": 21,
+       "gives": "WAR",
+       "note": "war is armed conflict"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acknowledges that there is war, feeling oddly about it.",
+     "walkthrough": "'strange' rearranges the sense word to ENESS; the conflict goes 'in' after the opening A. 'there is' only links.",
+     "definitionFit": "Awareness is knowledge or realisation of something, the same as recognition of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +628,68 @@
     "text": "Time in a shelter I have put in here, showing a sense of caring",
     "enumeration": "9"
    },
-   "solution": "ATTENTIVE"
+   "solution": "ATTENTIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "caring",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 5,
+         "note": "in puts the time letter inside the a-plus-shelter run"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 8
+          },
+          {
+           "words": "shelter",
+           "at": 10,
+           "gives": "TENT",
+           "note": "a tent is a portable shelter"
+          }
+         ]
+        },
+        {
+         "words": "Time",
+         "at": 0,
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "I have",
+       "at": 18,
+       "gives": "IVE",
+       "note": "I have contracts to I've"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes time in a refuge and has turned up here, showing concern.",
+     "walkthrough": "'put in here' only connects, suggesting falsely that I'VE goes inside something.",
+     "definitionFit": "An attentive person is considerate and watchful of others' needs, so caring is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +703,42 @@
     "text": "Eastern state with TV channel for those with sense of adventure?",
     "enumeration": "5"
    },
-   "solution": "RISKY"
+   "solution": "RISKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for those with sense of adventure?",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Eastern state",
+       "at": 0,
+       "gives": "RI",
+       "note": "RI is Rhode Island, a state on the US east coast"
+      },
+      {
+       "words": "TV channel",
+       "at": 19,
+       "gives": "SKY",
+       "note": "Sky is a British satellite television channel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An East Coast state with its own television station appeals to the adventurous.",
+     "walkthrough": "Sky is a British satellite TV broadcaster; the question mark admits the definition is loose.",
+     "definitionFit": "Dangerous ventures appeal to daring people, so hazardous things suit those seeking adventure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -211,7 +758,60 @@
      }
     ]
    },
-   "solution": "TOOMUCH"
+   "solution": "TOOMUCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Excessively",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in places the ring and maiden letters inside the sense"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sense",
+       "at": 28,
+       "gives": "TOUCH",
+       "note": "touch is one of the five senses"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ring",
+         "at": 12,
+         "gives": "O",
+         "note": "a ring is round, the shape of the letter O"
+        },
+        {
+         "words": "maiden",
+         "at": 17,
+         "gives": "M",
+         "note": "M is maiden, a cricket over with no runs, in scorebook shorthand"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telephones a young woman far too often, in a way.",
+     "walkthrough": "'ring' suggests a phone call but supplies O; M for maiden comes from cricket scoring.",
+     "definitionFit": "The phrase means to an excessive degree, so it serves as the adverb excessively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +825,45 @@
     "text": "Cut slack, as sensed in hearing, for powerful person",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "powerful person",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TITAN",
+     "indicators": [
+      {
+       "text": "as sensed in hearing",
+       "at": 11,
+       "note": "as sensed in hearing means the word as heard aloud, a homophone"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cut slack",
+       "at": 0,
+       "gives": "TIGHTEN",
+       "note": "to take up slack in a rope is to tighten it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Easing up on someone, as they hear it, is for a strong figure.",
+     "walkthrough": "'Cut slack' looks like going easy on someone, but here it means removing slack, making taut.",
+     "definitionFit": "A titan is a giant of great strength or influence, hence a powerful person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "slack"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +877,59 @@
     "text": "Feeling of anxiety, in a sense, unfortunately dividing setter and solver",
     "enumeration": "10"
    },
-   "solution": "UNEASINESS"
+   "solution": "UNEASINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeling of anxiety",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dividing",
+       "at": 46,
+       "note": "dividing means the rearranged letters split the pair word apart"
+      }
+     ],
+     "parts": [
+      {
+       "words": "setter and solver",
+       "at": 55,
+       "gives": "US",
+       "note": "the setter is me and the solver you, together us"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 32,
+         "note": "unfortunately signals the letters of in a sense are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in a sense",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward feeling comes between the puzzle compiler and the person tackling it.",
+     "walkthrough": "'unfortunately' turns IN A SENSE into NEASINES, which goes 'dividing' U and S.",
+     "definitionFit": "Uneasiness is a state of discomfort and worry, so it is a feeling of anxiety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +943,57 @@
     "text": "Poet feeling right about page",
     "enumeration": "7"
    },
-   "solution": "SPENSER"
+   "solution": "SPENSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 19,
+         "note": "about means the other letters go round the page letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feeling",
+         "at": 5,
+         "gives": "SENSE",
+         "note": "a feeling is a sense"
+        },
+        {
+         "words": "page",
+         "at": 25,
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 13,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet has the correct feeling about a page of verse.",
+     "definitionFit": "Edmund Spenser was the Elizabethan author of The Faerie Queene, a famous English poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feeling"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1007,30 @@
     "text": "Of exceptional size, in one sense (not common)",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Of exceptional size",
+      "at": 0,
+      "meaning": "... describes things of grand or extra-large dimension, like a ... paper size"
+     },
+     {
+      "text": "not common",
+      "at": 35,
+      "meaning": "being of the monarch's family is the opposite of being a commoner"
+     }
+    ],
+    "explanation": {
+     "surface": "Something oversized, taken one way, is described as anything but ordinary.",
+     "definitionFit": "The word means both regal, not of the commoners, and splendidly large, as in a royal feast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "common"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1044,58 @@
     "text": "Opening of show in gallery, in a sense",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sense",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in puts that letter inside the gallery name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gallery",
+       "at": 19,
+       "gives": "TATE",
+       "note": "the Tate is a famous London art gallery"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Opening of",
+         "at": 0,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "show",
+         "at": 11
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A show opens in an art gallery, after a fashion.",
+     "definitionFit": "Taste is one of the five senses, the faculty perceiving flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1109,29 @@
     "text": "Undermine person with little sense",
     "enumeration": "3"
    },
-   "solution": "SAP"
+   "solution": "SAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Undermine",
+      "at": 0,
+      "meaning": "to weaken gradually, as by digging beneath a wall"
+     },
+     {
+      "text": "person with little sense",
+      "at": 10,
+      "meaning": "a gullible fool"
+     }
+    ],
+    "explanation": {
+     "surface": "A sentence about weakening a foolish person.",
+     "definitionFit": "The word is both a verb for weakening by tunnelling and slang for a simpleton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1145,47 @@
     "text": "Friend quietly accomplished what's evident to one of the senses",
     "enumeration": "8"
    },
-   "solution": "PALPABLE"
+   "solution": "PALPABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evident to one of the senses",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Friend",
+       "at": 0,
+       "gives": "PAL",
+       "note": "a pal is a friend"
+      },
+      {
+       "words": "quietly",
+       "at": 7,
+       "gives": "P",
+       "note": "P is piano, the musical direction for quietly"
+      },
+      {
+       "words": "accomplished",
+       "at": 15,
+       "gives": "ABLE",
+       "note": "able means skilled or accomplished"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mate softly achieved something plain to see.",
+     "definitionFit": "Palpable literally means able to be touched or felt, so perceptible to the sense of touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1199,46 @@
     "text": "Spiteful after head leaves, experiencing irritating sensation",
     "enumeration": "5"
    },
-   "solution": "ITCHY"
+   "solution": "ITCHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "experiencing irritating sensation",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after head leaves",
+       "at": 9,
+       "note": "when the head leaves, the first letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spiteful",
+       "at": 0,
+       "gives": "BITCHY",
+       "note": "bitchy means spiteful or malicious"
+      },
+      {
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful person is left uncomfortable once the boss departs.",
+     "walkthrough": "'after head leaves' drops the B from BITCHY.",
+     "definitionFit": "Being itchy means feeling an urge to scratch, an irritating sensation on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1252,41 @@
     "text": "Bird regarded as lacking sense",
     "enumeration": "8"
    },
-   "solution": "COCKEYED"
+   "solution": "COCKEYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lacking sense",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "COCK",
+       "note": "a cock is a male bird"
+      },
+      {
+       "words": "regarded",
+       "at": 5,
+       "gives": "EYED",
+       "note": "eyed means looked at or regarded"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird considered to be foolish.",
+     "definitionFit": "Cockeyed, beyond meaning squint, is colloquial for absurd or crazy, lacking sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1300,47 @@
     "text": "In unusual sense, I'm unbeatable opponent",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unbeatable opponent",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 3,
+       "note": "unusual signals the letters are rearranged into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sense",
+       "at": 11
+      },
+      {
+       "words": "I'm",
+       "at": 18,
+       "gives": "IM",
+       "note": "I'm gives its letters without the apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts, oddly enough, of being invincible.",
+     "walkthrough": "'unusual' rearranges SENSE and IM together.",
+     "definitionFit": "A nemesis is an arch-rival one cannot overcome, from the goddess of retribution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1354,31 @@
     "text": "Affecting people's sensibilities still? Not so",
     "enumeration": "6"
    },
-   "solution": "MOVING"
+   "solution": "MOVING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Affecting people's sensibilities",
+      "at": 0,
+      "meaning": "touching the emotions, stirring"
+     },
+     {
+      "text": "still? Not so",
+      "at": 33,
+      "meaning": "the opposite of still or motionless, in motion"
+     }
+    ],
+    "explanation": {
+     "surface": "Something stirring feelings, yet not stationary.",
+     "definitionFit": "The word means both emotionally touching and in motion, the opposite of still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1392,48 @@
     "text": "Insult learner, in a sense",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insult",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "in puts the learner letter inside the sense"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a sense",
+       "at": 19,
+       "gives": "SIGHT",
+       "note": "sight is one of the five senses"
+      },
+      {
+       "words": "learner",
+       "at": 7,
+       "gives": "L",
+       "note": "L is learner, from the L-plates of British learner drivers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abuses a trainee, in a manner of speaking.",
+     "definitionFit": "A slight is a snub or affront, a synonym for an insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learner"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1447,49 @@
     "text": "Serving American in pub is making sense",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making sense",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in places the soldier inside the pub"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pub",
+       "at": 20,
+       "gives": "LOCAL",
+       "note": "a local is one's neighbourhood pub in Britain"
+      },
+      {
+       "words": "Serving American",
+       "at": 0,
+       "gives": "GI",
+       "note": "a GI is an American serviceman"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US soldier serving in a bar is being reasonable.",
+     "walkthrough": "'Serving' looks like serving drinks, but it means serving in the forces.",
+     "definitionFit": "A logical argument is rational and coherent, so it is making sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Serving"
+    }
+   }
   },
   {
    "number": 26,
@@ -407,7 +1503,42 @@
     "text": "Some sensing I've not donated",
     "enumeration": "5"
    },
-   "solution": "GIVEN"
+   "solution": "GIVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "donated",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "Some says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sensing I've not",
+       "at": 5,
+       "gives": "GIVEN",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A donor senses something, yet denies it, after giving.",
+     "definitionFit": "Something handed over freely as a gift has been bestowed, so the past participle fits donated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sensing"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1552,50 @@
     "text": "Is replacing all within government? That makes basic sense",
     "enumeration": "4"
    },
-   "solution": "GIST"
+   "solution": "GIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "basic sense",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing all within",
+       "at": 3,
+       "note": "everything inside the outer letters is swapped out for the given word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "government",
+       "at": 24,
+       "gives": "GOVT",
+       "note": "Govt is the usual abbreviation for government"
+      },
+      {
+       "gives": "OV"
+      },
+      {
+       "words": "Is",
+       "at": 0,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official claims that substituting one thing throughout the administration is fundamental.",
+     "definitionFit": "The gist of something is its essential point or core meaning, its basic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "government"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1609,54 @@
     "text": "Lack of sense, in an odd sense",
     "enumeration": "9"
    },
-   "solution": "INANENESS"
+   "solution": "INANENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lack of sense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 15
+      },
+      {
+       "words": "an",
+       "at": 18
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "odd",
+         "at": 21,
+         "note": "odd signals the letters of sense are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sense",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foolishness, after a peculiar fashion.",
+     "walkthrough": "'odd' turns SENSE into ENESS.",
+     "definitionFit": "Inane means silly, so the noun is silliness or foolishness, a lack of sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1670,42 @@
     "text": "Note a sense in which centre is moderate",
     "enumeration": "4"
    },
-   "solution": "EASE"
+   "solution": "EASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moderate",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in which centre is",
+       "at": 13,
+       "note": "the answer sits in the centre of the phrase, its letters run across the words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Note a sense",
+       "at": 0,
+       "gives": "EASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical note conveys a sense whose middle is restrained.",
+     "walkthrough": "'Note' and 'sense' look like pieces of a charade, but the letters are simply hidden in the phrase.",
+     "definitionFit": "To ease pain or tension is to lessen or relieve it, so to moderate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +1719,54 @@
     "text": "Concluding thus — to reveal sense, do some work at last?",
     "enumeration": "4"
    },
-   "solution": "SOLE"
+   "solution": "SOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "do some work at last?",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "Concluding",
+       "at": 0,
+       "note": "concluding letters are the last letter of each word that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thus",
+       "at": 11
+      },
+      {
+       "words": "to",
+       "at": 18
+      },
+      {
+       "words": "reveal",
+       "at": 21
+      },
+      {
+       "words": "sense",
+       "at": 28
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wrapping up an argument to reveal its meaning, finally getting some work done.",
+     "walkthrough": "'last' is not 'finally': it is the shoemaker's foot-shaped block on which shoes are made and mended.",
+     "definitionFit": "A cobbler fits new soles to shoes on a last, so the part is the work done there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 30,
@@ -477,7 +1780,64 @@
     "text": "Old steward, with singular sense, left after tea",
     "enumeration": "9"
    },
-   "solution": "SENESCHAL"
+   "solution": "SENESCHAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old steward",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 39,
+       "note": "after places the left letter following the tea"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "singular",
+         "at": 18,
+         "note": "singular means strange, signalling the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sense",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "tea",
+       "at": 45,
+       "gives": "CHA",
+       "note": "cha is slang for tea"
+      },
+      {
+       "words": "left",
+       "at": 34,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient household official, unusually perceptive, departed after afternoon tea.",
+     "walkthrough": "'singular' turns SENSE into SENES.",
+     "definitionFit": "A seneschal was the steward managing a medieval nobleman's estate and household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singular"
+    }
+   }
   },
   {
    "number": 31,
@@ -491,7 +1851,48 @@
     "text": "Dispose of about 1,000, in a sense",
     "enumeration": "5"
    },
-   "solution": "SMELL"
+   "solution": "SMELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sense",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "about means the selling word goes round the numeral"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Dispose of",
+       "at": 0,
+       "gives": "SELL",
+       "note": "to sell goods is to dispose of them"
+      },
+      {
+       "words": "1,000",
+       "at": 17,
+       "gives": "M",
+       "note": "M is the Roman numeral for a thousand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get rid of roughly a thousand, so to speak.",
+     "definitionFit": "Smell is one of the five senses, the faculty of detecting odours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   }
  ]
 }
