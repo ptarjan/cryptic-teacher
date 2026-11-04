@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "Pain from exercise in saddle perhaps",
     "enumeration": "6"
    },
-   "solution": "STITCH"
+   "solution": "STITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pain from exercise",
+      "at": 0,
+      "meaning": "a sharp pain in the side that runners get"
+     },
+     {
+      "text": "in saddle perhaps",
+      "at": 19,
+      "meaning": "a single loop of thread, as found in leatherwork such as a saddle"
+     }
+    ],
+    "explanation": {
+     "surface": "A rider complains of a pain that comes from long hours of exercise in the saddle.",
+     "definitionFit": "Both senses are standard: the side-pain of exertion and a loop of thread sewn into leather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +71,42 @@
     "text": "Portia rarely displays luxurious headgear",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "luxurious headgear",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "displays",
+       "at": 14,
+       "note": "displays says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Portia rarely",
+       "at": 0,
+       "gives": "TIARA",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Portia from The Merchant of Venice seldom shows off a fancy hat.",
+     "definitionFit": "A jewelled ornamental crown or headband worn by royalty or brides is costly headwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Portia"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +126,32 @@
      }
     ]
    },
-   "solution": "THEWARDEN"
+   "solution": "THEWARDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trollope novel",
+      "at": 0,
+      "meaning": "Anthony Trollope's 1855 novel, first of the Barsetshire series"
+     },
+     {
+      "text": "Churchill's retreat?",
+      "at": 18,
+      "meaning": "read as ..., the private room where a wartime leader might hole up"
+     }
+    ],
+    "explanation": {
+     "surface": "A Victorian novel is set in Winston Churchill's private hideaway.",
+     "walkthrough": "The second sense splits into three words: a den, a private retreat, for running the war.",
+     "definitionFit": "Trollope's novel about Septimus Harding of Hiram's Hospital; the question mark flags the punning second sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +165,58 @@
     "text": "Big actor falling short — that is what you need for a sad movie",
     "enumeration": "6"
    },
-   "solution": "HANKIE"
+   "solution": "HANKIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what you need for a sad movie",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "falling short",
+         "at": 10,
+         "note": "falling short means coming up one letter short, so the final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Big actor",
+         "at": 0,
+         "gives": "HANKS",
+         "note": "Tom Hanks, who starred in the film Big"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "that is",
+       "at": 26,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, Latin for that is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big-name actor's performance disappoints, leaving the audience needing tissues at a weepie.",
+     "walkthrough": "'Big' reads as famous, but it is the 1988 film starring Tom Hanks.",
+     "definitionFit": "A handkerchief, informally, is what you reach for to dry tears in a tear-jerker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Big"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +230,58 @@
     "text": "Detectives must probe old coin in the West",
     "enumeration": "8"
    },
-   "solution": "OCCIDENT"
+   "solution": "OCCIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the West",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 22,
+       "gives": "O"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "probe",
+         "at": 16,
+         "note": "to probe is to push into something, so the detectives go inside the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coin",
+         "at": 26,
+         "gives": "CENT",
+         "note": "a cent is a small coin"
+        },
+        {
+         "words": "Detectives",
+         "at": 0,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the British police detectives"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police detectives investigate an old coin turned up somewhere out west.",
+     "definitionFit": "The Occident is a literary name for the Western world, opposite the Orient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "probe"
+    }
+   }
   },
   {
    "number": 5,
@@ -124,7 +313,70 @@
      }
     ]
    },
-   "solution": "ONCEINABLUEMOON"
+   "solution": "ONCEINABLUEMOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "very rarely",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 27,
+       "note": "between puts the jumbled letters with one side before and one after"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "two cricket sides",
+         "at": 35,
+         "gives": "ON",
+         "note": "the on side is the leg side of a cricket field; two of them give a pair of on-sides"
+        },
+        {
+         "words": "two cricket sides",
+         "at": 35,
+         "gives": "ON",
+         "note": "the second on side"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "What can make",
+         "at": 0,
+         "note": "what can make suggests the letters are made into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "email bounce",
+         "at": 14
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Emails bounce between two teams in a cricket match only on rare occasions.",
+     "walkthrough": "'Bounce' looks like the anagram signal but is part of the fodder; 'What can make' is the signal. In cricket the on side is the leg side.",
+     "definitionFit": "An idiom for something happening almost never, from the rarity of a second full moon in a month."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bounce"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,7 +390,42 @@
     "text": "Revolutionary Nazi guard — knight perhaps",
     "enumeration": "8"
    },
-   "solution": "CHESSMAN"
+   "solution": "CHESSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "knight perhaps",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Revolutionary",
+       "at": 0,
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine-born Marxist revolutionary"
+      },
+      {
+       "words": "Nazi guard",
+       "at": 14,
+       "gives": "SSMAN",
+       "note": "an SS man was a member of the Nazi Schutzstaffel"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary and a Nazi guard are compared to a chivalrous knight.",
+     "walkthrough": "'Knight' suggests armour, but it is a piece on the board.",
+     "definitionFit": "A knight is one example of a piece used in the board game of kings and queens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "knight"
+    }
+   }
   },
   {
    "number": 7,
@@ -152,7 +439,45 @@
     "text": "Exclude society girl meeting a queen",
     "enumeration": "5"
    },
-   "solution": "DEBAR"
+   "solution": "DEBAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exclude",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "society girl",
+       "at": 8,
+       "gives": "DEB",
+       "note": "a deb, short for debutante, is a young woman entering high society"
+      },
+      {
+       "words": "a",
+       "at": 29,
+       "gives": "A"
+      },
+      {
+       "words": "queen",
+       "at": 31,
+       "gives": "R",
+       "note": "R is short for Regina, Latin for queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante is shut out when she meets a queen.",
+     "definitionFit": "To debar is to bar or ban someone from taking part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +491,58 @@
     "text": "Cook big lunch with last of brisket joint for latecomers",
     "enumeration": "9"
    },
-   "solution": "NIGHTCLUB"
+   "solution": "NIGHTCLUB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "joint for latecomers",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Cook",
+       "at": 0,
+       "note": "to cook can mean to tamper with or juggle, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "big lunch",
+       "at": 5
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 20,
+         "note": "last of picks out the final letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "brisket",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe for a big lunch using the end of a brisket joint.",
+     "walkthrough": "'Joint' looks like the brisket, but it is a slang word for a venue, here a late-night one.",
+     "definitionFit": "A joint is slang for an establishment; a venue open late at night suits those who arrive late."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +556,40 @@
     "text": "Place of worship gets a celebrant excited",
     "enumeration": "10"
    },
-   "solution": "TABERNACLE"
+   "solution": "TABERNACLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place of worship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "excited",
+       "at": 34,
+       "note": "excited means stirred up, so the letters of the fodder are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a celebrant",
+       "at": 22
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest gets carried away with enthusiasm in church.",
+     "definitionFit": "A tabernacle is a sanctuary, a building or tent used for religious worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +603,30 @@
     "text": "Secures trousers",
     "enumeration": "4"
    },
-   "solution": "BAGS"
+   "solution": "BAGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secures",
+      "at": 0,
+      "meaning": "to secure something, such as a seat or a prize, by claiming it first"
+     },
+     {
+      "text": "trousers",
+      "at": 8,
+      "meaning": "an old informal word for loose-fitting trousers, as in Oxford ones"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone fastens their trousers.",
+     "definitionFit": "A verb for claiming or grabbing something, and a dated plural noun for wide trousers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +640,47 @@
     "text": "Someone lacking faith in one violinist",
     "enumeration": "8"
    },
-   "solution": "PAGANINI"
+   "solution": "PAGANINI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "violinist",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Someone lacking faith",
+       "at": 0,
+       "gives": "PAGAN",
+       "note": "a pagan is a heathen, someone outside the main religions"
+      },
+      {
+       "words": "in",
+       "at": 22,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "at": 25,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A violin virtuoso is described as having no religious belief.",
+     "definitionFit": "Niccolò Paganini was the celebrated nineteenth-century Italian virtuoso of the violin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "faith"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +694,47 @@
     "text": "Goblin has ill feeling about king",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goblin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "about means going round, so the ill feeling surrounds the king"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ill feeling",
+       "at": 11,
+       "gives": "SPITE",
+       "note": "spite is malice or ill will"
+      },
+      {
+       "words": "king",
+       "at": 29,
+       "gives": "R",
+       "note": "R is short for Rex, Latin for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goblin bears a grudge against the king.",
+     "definitionFit": "A goblin and this word are both kinds of mischievous fairy or elf in folklore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +748,40 @@
     "text": "American education put into employment",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put into employment",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "American",
+       "at": 0,
+       "gives": "US",
+       "note": "US is short for United States, so American"
+      },
+      {
+       "words": "education",
+       "at": 9,
+       "gives": "ED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American teaching qualification is finally given a job.",
+     "definitionFit": "To put something into employment is to employ it; the past participle matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "employment"
+    }
+   }
   },
   {
    "number": 14,
@@ -256,7 +801,42 @@
      }
     ]
    },
-   "solution": "SPACEDOUT"
+   "solution": "SPACEDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pot caused rogue to be this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rogue",
+       "at": 11,
+       "note": "rogue means behaving erratically and out of control, so the letters break out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pot caused",
+       "at": 0
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Smoking pot left a rascal in a state of drugged vagueness.",
+     "walkthrough": "'Rogue' looks like the person getting high, but it signals the jumble; the whole clue also describes the stoned result.",
+     "definitionFit": "Being dazed and out of touch, as cannabis use can leave someone, is to be vague and absent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +856,71 @@
      }
     ]
    },
-   "solution": "ADAMSALE"
+   "solution": "ADAMSALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink humorously described",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 53,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "at": 43,
+         "note": "penned means shut in, as in a pen, so the first pieces sit inside the diarist"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dramatic diarist",
+         "at": 55,
+         "gives": "DALE",
+         "note": "Mrs Dale, the diary-keeping heroine of the long-running BBC radio drama Mrs Dale's Diary"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 30,
+           "gives": "A",
+           "note": "taken as written"
+          },
+          {
+           "words": "manuscript",
+           "at": 32,
+           "gives": "MS"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "ADAM'S ALE",
+    "explanation": {
+     "surface": "A drink is mentioned in a manuscript written by a theatrical diary-keeper.",
+     "walkthrough": "'Dramatic diarist' tempts towards Pepys, but it is Mrs Dale of the BBC radio serial Mrs Dale's Diary (1948-69); 'penned by' puts the first pieces inside her.",
+     "definitionFit": "Adam's ale is a jocular name for water, the only drink available to the first man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "diarist"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +940,43 @@
      }
     ]
    },
-   "solution": "SPARETYRE"
+   "solution": "SPARETYRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Corporation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to relieve",
+       "at": 12,
+       "gives": "SPARE",
+       "note": "to spare someone a burden is to relieve them of it"
+      },
+      {
+       "words": "Levantine city",
+       "at": 23,
+       "gives": "TYRE",
+       "note": "Tyre is an ancient port city in Lebanon, in the Levant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company sets out to bring aid to a city in the Middle East.",
+     "walkthrough": "'Corporation' is an old humorous word for a pot belly, not a company.",
+     "definitionFit": "A roll of fat around the waist is jokingly likened to an extra wheel carried in a car's boot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +990,61 @@
     "text": "Meat that's cooked soft with butter in sparkling wine",
     "enumeration": "8"
    },
-   "solution": "PASTRAMI"
+   "solution": "PASTRAMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meat that's cooked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "soft",
+       "at": 19,
+       "gives": "P",
+       "note": "p is the musical abbreviation for piano, soft"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 36,
+         "note": "in places the butter inside the sparkling wine"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sparkling wine",
+         "at": 39,
+         "gives": "ASTI",
+         "note": "Asti is a sparkling Italian wine from Piedmont"
+        },
+        {
+         "words": "butter",
+         "at": 29,
+         "gives": "RAM",
+         "note": "a ram butts with its head, so it is a butter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: meat cooked gently with butter in fizzy wine.",
+     "walkthrough": "'Butter' is not the dairy spread but something that butts, a ram.",
+     "definitionFit": "Pastrami is seasoned, smoked and cooked beef, served sliced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1058,41 @@
     "text": "Animal is tangled in yacht's propeller",
     "enumeration": "8"
    },
-   "solution": "MAINSAIL"
+   "solution": "MAINSAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yacht's propeller",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "tangled",
+       "at": 10,
+       "note": "tangled means twisted up, so the letters of these two words are mixed together"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Animal is",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature gets caught up in the workings of a yacht.",
+     "walkthrough": "'Propeller' suggests a screw below the waterline, but a yacht is driven by wind on its biggest sail.",
+     "definitionFit": "The principal sail of a vessel is what drives, or propels, a sailing yacht."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "propeller"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1106,44 @@
     "text": "Pop group once providing their own backing",
     "enumeration": "4"
    },
-   "solution": "ABBA"
+   "solution": "ABBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pop group once",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "palindrome",
+     "indicators": [
+      {
+       "text": "providing their own backing",
+       "at": 15,
+       "note": "the name, written backwards, is unchanged, so it backs itself up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pop group once",
+       "at": 0,
+       "gives": "ABBA",
+       "note": "these definition words give the whole answer, and the answer is itself the palindrome: it reads the same from either end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pop group sang their own backing vocals.",
+     "walkthrough": "'Backing' sounds like backing singers, but it means read backwards: the group's name is a palindrome.",
+     "definitionFit": "The Swedish quartet who won Eurovision in 1974 split up long ago, hence once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1157,45 @@
     "text": "Tease a Liberal Democrat with coarse humour",
     "enumeration": "6"
    },
-   "solution": "RIBALD"
+   "solution": "RIBALD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with coarse humour",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Tease",
+       "at": 0,
+       "gives": "RIB",
+       "note": "to rib someone is to tease them"
+      },
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "Liberal Democrat",
+       "at": 8,
+       "gives": "LD",
+       "note": "LD is the abbreviation for a Liberal Democrat, a British political party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone teases a Lib Dem politician with crude jokes.",
+     "definitionFit": "Ribald describes humour that is vulgar, bawdy and irreverent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1209,31 @@
     "text": "One harshly rules what one can't do to a leopard?",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One harshly rules",
+      "at": 0,
+      "meaning": "a tyrant, an autocrat who governs cruelly"
+     },
+     {
+      "text": "what one can't do to a leopard?",
+      "at": 18,
+      "meaning": "a leopard can't change its spots, so one can't remove them"
+     }
+    ],
+    "explanation": {
+     "surface": "A tyrant is compared to a leopard that cannot change its spots.",
+     "definitionFit": "A tyrant ruling with absolute and often cruel power; the second sense plays on a coined verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leopard"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1247,40 @@
     "text": "Group of experts criticise the Spanish",
     "enumeration": "5"
    },
-   "solution": "PANEL"
+   "solution": "PANEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Group of experts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "criticise",
+       "at": 17,
+       "gives": "PAN",
+       "note": "to pan a play or film is to criticise it harshly"
+      },
+      {
+       "words": "the Spanish",
+       "at": 27,
+       "gives": "EL",
+       "note": "el is Spanish for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A committee of experts criticise the Spaniards.",
+     "definitionFit": "A small body of specialists gathered to judge or discuss, as on a quiz or inquiry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1294,42 @@
     "text": "Distinction of modern artist from 'ere",
     "enumeration": "8"
    },
-   "solution": "EMINENCE"
+   "solution": "EMINENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distinction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "modern artist",
+       "at": 15,
+       "gives": "EMIN",
+       "note": "Tracey Emin, the British contemporary artist"
+      },
+      {
+       "words": "from 'ere",
+       "at": 29,
+       "gives": "ENCE",
+       "note": "from here is hence; dropping the H, as the apostrophe in 'ere does, leaves 'ence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modern artist from round these parts gains renown.",
+     "walkthrough": "'Ere is Cockney-style speech with the H dropped; 'from here' is hence, and dropping its H the same way gives ENCE.",
+     "definitionFit": "Eminence means fame or high standing, the same as distinction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Distinction"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1343,46 @@
     "text": "Station in India left from historic building",
     "enumeration": "5"
    },
-   "solution": "CASTE"
+   "solution": "CASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Station in India",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 22,
+       "note": "left from means the letter for left is taken out of the building"
+      }
+     ],
+     "parts": [
+      {
+       "words": "historic building",
+       "at": 27,
+       "gives": "CASTLE",
+       "note": "a castle is a historic fortified building"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway station in India has been abandoned by an old building.",
+     "walkthrough": "'Station' suggests trains, but here it means rank in society.",
+     "definitionFit": "A station is one's social rank; in India the hereditary class system divides society into such ranks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Station"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1396,30 @@
     "text": "Blue feathers",
     "enumeration": "4"
    },
-   "solution": "DOWN"
+   "solution": "DOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0,
+      "meaning": "feeling sad or low"
+     },
+     {
+      "text": "feathers",
+      "at": 5,
+      "meaning": "the soft fine plumage of birds, used in pillows"
+     }
+    ],
+    "explanation": {
+     "surface": "Blue-coloured plumage.",
+     "definitionFit": "One sense is miserable, the other is fluffy plumage, as in a duvet filling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1433,40 @@
     "text": "The last thing in the Bible that could make cosy appeal",
     "enumeration": "10"
    },
-   "solution": "APOCALYPSE"
+   "solution": "APOCALYPSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The last thing in the Bible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "could make",
+       "at": 33,
+       "note": "the letters could make something else, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cosy appeal",
+       "at": 44
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy appeal is drawn from the final book of scripture.",
+     "definitionFit": "The Apocalypse is another name for the Book of Revelation, the final book of the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cosy"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1480,47 @@
     "text": "Box — one acceptable for horse",
     "enumeration": "8"
    },
-   "solution": "STALLION"
+   "solution": "STALLION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Box",
+       "at": 0,
+       "gives": "STALL",
+       "note": "a stall is a box or compartment for an animal in a stable"
+      },
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "acceptable",
+       "at": 10,
+       "gives": "ON",
+       "note": "on, as in 'that's not on', means acceptable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stable box with room for one suitable horse.",
+     "definitionFit": "An uncastrated male horse, especially one kept for breeding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1534,40 @@
     "text": "Engine stops going by elevated railway",
     "enumeration": "6"
    },
-   "solution": "DIESEL"
+   "solution": "DIESEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Engine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stops",
+       "at": 7,
+       "gives": "DIES",
+       "note": "an engine dies when it stops running"
+      },
+      {
+       "words": "elevated railway",
+       "at": 22,
+       "gives": "EL",
+       "note": "the El is the American name for an elevated railway, as in Chicago"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A train's engine cuts out as it passes an overhead railway.",
+     "definitionFit": "A diesel is a type of compression-ignition engine, or a locomotive using one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
