@@ -9840,6 +9840,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         # A light no reading laid, whose clue the VLM's column reading holds but its list-less text
         # never parsed to a candidate (vlm_laid).
         laid, blank_now = vlm_laid(texts, laid, blank, lengths)
+        # And on a page whose lists print no counts, from the reply's place in the list (vlm_laid_plain).
+        laid, blank_now = vlm_laid_plain(texts, laid, blank_now, lengths)
         if len(blank_now) != len(blank):
             verdict["vlmLaid"] = sorted(blank.keys() - blank_now.keys())
         blank = blank_now
@@ -10010,6 +10012,94 @@ def vlm_laid(texts, laid, blank, lengths):
         if ocr_clues.unfit(words, enum, cells):
             continue
         laid[lid] = (words, enum, None)
+        del blank[lid]
+    return laid, blank
+
+
+#: A line of a VLM column reply that stops a clue's wrapped lines: a list heading, the solution notice or
+#: another all-capitals line.
+VLM_PLAIN_STOP = re.compile(r"^(?:ACROSS|DOWN|SOLUTION|[A-Z][A-Z .,'-]{6,})")
+#: Words of the page's own print under a list (the solution notice), which no clue holds.
+VLM_PLAIN_NOT = re.compile(r"crossword|puzzle|will appear|solution|\bBook of\b|\bscore\b", re.I)
+#: Most wrapped lines a count-less clue of the narrow 1930s columns takes.
+VLM_PLAIN_LINES = 4
+#: Most count-closed clues a reply may hold for its page to be one that prints none.
+VLM_PLAIN_COUNTED = 2
+
+
+def vlm_plain_entries(text):
+    """[(number, words, lines)] of each line of the VLM's column reply `text` that opens on a number, with
+    the lines under it up to the next numbered line, a blank line or a heading."""
+    lines = (text or "").splitlines()
+    out = []
+    for i, line in enumerate(lines):
+        m = VLM_HEAD.match(line)
+        if not m:
+            continue
+        body = [m.group(2).strip()]
+        for nxt in lines[i + 1:]:
+            nxt = nxt.strip()
+            if not nxt or VLM_HEAD.match(nxt) or VLM_PLAIN_STOP.match(nxt):
+                break
+            body.append(nxt)
+        out.append((int(m.group(1)), " ".join(body), len(body)))
+    return out
+
+
+def vlm_plain_shaped(words):
+    """Whether `words` reads as a clue and not a table, an advert or a scorecard that opens on a number: it
+    ends on a stop or a bracket, holds two words or more, at most two numbers (and a word to each), no
+    capitals-only word, no initials, no starred line and no bracket of names."""
+    count = re.findall(r"[A-Za-z][A-Za-z'-]*", words)
+    digits = re.findall(r"\d+", words)
+    return bool(words and words[-1] in ".?!)\"'" and len(count) >= 2 and len(digits) <= 2
+                and len(count) >= 2 * len(digits) and not VLM_PLAIN_NOT.search(words)
+                and not re.search(r"\b[A-Z]{4,}\b|\b[A-Z]\. ?[A-Z]\.|^\*", words)
+                and not any(len(re.findall(r"\b[A-Z][a-z-]+", p)) >= 2 for p in re.findall(r"\(([^)]*)\)", words)))
+
+
+def vlm_laid_plain(texts, laid, blank, lengths):
+    """(laid, blank) with each light blank as "no reading laid a clue on it" laid from the VLM's column
+    reading of a page whose lists print no counts (the 1930-33 Times: "22 I'd look more orderly in a
+    row."), which vlm_laid cannot take for want of a count to fit. The clue is the one under the light's
+    number that is the only light of that number, reads as a clue (vlm_plain_shaped), stands in the reply's
+    list between the entries of the lights next to it in the grid (the entry before it the same-direction
+    light below it and the one after it the light above it; at a list's end the one that is there), is
+    fit to file as vlm_laid's are, and has at least half of its words of four letters or more spelt in
+    another reading of the page. Failure shapes r43, 11-03: 1932 pages' one or two blank lights, 157 of 164
+    held in a cached reply; over the 4,400 lights the readers did lay the same rule picked the same clue
+    (0.6 alike or more) for all but 23, and those were the readers' cut or run-on texts."""
+    unlaid = [lid for lid, why in blank.items() if why == "no reading laid a clue on it" and lengths.get(lid)]
+    text = texts.get("vlm") or ""
+    if not unlaid or not text.strip() or len(vlm_clues(text)) > VLM_PLAIN_COUNTED:
+        return laid, blank
+    entries = vlm_plain_entries(text)
+    bag = {w for k, t in texts.items() if k != "vlm" for w in re.findall(r"[a-z]{4,}", t.lower())}
+    laid, blank = dict(laid), dict(blank)
+    for lid in unlaid:
+        number, way = lid.split("-")
+        if any(o != lid and o.split("-")[0] == number for o in lengths):
+            continue
+        same = sorted(int(o.split("-")[0]) for o in lengths if o.endswith("-" + way) and o.split("-")[0].isdigit())
+        below = [x for x in same if x < int(number)]
+        above = [x for x in same if x > int(number)]
+        found = set()
+        for k, (n, words, lines) in enumerate(entries):
+            if n != int(number) or lines > VLM_PLAIN_LINES or not vlm_plain_shaped(words):
+                continue
+            before = k > 0 and bool(below) and entries[k - 1][0] == below[-1]
+            after = k + 1 < len(entries) and bool(above) and entries[k + 1][0] == above[0]
+            if (before and after) or (before and not above) or (after and not below):
+                found.add(words)
+        if len(found) != 1:
+            continue
+        words = ocr_clues.trimmed(ocr_clues.clean(found.pop()), lid)
+        spelt = re.findall(r"[a-z]{4,}", words.lower())
+        if len(ocr_clues.tokens(words)) < 2 or not spelt or ocr_clues.merged(words) \
+                or sum(1 for w in spelt if w not in bag) > VLM_LAID_MISS * len(spelt) \
+                or not any(w in bag for w in spelt) or ocr_clues.unfit(words, None, lengths[lid]):
+            continue
+        laid[lid] = (words, None, None)
         del blank[lid]
     return laid, blank
 
@@ -12501,6 +12591,40 @@ def vlm_laid_due(row):
     for v in row.get("verdicts", ()):
         if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
                 or v.get("number") is None or not v.get("lights") or (v.get("answers") or 0) < v["lights"]:
+            continue
+        if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
+            continue
+        if not v.get("unfiled") and not (CROPS / "unfiled" / f"{v['id']}.json").exists():
+            continue
+        if not (filed_state(v["id"].rsplit("-", 1)[0], v.get("number")) or (False, False))[1]:
+            return True
+    return False
+
+
+#: The reason, and its fix's time, of a 1930-33 Gale Times page whose read wrote its puzzle unfiled with a light
+#: blank as "no reading laid a clue on it": those lists print no counts, so the VLM's column reply holding the
+#: clue (157 of 164 such blank lights on 11-03's 1932 pages, in a cached reply) had no count for vlm_laid to
+#: fit and the clue stayed unlaid; vlm_laid_plain now lays it from its place in the reply's list. Failure
+#: shapes r43, 11-03: the most common outcome of the 1930-33 never-read pass was one or two lights blank
+#: (127 of 197 unfiled verdicts that day), no Times filed for 61 minutes. Its own reason, not "unfiled
+#: before its fix" (CANARY_FAILED holds that for the Times). Once each.
+VLM_PLAIN = "unfiled before its fix, a count-less clue only the VLM's column reading holds"
+REREAD_VLM_PLAIN = "2026-11-04T01:55:00+00:00"
+#: The years of the Gale Times print that sets no counts on its clues.
+VLM_PLAIN_YEARS = ("1930", "1933")
+
+
+def vlm_plain_due(row):
+    """Whether Gale Times ledger `row` of VLM_PLAIN_YEARS, read with the VLM before REREAD_VLM_PLAIN, wrote a
+    puzzle unfiled (a verdict with an "unfiled" count or its id's copy in CROPS/unfiled, not held with every
+    clue) with a light blank as "no reading laid a clue on it"."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "gale" or not VLM_PLAIN_YEARS[0] <= Path(rel).name[:4] <= VLM_PLAIN_YEARS[1] \
+            or not row.get("vlm") or not scan_queue.read_before(row, scan_queue.when(REREAD_VLM_PLAIN)):
+        return False
+    for v in row.get("verdicts", ()):
+        if v.get("refused") or v.get("skip") or not v.get("id") or not isinstance(v.get("blank"), dict) \
+                or v.get("number") is None:
             continue
         if not any("no reading laid a clue" in str(why) for why in v["blank"].values()):
             continue
@@ -16726,6 +16850,8 @@ def fix_reason(row):
     # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
     if see_run_lost(row):
         return SEE_RUNS_ON
+    if vlm_plain_due(row):
+        return VLM_PLAIN
     if vlm_laid_due(row):
         return VLM_LAID
     if right_wide_due(row):
@@ -17346,7 +17472,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-03 r43: a heading-titled 1930-33 page refused for its neighbours' count (small_headed_due).
                   SMALL_HEADED,
                   # 11-03 r44: named Gale Times puzzles with cut or garbled clue text (clue_garbled_due).
-                  CLUE_GARBLED)
+                  CLUE_GARBLED,
+                  # 11-03 r45: a 1930-33 Gale Times page unfiled over a count-less clue only the VLM's column reply holds (vlm_plain_due).
+                  VLM_PLAIN)
 
 
 def refusal_passes(why):
@@ -17591,7 +17719,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -17919,7 +18047,7 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
                                       NEIGHBOUR_TAIL, STRIP_TAIL, EDGE_LETTERS, ALONE_READ, LEAD_RETRY, LINKED_LEAD, DOWN_CUT, DOWN_FOOT,
                                       SPECK_MENDED, STOP_TAIL, OPENING_GUTTER, RUN_ON_TAIL, LAID_BLANKS, ONES_COUNT,
                                       SEE_RUNS_ON, SHARED_WORD, MARKED_WORD, MARKED_NEXT_READ, LINKED_COUNT_READ, STRAY_LINK_READ,
-                                      TAIL_READ, QUARTER_READ, RIGHT_WIDE, VLM_LAID, SMALL_HEADED) else {}),
+                                      TAIL_READ, QUARTER_READ, RIGHT_WIDE, VLM_LAID, SMALL_HEADED, VLM_PLAIN) else {}),
                    **({"detail": "gone: " + ", ".join(lost_writes(known.get(rels[d]) or {}))}
                       if reads[d] == LOST_WRITE else {}),
                    **({"likely": fixes[d]} if d in fixes else {})} for d in queue]
