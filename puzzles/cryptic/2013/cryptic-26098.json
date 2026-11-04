@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,44 @@
     "text": "Stir and sip mixed drinks",
     "enumeration": "7"
    },
-   "solution": "SPIRITS"
+   "solution": "SPIRITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drinks",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mixed",
+       "at": 13,
+       "note": "mixed tells us to shuffle the letters of stir and sip together into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stir",
+       "at": 0
+      },
+      {
+       "words": "sip",
+       "at": 9
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender's instruction for preparing a cocktail: stir it, taste it, serve.",
+     "definitionFit": "Spirits are strong distilled alcoholic drinks such as gin, vodka and whisky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +85,47 @@
     "text": "Dog had been bitten by pig",
     "enumeration": "6"
    },
-   "solution": "SHADOW"
+   "solution": "SHADOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "been bitten by",
+       "at": 8,
+       "note": "been bitten by puts the word had between the jaws of the pig"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pig",
+       "at": 23,
+       "gives": "SOW",
+       "note": "a sow is a female pig"
+      },
+      {
+       "words": "had",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog that has been attacked and bitten by a pig.",
+     "walkthrough": "'Dog' looks like a noun, but it is the verb to follow closely.",
+     "definitionFit": "To dog someone is to follow them persistently, which is also to tail them like a detective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +139,46 @@
     "text": "Fires one head over heels",
     "enumeration": "6"
    },
-   "solution": "INGLES"
+   "solution": "INGLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fires",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "head over heels",
+       "at": 10,
+       "note": "head over heels sends the first letter tumbling to the end of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 6,
+       "gives": "SINGLE",
+       "note": "single means one"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sacked who tumbles over with surprise.",
+     "walkthrough": "SINGLE has its head, S, moved to the bottom.",
+     "definitionFit": "Ingle is an old word for a hearth fire, as in inglenook, the fireside corner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fires"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +192,75 @@
     "text": "Inability to grasp a pound? Conservative cuts tragic reality",
     "enumeration": "10"
    },
-   "solution": "ILLITERACY"
+   "solution": "ILLITERACY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inability to grasp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a pound",
+       "at": 19,
+       "gives": "I",
+       "note": "a is one, written as the Roman numeral I"
+      },
+      {
+       "words": "a pound",
+       "at": 19,
+       "gives": "L",
+       "note": "L is the abbreviation for a pound sterling, from Latin libra"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "cuts",
+         "at": 41,
+         "note": "cuts tells us the Conservative letter slices into the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "tragic",
+           "at": 46,
+           "note": "tragic suggests something ruinous, so the letters of reality are wrecked and rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "reality",
+           "at": 53
+          }
+         ]
+        },
+        {
+         "words": "Conservative",
+         "at": 28,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe: the Conservatives, cutting budgets, cannot understand money in the tragic reality of austerity.",
+     "walkthrough": "'a pound' gives I L (one pound); 'tragic' rearranges REALITY into LITERAY, and 'cuts' puts C into it.",
+     "definitionFit": "Illiteracy is the lack of the ability to read or understand writing, and more broadly ignorance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +274,64 @@
     "text": "Leader of Kremlin admits mistake turning secret agent",
     "enumeration": "5"
    },
-   "solution": "SPOOK"
+   "solution": "SPOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "secret agent",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning",
+       "at": 33,
+       "note": "turning tells us the whole run of letters is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Leader of",
+           "at": 0,
+           "note": "Leader of picks out the first letter of Kremlin"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Kremlin",
+           "at": 10
+          }
+         ]
+        },
+        {
+         "words": "mistake",
+         "at": 25,
+         "gives": "OOPS",
+         "note": "oops is what one says after a mistake"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Russian leader confesses a blunder and an agent is turned to the other side.",
+     "walkthrough": "K and OOPS together, read back to front, give the answer.",
+     "definitionFit": "Spook is slang for a spy, especially one working for an intelligence agency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +345,63 @@
     "text": "Penny's husband breaks a ton on motorway with Rolls-Royce",
     "enumeration": "7"
    },
-   "solution": "PHANTOM"
+   "solution": "PHANTOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rolls-Royce",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Penny's",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the abbreviation for a penny"
+      },
+      {
+       "words": "husband",
+       "at": 8,
+       "gives": "H"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "breaks",
+         "at": 16,
+         "note": "breaks tells us the letters of a ton are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a ton",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "motorway",
+       "at": 32,
+       "gives": "M",
+       "note": "M is a motorway, as in the M1"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's husband is speeding at over a hundred on the motorway in his luxury car.",
+     "walkthrough": "'breaks' looks like the husband breaking a speed record, but it scrambles A TON into ANTO. 'A ton' is British slang for 100 mph.",
+     "definitionFit": "The Phantom is a famous model of luxury car built by Rolls-Royce, so the make stands for the model."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +415,54 @@
     "text": "Palin's touring production, which involves no embroidery",
     "enumeration": "9"
    },
-   "solution": "PLAINWORK"
+   "solution": "PLAINWORK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which involves no embroidery",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "touring",
+         "at": 8,
+         "note": "touring suggests the letters of Palin travel around into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Palin's",
+         "at": 0,
+         "gives": "PALIN",
+         "note": "Michael Palin's name supplies its letters, the possessive adding none"
+        }
+       ]
+      },
+      {
+       "words": "production",
+       "at": 16,
+       "gives": "WORK",
+       "note": "a work is a production, such as a stage piece or a book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Michael Palin, the comedian and travel presenter, making a straightforward travel show.",
+     "walkthrough": "Michael Palin is a British comic and travel broadcaster, so 'touring' fits him. It rearranges PALIN into PLAIN.",
+     "definitionFit": "Plainwork is ordinary needlework such as hemming and seaming, as opposed to decorative fancy stitching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +476,46 @@
     "text": "Retailer loses small ship",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loses",
+       "at": 9,
+       "note": "loses tells us a letter is taken away from the shop name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Retailer",
+       "at": 0,
+       "gives": "ARGOS",
+       "note": "Argos is a British catalogue retailer"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop that loses a little ship from its stock.",
+     "walkthrough": "Argos is a well-known British high-street catalogue shop.",
+     "definitionFit": "In Greek myth this was the vessel in which Jason and the Argonauts sailed for the Golden Fleece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retailer"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +529,61 @@
     "text": "Edward wraps square present, tied with strong string?",
     "enumeration": "8"
    },
-   "solution": "TETHERED"
+   "solution": "TETHERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tied with strong string?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wraps",
+       "at": 7,
+       "note": "wraps tells us the name goes around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Edward",
+       "at": 0,
+       "gives": "TED",
+       "note": "Ted is a short form of Edward"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "square",
+         "at": 13,
+         "gives": "T",
+         "note": "a T is a T-square, a drawing tool for right angles"
+        },
+        {
+         "words": "present",
+         "at": 20,
+         "gives": "HERE",
+         "note": "here means present, as in a roll call"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Edward wrapping a square parcel and tying it up with strong string.",
+     "walkthrough": "'present' looks like a gift, but it is the opposite of absent. The question mark flags that strong string is loose for a rope or tether.",
+     "definitionFit": "Tethered means tied up with a rope or line, the strong string of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +597,63 @@
     "text": "Soldier is holding iron bar out in the open",
     "enumeration": "8"
    },
-   "solution": "MANIFEST"
+   "solution": "MANIFEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out in the open",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldier",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a man is a soldier, as in officers and men"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 11,
+         "note": "holding tells us the word is wraps around the iron"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 8
+        },
+        {
+         "words": "iron",
+         "at": 19,
+         "gives": "FE",
+         "note": "Fe is the chemical symbol for iron"
+        }
+       ]
+      },
+      {
+       "words": "bar",
+       "at": 24,
+       "gives": "T",
+       "note": "T is a T-bar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier carrying an iron bar out in plain view.",
+     "definitionFit": "Manifest means plainly visible or obvious, clear for everyone to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +667,74 @@
     "text": "Perhaps Michael Vaughan's foot follows a leg break",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps Michael",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 31,
+       "note": "follows places the last letter of Vaughan after the a"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 39,
+       "gives": "A"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "foot",
+         "at": 26,
+         "note": "the foot of a word is its final letter, here of Vaughan"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vaughan's",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "break",
+         "at": 45,
+         "note": "break tells us to shatter the letters of leg into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leg",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Michael Vaughan, the former England cricket captain, has his foot follow through on a leg break delivery.",
+     "walkthrough": "Michael Vaughan captained England at cricket and a leg break is a spin delivery, so the surface is all cricket; the definition wants the archangel instead. 'break' rearranges the leg.",
+     "definitionFit": "Michael is one of the archangels, so he is an example of a heavenly messenger, hence the Perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Vaughan's"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +754,74 @@
      }
     ]
    },
-   "solution": "ORANGUTAN"
+   "solution": "ORANGUTAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which may hang from trees",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Before",
+       "at": 0,
+       "note": "Before tells us the shortened fruit comes ahead of the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lots of",
+         "at": 23,
+         "note": "lots of means most but not all of the word, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 31,
+         "gives": "ORANGE",
+         "note": "an orange is a citrus fruit"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "develops",
+         "at": 13,
+         "note": "develops signals that the letters of a nut change into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a nut",
+         "at": 7
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orchard scene: before the nuts ripen there is a heavy crop of fruit hanging from the branches.",
+     "walkthrough": "'develops' rearranges the nut letters and 'lots of' drops the fruit's final letter; 'Before' tells us the fruit comes first despite the clue order.",
+     "definitionFit": "This great ape of Borneo and Sumatra lives in the forest canopy and often dangles from branches by its long arms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +835,66 @@
     "text": "Passing old, green, family silver around",
     "enumeration": "10"
    },
-   "solution": "OVERTAKING"
+   "solution": "OVERTAKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 8,
+       "gives": "O"
+      },
+      {
+       "words": "green",
+       "at": 13,
+       "gives": "VERT",
+       "note": "vert is the heraldic word for green"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 34,
+         "note": "around tells us the silver wraps round the family"
+        }
+       ],
+       "parts": [
+        {
+         "words": "silver",
+         "at": 27,
+         "gives": "AG",
+         "note": "Ag is the chemical symbol for silver"
+        },
+        {
+         "words": "family",
+         "at": 20,
+         "gives": "KIN",
+         "note": "kin means one's family or relatives"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly person handing down the family silver, perhaps on death.",
+     "walkthrough": "'Passing' looks like death, but it is the motorist's sense; vert is heraldry's green. 'around' has the silver enclose the family.",
+     "definitionFit": "Passing another vehicle on the road is going past it from behind, which is this manoeuvre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Passing"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +908,54 @@
     "text": "Oblivious to four notes?",
     "enumeration": "4"
    },
-   "solution": "DEAF"
+   "solution": "DEAF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Oblivious to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "four notes",
+       "at": 13,
+       "gives": "D",
+       "note": "D is a musical note"
+      },
+      {
+       "words": "four notes",
+       "at": 13,
+       "gives": "E",
+       "note": "E is a musical note"
+      },
+      {
+       "words": "four notes",
+       "at": 13,
+       "gives": "A",
+       "note": "A is a musical note"
+      },
+      {
+       "words": "four notes",
+       "at": 13,
+       "gives": "F",
+       "note": "F is a musical note"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tone-deaf who cannot hear four notes played to them.",
+     "walkthrough": "Many words can be spelt from the note names A to G; the definition picks out which.",
+     "definitionFit": "To be deaf to something is an idiom for refusing to hear it or ignoring it entirely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +969,44 @@
     "text": "Old photographs and toys prefer recycling",
     "enumeration": "10"
    },
-   "solution": "FERROTYPES"
+   "solution": "FERROTYPES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old photographs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "recycling",
+       "at": 32,
+       "note": "recycling suggests the letters of toys and prefer are reprocessed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "toys",
+       "at": 20
+      },
+      {
+       "words": "prefer",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comment on children who would rather recycle old snapshots and toys.",
+     "definitionFit": "Ferrotypes, or tintypes, were nineteenth-century photographs made directly on thin iron plates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recycling"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1020,49 @@
     "text": "Blowing air: most reed instruments",
     "enumeration": "11"
    },
-   "solution": "RADIOMETERS"
+   "solution": "RADIOMETERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instruments",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Blowing",
+       "at": 0,
+       "note": "Blowing suggests the letters of air, most and reed are scattered into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "air",
+       "at": 8
+      },
+      {
+       "words": "most",
+       "at": 13
+      },
+      {
+       "words": "reed",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's remark that most reed instruments need air blown through them.",
+     "walkthrough": "'reed instruments' looks like woodwind, but 'instruments' alone is the definition and 'reed' is fodder.",
+     "definitionFit": "Radiometers are scientific devices that measure radiant energy, so they are measuring instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reed"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1076,51 @@
     "text": "One dapper in fancy style of trouser?",
     "enumeration": "9"
    },
-   "solution": "DRAINPIPE"
+   "solution": "DRAINPIPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "style of trouser?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "fancy",
+       "at": 14,
+       "note": "fancy tells us the letters are rearranged in a decorative way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "dapper",
+       "at": 4
+      },
+      {
+       "words": "in",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dapper man in a fancy outfit, wearing a particular cut of trousers.",
+     "walkthrough": "'fancy' looks like an adjective for the style, but it rearranges I with DAPPER and IN.",
+     "definitionFit": "Drainpipes are very narrow tight trousers, popular with 1950s Teddy boys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1134,71 @@
     "text": "US crimes: very loud, seen abroad, wearing XXXL?",
     "enumeration": "8"
    },
-   "solution": "OFFENSES"
+   "solution": "OFFENSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US crimes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 35,
+       "note": "wearing tells us the other letters go inside the outsize garment"
+      }
+     ],
+     "parts": [
+      {
+       "words": "XXXL",
+       "at": 43,
+       "gives": "OS",
+       "note": "OS stands for outsize, the clothing size XXXL"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very loud",
+         "at": 11,
+         "gives": "FF",
+         "note": "ff, fortissimo, is the musical marking for very loud"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "abroad",
+           "at": 27,
+           "note": "abroad signals that the letters of seen wander into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "seen",
+           "at": 22
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outsize American, very loud and noticed abroad, commits misdemeanours.",
+     "walkthrough": "'abroad' rearranges SEEN; 'US' says the spelling is American, with an S in place of the British C.",
+     "definitionFit": "Offenses is the American spelling of offences, breaches of the law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "XXXL"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1212,44 @@
     "text": "Company submits reports",
     "enumeration": "8"
    },
-   "solution": "PRESENCE"
+   "solution": "PRESENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PRESENCE",
+     "indicators": [
+      {
+       "text": "reports",
+       "at": 16,
+       "note": "reports signals that the word is heard as spoken, giving a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "submits",
+       "at": 8,
+       "gives": "PRESENTS",
+       "note": "presents means submits, as one hands in work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm that hands in its accounts to the authorities.",
+     "walkthrough": "'Company' looks like a firm, but it means being with someone.",
+     "definitionFit": "Keeping someone company means being with them, so the word means attendance or being in someone's midst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1263,76 @@
     "text": "Banger car, with wrecked interior, crashed into tree",
     "enumeration": "11"
    },
-   "solution": "FIRECRACKER"
+   "solution": "FIRECRACKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Banger",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 43,
+       "note": "into tells us the rearranged letters go inside the tree"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tree",
+       "at": 48,
+       "gives": "FIR",
+       "note": "a fir is a coniferous tree"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crashed",
+         "at": 35,
+         "note": "crashed signals that the letters are smashed up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "car",
+         "at": 7
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "interior",
+           "at": 25,
+           "note": "interior means the inside letters of wrecked, without its ends"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wrecked",
+           "at": 17
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old wreck of a car, its insides gutted, has smashed into a tree.",
+     "walkthrough": "'Banger' is British slang for a rundown car, which the surface uses, and also for a firework or sausage. 'crashed' scrambles the pieces and 'into' puts them inside the tree.",
+     "definitionFit": "In Britain a banger is a loud exploding firework, the kind set off on Bonfire Night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Banger"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1346,49 @@
     "text": "Author becomes cleaner with HR trade",
     "enumeration": "6"
    },
-   "solution": "WRITER"
+   "solution": "WRITER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "with HR trade",
+       "at": 23,
+       "note": "with HR trade tells us an H is traded in exchange for an R"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cleaner",
+       "at": 15,
+       "gives": "WHITER",
+       "note": "whiter means cleaner, as in washing"
+      },
+      {
+       "gives": "H"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who takes a job in human resources after cleaning.",
+     "walkthrough": "HR looks like human resources, but it is the letters H and R; one H in WHITER is traded for R.",
+     "definitionFit": "An author is someone who writes books, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "HR"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1402,43 @@
     "text": "Town where the meat's off?",
     "enumeration": "6"
    },
-   "solution": "OLDHAM"
+   "solution": "OLDHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Town",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "off",
+       "at": 22,
+       "gives": "OLD",
+       "note": "food that is off is past its best, or old"
+      },
+      {
+       "words": "meat's",
+       "at": 15,
+       "gives": "HAM",
+       "note": "ham is a meat; the 's means is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town where the meat has gone bad.",
+     "walkthrough": "Oldham is a town in Greater Manchester; the meat is ham and 'off' means old.",
+     "definitionFit": "Oldham is a former mill town in north-west England, near Manchester."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1452,41 @@
     "text": "In France a syllable is unforced",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unforced",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the answer sits inside the run of letters across France a syllable"
+      }
+     ],
+     "parts": [
+      {
+       "words": "France a syllable",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about French pronunciation, where syllables are spoken without strain.",
+     "walkthrough": "'In France' looks like it calls for a French word, but the answer simply sits in the letters of the next three words.",
+     "definitionFit": "Something unforced comes naturally, without effort or strain, which is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1500,52 @@
     "text": "Perhaps Berkeley's after a Liberal from one side",
     "enumeration": "10"
    },
-   "solution": "UNILATERAL"
+   "solution": "UNILATERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from one side",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Perhaps Berkeley's",
+       "at": 0,
+       "gives": "UNI",
+       "note": "the University of California at Berkeley is an example of a uni"
+      },
+      {
+       "words": "after",
+       "at": 19,
+       "gives": "LATER",
+       "note": "later means after, in time"
+      },
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "Liberal",
+       "at": 27,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political commentary on the philosopher Berkeley chasing a Liberal from one side.",
+     "walkthrough": "Berkeley could be the philosopher, but here it is the Californian university; the 's is short for is.",
+     "definitionFit": "A unilateral action is taken by one party or side alone, without the others agreeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Berkeley's"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1559,57 @@
     "text": "Luminously eyed Madagascan, usually ringed at the extremities",
     "enumeration": "5"
    },
-   "solution": "LEMUR"
+   "solution": "LEMUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Luminously eyed Madagascan, usually ringed at the extremities",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at the",
+       "at": 43,
+       "note": "at the extremities points to the leading tip of each of the five words, so their initials are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Luminously",
+       "at": 0
+      },
+      {
+       "words": "eyed",
+       "at": 11
+      },
+      {
+       "words": "Madagascan",
+       "at": 16
+      },
+      {
+       "words": "usually",
+       "at": 28
+      },
+      {
+       "words": "ringed",
+       "at": 36
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A wildlife description of a big-eyed Madagascan animal with a ringed tail.",
+     "walkthrough": "The whole clue is both definition and wordplay: the initials spell the animal, and the clue describes the ring-tailed kind.",
+     "definitionFit": "Lemurs are primates found only on Madagascar; the ring-tailed species has large glowing eyes and a banded tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1623,42 @@
     "text": "It's buoyant, oddly",
     "enumeration": "4"
    },
-   "solution": "BOAT"
+   "solution": "BOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's buoyant, oddly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "oddly",
+       "at": 14,
+       "note": "oddly picks the first, third, fifth and seventh letters of buoyant"
+      }
+     ],
+     "parts": [
+      {
+       "words": "buoyant",
+       "at": 5
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A remark that something floats, surprisingly.",
+     "walkthrough": "The odd letters of 'buoyant' give the answer, and the whole clue describes it, though 'oddly' adds nothing to the definition.",
+     "definitionFit": "A vessel that floats on water is by nature buoyant, which is the defining property of a craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1672,40 @@
     "text": "Solving uses minor part of the brain",
     "enumeration": "9"
    },
-   "solution": "SENSORIUM"
+   "solution": "SENSORIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of the brain",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Solving",
+       "at": 0,
+       "note": "Solving suggests working through and rearranging the letters of uses minor"
+      }
+     ],
+     "parts": [
+      {
+       "words": "uses minor",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that doing puzzles only uses a small part of the brain.",
+     "definitionFit": "The sensorium is the seat of sensation in the brain, the area that receives and interprets sense data."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Solving"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1719,31 @@
     "text": "Level playing field",
     "enumeration": "5"
    },
-   "solution": "PITCH"
+   "solution": "PITCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Level",
+      "at": 0,
+      "meaning": "a level or degree, as in reaching a fever height of excitement"
+     },
+     {
+      "text": "playing field",
+      "at": 6,
+      "meaning": "a sports ground, such as a football or cricket ground"
+     }
+    ],
+    "explanation": {
+     "surface": "The idiom a level playing field, meaning fair conditions for everyone.",
+     "definitionFit": "The word means both a degree or intensity and a ground where field sports are played."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1757,59 @@
     "text": "Fleming's criminal organisation has secret design to seize power",
     "enumeration": "7"
    },
-   "solution": "SPECTRE"
+   "solution": "SPECTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fleming's criminal organisation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to seize",
+       "at": 50,
+       "note": "to seize tells us the rearranged letters take hold of the letter for power"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "design",
+         "at": 43,
+         "note": "design signals that the letters of secret are rearranged into a new form"
+        }
+       ],
+       "parts": [
+        {
+         "words": "secret",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "words": "power",
+       "at": 59,
+       "gives": "P",
+       "note": "P is the abbreviation for power in physics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villainous organisation from a Bond novel plotting secretly to seize world power.",
+     "walkthrough": "'design' scrambles SECRET, which then grabs P.",
+     "definitionFit": "In Ian Fleming's James Bond novels, the global crime syndicate headed by Blofeld is named by this acronym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1823,59 @@
     "text": "Storm brews over ball game's lofty stage",
     "enumeration": "7"
    },
-   "solution": "ROSTRUM"
+   "solution": "ROSTRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lofty stage",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 12,
+       "note": "over tells us the rearranged letters cover the ball game"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "brews",
+         "at": 6,
+         "note": "brews means the letters of storm are stirred up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Storm",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "ball game's",
+       "at": 17,
+       "gives": "RU",
+       "note": "RU stands for rugby union, a ball game"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storm gathering over a rugby ground's raised viewing stand.",
+     "walkthrough": "'brews' rearranges the storm, and 'over' places it around rugby union's abbreviation.",
+     "definitionFit": "A rostrum is a raised platform from which a speaker addresses an audience or a conductor leads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brews"
+    }
+   }
   }
  ]
 }
