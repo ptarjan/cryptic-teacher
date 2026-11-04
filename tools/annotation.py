@@ -901,6 +901,8 @@ def view_puzzle(puzzle, problems=None):
 # Keys the model shape passes through as they are (the stored annotation's own).
 MODEL_PASS = ("definedByPreamble", "andLit", "explanation", "features", "hiddenLetter", "alteration")
 MODEL_KEYS = ("def", "wp", "notes", "answer") + MODEL_PASS
+# The `features` flags a model may leave out when false; from_model writes them in.
+FEATURE_DEFAULTS = {"answerInScene": False, "aptDefinition": False}
 # Keys a model-shape clue may not carry: view() derives them from `wp`.
 DERIVED_KEYS = ("type", "blocks", "definitions", "indicators", "linkWords", "assembly")
 
@@ -1008,6 +1010,11 @@ def from_model(m, entry, puzzle=None):
     for k in ("explanation", "features", "hiddenLetter", "alteration"):
         if k in m:
             out[k] = m[k]
+    if isinstance(out.get("features"), dict):
+        # The run leaves out a false (~1.2 a clue, ~5% of what it writes); the
+        # stored block keeps every flag (validate_features: missing != false).
+        out["features"] = {**out["features"], **{k: v for k, v in FEATURE_DEFAULTS.items()
+                                                 if k not in out["features"]}}
     return out
 
 
@@ -1120,4 +1127,8 @@ def to_model(ann):
     for k in ("explanation", "features", "hiddenLetter"):
         if k in ann:
             out[k] = ann[k]
+    if isinstance(out.get("features"), dict):
+        # Shown as the run writes it: a default flag left out (from_model puts it back).
+        out["features"] = {k: v for k, v in out["features"].items()
+                           if not (k in FEATURE_DEFAULTS and v == FEATURE_DEFAULTS[k])}
     return out

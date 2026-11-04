@@ -331,8 +331,8 @@ def check(path):
     if failing:
         print(f"{len(done)} puzzles clean, {len(failing)} to fix in tools/{path.name}: "
               f"{', '.join(failing)}. Write ONE small patch file {{puzzle id: {{entry id: {{field: "
-              f"new value, or null to drop it}}}}}} naming only the fields to change (notes merge key by "
-              f"key) and run `python3 tools/annotate_bag.py check tools/{path.name} --patch <patchfile>`: "
+              f"new value, or null to drop it}}}}}} naming only the fields to change (notes, explanation "
+              f"and features merge key by key) and run `python3 tools/annotate_bag.py check tools/{path.name} --patch <patchfile>`: "
               f"an Edit must match the file's bytes exactly and often misses. Where a report "
               f"names _ann_<id>.json or --patch, that is the puzzle's part of tools/{path.name}. "
               f"A line you cannot act on: `python3 tools/validate_annotations.py --explain "
