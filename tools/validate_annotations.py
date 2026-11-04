@@ -963,20 +963,32 @@ def _warning_only(field):
     return field.startswith("wordplay.") and field.split(".", 1)[1] in shape_queue.WARN_ONLY
 
 
+def _block_note_hint(frag, gives):
+    """What the one sentence a block with no note needs must say, for the block's own shape: letters cut
+    from the words, a short abbreviation, or a synonym (the possessive 's is mended by code, not asked)."""
+    f, g = wordplay.letters(frag).upper(), wordplay.letters(gives).upper()
+    if len(g) < len(f) and g in f:
+        return f"say which letters of {frag!r} are kept to make {g}"
+    if len(g) <= 2:
+        return f"say the convention that makes {frag!r} stand for {g}"
+    return f"say what links them, e.g. '{g.lower()} is another word for {frag.lower()}'"
+
+
 def _block_note_example(warnings):
     """The sentence's last clause: the first unnoted block quoted as the `notes` entry to write.
-    (Palindrome, repeated-word and sound() leaves are noted by code before the check; what is left
-    is a leaf whose words nobody explained, and only the model can say why they give those letters.)"""
+    (Palindrome, repeated-word, sound() and possessive leaves are noted by code before the check; what
+    is left is a leaf whose words nobody explained, and only the model can say why they give those
+    letters.) The example is worded for the block's own shape (_block_note_hint)."""
     for w in warnings:
         m = re.search(r"(\d+[AD]): block (.+?) > '(\w+)' " + re.escape(BLOCK_NO_NOTE), w)
         if m:
-            import ast
             try:
-                frag = json.dumps(ast.literal_eval(m.group(2)), ensure_ascii=False)
+                raw = ast.literal_eval(m.group(2))
+                frag = json.dumps(raw, ensure_ascii=False)
             except (ValueError, SyntaxError):
-                frag = m.group(2)
-            return (f" For {m.group(1)} write `\"notes\": {{{frag}: \"<why those words give {m.group(3)}, "
-                    f"e.g. 'a rogue is a villain'>\"}}` inside that clue's annotation, one such entry per block named.")
+                raw, frag = m.group(2), m.group(2)
+            return (f" For {m.group(1)} write `\"notes\": {{{frag}: \"<{_block_note_hint(raw, m.group(3))}>\"}}` "
+                    f"inside that clue's annotation, one such entry per block named.")
     return ""
 
 

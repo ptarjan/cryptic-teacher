@@ -53,12 +53,14 @@ def r_indicator_note(node, parent, ctx):
 
 def _block_note_for(leaf_node, parent, tree, answer):
     """The note a letters-giving leaf with none gets, or None when its shape is the model's to word.
-    Three shapes have exactly one right sentence (the annotate audit's 139 'missing blocks.note'
+    Four shapes have exactly one right sentence (the possessive: 49 of the 110 unnoted blocks in the 54
+    sessions of 11-04, `[Celia's]CELIA`; the annotate audit's earlier 139 'missing blocks.note'
     sessions: palindrome 106 since fill_palindrome_fodder, a repeated clue word's second leaf 48,
     the leaf under sound() 37; the rest, a synonym leaf nobody explained, stays refused):
       - the definition's words under pal<ind>(): the palindrome is the whole answer;
       - a leaf whose words a sibling leaf already explains (`[blokes]AL + [blokes]BERT`: one note is
         keyed by those words, so it lands on the first only): that note;
+      - a leaf of a word and 's that gives just the word's letters: the 's adds none;
       - the one leaf under sound(): the words said aloud (the letters only when they are not the answer)."""
     if not leaf(leaf_node) or leaf_node.get("note") or leaf_node.get("unchecked") or not leaf_node.get("words"):
         return None
@@ -82,6 +84,10 @@ def _block_note_for(leaf_node, parent, tree, answer):
              and fold(n.get("words")) == fold(words)}
     if len(twins) == 1:
         return next(iter(twins))
+    stem = re.fullmatch(r"(.*\w)['\u2019]s", str(words).strip())
+    if stem and W.letters(stem.group(1)).lower() == shown.lower():
+        return ("the 's only shows possession or stands for 'is', so it adds no letters: "
+                "the word before it gives these letters as it is written")
     return None
 
 
