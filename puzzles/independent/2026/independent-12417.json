@@ -1571,44 +1571,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost there means you stop just short, so the last letter never gets written down"
-      },
-      {
        "text": "stopped by",
-       "note": "whatever stops you gets in your way, so this piece lands in the middle of the other"
+       "at": 21,
+       "note": "stopped by means plugged by, so the outer letters of pro fill a gap in the shortened battle"
       }
      ],
      "parts": [
       {
-       "words": "French defeat",
-       "gives": "WATERLO",
-       "note": "Napoleon's defeat was Waterloo, one letter short of the whole"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means nearly all, so the battle name loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French defeat",
+         "at": 0,
+         "gives": "WATERLOO",
+         "note": "Waterloo was the 1815 battle where Napoleon's French army was defeated"
+        },
+        {
+         "gives": "O"
+        }
+       ]
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "wingers",
-         "note": "a winger plays out on the flank, so the letters wanted are the ones at either edge"
+         "text": "wingers in",
+         "at": 32,
+         "note": "wingers are on the flanks, so take the first and last letters of pro"
         }
        ],
        "parts": [
         {
          "words": "pro",
-         "note": "the outer letters of pro"
+         "at": 43
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French defeat is nearly held back by the wingers of a professional team.",
-     "walkthrough": "The surface is football — wingers, a pro team — and the sport is played in a pool. Waterloo is the setter's favourite French defeat because of what its first five letters spell.",
-     "definitionFit": "team sport -> WATER POLO: water polo is played seven a side in a swimming pool, so it belongs to the class of team games rather than individual ones."
+     "surface": "A French side, nearly beaten, is held up by the wide men of a professional team.",
+     "walkthrough": "'French defeat' points to the battle of 1815, not a word in French.",
+     "definitionFit": "A game played by two teams in a swimming pool, so a team sport by definition."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "wingers"
     }

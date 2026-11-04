@@ -677,31 +677,45 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "abruptly",
-       "note": "abruptly means cut short, so the last letter is chopped off"
-      },
-      {
        "text": "dropped",
-       "note": "something dropped is let go and left out, so those letters are removed"
+       "at": 29,
+       "note": "dropped means left out, so the shortened country is taken away from the captain word"
       }
      ],
      "parts": [
       {
        "words": "captain",
+       "at": 5,
        "gives": "SKIPPER",
        "note": "a skipper is the captain of a ship or team"
       },
       {
-       "words": "nation",
-       "gives": "PER",
-       "note": "Peru, the South American nation, lacking its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abruptly",
+         "at": 20,
+         "note": "abruptly means cut off short, so the country's name loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nation",
+         "at": 13,
+         "gives": "PERU",
+         "note": "Peru is a South American nation"
+        },
+        {
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A national team's captain suddenly left out of the side.",
-     "walkthrough": "'Miss' looks like a title for a woman captain; it is a verb. Take the cut-short country away from the end of the captain word.",
-     "definitionFit": "To skip something is to pass over it or omit it, which is what missing it means."
+     "surface": "A team's captain is suddenly left out of the national side.",
+     "walkthrough": "'abruptly' trims PERU to PER, and 'dropped' takes PER off SKIPPER.",
+     "definitionFit": "To miss something out is to pass over or omit it, the verb sense here."
     },
     "features": {
      "answerInScene": false,

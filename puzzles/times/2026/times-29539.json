@@ -904,38 +904,60 @@
      "parts": [
       {
        "words": "a",
-       "note": "as printed"
+       "at": 11,
+       "gives": "A"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "gripping",
-         "note": "to grip is to hold tight, so the outer letters hold the inner word"
+         "at": 35,
+         "note": "gripping means holding tight, so the shortened relative holds the point"
         }
        ],
        "parts": [
         {
-         "words": "relative omitting one",
-         "gives": "NECE",
-         "note": "NIECE without I (one)"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "omitting",
+           "at": 22,
+           "note": "omitting means leaving out, so the letter for one goes from the relative"
+          }
+         ],
+         "parts": [
+          {
+           "words": "relative",
+           "at": 13,
+           "gives": "NIECE",
+           "note": "a niece is a relative"
+          },
+          {
+           "words": "one",
+           "at": 31,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
         },
         {
          "words": "point",
+         "at": 44,
          "gives": "DOT",
-         "note": "a dot is a point, gripped by the rest"
+         "note": "a dot is a point"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A story told by a relative who leaves out one gripping point.",
-     "walkthrough": "'Gripping' reads as exciting, but it means holding.",
-     "definitionFit": "A plain synonym: a short, entertaining account of a real incident."
+     "surface": "A relative tells a gripping story, missing out one point.",
+     "walkthrough": "'gripping' looks like a description of the story; it is the container signal.",
+     "definitionFit": "A short amusing account of a real incident, a kind of story."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "gripping"
     }
