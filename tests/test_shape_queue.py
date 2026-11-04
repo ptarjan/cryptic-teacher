@@ -93,7 +93,8 @@ FLAGGED = json.loads(r'''{"clue": {"text": "Grasping matter, ultimately extensiv
 pz2 = json.loads(json.dumps(pz))
 t2 = next(e for e in pz2["entries"] if groups.entry_id(e) == groups.entry_id(clues[2]))
 t2.update(json.loads(json.dumps(FLAGGED)))
-path2 = tmp / ("flagged_" + path.name)
+(tmp / "flagged").mkdir()
+path2 = tmp / "flagged" / path.name   # a puzzle file keeps its own name
 path2.write_text(json.dumps(pz2))
 for old in tmp.glob(f"_*{pz2['id']}.json"):
     old.unlink()
