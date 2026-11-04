@@ -8,7 +8,7 @@ index pages on the way, which is inference spent on a lookup code can do. This
 asks the blog's WordPress search for the puzzle's number (the same REST API
 tools/fetch_wp_blog.py and tools/fetch_fifteensquared.py walk), keeps the post
 whose title names the series and the number, and stores it with its comments
-under ~/.cache/cryptic-blog-prefetch/ in the shape tools/blog_post.py prints.
+under downloads.BLOG_PREFETCH in the shape tools/blog_post.py prints.
 blog_post.find falls back to it when the nightly cache has no post.
 
 Polite and harmless: one search and at most one comments request per call, a
@@ -27,10 +27,11 @@ import urllib.request
 from datetime import date, timedelta
 from pathlib import Path
 
+import downloads
 import fetch_wp_blog
 import series
 
-DIR = Path(os.environ.get("CT_BLOG_PREFETCH") or Path.home() / ".cache" / "cryptic-blog-prefetch")
+DIR = Path(os.environ.get("CT_BLOG_PREFETCH") or downloads.BLOG_PREFETCH)
 MISS_DAYS = 3
 TIMEOUT = 15
 UA = fetch_wp_blog.UA
