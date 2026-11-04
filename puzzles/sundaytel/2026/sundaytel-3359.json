@@ -427,46 +427,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Poor",
-       "at": 0,
-       "note": "poor says the letters are in bad shape and must be reworked into a new order"
+       "text": "bagged",
+       "at": 13,
+       "note": "bagged means captured, so the jumbled letters hold the next word inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "bagged",
-         "at": 13,
-         "note": "bagged says grade has taken in the following word, so both go into the mix"
+         "text": "Poor",
+         "at": 0,
+         "note": "poor means badly made, so the letters of grade are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "grade",
-         "at": 5
-        },
-        {
-         "words": "in",
-         "at": 20
+         "words": "grade's",
+         "at": 5,
+         "gives": "GRADE",
+         "note": "the 's only shows possession or stands for 'is', so it adds no letters: the word before it gives these letters as it is written"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 20,
+       "gives": "IN",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Getting a bad mark at a university in England.",
-     "walkthrough": "'bagged' has GRADE holding IN, and 'Poor' rearranges that whole pool of letters; 'Poor grade' reads as one idea but splits.",
-     "definitionFit": "The University of Reading is in the town of Reading in Berkshire, England."
+     "surface": "A bad mark has been collected at an English university.",
+     "walkthrough": "'bagged' means caught, so the scrambled grade holds the word in; the university is in Berkshire.",
+     "definitionFit": "This is a town in Berkshire with a university of the same name."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Poor"
+     "misdirectedWord": "bagged"
     }
    }
   },

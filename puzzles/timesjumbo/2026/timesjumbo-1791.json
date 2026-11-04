@@ -441,35 +441,39 @@
      "indicators": [
       {
        "text": "around",
-       "note": "around places the word for hacking on either side of the sculpture word and its final letter of not"
+       "at": 8,
+       "note": "around means surrounding, so the cutting word goes round the art and the letter"
       }
      ],
      "parts": [
       {
        "words": "Hacking",
+       "at": 0,
        "gives": "CHOPPING",
-       "note": "hacking at wood is chopping it; CH…OPPING is the outer part"
+       "note": "hacking means chopping"
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "sculpture etc",
+         "at": 15,
          "gives": "ART",
-         "note": "sculpture and the rest are art"
+         "note": "sculpture, painting and so on are art"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "ultimately",
-           "note": "ultimately means at the end, so the last letter of not"
+           "at": 30,
+           "note": "ultimately means at the end, so the last letter of the word"
           }
          ],
          "parts": [
           {
            "words": "not",
-           "note": "last letter of not"
+           "at": 41
           }
          ]
         }
@@ -478,9 +482,9 @@
      ]
     },
     "explanation": {
-     "surface": "Someone chipping away at a statue is told it won't catch on.",
-     "walkthrough": "'Not very popular' reads as one phrase, but it splits: 'ultimately not' gives T and 'very popular' is the definition.",
-     "definitionFit": "A record at number one in the sales rankings is the best-selling release that week, a measure of mass appeal."
+     "surface": "Someone chopping at a statue and the like is, in the end, not well liked.",
+     "walkthrough": "'not very popular' looks like the definition; 'not' supplies only its last letter T, and 'very popular' is the definition.",
+     "definitionFit": "A chart-topping record is at number one, hugely popular."
     },
     "features": {
      "answerInScene": false,
@@ -3136,76 +3140,85 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "the letters are moved about into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "hosting",
-         "note": "hosting has the word lies take the other letters in as guests, before the whole pool is shuffled"
+         "at": 29,
+         "note": "hosting means having as a guest, so the jumbled letters take in the end letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Leader of",
-           "note": "the leader of a word is its first letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Capitol",
-           "gives": "CAPITOL",
-           "note": "first letter of Capitol"
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "about",
+             "at": 23,
+             "note": "about means in disarray, so the letters of lies are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "lies",
+             "at": 18
+            }
+           ]
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "Leader of",
+             "at": 0,
+             "note": "the leader of a word is its first letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Capitol",
+             "at": 10
+            }
+           ]
           }
          ]
-        },
-        {
-         "words": "lies",
-         "note": "anagram fodder, 4 letters"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
          "indicators": [
           {
            "text": "final",
-           "note": "the last letter of Everdeen"
+           "at": 48,
+           "note": "final means the last letter of the word Everdeen"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Everdeen's final",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of Everdeen, hosted by the fodder"
+           "words": "Everdeen's",
+           "at": 37
           }
          ]
-        },
-        {
-         "words": "Quarter",
-         "gives": "E",
-         "note": "E, east, is one of the compass quarters"
         }
        ]
+      },
+      {
+       "words": "Quarter",
+       "at": 54,
+       "gives": "E",
+       "note": "E, east, is one of the compass quarters"
       }
      ]
     },
     "explanation": {
      "surface": "The Capitol's chief spreads lies about a Hunger Games contest featuring Katniss Everdeen.",
-     "walkthrough": "In The Hunger Games, the Capitol stages the Quarter Quell and Katniss Everdeen fights in it; the phrase splits, with 'Quarter' giving E and 'Quell' the definition.",
-     "definitionFit": "To silence protest is to suppress or put down dissent so nothing more is heard."
+     "walkthrough": "In The Hunger Games, the Capitol stages the Quarter Quell and Katniss Everdeen fights in it; the phrase splits, with 'Quarter' giving east and 'Quell' the definition.",
+     "definitionFit": "To quell protest is to suppress it so nothing more is heard."
     },
     "features": {
      "answerInScene": false,

@@ -46,8 +46,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "when rising",
-       "note": "in a down answer, rising means the letters read from the bottom upwards"
+       "text": "rising",
+       "at": 35,
+       "note": "in a down entry, rising means reading upwards, so the pieces are reversed"
       }
      ],
      "parts": [
@@ -55,27 +56,41 @@
        "op": "charade",
        "parts": [
         {
-         "words": "snaps losing half",
-         "gives": "CRA",
-         "note": "snaps = CRACKS (breaks), which loses its back half"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "losing half",
+           "at": 13,
+           "note": "losing half means the word keeps only its first three of six letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "snaps",
+           "at": 7,
+           "gives": "CRACKS",
+           "note": "snaps means breaks with a crack, so cracks"
+          }
+         ]
         },
         {
          "words": "mass",
-         "gives": "M",
-         "note": "m is the standard abbreviation for mass"
+         "at": 25,
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tea-time recipe for brandy snaps that go wrong, collapsing by half as they fail to rise in the oven.",
-     "walkthrough": "Brandy snaps are the curled biscuits, but here the two words split: 'Brandy' is the definition and 'snaps' the wordplay. MARC is a spirit distilled from grape skins.",
-     "definitionFit": "Marc is a French spirit distilled from the pressed skins and pips left after winemaking, a kind of grape brandy."
+     "surface": "Crisp ginger biscuits shed half their mass when the dough rises.",
+     "walkthrough": "'Brandy snaps' looks like the biscuit; 'snaps' is CRACKS, halved to CRA, plus M, and 'rising' reads CRAM upwards.",
+     "definitionFit": "Marc is a brandy distilled from the skins and pips left after winemaking."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "snaps"
     }
    }
@@ -325,26 +340,47 @@
      "indicators": [
       {
        "text": "cut by",
-       "note": "the phrase for eighteen is sliced open, with the other letters placed in the gap"
+       "at": 21,
+       "note": "cut by means split open by, so the phrase takes the next piece inside"
       }
      ],
      "parts": [
       {
        "words": "18 perhaps",
+       "at": 10,
        "gives": "OFAGE",
-       "note": "OF AGE: eighteen is the age of majority, with 'perhaps' marking it as an example"
+       "note": "at eighteen a person comes of age, so this is an example"
       },
       {
-       "words": "hurriedly leaving adult",
-       "gives": "FST",
-       "note": "FAST (hurriedly) without A for adult"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 38,
+         "note": "leaving means departing from, so the letter for adult goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hurriedly",
+         "at": 28,
+         "gives": "FAST",
+         "note": "fast means hurriedly"
+        },
+        {
+         "words": "adult",
+         "at": 46,
+         "gives": "A",
+         "note": "A is the film-rating abbreviation for adult"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An adult-rated film nobody sees because the censors cut it and the grown-ups walked out early.",
-     "walkthrough": "'18' looks like a cross-reference to 18 Down or a film certificate; it is simply an age, the one at which you come of age.",
-     "definitionFit": "Anything happening offstage takes place out of the audience's sight, so the spectators never see it."
+     "surface": "An eighteen-year-old cut short by someone rushing off is no longer seen.",
+     "walkthrough": "'18 perhaps' is not a cross-reference: eighteen is when one comes of age. 'leaving' takes A out of FAST, and FST cuts OF AGE.",
+     "definitionFit": "Something offstage happens out of the audience's view, so it is unwatched."
     },
     "features": {
      "answerInScene": false,

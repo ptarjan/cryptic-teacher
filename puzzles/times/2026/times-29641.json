@@ -538,24 +538,38 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, the lock is read from bottom to top"
-      }
-     ],
      "parts": [
       {
        "words": "key",
+       "at": 6,
        "gives": "A",
-       "note": "A is a musical key"
+       "note": "A is one of the musical keys"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 19,
+         "note": "in a down entry, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lock",
+         "at": 14,
+         "gives": "TRESS",
+         "note": "a tress is a lock of hair"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "coming round",
-         "note": "the letters turn back on themselves"
+         "at": 30,
+         "note": "coming round means turning back to face the other way, so the pair is read backwards"
         }
        ],
        "parts": [
@@ -563,14 +577,16 @@
          "op": "charade",
          "parts": [
           {
-           "words": "no one",
-           "gives": "NOI",
-           "note": "NO plus I, one"
+           "words": "no",
+           "at": 23,
+           "gives": "NO",
+           "note": "taken as written"
           },
           {
-           "words": "lock",
-           "gives": "TRESS",
-           "note": "a lock of hair is a tress"
+           "words": "one",
+           "at": 26,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
           }
          ]
         }
@@ -579,14 +595,13 @@
      ]
     },
     "explanation": {
-     "surface": "Securing a building with a key when no one is expected to visit.",
-     "walkthrough": "'Key and lock' are a pair in the surface, but 'lock' is hair, not a door fitting.",
-     "definitionFit": "A plain noun synonym: both are statements put forward as true."
+     "surface": "Someone claims a key and locks everything away, with nobody returning.",
+     "walkthrough": "'lock' is hair, not a fastening, and 'key' is musical; 'no one' is two pieces turned together by 'coming round'.",
+     "definitionFit": "An assertion is a statement put forward as true, which is what a claim is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "lock"
     }
    }
@@ -1107,13 +1122,6 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "gathering",
-       "at": 30,
-       "note": "the word on gathers up the information letter, taking it in alongside itself"
-      }
-     ],
      "parts": [
       {
        "words": "Street",
@@ -1121,56 +1129,69 @@
        "gives": "ST"
       },
       {
-       "op": "outer",
+       "op": "container",
        "indicators": [
         {
-         "text": "evacuated",
-         "at": 17,
-         "note": "an evacuated word has had its inside emptied, leaving only its first and last letters"
+         "text": "gathering",
+         "at": 30,
+         "note": "gathering means taking in, so the emptied flat and the word on close round the next letter"
         }
        ],
        "parts": [
         {
-         "words": "apartment",
-         "at": 7,
-         "gives": "AT",
-         "note": "its outer letters are A and T"
+         "op": "charade",
+         "parts": [
+          {
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "evacuated",
+             "at": 17,
+             "note": "evacuated means emptied, so only the outer letters of the word stay"
+            }
+           ],
+           "parts": [
+            {
+             "words": "apartment",
+             "at": 7
+            }
+           ]
+          },
+          {
+           "words": "on",
+           "at": 27,
+           "gives": "ON",
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "lead from",
+           "at": 40,
+           "note": "the lead from a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "information",
+           "at": 50
+          }
+         ]
         }
        ]
-      },
-      {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "lead from",
-         "at": 40,
-         "note": "the lead of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "information",
-         "at": 50,
-         "gives": "I",
-         "note": "its first letter is I"
-        }
-       ]
-      },
-      {
-       "words": "on",
-       "at": 27,
-       "gives": "ON",
-       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A street's flats are cleared while someone gathers news from an information channel.",
-     "walkthrough": "ST, then apartment 'evacuated' leaves AT; the 'lead from' information is I, which on gathers to make ION.",
-     "definitionFit": "A station is a broadcasting channel, as in a TV or radio station."
+     "surface": "A flat on a street is cleared out while someone collects news from a broadcaster.",
+     "walkthrough": "'information channel' looks like one phrase, but only its first word's initial is used; 'channel' alone is the definition.",
+     "definitionFit": "A broadcasting channel is a radio or television station."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "evacuated"
     }
