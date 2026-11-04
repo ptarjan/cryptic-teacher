@@ -612,74 +612,71 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MARSEILLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 4,
+       "note": "penning means enclosing, so the man's letters surround what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "penning",
-         "note": "to pen is to enclose, as sheep in a pen, so man encloses the rest"
-        }
-       ],
+       "words": "Man",
+       "at": 0,
+       "gives": "MALE",
+       "note": "a male is a man"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "last",
          "indicators": [
           {
            "text": "last",
-           "note": "a word's last is its final letter"
+           "at": 24,
+           "note": "last picks the final letter of the newspaper"
           }
          ],
          "parts": [
           {
-           "words": "Man",
-           "gives": "MALE",
-           "note": "a man is a male; it opens after MA"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "R",
-           "indicators": [
-            {
-             "text": "about",
-             "note": "'about' as in turned about, so the stories face the other way"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "newspaper's",
-             "gives": "R",
-             "select": "last",
-             "note": "last letter of newspaper"
-            }
-           ]
+           "words": "newspaper's",
+           "at": 12
           }
          ]
         },
         {
-         "words": "stories",
-         "gives": "SEIL",
-         "note": "LIES, stories, turned round"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 37,
+           "note": "about says the word for stories is turned round"
+          }
+         ],
+         "parts": [
+          {
+           "words": "stories",
+           "at": 29,
+           "gives": "LIES",
+           "note": "lies are stories in the sense of untruths"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist writing up the final stories of a newspaper about a French city.",
-     "walkthrough": "'Stories' are lies, as in telling stories to cover up. 'Penning' pretends to mean writing, which suits the newspaper.",
-     "definitionFit": "A definition by example: Marseille is France's great Mediterranean port."
+     "surface": "A man writes up the paper's last tales about a French city.",
+     "walkthrough": "'stories' suggests newspaper articles, but here it means untruths, and 'about' signals the turnaround.",
+     "definitionFit": "The Mediterranean port of the south of France, its second city."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "penning"
+     "misdirectedWord": "stories"
     }
    }
   },
@@ -1909,44 +1906,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "repeatedly",
-       "note": "done repeatedly means done more than once, so the word is used twice"
-      },
-      {
-       "text": "returning",
-       "note": "coming back means going the other way, so each copy is reversed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Italian opera",
+       "at": 18,
+       "gives": "TOSCA",
+       "note": "Tosca is Puccini's opera"
+      },
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 42,
+         "note": "repeatedly says the reversed piece appears twice"
+        }
+       ],
        "parts": [
         {
-         "words": "popular",
-         "gives": "ININ",
-         "note": "IN (popular), twice, each reversed"
-        },
-        {
-         "words": "opera",
-         "gives": "ACSOT",
-         "note": "Puccini's Italian opera"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "returning",
+           "at": 53,
+           "note": "returning says the word for popular is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "popular",
+           "at": 33,
+           "gives": "IN",
+           "note": "in means popular, as in 'the in thing'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian conductor's favourite opera, a hit that keeps coming back.",
-     "walkthrough": "The 's is 'is', joining definition to wordplay. The two 'Italian's are separate words: one in the definition, one describing the opera.",
-     "definitionFit": "A definition by example: Arturo Toscanini was the great Italian conductor, and maestro is the title for one."
+     "surface": "An Italian conductor's favourite Italian opera keeps coming back by popular demand.",
+     "walkthrough": "'returning' makes IN into NI, and 'repeatedly' gives it twice. The 's stands for 'is'.",
+     "definitionFit": "Arturo Toscanini was a celebrated Italian conductor."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "popular"
+     "misdirectedWord": "returning"
     }
    }
   },

@@ -1625,58 +1625,61 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "BULLFROG",
+     "op": "container",
      "indicators": [
       {
-       "text": "Cycling",
-       "note": "the first letter of FULL is moved round to the end"
+       "text": "into",
+       "at": 20,
+       "note": "into says those letters go inside the marsh word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "into says the runs and the cycled load are put inside the word for marsh"
-        }
-       ],
+       "words": "marsh",
+       "at": 25,
+       "gives": "BOG",
+       "note": "a bog is a marsh"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "Cycling",
+           "at": 0,
+           "note": "cycling moves the first letter round to the end"
+          }
+         ],
          "parts": [
           {
-           "words": "marsh",
-           "gives": "BOG",
-           "note": "a bog is a marsh"
-          },
-          {
-           "words": "runs",
-           "gives": "R",
-           "note": "r = runs, cricket scoring"
+           "words": "laden",
+           "at": 8,
+           "gives": "FULL",
+           "note": "full means laden"
           }
          ]
         },
         {
-         "words": "laden",
-         "gives": "ULLF",
-         "note": "FULL, laden, with F moved to the end"
+         "words": "runs",
+         "at": 15,
+         "gives": "R",
+         "note": "r is the cricket abbreviation for runs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A laden cyclist rides into a swamp.",
-     "walkthrough": "'Marsh creature' reads as one phrase, but 'marsh' is wordplay, BOG, and the definition is just 'creature'. FULL cycles by moving its first letter to the back.",
-     "definitionFit": "The bullfrog is a large frog of ponds and marshes."
+     "surface": "Cycling loaded, someone runs into a creature of the marsh.",
+     "walkthrough": "'marsh creature' reads as one phrase, but 'marsh' belongs to the wordplay and 'creature' alone is the definition.",
+     "definitionFit": "A bullfrog is a large frog, an amphibian creature."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Cycling"
+     "misdirectedWord": "marsh"
     }
    }
   },

@@ -2191,11 +2191,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means turned round to face the other way"
+       "text": "in",
+       "at": 12,
+       "note": "in says the reversed piece goes inside the jumbled words"
       }
      ],
      "parts": [
@@ -2204,36 +2205,49 @@
        "indicators": [
         {
          "text": "Batty",
-         "note": "batty means crazy, so the letters are put in a mad order"
+         "at": 25,
+         "note": "batty means crazy, so the words with and Lord are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "with",
+         "at": 15
+        },
+        {
+         "words": "Lord",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 7,
+         "note": "back says the doctor's abbreviation is turned round"
         }
        ],
        "parts": [
         {
          "words": "Doctor",
-         "gives": "DR",
-         "note": "Dr is the abbreviation for doctor"
-        },
-        {
-         "words": "with",
-         "note": "taken as written"
-        },
-        {
-         "words": "Lord",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "DR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor returns to join a mad aristocrat in the developing world.",
-     "walkthrough": "'With Lord' looks like company for the doctor, but both words are literal letters thrown in with the doctor for scrambling.",
-     "definitionFit": "The Global South is the modern term for the developing nations once collectively called the Third World."
+     "surface": "A doctor comes back with a crazy lord in the developing world.",
+     "walkthrough": "'Batty' looks like part of a lord's description, but it signals the jumble; 'Global South' is the modern term for poorer nations.",
+     "definitionFit": "Both are names for the poorer, developing nations of the world."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "with"
+     "misdirectedWord": "Batty"
     }
    }
   },

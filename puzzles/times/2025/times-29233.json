@@ -531,60 +531,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "failing",
-       "note": "something failing is falling apart, so the letters collapse into a new order"
+       "text": "to contain",
+       "at": 24,
+       "note": "to contain says the jumble holds the next piece inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to contain",
-         "note": "to contain is to hold inside, so the extra letter goes into the mix"
+         "text": "failing",
+         "at": 16,
+         "note": "failing means breaking down, so the letters of the hopeless PM collapse into a new order"
         }
        ],
        "parts": [
         {
          "words": "The hopeless PM",
-         "note": "13 letters to rearrange"
-        },
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "the onset of",
-           "note": "an onset is a beginning, so take the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "onset of inner",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of inner, added to the mix"
-          }
-         ]
+         "text": "onset of",
+         "at": 39,
+         "note": "the onset of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inner",
+         "at": 48
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A failing prime minister turns out to be possessed by an inner demon.",
-     "walkthrough": "'Hopeless' looks like a comment on the PM, but it is part of the anagram fodder.",
-     "definitionFit": "A definition by example: Mephistopheles is the devil to whom Faust sells his soul."
+     "surface": "A hopeless prime minister fails to contain the start of his inner demon.",
+     "walkthrough": "'failing' jumbles THE HOPELESS PM into MEPHSTOPHELES, which is made 'to contain' I, the 'onset of inner'.",
+     "definitionFit": "The devil to whom Faust sells his soul, a demon of German legend."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hopeless"
+     "misdirectedWord": "inner"
     }
    }
   },

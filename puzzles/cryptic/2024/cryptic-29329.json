@@ -1082,7 +1082,8 @@
        "indicators": [
         {
          "text": "back",
-         "note": "back means the inspector and Troy's initial are read in the opposite order"
+         "at": 15,
+         "note": "back says the inspector and troy pair is read from the end"
         }
        ],
        "parts": [
@@ -1091,23 +1092,15 @@
          "parts": [
           {
            "words": "Inspector",
+           "at": 0,
            "gives": "DI",
            "note": "DI is a Detective Inspector"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "beginning to",
-             "note": "the beginning of a word is its first letter, used here and for Troy"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Troy",
-             "note": "first letter of Troy"
-            }
-           ]
+           "words": "Troy",
+           "at": 10,
+           "gives": "T",
+           "note": "t is the abbreviation for troy weight"
           }
          ]
         }
@@ -1115,34 +1108,42 @@
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 20,
+       "gives": "IN"
       },
       {
        "words": "force",
+       "at": 23,
        "gives": "G",
-       "note": "g is the physics symbol for gravitational force"
+       "note": "g stands for the force of gravity, as in g-force"
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 29,
+         "note": "beginning to says take only the opening letter of the next word"
+        }
+       ],
        "parts": [
         {
          "words": "show",
-         "note": "first letter of show"
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Detective Inspector Troy rejoins the force and starts to show some intelligence.",
-     "walkthrough": "Troy looks like a fictional detective's surname, but only its initial is wanted; force is a physics symbol, not the police.",
-     "definitionFit": "Intelligence in the sense of news or information received is the same as tidings."
+     "surface": "A detective named Troy returns to the police force and starts showing some brains.",
+     "walkthrough": "'back' turns DI and T together into TID. Troy looks like a detective's surname, but here it is troy weight.",
+     "definitionFit": "Intelligence in the sense of news or information received, a synonym for tidings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "force"
+     "misdirectedWord": "Troy"
     }
    }
   },

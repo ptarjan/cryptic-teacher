@@ -1251,57 +1251,60 @@
      "parts": [
       {
        "words": "Fellow",
+       "at": 0,
        "gives": "CO",
-       "note": "co- as in co-worker, a fellow"
+       "note": "co- as in co-worker means fellow"
+      },
+      {
+       "words": "politician",
+       "at": 7,
+       "gives": "MP",
+       "note": "MP is a Member of Parliament"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "backed",
-         "note": "something backed goes into reverse, reading from right to left"
+         "at": 18,
+         "note": "backed means turned back, so the abbreviation for number is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "exercising",
-           "note": "exercising puts something through its paces, working it into a new shape"
-          }
-         ],
-         "parts": [
-          {
-           "words": "politician",
-           "gives": "MP",
-           "note": "Member of Parliament"
-          },
-          {
-           "words": "Number",
-           "gives": "NO",
-           "note": "NO is the abbreviation for number"
-          },
-          {
-           "words": "Ten",
-           "note": "taken as written"
-          }
-         ]
+         "words": "Number",
+         "at": 25,
+         "gives": "NO"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exercising",
+         "at": 37,
+         "note": "exercising means working out, so the letters of ten are worked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ten",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fellow MP supported Downing Street, working on behalf of a voter.",
-     "walkthrough": "Number Ten looks like Downing Street, the Prime Minister's office, but the two words are treated separately. A constituent is a voter as well as a part.",
-     "definitionFit": "A constituent is one of the parts making up a whole, a synonym for component."
+     "surface": "A fellow MP backed Downing Street while a constituent was exercised.",
+     "walkthrough": "'Number Ten' looks like Downing Street but splits into two pieces, and 'exercising' (working out) signals the jumble of the second.",
+     "definitionFit": "A component is a constituent part of a whole."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "constituent"
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
     }
    }
   },
