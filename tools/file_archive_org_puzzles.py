@@ -5756,7 +5756,26 @@ def fallback_futile(paper, d):
 GRID_WIDTHS = (720, 600)
 
 
+#: {(sha1 of a grid crop's bytes, the reader's id): scaled_grid's answer for it}, this process's last SCALED_MEMO_MAX: a deferred
+#: read cuts the same crop again for each of its windows, and the lattice read is seconds of CPU.
+_SCALED_MEMO = {}
+SCALED_MEMO_MAX = 32
+
+
 def scaled_grid(path):
+    """scaled_grid_read(path), worked out once a process for the same crop bytes (a copy each time)."""
+    import copy
+    import hashlib
+    with open(path, "rb") as f:
+        key = (hashlib.sha1(f.read()).hexdigest(), id(trove_grid.read_grid))
+    if key not in _SCALED_MEMO:
+        if len(_SCALED_MEMO) >= SCALED_MEMO_MAX:
+            _SCALED_MEMO.pop(next(iter(_SCALED_MEMO)))
+        _SCALED_MEMO[key] = scaled_grid_read(path)
+    return copy.deepcopy(_SCALED_MEMO[key])
+
+
+def scaled_grid_read(path):
     """trove_grid.read_grid(path), or failing it the first grid it reads of the crop shrunk to each of
     GRID_WIDTHS narrower than it, else the full-size read's (None, why)."""
     import io
@@ -9355,6 +9374,27 @@ def linked_filled(verdict, puzzle, fixed, fixed_puzzle):
     return verdict, puzzle
 
 
+#: {(leaf file, its stat, title box, right): locate_grid's answer}, this process's last LOCATED_MAX: the windows of
+#: one page's read (and each deferred round of it) look for the same grid on the same leaf, seconds of CPU each.
+_LOCATED = {}
+LOCATED_MAX = 64
+
+
+def located_grid(d, leaf, img, title, right=False):
+    """locate_grid(img, title, right) of the leaf `img` is, worked out once a process for the same leaf file."""
+    path = d / f"leaf_{leaf:04d}.jpg"
+    try:
+        st = path.stat()
+    except OSError:
+        return locate_grid(img, title, right)
+    key = (str(path), st.st_mtime_ns, st.st_size, tuple(title), right)
+    if key not in _LOCATED:
+        if len(_LOCATED) >= LOCATED_MAX:
+            _LOCATED.pop(next(iter(_LOCATED)))
+        _LOCATED[key] = locate_grid(img, title, right)
+    return _LOCATED[key]
+
+
 def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
@@ -9378,7 +9418,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         verdict["number"] = n
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
-    gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"], paper.key in GRID_RIGHT)
+    gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else located_grid(d, leaf, img, hit["box"], paper.key in GRID_RIGHT)
     # A 1939-67 Gale Times grid under its title measured as a solution grid (scaled_under).
     if side != "below" and paper.key == "gale" and not paper.clues_above and not paper.four \
             and SCALED_UNDER_YEARS[0] <= d.name[:4] <= SCALED_UNDER_YEARS[1]:

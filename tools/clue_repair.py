@@ -30,6 +30,7 @@ every change it makes is anchored by text both readings share:
   3. A clue number read several ways takes the number the other reading has
      right before the clue's first words, when it is one of those ways.
 """
+import bisect
 import re
 import clue_text
 
@@ -125,8 +126,9 @@ def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
                   and (i + 1 == len(out) or min(out[i + 1]["tokens"][0] or {99}) > n)), None)
         if k is None or out[k]["see"] is not None:
             continue
-        at = next((j for j, i in enumerate(s_idx) if i >= m.end()), None)
-        if at is None:
+        # s_idx ascends (letters()): the first letter at or past the match's end.
+        at = bisect.bisect_left(s_idx, m.end())
+        if at == len(s_idx):
             continue
         c = out[k]
         c_letters, c_idx = letters(c["text"])
