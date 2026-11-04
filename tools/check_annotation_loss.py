@@ -16,7 +16,9 @@ tried to annotate; it exits non-zero and names the clues if any came back short.
 A clue in solutions.reopened left blank is not a loss either: its model
 answer was sent back and solved a second time, and neither run found a parse
 (tools/reopen_answers.py, once per entry). The validator ships it answers-only
-on purpose, so it is printed and does not fail the check.
+on purpose, so it is printed and does not fail the check. So is a withheld
+clue (fetch_puzzle.withheld_clues): the run said which clue it could not
+annotate honestly and why, and shipped the rest round it.
 
 Only ONE of the three ways to come up short is a failure. A clue the model could
 not solve is a quality problem and gets shouted about. A clue the paper
@@ -36,7 +38,7 @@ import sys
 
 import groups
 from groups import entry_id
-from fetch_puzzle import ROOT, has_words, read_puzzle_view, resolve_puzzle
+from fetch_puzzle import ROOT, has_words, read_puzzle_view, resolve_puzzle, withheld_clues
 
 
 def changed_puzzles():
@@ -78,8 +80,11 @@ def main(argv):
         # could not solve, and one with no words in it to solve. Only the
         # solvable one is a loss.
         tried = set((puzzle.get("solutions") or {}).get("reopened") or {})
+        held = withheld_clues(puzzle)
         unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))
-                    and entry_id(e) not in tried]
+                    and entry_id(e) not in tried and entry_id(e) not in held]
+        for eid, why in held.items():
+            print(f"{puzzle['id']}: {eid} withheld — {why}")
         retried = [entry_id(e) for e in missing if entry_id(e) in tried]
         if retried:
             print(f"{puzzle['id']}: {', '.join(retried)} solved twice with no parse "

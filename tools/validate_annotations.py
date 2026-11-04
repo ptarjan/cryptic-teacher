@@ -95,6 +95,7 @@ from fetch_puzzle import (  # one reader, one exemption
     read_puzzle_file,
     source_clue,
     SOURCE_CLUE_WRONG,
+    withheld_clues,
 )
 from find_answer_leaks import _run, light_solutions, named, pieces_of, says  # one matcher, shared with the finder
 from groups import entry_id
@@ -653,11 +654,14 @@ def _validate_puzzle(puzzle, corpus=False, schema=True, dropped=()):
 
     errors.extend(message_problems(puzzle))
     warnings.extend(check_preamble(puzzle))
-    if annotated:
+    # A puzzle whose clues are all withheld has no hint, and is still the run's
+    # to answer for: the check says it is too much to ship round.
+    withheld = withheld_clues(puzzle)
+    if annotated or withheld:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
                                       blind_misses(puzzle["id"]), corpus=corpus,
                                       reopened=(puzzle.get("solutions") or {}).get("reopened") or {},
-                                      dropped=dropped)
+                                      dropped=dropped, withheld=withheld)
         check_model_answer_doubted(puzzle, errors, warnings, corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)

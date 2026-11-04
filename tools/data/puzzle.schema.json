@@ -597,6 +597,21 @@
     "annotation": {
      "$ref": "#/$defs/annotation"
     },
+    "annotationWithheld": {
+     "description": "In place of `annotation`: the annotation run could not annotate this clue honestly (cut short in the copy held, or a word doing two jobs the wordplay grammar refuses) and shipped the rest of the puzzle round it. `clue` is the text it read: once the clue reads otherwise the record lapses and the clue is due again (fetch_puzzle.withheld_stands). The app does not read it.",
+     "type": "object",
+     "required": ["why", "clue"],
+     "additionalProperties": false,
+     "properties": {
+      "why": {
+       "type": "string",
+       "minLength": 1
+      },
+      "clue": {
+       "type": "string"
+      }
+     }
+    },
     "selfClued": {
      "description": "Beside `group` only: the lights of the group after its leader that are answers of their own as well, each keeping its own clue, annotation and group (cryptic-21893's 21-down THERE and 1-across PUBLIC finish 11-across's BATTLE HYMN OF THE REPUBLIC). They are not this answer's continuations.",
      "type": "array",

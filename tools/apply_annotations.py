@@ -13,8 +13,10 @@ the model's shape `tools/annotate_prompt.md` describes:
      "12-across": null}
 
 Every entry in the puzzle must appear as a key. A key whose value is `null` says
-the clue is deliberately unsolved, which the prompt allows and which is very
-different from forgetting one — so absence is an error and `null` is not.
+the clue is not done yet, which is very different from forgetting one — so
+absence is an error and `null` is not. A clue the run cannot annotate honestly
+is `{"withheld": "<why>"}`: null, with its reason kept on the entry
+(take_withheld), so the rest of the puzzle ships round it.
 
 Each clue is translated (annotation.from_model: the wordplay evaluated, a
 parse that does not give the answer refused, naming the step) into the
@@ -64,7 +66,7 @@ from groups import entry_id
 import lesson_checks
 import validate_annotations
 from validate_annotations import committed_entries
-from fetch_puzzle import (corrected_clue, read_puzzle_file, reconstructed_clue, resolve_puzzle,
+from fetch_puzzle import (WITHHELD, corrected_clue, read_puzzle_file, reconstructed_clue, resolve_puzzle,
                           source_clue, write_puzzle_file)
 
 yield_cpu.yield_autogroup()  # idempotent; the import already did it
@@ -583,6 +585,40 @@ def apply_also(puzzle, annotations, errors=None):
                 item["annotation"] = new
 
 
+#: The _ann file's field for a clue the run will not annotate: {"withheld": "<why>"}.
+WITHHELD_KEY = "withheld"
+
+
+def take_withheld(path, annotations):
+    """{entry id: why} for each value of `annotations` that withholds its clue,
+    each of those set to null in place.
+
+    A withheld clue is a null with its reason: the clue as held is cut short
+    or garbled and no source gives the rest, or its only parse has one word
+    doing two jobs that the grammar refuses. It ships without a hint while the
+    rest of the puzzle ships with theirs, and the reason stays on the entry
+    (fetch_puzzle.WITHHELD) for whoever fixes the clue. A value that withholds
+    wins over any other field beside it, so `--patch` onto a written clue
+    withholds it; a reason is required, because a reasonless null is the
+    silent blank check_every_clue_is_annotated exists to stop."""
+    out, bad = {}, []
+    for cid, value in annotations.items():
+        if not (isinstance(value, dict) and WITHHELD_KEY in value):
+            continue
+        why = value[WITHHELD_KEY]
+        if not (isinstance(why, str) and why.strip()):
+            bad.append(cid)
+            continue
+        out[cid] = " ".join(why.split())
+        annotations[cid] = None
+    if bad:
+        raise SystemExit(
+            f"apply_annotations: {path.name}: {', '.join(bad)}: `withheld` needs the "
+            f"reason as a sentence — the clue as held, and what is missing or which "
+            f"word does two jobs")
+    return out
+
+
 def apply(path, annotations, by=None, only=None, partial=False):
     """Write `annotations` into the puzzle at `path`. `only` (entry ids) is the
     annotateOnly list a caller passes directly, in place of the run's view file
@@ -592,6 +628,7 @@ def apply(path, annotations, by=None, only=None, partial=False):
     # the _ann file carries it under "messages" beside the entry ids.
     annotations = dict(annotations)
     messages = annotations.pop(MESSAGES_KEY, None)
+    withheld = take_withheld(path, annotations)
     # Which clue states the theme is filed by hand, not by the annotator.
     if "themeClue" in annotations:
         raise SystemExit(
@@ -713,6 +750,11 @@ def apply(path, annotations, by=None, only=None, partial=False):
             continue
         if ann is None:
             entry.pop("annotation", None)
+            if entry_id(entry) in withheld:
+                entry[WITHHELD] = {"why": withheld[entry_id(entry)],
+                                   "clue": entry["clue"].get("text", "")}
+            else:
+                entry.pop(WITHHELD, None)
         else:
             new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors, puzzle)
             if new is not None:
@@ -753,10 +795,12 @@ def apply(path, annotations, by=None, only=None, partial=False):
             if (new is not None and only is not None
                     and redo_adds_nothing(old, new, relisted.get(entry_id(entry)))):
                 entry["annotation"] = copy.deepcopy(old)
+                entry.pop(WITHHELD, None)
                 unchanged.append(entry_id(entry))
                 continue
             if new is not None:
                 entry["annotation"] = new
+                entry.pop(WITHHELD, None)
                 move_alteration(entry)
             else:
                 refused.append(entry_id(entry))
