@@ -510,58 +510,64 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "sadly",
+       "at": 56,
+       "note": "sadly signals the letters are mixed up after the others are taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "Leaving",
-         "note": "words that are leaving go away, so their letters are dropped from the next word"
-        },
-        {
-         "text": "not entirely",
-         "note": "only part of the word is wanted, so its last letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "bandit",
-         "note": "taken as written"
+         "at": 17,
+         "note": "taken as written into the letter pool"
         },
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not entirely",
+           "at": 28,
+           "note": "'not entirely' cuts a letter off"
+          }
+         ],
          "parts": [
           {
-           "words": "with",
-           "gives": "AND",
-           "note": "and means together with"
+           "words": "gone",
+           "at": 41,
+           "gives": "GONE",
+           "note": "GONE is the word 'gone' itself"
           },
           {
-           "words": "it",
-           "note": "taken as written"
+           "gives": "E"
           }
          ]
+        },
+        {
+         "words": "straight",
+         "at": 46,
+         "note": "taken as written into the letter pool"
         }
        ]
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "sadly",
-         "note": "something that ends sadly has turned out badly, so the letters are jumbled into disorder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "gone",
-         "gives": "GON",
-         "note": "the word without its final letter"
+         "words": "Leaving with",
+         "at": 0,
+         "gives": "AND",
+         "note": "leaving says these letters are taken out, and with means and"
         },
         {
-         "words": "straight",
-         "note": "taken as written"
+         "words": "it",
+         "at": 13,
+         "note": "taken as written, among the letters to be removed"
         }
        ]
       }
@@ -569,13 +575,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A robber who was going straight is caught making off with the loot again.",
-     "walkthrough": "AND and IT leave BANDIT, leaving B; then GON plus STRAIGHT is rearranged. Read whole, the clue describes the thief caught red-handed.",
-     "definitionFit": "Bang to rights is British slang for being caught red-handed with clear proof of guilt, exactly the robber's fate."
+     "surface": "A robber who has not fully reformed is caught red-handed, an unhappy outcome.",
+     "walkthrough": "Pool the letters of BANDIT, GON and STRAIGHT, take out AND and IT, and 'sadly' rearranges what is left. A bandit still breaking the law ends up caught red-handed.",
+     "definitionFit": "Being caught red-handed, with no defence, is British slang for the state of a crook who has not reformed."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Leaving"
     }
    }

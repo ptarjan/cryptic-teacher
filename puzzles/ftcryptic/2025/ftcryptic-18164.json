@@ -732,15 +732,14 @@
       {
        "text": "into",
        "at": 39,
-       "note": "into says the scrambled letters go inside the car maker's initials"
+       "note": "the mixed letters go inside the car maker's initials"
       }
      ],
      "parts": [
       {
        "words": "Rolls-Royce",
        "at": 44,
-       "gives": "RR",
-       "note": "RR is the abbreviation for the car maker Rolls-Royce"
+       "gives": "RR"
       },
       {
        "op": "anagram",
@@ -748,34 +747,45 @@
         {
          "text": "crashing",
          "at": 30,
-         "note": "crashing suggests a smash-up, so those letters are thrown into a new order"
+         "note": "crashing signals the letters are smashed into a new order"
         }
        ],
        "parts": [
         {
-         "words": "twice caught",
-         "at": 10,
-         "gives": "CC",
-         "note": "c is the cricket scorecard abbreviation for caught, and twice means it is written two times"
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 10,
+           "note": "the letter for caught is used two times"
+          }
+         ],
+         "parts": [
+          {
+           "words": "caught",
+           "at": 16,
+           "gives": "C",
+           "note": "C is the cricket abbreviation for caught"
+          }
+         ]
         },
         {
          "words": "again",
-         "at": 24,
-         "note": "taken as written"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fast car, caught out twice, crashes again, this time into a Rolls-Royce.",
-     "walkthrough": "'Twice' doubles C (caught) to CC; 'crashing' rearranges CC with AGAIN to ACINGCA, and 'into' sets that inside RR.",
-     "definitionFit": "A racing car is built purely for speed on a track, so it is a speedster."
+     "surface": "A speeding driver is arrested twice for repeatedly crashing a luxury car.",
+     "walkthrough": "'twice caught' is not a cricket score: it gives two C's for the letter pool, and 'crashing into' is two signals, one for each operation.",
+     "definitionFit": "A vehicle built for motor sport is designed for high speed, so it is a speedster."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "caught"
+     "misdirectedWord": "crashing"
     }
    }
   },
