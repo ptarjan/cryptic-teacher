@@ -124,11 +124,9 @@ CADENCE_DAYS = {
 STALE_AFTER_DAYS = {
     # Fetched from the paper the day it runs.
     "cryptic": 3,
-    "independent": 3,
     "metro": 3,          # Mon-Fri: Friday to Monday is 3
     "quiptic": 10,
     "everyman": 10,
-    "indysunday": 10,
     "cyclops": 17,       # Private Eye, fortnightly
     # Rebuilt from blogs posted the same day or the next.
     "times": 3,
@@ -149,6 +147,10 @@ STALE_AFTER_DAYS = {
     # Puzzle Club, so it has no live source and a threshold would alert every
     # night. Not "nation" either: its weekly cryptic ended 2020-04-13.
     "genius": 40,        # monthly; filed unsolved before its answers post
+    # Not "independent" or "indysunday": the Independent's cryptic ended with
+    # No. 12,501 on 2026-10-31 (fifteensquared: "the last Independent
+    # cryptic"; the last Sunday held is 2026-10-25), and the feed has replayed
+    # 2023 puzzles since. fetch_independent.py --latest refuses those reruns.
 }
 
 

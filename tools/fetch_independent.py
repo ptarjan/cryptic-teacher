@@ -497,6 +497,14 @@ def sundays_back(n, end=None):
     return [(end - timedelta(weeks=i)).strftime("%y%m%d") for i in range(n)]
 
 
+def newest_held_number(series):
+    """The highest puzzle number on disk for one series, read from file names."""
+    root = puzzle_path(series, 1).parent.parent
+    numbers = [int(m[1]) for f in root.glob(f"*/{series}-*.json")
+               if (m := re.fullmatch(rf"{series}-(\d+)\.json", f.name))]
+    return max(numbers, default=None)
+
+
 def latest():
     """The newest day the feed has, if we don't already have it. Returns the
     puzzle, or None for "nothing new" — which the caller turns into exit 3, the
@@ -514,6 +522,14 @@ def latest():
             if err.code != 404:
                 raise
             continue
+        newest = newest_held_number(puzzle["series"])
+        if newest and puzzle["number"] < newest:
+            # A rerun: the paper's cryptic ended with No. 12,501 on 2026-10-31,
+            # and from 2026-11-01 the feed replays the 2023 puzzles (No. 11,561
+            # on) under new dates. Filing one would date a 2023 puzzle 2026.
+            print(f"rerun {puzzle['id']} ({ymd}): older than the newest held, "
+                  f"{puzzle['series']}-{newest}; nothing new")
+            return None
         if puzzle_path(puzzle["series"], puzzle["number"]).exists():
             # The newest day we can see is one we already have, so there is
             # nothing newer to find further back either.
