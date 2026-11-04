@@ -222,65 +222,68 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "getting agitated",
-       "note": "agitated things are stirred up, so the letters are shaken into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 5,
+         "note": "holding means containing, so one piece sits inside another"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "holding",
-           "note": "holding something means having it inside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Chap",
-           "gives": "MAN",
-           "note": "a chap is a man"
-          },
-          {
-           "words": "rod",
-           "note": "rod rearranged"
-          }
-         ]
+         "words": "Chap",
+         "at": 0,
+         "gives": "MAN",
+         "note": "a man is a chap"
         },
         {
-         "op": "last",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "finally",
-           "note": "finally points to the last letter only"
+           "text": "getting agitated",
+           "at": 17,
+           "note": "agitated letters are stirred up and rearranged"
           }
          ],
          "parts": [
           {
-           "words": "trout",
-           "note": "the final letter of trout"
+           "words": "rod",
+           "at": 13
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 42,
+         "note": "finally picks the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trout",
+         "at": 36
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler grows excited as a trout at last takes the bait.",
-     "walkthrough": "The fishing scene makes 'biting' look literal; it is the definition, meaning caustic.",
-     "definitionFit": "Mordant describes sharp, caustic wit or sarcasm, literally from the Latin for to bite."
+     "surface": "An angler's rod shakes as a trout at last takes the bait.",
+     "walkthrough": "'getting agitated' turns ROD into ORD, which 'holding' puts in MAN; 'finally' adds T.",
+     "definitionFit": "Mordant wit is sharp and cutting, like a sarcastic remark."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "biting"
     }
    }

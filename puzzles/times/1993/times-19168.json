@@ -627,55 +627,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wild",
-       "note": "wild letters are out of control, so set a is put in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "Around",
+         "at": 0,
+         "note": "around means encircling, so one piece wraps the other"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "Around",
-           "note": "around means the shuffled letters surround the middle piece"
+           "text": "wild",
+           "at": 23,
+           "note": "wild means unruly, so these letters are rearranged"
           }
          ],
          "parts": [
           {
            "words": "set a",
-           "note": "the letters rearranged, then opened up"
-          },
-          {
-           "words": "midnight",
-           "gives": "G",
-           "note": "the letter in the middle of night"
+           "at": 17
           }
          ]
         },
         {
-         "words": "rumour",
-         "gives": "WHISPER",
-         "note": "a whisper is a rumour passed quietly round"
+         "words": "midnight",
+         "at": 7,
+         "gives": "G",
+         "note": "the middle letter of night is G"
         }
        ]
+      },
+      {
+       "words": "rumour",
+       "at": 28,
+       "gives": "WHISPER",
+       "note": "a whisper is a rumour"
       }
      ]
     },
     "explanation": {
-     "surface": "Late at night, gossip is spread and then dismissed.",
-     "walkthrough": "'Midnight' is the middle letter of night, a common crossword trick.",
-     "definitionFit": "In the theatre an aside is a remark to the audience delivered as a loud stage whisper the other characters supposedly cannot hear."
+     "surface": "Late at night, someone brushes aside an outlandish piece of gossip.",
+     "walkthrough": "'wild' turns SET A into STAE, and 'Around' puts G inside it.",
+     "definitionFit": "An actor's aside is a remark audible to the audience but supposedly not to others on stage."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "midnight"
+     "aptDefinition": false,
+     "misdirectedWord": "aside"
     }
    }
   },

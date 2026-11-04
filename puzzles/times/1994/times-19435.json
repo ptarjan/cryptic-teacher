@@ -619,63 +619,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MINARET",
-     "indicators": [
-      {
-       "text": "retreat of",
-       "note": "a retreat goes back the way it came, so the gunners' letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "followed by",
-         "note": "followed by puts the next piece straight after what has been built"
-        },
-        {
-         "text": "leader",
-         "note": "the leader of a word is its opening letter only"
+         "text": "covering",
+         "at": 7,
+         "note": "covering means wrapped around, so one piece holds the other"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Weapon",
+         "at": 0,
+         "gives": "MINE",
+         "note": "a mine is an explosive weapon"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "covering",
-           "note": "the weapon covers something by wrapping round it"
+           "text": "retreat of",
+           "at": 16,
+           "note": "a retreat goes backwards, so the word is reversed"
           }
          ],
          "parts": [
           {
-           "words": "Weapon",
-           "gives": "MINE",
-           "note": "a mine is an explosive weapon"
-          },
-          {
            "words": "gunners",
-           "gives": "AR",
-           "note": "RA, the Royal Artillery, written backwards"
+           "at": 27,
+           "gives": "RA",
+           "note": "RA, the Royal Artillery, are the gunners"
           }
          ]
-        },
-        {
-         "words": "tank",
-         "gives": "T",
-         "note": "first letter of tank"
         }
        ]
+      },
+      {
+       "words": "followed by tank leader",
+       "at": 35,
+       "gives": "T",
+       "note": "T is the leading letter of tank, placed after the rest"
       }
      ]
     },
     "explanation": {
-     "surface": "A war scene: a weapon covers gunners pulling back, while a tank commander emerges from its turret.",
-     "walkthrough": "Turret looks like part of the tank picture, but it is the definition: a minaret is a slender tower on a mosque. RA is the Royal Artillery, the British army's gunners.",
-     "definitionFit": "A turret is a small tower, and a minaret is the tall slender tower of a mosque."
+     "surface": "Explosives protect artillerymen falling back, then a tank commander emerges from the turret.",
+     "walkthrough": "'retreat of' turns the gunners backwards before 'covering' wraps the weapon round them.",
+     "definitionFit": "The slender tower of a mosque resembles a turret."
     },
     "features": {
      "answerInScene": false,
@@ -1042,30 +1035,32 @@
      "indicators": [
       {
        "text": "boarding",
-       "note": "boarding means getting on and going inside, so the monarch goes into the vessel"
+       "at": 18,
+       "note": "boarding means getting on and inside, so one piece goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "on voyage",
-         "note": "a voyage moves things about, so the vessel's letters are shifted"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "new",
+         "at": 27,
+         "gives": "N"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "on voyage",
+           "at": 38,
+           "note": "a vessel on voyage is moving about, so its letters are rearranged"
+          }
+         ],
          "parts": [
           {
-           "words": "new",
-           "gives": "N",
-           "note": "N for new"
-          },
-          {
            "words": "vessel",
-           "note": "the letters of vessel rearranged"
+           "at": 31
           }
          ]
         }
@@ -1073,15 +1068,16 @@
       },
       {
        "words": "monarch",
+       "at": 10,
        "gives": "ER",
-       "note": "ER, Elizabeth Regina, the Queen"
+       "note": "ER, Elizabeth Regina, is the monarch"
       }
      ]
     },
     "explanation": {
-     "surface": "The Queen boards a new ship and sets out on a voyage.",
-     "walkthrough": "ER is Elizabeth Regina, the Queen's cipher.",
-     "definitionFit": "Nerveless can mean cool and fearless, showing no nerves, so it is calm and sure of oneself."
+     "surface": "A self-assured queen gets on a new ship for a sea trip.",
+     "walkthrough": "'on voyage' shuffles the vessel's letters, and 'boarding' takes the monarch aboard just after the first letter.",
+     "definitionFit": "Someone with steady nerves, calm and unflustered, is assured."
     },
     "features": {
      "answerInScene": false,
