@@ -848,6 +848,13 @@ pool_replan() {
     # without (prereset_plan.best_effort); the next re-plan resumes off the
     # stored rows rather than starting again.
     export CT_DEADLINE=$(( t0 / 1000000 + POOL_PLAN_SECS * 7 / 10 ))
+    # The kill below is only looked at between this shell's loop turns, and a
+    # turn can sit in pool_reap for minutes (a commit is a validation per
+    # puzzle, serial, with swap full): 11-04 14:39 a re-plan "up to 600s" took
+    # 5637s (planner 2238s) through 168 commits. So the planner's own python
+    # calls carry a hard timeout of what is left of the budget, whatever this
+    # shell is doing; a timed-out planner exits 124 and its output is discarded.
+    plan_left() { local n=$(( POOL_PLAN_SECS - (${EPOCHREALTIME/[.,]/} - t0) / 1000000 )); echo $(( n > 1 ? n : 1 )); }
     unset UNIT_MORE
     # A run lasts days: the backlog is read again, so a puzzle filed or made
     # eligible since the run started joins the queue. An id still queued or in
@@ -859,14 +866,14 @@ pool_replan() {
     # runs failed, waited for the next run).
     if [ "$POOL_PLANNED" = 1 ]; then
       for id in "${queue[@]:$at}" "${POOL_RUNS[@]}" $(cat "$RUNS"/*.bag 2>/dev/null); do held[$id]=1; done
-      for id in $(python3 tools/prereset_plan.py --backlog \
+      for id in $(timeout -k 5 "$(plan_left)" python3 tools/prereset_plan.py --backlog \
           "$(python3 tools/failed_inputs.py skipped annotate)" \
           "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
         [ -n "${held[$id]:-}" ] || { held[$id]=1; echo "$id"; }
       done >"$f.new"
       cat "$f.new" >>"$f.in"
     fi
-    python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out"
+    timeout -k 5 "$(plan_left)" python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out"
     echo "$?" >"$f.rc"
     # The planner's own time, apart from the commits this shell made while it
     # ran: 10-17 a re-plan "took" 1610s, most of it serial commits (the planner
@@ -884,7 +891,10 @@ pool_replan() {
       break
     fi
     pool_topup
-    while p=$(pool_finished) && [ -n "$p" ]; do pool_reap; done
+    # Not past the budget: every run finished is one more serial commit, and
+    # the turn must come back round to the check above.
+    while [ $(( (${EPOCHREALTIME/[.,]/} - t0) / 1000000 )) -lt "$POOL_PLAN_SECS" ] &&
+          p=$(pool_finished) && [ -n "$p" ]; do pool_reap; done
     sleep "$POOL_PLAN_POLL"
   done
   wait "$pid" 2>/dev/null
