@@ -356,7 +356,9 @@ WHY = {"anaSynonym": "a synonym is scrambled inside an anagram: only the clue's 
        "linkInLeaf": "a leaf opens or closes with a link word (in, of, with, by ...) and gives what its other words "
                      "alone give: the link word is the clue's join, not the leaf's",
        "anaStandIn": "an anagram held by a container scrambles an abbreviation or synonym beside the clue's own "
-                     "words: spell the stand-in as its own piece",
+                     "words: the stand-in is spelled into the answer beside the scramble, not scrambled with it. Keep only the "
+                     "clue's own words under the anagram and write the stand-in as its own piece next to it, e.g. "
+                     "ins<holds>(CH + ana<broken>(pea), L) not ins<holds>(ana<broken>(pea, church=CH), L)",
        "selectWordInLeaf": "a selection op's leaf opens with the op's own indicator words (bit of, end for, "
                            "outline of): the leaf holds only the words that give its letters",
        "selectPhraseInLeaf": "a leaf opens with a letter-selection phrase (borders of, heading off) and gives "

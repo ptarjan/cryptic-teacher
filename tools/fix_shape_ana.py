@@ -90,6 +90,31 @@ def r_ana_synonym_charade(node, parent, ctx):
     return next(iter(top.values())) if len(top) == 1 else None
 
 
+def r_ana_stand_in(node, parent, ctx):
+    """anaStandIn: an anagram held by a container scrambles an abbreviation or synonym beside the
+    clue's own words. The stand-in is spelled into the answer beside the scramble: same rewrite as
+    r_ana_synonym_charade (every order and split that evaluates to the answer), kept only when the
+    stand-in count falls and exactly one simplest tree remains; an ambiguous one stays refused."""
+    if node.get("op") != "anagram" or not ctx.get("answer"):
+        return None
+    cands = _ana_split_candidates(node)
+    if not cands:
+        return None
+    old = V.ana_stand_in(ctx["tree"])
+    good = []
+    for c in cands:
+        if not _eval_swapped(node, parent, c, ctx):
+            continue
+        whole = _whole(node, parent, c, ctx)
+        if V.ana_stand_in(whole) < old:
+            good.append((simplicity(whole), c))
+    if not good:
+        return None
+    best = min(k for k, _ in good)
+    top = {json.dumps(c, sort_keys=True): c for k, c in good if k == best}
+    return next(iter(top.values())) if len(top) == 1 else None
+
+
 def r_ana_of_container(node, parent, ctx):
     """ana(ins(a, b)): the anagram sits inside the container, over one arm (its synonyms
     charaded beside it); the other arm stays as it was."""
