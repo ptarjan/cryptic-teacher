@@ -15,15 +15,45 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "timesforthetimes",
-  "url": "https://timesforthetimes.co.uk/times-24785",
-  "date": "2011-03-01",
-  "check": "29 of 30 entries, 57 crossings, 0 conflicts; answers matched to the grid by number, direction and length",
-  "partial": [
-   "12-across"
-  ]
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-11-04",
+  "check": "30 entries, 62 crossings, 0 conflicts, agrees with the 29 answers the paper printed",
+  "printed": {
+   "1-across": "ARTICLE",
+   "1-down": "ABSENT",
+   "2-down": "TROUBLE",
+   "3-down": "CABALLERO",
+   "4-down": "EDUCATIONAL",
+   "5-across": "PERSEUS",
+   "5-down": "POD",
+   "6-down": "RAVEL",
+   "7-down": "EPITOME",
+   "8-down": "SMALLFRY",
+   "9-across": "SNOWBOUND",
+   "10-across": "VOILA",
+   "11-across": "NOBEL",
+   "13-down": "READJUSTING",
+   "14-across": "HEREDITARYPEER",
+   "15-down": "YELLOWING",
+   "16-down": "PRODIGAL",
+   "17-across": "ROMEOANDJULIET",
+   "18-down": "MAGENTA",
+   "19-down": "ELITIST",
+   "20-down": "PLAYER",
+   "21-across": "DIGITALIS",
+   "22-down": "TWAIN",
+   "23-across": "ORIEL",
+   "24-across": "GENOA",
+   "25-across": "ASININITY",
+   "25-down": "ADD",
+   "26-across": "LEARNED",
+   "27-across": "GAGSTER"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +67,31 @@
     "text": "Definitely it's the work of a journalist",
     "enumeration": "7"
    },
-   "solution": "ARTICLE"
+   "solution": "ARTICLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Definitely it's",
+      "at": 0,
+      "meaning": "the word 'the' is called the definite ..., so something definite of that kind is this part of speech"
+     },
+     {
+      "text": "the work of a journalist",
+      "at": 16,
+      "meaning": "a piece written for a newspaper or magazine"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone insists that a piece of writing is certainly a reporter's own.",
+     "definitionFit": "The definite article is a grammatical term, and a newspaper piece is a common sense of the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Definitely"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +105,41 @@
     "text": "One of the crew posted elsewhere",
     "enumeration": "6"
    },
-   "solution": "ABSENT"
+   "solution": "ABSENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "elsewhere",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One of the crew",
+       "at": 0,
+       "gives": "AB",
+       "note": "AB, able-bodied seaman, is a member of a ship's crew"
+      },
+      {
+       "words": "posted",
+       "at": 16,
+       "gives": "SENT",
+       "note": "something posted has been sent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor has been transferred to another station.",
+     "definitionFit": "Someone not present is away, somewhere else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posted"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +153,52 @@
     "text": "Diplomat finally ready for Russian problem",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "problem",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 9,
+         "note": "the last letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Diplomat",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "ready for Russian",
+       "at": 17,
+       "gives": "ROUBLE",
+       "note": "ready is slang for cash; Russian cash is the rouble"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat is at last prepared for a difficulty involving Russia.",
+     "walkthrough": "'ready' as a noun is British slang for money, as in 'the readies'.",
+     "definitionFit": "Difficulty or bother: a direct synonym for problem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +212,58 @@
     "text": "European in local bar, inebriated Spanish gentleman",
     "enumeration": "9"
    },
-   "solution": "CABALLERO"
+   "solution": "CABALLERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanish gentleman",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the letter goes inside the phrase before the mix"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "inebriated",
+         "at": 23,
+         "note": "drunk, so the letters stagger into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "local bar",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "European",
+       "at": 0,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreigner drinking in the neighbourhood pub is a drunken Spanish gent.",
+     "walkthrough": "'inebriated' rearranges LOCALBAR with E inside it.",
+     "definitionFit": "The Spanish word for a gentleman or knight, originally a horseman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inebriated"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +277,55 @@
     "text": "Like college that's wrongly cautioned a learner",
     "enumeration": "11"
    },
-   "solution": "EDUCATIONAL"
+   "solution": "EDUCATIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like college",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrongly",
+         "at": 20,
+         "note": "incorrectly, so the letters are put in a mistaken order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cautioned",
+         "at": 28
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 38
+      },
+      {
+       "words": "learner",
+       "at": 40,
+       "gives": "L",
+       "note": "L stands for learner, as on a learner driver's plate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student has been mistakenly warned, as at college.",
+     "definitionFit": "A college is a place of teaching, hence relating to instruction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "college"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +339,54 @@
     "text": "Greek hero takes action against traveller going West",
     "enumeration": "7"
    },
-   "solution": "PERSEUS"
+   "solution": "PERSEUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek hero",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "going West",
+       "at": 42,
+       "note": "in an across entry, travelling westward means reading from right to left, so the whole run turns round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "takes action against",
+         "at": 11,
+         "gives": "SUES",
+         "note": "to take legal action against someone is to sue them"
+        },
+        {
+         "words": "traveller",
+         "at": 32,
+         "gives": "REP",
+         "note": "a rep is a travelling salesman, a commercial traveller"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary Greek warrior launches a lawsuit against a wanderer heading west.",
+     "walkthrough": "'going West' turns SUESREP round as a whole, giving PERSEUS.",
+     "definitionFit": "The slayer of Medusa is one of the great heroes of Greek mythology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "traveller"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +400,49 @@
     "text": "Up to speed, ultimately, in school",
     "enumeration": "3"
    },
-   "solution": "POD"
+   "solution": "POD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "school",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "last",
+     "indicators": [
+      {
+       "text": "ultimately",
+       "at": 13,
+       "note": "at last, so the final letter of each word is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Up",
+       "at": 0
+      },
+      {
+       "words": "to",
+       "at": 3
+      },
+      {
+       "words": "speed",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil finally catches up at school.",
+     "walkthrough": "A school of whales or dolphins is also called a pod.",
+     "definitionFit": "A group of sea mammals swimming together, as a school of fish does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +456,47 @@
     "text": "French composer's timeless movement",
     "enumeration": "5"
    },
-   "solution": "RAVEL"
+   "solution": "RAVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "French composer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "timeless",
+       "at": 18,
+       "note": "without time, so T, its abbreviation, is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "movement",
+       "at": 27,
+       "gives": "TRAVEL",
+       "note": "travel is movement from place to place"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music by a Frenchman that never dates.",
+     "walkthrough": "'movement' suggests a section of music; it is TRAVEL, losing T for 'timeless'.",
+     "definitionFit": "Maurice, the composer of Boléro, was a French composer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +510,51 @@
     "text": "Abstract in English on page one, introducing book",
     "enumeration": "7"
    },
-   "solution": "EPITOME"
+   "solution": "EPITOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Abstract",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 12,
+       "gives": "E"
+      },
+      {
+       "words": "page",
+       "at": 23,
+       "gives": "P"
+      },
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "book",
+       "at": 45,
+       "gives": "TOME",
+       "note": "a tome is a large book"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English summary appears on the first page, opening a volume.",
+     "definitionFit": "A summary or abstract of a written work is a brief condensed version."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Abstract"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +574,59 @@
      }
     ]
    },
-   "solution": "SMALLFRY"
+   "solution": "SMALLFRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they're just kids",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 13,
+       "note": "the pieces span over the middle piece, holding it between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Sons",
+         "at": 0,
+         "gives": "S",
+         "note": "S is the abbreviation for son"
+        },
+        {
+         "words": "get hot",
+         "at": 5,
+         "gives": "FRY",
+         "note": "to fry in the sun is to get hot"
+        }
+       ]
+      },
+      {
+       "words": "avenue",
+       "at": 22,
+       "gives": "MALL",
+       "note": "a mall is a tree-lined walk, an avenue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boys overheat walking across a road, being only children.",
+     "definitionFit": "Young children, or people of no importance, are called the little ones in this idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +640,47 @@
     "text": "Hampered by wintry conditions in South at present, before spring",
     "enumeration": "9"
    },
-   "solution": "SNOWBOUND"
+   "solution": "SNOWBOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hampered by wintry conditions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "South",
+       "at": 33,
+       "gives": "S",
+       "note": "S is the compass abbreviation for south"
+      },
+      {
+       "words": "at present",
+       "at": 39,
+       "gives": "NOW",
+       "note": "at present means now"
+      },
+      {
+       "words": "spring",
+       "at": 58,
+       "gives": "BOUND",
+       "note": "to spring is to leap, to bound"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes being stuck by snow in the south just before springtime arrives.",
+     "definitionFit": "Trapped or cut off by heavy falls of snow, a plain description of winter immobility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +694,49 @@
     "text": "Behold valuable commodity found in Eastern state",
     "enumeration": "5"
    },
-   "solution": "VOILA"
+   "solution": "VOILA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Behold",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 26,
+       "note": "one item is located inside another, so these letters sit within the abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eastern state",
+       "at": 35,
+       "gives": "VA",
+       "note": "VA is the abbreviation for Virginia, a state on the US east coast"
+      },
+      {
+       "words": "valuable commodity",
+       "at": 7,
+       "gives": "OIL",
+       "note": "oil is a valuable traded commodity"
+      }
+     ]
+    },
+    "spelling": "VOILÀ",
+    "explanation": {
+     "surface": "Look: a precious resource has been discovered in a state in the east.",
+     "definitionFit": "A French exclamation borrowed into English, used like 'there it is' or 'look'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Behold"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +750,49 @@
     "text": "Source of prizes bishop presented in festival",
     "enumeration": "5"
    },
-   "solution": "NOBEL"
+   "solution": "NOBEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of prizes",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "presented in",
+       "at": 24,
+       "note": "the letter is placed within the festival word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "festival",
+       "at": 37,
+       "gives": "NOEL",
+       "note": "Noel is Christmas, a festival"
+      },
+      {
+       "words": "bishop",
+       "at": 17,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman hands out awards at a Christmas celebration.",
+     "walkthrough": "Alfred Nobel's bequest funds the annual Nobel Prizes, hence a 'source of prizes'.",
+     "definitionFit": "The Swedish industrialist whose will founded the famous international awards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Source"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +803,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Girl, kind of sweet, is butt of joke as joke",
+    "text": "Girl, kind of sweet, is butt of joke",
     "enumeration": "5,4",
     "separators": [
      {
@@ -230,6 +811,42 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "APRILFOOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "butt of joke",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "APRIL",
+       "note": "April is a girl's name"
+      },
+      {
+       "words": "kind of sweet",
+       "at": 6,
+       "gives": "FOOL",
+       "note": "a fool is a creamy fruit dessert, a sweet in British usage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl and a pudding are, somehow, the target of someone's prank.",
+     "walkthrough": "A FOOL is a British dessert of puréed fruit folded into cream; 'sweet' means pudding here.",
+     "definitionFit": "Someone tricked by a prank on the first of that spring month is the victim of the jest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
    }
   },
   {
@@ -244,7 +861,48 @@
     "text": "Again getting used to fair in southern town",
     "enumeration": "11"
    },
-   "solution": "READJUSTING"
+   "solution": "READJUSTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Again getting used to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "the word for fair goes inside the town"
+      }
+     ],
+     "parts": [
+      {
+       "words": "southern town",
+       "at": 30,
+       "gives": "READING",
+       "note": "Reading is a large town in southern England, west of London"
+      },
+      {
+       "words": "fair",
+       "at": 22,
+       "gives": "JUST",
+       "note": "just means fair"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone getting used again to a fairground in a town in the south.",
+     "definitionFit": "Adapting once more to circumstances, a compound of re- with adapting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 14,
@@ -264,7 +922,36 @@
      }
     ]
    },
-   "solution": "HEREDITARYPEER"
+   "solution": "HEREDITARYPEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One who succeeded in becoming titleholder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One who succeeded in becoming titleholder",
+       "at": 0,
+       "note": "succeeded looks like 'triumphed', but it means inherited: this lord took the title by succession from a parent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A champion who won through to claim the title.",
+     "walkthrough": "The surface suggests a sporting champion; the second sense of 'succeeded' is following an ancestor into a British peerage.",
+     "definitionFit": "A member of the House of Lords whose rank passed down by inheritance through family succession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "succeeded"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +965,57 @@
     "text": "Hollering about old wife showing effects of age",
     "enumeration": "9"
    },
-   "solution": "YELLOWING"
+   "solution": "YELLOWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing effects of age",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "the shouting word goes round the two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hollering",
+       "at": 0,
+       "gives": "YELLING",
+       "note": "hollering is yelling"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 16,
+         "gives": "O"
+        },
+        {
+         "words": "wife",
+         "at": 20,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly spouse shouting about growing old.",
+     "definitionFit": "Old paper and photographs turn a pale brownish colour as they age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hollering"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1029,59 @@
     "text": "Goad young woman about current overspending",
     "enumeration": "8"
    },
-   "solution": "PRODIGAL"
+   "solution": "PRODIGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "overspending",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "the two words go round the letter for current"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Goad",
+         "at": 0,
+         "gives": "PROD",
+         "note": "to goad is to prod"
+        },
+        {
+         "words": "young woman",
+         "at": 5,
+         "gives": "GAL",
+         "note": "gal is a young woman"
+        }
+       ]
+      },
+      {
+       "words": "current",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges a girl to do something about her extravagant spending.",
+     "definitionFit": "Recklessly wasteful with money, as in the parable of the wasteful son."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1105,48 @@
      }
     ]
    },
-   "solution": "ROMEOANDJULIET"
+   "solution": "ROMEOANDJULIET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rock",
+       "at": 20,
+       "gives": "ROMEO",
+       "note": "the first letter of rock is R, which in the radio alphabet is spoken as Romeo"
+      },
+      {
+       "words": "with",
+       "at": 25,
+       "gives": "AND",
+       "note": "with means and"
+      },
+      {
+       "words": "jazz",
+       "at": 30,
+       "gives": "JULIET",
+       "note": "the first letter of jazz is J, which in the radio alphabet is spoken as Juliet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage show described as a fusion of rock and jazz played over the airwaves.",
+     "walkthrough": "'initially' takes the first letters R and J; 'on radio' turns them into their NATO phonetic alphabet code words.",
+     "definitionFit": "Shakespeare's tragedy of the star-crossed lovers of Verona is a famous stage work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1160,54 @@
     "text": "Bond, say, following his boss to a battle",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 11,
+       "note": "the spy comes after his chief in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "his boss",
+       "at": 21,
+       "gives": "M",
+       "note": "M is James Bond's boss in the novels and films"
+      },
+      {
+       "words": "Bond, say",
+       "at": 0,
+       "gives": "AGENT",
+       "note": "James Bond is an example of a secret agent"
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond trails his chief into a battle.",
+     "walkthrough": "MAGENTA is an 1859 battle in northern Italy, after which the dye colour was named.",
+     "definitionFit": "A town in Lombardy where French and Sardinian forces defeated Austria in 1859."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1221,57 @@
     "text": "No egalitarian is taken in by silly title",
     "enumeration": "7"
    },
-   "solution": "ELITIST"
+   "solution": "ELITIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "No egalitarian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 18,
+       "note": "the small word is held inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "silly",
+         "at": 30,
+         "note": "foolish, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "title",
+         "at": 36
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who isn't egalitarian is fooled by a ridiculous honorific.",
+     "walkthrough": "'No egalitarian' looks like a statement about someone; it is the definition of a snob who favours the few.",
+     "definitionFit": "One who favours rule by a select few rejects equality, the opposite of an egalitarian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1285,41 @@
     "text": "Piano course for musician",
     "enumeration": "6"
    },
-   "solution": "PLAYER"
+   "solution": "PLAYER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Piano",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, softly"
+      },
+      {
+       "words": "course",
+       "at": 6,
+       "gives": "LAYER",
+       "note": "a course of bricks is a single layer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A course of piano lessons for a musician.",
+     "definitionFit": "Someone who plays an instrument is a performer, a musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,10 +1330,49 @@
    },
    "length": 9,
    "clue": {
-    "text": "Prepare to get on computer endlessly —- it's a kind of drug",
+    "text": "Prepare to get on computer endlessly — it's a kind of drug",
     "enumeration": "9"
    },
-   "solution": "DIGITALIS"
+   "solution": "DIGITALIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a kind of drug",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "endlessly",
+       "at": 27,
+       "note": "without its end, so the final letter of the verb is cut off"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Prepare to get on computer",
+       "at": 0,
+       "gives": "DIGITALISE",
+       "note": "to digitalise material is to convert it for use on a computer"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on getting something onto a computer turns into a remark about medicine.",
+     "walkthrough": "'endlessly' drops the last E of DIGITALISE.",
+     "definitionFit": "A heart medicine extracted from foxglove leaves, a well-known cardiac drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prepare"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1386,29 @@
     "text": "A pen-name or two",
     "enumeration": "5"
    },
-   "solution": "TWAIN"
+   "solution": "TWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A pen-name",
+      "at": 0,
+      "meaning": "Mark ... was the pen-name of Samuel Clemens"
+     },
+     {
+      "text": "two",
+      "at": 14,
+      "meaning": "an old word for two, as in 'never the ... shall meet'"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Samuel Clemens wrote as Mark Twain; the archaic word for a pair is the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pen-name"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,10 +1419,44 @@
    },
    "length": 5,
    "clue": {
-    "text": "College getting a series of letters to from instructor, ie lecturer",
+    "text": "College getting a series of letters from instructor, ie lecturer",
     "enumeration": "5"
    },
-   "solution": "ORIEL"
+   "solution": "ORIEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "College",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a series of letters from",
+       "at": 16,
+       "note": "a consecutive run of letters is lifted out of the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instructor, ie lecturer",
+       "at": 41
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college receives correspondence from a tutor, that is, a lecturer.",
+     "walkthrough": "ORIEL is an Oxford college.",
+     "definitionFit": "One of the colleges of Oxford University, founded in the fourteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1470,54 @@
     "text": "Port that's good? Excellent must be passed left",
     "enumeration": "5"
    },
-   "solution": "GENOA"
+   "solution": "GENOA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "good",
+       "at": 12,
+       "gives": "G"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "passed left",
+         "at": 36,
+         "note": "in an across answer, passing leftward means reading backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Excellent",
+         "at": 18,
+         "gives": "AONE",
+         "note": "A1, said as A one, means excellent"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a fortified wine good? Something first-rate should be handed round to the left.",
+     "walkthrough": "The surface evokes passing the port to the left at dinner; 'passed left' turns AONE into ENOA.",
+     "definitionFit": "A major seaport city on the northwest coast of Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1531,78 @@
     "text": "Foolishness, say, being wrong about twice in it",
     "enumeration": "9"
    },
-   "solution": "ASININITY"
+   "solution": "ASININITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Foolishness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 30,
+       "note": "the scrambled letters go around the doubled piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "being wrong",
+         "at": 18,
+         "note": "the letters of two words are put in the wrong order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "say",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "repeat",
+         "indicators": [
+          {
+           "text": "twice",
+           "at": 36,
+           "note": "the small word appears two times over"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in",
+           "at": 42
+          }
+         ]
+        },
+        {
+         "words": "it",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses that silliness, for instance, involves twice getting it wrong.",
+     "walkthrough": "'say' looks like 'for example' attached to the definition, but its letters join IT as the anagram fodder.",
+     "definitionFit": "The quality of being like a donkey, that is, stupidity or silliness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1616,41 @@
     "text": "Total is a thousand, equally divided",
     "enumeration": "3"
    },
-   "solution": "ADD"
+   "solution": "ADD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Total",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 9,
+       "gives": "A"
+      },
+      {
+       "words": "thousand, equally divided",
+       "at": 11,
+       "gives": "DD",
+       "note": "D is the Roman numeral 500, half of a thousand, so two equal halves give two of them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sum amounts to a thousand split evenly.",
+     "walkthrough": "A thousand split in two is 500 + 500: in Roman numerals, D + D.",
+     "definitionFit": "To total figures is to sum them, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "divided"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1664,48 @@
     "text": "Inclined to include one part of basic schooling that's mastered",
     "enumeration": "7"
    },
-   "solution": "LEARNED"
+   "solution": "LEARNED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mastered",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "at": 9,
+       "note": "the first word takes the letter inside itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Inclined",
+       "at": 0,
+       "gives": "LEANED",
+       "note": "leaned means inclined or tilted"
+      },
+      {
+       "words": "one part of basic schooling",
+       "at": 20,
+       "gives": "R",
+       "note": "the three Rs, reading, writing and arithmetic, are basic schooling; R is one of them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil inclined to take in a piece of the elementary curriculum has mastered it.",
+     "definitionFit": "A skill that has been acquired by study has been taken in and mastered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Inclined"
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1719,47 @@
     "text": "Name-dropping criminal who makes jokes?",
     "enumeration": "7"
    },
-   "solution": "GAGSTER"
+   "solution": "GAGSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who makes jokes?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Name-dropping",
+       "at": 0,
+       "note": "the letter standing for name is dropped from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criminal",
+       "at": 14,
+       "gives": "GANGSTER",
+       "note": "a gangster is a criminal"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook who boasts about famous acquaintances is a comedian?",
+     "walkthrough": "'Name-dropping' looks like the social habit; here it removes N (name) from GANGSTER.",
+     "definitionFit": "A gag is a joke, so a gag-maker is a comic or joker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Name-dropping"
+    }
+   }
   }
  ]
 }
