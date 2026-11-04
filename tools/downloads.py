@@ -129,6 +129,9 @@ CROSS_VALIDATE = ROOT / "cross-validate"
 # The Moby Thesaurus II, <dir>/mthesaur.txt, data only (tools/fetch_moby.py);
 # tools/det_synonyms.py compacts it into ~/.cache/detsolve/moby.json.gz.
 MOBY = ROOT / "moby"
+# Blog posts fetched ahead of an annotate run, in blog_post.py's shape
+# (tools/blog_prefetch.py).
+BLOG_PREFETCH = ROOT / "blog-prefetch"
 
 # Paths these folders were downloaded to before ROOT held them, each left a
 # symlink to its folder here for a job started on code that still names it.
