@@ -1507,54 +1507,60 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to carry",
-       "note": "to carry something is to hold it, so those letters go inside"
+       "text": "carry",
+       "at": 26,
+       "note": "to carry is to hold within, so the next pieces go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 8,
+         "note": "mostly means most of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so the word loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "reputed",
-           "gives": "SAID",
-           "note": "said, as in 'it is said', missing its last letter"
-          },
-          {
-           "gives": "D"
-          }
-         ]
+         "words": "reputed",
+         "at": 15,
+         "gives": "SAID",
+         "note": "something said to be so is reputed"
         },
         {
-         "words": "eastern",
-         "gives": "E",
-         "note": "E for east"
+         "gives": "D"
         }
        ]
       },
       {
-       "words": "king",
-       "gives": "R",
-       "note": "R for rex, Latin for king"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "eastern",
+         "at": 32,
+         "gives": "E"
+        },
+        {
+         "words": "king",
+         "at": 40,
+         "gives": "R",
+         "note": "R is short for rex, king"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A travelling group is said, for the most part, to be transporting an oriental monarch.",
-     "definitionFit": "Serai is short for caravanserai, the roadside inn where travelling caravans rest, and is used for the caravan itself."
+     "surface": "A caravan is said, mostly, to carry an eastern ruler.",
+     "walkthrough": "'mostly' cuts SAID to SAI, and E + R go inside.",
+     "definitionFit": "A serai is a caravanserai, an inn where travelling caravans stop, and by extension the caravan's stop."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caravan"
     }
    }
   },

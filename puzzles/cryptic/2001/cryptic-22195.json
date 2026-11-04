@@ -56,15 +56,30 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "edition",
-         "note": "a new edition is a reworked version, so the shortened word comes out in a new order"
+         "text": "edition of",
+         "at": 19,
+         "note": "an edition is a new version, so the letters are reworked into a fresh order"
         }
        ],
        "parts": [
         {
-         "words": "Incomplete English",
-         "gives": "ENGLIS",
-         "note": "the word English with its last letter cut off"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Incomplete",
+           "at": 0,
+           "note": "incomplete says the word English loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "English",
+           "at": 11
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       },
@@ -73,27 +88,29 @@
        "indicators": [
         {
          "text": "put up",
-         "note": "in a down clue, putting something up means writing it from bottom to top"
+         "at": 38,
+         "note": "in a down light put up means read upwards, reversed"
         }
        ],
        "parts": [
         {
          "words": "Othello",
+         "at": 30,
          "gives": "MOOR",
-         "note": "Othello is the Moor of Venice"
+         "note": "Othello is the Moor of Venice in Shakespeare's play"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A publisher warns that a cut-down English printing of Shakespeare's Othello will be pricey.",
-     "walkthrough": "Hotels in Britain commonly charge a single supplement, so a room for one person costs extra per head.",
-     "definitionFit": "Hotels often add a supplement when one guest occupies a bedroom alone, making this the pricier option."
+     "surface": "A shortened English edition of Othello is staged, at extra cost.",
+     "walkthrough": "Othello is Shakespeare's Moor of Venice. 'Incomplete' drops the last letter of the language and 'edition of' reorders what is left; 'put up' turns the Moor round.",
+     "definitionFit": "Hotels often charge a supplement for one guest occupying a room alone."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "edition"
     }
    }

@@ -1124,7 +1124,14 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "move",
+     "indicators": [
+      {
+       "text": "pushes forward",
+       "at": 30,
+       "note": "pushes forward says the letter for one moves nearer the front of the word"
+      }
+     ],
      "parts": [
       {
        "op": "container",
@@ -1132,72 +1139,50 @@
         {
          "text": "held in",
          "at": 57,
-         "note": "held in means the rearranged ceremony goes inside the following words"
+         "note": "held in says the ceremony word sits inside the north phrase"
         }
        ],
        "parts": [
         {
-         "words": "the",
-         "at": 65,
-         "note": "taken as written"
-        },
-        {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "if",
-           "at": 23,
-           "note": "if sets the condition that the one goes at the front of the ceremony letters"
-          }
-         ],
          "parts": [
           {
-           "words": "one",
-           "at": 26,
-           "gives": "I",
-           "note": "one is the Roman numeral I"
+           "words": "the",
+           "at": 65
           },
           {
-           "op": "deletion",
-           "indicators": [
-            {
-             "text": "pushes forward",
-             "at": 30,
-             "note": "pushes forward means the one inside the ceremony word comes out and moves to its front"
-            }
-           ],
-           "parts": [
-            {
-             "words": "ceremony",
-             "at": 48,
-             "gives": "RITE",
-             "note": "a rite is a ceremony"
-            },
-            {
-             "gives": "I"
-            }
-           ]
+           "words": "north",
+           "at": 69,
+           "gives": "N",
+           "note": "N is the compass abbreviation for north"
           }
          ]
+        },
+        {
+         "words": "ceremony",
+         "at": 48,
+         "gives": "RITE",
+         "note": "a rite is a ceremony"
         }
        ]
       },
       {
-       "words": "north",
-       "at": 69,
-       "gives": "N"
+       "words": "if one",
+       "at": 23,
+       "gives": "I",
+       "note": "I is the Roman numeral one, the if just setting the condition"
       }
      ]
     },
     "explanation": {
-     "surface": "Superstition about a ceremony in the north being unlucky if someone pushes forward.",
-     "walkthrough": "'pushes forward' moves the I of the ceremony word to its front, giving IRTE; 'if' is a link.",
-     "definitionFit": "The number thirteen is widely held by superstition to bring bad luck."
+     "surface": "A northern ceremony where someone stepping forward brings bad luck.",
+     "walkthrough": "'held in' sets the ceremony inside 'the north', and 'pushes forward' moves the one a single place nearer the front; 'if' is just the joining word.",
+     "definitionFit": "Thirteen is the number traditionally considered unlucky, as in Friday the 13th."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "pushes"
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ceremony"
     }
    }
   },

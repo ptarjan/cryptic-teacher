@@ -338,60 +338,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "turned over",
-       "note": "turned over means flipped end to end, so the short word is read backwards"
+       "text": "in",
+       "at": 37,
+       "note": "in says the reversed piece sits inside the contaminated mix"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "one part sits in the other, placed inside it"
+         "text": "contaminated with",
+         "at": 45,
+         "note": "contaminated means fouled, so the letters of area plus the uranium symbol are mixed"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "contaminated with",
-           "note": "contaminated means corrupted, so these letters are spoiled into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "is",
-           "note": "taken as written"
-          },
-          {
-           "words": "area",
-           "note": "taken as written"
-          }
-         ]
+         "words": "area",
+         "at": 40
         },
         {
          "words": "uranium",
+         "at": 63,
          "gives": "U",
          "note": "U is the chemical symbol for uranium"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned over",
+         "at": 25,
+         "note": "turned over says the word is is flipped round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Soil is dug over in an area polluted by radioactive waste.",
-     "walkthrough": "'Earth' reads as soil, but it is the planet: the definition is a huge land mass.",
-     "definitionFit": "Eurasia, Europe and Asia combined, is the largest continuous land mass on the planet."
+     "surface": "A vast stretch of land is upturned in a zone polluted by uranium.",
+     "walkthrough": "'Large amount of earth' is a landmass, not soil; 'contaminated with' mixes the uranium symbol into area, and 'turned over' flips is.",
+     "definitionFit": "Eurasia is the combined landmass of Europe and Asia, the biggest on the planet."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "earth"
     }
    }

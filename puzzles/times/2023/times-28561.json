@@ -1479,35 +1479,49 @@
      "indicators": [
       {
        "text": "abandoning",
-       "note": "abandoning something leaves it behind, so those letters are dropped"
-      },
-      {
-       "text": "short",
-       "note": "short means cut off before the end, so the last letter goes"
+       "at": 14,
+       "note": "abandoning means leaving behind, so the shortened word is taken out"
       }
      ],
      "parts": [
       {
        "words": "Meddling",
+       "at": 0,
        "gives": "INTERFERENCE",
-       "note": "interference is meddling"
+       "note": "meddling in others' affairs is interference"
       },
       {
-       "words": "term",
-       "gives": "TER",
-       "note": "the word cut short"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 25,
+         "note": "short means cut, so the word term loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "term",
+         "at": 31,
+         "gives": "TERM",
+         "note": "the word term, taken as written"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Meddling stops at the end of a short school term, to conclude.",
-     "walkthrough": "'In conclusion' sounds like a sign-off, but the definition is just 'conclusion'.",
+     "surface": "Meddling while giving up a brief term in office, finally.",
+     "walkthrough": "'short' cuts TERM to TER, and 'abandoning' removes that from INTERFERENCE.",
      "definitionFit": "An inference is a conclusion reached by reasoning from evidence."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "conclusion"
+     "misdirectedWord": "short"
     }
    }
   },
