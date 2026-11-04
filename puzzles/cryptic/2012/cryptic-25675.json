@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,67 @@
     "text": "Not like certain steroids? That's general, not hard, including first two",
     "enumeration": "9"
    },
-   "solution": "CATABOLIC"
+   "solution": "CATABOLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not like certain steroids?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 53,
+       "note": "including means the shortened word holds the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 43,
+         "note": "not here tells us to drop the letter for hard from the word for general"
+        }
+       ],
+       "parts": [
+        {
+         "words": "general",
+         "at": 34,
+         "gives": "CATHOLIC",
+         "note": "catholic in its old sense means general or universal"
+        },
+        {
+         "words": "hard",
+         "at": 47,
+         "gives": "H",
+         "note": "H is the abbreviation for hard, as on pencils"
+        }
+       ]
+      },
+      {
+       "words": "first two",
+       "at": 63,
+       "gives": "AB",
+       "note": "the first two letters of the alphabet are A and B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about steroids, followed by a pedantic aside on generality and hardness.",
+     "walkthrough": "'not hard' drops H from the word for general, and 'including' wraps that round the first two letters. Anabolic steroids build tissue up; the answer is the opposite, breaking-down process.",
+     "definitionFit": "Anabolic steroids build up the body; the contrasting metabolic process breaks substances down, so it is not like them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +108,40 @@
     "text": "One presiding over church music?",
     "enumeration": "5"
    },
-   "solution": "CHAIR"
+   "solution": "CHAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One presiding",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "church",
+       "at": 19,
+       "gives": "CH"
+      },
+      {
+       "words": "music",
+       "at": 26,
+       "gives": "AIR",
+       "note": "an air is a tune, a piece of music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about who leads the singing in church.",
+     "definitionFit": "The person who presides over a meeting is its chairperson, shortened to the single word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "presiding"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +161,30 @@
      }
     ]
    },
-   "solution": "THIRDHAND"
+   "solution": "THIRDHAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well used",
+      "at": 0,
+      "meaning": "already owned and worn by two previous people, so far from new"
+     },
+     {
+      "text": "playing high card at bridge?",
+      "at": 13,
+      "meaning": "the bridge maxim '... high' says the third player to a trick should play high"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Goods passed through several owners are described this way; in bridge the third player to a trick is this hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +198,43 @@
     "text": "Coloured area for past and future building?",
     "enumeration": "10"
    },
-   "solution": "BROWNFIELD"
+   "solution": "BROWNFIELD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coloured area for past and future building?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Coloured",
+       "at": 0,
+       "gives": "BROWN",
+       "note": "brown is a colour"
+      },
+      {
+       "words": "area",
+       "at": 9,
+       "gives": "FIELD",
+       "note": "a field is an area of land"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A painted patch of ground set aside for construction.",
+     "walkthrough": "Planners call previously developed land by this name, as opposed to untouched greenfield sites, so the land was built on in the past and will be again.",
+     "definitionFit": "Planning jargon for derelict land once built on and now available for redevelopment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Coloured"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +248,61 @@
     "text": "Svelte model held back by romance",
     "enumeration": "7"
    },
-   "solution": "LISSOME"
+   "solution": "LISSOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Svelte",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held",
+       "at": 13,
+       "note": "held means the word for romance holds the reversed model inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "romance",
+       "at": 26,
+       "gives": "LIE",
+       "note": "to romance is to tell fanciful tales, to lie"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 18,
+         "note": "back means the model's name is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "model",
+         "at": 7,
+         "gives": "MOSS",
+         "note": "Kate Moss is a famous fashion model"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slim model is restrained by a love affair.",
+     "walkthrough": "'romance' looks like the love affair of the surface, but here it is the verb: to tell tall stories. 'back' reverses the model and 'held' puts her inside.",
+     "definitionFit": "Both words describe a slim, graceful, supple figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "romance"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +316,47 @@
     "text": "City street in good mood",
     "enumeration": "7"
    },
-   "solution": "CHESTER"
+   "solution": "CHESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in means the street abbreviation sits inside the mood word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "good mood",
+       "at": 15,
+       "gives": "CHEER",
+       "note": "cheer is a cheerful mood"
+      },
+      {
+       "words": "street",
+       "at": 5,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town's road where everyone is happy.",
+     "definitionFit": "Chester is a historic walled city in north-west England, in Cheshire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mood"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +370,31 @@
     "text": "Holly coming into flower with …",
     "enumeration": "5"
    },
-   "solution": "BUDDY"
+   "solution": "BUDDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holly",
+      "at": 0,
+      "meaning": "... Holly was the American rock and roll singer"
+     },
+     {
+      "text": "coming into flower",
+      "at": 6,
+      "meaning": "a plant coming into flower is full of buds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ellipsis links on to the next clue, where this answer is also a word for friend.",
+     "definitionFit": "The first name of the singer Holly, and a jokey adjective for a plant covered in buds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Holly"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +408,29 @@
     "text": "Gesture from stream",
     "enumeration": "4"
    },
-   "solution": "BECK"
+   "solution": "BECK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gesture",
+      "at": 0,
+      "meaning": "a ... is a beckoning signal, as in 'at someone's ... and call'"
+     },
+     {
+      "text": "stream",
+      "at": 13,
+      "meaning": "in northern England a ... is a brook"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A summoning nod or wave of the hand, and a northern English dialect word for a brook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gesture"
+    }
+   }
   },
   {
    "number": 7,
@@ -176,7 +471,67 @@
    "group": [
     "8-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Kangaroo chaser",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 37,
+       "note": "in a down clue on means the following pieces are placed after the colour"
+      }
+     ],
+     "parts": [
+      {
+       "words": "colour",
+       "at": 40,
+       "gives": "YELLOW",
+       "note": "yellow is a colour"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to conceal",
+         "at": 22,
+         "note": "to conceal means the word for lying wraps round the row"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lying",
+         "at": 16,
+         "gives": "DOGGO",
+         "note": "to lie doggo is to lie hidden and still, so doggo stands for lying"
+        },
+        {
+         "words": "row",
+         "at": 33,
+         "gives": "DIN",
+         "note": "din is a racket, a row"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal pursuing a kangaroo while hiding a quarrel.",
+     "walkthrough": "In Kipling's Just So story 'Old Man Kangaroo', this wild dog chases the kangaroo across Australia. 'to conceal' puts the row inside the lying word, which follows the colour.",
+     "definitionFit": "Kipling's Just So Stories has this wild dog chase the kangaroo until its legs grow long."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +545,43 @@
     "text": "… friend: is it ok for me to take off?",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "friend",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "is it ok for me",
+       "at": 10,
+       "gives": "AMI",
+       "note": "the question is put as 'am I', asking about the speaker"
+      },
+      {
+       "words": "to take off?",
+       "at": 26,
+       "gives": "GO",
+       "note": "go is the pilot's word for clearance to take off"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous pilot asks the tower for clearance.",
+     "walkthrough": "Read the question as 'Am I go?', a request for permission to depart.",
+     "definitionFit": "Spanish word for friend, used in English for a pal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "friend"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +601,46 @@
      }
     ]
    },
-   "solution": "SUEZCANAL"
+   "solution": "SUEZCANAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 4,
+       "note": "out of signals the letters are rearranged into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "New Zealand",
+       "at": 11,
+       "gives": "NZ"
+      },
+      {
+       "words": "as a clue",
+       "at": 23,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something removed from New Zealand to serve as a crossword hint.",
+     "definitionFit": "A canal is an artificial waterway cut through land, and this is the famous Egyptian one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 11,
@@ -242,7 +672,66 @@
    "group": [
     "11-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tennyson's nature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "colour",
+       "at": 22,
+       "gives": "RED",
+       "note": "red is a colour"
+      },
+      {
+       "words": "into",
+       "at": 29,
+       "gives": "INTO",
+       "note": "taken as written"
+      },
+      {
+       "words": "books",
+       "at": 34,
+       "gives": "OT",
+       "note": "OT is the Old Testament, the books of the Bible"
+      },
+      {
+       "words": "worker",
+       "at": 43,
+       "gives": "HAND",
+       "note": "a hand is a worker, as on a farm"
+      },
+      {
+       "words": "about",
+       "at": 50,
+       "gives": "C",
+       "note": "C stands for circa, about"
+      },
+      {
+       "words": "legislation",
+       "at": 56,
+       "gives": "LAW",
+       "note": "law is legislation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for painting books that a worker produced on law.",
+     "walkthrough": "Tennyson's In Memoriam describes nature as this, violent and bloody.",
+     "definitionFit": "Tennyson's phrase from In Memoriam describes nature as ruthless and bloody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nature"
+    }
+   }
   },
   {
    "number": 12,
@@ -256,7 +745,48 @@
     "text": "Wise guy, no Scotsman, by himself",
     "enumeration": "4"
    },
-   "solution": "SOLO"
+   "solution": "SOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "by himself",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "at": 10,
+       "note": "no means the Scotsman is taken away from the wise man's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wise guy",
+       "at": 0,
+       "gives": "SOLOMON",
+       "note": "King Solomon is proverbially wise"
+      },
+      {
+       "words": "Scotsman",
+       "at": 13,
+       "gives": "MON",
+       "note": "mon is the Scots form of man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever fellow without a Scottish companion is alone.",
+     "definitionFit": "Doing something alone, unaccompanied, is doing it single-handed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 13,
@@ -270,7 +800,58 @@
     "text": "I give praise to Paris in a hundred shapes",
     "enumeration": "10"
    },
-   "solution": "ASCRIPTION"
+   "solution": "ASCRIPTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I give praise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shapes",
+       "at": 36,
+       "note": "shapes as a verb means the letters are reformed into something new"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to",
+       "at": 14,
+       "note": "taken as written"
+      },
+      {
+       "words": "Paris",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "in",
+       "at": 23,
+       "note": "taken as written"
+      },
+      {
+       "words": "a hundred",
+       "at": 26,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praising the French capital in many different forms.",
+     "walkthrough": "In church use the word is a formula offering praise to God at the end of a sermon, so a phrase such as 'I give praise' is an example.",
+     "definitionFit": "A formula of praise to God, said at the end of a sermon, is called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +865,46 @@
     "text": "Work on a piece of verse that's milky white",
     "enumeration": "7"
    },
-   "solution": "OPALINE"
+   "solution": "OPALINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "milky white",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op is short for opus, a work"
+      },
+      {
+       "words": "a",
+       "at": 8,
+       "gives": "A"
+      },
+      {
+       "words": "piece of verse",
+       "at": 10,
+       "gives": "LINE",
+       "note": "a line is a piece of verse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet works on a stanza about a pale colour.",
+     "definitionFit": "Resembling opal, a milky white gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 14,
@@ -298,7 +918,42 @@
     "text": "King Billy's supporter's coloured island",
     "enumeration": "9"
    },
-   "solution": "ORANGEMAN"
+   "solution": "ORANGEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "King Billy's supporter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "coloured",
+       "at": 25,
+       "gives": "ORANGE",
+       "note": "orange is a colour"
+      },
+      {
+       "words": "island",
+       "at": 34,
+       "gives": "MAN",
+       "note": "the Isle of Man lies in the Irish Sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Protestant loyalist identified with a painted island.",
+     "walkthrough": "King Billy is William III, of Orange; the Orange Order in Northern Ireland honours him.",
+     "definitionFit": "A member of the Orange Order, the Protestant society devoted to William III."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coloured"
+    }
+   }
   },
   {
    "number": 15,
@@ -318,7 +973,41 @@
      }
     ]
    },
-   "solution": "ROSEBED"
+   "solution": "ROSEBED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "piece of garden",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Coloured",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "rose is a pink colour"
+      },
+      {
+       "words": "bottom",
+       "at": 9,
+       "gives": "BED",
+       "note": "a bed is a bottom, as of a river or sea"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painted patch at the end of a garden.",
+     "definitionFit": "A plot of a garden planted with roses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 16,
@@ -332,7 +1021,58 @@
     "text": "Plan to find coloured liquid outside river",
     "enumeration": "9"
    },
-   "solution": "BLUEPRINT"
+   "solution": "BLUEPRINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "coloured",
+       "at": 13,
+       "gives": "BLUE",
+       "note": "blue is a colour"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 29,
+         "note": "outside means the liquid measure wraps round the river letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "liquid",
+         "at": 22,
+         "gives": "PINT",
+         "note": "a pint is a measure of liquid"
+        },
+        {
+         "words": "river",
+         "at": 37,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme to locate tinted fluid beyond a river.",
+     "definitionFit": "A detailed design or plan, from the old blue-and-white copying process for drawings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liquid"
+    }
+   }
   },
   {
    "number": 17,
@@ -365,7 +1105,29 @@
     "text": "Got the better of material",
     "enumeration": "7"
    },
-   "solution": "WORSTED"
+   "solution": "WORSTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Got the better of",
+      "at": 0,
+      "meaning": "to worst someone is to defeat them"
+     },
+     {
+      "text": "material",
+      "at": 18,
+      "meaning": "a smooth woollen fabric or yarn"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The past tense of worst means defeated; it is also a woollen cloth named after a Norfolk village."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 19,
@@ -379,7 +1141,54 @@
     "text": "German city backed food for sheep",
     "enumeration": "7"
    },
-   "solution": "MARBURG"
+   "solution": "MARBURG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backed",
+       "at": 12,
+       "note": "backed means the whole phrase is turned round to read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "food",
+         "at": 19,
+         "gives": "GRUB",
+         "note": "grub is food"
+        },
+        {
+         "words": "sheep",
+         "at": 28,
+         "gives": "RAM",
+         "note": "a ram is a male sheep"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town in Germany supported fodder for flocks.",
+     "walkthrough": "'backed' reverses GRUBRAM as a whole.",
+     "definitionFit": "Marburg is a university town in Hesse, Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 19,
@@ -399,7 +1208,49 @@
      }
     ]
    },
-   "solution": "MAEWEST"
+   "solution": "MAEWEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means the nuts word goes round the sheep"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nuts",
+       "at": 8,
+       "gives": "MAST",
+       "note": "mast is the fallen nuts of beech and oak"
+      },
+      {
+       "words": "sheep",
+       "at": 19,
+       "gives": "EWE",
+       "note": "a ewe is a female sheep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer who is crazy about sheep.",
+     "definitionFit": "Mae West was an American film actress famous for innuendo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 20,
@@ -413,7 +1264,30 @@
     "text": "Gallery in the Pantheon?",
     "enumeration": "4"
    },
-   "solution": "GODS"
+   "solution": "GODS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gallery",
+      "at": 0,
+      "meaning": "the top gallery of a theatre is called this"
+     },
+     {
+      "text": "in the Pantheon?",
+      "at": 8,
+      "meaning": "a pantheon is all the deities of a people, or a temple to them"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Theatre slang for the highest, cheapest seats; also the deities a pantheon contains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pantheon"
+    }
+   }
   },
   {
    "number": 21,
@@ -427,7 +1301,60 @@
     "text": "One in formal dress when performing will cut the mustard",
     "enumeration": "5"
    },
-   "solution": "DIJON"
+   "solution": "DIJON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "mustard",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 4,
+         "note": "in means the one goes inside the formal dress"
+        }
+       ],
+       "parts": [
+        {
+         "words": "formal dress",
+         "at": 7,
+         "gives": "DJ",
+         "note": "DJ is short for dinner jacket"
+        },
+        {
+         "words": "One",
+         "at": 0,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "words": "when performing",
+       "at": 20,
+       "gives": "ON",
+       "note": "on means on stage, performing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer in black tie who will be good enough.",
+     "walkthrough": "'cut the mustard' looks like an idiom, but mustard is the definition.",
+     "definitionFit": "Dijon is a town in Burgundy famous for its mustard, which bears its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 22,
@@ -447,7 +1374,47 @@
      }
     ]
    },
-   "solution": "GREENPAPER"
+   "solution": "GREENPAPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Proposal of policy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "coloured",
+       "at": 27,
+       "gives": "GREEN",
+       "note": "green is a colour"
+      },
+      {
+       "words": "bread and milk",
+       "at": 36,
+       "gives": "PAP",
+       "note": "pap is soft food such as bread soaked in milk"
+      },
+      {
+       "words": "queen",
+       "at": 54,
+       "gives": "ER",
+       "note": "ER is Elizabeth Regina, the Queen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giving a monarch tinted bread and milk.",
+     "definitionFit": "A UK government discussion document setting out proposed policy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 23,
@@ -461,7 +1428,29 @@
     "text": "Jury's comment on horse",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jury's comment",
+      "at": 0,
+      "meaning": "a recommendation or remark added to a jury verdict"
+     },
+     {
+      "text": "on horse",
+      "at": 15,
+      "meaning": "someone riding a horse"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A rider is an addendum to a verdict, and a person mounted on a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comment"
+    }
+   }
   },
   {
    "number": 24,
@@ -475,7 +1464,29 @@
     "text": "Asinine comment with inconstant vicar",
     "enumeration": "4"
    },
-   "solution": "BRAY"
+   "solution": "BRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asinine comment",
+      "at": 0,
+      "meaning": "the noise a donkey makes"
+     },
+     {
+      "text": "inconstant vicar",
+      "at": 21,
+      "meaning": "the Vicar of ..., in the song, changed his faith with each new monarch"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A donkey's cry, and the parish of the turncoat vicar in the English folk song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Asinine"
+    }
+   }
   },
   {
    "number": 25,
@@ -489,7 +1500,67 @@
     "text": "Marching girlfriend round plane holding gold",
     "enumeration": "9"
    },
-   "solution": "MAJORETTE"
+   "solution": "MAJORETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Marching girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 20,
+       "note": "round means the friend goes round what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "friend",
+       "at": 13,
+       "gives": "MATE",
+       "note": "a mate is a friend"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 32,
+         "note": "holding means the plane contains the gold"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plane",
+         "at": 26,
+         "gives": "JET",
+         "note": "a jet is a plane"
+        },
+        {
+         "words": "gold",
+         "at": 40,
+         "gives": "OR",
+         "note": "OR is gold in heraldry"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girlfriend on a march with a gilded aeroplane.",
+     "walkthrough": "The clue runs 'girl' and 'friend' together as one word: the first half ends the definition, the second starts the wordplay. 'round' and 'holding' nest the pieces two deep.",
+     "definitionFit": "A girl who twirls a baton marching with a band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 26,
@@ -503,7 +1574,53 @@
     "text": "First parliament backing epic",
     "enumeration": "5"
    },
-   "solution": "ILIAD"
+   "solution": "ILIAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "epic",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "First",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one, the first"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 17,
+         "note": "backing means the parliament's name is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parliament",
+         "at": 6,
+         "gives": "DAIL",
+         "note": "the Dail is the Irish parliament"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first assembly supporting a long poem.",
+     "definitionFit": "Homer's epic poem of the Trojan War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 27,
@@ -517,7 +1634,58 @@
     "text": "Goat's name to be aggravating without love",
     "enumeration": "5"
    },
-   "solution": "NANNY"
+   "solution": "NANNY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "name",
+       "at": 7,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 30,
+         "note": "without means the love letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to be aggravating",
+         "at": 12,
+         "gives": "ANNOY",
+         "note": "to annoy is to be aggravating"
+        },
+        {
+         "words": "love",
+         "at": 38,
+         "gives": "O",
+         "note": "O is love, zero in tennis"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goat's name is irritating without affection.",
+     "definitionFit": "A female goat is a nanny goat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 28,
@@ -531,7 +1699,65 @@
     "text": "Non-U scenic route round military alliance's explosive requirement",
     "enumeration": "9"
    },
-   "solution": "DETONATOR"
+   "solution": "DETONATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "explosive requirement",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 19,
+       "note": "round means the shortened route goes round the alliance"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Non",
+         "at": 0,
+         "note": "Non with U says the letter U is dropped from the route"
+        }
+       ],
+       "parts": [
+        {
+         "words": "scenic route",
+         "at": 6,
+         "gives": "DETOUR",
+         "note": "a detour can be a scenic route"
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "military alliance's",
+       "at": 25,
+       "gives": "NATO",
+       "note": "NATO is the North Atlantic military alliance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upper-class snub at a pretty road around NATO's bomb parts.",
+     "walkthrough": "'Non-U' (not upper-class) is a pun telling you to drop U from DETOUR, leaving DETOR.",
+     "definitionFit": "A device that sets off an explosive charge is necessary to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scenic"
+    }
+   }
   }
  ]
 }
