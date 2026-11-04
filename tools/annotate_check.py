@@ -530,9 +530,11 @@ def notes(puzzle, only=None):
     if (left and blog and not is_blind(puzzle)
             and len(left) <= stuck_allowance(len(puzzle["entries"]))):
         host, words = blog
-        how = (f"`python3 tools/blog_post.py {puzzle['id']}` prints its cached post and comments"
+        how = (f"`python3 tools/blog_post.py {puzzle['id']}` prints its post and comments, "
+               f"already fetched for you: do not WebSearch for it"
                if blog_post.find(puzzle["id"]) else
-               f"WebSearch `{words}`, then WebFetch the post and its comments")
+               f"WebSearch `{words}`, then WebFetch the post and its comments "
+               f"(a lookup before this run found none)")
         out.append(
             f"Stuck on {', '.join(entry_id(e) for e in left)}? {host} blogs this puzzle "
             f"clue by clue: {how} (the comments often have what the blogger missed). "

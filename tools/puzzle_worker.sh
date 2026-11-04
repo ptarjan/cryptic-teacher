@@ -220,6 +220,9 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     worker_forget "$sidfile"
     [ "$bag" = "$id" ] || printf '%s\n' "$bag" >"${sidfile%.sid}.bag"
     kind=""
+    # The blog post is fetched by code, so a stuck run reads it instead of searching
+    # (tools/blog_prefetch.py: one lookup, short timeout, a miss is remembered, never fails).
+    [ -n "$fill" ] || timeout 60 python3 tools/blog_prefetch.py "$id" >>"$log" 2>&1 || true
     # A fresh conversation has withdrawn nothing (worker_withdrawn).
     for m in $bag; do rm -f "tools/_withdrawn_$m.txt"; done
     if [ -n "$fill" ]; then
