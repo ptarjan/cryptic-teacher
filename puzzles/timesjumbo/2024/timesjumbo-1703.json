@@ -55,57 +55,54 @@
      "op": "container",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "the essence of a word is its middle"
+       "text": "in",
+       "at": 29,
+       "note": "the extra letters go inside the portion word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "\"in\" puts the word for extra inside the word for a small portion, which wraps around it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "small portion",
-         "gives": "DOLE",
-         "note": "a dole is a meagre share handed out"
-        },
-        {
-         "words": "extra",
-         "gives": "OVER",
-         "note": "an over is an extra, as in 'left over'"
-        }
-       ]
+       "words": "small portion",
+       "at": 32,
+       "gives": "DOLE",
+       "note": "a dole is a portion doled out"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "S",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "tasty",
-         "gives": "S",
-         "select": "middle",
-         "note": "middle letter of taSty"
+         "words": "extra",
+         "at": 5,
+         "gives": "OVER",
+         "note": "over means extra, as in left over"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 17,
+           "note": "the essence of the word is its middle letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tasty",
+           "at": 11
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A menu promising an especially tasty fish, though only in a small portion.",
-     "walkthrough": "'Extra tasty' reads as one phrase praising the fish; split it, and 'extra' is a word on its own while 'tasty essentially' supplies a single letter.",
-     "definitionFit": "Dover sole is a prized European flatfish."
+     "surface": "A small serving of something extra tasty, presumably fish.",
+     "definitionFit": "A flatfish from the English Channel prized for eating is a fish."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "extra"
+     "aptDefinition": false
     }
    }
   },
@@ -2615,49 +2612,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "spread across",
-       "note": "the thickets are spread out, rearranged, and go around the E S"
+       "text": "across",
+       "at": 27,
+       "note": "the jumbled letters stretch across the pair, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spread",
+         "at": 20,
+         "note": "spread means scattered, so the letters are scattered"
+        }
+       ],
        "parts": [
         {
          "words": "thickets",
-         "note": "anagram fodder, 8 letters"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "remove the insides, leaving the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "estuaries",
-           "note": "the outer letters of EstuarieS"
-          }
-         ]
+         "text": "empty",
+         "at": 34,
+         "note": "an emptied word keeps only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "estuaries",
+         "at": 40
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rough undergrowth spreading across drained river mouths.",
-     "walkthrough": "'Most rough' means most sketchy or incomplete, not most rugged, despite the thickets in the surface.",
-     "definitionFit": "Sketchiest means most rough or incomplete, like a rough sketch."
+     "surface": "Thickets grow over dried-out estuaries in a rough landscape.",
+     "definitionFit": "Something sketchy is rough or unfinished, so the superlative means roughest."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "thickets"
+     "aptDefinition": false
     }
    }
   },
@@ -3338,47 +3342,48 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "at regular intervals, every other letter"
+       "text": "before",
+       "at": 41,
+       "note": "before means the first piece comes ahead of the second"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SUN",
        "indicators": [
         {
-         "text": "before",
-         "note": "\"before\" places the alternate letters of is burnt ahead of the word for match"
+         "text": "periodically",
+         "at": 28,
+         "note": "periodically picks letters at regular intervals, the even ones"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "is burnt",
-         "gives": "SUN",
-         "select": "alternate",
-         "note": "even letters of iSbUrNt"
+         "words": "is",
+         "at": 19
+        },
+        {
+         "words": "burnt",
+         "at": 22
         }
        ]
       },
       {
        "words": "match",
+       "at": 48,
        "gives": "SUIT",
-       "note": "to match is to suit"
+       "note": "to suit is to match"
       }
      ]
     },
     "explanation": {
-     "surface": "A garment that gets scorched at intervals before the big game.",
-     "walkthrough": "The surface's sunburn is apt: a sunsuit protects a child from exactly that.",
-     "definitionFit": "A sunsuit is a light garment protecting children from the sun."
+     "surface": "Wear this protective garment, as it burns periodically before a match.",
+     "walkthrough": "'periodically' takes SUN from 'is burnt'.",
+     "definitionFit": "A child's sunsuit is a light outfit worn to shield the skin from the sun."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "match"
+     "aptDefinition": false
     }
    }
   },

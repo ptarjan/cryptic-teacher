@@ -1545,55 +1545,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Criminal",
-       "note": "the letters are rearranged, as a criminal twists things"
+       "text": "to enter",
+       "at": 22,
+       "note": "the scrambled letters go into the pair of outside letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "to enter",
-         "note": "the anagram goes inside the next piece"
+         "text": "extremely",
+         "at": 31,
+         "note": "extremely picks the two extreme letters of the word desirable"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "take the outer letters of the next word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "desirable",
-           "note": "the first and last letters of desirable"
-          }
-         ]
+         "words": "desirable",
+         "at": 41
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Criminal",
+         "at": 0,
+         "note": "criminal means crooked or wrong, so these letters are bent into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cons",
+         "at": 9
         },
         {
-         "words": "cons tourist",
-         "note": "anagram of CONS TOURIST, placed between D and E"
+         "words": "tourist",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crook swindles a visitor into going into a very pleasant shop.",
-     "walkthrough": "The surface is a tourist scam; 'Criminal' is the anagram signal, not the swindler.",
-     "definitionFit": "A discount store is a shop selling at reduced prices."
+     "surface": "A con artist dupes a tourist into a fancy boutique.",
+     "definitionFit": "A cut-price retail outlet is a kind of shop, selling goods below normal prices."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "Criminal"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   }

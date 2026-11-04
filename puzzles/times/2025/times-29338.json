@@ -865,40 +865,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "rolling round",
-       "note": "the word turns over, so it reads backwards"
+       "text": "in",
+       "at": 29,
+       "note": "the turned word sits inside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the turned word goes inside the rearranged letters"
+         "text": "rotten",
+         "at": 32,
+         "note": "rotten means decayed or corrupted, so the letters are broken down"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "rotten",
-           "note": "rotten = spoilt, so the letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "manure",
-           "note": "anagram fodder, 6 letters"
-          }
-         ]
-        },
+         "words": "manure",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolling round",
+         "at": 15,
+         "note": "rolling round means turning over, so the letters go backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "Lower oneself",
+         "at": 0,
          "gives": "SIT",
          "note": "to sit is to lower oneself into a seat"
         }
@@ -907,15 +911,12 @@
      ]
     },
     "explanation": {
-     "surface": "Someone wallows in rotting dung, claiming it will make them immune.",
-     "walkthrough": "The surface reads 'rolling round in' as wallowing in muck; it is really two instructions, a turn and then an insertion into the jumbled letters.",
-     "definitionFit": "An antiserum is blood serum carrying antibodies, which passes on immunity."
+     "surface": "Someone stoops to rolling about in decaying muck to gain immunity.",
+     "definitionFit": "Blood serum carrying antibodies passes on protection against disease, giving passive immunity."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "rolling"
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },

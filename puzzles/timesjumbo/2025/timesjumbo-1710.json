@@ -2584,35 +2584,53 @@
      "op": "charade",
      "parts": [
       {
-       "words": "fastener, not secure",
-       "gives": "ENER",
-       "note": "FASTENER without FAST (secure)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 21,
+         "note": "not means without, so the secure word is removed from the longer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fastener",
+         "at": 11
+        },
+        {
+         "words": "secure",
+         "at": 25,
+         "gives": "FAST",
+         "note": "secure means fast, as in made fast"
+        }
+       ]
       },
       {
        "words": "get",
-       "note": "as printed"
+       "at": 33
       },
       {
        "words": "one",
+       "at": 37,
        "gives": "I",
-       "note": "I = one, the Roman numeral"
+       "note": "one is the Roman numeral I"
       },
       {
        "words": "caught",
+       "at": 41,
        "gives": "C",
-       "note": "c = caught, in cricket scores"
+       "note": "C is the cricket abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "surface": "A jacket with a zip that won't stay done up, so it gets snagged.",
-     "walkthrough": "The surface is all about zips; 'zip' in the definition means vigour.",
-     "definitionFit": "Informal: zip is vim and vigour, like the zipping sound of something moving fast, so a person with plenty of it is full of go."
+     "surface": "Instructions for a jacket's zip: when it won't fasten, get one caught.",
+     "walkthrough": "'zip fastener' wants to be read together, but the definition stops at 'zip'.",
+     "definitionFit": "Zip is energy or vigour, so having zip means being lively and vigorous."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "zip"
     }
    }

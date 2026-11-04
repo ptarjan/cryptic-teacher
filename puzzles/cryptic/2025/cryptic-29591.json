@@ -1347,52 +1347,62 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HOUNDS",
      "indicators": [
       {
        "text": "criminal",
-       "note": "criminal suggests something bent or crooked, so the two letters are muddled"
+       "at": 30,
+       "note": "criminal means bent, so what remains is rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HOUNDS",
        "indicators": [
         {
-         "text": "blowing top",
-         "note": "a top that blows off is gone, so the first letter is removed"
-        },
-        {
          "text": "escapes",
-         "note": "letters that escape leave the word they were in"
+         "at": 39,
+         "note": "the scrambled pair of letters escapes, leaving the word"
         }
        ],
        "parts": [
         {
-         "words": "1,000s",
-         "gives": "THOUSANDS",
-         "note": "the number written as a word"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "blowing top",
+           "at": 15,
+           "note": "losing its top means the first letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "1,000s",
+           "at": 7,
+           "gives": "THOUSANDS",
+           "note": "1,000s are thousands"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         },
         {
          "words": "as",
-         "note": "taken as written, then jumbled and removed"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Thousands give chase, losing their tempers as a crook gets away.",
-     "walkthrough": "Remove the T at the top and the jumbled SA from THOUSANDS.",
-     "definitionFit": "To hound someone is to pursue them relentlessly, so hounds is a verb meaning chases."
+     "surface": "Someone in a rage chases thousands as a crook makes off.",
+     "walkthrough": "With its top blown, the thousands word loses T; the letters of 'as' escape, and 'criminal' shuffles the rest.",
+     "definitionFit": "To hound someone is to pursue or harass them relentlessly, so it means chases."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "criminal"
+     "misdirectedWord": "blowing"
     }
    }
   },
