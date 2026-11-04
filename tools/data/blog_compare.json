@@ -1,14 +1,14 @@
 {
  "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). Rates are disagreements per clue where both sides mark that fact; `due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, not an overwrite.",
  "coverage": {
-  "blog_hinted_clues": 84816,
+  "blog_hinted_clues": 76444,
   "blog_hinted_partial_puzzles": 10,
-  "blog_hinted_puzzles": 3337,
-  "blog_marked_clues": 81404,
-  "clues": 2097457,
-  "puzzles": 69979,
-  "unhinted_clues": 1031826,
-  "unhinted_puzzles": 33871
+  "blog_hinted_puzzles": 3037,
+  "blog_marked_clues": 73147,
+  "clues": 2098962,
+  "puzzles": 70026,
+  "unhinted_clues": 1021284,
+  "unhinted_puzzles": 33507
  },
  "summary": {
   "azed": {
@@ -24,16 +24,16 @@
    "type_rate": 0.0
   },
   "cryptic": {
-   "blocks_compared": 71322,
+   "blocks_compared": 73128,
    "blocks_disagree": 1,
-   "blocks_kept": 92,
-   "clues": 106990,
-   "definition_compared": 100393,
+   "blocks_kept": 94,
+   "clues": 109802,
+   "definition_compared": 102397,
    "definition_disagree": 1,
-   "definition_kept": 136,
-   "type_compared": 64800,
+   "definition_kept": 140,
+   "type_compared": 66405,
    "type_disagree": 7,
-   "type_kept": 417,
+   "type_kept": 425,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.01
@@ -66,18 +66,19 @@
    "type_rate": 0.01
   },
   "ftcryptic": {
-   "blocks_compared": 71580,
-   "blocks_disagree": 1,
-   "blocks_kept": 95,
-   "clues": 98056,
-   "definition_compared": 95335,
-   "definition_kept": 139,
-   "type_compared": 64558,
-   "type_disagree": 9,
-   "type_kept": 548,
+   "blocks_compared": 73517,
+   "blocks_disagree": 2,
+   "blocks_kept": 96,
+   "clues": 100900,
+   "definition_compared": 97878,
+   "definition_disagree": 1,
+   "definition_kept": 144,
+   "type_compared": 66411,
+   "type_disagree": 10,
+   "type_kept": 562,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
-   "type_rate": 0.01
+   "type_rate": 0.02
   },
   "genius": {
    "blocks_compared": 2122,
@@ -176,16 +177,17 @@
    "type_rate": 0.0
   },
   "telegraph": {
-   "blocks_compared": 28489,
+   "blocks_compared": 29437,
    "blocks_kept": 12,
-   "clues": 88029,
-   "definition_compared": 77755,
-   "definition_kept": 57,
-   "type_compared": 23193,
-   "type_kept": 153,
+   "clues": 90718,
+   "definition_compared": 80410,
+   "definition_kept": 58,
+   "type_compared": 23988,
+   "type_disagree": 2,
+   "type_kept": 159,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
-   "type_rate": 0.0
+   "type_rate": 0.01
   },
   "times": {
    "blocks_compared": 56776,
@@ -224,12 +226,12 @@
    "type_rate": 0.0
   },
   "timesquick": {
-   "blocks_compared": 48833,
+   "blocks_compared": 48848,
    "blocks_kept": 25,
-   "clues": 73113,
-   "definition_compared": 72136,
+   "clues": 73137,
+   "definition_compared": 72160,
    "definition_kept": 47,
-   "type_compared": 48349,
+   "type_compared": 48370,
    "type_kept": 228,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
@@ -248,32 +250,32 @@
    "type_rate": 0.0
   },
   "toughie": {
-   "blocks_compared": 28427,
+   "blocks_compared": 28449,
    "blocks_disagree": 1,
    "blocks_kept": 43,
-   "clues": 93216,
+   "clues": 93253,
    "definition_compared": 78712,
    "definition_kept": 116,
-   "type_compared": 16628,
+   "type_compared": 16638,
    "type_kept": 302,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.0
   },
   "ALL": {
-   "blocks_compared": 481041,
-   "blocks_disagree": 3,
-   "blocks_kept": 459,
-   "clues": 855612,
-   "definition_compared": 781146,
-   "definition_disagree": 3,
-   "definition_kept": 951,
-   "type_compared": 441920,
-   "type_disagree": 22,
-   "type_kept": 2970,
+   "blocks_compared": 485769,
+   "blocks_disagree": 4,
+   "blocks_kept": 462,
+   "clues": 864018,
+   "definition_compared": 788372,
+   "definition_disagree": 4,
+   "definition_kept": 961,
+   "type_compared": 446204,
+   "type_disagree": 25,
+   "type_kept": 2998,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
-   "type_rate": 0.0
+   "type_rate": 0.01
   }
  },
  "examples": {
@@ -293,6 +295,13 @@
     "warning": "definition 'Trendy dining option' shares no word with the definition Fifteensquared underlined ('Coronation chicken', https://fifteensquared.net/2025/11/09/everyman-4124/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
+    "puzzle": "ftcryptic-14787",
+    "entry": "11-down",
+    "clue": "It can pile up in banks nowadays",
+    "answer": "SNOW",
+    "warning": "definition 'It can pile up' shares no word with the definition Fifteensquared underlined ('It', https://fifteensquared.net/2014/12/04/financial-times-14787-crux/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
     "puzzle": "independent-11665",
     "entry": "27-across",
     "clue": "Worried about fabricated denial? The opposite is conveyed",
@@ -309,25 +318,11 @@
     "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2024/03/01/guardian-cryptic-29319-paul/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-29554",
-    "entry": "9-down",
-    "clue": "One's in Gaia, then another — and in another also!",
-    "answer": "GREEKGODDESS",
-    "warning": "typed 'double definition', but Fifteensquared parses it as 'hidden word' (https://fifteensquared.net/2024/12/07/guardian-saturday-prize-crossword-29554-by-paul-30-november-2024/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
     "puzzle": "cryptic-30014",
     "entry": "17-down",
     "clue": "Female film?",
     "answer": "IRONMAN",
     "warning": "typed 'charade', but Fifteensquared parses it as 'cryptic definition' (https://fifteensquared.net/2026/05/30/guardian-prize-prize-crossword-no-30014-by-paul/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "cryptic-30045",
-    "entry": "8-down",
-    "clue": "Difficult spot with picturesque route through mountains",
-    "answer": "PRETTYPASS",
-    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2026/06/29/guardian-cryptic-crossword-no-30045-by-anto/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "cryptic-30060",
@@ -337,13 +332,6 @@
     "warning": "typed 'charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2026/07/16/guardian-cryptic-crossword-no-30060-by-anto/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cryptic-30072",
-    "entry": "14-down",
-    "clue": "Actor suggesting a spot of 1dn?",
-    "answer": "TOMCRUISE",
-    "warning": "typed 'charade', but Fifteensquared parses it as 'cryptic definition' (https://fifteensquared.net/2026/07/30/guardian-30072-enigmatist/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
     "puzzle": "cryptic-30088",
     "entry": "3-down",
     "clue": "Arranges party — with what's available",
@@ -351,25 +339,11 @@
     "warning": "typed 'charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2026/08/18/guardian-30088-maskarade/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
-    "puzzle": "cyclops-443",
-    "entry": "26-across",
-    "clue": "House associated with stink — tell me something I don't know!",
-    "answer": "HOHUM",
-    "warning": "typed 'charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2011/05/23/private-eyecyclops-443-home-service/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
     "puzzle": "everyman-4108",
     "entry": "21-down",
     "clue": "Everyman given tips in amateur theatre, being a ham?",
     "answer": "MEAT",
     "warning": "typed 'letter selection + charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2025/07/20/everyman-4108/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
-   },
-   {
-    "puzzle": "everyman-4159",
-    "entry": "3-down",
-    "clue": "I'll give you energy: like a pancake?",
-    "answer": "BATTERY",
-    "warning": "typed 'charade', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2026/07/12/everyman-4159/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "ftcryptic-13980",
@@ -384,6 +358,41 @@
     "clue": "Perhaps Constable and I start cycling",
     "answer": "ARTIST",
     "warning": "typed 'cycling', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2025/04/28/financial-times-18037-by-rosa-klebb/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "ftcryptic-18362",
+    "entry": "26-across",
+    "clue": "Spool bouncin' up and down",
+    "answer": "BOBBIN",
+    "warning": "typed 'double definition', but Fifteensquared parses it as 'deletion' (https://fifteensquared.net/2026/05/04/financial-times-18362-by-mudd/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "ftcryptic-18398",
+    "entry": "27-across",
+    "clue": "Boxers maybe subject to deterioration",
+    "answer": "UNDERWEAR",
+    "warning": "typed 'charade', but Fifteensquared parses it as 'cryptic definition' (https://fifteensquared.net/2026/06/12/financial-times-18398-by-xela/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "ftcryptic-18453",
+    "entry": "17-across",
+    "clue": "Space on packed bus replacement service for jilted bride?",
+    "answer": "STANDINGROOM",
+    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2026/08/17/financial-times-18453-by-guy/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "genius-243",
+    "entry": "3-down",
+    "clue": "New management offer to provide next deliveries?",
+    "answer": "TAKEOVER",
+    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2023/10/01/guardian-genius-243-pangakupu/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "independent-11566",
+    "entry": "11-across",
+    "clue": "United supporters making return journey in chaos?",
+    "answer": "SNAFU",
+    "warning": "typed 'charade + reversal', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2023/11/06/independent-11566-by-tees/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
    }
   ],
   "blocks": [
@@ -393,6 +402,13 @@
     "clue": "How Monet changed Paris, for him",
     "answer": "HOMETOWN",
     "warning": "Fifteensquared reads 'changed' as ANANAGRAM, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/06/01/guardian-30021-budmo/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "ftcryptic-14863",
+    "entry": "11-down",
+    "clue": "A good walk spoiled by what's in front of hotel …. sell up",
+    "answer": "GOLF",
+    "warning": "Fifteensquared reads 'sell' as FLOG, and no block of ours spells it or takes those words (https://fifteensquared.net/2015/02/24/financial-times-14863-jason/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "ftcryptic-18053",
@@ -495,6 +511,22 @@
     "type"
    ]
   ],
+  "ftcryptic-14787": [
+   [
+    "11-down",
+    "definition"
+   ],
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-14863": [
+   [
+    "11-down",
+    "blocks"
+   ]
+  ],
   "ftcryptic-18037": [
    [
     "16-across",
@@ -571,6 +603,18 @@
    [
     "27-across",
     "definition"
+   ]
+  ],
+  "telegraph-27869": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "telegraph-27912": [
+   [
+    "11-down",
+    "type"
    ]
   ],
   "toughie-775": [
