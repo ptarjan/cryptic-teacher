@@ -36,7 +36,9 @@ HEARTBEAT_S = 5 * 60       # the status line is written at least this often
 IDLE_AFTER_S = 5 * 60      # nothing started this long, nothing running: idle
 ASK_WINDOW_S = 10 * 60
 RUN_MAX_S = 70 * 60        # a unit with no end line this long is forgotten
-DEDUPE_S = 180             # the same result line twice inside this is one
+ASK_LOG_TAIL = 512 * 1024  # bytes of the reader's call log read for the ask count
+ASK_LINE = re.compile(r"^(\d\d):(\d\d):(\d\d) vlm ask ")
+DEDUPE_S = 180            # the same result line twice inside this is one
 WARM_BYTES = 8 * 1024 * 1024
 TS = re.compile(r"^(\d\d):(\d\d):(\d\d) (.*)$")
 SLICE = re.compile(r"^=== slice from (\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)")
@@ -115,8 +117,9 @@ def pretty(unit):
 class Log:
     """Raw queue lines in, human lines out (returned, so a test can read them)."""
 
-    def __init__(self, repo=None, day=None):
+    def __init__(self, repo=None, day=None, ask_log=None):
         self.repo = repo                  # checkout whose commits count filed and updated
+        self.ask_log = ask_log            # the image reader's own call log (UTC clock): the live ask count
         self.day0 = datetime.datetime.combine(day or datetime.date.today(), datetime.time()).timestamp()
         self.t = None                     # the log's clock, seconds
         self.last_wall = None
@@ -225,6 +228,31 @@ class Log:
         self.git_cache = (t, counts)
         return counts
 
+    def ask_count(self):
+        """Asks the image reader answered in the last ASK_WINDOW_S. Live, that is the reader's own call log
+        (one line per real server call); the queue's "N asks spooled" lines count only the asks a read
+        queued the moment it was deferred, a small part of what the reader then works through."""
+        if self.ask_log and self.last_wall is not None:
+            try:
+                with open(self.ask_log, "rb") as fh:
+                    fh.seek(0, os.SEEK_END)
+                    size = fh.tell()
+                    fh.seek(max(0, size - ASK_LOG_TAIL))
+                    lines = fh.read().decode("utf-8", "replace").splitlines()
+            except OSError:
+                lines = None
+            if lines is not None:
+                now = datetime.datetime.fromtimestamp(self.t, datetime.timezone.utc)
+                now_s = now.hour * 3600 + now.minute * 60 + now.second
+                n = 0
+                for row in lines:
+                    m = ASK_LINE.match(row)
+                    # the log has no date: a line's age is the clock difference, wrapped over midnight
+                    if m and (now_s - int(m.group(1)) * 3600 - int(m.group(2)) * 60 - int(m.group(3))) % 86400 <= ASK_WINDOW_S:
+                        n += 1
+                return n
+        return sum(a for _, a in self.asks)
+
     def status(self, force=False):
         if self.t is None:
             return []
@@ -244,7 +272,7 @@ class Log:
         filed, updated = counts if counts else (len(self.filed), "–")
         n = len(self.running)
         parts = [f"{n} unit{'' if n == 1 else 's'} at once", f"{filed} Times filed/h",
-                 f"{updated} puzzles updated/h", f"{sum(a for _, a in self.asks)} image-reader asks/10 min",
+                 f"{updated} puzzles updated/h", f"{self.ask_count()} image-reader asks/10 min",
                  f"{self.queued} reads queued"]
         if self.paused:
             parts.append("paused for a game")
@@ -482,8 +510,13 @@ def replay(raw_path, out_path, repo=None):
     return 0
 
 
+def ask_log_path():
+    """Where vlm_reader writes one line per real server call (CT_VLM_ASK_LOG overrides)."""
+    return os.environ.get("CT_VLM_ASK_LOG") or os.path.expanduser("~/.cache/corpus_queue/vlm_asks.log")
+
+
 def follow(raw_path, out_path, repo=None, poll=1.0):
-    log = Log(repo)
+    log = Log(repo, ask_log=ask_log_path())
     pos_path = out_path + ".pos"
     try:
         with open(pos_path) as fh:
@@ -538,7 +571,7 @@ def follow(raw_path, out_path, repo=None, poll=1.0):
 def stream(out_path, repo=None):
     import queue
     import threading
-    log = Log(repo)
+    log = Log(repo, ask_log=ask_log_path())
     lines = queue.Queue()
 
     def reader():
