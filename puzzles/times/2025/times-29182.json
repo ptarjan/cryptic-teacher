@@ -142,52 +142,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "must leave",
+       "at": 24,
+       "note": "must leave means those letters go out of the words"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "must leave",
-         "note": "the kings go out of the word, so remove both Ks"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Spot",
+         "at": 0,
          "gives": "SPECK",
-         "note": "a speck is a spot"
+         "note": "a speck is a tiny spot"
         },
         {
-         "gives": "K"
+         "words": "crown jewels",
+         "at": 5,
+         "gives": "TACKLE",
+         "note": "crown jewels and tackle are both British slang for male genitals"
         }
        ]
       },
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "crown jewels",
-         "gives": "TACKLE",
-         "note": "both are slang for a man's genitals"
-        },
-        {
-         "gives": "K"
-        }
-       ]
+       "words": "kings",
+       "at": 18,
+       "gives": "KK",
+       "note": "K is the chess abbreviation for king, so two kings are two Ks"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spots the crown jewels being put on show once the kings have gone.",
-     "walkthrough": "'Crown jewels' looks like the Tower of London regalia; here it is a cheeky euphemism, as is TACKLE. SPECKTACKLE loses both Ks.",
-     "definitionFit": "A plain synonym: a striking show put on for an audience."
+     "surface": "Spotting the Crown Jewels on show once kings have gone.",
+     "walkthrough": "'must leave' removes a K from SPECK and from TACKLE.",
+     "definitionFit": "A spectacle is a striking public show or display."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "jewels"
+     "misdirectedWord": "crown"
     }
    }
   },
@@ -850,20 +848,37 @@
      "parts": [
       {
        "words": "cold",
+       "at": 6,
        "gives": "C",
-       "note": "C = cold, as on a tap"
+       "note": "C is the abbreviation for cold on taps"
       },
       {
-       "words": "wine lacking finish",
-       "gives": "HOC",
-       "note": "HOCK, a German white wine, without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking finish",
+         "at": 16,
+         "note": "lacking finish means the last letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 11,
+         "gives": "HOCK",
+         "note": "hock is a German white wine from the Rhine"
+        },
+        {
+         "gives": "K"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sweet, chilled wine without much of an aftertaste.",
-     "walkthrough": "'Finish' sounds like wine-tasting talk for aftertaste; it means the last letter. Hock is the British name for German white wine from the Rhine.",
-     "definitionFit": "A choc is an informal word for a chocolate, a sweet."
+     "surface": "A cold wine that lacks a good aftertaste, too sweet.",
+     "walkthrough": "'lacking finish' cuts K from HOCK, a British name for Rhine wine.",
+     "definitionFit": "Choc is British informal shortening for chocolate, a sweet treat."
     },
     "features": {
      "answerInScene": false,

@@ -1400,57 +1400,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPIRAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "in means placed inside the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "'I run in circuits' says the letter I sits inside the run-and-circuits combination"
+         "text": "going round",
+         "at": 19,
+         "note": "going round means turning back on itself, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "going round",
-           "note": "the reversed word goes round the others, enclosing them"
-          }
-         ],
-         "parts": [
-          {
-           "words": "circuits",
-           "gives": "SPAL",
-           "note": "LAPS turned round"
-          },
-          {
-           "words": "run",
-           "gives": "R",
-           "note": "R = run, in cricket scoring"
-          }
-         ]
-        },
+         "words": "circuits",
+         "at": 9,
+         "gives": "LAPS",
+         "note": "circuits of a track are laps"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "I",
-         "note": "I stays as it is"
+         "at": 0
+        },
+        {
+         "words": "run",
+         "at": 2,
+         "gives": "R",
+         "note": "R is the cricket abbreviation for run"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A runner going round and round a winding track.",
-     "walkthrough": "'Circuits' does double duty in the surface as laps of the track, and that is exactly what it gives before being turned.",
-     "definitionFit": "A shape word: a path that keeps winding round a centre follows a spiral."
+     "surface": "A runner describing laps of a twisting track.",
+     "walkthrough": "'going round' turns LAPS into SPAL, and I plus R go 'in' it.",
+     "definitionFit": "A spiral is a path that winds round a centre, a curving course."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "circuits"
+     "misdirectedWord": "run"
     }
    }
   },

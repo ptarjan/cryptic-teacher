@@ -283,56 +283,72 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ITALIC",
      "indicators": [
       {
        "text": "off",
-       "note": "something off is out of order, so the remaining letters are rearranged"
+       "at": 34,
+       "note": "off means out of order, so what remains is rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ITALIC",
        "indicators": [
         {
-         "text": "stripped",
-         "note": "stripping takes off the outer layer, so the first and last letters go"
-        },
-        {
-         "text": "no",
-         "note": "saying no to something leaves it out, so that letter is taken away"
-        },
-        {
          "text": "not",
-         "note": "not having something means it is removed from the word"
+         "at": 48,
+         "note": "not means take away, so the letter for one is dropped"
         }
        ],
        "parts": [
         {
-         "words": "politician",
-         "note": "taken as written"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love is zero in tennis, shaped like O"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "no",
+           "at": 39,
+           "note": "no means without, so the letter for love goes"
+          }
+         ],
+         "parts": [
+          {
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "stripped",
+             "at": 25,
+             "note": "stripped means the outer layer is removed, leaving the inner letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "politician",
+             "at": 14
+            }
+           ]
+          },
+          {
+           "words": "love",
+           "at": 42,
+           "gives": "O",
+           "note": "love in tennis means a score of zero, the letter O"
+          }
+         ]
         },
         {
          "words": "one",
+         "at": 52,
          "gives": "I",
-         "note": "the Roman numeral for one"
+         "note": "one is the Roman numeral I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A right-wing politician caught undressed, shown to have no love and no one.",
-     "walkthrough": "Stripping the ends leaves OLITICIA; removing an O and an I leaves LITICA to rearrange. 'Right-leaning' sounds political but describes the slant of type.",
-     "definitionFit": "Italic type slopes to the right, so the letters literally lean rightwards."
+     "surface": "A politician of the right exposed, having lost love and everything else.",
+     "walkthrough": "'stripped' gives OLITICIA; 'no' removes O and 'not' removes one I, leaving LTICIA, which 'off' rearranges.",
+     "definitionFit": "This typeface slopes to the right, so its letters lean that way."
     },
     "features": {
      "answerInScene": false,

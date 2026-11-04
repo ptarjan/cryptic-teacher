@@ -295,38 +295,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "backtracking",
-       "note": "backtracking means going back the way you came, so these two letters run the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backtracking",
+         "at": 12,
+         "note": "backtracking means going back the way it came, so the two-word run is read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Assuming",
+           "at": 0,
+           "gives": "IF",
+           "note": "assuming, as in supposing that, means if"
+          },
+          {
+           "words": "FA",
+           "at": 9,
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "arranged",
-         "note": "arranged means put in a new order, so all the collected letters are rearranged"
+         "at": 36,
+         "note": "arranged means put into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Assuming",
-         "gives": "IF",
-         "note": "assuming that means the same as if"
-        },
-        {
-         "words": "FA",
-         "note": "the Football Association, taken as written"
-        },
-        {
-         "words": "deal",
-         "note": "taken as written"
-        },
-        {
-         "words": "it",
+         "words": "deal it",
+         "at": 28,
          "note": "taken as written"
         }
        ]
@@ -334,12 +345,12 @@
      ]
     },
     "explanation": {
-     "surface": "The Football Association rows back on a deal it set up for a football league.",
-     "walkthrough": "The FA is England's football governing body, which makes 'league' feel like a football competition rather than an alliance.",
-     "definitionFit": "Affiliated means officially connected or allied with another body, which is being in league with it."
+     "surface": "The Football Association goes back on a deal it made with a league.",
+     "walkthrough": "'backtracking' turns IF FA into AFFI; 'arranged' makes LIATED from DEAL IT.",
+     "definitionFit": "Being affiliated means officially connected or allied, which is to be in league with another body."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "league"
     }
