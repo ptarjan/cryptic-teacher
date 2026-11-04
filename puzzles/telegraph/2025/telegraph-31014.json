@@ -468,47 +468,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "nameless",
-       "note": "without a name means the abbreviation for name must be dropped from the word before"
-      },
-      {
-       "text": "Cockney's",
-       "note": "a Cockney famously drops the aspirate at the start of words, so the initial H goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nameless",
+         "at": 9,
+         "note": "N is the abbreviation for name, so without a name the planet loses that letter"
+        }
+       ],
        "parts": [
         {
          "words": "planet",
+         "at": 18,
          "gives": "SATURN",
-         "note": "Saturn is the ringed sixth planet"
+         "note": "Saturn is a planet"
         },
         {
-         "words": "loathing",
-         "gives": "HATING",
-         "note": "hating is a synonym for loathing"
+         "gives": "N"
         }
        ]
       },
       {
-       "gives": "NH"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney's",
+         "at": 25,
+         "note": "a Cockney speaker drops the initial aitch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loathing",
+         "at": 35,
+         "gives": "HATING",
+         "note": "hating is loathing"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rambling picture of a Cockney's hatred for some unnamed planet, while drenched.",
-     "walkthrough": "N is the abbreviation for name, taken from SATURN; a Cockney says 'ating for HATING. A Cockney is a working-class Londoner with a distinctive accent.",
-     "definitionFit": "Saturating means soaking something through completely, so it is a synonym for drenching."
+     "surface": "A Londoner, drenched, curses a planet he cannot name.",
+     "walkthrough": "'nameless' removes N from SATURN; 'Cockney's' drops the H of HATING, as East Londoners famously do.",
+     "definitionFit": "Both mean drenching something through until it can absorb no more."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "nameless"
+     "misdirectedWord": "planet"
     }
    }
   },

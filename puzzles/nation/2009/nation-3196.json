@@ -624,32 +624,60 @@
       {
        "text": "about",
        "at": 43,
-       "note": "about means the short form of continued goes around the little nun"
+       "note": "about means around, so the shortened word goes round the other"
       }
      ],
      "parts": [
       {
-       "words": "what is continued shortly",
-       "at": 17,
-       "gives": "CONT",
-       "note": "cont. is the usual short form of continued"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 35,
+         "note": "shortly means in short form, as the abbreviation cont."
+        }
+       ],
+       "parts": [
+        {
+         "words": "continued",
+         "at": 25
+        },
+        {
+         "gives": "INUED"
+        }
+       ]
       },
       {
-       "words": "a diminutive nun",
-       "at": 49,
-       "gives": "SIS",
-       "note": "a nun is a sister, and sis is the pet form of sister"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "diminutive",
+         "at": 51,
+         "note": "a diminutive is a shortened, familiar form, so the word for nun loses its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nun",
+         "at": 62,
+         "gives": "SISTER",
+         "note": "a nun is called sister"
+        },
+        {
+         "gives": "TER"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something being composed of a serial story wrapped around a tiny nun, which is nonsense on purpose.",
-     "definitionFit": "To consist of something is to be composed of it, made up of those parts."
+     "surface": "A note on a serialised story about a small nun.",
+     "walkthrough": "'shortly' cuts 'continued' to CONT, the usual abbreviation; 'diminutive' trims SISTER to SIS; 'about' puts CONT round SIS.",
+     "definitionFit": "To comprise or be composed of particular parts or elements."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "diminutive"
     }
    }
