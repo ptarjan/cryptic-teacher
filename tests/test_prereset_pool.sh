@@ -32,7 +32,11 @@ check() {  # check <what> <expected> <got>
 }
 
 tree="$(mktemp -d)"
-trap 'rm -rf "$tree" /tmp/ct-prereset-pooltest-$$-*' EXIT
+# Fail fast, not at the CI job's 30-minute cut: a pool that never finishes
+# (a stub bypassed, a loop that does not end) is killed here with a verdict.
+( sleep "${POOL_TEST_SECS:-420}"; echo "FAIL the pool test did not finish in ${POOL_TEST_SECS:-420}s (hung)"; kill -TERM $$ ) &
+WATCHDOG=$!
+trap 'kill $WATCHDOG 2>/dev/null; rm -rf "$tree" /tmp/ct-prereset-pooltest-$$-*' EXIT
 EVENTS="$tree/events"
 RUNS="$tree/runs"; mkdir -p "$RUNS"   # the run session records; none left by a restart
 resumed=" "
@@ -85,6 +89,10 @@ git() {
 # real command, which would bypass the python3 stub below and spawn a real
 # (niced, so slow on a loaded runner) python per launch. Run the stubs instead.
 tools/low_cpu.sh() { "$@"; }
+# pool_replan runs the planner as `timeout -k 5 N python3 ...`; the real timeout
+# binary cannot see the python3 function below and would run the real planner
+# (slow, and never the stub's events). Drop its arguments, run the command here.
+timeout() { while [ "${1#-}" != "$1" ]; do [ "$1" = -k ] && shift; shift; done; shift; "$@"; }
 pool_bag() { :; }   # bagging reads the queue through tools/clue_bag.py; not under test here
 worker_sweep_scratch() { :; }
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
