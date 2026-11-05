@@ -65,6 +65,7 @@ rest in round-robin order). The cover and the shape tier never reorder that tail
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
     tools/prereset_plan.py --rush [MINUTES]   # burn flat out until the weekly meter hits 100% or its reset (MINUTES is optional, unused)
     tools/prereset_plan.py --weekly           # pace the weekly meter, a window per manual reset (the default)
+    tools/prereset_plan.py --refresh-bridge-mean [HOME]  # measure the bridge over 7 days into HOME/.prereset.bridge_mean
     tools/prereset_plan.py --resets           # the manual resets free before the natural one, the plan, and his nights
     tools/prereset_plan.py --natural-only [UNTIL_EPOCH]  # plan no manual resets until then (default: the natural reset)
     tools/prereset_plan.py --self-test
@@ -74,6 +75,7 @@ import itertools
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -187,6 +189,19 @@ WAKE_SH = "/Users/pt/github/household/tools/wake.sh"
 # bridge alone would reach 99%, gave the burn 0, and the quota went unspent
 # (owner 2026-10-17: "Why aren't we burning").
 SPEND_WINDOW_S = 6 * 3600
+# But the 6-hour rate is only for the short term (the night guard, the machine's
+# capacity). paced_need projects the bridge to the reset, a week out, and the
+# rooms' morning peak (1.4-3 pts/h) is not their mean: multiplied by 140 hours
+# it exceeded all that was left and the burn ran at width 0 for a morning
+# (2026-11-05) with 31k puzzles queued. The projection uses the bridge's rate over
+# the last BRIDGE_MEAN_WINDOW_S instead. Reading a week of transcripts takes minutes,
+# so bridge_mean keeps the value in BRIDGE_MEAN_FILE for BRIDGE_MEAN_TTL_S, and
+# refreshes it in a detached process (--refresh-bridge-mean); until the first
+# refresh lands, the short rate stands.
+BRIDGE_MEAN_WINDOW_S = 7 * 24 * 3600
+BRIDGE_MEAN_TTL_S = 24 * 3600
+BRIDGE_MEAN_RETRY_S = 1800
+BRIDGE_MEAN_FILE = ".prereset.bridge_mean"
 METER_STALE_S = 900
 TOKEN_WEIGHT = {"input_tokens": 1.0, "cache_creation_input_tokens": 1.25,
                 "cache_read_input_tokens": 0.1, "output_tokens": 5.0}
@@ -841,16 +856,68 @@ def cpu_load(state_path):
     return max(0, busy - burn) / ticks, burn / ticks
 
 
-def bridge_spend(now=None):
+def bridge_spend(now=None, window=SPEND_WINDOW_S):
     """(bridge points an hour, burn points per run-hour or None) measured over
-    the last SPEND_WINDOW_S; (None, None) when the meter is unread."""
+    the last `window` seconds (SPEND_WINDOW_S); (None, None) when the meter is
+    unread."""
     now = now or time.time()
-    rise = meter_rise(_read(weekly_usage.SAMPLE_CSV_PATH), now - SPEND_WINDOW_S, now)
+    rise = meter_rise(_read(weekly_usage.SAMPLE_CSV_PATH), now - window, now)
     if not rise:
         return None, None
     config = Path(os.environ.get("CLAUDE_CONFIG_DIR") or Path.home() / ".claude")
     return split_rates(rise, *transcript_spend(config / "projects", REPO,
                                                now - rise[1] * 3600, now))
+
+
+def mean_fresh(text, now):
+    """(rate, age in seconds) from a BRIDGE_MEAN_FILE's text, None if unreadable."""
+    try:
+        rec = json.loads(text)
+        rate, age = float(rec["rate"]), now - float(rec["at"])
+    except (TypeError, ValueError, KeyError):
+        return None
+    return (rate, age) if rate >= 0 and age >= 0 else None
+
+
+def bridge_mean(home, now, short, spawn=True):
+    """The bridge's points an hour to project to the reset: its rate over
+    BRIDGE_MEAN_WINDOW_S, from the file in home. A value older than the TTL
+    still serves while a refresh runs; with none, the `short` rate stands.
+    The refresh is detached and tried at most every BRIDGE_MEAN_RETRY_S."""
+    path = Path(home) / BRIDGE_MEAN_FILE
+    got = mean_fresh(_read(path), now)
+    if spawn and (got is None or got[1] > BRIDGE_MEAN_TTL_S):
+        lock = Path(str(path) + ".lock")
+        try:
+            recent = now - lock.stat().st_mtime < BRIDGE_MEAN_RETRY_S
+        except OSError:
+            recent = False
+        if not recent:
+            try:
+                lock.write_text(f"{now:.0f}\n")
+                subprocess.Popen([sys.executable, str(Path(__file__).resolve()),
+                                  "--refresh-bridge-mean", str(home)],
+                                 stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                                 stderr=subprocess.DEVNULL, start_new_session=True)
+            except OSError as exc:
+                print(f"bridge mean: refresh not started: {exc}", file=sys.stderr)
+    return short if got is None else got[0]
+
+
+def refresh_bridge_mean(home):
+    """--refresh-bridge-mean HOME: measure the bridge over BRIDGE_MEAN_WINDOW_S
+    and write it to HOME's BRIDGE_MEAN_FILE (whole, so no reader sees half)."""
+    now = time.time()
+    rate, _ = bridge_spend(now, BRIDGE_MEAN_WINDOW_S)
+    if rate is None:
+        print("bridge mean: meter unread", file=sys.stderr)
+        return 1
+    path = Path(home) / BRIDGE_MEAN_FILE
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps({"at": now, "rate": rate}) + "\n")
+    tmp.replace(path)
+    print(f"bridge mean {rate:.3f} pts/h over {BRIDGE_MEAN_WINDOW_S / 86400:g} days")
+    return 0
 
 
 def capacity_rate(mem, rate, bridge):
@@ -889,7 +956,8 @@ def show_resets():
     print(f"plan: {k} manual resets, meter to {EXHAUSTED:g}% by {at(fill)} at "
           f"{need_rate:.2f} pts/h (capacity {cap if cap is None else round(cap, 2)} pts/h, "
           f"bridge {bridge if bridge is None else round(bridge, 2)} pts/h)")
-    runs = paced_need(pct, max(AIM_MIN_H, (fill - now) / 3600), rate, bridge or 0.0)
+    proj = bridge_mean(home, now, bridge, spawn=False)
+    runs = paced_need(pct, max(AIM_MIN_H, (fill - now) / 3600), rate, proj or 0.0)
     if night is not None and runs is not None:
         runs = min(runs, night[0])
     print(f"next fill: {at(fill)}, burn width now {runs} runs"
@@ -935,7 +1003,7 @@ def width(arg=None, floor=1):
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     lines = (_read(home / ".prereset.debug.log") or "").splitlines()
     current = current_width(arg, lines)
-    runs_needed = bridge = pct = hours_left = plan = night = None
+    runs_needed = bridge = proj = pct = hours_left = plan = night = None
     slots = []
     rushing = natural = False
     choice = None
@@ -975,7 +1043,8 @@ def width(arg=None, floor=1):
                     f"The burn has spent the weekly meter ({pct:g}%) and a reset is free: "
                     f"reset it now ({plan[0] if plan else 0} planned before the natural reset). "
                     f"The burn resumes by itself once it falls.", sleep)
-        runs_needed = paced_need(pct, aim_h, rate, bridge or 0.0)
+        proj = bridge_mean(home, now, bridge)
+        runs_needed = paced_need(pct, aim_h, rate, proj or 0.0)
         night = night_guard(pct, now, hours_left, plan, rate, bridge, sleep, natural)
         if night is not None and runs_needed is not None and night[0] < runs_needed:
             runs_needed = night[0]
@@ -993,6 +1062,8 @@ def width(arg=None, floor=1):
         w = busy
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
+    if proj is not None and proj != bridge:
+        shown += f" (projected at {proj:.1f} pts/h)"
     cores = (f"others {load[0]:.2f} burn {load[1]:.2f} over {runs:g} runs of {os.cpu_count()} cores"
              if load else "cores unread")
     at = (f"{pct:g}% now, {hours_left:.1f}h to its reset"
@@ -2948,6 +3019,9 @@ def main():
         return set_rush(rest[0] if rest and not rest[0].startswith("-") else None)
     if "--resets" in sys.argv:
         return show_resets()
+    if "--refresh-bridge-mean" in sys.argv:
+        rest = sys.argv[sys.argv.index("--refresh-bridge-mean") + 1:]
+        return refresh_bridge_mean(rest[0] if rest else Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO))
     if "--natural-only" in sys.argv:
         rest = sys.argv[sys.argv.index("--natural-only") + 1:]
         return set_natural_only(rest[0] if rest and not rest[0].startswith("-") else None)
