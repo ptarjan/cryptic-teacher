@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,29 @@
     "text": "I don't know highland route",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I don't know",
+      "at": 0,
+      "meaning": "saying you ... is admitting you cannot answer, as on a quiz show"
+     },
+     {
+      "text": "highland route",
+      "at": 13,
+      "meaning": "a mountain ... is a way through high country"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: declining to answer a question, and a gap through mountains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "highland"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +70,42 @@
     "text": "Where Salisbury was restyled, so I heard",
     "enumeration": "8"
    },
-   "solution": "RHODESIA"
+   "solution": "RHODESIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where Salisbury was",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "restyled",
+       "at": 20,
+       "note": "restyled means given a new form, so the letters of the following words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "so I heard",
+       "at": 30,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls hearing that the city of Salisbury was renamed.",
+     "walkthrough": "'so I heard' looks like a homophone signal, but it is the fodder for 'restyled'. Salisbury was the capital of the old African state, now Harare in Zimbabwe.",
+     "definitionFit": "Salisbury was the capital of the former colony, so the colony is where the city stood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +119,58 @@
     "text": "Those taking off stockings regret being faithful",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "faithful",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking off",
+         "at": 6,
+         "note": "taking off means removing, so the stockings are stripped out of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Those",
+         "at": 0
+        },
+        {
+         "words": "stockings",
+         "at": 17,
+         "gives": "HOSE",
+         "note": "hose is an old word for stockings"
+        }
+       ]
+      },
+      {
+       "words": "regret",
+       "at": 27,
+       "gives": "RUE",
+       "note": "to rue is to regret"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People removing their hosiery regret their loyalty.",
+     "definitionFit": "A true friend is a faithful, loyal one: a straight synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stockings"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +184,42 @@
     "text": "Role at Stratford — writing War and Peace, say",
     "enumeration": "8"
    },
-   "solution": "ANTONYMS"
+   "solution": "ANTONYMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "War and Peace, say",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Role at Stratford",
+       "at": 0,
+       "gives": "ANTONY",
+       "note": "Antony is a part in Shakespeare's Antony and Cleopatra; Stratford-upon-Avon is Shakespeare's birthplace and theatre town"
+      },
+      {
+       "words": "writing",
+       "at": 20,
+       "gives": "MS",
+       "note": "MS is short for manuscript, a piece of writing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's Shakespeare part seems linked to writing Tolstoy's novel.",
+     "walkthrough": "'War and Peace' looks like Tolstoy's novel, but here it is a pair of opposite words.",
+     "definitionFit": "War and peace are opposites, words of contrary meaning, so they exemplify the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "War"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +233,52 @@
     "text": "Artist without art, sort of arresting",
     "enumeration": "6"
    },
-   "solution": "INGRES"
+   "solution": "INGRES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 7,
+       "note": "without means the letters of the following word are left out of the pool"
+      },
+      {
+       "text": "sort of",
+       "at": 20,
+       "note": "sort of signals that the remaining letters are jumbled into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arresting",
+       "at": 28,
+       "note": "taken as written"
+      },
+      {
+       "words": "art",
+       "at": 15,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter with no artistic skill is nonetheless rather striking.",
+     "walkthrough": "Take the letters of ART out of ARRESTING, leaving RESING, and rearrange them. Ingres was a French Neoclassical painter.",
+     "definitionFit": "Jean-Auguste-Dominique Ingres was a celebrated French painter, an example of an artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arresting"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +298,48 @@
      }
     ]
    },
-   "solution": "COVERINGUP"
+   "solution": "COVERINGUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "withholding information",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 11,
+       "note": "in a down clue, on means the first piece sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Old fellow",
+       "at": 0,
+       "gives": "COVE",
+       "note": "cove is dated British slang for a man or fellow"
+      },
+      {
+       "words": "call",
+       "at": 14,
+       "gives": "RINGUP",
+       "note": "to ring up is to telephone, to call"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man on the telephone is keeping secrets.",
+     "definitionFit": "Covering up means concealing facts, the same as keeping information back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +359,49 @@
      }
     ]
    },
-   "solution": "WHATHO"
+   "solution": "WHATHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Call for Bertie Wooster's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupting",
+       "at": 33,
+       "note": "interrupting means breaking into the middle of the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 46,
+       "gives": "WHO",
+       "note": "Doctor Who is the television time traveller, so doctor gives WHO"
+      },
+      {
+       "words": "topper",
+       "at": 26,
+       "gives": "HAT",
+       "note": "a topper is a hat, especially a top hat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bertie Wooster's top hat seems to burst in on a medical consultation.",
+     "walkthrough": "Bertie Wooster is P. G. Wodehouse's upper-class English character, whose greeting is a hearty exclamation of this kind.",
+     "definitionFit": "The exclamation is the jolly greeting associated with Wodehouse's Bertie Wooster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +415,43 @@
     "text": "Odd characters in the land of Schiller, the elegist?",
     "enumeration": "4"
    },
-   "solution": "GRAY"
+   "solution": "GRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the elegist",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Odd characters in",
+       "at": 0,
+       "note": "odd characters means the first, third, fifth and seventh letters are taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the land of Schiller",
+       "at": 18,
+       "gives": "GERMANY",
+       "note": "the poet Friedrich Schiller was German, so his country is Germany"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about strange people in Schiller's country and a poet of lament.",
+     "walkthrough": "Thomas Gray wrote the Elegy Written in a Country Churchyard, so he is the elegist.",
+     "definitionFit": "Thomas Gray, author of the famous Elegy, is the poet best known as an elegist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +465,41 @@
     "text": "Trim Arab horse can't stand",
     "enumeration": "5"
    },
-   "solution": "ABHOR"
+   "solution": "ABHOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "can't stand",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Trim",
+       "at": 0,
+       "note": "trim means cut away the edges, leaving the letters inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Arab horse",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to groom an Arabian horse.",
+     "walkthrough": "Trim off AR at the front and SE at the back of 'Arab horse'.",
+     "definitionFit": "To abhor something is to loathe it, which is what being unable to stand it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trim"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +519,65 @@
      }
     ]
    },
-   "solution": "NONEOTHER"
+   "solution": "NONEOTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the very same",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "different",
+       "at": 23,
+       "note": "different means changed, so the letters are put in another order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 5,
+         "note": "first means only the opening letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "25's",
+         "at": 0,
+         "gives": "EMPEROR",
+         "note": "25 across is EMPEROR, whose opening letter is used"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "at": 11,
+       "note": "taken as written"
+      },
+      {
+       "words": "throne",
+       "at": 14,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emperor's opening move on the throne is unlike others, yet the same.",
+     "walkthrough": "'different' scrambles E (the first letter of EMPEROR) with ON and THRONE.",
+     "definitionFit": "The phrase none other emphasises identity, meaning exactly that person and nobody else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "different"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +591,64 @@
     "text": "Transport left out before North African battle",
     "enumeration": "9"
    },
-   "solution": "SEDGEMOOR"
+   "solution": "SEDGEMOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 19,
+       "note": "before means the first piece comes ahead of the next"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 15,
+         "note": "out means the named letter is dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Transport",
+         "at": 0,
+         "gives": "SLEDGE",
+         "note": "a sledge is a means of transport over snow"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "North African",
+       "at": 26,
+       "gives": "MOOR",
+       "note": "a Moor is a person from North-West Africa"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle is abandoned ahead of a desert clash in North Africa.",
+     "walkthrough": "'out' drops L from SLEDGE, giving SEDGE. Sedgemoor in Somerset saw the 1685 battle ending Monmouth's rebellion.",
+     "definitionFit": "Sedgemoor is the site of a 1685 English battle, so the name stands for that fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +662,45 @@
     "text": "Well bred people not initially coming in",
     "enumeration": "5"
    },
-   "solution": "ENTRY"
+   "solution": "ENTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coming in",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not initially",
+       "at": 17,
+       "note": "not initially means the word loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Well bred people",
+       "at": 0,
+       "gives": "GENTRY",
+       "note": "the gentry are people of good birth"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Refined people are refused admission.",
+     "definitionFit": "An entry is an act of coming in, a noun use of going inside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +714,58 @@
     "text": "Ultimately wanting Tyneside's odd lot",
     "enumeration": "7"
    },
-   "solution": "DESTINY"
+   "solution": "DESTINY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lot",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "odd",
+       "at": 30,
+       "note": "odd means strange or out of order, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Ultimately wanting",
+         "at": 0,
+         "note": "ultimately wanting means the last letter is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Tyneside's",
+         "at": 19,
+         "gives": "TYNESIDE",
+         "note": "taken as written, the area around the River Tyne in north-east England"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about the strange fate of the people of Tyneside.",
+     "walkthrough": "'Ultimately wanting' drops the final E of TYNESIDE, and 'odd' rearranges TYNESID.",
+     "definitionFit": "One's lot is one's fate in life, a synonym for one's destiny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +779,41 @@
     "text": "Transfer tied up",
     "enumeration": "5"
    },
-   "solution": "DECAL"
+   "solution": "DECAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Transfer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 14,
+       "note": "in a down clue, up means the word is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tied",
+       "at": 9,
+       "gives": "LACED",
+       "note": "to lace shoes is to tie them, so tied gives laced"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A decal is a design transferred onto a surface from prepared paper, a transfer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Transfer"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +827,60 @@
     "text": "Lacking discretion, swallowing last of Worcester sauce",
     "enumeration": "10"
    },
-   "solution": "IMPRUDENCE"
+   "solution": "IMPRUDENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lacking discretion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "swallowing",
+       "at": 20,
+       "note": "swallowing means taking another piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sauce",
+       "at": 49,
+       "gives": "IMPUDENCE",
+       "note": "sauce is cheek, impudence"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 31,
+         "note": "last of means only the final letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Worcester",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone indiscreetly gulps down the dregs of the Worcestershire sauce.",
+     "walkthrough": "'last of' gives R, the final letter of Worcester, which goes inside IMPUDENCE.",
+     "definitionFit": "Imprudence is a lack of good judgement or caution, i.e. being indiscreet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +900,41 @@
      }
     ]
    },
-   "solution": "SLIPOFF"
+   "solution": "SLIPOFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go quietly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "piece of paper",
+       "at": 19,
+       "gives": "SLIP",
+       "note": "a slip is a small piece of paper"
+      },
+      {
+       "words": "rotten",
+       "at": 42,
+       "gives": "OFF",
+       "note": "food that has gone off is rotten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a note and leaves silently, then complains it is rotten.",
+     "definitionFit": "To slip off is to leave unobtrusively, a phrasal-verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rotten"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +948,44 @@
     "text": "Holy man providing female with a drink",
     "enumeration": "5"
    },
-   "solution": "FAKIR"
+   "solution": "FAKIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holy man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "female",
+       "at": 19,
+       "gives": "F"
+      },
+      {
+       "words": "a",
+       "at": 31
+      },
+      {
+       "words": "drink",
+       "at": 33,
+       "gives": "KIR",
+       "note": "kir is a drink of white wine with blackcurrant liqueur"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man supplies a woman with a beverage.",
+     "definitionFit": "A fakir is a Muslim or Hindu ascetic, an example of a holy man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +999,29 @@
     "text": "Painful muscle contraction — runner's problem, primarily",
     "enumeration": "5"
    },
-   "solution": "CRAMP"
+   "solution": "CRAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painful muscle contraction",
+      "at": 0,
+      "meaning": "a sudden involuntary tightening of a muscle"
+     },
+     {
+      "text": "runner's problem, primarily",
+      "at": 29,
+      "meaning": "the seizure in the calf that above all troubles distance runners"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A cramp is a sudden painful muscle spasm, the classic complaint of runners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "primarily"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1035,45 @@
     "text": "Mark's vocal music",
     "enumeration": "3"
    },
-   "solution": "SKA"
+   "solution": "SKA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "music",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SKA",
+     "indicators": [
+      {
+       "text": "vocal",
+       "at": 7,
+       "note": "vocal means spoken, so the word is taken by how it is pronounced"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mark's",
+       "at": 0,
+       "gives": "SCAR",
+       "note": "a scar is a mark left on the skin"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Mark sings.",
+     "walkthrough": "Ska is Jamaican popular music, a forerunner of reggae.",
+     "definitionFit": "Ska is a genre of Jamaican popular music, an example of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark's"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1087,59 @@
     "text": "What is stopping a detestable character in the pub?",
     "enumeration": "8"
    },
-   "solution": "ALEHOUSE"
+   "solution": "ALEHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pub",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stopping",
+         "at": 8,
+         "note": "stopping means plugging a gap, so the piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "detestable character",
+         "at": 19,
+         "gives": "LOUSE",
+         "note": "a louse is a contemptible person"
+        },
+        {
+         "words": "What",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh is an exclamation meaning what, asking for something to be repeated"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what is preventing a nasty person in the bar.",
+     "walkthrough": "'What is' reads as a question opener, but What gives EH and is is a link.",
+     "definitionFit": "An alehouse is an old word for a tavern or pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1153,65 @@
     "text": "Leave old man before end of folk dance",
     "enumeration": "5"
    },
-   "solution": "GOPAK"
+   "solution": "GOPAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 14,
+       "note": "before means the earlier pieces come ahead of the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Leave",
+       "at": 0,
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "words": "old man",
+       "at": 6,
+       "gives": "PA",
+       "note": "pa is father, colloquially the old man"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 21,
+         "note": "end of means the last letter of the word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "folk",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father exits just before the end of a folk dance.",
+     "walkthrough": "'end of' takes K from folk.",
+     "definitionFit": "The gopak is a lively Ukrainian folk dance, an example of a dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1225,47 @@
     "text": "Organised rave-up in Paddington, for example",
     "enumeration": "8"
    },
-   "solution": "PERUVIAN"
+   "solution": "PERUVIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paddington, for example",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Organised",
+       "at": 0,
+       "note": "organised means arranged, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rave-up",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "words": "in",
+       "at": 18,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party is arranged in the London district of Paddington.",
+     "walkthrough": "Paddington looks like the London station, but it is Paddington Bear, who came from darkest Peru.",
+     "definitionFit": "Paddington Bear in Michael Bond's books comes from Peru, making him an example of a South American native."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Paddington"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1279,48 @@
     "text": "Weariness of monkey with nothing to occupy it",
     "enumeration": "7"
    },
-   "solution": "LANGUOR"
+   "solution": "LANGUOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weariness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to occupy",
+       "at": 33,
+       "note": "to occupy means to fill the inside, so the piece goes within the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "monkey",
+       "at": 13,
+       "gives": "LANGUR",
+       "note": "a langur is an Asian leaf-eating monkey"
+      },
+      {
+       "words": "nothing",
+       "at": 25,
+       "gives": "O",
+       "note": "O is the zero shape, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bored monkey with no task is tired.",
+     "definitionFit": "Languor is a pleasant tiredness or listlessness, a synonym for weariness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "monkey"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1334,53 @@
     "text": "Silly ass turned in by another",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Silly ass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 10,
+         "note": "turned means the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "another",
+       "at": 23,
+       "gives": "TWIT",
+       "note": "another silly ass, a twit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One fool is handed over by another fool.",
+     "walkthrough": "'turned' makes NI from in.",
+     "definitionFit": "A nitwit is a foolish person, the same as a silly ass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1394,49 @@
     "text": "Aircraftman captured by soldiers demonstrates flower arrangement",
     "enumeration": "6"
    },
-   "solution": "RACEME"
+   "solution": "RACEME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flower arrangement",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 12,
+       "note": "captured by means held within the following piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldiers",
+       "at": 24,
+       "gives": "REME",
+       "note": "REME is the Royal Electrical and Mechanical Engineers, a British army corps"
+      },
+      {
+       "words": "Aircraftman",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is the abbreviation for aircraftman, the lowest RAF rank"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A captured airman shows soldiers how to arrange flowers.",
+     "definitionFit": "A raceme is a botanical term for flowers arranged along a central stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1450,57 @@
     "text": "Paddy wasting first gold sovereign",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sovereign",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wasting first",
+         "at": 6,
+         "note": "wasting first means losing the opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paddy",
+         "at": 0,
+         "gives": "TEMPER",
+         "note": "a paddy is a fit of temper"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "gold",
+       "at": 20,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry outburst wastes the first gold coin.",
+     "walkthrough": "'Paddy' looks like an Irishman's name, but it is a tantrum.",
+     "definitionFit": "An emperor is a supreme monarch, a sovereign ruler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paddy"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1514,59 @@
     "text": "Babe gets reminder about pair of tights",
     "enumeration": "5"
    },
-   "solution": "CUTIE"
+   "solution": "CUTIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Babe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 19,
+       "note": "about means around, so the piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "reminder",
+       "at": 10,
+       "gives": "CUE",
+       "note": "a cue is a prompt or reminder"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "pair of",
+         "at": 25,
+         "note": "pair of means the first two letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tights",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive young woman gets a prompt about some hosiery.",
+     "walkthrough": "'pair of' gives TI, the first two letters of tights.",
+     "definitionFit": "Babe and cutie are both informal words for an attractive person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Babe"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1580,49 @@
     "text": "Wheels round the last 25",
     "enumeration": "4"
    },
-   "solution": "CZAR"
+   "solution": "CZAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "25",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 7,
+       "note": "round means surrounding the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wheels",
+       "at": 0,
+       "gives": "CAR",
+       "note": "wheels is slang for a car"
+      },
+      {
+       "words": "the last",
+       "at": 13,
+       "gives": "Z",
+       "note": "Z is the last letter of the alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car drives around the final position.",
+     "walkthrough": "25 across is EMPEROR, and the answer is the Russian emperor.",
+     "definitionFit": "A czar is a Russian emperor, linking to the earlier answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wheels"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1636,49 @@
     "text": "Supreme in disguise as country folk?",
     "enumeration": "9"
    },
-   "solution": "CROSSOVER"
+   "solution": "CROSSOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country folk?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 8,
+       "note": "in means the piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "disguise",
+       "at": 11,
+       "gives": "COVER",
+       "note": "a cover is a disguise or false identity"
+      },
+      {
+       "words": "Supreme",
+       "at": 0,
+       "gives": "ROSS",
+       "note": "Diana Ross was lead singer of the Supremes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Supremes singer disguised as a country bumpkin.",
+     "walkthrough": "Country folk looks like rural people, but it is music blending two genres.",
+     "definitionFit": "Crossover music blends genres, and country folk mixes country and folk styles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "folk"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1692,40 @@
     "text": "Husband from Second Avenue",
     "enumeration": "4"
    },
-   "solution": "SAVE"
+   "solution": "SAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Husband",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Second",
+       "at": 13,
+       "gives": "S"
+      },
+      {
+       "words": "Avenue",
+       "at": 20,
+       "gives": "AVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A married man comes from Second Avenue in New York.",
+     "walkthrough": "Husband is a verb here: to use sparingly.",
+     "definitionFit": "To husband resources is to save them, a verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Husband"
+    }
+   }
   },
   {
    "number": 29,
@@ -475,7 +1739,29 @@
     "text": "Hike in spring",
     "enumeration": "4"
    },
-   "solution": "RISE"
+   "solution": "RISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hike",
+      "at": 0,
+      "meaning": "a hike is an increase, as in prices"
+     },
+     {
+      "text": "spring",
+      "at": 8,
+      "meaning": "a spring is where water comes up from the ground"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both are synonyms: an increase, and water emerging from a spring source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hike"
+    }
+   }
   },
   {
    "number": 30,
@@ -499,7 +1785,68 @@
      }
     ]
    },
-   "solution": "ASITCOMES"
+   "solution": "ASITCOMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "anyhow",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "at": 14,
+         "note": "involving means containing the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "programme's",
+         "at": 2,
+         "gives": "SITCOMS",
+         "note": "a sitcom is a comedy programme; the possessive gives the s"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 24,
+           "note": "head of means the first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "entertainment",
+           "at": 32
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy show includes entertainment at random.",
+     "walkthrough": "'head of' gives E from entertainment, inside SITCOMS.",
+     "definitionFit": "As it comes means in no particular way, i.e. anyhow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "programme's"
+    }
+   }
   },
   {
    "number": 31,
@@ -513,7 +1860,57 @@
     "text": "Little girl too short to get bottles",
     "enumeration": "5"
    },
-   "solution": "VIALS"
+   "solution": "VIALS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bottles",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little girl",
+       "at": 0,
+       "gives": "VI",
+       "note": "Vi is a short form of the girl's name Violet"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 16,
+         "note": "short means cut, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "too",
+         "at": 12,
+         "gives": "ALSO",
+         "note": "also means too"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small girl is too small to get some bottles.",
+     "walkthrough": "'short' cuts ALSO to ALS.",
+     "definitionFit": "Vials are small glass bottles for liquids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   }
  ]
 }
