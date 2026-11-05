@@ -62,7 +62,13 @@ with tempfile.TemporaryDirectory() as tmp:
     src = next(Path("..", "puzzles").rglob("azed-2508.json"))
     (Path(tmp) / "in").mkdir()
     shutil_target = Path(tmp) / "in" / src.name
-    shutil_target.write_text(src.read_text())
+    # The burn annotates the real file in time; strip that so the copy stays unannotated.
+    fixture = json.loads(src.read_text())
+    for key in ("annotatedBy", "messages"):
+        fixture.pop(key, None)
+    for e in fixture["entries"]:
+        e.pop("annotation", None)
+    shutil_target.write_text(json.dumps(fixture))
     (Path(tmp) / "in" / "junk.json").write_text("[]")
     out = Path(tmp) / "out"
     P.main(["--out", str(out), str(shutil_target), str(Path(tmp) / "in" / "junk.json")])
