@@ -568,6 +568,18 @@ def _tail(path, start, chunk=1 << 18):
         return fh.read().decode(errors="replace").splitlines()
 
 
+def same_tree(cwd, burn_cwd):
+    """True when a record's cwd is the burn's tree. The burn runs from
+    /data/home/.cryptic-teacher/prereset_backfill, which its records name
+    /Users/pt/.cryptic-teacher/prereset_backfill (the same directory), so an
+    exact match never held and the burn's spend was counted as the bridge's;
+    the last two path parts decide instead."""
+    if not isinstance(cwd, str):
+        return False
+    a, b = Path(cwd).parts[-2:], Path(burn_cwd).parts[-2:]
+    return cwd == burn_cwd or (len(a) == 2 and a == b)
+
+
 def transcript_spend(projects, burn_cwd, start, end):
     """(other, burn, burn run-hours) over [start, end] from every transcript
     under projects: token weights, one per message id, the burn's being the
@@ -594,7 +606,7 @@ def transcript_spend(projects, burn_cwd, start, end):
             if (not isinstance(msg, dict) or not isinstance(msg.get("usage"), dict)
                     or when is None or not start <= when <= end):
                 continue
-            burn = rec.get("cwd") == burn_cwd
+            burn = same_tree(rec.get("cwd"), burn_cwd)
             spend[msg.get("id") or rec.get("uuid")] = (
                 burn, token_weight(msg.get("model"), msg["usage"]))
             if burn and not rec.get("isSidechain"):
