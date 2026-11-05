@@ -2876,7 +2876,11 @@ def cover_first(pinned):
     rows = fresh_rows(index_rows())
     rows = rows + clues_only_rows({r["id"] for r in rows})
     wanted = best_effort("showcase", showcase_wanted, set(), 0.4)
-    queue, pinned, n = head_of_queue(list(dict.fromkeys(sys.stdin.read().split())), pinned, rows,
+    given = list(dict.fromkeys(sys.stdin.read().split()))
+    if not given:
+        print("cover-first: no ids on stdin: no plan", file=sys.stderr)
+        return 3
+    queue, pinned, n = head_of_queue(given, pinned, rows,
                                      wanted, tagged_puzzles(), small, requested(rows), finish,
                                      tried_before())
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
@@ -2912,7 +2916,17 @@ def cover_first(pinned):
     print(f"indicator cover: {len(picks)} puzzles reach {len(reached)} of {len(weight)} "
           f"unlinked indicators" + (f"; next {head}" if picks else ""), file=sys.stderr)
     ordered = interleave_shape(ordered, len(pinned), rows) + cold_tail
-    print("\n".join(ordered))
+    # Exactly the ids given: one lost on the way (a truncated order) goes
+    # last rather than making pool_replan discard the whole plan, and an
+    # order short of half of them is no plan at all.
+    seen = set(ordered)
+    lost = [p for p in given if p not in seen]
+    if lost:
+        print(f"cover-first: {len(lost)} of {len(given)} ids lost in planning, put last",
+              file=sys.stderr)
+    if len(lost) * 2 > len(given):
+        return 4
+    print("\n".join(ordered + lost), flush=True)
     return 0
 
 
