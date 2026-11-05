@@ -685,18 +685,28 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # bounce every time after.
     lead = "answers explained" if annotated else "answers"
     num = str(position(puz))
+    # Most of a puzzle page's search impressions are one clue's own words, not
+    # its number (Search Console, Oct 2026), and the title cannot match those;
+    # "every clue" is what tells that searcher their clue is on the page.
     title = (f"{pk}, {dw} – {lead}" + (f" – crossword{by}" if by else "") if day
              else f"{pk} {num} {lead} – crossword{by}" if by
-             else f"{pk} {num} {lead} – full crossword, clue by clue" if annotated
+             else f"{pk} {num} {lead} – every clue, with hints" if annotated
              else f"{pk} {num} {lead} – full crossword solution")
     # The snippet leads with the same promise for the same reason, and still says
     # which of the three pages this is: explained clue by clue, marked up from a
     # blog's write-up, or answers only.
     # The kind keeps its capitals ("Penguin Book 5 Cryptic"): it is a name.
+    # The short day ("Mon 19 Oct 2026") keeps the hint sentence inside the
+    # ~155 characters a result shows.
+    short = datestr(puz, series_meta.ROW_DATE_FMT)
     full = (f"{pk}, {dw}{by}" if day else
-            f"{pk} {num}{by}" + (f" ({when})" if when else ""))
+            f"{pk} {num}{by}" + (f" ({short})" if short else ""))
     blog = puz.get("blog") if has_blog_hints(puz) else None
-    desc = (f"Every answer to {full}, with each clue's definition and wordplay explained."
+    # The hint sentence is what an answers-only site cannot offer, said to the
+    # searcher who typed one clue: every clue row links to the app's ladder,
+    # which stops short of the answer until asked.
+    desc = (f"Every answer to {full}, with each clue's definition and wordplay explained, "
+            "or a hint that stops short of the answer."
             if annotated else
             f"Every answer to {full}, with the definitions and wordplay marked up "
             f"from the {blog['name']} write-up." if blog else
@@ -1132,22 +1142,42 @@ def listing_page(series, year, ps, prev_year, next_year):
     """One series' puzzles for one year, newest first."""
     name = series_name(series)
     label = f"{name}, {year}" if year != UNDATED else f"{name}, undated"
-    title = (f"{name} {year} — crossword answers and explanations" if year != UNDATED
-             else f"{name}, undated — crossword answers and explanations")
     explained = sum(1 for p in ps if p.get("annotated"))
     blogged = sum(1 for p in ps if p.get("blog"))
+    # The searches that find a year page are mostly one puzzle's number
+    # ("times quick cryptic 3443"), so the title and snippet say which numbers
+    # the year holds, as typed: no thousands comma. A book's or a date-keyed
+    # paper's number is not one anybody types, so those keep the year alone.
+    nums = ([] if series_meta.is_book(series) or any(number_day(p) for p in ps)
+            else sorted(position(p) for p in ps))
+    span = ("" if not nums else f"No {nums[0]}" if nums[0] == nums[-1]
+            else f"Nos {nums[0]}–{nums[-1]}")
+    lead = ("answers explained" if explained == len(ps)
+            else "answers and explanations" if explained or blogged else "answers")
+    title = (f"{name} {year if year != UNDATED else 'undated'}: {span}, {lead}" if span
+             else f"{name} {year} — crossword {lead}" if year != UNDATED
+             else f"{name}, undated — crossword {lead}")
     # How many are explained is counted, not claimed: a year of answers-only
     # puzzles must not promise wordplay in its search snippet.
     # No counts either way: a search snippet never quotes the archive's size.
-    ours = ("Every one is explained clue by clue." if explained == len(ps) else
+    ours = ("Every one is explained clue by clue, with hints that stop short of the answer."
+            if explained == len(ps) else
             "Some are explained clue by clue." if explained else "")
     theirs = ("" if not blogged else
               "Every one has hints marked up from a solving blog's write-up."
               if blogged == len(ps) else
               "Some have hints marked up from a solving blog's write-up.")
+    # The range first, then the newest day, because a current year's page is
+    # found by people solving this week's; last the hint ladder, which a page
+    # of bare answers elsewhere cannot offer, where every puzzle has one (ours).
+    # A past year's last day says nothing a reader wants: this year's only.
+    when = row_date(ps[0]) if year == str(london_today().year) else ""   # ps is newest first
+    which = ("" if not nums else
+             f", No {nums[0]}" if nums[0] == nums[-1] else f", No {nums[0]} to No {nums[-1]}")
     desc = (f"{name} crosswords"
             + (f" from {year}" if year != UNDATED else " with no publication date")
-            + " on this site, with the answer to every clue. "
+            + (f"{which}, latest {when}" if which and when else which or " on this site")
+            + ", with the answer to every clue. "
             + (" ".join(filter(None, (ours, theirs))) or "Explanations are not written yet."))
     path = listing_path(series, year)
     canonical = site_url(path)
@@ -1295,10 +1325,12 @@ def learn_page():
 
     # The indicator lists are the corpus's, ranked, not a hand-picked few.
     inner = re.sub(r"<!-- indicators: (\w+) -->", learn_indicators, inner)
-    title = "How cryptic crossword clues work — a beginner's guide"
-    desc = ("Every cryptic clue has two parts: a definition and wordplay. Learn to tell "
-            "them apart, and learn the main clue types (anagram, charade, container, hidden "
-            "word, homophone and more), each with a worked example.")
+    # "How to solve cryptic crosswords" is the phrase people search; the page
+    # sat on page two (position ~18) under a title that never said "solve".
+    title = "How to solve cryptic crosswords: a beginner's guide with examples"
+    desc = ("Every cryptic clue is a definition plus wordplay. Learn to spot which is "
+            "which, then the main clue types (anagram, charade, container, hidden word, "
+            "homophone and more), each with a worked example.")
     canonical = f"{BASE}/learn/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "")]
     page_ld = {"@context": "https://schema.org", "@type": "Article",
@@ -1309,7 +1341,7 @@ def learn_page():
     body = [
         masthead(crumbs),
         '<main class="static-main tutorial-static">',
-        "<h1>How cryptic crossword clues work</h1>",
+        "<h1>How to solve cryptic crosswords</h1>",
         inner,
         f'<p class="s-cta"><a class="cta" href="{BASE}/">Now try a real puzzle, '
         f'with hints &rarr;</a></p>',
@@ -2457,10 +2489,12 @@ def indicators_page(found):
         return (f'<a href="{solve_url(pid, eid)}">{esc(indicator_label(k))}</a>'
                 + build_abbreviations.count_html(n))
 
-    title = f"Cryptic crossword indicators — {total:,} words, by type"
+    # Searches name the kind ("anagram indicators", "reversal indicators"), so
+    # the title names the commonest kinds; the count moves to the snippet.
+    title = "Cryptic crossword indicators: anagram, reversal, container and more"
     desc = (f"{total:,} cryptic crossword indicators, grouped by what they tell you to do "
-            "(anagram, container, reversal, hidden word, homophone and more) and ranked by "
-            "how many real clues use them.")
+            "(anagram, container, reversal, hidden word, homophone and more), ranked by "
+            "how many real clues use them, each linked to a clue that does.")
     canonical = f"{BASE}/indicators/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Indicators", "")]
