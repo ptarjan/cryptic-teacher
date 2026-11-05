@@ -42,7 +42,8 @@
 # promotion racing a re-read of its clues-only file (modify/delete on
 # clues_only/X.json): tools/resolve_promotion_conflict.py keeps the promoted
 # puzzle, drops the clues-only copy, and carries the re-read's clue text in
-# where the filed clue was never corrected.
+# where the filed clue was never corrected. Another is a conflict made only of
+# puzzles/*.blog sidecars (cached blog pages): origin's copy is kept.
 set -uo pipefail
 . "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
 CONFLICT=3
@@ -276,6 +277,34 @@ partial_replay() {
   GIT_INDEX_FILE=$idx git write-tree
 }
 
+# blog_resolve <conflicted tree> <onto> <path>...: <onto>'s tree with the
+# conflicted-tree's clean merges and every conflicted path taken as <onto> (the
+# batch or origin/master) has it. A .blog sidecar is a cached copy of a blog
+# page, so either side is as good as the other; origin's is kept because it was
+# fetched by whoever pushed first and replaying ours would only re-cache the
+# same page (11-05: the daily fetch and blog-facts both added telegraph-31388
+# and toughie-3786). Fails (nothing printed) when any path is not a .blog.
+blog_resolve() {
+  local ctree="$1" base="$2" p entry mode sha idx
+  shift 2
+  [ "$#" -gt 0 ] || return 1
+  for p in "$@"; do
+    case "$p" in puzzles/*.blog) ;; *) return 1 ;; esac
+  done
+  idx="$(mktemp -d)/index"
+  GIT_INDEX_FILE=$idx git read-tree "$ctree" || return 1
+  for p in "$@"; do
+    entry=$(git ls-tree "$base" -- "$p")
+    if [ -n "$entry" ]; then
+      read -r mode _ sha _ <<<"$entry"
+      GIT_INDEX_FILE=$idx git update-index --add --cacheinfo "$mode,$sha,$p" || return 1
+    else
+      GIT_INDEX_FILE=$idx git update-index --force-remove -- "$p" || return 1
+    fi
+  done
+  GIT_INDEX_FILE=$idx git write-tree
+}
+
 final=0
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
   final=0
@@ -299,6 +328,10 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
        # a re-read clue): the commit's annotation goes onto origin's file.
        elif settled=$(python3 "$here/reapply_annotation.py" \
             "$parent" "$onto" "$commit" "$(printf '%s\n' "$tree" | head -1)" "${paths[@]}"); then
+         tree=$settled
+       # Only .blog sidecars collided (cached blog pages): origin's copy stands.
+       elif settled=$(blog_resolve "$(printf '%s\n' "$tree" | head -1)" "$onto" "${paths[@]}"); then
+         echo "push_puzzle_commit: kept origin/master's copy of ${paths[*]}" >&2
          tree=$settled
        else
          echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
