@@ -224,7 +224,8 @@ def _initial_abbreviation(p):
     the standard abbreviation mid-answer is genuine fodder (r26: 5 of 5 such anaStandIn hits fine, 0 of 4 others)."""
     g = wordplay.letters(p.get("gives"))
     initials = {x[0] for x in re.findall(r"[a-z]+", (p.get("words") or "").lower())}
-    return bool(g) and len(g) <= 2 and g[0].lower() in initials
+    # every letter must be an initial: CC for twice caught, but not CH for church (a prefix of one word)
+    return bool(g) and len(g) <= 2 and all(ch.lower() in initials for ch in g)
 
 
 def ana_stand_in(tree):
