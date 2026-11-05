@@ -21,6 +21,9 @@
   "date": "2013-10-11",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,29 @@
     "text": "Unusually large component of motor vehicle",
     "enumeration": "6"
    },
-   "solution": "BUMPER"
+   "solution": "BUMPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unusually large",
+      "at": 0,
+      "meaning": "a ... crop or harvest is one far bigger than usual"
+     },
+     {
+      "text": "component of motor vehicle",
+      "at": 16,
+      "meaning": "the bar across the front or rear of a car that takes knocks"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Two unrelated senses of one word: an adjective for abundance and the protective bar on a car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unusually"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +73,48 @@
     "text": "Blooming daughter must get locked up, plainly!",
     "enumeration": "6"
    },
-   "solution": "BALDLY"
+   "solution": "BALDLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plainly",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "locked up",
+       "at": 27,
+       "note": "locked up means held inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Blooming",
+       "at": 0,
+       "gives": "BALLY",
+       "note": "bally and blooming are both mild British euphemisms for bloody"
+      },
+      {
+       "words": "daughter",
+       "at": 9,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's imprisonment announced bluntly.",
+     "walkthrough": "BALLY, like 'blooming', is a dated British intensifier.",
+     "definitionFit": "Speaking without softening or ornament, in a blunt, unadorned way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blooming"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +128,66 @@
     "text": "Fellow embracing Prince's wife? Not a prime minister!",
     "enumeration": "9"
    },
-   "solution": "MACMILLAN"
+   "solution": "MACMILLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prime minister",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embracing",
+       "at": 7,
+       "note": "embracing means holding the next piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fellow",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a man is a fellow"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 32,
+         "note": "Not a means one A is dropped from the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prince's wife",
+         "at": 17,
+         "gives": "CAMILLA",
+         "note": "Camilla, wife of Prince Charles"
+        },
+        {
+         "words": "a",
+         "at": 36,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man hugging a royal spouse is told he is no premier.",
+     "walkthrough": "The surface 'Not a prime minister' looks like a denial, but 'Not a' is the deletion signal and 'prime minister' is the definition, ironically so since the man in question held that office.",
+     "definitionFit": "Harold Macmillan was a British premier, so an example of the office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 3,
@@ -76,7 +201,58 @@
     "text": "Manager of Beatles records, number one included",
     "enumeration": "7"
    },
-   "solution": "EPSTEIN"
+   "solution": "EPSTEIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Manager of Beatles",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "records",
+       "at": 19,
+       "gives": "EPS",
+       "note": "EPs are extended-play records"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "included",
+         "at": 39,
+         "note": "included means put within the number"
+        }
+       ],
+       "parts": [
+        {
+         "words": "number",
+         "at": 28,
+         "gives": "TEN",
+         "note": "ten is a number"
+        },
+        {
+         "words": "one",
+         "at": 35,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discs by the Fab Four with a chart-topper among them.",
+     "definitionFit": "Brian Epstein managed the band through their rise to fame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -90,7 +266,41 @@
     "text": "Look at row on grandstand less full?",
     "enumeration": "8"
    },
-   "solution": "SCANTIER"
+   "solution": "SCANTIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "less full",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look at",
+       "at": 0,
+       "gives": "SCAN",
+       "note": "to scan something is to look it over"
+      },
+      {
+       "words": "row on grandstand",
+       "at": 8,
+       "gives": "TIER",
+       "note": "a tier is one of the stepped rows of seating in a stand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator surveys a half-empty row of seats in the stand.",
+     "definitionFit": "Comparative of the adjective for meagre or sparse, so it means having less in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grandstand"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +314,61 @@
     "text": "Denies identity set up in legal documents",
     "enumeration": "11"
    },
-   "solution": "CONTRADICTS"
+   "solution": "CONTRADICTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Denies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in means placed inside the documents"
+      }
+     ],
+     "parts": [
+      {
+       "words": "legal documents",
+       "at": 26,
+       "gives": "CONTRACTS",
+       "note": "contracts are binding legal agreements"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "set up",
+         "at": 16,
+         "note": "set up in a down clue means written upwards, so reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "identity",
+         "at": 7,
+         "gives": "ID",
+         "note": "ID is short for identity"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone disputes a false identity planted in court papers.",
+     "walkthrough": "In a down clue 'set up' means read upwards, the usual reversal signal for vertical entries.",
+     "definitionFit": "To deny a claim is to say the opposite of it, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +382,58 @@
     "text": "Particle of dust finally spotted in cell",
     "enumeration": "7"
    },
-   "solution": "NEUTRON"
+   "solution": "NEUTRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Particle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "spotted in",
+       "at": 25,
+       "note": "spotted in means found sitting inside the cell"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cell",
+       "at": 36,
+       "gives": "NEURON",
+       "note": "a neuron is a nerve cell"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 17,
+         "note": "finally takes the last letter of dust"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dust",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speck of dust detected in a prison cell.",
+     "definitionFit": "A subatomic constituent of the nucleus with no charge, a kind of particle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cell"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +447,70 @@
     "text": "Country's one match — winger for Arsenal left out",
     "enumeration": "5"
    },
-   "solution": "ITALY"
+   "solution": "ITALY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 10,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left out",
+         "at": 41,
+         "note": "left out means a letter is dropped from the match"
+        }
+       ],
+       "parts": [
+        {
+         "words": "match",
+         "at": 14,
+         "gives": "TALLY",
+         "note": "to tally is to match or correspond"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "winger for",
+           "at": 22,
+           "note": "a winger is at the edge, so the last letter of Arsenal"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Arsenal",
+           "at": 33
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's one game with an Arsenal winger dropped from the side.",
+     "walkthrough": "The 's after 'Country' stands for 'is'. 'winger for Arsenal' is the outside letter L, dropped from TALLY.",
+     "definitionFit": "A European nation, a straightforward example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "winger"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +524,56 @@
     "text": "Wine mature but lacking power? Chuck!",
     "enumeration": "8"
    },
-   "solution": "RIESLING"
+   "solution": "RIESLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 16,
+         "note": "lacking means the power letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mature",
+         "at": 5,
+         "gives": "RIPE",
+         "note": "ripe means mature"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "words": "Chuck",
+       "at": 31,
+       "gives": "SLING",
+       "note": "to sling is to chuck or throw"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A matured wine has lost its strength, so throw it out.",
+     "definitionFit": "A white grape and the wine made from it, an example of wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chuck"
+    }
+   }
   },
   {
    "number": 9,
@@ -160,7 +587,51 @@
     "text": "Insect's place revealed by entomologist ultimately",
     "enumeration": "6"
    },
-   "solution": "LOCUST"
+   "solution": "LOCUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "place",
+       "at": 9,
+       "gives": "LOCUS",
+       "note": "a locus is a place or position, as in locus of a crime"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 40,
+         "note": "ultimately points to the final letter of the word entomologist"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entomologist",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bug expert finally shows where an insect lives.",
+     "walkthrough": "The 's after 'Insect' stands for 'is', a link joining definition to wordplay.",
+     "definitionFit": "A swarming grasshopper is a well-known example of an insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +645,59 @@
     "text": "Cruel article penned by trendy philosopher",
     "enumeration": "8"
    },
-   "solution": "INHUMANE"
+   "solution": "INHUMANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cruel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "trendy",
+       "at": 24,
+       "gives": "IN",
+       "note": "in means fashionable, as in the in thing"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "penned by",
+         "at": 14,
+         "note": "penned by means held inside, as if shut in a pen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "philosopher",
+         "at": 31,
+         "gives": "HUME",
+         "note": "David Hume, the Scottish Enlightenment philosopher"
+        },
+        {
+         "words": "article",
+         "at": 6,
+         "gives": "AN",
+         "note": "an is the indefinite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable thinker writes a nasty piece.",
+     "definitionFit": "Lacking compassion or humanity is a synonym for being cruel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +711,44 @@
     "text": "Report of former champion jockey in Midlands city",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Midlands city",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "LEICESTER",
+     "indicators": [
+      {
+       "text": "Report of",
+       "at": 0,
+       "note": "a report is something heard, so the word that follows is spoken rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "former champion jockey",
+       "at": 10,
+       "gives": "LESTER",
+       "note": "Lester Piggott, many times British champion jockey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "News of a famous jockey turns up in an English city.",
+     "walkthrough": "The city's name is pronounced like the first name LESTER; Lester Piggott was a celebrated British flat-racing jockey.",
+     "definitionFit": "A city in the East Midlands of England, a direct example of the category named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +762,40 @@
     "text": "Travelling around, spot erratic old creature",
     "enumeration": "11"
    },
-   "solution": "TRICERATOPS"
+   "solution": "TRICERATOPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old creature",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Travelling around",
+       "at": 0,
+       "note": "travelling around suggests the letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spot erratic",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a journey someone spots something unpredictable.",
+     "definitionFit": "A horned dinosaur long extinct, so an ancient animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +809,54 @@
     "text": "Put soldiers around, befitting the Queen?",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "befitting the Queen",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 13,
+       "note": "around tells us to turn the words for put and soldiers the other way about"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Put",
+         "at": 0,
+         "gives": "LAY",
+         "note": "to lay something is to put it down"
+        },
+        {
+         "words": "soldiers",
+         "at": 4,
+         "gives": "OR",
+         "note": "OR is other ranks, ordinary soldiers"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging troops in a manner suitable for the monarch.",
+     "walkthrough": "'around' turns the whole run LAYOR backwards.",
+     "definitionFit": "Something regal or suited to a monarch is described by this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +876,74 @@
      }
     ]
    },
-   "solution": "LONNIEDONEGAN"
+   "solution": "LONNIEDONEGAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entertainer of yesteryear",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "seen in",
+         "at": 13,
+         "note": "seen in means placed inside the capital's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 21,
+         "gives": "LONDON",
+         "note": "London, the UK capital"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Name",
+           "at": 0,
+           "gives": "N"
+          },
+          {
+           "words": "that is",
+           "at": 5,
+           "gives": "IE",
+           "note": "i.e. is the abbreviation of id est, that is"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "say",
+       "at": 30,
+       "gives": "EG",
+       "note": "e.g. means for example, like say"
+      },
+      {
+       "words": "an",
+       "at": 36,
+       "gives": "AN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A name spotted in a big city belongs to a performer of the past.",
+     "walkthrough": "Lonnie Donegan was the British 'King of Skiffle' in the 1950s, a hugely popular singer of that era.",
+     "definitionFit": "A once hugely popular skiffle singer, so a performer from earlier decades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +957,42 @@
     "text": "New Testament exponent shows energy, one going through the letters",
     "enumeration": "9"
    },
-   "solution": "GOSPELLER"
+   "solution": "GOSPELLER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New Testament exponent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "energy",
+       "at": 29,
+       "gives": "GO",
+       "note": "go means energy or vigour"
+      },
+      {
+       "words": "one going through the letters",
+       "at": 37,
+       "gives": "SPELLER",
+       "note": "a speller goes through a word letter by letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An evangelist's energy as he works through correspondence.",
+     "walkthrough": "'letters' suggests mail or epistles, fitting the New Testament, but means alphabet letters.",
+     "definitionFit": "One who reads or preaches the Gospel, a term for a New Testament preacher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +1006,40 @@
     "text": "Cosy tale about ecclesiastical helpers",
     "enumeration": "8"
    },
-   "solution": "ACOLYTES"
+   "solution": "ACOLYTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ecclesiastical helpers",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about here means moved around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cosy tale",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comfortable story concerning church assistants.",
+     "definitionFit": "Assistants to the clergy in services, such as altar servers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cosy"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1053,47 @@
     "text": "Not favouring valley odours? They're not so bad as they have been",
     "enumeration": "13"
    },
-   "solution": "CONVALESCENTS"
+   "solution": "CONVALESCENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "They're not so bad as they have been",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not favouring",
+       "at": 0,
+       "gives": "CON",
+       "note": "con as in pros and cons, against"
+      },
+      {
+       "words": "valley",
+       "at": 14,
+       "gives": "VALE",
+       "note": "a vale is a valley"
+      },
+      {
+       "words": "odours",
+       "at": 21,
+       "gives": "SCENTS",
+       "note": "scents are smells"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dislikes the smells drifting up from the valley.",
+     "definitionFit": "People recovering from illness are improving, so less poorly than they were."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "odours"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1107,41 @@
     "text": "A bony bit between the eyes shows cut",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "bony bit between the eyes",
+       "at": 2,
+       "gives": "BRIDGE",
+       "note": "the bridge of the nose is the bony ridge between the eyes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of the nose is exposed by an injury.",
+     "walkthrough": "'cut' looks like a wound, fitting the face, but means shortened.",
+     "definitionFit": "To shorten a text by cutting parts is a synonym for cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1155,52 @@
     "text": "Disgusting refusal is nothing to this person",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disgusting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "refusal",
+       "at": 11,
+       "gives": "NO",
+       "note": "no is a refusal"
+      },
+      {
+       "words": "is",
+       "at": 19,
+       "gives": "IS"
+      },
+      {
+       "words": "nothing",
+       "at": 22,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      },
+      {
+       "words": "this person",
+       "at": 33,
+       "gives": "ME",
+       "note": "the setter refers to themselves as me"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs off a refusal as unimportant.",
+     "definitionFit": "Offensive, especially in smell, a synonym for revolting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1214,29 @@
     "text": "Conditions in parts of America",
     "enumeration": "6"
    },
-   "solution": "STATES"
+   "solution": "STATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conditions",
+      "at": 0,
+      "meaning": "... of mind or health are conditions"
+     },
+     {
+      "text": "parts of America",
+      "at": 14,
+      "meaning": "the fifty member divisions of the USA"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One word naming both a condition and an American political division."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conditions"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1250,51 @@
     "text": "Look less than half serious, as one generally inept?",
     "enumeration": "5"
    },
-   "solution": "LOSER"
+   "solution": "LOSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one generally inept",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Look",
+       "at": 0,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or behold"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "less than half",
+         "at": 5,
+         "note": "less than half of the seven letters of serious means its first three"
+        }
+       ],
+       "parts": [
+        {
+         "words": "serious",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lightly serious look marks out a bungler.",
+     "definitionFit": "Someone who habitually fails is called this, a near synonym for an incompetent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serious"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1308,47 @@
     "text": "Birds, pale and sickly, landing aboard ship",
     "enumeration": "5"
    },
-   "solution": "SWANS"
+   "solution": "SWANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "landing aboard",
+       "at": 24,
+       "note": "landing aboard means placed inside the ship letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ship",
+       "at": 39,
+       "gives": "SS",
+       "note": "SS is steamship"
+      },
+      {
+       "words": "pale and sickly",
+       "at": 7,
+       "gives": "WAN",
+       "note": "wan means pale and sickly-looking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seabirds looking ill come down on a vessel.",
+     "definitionFit": "Long-necked water birds, an example of birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -362,7 +1362,59 @@
     "text": "Sailors at home occupying temporary accommodation keeping off the rum?",
     "enumeration": "9"
    },
-   "solution": "ABSTINENT"
+   "solution": "ABSTINENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "keeping off the rum",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sailors",
+       "at": 0,
+       "gives": "ABS",
+       "note": "AB is able seaman, so ABS are sailors"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "occupying",
+         "at": 16,
+         "note": "occupying means sitting inside the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temporary accommodation",
+         "at": 26,
+         "gives": "TENT",
+         "note": "a tent is shelter put up for a short stay"
+        },
+        {
+         "words": "at home",
+         "at": 8,
+         "gives": "IN",
+         "note": "in means at home, as in staying in"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seamen camping on shore stay off the drink.",
+     "definitionFit": "A teetotaller refrains from alcohol, and rum stands for drink in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1428,42 @@
     "text": "RIP? Dispense with the slightest sign of grief",
     "enumeration": "8"
    },
-   "solution": "TEARDROP"
+   "solution": "TEARDROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "slightest sign of grief",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "RIP",
+       "at": 0,
+       "gives": "TEAR",
+       "note": "rip as a verb means tear"
+      },
+      {
+       "words": "Dispense with",
+       "at": 5,
+       "gives": "DROP",
+       "note": "to drop something is to dispense with it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An epitaph on a grave and a token sorrow.",
+     "walkthrough": "RIP looks like rest in peace, which suits grief, but it is the verb rip.",
+     "definitionFit": "A single drop shed from the eye is the smallest outward show of sorrow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "RIP"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1483,39 @@
      }
     ]
    },
-   "solution": "COOLIT"
+   "solution": "COOLIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't get so excited!",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gosh",
+       "at": 0,
+       "gives": "COO",
+       "note": "coo is a British exclamation of surprise, like gosh"
+      },
+      {
+       "words": "literature",
+       "at": 14,
+       "gives": "LIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scoffs at a book and is told to calm down.",
+     "definitionFit": "Idiom telling someone to calm down and stop being agitated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1529,67 @@
     "text": "Opinion about American President's initial apprehension",
     "enumeration": "8"
    },
-   "solution": "SUSPENSE"
+   "solution": "SUSPENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "apprehension",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "about means going round the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Opinion",
+       "at": 0,
+       "gives": "SENSE",
+       "note": "sense can mean opinion, as in the sense of the meeting"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "American",
+         "at": 14,
+         "gives": "US"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initial",
+           "at": 35,
+           "note": "initial means the first letter of President"
+          }
+         ],
+         "parts": [
+          {
+           "words": "President's",
+           "at": 23
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Views on a US president's opening move cause unease.",
+     "definitionFit": "Anxious uncertainty about what will happen is close to apprehension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1603,61 @@
     "text": "Knight will go round trailing society woman? Rubbish!",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "trailing",
+       "at": 21,
+       "note": "trailing means coming after the society woman"
+      }
+     ],
+     "parts": [
+      {
+       "words": "society woman",
+       "at": 30,
+       "gives": "DEB",
+       "note": "a deb is a debutante, a young woman entering society"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "go round",
+         "at": 12,
+         "note": "go round means the title is turned the other way about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Knight",
+         "at": 0,
+         "gives": "SIR",
+         "note": "Sir is the title of a knight"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight dawdling behind a society lady gets dismissed as nonsense.",
+     "walkthrough": "'Rubbish!' reads as an exclamation of disbelief, but it is a plain noun definition.",
+     "definitionFit": "Scattered waste and rubble, a synonym for rubbish in the sense of litter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   }
  ]
 }
