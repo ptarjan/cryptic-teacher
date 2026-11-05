@@ -86,7 +86,10 @@ check(bare(run(["GALE_GM2500075819.pdf: No 366 (PDF citation title), 27/35 clues
       "a line with no clock before any stamp says nothing")
 check(bare(run(["09:41:02 vlm stage: 3 asks spooled, 5 reads waiting",
                 "09:41:03 GALE_GM2500075819.pdf: No 366 (PDF citation title), 27/35 clues read"])),
-      ["✗ Gale file 075819 (No 366): only 27 of 35 clues could be read, the rest are missing"], "a partly read pdf")
+      ["✗ Listener No 366 (Gale file 075819): only 27 of 35 clues could be read, the rest are missing"], "a partly read pdf")
+check(bare(run(["09:41:03 GALE_GM2500142617.pdf: No 2133 (PDF citation date), 34/34 clues read"])),
+      ["✓ Listener No 2133 (Gale file 142617): all 34 clues read, filed once its printed solution is found"],
+      "a wholly read Listener pdf is no failure")
 
 # noise says nothing, and no internal names reach the log
 noise = ["vlm_reader: no ask for column 0: lines with no clue count or number, the page's prose",
