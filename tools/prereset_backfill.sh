@@ -950,6 +950,9 @@ pool_kill_tree() {
   kids=$(ps -o pid= --ppid "$1" 2>/dev/null)
   kill "$1" 2>/dev/null
   for p in $kids; do pool_kill_tree "$p"; done
+  # A python under load can sit on the TERM (or a timeout wrapper wait on it):
+  # 11-04 re-plans ran 855-1142s on a 600s limit. Whatever is left is killed.
+  ( sleep 5; kill -KILL "$1" $kids 2>/dev/null ) >/dev/null 2>&1 &
 }
 # While a re-plan runs: free slots filled up to the width already in force.
 # Not at the first plan (no width yet), past the deadline, or once a run failed
