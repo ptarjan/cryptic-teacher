@@ -493,7 +493,10 @@ class Log:
             return []
         m = re.match(r"^--- pool of (\d+): (\d+) in flight \(\d+ running\), (\d+) queued", line)
         if m:
-            self.pool, self.pool_raw = (int(m.group(1)), int(m.group(2)), int(m.group(3))), line.strip("- ")
+            pool = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if self.pool and pool[0] > self.pool[0] and "short" not in self.active:
+                self.since.pop("short", None)  # a raised width gets its own SHORT_S to fill, not the old shortfall's clock
+            self.pool, self.pool_raw = pool, line.strip("- ")
             m = re.match(r"^--- pool of \d+: (\d+) in flight \(\d+ running\), (\d+) queued", line)
             self.queued = int(m.group(2))
             if m.group(1) == "0" and self.queued == 0:
