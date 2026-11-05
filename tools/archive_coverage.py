@@ -28,9 +28,11 @@ import argparse
 import collections
 import datetime
 import functools
+import hashlib
 import json
 import os
 from pathlib import Path
+
 import canberra_london_numbers
 import downloads
 import fetch_archive_org_editions as fetcher
@@ -118,7 +120,10 @@ def corpus(series):
     """{date: puzzle number} and {number: date} of the series' filed puzzles.
     Each file's (date, number) is kept in STATE/corpus-<series>.json against
     its mtime and size, so a run re-reads only the files that changed."""
-    cache_path = STATE / f"corpus-{series}.json"
+    # One cache file per checkout: the same file has a different mtime in each
+    # tree, so a shared cache made every caller invalidate the others' entries.
+    tree = hashlib.sha1(str(Path(__file__).resolve().parent.parent).encode()).hexdigest()[:8]
+    cache_path = STATE / f"corpus-{series}-{tree}.json"
     try:
         cache = json.loads(cache_path.read_text())
     except (OSError, ValueError):
