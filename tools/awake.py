@@ -23,6 +23,11 @@ tails of the files written since).
 
     tools/awake.py            # the profile and whether he is awake now
     tools/awake.py --self-test
+    tools/awake.py --wake-at 2026-11-05T08:00-07:00   # ISO (naive: Pacific) or epoch
+
+One-shot override: OVERRIDE (~/.cache/awake_override.json, {"wake_epoch": N,
+"said": "<his words>"}) makes the night that ends within 12 h of N end at N,
+while now < N; ignored once past. Written by --wake-at.
 """
 import datetime as dt
 import json
@@ -50,6 +55,7 @@ BED_PAD_H = WAKE_PAD_H = 0.5
 # Hours past the evening's midnight: 23:00 to the next day's 07:00.
 FIXED = (23.0, 31.0)
 NOTICE = "\U0001f511"
+OVERRIDE = Path(os.environ.get("AWAKE_OVERRIDE") or "~/.cache/awake_override.json").expanduser()
 
 
 def _his(row):
@@ -169,7 +175,16 @@ def load(home, now=None, store=None):
             tmp.replace(path)
         except OSError as exc:
             print(f"awake: {path} not written: {exc}", file=sys.stderr)
-    return dict(cached, last=last_message(store, now))
+    return dict(cached, last=last_message(store, now), override=wake_override(now))
+
+
+def wake_override(now):
+    """The override's wake epoch while now is before it, else None."""
+    try:
+        wake = float(json.loads(OVERRIDE.read_text())["wake_epoch"])
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    return wake if now < wake else None
 
 
 def span(sleep):
@@ -190,6 +205,9 @@ def next_sleep(epoch, sleep=None, tz=PACIFIC):
         end = (base + dt.timedelta(hours=wake)).timestamp()
         if last is not None and start < last + AWAKE_RECENT_S:
             start = max(start, last + AWAKE_RECENT_S)
+        ov = (sleep or {}).get("override")
+        if ov and ov > epoch and abs(end - ov) < 12 * 3600:
+            end = ov
         if end > epoch and start < end:
             return start, end
         day += dt.timedelta(days=1)
@@ -293,9 +311,23 @@ def self_test():
     return 1 if bad else 0
 
 
+def set_override(arg):
+    try:
+        wake = float(arg)
+    except ValueError:
+        when = dt.datetime.fromisoformat(arg)
+        wake = (when if when.tzinfo else when.replace(tzinfo=PACIFIC)).timestamp()
+    OVERRIDE.parent.mkdir(parents=True, exist_ok=True)
+    OVERRIDE.write_text(json.dumps({"wake_epoch": int(wake), "said": "wake-at"}) + "\n")
+    print(f"awake: wake override {dt.datetime.fromtimestamp(wake, PACIFIC):%a %H:%M} Pacific")
+
+
 def main():
     if "--self-test" in sys.argv:
         return self_test()
+    if "--wake-at" in sys.argv:
+        set_override(sys.argv[sys.argv.index("--wake-at") + 1])
+        return 0
     print("\n".join(describe(load(Path(os.environ.get("CT_MAIN_CHECKOUT") or "."), store=STORE))))
     return 0
 
