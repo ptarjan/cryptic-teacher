@@ -24,6 +24,7 @@ crawlable pages at puzzles/<id>/index.html, so no public URL depends on this.
 """
 import functools
 import os
+import re
 import sys
 import threading
 from pathlib import Path
@@ -165,7 +166,52 @@ def puzzle_files(*series):
     dozen ran past its hour on a loaded host."""
     if series:
         return sorted(f for s in series for f in PUZZLE_DIR.glob(f"*/*/{s}-[0-9]*.json"))
-    return sorted(PUZZLE_DIR.glob("*/*/*-[0-9]*.json"))
+    return list(snapshot("puzzle_files", _all_puzzle_files))
+
+
+#: A published file's name: <series>-<number>...json, as the glob "*-[0-9]*.json" reads it.
+_PUBLISHED = re.compile(r".*-[0-9].*\.json", re.DOTALL)
+
+
+def _all_puzzle_files():
+    """puzzle_files() with no series: scandir's names sorted as the paths
+    would be (pathlib's glob and its Path comparisons were 12s of a cover-first
+    plan that listed the corpus twice)."""
+    found = []
+    try:
+        for folder in os.scandir(PUZZLE_DIR):
+            if not folder.is_dir():
+                continue
+            for year in os.scandir(folder.path):
+                if not year.is_dir():
+                    continue
+                found.extend((folder.name, year.name, e.name) for e in os.scandir(year.path)
+                             if _PUBLISHED.fullmatch(e.name))
+    except (FileNotFoundError, NotADirectoryError):
+        pass
+    found.sort()
+    return [PUZZLE_DIR.joinpath(*parts) for parts in found]
+
+
+_SNAPSHOT = None
+
+
+def hold_snapshot():
+    """From here the corpus listings (puzzle_files(), puzzle_integrity.listing())
+    are read once and handed back as they were, for a planner that asks the
+    same listing of several maps in a minute; a file filed meanwhile is read
+    by the next plan. Off by default: a listing is a fresh read."""
+    global _SNAPSHOT
+    _SNAPSHOT = {}
+
+
+def snapshot(key, read):
+    """read(), kept under `key` while hold_snapshot() is on."""
+    if _SNAPSHOT is None:
+        return read()
+    if key not in _SNAPSHOT:
+        _SNAPSHOT[key] = read()
+    return _SNAPSHOT[key]
 
 
 #: The id of the puzzle a worker run (tools/puzzle_worker.sh) is for.

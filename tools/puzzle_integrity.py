@@ -1874,6 +1874,11 @@ def listing():
     read off git's index in a fraction of a second instead of a 40k-entry
     directory walk. A file edited since the index was written is hashed from
     its bytes. Outside a git checkout, every file is hashed."""
+    return puzzle_paths.snapshot(("listing", str(puzzle_paths.PUZZLE_DIR)), _read_listing)
+
+
+def _read_listing():
+    """listing(), read now (four git ls-files and the hash of each edited file)."""
     root = puzzle_paths.PUZZLE_DIR.parent
     try:
         tracked = {}

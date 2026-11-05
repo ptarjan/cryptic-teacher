@@ -2936,6 +2936,10 @@ def cover_first(pinned):
 
 
 def main():
+    if "--cover-first" in sys.argv or "--backlog" in sys.argv:
+        # one plan lists the corpus once: each row map asks the same listing
+        import puzzle_paths
+        puzzle_paths.hold_snapshot()
     if "--cover-first" in sys.argv:
         at = sys.argv.index("--cover-first")
         return cover_first(" ".join(sys.argv[at + 1:]).split())

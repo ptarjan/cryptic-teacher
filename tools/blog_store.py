@@ -55,6 +55,25 @@ def files(series=None):
     return dict(sorted(out.items()))
 
 
+def stamps():
+    """[[id, mtime_ns, size]] of every sidecar in id order: files()'s, one
+    scandir stat each instead of a Path built and stat()ed per sidecar."""
+    root = puzzle_paths.PUZZLE_DIR
+    out = []
+    try:
+        for folder in os.scandir(root):
+            if folder.is_dir():
+                for year in os.scandir(folder.path):
+                    if year.is_dir():
+                        for e in os.scandir(year.path):
+                            if e.name.endswith(SUFFIX):
+                                st = e.stat()
+                                out.append([e.name[:-len(SUFFIX)], st.st_mtime_ns, st.st_size])
+    except (FileNotFoundError, NotADirectoryError):
+        pass
+    return sorted(out)
+
+
 def read(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
