@@ -214,6 +214,8 @@ def parse_line(line, where=None):
         return [row] if isinstance(row, dict) else []
     except ValueError:
         pass
+    if isinstance(where, tuple):  # (file name, line number), joined only for a torn line
+        where = f"{where[0]}:{where[1]}"
     dec, rows, i = json.JSONDecoder(), [], clean.find("{")
     while i >= 0:
         try:
@@ -501,8 +503,9 @@ def _parsed(path):
         done, rows = hit[1], hit[3]
     end = data.rfind(b"\n") + 1
     first = data.count(b"\n", 0, done) + 1
+    name = Path(path).name  # once: built per line it was 6s of a 96MB cold read
     new = tuple(r for n, line in enumerate(data[done:end].split(b"\n"), first) if line.strip()
-                for r in parse_line(line, f"{Path(path).name}:{n}"))
+                for r in parse_line(line, (name, n)))
     rows = rows + new
     _PARSED[path] = (key if len(data) == st.st_size else (key[0], -1, 0), end,
                      hashlib.blake2b(data[:end]).digest(), rows)
