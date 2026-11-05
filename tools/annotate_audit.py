@@ -215,6 +215,14 @@ def stopped_names(text):
         # first unindented); the colon after the id tells them from walkthrough lines.
         for m in re.finditer(r"^[ \t]*(?:[A-Z]+ )?\d+-(?:across|down):[ \t]*(.*)$", text, re.M):
             found.add(refusal_class(m.group(1)))
+    # apply_annotations stops on one line, no list: "apply_annotations: <file> is not valid
+    # JSON — Extra data at line 1 column 772, right after ..." (143 of the 150 sessions
+    # once ranked as the bare STOPPED catch-all, 11-03..05; mend_json now shuts that shape).
+    for m in re.finditer(r"^apply_annotations: \S+ is not valid JSON — ([A-Za-z' ]+?) at line", text, re.M):
+        found.add("file is not valid JSON: " + m.group(1))
+    if not found:
+        for m in re.finditer(r"^apply_annotations: (?:\S+\.json: )?([^\n]*)", text, re.M):
+            found.add(refusal_class(m.group(1)))
     if found:
         return {f"apply refused: {f}" for f in found}
     m = re.search(r"STOPPED — (.{0,200})", text)
