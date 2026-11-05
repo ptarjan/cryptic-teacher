@@ -98,8 +98,7 @@ def blog_pairs(lex, wanted):
     """{puzzle id: (type, key) pairs its blog facts give} for the puzzles in `wanted`."""
     stamp = [hashlib.sha1(json.dumps(lex, sort_keys=True).encode()
                           + Path(indicator_keys.__file__).read_bytes()).hexdigest()] \
-        + [hashlib.sha1(repr([[n, p.stat().st_mtime_ns, p.stat().st_size]
-                              for n, p in blog_store.files().items()]).encode()).hexdigest()]
+        + [hashlib.sha1(repr(blog_store.stamps()).encode()).hexdigest()]
     try:
         cached = json.loads(BLOG_CACHE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -116,7 +115,8 @@ def blog_pairs(lex, wanted):
         tmp = BLOG_CACHE.with_suffix(f".{os.getpid()}")
         tmp.write_text(json.dumps(cached), encoding="utf-8")
         os.replace(tmp, BLOG_CACHE)
-    return {pid: {tuple(p) for p in ps} for pid, ps in cached["pairs"].items() if pid in wanted}
+    pairs = cached["pairs"]
+    return {pid: {tuple(p) for p in pairs[pid]} for pid in wanted if pid in pairs}
 
 
 def cover(queue, pairs_of, weight):
