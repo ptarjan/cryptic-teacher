@@ -123,6 +123,19 @@ def _blobs(paths, listed=None):
     return out
 
 
+#: Seconds a file counts as just written: its row is checked by hash, not stat.
+RECENT_S = 600
+
+
+def _sig(path):
+    """(mtime ns, size, inode) of path, or None if it is gone."""
+    try:
+        st = path.stat()
+    except OSError:
+        return None
+    return (st.st_mtime_ns, st.st_size, st.st_ino)
+
+
 def _blob_sha(path):
     import puzzle_integrity  # lazy, as in _blobs
     return puzzle_integrity._blob_sha(path)
@@ -373,13 +386,28 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
     def store(made):
         # A file rewritten since the listing was read as its new content: its
         # row is not stored under the old content's key.
-        keep = [p for p in made if p.exists() and _key(code, p, _blob_sha(p)) == keys[p]]
+        # Judged by stat against the one taken before the rows were made, not
+        # by hashing: hashing every made file again read the whole corpus a
+        # second time (a code change makes ~31k rows; 40 minutes, 2026-11-05).
+        # A file written in the last RECENT_S seconds is hashed anyway, for a
+        # rewrite between the listing and that stat.
+        def unchanged(p):
+            sig = _sig(p)
+            if sig is None:
+                return False
+            if sig == sigs.get(p) and sig[0] < recent:
+                return True
+            return _key(code, p, _blob_sha(p)) == keys[p]
+
+        keep = [p for p in made if unchanged(p)]
         conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
                          ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
         if stale_ok:
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)", point(keep))
 
     unstored = miss
+    sigs = {p: _sig(p) for p in miss}
+    recent = time.time_ns() - RECENT_S * 10**9
     if miss:
         if prepare:
             prepare()
