@@ -85,6 +85,15 @@ check({n for s in ("genius/2026/genius-1.json", "azed/2025/azed-9.json") for n i
     f"annotate_check x: STOPPED — the annotations were not applied, so puzzles/{s} is unchanged.")},
       {"STOPPED: the annotations were not applied, so <puzzle> is unchanged."},
       "a STOPPED line is one class whatever series path it names")
+check(a.stopped_names("Exit code 2\napply_annotations: /t/_ann_x-1.json is not valid JSON — Extra data at "
+                      "line 1 column 772, right after `}}` and before `',\\n\"6-across\"'`: fix that spot\n"
+                      "annotate_check x-1: STOPPED — the annotations were not applied, so puzzles/x/x-1.json is unchanged."),
+      {"apply refused: file is not valid JSON: Extra data"},
+      "a one-line not-valid-JSON stop is classed by its parse error, not left as the generic STOPPED")
+check(a.stopped_names("apply_annotations: ftcryptic-13691.json: not a clue in this puzzle: 22-down\n"
+                      "annotate_check x: STOPPED — the annotations were not applied"),
+      {"apply refused: schema not a clue in this puzzle: N-down"},
+      "any other one-line apply_annotations stop is classed by its message")
 check(a.tool_error_kind("Bash", "python3 tools/annotate_check.py x", "Exit code 1\nFAIL"), None,
       "annotate_check reporting errors is not a wasted call")
 check(a.tool_error_kind("Bash", "python3 tools/annotate_bag.py check tools/_ann_bag_x.json", "Exit code 1\nFAIL"),
