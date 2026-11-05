@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,82 @@
     "text": "Sailor vague about greeting top politician in sickbay",
     "enumeration": "10"
    },
-   "solution": "MIDSHIPMAN"
+   "solution": "MIDSHIPMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sailor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 13,
+         "note": "about signals that the word for vague is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vague",
+         "at": 7,
+         "gives": "DIM",
+         "note": "dim means vague or hazy"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 43,
+         "note": "in places the greeting and politician inside the sickbay word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sickbay",
+         "at": 46,
+         "gives": "SAN",
+         "note": "san, short for sanatorium, is a sickbay"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "greeting",
+           "at": 19,
+           "gives": "HI",
+           "note": "hi is a greeting"
+          },
+          {
+           "words": "top politician",
+           "at": 28,
+           "gives": "PM",
+           "note": "PM, the Prime Minister, is the top politician"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor, unsure of himself, greets the Prime Minister while laid up in the ship's sickbay.",
+     "definitionFit": "A midshipman is a junior naval officer, so a kind of sailor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vague"
+    }
+   }
   },
   {
    "number": 1,
@@ -44,7 +122,28 @@
     "text": "Face journey over snow with dogs",
     "enumeration": "4"
    },
-   "solution": "MUSH"
+   "solution": "MUSH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Face",
+      "at": 0,
+      "meaning": "slang for the face"
+     },
+     {
+      "text": "journey over snow with dogs",
+      "at": 5,
+      "meaning": "to travel by dog sled, from the driver's cry to the team"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Mush is British slang for a face, and also means to drive a dog sled across snow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -58,7 +157,69 @@
     "text": "Terrible start to day — I get more petrol out East",
     "enumeration": "7"
    },
-   "solution": "DIREFUL"
+   "solution": "DIREFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terrible",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 9,
+         "note": "start to picks the opening letter of the word day"
+        }
+       ],
+       "parts": [
+        {
+         "words": "day",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 24
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 42,
+         "note": "out says the letter for East is dropped from the refilling word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get more petrol",
+         "at": 26,
+         "gives": "REFUEL",
+         "note": "to refuel is to get more petrol"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver moans about a dreadful start to the day, having to fill up with petrol yet again.",
+     "definitionFit": "Direful is an old-fashioned synonym for dreadful or terrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +233,63 @@
     "text": "Frantically try payphone, securing hospital treatment",
     "enumeration": "12"
    },
-   "solution": "HYPNOTHERAPY"
+   "solution": "HYPNOTHERAPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "securing",
+       "at": 26,
+       "note": "securing means holding something firmly inside, so the hospital letter goes within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Frantically",
+         "at": 0,
+         "note": "frantically suggests wild disorder, so the letters of try and payphone are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "try",
+         "at": 12
+        },
+        {
+         "words": "payphone",
+         "at": 16
+        }
+       ]
+      },
+      {
+       "words": "hospital",
+       "at": 35,
+       "gives": "H",
+       "note": "H is the abbreviation for hospital, as on road signs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone desperately tries a payphone to get treatment at a hospital.",
+     "walkthrough": "'treatment' is the definition at the end; the hospital sits inside the rearranged phone call.",
+     "definitionFit": "Hypnotherapy is a form of therapeutic treatment that uses hypnosis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +303,67 @@
     "text": "Nonsense the French let slip about city's spicy food",
     "enumeration": "6"
    },
-   "solution": "PILAFF"
+   "solution": "PILAFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spicy food",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about means the trimmed nonsense word goes round the city"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "let slip",
+         "at": 20,
+         "note": "let slip says the French article is dropped from the nonsense word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nonsense",
+         "at": 0,
+         "gives": "PIFFLE",
+         "note": "piffle is nonsense"
+        },
+        {
+         "words": "the French",
+         "at": 9,
+         "gives": "LE",
+         "note": "le is the French for the"
+        }
+       ]
+      },
+      {
+       "words": "city's",
+       "at": 35,
+       "gives": "LA",
+       "note": "LA, Los Angeles, is a city"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner dismisses as nonsense the French claim about a city's spicy cuisine.",
+     "walkthrough": "'let slip' drops LE from PIFFLE to leave PIFF, which goes 'about' LA.",
+     "definitionFit": "Pilaff is a spiced rice dish, a variant spelling of pilaf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +377,51 @@
     "text": "Sign a question put before Greek theologian",
     "enumeration": "8"
    },
-   "solution": "AQUARIUS"
+   "solution": "AQUARIUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "put before",
+       "at": 16,
+       "note": "put before places the question and A ahead of the theologian in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "words": "question",
+       "at": 7,
+       "gives": "QU"
+      },
+      {
+       "words": "Greek theologian",
+       "at": 27,
+       "gives": "ARIUS",
+       "note": "Arius was an early Christian theologian from Alexandria, writing in Greek"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puts a question to an ancient Greek theologian about the sign of things.",
+     "definitionFit": "Aquarius is one of the twelve signs of the zodiac, the water carrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +435,47 @@
     "text": "Stylishness Marx briefly displayed",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stylishness",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "briefly",
+       "at": 17,
+       "note": "briefly means the name is cut short by its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Marx",
+       "at": 12,
+       "gives": "CHICO",
+       "note": "Chico was one of the Marx Brothers"
+      },
+      {
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy brother shows a moment of elegance on screen.",
+     "walkthrough": "Marx here is Chico Marx of the comedy Marx Brothers, cut short by 'briefly'.",
+     "definitionFit": "Chic as a noun means elegance or stylishness of dress and manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Marx"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +489,48 @@
     "text": "Fine intelligence associated with Prince Charlie?",
     "enumeration": "7"
    },
-   "solution": "HALFWIT"
+   "solution": "HALFWIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Charlie?",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Prince",
+       "at": 34,
+       "gives": "HAL",
+       "note": "Prince Hal is Shakespeare's name for the young Henry V"
+      },
+      {
+       "words": "Fine",
+       "at": 0,
+       "gives": "F",
+       "note": "F is the abbreviation for fine, as on pencils"
+      },
+      {
+       "words": "intelligence",
+       "at": 5,
+       "gives": "WIT",
+       "note": "wit means intelligence or good sense"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bonnie Prince Charlie is credited with fine intelligence.",
+     "walkthrough": "'Prince Charlie' looks like one name, but Prince gives HAL and Charlie, a British word for a fool, is the definition.",
+     "definitionFit": "A charlie is British slang for a fool, the same as an idiot or simpleton."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prince"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +544,69 @@
     "text": "Cafe regularly meeting cost covers boy's fluffy confection",
     "enumeration": "10"
    },
-   "solution": "CANDYFLOSS"
+   "solution": "CANDYFLOSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fluffy confection",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covers",
+         "at": 28,
+         "note": "covers means the regular letters of cafe go round the boy's name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 5,
+           "note": "regularly takes every other letter of cafe, starting with the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cafe",
+           "at": 0
+          }
+         ]
+        },
+        {
+         "words": "boy's",
+         "at": 35,
+         "gives": "ANDY",
+         "note": "Andy is a boy's name"
+        }
+       ]
+      },
+      {
+       "words": "cost",
+       "at": 23,
+       "gives": "LOSS",
+       "note": "a loss is a cost incurred"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy at a cafe sees his treat's cost go up and covers the bill.",
+     "walkthrough": "'regularly' keeps the first and third letters of Cafe; 'meeting' only joins the pieces.",
+     "definitionFit": "Candyfloss is spun sugar on a stick, a light fluffy sweet sold at fairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +620,83 @@
     "text": "Principled warder reportedly retiring to north, poor soul",
     "enumeration": "10"
    },
-   "solution": "SCRUPULOUS"
+   "solution": "SCRUPULOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Principled",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SCRU",
+       "indicators": [
+        {
+         "text": "reportedly",
+         "at": 18,
+         "note": "reportedly means the word for warder is taken as it sounds when spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "warder",
+         "at": 11,
+         "gives": "SCREW",
+         "note": "screw is slang for a prison warder"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "at": 29,
+         "note": "retiring means going back, so the northward word reads in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to north",
+         "at": 38,
+         "gives": "UP",
+         "note": "up means towards the north on a map"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 48,
+         "note": "poor suggests something in a bad state, so the letters of soul are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soul",
+         "at": 53
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prison guard retires to the north, a poor soul.",
+     "walkthrough": "Screw is prison slang for a warder; 'reportedly' keeps only its sound, and in an across clue 'retiring' reads right to left.",
+     "definitionFit": "Someone scrupulous is careful to act rightly, guided by moral principle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warder"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +710,58 @@
     "text": "Tart beginning to languish in cooler",
     "enumeration": "4"
    },
-   "solution": "FLAN"
+   "solution": "FLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tart",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the opening letter inside the cooler"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cooler",
+       "at": 30,
+       "gives": "FAN",
+       "note": "a fan is something that cools"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 5,
+         "note": "beginning to picks the first letter of languish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "languish",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pastry starts to wilt in the fridge.",
+     "definitionFit": "A flan is an open pastry case with a filling, much like a tart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +775,45 @@
     "text": "Verbally endorse a strange description of drunken revels",
     "enumeration": "12"
    },
-   "solution": "BACCHANALIAN"
+   "solution": "BACCHANALIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "description of drunken revels",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "BACCHANALIAN",
+     "indicators": [
+      {
+       "text": "Verbally",
+       "at": 0,
+       "note": "verbally means the phrase is taken as spoken, so its sound counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "endorse a strange",
+       "at": 9,
+       "gives": "BACKANALIEN",
+       "note": "endorse means back, and a strange one is an alien, giving back an alien"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to give spoken approval to an odd account of a wild party.",
+     "walkthrough": "Said aloud, 'back an alien' sounds like the answer.",
+     "definitionFit": "Bacchanalian, from Bacchus the wine god, describes drunken riotous celebration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strange"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +837,59 @@
      }
     ]
    },
-   "solution": "OFFOFFBROADWAY"
+   "solution": "OFFOFFBROADWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like fringe production",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 24,
+         "note": "twice means the word for cancelled is written two times"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cancelled",
+         "at": 30,
+         "gives": "OFF",
+         "note": "off means cancelled, as of an event"
+        }
+       ]
+      },
+      {
+       "words": "coarse",
+       "at": 48,
+       "gives": "BROAD",
+       "note": "broad means coarse or indelicate, as in broad humour"
+      },
+      {
+       "words": "passage",
+       "at": 55,
+       "gives": "WAY",
+       "note": "a way is a passage or route"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre show is cancelled twice over its vulgar script.",
+     "walkthrough": "Off-off-Broadway is New York's most experimental theatre, beyond even Off-Broadway.",
+     "definitionFit": "Off-off-Broadway describes small experimental New York theatre, the equivalent of fringe productions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +903,74 @@
     "text": "Brass cover installed in European vessel right away",
     "enumeration": "10"
    },
-   "solution": "EFFRONTERY"
+   "solution": "EFFRONTERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 25,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "installed in",
+         "at": 12,
+         "note": "installed in puts the cover word inside the trimmed vessel"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "away",
+           "at": 47,
+           "note": "away says the letter for right is removed from the vessel"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vessel",
+           "at": 34,
+           "gives": "FERRY",
+           "note": "a ferry is a vessel"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "words": "cover",
+         "at": 6,
+         "gives": "FRONT",
+         "note": "a front is a cover or disguise for something"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brass fitting cover is installed in a European ship, right away.",
+     "walkthrough": "'away' drops just one of the vessel's two R's, and the cover is 'installed in' after its first letter.",
+     "definitionFit": "Brass is British slang for cheek or nerve, the same as effrontery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brass"
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +984,29 @@
     "text": "Obscene, to be so rich?",
     "enumeration": "6"
    },
-   "solution": "FILTHY"
+   "solution": "FILTHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Obscene",
+      "at": 0,
+      "meaning": "obscene or dirty"
+     },
+     {
+      "text": "to be so rich?",
+      "at": 9,
+      "meaning": "the phrase ... rich means extremely wealthy"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Filthy means foul or obscene, and in filthy rich it means enormously wealthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +1020,55 @@
     "text": "Shellfish second son swapped for Tom's wine",
     "enumeration": "8"
    },
-   "solution": "MUSCATEL"
+   "solution": "MUSCATEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "swapped for",
+       "at": 21,
+       "note": "swapped for says one letter of the shellfish is replaced by the tom"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shellfish",
+       "at": 0,
+       "gives": "MUSSEL",
+       "note": "a mussel is a shellfish"
+      },
+      {
+       "words": "second son",
+       "at": 10,
+       "gives": "S",
+       "note": "S is the abbreviation for son; it is the second one in the shellfish word"
+      },
+      {
+       "words": "Tom's",
+       "at": 33,
+       "gives": "CAT",
+       "note": "a tom is a male cat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shellfish dish is paired with a wine chosen by Tom.",
+     "walkthrough": "MUSSEL has two S's; 'second son' says the later one gives way to CAT.",
+     "definitionFit": "Muscatel is a sweet wine made from muscat grapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tom's"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +1082,71 @@
     "text": "Confound his manoeuvring, holding up half the team",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Confound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "holding up",
+       "at": 26,
+       "note": "holding up in a down clue puts the first part above the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 37,
+         "note": "half means only one half of the team's name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the team",
+         "at": 42,
+         "gives": "ASTONVILLA",
+         "note": "Aston Villa is a Birmingham football team"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "manoeuvring",
+         "at": 13,
+         "note": "manoeuvring suggests moving pieces around, so the letters of his are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "at": 9
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer confounds the opposition with his manoeuvring, holding up half the team.",
+     "walkthrough": "Aston Villa is a Birmingham football club; 'half' keeps its first word, and 'holding up' works because this is a down clue.",
+     "definitionFit": "To astonish is to amaze, and to confound can mean to astound or bewilder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Confound"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1166,43 @@
      }
     ]
    },
-   "solution": "ROCKROSE"
+   "solution": "ROCKROSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a bloomer",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hudson",
+       "at": 0,
+       "gives": "ROCK",
+       "note": "Rock Hudson was a Hollywood film star"
+      },
+      {
+       "words": "rebelled",
+       "at": 7,
+       "gives": "ROSE",
+       "note": "rose, as in rose up, means rebelled"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film star rebelled and made a blunder.",
+     "walkthrough": "'a bloomer' looks like a mistake, but here it is a flowering plant.",
+     "definitionFit": "A rock rose is a flowering shrub, so a plant that blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1216,35 @@
     "text": "Model place for lone creature's wanderings? Just so",
     "enumeration": "7"
    },
-   "solution": "CATWALK"
+   "solution": "CATWALK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Model place for lone creature's wanderings? Just so",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Model place for lone creature's wanderings? Just so",
+       "at": 0,
+       "note": "a runway for fashion models, read as the walk of Kipling's Just So Stories cat who walked by himself"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Kipling's Just So Stories include The Cat that Walked by Himself, the lone creature of the clue.",
+     "definitionFit": "A catwalk is the raised runway where fashion models parade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1258,46 @@
     "text": "In study area, page through French author",
     "enumeration": "6"
    },
-   "solution": "CAMPUS"
+   "solution": "CAMPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "study area",
+      "at": 3
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "at": 20,
+       "note": "through means the page letter runs inside the author's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French author",
+       "at": 28,
+       "gives": "CAMUS",
+       "note": "Albert Camus was a French author"
+      },
+      {
+       "words": "page",
+       "at": 15,
+       "gives": "P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the library, someone pages through a French novelist.",
+     "definitionFit": "A campus is the grounds of a university or college, a place of study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1311,34 @@
     "text": "Choose a deep sound? Not from this",
     "enumeration": "7"
    },
-   "solution": "PICCOLO"
+   "solution": "PICCOLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Choose a deep sound? Not from this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Choose a deep sound? Not from this",
+       "at": 0,
+       "note": "pick a low, said aloud, gives the instrument, which plays only high notes"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Spoken, 'pick a low' gives the answer, yet this little flute has no deep notes.",
+     "definitionFit": "A piccolo is a small flute pitched an octave higher than the ordinary one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1352,48 @@
     "text": "Suit I sported in part of London",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sported in",
+       "at": 7,
+       "note": "sported in means the I is worn inside the London district"
+      }
+     ],
+     "parts": [
+      {
+       "words": "part of London",
+       "at": 18,
+       "gives": "ACTON",
+       "note": "Acton is a district of west London"
+      },
+      {
+       "words": "I",
+       "at": 5,
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I wore a suit in a London district.",
+     "walkthrough": "ACTON is a district of west London.",
+     "definitionFit": "A suit at law is a legal action brought before a court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1421,34 @@
      }
     ]
    },
-   "solution": "NOTUPTOSCRATCH"
+   "solution": "NOTUPTOSCRATCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tormented by bedbugs? The digs must be so!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tormented by bedbugs? The digs must be so!",
+       "at": 0,
+       "note": "lodgings that make guests itch are literally inadequate, the idiom for poor quality"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Digs is British slang for rented lodgings.",
+     "definitionFit": "Not up to scratch is an idiom meaning below the expected standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1462,44 @@
     "text": "Maid dismissing odd characters from farm path",
     "enumeration": "4"
    },
-   "solution": "AMAH"
+   "solution": "AMAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "dismissing odd characters from",
+       "at": 5,
+       "note": "dismissing odd characters keeps the even letters of farm and path"
+      }
+     ],
+     "parts": [
+      {
+       "words": "farm",
+       "at": 36
+      },
+      {
+       "words": "path",
+       "at": 41
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A maid sends some strange people away from the farm path.",
+     "definitionFit": "An amah is a nursemaid or maidservant in East and South Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1513,40 @@
     "text": "Hairy man encountered in the sauna",
     "enumeration": "4"
    },
-   "solution": "ESAU"
+   "solution": "ESAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hairy man",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "encountered in",
+       "at": 10,
+       "note": "encountered in says the man is met inside the words the sauna"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the sauna",
+       "at": 25
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hairy man is met in the steam room.",
+     "walkthrough": "In Genesis, Esau is described as a hairy man, unlike his brother Jacob.",
+     "definitionFit": "Esau, Jacob's brother in the Bible, is called a hairy man in Genesis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1560,43 @@
     "text": "Rigid motif surprisingly shaped like a finger",
     "enumeration": "10"
    },
-   "solution": "DIGITIFORM"
+   "solution": "DIGITIFORM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shaped like a finger",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 12,
+       "note": "surprisingly suggests an unexpected new form, so the letters of rigid motif are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rigid",
+       "at": 0
+      },
+      {
+       "words": "motif",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic is surprised that a stiff design looks like a finger.",
+     "definitionFit": "Digit is Latin-derived for finger, and the suffix form means having that shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1610,45 @@
     "text": "Pair of oxen, not white by the sound of it",
     "enumeration": "4"
    },
-   "solution": "YOKE"
+   "solution": "YOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pair of oxen",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "YOKE",
+     "indicators": [
+      {
+       "text": "by the sound of it",
+       "at": 24,
+       "note": "by the sound of it means the word is taken as heard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "not white",
+       "at": 14,
+       "gives": "YOLK",
+       "note": "the yolk is the part of an egg that is not the white"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of oxen is described as not white, apparently.",
+     "walkthrough": "The egg's yolk, the part that is not the white, sounds like the answer.",
+     "definitionFit": "A yoke is a pair of draught animals harnessed together, such as oxen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "white"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1662,74 @@
     "text": "Female with boat trimmed in quiet river",
     "enumeration": "10"
    },
-   "solution": "SHENANDOAH"
+   "solution": "SHENANDOAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "river",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "in places the female, with and trimmed boat inside the quiet word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quiet",
+       "at": 28,
+       "gives": "SH",
+       "note": "sh is a call for quiet"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Female",
+         "at": 0,
+         "gives": "HEN",
+         "note": "a hen is a female bird"
+        },
+        {
+         "words": "with",
+         "at": 7,
+         "gives": "AND",
+         "note": "and means with, joining two things"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "trimmed",
+           "at": 17,
+           "note": "trimmed cuts off both ends of boat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "boat",
+           "at": 12
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman with a trimmed boat paddles quietly down a river.",
+     "definitionFit": "The Shenandoah is a river in Virginia and West Virginia, famous from the folk song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
