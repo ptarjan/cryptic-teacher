@@ -2532,7 +2532,12 @@ def print_backlog(annotate_blocked, solve_blocked):
     print(f"  {sum(1 for p in todo if not p.get('hasSolutions'))} of them lack answers "
           "and are solved cold first", file=sys.stderr)
     queued = {p["id"] for p in todo}
-    cut = clue_cutoff.gate(sorted(queued), log=CUT_SHORT_LOG)
+    # A cold clue_cutoff row cache (new code, a grown queue) is ~31k puzzle
+    # reads: best_effort stores the rows made and goes on with only the
+    # reread_unfixable holds, the next re-plan finishing the rest.
+    ids = sorted(queued)
+    cut = best_effort("clue cut-short gate", lambda: clue_cutoff.gate(ids, log=CUT_SHORT_LOG),
+                      clue_cutoff.held_only(ids), 0.5)
     if cut:
         todo = [p for p in todo if p["id"] not in cut]
         queued -= set(cut)

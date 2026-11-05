@@ -118,7 +118,7 @@ def blog_fragments(puzzle):
 
     import puzzle_paths
     try:
-        path = puzzle_paths.find(puzzle["id"])
+        path = puzzle_paths.find_listed(puzzle["id"])
         blog = json.loads(Path(path).with_suffix(".blog").read_text(encoding="utf-8"))
     except (OSError, ValueError, TypeError, KeyError):
         return {}
@@ -129,19 +129,18 @@ def blog_fragments(puzzle):
     return out
 
 
-def suspects(puzzle):
-    """{entry id: why} for the lights of `puzzle` whose clue looks cut short."""
+def raw_suspects(puzzle):
+    """{entry id: why} for the lights of `puzzle` whose clue looks cut short,
+    exempt lights included: suspects() drops those after, so a change to the
+    exempt rules needs no new reading of the file (the row cache holds this)."""
     import provenance
     from groups import entry_id
     ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
-    skip = exempt()
     frags = blog_fragments(puzzle)
     out = {}
     for e in puzzle.get("entries", ()):
         clue = e.get("clue") if isinstance(e.get("clue"), dict) else {}
         eid = entry_id(e)
-        if (puzzle["id"], eid) in skip:
-            continue
         why = clue_why(clue.get("text"), clue.get("enumeration"), ocr)
         if not why and eid in frags and (clue.get("text") or "").strip():
             miss = blog_missing(clue["text"], frags[eid])
@@ -152,52 +151,109 @@ def suspects(puzzle):
     import fetch_puzzle
     for ids in fetch_puzzle.duplicated_clues(puzzle.get("entries", ())):
         for eid in ids:
-            if (puzzle["id"], eid) not in skip:
-                out.setdefault(eid, f"its clue repeats {', '.join(i for i in ids if i != eid)}'s")
+            out.setdefault(eid, f"its clue repeats {', '.join(i for i in ids if i != eid)}'s")
     return out
+
+
+def suspects(puzzle):
+    """{entry id: why} for the lights of `puzzle` whose clue looks cut short."""
+    skip = exempt()
+    return {eid: why for eid, why in raw_suspects(puzzle).items() if (puzzle["id"], eid) not in skip}
+
+
+def puzzle_row(path):
+    """What gate keeps per puzzle file: its id, the raw suspects, whether its
+    source is OCR'd, and the held text of each suspect light."""
+    import json
+
+    import provenance
+    puzzle = json.loads(path.read_text(encoding="utf-8"))
+    found = raw_suspects(puzzle)
+    texts = {f"{e['number']}-{e['direction']}": e["clue"].get("text") for e in puzzle.get("entries", ())
+             if isinstance(e.get("clue"), dict) and f"{e.get('number')}-{e.get('direction')}" in found}
+    return {"id": puzzle["id"], "found": found, "texts": texts,
+            "ocr": (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS}
+
+
+def _blog_stamp(path, row):
+    """The .blog beside a puzzle is read by raw_suspects but is not the file
+    the row is keyed on: its size and mtime stand in for it."""
+    try:
+        st = path.with_suffix(".blog").stat()
+    except OSError:
+        return None
+    return (st.st_size, st.st_mtime_ns)
+
+
+def held_only(pids):
+    """{puzzle id: {"*": why}} of the `pids` a reread could not mend: gate()'s
+    answer without a look at any file."""
+    unfix = unfixable()
+    return {pid: {"*": unfix[pid]} for pid in pids if pid in unfix}
 
 
 def gate(pids, read=None, log=None):
     """{puzzle id: {entry id: why}} for the ids in `pids` whose file shows a cut-short clue.
 
-    `read(pid)` returns the puzzle dict (default: its file in the checkout). An OCR'd
+    `read(pid)` returns the puzzle dict (default: its file in the checkout, with
+    the raw suspects of each file held in the row cache). An OCR'd
     puzzle's source is asked for a re-read (scan_queue.request_reread, the desktop's
     lane), once per reading; any other is appended to `log` (a path) as a row for
-    the source-fix path. Neither is annotated until its clue text changes."""
+    the source-fix path. Neither is annotated until its clue text changes.
+
+    One listed_once() scope covers the loop: a find per id was a stat of every
+    year folder of its series, twice (the puzzle and its .blog), and 11-05
+    that was two thirds of a 31k-id --backlog."""
     import json
 
     import provenance
+    import puzzle_paths
     import scan_queue
-    if read is None:
-        import puzzle_paths
-
-        def read(pid):
-            path = puzzle_paths.find(pid)
-            if path is None:  # queued, then renamed or removed: skip it like an unreadable file
-                raise FileNotFoundError(pid)
-            return json.loads(path.read_text(encoding="utf-8"))
+    pids = list(pids)
     flagged = {}
     held = unfixable()
-    for pid in pids:
-        if pid in held:
-            flagged[pid] = {"*": held[pid]}
-            continue
-        try:
-            puzzle = read(pid)
-        except (OSError, ValueError, KeyError):
-            continue
-        found = suspects(puzzle)
-        if not found:
-            continue
-        flagged[pid] = found
-        shown = [(eid, next((e["clue"].get("text") for e in puzzle["entries"]
-                             if f"{e['number']}-{e['direction']}" == eid), "")) for eid in found]
-        if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
-            scan_queue.request_reread(puzzle, shown, ["clueCutShort"])
-        elif log:
-            with open(log, "a", encoding="utf-8") as f:
-                f.write(json.dumps({"id": pid, "lights": found}) + "\n")
+    skip = exempt()
+    with puzzle_paths.listed_once():
+        if read is None:
+            import row_cache
+            paths = {pid: puzzle_paths.find_listed(pid) for pid in pids if pid not in held}
+            have = sorted({p for p in paths.values() if p is not None})
+            rows = dict(zip(have, row_cache.cached_map("clue_cutoff", puzzle_row, have, deps=_blog_stamp)))
+        for pid in pids:
+            if pid in held:
+                flagged[pid] = {"*": held[pid]}
+                continue
+            if read is None:
+                row = rows.get(paths[pid])
+                if row is None:  # queued, then renamed or removed: skip it
+                    continue
+                found = {k: v for k, v in row["found"].items() if (pid, k) not in skip}
+                ocr, shown = row["ocr"], [(eid, row["texts"].get(eid, "")) for eid in found]
+                puzzle = {"id": pid, "entries": ()}
+            else:
+                try:
+                    puzzle = read(pid)
+                except (OSError, ValueError, KeyError):
+                    continue
+                found = suspects(puzzle)
+                ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
+                shown = [(eid, next((e["clue"].get("text") for e in puzzle["entries"]
+                                     if f"{e['number']}-{e['direction']}" == eid), "")) for eid in found]
+            if not found:
+                continue
+            flagged[pid] = found
+            if ocr:
+                scan_queue.request_reread(puzzle if read else _reload(paths[pid]), shown, ["clueCutShort"])
+            elif log:
+                with open(log, "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"id": pid, "lights": found}) + "\n")
     return flagged
+
+
+def _reload(path):
+    """The puzzle dict at `path`, for the few flagged OCR'd ones that need a re-read asked."""
+    import json
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def main(argv):
