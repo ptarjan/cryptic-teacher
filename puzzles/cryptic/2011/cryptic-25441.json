@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Sermon where one regularly sleeps?",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sermon",
+      "at": 0,
+      "meaning": "a speech delivered formally to an audience, as a preacher gives from the pulpit"
+     },
+     {
+      "text": "where one regularly sleeps?",
+      "at": 7,
+      "meaning": "the place you live, given as street and number on letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A dull sermon is the place where the congregation habitually nods off.",
+     "definitionFit": "A sermon is a formal speech, and the second sense is the home location written on an envelope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,59 @@
     "text": "Sedative may wander and lose the point … lose the point …",
     "enumeration": "7"
    },
-   "solution": "DEVIATE"
+   "solution": "DEVIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lose the point",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may wander",
+       "at": 9,
+       "note": "may wander says the letters of the word sedative drift into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lose",
+         "at": 24,
+         "note": "lose says a compass point is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sedative",
+         "at": 0
+        },
+        {
+         "words": "the point",
+         "at": 29,
+         "gives": "S",
+         "note": "S is south, a point of the compass"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drowsy patient on a sedative drifts off topic.",
+     "walkthrough": "'lose' drops S (south, a point of the compass) from SEDATIVE, and 'may wander' rearranges what remains.",
+     "definitionFit": "To depart from the subject, losing the point, is to stray or digress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sedative"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +137,48 @@
     "text": "River in Kent occurs in the Wash?",
     "enumeration": "5"
    },
-   "solution": "RINSE"
+   "solution": "RINSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wash",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "River",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the abbreviation for river on maps"
+      },
+      {
+       "words": "in",
+       "at": 6,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "Kent",
+       "at": 9,
+       "gives": "SE",
+       "note": "Kent is a county in South East England, abbreviated SE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river in Kent flows into the Wash, the bay on the east coast.",
+     "walkthrough": "The Wash is a large bay on England's east coast; here it is just a wash. Kent, a county in South East England, gives SE.",
+     "definitionFit": "To rinse something is to wash it lightly in clean water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wash"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +192,48 @@
     "text": "Tawdry stuff in certain eminence",
     "enumeration": "7"
    },
-   "solution": "STATURE"
+   "solution": "STATURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eminence",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in says the tawdry stuff goes inside the word for certain"
+      }
+     ],
+     "parts": [
+      {
+       "words": "certain",
+       "at": 16,
+       "gives": "SURE",
+       "note": "certain means sure"
+      },
+      {
+       "words": "Tawdry stuff",
+       "at": 0,
+       "gives": "TAT",
+       "note": "tat is cheap, tasteless goods"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cheap goods found in the home of a certain grandee.",
+     "definitionFit": "Standing or reputation, as in a person of eminence, is a figurative synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eminence"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +247,47 @@
     "text": "It's this or nothing at breakfast, say",
     "enumeration": "7"
    },
-   "solution": "OATMEAL"
+   "solution": "OATMEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's this or nothing at breakfast, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 13,
+       "gives": "O",
+       "note": "nothing is zero, shaped like the letter O"
+      },
+      {
+       "words": "at",
+       "at": 21,
+       "gives": "AT",
+       "note": "taken as written"
+      },
+      {
+       "words": "breakfast, say",
+       "at": 24,
+       "gives": "MEAL",
+       "note": "breakfast is an example of a meal"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A diner insists that porridge oats are the only acceptable morning food.",
+     "definitionFit": "Ground oats boiled into porridge are a classic breakfast dish, so the whole clue describes the food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -101,7 +301,48 @@
     "text": "For each one baked item is included",
     "enumeration": "6"
    },
-   "solution": "APIECE"
+   "solution": "APIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For each",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is included",
+       "at": 24,
+       "note": "is included says the baked item goes inside the word for one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 9,
+       "gives": "ACE",
+       "note": "an ace is a one in a pack of cards"
+      },
+      {
+       "words": "baked item",
+       "at": 13,
+       "gives": "PIE",
+       "note": "a pie is something baked"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Each guest gets a baked dish included in the price.",
+     "definitionFit": "Each, apiece and per head all mean distributed one to every person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +356,52 @@
     "text": "Sales require boy to get in difficulty",
     "enumeration": "9"
    },
-   "solution": "MARKETING"
+   "solution": "MARKETING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sales",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boy",
+       "at": 14,
+       "gives": "MARK",
+       "note": "Mark is a boy's name"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "difficulty",
+         "at": 28,
+         "note": "difficulty suggests the words are in trouble and so get jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get in",
+         "at": 21
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad has to try hard to break into a tough line of work.",
+     "walkthrough": "'in difficulty' looks like the whole anagram signal, but 'in' is fodder, so 'difficulty' alone stirs GET IN; Mark is the boy.",
+     "definitionFit": "The business of selling and promoting goods covers the sales side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "difficulty"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +415,56 @@
     "text": "Mechanic has no end of sanitary work",
     "enumeration": "7"
    },
-   "solution": "ARTISAN"
+   "solution": "ARTISAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mechanic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "work",
+       "at": 32,
+       "note": "work says the remaining letters are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no end of",
+         "at": 13,
+         "note": "no end of says the word sanitary loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sanitary",
+         "at": 23
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber is busy on endless sanitary jobs.",
+     "walkthrough": "'no end of' trims sanitary to SANITAR, and 'work' rearranges it.",
+     "definitionFit": "A skilled manual worker; mechanic is an old word for a craftsman or artisan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mechanic"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +484,40 @@
      }
     ]
    },
-   "solution": "SENIORMOMENTS"
+   "solution": "SENIORMOMENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where memories are fading?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Olden",
+       "at": 0,
+       "gives": "SENIOR",
+       "note": "olden means older, so senior"
+      },
+      {
+       "words": "times",
+       "at": 6,
+       "gives": "MOMENTS",
+       "note": "moments are short periods of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nostalgia for the good old days when people misremember.",
+     "definitionFit": "Brief lapses of memory blamed on age are where recollection fades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +531,56 @@
     "text": "Time that's endless, never over",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 27,
+       "note": "over means the trimmed letters are turned backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 12,
+         "note": "endless means the word never loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "never",
+         "at": 21
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses that time without end never finishes.",
+     "walkthrough": "'endless' trims never to NEVE, and 'over' turns NEVE round.",
+     "definitionFit": "A poetic word for evening, the time of day at the close of daylight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +594,58 @@
     "text": "Meal — tea or one possibly better …",
     "enumeration": "10"
    },
-   "solution": "AMELIORATE"
+   "solution": "AMELIORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "better",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 18,
+       "note": "possibly says the letters of these words might be rearranged into something else"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Meal",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "tea",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "or",
+       "at": 11,
+       "note": "taken as written"
+      },
+      {
+       "words": "one",
+       "at": 14,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a meal or just tea would be the better choice.",
+     "walkthrough": "'possibly' rearranges MEAL, TEA, OR and I (one) into the answer.",
+     "definitionFit": "To improve a situation, making it better, is a formal verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +659,47 @@
     "text": "… state meal with posh cake",
     "enumeration": "6"
    },
-   "solution": "GATEAU"
+   "solution": "GATEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "state",
+       "at": 2,
+       "gives": "GA",
+       "note": "GA is the postal abbreviation for the US state of Georgia"
+      },
+      {
+       "words": "meal",
+       "at": 8,
+       "gives": "TEA",
+       "note": "tea is an afternoon or evening meal in Britain"
+      },
+      {
+       "words": "posh",
+       "at": 18,
+       "gives": "U",
+       "note": "U means upper-class, as in the old U and non-U distinction"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official state banquet ends with a fancy dessert.",
+     "definitionFit": "A rich, elaborate cream cake, from the French word for cake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +713,48 @@
     "text": "Lest surrounded, soldiers proliferate",
     "enumeration": "8"
    },
-   "solution": "INCREASE"
+   "solution": "INCREASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "proliferate",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surrounded",
+       "at": 5,
+       "note": "surrounded says the soldiers are placed inside the phrase meaning lest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lest",
+       "at": 0,
+       "gives": "INCASE",
+       "note": "lest means in case, two words run together"
+      },
+      {
+       "words": "soldiers",
+       "at": 17,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British army corps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops multiply for fear of being encircled.",
+     "definitionFit": "To grow in number or spread rapidly is to multiply, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lest"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +768,36 @@
     "text": "Nice 1 for some locals",
     "enumeration": "9"
    },
-   "solution": "MESSIEURS"
+   "solution": "MESSIEURS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nice 1 for some locals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Nice 1 for some locals",
+       "at": 0,
+       "note": "1 across refers to a form of address; in the French city of Nice, men are addressed with the plural French title"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant chat-up opening for the residents of some place.",
+     "walkthrough": "'Nice' is the French city, not the adjective, and 1 is the entry at 1 across, ADDRESS: the French plural form of address for men.",
+     "definitionFit": "The French plural of the title Monsieur, used when addressing gentlemen in Nice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 15,
@@ -239,7 +817,44 @@
      }
     ]
    },
-   "solution": "SHEREHITE"
+   "solution": "SHEREHITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sex expert",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SHEREHITE",
+     "indicators": [
+      {
+       "text": "declares",
+       "at": 21,
+       "note": "declares says the phrase is spoken and the sound is what is entered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Superiority is in 4",
+       "at": 0,
+       "gives": "SHEERHEIGHT",
+       "note": "4 down is a word for stature, and superiority in stature is sheer height"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sexologist claims superiority lies in a person's stature.",
+     "walkthrough": "Shere Hite was an American sex researcher, author of the Hite Report; 4 refers to 4 down, STATURE.",
+     "definitionFit": "An American sexologist famous for the Hite Report on female sexuality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Superiority"
+    }
+   }
   },
   {
    "number": 16,
@@ -253,7 +868,45 @@
     "text": "Close acquaintance not right with the devil",
     "enumeration": "5"
    },
-   "solution": "FIEND"
+   "solution": "FIEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "devil",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 19,
+       "note": "not says the abbreviation for right is left out of the word for a close acquaintance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Close acquaintance",
+       "at": 0,
+       "gives": "FRIEND",
+       "note": "a close acquaintance is a friend"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A close companion is not in the right if keeping company with Satan.",
+     "definitionFit": "A demon or evil spirit is a devil, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 17,
@@ -267,7 +920,29 @@
     "text": "Day's march for a Roman soldier?",
     "enumeration": "5"
    },
-   "solution": "MILES"
+   "solution": "MILES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Day's march",
+      "at": 0,
+      "meaning": "a distance marched in a day would be measured in units of length like this"
+     },
+     {
+      "text": "Roman soldier?",
+      "at": 18,
+      "meaning": "Latin for a soldier, the common foot soldier of the Roman army"
+     }
+    ],
+    "explanation": {
+     "surface": "How far a legionary could tramp in one day.",
+     "definitionFit": "Units of distance cover a day's march, and the Latin word for a soldier is spelt the same."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -281,7 +956,59 @@
     "text": "Step of 14 into wrecked semi, from which there's no way out",
     "enumeration": "7"
    },
-   "solution": "IMPASSE"
+   "solution": "IMPASSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from which there's no way out",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 11,
+       "note": "into says the step goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrecked",
+         "at": 16,
+         "note": "wrecked says the letters of the word semi are smashed into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "semi",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "words": "Step of 14",
+       "at": 0,
+       "gives": "PAS",
+       "note": "14 across is French plural address, and pas is French for a step"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance step taken into a ruined semi-detached house leads to a dead end.",
+     "walkthrough": "The 14 points to the French plural address, so the step is French; 'wrecked' scrambles semi to IMSE and 'into' places the step inside.",
+     "definitionFit": "A deadlock or dead end is a situation with no way out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "semi"
+    }
+   }
   },
   {
    "number": 19,
@@ -295,7 +1022,65 @@
     "text": "It's pitiful, for instance, in new oboe composition",
     "enumeration": "9"
    },
-   "solution": "WOEBEGONE"
+   "solution": "WOEBEGONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pitiful",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in says the abbreviation for instance goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "composition",
+         "at": 40,
+         "note": "composition says the letters of the two words are put together in a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "new",
+         "at": 31,
+         "note": "taken as written"
+        },
+        {
+         "words": "oboe",
+         "at": 35,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "for instance",
+       "at": 14,
+       "gives": "EG",
+       "note": "EG is the abbreviation for exempli gratia, for instance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new piece of music for oboe sounds sad.",
+     "walkthrough": "'It's' is a link before the definition; 'composition' gives WOEBONE from the two words, and 'in' puts the instance abbreviation inside.",
+     "definitionFit": "Looking sad and miserable, so pitiful in appearance, is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 20,
@@ -309,7 +1094,61 @@
     "text": "It's some way off a bull — almost",
     "enumeration": "7"
    },
-   "solution": "BUFFALO"
+   "solution": "BUFFALO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's some way off a bull — almost",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "some way",
+       "at": 5,
+       "note": "some way says the letters are arranged in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "off a",
+       "at": 14
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 27,
+         "note": "almost says the word bull loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bull",
+         "at": 20
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A creature that is nearly, but not quite, a bull.",
+     "walkthrough": "'almost' trims bull to BUL, and 'some way' rearranges OFFA plus BUL.",
+     "definitionFit": "A wild ox, close to but not quite cattle, and also a city some way off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 21,
@@ -323,7 +1162,41 @@
     "text": "Fabric from Granny Sharp?",
     "enumeration": "7"
    },
-   "solution": "NANKEEN"
+   "solution": "NANKEEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Granny",
+       "at": 12,
+       "gives": "NAN",
+       "note": "nan is a familiar word for a grandmother"
+      },
+      {
+       "words": "Sharp",
+       "at": 19,
+       "gives": "KEEN",
+       "note": "keen means sharp, as of a blade"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cloth supplied by a grandmother called Sharp.",
+     "definitionFit": "A yellowish cotton cloth originally from Nanjing, a type of fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 22,
@@ -337,7 +1210,48 @@
     "text": "Very hot, like the boy in title's opening letter?",
     "enumeration": "6"
    },
-   "solution": "PIPING"
+   "solution": "PIPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very hot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the boy",
+       "at": 15,
+       "gives": "PIP",
+       "note": "Pip is the boy hero of Great Expectations"
+      },
+      {
+       "words": "in",
+       "at": 23,
+       "gives": "IN",
+       "note": "taken as written"
+      },
+      {
+       "words": "title's opening letter",
+       "at": 26,
+       "gives": "G",
+       "note": "the title Great Expectations begins with the letter G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scorching question about a boy at the start of a book title.",
+     "walkthrough": "Pip is the hero of Dickens's Great Expectations, whose title opens with G.",
+     "definitionFit": "Piping hot is an idiom for food that is very hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 23,
@@ -351,7 +1265,47 @@
     "text": "Primate retains little desire for nourishment",
     "enumeration": "8"
    },
-   "solution": "APPETITE"
+   "solution": "APPETITE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "desire for nourishment",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retains",
+       "at": 8,
+       "note": "retains says the primate holds the word for little within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Primate",
+       "at": 0,
+       "gives": "APE",
+       "note": "an ape is a primate"
+      },
+      {
+       "words": "little",
+       "at": 16,
+       "gives": "PETIT",
+       "note": "petit is French for little, also used in English as in petit four"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey keeps a small craving for food.",
+     "definitionFit": "Hunger, a wish to eat, is a desire for nourishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -371,7 +1325,41 @@
      }
     ]
    },
-   "solution": "FAGEND"
+   "solution": "FAGEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's left",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 12,
+       "note": "in says the answer is buried inside the run of clue words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "remains of a gender",
+       "at": 15
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders what is left in the debris of a gender debate.",
+     "walkthrough": "The answer is held in 'of a gender'; 'remains' and 'issue' are surface dressing.",
+     "definitionFit": "The stub of a cigarette, and by extension any useless leftover remnant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gender"
+    }
+   }
   },
   {
    "number": 25,
@@ -385,7 +1373,47 @@
     "text": "Sound of sporty car getting run in?",
     "enumeration": "5"
    },
-   "solution": "GRUNT"
+   "solution": "GRUNT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in says the run goes inside the sporty car abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sporty car",
+       "at": 9,
+       "gives": "GT",
+       "note": "GT is a gran turismo, a sports car"
+      },
+      {
+       "words": "run",
+       "at": 28,
+       "gives": "RUN",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The noise a sports car makes on a run.",
+     "definitionFit": "A short guttural noise, like a pig's, is a kind of sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -399,7 +1427,52 @@
     "text": "Part is said to develop from an old house plant",
     "enumeration": "10"
    },
-   "solution": "ASPIDISTRA"
+   "solution": "ASPIDISTRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "an old house plant",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to develop",
+       "at": 13,
+       "note": "to develop says the letters of the three words grow into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Part",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "is",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "said",
+       "at": 8,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardening tip about a cutting grown from an old pot plant.",
+     "walkthrough": "'to develop' rearranges PART, IS and SAID into the answer.",
+     "definitionFit": "A tough, leafy pot plant beloved of Victorian parlours, a type of houseplant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 27,
@@ -413,7 +1486,58 @@
     "text": "Wearer of trousers, sort about to be dropped?",
     "enumeration": "4"
    },
-   "solution": "USER"
+   "solution": "USER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wearer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to be dropped",
+       "at": 31,
+       "note": "to be dropped says these letters fall out of the word trousers"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trousers",
+       "at": 10,
+       "note": "taken as written; the setter removes scattered letters, so the run left inside this word is a coincidence, not a hidden word"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 25,
+         "note": "about says the word sort is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sort",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what kind of person wears trousers, about to drop them.",
+     "walkthrough": "'about' turns sort into TROS, and 'to be dropped' takes T, R, O and S out of TROUSERS.",
+     "definitionFit": "One who wears or uses something, so a wearer is a person making use of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 28,
@@ -427,7 +1551,52 @@
     "text": "Should tax system turn out for good, result could be sweet",
     "enumeration": "7"
    },
-   "solution": "REVENGE"
+   "solution": "REVENGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "result could be sweet",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "out for",
+       "at": 23,
+       "note": "out for says one letter leaves and the other takes its place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tax system",
+       "at": 7,
+       "gives": "REVENUE",
+       "note": "the revenue is the government department collecting taxes"
+      },
+      {
+       "words": "turn",
+       "at": 18,
+       "gives": "U",
+       "note": "U stands for turn, as in a U-turn"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "If the taxman changed things for the better, the outcome would please.",
+     "walkthrough": "'turn' is U (a U-turn), swapped 'out for' G (good) in REVENUE.",
+     "definitionFit": "The proverb says this retaliation is sweet, so a sweet result describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 29,
@@ -441,7 +1610,48 @@
     "text": "Betoken the last of the wine",
     "enumeration": "7"
    },
-   "solution": "PORTEND"
+   "solution": "PORTEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Betoken",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 17,
+       "note": "of says the final part belongs to the wine, so it follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wine",
+       "at": 24,
+       "gives": "PORT",
+       "note": "port is a fortified wine"
+      },
+      {
+       "words": "last",
+       "at": 12,
+       "gives": "END",
+       "note": "the last of something is its end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final drop of wine is an omen.",
+     "definitionFit": "To foreshadow or signify in advance is a synonym for betoken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Betoken"
+    }
+   }
   }
  ]
 }
