@@ -105,14 +105,27 @@ def shape_clues(pid):
         return None
 
 
+def ledger_skipped():
+    """Ids the annotate ledger (tools/failed_inputs.py) holds out on the puzzle as it is now.
+    A bag's members come from a queue cut hours or days before (the leader's own stdin) and from
+    the shape list, which never read the ledger: a puzzle that failed since, or was never cut
+    against it, was bagged again for nothing (11-05: cryptic-22081, unchanged since 10-19, failed
+    and was bagged again). It leaves the bag when its record holds, and returns when the puzzle changes."""
+    import failed_inputs
+    return set(failed_inputs.skipped(failed_inputs.load(), "annotate"))
+
+
 def pickable_ids(rows=None):
-    """shape_queue.puzzle_ids() less the puzzles the index marks awaitsPreamble: the shape-rule
-    pickers' list, as the annotate picker (prereset_plan.backlog) leaves those out."""
+    """shape_queue.puzzle_ids() less the puzzles the index marks awaitsPreamble and those the
+    annotate ledger holds out: the shape-rule pickers' list, as the annotate picker
+    (prereset_plan.backlog) leaves those out."""
     import shape_queue
     if rows is None:
         import prereset_plan
         rows = {r["id"]: r for r in prereset_plan.index_rows()}
-    return {pid for pid in shape_queue.puzzle_ids() if not (rows.get(pid) or {}).get("awaitsPreamble")}
+    held = ledger_skipped()
+    return {pid for pid in shape_queue.puzzle_ids()
+            if pid not in held and not (rows.get(pid) or {}).get("awaitsPreamble")}
 
 
 def row_is_tail(row, redo=True):
@@ -280,7 +293,8 @@ def main(argv):
     if len(argv) not in (2, 3):
         print(__doc__.strip(), file=sys.stderr)
         return 2
-    queue = sys.stdin.read().split()
+    held = ledger_skipped()
+    queue = [p for p in sys.stdin.read().split() if p not in held]
     if blog:
         table = blog_due()
         resume_dir = Path(argv[2] if len(argv) == 3 else "/tmp")
