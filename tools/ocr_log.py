@@ -416,11 +416,16 @@ class Log:
         if head.endswith(".pdf:"):
             m = re.match(r"^(\S+): No (\d+) \([^)]*\), (?:(\d+)/(\d+) clues read|no reading parses)", body)
             if m and self.once(body[:70]):
+                # These are Listener magazine pages (gale_listener): a reading is kept and filed
+                # only once its printed solution confirms it, so all clues read is a success.
+                name = f"Listener No {m.group(2)} ({pretty(m.group(1))})"
+                if m.group(3) and m.group(3) == m.group(4):
+                    return [self.out("✓", f"{name}: all {m.group(3)} clues read, filed once its printed solution is found")]
                 if m.group(3):
                     k = f"only {m.group(3)} of {m.group(4)} clues could be read, the rest are missing"
                 else:
                     k = "none of its clues could be read, so it was not filed"
-                return [self.out("✗", f"{pretty(m.group(1))} (No {m.group(2)}): {k}")]
+                return [self.out("✗", f"{name}: {k}")]
             return []
         if body.startswith("ALERT: ") and PROBLEM.search(body):
             text = clip(body[7:], 200)
