@@ -2177,10 +2177,11 @@ f.trove_solution_ocr.clue_reads = lambda lts, acc, probs, enums: (
 cd_near = f.candidate_reads(cd_es, {}, {"accepted": 0}, [], {}, Path(__file__))
 (f.crop_cell_probs, f.trove_solution_ocr.lights, f.trove_solution_ocr.clue_reads, f.trove_solution_ocr.crop_strips,
  f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
+# e0db3520a40 (BLIND_STRIPS): the 3 lights with no candidate are now asked their plain strip too (2 + 3 = 5 asks).
 check("candidate_reads: 3 lights with no candidate left (over CANDIDATE_SLACK) asks no pick, only the 2 lights with "
       "candidates their plain strip (WIDE_AGREED; CAT on unread cells is the VLM's alone: refused), the clue read's DOG "
       "stands; 2 candidates for every light asks each plainly and to pick (12 asks), CAT standing in all six",
-      [({"1-across": "DOG"}, 2), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
+      [({"1-across": "DOG"}, 5), ({f"{n}-across": "CAT" for n in (1, 3, 5, 7, 9, 11)}, 12, 12,
                                   [f"{n}-across" for n in (1, 11, 3, 5, 7, 9)])],
       [(cd_far[0], cd_far_asks),
        (cd_near[0], cd_near[1]["candidateAsks"], len(cd_asked) - cd_far_asks, cd_near[1]["vlmLights"])])
@@ -2243,7 +2244,9 @@ wa_none = f.candidate_reads(wa_es, {}, {"accepted": 0}, [], {}, Path(__file__))
  f.vlm.ask, f.vlm.wanted, f.checked_answers) = real
 check("candidate_reads, 6 short (WIDE_AGREED): the one light with a candidate asked its plain strip once, CAT (the top "
       "candidate, read so) taken and lent to the next clue read; with no candidate anywhere nothing is asked",
-      [{"1-across": "CAT"}, ["1-across"], 1, 1, True, ({}, 1)],
+      # e0db3520a40 (BLIND_STRIPS): a 6-blank grid asks every light, candidate or not (6 asks, not 1); with no
+      # candidate anywhere the 6 are asked again (12 in all) and 1-across, its cells' likeliest letters CAT, stands.
+      [{"1-across": "CAT"}, ["1-across"], 6, 6, True, ({"1-across": "CAT"}, 12)],
       [wa[0], wa[1].get("wideAgreed"), wa[1]["candidateAsks"], wa_n, [(1, "across")] in wa_seen,
        (wa_none[0], len(wa_asked))])
 # WIDE_AGREED's due reason: a row read before REREAD_WIDE_AGREED whose held file is more than LATE_MAX short
