@@ -1101,6 +1101,24 @@ check("final_unasked: a row read since REREAD_FINAL_STRIPS, no Times paper's, on
        f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
                                       "solution": {"refused": "x", "clueSolved": {"1-across": "A"}}}]})])
+check("BLIND_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.BLIND_STRIPS], f.BLIND_STRIPS in f.SOLUTION_FIXES, f.BLIND_STRIPS.startswith("solution short"),
+       f.BLIND_STRIPS in __import__("edition_queue").LOW_ASK, f.BLIND_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.BLIND_STRIPS),
+       __import__("edition_queue").UNFILED_FIRST.index(f.BLIND_STRIPS) > __import__("edition_queue").UNFILED_FIRST.index(f.FINAL_STRIPS),
+       f.BLIND_STRIPS not in (f.WIDE_AGREED, f.FINAL_STRIPS, f.LATE_UNASKED)))
+check("blind_unasked: a row read since REREAD_BLIND_STRIPS, a non-Times paper's, one with no answers-only verdict or a "
+      "refused grid is not due", [False] * 4,
+      [f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blind_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"refused": "x"}}]})])
 # cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
 # written again, or another grid, is framed again.
 import tempfile as _cf_tmp
