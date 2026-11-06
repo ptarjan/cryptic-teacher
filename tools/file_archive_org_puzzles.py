@@ -7794,6 +7794,10 @@ CANDIDATE_PROMPT = Path(__file__).resolve().parent / "vlm_candidate_prompt.md"
 #: The candidates a candidate_reads ask offers, the likeliest by the cell classifier (alphabetical in
 #: the prompt), and the most it asks of one puzzle.
 CANDIDATE_OFFER, CANDIDATE_ASKS = 10, 40
+#: The most blank lights (6+, over LATE_MAX) of a held grid whose candidate-less lights candidate_reads' wide asks
+#: still ask the VLM of (BLIND_STRIPS): a grid more blank than this is mostly unread, its letters the classifier's
+#: guesses.
+BLIND_MAX = 14
 #: candidate_reads asks only of a puzzle its asks could leave at most this many lights blank.
 CANDIDATE_SLACK = 2
 #: A clue read word of a grid left 1 to LATE_MAX short stands with at most CLUE_WEAK_CELLS open cells the
@@ -7903,7 +7907,8 @@ def candidate_reads(entries, answers, info, grid, enums, crop, crossed=True, eve
             if len(left) <= LATE_MAX:
                 break
             got_wide, asks = wide_asks(crop, grid, lts, open_, cands, held_letters, probs, enums,
-                                       {k: clue.get(keys[k]) for k in open_}, keys, wide_tried, asks, plain)
+                                       {k: clue.get(keys[k]) for k in open_}, keys, wide_tried, asks, plain,
+                                       blind=len(left) <= BLIND_MAX)
             if not got_wide:
                 break
             picked.update(got_wide)
@@ -7992,7 +7997,7 @@ def wide_pick(reply, top, pattern, sizes, probs, enum=None, clue=None):
     return None
 
 
-def wide_asks(crop, grid, lts, open_, cands, letters, probs, enums, clues, keys, tried, asks, plain):
+def wide_asks(crop, grid, lts, open_, cands, letters, probs, enums, clues, keys, tried, asks, plain, blind=False):
     """({light key: word}, asks) of one pass of candidate_reads' asks on a grid read more than LATE_MAX short:
     each light of `open_` the clue read gives a candidate (`cands`) is asked once on its crossings as they
     stand (`letters` {cell: letter}, updated by each word taken; `tried` (key, pattern) pairs asked
@@ -8000,7 +8005,9 @@ def wide_asks(crop, grid, lts, open_, cands, letters, probs, enums, clues, keys,
     CANDIDATE_ASKS (`asks` so far); a reply stands by wide_pick. 10-26: 322 Times of the 1970s-80s stood
     6+ short with no unit planned (3,500 lights, the classifier unsure of their faint letters); offline on
     the 115 with kept cell probabilities, at the held-out 36% agreement, ~40% of their blank lights filled
-    and ~55 left at most LATE_MAX short, ~11 asks a puzzle (WIDE_AGREED)."""
+    and ~55 left at most LATE_MAX short, ~11 asks a puzzle (WIDE_AGREED).
+    `blind` (BLIND_STRIPS): a light the clue read gives no candidate is asked too, its reply standing by the same
+    wide_pick (no top candidate: the classifier's letters or the clue's definition must agree)."""
     import base64
     import io
     from PIL import Image
@@ -8008,7 +8015,7 @@ def wide_asks(crop, grid, lts, open_, cands, letters, probs, enums, clues, keys,
     todo = []
     for k in open_:
         cells = lts[k]
-        if not cands.get(k) or any(rc not in probs for rc in cells):
+        if not (cands.get(k) or blind) or any(rc not in probs for rc in cells):
             continue
         pattern = "".join(letters.get(rc, "?") for rc in cells)
         if (k, pattern) not in tried and "?" in pattern:
@@ -16794,6 +16801,82 @@ def final_unasked(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_BLIND_STRIPS with an answers-only verdict (no held title's) of a
+#: puzzle held by this tool from that page with every clue, LATE_MAX+1 to BLIND_MAX lights blank (held_blanks: cells
+#: classified, crop kept), one blank light no strip of the grid's reading kept and no ask of any kind logged for the
+#: edition (asked_lights: solution, candidates or wide). late_strips asks nothing of a grid over LATE_MAX short, and
+#: candidate_reads' wide asks (WIDE_AGREED) ask only a light the clue read gives a candidate, so a light with none
+#: (the faint print leaves no listed word on its crossings) was never asked: now asked too (wide_asks `blind`), its
+#: reply standing only where a second reader agrees (wide_pick: the classifier's likeliest letter in every open cell,
+#: or the clue's definition), as WIDE_AGREED's candidate lights (held out on 370 known lights: 135 taken, 0 wrong).
+#: 11-06 (r44): of 545 filed Times grids classified and answers-only read 6+ blank, 481 stood 6-14 blank (3,937 lights,
+#: ~540 never asked, 1930s-80s). Once, as an answers-only reread (SOLUTION_FIXES), up to CANDIDATE_ASKS asks a puzzle.
+BLIND_STRIPS = "solution short, its 6+ last lights without a candidate asked their strips since"
+REREAD_BLIND_STRIPS = "2026-11-06T09:20:00+00:00"
+
+#: {log path: (stamp, {edition: {light: kinds}})}
+_ASKED_LIGHTS = {}
+
+
+def asked_lights():
+    """{edition: {light: {ask kinds}}} of the strip asks vlm_asks.log names for a solution grid's light, any kind
+    (why=solution:, candidates:, wide:), the edition without its leading source directory; parsed again only when
+    the log's stat moves."""
+    p = Path(os.path.expanduser(os.environ.get("CT_VLM_ASK_LOG") or "~/.cache/corpus_queue/vlm_asks.log"))
+    stamp = _stat_stamp(p)
+    if stamp is None:
+        return {}
+    hit = _ASKED_LIGHTS.get(p)
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    out = {}
+    try:
+        with open(p, errors="replace") as fh:
+            for line in fh:
+                m = re.match(r"\S+ vlm ask (\S+) \S+ \w+ why=(solution|candidates|wide):(\S+)", line)
+                if m:
+                    out.setdefault(m.group(1).split("/", 1)[-1], {}).setdefault(m.group(3), set()).add(m.group(2))
+    except OSError:
+        return {}
+    _ASKED_LIGHTS[p] = (stamp, out)
+    return out
+
+
+def blind_unasked(row):
+    """Whether Times ledger `row`, read before REREAD_BLIND_STRIPS, has an answers-only verdict (no held title's, not
+    refused) of a puzzle held from that page with every clue, LATE_MAX+1 to BLIND_MAX lights blank (held_blanks), one
+    blank light neither a strip the reading kept nor asked of the VLM in any kind (asked_lights)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_BLIND_STRIPS)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+        return False
+    logged = None
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
+                or s.get("refused") or v.get("wrongGrid") or v.get("heldTitle")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
+        if not LATE_MAX < held_blanks(paper.series, v["number"], sol_dir) <= BLIND_MAX:
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+            kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
+                    .get("stats") or {}).get("strips") or {}
+        except (KeyError, OSError, ValueError):
+            continue
+        if logged is None:
+            logged = asked_lights().get(row.get("edition"), {})
+        if any(entry_id(e) not in logged and entry_id(e) not in kept
+               for e in held.get("entries") or () if not e.get("solution")):
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -17261,6 +17344,8 @@ def fix_reason(row):
         return ONE_BLANK_FIT
     if final_unasked(row):
         return FINAL_STRIPS
+    if blind_unasked(row):
+        return BLIND_STRIPS
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -17942,7 +18027,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2, VLM_LAID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -18558,7 +18643,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
-                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS)
+                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS)
 
 
 def keeps_vlm(why, row, unit=None):
