@@ -852,7 +852,11 @@ def mend_json(pending):
     except OSError:
         return None
     removed = 0
-    while removed <= 2000:
+    other = []                                # the other mends made, in words
+    if text.lstrip().startswith("```"):       # a code fence opened the file
+        text = text.lstrip().split("\n", 1)[1] if "\n" in text.lstrip() else ""
+        other.append("opening code fence removed")
+    while removed + len(other) <= 2000:
         try:
             data = json.loads(text)
             break
@@ -860,26 +864,72 @@ def mend_json(pending):
             if getattr(e, "msg", "") != "Extra data":
                 return None
         try:
-            _, end = _DECODER.raw_decode(text, _ws(text, 0))
+            first, end = _DECODER.raw_decode(text, _ws(text, 0))
         except ValueError:
             return None
         rest = text[_ws(text, end):]
-        if text[end - 1:end] not in ("}", "]"):
+        if rest.startswith("```") and not rest.strip("`\n\r\t ").strip("json"):
+            text = text[:end]                          # a closing code fence
+            other.append("trailing code fence removed")
+        elif rest[:1].isalpha() and "{" not in rest:   # prose after the object
+            text = text[:end]
+            other.append("trailing prose removed")
+        elif rest[:1] in ("{", "[") and _same_tail(first, rest):
+            text = text[:end]                          # the value written twice
+            other.append("duplicate copy removed")
+        elif text[end - 1:end] not in ("}", "]"):
             return None
-        if rest.startswith(",") and len(rest) > 1:      # object shut early: drop its closer
+        elif rest.startswith(",") and len(rest) > 1:   # object shut early: drop its closer
             text = text[:end - 1] + text[end:]
+            removed += 1
+        elif re.match(r'"\d+-(?:across|down)"\s*:', rest):   # shut early, comma missing too
+            text = text[:end - 1] + "," + text[end:]
+            removed += 1
         elif rest and not rest.strip("}] \t\r\n"):    # closers after the end
             text = text[:end]
+            removed += 1
         else:
             return None
-        removed += 1
     else:
         return None
-    if not removed or not isinstance(data, dict):
+    if not (removed or other) or not isinstance(data, dict):
         return None
     pending.write_text(text, encoding="utf-8")
-    return (f"{removed} stray closing bracket{'s' if removed > 1 else ''} removed "
-            f"(the object was shut early, or had closers after the end)")
+    said = list(dict.fromkeys(other))
+    if removed:
+        said.append(f"{removed} stray closing bracket{'s' if removed > 1 else ''} removed "
+                    f"(the object was shut early, or had closers after the end)")
+    return "; ".join(said)
+
+
+def _same_tail(first, rest):
+    """Whether `rest` is nothing but another copy of the value `first`."""
+    try:
+        again, end = _DECODER.raw_decode(rest)
+    except ValueError:
+        return False
+    return again == first and not rest[end:].strip("}] \t\r\n`")
+
+
+def two_values_refusal(pending):
+    """What to write when `pending` holds a second, different JSON object after the
+    first, or None. Which of the two is meant is not the checker's to guess."""
+    try:
+        text = pending.read_text(encoding="utf-8")
+        json.loads(text)
+        return None
+    except (OSError, ValueError) as e:
+        if getattr(e, "msg", "") != "Extra data":
+            return None
+    try:
+        _, end = _DECODER.raw_decode(text, _ws(text, 0))
+    except ValueError:
+        return None
+    if not text[_ws(text, end):].startswith(("{", "[")):
+        return None
+    return (f"{pending.name} holds two different JSON values (a second one starts at "
+            f"character {_ws(text, end)}): write ONE object keyed by entry id, "
+            f"with every clue in it, and nothing after its closing brace")
 
 
 def fix_directions(path, pending):
@@ -1327,6 +1377,10 @@ def main(argv):
         mended = mend_json(pending)
         if mended:
             print(f"{pending.name} did not parse; {mended}\n")
+        refusal = two_values_refusal(pending)
+        if refusal:
+            print(f"annotate_check {stem}: STOPPED — {refusal}")
+            return 2
         filed, err = file_rows(path, pending)
         if err:
             print(f"annotate_check {stem}: STOPPED — {err}")
