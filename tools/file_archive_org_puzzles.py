@@ -7511,7 +7511,8 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # decide() records it so (mark_clue_solved).
     if clue_solvable(old):
         answers, info = clue_solved_reads(es, answers, info, grid, enums, solution_crop(sol, number),
-                                          crossed=crossed, every=every, puzzle_id=old.get("id"))
+                                          crossed=crossed, every=every, puzzle_id=old.get("id"),
+                                          ours=our_lights(old))
     t0 = _stage("clue_solved", t0)
     # The clue-solved fills took the grid from 6+ blank lights (over LATE_MAX: no strip asked) to 1-5: the lights
     # still blank are asked now, the clue-solved letters left out of the ask (FINAL_STRIPS).
@@ -8215,7 +8216,24 @@ def one_blank_word(pattern, enum, clue):
     return None
 
 
-def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False, puzzle_id=None):
+def our_lights(held):
+    """The entry ids of held file `held` that are our own clue solve's (solutions.model CLUE_SOLVER): every answered
+    light outside solutions.printed and solutions.hand; set() for a file no solver filled."""
+    sol = held.get("solutions") or {}
+    if sol.get("model") != CLUE_SOLVER:
+        return set()
+    firm = set(sol.get("printed") or ()) | set(sol.get("hand") or ())
+    return {entry_id(e) for e in held.get("entries") or [] if e.get("solution") and entry_id(e) not in firm}
+
+
+def unsupported_cells(lts, cells, firm):
+    """The cells of light `cells` that another light crosses (`lts`: {key: cells}) where no letter of `firm`
+    ({cell: letter} of the print's own answers) stands: its crossing is blank or our own solve's."""
+    crossing = collections.Counter(rc for other in lts.values() for rc in other)
+    return [rc for rc in cells if crossing[rc] > 1 and rc not in firm]
+
+
+def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, every=False, puzzle_id=None, ours=()):
     """(answers, info) of answers_only's reading `answers` of a held puzzle's `entries`, after every read of
     the print (wordplay_reads, candidate_reads, clash_reads), with each light still blank that its clue
     solves added: wordplay_fit's one word on the crossings (an anagram or hidden word of the clue, a listed
@@ -8235,7 +8253,14 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
     leave one word for 150 of them (4 puzzles whole, 30 one short).
     First of all a light takes the answer another committed puzzle gave the same clue (text and count) where it
     fits the crossings (trove_solution_ocr.clue_repeat; `puzzle_id`'s own file is left out): CLUE_REPEATED, 10-29
-    (r36): held out on 28,452 Times lights, the one fitting answer is the held word 55,468 times of 55,677."""
+    (r36): held out on 28,452 Times lights, the one fitting answer is the held word 55,468 times of 55,677.
+    WEAK_FILLS (11-06, Paul read 10 Times solution grids: 3 wrong fills of 2): a light with a crossing cell whose
+    crossing light is blank or one of `ours` (our own earlier solve; the print's letter is not held) takes only
+    a repeated clue's answer, an anagram, or the only blank light's word: a past answer by the classifier
+    (vouched_fit) and a hidden or reversed word need every crossing printed. Held out (blank the light and 0, 1 or 2
+    crossing lights, 600 Times puzzles, 49,278 cases): repeated clue 0 wrong of 255, anagram 0 of 598, hidden 1 of
+    43 with a crossing blank; past answers by the classifier: of the 24 live fills with a crossing not printed whose
+    clue another puzzle also answered, 4 differed (17%), against 0 of 21 with every crossing printed."""
     t = trove_solution_ocr
     held = {entry_id(e): e["solution"] for e in entries if e.get("solution")}
     left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
@@ -8245,6 +8270,8 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
     clue = {entry_id(e): (e.get("clue") or {}).get("text") if isinstance(e.get("clue"), dict) else e.get("clue")
             for e in entries}
     letters = {rc: ch for k, w in {**held, **answers}.items() for rc, ch in zip(lts.get(_light_key(k), ()), w)}
+    firm = {rc: ch for k, w in {**{k: w for k, w in held.items() if k not in ours}, **answers}.items()
+            for rc, ch in zip(lts.get(_light_key(k), ()), w)}
     by = {}
     probs = None
     while True:
@@ -8255,6 +8282,8 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
             if lid in by or not cells or len(cells) < WORDPLAY_MIN:
                 continue
             pattern = "".join(letters.get(rc, "?") for rc in cells)
+            # WEAK_FILLS: the routes that guess past a crossing nobody printed need every crossing printed.
+            weak = bool(unsupported_cells(lts, cells, firm))
             # The answer another puzzle gave the same clue, fitting the crossings (CLUE_REPEATED), first: a print's
             # own answer to this very clue is better evidence than the clue's wordplay or the classifier.
             word = t.clue_repeat(clue[lid], enums.get(key), pattern, puzzle_id) if clue.get(lid) else None
@@ -8262,7 +8291,9 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
                 word = wordplay_fit(clue[lid], pattern, enums.get(key)) if clue.get(lid) else None
                 if word and not t.definition_linked(word, clue[lid]):
                     word = None
-            if not word and pattern.count("?") and len(pattern) - pattern.count("?") >= t.VOUCHED_KNOWN:
+                if word and weak and t.clue_wordplay(clue[lid], len(pattern)).get(word) != "anagram":
+                    word = None
+            if not word and not weak and pattern.count("?") and len(pattern) - pattern.count("?") >= t.VOUCHED_KNOWN:
                 # No wordplay: the one past answer the crossings leave that the classifier allows (VOUCHED_FIT).
                 if probs is None:
                     probs = crop_cell_probs(crop, grid) or {}

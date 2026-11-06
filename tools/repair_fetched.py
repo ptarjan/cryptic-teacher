@@ -2084,6 +2084,9 @@ def clue_fills(puzzle, most_blank=CLUE_FILLS_BLANK, define=False):
     for rc in clash:
         letters.pop(rc, None)
     held = set(have.values())
+    ours = archive.our_lights(puzzle)
+    firm = {rc: ch for lid, w in have.items() if lid not in ours
+            for rc, ch in zip(lts.get(archive._light_key(lid), ()), w)}
     by, tier, why = {}, {}, {}
     while True:
         new = False
@@ -2099,6 +2102,10 @@ def clue_fills(puzzle, most_blank=CLUE_FILLS_BLANK, define=False):
             word, how = archive.wordplay_fit(clue[lid], pattern, enums.get(key)), "wordplay"
             if word and not tso.definition_linked(word, clue[lid]):
                 why[lid] = (word, "wordplay word, definition not linked")
+                word = None
+            if word and tso.clue_wordplay(clue[lid], len(pattern)).get(word) != "anagram" \
+                    and archive.unsupported_cells(lts, cells, firm):
+                why[lid] = (word, "hidden or reversed word, a crossing not printed (WEAK_FILLS)")
                 word = None
             if not word and define and pattern.count("?") <= 1:
                 parts = count_parts(enums.get(key))

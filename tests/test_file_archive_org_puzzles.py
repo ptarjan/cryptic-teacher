@@ -5116,6 +5116,24 @@ for vf_clue, vf_want in (("Where we live, in a word", {"1-across": "PLANET"}), (
     vf_ans, vf_info = f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop)
     check(f"clue_solved_reads takes the crossings' one past answer as ours (clueSolved), not one its clue holds: {vf_clue!r}",
           (vf_want, vf_want or None), (vf_ans, vf_info.get("clueSolved")))
+# WEAK_FILLS: the same light with a crossing that is our own earlier solve (not the print's letter), or blank, is left
+# blank by the past-answer route; with every crossing printed (or a crossing the reading gives) it is filled.
+vf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Where we live, in a word", "enumeration": "6"}},
+         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}}]
+check("WEAK_FILLS: a past answer is not taken past a crossing that is our own solve, but is with it printed",
+      [{}, {"1-across": "PLANET"}, {}],
+      [f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours={"1-down"})[0],
+       f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours=set())[0],
+       f.clue_solved_reads(vf_es, {}, {}, None, vf_enums, vf_crop, ours={"3-down"})[0]])
+check("our_lights: the answered lights of a model-solved file outside printed and hand; none of another file",
+      [{"2-down"}, set()],
+      [f.our_lights({"solutions": {"model": f.CLUE_SOLVER, "printed": {"1-across": "CAT"}, "hand": {"1-down": "x"}},
+                     "entries": [{"number": 1, "direction": "across", "solution": "CAT"},
+                                 {"number": 1, "direction": "down", "solution": "COW"},
+                                 {"number": 2, "direction": "down", "solution": "TEA"},
+                                 {"number": 3, "direction": "down", "solution": None}]}),
+       f.our_lights({"solutions": {"origin": "published"}, "entries": [{"number": 1, "direction": "across", "solution": "CAT"}]})])
 f.trove_solution_ocr.lights, f.checked_answers, f.crop_cell_probs = vf_real
 f.trove_solution_ocr.filed_words, f.trove_solution_ocr.corpus_words = vf_filed, vf_corpus
 check("VOUCHED_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed",
