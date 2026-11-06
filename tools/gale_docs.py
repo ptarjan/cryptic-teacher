@@ -147,11 +147,16 @@ TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*/\W*\d[\d,]{2,}|priz
                              re.IGNORECASE)
 
 
+#: The Telegraph's early (and some later) daily puzzle, titled with no number.
+TELEGRAPH_PLAIN = re.compile(r"^\W*(today's )?crossword( puzzle)?\W*$", re.IGNORECASE)
+
+
 def numbered(title):
     """Whether a Telegraph `title` carries its puzzle's number ("Crossword /
     21,053", "No. 12,212 across") or is the "Prize Crossword": not a
-    competition article ("... Win £5,000", "Crossword Competition / 14")."""
-    return bool(re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
+    competition article ("... Win £5,000", "Crossword Competition / 14"), or
+    its plain "Crossword", "Today's Crossword Puzzle" (TELEGRAPH_PLAIN)."""
+    return bool(TELEGRAPH_PLAIN.search(title) or re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
                 or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE))
 
 

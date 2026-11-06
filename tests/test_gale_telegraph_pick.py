@@ -24,7 +24,7 @@ assert pick(["Weather", "How to Crack the Cryptic Crossword and Win £5,000"]) =
     "How to Crack the Cryptic Crossword and Win £5,000"
 assert pick(["Weather"]) is None
 # gale_inbox.misfiled's test: a title with no puzzle number is a competition article.
-for t in ("Crossword / 21,053", "Prize Crossword", "No. 12,212 across"):
+for t in ("Crossword / 21,053", "Prize Crossword", "No. 12,212 across", "Crossword", "Today's Crossword Puzzle"):
     assert gale_docs.numbered(t), t
 for t in ("How to Crack the Cryptic Crossword and Win £5,000", "Crossword Competition / 14",
           "£5,000 answer for first win in crossword competition", "How to Crack the Cryptic Crossword Answers"):
