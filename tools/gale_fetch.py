@@ -422,6 +422,9 @@ def plan(got, skip=SKIP):
         out += want("TTDA", day, docs, got)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
+    # Telegraph editions laid out from a competition article: looked up again.
+    for day in gale_inbox.misfiled("TGRH"):
+        out += want("TGRH", day, docs, got)
     if len(out) < REPLAN:
         import gale_listener
         for day, number, report in gale_listener.wanted():

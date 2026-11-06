@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 3, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -145,6 +145,14 @@ def crossword(prod, titles, number=None):
 #: Competition / 14", "... Answers").
 TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*/\W*\d[\d,]{2,}|prize\s+[cg]ross-? ?w[oa]rd)",
                              re.IGNORECASE)
+
+
+def numbered(title):
+    """Whether a Telegraph `title` carries its puzzle's number ("Crossword /
+    21,053", "No. 12,212 across") or is the "Prize Crossword": not a
+    competition article ("... Win £5,000", "Crossword Competition / 14")."""
+    return bool(re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
+                or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE))
 
 
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",

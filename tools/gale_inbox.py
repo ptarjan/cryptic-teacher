@@ -716,6 +716,28 @@ def other_wanted(prod, today=None, laid=None):
     return out[::-1]
 
 
+def misfiled(prod="TGRH", laid=None):
+    """[date] of each laid-out edition of OTHERS[prod] whose saved page cites
+    a document with no puzzle number in its title (the Telegraph's
+    "How to Crack the Cryptic Crossword ...", not "Crossword / 21,053"):
+    gale_docs.crossword picked a competition article. Newest first; the
+    fetcher looks each up again and fetches over it. Only the Telegraph so
+    far (an edition citing a title it cannot tell is left alone)."""
+    if prod != "TGRH":
+        return []
+    other = OTHERS[prod]
+    laid = editions() if laid is None else laid
+    out = []
+    for rel, row in laid.items():
+        item, _, day = rel.partition("/")
+        if not re.fullmatch(other.item.format(r"\d+"), item):
+            continue
+        cited = " ".join((s.get("cited") or "") for s in row.get("sources") or ())
+        if cited.strip() and not gale_docs.numbered(cited):
+            out.append(datetime.date.fromisoformat(day))
+    return sorted(out, reverse=True)
+
+
 def fresh_unread(rows=None, now=None, laid=None):
     """The "<item>/<date>" of each Times edition laid out (or shrunk) in the
     last FRESH seconds whose files the ledger holds no reading of. Read off
