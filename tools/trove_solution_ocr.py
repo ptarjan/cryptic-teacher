@@ -2319,6 +2319,44 @@ def vouched_fit(cells, pattern, probs, enum=None):
     return ws[idx[order[0]]]
 
 
+#: one_fit: a blank light is taken as the one word of the dictionary (wordnet) and the past answers (filed_words) that
+#: its crossings and enumeration leave, at least half its letters crossed and ONE_FIT_MIN long; the caller adds an
+#: independent check (the clue's definition). _ONE_FIT holds the sets it was made of and {(length, place, letter):
+#: words} of them.
+ONE_FIT_MIN = 4
+_ONE_FIT = {}
+
+
+def one_fit_of(n, place=None, letter=None):
+    """The words of `n` letters (upper case, letters only) of wordnet() and filed_words(), sorted, those with `letter`
+    at index `place` where given; kept until either set is another."""
+    w, f = wordnet(), filed_words()
+    kept = _ONE_FIT.get("sets")
+    if kept is None or kept[0] is not w or kept[1] is not f:
+        _ONE_FIT.clear()
+        _ONE_FIT.update(sets=(w, f), by={})
+        for x in sorted(set(f) | {x.upper() for x in w}):
+            if x.isascii() and x.isalpha():
+                _ONE_FIT["by"].setdefault((len(x), None, None), []).append(x)
+                for i, ch in enumerate(x):
+                    _ONE_FIT["by"].setdefault((len(x), i, ch), []).append(x)
+    return _ONE_FIT["by"].get((n, place, letter), [])
+
+
+def one_fit(pattern, enum=None, drop=()):
+    """The one word of one_fit_of's lexicon, less the words of `drop`, that fits `pattern` (the light's crossed
+    letters, ? open) with an enumeration of one word of its length, at least half its letters crossed and one open;
+    None where none or two fit."""
+    n = len(pattern)
+    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
+    known = [i for i, ch in enumerate(pattern) if ch != "?"]
+    if n < ONE_FIT_MIN or parts != [n] or len(known) == n or 2 * len(known) < n or not all(pattern[i].isalpha() for i in known):
+        return None
+    rx = re.compile(pattern.replace("?", "[A-Z]"))
+    fits = [w for w in one_fit_of(n, known[0], pattern[known[0]]) if w not in drop and rx.fullmatch(w)]
+    return fits[0] if len(fits) == 1 else None
+
+
 #: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
 #: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
 _SYNSETS = []

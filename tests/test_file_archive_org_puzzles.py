@@ -5061,6 +5061,60 @@ check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix lan
        __import__("edition_queue").evidence_reason(f.LATE_LINKED),
        __import__("edition_queue").UNFILED_FIRST.index(f.CLUE_REPEATED)
        < __import__("edition_queue").UNFILED_FIRST.index(f.LATE_LINKED)))
+# ONE_BLANK_FIT: a puzzle's only blank light takes the one word of the dictionary and past answers that fits its
+# crossings and count, where WordNet links the word to the clue's definition (one_fit, one_blank_word), as ours.
+ob_t = f.trove_solution_ocr
+ob_real = (ob_t.wordnet, ob_t.filed_words, ob_t.definition_linked)
+ob_t.wordnet = lambda: {"planet", "planes", "plated"}
+ob_t.filed_words = lambda: frozenset({"SLATED"})
+check("one_fit: the one word the crossings and count leave (PLANET, SLATED); not two fits (PLANE?), under half crossed, "
+      "a split or missing count, no open cell, a word in drop",
+      ["PLANET", "SLATED", None, None, None, None, None, None],
+      [ob_t.one_fit("PLA?ET", "6"), ob_t.one_fit("SLAT??", "6"), ob_t.one_fit("PLANE?", "6"),
+       ob_t.one_fit("P?????", "6"), ob_t.one_fit("PLA?ET", "3,3"), ob_t.one_fit("PLA?ET", None),
+       ob_t.one_fit("PLANET", "6"), ob_t.one_fit("PLA?ET", "6", {"PLANET"})])
+ob_t.definition_linked = lambda w, c: "orbit" in c
+check("one_blank_word: the fitting word where its definition links; not unlinked, or a word of the clue itself",
+      ["PLANET", None, None],
+      [f.one_blank_word("PLA?ET", "6", "Body in orbit"), f.one_blank_word("PLA?ET", "6", "Body in a story"),
+       f.one_blank_word("PLA?ET", "6", "planet in orbit")])
+ob_lts = {(1, "across"): [(0, i) for i in range(6)], (1, "down"): [(0, 0), (1, 0), (2, 0)],
+          (3, "down"): [(0, 2), (1, 2), (2, 2)], (4, "down"): [(0, 3), (1, 3)], (5, "down"): [(0, 4), (1, 4)]}
+ob_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
+ob_t.lights = lambda grid: ob_lts
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.crop_cell_probs = lambda crop, grid: {}
+ob_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3", (4, "down"): "2", (5, "down"): "2"}
+for ob_clue, ob_want in (("Body in orbit", {"1-across": "PLANET"}), ("Body in a story", {})):
+    ob_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": ob_clue, "enumeration": "6"}},
+             {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
+             {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}},
+             {"number": 4, "direction": "down", "solution": "NO", "clue": {"text": "Refusal", "enumeration": "2"}},
+             {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}}]
+    ob_ans, ob_info = f.clue_solved_reads(ob_es, {}, {}, None, ob_enums, vf_crop)
+    check(f"clue_solved_reads takes the only blank light's one linked word as ours (clueSolved): {ob_clue!r}",
+          (ob_want, ob_want or None), (ob_ans, ob_info.get("clueSolved")))
+ob_t.lights, f.checked_answers, f.crop_cell_probs = ob_real_fa
+ob_t.wordnet, ob_t.filed_words, ob_t.definition_linked = ob_real
+check("ONE_BLANK_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first (the newest "
+      "fix), apart from the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.ONE_BLANK_FIT], f.ONE_BLANK_FIT in f.SOLUTION_FIXES, f.ONE_BLANK_FIT.startswith("solution short"),
+       f.ONE_BLANK_FIT in __import__("edition_queue").LOW_ASK, f.ONE_BLANK_FIT in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.ONE_BLANK_FIT),
+       __import__("edition_queue").UNFILED_FIRST.index(f.ONE_BLANK_FIT) > __import__("edition_queue").UNFILED_FIRST.index(f.VLM_PLAIN),
+       f.ONE_BLANK_FIT not in (f.VOUCHED_FIT, f.CLUE_REPEATED, f.CLUE_SOLVED)))
+check("one_blank_short: a row read since REREAD_ONE_BLANK, no Times paper's, a refused grid's or a row with no verdict "
+      "is not due", [False, False, False, False],
+      [f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
+                          "verdicts": []}),
+       f.one_blank_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                        "solution": {"refused": "its blocks are not the puzzle's"}}]}),
+       f.one_blank_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1,
+                                        "solution": {"accepted": 2, "lights": 30}}]})])
 # HELD_CLASH requeues a held file whose grid's reading clashes with a held answer as an OCR slip (each
 # clashing light within CLASH_LETTERS letters), not a reading of another puzzle's grid (whole words apart).
 check("slip_clash: a held answer read a letter or two otherwise is a slip; a word apart, or no clash, is not",
