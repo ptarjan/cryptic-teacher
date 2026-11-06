@@ -575,6 +575,14 @@ def partial_lights(puzzle):
     return [i for i in listed if i in blanks]
 
 
+def hand_lights(puzzle):
+    """The entry ids solutions.hand lists: lights a person read off the paper's printed solution
+    grid by eye (tools/hand_answers.py). Their answers are the print's, certain; no reread, repair
+    or merge changes or drops them. {} date map when none, the key unset."""
+    listed = (puzzle.get("solutions") or {}).get("hand")
+    return listed if isinstance(listed, dict) else {}
+
+
 def printed_answers(puzzle):
     """Entry id -> the answer its source printed. Unless a model solved the
     grid, every answer in it is the source's (the paper's, or a write-up's);
@@ -886,6 +894,12 @@ def check(puzzle):
             findings.append(f"solutions.partial is {listed!r} but the blank lights are "
                             f"{blanks}: it lists the lights the blog left out, "
                             f"which includes every blank one")
+    if "hand" in solutions:
+        held = {entry_id(e): (e.get("solution") or "").strip() for e in puzzle.get("entries") or []}
+        for lid, day in (hand_lights(puzzle) or {"hand": None}).items():
+            if lid not in held or not held[lid] or not isinstance(day, str) or not ISO_DATE.fullmatch(day):
+                findings.append(f"solutions.hand lists {lid!r} dated {day!r}, but it must be an answered light "
+                                f"of the file and a date (YYYY-MM-DD)")
     if writeup_keyed(puzzle) and origin == "model":
         findings.append(
             "solutions.origin is 'model' on a puzzle retrieved from a blog, whose "

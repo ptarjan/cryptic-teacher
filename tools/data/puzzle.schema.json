@@ -1414,6 +1414,15 @@
      },
      "description": "Entry ids of the lights a blog's write-up left out on purpose, still blank in the grid; the blog's other answers stand. A model may fill these and no other light (tools/apply_blog_answers.py --partial, apply_solution.check_writeup)."
     },
+    "hand": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+     },
+     "description": "Entry id -> the date a person read that light off the paper's printed solution grid by eye (tools/hand_answers.py). The answer is the print's; no reread, repair or merge changes or drops it."
+    },
     "reopened": {
      "type": "object",
      "minProperties": 1,

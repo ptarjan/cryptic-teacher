@@ -19783,7 +19783,8 @@ def improves(puzzle, path, tool=TOOL):
     and loses on neither."""
     old = json.loads(path.read_text())
     if (old.get("source") or {}).get("acquiredBy") != tool \
-            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle) \
+            or provenance.hand_lights(old):
         return False
     def have(p, field):
         return {entry_id(e) for e in p["entries"]
@@ -20325,9 +20326,17 @@ def _merge_answers(old, puzzle, reread, keep, drop):
     if keep or "blog" in (old.get("solutions") or {}):
         return _fill_writeup_blanks(old, new, cells)
     changed = {}
+    # A light read by eye off the print (solutions.hand, tools/hand_answers.py) is certain: no reading
+    # changes or drops it.
+    hand = provenance.hand_lights(old)
+    sure = {rc: ch for e in old["entries"] if entry_id(e) in hand and e.get("solution") for rc, ch in zip(cells(e), e["solution"])}
     for e in old["entries"]:
         lid, was = entry_id(e), e.get("solution")
+        if lid in hand and was:
+            continue
         now = new.get(lid, was)
+        if now != was and now and any(sure.get(rc, ch) != ch for rc, ch in zip(cells(e), now)):
+            now = was
         if lid not in new and was and (reread or lid in drop or any(letters.get(rc, ch) != ch for rc, ch in zip(cells(e), was))):
             now = None
         if now != was:
