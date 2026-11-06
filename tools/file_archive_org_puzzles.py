@@ -7440,6 +7440,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # The cells of the few lights the grid's reading left: the VLM is asked each one's word.
     strips = info.pop("strips", None)
     asked = {}
+    plain = set()  # the lights whose plain strip ask was answered (PREPPED_STRIPS asks the refused ones again)
     by_vlm = {}
     paired = set()
     if strips and ask_vlm and vlm.wanted():
@@ -7457,6 +7458,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # another word for none, is this puzzle's grid as surely as a titled page's: its answers take the
     # titled read's uncrossed check (misread_rival), not every-uncrossed-goes (held_proven).
     t0 = _stage("fits_lights", t0)
+    plain.update(asked)
     every = bool(hit.get("heldTitle")) and not held_proven(es, answers)
     read = dict(answers)  # the reading's words before the checks: late_strips' agreed_held
     # A name the VLM and the classifier spell alike, one crossed letter off a listed word, is no misread
@@ -7478,7 +7480,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if ask_vlm:
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=every,
-                                    blog="blog" in (old.get("solutions") or {}), read=read)
+                                    blog="blog" in (old.get("solutions") or {}), read=read, replied=plain)
     # A grid left short: a blank light whose clue's anagram or hidden word is the one word its crossings
     # and the classifier allow (WORDPLAY_SHORT), its letters then crossings for the reads below.
     t0 = _stage("late_strips", t0)
@@ -7502,7 +7504,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if ask_vlm and "lateStrips" not in info:
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=every,
-                                    blog="blog" in (old.get("solutions") or {}), read=read)
+                                    blog="blog" in (old.get("solutions") or {}), read=read, replied=plain)
     t0 = _stage("late_strips_again", t0)
     # A Times grid still short after every read of the print: a blank light its clue's wordplay and
     # definition solve (CLUE_SOLVED), last, so no read of the print leans on it. Ours, not the paper's:
@@ -7516,8 +7518,15 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if ask_vlm and "lateStrips" not in info and info.get("clueSolved"):
         answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
                                     crossed=crossed, every=every, blog="blog" in (old.get("solutions") or {}),
-                                    read=read, apart=set(info["clueSolved"]))
+                                    read=read, apart=set(info["clueSolved"]), replied=plain)
     t0 = _stage("final_strips", t0)
+    # The 1-5 lights still blank whose plain strip ask was answered and refused: asked once more as a prepared strip
+    # (doubled, contrast-stretched, sharpened), the reply judged as every strip's (PREPPED_STRIPS).
+    if ask_vlm and plain and "preppedStrips" not in info:
+        answers, info = late_strips(es, answers, info, strips or {}, grid, enums, solution_crop(sol, number),
+                                    crossed=crossed, every=every, blog="blog" in (old.get("solutions") or {}),
+                                    read=read, apart=set(info.get("clueSolved") or ()), prep=set(plain))
+    t0 = _stage("prepped_strips", t0)
     puzzle = copy.deepcopy(old)
     # Each answer must fill its light and agree with the held one it reads again, but a held answer the
     # checks drop (held_drops): late_strips may answer its light anew (MISREAD_STRIPS).
@@ -7612,8 +7621,28 @@ def rejudged(entries, answers, info, asked, strips, grid, enums, crop, crossed=T
     return {**answers, **took}, info
 
 
+def prepped_strip(png):
+    """Base64 PNG `png`, a light's strip, prepared for a fresh ask (PREPPED_STRIPS): gray, doubled in size
+    (Lanczos), stretched between its 2nd and 98th percentiles (faint prints use a sliver of the range), then a
+    mild unsharp mask. The same cells in the same order: the classifier's probabilities for the strip stand."""
+    import base64
+    import io
+    import numpy as np
+    from PIL import Image, ImageFilter
+    img = Image.open(io.BytesIO(base64.b64decode(png))).convert("L")
+    img = img.resize((img.width * 2, img.height * 2), Image.LANCZOS)
+    a = np.asarray(img, dtype=np.float32)
+    lo, hi = np.percentile(a, (2, 98))
+    if hi - lo >= 8:
+        a = np.clip((a - lo) * (255.0 / (hi - lo)), 0, 255)
+    img = Image.fromarray(a.astype(np.uint8)).filter(ImageFilter.UnsharpMask(radius=2, percent=80, threshold=2))
+    out = io.BytesIO()
+    img.save(out, format="PNG")
+    return base64.b64encode(out.getvalue()).decode("ascii")
+
+
 def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True, every=False, blog=False, read=None,
-                apart=()):
+                apart=(), prep=None, replied=None):
     """(answers, info) of answers_only's checked reading `answers` of a held puzzle's `entries` with
     the VLM's words added for the last 1 to LATE_MAX lights the held file and
     the reading leave blank whose strip read_framed did not cut (`strips`: the ones it cut, asked
@@ -7637,7 +7666,11 @@ def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True,
     one of their letters where they cross is dropped, so the two agree where they meet. answers_only runs it
     after clue_solved_reads with them: the earlier passes counted those lights blank, 6+ with a puzzle's last
     2-5, and asked none of its lights (LATE_MAX). 11-06 (r43), Times grids the reading left 1-5 blank after
-    the clue-solved fills: 117 stood so with no strip ever asked (blank + clue-solved lights 6 or more)."""
+    the clue-solved fills: 117 stood so with no strip ever asked (blank + clue-solved lights 6 or more).
+    `prep` (PREPPED_STRIPS; a set of the lights whose plain strip ask, this read's, was answered and refused): asks
+    only those of the last lights, each strip prepared (prepped_strip) and recorded as "preppedStrips", not
+    "lateStrips". The reply is judged by exactly the judges above. `replied` (a set) gets each light whose ask was
+    answered."""
     gone = held_drops({"solution": info})
     if gone:
         entries = [dict(e, solution=None) if entry_id(e) in gone else e for e in entries]
@@ -7645,17 +7678,24 @@ def late_strips(entries, answers, info, strips, grid, enums, crop, crossed=True,
     left = [entry_id(e) for e in entries if not e.get("solution") and not answers.get(entry_id(e))]
     if not left or len(left) > LATE_MAX:
         return answers, info
-    want = [_light_key(k) for k in left if k not in strips]
+    if prep is not None:
+        want = [_light_key(k) for k in left if k in prep]
+    else:
+        want = [_light_key(k) for k in left if k not in strips]
     if not want or crop is None or not crop.exists() or not vlm.wanted():
         return answers, info
     cut = trove_solution_ocr.crop_strips(crop, grid, want)
     if not cut:
         return answers, info
+    if prep is not None:
+        cut = {k: {**s, "png": prepped_strip(s["png"])} for k, s in cut.items()}
     replies = {}
     paired = set()
     _, by = vlm_lights({**held, **{k: w for k, w in answers.items() if k not in apart}}, cut, grid, enums, replies,
                        clues=clue_texts(entries), paired=paired, groups=linked_groups(entries))
-    info = {**info, "lateStrips": sorted(cut)}
+    if replied is not None and prep is None:
+        replied.update(replies)
+    info = {**info, "preppedStrips" if prep is not None else "lateStrips": sorted(cut)}
     if apart and by:
         # A word that differs from a clue-solved letter where they cross is the VLM's or the clue's misread: neither.
         lts_apart = trove_solution_ocr.lights(grid)
@@ -16945,6 +16985,54 @@ def printed_short(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_PREPPED_STRIPS with an answers-only verdict (no held title's, not
+#: refused, no "preppedStrips") of a puzzle held by this tool from that page with every clue, 1 to LATE_MAX lights
+#: blank (held_blanks), one blank light a strip the reading kept or a solution ask of which is logged for the edition
+#: (asked_lights): asked and every reply refused (a refusal leaves no trace in the verdict). The strips went to the VLM
+#: as plain crops; answers_only now asks each such last light once more as a prepared strip (prepped_strip: doubled
+#: with Lanczos, a 2-98 percentile contrast stretch, a mild unsharp mask), its reply judged by exactly the judges of
+#: every strip reply (vlm_word, checked_answers: the classifier's floor, crossings, lists, the two readers). 11-06 (r43):
+#: 1,902 filed Times grids read fine stood with a blank light asked and refused. Once, as an answers-only reread
+#: (SOLUTION_FIXES), up to LATE_MAX asks a puzzle.
+PREPPED_STRIPS = "solution short, its refused strips asked again prepared since"
+REREAD_PREPPED_STRIPS = "2026-11-06T16:50:00+00:00"
+
+
+def prepped_unasked(row):
+    """Whether Times ledger `row`, read before REREAD_PREPPED_STRIPS, has an answers-only verdict (no held title's, not
+    refused, no prepped ask) of a puzzle held from that page with every clue, 1 to LATE_MAX lights blank (held_blanks),
+    one of them a strip the reading kept or asked of the VLM (asked_lights), its reply refused."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_PREPPED_STRIPS)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+        return False
+    logged = None
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or not v.get("answersOnly") or not v.get("solutionFrom") or not isinstance(s, dict)
+                or s.get("refused") or s.get("preppedStrips") or v.get("wrongGrid") or v.get("heldTitle")
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        sol_dir = v["solutionFrom"].rsplit(" leaf ", 1)[0]
+        if not 1 <= held_blanks(paper.series, v["number"], sol_dir) <= LATE_MAX:
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+            kept = (json.loads((CROPS / "solution_reads" / f"{sol_dir}_{v['number']}.json").read_text())
+                    .get("stats") or {}).get("strips") or {}
+        except (KeyError, OSError, ValueError):
+            continue
+        if logged is None:
+            logged = asked_lights().get(row.get("edition"), {})
+        if any(entry_id(e) in logged or entry_id(e) in kept
+               for e in held.get("entries") or () if not e.get("solution")):
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -17416,6 +17504,8 @@ def fix_reason(row):
         return BLIND_STRIPS
     if printed_short(row):
         return PRINTED_CELLS
+    if prepped_unasked(row):
+        return PREPPED_STRIPS
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -18097,7 +18187,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2, VLM_LAID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -18713,7 +18803,8 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
-                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS)
+                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
+                  PREPPED_STRIPS)
 
 
 def keeps_vlm(why, row, unit=None):

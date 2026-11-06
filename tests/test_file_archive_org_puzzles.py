@@ -1166,6 +1166,72 @@ check("PRINTED_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix l
        __import__("edition_queue").evidence_reason(f.PRINTED_CELLS),
        __import__("edition_queue").UNFILED_FIRST.index(f.PRINTED_CELLS) > __import__("edition_queue").UNFILED_FIRST.index(f.BLIND_STRIPS),
        f.PRINTED_CELLS not in (f.BLIND_STRIPS, f.FINAL_STRIPS, f.LETTERED_BLOCKS)))
+check("PREPPED_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.PREPPED_STRIPS], f.PREPPED_STRIPS in f.SOLUTION_FIXES, f.PREPPED_STRIPS.startswith("solution short"),
+       f.PREPPED_STRIPS in __import__("edition_queue").LOW_ASK, f.PREPPED_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.PREPPED_STRIPS),
+       f.PREPPED_STRIPS in __import__("edition_queue").UNFILED_FIRST,
+       f.PREPPED_STRIPS not in (f.BLIND_STRIPS, f.FINAL_STRIPS, f.PRINTED_CELLS)))
+_pp_ed = "GaleTimes1941UKEnglish/1941-01-10"
+_pp_v = {"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True, "solution": {"accepted": 2, "lights": 30}}
+check("prepped_unasked: a row read since REREAD_PREPPED_STRIPS, another paper's, one with no answers-only verdict, a "
+      "refused grid, a prepped ask already made or a held title is not due", [False] * 7,
+      [f.prepped_unasked({"edition": _pp_ed, "readAt": "2099-01-01T00:00:00+00:00", "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "answersOnly": False}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "solution": {"refused": "x"}}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "verdicts": [{**_pp_v, "solution": {"preppedStrips": ["1-across"]}}]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00",
+                          "scan": {"puzzles": [{"heldTitle": True}]}, "verdicts": [_pp_v]}),
+       f.prepped_unasked({"edition": _pp_ed, "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []})])
+# prepped_strip doubles the strip, keeps it gray and stretches a faint one over the range.
+import base64 as _pp_b64
+import io as _pp_io
+from PIL import Image as _PpImage
+_pp_img = _PpImage.new("L", (30, 10), 120)
+_pp_img.paste(140, (10, 2, 20, 8))
+_pp_buf = _pp_io.BytesIO()
+_pp_img.save(_pp_buf, format="PNG")
+_pp_out = _PpImage.open(_pp_io.BytesIO(_pp_b64.b64decode(f.prepped_strip(_pp_b64.b64encode(_pp_buf.getvalue()).decode()))))
+_pp_lo, _pp_hi = _pp_out.getextrema()
+check("prepped_strip: twice the size, gray, a faint strip's range widened", (True, "L", True),
+      (_pp_out.size == (60, 20), _pp_out.mode, _pp_hi - _pp_lo > 140 - 120))
+# late_strips `prep`: only the lights whose plain ask was answered are asked, as prepared strips, recorded as
+# preppedStrips; a plain pass fills `replied`.
+pp_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "x", "enumeration": "3"}} for n in (1, 3)]
+pp_real = (f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted)
+pp_cut = []
+pp_sizes = []
+pp_png = _pp_b64.b64encode(_pp_buf.getvalue()).decode()
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: pp_cut.append(list(keys)) or {
+    f"{k[0]}-{k[1]}": {"png": pp_png, "p": []} for k in keys}
+
+
+def pp_lights(answers, strips, grid, enums, asked=None, clues=None, paired=None, groups=None):
+    pp_sizes.extend(_PpImage.open(_pp_io.BytesIO(_pp_b64.b64decode(s["png"]))).size for s in strips.values())
+    if asked is not None:
+        asked.update({k: "?" for k in strips})
+    return {}, {}
+
+
+f.vlm_lights = pp_lights
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.vlm_named = lambda *a, **k: set()
+f.vlm.wanted = lambda: True
+pp_replied = set()
+pp_plain = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), replied=pp_replied)
+pp_prep = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), prep={"3-across"})
+(f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted) = pp_real
+check("late_strips prep: a plain pass records lateStrips and the lights answered; a prepped one asks only the lights "
+      "named, their strips doubled, and records preppedStrips", ([[ (1, "across"), (3, "across")], [(3, "across")]],
+                                                                  {"1-across", "3-across"}, ["lateStrips"], ["preppedStrips"],
+                                                                  [(30, 10), (30, 10), (60, 20)]),
+      (pp_cut, pp_replied, [k for k in pp_plain[1]], [k for k in pp_prep[1]], pp_sizes))
 # cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
 # written again, or another grid, is framed again.
 import tempfile as _cf_tmp
