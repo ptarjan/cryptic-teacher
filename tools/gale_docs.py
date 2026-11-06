@@ -132,9 +132,19 @@ def crossword(prod, titles, number=None):
         cands.sort(key=lambda i: -max(map(int, re.findall(r"\d+", titles[i].replace(",", ""))), default=0))
     if prod == "TTDA":
         cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
+    if prod == "TGRH":
+        cands.sort(key=lambda i: not TELEGRAPH_DAILY.search(titles[i]))
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
+
+
+#: The Telegraph's daily puzzle as Gale titles it: "Crossword / 21,053" or
+#: "Prize Crossword", ranked above articles about the paper's competition
+#: ("How to Crack the Cryptic Crossword and Win £5,000", "Crossword
+#: Competition / 14", "... Answers").
+TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*/\W*\d[\d,]{2,}|prize\s+[cg]ross-? ?w[oa]rd)",
+                             re.IGNORECASE)
 
 
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
