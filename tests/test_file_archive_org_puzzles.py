@@ -1119,6 +1119,53 @@ check("blind_unasked: a row read since REREAD_BLIND_STRIPS, a non-Times paper's,
        f.blind_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
                         "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
                                       "solution": {"refused": "x"}}]})])
+# PRINTED_CELLS (PRINT_CLASSIFIED): a TIMES_1930 solution grid's cells are classified; the rest of read_solution's
+# CELLS_CLASSIFIED rules stand.
+_pc_ed = "GaleTimes1941UKEnglish/1941-01-10"
+_pc_sol = "per_times_the-times_1930-05-14_45512 leaf 6"
+_pc_dir = Path("/x/per_times_the-times_1930-05-14_45512/per_times_the-times_1930-05-14_45512")
+_pc_row = {"edition": _pc_ed, "readAt": "2000-01-01T00:00:00+00:00",
+           "verdicts": [{"id": "times-1", "solutionFrom": _pc_sol, "number": 1, "leaf": 0,
+                         "solution": {"accepted": 2, "lights": 30}}]}
+f.filed_state = lambda series, n: (False, True)
+_pc_due = [f.printed_short(_pc_row),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "answersOnly": True}]})]
+_pc_not = [f.printed_short({**_pc_row, "readAt": "2099-01-01T00:00:00+00:00"}),
+           f.printed_short({**_pc_row, "edition": "GaleTelegraph1993UKEnglish/1993-04-17"}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solutionFrom": "GaleTimes1941 leaf 3"}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"accepted": 2, "lights": 30,
+                                                                                            "classified": 0}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"accepted": 30, "lights": 30}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "solution": {"refused": "x"}}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "heldTitle": True}]}),
+           f.printed_short({**_pc_row, "verdicts": [{**_pc_row["verdicts"][0], "wrongGrid": "x"}]})]
+f.filed_state = lambda series, n: (False, False)
+_pc_not.append(f.printed_short(_pc_row))
+f.filed_state = real_fs
+check("printed_short: a row read before REREAD_PRINTED_CELLS whose solution grid is a TIMES_1930 page read short with no "
+      "cell classified is due (answers-only or full read); a later read, another grid's paper, a classified, whole or "
+      "refused reading, a held title, a wrong grid or a held file short of clues is not",
+      ([True, True], [False] * 9), (_pc_due, _pc_not))
+check("PRINT_CLASSIFIED is CELLS_CLASSIFIED and the TIMES_1930 print, no other paper",
+      (True, ("times", "gale", "times1930")),
+      (set(f.CELLS_CLASSIFIED) < set(f.PRINT_CLASSIFIED), f.PRINT_CLASSIFIED))
+check("printed_stale: an unmarked short unclassified TIMES_1930 reading is read again; marked, classified, whole, "
+      "refused or another paper's is not",
+      [True, False, False, False, False, False],
+      [f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, _pc_dir),
+       f.printed_stale({"printed": True, "stats": {"accepted": 1, "lights": 30}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 1, "lights": 30, "classified": 3}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 30, "lights": 30}}, _pc_dir),
+       f.printed_stale({"stats": {"refused": "x"}}, _pc_dir),
+       f.printed_stale({"stats": {"accepted": 1, "lights": 30}}, Path("/x/NewsUK1982UKEnglish"))])
+check("PRINTED_CELLS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first, apart from "
+      "the other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.PRINTED_CELLS], f.PRINTED_CELLS in f.SOLUTION_FIXES, f.PRINTED_CELLS.startswith("solution short"),
+       f.PRINTED_CELLS in __import__("edition_queue").LOW_ASK, f.PRINTED_CELLS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.PRINTED_CELLS),
+       __import__("edition_queue").UNFILED_FIRST.index(f.PRINTED_CELLS) > __import__("edition_queue").UNFILED_FIRST.index(f.BLIND_STRIPS),
+       f.PRINTED_CELLS not in (f.BLIND_STRIPS, f.FINAL_STRIPS, f.LETTERED_BLOCKS)))
 # cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
 # written again, or another grid, is framed again.
 import tempfile as _cf_tmp
