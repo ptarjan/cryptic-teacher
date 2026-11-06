@@ -2151,6 +2151,24 @@ def non_times_held(unit, times_papers, times_due, live, cap):
     return times_due and live >= cap and non_times_unit(unit, times_papers)
 
 
+def startable_fills(fill, times_papers, times_due, live, cap):
+    """How many of the `fill` units the non-Times cap lets start: all of the Times papers' (and the
+    Listener's, Trove's), and while Times work is due only `cap` - `live` of the rest. 11-06: the slot reserve
+    counted every fill, but the Telegraph never-read fills sat behind the non-Times cap (2 running), so
+    8 of 24 slots stayed empty for reads that could not start while 4,000 Times rereads waited."""
+    room = max(0, cap - live)
+    n = 0
+    for u in fill:
+        if non_times_held(u, times_papers, times_due, live, cap):
+            continue
+        if times_due and non_times_unit(u, times_papers):
+            if room <= 0:
+                continue
+            room -= 1
+        n += 1
+    return n
+
+
 def other_reason_waits(reason, queued, tried, free, held):
     """Whether a unit of another reason than `reason` could start in its place: one of `queued`
     ((unit, key, slot) triples) that is no fetch, untried, has room in its slot's pool (`free`) and is
@@ -3512,7 +3530,8 @@ class _SlotBalancer:
     def set_caps(self):
         # Paul 10-21: CPU-only units (answers-linked rereads, scans) filled the whole unit ceiling and the
         # GPU sat idle. While fills are wanted, that many ceiling slots (at most a third) are kept for them.
-        self.reserve = min(len(self.fill), max(1, mem_gate.unit_ceiling() // 3)) if self.fill else 0
+        startable = startable_fills(self.fill, self.times_papers, self.times_due, self.non_times_live, NON_TIMES_BESIDE_TIMES)
+        self.reserve = min(startable, max(1, mem_gate.unit_ceiling() // 3)) if startable else 0
         self.reserve_hit = False
         # While the GPU is underfed the CPU-only units (stale scans, answer-linked rereads) share at most a
         # third of the ceiling, so the rest goes to reads that ask the VLM.
