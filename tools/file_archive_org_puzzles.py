@@ -7378,7 +7378,7 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     # print holds (the Gale Times issue after it) is read so too: the classifier reads that grid as
     # read_solution does (its own dir's paper). 10-26: times-139, 153, 162, 248 (1930), titles misread,
     # their Gale headings linked, went to a full read that files the grid's answers unchecked.
-    if not sol or paper.key not in CELLS_CLASSIFIED and paper_of(sol["dir"]).key not in CELLS_CLASSIFIED:
+    if not sol or paper.key not in CELLS_CLASSIFIED and paper_of(sol["dir"]).key not in PRINT_CLASSIFIED:
         return None
     old = held_file(paper.series, number)
     es = (old or {}).get("entries") or ()
@@ -10257,6 +10257,11 @@ SOLUTION_BLOCKS = 0.85
 #: The papers whose solution grids trove_solution_ocr's cell classifier
 #: reads (read_framed(classify=True)): the Times prints it was trained on.
 CELLS_CLASSIFIED = ("times", "gale")
+#: The papers whose solution grids read_solution classifies the cells of: CELLS_CLASSIFIED and the Times print of
+#: archive.org's pub_times (TIMES_1930) since 11-06: the same Times type, read at blocks 0.95-1.0, its grids were
+#: never classified (PRINTED_CELLS). Only the reading's cells: a refusal and the matched_box fall-back stay
+#: CELLS_CLASSIFIED's.
+PRINT_CLASSIFIED = (*CELLS_CLASSIFIED, "times1930")
 #: The gap, in pixels, closed across a solution grid's ink before its box is
 #: taken: a frame the scan broke leaves a part of the grid the largest ink
 #: (Gale's 1987-01-15, 248px of its 340).
@@ -10448,7 +10453,8 @@ def read_solution(img, sol, grid, above=False, lean=False, enums=None):
         cut.resize((cut.width * 3, cut.height * 3), Image.BICUBIC).save(path)
         # The crop is the grid, frame to frame: read on its own rules; a Times
         # print's cells by the cell classifier too, which was trained on them.
-        return trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True, classify=classify,
+        return trove_solution_ocr.read_answers(path, grid, tight=True, bounded=True,
+                                               classify=classify or paper_of(d).key in PRINT_CLASSIFIED,
                                                lean=lean, enums=enums, framing=framing)
     for b in boxes:
         answers, stats = read(b)
@@ -11013,7 +11019,10 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
                   # LETTERED_BLOCKS.
                   "3a7f18bdfc55e513": "f6a3d293c491a4b0",
                   # paired_titles and TITLE's "Crosssword" (a scan's titles; no solution's reading moves).
-                  "3c3bcd251675e071": "f6a3d293c491a4b0"}
+                  "3c3bcd251675e071": "f6a3d293c491a4b0",
+                  # PRINT_CLASSIFIED (a TIMES_1930 grid's cells classified): only grids of that print read with no
+                  # cell classified read otherwise; due once as PRINTED_CELLS.
+                  "ef1346a335efda02": "f6a3d293c491a4b0"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -11024,7 +11033,7 @@ _SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f
 #: FULL_SHORT and 8 of 10 due AGREED_HELD were so, the 6+ short ones never planned.
 _SOLUTION_SAME = {"8417cfb08f3a9706": "f6a3d293c491a4b0", "d7af79af2ec8d286": "f6a3d293c491a4b0",
                   "4b0a439613b63f74": "f6a3d293c491a4b0", "3a7f18bdfc55e513": "f6a3d293c491a4b0",
-                  "3c3bcd251675e071": "f6a3d293c491a4b0"}
+                  "3c3bcd251675e071": "f6a3d293c491a4b0", "ef1346a335efda02": "f6a3d293c491a4b0"}
 
 
 def solution_current(row):
@@ -11055,13 +11064,14 @@ def solved(sol, grid, above=False, lean=False, enums=None):
     if path.exists():
         kept = json.loads(path.read_text())
         if (kept.get("key") == key and not ranked_stale(kept, d, sol["number"], grid)
-                and not blurred_stale(kept, d, sol["number"]) and not lettered_stale(kept, d, sol["number"])):
+                and not blurred_stale(kept, d, sol["number"]) and not lettered_stale(kept, d, sol["number"])
+                and not printed_stale(kept, d)):
             return kept["answers"], kept["stats"]
     answers, stats = read_solution(page(d, leaf), sol, grid, above=above, lean=lean, enums=enums)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(f".{os.getpid()}.part")
     tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats, "ranked": True, "blurred": True,
-                               "lettered": True}))
+                               "lettered": True, "printed": True}))
     tmp.replace(path)
     return answers, stats
 
@@ -11099,6 +11109,15 @@ def lettered_stale(kept, d, number):
                 or st.get("accepted", 0) >= st.get("lights", 0) or paper_of(d).key not in CELLS_CLASSIFIED)
 
 
+def printed_stale(kept, d):
+    """Whether solved()'s kept reading `kept` of edition dir `d`'s solution grid was read before read_solution
+    classified the cells of a TIMES_1930 grid (no "printed" mark): a grid of archive.org's pub_times read short
+    with no cell classified, not refused, read again once, the kept code key the same (_SOLVED_PINS)."""
+    st = kept.get("stats") or {}
+    return not (kept.get("printed") or paper_of(d).key != "times1930" or "classified" in st or st.get("refused")
+                or st.get("accepted", 0) >= st.get("lights", 0))
+
+
 _SOLVED_CODE = []
 #: {_SOLVED_CODE of newer code: the one it stands in for}, for a change that reads the same: the
 #: readings kept under the old one stand. grid_ocr_cache (read_lights' recogniser outputs kept on
@@ -11118,7 +11137,10 @@ _SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03",
                 "3adbb867fc2a5c1c": "33b18559064c9abc",
                 # lettered_framing: likewise, and solved() reads such a kept one of LETTERED_PUZZLES again
                 # (lettered_stale).
-                "e9f78925159d75ca": "33b18559064c9abc"}
+                "e9f78925159d75ca": "33b18559064c9abc",
+                # PRINT_CLASSIFIED: likewise only a TIMES_1930 reading with no cell classified reads otherwise, and
+                # solved() reads such a kept one again (printed_stale).
+                "8fa313883283160c": "5f52f6e84d47ec3d"}
 
 
 def input_hash(d):
@@ -16877,6 +16899,52 @@ def blind_unasked(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_PRINTED_CELLS whose linked solution grid is a page of
+#: archive.org's pub_times (TIMES_1930: "per_times_the-times_*"), read short with no cell classified, not refused, for a
+#: puzzle held short from that page with every clue (none shared or faulty: answers_only refuses those). read_solution
+#: classified the cells of CELLS_CLASSIFIED's papers only, so a 1930 Times grid read at blocks 1.0 never had its
+#: classifier decode, vetoes or strips (late_strips, the VLM), and the rows stood "unclassified" behind every reason
+#: (held_blanks needs a classified reading). Now PRINT_CLASSIFIED; solved() reads such a kept reading again
+#: (printed_stale). 11-06 (r45): of the 239 filed Times whose last verdict is a full read, 135 were answers-only read
+#: on another page's row and 44 stood unclassified, 21 of those 1930 grids from this print (7 blank 1-5, 8 blank 6-12,
+#: 6 more). Held out on the 14 whole puzzles whose crops are kept: the classified read changes none of 563 words,
+#: loses none; on 32 short ones it reads 22 lights more (5 of them held crossings' lights, all 5 the held answer) and
+#: drops 1. answers_only, once.
+PRINTED_CELLS = "solution short, its Times 1930 print's cells classified since"
+REREAD_PRINTED_CELLS = "2026-11-06T16:30:00+00:00"
+
+
+def printed_short(row):
+    """Whether Times ledger `row`, read before REREAD_PRINTED_CELLS, has a verdict (no held title's, not refused) whose
+    linked solution grid is a TIMES_1930 page read short with no cell classified, for a puzzle held by this tool from
+    that page with every clue (none shared or faulty) and not every answer."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_PRINTED_CELLS)):
+        return False
+    from fetch_puzzle import duplicated_clues
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES or any(p.get("heldTitle") for p in (row.get("scan") or {}).get("puzzles") or ()):
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("refused") or v.get("pending") or not v.get("solutionFrom") or v.get("heldTitle")
+                or v.get("wrongGrid") or not isinstance(s, dict) or s.get("refused") or "classified" in s
+                or s.get("accepted", 0) >= s.get("lights", 0)
+                or not TIMES_1930.item.match(v["solutionFrom"].rsplit(" leaf ", 1)[0].split("/")[0])
+                or filed_state(paper.series, v.get("number")) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+            es = held.get("entries") or ()
+            if any(duplicated_clues(es)) or faults(held):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_CLASSED_CLASH whose linked solution grid read short for a
 #: puzzle of CLASSED_PUZZLES held short from that page: a blank light's VLM read clashes with a held crossing the
 #: classifier reads the VLM's way (classed_clash), the held letter the misread, so clash_reads takes it with the
@@ -17346,6 +17414,8 @@ def fix_reason(row):
         return FINAL_STRIPS
     if blind_unasked(row):
         return BLIND_STRIPS
+    if printed_short(row):
+        return PRINTED_CELLS
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -18027,7 +18097,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2, VLM_LAID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
@@ -18643,7 +18713,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   HELD_STRIPS, HELD_ASKED, CLUE_SHORT, CLASH_SHORT, CLUE_WIDE, OTHER_COPY, NEAR_WORD, WORDPLAY_SHORT, CLUE_SOLVED,
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
-                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS)
+                  TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS)
 
 
 def keeps_vlm(why, row, unit=None):
