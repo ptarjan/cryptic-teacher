@@ -264,16 +264,19 @@ tledger.write_text(json.dumps({"article": "100", "inputs": F.inputs_of(tcache / 
 read = []
 def slow(d, taken):
     read.append(d.name)
-    time.sleep(0.2)
+    time.sleep(pause[0])
     return {"skip": "test"}, None, None
+pause = [0.2]
 F.consider = slow
 def tread(**kw):
     read.clear()
     F.run(tcache, ledger=tledger, out=io.StringIO(), puzzles=tpuzzles, **kw)
     return list(read)
 check("Trove: a read article stands, only the never-read one is read", ["300"], tread())
+pause[0] = 2  # a slice that a loaded runner's setup can not use up before the first read starts
 check("Trove: --reread BEFORE reads the oldest-read first, one a slice, the ledger saved after each, then stops",
-      [["200"], ["100"], []], [tread(seconds=0.1, reread=stamp) for _ in range(3)])
+      [["200"], ["100"], []], [tread(seconds=1, reread=stamp) for _ in range(3)])
+pause[0] = 0.2
 F.vlm.reachable, F.vlm.version = (lambda: True), (lambda: "v1")
 check("Trove: an article read without the VLM is read again once it answers", 3, len(tread()))
 F.vlm.version = lambda: "v2"
