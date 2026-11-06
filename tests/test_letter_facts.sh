@@ -549,7 +549,7 @@ if [ "$cached" = "True True True True" ]; then echo "ok   rows() through the row
 storedir=$(mktemp -d)
 store=$(cd "$REPO/tools" && python3 -c '
 import os, sys, letter_facts as l, budget, mem_gate
-real_short = mem_gate.short  # the shard's real free memory must not stop the counts below
+real_short = mem_gate.short  # the real free memory of the runner must not stop the counts below
 mem_gate.short = lambda base=0, **kw: None
 rows = []
 for i in range(300):
