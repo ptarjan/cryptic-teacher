@@ -1052,6 +1052,55 @@ ls_out = [f.late_strips(ls_es, {}, {"a": 1}, {}, [], {}, Path(__file__)),
 f.trove_solution_ocr.crop_strips = real_cs
 check("late_strips: 6 blank lights (over LATE_MAX), or every blank one's strip cut already, cuts nothing and keeps "
       "the reading", [({}, {"a": 1}), ({"1-across": "ABC"}, {"a": 1}), []], ls_out + [ls_cut])
+# late_strips `apart` (FINAL_STRIPS): the clue-solved lights count answered (6 lights, 5 blank, one clue-solved: asked),
+# their letters are left out of the ask, and a VLM word that differs from one of them where they cross is dropped.
+fs_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Pet", "enumeration": "3"}},
+         {"number": 2, "direction": "down", "solution": None, "clue": {"text": "Mark", "enumeration": "2"}}] + [
+    {"number": n, "direction": "across", "solution": None, "clue": {"text": "x", "enumeration": "3"}} for n in (5, 7, 9, 11)]
+fs_real = (f.trove_solution_ocr.crop_strips, f.trove_solution_ocr.lights, f.vlm_lights, f.checked_answers, f.vlm_named,
+           f.vlm.wanted)
+fs_known = []
+f.trove_solution_ocr.crop_strips = lambda crop, grid, keys: {"1-across": {"png": "", "p": []}}
+f.trove_solution_ocr.lights = lambda grid: {(1, "across"): [(0, 0), (0, 1), (0, 2)], (2, "down"): [(0, 1), (1, 1)]}
+f.vlm_lights = lambda answers, strips, grid, enums, asked=None, clues=None, paired=None, groups=None: (
+    fs_known.append(dict(answers)) or ({}, {"1-across": fs_word[0]}))
+f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
+f.vlm_named = lambda *a, **k: set()
+f.vlm.wanted = lambda: True
+fs_out = []
+for fs_word in (["CAT"], ["CBT"]):
+    fs_out.append(f.late_strips(fs_es, {"2-down": "AX", "5-across": "AAA", "7-across": "BBB", "9-across": "CCC",
+                                        "11-across": "DDD"}, {"clueSolved": {"2-down": "AX"}}, {}, [], {},
+                                Path(__file__), apart={"2-down"}))
+    fs_out.append(f.late_strips(fs_es, {"2-down": "AX", "5-across": "AAA", "7-across": "BBB", "9-across": "CCC",
+                                        "11-across": "DDD"}, {}, {}, [], {}, Path(__file__)))
+(f.trove_solution_ocr.crop_strips, f.trove_solution_ocr.lights, f.vlm_lights, f.checked_answers, f.vlm_named,
+ f.vlm.wanted) = fs_real
+check("late_strips apart: a clue-solved light's letters are left out of the ask and a word clashing with one is "
+      "dropped (CAT agrees with 2-down AX at A, CBT does not); without apart both words stand",
+      ["1-across" in fs_out[0][0], "1-across" in fs_out[1][0], "1-across" in fs_out[2][0], "lateStrips" in fs_out[2][1],
+       "1-across" in fs_out[3][0], "2-down" in fs_known[0], "2-down" in fs_known[1]],
+      [True, True, False, True, True, False, True])
+check("FINAL_STRIPS is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, in UNFILED_FIRST, apart from the "
+      "other short reasons",
+      (2, True, True, True, True, True, True, True),
+      (f.RANKS[f.FINAL_STRIPS], f.FINAL_STRIPS in f.SOLUTION_FIXES, f.FINAL_STRIPS.startswith("solution short"),
+       f.FINAL_STRIPS in __import__("edition_queue").LOW_ASK, f.FINAL_STRIPS in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.FINAL_STRIPS), f.FINAL_STRIPS in __import__("edition_queue").UNFILED_FIRST,
+       f.FINAL_STRIPS not in (f.ONE_BLANK_FIT, f.LATE_UNASKED, f.CLUE_SOLVED)))
+check("final_unasked: a row read since REREAD_FINAL_STRIPS, no Times paper's, one with no clue-solved fill, a late strip "
+      "cut, or a refused grid is not due", [False] * 5,
+      [f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00", "verdicts": []}),
+       f.final_unasked({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"accepted": 2, "lights": 30}}]}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"clueSolved": {"1-across": "A"}, "lateStrips": ["2-down"]}}]}),
+       f.final_unasked({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
+                        "verdicts": [{"id": "times-1", "solutionFrom": "x leaf 3", "number": 1, "answersOnly": True,
+                                      "solution": {"refused": "x", "clueSolved": {"1-across": "A"}}}]})])
 # cell_probs and crop_strips frame one crop once (_crop_framed: by its path, size, time and grid); a crop
 # written again, or another grid, is framed again.
 import tempfile as _cf_tmp
