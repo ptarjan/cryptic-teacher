@@ -324,12 +324,13 @@ assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
 #     no crossword for, or whose document is got, is left out.
 import dir_cache, gale_inbox, gale_listener
 D = datetime.date
-saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted")}
+saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted", "misfiled")}
 saved_wanted = gale_listener.wanted
 gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
+gale_inbox.misfiled = lambda prod="TGRH": []  # it reads the media manifest, absent here
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
 saved_tld = gf.times_listener_days
 gf.REQUESTS = Path("/nonexistent/requests.txt")  # not the machine's real request list
