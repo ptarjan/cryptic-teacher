@@ -708,8 +708,14 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 if "doc" not in e:
                     log(f"{day}: {e.get('why')}")
                     continue
+                looked = True
+            else:
+                looked = False
             doc = e["doc"].upper()
             if doc in got:
+                if looked:
+                    # Logged so a long run of re-checks is not read as a stall.
+                    log(f"{prod} {day}: looked up again, {doc} already got")
                 continue
             # A report is printed in a later issue than its puzzle's.
             day = datetime.date.fromisoformat(e["day"]) if "day" in e else day
