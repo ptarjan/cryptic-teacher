@@ -2133,6 +2133,23 @@ def other_reason_waits(reason, queued, tried, free, held):
                for v, k, slot in queued)
 
 
+def scan_wide_max(pool):
+    """Most scans at once while every due read waits on one: CT_SCAN_WIDE (default twice the pool)."""
+    try:
+        return max(pool, int(os.environ.get("CT_SCAN_WIDE", "")))
+    except ValueError:
+        return pool * 2
+
+
+def scan_widen_room(live, pool, ceiling_left):
+    """Scan starts allowed beyond a full pool: up to scan_wide_max(pool) scans in all, and a third of the
+    ceiling slots left stay for the reads these scans will free (never more than ceiling_left)."""
+    if ceiling_left <= 0:
+        return 0
+    keep = ceiling_left // 3
+    return max(0, min(scan_wide_max(pool) - live, ceiling_left - keep))
+
+
 def listener_free(free_listener, other_due, ceiling_left):
     """The Listener pool's free slots this pass: its fixed pool's (LISTENER_WORKERS, `free_listener`)
     while other read or scan work is due or running (`other_due`), else every unit-ceiling slot left
@@ -3427,8 +3444,30 @@ class _SlotBalancer:
                         f"the reads waiting on them; scans may use {room} slots, FT fills only what is left")
         elif self.times_first[0] and not tf_pending:
             self.times_first[0] = False
+        self.widen_scans(share, tf_pending)
         if self.free.get("scan", 0) > 0 or share is None:
             self.scan_held = False
+
+    def widen_scans(self, share, tf_pending):
+        # 11-06: the plan held only Telegraph (never scanned + never read); every read waits on its own scan, the
+        # scan pool (6) ran full at ~190 s a scan, so reads started ~2/min and the unit count sat at 13-18 of 24
+        # with the CPU and VLM idle. While no read is ready (all wait on scans) and the pool is full, scans take
+        # the ceiling slots left, up to scan_wide_max(); the ceiling, RAM and CPU gates still apply to each start.
+        live = sum(1 for _, (v, _) in self.units_running() if v["kind"] == "scan")
+        if (share is not None or tf_pending or self.times_due or self.yielding or self.vlm_full
+                or self.free.get("scan", 0) > 0 or self.ceiling_left <= 0 or not self.may_start()):
+            widen = False
+        else:
+            cands = [(v, k) for v, k in self.read_cands if k not in self.tried and k not in self.busy]
+            ready = sum(1 for v, _ in cands if not self.waits(v))
+            widen = ready == 0 and any(self.waits(v) for v, _ in cands)
+        if widen:
+            self.free["scan"] = scan_widen_room(live, self.pools["scan"], self.ceiling_left)
+        if (widen and self.free.get("scan", 0) > 0) != self.scan_wide:
+            self.scan_wide = not self.scan_wide
+            log(f"scan pool: widened to {live + self.free.get('scan', 0)} (pool {self.pools['scan']}), every read waits on a scan "
+                f"(unit ceiling {mem_gate.unit_ceiling()})" if self.scan_wide else
+                f"scan pool: back to {self.pools['scan']}, reads are ready or nothing waits on a scan")
 
     def count_reasons(self):
         # 10-29: one fix-reread reason (~100 untitled 1939 pages) took every unit slot with ~18 min of OCR each
@@ -3960,6 +3999,7 @@ class _Dispatch(_Poller, _FetchPool, _Children, _SlotBalancer, _RankPicker):
         self.cpu_cap_bound = False  # logged once each time the CPU-only cap holds a start back
         self.reserve_bound = False  # logged once each time the VLM-fill slot reserve holds a start back
         self.ceiling_bound = False  # logged once each time the unit-children ceiling is met
+        self.scan_wide = False  # logged once each time the scan pool widens past its width or narrows back
         self.listener_wide = False  # logged once each time the Listener pool widens to the ceiling or narrows back
         self.times_first = [False]  # logged once each time the Times scans take the slots FT would
         self.scan_held = False  # logged once each time the scans are held to their share for the reads
