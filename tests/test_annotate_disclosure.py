@@ -520,6 +520,21 @@ say("stray_brace_on_every_entry_mended", AC.mend_json(pending) is not None
 broken = '{"1-across": {"def": "a" "wp": "b"}}'
 pending.write_text(broken)
 say("other_json_errors_left", AC.mend_json(pending) is None and pending.read_text() == broken)
+# Extra data after a whole object: a closing code fence, prose, a second copy of it and a missing
+# comma between early-shut entries are mended (annotate audit 11-06: 82 sessions); a second,
+# different object is refused with what to write instead.
+one = '{"1-across": {"def": "a"}, "2-down": null}'
+for name, body in (("fence", "```json\n" + one + "\n```\n"), ("prose", one + "\n\nThat is all."),
+                   ("copy", one + "\n" + one + "\n"),
+                   ("nocomma", '{"1-across": {"def": "a", "notes": {"x": "y"}}}\n"2-down": null}')):
+    pending.write_text(body)
+    say("extra_data_" + name + "_mended", AC.mend_json(pending) is not None
+        and sorted(json.loads(pending.read_text())) == ["1-across", "2-down"])
+pending.write_text(one + '\n{"3-down": null}')
+say("two_objects_not_mended", AC.mend_json(pending) is None and pending.read_text() == one + '\n{"3-down": null}')
+say("two_objects_refused_with_advice", "write ONE object" in (AC.two_values_refusal(pending) or ""))
+pending.write_text(one)
+say("one_object_not_refused", AC.two_values_refusal(pending) is None)
 # A key naming a clue in the wrong direction is renamed when the other reading is the only one.
 wrong = path.parent / "cyclops-99994.json"
 wrong.write_text(json.dumps({"id": "cyclops-99994", "number": 99994, "entries": [
@@ -639,6 +654,13 @@ fodder_reuse_says_leave_it
 stray_brace_mended
 trailing_closer_mended
 other_json_errors_left
+extra_data_fence_mended
+extra_data_prose_mended
+extra_data_copy_mended
+extra_data_nocomma_mended
+two_objects_not_mended
+two_objects_refused_with_advice
+one_object_not_refused
 wrong_direction_renamed
 wrong_direction_kept_when_taken""".split()
 lines_out = out.split("\n")
