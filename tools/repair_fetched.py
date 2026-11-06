@@ -1047,7 +1047,7 @@ def repair_misread_names(apply_it=False, rows=MISREAD_NAMES):
         changed = False
         for e in puzzle["entries"]:
             for lid, word in lights:
-                if entry_id(e) == lid and e.get("solution") == word:
+                if entry_id(e) == lid and e.get("solution") == word and lid not in (puzzle.get("solutions") or {}).get("hand", ()):
                     e["solution"] = None
                     blanked.append((pid, lid, word))
                     changed = True
@@ -1169,7 +1169,7 @@ def repair_foreign_grids(apply_it=False, links=None):
         for e in puzzle.get("entries") or ():
             lid, word = entry_id(e), e.get("solution")
             src = foreign[pid].get(lid, {}).get(word) if word else None
-            if not src or word in times.get(pid, {}).get(lid, ()) or blog:
+            if not src or word in times.get(pid, {}).get(lid, ()) or blog or lid in (puzzle.get("solutions") or {}).get("hand", ()):
                 continue
             e["solution"] = None
             blanked.append((pid, lid, word, src))
@@ -1369,7 +1369,8 @@ def repair_uncrossed(since=UNCROSSED_SINCE, apply_it=False, workers=1, answered=
         puzzle = fetcher.read_puzzle_file(path)
         drop = {k: a for k, a, _ in rows}
         for e in puzzle["entries"]:
-            if drop.get(entry_id(e)) and e.get("solution") == drop[entry_id(e)]:
+            if drop.get(entry_id(e)) and e.get("solution") == drop[entry_id(e)] \
+                    and entry_id(e) not in (puzzle.get("solutions") or {}).get("hand", ()):
                 e["solution"] = None
                 e.pop("annotation", None)
         blanked += [(pid, k, a, rival) for k, a, rival in rows]
