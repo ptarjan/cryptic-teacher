@@ -472,11 +472,13 @@ def upright(data):
     reader = pypdf.PdfReader(io.BytesIO(data))
     if not reader.pages:
         return data
-    page = reader.pages[0]
+    # pypdf 7 refuses to change the content of a page no writer owns
+    writer = pypdf.PdfWriter()
+    page = writer.add_page(reader.pages[0])
     spun = int(page.get("/Rotate") or 0) % 360
     if spun:
         page.transfer_rotation_to_content()
-    turn = text_turn(page, reader)
+    turn = text_turn(page, writer)
     if not turn and not spun:
         return data
     if turn:
@@ -491,8 +493,6 @@ def upright(data):
         for key in ("mediabox", "cropbox", "trimbox", "bleedbox", "artbox"):
             setattr(page, key, RectangleObject([0, 0, nw, nh]))
     out = io.BytesIO()
-    writer = pypdf.PdfWriter()
-    writer.add_page(page)
     writer.write(out)
     return out.getvalue()
 
