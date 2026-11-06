@@ -47,6 +47,10 @@
 set -uo pipefail
 . "$(dirname "${BASH_SOURCE[0]}")/yield_cpu.sh"
 CONFLICT=3
+# Commits are Paul's. HOME may carry no git identity (the desktop's does not), and
+# commit-tree dies "Committer identity unknown" without one: default it, keep any set.
+export GIT_COMMITTER_NAME="${GIT_COMMITTER_NAME:-Paul Tarjan}"
+export GIT_COMMITTER_EMAIL="${GIT_COMMITTER_EMAIL:-github@paulisageek.com}"
 here="$(cd "$(dirname "$0")" && pwd)"
 common=$(git rev-parse --path-format=absolute --git-common-dir) || exit 1
 BATCH_REF=refs/push-batch/tip
@@ -102,7 +106,9 @@ onto_for() {
     else
       git update-ref "refs/push-batch/conflicts/$c" "$c"
       echo "push_puzzle_commit: batched $(git log -1 --format=%s "$c") no longer replays onto origin/master; kept as refs/push-batch/conflicts/$c" >&2
-      ( . "$here/alert.sh" && alert "push_puzzle_commit: batched commit \"$(git log -1 --format=%s "$c")\" conflicts with a push made meanwhile and was not published; kept as refs/push-batch/conflicts/$c. Replay it by hand: tools/push_puzzle_commit.sh $c" ) 2>/dev/null || true
+      # onto_for runs inside $(...): anything alert prints on stdout would be
+      # taken for the tree (11-06: "could not parse as tree"), so it goes to stderr.
+      ( . "$here/alert.sh" && alert "push_puzzle_commit: batched commit \"$(git log -1 --format=%s "$c")\" conflicts with a push made meanwhile and was not published; kept as refs/push-batch/conflicts/$c. Replay it by hand: tools/push_puzzle_commit.sh $c" ) >&2 2>/dev/null || true
     fi
   done
   echo "$prev"
