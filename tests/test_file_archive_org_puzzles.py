@@ -5146,18 +5146,20 @@ check("one_blank_word: the fitting word where its definition links; not unlinked
       [f.one_blank_word("PLA?ET", "6", "Body in orbit"), f.one_blank_word("PLA?ET", "6", "Body in a story"),
        f.one_blank_word("PLA?ET", "6", "planet in orbit")])
 ob_lts = {(1, "across"): [(0, i) for i in range(6)], (1, "down"): [(0, 0), (1, 0), (2, 0)],
-          (3, "down"): [(0, 2), (1, 2), (2, 2)], (4, "down"): [(0, 3), (1, 3)], (5, "down"): [(0, 4), (1, 4)]}
+          (3, "down"): [(0, 2), (1, 2), (2, 2)], (4, "down"): [(0, 3), (1, 3)], (5, "down"): [(0, 4), (1, 4)],
+          (6, "down"): [(0, 5), (1, 5)]}
 ob_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
 ob_t.lights = lambda grid: ob_lts
 f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
 f.crop_cell_probs = lambda crop, grid: {}
-ob_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3", (4, "down"): "2", (5, "down"): "2"}
+ob_enums = {(1, "across"): "6", (1, "down"): "3", (3, "down"): "3", (4, "down"): "2", (5, "down"): "2", (6, "down"): "2"}
 for ob_clue, ob_want in (("Body in orbit", {"1-across": "PLANET"}), ("Body in a story", {})):
     ob_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": ob_clue, "enumeration": "6"}},
              {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
              {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}},
              {"number": 4, "direction": "down", "solution": "NO", "clue": {"text": "Refusal", "enumeration": "2"}},
-             {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}}]
+             {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}},
+             {"number": 6, "direction": "down", "solution": "TO", "clue": {"text": "Towards", "enumeration": "2"}}]
     ob_ans, ob_info = f.clue_solved_reads(ob_es, {}, {}, None, ob_enums, vf_crop)
     check(f"clue_solved_reads takes the only blank light's one linked word as ours (clueSolved): {ob_clue!r}",
           (ob_want, ob_want or None), (ob_ans, ob_info.get("clueSolved")))

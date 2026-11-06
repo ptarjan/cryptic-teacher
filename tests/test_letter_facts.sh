@@ -548,7 +548,9 @@ if [ "$cached" = "True True True True" ]; then echo "ok   rows() through the row
 # read once, then reused, and re-read for a new generation only up to REFRESH.
 storedir=$(mktemp -d)
 store=$(cd "$REPO/tools" && python3 -c '
-import os, sys, letter_facts as l, budget
+import os, sys, letter_facts as l, budget, mem_gate
+real_short = mem_gate.short  # the shard's real free memory must not stop the counts below
+mem_gate.short = lambda base=0, **kw: None
 rows = []
 for i in range(300):
     rows.append((f"p{i:03}", "1a", f"Ape in rage heading west no {i} (4)", "LEMUR",
@@ -586,9 +588,7 @@ del os.environ["CT_DEADLINE"]
 counted.clear()
 again, _ = l._cached_lexicons(conn2, corpus, ours, 1)
 print(same(full, again), len(counted) == n_cold - 1)
-import mem_gate
 conn3 = l._open_store(sys.argv[1] + "/u.sqlite")
-real_short = mem_gate.short
 mem_gate.short = lambda base=0, **kw: "1 MB available"
 counted.clear()
 try:
@@ -596,7 +596,7 @@ try:
     print("not stopped")
 except budget.Stopped as e:
     print(e.code == 0, len(counted) == 1, conn3.execute("SELECT COUNT(*) FROM chunks").fetchone()[0] == 1)
-mem_gate.short = real_short
+mem_gate.short = lambda base=0, **kw: None
 F = mem_gate.FLOOR
 print(real_short(0, avail=F + (50 << 20), rss=0) is None, real_short(0, avail=F - 1, rss=0) is not None,
       real_short(100 << 20, avail=F + (50 << 20), rss=200 << 20) is not None, real_short(100 << 20, avail=F + (150 << 20), rss=200 << 20) is None)
