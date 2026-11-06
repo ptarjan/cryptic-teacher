@@ -16,8 +16,8 @@ queue's own stamps:
     09:45 ── 10 units at once · 12 Times filed/h · 3 puzzles updated/h · 41 image-reader asks/10 min · 5 reads queued
 
 Repeats of one kind inside the same minute are one line with a count. A status line is written
-every five minutes; REPO is the checkout whose commit history gives "Times filed/h" ("File
-times-" commits) and "puzzles updated/h" (the N of "Update N puzzles" commits). Without a REPO
+every five minutes; REPO is the checkout whose commit history gives the filed/h per paper
+("File times-", "File telegraph-", ... commits, e.g. "12 Times + 30 Telegraph filed/h") and "puzzles updated/h" (the N of "Update N puzzles" commits). Without a REPO
 the filed count falls back to the filed lines this filter saw. Raw lines stay in the raw log.
 
 A replay (and the seed of --follow) reads the raw log on the clock its own stamps keep, so a
@@ -35,6 +35,7 @@ import time
 HEARTBEAT_S = 5 * 60       # the status line is written at least this often
 IDLE_AFTER_S = 5 * 60      # nothing started this long, nothing running: idle
 ASK_WINDOW_S = 10 * 60
+PAPER_NAMES = {"times": "Times", "ftcryptic": "FT", "telegraph": "Telegraph", "listener": "Listener"}
 RUN_MAX_S = 70 * 60        # a unit with no end line this long is forgotten
 ASK_LOG_TAIL = 512 * 1024  # bytes of the reader's call log read for the ask count
 ASK_LINE = re.compile(r"^(\d\d):(\d\d):(\d\d) vlm ask ")
@@ -210,7 +211,7 @@ class Log:
 
     # -- status ----------------------------------------------------------
     def git_counts(self, t):
-        """(Times filed, puzzles updated) in the hour before t, from the commit history; None if unknown."""
+        """({paper: puzzles filed}, puzzles updated) in the hour before t, from the commit history; None if unknown."""
         if not self.repo:
             return None
         if self.git_cache[0] is not None and abs(t - self.git_cache[0]) < 60:
@@ -220,13 +221,14 @@ class Log:
             # than --since, so a back-dated or rebased tip hides every commit behind it.
             res = subprocess.run(["git", "-C", self.repo, "log", "-n", "5000", "--format=%ct %s"],
                                  capture_output=True, text=True, timeout=30, check=True)
-            filed = updated = 0
+            filed, updated = {}, 0
             for row in res.stdout.splitlines():
                 when, _, subject = row.partition(" ")
                 if not t - 3600 <= int(when) <= t:
                     continue
-                if subject.startswith("File times-"):
-                    filed += 1
+                m = re.match(r"^File ([a-z]+)-\d", subject)
+                if m:
+                    filed[m.group(1)] = filed.get(m.group(1), 0) + 1
                 m = re.match(r"^Update (\d+) puzzles", subject)
                 if m:
                     updated += int(m.group(1))
@@ -279,9 +281,10 @@ class Log:
         while self.asks and self.asks[0][0] < self.t - ASK_WINDOW_S:
             self.asks.popleft()
         counts = self.git_counts(self.t)
-        filed, updated = counts if counts else (len(self.filed), "–")
+        filed, updated = counts if counts else ({"times": len(self.filed)}, "–")
         n = len(self.running)
-        parts = [f"{n} unit{'' if n == 1 else 's'} at once", f"{filed} Times filed/h",
+        papers = [f"{c} {PAPER_NAMES.get(p, p.capitalize())}" for p, c in sorted(filed.items(), key=lambda kv: kv[0] != "times") if c]
+        parts = [f"{n} unit{'' if n == 1 else 's'} at once", (" + ".join(papers) or "0 Times") + " filed/h",
                  f"{updated} puzzles updated/h", f"{self.ask_count()} image-reader asks/10 min",
                  f"{self.queued} reads queued"]
         if self.paused:

@@ -156,19 +156,19 @@ def local_iso(h, m):   # the log's clock is local time, so give git the same mom
     return datetime.datetime(2026, 10, 30, h, m).astimezone().isoformat()
 git("init", "-q")
 git("config", "commit.gpgsign", "false")
-for i, subject in enumerate(["File times-5355", "File times-5356", "Update 3 puzzles", "Update 4 puzzles", "Something else"]):
+for i, subject in enumerate(["File times-5355", "File times-5356", "File telegraph-21551", "Update 3 puzzles", "Update 4 puzzles", "Something else"]):
     git("commit", "-q", "--allow-empty", "-m", subject, when=local_iso(8, 20 + i))
 git("commit", "-q", "--allow-empty", "-m", "File times-1", when=local_iso(6, 0))   # outside the hour
 log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
-check(log.git_counts(log.t), (2, 7), "two filed commits and 3+4 puzzles updated in the last hour")
+check(log.git_counts(log.t), ({"times": 2, "telegraph": 1}, 7), "filed commits per paper and 3+4 puzzles updated in the last hour")
 check(log.feed("09:05:01 vlm stage: 0 asks spooled, 2 reads waiting")[0].split(" · ")[1:3],
-      ["2 Times filed/h", "7 puzzles updated/h"], "the status line reads them")
+      ["2 Times + 1 Telegraph filed/h", "7 puzzles updated/h"], "the status line reads them, Times first")
 check(O.Log(os.path.join(HOME, "nowhere"), day=DAY).git_counts(1_800_000_000), None, "a missing repo is unknown, not zero")
 git("commit", "-q", "--allow-empty", "-m", "Update times-727", when=local_iso(8, 30))
 log = O.Log(repo, day=DAY)
 log.feed("09:00:00 vlm stage: 0 asks spooled, 2 reads waiting")
-check(log.git_counts(log.t), (2, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
+check(log.git_counts(log.t), ({"times": 2, "telegraph": 1}, 8), "a single 'Update times-N' commit in the hour adds 1 puzzle updated")
 
 # live, the ask count is the image reader's own call log (UTC clock), not the queue's "N asks spooled"
 asks_path = os.path.join(HOME, "vlm_asks.log")
