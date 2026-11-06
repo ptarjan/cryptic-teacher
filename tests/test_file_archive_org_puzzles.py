@@ -1204,7 +1204,8 @@ check("prepped_strip: twice the size, gray, a faint strip's range widened", (Tru
 # late_strips `prep`: only the lights whose plain ask was answered are asked, as prepared strips, recorded as
 # preppedStrips; a plain pass fills `replied`.
 pp_es = [{"number": n, "direction": "across", "solution": None, "clue": {"text": "x", "enumeration": "3"}} for n in (1, 3)]
-pp_real = (f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted)
+pp_real = (f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted,
+           f.trove_solution_ocr.lights)
 pp_cut = []
 pp_sizes = []
 pp_png = _pp_b64.b64encode(_pp_buf.getvalue()).decode()
@@ -1223,10 +1224,13 @@ f.vlm_lights = pp_lights
 f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
 f.vlm_named = lambda *a, **k: set()
 f.vlm.wanted = lambda: True
+# The test's grid is empty ([]): late_strips maps the replies' lights onto it, so it gets no lights.
+f.trove_solution_ocr.lights = lambda grid: {}
 pp_replied = set()
 pp_plain = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), replied=pp_replied)
 pp_prep = f.late_strips(pp_es, {}, {}, {}, [], {}, Path(__file__), prep={"3-across"})
-(f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted) = pp_real
+(f.trove_solution_ocr.crop_strips, f.vlm_lights, f.checked_answers, f.vlm_named, f.vlm.wanted,
+ f.trove_solution_ocr.lights) = pp_real
 check("late_strips prep: a plain pass records lateStrips and the lights answered; a prepped one asks only the lights "
       "named, their strips doubled, and records preppedStrips", ([[ (1, "across"), (3, "across")], [(3, "across")]],
                                                                   {"1-across", "3-across"}, ["lateStrips"], ["preppedStrips"],
