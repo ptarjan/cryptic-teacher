@@ -2470,8 +2470,10 @@ desktop_mem_reader = None
 vlm_gate_reader = None
 #: Seconds a read ending deferred for the VLM (EXITS["vlm"]) holds the reads
 #: that need it, whatever the last answer: the queue does not restart them on
-#: an answer from before it went down.
-VLM_RECHECK = 60
+#: an answer from before it went down. 11-06: one read's failed ask (58 s, "the VLM is down") froze every
+#: VLM-asking start for 60 s while asks kept completing (units fell 22 -> 2, GPU ~1%); 15 s still outlives
+#: the stale answer (vlm_reader.up() is rate-limited by UP_EVERY).
+VLM_RECHECK = 15
 #: A read that has ended deferred for the VLM's asks (spooled, or the spool full) twice running
 #: in a row waits DEFER_BACKOFF * 2 ** (n - 2) seconds (at most DEFER_BACKOFF_MAX) before it
 #: starts again: each start redoes its OCR, and one that finds a few new asks per pass (the
