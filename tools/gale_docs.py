@@ -220,7 +220,8 @@ REJECTED_DOCS = rejected()
 def stale(prod, e):
     """Whether cache entry `e` is to be looked up again: its document is
     rejected, or it was cached by an older matcher, and a miss or (the
-    Times) a title this one rejects or ranks below the cryptic's."""
+    Times) a title this one rejects or ranks below the cryptic's, or (the
+    Telegraph) a title with no puzzle number."""
     if str(e.get("doc", "")).upper() in REJECTED_DOCS:
         return True
     if e.get("kind") == LISTENER_KIND:
@@ -229,6 +230,8 @@ def stale(prod, e):
         return False
     if "doc" not in e:
         return True
+    if prod == "TGRH":  # a competition article the older matcher picked
+        return not numbered(e.get("title") or "")
     return prod == "TTDA" and not (crossword(prod, [e["title"]]) == 0 and TIMES_CRYPTIC.search(e["title"]))
 
 

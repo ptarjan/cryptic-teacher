@@ -161,6 +161,12 @@ check("an entry naming it is stale even under the current matcher", [True, False
        gd.stale("TTDA", {"doc": "IF0000001001", "title": "The Times Crossword 23,296", "matcher": gd.MATCHER["TTDA"]})])
 gd.REJECTED_DOCS = gd.rejected()
 check("the other papers' links are not", False, gd.stale("LSNR", {"doc": "x", "title": "Competition"}))
+check("a Telegraph competition article an older matcher picked is stale, its numbered crossword not",
+      [True, False, False],
+      [gd.stale("TGRH", {"doc": "x", "title": "How to Crack the Cryptic Crossword and Win \u00a35,000", "matcher": 2}),
+       gd.stale("TGRH", {"doc": "x", "title": "Crossword / 21,053", "matcher": 2}),
+       gd.stale("TGRH", {"doc": "x", "title": "How to Crack the Cryptic Crossword and Win \u00a35,000",
+                         "matcher": gd.MATCHER["TGRH"]})])
 # The Saturday Times' Listener article: its own kind, picked from the issue's
 # contents, apart from the daily crossword (which still rejects it).
 check("the Listener article among a Saturday's titles", [1, None, None, 1],
