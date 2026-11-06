@@ -3335,6 +3335,10 @@ check("listener_free: nothing else due takes every ceiling slot left; other work
       (16, 0, 3, -4, 5),
       (eq.listener_free(0, False, 16), eq.listener_free(0, True, 16), eq.listener_free(3, False, 0),
        eq.listener_free(-4, True, 10), eq.listener_free(5, False, 2)))
+check("scan_widen_room: a full pool gets room, never past the ceiling left nor twice the pool; none at the ceiling",
+      (True, True, True, True),
+      (0 < eq.scan_widen_room(6, 6, 10) <= 10, eq.scan_widen_room(6, 6, 0) == 0,
+       eq.scan_widen_room(12, 6, 10) == 0, eq.scan_widen_room(6, 6, 2) <= 2))
 _nt = {"galeft": "scan", "ft": "read", "guardian": "scan", "gale": "scan", "times": "read", "listener": "read",
        "trove": "read"}
 _nt_units = {p: {"kind": k, "paper": p} for p, k in _nt.items()}
