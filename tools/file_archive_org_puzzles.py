@@ -18397,6 +18397,13 @@ def paper_plan(cache, paper, ledger, reread, dirs):
     return st
 
 
+def emptied(row, fh):
+    """Whether ledger `row` read an edition whose files (hash `fh` now) have changed since, and found no puzzle
+    on them: no scan puzzle, no verdict."""
+    return (row.get("filesHash") != fh and not row.get("verdicts")
+            and not (row.get("scan") or {}).get("puzzles"))
+
+
 def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources, answerless, answerless_own,
                     has_host, seen_by, reread):
     """Why edition `d` (its ledger `row`, files hash `fh`) is read, or None
@@ -18417,7 +18424,10 @@ def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources,
         # Its files moved, or only the scan code: the latter is every
         # edition at once, a whole-corpus re-read. Files moved, a fix due still stands (blanket_or_fix, as
         # due_reason's): 10-28, 17 Times pages written unfiled with such a fix due stood "inputs changed".
-        why = ("never read" if "inputs" not in row else
+        # An edition refetched after a read that found no puzzle on it (Gale promo article saved for the
+        # crossword page, 11-07: Telegraph 21,053-56, 21,073-76, 21,082) is as good as never read: its
+        # files moved past fresh()'s hour, and "inputs changed" is blanket, so only_evidence dropped it.
+        why = ("never read" if "inputs" not in row or emptied(row, fh) else
                blanket_or_fix(row, "inputs changed") if row.get("filesHash") != fh else
                THREE_COLUMNS if third_column_first(row) else
                blanket_or_fix(row, STALE_SCAN[0]) if any(n in answerless or n in answerless_own and has_host(d)

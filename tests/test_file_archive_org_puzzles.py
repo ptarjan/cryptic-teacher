@@ -1030,6 +1030,13 @@ check("blanket_or_fix: a Times row's answers-only fix, lost write, unfiled page'
        "unfiled before its fix", "refused no-reading-parses before its fix", "inputs changed",
        "refused no-reading-parses before its fix", "inputs changed", f.RIGHT_FOREIGN_READ, "inputs changed"],
       bf)
+_er = {"filesHash": "old", "inputs": "old", "scan": {"puzzles": []}, "verdicts": []}
+check("emptied: an edition refetched after a read that found no puzzle is as good as never read (11-07: Gale "
+      "Telegraph 21,053 saved a promo article); one whose files stand, or that held a puzzle or verdict, is not",
+      [True, False, False, False],
+      [f.emptied(_er, "new"), f.emptied(_er, "old"),
+       f.emptied({**_er, "scan": {"puzzles": [{"number": 1}]}}, "new"),
+       f.emptied({**_er, "verdicts": [{"number": 1}]}, "new")])
 import edition_queue as _eq_bp
 # blanket_or_fix lets a reason stand past a blanket one when it is in SOLUTION_FIXES (answers-only: VOUCHED_FIT,
 # CLUE_REPEATED, LATE_LINKED), in BLANKET_PASSES, or a refusal reread (refusal_passes: NUMBER_DATE_REFUSED).
