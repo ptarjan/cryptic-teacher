@@ -245,6 +245,27 @@ try:
 except gf.Stop as e:
     assert f"{gf.MAX_ERRORS} errors in a row" in str(e), e
 
+# 3c. A skip is provisional. (a) One document 5xx x3, then the next downloads:
+#     it stays in broken. (b) A 5xx x3 and then B 5xx x3 with no download between
+#     is Gale failing broadly: A is taken back out of broken, B not recorded, the
+#     run probes (a 5xx probe is still refused) and carries on once one works.
+a_doc, b_doc = rows(3)[0][1]["doc"], rows(3)[1][1]["doc"]
+clock, starts, stored, kw = harness(n_rows=3, bodies=lambda i: five("u") if i < gf.MAX_ERRORS else PDF)
+kw["broken"] = tmp / f"broken{_n[0]}c.json"
+gf.run(limit=2, **kw)
+assert [b["doc"] for b in gf.load(kw["broken"])["docs"]] == [a_doc], gf.load(kw["broken"])
+assert not json.loads(kw["limits"].read_text()).get("refusals"), "one broken doc is not a refusal"
+two = 2 * gf.MAX_ERRORS
+clock, starts, stored, kw = harness(n_rows=3, bodies=lambda i: five("u") if i <= two else PDF)  # probe 1 (i == two) 5xx too
+kw["broken"] = tmp / f"broken{_n[0]}d.json"
+n, _ = gf.run(limit=2, **kw)
+kept = json.loads(kw["limits"].read_text())
+assert b_doc in " ".join(stored) and n == 2, (n, stored)
+assert not gf.load(kw["broken"]).get("docs"), gf.load(kw["broken"])
+assert len(kept["refusals"]) == 1 and kept["refusals"][0]["status"] == 500, kept
+assert len(kept["recoveries"]) == 1 and kept["recoveries"][0]["probes"] == 2, kept
+assert clock.slept.count(gf.PROBE_EVERY) == 2 and len(told) == 2, (clock.slept, told)
+
 # 4. Resumable: a document already got (inbox, set aside, Fetched, the
 #    log) is never fetched again.
 first = [e["doc"] for _, e in rows(5)]
