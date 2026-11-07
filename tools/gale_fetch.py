@@ -53,7 +53,10 @@ pinned to within PROBE_EVERY; that recovery starts a new window.
 It stops, and wakes the room (tools/wake.sh), at a captcha, a PDF too small
 or naming another document, the portal not opening a session, Gale still
 refusing after every probe, or MAX_ERRORS errors in a row (each retried
-after a backoff). Resumable: a row whose document is in the Times folder,
+after a backoff). A document answering HTTP 5xx MAX_ERRORS times in a row is
+skipped (BROKEN), provisionally: if the next document does the same before any
+download succeeds, Gale is failing broadly, so the skip is undone and it is
+treated as Gale's limit (recorded, probed every PROBE_EVERY). Resumable: a row whose document is in the Times folder,
 its Set aside folder, a Fetched folder or this script's own log (FETCHED),
 or whose date is staged, set aside or filed, is skipped. With no row left it waits IDLE
 seconds, at most IDLE_MAX times in a row.
@@ -121,6 +124,10 @@ REPLAN = 15
 MIN_PDF = 20_000
 FETCHED = Path(os.path.expanduser("~/.cache/gale_inbox/fetched.json"))
 #: Documents Gale answered 5xx MAX_ERRORS times in a row: never offered again.
+#: A skip stays pending until a later download succeeds. If a second document
+#: hits the streak first, Gale is failing broadly (its download cap, an
+#: outage): the pending one is taken back out of this file, the second is not
+#: recorded, and it is handled as Gale's limit (recorded, probed).
 BROKEN = Path(os.path.expanduser("~/.cache/gale_inbox/broken.json"))
 HOST = os.environ.get("GALE_INBOX_HOST") or local_config.get("mac_host")
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAlias=localhost",
@@ -216,6 +223,13 @@ def save(path, kept):
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(kept, indent=1))
     tmp.replace(path)
+
+
+def unrecord(path, kind, doc):
+    """Drop the entries of list `kind` of `path` naming `doc`, whole or not at all."""
+    kept = load(path)
+    kept[kind] = [x for x in kept.get(kind, []) if x.get("doc") != doc]
+    save(path, kept)
 
 
 def record(path, kind, entry):
@@ -633,7 +647,12 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         except Stop as again:
             if not again.refused:
                 raise
-            refusal = again
+            return probe(again, url, day, doc)
+
+    def probe(refusal, url, day, doc):
+        """Gale's limit, `refusal` the Stop that showed it: recorded, the room
+        told, then one fresh-session download every PROBE_EVERY until one
+        works (a 5xx counts as still refused). The body; Stop when none did."""
         now = pacer.clock()
         start, count = in_window(limits, fetched, now)
         entry = {"at": iso(now), "in_window": count, "window_start": iso(start), "run": n,
@@ -657,6 +676,13 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 last_refused = pacer.clock()
                 log(f"probe {i}: still refused ({again})")
                 continue
+            except urllib.error.HTTPError as ex:
+                if not 500 <= ex.code < 600:
+                    log(f"probe {i}: {type(ex).__name__}: {ex}")
+                    continue
+                last_refused = pacer.clock()
+                log(f"probe {i}: still refused (HTTP {ex.code})")
+                continue
             except (urllib.error.URLError, http.client.HTTPException, OSError) as ex:
                 log(f"probe {i}: {type(ex).__name__}: {ex}")
                 continue
@@ -676,6 +702,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     got_of = got_of or have_docs
     n, errors, idle = 0, 0, 0
     same = None  # (doc) while every error in the streak is a 5xx on that one document
+    pending = None  # the doc skipped as broken, until a later download succeeds
     while limit is None or n < limit:
         if reload and reload():
             raise Reload("reload asked")
@@ -747,18 +774,31 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 five = isinstance(status, int) and 500 <= status < 600
                 same = doc if five and same in (None, doc) else False
                 log(f"{day} {doc}: {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
-                if errors >= MAX_ERRORS and same == doc:
+                if errors >= MAX_ERRORS and same == doc and pending:
+                    # A second document in a row with nothing between: Gale is failing
+                    # broadly (its cap, an outage), so the first was not broken either.
+                    unrecord(broken, "docs", pending)
+                    log(f"{day} {doc}: HTTP {status} again with no download in between; {pending} is not"
+                        f" broken after all, this is Gale's limit")
+                    pending, errors, same = None, 0, None
+                    fresh_session()
+                    body = probe(Stop(f"Gale answered HTTP {status} on two documents in a row ({ex})",
+                                      refused=True, status=status), url, day, doc)
+                    store(body, prod, day, doc, e)
+                elif errors >= MAX_ERRORS and same == doc:
+                    pending = doc
                     record(broken, "docs", {"doc": doc, "prod": prod, "day": str(day), "status": status,
                                             "at": iso(pacer.clock())})
                     log(f"{day} {doc}: HTTP {status} {errors} times in a row; skipped from now on ({broken})")
                     errors, same = 0, None
                     break
-                if errors >= MAX_ERRORS:
-                    raise Stop(f"{MAX_ERRORS} errors in a row, the last {type(ex).__name__}: {ex}")
-                fresh_session()
-                pacer.sleep(BACKOFF * errors)
-                break  # plan again: the row is still wanted
-            errors, same = 0, None
+                else:
+                    if errors >= MAX_ERRORS:
+                        raise Stop(f"{MAX_ERRORS} errors in a row, the last {type(ex).__name__}: {ex}")
+                    fresh_session()
+                    pacer.sleep(BACKOFF * errors)
+                    break  # plan again: the row is still wanted
+            errors, same, pending = 0, None, None
             got.add(doc)
             note(doc, day, f"GALE_{doc}.pdf", fetched, pacer.clock(), prod)
             n += 1
