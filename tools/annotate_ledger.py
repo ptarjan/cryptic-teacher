@@ -103,7 +103,20 @@ def parse(t):
     return datetime.datetime.fromisoformat(t.replace("Z", "+00:00"))
 
 
-def read_ledger(path=None):
+HINT = "hint"   # the row field `kind` of a hint-backfill row; annotation rows carry none (or "annotate")
+
+
+def row_kind(r):
+    return r.get("kind") or "annotate"
+
+
+def read_ledger(path=None, kind="annotate"):
+    """The ledger's rows of one kind (default: annotation, which every wake rule judges, so a
+    hint-backfill row never lifts or dilutes the annotation $/clue); kind=None reads all."""
+    return [r for r in read_all(path) if kind is None or row_kind(r) == kind]
+
+
+def read_all(path=None):
     rows = []
     try:
         for line in (path or LEDGER).read_text().splitlines():
@@ -149,13 +162,33 @@ def master_sha(repo=REPO):
                           text=True, check=False).stdout.strip()
 
 
-def make_row(res, sha):
-    return {"start": res["since"], "end": res["until"], "sha": sha, "sessions": res["sessions"],
+def make_row(res, sha, kind="annotate"):
+    row = {"start": res["since"], "end": res["until"], "sha": sha, "sessions": res["sessions"],
             "puzzles": res["puzzles"], "clues": res["clues"], "cost": res["cost"],
             "cost_per_clue": res["cost_per_clue"], "turns_per_clue": res["turns_per_clue"],
             "first_fail": res["first_fail"],
             "top_causes": [{k: c[k] for k in ("key", "label", "sessions", "cost_after_check")}
                            for c in res["causes"][:3]]}
+    if kind != "annotate":
+        row["kind"] = kind    # annotation rows stay as they were: no field
+        row["top_causes"] = []
+    return row
+
+
+def report(rows=None):
+    """$ per clue by kind over `rows` (default the whole ledger): what the daily burn-log review
+    reads. {kind: {rows, sessions, puzzles, clues, cost, cost_per_clue}}; hint is never in annotate's."""
+    out = {}
+    for r in rows if rows is not None else read_all():
+        d = out.setdefault(row_kind(r), {"rows": 0, "sessions": 0, "puzzles": 0, "clues": 0, "cost": 0.0})
+        d["rows"] += 1
+        for k in ("sessions", "puzzles", "clues"):
+            d[k] += r.get(k) or 0
+        d["cost"] += r.get("cost") or 0
+    for d in out.values():
+        d["cost"] = round(d["cost"], 4)
+        d["cost_per_clue"] = d["cost"] / d["clues"] if d["clues"] else None
+    return out
 
 
 def read_no_lever():
@@ -372,16 +405,25 @@ def record(since=None, until=None, dry_run=False):
         return None
     row = make_row(res, master_sha())
     print("annotate ledger row: " + json.dumps(row))
+    # The same window's hint-backfill sessions: one row of their own, so the review reports
+    # their $/clue apart from annotation's (none when no backfill ran).
+    hint = audit.window_audit(since, now, HINT)
+    hint["until"] = now.isoformat()
+    hint_row = make_row(hint, row["sha"], HINT) if hint["sessions"] else None
+    if hint_row:
+        print("annotate ledger hint row: " + json.dumps(hint_row))
     if not dry_run:
         LEDGER.parent.mkdir(parents=True, exist_ok=True)
         with LEDGER.open("a") as fh:
-            fh.write(json.dumps(row) + "\n")
+            for r in (row, hint_row):
+                if r:
+                    fh.write(json.dumps(r) + "\n")
     return row
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("cmd", nargs="?", choices=["record", "decide"])
+    ap.add_argument("cmd", nargs="?", choices=["record", "decide", "report"])
     ap.add_argument("--no-lever", metavar="CAUSE",
                     help="mark a top cause (its key or label) investigated with no lever: the alert "
                     "stays quiet until a new annotate-code commit or its $/clue passes 1.5x")
@@ -398,6 +440,12 @@ def main(argv=None):
             return 0 if rec else 1
         if not args.cmd:
             ap.error("a command (record, decide) or --no-lever is required")
+        if args.cmd == "report":
+            for kind, d in report().items():
+                pc = d["cost_per_clue"]
+                print(f"{kind}: {d['rows']} rows, {d['clues']} clues, ${d['cost']:.2f}, "
+                      + (f"${pc:.4f}/clue" if pc is not None else "no clues"))
+            return 0
         if args.cmd == "decide":
             return decide(args.dry_run)
         row = record(audit.parse_time(args.since) if args.since else None,

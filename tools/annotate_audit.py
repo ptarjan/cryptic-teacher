@@ -312,6 +312,21 @@ def is_audited(first_user):
     return is_annotate_session(first_user) or (first_user or "").strip().startswith(BAG_PREFIX)
 
 
+# A hint backfill: the burn's runs over already-annotated puzzles (a field added in place, a shape
+# or blog redo, bagged or solo; the prompts in tools/prereset_backfill.sh). Their cost goes to the
+# ledger as its own `kind: "hint"` row, never into the annotation window.
+HINT_PREFIXES = ("In this repo, add the missing", "In this repo, the annotated crossword",
+                 "These crosswords are already annotated")
+
+
+def session_kind(first_user):
+    """"annotate", "hint" (a backfill over annotated puzzles) or None for any other run."""
+    text = (first_user or "").strip()
+    if is_audited(text):
+        return "annotate"
+    return "hint" if text.startswith(HINT_PREFIXES) else None
+
+
 def bag_ids(first_user):
     """The puzzle ids a bag session was handed; a solo or handoff run is one puzzle."""
     m = BAG_IDS.match((first_user or "").strip())
@@ -335,8 +350,8 @@ def _cost(model, usage):
             + cc.get("ephemeral_1h_input_tokens", 0) * p[4]) / 1e6
 
 
-def read_session(path, templates, retired=()):
-    """One annotate transcript's numbers, or None if it is not an annotate run."""
+def read_session(path, templates, retired=(), kind="annotate"):
+    """One transcript's numbers, or None if it is not a run of `kind` (annotate or hint)."""
     first_user, t0, t1, model = None, None, None, None
     turns = collections.OrderedDict()       # message id -> (usage, after first check)
     calls, check_ids, check_outs, writes = {}, set(), [], {}
@@ -359,7 +374,7 @@ def read_session(path, templates, retired=()):
                 content = msg.get("content")
                 if first_user is None:
                     first_user = _text(content) if isinstance(content, (str, list)) else ""
-                    if not is_audited(first_user):
+                    if session_kind(first_user) != kind:
                         return None
                 for b in content if isinstance(content, list) else []:
                     if not isinstance(b, dict) or b.get("type") != "tool_result":
@@ -460,7 +475,7 @@ def bag_reports(out):
     return found
 
 
-def sessions(since, templates, retired=()):
+def sessions(since, templates, retired=(), kind="annotate"):
     floor = since.timestamp() - 86400    # mtime is the LAST write; a run can start earlier
     for path in CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"):
         try:
@@ -468,7 +483,7 @@ def sessions(since, templates, retired=()):
                 continue
         except OSError:
             continue
-        s = read_session(path, templates, retired)
+        s = read_session(path, templates, retired, kind)
         if s and s["start"] >= since:
             yield s
 
@@ -741,11 +756,11 @@ def _touches(r, key):
                  "waste:max_tokens": r["max_tokens"], "waste:cache_1h": r["cache_1h"]}.get(key))
 
 
-def window_audit(since, until):
+def window_audit(since, until, kind="annotate"):
     """The exact window [since, until) as one dict: what the ledger row and --json print."""
     templates = load_templates(validator_source())
     retired = retired_templates(since, templates)
-    rows = [r for r in sessions(since, templates, retired) if not until or r["start"] < until]
+    rows = [r for r in sessions(since, templates, retired, kind) if not until or r["start"] < until]
     s = summarise(rows)
     return {"since": since.isoformat(), "until": until.isoformat() if until else None,
             "sessions": s["n"], "puzzles": s["puzzles"], "clues": s["clues"],

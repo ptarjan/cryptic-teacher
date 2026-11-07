@@ -5,11 +5,14 @@
 #
 # Fake ledger rows in, wake / no-wake decisions out (tools/annotate_ledger.py).
 import datetime
+import json
 import os
 import pathlib
 import sys
+import tempfile
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import _path  # puts tools/ on sys.path
+import annotate_audit as A
 import annotate_ledger as L
 
 # Hermetic: the live /progress/ backlog must not decide these checks. 1,000 clues left makes
@@ -118,6 +121,27 @@ progress.rate = lambda s, n: 585.0 if s == 4 else 952.0
 back, inflow, hor = L.backlog_counts({"2026-10-23": {}})
 progress.nested_totals, progress.funnel_series, progress.rate = _nt, _fs, _rt
 check(round(back + inflow * hor), 175657 - 22379, "backlog + inflow never exceeds known less hinted")
+
+# Hint-backfill rows (kind "hint") are their own line in the ledger: the review reports their
+# $/clue apart, and no wake rule or window ever counts them with annotation's.
+check(A.session_kind("Annotate these crosswords in this one session: a-1 a-2. Read"), "annotate", "a bag is annotation")
+check(A.session_kind("These crosswords are already annotated, and their hints are fine"), "hint", "a shape/blog bag is hint backfill")
+check(A.session_kind("In this repo, add the missing features to every annotated clue in @PATH@"), "hint", "a field backfill is hint backfill")
+check(A.session_kind("Fix the validator"), None, "other runs are neither")
+res = {"since": "a", "until": "b", "sessions": 3, "puzzles": 4, "clues": 40, "cost": 2.0,
+       "cost_per_clue": 0.05, "turns_per_clue": 1.0, "first_fail": None, "causes": []}
+hrow = L.make_row(res, "abc", L.HINT)
+check(hrow["kind"], "hint", "a hint row carries kind=hint")
+check("kind" in L.make_row(res, "abc"), False, "an annotation row has no kind field, as before")
+mixed = flat + [hrow, dict(hrow, cost=100.0, end=(T0 + datetime.timedelta(hours=9)).isoformat())]
+with tempfile.TemporaryDirectory() as d:
+    path = pathlib.Path(d) / "ledger.jsonl"
+    path.write_text("".join(json.dumps(r) + "\n" for r in mixed))
+    check(len(L.read_ledger(path)), len(flat), "read_ledger returns annotation rows only")
+    check(len(L.read_ledger(path, kind=L.HINT)), 2, "hint rows are read on request")
+rep = L.report(mixed)
+check(round(rep["annotate"]["cost_per_clue"], 4), 0.04, "annotate $/clue ignores hint rows")
+check(round(rep["hint"]["cost_per_clue"], 4), round(102.0 / 80, 4), "hint $/clue is its own")
 
 print("FAILED" if fails else "all ok")
 sys.exit(1 if fails else 0)
