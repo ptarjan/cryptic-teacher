@@ -27,7 +27,10 @@ check(next({ ...base, shown: ["definition"] }).rung === "indicators", "after the
 check(next({ ...base, shown: ["definition", "indicators", "type"], locked: [] }).rung === "blocks", "after the type, the blocks question");
 check(next({ ...base, shown: ["definition", "indicators", "type", "blocks"], left: 2, piece: 1 }).step === 1, "blocks with pieces left asks the next piece");
 check(next({ ...base, shown: ["definition", "indicators", "type", "blocks"], left: 0 }) === null, "walkthrough has no question, so nothing is bought for you");
-check(next({ ...base, shown: ["definition"], asks: ["definition"] }) === null, "a next rung with no question is not opened for the solver");
+check(next({ ...base, shown: ["definition"], asks: ["definition"] }) === null, "nothing further askable: no question, nothing opened");
+check(next({ ...base, shown: ["definition"], asks: ["blocks"] }).rung === "blocks", "indicators has nothing to ask but blocks does: the blocks question is asked");
+check(next({ ...base, shown: ["definition", "type"], asks: ["blocks"], locked: ["indicators"] }).rung === "blocks", "a locked or unaskable rung is skipped, not stopped at");
+check(next({ ...base, shown: ["definition", "indicators", "type"], asks: [] }) === null, "no askable rung left asks nothing");
 check(next({ ...base, shown: ["definition"], locked: ["indicators"] }) === null, "a locked next rung is not asked");
 check(next({ ...base, solved: true }) === null, "a solved clue is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
