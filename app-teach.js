@@ -1980,9 +1980,11 @@
   // the tap on a button that is already leading the row. Only ever a QUESTION:
   // asking costs nothing and an answer earns the rung, whereas opening a rung
   // with no question is a purchase and stays behind its two-tap button. What
-  // comes next is what the row leads with: the rest of the building blocks
-  // while pieces are left, else the first rung not yet up that is available
-  // and can be asked.
+  // comes next is the rest of the building blocks while pieces are left, else
+  // the first rung not yet up that is available AND can be asked. A rung that
+  // cannot be asked (no question, or locked) is stepped over, not stopped at, so
+  // the chain behaves the same on every clue; stepping over it never marks it
+  // shown or earned, and it stays on the row to be bought as before.
   function nextQuestion(e) {
     if (!e || isEntrySolved(e) || guessing) return null;
     const ann = annOf(e);
@@ -1992,9 +1994,9 @@
       return guessAsk(e, "blocks", at) ? { rung: "blocks", step: at } : null;
     }
     const steps = ladderSteps(ann, clueText(e));
-    const s = steps.find((x) => !isShown(e, x.key));
-    return s && GUESSABLE[s.key] && rungAvailable(e, steps, s.key) && guessAsk(e, s.key, 0)
-      ? { rung: s.key, step: 0 } : null;
+    const s = steps.find((x) => !isShown(e, x.key) && GUESSABLE[x.key]
+      && rungAvailable(e, steps, x.key) && guessAsk(e, x.key, 0));
+    return s ? { rung: s.key, step: 0 } : null;
   }
   function advanceLadder(e) {
     const n = nextQuestion(e);
