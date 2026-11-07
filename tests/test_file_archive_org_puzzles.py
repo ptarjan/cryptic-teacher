@@ -4398,8 +4398,9 @@ old = os.stat(e1).st_mtime_ns
 (e1 / "leaf_0001.tmp").write_bytes(b"xy")
 os.replace(e1 / "leaf_0001.tmp", e1 / "leaf_0001.jpg")
 os.utime(e1, ns=(old, old))
+# settled_row is an empty read (no puzzle, no verdict), so its files moving is "never read" (f.emptied), not blanket.
 check("a file replaced under an unmoved mtime makes it due again (the ctime moved)",
-      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "inputs changed")], due())
+      [("scan", "1981-02-03_1", "scan stale"), ("read", "1981-02-03_1", "never read")], due())
 scan_queue.append(pl, [settled_row(e1)])
 e2 = pc / "NewsUK1981UKEnglish" / "1981-05-06_2"
 e2.mkdir()
@@ -4476,7 +4477,7 @@ finally:
     f.unit_skip, f._row_likely = real_skip, real_row_likely
 scan_queue.append(pl, [settled_row(e1), settled_row(e2)])
 (e2 / "pages.json").write_text("{\"x\": 1}")
-check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "inputs changed"),
+check("a dir changed within SETTLED is listed afresh, an in-place write seen", (False, "never read"),
       (e2 in f.dir_cache._SEEN, dict((r, why) for _, r, why in due()).get("1981-05-06_2")))
 # A Times puzzle's solution prints in the next issue, which may be a Gale page
 # alone (archive.org lacks that issue), and the reverse: each run sees the
