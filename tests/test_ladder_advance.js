@@ -31,7 +31,7 @@ check(next({ ...base, shown: ["definition"], asks: ["definition"] }) === null, "
 check(next({ ...base, shown: ["definition"], asks: ["blocks"] }).rung === "blocks", "indicators has nothing to ask but blocks does: the blocks question is asked");
 check(next({ ...base, shown: ["definition", "type"], asks: ["blocks"], locked: ["indicators"] }).rung === "blocks", "a locked or unaskable rung is skipped, not stopped at");
 check(next({ ...base, shown: ["definition", "indicators", "type"], asks: [] }) === null, "no askable rung left asks nothing");
-check(next({ ...base, shown: ["definition"], locked: ["indicators"] }) === null, "a locked next rung is not asked");
+check(next({ ...base, shown: ["definition"], locked: ["indicators", "type", "blocks"] }) === null, "rungs that are all locked are not asked");
 check(next({ ...base, solved: true }) === null, "a solved clue is not quizzed");
 check(next({ ...base, guessing: {} }) === null, "no new question over one already on the table");
 check(/if \(verdict && verdict\.right\) advanceLadder\(e\)/.test(src), "finishGuess advances only on a right answer");
