@@ -120,6 +120,8 @@ REPLAN = 15
 #: A Gale page PDF is a whole newspaper page: far more than this.
 MIN_PDF = 20_000
 FETCHED = Path(os.path.expanduser("~/.cache/gale_inbox/fetched.json"))
+#: Documents Gale answered 5xx MAX_ERRORS times in a row: never offered again.
+BROKEN = Path(os.path.expanduser("~/.cache/gale_inbox/broken.json"))
 HOST = os.environ.get("GALE_INBOX_HOST") or local_config.get("mac_host")
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAlias=localhost",
        *(["-i", local_config.path("mac_ssh_key")] if local_config.get("mac_ssh_key") else [])]
@@ -572,7 +574,7 @@ def alert(text, quiet=False):
 
 
 def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None, got_of=None, log=print,
-        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None, reload=None):
+        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None, reload=None, broken=BROKEN):
     """Fetch until `limit` downloads, no row left, or a stop. The hooks
     (`fetch(url) -> body`, `store(body, prod, day, doc, entry)`, `plan_of(got)`,
     `got_of()`, `lookup_of(prod, day)`, `fetched`, `limits`, `tell(text)`) stand
@@ -673,10 +675,11 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     lookup_of = lookup_of or real_lookup
     got_of = got_of or have_docs
     n, errors, idle = 0, 0, 0
+    same = None  # (doc) while every error in the streak is a 5xx on that one document
     while limit is None or n < limit:
         if reload and reload():
             raise Reload("reload asked")
-        got = got_of()
+        got = got_of() | {b["doc"] for b in load(broken).get("docs", ())}
         todo = plan_of(got)[:REPLAN]
         if not todo:
             idle += 1
@@ -699,6 +702,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                     e = lookup_of(prod, day, *ask)
                 except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
                     errors += 1
+                    same = False
                     log(f"{day}: lookup {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
                     if errors >= MAX_ERRORS:
                         raise Stop(f"{MAX_ERRORS} errors in a row, the last a lookup's {type(ex).__name__}: {ex}")
@@ -739,13 +743,22 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             except (urllib.error.URLError, http.client.HTTPException, OSError,
                     subprocess.SubprocessError) as ex:
                 errors += 1
+                status = getattr(ex, "code", None)
+                five = isinstance(status, int) and 500 <= status < 600
+                same = doc if five and same in (None, doc) else False
                 log(f"{day} {doc}: {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
+                if errors >= MAX_ERRORS and same == doc:
+                    record(broken, "docs", {"doc": doc, "prod": prod, "day": str(day), "status": status,
+                                            "at": iso(pacer.clock())})
+                    log(f"{day} {doc}: HTTP {status} {errors} times in a row; skipped from now on ({broken})")
+                    errors, same = 0, None
+                    break
                 if errors >= MAX_ERRORS:
                     raise Stop(f"{MAX_ERRORS} errors in a row, the last {type(ex).__name__}: {ex}")
                 fresh_session()
                 pacer.sleep(BACKOFF * errors)
                 break  # plan again: the row is still wanted
-            errors = 0
+            errors, same = 0, None
             got.add(doc)
             note(doc, day, f"GALE_{doc}.pdf", fetched, pacer.clock(), prod)
             n += 1
