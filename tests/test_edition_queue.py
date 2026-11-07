@@ -1419,6 +1419,13 @@ os.environ["CT_NEWEST_FIRST"] = "gale, times"
 check("eq.by_urgency: CT_NEWEST_FIRST puts those papers' never-read first, then likely filers, then their rereads alternating with other papers' work (Paul 10-21, 10-24)",
       ["gale-hand", "gale-old-gain", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units)])
+check("eq.by_urgency: other papers' units of one rank take turns, not newest edition across papers (11-06: Independent 2011-15 stood ahead of every Telegraph 1992 scan)",
+      ["tg-1992", "ind-2015", "tg-1991", "ind-2014", "ind-2013"],
+      [u["rel"] for u in eq.by_urgency([(1, 6, 0, {"rel": "ind-2015", "date": "2015", "paper": "galeindependent", "rank": 1}),
+                                        (1, 6, 1, {"rel": "ind-2014", "date": "2014", "paper": "galeindependent", "rank": 1}),
+                                        (1, 6, 2, {"rel": "ind-2013", "date": "2013", "paper": "galeindependent", "rank": 1}),
+                                        (1, 3, 0, {"rel": "tg-1992", "date": "1992", "paper": "telegraph", "rank": 1}),
+                                        (1, 3, 1, {"rel": "tg-1991", "date": "1991", "paper": "telegraph", "rank": 1})])])
 check("eq.by_urgency: the Listener's pages go after the newest-first papers' never-read, ahead of the rest (Paul 10-23, 10-24)",
       ["gale-hand", "listener-page", "gale-old-gain", "gale-new", "other", "times-mid"],
       [u["rel"] for u in eq.by_urgency(nf_units + [(0, 1, 0, {"rel": "listener-page", "paper": "listener", "rank": 0,

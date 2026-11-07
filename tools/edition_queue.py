@@ -1643,6 +1643,23 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
+def by_paper_turns(units):
+    """The (rank, paper's place, plan's place, unit) tuples `units`, already in by_urgency's order, with the
+    papers of each rank taking turns: the first of each paper's, then the second of each ... (a paper's own
+    order is kept; ranks stay in order). 11-06 13:00: sorted newest edition first across papers, 7,700 Gale
+    Independent 2011-15 never-scanned scans (7 filed an hour) stood ahead of 15,700 Telegraph 1992 and older
+    ones (28 an hour), so the Telegraph started none for 11 hours."""
+    by_rank = {}
+    for t in units:
+        by_rank.setdefault(t[0], {}).setdefault(t[3].get("paper"), []).append(t)
+    out = []
+    for rank in sorted(by_rank):
+        queues = sorted(by_rank[rank].values(), key=lambda q: q[0][1:3])
+        for i in range(max(len(q) for q in queues)):
+            out.extend(q[i] for q in queues if i < len(q))
+    return out
+
+
 def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
@@ -1670,7 +1687,7 @@ def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()
         newest.sort(key=lambda t: (files_likely_tier(t[0], t[3]),
                                    0 if t[3].get("kind") == "read" and fa.LIKELY[0] in (t[3].get("likely") or {})
                                    else 1 if t[3].get("reason") in fa.HOST_REASONS else 2))
-        rest = [t for t in units if t[3].get("paper") not in named]
+        rest = by_paper_turns([t for t in units if t[3].get("paper") not in named])
         # Another paper's never read/scanned units go ahead of the named papers' rereads: once the named
         # papers' new pages are read, those rereads mostly end "already held" or an update (10-18: 34 new
         # filings of 184 writes), and 3,300 never-read FT pages waited behind ~30k of them.
