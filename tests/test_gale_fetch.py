@@ -213,6 +213,38 @@ except gf.Stop as e:
     assert f"{gf.MAX_ERRORS} errors in a row" in str(e), e
 assert len(starts) == 1 + gf.MAX_ERRORS and len(stored) == 1, (starts, stored)
 
+# 3b. One document that always 500s is skipped (and recorded, so never offered
+#     again); the next is fetched. 500s on different documents still stop.
+def five(url):
+    return urllib.error.HTTPError(url, 500, "boom", None, None)
+
+
+bad = rows(3)[1][1]["doc"]
+clock, starts, stored, kw = harness(n_rows=3)
+inner = kw["fetch"]
+kw["fetch"] = lambda url: (_ for _ in ()).throw(five(url)) if bad in url else inner(url)
+kw["broken"] = tmp / f"broken{_n[0]}.json"
+n, _ = gf.run(limit=2, **kw)
+assert stored == [f"GALE_{d}.pdf" for d in (rows(3)[0][1]["doc"], rows(3)[2][1]["doc"])], stored
+assert [b["doc"] for b in gf.load(kw["broken"])["docs"]] == [bad], gf.load(kw["broken"])
+clock, starts, stored, kw = harness(n_rows=5, bodies=lambda i: five("u") if i >= 1 else PDF)
+kw["broken"] = tmp / f"broken{_n[0]}b.json"
+turn = [0]
+
+
+def rotating(g):
+    turn[0] += 1
+    todo = [("TTDA", d, e) for d, e in rows(5) if e["doc"] not in g]
+    return todo[turn[0] % 3:] + todo[:turn[0] % 3]
+
+
+kw["plan_of"] = rotating
+try:
+    gf.run(limit=10, **kw)
+    raise AssertionError("ran on past 500s on different documents")
+except gf.Stop as e:
+    assert f"{gf.MAX_ERRORS} errors in a row" in str(e), e
+
 # 4. Resumable: a document already got (inbox, set aside, Fetched, the
 #    log) is never fetched again.
 first = [e["doc"] for _, e in rows(5)]
