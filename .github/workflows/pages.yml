@@ -603,8 +603,23 @@ jobs:
             echo "validate: ${state:-not started}"
             sleep 10
           done
+      # GitHub's deploy sometimes stalls (deployment_in_progress, syncing_files,
+      # then nothing until the action's 600s timeout; six runs on 2026-11-07,
+      # e.g. 42358494050, 42358870222, 42356010055) while the next push's
+      # deploy succeeds. A normal one takes under 140s, so the first attempt
+      # gives up at 300s without failing the run, and a second attempt runs
+      # only if it failed. The retry keeps the id `deployment`: the steps below
+      # accept either attempt's success, and a retry that fails too leaves the
+      # run red.
       - name: Deploy to Pages
         if: needs.scope.outputs.deploy == 'true'
+        id: deploy_first
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 300000
+      - name: Deploy to Pages (retry)
+        if: ${{ needs.scope.outputs.deploy == 'true' && steps.deploy_first.outcome == 'failure' }}
         id: deployment
         uses: actions/deploy-pages@v5
       # Only once the deploy succeeded, so Bing fetches what is live; a failed
@@ -638,7 +653,7 @@ jobs:
             .git/refs/ct
           key: git-store-${{ github.sha }}
       - name: Save the row cache
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: |
@@ -646,28 +661,28 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-${{ github.sha }}
       - name: Save the clue index
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
       - name: Pack the puzzle shims
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the puzzle shims
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: og
           key: og-cards-${{ github.sha }}
       - name: Save the IndexNow manifest
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success') }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success')) }}
         uses: actions/cache/save@v5
         with:
           path: .indexnow
@@ -678,10 +693,10 @@ jobs:
       # the bar, nothing is saved, so the next push re-renders those and its
       # own (run 39262958136 rendered 1781 pages for 29 puzzles, ~40s).
       - name: Pack the puzzle pages
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
-        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
+        if: ${{ needs.scope.outputs.deploy == 'true' && (!cancelled() && (steps.deploy_first.outcome == 'success' || steps.deployment.outcome == 'success') && fromJSON(steps.pages.outputs.rendered || steps.pages_fast.outputs.rendered || '0') > 800) }}
         uses: actions/cache/save@v5
         with:
           path: .page-cache.tar
