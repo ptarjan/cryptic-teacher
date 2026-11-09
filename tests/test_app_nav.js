@@ -3,7 +3,8 @@
 // bottom bar of Puzzle · Puzzles · Stats · Learn with its own section lit, the
 // Puzzle tab reopens the puzzle in progress (localStorage ct:last), and a page
 // reached from another page of the site gets a "‹ Back", or "‹ Puzzle" when
-// that page was the app, which is history.back(). In a browser tab, nothing.
+// that page was the app, which is history.back(), except /learn/, the Learn
+// tab's own page, where the tab bar is the way back. In a browser tab, nothing.
 // Also: index.html and every templated page load it in <head>, and the hint
 // panel's lesson links resolve against the front door, not the address bar.
 //
@@ -114,13 +115,19 @@ assert(run({ standalone: false, iosFlag: true }).bar, "navigator.standalone (iOS
   assert(r.tab("puzzle").href === ORIGIN + "/?p=cryptic-30135", `the Puzzle tab opens the last puzzle (got ${r.tab("puzzle").href})`);
   assert(r.tab("puzzles").href === ORIGIN + "/#picker" && r.tab("stats").href === ORIGIN + "/#stats",
     "Puzzles and Stats open the app's picker and stats panels");
-  assert(r.back && r.back.textContent === "‹ Puzzle", "/learn/ from the app has a ‹ Puzzle back link");
+  // The Learn tab's own page: the tab bar is the way back, so no back link.
+  assert(!r.back, "/learn/ has no back link: the Solve tab already goes back to the puzzle");
+  assert(r.press(r.tab("puzzle")) && r.backs.length === 1, "from the app, the Puzzle tab goes back rather than reloading");
+}
+// Any other page opened from the app has ‹ Puzzle, which is history.back().
+{
+  const r = run({ page: "/abbreviations/", referrer: ORIGIN + "/puzzles/cryptic-30135/", appFlags: ["cryptic-30135"] });
+  assert(r.back && r.back.textContent === "‹ Puzzle", "/abbreviations/ from the app has a ‹ Puzzle back link");
   assert(r.back && r.back.href === ORIGIN + "/?p=cryptic-30135", "the back link's address is the last puzzle");
   assert(r.press(r.back) && r.backs.length === 1, "the back link is history.back(), the app as it was left");
-  assert(r.press(r.tab("puzzle")) && r.backs.length === 2, "from the app, the Puzzle tab goes back rather than reloading");
 }
 // From the app at the site root (?p=) as well.
-assert(run({ referrer: ORIGIN + "/?p=times-29671" }).back.textContent === "‹ Puzzle",
+assert(run({ page: "/indicators/", referrer: ORIGIN + "/?p=times-29671" }).back.textContent === "‹ Puzzle",
   "a page opened from the app at the root has ‹ Puzzle");
 // A deep page reached from another static page: ‹ Back, and Puzzle is a link.
 {
@@ -141,7 +148,7 @@ assert(run({ referrer: ORIGIN + "/?p=times-29671" }).back.textContent === "‹ P
   const r = run({ page: "/puzzles/cryptic-30135/", referrer: "" });
   assert(r.bar && !r.back, "a page with no referrer from this site gets the bar and no back link");
   assert(!run({ referrer: "https://www.google.com/" }).back, "a referrer from another site gets no back link");
-  assert(!run({ referrer: ORIGIN + "/learn/", historyLength: 1 }).back, "no back link when there is no history to go back to");
+  assert(!run({ page: "/abbreviations/", referrer: ORIGIN + "/learn/", historyLength: 1 }).back, "no back link when there is no history to go back to");
 }
 // No puzzle yet: Puzzle is the front door.
 assert(run({ last: null }).tab("puzzle").href === ORIGIN + "/", "with no ct:last the Puzzle tab opens the site root");

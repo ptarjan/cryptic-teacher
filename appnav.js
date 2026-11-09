@@ -11,7 +11,8 @@
      (the app's picker), Stats (the app's stats panel) and Learn (/learn/);
    - a "‹ Back" (or "‹ Puzzle") at the top of any page reached from another
      page of this site, which is history.back(): the page you came from, as
-     you left it.
+     you left it. Not on /learn/, the Learn tab's own page: there the Solve
+     tab already goes back to the puzzle, as left.
 
    In a browser tab neither appears: the browser has its own back and its own
    bottom toolbar, and a second bar under Safari's would eat a phone's screen
@@ -191,9 +192,13 @@
     return bar;
   }
 
+  // A tab's own page (Learn's /learn/) has the tab bar for its way out: Solve
+  // goes back to the puzzle as it was left, so a back link there only repeats it.
+  function tabRoot() { return location.pathname === rootPath + "learn/"; }
+
   function backLink() {
     var header = doc.querySelector("header");
-    if (isApp || !header || !canGoBack()) return null;
+    if (isApp || !header || !canGoBack() || tabRoot()) return null;
     var a = doc.createElement("a");
     a.className = "app-back";
     a.href = fromApp() ? puzzleHref() : referrer().href;
