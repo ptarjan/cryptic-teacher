@@ -291,6 +291,40 @@ n, _ = gf.run(limit=2, **kw)
 assert stored == [f"GALE_{rows(3)[i][1]['doc']}.pdf" for i in (0, 2)], stored
 assert len(starts) == 2, "a row with no crossword costs no download"
 
+# 6b. A lookup answered HTTP 5xx is a Gale outage: waited out (5, 10, 20 min, ...),
+#     not counted among the MAX_ERRORS; only one outlasting OUTAGE_WAITS stops
+#     it. A 4xx still stops after MAX_ERRORS.
+def lookups(code, fail):
+    clock, starts, stored, kw = harness(n_rows=3)
+    seen = []
+    kw["plan_of"] = lambda g: [("TTDA", d, None) for d, e in rows(3) if e["doc"] not in g]
+
+    def look(prod, day):
+        seen.append(day)
+        if len(seen) <= fail:
+            raise urllib.error.HTTPError("u", code, f"HTTP {code}", None, None)
+        return dict(next(e for d, e in rows(3) if d == day))
+    kw["lookup_of"] = look
+    return clock, stored, kw
+
+
+oclock, ostored, okw = lookups(504, 4)
+n, _ = gf.run(limit=2, **okw)
+assert n == 2 and oclock.slept[:4] == list(gf.OUTAGE_WAITS[:4]), (n, oclock.slept)
+oclock, ostored, okw = lookups(504, 99)
+try:
+    gf.run(limit=2, **okw)
+    raise AssertionError("ran on through an outage past OUTAGE_WAITS")
+except gf.Stop as e:
+    assert "Gale answered 5xx" in str(e), e
+assert [x for x in oclock.slept if x in gf.OUTAGE_WAITS] == list(gf.OUTAGE_WAITS)
+oclock, ostored, okw = lookups(404, 99)
+try:
+    gf.run(limit=2, **okw)
+    raise AssertionError("ran on past repeated 4xx")
+except gf.Stop as e:
+    assert f"{gf.MAX_ERRORS} errors in a row" in str(e), e
+
 # 7. Each download is written to the log.
 assert set(gf.load(kw["fetched"])) == {rows(3)[i][1]["doc"] for i in (0, 2)}
 
