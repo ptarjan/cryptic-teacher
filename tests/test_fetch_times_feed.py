@@ -80,6 +80,42 @@ check("a Daily files as series times, entities unescaped; the next number is the
       """('times-26829', 'times', 'Pet — it’s')
 2017-09-14""", daily())
 
+def narrow():
+    """Ids probed per date, the hit cached, the misses skipped on a rerun."""
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    f.CACHE, f.MISSES = tmp, tmp / "narrow-misses.txt"
+    day = datetime.date(2015, 6, 2)
+    probed = []
+
+    def fake(date, pid):
+        probed.append(pid)
+        if pid == 5429:
+            return {"headline": "x", "copy": {"title": "Times Cryptic No 26114",
+                                              "crosswordtype": "Cryptic", "id": "5429"}}
+        return None
+
+    class Pool:
+        map = staticmethod(lambda fn, xs: [fn(x) for x in xs])
+
+    f.fetch = fake
+    out = []
+    for _ in range(2):
+        probed.clear()
+        stats = f.narrow_daily(Pool, [day, datetime.date(2015, 6, 7)], set(),
+                               log=lambda s: None, quick_of=lambda d: (5441, d))
+        out.append(f"{len(probed)} probed, {stats[day]}, "
+                   f"cached {sorted(x.name for x in tmp.glob('*.json'))}")
+    plain, after = f.narrow_ids(day, 5441), f.narrow_ids(day, 5441, 5440)
+    return "\n".join([*out, f"{plain[0]} {plain[-1]} {len(plain)} {after[0]} {len(after)}"])
+
+
+check("the narrow search probes only the window round the Quick, skips Sundays, "
+      "caches the hit and drops the probed misses on a rerun",
+      """64 probed, (64, 1), cached ['20150602-5429.json']
+64 probed, (64, 1), cached ['20150602-5429.json']
+5405 5591 301 5436 302""", narrow())
+
 if fails:
     print(f"{fails} check(s) failed")
     sys.exit(1)
