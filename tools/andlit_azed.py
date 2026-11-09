@@ -693,6 +693,9 @@ CLUE_START = re.compile(r"^\*?(\d{1,2})\s*(?![\d,.;])(\S.*)$")
 #: "centrepiece(10,3words". Stays here: it needs the count the page's readers voted.
 GLUED_COUNT = re.compile(r"\s*\((\d+),\s*(\d)\s*words?\)?\s*$")
 ENUM_END = re.compile(r"\(([^()]*\d[^()]*)\)\s*$")
+#: A clue that opens with a figure ("18 50% of academic institutions ..."): CLUE_START
+#: refuses a digit after the number, so it is taken only for the light the grid expects next.
+NUMBERED_CLUE = re.compile(r"^\*?(\d{1,2})\s+(\d\S*(?:\s.*)?)$")
 
 
 def clue_list(lines, wanted):
@@ -705,7 +708,7 @@ def clue_list(lines, wanted):
         expect = sorted(n for n, d in wanted if d == way)
         current = None
         for line in lines.get(way, []):
-            m = CLUE_START.match(line)
+            m = CLUE_START.match(line) or NUMBERED_CLUE.match(line)
             if m and expect and int(m.group(1)) == expect[0]:
                 current = (expect.pop(0), way)
                 out[current] = m.group(2)
