@@ -2975,7 +2975,26 @@ class _Poller:
             self.idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
         return max(wait, self.replan if self.idle_seen[1] else self.replan * IDLE_BACKOFF)
 
+    def notice_refetches(self, notes=None):
+        """Record the edition dirs another host laid out again since the
+        manifests last said (media_manifest.notice_refetched), so the plan
+        that follows finds their files hash moved and rescans them. Never
+        fails a plan: the share down is media.hold's, anything else is noted."""
+        if not media_manifest.on_media(self.cache):
+            return
+        began = time.monotonic()
+        try:
+            found = media_manifest.notice_refetched(self.cache)
+        except (OSError, SystemExit, ValueError) as e:
+            if notes is not None:
+                notes.append(f"refetch check failed: {e!r}")
+            return
+        if found and notes is not None:
+            notes.append(f"refetched editions noticed: {len(found)} ({', '.join(found[:3])}"
+                         + f"{', ...' if len(found) > 3 else ''}) in {time.monotonic() - began:.1f}s")
+
     def replan_all(self, notes=None):
+        self.notice_refetches(notes)
         sc, rd = plan(self.papers, self.cache, self.reread, notes)
         return sc, rd, self.plan_fetch_units(notes)
 
@@ -3135,6 +3154,7 @@ class _Poller:
                 try:
                     while self.upkept:
                         self.upkept.pop()()
+                    self.notice_refetches(box["notes"])
                     box["plan"], box["partial"] = (*plan(self.papers, self.cache, self.reread, box["notes"]), []), True
                 except BaseException as e:  # raised again below, as make()'s
                     box["error"] = e
