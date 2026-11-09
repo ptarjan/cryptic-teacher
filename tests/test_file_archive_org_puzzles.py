@@ -4752,6 +4752,22 @@ check("an untitled, verdict-less Gale Telegraph or FT scan from before the joine
        f.scan_current({**_hj, "edition": "FinancialTimes1998UKEnglish/1998-03-04",
                        "scanKey": f._JOINED_TITLE_FIX["ft"][0]}, "h")])
 
+# A read Gale Sunday Times 1993-94 page from before the winners-title rescan is due WINNERS_TITLE once (its scan key
+# is pinned, so only its read time says); a page read after, another year's or an unread one stands.
+_wt = {"edition": "GaleSundayTimes1993UKEnglish/1993-12-26", "scanKey": f.scan_key(f.paper_of("GaleSundayTimes1993UKEnglish/1993-12-26")),
+       "filesHash": "h", "inputs": "h", "readAt": "2026-11-08T08:46:55+00:00",
+       "scan": {"date": "1993-12-26", "item": "GaleSundayTimes1993UKEnglish",
+                "puzzles": [{"number": 303, "leaf": 0}], "solutions": []}}
+check("a Gale Sunday Times 1993-94 page read before the rescan is due WINNERS_TITLE (scan stale, rank 1), "
+      "once; a later read, 1995, another paper and an unread row stand",
+      [False, f.WINNERS_TITLE, 1, True, False, False, False, False, True],
+      [f.scan_current(_wt, "h"), f.fix_reason(_wt), f.RANKS[f.WINNERS_TITLE], f.WINNERS_TITLE in f.BLANKET_PASSES,
+       f.winners_rescan({**_wt, "readAt": "2026-11-10T00:00:00+00:00"}),
+       f.winners_rescan({**_wt, "edition": "GaleSundayTimes1995UKEnglish/1995-01-01"}),
+       f.winners_rescan({**_wt, "edition": "GaleTimes1993UKEnglish/1993-12-26"}),
+       f.winners_rescan({k: v for k, v in _wt.items() if k != "inputs"}),
+       f.scan_current({**_wt, "readAt": "2026-11-10T00:00:00+00:00"}, "h")])
+
 # The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
 # "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
 # crossword's title is not the cryptic's.
