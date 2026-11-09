@@ -5514,6 +5514,29 @@ check("LATE_LINKED is a rank 2 answers-only fix reason, evidence, LOW, a fix lan
        __import__("edition_queue").evidence_reason(f.LATE_LINKED),
        __import__("edition_queue").UNFILED_FIRST.index(f.CLUE_REPEATED)
        < __import__("edition_queue").UNFILED_FIRST.index(f.LATE_LINKED)))
+# SUNDAY_LISTED: a Gale Sunday Telegraph puzzle answered from the text lists under "COMPETITION No. N WINNERS &
+# SOLUTION" (a week on): the heading links N, a list's word is taken only where it fits its light and agrees with
+# every crossing, the Quickie's list beside it is not this puzzle's.
+_sl = lambda *w: {"number": w[0], "direction": w[1], "length": 2, "position": {"x": w[2], "y": w[3]}}
+_sl_es = [_sl(1, "across", 0, 0), _sl(3, "across", 0, 1), _sl(1, "down", 0, 0), _sl(2, "down", 1, 0)]
+_sl_text = ("COMPETITION No.1676 WINNERS & SOLUTION Last week's winners are: Mrs S Cassidy QUICKIE No.1392 ACROSS: 1 Cataract, 5 Silent. "
+            "DOWN: 1 Castle.\nACROSS: 1 Ab, 3 Cd.\nDOWN: 1 Ac, 2 Bd. Name Address")
+_sl_bad = _sl_text.replace("2 Bd", "2 Xd")
+_sl_heads = f.sunday_tel_headings([[(0, 0, 9, 9, "Name"), (10, 0, 99, 9, "COMPETITION"), (100, 0, 150, 9, "No.1676"),
+                                    (151, 0, 200, 9, "WINNERS"), (201, 0, 240, 9, "&"), (241, 0, 300, 9, "SOLUTION")]])[1]
+check("sunday_tel_headings links a COMPETITION No. N WINNERS & SOLUTION heading as N's solution; list_answers takes a "
+      "text list's words that fit and cross, not the Quickie's list, and none when a word clashes with another",
+      ([1676], 4, {"1-across": "AB", "3-across": "CD", "1-down": "AC", "2-down": "BD"}, 0),
+      ([n for n, _ in _sl_heads], f.list_answers(_sl_es, [_sl_text])[1].get("accepted"), f.list_answers(_sl_es, [_sl_text])[0],
+       len(f.list_answers(_sl_es, [_sl_bad])[0])))
+check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of the queue; its solution key "
+      "stands pinned to the one before",
+      (2, True, True, True, True, True, "17927db190a32678"),
+      (f.RANKS[f.SUNDAY_LISTED], f.SUNDAY_LISTED in f.SOLUTION_FIXES,
+       f.SUNDAY_LISTED in __import__("edition_queue").LOW_ASK, f.SUNDAY_LISTED in __import__("edition_queue").FIX_LANDED,
+       __import__("edition_queue").evidence_reason(f.SUNDAY_LISTED),
+       __import__("edition_queue").UNFILED_FIRST[-1] == f.SUNDAY_LISTED,
+       f._SOLUTION_PINS["802de5c6f9a5f5f9"]))
 # ONE_BLANK_FIT: a puzzle's only blank light takes the one word of the dictionary and past answers that fits its
 # crossings and count, where WordNet links the word to the clue's definition (one_fit, one_blank_word), as ours.
 ob_t = f.trove_solution_ocr

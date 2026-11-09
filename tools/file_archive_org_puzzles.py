@@ -4464,10 +4464,22 @@ def indy_sunday_expected_number(day):
     return weekly_anchored(INDY_SUNDAY_ANCHORS, day)
 
 
+#: The Gale Sunday Telegraph's solution heading (1961-2000), set over the winners and the text lists of the
+#: puzzle printed a week before: "COMPETITION No.1676 WINNERS & SOLUTION", however its words are run together.
+SUNDAY_TEL_WINNERS = re.compile(r"c[o0]mpet[il1]t[il1][o0]n\W{0,3}(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER
+                                + r"\W{0,3}w[il1]nn", re.IGNORECASE)
+
+
 def sunday_tel_headings(lines, titles=()):
-    """titled_headings() of a Sunday Telegraph page, a title's number joined from the line under or beside it."""
-    return titled_headings(lines + joined_titles(lines, SUNDAY_TEL_TITLE.match, under=True),
-                           SUNDAY_TEL_TITLE, SUNDAY_TIMES_SOLUTION)
+    """titled_headings() of a Sunday Telegraph page, a title's number joined from the line under or beside it,
+    and its "COMPETITION No. N WINNERS & SOLUTION" heading (SUNDAY_TEL_WINNERS) as the solution heading of N."""
+    puzzles, solutions = titled_headings(lines + joined_titles(lines, SUNDAY_TEL_TITLE.match, under=True),
+                                         SUNDAY_TEL_TITLE, SUNDAY_TIMES_SOLUTION)
+    for ws in lines:
+        m = SUNDAY_TEL_WINNERS.search(" ".join(w[4] for w in ws))
+        if m:
+            solutions.append((number_digits(m.group(1)), box_of(ws)))
+    return puzzles, solutions
 
 
 def indy_sunday_headings(lines, titles=()):
@@ -7608,6 +7620,8 @@ def _answers_only(d, found, hit, solutions, ask_vlm=True, crossed=True):
     if d is None or hit is None or not solutions or d.name in _KEEP_VLM["names"]:
         return None
     paper = paper_of(d)
+    if paper.series in HOSTLESS_ASKS:
+        return _list_answers_only(d, found, hit, solutions)
     if paper.key not in CELLS_CLASSIFIED and paper.series != SERIES:
         return None
     number, _, why = filed_number(d, found, hit)
@@ -9795,6 +9809,133 @@ def hostless_sunday_tel(paper, solutions, number):
     return paper.series in HOSTLESS_ASKS and not (solutions or {}).get(number)
 
 
+#: The text list's marks in a VLM column reply: its two headings, and what ends a list (another paper's list
+#: or the winners).
+LIST_DIRECTION = re.compile(r"\b(across|down)\b\s*:?", re.IGNORECASE)
+LIST_ENDS = re.compile(r"quickie|competition|winners|prize\s+puzzle|\bname\b|\baddress\b", re.IGNORECASE)
+LIST_ITEM = re.compile(r"(?:^|(?<=[\s,.;]))(\d{1,2})(?=\s+[A-Za-z])")
+#: The share of a direction's lights a list's words must fit (length) for the list to be this puzzle's.
+LIST_FIT = 0.7
+#: How many accepted words may clash (two crossing on different letters) before the list is another puzzle's.
+LIST_CLASH = 0.1
+
+
+def list_runs(text):
+    """[("across" or "down", {number: letters})] of each list in a VLM `text`: the words after an ACROSS or
+    DOWN heading up to the next heading or a list's end (LIST_ENDS: the Quickie's heading, the winners), each
+    "12 Overdo" or "7 Eases off" an answer (its letters). A Quickie's list is read too: list_answers keeps the
+    one that fits the puzzle's lights."""
+    runs = []
+    marks = list(LIST_DIRECTION.finditer(text))
+    for k, m in enumerate(marks):
+        end = marks[k + 1].start() if k + 1 < len(marks) else len(text)
+        seg = text[m.end():end]
+        stop = LIST_ENDS.search(seg)
+        seg = seg[:stop.start()] if stop else seg
+        seg = " ".join(seg.split())
+        hits = list(LIST_ITEM.finditer(seg))
+        words = {}
+        for j, h in enumerate(hits):
+            word = re.sub(r"[^A-Za-z]", "", seg[h.end():hits[j + 1].start() if j + 1 < len(hits) else len(seg)]).upper()
+            if word and int(h.group(1)) not in words:
+                words[int(h.group(1))] = word
+        if words:
+            runs.append((m.group(1).lower(), words))
+    return runs
+
+
+def list_answers(entries, texts):
+    """({"12-across": word}, info) of a held puzzle's `entries` from the text lists in `texts` (VLM replies):
+    per direction the run fitting most of its lights' lengths (LIST_FIT of them), each word accepted only if
+    it fits its light and agrees with every other word and held answer crossing it; ({}, {}) when a
+    direction has no such run or the words clash (LIST_CLASH) as another puzzle's list would."""
+    best = {}
+    for text in texts:
+        for direction, words in list_runs(text):
+            lights = [e for e in entries if e["direction"] == direction]
+            fit = {f"{e['number']}-{direction}": words[e["number"]] for e in lights
+                   if words.get(e["number"]) and len(words[e["number"]]) == e["length"]}
+            if lights and len(fit) >= LIST_FIT * len(lights) and len(fit) > len(best.get(direction, ())):
+                best[direction] = fit
+    if set(best) != {"across", "down"}:
+        return {}, {}
+    cells = {}
+    for e in entries:
+        word = best[e["direction"]].get(f"{e['number']}-{e['direction']}")
+        word = word or e.get("solution")
+        if not word or len(word) != e["length"]:
+            continue
+        x, y = e["position"]["x"], e["position"]["y"]
+        for i, ch in enumerate(word):
+            cells.setdefault((x + i * (e["direction"] == "across"), y + i * (e["direction"] == "down")), set()).add(ch)
+    clash = {c for c, v in cells.items() if len(v) > 1}
+    answers = {}
+    for e in entries:
+        lid = f"{e['number']}-{e['direction']}"
+        word = best[e["direction"]].get(lid)
+        if not word:
+            continue
+        x, y = e["position"]["x"], e["position"]["y"]
+        if not any((x + i * (e["direction"] == "across"), y + i * (e["direction"] == "down")) in clash
+                   for i in range(len(word))):
+            answers[lid] = word
+    fitted = sum(len(v) for v in best.values())
+    if fitted - len(answers) > LIST_CLASH * fitted:
+        return {}, {}
+    return answers, {"lights": len(entries), "textList": True, "accepted": len(answers), "listed": fitted}
+
+
+def list_windows(img, box):
+    """The boxes of a Gale Sunday Telegraph page the competition's text lists may print in, from its heading
+    `box` down: the page's width in thirds, each starting a sixth on from the last."""
+    w, h = img.size
+    top = max(0, box[1] - 40)
+    bottom = min(h, box[1] + 1500)
+    wide = w // 3 + 120
+    return [(x, top, min(w, x + wide), bottom) for x in range(0, w - w // 3 + 1, max(1, w // 6))]
+
+
+def list_texts(sol):
+    """The VLM's transcription of each of list_windows' boxes under `sol`'s heading (cached by the VLM's
+    reader, so asked once per window)."""
+    img = page(sol["dir"], sol["leaf"])
+    return [vlm.read(vlm.crop(img, box)) for box in list_windows(img, sol["box"]) if not vlm.too_small(box)]
+
+
+def _list_answers_only(d, found, hit, solutions):
+    """_answers_only of a Gale Sunday Telegraph puzzle (HOSTLESS_ASKS): its held file (this tool's, from this
+    page, every clue worded) answered from the text lists of the heading that links it (SUNDAY_TEL_WINNERS,
+    the issue a week on), not a solution grid. Verdict "answersOnly", its solution info "textList"; None
+    where nothing is linked, no held file stands to be answered, or no list fits."""
+    number, _, why = filed_number(d, found, hit)
+    sol = solutions.get(number) if number is not None and not why and solutions else None
+    if not sol or d.name in _KEEP_VLM["names"] or not vlm.wanted():
+        return None
+    paper = paper_of(d)
+    old = held_file(paper.series, number)
+    es = (old or {}).get("entries") or ()
+    if not es or (old.get("source") or {}).get("acquiredBy") != TOOL \
+            or (old["source"].get("url") != page_url(d, found, hit["leaf"])) or all(e.get("solution") for e in es):
+        return None
+    from fetch_puzzle import duplicated_clues
+    if filled(old)[0] != len(es) or any(duplicated_clues(es)) or faults(old):
+        return None
+    _ANSWERS_TRIED["held"] = True
+    answers, info = list_answers(es, list_texts(sol))
+    if not answers:
+        return None
+    puzzle = copy.deepcopy(old)
+    for e in puzzle["entries"]:
+        e["solution"] = None
+    verdict = {"number": number, "leaf": hit["leaf"], "grid": "image" if (old["source"].get("gridOrigin") == "published") else "rebuilt",
+               "readings": ["held"], "clues": len(es), "complete": True, "lights": len(es), "agreed": len(es),
+               "vlmAsks": 0, "answersOnly": True, "solutionFrom": solution_source(sol), "solution": info}
+    if number != hit["number"]:
+        verdict["read_as"] = hit["number"]
+    verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
+    return verdict, puzzle
+
+
 def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
@@ -11428,6 +11569,9 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   "e8b1229ab48f7223": "17927db190a32678",
                   # Paper.special (a numberless holiday title, ocr_headings and SUNDAY_TEL_TITLE): a scan's title only.
                   "f34293ba4baec5bb": "17927db190a32678",
+                  # _list_answers_only (a Gale Sunday Telegraph held puzzle answered from its text lists, SUNDAY_LISTED) and
+                  # SUNDAY_TEL_WINNERS: no solution grid's reading moves.
+                  "802de5c6f9a5f5f9": "17927db190a32678",
                   "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
@@ -12614,6 +12758,30 @@ def late_linked(row, sol_seen):
     return day in LATE_SOLUTIONS and getattr(paper_of(row.get("edition", "")), "series", None) == SERIES and any(
         not v.get("solutionFrom") and v.get("number") in sol_seen and v.get("number") not in before
         for v in row.get("verdicts") or ())
+
+
+#: The due reason of a Gale Sunday Telegraph row (HOSTLESS_ASKS) read before its puzzle's solution was linked: the
+#: "COMPETITION No. N WINNERS & SOLUTION" heading of the issue a week on (SUNDAY_TEL_WINNERS) links it since
+#: (seen_solutions holds the number, the row's solutionsSeen did not), or its puzzle was filed with every clue by a
+#: read that had no list to answer it by (a verdict with an id, complete, no solutionFrom, not answersTried). The
+#: reread answers its held file from the heading's text lists (_list_answers_only), asked of the VLM column by
+#: column (cached), and files whole where every word fits its light and agrees with every crossing. 11-09: of
+#: 343 scanned editions none had a solution linked; 267 puzzles, 25 written short by 3-16 lights. Answers-only
+#: (SOLUTION_FIXES), once: the list is tried (answersTried) or the row's solutionsSeen holds the number.
+SUNDAY_LISTED = "Sunday Telegraph puzzle, its solution list printed a week on linked since"
+
+
+def sunday_listed(row, sol_seen):
+    """Whether Gale Sunday Telegraph ledger `row` is due SUNDAY_LISTED: a verdict with no solutionFrom whose
+    number `sol_seen` holds and the row's solutionsSeen did not, or one filed whole in clues (an id, complete)
+    that no answers-only read has tried and `sol_seen` holds."""
+    if getattr(paper_of(row.get("edition", "")), "series", None) not in HOSTLESS_ASKS:
+        return False
+    before = set(row.get("solutionsSeen") or ())
+    return any(not v.get("solutionFrom") and not v.get("refused") and v.get("number") in sol_seen
+               and (v.get("number") not in before
+                    or v.get("id") and v.get("complete") and not v.get("answersTried"))
+               for v in row.get("verdicts") or ())
 
 
 THREE_COLUMNS = "short Times page, its third clue column read since"
@@ -18543,6 +18711,8 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
             return HELD_LINKED
         if late_linked(row, sol_seen):
             return LATE_LINKED
+        if sunday_listed(row, sol_seen):
+            return SUNDAY_LISTED
         # A found title never read is unread work whether or not its files moved since: Paul 10-25, 174
         # Gale Times pages of 2006-12 (137 of them 2009-11, mostly Saturdays, their wrong pages fetched
         # again) stood unfiled as "inputs changed", a blanket reason no plan keeps.
@@ -18723,7 +18893,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2, VLM_LAID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, PRINTED_FIT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, SUNDAY_LISTED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, PRINTED_FIT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
@@ -19353,7 +19523,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS, PRINTED_FIT)
+                  PREPPED_STRIPS, PRINTED_FIT, SUNDAY_LISTED)
 
 
 def keeps_vlm(why, row, unit=None):
