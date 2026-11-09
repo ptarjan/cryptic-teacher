@@ -120,13 +120,14 @@ def crossword(prod, titles, number=None):
     # The Times' index on page 2 lists "Crossword 95 Today's Weather" (the
     # page it is on), and its news reports the championship.
     bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?(two|2)\b|\bt2\b|mephisto|french"
-                     r"|general knowledge|two-into-one|champion\b|\bcontest|today's weather|miscellany"
+                     r"|general knowledge|champion\b|\bcontest|today's weather|miscellany"
+                     + ("" if prod in ("TGRH", "TTDA") else r"|two-into-one")
                      + ("" if prod == "LSNR" else r"|listener")
                      + (r"|\btimes?\W+today\b" if prod == "TTDA" else "")
                      + (r"|^\W*[cg]ross-? ?w[oa]rd \d{1,3}\W*$" if prod == "TTDA" else ""), re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
-    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else \
+    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}|{SUNDAY_PUZZLE.pattern}", re.IGNORECASE) if prod == "TGRH" else \
         TIMES_KIND if prod == "TTDA" else KIND
     cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
     if prod == "TLSH":
@@ -135,8 +136,12 @@ def crossword(prod, titles, number=None):
         cands.sort(key=lambda i: -max(map(int, re.findall(r"\d+", titles[i].replace(",", ""))), default=0))
     if prod == "TTDA":
         cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
+    if prod == "INDA":  # the Sunday's puzzle is "Beelzebub Crossword No 954", beside "The Prize Crossword"
+        cands.sort(key=lambda i: not re.search(r"beelzebub", titles[i], re.IGNORECASE))
     if prod == "TGRH":
         cands.sort(key=lambda i: not (TELEGRAPH_DAILY.search(titles[i]) or TELEGRAPH_PLAIN.search(titles[i])))
+    if prod == "TGRH":  # the Sunday Telegraph: "Prize Puzzle No. 1976" (1990s), "Two-in-One Crossword" before
+        cands.sort(key=lambda i: not SUNDAY_PUZZLE.search(titles[i]))
     if prod == "FTHA":
         # The puzzle itself is titled "Crossword" or "Crossword / N"; promos
         # ("Tomorrow: Out 10,000th Crossword") and "Ft Money Crossword" come after.
@@ -155,6 +160,13 @@ TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*(?:/|no\.?)\W*\d[\d,
                              re.IGNORECASE)
 
 
+#: The Sunday Telegraph's cryptic as Gale titles it: "Prize Puzzle No. 1976"
+#: (1990s; its "General Knowledge Prize Crossword" is not it), "Sunday
+#: Telegraph Two-in-One Crossword" / "Two-into-One" (to 1990), "Crossword
+#: Competition No 1512".
+SUNDAY_PUZZLE = re.compile(r"prize\s+puzzle\W*no\b\W*\d|two-in(?:to)?-one\s+cross", re.IGNORECASE)
+
+
 #: The FT's daily puzzle title: "Crossword" or "Crossword / 9,876".
 FT_DAILY = re.compile(r"^\W*[cg]ross-? ?w[oa]rd(\W*/\W*\d[\d,]*)?\W*$", re.IGNORECASE)
 
@@ -170,7 +182,7 @@ def numbered(title):
     its plain "Crossword", "Today's Crossword Puzzle" (TELEGRAPH_PLAIN)."""
     return bool(TELEGRAPH_PLAIN.search(title) or re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
                 or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE)
-                or re.search(r"[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", title, re.IGNORECASE))  # the Sunday's "Crossword No. 214"
+                or re.search(r"[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", title, re.IGNORECASE) or SUNDAY_PUZZLE.search(title))  # the Sunday's "Crossword No. 214"
 
 
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
