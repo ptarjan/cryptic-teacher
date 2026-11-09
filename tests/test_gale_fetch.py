@@ -558,4 +558,7 @@ req = Path(tempfile.mkdtemp()) / "requests.txt"
 assert gf.requested_days(req) == []
 req.write_text("1981-06-20 bad 1930-04-18\n1981-06-20\n")
 assert gf.requested_days(req) == [D(1981, 6, 20), D(1930, 4, 18)], gf.requested_days(req)
+req.write_text("1981-06-20 INDA/1995-01-01 NOPE/1995-01-08 INDA/bad 1930-04-18\n")
+assert gf.requested_rows(req) == [("TTDA", D(1981, 6, 20)), ("INDA", D(1995, 1, 1)), ("TTDA", D(1930, 4, 18))], gf.requested_rows(req)
+assert gf.requested_days(req) == [D(1981, 6, 20), D(1930, 4, 18)]
 print("test_gale_fetch: ok")

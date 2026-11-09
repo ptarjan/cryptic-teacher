@@ -452,19 +452,22 @@ def plan(got, skip=SKIP):
     out = []
     # Dates a room asked for (REQUESTS), first, filed or not: a row only where
     # the cache is missing or stale, or its document is not yet in `got`.
-    for day in requested_days():
-        out += want("TTDA", day, docs, got)
+    # A tagged token (INDA/1995-01-01) is that product's, a Sunday in its Sunday paper (other_of).
+    for prod, day in requested_rows():
+        out += want(prod, day, docs, got)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
-    # The Sunday papers inside TGRH and INDA (a few thousand rows in all):
-    # ahead of the Telegraph redo rows and the gated rows below, or they would wait out the Times' backlog.
-    for prod in gale_inbox.SUNDAYS:
-        for day in gale_inbox.sunday_wanted(prod):
-            out += want(prod, day, docs, got)
-    # The Saturday Times' Jumbo cryptics we lack (gale_jumbo), after the Sundays.
+    # The Sunday Telegraph's Sundays: ahead of the Telegraph redo rows and the gated rows below,
+    # or they would wait out the Times' backlog.
+    for day in gale_inbox.sunday_wanted("TGRH"):
+        out += want("TGRH", day, docs, got)
+    # The Saturday Times' Jumbo cryptics we lack (gale_jumbo), then the Independent on Sunday's full run
+    # (its test year goes first, via REQUESTS).
     import gale_jumbo
     for day in gale_jumbo.wanted():
         out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_KIND)
+    for day in gale_inbox.sunday_wanted("INDA"):
+        out += want("INDA", day, docs, got)
     # Telegraph editions laid out from a competition article: looked up again.
     for day in gale_inbox.misfiled("TGRH"):
         out += want("TGRH", day, docs, got)
@@ -483,14 +486,17 @@ def plan(got, skip=SKIP):
     return out
 
 
-#: Times dates a room wants fetched ahead of the queue: ISO dates, any
-#: whitespace between (never rewritten here; a date with nothing to fetch
-#: costs nothing once looked up).
+#: Dates a room wants fetched ahead of the queue, any whitespace between:
+#: a bare ISO date is the Times'; PROD/date (INDA/1995-01-01, the gale_docs
+#: cache-key form) another Gale product's (never rewritten here; a date with
+#: nothing to fetch costs nothing once looked up).
 REQUESTS = Path(os.path.expanduser("~/.cache/gale_inbox/requests.txt"))
 
 
-def requested_days(path=None):
-    """The dates in REQUESTS, in file order, once each; none if no file."""
+def requested_rows(path=None):
+    """[(product, date)] in REQUESTS, in file order, once each; none if no
+    file. A bare date is the Times' (TTDA); an unknown product is skipped."""
+    import gale_inbox
     try:
         words = (path or REQUESTS).read_text().split()
     except OSError:
@@ -499,11 +505,19 @@ def requested_days(path=None):
     for w in words:
         if w not in seen:
             seen.add(w)
+            prod, _, d = w.rpartition("/")
             try:
-                out.append(datetime.date.fromisoformat(w))
+                if prod and prod not in gale_inbox.OTHERS:
+                    continue
+                out.append((prod or "TTDA", datetime.date.fromisoformat(d)))
             except ValueError:
                 pass
     return out
+
+
+def requested_days(path=None):
+    """The Times dates in REQUESTS (requested_rows)."""
+    return [d for p, d in requested_rows(path) if p == "TTDA"]
 
 
 def superseded(day, ms, docs):
