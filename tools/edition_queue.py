@@ -1465,9 +1465,15 @@ def solution_needs(reads):
 NEW_WORK = ("never read", "never scanned", "never read (Gale fetch)", "just laid out")
 
 
+#: Title and heading rescans of a fix: pages scanned wrong, so as good as never read; never refusal rereads,
+#: so hold_refusal_rereads leaves them at the front while never-read work remains.
+TITLE_RESCANS = (fa.HEADINGS_JOINED, fa.WINNERS_TITLE)
+
+
 def refusal_reread(reason):
-    return (reason.endswith(" cured since") or reason in FIX_LANDED
-            or (reason.startswith("refused ") and reason.endswith(" before its fix")))
+    return reason not in TITLE_RESCANS and (
+        reason.endswith(" cured since") or reason in FIX_LANDED
+        or (reason.startswith("refused ") and reason.endswith(" before its fix")))
 
 
 #: Refusal rereads whose cause a 10-PAGE CANARY proved fixed: they skip the hold below and
