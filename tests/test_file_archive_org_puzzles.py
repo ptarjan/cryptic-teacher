@@ -5451,8 +5451,6 @@ ob_lts = {(1, "across"): [(0, i) for i in range(6)], (1, "down"): [(0, 0), (1, 0
           (3, "down"): [(0, 2), (1, 2), (2, 2)], (4, "down"): [(0, 3), (1, 3)], (5, "down"): [(0, 4), (1, 4)],
           (6, "down"): [(0, 5), (1, 5)]}
 ob_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
-ob_real_pf = ob_t.printed_fit
-ob_t.printed_fit = lambda pattern, enum=None: None  # PRINTED_FIT has its own test below
 ob_t.lights = lambda grid: ob_lts
 f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
 f.crop_cell_probs = lambda crop, grid: {}
@@ -5468,54 +5466,6 @@ for ob_clue, ob_want in (("Body in orbit", {"1-across": "PLANET"}), ("Body in a 
     check(f"clue_solved_reads takes the only blank light's one linked word as ours (clueSolved): {ob_clue!r}",
           (ob_want, ob_want or None), (ob_ans, ob_info.get("clueSolved")))
 ob_t.lights, f.checked_answers, f.crop_cell_probs = ob_real_fa
-ob_t.printed_fit = ob_real_pf
-# PRINTED_FIT: a blank light takes the one word of WordNet's lemmas and the past answers that the print's own crossings
-# leave (2+ letters crossed, enumeration of any words), no other fitting; a crossing that is a model fill is not used.
-pf_lemmas, pf_past = frozenset({"PLANET", "BASSET", "PLANED", "ICECREAM", "LEMMA"}), frozenset({"PLANET", "BASSET", "ICECREAM", "SLATED"})
-pf_real = (ob_t.lemma_words, ob_t.corpus_words)
-ob_t.lemma_words = lambda: pf_lemmas
-ob_t.corpus_words = lambda: pf_past
-ob_t._PRINTED_FIT.pop("by", None)
-check("printed_fit: the one fitting past answer; not two fits, a lemma that is no past answer, one crossing, a count that "
-      "does not add up, no open cell, a lower-case or open-unknown letter; a split count and a hyphen-free phrase stand",
-      ["PLANET", "ICECREAM", "PLANET", None, None, None, None, None, None, None],
-      [ob_t.printed_fit("PLA?ET", "6"), ob_t.printed_fit("ICE?REAM", "3,5"), ob_t.printed_fit("?LA?ET", "3,3"),
-       ob_t.printed_fit("PLANE?", "6"), ob_t.printed_fit("LEM?A", "5"), ob_t.printed_fit("P?????", "6"),
-       ob_t.printed_fit("PLA?ET", "3,4"), ob_t.printed_fit("PLANET", "6"), ob_t.printed_fit("PLa?ET", "6"),
-       ob_t.printed_fit("PLA?ET", None)])
-pf_real_fa = (ob_t.lights, f.checked_answers, f.crop_cell_probs)
-ob_t.lights = lambda grid: ob_lts
-f.checked_answers = lambda es, answers, grid, enums, info, crop, **k: (answers, {}, {})
-f.crop_cell_probs = lambda crop, grid: {}
-pf_es = [{"number": 1, "direction": "across", "solution": None, "clue": {"text": "Body in a story", "enumeration": "6"}},
-         {"number": 1, "direction": "down", "solution": "PIG", "clue": {"text": "Pet", "enumeration": "3"}},
-         {"number": 3, "direction": "down", "solution": "ANT", "clue": {"text": "Insect", "enumeration": "3"}},
-         {"number": 4, "direction": "down", "solution": "NO", "clue": {"text": "Refusal", "enumeration": "2"}},
-         {"number": 5, "direction": "down", "solution": "EA", "clue": {"text": "Each, briefly", "enumeration": "2"}},
-         {"number": 6, "direction": "down", "solution": "TO", "clue": {"text": "Towards", "enumeration": "2"}}]
-for pf_ours, pf_want in ((frozenset(), {"1-across": "PLANET"}), (frozenset({"1-down", "3-down", "4-down"}), {})):
-    pf_ans, pf_info = f.clue_solved_reads(pf_es, {}, {}, None, ob_enums, vf_crop, ours=pf_ours)
-    check(f"clue_solved_reads takes the printed-crossing fit as ours and tags it (fitFills); a model-fill crossing "
-          f"is not used: {sorted(pf_ours)}", (pf_want, ["1-across"] if pf_want else None),
-          (pf_ans, pf_info.get("fitFills")))
-ob_t.lights, f.checked_answers, f.crop_cell_probs = pf_real_fa
-ob_t.lemma_words, ob_t.corpus_words = pf_real
-ob_t._PRINTED_FIT.clear()
-check("PRINTED_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first (the newest "
-      "fix), apart from the other short reasons",
-      (2, True, True, True, True, True, True, True),
-      (f.RANKS[f.PRINTED_FIT], f.PRINTED_FIT in f.SOLUTION_FIXES, f.PRINTED_FIT.startswith("solution short"),
-       f.PRINTED_FIT in __import__("edition_queue").LOW_ASK, f.PRINTED_FIT in __import__("edition_queue").FIX_LANDED,
-       __import__("edition_queue").evidence_reason(f.PRINTED_FIT),
-       f.PRINTED_FIT in __import__("edition_queue").UNFILED_FIRST,
-       f.PRINTED_FIT not in (f.ONE_BLANK_FIT, f.VOUCHED_FIT, f.CLUE_SOLVED)))
-check("printed_fit_short: a row read since REREAD_PRINTED_FIT, no Times paper's, or a row with no verdict is not due",
-      [False, False, False],
-      [f.printed_fit_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2099-01-01T00:00:00+00:00",
-                            "verdicts": []}),
-       f.printed_fit_short({"edition": "x/y", "readAt": "2000-01-01T00:00:00+00:00", "verdicts": []}),
-       f.printed_fit_short({"edition": "GaleTimes1941UKEnglish/1941-01-10", "readAt": "2000-01-01T00:00:00+00:00",
-                            "verdicts": []})])
 ob_t.wordnet, ob_t.filed_words, ob_t.definition_linked = ob_real
 check("ONE_BLANK_FIT is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of unfiled-first (the newest "
       "fix), apart from the other short reasons",
