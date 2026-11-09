@@ -244,12 +244,23 @@
   // walkthrough, never on a solved clue. Once per arrival, keyed by the clue: a
   // wrong answer, "Skip for now" or "Just tell me" leaves the clue where the
   // solver put it, and only coming back to it asks again.
+  //
+  // Two things it leaves alone. The rest of a building-blocks rung already
+  // open: each piece's question names what the piece gives, so asking it on
+  // arrival hands over letters the solver did not reach for, and going on to
+  // the next piece stays their call. And a first visit while the tour is still
+  // on its welcome or its "these buttons are hints" line: that line is teaching
+  // the row, and a question over it would answer a lesson that was not given.
   let arrivedAt = null;
   function arriveAt(e) {
     const key = e ? entryKey(e) : null;
     if (key === arrivedAt) return;
     arrivedAt = key;
-    if (e && !guessing) advanceLadder(e);
+    if (!e || guessing) return;
+    const line = typeof nux === "number" ? NUX_LINES[nux] : null;
+    if (line && (line.id === "welcome" || line.id === "ladder")) return;
+    const n = nextQuestion(e);
+    if (n && !(n.rung === "blocks" && isShown(e, "blocks"))) advanceLadder(e);
   }
 
   function renderHintPanel() {
@@ -440,6 +451,18 @@
       // being asked to point at the words first. It goes last in the body, under
       // everything they have already bought, because that is where the next
       // thing to do has always been.
+      // How the ladder works, said once and then never again: it stops the
+      // moment a rung is worked out anywhere in this puzzle, because at that
+      // point it has been demonstrated and repeating it is just noise on every
+      // clue you open after. Only claimed when a rung on THIS clue really can
+      // ask; a clue with no question in it must not be sold as one. Above the
+      // question when one was asked on arrival: that question arrived unasked,
+      // and this is the sentence that says why it is there and what it is worth.
+      if (!bodyHTML && !solved && !Object.keys(hintsEarned).some((k) => hintsEarned[k].length)
+          && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
+        bodyHTML = `<div class="hint-step"><p class="muted">Each hint asks you a question before it tells you —
+          answer it yourself and the hint is free.</p></div>`;
+      }
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         const q = guessHTML(ask, at + 1, steps[at].label, holder === e);
@@ -447,16 +470,6 @@
       }
 
 
-      // How the ladder works, said once and then never again: it stops the
-      // moment a rung is worked out anywhere in this puzzle, because at that
-      // point it has been demonstrated and repeating it is just noise on every
-      // clue you open after. Only claimed when a rung on THIS clue really can
-      // ask; a clue with no question in it must not be sold as one.
-      if (!bodyHTML && !solved && !Object.keys(hintsEarned).some((k) => hintsEarned[k].length)
-          && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
-        bodyHTML = `<div class="hint-step"><p class="muted">Each hint asks you a question before it tells you —
-          answer it yourself and the hint is free.</p></div>`;
-      }
 
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,

@@ -76,8 +76,13 @@ if (e && other) {
   u.pick(e);
   check(!u.asking(), "typing: nor when you come back to it");
 }
-check(/function arriveAt[\s\S]*?if \(e && !guessing\) advanceLadder\(e\)/.test(src),
-  "arriving asks through advanceLadder, the same free-question-only chain as a right answer");
+const arrive = (/function arriveAt[\s\S]*?\n  \}/.exec(src) || [""])[0];
+check(/advanceLadder\(e\)/.test(arrive) && /nextQuestion\(e\)/.test(arrive),
+  "arriving asks through nextQuestion/advanceLadder, the same free-question-only chain as a right answer");
+check(/n\.rung === "blocks" && isShown\(e, "blocks"\)/.test(arrive),
+  "arriving never asks the next piece of an open blocks rung (it would name the piece's letters)");
+check(/line\.id === "welcome" \|\| line\.id === "ladder"/.test(arrive),
+  "arriving asks nothing while the tour is teaching the row of hint buttons");
 
 // --- 4: the letter wheel ---
 const a = src.indexOf("  function tapRingTile"), b = src.indexOf("  // ---------- typing into the ring");
