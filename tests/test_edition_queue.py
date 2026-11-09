@@ -754,6 +754,19 @@ check("a non-Times row due SUNDAY_SIDES or SIDES_READ keeps that reason past the
       [f.SUNDAY_SIDES, f.SIDES_READ, "inputs changed"],
       [f.blanket_or_fix(_strow, "inputs changed"), f.blanket_or_fix(_srow, "inputs changed"),
        f.blanket_or_fix({**_strow, "readAt": "2026-11-09T19:00:00+00:00"}, "inputs changed")])
+_srrow = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-12-05", "readAt": "2026-11-09T19:47:38+00:00",
+          "verdicts": [{"number": 1696, "refused": "no reading parses", "cause": "no-reading-parses",
+                        "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
+check("a Gale Sunday Telegraph 1993 page read since SUNDAY_SIDES, still no ACROSS and DOWN lists, is due SUNDAY_RIGHT (ranked, "
+      "evidence, fix-landed, last of unfiled-first, planned past the blanket); a read before, a parse failure and a 1999 page are not",
+      [True, 1, True, True, True, True, f.SUNDAY_RIGHT, "inputs changed", False, False, False],
+      [f.sunday_right_due(_srrow), f.RANKS[f.SUNDAY_RIGHT], eq.evidence_reason(f.SUNDAY_RIGHT), f.SUNDAY_RIGHT in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1] == f.SUNDAY_RIGHT, f.SUNDAY_RIGHT in f.BLANKET_PASSES,
+       f.blanket_or_fix(_srrow, "inputs changed"),
+       f.blanket_or_fix({**_srrow, "readAt": "2026-11-09T21:00:00+00:00"}, "inputs changed"),
+       f.sunday_right_due({**_srrow, "readAt": "2026-11-09T17:00:00+00:00"}),
+       f.sunday_right_due({**_srrow, "verdicts": [{**_srrow["verdicts"][0], "unparsed": {"ch": "across clues do not parse: x"}}]}),
+       f.sunday_right_due({**_srrow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"})])
 check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),

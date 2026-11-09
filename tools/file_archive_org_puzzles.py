@@ -1129,13 +1129,17 @@ CLUES_ABOVE_SPAN = (800, 1700)
 SIDES_BAND, SIDES_LEFT = 150, 0.3
 
 
-def sides_columns(img, grid, title, x0, paper):
+def sides_columns(img, grid, title, x0, paper, right_of=False):
     """(x0, (right edge,), bottom) of a Gale Telegraph page whose clue columns stand either side of its
-    grid (SIDES_BAND), else None."""
+    grid (SIDES_BAND), else None. `right_of` (a Sunday Telegraph 1987-98 page, SUNDAY_RIGHT): a grid with no
+    room left of it for the across column (its left under SUNDAY_SIDES_LEFT of its width) has both columns
+    right of it, the crop reaching a grid's width beyond it."""
     if paper.key not in ("galetelegraph", "galesundaytelegraph"):
         return None
     k = img.width / SCAN_WIDTH
     gw = grid[2] - grid[0]
+    if right_of and grid[0] < SUNDAY_SIDES_LEFT * gw and grid[1] - title[3] <= SIDES_BAND * k:
+        return 0, (min(img.width, int(grid[2] + 5 + gw + 60)),), min(img.height, int(grid[3] + 1.8 * gw))
     if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
         return None
     return x0, (grid[2] + 5 + (grid[0] - 5 - x0) + 60,), min(img.height, int(grid[3] + 1.8 * gw))
@@ -1189,6 +1193,28 @@ def sunday_sides_due(row):
             or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_SIDES)):
         return False
     return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
+
+
+#: The reason of a Gale Sunday Telegraph 1987-98 page read since SUNDAY_SIDES and still refused "no reading parses"
+#: with every reading finding "no ACROSS and DOWN lists": its grid stands against the page's left edge (1993-12-05:
+#: grid 224-953, the ACROSS list from x 975), both clue columns right of it, and the crop the left column's mirror
+#: ended at 1238, cutting the DOWN list. 11-09 tally of the 1993-94 rereads that ended: 8 of 14 such. Once.
+SUNDAY_RIGHT = "Gale Sunday Telegraph page refused no reading parses, its clue columns right of its grid read since"
+REREAD_SUNDAY_RIGHT = "2026-11-09T20:30:00+00:00"
+
+
+def sunday_right_due(row):
+    """Whether Gale Sunday Telegraph ledger `row`, read after REREAD_SUNDAY_SIDES and before REREAD_SUNDAY_RIGHT, holds
+    a verdict refused "no reading parses" with its grid read (no imageUnread), every reading finding "no ACROSS and
+    DOWN lists", of a year before SUNDAY_SIDES_END."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galesundaytelegraph" or Path(rel).name[:4] >= SUNDAY_SIDES_END \
+            or scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_SIDES)) \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_RIGHT)):
+        return False
+    return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") and v.get("unparsed")
+               and all(str(s).startswith("no ACROSS and DOWN lists") for s in v["unparsed"].values())
+               for v in row.get("verdicts", ()))
 
 
 #: The reason of a Gale Telegraph page read before sides_columns, refused "no reading parses" with its grid
@@ -10086,7 +10112,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     top = hit["box"][1] - 10 if paper.clues_above else None
     sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
     x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox) if sunday else None
-    sides = sides_columns(img, gbox, hit["box"], x0, paper) if top is not None or sunday else None
+    sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) if top is not None or sunday else None
     beside = side == "left"
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
@@ -18098,6 +18124,8 @@ def fix_reason(row):
         return SIDES_READ
     if sunday_sides_due(row):
         return SUNDAY_SIDES
+    if sunday_right_due(row):
+        return SUNDAY_RIGHT
     if vlm_plain_due(row):
         return VLM_PLAIN
     if vlm_laid_due(row):
@@ -18748,7 +18776,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
                   SIDES_READ,
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
-                  SUNDAY_SIDES)
+                  SUNDAY_SIDES,
+                  # 11-09: the same read since, still no ACROSS and DOWN lists: both columns right of a grid at the page's edge.
+                  SUNDAY_RIGHT)
 
 
 def refusal_passes(why):
@@ -18783,7 +18813,9 @@ def blanket_or_fix(row, blanket):
         # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
         if sides_due(row):
             return SIDES_READ
-        return SUNDAY_SIDES if sunday_sides_due(row) else blanket
+        if sunday_sides_due(row):
+            return SUNDAY_SIDES
+        return SUNDAY_RIGHT if sunday_right_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -19002,7 +19034,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
