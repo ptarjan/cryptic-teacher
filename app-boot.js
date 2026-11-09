@@ -241,7 +241,7 @@
     $("ana-kbd").addEventListener("keydown", (ev) => {
       const k = ev.key;
       if (/^[a-zA-Z]$/.test(k)) { addRingLetter(k.toUpperCase()); ev.preventDefault(); }
-      else if (k === "Backspace") { removeLastRingLetter(); ev.preventDefault(); }
+      else if (k === "Backspace") { ringBackspace(); ev.preventDefault(); }
       // Anything else (Tab, Escape, arrows...) is left alone — this is a real
       // input and those keys already do the right thing on one.
     });

@@ -196,6 +196,7 @@
       const struck = {};
       Object.keys(ring.struck).forEach((k) => { if (remap[k] !== undefined && ring.struck[k]) struck[remap[k]] = true; });
       ring.struck = struck;
+      ring.sel = null;
       Object.keys(ring.words).forEach((k) => {
         ring.words[k] = k === String(wi) ? null : ring.words[k].map((idx) => remap[idx]);
       });
@@ -274,10 +275,14 @@
     // whole point of it.
     // A tile is the same button whichever shape it sits in; only where it goes
     // differs, so the ring and the line share it.
+    const chosen = (idx) => String(ring.sel) === String(idx) && !ring.struck[idx];
     const tile = (idx, w, x, y, extra) => `<button type="button" class="ana-tile${
-        ring.struck[idx] ? " struck" : ""}${pinnedTile[idx] ? " fixed" : ""}"
+        ring.struck[idx] ? " struck" : ""}${chosen(idx) ? " sel" : ""}${pinnedTile[idx] ? " fixed" : ""}"
           data-ana="${idx}" data-word="${w}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
-          title="${pinnedTile[idx] ? "Already in the crossword grid — fixed in its place" : ring.struck[idx] ? "Crossed off — tap to put it back" : "Tap to cross off once used"}"
+          title="${pinnedTile[idx] ? "Already in the crossword grid — fixed in its place"
+            : ring.struck[idx] ? "Crossed off — tap to put it back"
+            : chosen(idx) ? "Selected — tap again or press Backspace to cross it off"
+            : "Tap to select, then tap again to cross off"}"
           style="left:calc(50% + ${x}px);
                  top:calc(50% + ${y}px)${extra || ""}">${ring.letters[idx]}</button>`;
     const focus = ringKbdFocused() ? " ana-focus" : "";
@@ -436,9 +441,44 @@
     setTimeout(() => ghost.remove(), 260);
   }
 
+  // ---------- tapping a tile ----------
+  //
+  // Paul 11-08: "the wheel for removing letters", the way Minute Cryptic's
+  // does it. A tap on a live tile SELECTS it (ring.sel), and tapping another
+  // moves the selection: one tap is a look, never a commitment, so a finger
+  // that lands on the wrong letter costs nothing. The second tap on the same
+  // tile, or Backspace while it is selected, crosses it off. A crossed-off tile
+  // still comes back on a single tap, because putting a letter back loses
+  // nothing. Every tile crossed off is the wheel finished: on to the next rung.
+  function tapRingTile(i) {
+    if (!ring) return;
+    const k = String(i);
+    if (ring.struck[k]) { delete ring.struck[k]; ring.sel = null; return; }
+    if (String(ring.sel) !== k) { ring.sel = k; return; }
+    strikeRingTile(k);
+  }
+  function strikeRingTile(k) {
+    ring.struck[k] = true;
+    ring.sel = null;
+    if (ring === ringShelf.paid && ring.letters.length && ring.letters.every((_, j) => ring.struck[j])) {
+      const cur = currentEntry();
+      if (cur) advanceLadder(cur);
+    }
+  }
+  // Backspace in the ring: the selected tile is crossed off if there is one,
+  // otherwise the last typed letter goes, as it always has.
+  function ringBackspace() {
+    if (ring && ring.sel != null && ring.letters[ring.sel] !== undefined && !ring.struck[ring.sel]) {
+      strikeRingTile(String(ring.sel));
+      renderHintPanel();
+      return;
+    }
+    removeLastRingLetter();
+  }
+
   // ---------- typing into the ring ----------
   //
-  // Tapping struck a letter off; typing edits the set itself. A letter key
+  // Tapping selects and crosses off (tapRingTile); typing edits the set itself. A letter key
   // appends a tile, Backspace deletes the most recently added one — plain
   // array push/pop on `ring.letters`, with `ring.order` (the shuffled draw
   // order the tiles are actually drawn in) kept in step so a mid-shuffle edit
@@ -463,6 +503,7 @@
     const pos = ring.order.indexOf(idx);
     if (pos >= 0) ring.order.splice(pos, 1);
     delete ring.struck[idx];
+    if (String(ring.sel) === String(idx)) ring.sel = null;
     renderHintPanel();
     playRingFlip(prevRects);
     ghostRingTile(removedRect, removedText);

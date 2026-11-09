@@ -235,11 +235,29 @@
     setHTML(el, e && !jigsaw ? `<b>${e.offGrid ? "" : esc(tag(e))}</b> ${plainClueHTML(holderOf(e))}` : "");
   }
 
+  // Paul 11-08: "I want to be able to select words right off the bat without a
+  // click and then the definition without a click." Arriving at a clue asks the
+  // ladder's first free question straight away, so its words are tappable with
+  // no button in between. The same nextQuestion the right-answer chain uses, so
+  // the same limits hold: only a question (asking is free and charges nothing,
+  // so the "no hints" score cannot move), never a rung that costs, never the
+  // walkthrough, never on a solved clue. Once per arrival, keyed by the clue: a
+  // wrong answer, "Skip for now" or "Just tell me" leaves the clue where the
+  // solver put it, and only coming back to it asks again.
+  let arrivedAt = null;
+  function arriveAt(e) {
+    const key = e ? entryKey(e) : null;
+    if (key === arrivedAt) return;
+    arrivedAt = key;
+    if (e && !guessing) advanceLadder(e);
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
     renderClueStrip(e);
     const panel = $("hint-panel");
     if (!e) {
+      arrivedAt = null;
       // A square only an unclued light covers has no clue to hint at, but it
       // still has the escape hatch.
       const light = currentLight();
@@ -285,6 +303,7 @@
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
       guessing = null;
+      arrivedAt = key;
       setHTML($("hint-clue"), clueLine + pickableClueHTML(holder, null, [], null));
       ["hint-meter", "hint-body", "hint-escape", "hint-vote"].forEach((id) => setHTML($(id), ""));
       setButtons($("hint-next"), []);
@@ -325,6 +344,7 @@
     let ask = null, tapping = false;
 
     if (!ann) {
+      arrivedAt = key;
       // Two different silences, and telling them apart is the whole point.
       // "Not annotated yet" promises a ladder that is coming; a clue the paper
       // printed blank has no ladder ever, because there is no clue. Say which,
@@ -355,6 +375,7 @@
       // carrying it would mean checking an answer against a different question.
       if (guessing && guessing.key !== key) guessing = null;
       if (lastGuess && lastGuess.key !== key) lastGuess = null;
+      arriveAt(e);
       // Computed before the rungs are drawn, not after them: an earlier rung's
       // verdict has to know whether the clue line above is currently a set of
       // buttons, and that is only knowable from the question being asked now.
@@ -586,6 +607,9 @@
     const hw = $("hx-wheel");
     if (hw) hw.onclick = () => {
       freeWheel = wheelOpen ? null : key;
+      // The wheel's letters are picked off the clue's own words, so a question
+      // that was asked on arrival steps aside for it rather than keeping them.
+      if (freeWheel) guessing = null;
       // Focus first so the ring's focus outline is on the first draw and
       // the solver can type straight away, as a tap on the disc does.
       const ak = $("ana-kbd");
@@ -730,12 +754,7 @@
       b.onclick = () => {
         const i = b.getAttribute("data-ana");
         if (ring) {
-          ring.struck[i] = !ring.struck[i];
-          // Every tile crossed off is the wheel finished: on to the next rung.
-          if (ring === ringShelf.paid && ring.letters.length && ring.letters.every((_, k) => ring.struck[k])) {
-            const cur = currentEntry();
-            if (cur) advanceLadder(cur);
-          }
+          tapRingTile(i);
           // A tap on a tile is also "I might type next" — #ana-kbd is focused
           // first so the ring's focus ring is already drawn on the redraw that
           // follows, the same order addRingLetter/removeLastRingLetter use.
