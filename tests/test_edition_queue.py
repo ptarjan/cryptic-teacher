@@ -750,6 +750,10 @@ check("a Gale Sunday Telegraph 1987 page refused no reading parses is due SUNDAY
        f.sunday_sides_due({**_strow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"}),
        f.sunday_sides_due({**_strow, "verdicts": [{**_strow["verdicts"][0], "imageUnread": "not a square grid"}]}),
        f.sunday_sides_due({**_strow, "readAt": "2026-11-09T19:00:00+00:00"})])
+check("a non-Times row due SUNDAY_SIDES or SIDES_READ keeps that reason past the blanket 'inputs changed'; another stays blanket",
+      [f.SUNDAY_SIDES, f.SIDES_READ, "inputs changed"],
+      [f.blanket_or_fix(_strow, "inputs changed"), f.blanket_or_fix(_srow, "inputs changed"),
+       f.blanket_or_fix({**_strow, "readAt": "2026-11-09T19:00:00+00:00"}, "inputs changed")])
 check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),

@@ -18779,7 +18779,11 @@ def blanket_or_fix(row, blanket):
     holds no title at all: it reads the titles its scan holds now (10-28 r14: 17 rows, mostly a
     verdict read_as one off its scan's title; 72 whose rescan found no title keep the blanket reason)."""
     if getattr(paper_of(row.get("edition", "")), "series", None) != SERIES:
-        return blanket
+        # 11-09: 358 Gale Sunday Telegraph rows due SUNDAY_SIDES (and the Telegraph Saturdays SIDES_READ) were planned
+        # "inputs changed", which only_evidence drops: a page refused no reading parses has no puzzle held either.
+        if sides_due(row):
+            return SIDES_READ
+        return SUNDAY_SIDES if sunday_sides_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
