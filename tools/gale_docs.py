@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 6, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -182,7 +182,10 @@ SUNDAY_NUMBERED = re.compile(r"[cg]ross-? ?w[oa]rd\W*(?:competition\W*)?no\b\.?\
 #: "Beelzebub prize crossword", 2014-16 "Beelzebub Crossword" and, alone in
 #: 2011, "The Prize Crossword"); the Beelzebub name or that exact title is no ad.
 INDA_CRYPTIC = re.compile(r"^\W*(?:beelzebub\b.*cross|the prize cross-? ?w[oa]rd\W*$)", re.IGNORECASE)
-SUNDAY_TWO_IN_ONE = re.compile(r"two-in(?:to)?-one\s+cross", re.IGNORECASE)
+#: Gale's OCR spells the dashes as hyphens, en or em dashes, spaced or not,
+#: and once a "Christmas" or a hyphen before "Crossword" (1988-91).
+SUNDAY_TWO_IN_ONE = re.compile(r"two\s*[-\u2013\u2014]\s*in(?:to)?\s*[-\u2013\u2014]\s*one[\s\-\u2013\u2014]*(?:christmas\s+)?cross",
+                               re.IGNORECASE)
 
 
 def sunday_numbered(prod, title):
