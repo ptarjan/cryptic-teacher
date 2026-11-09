@@ -4232,9 +4232,11 @@ def independent_headings(lines, titles=()):
 #: "THE SUNDAY TIMES CROSSWORD No 2,345", "Prize Crossword No. 3,456"; never
 #: Mephisto, the Concise or a solution heading. Its solution heading:
 #: "Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344",
-#: "Last week's solution No. 3,455".
+#: "Last week's solution No. 3,455". Never a winners entry, "Crossword No.
+#: 3530: Ross Bryant": that is last week's number (the 1994-01-23 page
+#: is No 3532, its winners box names No 3530), so a number followed by a colon is no title.
 SUNDAY_TIMES_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+times\s+)?(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}"
-                                r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(.*)$", re.IGNORECASE)
+                                r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
 SUNDAY_TIMES_SOLUTION = re.compile(r"^\W*(?:last\s+week'?s\s+)?s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?"
                                    r"(?:(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
                                    + SMALL_NUMBER + r"\W*$", re.IGNORECASE)
