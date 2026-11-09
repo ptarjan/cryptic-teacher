@@ -107,6 +107,7 @@ import importlib
 import importlib.util
 import json
 import os
+import re
 import shlex
 import signal
 import subprocess
@@ -225,6 +226,72 @@ def unit_status(unit, run):
             return edition_commit.EXITS["media"]
         scan_queue.failure((unit["rel"],), e)
         return 1
+
+
+def yield_dir():
+    """Where a unit process leaves what it found for the queue (one JSON file per pid), under HOME."""
+    return Path(os.environ.get("HOME") or "/tmp") / ".cache" / "corpus_queue" / "unit_yield"
+
+
+_YIELD_LINE = re.compile(r"^\d\d:\d\d:\d\d (scanned|read) (.+?): (.*)$")
+
+
+class YieldTee:
+    """In the unit's own process: stderr passed through as it was, its "scanned REL: N puzzle(s)" and
+    "read REL: ..." lines also tallied (puzzles found, pages that filed), and left in yield_dir() at exit
+    for the queue's band tracker (BandYield). A line it cannot read counts as nothing."""
+
+    def __init__(self, inner):
+        self.inner, self.buf = inner, ""
+        self.puzzles = self.filed = self.seen = 0
+
+    def __getattr__(self, name):
+        return getattr(self.inner, name)
+
+    def write(self, s):
+        n = self.inner.write(s)
+        self.buf += s
+        *lines, self.buf = self.buf.split("\n")
+        for line in lines:
+            self.tally(line)
+        return n
+
+    def tally(self, line):
+        m = _YIELD_LINE.match(line)
+        if not m:
+            return
+        kind, _, rest = m.groups()
+        if kind == "scanned":
+            k = re.match(r"(\d+) puzzle\(s\)", rest)
+            if k:
+                self.seen += 1
+                self.puzzles += int(k.group(1))
+        else:
+            self.seen += 1
+            if not rest.startswith("nothing filed"):
+                self.puzzles += 1  # a verdict per puzzle found, filed or refused
+            if " wrote " in rest:
+                self.filed += 1
+
+    def save(self):
+        if not self.seen:
+            return
+        try:
+            d = yield_dir()
+            d.mkdir(parents=True, exist_ok=True)
+            tmp = d / f"{os.getpid()}.part"
+            tmp.write_text(json.dumps({"puzzles": self.puzzles, "filed": self.filed}))
+            tmp.replace(d / f"{os.getpid()}.json")
+        except OSError:
+            pass
+
+
+def watch_yield():
+    """In the unit's own process: tally its stderr (YieldTee) and leave the tally at exit."""
+    import atexit
+    tee = YieldTee(sys.stderr)
+    sys.stderr = tee
+    atexit.register(tee.save)
 
 
 def media_deferral(unit, e):
@@ -377,6 +444,8 @@ _snapshot = snapshot() if __name__ == "__main__" else None
 _spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
 if _spec.get("unit"):
     cap_memory()
+    if _spec["unit"].get("kind") in ("scan", "read"):
+        watch_yield()
 if _spec.get("unit", {}).get("kind") == "fetch":
     _fetcher = load_fetcher(_spec["unit"]["paper"])
     if _snapshot is not None:
@@ -1644,6 +1713,83 @@ def alternate(a, b):
     return out + a[len(b):] + b[len(a):]
 
 
+#: 11-07/08: ~24 h went to Gale Telegraph 1990-91, FT 1999-2000, Independent 2008-09 and Sunday Times 1987,
+#: nearly every unit ending "checked, no puzzle" or "nothing filed (vlm 0)", while productive work waited.
+#: A (paper, year) band whose last BAND_RUN completed units in a row found no puzzle and filed nothing goes
+#: behind the other units of its rank (never dropped, never the Times'); it is back in order when any unit of
+#: it files, or after BAND_HOURS.
+BAND_RUN = 20
+BAND_HOURS = 4
+
+
+def band_of(unit):
+    """(paper, year) of `unit`, or None when its edition has no date to read."""
+    m = re.search(r"(\d{4})-\d\d-\d\d", unit.get("rel") or "") or re.match(r"(\d{4})", unit.get("date") or "")
+    return (unit.get("paper"), m.group(1)) if m else None
+
+
+class BandYield:
+    """The recent outcomes of the units this process ended, per band (band_of): the run of them in a row that
+    found no puzzle and filed nothing, and the bands demoted for it (demoted())."""
+
+    def __init__(self, run=BAND_RUN, hours=BAND_HOURS, clock=time.monotonic):
+        self.run, self.span, self.clock = run, hours * 3600, clock
+        self.zero, self.since = {}, {}
+        self.lock = threading.Lock()
+
+    def noted(self, unit, puzzles, filed):
+        """A completed unit of `unit`'s band found `puzzles` puzzles and filed or updated `filed`."""
+        band = band_of(unit)
+        if band is None or unit.get("paper") == "times":
+            return
+        with self.lock:
+            if filed:
+                self.zero[band] = 0
+                if self.since.pop(band, None) is not None:
+                    log(f"{band[0]} {band[1]}: a page filed; back in the usual order")
+            elif puzzles:
+                self.zero[band] = 0
+            else:
+                self.zero[band] = self.zero.get(band, 0) + 1
+                if self.zero[band] >= self.run and band not in self.since:
+                    self.since[band] = self.clock()
+                    log(f"{band[0]} {band[1]}: last {self.run} pages found no puzzle; moved behind other work")
+
+    def demoted(self, unit):
+        """Whether `unit`'s band is behind other work now; a band past its span is lifted (and logged) here."""
+        band = band_of(unit)
+        if band is None or unit.get("paper") == "times" or unit.get("paper") in newest_first_papers():
+            return False
+        with self.lock:
+            if band not in self.since:
+                return False
+            if self.clock() - self.since[band] < self.span:
+                return True
+            del self.since[band]
+            self.zero[band] = 0
+            log(f"{band[0]} {band[1]}: {self.span / 3600:g} hours passed; back in the usual order")
+            return False
+
+    def reaped(self, unit, pid):
+        """Take what the ended unit process `pid` left (YieldTee.save); none left is no news."""
+        path = yield_dir() / f"{pid}.json"
+        try:
+            got = json.loads(path.read_text())
+            path.unlink()
+        except (OSError, ValueError):
+            return
+        self.noted(unit, got.get("puzzles", 0), got.get("filed", 0))
+
+
+BANDS = BandYield()
+
+
+def demote_bands(units):
+    """The (rank, ...) tuples `units` with each rank's units of demoted bands (BANDS) after the rest of it,
+    every other order kept."""
+    return sorted(units, key=lambda t: (t[0], BANDS.demoted(t[3])))
+
+
 def by_paper_turns(units):
     """The (rank, paper's place, plan's place, unit) tuples `units`, already in by_urgency's order, with the
     papers of each rank taking turns: the first of each paper's, then the second of each ... (a paper's own
@@ -1658,7 +1804,7 @@ def by_paper_turns(units):
         queues = sorted(by_rank[rank].values(), key=lambda q: q[0][1:3])
         for i in range(max(len(q) for q in queues)):
             out.extend(q[i] for q in queues if i < len(q))
-    return out
+    return demote_bands(out)
 
 
 def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
@@ -3308,6 +3454,8 @@ class _Children:
                     EXITS["lost"]: "deferred (the desktop was lost)",
                     EXITS["vlm"]: "deferred (spooled)" if rc == EXITS["vlm"] and spooled_end
                     else "deferred: VLM spool full" if rc == EXITS["vlm"] and full_end else "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
+            if rc == 0 and unit["kind"] in ("scan", "read"):
+                BANDS.reaped(unit, pid)
             if unit["kind"] == "fetch":
                 self.fetch_ended(unit, rc)
             self.outcomes[what.split(" ")[0]] = self.outcomes.get(what.split(" ")[0], 0) + 1
