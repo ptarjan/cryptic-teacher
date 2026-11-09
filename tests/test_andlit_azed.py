@@ -63,6 +63,7 @@ print("noedge", "/".join(A.read_bars(A.segments(ops))[0]))
 # Cell numbers that came out of the text as one string are split as the grid reads them.
 starts = {(0, 0): 1, (0, 8): 8, (0, 9): 9}
 print("split", sorted(A.split_numbers({(0, 0): "1", (0, 8): "89"}, starts).items()))
+print("split-cells", sorted(A.split_numbers({(0, 0): "1", (0, 8): "8", (0, 10): "91", (0, 11): "0"}, {**starts, (0, 10): 9, (0, 11): 10}).items()))
 print("nosplit", sorted(A.split_numbers({(0, 0): "1", (0, 8): "89", (0, 9): "9"}, starts).items()))
 
 # The HTML print page: a 2px right or bottom border is a bar; the frame is not.
@@ -290,6 +291,8 @@ check('the Chambers line goes only when it is a whole sentence',
       "'Ten clues are odd.' 'The Chambers Dictionary (2003) is recommended but lacks 30.'", line('chambers'))
 check("a clue that opens with a figure is read for the light expected",
       "{(17, 'across'): 'Strong and oddly deep within (8, 2 words)', (18, 'across'): '50% of colleges (5)', (19, 'across'): 'Next (3)'}", line('digit-clue'))
+check("digits of two side-by-side numbers split across their cells are rejoined",
+      "[((0, 0), 1), ((0, 8), 8), ((0, 10), 9), ((0, 11), 10)]", line('split-cells'))
 check("a last light numbered wrongly takes the one orphan line with a count",
       "{(23, 'down'): 'Fine (4)', (24, 'down'): 'Last light, its number misread (5)', (25, 'down'): 'Odd (4)'}", line('orphan-clue'))
 check("a count's lost bracket and an apostrophe count are read",
