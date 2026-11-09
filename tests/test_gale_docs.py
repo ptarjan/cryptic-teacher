@@ -336,6 +336,9 @@ check("near pages: nearest found Saturdays", [32, 31], gd.near_pages("TTDA", D(2
     "TTDA/2000-02-19": {"doc": "Z", "page": 31}, "TTDA/2000-02-26": {"why": "miss"}}))
 check("candidates: the nearest page's bare title first, at most 3", ["The Saturday Times", "Weather", "Cricket"],
       [a["docTitle"] for a in gd.text_candidates(arts, [32, 31])])
+check("a crossword-titled article the matcher rejects is read first", "Jumbo crossword winners",
+      gd.text_candidates(arts + [{"docId": "J", "docTitle": "Jumbo crossword winners", "startingPage": 30, "pageCount": 1}],
+                         [32, 31])[0]["docTitle"])
 check("with no neighbour page, bare titles anywhere", ["The Saturday Times", "No Title", "The Saturday Times"],
       [a["docTitle"] for a in gd.text_candidates(arts, [])])
 
@@ -365,7 +368,7 @@ g = TextGale({day: times}, {})
 gd.lookup("TTDA", day, g, docs=docs)
 check("titled crossword needs no lookups", [], g.viewed)
 check("Times matcher moved so earlier misses are asked again", True,
-      gd.stale("TTDA", {"why": "no crossword in the issue's contents", "matcher": 6}))
+      gd.stale("TTDA", {"why": "no crossword in the issue's contents", "matcher": 7}))
 
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)
