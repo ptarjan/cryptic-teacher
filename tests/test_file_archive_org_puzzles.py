@@ -451,7 +451,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._CHAMPIONSHIP_FIX[gt.key][:2],
                                                                       *f._INSET_GRID_FIX[gt.key][:2],
                                                                       *f._LONE_TITLE_FIX[gt.key][:2],
-                                                                      *f._JOINED_TITLE_FIX[gt.key][:2]},
+                                                                      *f._JOINED_TITLE_FIX[gt.key][:2],
+                                                                      *f._SPECIAL_TITLE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3509,9 +3510,9 @@ check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off
 
 def _final(paper):
     """The scan key a pinned key of `paper` (a key of its key) stands in for: the joined-title fix's where it moved
-    the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's."""
-    return f._JOINED_TITLE_FIX[paper][2] if paper in f._JOINED_TITLE_FIX \
-        else f._LONE_TITLE_FIX[paper][2]
+    the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
+    special-title fix's, over those, where it pins the paper (all but the Gale Sunday Telegraph)."""
+    return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
 
 
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
@@ -3551,7 +3552,7 @@ check("every paper's pinned scan key after the grid cap fix is the one the negat
        all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
        all(v[2] == f._LONE_TITLE_FIX[k][0] for k, v in f._INSET_GRID_FIX.items()),
        all(v[2] == (f._WINNERS_TITLE_FIX[k][0] if k in f._WINNERS_TITLE_FIX else f._JOINED_TITLE_FIX[k][0] if k in f._JOINED_TITLE_FIX else
-                    f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k)))
+                    f._SPECIAL_TITLE_FIX[k][0])
            for k, v in f._LONE_TITLE_FIX.items()),
        all(f.CORPUS_KEYS[o] == {k: _final(k)}
            for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
@@ -3562,10 +3563,29 @@ check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sun
       [True, True, True, True],
       [all(v[0] == (f._WINNERS_TITLE_FIX[k][2] if k in f._WINNERS_TITLE_FIX else f._LONE_TITLE_FIX[k][2])
             for k, v in f._JOINED_TITLE_FIX.items()),
-       all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs))
-                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items()),
+       all(v[2] == f._SPECIAL_TITLE_FIX[k][0] for k, v in f._JOINED_TITLE_FIX.items()),
        sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
        all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
+check("the special-title fix pins every paper but the Gale Sunday Telegraph over the key before it, each pinned key "
+      "its real scan key's, their old keys standing under it; the Sunday Telegraph's moves, so its scans are made again",
+      [True, True, True, True, True],
+      [all(f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k)) == v[2]
+           for k, v in f._SPECIAL_TITLE_FIX.items()),
+       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._SPECIAL_TITLE_FIX.items() for o in v[:2]),
+       sorted(set(f.FILERS) - set(f._SPECIAL_TITLE_FIX)) == ["galesundaytelegraph"],
+       not f.scan_current({"edition": "GaleSundayTelegraph2000UKEnglish/2000-12-31", "scanKey": "298202f644768e5f",
+                           "filesHash": "h", "scan": {}}, "h"),
+       f.solution_key() == "17927db190a32678"])
+check("the Sunday Telegraph's title reads 'Prize Puzzle No 2,061' and 'Two-into-One Crossword No 1,234'; its holiday "
+      "specials are numberless titles (SUNDAY_TEL_SPECIAL), 'Cryplic' misread included, never a news line",
+      [2061, 1234, True, True, True, False, False],
+      [int(f.SUNDAY_TEL_TITLE.match("Prize Puzzle No. 2,061").group(1).replace(",", "")),
+       int(f.SUNDAY_TEL_TITLE.match("Two-into-One Crossword No 1,234").group(1).replace(",", "")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph Prize Cryptic Crossword for Easter")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph New Year Cryplic Crossword")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Sunday Telegraph Bank Holiday Cryptic Crossword")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("Classics master tackles the Cross word")),
+       bool(f.SUNDAY_TEL_SPECIAL.match("The Winner of our Easter Cryptic Crossword is Fiona"))])
 check("the Sunday Times's winners-entry refusal (SUNDAY_TIMES_TITLE) chains the lone-title key through the joined-title one "
       "to its real key (its old and sized keys stand), its solution and solved keys pinned to the ones before; the Independent's scan, sized and solution keys from before clue_text.zeros_read chain to the current ones, "
       "so nothing is scanned or read again",

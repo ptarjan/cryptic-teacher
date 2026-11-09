@@ -3826,6 +3826,11 @@ def ocr_headings(img, paper, key, day=None):
         for n, b, setter in paper.headings(lines)[0]:
             if which not in (r[0] for r in titles.get(n, ())):
                 titles.setdefault(n, []).append((which, b, setter))
+        for ws in lines if paper.special and day is not None else ():
+            if paper.special.match(" ".join(w[4] for w in ws)):
+                n = paper.expected(day)
+                if which not in (r[0] for r in titles.get(n, ())):
+                    titles.setdefault(n, []).append((which, box_of(ws), None))
     least = len(READERS) / 2
     voted = [n for n, reads in titles.items() if len(reads) >= least]
     near = [] if voted or day is None else ocr_titles(img, paper, day, key, far=True)
@@ -4359,9 +4364,16 @@ def sunday_times_headings(lines, titles=()):
 #: The Sunday Telegraph's title (Gale TGRH issue series 8RWB, 1961-2000): "Crossword No. 214", later "Two-in-One
 #: Crossword No 1,234"; never a winners entry's colon after the number. Its solution heading is the Sunday Times's
 #: ("Solution to Crossword No. 213").
-SUNDAY_TEL_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+telegraph\s+)?(?:two\W?in\W?one\s+)?(?:prize\s+)?"
-                              r"cr[o0]ss\W{0,3}w[o0]rd\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER
-                              + r"(?!\s*:)(.*)$", re.IGNORECASE)
+SUNDAY_TEL_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+telegraph\s+)?(?:two\W?in(?:to)?\W?one\s+)?"
+                              r"(?:(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd|prize\s+puzzle)\W{0,3}(?:puzzle\W{0,3})?"
+                              r"(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
+#: The Sunday Telegraph's numberless holiday specials, a giant puzzle printed on a news page in 2000 (the Gale
+#: pages hold no other crossword: the weekly one ran in the magazine): "The Sunday Telegraph Prize Cryptic
+#: Crossword for Easter" (23 April), "...Bank Holiday Cryptic Crossword", "...New Year Cryptic Crossword" (31
+#: December). Numbered by their date (ocr_headings). Read as the readers misread "Telegraph" ("The Sunday Trleae
+#: aph New Year Cryptic Crossword:", "TheSundapCrlegraphNewYear Cryptic Crossword"): the words between are free.
+SUNDAY_TEL_SPECIAL = re.compile(r"^\W*(?:\w{1,4}\s*)?sund\w*\s*(?:\S+\s*){1,6}?cr\w{2,4}ic\s*cr[o0]ss\W{0,3}w[o0]rd"
+                                r"(?:\s*for\s*[\w ]{3,20})?\W*$", re.IGNORECASE)
 #: Dated Sunday Telegraph issue numbers, which drift from the week count: No 1 (5 February 1961), 214 (7 March
 #: 1965), 2060 (3 December 2000) and our first sundaytel file, No 2473 (1 March 2009; the Gale run ends with 2000,
 #: so no id here meets one of those).
@@ -4542,8 +4554,11 @@ class Paper:
     the series its puzzles file as."""
 
     def __init__(self, key, series, item, name, expected, parse=None, third=0, solution_above=False, margin=40,
-                 clues_above=False, shrink=1, slack=None, four=False, title_heights=1):
+                 clues_above=False, shrink=1, slack=None, four=False, title_heights=1, special=None):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
+        #: A regex of the numberless title of a holiday special ("The Sunday Telegraph New Year Cryptic
+        #: Crossword"), which ocr_headings numbers by the date; None: the paper has none.
+        self.special = special
         #: Its headings parser, (lines, titles) -> headings(): the Times's
         #: (times_headings) unless named.
         self.parse = parse or times_headings
@@ -4614,7 +4629,7 @@ GALE_SUNDAY_TIMES = Paper("galesundaytimes", "sundaytimes", re.compile(r"GaleSun
 GALE_SUNDAY_TELEGRAPH = Paper("galesundaytelegraph", "sundaytel",
                               re.compile(r"GaleSundayTelegraph((?:19|20)\d\d)UKEnglish$"),
                               "Sunday Telegraph cryptic crossword No {:,}", sunday_tel_expected_number,
-                              sunday_tel_headings, slack=SUNDAY_TIMES_SLACK)
+                              sunday_tel_headings, slack=SUNDAY_TIMES_SLACK, special=SUNDAY_TEL_SPECIAL)
 GALE_INDY_SUNDAY = Paper("galeindysunday", "indysunday", re.compile(r"GaleIndependentSunday((?:19|20)\d\d)UKEnglish$"),
                          "Independent on Sunday cryptic crossword No {:,}", indy_sunday_expected_number,
                          indy_sunday_headings, slack=SUNDAY_TIMES_SLACK)
@@ -11197,6 +11212,30 @@ for _paper, _pins in _JOINED_TITLE_FIX.items():
 #: mended by clue_text, not file_archive_org_puzzles): the same scan, so they stand for the key above.
 _ZEROS_OLD = ("b7b36f05275381dd", "19fdab2d39254c34")
 CORPUS_KEYS.update({old: {"galeindependent": _JOINED_TITLE_FIX["galeindependent"][2]} for old in _ZEROS_OLD})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before ocr_headings numbered a Paper's `special`
+#: title by the date (the Sunday Telegraph's holiday giants, 2000: "The Sunday Telegraph New Year Cryptic
+#: Crossword", no number) and SUNDAY_TEL_TITLE read "Prize Puzzle No N" and "Two-into-One": the shared scan
+#: code moved every key, but only galesundaytelegraph's pages read otherwise (its 11 Gale 2000 pages found
+#: "0 puzzle(s)"), so it is the one not pinned: its scans are made again. Every other paper's scans stand.
+_SPECIAL_TITLE_FIX = {
+    "ft": ("65d383ddecb7a517", "90de358fa4cd0c14", "2ee26b72fab1e68c"),
+    "gale": ("d8b652256c2e5591", "f27c6c9c3dc7c1e8", "892b03f99d9e145c"),
+    "galeft": ("cb68ea98e76bdda9", "98b5e85138621577", "7bf2dba0e499da95"),
+    "galeindependent": ("a0b67f7758ea1281", "ed81ecaff1e8b6d6", "6b0dcbe29a83f995"),
+    "galeindysunday": ("f36fc4eea1f17d37", "0c6d6e25141bcbc7", "1d7c7a1efb436f90"),
+    "galesundaytimes": ("b89011b1c4b6780d", "0299aa42fea0e589", "66bafb63c1aea60f"),
+    "galetelegraph": ("2a864ed971cd88bc", "f5a5dae091a068f9", "8968386f01a36b77"),
+    "galetls": ("23a1a125d635721f", "3dbedc999796e253", "552e32ed76211866"),
+    "guardian": ("a7d68e9af3ecb1e7", "fa1db6b7ce961141", "036d482a9e5819aa"),
+    "telegraph": ("5d52892451a6ff78", "d3979a121feef0fa", "442e4e9b6c22af3a"),
+    "times": ("bc1d5aae4839c12c", "2a4b3064db521328", "04aa1bebde60e7c4"),
+    "times1930": ("3fb4569dbcf8dec0", "8fcfd82fb4a632a0", "9bff91aaa4b6ab0d"),
+}
+for _paper, _pins in _SPECIAL_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -11313,6 +11352,8 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   # SUNDAY_TIMES_TITLE refuses a winners entry ("No. 3530:"; back in after 2e0de5d8d00 backed it out):
                   # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
                   "e8b1229ab48f7223": "17927db190a32678",
+                  # Paper.special (a numberless holiday title, ocr_headings and SUNDAY_TEL_TITLE): a scan's title only.
+                  "76e17a131db8711f": "17927db190a32678",
                   "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
@@ -11482,7 +11523,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # solved() reads such a kept one again (printed_stale).
                 "8fa313883283160c": "5f52f6e84d47ec3d",
                 # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers): no existing paper's read moves.
-                "4237a057c8a24f5e": "050e93ff674ff62c"}
+                "4237a057c8a24f5e": "050e93ff674ff62c",
+                # Paper.special (a numberless holiday title, ocr_headings): no solution's read moves.
+                "18171f1ae4454662": "050e93ff674ff62c"}
 
 
 def input_hash(d):
