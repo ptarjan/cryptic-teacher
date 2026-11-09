@@ -872,6 +872,7 @@ def evidence_reason(reason):
                           fa.CLUE_GARBLED,  # named Gale Times puzzles whose stored clue text is cut or garbled
                           fa.VLM_PLAIN,  # a 1930-33 page unfiled over a count-less clue the VLM's column reply holds
                           fa.WINNERS_TITLE,  # a Gale Sunday Times 1993-94 page scanned before its winners box was refused
+                          fa.SIDES_READ,  # a Gale Telegraph page refused no reading parses, its columns either side of its grid
                           fa.HEADINGS_JOINED)  # a Gale FT/Telegraph/Independent/Sunday Times page no title was found on
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
@@ -1973,7 +1974,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.WINNERS_TITLE,
                  # 11-09: a Times puzzle 1-2 short whose blank light's printed crossings leave one fitting past
                  # answer (fa.printed_fit_short), read again; the newest fix goes first.
-                 fa.PRINTED_FIT)
+                 fa.PRINTED_FIT,
+                 # 11-09: a Gale Telegraph page refused no reading parses, its clue columns either side of its
+                 # grid (fa.sides_columns), read again; the newest fix goes first.
+                 fa.SIDES_READ)
 
 
 def times_solution_work(unit):

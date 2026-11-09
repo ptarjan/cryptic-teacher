@@ -1121,6 +1121,43 @@ def grid_under_clues(img, title):
 #: How far right of and below the title of a clues-above puzzle its grid
 #: may reach (the two columns and the grid under them).
 CLUES_ABOVE_SPAN = (800, 1700)
+#: The Gale Telegraph's Saturday Prize Crossword from 1999-10 (every one read "no reading parses": the
+#: clues-above layout read the 30px between title and grid): the title sits on the grid's top, the
+#: across column left of the grid, the down column right of it. SIDES_BAND: the most the grid's top
+#: may lie under the title's foot, and SIDES_LEFT the least the left column's width as a share of the
+#: grid's, both at SCAN_WIDTH.
+SIDES_BAND, SIDES_LEFT = 150, 0.3
+
+
+def sides_columns(img, grid, title, x0, paper):
+    """(x0, (right edge,), bottom) of a Gale Telegraph page whose clue columns stand either side of its
+    grid (SIDES_BAND), else None."""
+    if paper.key != "galetelegraph":
+        return None
+    k = img.width / SCAN_WIDTH
+    gw = grid[2] - grid[0]
+    if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
+        return None
+    return x0, (grid[2] + 5 + (grid[0] - 5 - x0) + 60,), min(img.height, int(grid[3] + 1.8 * gw))
+
+
+#: The reason of a Gale Telegraph page read before sides_columns, refused "no reading parses" with its grid
+#: read (no imageUnread): its title found since HEADINGS_JOINED, 43 of 60 rescans found a puzzle and none filed.
+#: 11-09 tally of the 278 HEADINGS_JOINED reads that ended: Telegraph 2000 112 of them "no reading parses", and by
+#: weekday every Saturday since 1999-10 (52 of 54 pages, none ever filed). Once each (read before the stamp).
+SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns either side of its grid read since"
+REREAD_SIDES_READ = "2026-11-09T10:00:00+00:00"
+
+
+def sides_due(row):
+    """Whether Gale Telegraph ledger `row`, read before REREAD_SIDES_READ, holds a verdict refused "no reading
+    parses" with its grid read (no imageUnread): the page of sides_columns, a window the old read never cut."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_SIDES_READ)):
+        return False
+    return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
+
+
 #: How far the right column of a clues-above puzzle may run past the grid
 #: (its end is the gap nearest the grid's edge in that span; see gutter()).
 OVERHANG = 40
@@ -1260,6 +1297,9 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
         return [(gx1 + 5, split, split, gy0 - RIGHT_RISE), (split, x1, x1, gy0 - RIGHT_RISE)]
     if left:
         x0, split, _ = left
+        if isinstance(split, tuple):
+            # SIDES_BAND's page: the across column left of the grid, the down column right of it, ending at split[0].
+            return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE), (gx1 + 5, split[0], split[0], gy0 - LEFT_RISE)]
         if split is None:
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
         return [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
@@ -2346,6 +2386,10 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
         box = (max(0, int(gx0 - margin if x0 is None else x0)), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
     if left:
         box = (max(0, int(left[0])), max(0, gy0 - LEFT_RISE), gx0, min(img.height, int(left[1])))
+        if len(left) > 2:
+            # The columns either side of the grid (SIDES_BAND): the crop reaches the down column's end, the grid blanked.
+            box = (box[0], box[1], min(img.width, int(left[2])), box[3])
+            lead = lead or (box[0], box[1])
     if lead:
         box = (max(0, int(lead[0])), max(0, int(lead[1])), box[2], box[3])
     if right:
@@ -9807,6 +9851,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
     x0 = clues_left(gbox, hit["box"], m) if top is not None else None
+    sides = sides_columns(img, gbox, hit["box"], x0, paper) if top is not None else None
     beside = side == "left"
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
@@ -9819,7 +9864,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         probe = rapid_lines(img, gbox, "ch", CROPS / "rapid" / f"{key}.probe.json", None, m, None,
                             (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)), None, None, None)
         column = left_column(probe, gbox, heading=PROBE_HEADING)
-    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
+    crop =(gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else sides and (sides[0], sides[2], sides[1][0]) or column and column[::2]
     # The 2006-13 Times' three columns under the grid, the third overhanging
     # it: read from a crop that reaches its end (a page that ends soon under
     # the grid is not the 2014 Times' clues right of it).
@@ -9885,7 +9930,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
                                 # The window of a RIGHT_WIDE_DAYS page: the crop from the grid's top (the clue columns
                                 # right of it) to the page's foot, the grid blanked (rapid_lines' lead).
                                 (wide[0] - gbox[2] - 15, gbox[1] - RIGHT_RISE) if wide_read
-                                else (over - gbox[2] - 15, gbox[3]) if over else third, m, top,
+                                else (over - gbox[2] - 15, gbox[3]) if over else third, m, None if sides else top,
                                 crop, (gbox[0] - m, gbox[1] - RIGHT_RISE) if wide_read else lead, x0, right)
              for which in READERS}
     if right:
@@ -9930,7 +9975,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
             except RuntimeError:
                 pass
         texts = {k: counted(spaced(t), g) for k, t in texts.items()}
-    elif top is not None:
+    elif top is not None and not sides:
         # The gutter is sought in the middle of the columns' span: from the
         # grid's left edge, or from x0 when the clues start further left.
         span = min(gbox[0], x0 + m)
@@ -9938,6 +9983,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         above = (top, gutter(every, gbox, top, *mid), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG), x0)
     if beside:
         left = left_columns(every, gbox)
+    elif sides:
+        left = sides
     elif column:
         left = column
     if lead:
@@ -17759,6 +17806,8 @@ def fix_reason(row):
     # Ahead of "refused no-reading-parses before its fix", a blanket reason the planner drops once inputs move.
     if see_run_lost(row):
         return SEE_RUNS_ON
+    if sides_due(row):
+        return SIDES_READ
     if vlm_plain_due(row):
         return VLM_PLAIN
     if vlm_laid_due(row):
@@ -18405,7 +18454,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   HEADINGS_JOINED,
                   # 11-09: a Gale Sunday Times 1993-94 page scanned before its winners box was refused as the title
                   # (winners_rescan), scanned again then read once.
-                  WINNERS_TITLE)
+                  WINNERS_TITLE,
+                  # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
+                  SIDES_READ)
 
 
 def refusal_passes(why):
@@ -18653,7 +18704,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
