@@ -4321,9 +4321,11 @@ def independent_headings(lines, titles=()):
 #: "THE SUNDAY TIMES CROSSWORD No 2,345", "Prize Crossword No. 3,456"; never
 #: Mephisto, the Concise or a solution heading. Its solution heading:
 #: "Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344",
-#: "Last week's solution No. 3,455".
+#: "Last week's solution No. 3,455". Never a winners entry, "Crossword No.
+#: 3530: Ross Bryant": that is last week's number (the 1994-01-23 page
+#: is No 3532, its winners box names No 3530), so a number followed by a colon is no title.
 SUNDAY_TIMES_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+times\s+)?(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}"
-                                r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(.*)$", re.IGNORECASE)
+                                r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
 SUNDAY_TIMES_SOLUTION = re.compile(r"^\W*(?:last\s+week'?s\s+)?s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?"
                                    r"(?:(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
                                    + SMALL_NUMBER + r"\W*$", re.IGNORECASE)
@@ -11188,6 +11190,9 @@ _SOLUTION_KEY = []
 #: name_only (a surname cmudict alone lists decodes only where every cell is sure: TROEGER), which
 #: only takes fewer lights: a row read before it reads no more for it.
 _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved into clue_text: the same read
+                  # SUNDAY_TIMES_TITLE refuses a winners entry ("No. 3530:"; back in after 2e0de5d8d00 backed it out):
+                  # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
+                  "e8b1229ab48f7223": "17927db190a32678",
                   "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
@@ -11333,6 +11338,7 @@ _SOLVED_CODE = []
 #: readings kept under the old one stand. grid_ocr_cache (read_lights' recogniser outputs kept on
 #: disk by their input; outputs compared alike on cached crops, 10-26).
 _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into clue_text: the same read
+                "5310567b45418049": "050e93ff674ff62c",  # SUNDAY_TIMES_TITLE refuses a winners entry: the same read
                 "3b6d1b1294812f64": "07caaedc892a5b03",
                 # rendered_cell, read_lattice's `blocks`, read_framed's framing kept for cell_probs
                 # (10-26: one 1969 Times crop read alike, answers and stats).

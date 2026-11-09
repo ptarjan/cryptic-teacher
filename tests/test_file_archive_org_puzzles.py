@@ -508,6 +508,9 @@ check("a Sunday Times title from No 1 on, and its solution headings; never Mephi
        [n for t in ("Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344")
         for n, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[1]],
        f.GALE_SUNDAY_TIMES.headings([line("Mephisto No 1,234")])[0]))
+check("a Sunday Times winners entry is no title: 'Crossword No. 3530: Ross Bryant' on the page of No 3532",
+      [],
+      f.GALE_SUNDAY_TIMES.headings([line("Crossword No. 3530: Ross Bryant, Barking,")])[0])
 check("a TLS title and its solution heading; never its entry address or winner line; its own run",
       ([835], [831], [], [], "galetls"),
       ([n for n, _, _ in f.GALE_TLS.headings([line("TLS CROSSWORD 835")])[0]],
@@ -3502,15 +3505,12 @@ check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off
        19417 in f.hosted({"date": "1993-12-27", "item": "GaleTimes1993UKEnglish", "puzzles": [{"number": 19423, "leaf": 0}],
                           "solutions": [{"number": 19417, "leaf": 0}]}, {19417: D("1993-12-18"), 19422: D("1993-12-24")}),
        f.hosts_of(D("1993-12-27"))[-1:]))
-# The Sunday Times's key moved on 11-08 (the winners box's "Crossword No. 3530:" no title, e21a365e3ee) with no pin,
-# its older scans stale: the joined-title fix pins over that key, not the lone-title fix's.
-_UNPINNED = {"galesundaytimes"}
 
 
 def _final(paper):
     """The scan key a pinned key of `paper` (a key of its key) stands in for: the joined-title fix's where it moved
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's."""
-    return f._JOINED_TITLE_FIX[paper][2] if paper in f._JOINED_TITLE_FIX and paper not in _UNPINNED \
+    return f._JOINED_TITLE_FIX[paper][2] if paper in f._JOINED_TITLE_FIX \
         else f._LONE_TITLE_FIX[paper][2]
 
 
@@ -3550,9 +3550,9 @@ check("every paper's pinned scan key after the grid cap fix is the one the negat
        all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
        all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
        all(v[2] == f._LONE_TITLE_FIX[k][0] for k, v in f._INSET_GRID_FIX.items()),
-       all(v[2] == (f._JOINED_TITLE_FIX[k][0] if k in f._JOINED_TITLE_FIX and k not in _UNPINNED else
+       all(v[2] == (f._JOINED_TITLE_FIX[k][0] if k in f._JOINED_TITLE_FIX else
                     f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k)))
-           for k, v in f._LONE_TITLE_FIX.items() if k not in _UNPINNED),
+           for k, v in f._LONE_TITLE_FIX.items()),
        all(f.CORPUS_KEYS[o] == {k: _final(k)}
            for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
                      f._INSET_GRID_FIX, f._LONE_TITLE_FIX)
@@ -3560,16 +3560,18 @@ check("every paper's pinned scan key after the grid cap fix is the one the negat
 check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sunday Times over the lone-title key, "
       "each pinned key its real scan key's; no other paper's key moved; their old keys stand under it",
       [True, True, True, True],
-      [all(v[0] == f._LONE_TITLE_FIX[k][2] for k, v in f._JOINED_TITLE_FIX.items() if k not in _UNPINNED),
+      [all(v[0] == f._LONE_TITLE_FIX[k][2] for k, v in f._JOINED_TITLE_FIX.items()),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs))
-                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items() if k not in _UNPINNED),
+                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items()),
        sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
        all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
-check("the Independent's scan, sized and solution keys from before clue_text.zeros_read chain to the current ones, "
+check("the Sunday Times's winners-entry refusal (SUNDAY_TIMES_TITLE) lands on the joined-title key, its solution and solved "
+      "keys pinned to the ones before; the Independent's scan, sized and solution keys from before clue_text.zeros_read chain to the current ones, "
       "so nothing is scanned or read again",
-      [True, True, True, True],
+      [True, True, True, True, True],
       [all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)} for o in f._ZEROS_OLD),
        f._SOLUTION_PINS["8e4b770296908774"] == "17927db190a32678",
+       f._SOLUTION_PINS["e8b1229ab48f7223"] == "17927db190a32678" and f._SOLVED_PINS["5310567b45418049"] == "050e93ff674ff62c",
        f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c",
        f.zeros_read("#701o") == "#7010" if hasattr(f, "zeros_read") else __import__("clue_text").zeros_read("#701O") == "#7010"])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
