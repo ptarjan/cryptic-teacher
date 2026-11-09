@@ -321,6 +321,13 @@ button:disabled:hover { border-color: var(--line); }
    tile that vanished would leave a gap the eye reads as a missing letter. */
 .ana-tile.struck { opacity: .5; text-decoration: line-through; font-weight: 400;
   border-style: dashed; background: transparent; }
+/* Selected: the tile the next tap (or Backspace) crosses off. Filled like the
+   grid cursor (--cell-sel is only defined inside #grid, so the page's --sel
+   stands in out here) and ringed, with no transform: the tile's position and the ring's
+   FLIP animation both live in transform, and a class that set one would yank it. */
+.ana-tile.sel { background: var(--cell-sel, var(--sel)); color: #1a1a1a; border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent); }
+.ana-tile.fixed.sel { box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 2px var(--accent); }
 /* Room so the focus outline round the disc clears the Shuffle button. */
 .ana-discs { margin-bottom: 10px; }
 /* Pinned: this letter is in the grid already, so the ring is showing WHERE it
@@ -913,7 +920,7 @@ button:disabled:hover { border-color: var(--line); }
 /* The selected box: tapping a letter selects it, and the next Backspace deletes it
    or the next letter typed replaces it. Filled like the grid's own cursor square
    so the two read as one selection, and it moves with the cursor. */
-.pat-box.cur { outline: 2px solid var(--sel); outline-offset: 1px; background: var(--cell-sel); color: #1a1a1a; }
+.pat-box.cur { outline: 2px solid var(--sel); outline-offset: 1px; background: var(--cell-sel, var(--sel)); color: #1a1a1a; }
 .hint-step { margin: 10px 0; padding-top: 8px; border-top: 1px dashed var(--line); }
 .hint-step .step-label {
   font: 700 .72rem/1 -apple-system, Helvetica, sans-serif;

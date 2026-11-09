@@ -10,5 +10,6 @@ const hoverOnly = (sel) => new RegExp("@media \\(hover: hover\\) \\{ " + sel.rep
 check(hoverOnly(".pat-box"), ".pat-box:hover only under (hover: hover)");
 check(hoverOnly(".ana-tile"), ".ana-tile:hover only under (hover: hover)");
 check(!/^\.(pat-box|ana-tile):hover/m.test(css), "no bare hover rule on tappable boxes");
-check(/\.pat-box\.cur \{[^}]*background: var\(--cell-sel\)/.test(css), "selected box is filled like the grid cursor");
+check(/\.pat-box\.cur \{[^}]*background: var\(--cell-sel, var\(--sel\)\)/.test(css),
+  "selected box is filled like the grid cursor, with a fallback: --cell-sel is only defined inside #grid");
 process.exit(failures ? 1 : 0);
