@@ -3731,6 +3731,11 @@ def mend_misreads(text):
 #: A word our readers read where a solution heading starts ("Solution", or a
 #: RapidOCR phrase holding it: "grass Solution to Puzzle No 17,245").
 SOLUTION_WORD = re.compile(r"\bsolution\b", re.IGNORECASE)
+#: The words of a Sunday Telegraph's winners heading (solution_bands): "COMPETITION", and "WINNERS" on its line; its band's
+#: width at SCAN_WIDTH, the number and "WINNERS & SOLUTION" past the first word.
+WINNERS_WORD = re.compile(r"c[o0]mpet[il1]t[il1][o0]n", re.IGNORECASE)
+WINNERS_SOLUTION = re.compile(r"^w[il1]nn", re.IGNORECASE)
+WINNERS_BAND = 1100
 #: A solution heading's band, re-read whole by every reader: from just left of
 #: its "Solution" word (or its grid's left edge) this far right, and this far
 #: over and under the word (over the grid, this far up from its top), in
@@ -3770,9 +3775,19 @@ def solution_bands(img, words):
         if m:
             starts.append((x0 + (x1 - x0) * m.start() // max(len(text), 1), y0 - pad, y1 + pad))
     starts += [(g[0], g[1] - over, g[1] + pad // 5) for g in grids_on(img, shaped=solution_shaped(img))]
+    # A Sunday Telegraph's "COMPETITION No.1922 WINNERS & SOLUTION" runs ~900px left of its "SOLUTION" word, past the
+    # band: a band over its "COMPETITION" word, wide enough for the number and WINNERS (SUNDAY_TEL_WINNERS), where a
+    # "WINNERS" word stands on the same line. 11-09: 74 rescanned editions linked no solution without it.
+    wide = []
+    for x0, y0, x1, y1, text in words:
+        m = WINNERS_WORD.search(text)
+        if m and any(WINNERS_SOLUTION.search(t) and y0 < (b0 + b1) / 2 < y1 and b0 > y0 - pad
+                     for _, b0, _, b1, t in words):
+            wide.append((x0 + (x1 - x0) * m.start() // max(len(text), 1), y0 - pad, y1 + pad))
     bands = []
-    for x, top, foot in starts:
-        band = (max(0, x - left), max(0, top), min(img.width, x + right), min(img.height, foot))
+    for x, top, foot in starts + wide:
+        band = (max(0, x - left), max(0, top), min(img.width, x + (WINNERS_BAND * k if (x, top, foot) in wide else right)), min(img.height, foot))
+        band = tuple(int(v) for v in band)
         if not any(abs(band[0] - b[0]) < 2 * left and min(band[3], b[3]) > max(band[1], b[1]) for b in bands):
             bands.append(band)
     return bands
@@ -11447,6 +11462,30 @@ _SPECIAL_TITLE_FIX = {
     "times1930": ("3fb4569dbcf8dec0", "8fcfd82fb4a632a0", "9bff91aaa4b6ab0d"),
 }
 for _paper, _pins in _SPECIAL_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before solution_bands read a band over a "COMPETITION ...
+#: WINNERS" line's "COMPETITION" word (the Gale Sunday Telegraph's solution heading, SUNDAY_TEL_WINNERS, which runs ~900px
+#: left of its "SOLUTION" word, past the band: none of 74 rescanned editions linked one): shared scan code that moves
+#: every key, but only galesundaytelegraph's pages read otherwise, so it is the one not pinned: its scans are made
+#: again. Every other paper's scans stand.
+_WINNERS_BAND_FIX = {
+    "ft": ("2ee26b72fab1e68c", "0c847a1b9a34d92f", "efba282f4b6b7c12"),
+    "gale": ("892b03f99d9e145c", "8e69bc7843381d6f", "bbfe299ca5158e8e"),
+    "galeft": ("7bf2dba0e499da95", "06f1355a240ef334", "1127ff923ab3fa04"),
+    "galeindependent": ("6b0dcbe29a83f995", "8e568d68ccf63ae8", "58e4d057a2117a4e"),
+    "galeindysunday": ("1d7c7a1efb436f90", "885d700bc67472d0", "43cf7f1ff66014f2"),
+    "galesundaytimes": ("66bafb63c1aea60f", "be5df26e1a82baab", "d71cebdc1107fdef"),
+    "galetelegraph": ("8968386f01a36b77", "7e7a006e61b00a4a", "2f1924a987d208aa"),
+    "galetls": ("552e32ed76211866", "ce19b14123796913", "2b99f60ecdcbbd8b"),
+    "guardian": ("036d482a9e5819aa", "9c6652cb0544c0a4", "eedce9d2839ce44d"),
+    "telegraph": ("442e4e9b6c22af3a", "b5835b33abd20b5a", "adbe0b29c05e0e99"),
+    "times": ("04aa1bebde60e7c4", "5ab2eac0afbdd3ab", "89a4c71b9865a2b4"),
+    "times1930": ("9bff91aaa4b6ab0d", "63727dc93648d83d", "e69b9709d9502c69"),
+}
+for _paper, _pins in _WINNERS_BAND_FIX.items():
     for _keys in CORPUS_KEYS.values():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
