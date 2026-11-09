@@ -1316,9 +1316,14 @@ def learn_page():
     inner = re.sub(
         re.escape(build_abbreviations.MARK_START) + ".*?" + re.escape(build_abbreviations.MARK_END),
         '<h2 id="abbreviations">Common abbreviations</h2>\n'
-        "<p>Setters use short, fixed stand-ins for common words. <em>Street</em> gives "
-        "<code>ST</code>. <em>Company</em> gives <code>CO</code>. You cannot work these out from "
-        "the word. You just learn them, and they appear in charades all the time: "
+        "<p>Setters often swap a word for its standard abbreviation. <em>Street</em> gives "
+        "<code>ST</code>, <em>company</em> gives <code>CO</code> and <em>sailor</em> gives "
+        "<code>AB</code>, short for able seaman. These are not secret codes made up for crosswords. "
+        "They are the abbreviations a dictionary lists (Chambers, the one most setters use, has "
+        "nearly all of them), plus a few fixed sets such as Roman numerals, chemical symbols and "
+        "compass points. So when a short piece puzzles you, look the word up: the abbreviation will "
+        "be there. The same few hundred come up again and again, mostly in charades, so they soon "
+        "become familiar: "
         f'<a href="{BASE}/abbreviations/">see all '
         f'{len(build_abbreviations.by_word())} abbreviations used in these puzzles &rarr;</a></p>',
         inner, flags=re.S)
@@ -2172,8 +2177,9 @@ def abbreviations_page(blocks):
         "<h1>Cryptic crossword abbreviations</h1>",
         "<p>Setters often swap a word for a short, fixed set of letters. <em>Street</em> "
         "becomes <code>ST</code>. <em>Company</em> becomes <code>CO</code>. Each is the "
-        "dictionary's abbreviation of its word, but which letters a setter picks you "
-        "cannot work out from the word alone. You have to know them, so they are the quickest thing a new "
+        "standard abbreviation a dictionary gives for its word (Chambers, the one most setters "
+        "use, lists nearly all of them), so a piece you do not recognise can be looked up. "
+        "The same few hundred come up again and again, so they are the quickest thing a new "
         "solver can learn.</p>",
         "<p>You will meet them most in charades, where the answer is built from small "
         "pieces: <em>company</em> + <em>street</em> gives CO + ST, which is COST. Some words "
@@ -2432,23 +2438,26 @@ def ranked_indicators(t):
 
 # How many of a type's indicators /learn/ shows: the head, where a beginner's
 # time goes. The long tail is one link away on /indicators/.
-LEARN_INLINE, LEARN_TABLE = 6, 10
+LEARN_INLINE = 6
 
 
 def learn_indicators(m):
-    """A /learn/ marker, <!-- indicators: TYPE --> or <!-- indicators: table -->,
-    as the most used indicators with how many clues used each."""
-    def run(t, n):
-        return build_abbreviations.LIST_SEP.join(f'<em>{esc(indicator_label(k))}</em>{build_abbreviations.count_html(c)}'
-                         for k, c in ranked_indicators(t)[:n])
-    if m.group(1) != "table":
-        return run(m.group(1), LEARN_INLINE)
-    lex = indicator_lexicon()
-    rows = [f'<tr><td>{clue_types.label(t).capitalize()}</td><td>{run(t, LEARN_TABLE)} '
-            f'&middot; <a href="{BASE}/indicators/#{t}">all {len(lex[t]):,} &rarr;</a></td></tr>'
-            for t in INDICATOR_TYPES if lex.get(t)]
-    return ("<table>\n<tr><th>Clue type</th><th>Most used indicators, with how many clues "
-            "used each</th></tr>\n" + "\n".join(rows) + "\n</table>")
+    """A /learn/ marker, <!-- indicators: TYPE -->, as that clue type's own
+    line: its most used indicators, with how many clues used each, and a link
+    to the type's full list on /indicators/. Each lesson section carries its
+    own, rather than one table of every type at the end of the lesson."""
+    t = m.group(1)
+    if t not in INDICATOR_TYPES:
+        raise SystemExit(f"tools/tutorial.html marks indicators for {t!r}, which "
+                         "/indicators/ has no section for (INDICATOR_TYPES).")
+    top = ranked_indicators(t)[:LEARN_INLINE]
+    if not top:
+        return ""
+    label = type_label(t)
+    words = build_abbreviations.LIST_SEP.join(
+        f'<em>{esc(indicator_label(k))}</em>{build_abbreviations.count_html(c)}' for k, c in top)
+    return (f'<span class="learn-inds">Most used {label} indicators: {words} '
+            f'&middot; <a href="{BASE}/indicators/#{t}">all {label} indicators &rarr;</a></span>')
 
 
 def indicator_label(key):

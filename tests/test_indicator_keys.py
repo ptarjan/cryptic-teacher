@@ -62,15 +62,19 @@ check("an exact phrase outranks one containing the key",
 # only the head: "of" (1 clue) never sits beside "variety" (9).
 import re
 M = lambda t: re.match(r"<!-- indicators: (\w+) -->", f"<!-- indicators: {t} -->")
-b.LEARN_INLINE, b.LEARN_TABLE = 2, 3
+b.LEARN_INLINE = 2
 plain = lambda h: re.sub(r"<[^>]+>|&nbsp;", " ", h).split()
+line = b.learn_indicators(M("anagram"))
 check("an inline list is the head, ranked, with counts",
-      ["variety", "9", "&middot;", "touched", "5"], plain(b.learn_indicators(M("anagram"))))
+      ["variety", "9", "&middot;", "touched", "5"], plain(line[line.index(":") + 1:line.rindex(" &middot; <a")]))
 check("an inline list is joined with the site's dot, not a comma",
-      True, b.build_abbreviations.LIST_SEP in b.learn_indicators(M("anagram")) and "," not in b.learn_indicators(M("anagram")))
-table = b.learn_indicators(M("table"))
-check("the table has a row per type, each capped and linked to its full list",
-      [("Anagram", 3, "anagram", "5"), ("Reversal", 1, "reversal", "1"), ("Charade", 1, "charade", "1")],
-      [(lab, cell.count("<em>"), t, n) for lab, cell, t, n in
-       re.findall(r"<tr><td>(\w+)</td><td>(.*?)<a href=\"[^\"]*#(\w+)\">all (\d+)", table)])
+      True, b.build_abbreviations.LIST_SEP in line and "," not in line)
+# Each lesson section carries its own type's line, linked to that type's list.
+check("the line names its type and links to the type's full list",
+      [("anagram", "anagram")], re.findall(r'Most used (\w+) indicators:.*?<a href="[^"]*/indicators/#(\w+)"', line))
+try:
+    b.learn_indicators(M("nonsense"))
+    check("a marker for a type /indicators/ has no section is refused", True, False)
+except SystemExit:
+    check("a marker for a type /indicators/ has no section is refused", True, True)
 raise SystemExit(fails)
