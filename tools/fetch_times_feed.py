@@ -67,7 +67,18 @@ SERIES = {QUICK: "timesquick", DAILY: "times"}
 DAILY_OFFSETS = (5, 15, 60, 300)
 DAILY_DAYS = 2
 DAILY_THREADS = 6
+NARROW_THREADS = 16
 POLITE = 0.5
+#: Daily ids sit at the same date's Quick id minus 0..36 on most days (2015-16
+#: sample: -6 to -26), but a week's batch may lie ~100 off (2015-03: -64, +91),
+#: so the narrow search probes, in turn: the ids just past the last Daily found
+#: (the batch's next day), that window, then wider reaches round the Quick, then
+#: round the last Daily; it stops at the first Daily the date's own page gives.
+NARROW = range(-36, 7)
+AFTER_LAST = range(-4, 13)
+WIDE = 150
+LAST_DAYS = 10
+MISSES = CACHE / "narrow-misses.txt"
 TITLE_NUMBER = re.compile(r"(?:No\.?|Number)\s*\(?\s*0*(\d+)", re.I)
 
 
@@ -380,6 +391,81 @@ def find_daily(pool, number, filed, quick_ids, log=print):
     return None
 
 
+def quick_id_on(date, window=7):
+    """The id of the Quick cached for `date`, else of the nearest cached date
+    within `window` days (ids drift slowly), as (id, date) or None."""
+    for k in sorted(range(-window, window + 1), key=abs):
+        d = date + datetime.timedelta(days=k)
+        for p in CACHE.glob(f"{d:%Y%m%d}-*.json"):
+            data = json.loads(p.read_text(encoding="utf-8"))
+            if data["copy"].get("crosswordtype") == QUICK:
+                return int(p.stem.split("-")[1]), d
+    return None
+
+
+def narrow_ids(date, quick, last=None):
+    """The ids to probe for the Daily of `date`, in order of likelihood, given
+    its Quick's id and the id `last` of the Daily just before it, if any."""
+    def around(c, ks):
+        return [c + k for k in ks]
+
+    wide = range(-WIDE, WIDE + 1)
+    order = [*(around(last, AFTER_LAST) if last else []), *around(quick, NARROW),
+             *around(quick, wide), *(around(last, wide) if last else [])]
+    return [i for i in dict.fromkeys(order) if i > 0]
+
+
+def load_misses():
+    return set(MISSES.read_text().split()) if MISSES.exists() else set()
+
+
+def narrow_daily(pool, dates, have, log=print, quick_of=quick_id_on, skip=()):
+    """Cache the Dailies the feed has for `dates` whose number is not in
+    `have` (dates in `skip`, filed already, are passed over). Each date probes
+    narrow_ids in chunks until the feed answers with a Daily. Probed pairs
+    that answered nothing go to MISSES so a rerun skips them.
+    Returns {date: (probed, found)}."""
+    import time
+    misses, stats, last = load_misses(), {}, None
+    for date in dates:
+        if date.weekday() == SUNDAY or date in skip:
+            continue
+        found_q = quick_of(date)
+        if not found_q:
+            log(f"{date}: no Quick id near, skipped")
+            continue
+        ids = [i for i in narrow_ids(date, found_q[0], last[1] if last and
+                                     (date - last[0]).days <= LAST_DAYS else None)
+               if f"{date:%Y%m%d}-{i}" not in misses]
+        probed, hit = 0, None
+        for at in range(0, len(ids), CHUNK):
+            chunk = ids[at:at + CHUNK]
+            new = []
+            for i, data in zip(chunk, pool.map(lambda i, date=date: fetch(date, i), chunk)):
+                if not data:
+                    new.append(f"{date:%Y%m%d}-{i}")
+                elif data["copy"].get("crosswordtype") == DAILY and hit is None:
+                    hit = i
+                    if number_of(data) not in have:
+                        cache_path(date, i).write_text(json.dumps(data, ensure_ascii=False),
+                                                       encoding="utf-8")
+                        have.add(number_of(data))
+                        log(f"No {number_of(data)}: {date} id {i}")
+            probed += len(chunk)
+            with open(MISSES, "a") as fh:
+                fh.write("".join(m + "\n" for m in new))
+            misses.update(new)
+            if hit:
+                break
+        if hit:
+            last = (date, hit)
+        else:
+            log(f"{date}: none in {probed} ids")
+        stats[date] = (probed, int(bool(hit)))
+        time.sleep(POLITE)
+    return stats
+
+
 def filed_dailies():
     """{number: date} of the Dailies on disk."""
     import glob
@@ -405,6 +491,9 @@ def main(argv=None):
     ap.add_argument("--daily-missing", nargs=2, type=datetime.date.fromisoformat,
                     metavar=("FROM", "TO"), help="find every Daily number missing on disk "
                     "between the filed numbers dated FROM and TO")
+    ap.add_argument("--daily-narrow", nargs=2, type=datetime.date.fromisoformat,
+                    metavar=("FROM", "TO"), help="cache the Dailies the feed has for these "
+                    "dates, probing only the window around each date's Quick id")
     ap.add_argument("--daily-series", action="store_true", help="--file files the Dailies")
     ap.add_argument("--file", action="store_true", help="file the cached Quicks not on disk")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
@@ -421,6 +510,14 @@ def main(argv=None):
         import fetch_puzzle
         fetch_puzzle.reindex()
         return 0
+    if a.daily_narrow:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        lo, hi = a.daily_narrow
+        have = {number_of(data) for _, _, data in cached(DAILY)} | set(filed_dailies())
+        days = [lo + datetime.timedelta(days=k) for k in range((hi - lo).days + 1)]
+        with concurrent.futures.ThreadPoolExecutor(NARROW_THREADS) as pool:
+            narrow_daily(pool, days, have, log=lambda s: print(s, flush=True),
+                         skip=set(filed_dailies().values()))
     if a.daily or a.daily_missing:
         CACHE.mkdir(parents=True, exist_ok=True)
         filed = filed_dailies()
