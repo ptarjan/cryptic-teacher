@@ -3562,9 +3562,16 @@ check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sun
       [True, True, True, True],
       [all(v[0] == f._LONE_TITLE_FIX[k][2] for k, v in f._JOINED_TITLE_FIX.items() if k not in _UNPINNED),
        all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs))
-                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items()),
+                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items() if k not in _UNPINNED),
        sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
        all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
+check("the Independent's scan, sized and solution keys from before clue_text.zeros_read chain to the current ones, "
+      "so nothing is scanned or read again",
+      [True, True, True, True],
+      [all(f.CORPUS_KEYS[o] == {"galeindependent": f.scan_key(f.GALE_INDEPENDENT)} for o in f._ZEROS_OLD),
+       f._SOLUTION_PINS["8e4b770296908774"] == "17927db190a32678",
+       f._SOLVED_PINS["113156e3aaee30b5"] == "050e93ff674ff62c",
+       f.zeros_read("#701o") == "#7010" if hasattr(f, "zeros_read") else __import__("clue_text").zeros_read("#701O") == "#7010"])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
 # one with a title, a verdict, or scanned by the new code stands; a 1975 one is not INSET_GRID's (LONE_TITLE's).
 _ik = f._INSET_GRID_FIX["gale"]

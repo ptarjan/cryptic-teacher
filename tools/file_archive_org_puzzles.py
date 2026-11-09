@@ -4313,7 +4313,7 @@ def independent_headings(lines, titles=()):
     for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
         m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
         if m:
-            puzzles.append((number_digits(m.group(1).replace("o", "0").replace("O", "0")), box_of(ws), None))
+            puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
     return puzzles, solutions
 
 
@@ -11058,7 +11058,7 @@ for _paper, _pins in _LONE_TITLE_FIX.items():
 _JOINED_TITLE_FIX = {
     "ft": ("af0bb70f1d31431e", "34d3cc7e044498cc", "65d383ddecb7a517"),
     "galeft": ("088566af00dc0064", "ef7332653d390b92", "cb68ea98e76bdda9"),
-    "galeindependent": ("b3fad67147027ed5", "eec1c668fa3c0cfb", "b7b36f05275381dd"),
+    "galeindependent": ("b3fad67147027ed5", "eec1c668fa3c0cfb", "a0b67f7758ea1281"),
     "galesundaytimes": ("d2e3766df6a4cb1b", "8f3f743d2ad9764e", "b89011b1c4b6780d"),
     "galetelegraph": ("0f463a6d003b7493", "e5b54044a9b8d7c4", "2a864ed971cd88bc"),
 }
@@ -11071,6 +11071,10 @@ for _paper, _pins in _JOINED_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: The Independent's keys (scan, sized) from c047ee671d3 to the zeros_read edit (INDEPENDENT_BY_TITLE's "#701o"
+#: mended by clue_text, not file_archive_org_puzzles): the same scan, so they stand for the key above.
+_ZEROS_OLD = ("b7b36f05275381dd", "19fdab2d39254c34")
+CORPUS_KEYS.update({old: {"galeindependent": _JOINED_TITLE_FIX["galeindependent"][2]} for old in _ZEROS_OLD})
 #: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
 #: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
 #: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
@@ -11183,7 +11187,8 @@ _SOLUTION_KEY = []
 #: only a grid every ink box was refused for: those rows are due once as REFUSED_GRID. So is
 #: name_only (a surname cmudict alone lists decodes only where every cell is sure: TROEGER), which
 #: only takes fewer lights: a row read before it reads no more for it.
-_SOLUTION_PINS = {"5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
+_SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved into clue_text: the same read
+                  "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
                   # blocks_sure (a heavy print's grid classified): those rows are due once as HEAVY_PRINT.
@@ -11327,7 +11332,8 @@ _SOLVED_CODE = []
 #: {_SOLVED_CODE of newer code: the one it stands in for}, for a change that reads the same: the
 #: readings kept under the old one stand. grid_ocr_cache (read_lights' recogniser outputs kept on
 #: disk by their input; outputs compared alike on cached crops, 10-26).
-_SOLVED_PINS = {"3b6d1b1294812f64": "07caaedc892a5b03",
+_SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into clue_text: the same read
+                "3b6d1b1294812f64": "07caaedc892a5b03",
                 # rendered_cell, read_lattice's `blocks`, read_framed's framing kept for cell_probs
                 # (10-26: one 1969 Times crop read alike, answers and stats).
                 "214418ebf47f6b5c": "07caaedc892a5b03",
