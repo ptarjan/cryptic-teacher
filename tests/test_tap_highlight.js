@@ -6,7 +6,7 @@ const fs = require("fs");
 const css = fs.readFileSync(__dirname + "/../style.css", "utf8");
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
-const hoverOnly = (sel) => new RegExp("@media \\(hover: hover\\) \\{ " + sel.replace(/[.]/g, "\\.") + ":hover \\{").test(css);
+const hoverOnly = (sel) => new RegExp("@media \\(hover: hover\\) \\{ " + sel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ":hover \\{").test(css);
 check(hoverOnly(".pat-box"), ".pat-box:hover only under (hover: hover)");
 check(hoverOnly(".ana-tile"), ".ana-tile:hover only under (hover: hover)");
 check(!/^\.(pat-box|ana-tile):hover/m.test(css), "no bare hover rule on tappable boxes");

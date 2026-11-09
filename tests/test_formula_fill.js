@@ -37,7 +37,14 @@ let out = new Set();
 const formulaHTML = new Function("esc", "groupSolved", "pieceOut", "armedFor", "ARMED_TEXT", "piecesLeft",
   SRC.slice(from, to) + "\nreturn formulaHTML;")(
   (s) => String(s), () => false, (e, i) => out.has(i), () => false, "armed", () => 1);
-const text = (html) => html.replace(/<p[\s\S]*?<\/p>/g, "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+// Strip until nothing changes, so a tag left over by one removal (CodeQL
+// js/incomplete-multi-character-sanitization) cannot survive.
+const strip = (html) => {
+  let prev;
+  do { prev = html; html = html.replace(/<p[\s\S]*?<\/p>/g, "").replace(/<[^>]+>/g, ""); } while (html !== prev);
+  return html;
+};
+const text = (html) => strip(html).replace(/\s+/g, " ").trim();
 const render = (f, shown, interactive = true) => { out = new Set(shown); return text(formulaHTML({}, f, interactive)); };
 
 const CLUES = {
