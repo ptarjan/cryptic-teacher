@@ -4437,6 +4437,30 @@ settle(pc)
 # Every plan below is the paper's PaperPlan brought up to date row by row;
 # each is checked against the paper planned whole afresh (no memo kept).
 plan_diffs = []
+class _SidesImg:
+    width, height = 3298, 5181
+
+
+# A Gale Telegraph Saturday Prize page: the title on the grid's top (32px), the across column 355px left of the grid,
+# the down column right of it. A weekday page (clues above: 300px between, or the grid at the left margin) is none.
+_sg = (574, 2978, 1294, 3710)
+check("sides_columns: a Gale Telegraph title on its grid's top with a column's width left of it reads either side; "
+      "clues-above, a grid at the margin and other papers do not",
+      [(204, (1724,), 5006), None, None, None],
+      [f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2500, 744, 2540), 204, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 500, f.GALE_TELEGRAPH),
+       f.sides_columns(_SidesImg, _sg, (219, 2904, 744, 2946), 204, f.TELEGRAPH)])
+check("sides_due: only a Gale Telegraph Saturday from 1999-10 refused no reading parses, read before the stamp",
+      [True, False, False],
+      [f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph2000UKEnglish/2000-12-29", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]}),
+       f.sides_due({"edition": "GaleTelegraph1999UKEnglish/1999-09-25", "readAt": "2026-11-09T04:55:18+00:00",
+                     "verdicts": [{"refused": "no reading parses"}]})])
+
+
 def checked_plan(paper, cache):
     kept = f.plan(paper, cache)
     with f.held_once():
