@@ -225,6 +225,35 @@ def listener_article(titles, number=None):
     return cands[0] if cands else None
 
 
+#: The Times Jumbo cryptic (Saturdays, and Bank Holiday weekdays) as Gale
+#: titles it: "Jumbo Crossword 129" (1997), "Jumbo crossword no 838" (2009),
+#: "Christmas Jumbo Crossword 141", OCR-misread ("Jumbo Crosswrd 140"). A row
+#: of kind JUMBO_KIND in TTDA, apart from the daily cryptic that crossword()
+#: still picks (it rejects "jumbo") and from the Listener article. Not its
+#: solution or winners, a competition or prize article ("Win GBP 100 in the
+#: May Day jumbo crossword"), the Concise or sports Jumbo, or Times Two's.
+JUMBO_KIND = "jumbo"
+MATCHER[JUMBO_KIND] = 1
+JUMBO_ARTICLE = re.compile(r"\bjumbo\b\W*(?:\w+\W+){0,2}?[cg]ro?s", re.IGNORECASE)
+JUMBO_NOT = re.compile(r"solution|winners|answers|report on|competition|\bwin\b|concise|sports|knowledge|quick|mini\b"
+                       r"|times ?(two|2)\b|\bt2\b|today's weather", re.IGNORECASE)
+
+
+def jumbo_article(titles, number=None):
+    """The index into `titles` of the Times Jumbo cryptic, or None: the one
+    naming `number` first, then a numbered title ("Jumbo Crossword 129")
+    before an unnumbered one."""
+    cands = [i for i, t in enumerate(titles) if JUMBO_ARTICLE.search(t) and not JUMBO_NOT.search(t)]
+    cands.sort(key=lambda i: not re.search(r"\d", titles[i]))
+    if number is not None:
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
+    return cands[0] if cands else None
+
+
+#: The finder of each kind of row in TTDA beside the daily cryptic.
+KINDS = {LISTENER_KIND: listener_article, JUMBO_KIND: jumbo_article}
+
+
 #: Documents known not to be the day's cryptic (one line each, last word the
 #: docId): never picked, and an entry naming one is looked up again.
 REJECTED = Path(__file__).with_name("gale_rejected.txt")
@@ -249,8 +278,8 @@ def stale(prod, e):
     Telegraph) a title with no puzzle number."""
     if str(e.get("doc", "")).upper() in REJECTED_DOCS:
         return True
-    if e.get("kind") == LISTENER_KIND:
-        return e.get("matcher", 0) < MATCHER[LISTENER_KIND] and "doc" not in e
+    if e.get("kind") in KINDS:
+        return e.get("matcher", 0) < MATCHER[e["kind"]] and "doc" not in e
     if e.get("matcher", 0) >= MATCHER[prod]:
         return False
     if "doc" not in e:
@@ -303,16 +332,16 @@ def entry(prod, dvi, number=None, find=None):
 
 def lookup(prod, day, gale, number=None, kind=None):
     """The entry for `day`, or {"why": ...} when Gale has no such crossword.
-    `kind` LISTENER_KIND: the Saturday Times' Listener article, its entry
-    marked with that kind."""
+    `kind` LISTENER_KIND: the Saturday Times' Listener article, JUMBO_KIND:
+    its Jumbo cryptic, the entry marked with that kind."""
     issues = gale.issues(prod, day)
     if not issues:
         return {"why": "Gale has no issue that day"}
     titles = []
     for i in issues:
         dvi = gale.issue(prod, i)
-        if kind == LISTENER_KIND:
-            e = entry(prod, dvi, find=lambda ts: listener_article(ts, number))
+        if kind in KINDS:
+            e = entry(prod, dvi, find=lambda ts: KINDS[kind](ts, number))
             e = e and {**e, "kind": kind}
         else:
             e = entry(prod, dvi, number)

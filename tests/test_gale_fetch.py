@@ -418,6 +418,8 @@ saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_mat
 saved_wanted = gale_listener.wanted
 gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
+import gale_jumbo
+gale_jumbo.wanted = lambda: []  # tested below
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
 gale_inbox.misfiled = lambda prod="TGRH": []  # it reads the media manifest, absent here
@@ -439,6 +441,20 @@ _sp = gf.plan(set(), 0)
 assert [r[:2] for r in _sp[:5]] == [("TTDA", D(2001, 1, 2)), ("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)),
                                     ("INDA", D(2016, 12, 25)), ("TGRH", D(2000, 1, 4))] or \
     [r[:2] for r in _sp[:5]][1:4] == [("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)), ("INDA", D(2016, 12, 25))], _sp
+# The Times Jumbo rows (kind "jumbo", their own cache key) come after the
+# Sunday papers' and before the Telegraph redo and other papers' rows.
+gale_jumbo.wanted = lambda: [D(2000, 2, 5), D(2000, 1, 29)]
+_jp = gf.plan(set(), 0)
+assert [r[:2] for r in _jp[1:7]] == [("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)), ("INDA", D(2016, 12, 25)),
+                                      ("TTDA", D(2000, 2, 5)), ("TTDA", D(2000, 1, 29)), ("TGRH", D(2000, 1, 4))], _jp
+assert _jp[4][3:] == (None, False, "jumbo"), _jp[4]
+docs["TTDA/jumbo/2000-02-05"] = {"doc": "JU1", "title": "Jumbo Crossword 269", "page": 38, "records": ["R"], "kind": "jumbo",
+                                 "matcher": gale_docs.MATCHER["jumbo"]}
+assert [r[:2] for r in gf.plan(set(), 0)].count(("TTDA", D(2000, 2, 5))) == 1
+assert ("TTDA", D(2000, 2, 5)) not in [r[:2] for r in gf.plan({"JU1"}, 0)], "a Jumbo page got is left out"
+del docs["TTDA/jumbo/2000-02-05"]
+assert gf.fetched_dir("TTDA", "jumbo", D(2000, 2, 5)) == gf.TIMES_JUMBO_DIR
+gale_jumbo.wanted = lambda: []
 gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
 assert ("INDA", D(2016, 12, 25), None) in gf.plan(set(), 0), "Sundays do not wait for the Times"
 gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
