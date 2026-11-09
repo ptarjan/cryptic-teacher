@@ -4351,6 +4351,65 @@ def sunday_times_headings(lines, titles=()):
 
 
 
+#: The Sunday Telegraph's title (Gale TGRH issue series 8RWB, 1961-2000): "Crossword No. 214", later "Two-in-One
+#: Crossword No 1,234"; never a winners entry's colon after the number. Its solution heading is the Sunday Times's
+#: ("Solution to Crossword No. 213").
+SUNDAY_TEL_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+telegraph\s+)?(?:two\W?in\W?one\s+)?(?:prize\s+)?"
+                              r"cr[o0]ss\W{0,3}w[o0]rd\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER
+                              + r"(?!\s*:)(.*)$", re.IGNORECASE)
+#: Dated Sunday Telegraph issue numbers, which drift from the week count: No 1 (5 February 1961), 214 (7 March
+#: 1965), 2060 (3 December 2000) and our first sundaytel file, No 2473 (1 March 2009; the Gale run ends with 2000,
+#: so no id here meets one of those).
+SUNDAY_TEL_ANCHORS = ((datetime.date(1961, 2, 5), 1), (datetime.date(1965, 3, 7), 214),
+                      (datetime.date(2000, 12, 3), 2060), (datetime.date(2009, 3, 1), 2473))
+#: The Independent on Sunday's title: "The Prize Crossword", "Beelzebub Prize Crossword No 954", "Sunday
+#: Crossword #955" (up to three words, the setter's name, before the kind). Its solution heading is the
+#: Independent's.
+INDY_SUNDAY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+on\s+sunday\s+)?(?:[A-Za-z']+\s+){0,3}?"
+                               r"(?:(?:sunday|prize|cryptic)\s+){0,2}cr[o0]ss\s?w[o0]rd\W{0,3}(?:puzzle\W{0,3})?"
+                               r"(?:n[o0]\W{0,3}|#)?\s*" + SMALL_NUMBER + r"(?!\s*:)(.*)$", re.IGNORECASE)
+#: Dated Independent on Sunday numbers: its first issue (28 January 1990) as No 1, "Beelzebub Prize Crossword
+#: No 954" (1 June 2008), and our first and latest indysunday files.
+INDY_SUNDAY_ANCHORS = ((datetime.date(1990, 1, 28), 1), (datetime.date(2008, 6, 1), 954),
+                       (datetime.date(2011, 3, 13), 1099), (datetime.date(2026, 10, 25), 1913))
+
+
+def weekly_anchored(pts, day):
+    """The number a date implies from dated (day, number) anchors in order, for a weekly paper: interpolated
+    between two, one a week outside them."""
+    if day <= pts[0][0] or day >= pts[-1][0]:
+        start, number = pts[0] if day <= pts[0][0] else pts[-1]
+        return number + round((day - start).days / 7)
+    (d0, n0), (d1, n1) = next((a, b) for a, b in zip(pts, pts[1:]) if day <= b[0])
+    return n0 + round((n1 - n0) * (day - d0).days / (d1 - d0).days)
+
+
+def sunday_tel_expected_number(day):
+    return weekly_anchored(SUNDAY_TEL_ANCHORS, day)
+
+
+def indy_sunday_expected_number(day):
+    return weekly_anchored(INDY_SUNDAY_ANCHORS, day)
+
+
+def sunday_tel_headings(lines, titles=()):
+    """titled_headings() of a Sunday Telegraph page, a title's number joined from the line under or beside it."""
+    return titled_headings(lines + joined_titles(lines, SUNDAY_TEL_TITLE.match, under=True),
+                           SUNDAY_TEL_TITLE, SUNDAY_TIMES_SOLUTION)
+
+
+def indy_sunday_headings(lines, titles=()):
+    """titled_headings() of an Independent on Sunday page, and each INDEPENDENT_BY_TITLE title ("Prize
+    Crossword by Beelzebub No 954")."""
+    puzzles, solutions = titled_headings(lines + joined_titles(lines, INDY_SUNDAY_TITLE.match, under=True),
+                                         INDY_SUNDAY_TITLE, INDEPENDENT_SOLUTION)
+    for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
+        m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
+        if m:
+            puzzles.append((number_digits(clue_text.zeros_read(m.group(1))), box_of(ws), None))
+    return puzzles, solutions
+
+
 #: The TLS's title: "TLS CROSSWORD 835" over its clues (an unbylined weekly
 #: prize puzzle), never its entry address's "TLS Crossword 835," or "The
 #: winner of Crossword 831". Its solution heading, four weeks on, under the
@@ -4544,13 +4603,23 @@ GALE_INDEPENDENT = Paper("galeindependent", "independent", re.compile(r"GaleInde
 GALE_SUNDAY_TIMES = Paper("galesundaytimes", "sundaytimes", re.compile(r"GaleSundayTimes((?:19|20)\d\d)UKEnglish$"),
                           "Sunday Times cryptic crossword No {:,}", sunday_times_expected_number,
                           sunday_times_headings, slack=SUNDAY_TIMES_SLACK)
+#: The Sunday papers inside two Gale archives (gale_inbox.SUNDAYS), items of their own; the Independent's
+#: regex needs digits after "GaleIndependent", so GaleIndependentSunday<year> is none of GALE_INDEPENDENT's.
+GALE_SUNDAY_TELEGRAPH = Paper("galesundaytelegraph", "sundaytel",
+                              re.compile(r"GaleSundayTelegraph((?:19|20)\d\d)UKEnglish$"),
+                              "Sunday Telegraph cryptic crossword No {:,}", sunday_tel_expected_number,
+                              sunday_tel_headings, slack=SUNDAY_TIMES_SLACK)
+GALE_INDY_SUNDAY = Paper("galeindysunday", "indysunday", re.compile(r"GaleIndependentSunday((?:19|20)\d\d)UKEnglish$"),
+                         "Independent on Sunday cryptic crossword No {:,}", indy_sunday_expected_number,
+                         indy_sunday_headings, slack=SUNDAY_TIMES_SLACK)
 GALE_TLS = Paper("galetls", "tls", re.compile(r"GaleTLS((?:19|20)\d\d)UKEnglish$"), "TLS crossword No {:,}",
                  tls_expected_number, tls_headings, slack=TLS_SLACK)
 #: The archive.org papers (coverage counts each series once, off these).
 PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
 FILERS = {**PAPERS, GALE.key: GALE, GALE_INDEPENDENT.key: GALE_INDEPENDENT,
-          GALE_SUNDAY_TIMES.key: GALE_SUNDAY_TIMES, GALE_TLS.key: GALE_TLS}
+          GALE_SUNDAY_TIMES.key: GALE_SUNDAY_TIMES, GALE_TLS.key: GALE_TLS,
+          GALE_SUNDAY_TELEGRAPH.key: GALE_SUNDAY_TELEGRAPH, GALE_INDY_SUNDAY.key: GALE_INDY_SUNDAY}
 #: The papers of the same series in other items whose editions a run of
 #: FILERS[key] reads too.
 ALSO = {TIMES.key: (TIMES_1930,), TELEGRAPH.key: (GALE_TELEGRAPH,), FT.key: (GALE_FT,)}
@@ -11282,7 +11351,10 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   "3c3bcd251675e071": "f6a3d293c491a4b0",
                   # PRINT_CLASSIFIED (a TIMES_1930 grid's cells classified): only grids of that print read with no
                   # cell classified read otherwise; due once as PRINTED_CELLS.
-                  "ef1346a335efda02": "f6a3d293c491a4b0"}
+                  "ef1346a335efda02": "f6a3d293c491a4b0",
+                  # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers, their title readers): the
+                  # Papers are reached by read_solution, no existing paper's reading moves.
+                  "dcddf269a45bb142": "17927db190a32678"}
 #: {solution key a ledger row holds: the solution_key() whose code reads the same answers}, for a key move
 #: that no pin caught before rows were written under the new key (a pin now would move solution_key()
 #: off the key those rows hold). c69c4949fce (10-26 14:13 MDT, a lint fix: recognisers()'s
@@ -11402,7 +11474,9 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 "e9f78925159d75ca": "33b18559064c9abc",
                 # PRINT_CLASSIFIED: likewise only a TIMES_1930 reading with no cell classified reads otherwise, and
                 # solved() reads such a kept one again (printed_stale).
-                "8fa313883283160c": "5f52f6e84d47ec3d"}
+                "8fa313883283160c": "5f52f6e84d47ec3d",
+                # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers): no existing paper's read moves.
+                "4237a057c8a24f5e": "050e93ff674ff62c"}
 
 
 def input_hash(d):
