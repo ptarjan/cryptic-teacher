@@ -6073,6 +6073,10 @@ def read_puzzle(d, found, hit, solutions, ocr_first=True):
     once, never again after that)."""
     _ANSWERS_TRIED.clear()
     verdict, puzzle = _read_puzzle(d, found, hit, solutions, ocr_first)
+    if isinstance(verdict, dict):
+        # read_page's private "_weak" (a set of lights) is read_puzzle's own: a later read_page its VLM fallbacks
+        # make (VLM down, "vlm 0") hands back a verdict still holding it, which the ledger cannot write as JSON.
+        verdict.pop("_weak", None)
     if _ANSWERS_TRIED.get("held") and isinstance(verdict, dict) and not verdict.get("answersOnly"):
         verdict["answersTried"] = True
     return verdict, puzzle
