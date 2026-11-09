@@ -458,7 +458,7 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
     (which clears a year dir's strays) never sees it half done; the rename
     moves it in whole."""
     import tempfile
-    item = ITEM if prod == "TTDA" else OTHERS[prod].item
+    item = ITEM if prod == "TTDA" else other_of(prod, day).item
     url = DOC_URL.format(doc) if prod == "TTDA" else gale_docs.PERMALINK.format(doc=doc, prod=prod)
     d = cache / item.format(day.year) / day.isoformat()
     name = f"GALE_{doc}.pdf"
@@ -686,6 +686,30 @@ OTHERS = {
 }
 
 
+#: The Sunday papers inside two of those archives, each an issue series of
+#: its own (Gale mcode 8RWB in TGRH, 6NAH in INDA), laid out under items of
+#: their own for the filer's sundaytel / indysunday papers. The issue number
+#: is the puzzle number, but it drifts from the week count (Sunday Telegraph
+#: No 1 is 1961-02-05, No 214 1965-03-07, No 2060 2000-12-03; "Beelzebub
+#: Prize Crossword No 954" is 2008-06-01), so rows go by date. Sunday papers
+#: do print on Christmas Day.
+SUNDAYS = {
+    "TGRH": Other("sundaytel", range(1961, 2001), ((6,), "1961-02-05"), "Sunday Telegraph",
+                  "GaleSundayTelegraph{}UKEnglish"),
+    "INDA": Other("indysunday", range(1990, 2017), ((6,), "1990-01-28"), "Independent on Sunday",
+                  "GaleIndependentSunday{}UKEnglish"),
+}
+
+
+SUNDAY_SERIES = {o.series for o in SUNDAYS.values()}
+
+
+def other_of(prod, day):
+    """The Other `day` of Gale product `prod` belongs to: its Sunday paper
+    (SUNDAYS) on a Sunday, else OTHERS[prod]."""
+    return SUNDAYS[prod] if prod in SUNDAYS and day.weekday() == 6 else OTHERS[prod]
+
+
 def printed(other, until):
     """The dates `other` printed through `until`: archive_coverage's, or
     its own printed days (Christmas Day never)."""
@@ -695,25 +719,28 @@ def printed(other, until):
     weekdays, first = other.printed
     d = datetime.date.fromisoformat(first)
     while d <= until:
-        if d.weekday() in weekdays and (d.month, d.day) != (12, 25):
+        if d.weekday() in weekdays and ((d.month, d.day) != (12, 25) or other.series in SUNDAY_SERIES):
             yield d
         d += datetime.timedelta(days=1)
 
 
 def other_wanted(prod, today=None, laid=None):
-    """[date] of each edition of OTHERS[prod] in its Gale years with no
-    puzzle filed and none laid out (the EDITIONS manifest), newest first."""
-    other = OTHERS[prod]
+    """[date] of each edition of OTHERS[prod] (and of its SUNDAYS paper) in
+    its Gale years with no puzzle filed and none laid out (the EDITIONS
+    manifest): the Sundays first (a few thousand), each newest first."""
     today = today or datetime.datetime.now().astimezone().date()
-    filed = archive_coverage.corpus(other.series)[0]
     laid = set(editions()) if laid is None else laid
     out = []
-    for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
-        if d.year not in other.years or d.isoformat() in filed:
-            continue
-        if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
-            out.append(d)
-    return out[::-1]
+    for other in [SUNDAYS[prod]] * (prod in SUNDAYS) + [OTHERS[prod]]:
+        filed = archive_coverage.corpus(other.series)[0]
+        days = []
+        for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
+            if d.year not in other.years or d.isoformat() in filed:
+                continue
+            if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
+                days.append(d)
+        out += days[::-1]
+    return out
 
 
 def misfiled(prod="TGRH", laid=None):

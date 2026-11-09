@@ -321,15 +321,17 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     return body
 
 
-def fetched_dir(prod, kind=None):
+def fetched_dir(prod, kind=None, day=None):
     """The Mac folder product `prod`'s downloaded PDFs are kept in (the
-    Saturday Times' Listener articles, kind "listener": their own)."""
+    Saturday Times' Listener articles, kind "listener": their own; a
+    Sunday `day` of TGRH or INDA: the Sunday paper's)."""
     import gale_inbox
     if kind == gale_docs.LISTENER_KIND:
         return TIMES_LISTENER_DIR
     if prod == "TTDA":
         return FETCHED_DIR
-    return f"{GALE_ROOT}/{LISTENER if prod == 'LSNR' else gale_inbox.OTHERS[prod].folder}/Fetched"
+    folder = LISTENER if prod == "LSNR" else (gale_inbox.other_of(prod, day) if day else gale_inbox.OTHERS[prod]).folder
+    return f"{GALE_ROOT}/{folder}/Fetched"
 
 
 def prod_of(url):
@@ -554,7 +556,7 @@ def file_page(body, prod, day, doc, e):
     """Keep the PDF on the Mac and lay it out as issue `day`'s: a
     Listener page for its reader (a report's entry carries its issue's
     "day"), any other as that date's edition."""
-    put(body, f"GALE_{doc}.pdf", fetched_dir(prod, e.get("kind")))
+    put(body, f"GALE_{doc}.pdf", fetched_dir(prod, e.get("kind"), day))
     if e.get("kind") == gale_docs.LISTENER_KIND:
         # Not that date's edition (the daily crossword's) nor a magazine
         # page: only kept, and so, with no local layout, nothing to guard

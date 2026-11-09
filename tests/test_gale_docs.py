@@ -167,6 +167,18 @@ check("a Telegraph competition article an older matcher picked is stale, its num
        gd.stale("TGRH", {"doc": "x", "title": "Crossword / 21,053", "matcher": 2}),
        gd.stale("TGRH", {"doc": "x", "title": "How to Crack the Cryptic Crossword and Win \u00a35,000",
                          "matcher": gd.MATCHER["TGRH"]})])
+# The Sunday papers inside TGRH and INDA: their titles count as numbered, and
+# the citation names the Sunday paper on a Sunday.
+check("the Sunday Telegraph's numbered title is a numbered crossword", [True, True, False],
+      [gd.numbered("Crossword No. 214"), gd.numbered("Two-in-One Crossword No. 2060"),
+       gd.numbered("How to Crack the Cryptic Crossword and Win \u00a35,000")])
+check("a Sunday Telegraph crossword title is picked", 1, gd.crossword("TGRH", ["Letters", "Crossword No. 214"]))
+check("so is the Beelzebub", 0, gd.crossword("INDA", ["Beelzebub Prize Crossword No 954", "Quick Crossword"]))
+_cite = lambda prod, day: urllib.parse.unquote(dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.download_url(
+    prod, day, {"doc": "X1", "title": "Crossword No. 214", "page": 26, "records": ["r"]})).query))["citationTextJson"])
+check("the citation names the Sunday paper on a Sunday only", [True, True, True],
+      ["Sunday Telegraph, 7 Mar. 1965" in _cite("TGRH", D(1965, 3, 7)), "Daily Telegraph, 6 Mar. 1965" in _cite("TGRH", D(1965, 3, 6)),
+       "Independent on Sunday, 1 June 2008" in _cite("INDA", D(2008, 6, 1))])
 # The Saturday Times' Listener article: its own kind, picked from the issue's
 # contents, apart from the daily crossword (which still rejects it).
 check("the Listener article among a Saturday's titles", [1, None, None, 1],
