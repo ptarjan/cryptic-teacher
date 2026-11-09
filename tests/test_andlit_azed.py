@@ -144,6 +144,9 @@ print("chambers", repr(A.CHAMBERS.sub("", "The Chambers Dictionary (2003) is rec
       repr(A.CHAMBERS.sub("", "The Chambers Dictionary (2003) is recommended but lacks 30.")))
 print("lost-bracket", A.entry_of((1, "across"), "You can’t —— that! 6)", {})["enumeration"],
       A.entry_of((1, "across"), "Alert and savvy (11, 3 words, apostrophe)", {})["clue"])
+print("apos-count", [A.entry_of((1, "across"), t, {})["enumeration"] for t in (
+    "Minor peer is briefly in hospital (5, apostrophe)", "A yob presiding over bar (10, 3 words, apos-trophe)")],
+    A.entry_of((1, "across"), "A yob presiding over bar (10, 3 words, apos-trophe)", {})["clue"])
 print("overprint", [r[4] for r in A.overprinted_once([(0, 1, 2, 7, "2 Latent"), (0, 1, 2, 7, "2 Latent From the"), (0, 1, 2, 7, "x"), (0, 1, 2, 7, "x")])])
 blanked = dict(stored, clues=dict(voted, **{"2-down": ["", "3"]}))
 print("scan-blank", A.assemble(1800, A.scan_copy(blanked), "u", None, None, "Plain")[1])
@@ -283,6 +286,8 @@ check('the Chambers line goes only when it is a whole sentence',
       "'Ten clues are odd.' 'The Chambers Dictionary (2003) is recommended but lacks 30.'", line('chambers'))
 check("a count's lost bracket and an apostrophe count are read",
       '6 Alert and savvy (11, three words, apostrophe)', line('lost-bracket'))
+check("an apostrophe count without its words, or hyphenated across a line, is read",
+      "['5', '10'] A yob presiding over bar (10, three words, apostrophe)", line('apos-count'))
 check('bold overprints are kept once',
       "['2 Latent From the', 'x']", line('overprint'))
 check('a scan with a clue unagreed is held',

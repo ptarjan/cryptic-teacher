@@ -724,18 +724,21 @@ LOOSE_WORDS = re.compile(r"\(\s*(\d{1,2})\s*,\s*\d\s+words?\s+or\s+\d\s*\)\s*$")
 #: A PDF text layer is exact, so "6)" is a lost "(" ; a scan's "12)" may be 12 or 2, which clue_text.mend_count refuses.
 LOST_BRACKET = re.compile(r"\s(\d{1,2}(?:[,\-]\s?\d{1,2})*)\)\s*$")
 #: "(11, 3 words, apostrophe)": Azed's own print notation.
-APOSTROPHE_COUNT = re.compile(r"\((\d{1,2}),\s*(\d)\s*words?,\s*apostrophe\)\s*$")
+APOSTROPHE_COUNT = re.compile(r"\((\d{1,2}),\s*(?:(\d)\s*words?,\s*)?apostrophe\)\s*$")
 
 
 def entry_of(key, text, answers):
     """A clue record as tools/azed_puzzles.py's parser writes one."""
     text = LOOSE_WORDS.sub(r"(\1)", text)
+    text = re.sub(r"(?i)\bapos-\s?trophe\)\s*$", "apostrophe)", text)     # the line broke "apos-trophe"
     # A count whose "(" the PDF's text lost: "You can’t —— that! 6)".
     if not ENUM_END.search(text):
         text = LOST_BRACKET.sub(r" (\1)", text)
     apos = APOSTROPHE_COUNT.search(text)
     m = azed_puzzles.FIGURE_WORDS.search(text)
-    if apos and int(apos.group(2)) in azed_puzzles.SPELT:
+    if apos and not apos.group(2):
+        enum = apos.group(1)    # "(5, apostrophe)": the count, its words not printed
+    elif apos and int(apos.group(2)) in azed_puzzles.SPELT:
         text = (f"{text[:apos.start()].rstrip()} ({apos.group(1)}, "
                 f"{azed_puzzles.SPELT[int(apos.group(2))]} words, apostrophe)")
         enum = apos.group(1)
