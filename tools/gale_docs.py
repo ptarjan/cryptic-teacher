@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 7, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
+MATCHER = {"TTDA": 8, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -432,15 +432,19 @@ def near_pages(prod, day, docs):
 
 
 def text_candidates(arts, pages):
-    """Up to TEXT_LOOKUPS of articles `arts` to read: those on `pages`
-    (untitled or masthead-titled first, then the longer), then any other
-    untitled or masthead-titled one."""
+    """Up to TEXT_LOOKUPS of articles `arts` to read, best first: one whose
+    title names a crossword the title matcher rejects ("Jumbo crossword
+    winners", the winners article that prints the puzzle, 1971-04-15 p.30),
+    then those on `pages` (nearest page first; untitled or masthead-titled
+    ones, then the longer), then any other untitled or masthead-titled one."""
     def bare(a):
         return bool(MASTHEAD.search(a["docTitle"] or ""))
-    on = sorted((a for a in arts if int(a["startingPage"]) in pages),
-                key=lambda a: (pages.index(int(a["startingPage"])), not bare(a), -int(a.get("pageCount") or 1)))
-    rest = [a for a in arts if bare(a) and a not in on]
-    return (on + rest)[:TEXT_LOOKUPS]
+    def rank(a):
+        p = int(a["startingPage"])
+        return (not TIMES_KIND.search(a["docTitle"] or ""), pages.index(p) if p in pages else len(pages),
+                not bare(a), -int(a.get("pageCount") or 1))
+    pool = [a for a in arts if int(a["startingPage"]) in pages or bare(a) or TIMES_KIND.search(a["docTitle"] or "")]
+    return sorted(pool, key=rank)[:TEXT_LOOKUPS]
 
 
 def text_entry(prod, day, dvis, gale, docs=None):
