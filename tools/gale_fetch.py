@@ -113,6 +113,10 @@ PROBE_EVERY, PROBE_MAX = 1800.0, 48
 #: Errors in a row (network, 5xx, a write to the Mac) before it stops;
 #: each one waits BACKOFF * its number first.
 MAX_ERRORS = 3
+#: Seconds to wait after each successive lookup answered HTTP 5xx (a Gale
+#: outage, not a fault of ours: 5, 10, 20, 40, 45 min, two hours in all)
+#: before the run stops and alerts; a lookup that answers resets the count.
+OUTAGE_WAITS = (300, 600, 1200, 2400, 2700)
 BACKOFF = 60.0
 #: With no row left to fetch: wait this long for a sync to move the list,
 #: at most IDLE_MAX times in a row, then end.
@@ -319,6 +323,11 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     if bad:
         raise Stop(f"{day} ({doc}) came back as {bad[0]}", refused=bad[1], head=body[:300])
     return body
+
+
+def outage_of(ex):
+    """Whether lookup error `ex` is Gale answering HTTP 5xx: an outage to wait out."""
+    return isinstance(ex, urllib.error.HTTPError) and 500 <= ex.code < 600
 
 
 def fetched_dir(prod, kind=None, day=None):
@@ -707,7 +716,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
 
     lookup_of = lookup_of or real_lookup
     got_of = got_of or have_docs
-    n, errors, idle = 0, 0, 0
+    n, errors, idle, outages = 0, 0, 0, 0
     same = None  # (doc) while every error in the streak is a 5xx on that one document
     pending = None  # the doc skipped as broken, until a later download succeeds
     while limit is None or n < limit:
@@ -735,6 +744,14 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 try:
                     e = lookup_of(prod, day, *ask)
                 except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
+                    if outage_of(ex):
+                        outages += 1
+                        log(f"{day}: lookup {type(ex).__name__}: {ex} (Gale outage {outages}/{len(OUTAGE_WAITS)})")
+                        if outages > len(OUTAGE_WAITS):
+                            raise Stop(f"Gale answered 5xx for {sum(OUTAGE_WAITS) // 60} min, the last a lookup's {ex}")
+                        gale = None
+                        pacer.sleep(OUTAGE_WAITS[outages - 1])
+                        break
                     errors += 1
                     same = False
                     log(f"{day}: lookup {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
@@ -743,6 +760,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                     gale = None
                     pacer.sleep(BACKOFF * errors)
                     break
+                outages = 0
                 if "doc" not in e:
                     log(f"{day}: {e.get('why')}")
                     continue
