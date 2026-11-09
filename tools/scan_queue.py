@@ -476,11 +476,28 @@ REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
 
 
-#: {path: (stat key, bytes consumed, digest of them, rows)}: a file's parsed
-#: rows. Unchanged (inode, size, mtime_ns): reused. Grown: the bytes already
-#: consumed are re-hashed (cheap) and, if they match, only the appended
-#: lines are parsed (the live ledgers are appended to all the time).
+#: {path: (stat key, bytes consumed, digest of their ends, rows, lines consumed)}:
+#: a file's parsed rows. Unchanged (inode, size, mtime_ns): reused. Grown, same
+#: inode: the first and last PARSED_EDGE bytes of what was consumed are hashed
+#: again and, if they match, only the appended bytes are read and parsed (the
+#: live ledgers are appended to all the time). It used to read and hash the
+#: whole file on every append: 109 MB from /Volumes for each of the ~1600
+#: request_reread calls in clue_cutoff.gate while a filer was appending, and on
+#: 11-08 the burn's --backlog sat 40+ minutes in it at nice 19.
 _PARSED = {}
+PARSED_EDGE = 1 << 16
+
+
+def _edges(f, size):
+    """blake2b of the first and last PARSED_EDGE bytes of f's first `size` bytes."""
+    h = hashlib.blake2b(str(size).encode())
+    f.seek(0)
+    h.update(f.read(min(size, PARSED_EDGE)))
+    if size > PARSED_EDGE:
+        start = max(PARSED_EDGE, size - PARSED_EDGE)
+        f.seek(start)
+        h.update(f.read(size - start))
+    return h.digest()
 
 
 def _parsed(path):
@@ -493,22 +510,24 @@ def _parsed(path):
             hit = _PARSED.get(path)
             if hit and hit[0] == key:
                 return hit[3]
+            done, rows, lines = 0, (), 0
+            if hit and hit[0][0] == key[0] and hit[1] <= st.st_size and _edges(f, hit[1]) == hit[2]:
+                done, rows, lines = hit[1], hit[3], hit[4]
+            f.seek(done)
             data = f.read()
+            size = done + len(data)
+            chunk = data[:data.rfind(b"\n") + 1]
+            end = done + len(chunk)
+            name = Path(path).name  # once: built per line it was 6s of a 96MB cold read
+            new = tuple(r for n, line in enumerate(chunk.split(b"\n"), lines + 1) if line.strip()
+                        for r in parse_line(line, (name, n)))
+            digest = _edges(f, end)
     except FileNotFoundError:
         _PARSED.pop(path, None)
         return ()
-    done, rows = 0, ()
-    if hit and hit[1] <= len(data) and hit[0][0] == key[0] \
-            and hashlib.blake2b(data[:hit[1]]).digest() == hit[2]:
-        done, rows = hit[1], hit[3]
-    end = data.rfind(b"\n") + 1
-    first = data.count(b"\n", 0, done) + 1
-    name = Path(path).name  # once: built per line it was 6s of a 96MB cold read
-    new = tuple(r for n, line in enumerate(data[done:end].split(b"\n"), first) if line.strip()
-                for r in parse_line(line, (name, n)))
     rows = rows + new
-    _PARSED[path] = (key if len(data) == st.st_size else (key[0], -1, 0), end,
-                     hashlib.blake2b(data[:end]).digest(), rows)
+    _PARSED[path] = (key if size == st.st_size else (key[0], -1, 0), end, digest, rows,
+                     lines + chunk.count(b"\n"))
     return rows
 
 
