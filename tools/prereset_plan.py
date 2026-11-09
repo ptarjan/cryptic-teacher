@@ -160,13 +160,13 @@ RESET_SPAN_S = 30 * 86400
 MANUAL_DROP = 20.0
 NATURAL_SLACK_S = 3600  # a drop this near resets_at is the natural reset
 PLAN_SHARE = 0.8
-# Resets never rushed into (11-03 17:30, the last of 15 left: "we don't want to need
-# one"). A rush spends the meter to RUSH_TARGET flat out, at ~12 points an hour 24
-# wide in Annotate, so with 11.6h to the natural reset it would lock every room out
-# from ~22:00 ABT unless the last reset were spent. Owner 11-04: "In general I want them all
-# burned when they are available and I'm awake to do it": none is kept back, so the last
-# one rushes too and the room is woken (only while he is awake) to reset when it is full.
-MANUAL_RESERVE = 0
+# Manual resets kept back: never rushed into, never planned on. History: 11-03 17:30 kept the
+# last of 15 ("we don't want to need one"); 11-04 spent them all ("In general I want them all
+# burned when they are available and I'm awake to do it"). Owner 11-08: "Let's always aim to
+# have one reset available. So only burn if there are two or more." So one is always held: the
+# burn rushes the meter (and wakes the room to reset) only with two or more free, and with one
+# or none it paces the meter to the natural reset, the held one left for him to use by hand.
+MANUAL_RESERVE = 1
 PACIFIC = awake.PACIFIC
 # Lockout safety (owner 11-01: "try to know when I'm awake so you don't lock me
 # out when I'm sleeping"). Unless the plan fills the meter before his next
@@ -375,6 +375,13 @@ def reset_slots(resets, now, until, allowed=MANUAL_RESETS, span=RESET_SPAN_S):
     return free + later
 
 
+def spendable(slots, reserve=None):
+    """The slots the burn may plan on: all but the last MANUAL_RESERVE, which stay
+    the owner's (11-08: "always aim to have one reset available")."""
+    keep = MANUAL_RESERVE if reserve is None else reserve
+    return list(slots[:max(0, len(slots) - keep)])
+
+
 def steepest(start, done, total, corners, until):
     """The fastest rate (points an hour) a schedule must reach to spend
     `total` by `until`, having spent `done` at `start` and at most U by each
@@ -419,12 +426,14 @@ def abt(epoch):
 def rush_choice(left, until):
     """(rush, words) for `left` manual resets free now and the natural reset at
     `until` (owner 11-03: "spend any resets we have so rush when we have one and
-    don't when we don't"), the last MANUAL_RESERVE kept unspent. Words are the status line's: "rushing, 2 of 15 manual
-    resets left" or "pacing to Wed 04:00 ABT reset, 0 of 15 manual resets left"."""
+    don't when we don't"), the last MANUAL_RESERVE kept unspent (11-08: rush only with two or
+    more free). Words are the status line's: "rushing; 2 of 15 manual resets left" or
+    "pacing to Wed 04:00 ABT reset; 1 of 15 manual resets left; 1 kept in reserve"."""
     tally = f"{left} of {MANUAL_RESETS} manual resets left"
     if left > MANUAL_RESERVE:
         return True, f"rushing; {tally}"
-    return False, f"pacing to {abt(until)} reset; {tally}"
+    held = f"; {min(left, MANUAL_RESERVE)} kept in reserve" if left and MANUAL_RESERVE else ""
+    return False, f"pacing to {abt(until)} reset; {tally}{held}"
 
 
 def auto_rush(home, left, until, now):
@@ -950,7 +959,7 @@ def show_resets():
     used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     natural = natural_only(_read(home / NATURAL_ONLY), now)
-    slots = [] if natural else reset_slots(used, now, until)
+    slots = [] if natural else spendable(reset_slots(used, now, until))
     bridge, rate = bridge_spend()
     rate = capped_rate(rate, per_run_rate((_read(home / ".prereset.debug.log") or "").splitlines()))
     cap = capacity_rate(mem_cap(_read("/proc/meminfo"), burn_rss_kb()), rate, bridge)
@@ -1045,7 +1054,7 @@ def width(arg=None, floor=1):
             until = now + hours_left * 3600
             used = manual_resets(_read(weekly_usage.SAMPLE_CSV_PATH), now - RESET_SPAN_S)
             natural = natural_only(_read(home / NATURAL_ONLY), now)
-            slots = [] if natural else reset_slots(used, now, until)
+            slots = [] if natural else spendable(reset_slots(used, now, until))
             plan = reset_plan(pct, now, until, slots, capacity_rate(mem, rate, bridge), sleep)
             if plan[0]:
                 aim_h = max(AIM_MIN_H, (plan[1] - now) / 3600)
@@ -1352,9 +1361,11 @@ def width_self_test():
     if not re.fullmatch(r"Wed \d\d:00 ABT", abt(when)):
         print(f"FAIL abt() = {abt(when)!r}, want 'Wed HH:00 ABT'", file=sys.stderr)
         bad += 1
+    # 11-08: one reset is always held back, so the rush needs two free.
     for left, want in [(0, (False, f"pacing to {abt(when)} reset; 0 of 15 manual resets left")),
-                       (1, (True, "rushing; 1 of 15 manual resets left")),
-                       (2, (True, "rushing; 2 of 15 manual resets left"))]:
+                       (1, (False, f"pacing to {abt(when)} reset; 1 of 15 manual resets left; 1 kept in reserve")),
+                       (2, (True, "rushing; 2 of 15 manual resets left")),
+                       (3, (True, "rushing; 3 of 15 manual resets left"))]:
         got = rush_choice(left, when)
         if got != want:
             print(f"FAIL rush_choice({left}) = {got!r}, want {want!r}", file=sys.stderr)

@@ -46,6 +46,14 @@
 # never as well — see daily_update.sh's header.
 
 set -uo pipefail
+# A closed pipe must never end the burn. Its output goes through a tee into
+# tools/burn_log.py; on 11-08 04:30 a deploy took that pipeline down first and
+# the burn's next echo died of SIGPIPE ("plugin cryptic-prereset: exited -13"),
+# skipping the EXIT trap. Trapped, a broken write is an error message instead,
+# and log_pipe_check reopens the pipeline. A trapped signal is reset to the
+# default in every program this shell starts, so their pipes behave as before.
+LOG_PIPE_LOST=0
+trap 'LOG_PIPE_LOST=1' PIPE
 # Two logs in the main checkout. .prereset.debug.log gets everything the burn and its fires
 # print (the planner reads its meter lines); .prereset.log is the human one, written from
 # the same stream by tools/burn_log.py: a line per puzzle and a status line. A fire's own
@@ -144,13 +152,36 @@ rm -f "$RUNS/.width_said"  # a new process says its width once
 # the same thing on both. Every mktemp below is written this way.
 # A re-exec keeps the log and the tee its output already goes to.
 # The human-log filter (tools/burn_log.py) reads the same stream; the old one ends with its pipe.
+# tee -p (GNU) keeps writing the files when the filter's pipe closes, rather than
+# dying of it and taking the burn's stdout with it; the filter is restarted when
+# it crashes, and ends only on a clean EOF. TEE_PID is what log_pipe_check watches.
+TEE_P=""
+tee -p </dev/null >/dev/null 2>&1 && TEE_P="-p"
+TEE_PID=""
 tee_split() {
   if [ -n "$DEBUG_LOG" ]; then
     export BURN_SPLIT=1
-    exec > >(tee -a "$RUN_LOG" "$DEBUG_LOG" >(python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG" "$REPO") >/dev/null) 2>&1
+    exec > >(tee $TEE_P -a "$RUN_LOG" "$DEBUG_LOG" >(
+      while :; do
+        python3 "$REPO/tools/burn_log.py" "$HUMAN_LOG" "$REPO" && break
+        rc=$?
+        echo "$(date '+%F %H:%M') burn_log.py exited $rc; restarting it" >>"$DEBUG_LOG"; sleep 5
+      done) >/dev/null) 2>&1
   else
-    exec > >(tee -a "$RUN_LOG") 2>&1
+    exec > >(tee $TEE_P -a "$RUN_LOG") 2>&1
   fi
+  TEE_PID=$!
+  LOG_PIPE_LOST=0
+}
+# Reopens the log pipeline when a write hit a closed pipe or its tee is gone
+# (killed, or crashed): the burn and its runs carry on, and only the lines in
+# between are lost. Called at every turn of the pool's loop.
+log_pipe_check() {
+  local st
+  st=$(ps -o stat= -p "${TEE_PID:-0}" 2>/dev/null)
+  [ "$LOG_PIPE_LOST" = 0 ] && [ -n "$st" ] && [[ $st != Z* ]] && return 0
+  tee_split
+  echo "=== $(date '+%F %H:%M') the log pipe was closed under the burn (tee ${st:-gone}); reopened it, the burn carries on ==="
 }
 if [ -n "$REEXEC_STATE" ]; then
   RUN_LOG="${REEXEC_STATE%.state}"
@@ -320,10 +351,24 @@ fi
 # the republish, the smoke test — is not worth running hourly for nothing.
 if [ -z "$REEXEC_STATE" ]; then
 weekly_now=$(python3 tools/weekly_usage.py 2>/dev/null)
+# Not a death: this fire ends, and the plugin's next one, five minutes on, asks
+# the meter again, so the burn starts by itself the minute the week (or a manual
+# reset) gives it room. A fire is the waiting here, and it survives what a
+# sleeping process would not: a deploy, a restart, an OOM kill. It is said in the
+# human log (fd 3, the plugin's log) on the first spent fire and then hourly, so
+# the log shows the burn waiting rather than dead (11-08: 14 silent hours read as
+# "the burn died").
+SPENT_SAID="$RUNS/.spent_said"
 if [ -n "$weekly_now" ] && awk -v n="$weekly_now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
   echo "weekly window is spent (${weekly_now}%) — nothing to do until it resets in ${resets_in}h"
+  if [ "$DRY_RUN" != 1 ] && [ $(( $(date +%s) - $(cat "$SPENT_SAID" 2>/dev/null || echo 0) )) -ge 3600 ]; then
+    printf '%s ── paused: weekly %s%% used, resets in %.0fh · checking again every 5 minutes, starts by itself when there is room\n' \
+      "$(TZ=America/Edmonton date +%H:%M)" "$weekly_now" "$resets_in" >&3
+    date +%s >"$SPENT_SAID"
+  fi
   exit 0
 fi
+rm -f "$SPENT_SAID"
 echo "weekly window at ${weekly_now:-?}%, resets in ${resets_in}h — spending until then"
 
 # The burn's lane in its room's status, for as long as this process lives. The
@@ -1069,6 +1114,7 @@ run_pool() {
     pool_interval_start
   fi
   while :; do
+    log_pipe_check
     if [ "$stop" = 0 ] && past_deadline; then
       if [ -e "$PRERESET_PAUSE" ]; then echo "paused ($PRERESET_PAUSE) — stopping"; else echo "deadline reached — stopping"; fi
       stop=1
