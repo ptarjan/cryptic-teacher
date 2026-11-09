@@ -1127,6 +1127,10 @@ CLUES_ABOVE_SPAN = (800, 1700)
 #: may lie under the title's foot, and SIDES_LEFT the least the left column's width as a share of the
 #: grid's, both at SCAN_WIDTH.
 SIDES_BAND, SIDES_LEFT = 150, 0.3
+#: Where the gutter between a Sunday Telegraph page's ACROSS and DOWN columns, both right of the grid, lies as a
+#: share of the grid's width beyond its right edge (1993-11-14 and 12-05: ACROSS 972-1320, DOWN from 1347, grid
+#: 229-949: 0.53); sunday_gutter() moves it to the least crossed run once the lines are read.
+SUNDAY_GUTTER = 0.53
 
 
 def sides_columns(img, grid, title, x0, paper, right_of=False):
@@ -1139,7 +1143,8 @@ def sides_columns(img, grid, title, x0, paper, right_of=False):
     k = img.width / SCAN_WIDTH
     gw = grid[2] - grid[0]
     if right_of and grid[0] < SUNDAY_SIDES_LEFT * gw and grid[1] - title[3] <= SIDES_BAND * k:
-        return 0, (min(img.width, int(grid[2] + 5 + gw + 60)),), min(img.height, int(grid[3] + 1.8 * gw))
+        return 0, (min(img.width, int(grid[2] + 5 + gw + 60)), int(grid[2] + SUNDAY_GUTTER * gw)), \
+            min(img.height, int(grid[3] + 1.8 * gw))
     if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
         return None
     return x0, (grid[2] + 5 + (grid[0] - 5 - x0) + 60,), min(img.height, int(grid[3] + 1.8 * gw))
@@ -1174,6 +1179,20 @@ def first_clue_set(text):
     return "\n".join(out)
 
 
+def sunday_gutter(lines, grid, sides):
+    """The x between the ACROSS and DOWN columns right of a SUNDAY_RIGHT grid: the middle of the longest run in
+    [0.35, 0.75] of the grid's width beyond its right edge that the fewest words (`lines`) of the columns' rows
+    cross, SUNDAY_GUTTER's when no word is read there."""
+    gx0, gy0, gx1, _ = grid
+    gw = gx1 - gx0
+    if not any(w for ws in lines for w in ws if w[0] > gx1):
+        return sides[1][1], gy0 - LEFT_RISE
+    # The columns open on their ACROSS or DOWN heading: the adverts over them (a gap over GAP) end a column there.
+    heads = [w[1] for ws in lines for w in ws if w[0] > gx1 and heading_of(w[4]) in ("ACROSS", "DOWN")]
+    top = max(gy0 - LEFT_RISE, min(heads) - 10) if heads else gy0 - LEFT_RISE
+    return gutter(lines, (gx1, sides[2], gx1, sides[2]), top, gx1 + 0.35 * gw, gx1 + 0.75 * gw), top
+
+
 def sunday_left(grid):
     """The x where the Sunday Telegraph's left clue column starts, from its grid (SUNDAY_SIDES_LEFT)."""
     return max(0, int(grid[0] - SUNDAY_SIDES_LEFT * (grid[2] - grid[0])))
@@ -1200,7 +1219,7 @@ def sunday_sides_due(row):
 #: grid 224-953, the ACROSS list from x 975), both clue columns right of it, and the crop the left column's mirror
 #: ended at 1238, cutting the DOWN list. 11-09 tally of the 1993-94 rereads that ended: 8 of 14 such. Once.
 SUNDAY_RIGHT = "Gale Sunday Telegraph page refused no reading parses, its clue columns right of its grid read since"
-REREAD_SUNDAY_RIGHT = "2026-11-09T20:30:00+00:00"
+REREAD_SUNDAY_RIGHT = "2026-11-09T20:40:00+00:00"
 
 
 def sunday_right_due(row):
@@ -1382,6 +1401,10 @@ def windows_of(grid, third=None, margin=40, above=None, left=None, split=None, l
     if left:
         x0, split, _ = left
         if isinstance(split, tuple):
+            if len(split) > 1:
+                # SUNDAY_RIGHT's page: both columns right of the grid, split at split[1], the second ending at split[0].
+                top = split[2] if len(split) > 2 else gy0 - LEFT_RISE
+                return [(gx1 + 5, split[1], split[1], top), (split[1], split[0], split[0], top)]
             # SIDES_BAND's page: the across column left of the grid, the down column right of it, ending at split[0].
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE), (gx1 + 5, split[0], split[0], gy0 - LEFT_RISE)]
         if split is None:
@@ -10246,6 +10269,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
         left = left_columns(every, gbox)
     elif sides:
         left = sides
+        if len(sides[1]) > 1:
+            left = (sides[0], (sides[1][0], *sunday_gutter(every, gbox, sides)), sides[2])
     elif column:
         left = column
     if lead:
