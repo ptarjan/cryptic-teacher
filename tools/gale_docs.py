@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 6, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
+MATCHER = {"TTDA": 7, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -384,16 +384,101 @@ def entry_of(a, pages):
     return {"doc": a["docId"], "title": a["docTitle"], "page": first, "records": records}
 
 
-def lookup(prod, day, gale, number=None, kind=None):
+#: A Times article whose title does not name the crossword: none, or the
+#: paper's own masthead ("The Saturday Times", "The Times"): a whole-page
+#: article of scanned text, which may hold the crossword (2000-02-05 p.32).
+MASTHEAD = re.compile(r"^\W*(?:no\s+title|untitled|(?:the\W+)?(?:saturday\W+|weekend\W+)?times)?\W*$", re.IGNORECASE)
+#: Lookups of viewer pages per issue, and the weeks either side of a day whose
+#: found crossword names the page to try first.
+TEXT_LOOKUPS = 3
+NEAR_WEEKS = 6
+#: A line of an article's scanned text that is the Times' cryptic's title with
+#: its five-digit number ("THE TIMES CROSSWORD NO 21,331"), or its solution
+#: notice (TIMES_SOLUTION: "Solution to Puzzle No 21,330").
+TEXT_PUZZLE = re.compile(r"^\W*(?:the\W+)?(?:times\W+)?" + CROSSWORD_OCR + r"\W*(?:puzzle\W*)?(?:no\b\.?\W*)?\d{2}[,.]?\d{3}\b",
+                         re.IGNORECASE)
+TEXT_SOLUTION = TIMES_SOLUTION
+
+
+def viewer_text(body):
+    """The lines of scanned text on a Gale viewer page ("fullTexts" in its
+    data), [] when it carries none."""
+    i = body.find('"fullTexts":')
+    if i < 0:
+        return []
+    try:
+        v, _ = json.JSONDecoder().raw_decode(body, i + len('"fullTexts":'))
+    except ValueError:
+        return []
+    return [t for t in v if isinstance(t, str)]
+
+
+def text_is_crossword(lines):
+    """Whether scanned `lines` hold a numbered Times cryptic title or the
+    notice of an earlier puzzle's solution."""
+    return any(len(t) < 80 and (TEXT_PUZZLE.search(t) or TEXT_SOLUTION.search(t)) for t in lines)
+
+
+def near_pages(prod, day, docs):
+    """The pages the nearest found issues on `day`'s weekday had their
+    crossword on, nearest first (NEAR_WEEKS weeks either side)."""
+    out = []
+    for w in range(1, NEAR_WEEKS + 1):
+        for sign in (-1, 1):
+            e = docs.get(f"{prod}/{day + datetime.timedelta(weeks=sign * w)}")
+            if e and "doc" in e and e.get("page") not in out:
+                out.append(e["page"])
+    return out
+
+
+def text_candidates(arts, pages):
+    """Up to TEXT_LOOKUPS of articles `arts` to read: those on `pages`
+    (untitled or masthead-titled first, then the longer), then any other
+    untitled or masthead-titled one."""
+    def bare(a):
+        return bool(MASTHEAD.search(a["docTitle"] or ""))
+    on = sorted((a for a in arts if int(a["startingPage"]) in pages),
+                key=lambda a: (pages.index(int(a["startingPage"])), not bare(a), -int(a.get("pageCount") or 1)))
+    rest = [a for a in arts if bare(a) and a not in on]
+    return (on + rest)[:TEXT_LOOKUPS]
+
+
+def text_entry(prod, day, dvis, gale, docs=None):
+    """The entry of the article whose scanned text reads as the crossword,
+    among a few candidates of the issues `dvis` that the contents index did
+    not name (see text_candidates), or None. Each is one viewer-page request in
+    `gale`'s session: not downloads, so outside the download cap."""
+    if prod != "TTDA":
+        return None
+    if docs is None:
+        docs = load()
+    pages = near_pages(prod, day, docs)
+    seen, n = set(), 0
+    for dvi in dvis:
+        arts = [a for a in articles(dvi["originalDocument"].get("articleTableOfContents"))
+                if str(a["docId"]).upper() not in REJECTED_DOCS and a["docId"] not in seen]
+        by_page = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
+        for a in text_candidates(arts, pages)[:TEXT_LOOKUPS - n]:
+            n += 1
+            seen.add(a["docId"])
+            if text_is_crossword(viewer_text(gale.get(prod, page_url(prod, a["docId"])))):
+                e = entry_of(a, by_page)
+                if e:
+                    return {**e, "title": "Crossword", "how": "text search"}
+    return None
+
+
+def lookup(prod, day, gale, number=None, kind=None, docs=None):
     """The entry for `day`, or {"why": ...} when Gale has no such crossword.
     `kind` LISTENER_KIND: the Saturday Times' Listener article, JUMBO_KIND:
     its Jumbo cryptic, the entry marked with that kind."""
     issues = gale.issues(prod, day)
     if not issues:
         return {"why": "Gale has no issue that day"}
-    titles = []
+    titles, dvis = [], []
     for i in issues:
         dvi = gale.issue(prod, i)
+        dvis.append(dvi)
         if kind in KINDS:
             e = entry(prod, dvi, find=lambda ts: KINDS[kind](ts, number))
             e = e and {**e, "kind": kind}
@@ -402,6 +487,10 @@ def lookup(prod, day, gale, number=None, kind=None):
         if e:
             return e
         titles += [a["docTitle"] for a in articles(dvi["originalDocument"].get("articleTableOfContents"))]
+    if kind not in KINDS:
+        e = text_entry(prod, day, dvis, gale, docs)
+        if e:
+            return e
     return {"why": "no crossword in the issue's contents", "crosswordish": [t for t in titles if "ross" in t.lower()]}
 
 
