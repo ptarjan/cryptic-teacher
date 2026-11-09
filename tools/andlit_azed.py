@@ -659,13 +659,19 @@ def pdf_preamble(runs, lines, size, xs, ys):
 
 def split_numbers(printed, starts):
     """{cell: number}. Two cell numbers side by side can come out of the
-    text as one string ("89" on 8's cell where 9 starts the next): such a
-    string is split when the grid's own numbering reads it so and the next
-    cell holds no number of its own."""
+    text as one string ("89" on 8's cell where 9 starts the next), or as the
+    digits split across the two cells ("91" and "0" for 9 and 10): such strings
+    are taken as the grid's numbers when the grid's own numbering reads so and
+    the next cell holds no number of its own."""
     out = {}
-    for (y, x), t in printed.items():
+    for (y, x), t in sorted(printed.items()):
+        if (y, x) in out:
+            continue
         a, b = starts.get((y, x)), starts.get((y, x + 1))
-        if a is not None and b is not None and t == f"{a}{b}" and (y, x + 1) not in printed:
+        nxt = printed.get((y, x + 1))
+        if a is not None and b is not None and t == f"{a}{b}" and nxt is None:
+            out[(y, x)], out[(y, x + 1)] = a, b
+        elif a is not None and b is not None and nxt is not None and t + nxt == f"{a}{b}":
             out[(y, x)], out[(y, x + 1)] = a, b
         else:
             out[(y, x)] = int(t)
@@ -1047,7 +1053,10 @@ def assemble(number, copy, url, date, post, kind=""):
     lights = rg.light_cells(grid)
     starts = {cells[0]: n for (n, _d), cells in lights.items()}
     printed = split_numbers({k: str(v) for k, v in copy["printed"].items()}, starts)
-    if printed != starts:
+    # A text copy that prints no cell numbers at all (1808-15) is checked by its
+    # clue list instead: each light's number in order and its count against the
+    # light's length (the enumeration check below).
+    if printed != starts and (copy["printed"] or "lines" not in copy):
         return None, "numbers-differ", f"{len(set(printed.items()) ^ set(starts.items()))} cells"
     if "clues" in copy and not copy["clues"]:
         return None, "scan-no-clues", ""
