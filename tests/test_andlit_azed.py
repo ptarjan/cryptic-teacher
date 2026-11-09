@@ -56,6 +56,10 @@ for stroked in (True, False):
     grid, xs, ys = A.read_bars(A.segments(ops))
     print(f"bars-{'stroked' if stroked else 'filled'}", "/".join(grid))
 
+# A copy that draws no vertical of its own for the left frame edge (1775) still reads.
+ops = lattice_ops(40, 100, 20, 0.5, [("r", 1, 2)], True)[4:]     # the first vertical is the left edge
+print("noedge", "/".join(A.read_bars(A.segments(ops))[0]))
+
 # Cell numbers that came out of the text as one string are split as the grid reads them.
 starts = {(0, 0): 1, (0, 8): 8, (0, 9): 9}
 print("split", sorted(A.split_numbers({(0, 0): "1", (0, 8): "89"}, starts).items()))
@@ -242,6 +246,7 @@ def line(key):
     return ""
 
 
+check('PDF grid whose left frame edge is not drawn', '....../..r.../....../....../....../......', line('noedge'))
 check('PDF bars, stroked, beside a smaller grid',
       '....../..r.../....../....b./....../......', line('bars-stroked'))
 check('PDF bars, filled rectangles',

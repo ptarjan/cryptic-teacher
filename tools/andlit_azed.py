@@ -339,6 +339,23 @@ def _even(positions):
     return positions if pitch > 6 and all(abs(g - pitch) < 0.15 * pitch for g in gaps) else None
 
 
+def _frame(positions, lo, hi):
+    """The lattice `positions` reaching the span lo..hi at both ends, or None.
+    A frame edge a copy never draws as a line of its own (1775's left edge)
+    is added, one pitch beyond the end the crossing lines reach to."""
+    pitch = (positions[-1] - positions[0]) / (len(positions) - 1)
+    out = list(positions)
+    if abs(lo - out[0]) > 3:
+        if abs(lo - (out[0] - pitch)) > 3:
+            return None
+        out.insert(0, out[0] - pitch)
+    if abs(hi - out[-1]) > 3:
+        if abs(hi - (out[-1] + pitch)) > 3:
+            return None
+        out.append(out[-1] + pitch)
+    return out
+
+
 def lattice(segs):
     """(xs, ys, thickness) of the page's largest grid: the set of full-length
     thin lines, vertical and horizontal, evenly spaced and spanning each other."""
@@ -359,13 +376,14 @@ def lattice(segs):
             continue
         for o2, w2, lo2, hi2, pos2 in groups:
             ys = _even(lp._cluster(pos2, 0.8)) if o2 == "h" else None
-            if not ys or abs(lo2 - xs[0]) > 3 or abs(hi2 - xs[-1]) > 3:
+            if not ys:
                 continue
-            if abs(lo - ys[0]) > 3 or abs(hi - ys[-1]) > 3:
+            xs_, ys_ = _frame(xs, lo2, hi2), _frame(ys, lo, hi)
+            if not xs_ or not ys_:
                 continue
-            area = (xs[-1] - xs[0]) * (ys[-1] - ys[0])
+            area = (xs_[-1] - xs_[0]) * (ys_[-1] - ys_[0])
             if best is None or area > best[0]:
-                best = (area, xs, ys, round(min(w, w2), 2))
+                best = (area, xs_, ys_, round(min(w, w2), 2))
     return best and best[1:]
 
 
