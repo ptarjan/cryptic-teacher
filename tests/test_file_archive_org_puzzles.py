@@ -450,7 +450,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._DAY_HEADING_FIX[gt.key][:2],
                                                                       *f._CHAMPIONSHIP_FIX[gt.key][:2],
                                                                       *f._INSET_GRID_FIX[gt.key][:2],
-                                                                      *f._LONE_TITLE_FIX[gt.key][:2]},
+                                                                      *f._LONE_TITLE_FIX[gt.key][:2],
+                                                                      *f._JOINED_TITLE_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3504,8 +3505,20 @@ check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off
        19417 in f.hosted({"date": "1993-12-27", "item": "GaleTimes1993UKEnglish", "puzzles": [{"number": 19423, "leaf": 0}],
                           "solutions": [{"number": 19417, "leaf": 0}]}, {19417: D("1993-12-18"), 19422: D("1993-12-24")}),
        f.hosts_of(D("1993-12-27"))[-1:]))
+# The Sunday Times's key moved on 11-08 (the winners box's "Crossword No. 3530:" no title, e21a365e3ee) with no pin,
+# its older scans stale: the joined-title fix pins over that key, not the lone-title fix's.
+_UNPINNED = {"galesundaytimes"}
+
+
+def _final(paper):
+    """The scan key a pinned key of `paper` (a key of its key) stands in for: the joined-title fix's where it moved
+    the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's."""
+    return f._JOINED_TITLE_FIX[paper][2] if paper in f._JOINED_TITLE_FIX and paper not in _UNPINNED \
+        else f._LONE_TITLE_FIX[paper][2]
+
+
 _gk = f._PRIZE_HEADINGS_FIX["gale"]
-_mon = {"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
+_mon ={"edition": "GaleTimes2009UKEnglish/2009-08-17", "scanKey": _gk[0], "filesHash": "h", "scan": {}}
 _tue = {**_mon, "edition": "GaleTimes2009UKEnglish/2009-08-18"}
 check("a Gale Monday of the 2000s scanned before the prize headings is due again; its Tuesday, and a scan "
       "by the new code, stand", [False, True, True],
@@ -3518,7 +3531,7 @@ check("a Gale Times day of mid-2005 to mid-2006 scanned before the wider SOLUTIO
       [f.scan_current(_wide, "h"), f.scan_current({**_wide, "edition": "GaleTimes2004UKEnglish/2004-09-06"}, "h"),
        f.scan_current({**_wide, "edition": "GaleTimes2007UKEnglish/2007-09-05"}, "h"),
        f.scan_current({**_wide, "scanKey": f.scan_key(f.GALE)}, "h"),
-       all(f.CORPUS_KEYS[v[0]] == {p: f._LONE_TITLE_FIX[p][2]} for p, v in f._GRID_CAP_FIX.items())])
+       all(f.CORPUS_KEYS[v[0]] == {p: _final(p)} for p, v in f._GRID_CAP_FIX.items())])
 _gk2 = f._GRID_CAP_FIX["gale"]
 _wide2 = {"edition": "GaleTimes2005UKEnglish/2005-11-02", "scanKey": _gk2[0], "filesHash": "h", "scan": {}}
 check("a Gale Times day of 2005-05 to 2006-09 scanned before the solution grid's cap grew with the page is due "
@@ -3540,12 +3553,21 @@ check("every paper's pinned scan key after the grid cap fix is the one the negat
        all(v[2] == f._CHAMPIONSHIP_FIX[k][0] for k, v in f._DAY_HEADING_FIX.items()),
        all(v[2] == f._INSET_GRID_FIX[k][0] for k, v in f._CHAMPIONSHIP_FIX.items()),
        all(v[2] == f._LONE_TITLE_FIX[k][0] for k, v in f._INSET_GRID_FIX.items()),
-       all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
-           for k, v in f._LONE_TITLE_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: f._LONE_TITLE_FIX[k][2]}
+       all(v[2] == (f._JOINED_TITLE_FIX[k][0] if k in f._JOINED_TITLE_FIX and k not in _UNPINNED else
+                    f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k)))
+           for k, v in f._LONE_TITLE_FIX.items() if k not in _UNPINNED),
+       all(f.CORPUS_KEYS[o] == {k: _final(k)}
            for t in (f._GRID_CAP_FIX, f._NEG_EXPECTED_FIX, f._DOT_LEADER_FIX, f._DAY_HEADING_FIX, f._CHAMPIONSHIP_FIX,
                      f._INSET_GRID_FIX, f._LONE_TITLE_FIX)
            for k, v in t.items() for o in v[:2])])
+check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sunday Times over the lone-title key, "
+      "each pinned key its real scan key's; no other paper's key moved; their old keys stand under it",
+      [True, True, True, True],
+      [all(v[0] == f._LONE_TITLE_FIX[k][2] for k, v in f._JOINED_TITLE_FIX.items() if k not in _UNPINNED),
+       all(v[2] == f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs))
+                                   if p.key == k)) for k, v in f._JOINED_TITLE_FIX.items()),
+       sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
+       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
 # An untitled Gale Times page of INSET_YEARS scanned before inset_grid: its scan stale, due INSET_GRID once;
 # one with a title, a verdict, or scanned by the new code stands; a 1975 one is not INSET_GRID's (LONE_TITLE's).
 _ik = f._INSET_GRID_FIX["gale"]
@@ -4614,6 +4636,113 @@ check("prose with a crossword in it and no number is no title", [],
 check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True, False],
       [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
        for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
+
+# The FT from No 10,000 (Feb 1999): five-digit numbers ("No.10,116 Set by DANTE"); the Gale FT's title word and its
+# number's line standing tight (2008), a column apart (2004), or the word lost (2000): gale_ft_headings.
+check("an FT title and solution heading of five digits, as read ('No.10.116' for 10,116)", ([10116, 12654], [10115]),
+      ([n for n, _, _ in f.ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380)])[0]]
+       + [n for n, _, _ in f.ft_headings([line("Crossword", 542, 4406), line("No. 12,654 Set by DANTE", 442, 4430)])[0]],
+       [n for n, _ in f.ft_headings([line("Solution 10,115", 1438, 4843)])[1]]))
+_tight = [line("Crossword", 542, 4406), line("No. 12,654 Set by DANTE", 442, 4410)]
+_aside = [line("Crossword", 1300, 4443), line("No.11,416 Set by DOGBERRY", 1800, 4450)]
+_lost = [line("No.10,208 Set by CINEPHILE", 2717, 3308)]
+check("a Gale FT title word whose number's line starts over its foot (2008), stands a column right (2004) or is "
+      "the only line (2000): found by gale_ft_headings, not ft_headings; the setter read",
+      ([], [12654], [], [11416], [], [10208], ["Dante", "Dogberry", "Cinephile"]),
+      ([n for n, _, _ in f.ft_headings(_tight)[0]], [n for n, _, _ in f.gale_ft_headings(_tight)[0]],
+       [n for n, _, _ in f.ft_headings(_aside)[0]], [n for n, _, _ in f.gale_ft_headings(_aside)[0]],
+       [n for n, _, _ in f.ft_headings(_lost)[0]], [n for n, _, _ in f.gale_ft_headings(_lost)[0]],
+       [s for t in (_tight, _aside, _lost) for _, _, s in f.gale_ft_headings(t)[0]]))
+check("a Gale FT title read both ways is one title; a box over both its lines, the word's span; solutions kept",
+      ([10116], [10115], True),
+      ([n for n, _, _ in f.gale_ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380),
+                                             line("Solution 10,115", 1438, 4843)])[0]],
+       [n for n, _ in f.gale_ft_headings([line("CROSSWORD", 2780, 3360), line("No.10.116 Set by DANTE", 2744, 3380),
+                                          line("Solution 10,115", 1438, 4843)])[1]],
+       f.gale_ft_headings(_tight)[0][0][1][1] == 4406))
+check("a Gale FT Saturday's \"Crossword 12.675 SET BY CINCINNUS\" is the title of 12,675 by Cincinnus; the winners' "
+      "\"Crossword 12.664: Mrs M Malkin, Scotby\" is none",
+      ([(12675, "Cincinnus")], []),
+      ([(n, s) for n, _, s in f.gale_ft_headings([line("Crossword 12.675 SET BY CINCINNUS", 1985, 2649)])[0]],
+       f.gale_ft_headings([line("Crossword 12.664: Mrs M Malkin, Scotby, Cumbria", 141, 4826)])[0]))
+check("a number with no setter line, a setter line with no number, a number far from the word are no Gale FT title",
+      [[], [], []],
+      [[n for n, _, _ in f.gale_ft_headings(ls)[0]]
+       for ls in ([line("No. 12,654 reasons to buy", 442, 4430)], [line("Set by DANTE", 442, 4430)],
+                  [line("No. 5 Set by DANTE", 442, 4430)])])
+
+# The Gale Telegraph's title from 1990: "CROSSWORD" and its number a column apart (to ~Mar 1991), "PRIZE CROSSWORD /
+# 20,508" on Saturday, "Crossword No 23,246" from ~Sep 2000; never the Quick Crossword or a far-off number.
+_tg = [n for n, _, _ in f.gale_telegraph_headings([line("CROSSWORD", 211, 2616), line("20,238", 700, 2612)])[0]]
+check("a Gale Telegraph banner's number a column right of CROSSWORD on its row joins it; its box starts at the word",
+      ([20238], 211),
+      (_tg, f.gale_telegraph_headings([line("CROSSWORD", 211, 2616), line("20,238", 700, 2612)])[0][0][1][0]))
+check("a Gale Telegraph Saturday's PRIZE CROSSWORD banner, and the 2000 \"Crossword No 23,246\"",
+      [[20508], [21500], [23246], [23246]],
+      [[n for n, _, _ in f.gale_telegraph_headings([line(t, 483, 2605)])[0]]
+       for t in ("PRIZE CROSSWORD / 20,508", "PRIZE CROSSWORD /21,500", "Crossword No 23,246", "CROSSWORD NO. 23,246")])
+check("the Quick Crossword, a number past JOIN_REACH, a number over the word and the Telegraph's own prize heading "
+      "are no Gale Telegraph title",
+      [[], [], [], []],
+      [[n for n, _, _ in f.gale_telegraph_headings(ls)[0]]
+       for ls in ([line("QUICK CROSSWORD", 672, 4344), line("20,238", 1200, 4340)],
+                  [line("CROSSWORD", 100, 100), line("20,238", 3000, 100)],
+                  [line("CROSSWORD", 100, 100), line("20,238", 300, 60)],
+                  [line("TELEGRAPH prize crossword", 954, 4188), line("20,238", 1400, 4188)])])
+check("an old Telegraph \"No. 15,301 ACROSS\" title and a Saturday's PRIZE title read on one page stand together",
+      [15301, 20508],
+      sorted(n for n, _, _ in f.gale_telegraph_headings([line("No. 15,301 ACROSS", 237, 3247),
+                                                          line("PRIZE CROSSWORD / 20,508", 483, 2605)])[0]))
+
+# The Gale Independent's 2008 to early 2010 title: "The Wednesday Crossword by Dac" and "No 6828, 3 September 2008" a
+# column apart, or "The Saturday Prize Crossword by Bannsider #7010 4 April 2009" ("701o"); never the Concise.
+_ind = [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)]
+check("a Gale Independent weekday title joined to its number's line, the Saturday prize one on a line (last digit "
+      "read o), the old \"Crossword No 1,234\" still read",
+      [[6828], [7010], [1234]],
+      [[n for n, _, _ in f.independent_headings(ls)[0]]
+       for ls in (_ind, [line("The Saturday Prize Crossword by Bannsider #701o 4 April 2009", 192, 1537)],
+                  [line("Crossword No 1,234", 100, 100)])])
+check("an Independent Concise Crossword by a setter, a title with its number past reach and one with no number are "
+      "no title", [[], [], []],
+      [[n for n, _, _ in f.independent_headings(ls)[0]]
+       for ls in ([line("Concise Crossword by Phi", 196, 2047), line("No 6828, 3 September 2008", 700, 2048)],
+                  [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 3000, 2048)],
+                  [line("The Wednesday Crossword by Dac", 196, 2047)])])
+
+# The Gale Sunday Times's 1987-92 title: "THE SUNDAY TIMES Crossword" over "No 3217" (a line of its own).
+_sun = [line("THE SUNDAY TIMES Crossword", 2088, 2496), line("No 3217", 2159, 2520), line("Solution to No 3216", 2753, 3657)]
+check("a Gale Sunday Times title joined to the line of its number under it, the solution heading kept; one numbered "
+      "on its own line is one title",
+      ([3217], [3216], [3217]),
+      ([n for n, _, _ in f.sunday_times_headings(_sun)[0]], [n for n, _ in f.sunday_times_headings(_sun)[1]],
+       [n for n, _, _ in f.sunday_times_headings([line("THE SUNDAY TIMES Crossword No 3217", 2088, 2496)])[0]]))
+check("a Sunday Times Concise Crossword over a number, and a title with its number lines below, are no title",
+      [[], []],
+      [[n for n, _, _ in f.sunday_times_headings(ls)[0]]
+       for ls in ([line("Concise Crossword", 2088, 2496), line("No 3217", 2159, 2520)],
+                  [line("THE SUNDAY TIMES Crossword", 2088, 2496), line("No 3217", 2159, 2700)])])
+
+# An untitled Gale FT, Telegraph, Independent or Sunday Times page scanned before the headings parsers joined
+# titles (any key before _JOINED_TITLE_FIX): its scan stale, due HEADINGS_JOINED once, rank 1.
+_hj = {"edition": "GaleTelegraph1990UKEnglish/1990-04-24", "scanKey": f._JOINED_TITLE_FIX["galetelegraph"][0],
+       "filesHash": "h", "inputs": "h", "scan": {"date": "1990-04-24", "item": "GaleTelegraph1990UKEnglish",
+                                                  "puzzles": [], "solutions": []}}
+_hj_ft = {**_hj, "edition": "GaleFT2004UKEnglish/2004-01-02", "scanKey": f._JOINED_TITLE_FIX["galeft"][0]}
+check("an untitled, verdict-less Gale Telegraph or FT scan from before the joined titles is due HEADINGS_JOINED "
+      "(its scan stale, rank 1); a titled one, one with a verdict, a failed one, one by the new code, the "
+      "archive.org FT's and a Gale Times page stand",
+      [False, f.HEADINGS_JOINED, False, f.HEADINGS_JOINED, 1, True, True, False, True, False, False, True],
+      [f.scan_current(_hj, "h"), f.fix_reason(_hj), f.scan_current(_hj_ft, "h"), f.fix_reason(_hj_ft),
+       f.RANKS[f.HEADINGS_JOINED],
+       f.scan_current({**_hj, "scan": {**_hj["scan"], "puzzles": [{"number": 19986, "leaf": 0}]}}, "h"),
+       f.scan_current({**_hj, "verdicts": [{"number": 19986}]}, "h"),
+       f.joined_rescan({**_hj, "scan": {**_hj["scan"], "failed": "x"}}),
+       f.scan_current({**_hj, "scanKey": f.scan_key(f.GALE_TELEGRAPH)}, "h"),
+       f.joined_rescan({**_hj, "edition": "FinancialTimes1998UKEnglish/1998-03-04", "scanKey": f._JOINED_TITLE_FIX["ft"][0]}),
+       f.joined_rescan({**_hj, "edition": "GaleTimes1982UKEnglish/1982-07-21"}),
+       f.scan_current({**_hj, "edition": "FinancialTimes1998UKEnglish/1998-03-04",
+                       "scanKey": f._JOINED_TITLE_FIX["ft"][0]}, "h")])
 
 # The Guardian: "Guardian Crossword No 20,538" over "Set by Rufus" (1990s),
 # "CROSSWORD 17,101" (1980s); the solution label under its grid; the Quick
