@@ -428,6 +428,25 @@ check('a light the full review skips is clued from the hints post for the same p
       captured(snippet_34))
 
 
+def snippet_intro_setter():
+    import parse_bigdave44 as pb
+    say = lambda text, series="telegraph": pb.intro_setter(text.split("\n"), series)
+    print("|".join(str(x) for x in (
+        say("Hints and tips by Mr K\nA gentle Rufus puzzle to start the week\n1a Clue (5)"),
+        say("An easy puzzle from Jay today\nAcross"),
+        say("Not a RayT puzzle, said the blogger, who thought it a Giovanni puzzle"),
+        say("A Rufus puzzle, or a puzzle from Dada?"),
+        say("Ray T is our setter today"),
+        say("A gentle Rufus puzzle", "toughie"),
+        say("Zzz\n1a This Rufus puzzle starts in the clues"),
+        say("The Silvanus puzzle in the clue list", "sundaytel"))))
+
+
+check('the blogger names the rota setter in his opening: one name, the Telegraph series only, nothing from the clues',
+      'Rufus|Jay|None|None|Ray T|None|None|Silvanus',
+      captured(snippet_intro_setter))
+
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

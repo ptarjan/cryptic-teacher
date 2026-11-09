@@ -140,6 +140,42 @@ def series_and_number(post, heading):
     return None, None
 
 
+#: The rota of the Telegraph's daily and Sunday cryptics, which the paper does not
+#: print but the blogger names in his opening ("a gentle Rufus puzzle"). Only
+#: these: a name a post drops in passing (a clue's setter, a comparison) is not
+#: this puzzle's. The key is how a blogger spells it, the value the setter's name.
+INTRO_SETTERS = {
+    "Jay": "Jay", "Dada": "Dada", "Giovanni": "Giovanni", "Ray T": "Ray T",
+    "RayT": "Ray T", "Rufus": "Rufus", "Cephas": "Cephas", "Campbell": "Campbell",
+    "Virgilius": "Virgilius", "Chalicea": "Chalicea", "Shamus": "Shamus",
+    "Twmbarlwm": "Twmbarlwm", "Zandio": "Zandio", "proXimal": "proXimal",
+    "ProXimal": "proXimal", "Logman": "Logman", "Petitjean": "Petitjean",
+    "Robyn": "Robyn", "Silvanus": "Silvanus", "Hudson": "Hudson",
+}
+_INTRO_NAME = "|".join(sorted(map(re.escape, INTRO_SETTERS), key=len, reverse=True))
+#: "<Name> puzzle", "puzzle from/by <Name>", "<Name> is our setter".
+INTRO_BYLINE = (
+    re.compile(rf"\b({_INTRO_NAME})(?:['’]s)?\s+(?:puzzle|crossword|offering|production|cryptic|back-pager|creation|effort)\b"),
+    re.compile(rf"\b(?:puzzle|crossword|offering|setter|setting|cryptic)\s+(?:today\s+)?(?:is\s+)?(?:from|by|of)\s+({_INTRO_NAME})\b"),
+    re.compile(rf"\b({_INTRO_NAME})\s+(?:is|was|has been)\s+(?:our|the|today.s)\s+(?:setter|compiler)\b"))
+#: The blogger's opening, up to the first clue.
+INTRO_CHARS = 2500
+
+
+def intro_setter(rendered, series):
+    """The one rota setter the blogger names in his opening of a Daily or Sunday
+    Telegraph post, or None for none or several. The paper prints none, so this
+    is the blog's word: across the 5,500 daily posts it falls on the paper's
+    weekday rota (Wednesdays are Jay's, Thursdays Ray T's, Fridays Giovanni's).
+    The Toughies are bylined and are never read this way."""
+    if series not in ("telegraph", "sundaytel"):
+        return None
+    text = " ".join(rendered)
+    text = re.split(r"\b1a\b|\bAcross\b", text)[0][:INTRO_CHARS]
+    found = {INTRO_SETTERS[m.group(1)] for pattern in INTRO_BYLINE for m in pattern.finditer(text)}
+    return found.pop() if len(found) == 1 else None
+
+
 def setter_of(post, rendered, cats):
     """The setter the post names, or None."""
     for i, ln in enumerate(rendered[:6]):
@@ -153,7 +189,10 @@ def setter_of(post, rendered, cats):
     named = {re.sub(r"\s*\(Sunday\)$", "", cats[c]["name"]) for c in post.get("categories", ())
              if c in cats and cats[c]["parent"] in SETTER_PARENTS}
     named = {n for n in named if not NOT_A_SETTER.search(n)}
-    return named.pop() if len(named) == 1 else None
+    if len(named) == 1:
+        return named.pop()
+    series, _ = series_and_number(post, rendered[0] if rendered else "")
+    return intro_setter(rendered, series)
 
 
 def published_on(rendered):
