@@ -55,5 +55,18 @@ new, _ = C.clear(q, {"1-across", "1-down", "2-down"})
 check("a file left with none of ours loses its model detail", "model" not in new["solutions"]
       and "printed" not in new["solutions"])
 
+# PRINTED_FIT: a light tagged in solutions.check (FIT_TAG) stands on printed crossings alone and is not cleared.
+t = puzzle()
+t["solutions"]["printed"] = {}
+archive.set_fit_lights(t["solutions"], {"2-down"})
+check("the tag names the light and reads back", archive.fit_lights(t["solutions"]) == {"2-down"}
+      and t["solutions"]["check"].endswith(archive.FIT_TAG + "2-down"))
+weak = C.weak_lights(t, standing=lambda *a: False)
+check("a PRINTED_FIT light is left where the others cross blanks", "2-down" not in weak and "1-down" in weak)
+new, _ = C.clear(t, {"1-down", "1-across"})
+check("the tag stays on a light that stands; a cleared light's tag goes", archive.fit_lights(new["solutions"]) == {"2-down"})
+archive.set_fit_lights(t["solutions"], set())
+check("no lights, no tag", archive.FIT_TAG not in t["solutions"]["check"])
+
 print("FAILED" if fails else "ok")
 raise SystemExit(1 if fails else 0)
