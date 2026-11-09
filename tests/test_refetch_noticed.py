@@ -15,7 +15,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent.parent / "tools"
 os.chdir(TOOLS)
-import _path  # noqa: F401 (puts tools/ on sys.path)
+import _path  # puts tools/ on sys.path
 tmp = Path(tempfile.mkdtemp())
 os.environ["HOME"] = str(tmp / "home")
 os.environ["CT_DOWNLOADS"] = str(tmp / "media")
