@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 6, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 6, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 3, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -215,8 +215,9 @@ def numbered(title):
 #: "Crossmord", "Crosswork", "Crosssword", "Crossoword", "Crossw0rd", "Crossworo",
 #: "Crosswor" (found 2026-10-21 on dates whose contents then read as no crossword).
 #: ("Corssword" too: the letters of "Cross" swapped, 2004-04-02; "Cossword",
-#: its "r" lost, 1936-02-06; "Crcssword", its "o" read "c", 1968-08-10.)
-CROSSWORD_OCR = r"(?:[cg]r?[o0c]s{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd|[cg]orss-?w[oa]rd)"
+#: its "r" lost, 1936-02-06; "Crcssword", its "o" read "c", 1968-08-10;
+#: "Crassword", 1978-06-27; "Crosword", an "s" lost, 2003-12-27.)
+CROSSWORD_OCR = r"(?:[cg]r?[o0ca]s{1,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd|[cg]orss-?w[oa]rd)"
 #: Page 2's (or 1's) "The Times Today ... Crossword: 22" contents line, which
 #: names the crossword's page: never the crossword itself, but its page when
 #: the crossword's own article is untitled or misspelt beyond reading
@@ -233,6 +234,9 @@ TIMES_TODAY = re.compile(r"\btimes?\W+today\b", re.IGNORECASE)
 #: "crossword"/"puzzle" ("Solution to No 3549 Why?").
 TIMES_SOLUTION = re.compile(r"^\W*solution\W+(?:of|to)\W+(?:yesterday'?s\W+)?(?:the\W+)?(?:times\W+)?(?:puzzle|"
                             + CROSSWORD_OCR + r")\W*(?:puzzle\W*)?(?:no\b\.?\W*)?\d{2}[,.]?\d{3}\W*$", re.IGNORECASE)
+#: The Sunday Times cryptic's title as OCR left it with "Cross" lost: "The
+#: Sunday Times Word" (1998-02-08, its No 3742 and the solution to 3741).
+STHA_WORD = re.compile(r"^\W*the\W+sunday\W+times\W+word\W*$", re.IGNORECASE)
 #: A title that may name the Times' crossword (TTDA's KIND).
 TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
 
@@ -362,6 +366,9 @@ def entry(prod, dvi, number=None, find=None, sunday=False):
         k = next((i for i, t in enumerate(titles) if TIMES_SOLUTION.search(t)), None)
         e = entry_of(arts[k], pages) if k is not None else None
         return {**e, "how": "solution's page"} if e else None
+    if k is None and prod == "STHA" and not find:
+        # Its cryptic's title with "Cross" lost to OCR (1998-02-08: No 3742).
+        k = next((i for i, t in enumerate(titles) if STHA_WORD.search(t)), None)
     if k is None:
         return None
     return entry_of(arts[k], pages)
