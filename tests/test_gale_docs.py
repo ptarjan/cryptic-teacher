@@ -142,6 +142,28 @@ d04 = D(2004, 4, 8)
 g04 = FakeGale({d04: issue([("The Times Today: page2. crossword: 22. The Register.", 1, 1), ("The Times", 21, 1)])})
 check("no crossword article: the contents line's page", ("Crossword", 22),
       (lambda e: (e["title"], e["page"]))(gd.lookup("TTDA", d04, g04)))
+# No crossword article nor contents line: the page of the solution to the last
+# cryptic, which the Times prints on the cryptic's page (1983's Saturdays,
+# 2003-12-27 index their crossword page only by it).
+d83, d03 = D(1983, 1, 15), D(2003, 12, 27)
+g83 = FakeGale({d83: issue([("Today's events", 22, 1), ("Solution of Puzzle No 16,022", 22, 1),
+                            ("Concise Crossword (No 152)", 23, 1), ("Bridge", 24, 1)]),
+                d03: issue([("The Listener Crossword No 3754 by Apex", 10, 1), ("T2 Crossword No 3159", 11, 1),
+                            ("Jumbo Crossword 500", 12, 1), ("Solution to yesterday's crossword 22,544", 20, 1)])})
+check("no crossword article: the solution's page", [(22, "solution's page"), (20, "solution's page")],
+      [(e["page"], e.get("how")) for e in (gd.lookup("TTDA", d, g83) for d in (d83, d03))])
+e = gd.entry("TTDA", issue([("The Times Crossword Puzzle No 17,563", 18, 1), ("Solution of Puzzle No 17,562", 20, 1)]), 17563)
+check("a day with its cryptic keeps it, not the solution's page", ("IF0000001000", 18, None),
+      (e["doc"], e["page"], e.get("how")))
+check("OCR's Cossword and Crcssword are the cryptic", [0, 0],
+      [gd.crossword("TTDA", [t, "Women's Lacrosse", "The Weather"]) for t in
+       ["Thee Times Cossword Puzzle No. 1,866", "The Times Crcssword Puzzle No. 11,924"]])
+check("other puzzles' solutions are not the cryptic's", [None] * 6,
+      [gd.TIMES_SOLUTION.search(t) for t in ["Solution to No 3S49 Why?", "Crossword Solution for November",
+                                              "Solution to Times 2 Crossword No 2680", "Solution to Jumbo Crossword 269",
+                                              "Concise solution No 2643", "Solution to Concise Crossword No 2,643"]])
+check("the Jumbo lookup never falls back to a solution", None,
+      gd.entry("TTDA", g83.days[d83], find=lambda ts: gd.jumbo_article(ts)))
 check("a Times link an older matcher picked is stale unless the cryptic's", [True, True, False, False],
       [gd.stale("TTDA", {"doc": "x", "title": t, **m}) for t, m in [
           ("Crossword 95", {}), ("Crossword", {}), ("The Times Crossword 23,296", {}),
