@@ -372,6 +372,15 @@ def site_card_alt():
     return card_alt(DEFAULT_PUZZLE, DEFAULT_ENTRY)
 
 
+# The viewport, the same as index.html's. viewport-fit=cover is what makes iOS
+# report the home indicator's height (env(safe-area-inset-bottom)); without it
+# the value is 0. The home-screen app's tab bar (appnav.js, style.css) pads
+# itself by that inset, so a page without it drew the bar lower than the app
+# did, and tapping Learn, the one tab that opens one of these pages, made the
+# tabs jump.
+VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
+
+
 def head(title, description, canonical, extra="", image=None, image_alt=None):
     """The shared <head>. Kept identical to index.html's, minus the app-only bits.
 
@@ -391,7 +400,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{VIEWPORT}
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{esc(canonical)}">
@@ -2852,7 +2861,7 @@ def legacy_redirects(solved):
             + "</ul>")
         yield puzzle_paths.PUZZLE_DIR / num / "index.html", relative_links(
             bare_head(title, f"{BASE}/puzzles/",
-                      f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+                      VIEWPORT + '\n'
                       f'<link rel="stylesheet" href="{asset("style.css")}">\n'
                       f'<script src="{asset("appnav.js")}"></script>\n')
             + '<body class="static-page">\n'

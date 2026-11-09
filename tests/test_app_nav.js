@@ -190,7 +190,13 @@ assert(run({ last: null }).tab("puzzle").href === ORIGIN + "/", "with no ct:last
     assert(/<link rel="manifest" href="[^"]*site\.webmanifest">/.test(src), `${name} links the manifest: a page without one is outside the installed app`);
     assert(/<meta name="apple-mobile-web-app-capable" content="yes">/.test(src), `${name} sets apple-mobile-web-app-capable`);
     assert(/<meta name="mobile-web-app-capable" content="yes">/.test(src), `${name} sets mobile-web-app-capable`);
+    // Without viewport-fit=cover iOS reports env(safe-area-inset-bottom) as 0,
+    // so the tab bar sat lower on that page than on the others and the tabs
+    // jumped when Learn (a static page) was tapped from the app.
+    assert(/<meta name="viewport" content="[^"]*viewport-fit=cover/.test(src), `${name} sets viewport-fit=cover`);
   }
+  assert(!/<meta name="viewport" content="(?![^"]*viewport-fit=cover)/.test(seo),
+    "every viewport tools/build_seo_pages.py writes has viewport-fit=cover, the same as the app's");
   const man = JSON.parse(fs.readFileSync(path.join(ROOT, "site.webmanifest"), "utf8"));
   assert(man.display === "standalone" && man.start_url === "./" && man.scope === "./", "manifest is standalone, start_url and scope the site root");
   const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
