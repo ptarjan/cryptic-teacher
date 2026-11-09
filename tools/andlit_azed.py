@@ -702,21 +702,28 @@ def clue_list(lines, wanted):
     """{(number, direction): clue text} read off each section's lines: a line
     opens a clue only when it starts with the next light the grid numbers in
     that direction, and a clue ends at its closing count, so the notes, form
-    lines and footers between clues fall away."""
+    lines and footers between clues fall away. A direction's last light the
+    page never numbers rightly (34 printed "24") takes the one numbered line
+    left over after its last read clue, when that line closes with a count."""
     out = {}
     for way in ("across", "down"):
         expect = sorted(n for n, d in wanted if d == way)
-        current = None
+        current, orphans = None, []
         for line in lines.get(way, []):
             m = CLUE_START.match(line) or NUMBERED_CLUE.match(line)
             if m and expect and int(m.group(1)) == expect[0]:
                 current = (expect.pop(0), way)
                 out[current] = m.group(2)
+                orphans = []
+            elif m and ENUM_END.search(m.group(2)) and (current is None or ENUM_END.search(out[current])):
+                orphans.append(m.group(2))
             elif current and not ENUM_END.search(out[current]):
                 gap = "" if out[current].endswith("-") and not out[current].endswith(" -") else " "
                 out[current] = f"{out[current]}{gap}{line}"
             if current and ENUM_END.search(out[current]) and not expect:
                 current = None
+        if len(expect) == 1 and len(orphans) == 1 and (expect[0], way) not in out:
+            out[(expect[0], way)] = orphans[0]
     return {k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in out.items()}
 
 

@@ -94,6 +94,8 @@ lines = {"across": ["1 First clue that runs", "on (5)", "Name", "Address", "1, a
 print("clues", A.clue_list(lines, {(1, "across"), (7, "across"), (2, "down"), (3, "down")}))
 print("digit-clue", A.clue_list({"across": ["17 Strong and oddly deep", "within (8, 2 words)", "18 50% of colleges (5)", "19 Next (3)"],
                                  "down": []}, {(17, "across"), (18, "across"), (19, "across")}))
+print("orphan-clue", A.clue_list({"across": [], "down": ["23 Fine (4)", "24 Last light, its number misread (5)", "26 Odd (4)"]},
+                                 {(23, "down"), (24, "down"), (25, "down")}))
 print("entry", A.entry_of((2, "down"), "Down one (3, 2 words)", {})["clue"])
 
 # An unanswered light is written from crossings that cover every one of its cells.
@@ -288,6 +290,8 @@ check('the Chambers line goes only when it is a whole sentence',
       "'Ten clues are odd.' 'The Chambers Dictionary (2003) is recommended but lacks 30.'", line('chambers'))
 check("a clue that opens with a figure is read for the light expected",
       "{(17, 'across'): 'Strong and oddly deep within (8, 2 words)', (18, 'across'): '50% of colleges (5)', (19, 'across'): 'Next (3)'}", line('digit-clue'))
+check("a last light numbered wrongly takes the one orphan line with a count",
+      "{(23, 'down'): 'Fine (4)', (24, 'down'): 'Last light, its number misread (5)', (25, 'down'): 'Odd (4)'}", line('orphan-clue'))
 check("a count's lost bracket and an apostrophe count are read",
       '6 Alert and savvy (11, three words, apostrophe)', line('lost-bracket'))
 check("an apostrophe count without its words, or hyphenated across a line, is read",
