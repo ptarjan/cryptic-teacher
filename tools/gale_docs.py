@@ -110,10 +110,12 @@ def articles(toc):
         yield from articles(a.get("subArticleDocuments"))
 
 
-def crossword(prod, titles, number=None):
+def crossword(prod, titles, number=None, sunday=False):
     """The index into `titles` of the day's crossword, or None: a title
     naming a crossword, not the Concise or a solution or winners' list;
-    the one naming `number` first."""
+    the one naming `number` first. `sunday`: the Sunday Telegraph's or
+    Independent on Sunday's issue, where only a numbered puzzle counts
+    (SUNDAY_NUMBERED), not the book ads, features and winners notices."""
     # The 2000s also print the Saturday Jumbo and Times Two's quick crossword;
     # the Sunday papers their Mephisto, French, general knowledge and
     # two-into-one puzzles.
@@ -130,6 +132,8 @@ def crossword(prod, titles, number=None):
     kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}|{SUNDAY_PUZZLE.pattern}", re.IGNORECASE) if prod == "TGRH" else \
         TIMES_KIND if prod == "TTDA" else KIND
     cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
+    if sunday and prod in SUNDAY_PAPER:
+        cands = [i for i in cands if sunday_numbered(prod, titles[i])]
     if prod == "TLSH":
         # The TLS's last solution is indexed under its puzzle's own title
         # ("TLS Crossword 603" beside "TLS Crossword 604"): the newest first.
@@ -165,6 +169,28 @@ TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*(?:/|no\.?)\W*\d[\d,
 #: Telegraph Two-in-One Crossword" / "Two-into-One" (to 1990), "Crossword
 #: Competition No 1512".
 SUNDAY_PUZZLE = re.compile(r"prize\s+puzzle\W*no\b\W*\d|two-in(?:to)?-one\s+cross", re.IGNORECASE)
+
+
+#: A Sunday paper's puzzle as Gale titles it, always with its number or the
+#: Two-in-One name: "Crossword No 954", "Beelzebub Crossword No 954",
+#: "Prize Puzzle No. 2022", "Prize Crossword Competition No 1512". Not the
+#: "Millennium Crossword Book" ads, features ("Crossword fun for all the
+#: family"), holiday specials with no number or winners notices.
+SUNDAY_NUMBERED = re.compile(r"[cg]ross-? ?w[oa]rd\W*(?:competition\W*)?no\b\.?\W*\d|prize\s+puzzle\W*no\b\W*\d"
+                             r"|beelzebub\b.*\bno\b\.?\W*\d|competition\W*no\b\.?\W*\d", re.IGNORECASE)
+#: The Independent on Sunday's cryptic goes unnumbered in some years (1999
+#: "Beelzebub prize crossword", 2014-16 "Beelzebub Crossword" and, alone in
+#: 2011, "The Prize Crossword"); the Beelzebub name or that exact title is no ad.
+INDA_CRYPTIC = re.compile(r"^\W*(?:beelzebub\b.*cross|the prize cross-? ?w[oa]rd\W*$)", re.IGNORECASE)
+SUNDAY_TWO_IN_ONE = re.compile(r"two-in(?:to)?-one\s+cross", re.IGNORECASE)
+
+
+def sunday_numbered(prod, title):
+    """Whether `title` is a real Sunday puzzle of `prod` (see SUNDAY_NUMBERED);
+    the Two-in-One is the Sunday Telegraph's only."""
+    if prod == "INDA" and INDA_CRYPTIC.search(title):
+        return True
+    return bool(SUNDAY_NUMBERED.search(title) or (prod == "TGRH" and SUNDAY_TWO_IN_ONE.search(title)))
 
 
 #: The FT's daily puzzle title: "Crossword" or "Crossword / 9,876".
@@ -305,13 +331,13 @@ def report(titles, number):
                  and named(number).search(t)), None)
 
 
-def entry(prod, dvi, number=None, find=None):
+def entry(prod, dvi, number=None, find=None, sunday=False):
     """The cache entry for the crossword in issue `dvi` (or the article
     `find(titles)` picks)."""
     arts = [a for a in articles(dvi["originalDocument"].get("articleTableOfContents"))
             if str(a["docId"]).upper() not in REJECTED_DOCS]
     titles = [a["docTitle"] for a in arts]
-    k = find(titles) if find else crossword(prod, titles, number)
+    k = find(titles) if find else crossword(prod, titles, number, sunday)
     pages = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
     if k is None and prod == "TTDA" and not find:
         # No article reads as the crossword: its page, from the contents line.
@@ -344,7 +370,7 @@ def lookup(prod, day, gale, number=None, kind=None):
             e = entry(prod, dvi, find=lambda ts: KINDS[kind](ts, number))
             e = e and {**e, "kind": kind}
         else:
-            e = entry(prod, dvi, number)
+            e = entry(prod, dvi, number, sunday=day.weekday() == 6)
         if e:
             return e
         titles += [a["docTitle"] for a in articles(dvi["originalDocument"].get("articleTableOfContents"))]
