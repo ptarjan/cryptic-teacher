@@ -178,7 +178,7 @@ const { CLIMBABLE, CLUE_TYPES, LADDER, ROOT, allPuzzles, answerShown, appSrc, as
       // label is covered at once.
       ...[...appSrc.slice(appSrc.indexOf("const cutWords = "), appSrc.indexOf("const chipless = "))
         .matchAll(/"([^"$]*)"|`([^`$]*)/g)].map(m => m[1] || m[2]),
-      "minus", "inside", "with", "moved", "made from", "letter", "letters", "definition", "answer"]
+      "minus", "inside", "with", "for", "moved", "made from", "letter", "letters", "definition", "answer"]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
