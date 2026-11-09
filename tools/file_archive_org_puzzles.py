@@ -1132,13 +1132,63 @@ SIDES_BAND, SIDES_LEFT = 150, 0.3
 def sides_columns(img, grid, title, x0, paper):
     """(x0, (right edge,), bottom) of a Gale Telegraph page whose clue columns stand either side of its
     grid (SIDES_BAND), else None."""
-    if paper.key != "galetelegraph":
+    if paper.key not in ("galetelegraph", "galesundaytelegraph"):
         return None
     k = img.width / SCAN_WIDTH
     gw = grid[2] - grid[0]
     if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
         return None
     return x0, (grid[2] + 5 + (grid[0] - 5 - x0) + 60,), min(img.height, int(grid[3] + 1.8 * gw))
+
+
+#: The Gale Sunday Telegraph's Two-in-One prize crossword (1987-05-10: every full read "no reading parses", its
+#: crop the winners' list under the grid): the across column stands left of the grid, the down column right of it,
+#: the title over the grid's top left, so the title's own left edge is no guide to the column's. The left column's
+#: width as a share of the grid's (measured 0.50 on 1987-05-10: column 283-600, grid 640-1358).
+SUNDAY_SIDES_LEFT = 0.52
+#: The first year of the Sunday Telegraph pages read as before (1999-2000 set the grid and clues otherwise: 2000-04-23
+#: has its grid 480px in, the title over its left, a 76-light grid whose columns this cut would split).
+SUNDAY_SIDES_END = "1999"
+
+
+#: A line that is only an ACROSS or DOWN heading, as OCR reads it.
+CLUE_HEADING = re.compile(r"^\W*(ACROSS|DOWN)\W*$", re.I)
+
+
+def first_clue_set(text):
+    """`text` cut where a second ACROSS heading follows a DOWN one: the Two-in-One crossword prints its
+    cryptic clues, then the straightforward set for the same grid, which are not the puzzle's clues."""
+    seen, out = [], []
+    for line in text.splitlines():
+        m = CLUE_HEADING.match(line.strip())
+        if m:
+            word = m.group(1).upper()
+            if word == "ACROSS" and "DOWN" in seen:
+                break
+            seen.append(word)
+        out.append(line)
+    return "\n".join(out)
+
+
+def sunday_left(grid):
+    """The x where the Sunday Telegraph's left clue column starts, from its grid (SUNDAY_SIDES_LEFT)."""
+    return max(0, int(grid[0] - SUNDAY_SIDES_LEFT * (grid[2] - grid[0])))
+
+
+#: The reason of a Gale Sunday Telegraph 1987-98 page read before its clue columns were cut either side of the grid
+#: (sides_columns): every full read refused "no reading parses" (1987-05-10: the winners' list read for the clues).
+SUNDAY_SIDES = "Gale Sunday Telegraph page refused no reading parses, its clue columns either side of its grid read since"
+REREAD_SUNDAY_SIDES = "2026-11-09T18:20:00+00:00"
+
+
+def sunday_sides_due(row):
+    """Whether Gale Sunday Telegraph ledger `row`, read before REREAD_SUNDAY_SIDES, holds a verdict refused "no reading
+    parses" with its grid read (no imageUnread), of a year before SUNDAY_SIDES_END."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galesundaytelegraph" or Path(rel).name[:4] >= SUNDAY_SIDES_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_SUNDAY_SIDES)):
+        return False
+    return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
 
 
 #: The reason of a Gale Telegraph page read before sides_columns, refused "no reading parses" with its grid
@@ -10034,8 +10084,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # Clues over the grid: from the title line down, split where the fewest
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
-    x0 = clues_left(gbox, hit["box"], m) if top is not None else None
-    sides = sides_columns(img, gbox, hit["box"], x0, paper) if top is not None else None
+    sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
+    x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox) if sunday else None
+    sides = sides_columns(img, gbox, hit["box"], x0, paper) if top is not None or sunday else None
     beside = side == "left"
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
@@ -10065,7 +10116,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # there is an advert column (1947-48: the grid at the page's foot made
     # right_columns() read the ads, and the clue column left of the grid went unread).
     right, over = right_or_over(img, gbox, clues_may_be_right(paper, d)) if side == "below" and top is None \
-        and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
+        and not sides and not column and not paper.four and not third and kind != "plain" and not two_columns_only(paper, d) \
         else (None, None)
     if (right or over) and alts is not None:
         alts.append(("plain", None))
@@ -10091,7 +10142,7 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     lead = lead_column(hit["box"], gbox, m) if side == "right" else \
         (indented_column(hit["box"], gbox, m) or (indented_column(title_left(img, hit["box"], gbox), gbox, m)
                                                    if paper.key == "gale" and d.name[:4] < "1968" else None)) \
-        if side == "below" and top is None and not column and not right \
+        if side == "below" and top is None and not sides and not column and not right \
         and not over and not paper.four else None
     if wide_read:
         lead = None
@@ -10238,6 +10289,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # Worn type reads an e as c, o or x the same way in every reader ("cra",
     # "somo"): each scan reading has the one lexicon word it wore from put
     # back (ocr_clues.worn), so the readers agree on it.
+    if sunday:
+        texts = {k: first_clue_set(t) for k, t in texts.items()}
     texts = {k: t if k == "vlm" else ocr_clues.unworn(t) for k, t in texts.items()}
     texts.update(reprints)
     texts, dropped = screened(texts, None if backsolve else g)
@@ -18043,6 +18096,8 @@ def fix_reason(row):
         return SEE_RUNS_ON
     if sides_due(row):
         return SIDES_READ
+    if sunday_sides_due(row):
+        return SUNDAY_SIDES
     if vlm_plain_due(row):
         return VLM_PLAIN
     if vlm_laid_due(row):
@@ -18691,7 +18746,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # (winners_rescan), scanned again then read once.
                   WINNERS_TITLE,
                   # 11-09: a Gale Telegraph page refused no reading parses, its columns either side of its grid (sides_due).
-                  SIDES_READ)
+                  SIDES_READ,
+                  # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
+                  SUNDAY_SIDES)
 
 
 def refusal_passes(why):
@@ -18941,7 +18998,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
