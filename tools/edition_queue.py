@@ -535,7 +535,7 @@ if _snapshot is not None:
 #: Listener pages tools/gale_fetch.py downloads (tools/gale_listener.py), LISTENER_WORKERS
 #: at once (this host's Tesseract, no VLM) within LISTENER_SECONDS.
 PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft",
-          "galeindependent", "galesundaytimes", "galetls", "trove"]
+          "galeindependent", "galesundaytimes", "galetls", "galesundaytelegraph", "galeindysunday", "trove"]
 #: Reads at once: mostly waits on the desktop (mem_gate and desktop_room
 #: hold the rest back when either host is short of memory).
 WORKERS = 25

@@ -35,7 +35,8 @@ import time
 HEARTBEAT_S = 5 * 60       # the status line is written at least this often
 IDLE_AFTER_S = 5 * 60      # nothing started this long, nothing running: idle
 ASK_WINDOW_S = 10 * 60
-PAPER_NAMES = {"times": "Times", "ftcryptic": "FT", "telegraph": "Telegraph", "listener": "Listener"}
+PAPER_NAMES = {"times": "Times", "ftcryptic": "FT", "telegraph": "Telegraph", "listener": "Listener",
+               "sundaytel": "Sunday Telegraph", "indysunday": "Independent on Sunday"}
 RUN_MAX_S = 70 * 60        # a unit with no end line this long is forgotten
 ASK_LOG_TAIL = 512 * 1024  # bytes of the reader's call log read for the ask count
 ASK_LINE = re.compile(r"^(\d\d):(\d\d):(\d\d) vlm ask ")
@@ -44,7 +45,8 @@ WARM_BYTES = 8 * 1024 * 1024
 TS = re.compile(r"^(\d\d):(\d\d):(\d\d) (.*)$")
 SLICE = re.compile(r"^=== slice from (\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)")
 PAPERS = {"GaleTimes": "Times", "NewsUK": "Times", "GaleFT": "Financial Times",
-          "FinancialTimes": "Financial Times", "GaleTelegraph": "Telegraph"}
+          "FinancialTimes": "Financial Times", "GaleTelegraph": "Telegraph",
+          "GaleSundayTelegraph": "Sunday Telegraph", "GaleIndependentSunday": "Independent on Sunday"}
 # (what the raw reason looks like, kind, plain words). First match wins.
 REFUSALS = (
     (re.compile(r"no reading parses"), "noparse", "none of its clues could be read"),

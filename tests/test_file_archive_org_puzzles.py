@@ -4718,6 +4718,46 @@ check("an Independent Concise Crossword by a setter, a title with its number pas
                   [line("The Wednesday Crossword by Dac", 196, 2047), line("No 6828, 3 September 2008", 3000, 2048)],
                   [line("The Wednesday Crossword by Dac", 196, 2047)])])
 
+# The two Gale Sunday series (gale_inbox.SUNDAYS): items of their own, titles, numbers by date.
+check("the Gale Sunday Telegraph and Independent on Sunday items are papers of their own; GALE_INDEPENDENT's regex "
+      "needs digits after GaleIndependent, so the Sunday item is none of it",
+      [("galesundaytelegraph", "sundaytel"), ("galeindysunday", "indysunday"), ("galeindependent", "independent"), None],
+      [(f.paper_of(f"x/{i}/d").key, f.paper_of(f"x/{i}/d").series)
+       for i in ("GaleSundayTelegraph1970UKEnglish", "GaleIndependentSunday1995UKEnglish", "GaleIndependent1995UKEnglish")]
+      + [f.GALE_INDEPENDENT.item.match("GaleIndependentSunday1995UKEnglish")])
+check("a Gale Sunday Telegraph title: 'Crossword No. N', 'Two-in-One Crossword No N', a number-less one is none, "
+      "a winners entry's colon is none, the solution heading kept",
+      ([214], [1234], [], [], ([], [213])),
+      ([n for n, _, _ in f.sunday_tel_headings([line("Crossword No. 214")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Two-in-One Crossword No 1,234")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Two-in-One Crossword")])[0]],
+       [n for n, _, _ in f.sunday_tel_headings([line("Crossword No. 2060: Bob Smith")])[0]],
+       ([n for n, _, _ in f.sunday_tel_headings([line("Solution to Crossword No. 213")])[0]],
+        [n for n, _ in f.sunday_tel_headings([line("Solution to Crossword No. 213")])[1]])))
+check("a Gale Independent on Sunday title: the setter's name before 'Prize Crossword No N', '#N', 'by' the setter, "
+      "the number a line beside the title joined; 'The Prize Crossword' alone is none",
+      ([954], [955], [954], [954], []),
+      ([n for n, _, _ in f.indy_sunday_headings([line("Beelzebub Prize Crossword No 954")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("Sunday Crossword #955")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("Prize Crossword by Beelzebub No 954")])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword", 100, 100), line("No 954", 330, 100)])[0]],
+       [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword")])[0]]))
+check("the Sunday Telegraph's number by date: its anchors, one a week outside them",
+      (1, 214, 2060, 2473, 1961 - 0, 2473 + 52),
+      (f.sunday_tel_expected_number(_d.date(1961, 2, 5)), f.sunday_tel_expected_number(_d.date(1965, 3, 7)),
+       f.sunday_tel_expected_number(_d.date(2000, 12, 3)), f.sunday_tel_expected_number(_d.date(2009, 3, 1)),
+       f.sunday_tel_expected_number(_d.date(1999, 1, 3)) // 1, f.sunday_tel_expected_number(_d.date(2010, 2, 28))))
+check("the Independent on Sunday's number by date: No 1 on 28 January 1990, No 954 on 1 June 2008, weekly after the last",
+      (1, 954, 1099, 1913 + 52),
+      (f.indy_sunday_expected_number(_d.date(1990, 1, 28)), f.indy_sunday_expected_number(_d.date(2008, 6, 1)),
+       f.indy_sunday_expected_number(_d.date(2011, 3, 13)), f.indy_sunday_expected_number(_d.date(2027, 10, 24))))
+check("the Sunday series' provenance rows and their solution and solved pins chain to the keys before",
+      (True, True, True, True),
+      (("sundaytel", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
+       ("indysunday", "link.gale.com") in f.provenance.ACQUISITION_BY_SOURCE,
+       f._SOLUTION_PINS["dcddf269a45bb142"] == "17927db190a32678",
+       f._SOLVED_PINS["4237a057c8a24f5e"] == "050e93ff674ff62c"))
+
 # The Gale Sunday Times's 1987-92 title: "THE SUNDAY TIMES Crossword" over "No 3217" (a line of its own).
 _sun = [line("THE SUNDAY TIMES Crossword", 2088, 2496), line("No 3217", 2159, 2520), line("Solution to No 3216", 2753, 3657)]
 check("a Gale Sunday Times title joined to the line of its number under it, the solution heading kept; one numbered "
