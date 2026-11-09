@@ -717,6 +717,9 @@ check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fi
        eq.files_likely_tier(1, {"paper": "telegraph", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
        eq.files_likely_tier(2, {"paper": "ft", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "2004-01-02"}),
        f.HEADINGS_JOINED in f.BLANKET_PASSES])
+check("title rescans (HEADINGS_JOINED, WINNERS_TITLE) are not refusal rereads, so never held; another fix reason still is",
+      [False, False, True],
+      [eq.refusal_reread(f.HEADINGS_JOINED), eq.refusal_reread(f.WINNERS_TITLE), eq.refusal_reread(f.CLUE_GARBLED)])
 check("a Gale Sunday Times page due WINNERS_TITLE is ranked 1, evidence, fix-landed, in unfiled-first after "
       "HEADINGS_JOINED, tier 0, blanket-passing",
       [1, True, True, True, 0, True],
