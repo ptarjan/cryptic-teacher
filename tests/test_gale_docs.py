@@ -198,6 +198,41 @@ check("the Listener article among a Saturday's titles", [1, None, None, 1],
                                           ["Times2 Crossword", "Listener crossword"])])
 check("the numbered Listener article first", 1, gd.listener_article(["Listener Crossword 3889", "Listener Crossword 3890"], 3890))
 check("the daily pick never takes it", None, gd.crossword("TTDA", ["The Listener Crossword 3890"]))
+# The Saturday Times' Jumbo cryptic: its own kind, picked beside the daily
+# cryptic (titles as Gale printed them, found in its contents 2026-11).
+check("the Jumbo among a Saturday's titles", [1, 0, 1, 0, 1, 0, None, None, None, None, None, None, None, 1],
+      [gd.jumbo_article(ts) for ts in (
+          ["The Times Crossword 22,333", "Jumbo Crossword 129"],
+          ["Jumbo Crossword 130", "The Times Crossword 22,334"],
+          ["Times Crossword 24,001", "Jumbo crossword no 838"],
+          ["Jumbo Crosswrd 140", "Solution to Jumbo Crossword 138"],
+          ["The Times Crossword", "Christmas Jumbo Crossword 141"],
+          ["Jumbo Crossword", "Jumbo Crossword 527 Cryptic Clue"][::-1],
+          ["Solution to Jumbo Crossword 132", "Jumbo Crossword Winners"],
+          ["Win \u00a3100 in the May Day jumbo crossword", "Times Two Crossword Bank Holiday Jumbo"],
+          ["New Year Concise Jumbo Crossword", "Test your knowledge with the Jumbo Sports Crossword"],
+          ["The Times Jumbo Crossword competition", "Jumbo Crossword Answers"],
+          ["The Times Crossword 23,296", "The Listener Crossword 3890"],
+          ["The Listener Crossword No 3611 Mini Jumbo by Waterloo"],
+          ["Jumbo Crossword Solution"],
+          ["Jumbo Crossword", "Jumbo Crossword 294"])])
+check("the Jumbo naming the number first", 0, gd.jumbo_article(["Jumbo Crossword 295", "Jumbo Crossword 294"], 295))
+check("the daily pick never takes a Jumbo", 1, gd.crossword("TTDA", ["Jumbo Crossword 129", "The Times Crossword 22,333"]))
+check("the Jumbo kind is stale only when a miss of an older matcher", [False, True],
+      [gd.stale("TTDA", {"kind": "jumbo", "matcher": 1, "why": "x"}), gd.stale("TTDA", {"kind": "jumbo", "matcher": 0, "why": "x"})])
+import gale_jumbo as gj
+check("the Jumbo days: Saturdays and weekday holidays", [True, True, False, False],
+      [datetime.date(2000, 4, 24) in gj.days(datetime.date(2000, 4, 1), datetime.date(2000, 4, 30)),
+       datetime.date(2018, 1, 1) in gj.days(datetime.date(2017, 12, 30), datetime.date(2018, 1, 5)),
+       datetime.date(2018, 3, 30) in gj.days(datetime.date(2018, 3, 1), datetime.date(2018, 3, 31)),
+       datetime.date(2018, 12, 25) in gj.days(datetime.date(2018, 12, 1), datetime.date(2018, 12, 31))])
+check("dated Jumbos reproduce from the anchors", [datetime.date(1997, 9, 27), datetime.date(2000, 5, 27), datetime.date(2009, 10, 17),
+                                                  datetime.date(2014, 7, 19)],
+      [gj.date_of(n)[0] for n in (129, 288, 839, 1101)])
+check("Jumbos held are not wanted again", [False, True],
+      [datetime.date(2009, 10, 17) in gj.wanted({839}), datetime.date(2009, 10, 10) in gj.wanted({839})])
+check("the Jumbo rows run 1997 to 2014, newest first", [datetime.date(2014, 12, 27), datetime.date(1997, 1, 1)],
+      [gj.wanted(set())[0], gj.wanted(set())[-1]])
 sat = D(2006, 8, 12)
 lk = FakeGale({sat: issue([("The Times Crossword 23,296", 60, 1), ("The Listener Crossword 3890", 70, 1)], 80)})
 le = gd.lookup("TTDA", sat, lk, kind="listener")

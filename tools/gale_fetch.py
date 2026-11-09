@@ -147,6 +147,9 @@ LISTENER = "Listener"
 #: The Saturday Times' Listener articles (1991-2014): kept only, not laid out
 #: as an edition or a magazine page.
 TIMES_LISTENER_DIR = f"{GALE_ROOT}/{LISTENER}/Times/Fetched"
+#: The Times Jumbo cryptic pages (gale_jumbo, 1997-2014): kept only, one
+#: GALE_<docId>.pdf each, for the desktop's reader.
+TIMES_JUMBO_DIR = f"{GALE_ROOT}/TimesJumbo/Fetched"
 CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "web.cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
@@ -332,11 +335,14 @@ def outage_of(ex):
 
 def fetched_dir(prod, kind=None, day=None):
     """The Mac folder product `prod`'s downloaded PDFs are kept in (the
-    Saturday Times' Listener articles, kind "listener": their own; a
+    Saturday Times' Listener articles, kind "listener": their own, as its
+    Jumbo cryptics, kind "jumbo"; a
     Sunday `day` of TGRH or INDA: the Sunday paper's)."""
     import gale_inbox
     if kind == gale_docs.LISTENER_KIND:
         return TIMES_LISTENER_DIR
+    if kind == gale_docs.JUMBO_KIND:
+        return TIMES_JUMBO_DIR
     if prod == "TTDA":
         return FETCHED_DIR
     folder = LISTENER if prod == "LSNR" else (gale_inbox.other_of(prod, day) if day else gale_inbox.OTHERS[prod]).folder
@@ -431,7 +437,8 @@ SKIP = int(os.environ.get("GALE_FETCH_SKIP", "0"))
 def plan(got, skip=SKIP):
     """[(product, date, cache entry or None, *ask)] to fetch: the Times' in
     next_up order past its first `skip` rows (wanted, not staged, set aside
-    or gone from Gale); then the Sunday papers' (gale_inbox.sunday_wanted); then, with fewer
+    or gone from Gale); then the Sunday papers' (gale_inbox.sunday_wanted); then the Times Jumbos
+    (gale_jumbo.wanted); then, with fewer
     than REPLAN so far, the Listener's (gale_listener.wanted; ask is its (number, report)); then,
     still fewer, each OTHERS paper's other_wanted; none a document in
     `got`, none Gale has no crossword for. None: not looked up yet (run
@@ -454,6 +461,10 @@ def plan(got, skip=SKIP):
     for prod in gale_inbox.SUNDAYS:
         for day in gale_inbox.sunday_wanted(prod):
             out += want(prod, day, docs, got)
+    # The Saturday Times' Jumbo cryptics we lack (gale_jumbo), after the Sundays.
+    import gale_jumbo
+    for day in gale_jumbo.wanted():
+        out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_KIND)
     # Telegraph editions laid out from a competition article: looked up again.
     for day in gale_inbox.misfiled("TGRH"):
         out += want("TGRH", day, docs, got)
@@ -571,7 +582,7 @@ def file_page(body, prod, day, doc, e):
     Listener page for its reader (a report's entry carries its issue's
     "day"), any other as that date's edition."""
     put(body, f"GALE_{doc}.pdf", fetched_dir(prod, e.get("kind"), day))
-    if e.get("kind") == gale_docs.LISTENER_KIND:
+    if e.get("kind") in gale_docs.KINDS:
         # Not that date's edition (the daily crossword's) nor a magazine
         # page: only kept, and so, with no local layout, nothing to guard
         # when the Mac's media root is not mounted.
