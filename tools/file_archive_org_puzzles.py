@@ -1147,6 +1147,7 @@ def sides_columns(img, grid, title, x0, paper):
 #: weekday every Saturday since 1999-10 (52 of 54 pages, none ever filed). Once each (read before the stamp).
 SIDES_READ = "Gale Telegraph page refused no reading parses, its clue columns either side of its grid read since"
 REREAD_SIDES_READ = "2026-11-09T10:00:00+00:00"
+SIDES_FROM = datetime.date(1999, 10, 1)
 
 
 def sides_due(row):
@@ -1154,6 +1155,13 @@ def sides_due(row):
     parses" with its grid read (no imageUnread): the page of sides_columns, a window the old read never cut."""
     rel = row.get("edition") or ""
     if paper_of(Path(rel)).key != "galetelegraph" or not scan_queue.read_before(row, scan_queue.when(REREAD_SIDES_READ)):
+        return False
+    try:
+        day = datetime.date.fromisoformat(Path(rel).name[:10])
+    except ValueError:
+        return False
+    # Only a Saturday of the print (the weekday pages of 2000 set their clues right of the grid, not either side).
+    if day.weekday() != 5 or day < SIDES_FROM:
         return False
     return any(v.get("refused") == "no reading parses" and not v.get("imageUnread") for v in row.get("verdicts", ()))
 

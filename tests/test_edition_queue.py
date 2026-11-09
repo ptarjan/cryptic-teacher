@@ -728,6 +728,17 @@ check("a Gale Sunday Times page due WINNERS_TITLE is ranked 1, evidence, fix-lan
         and eq.UNFILED_FIRST.index(f.WINNERS_TITLE) > eq.UNFILED_FIRST.index(f.HEADINGS_JOINED)),
        eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.WINNERS_TITLE, "date": "1993-12-26"}),
        f.WINNERS_TITLE in f.BLANKET_PASSES])
+# ---- a Gale Telegraph Saturday refused no reading parses is due SIDES_READ once; weekdays and read-since rows are not.
+_srow = {"edition": "GaleTelegraph2000UKEnglish/2000-12-30", "readAt": "2026-11-09T04:55:18+00:00",
+         "verdicts": [{"number": 23315, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a Gale Telegraph Saturday refused no reading parses is due SIDES_READ (ranked, evidence, fix-landed, last of "
+      "unfiled-first); a weekday, an image-unread page and a page read since are not",
+      [True, 1, True, True, True, True, False, False, False],
+      [f.sides_due(_srow), f.RANKS[f.SIDES_READ], eq.evidence_reason(f.SIDES_READ), f.SIDES_READ in eq.FIX_LANDED,
+       eq.UNFILED_FIRST.index(f.SIDES_READ) > eq.UNFILED_FIRST.index(f.WINNERS_TITLE), f.SIDES_READ in f.BLANKET_PASSES,
+       f.sides_due({**_srow, "edition": "GaleTelegraph2000UKEnglish/2000-12-29"}),
+       f.sides_due({**_srow, "verdicts": [{**_srow["verdicts"][0], "imageUnread": "not a square grid"}]}),
+       f.sides_due({**_srow, "readAt": "2026-11-09T11:00:00+00:00"})])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
