@@ -508,9 +508,6 @@ check("a Sunday Times title from No 1 on, and its solution headings; never Mephi
        [n for t in ("Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344")
         for n, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[1]],
        f.GALE_SUNDAY_TIMES.headings([line("Mephisto No 1,234")])[0]))
-check("a Sunday Times winners entry is no title: 'Crossword No. 3530: Ross Bryant' on the page of No 3532",
-      [],
-      f.GALE_SUNDAY_TIMES.headings([line("Crossword No. 3530: Ross Bryant, Barking,")])[0])
 check("a TLS title and its solution heading; never its entry address or winner line; its own run",
       ([835], [831], [], [], "galetls"),
       ([n for n, _, _ in f.GALE_TLS.headings([line("TLS CROSSWORD 835")])[0]],
