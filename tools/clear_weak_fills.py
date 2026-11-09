@@ -39,6 +39,7 @@ def weak_lights(puzzle, standing=None):
     ours = archive.our_lights(puzzle)
     if not ours:
         return {}
+    ours_fit = archive.fit_lights(puzzle.get("solutions") or {})  # PRINTED_FIT: printed crossings only, they stand
     es = {entry_id(e): e for e in puzzle["entries"]}
     by_cell = {}
     for lid, e in es.items():
@@ -51,7 +52,7 @@ def weak_lights(puzzle, standing=None):
                 letters.setdefault(rc, {})[lid] = e["solution"][i]
     standing = standing or standing_route
     out = {}
-    for lid in sorted(ours):
+    for lid in sorted(ours - ours_fit):
         e = es[lid]
         weak = [rc for rc in cells(e) if len(by_cell[rc]) > 1 and all(o in ours or not es[o].get("solution")
                                                                        for o in by_cell[rc] if o != lid)]
@@ -87,6 +88,7 @@ def clear(puzzle, lights):
             if e.pop("annotation", None):
                 annotated.append(entry_id(e))
             e["solution"] = None
+    archive.set_fit_lights(new.get("solutions") or {}, archive.fit_lights(new.get("solutions") or {}) - set(lights))
     if not archive.our_lights(new):
         new = provenance.with_solution_detail(new, {k: v for k, v in provenance.solution_detail(new).items()
                                                     if k not in ("model", "date", "check", "printed")})
