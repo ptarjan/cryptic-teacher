@@ -5537,6 +5537,28 @@ check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix l
        __import__("edition_queue").evidence_reason(f.SUNDAY_LISTED),
        __import__("edition_queue").UNFILED_FIRST[-1] == f.SUNDAY_LISTED,
        f._SOLUTION_PINS["802de5c6f9a5f5f9"]))
+# crop_headings: a Sunday Telegraph heading its scan missed, read in its cached clue-column crops.
+_ch_tmp = tempfile.mkdtemp()
+os.makedirs(os.path.join(_ch_tmp, "rapid"))
+for _name, _words in (("1994-02-06_1704.ch.json", [[312, 4773, 930, 4804, "COMPETITION NO.17O3 WINNERS &SOLUTION"]]),
+                      ("1994-04-03_1712.ch.json", [[350, 4534, 870, 4579, "ETTION NO.17LO WINNERS &SOLUTION"]]),
+                      ("1994-04-17_1714.en5.json", [[227, 4468, 956, 4513, "Last week's winners are: Mr Tom Quinn"]]),
+                      ("1988-10-09_1428.en5.json", [[573, 4618, 1286, 4646, "Crossword No 1427: The first three prize winners in last"]])):
+    with open(os.path.join(_ch_tmp, "rapid", _name), "w") as _fh:
+        json.dump({"words": _words}, _fh)
+_ch_real = f.CROPS
+f.CROPS = Path(_ch_tmp)
+f._CROP_HEADINGS.clear()
+_ch_got = (f.crop_headings(Path("1994-02-06"), [1704]), f.crop_headings(Path("1994-04-03"), [1712]),
+           f.crop_headings(Path("1994-04-17"), [1714]), f.crop_headings(Path("1988-10-09"), [1428]),
+           f.crop_headings(Path("1994-02-13"), [1705]), f.crop_headings(Path("1994-02-06"), [1900]))
+f.CROPS = _ch_real
+f._CROP_HEADINGS.clear()
+check("crop_headings: a misread number agreeing in three places of four, the 1988 Crossword line and a Last week's "
+      "winners line (a box over it) give the previous number's heading; another number or no read gives none",
+      ({1703: {"number": 1703, "leaf": 0, "box": [312, 4773, 930, 4804]}}, {1711: {"number": 1711, "leaf": 0, "box": [350, 4534, 870, 4579]}},
+       {1713: {"number": 1713, "leaf": 0, "box": [227, 4408, 956, 4438]}}, {1427: {"number": 1427, "leaf": 0, "box": [573, 4618, 1286, 4646]}}, {}, {}),
+      _ch_got)
 # ONE_BLANK_FIT: a puzzle's only blank light takes the one word of the dictionary and past answers that fits its
 # crossings and count, where WordNet links the word to the clue's definition (one_fit, one_blank_word), as ours.
 ob_t = f.trove_solution_ocr

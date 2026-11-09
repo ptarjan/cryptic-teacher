@@ -155,6 +155,7 @@ import copy
 import contextlib
 import datetime
 import functools
+import glob
 import gzip
 import hashlib
 import json
@@ -12371,6 +12372,62 @@ def solution_source(sol):
     return f"{sol['dir'].name} leaf {sol['leaf']}"
 
 
+#: A Gale Sunday Telegraph's winners heading as its puzzle's cached clue-column read has it ("COMPETITION No.1703
+#: WINNERS &SOLUTION", "ETTION NO.17LL WINNERS", "COMPETITION NO.17O8 WINNERS"), the number loose; the 1988 page's
+#: "Crossword No 1427: The first three prize winners"; the winners' own line under a heading no reader read.
+CROP_WINNERS = re.compile(r"(?:ti?o?n|ttion)\W{0,3}(?:n[o0]\W{0,3})?\s*(\S{3,6}?)\W{0,3}w[il1]nn", re.IGNORECASE)
+CROP_CROSSWORD = re.compile(r"cr[o0]ssw[o0]rd\W{0,3}n[o0]\W{0,3}(\d{4})\W{0,3}\s*the\s*first", re.IGNORECASE)
+CROP_LAST_WEEK = re.compile(r"last\s*week\W{0,2}s\s*winners", re.IGNORECASE)
+_CROP_DIGITS = str.maketrans("OoLlIi|T", "00111111")
+_CROP_HEADINGS = {}
+
+
+def crop_headings(d, numbers):
+    """{number: {"number", "leaf", "box"}} of the previous-week headings (a puzzle number of `numbers`, less one) a
+    Gale Sunday Telegraph edition `d`'s cached RapidOCR clue-column reads (rapid/<date>_<n>.ch.json, .en5.json) print
+    that its whole-page scan read missed (its small type; 1994-01-30's 1703, 1708, 1711, 1718): the heading line
+    (CROP_WINNERS, its digits agreeing with the number in three places of four), the 1988 "Crossword No N: The first
+    three" line (CROP_CROSSWORD), or else the box over a "Last week's winners" line (CROP_LAST_WEEK, the heading
+    sits ~55px above it). Read side only: no scan key moves."""
+    k = (d.name, tuple(numbers))
+    if k in _CROP_HEADINGS:
+        return _CROP_HEADINGS[k]
+    out = {}
+    day = d.name
+    for kind, pattern in (("head", CROP_WINNERS), ("cross", CROP_CROSSWORD), ("last", CROP_LAST_WEEK)):
+        for path in sorted(glob.glob(os.path.join(os.fspath(CROPS), "rapid", f"{day}_*.ch.json"))
+                           + glob.glob(os.path.join(os.fspath(CROPS), "rapid", f"{day}_*.en5.json"))
+                           + glob.glob(os.path.join(os.fspath(CROPS), "titles", f"{d.parent.name}_{day}_*_page.ch*.json"))
+                           + glob.glob(os.path.join(os.fspath(CROPS), "titles", f"{d.parent.name}_{day}_*_page.en5*.json"))):
+            try:
+                with open(path) as f:
+                    words = json.load(f).get("words") or ()
+            except (OSError, ValueError):
+                continue
+            for w in words:
+                if len(w) < 5 or not isinstance(w[4], str):
+                    continue
+                m = pattern.search(w[4])
+                if not m:
+                    continue
+                for n in numbers:
+                    want = str(n - 1)
+                    if n - 1 in out:
+                        continue
+                    if kind == "head":
+                        got = m.group(1).translate(_CROP_DIGITS)
+                        if len(got) != len(want) or sum(a == b for a, b in zip(got, want)) < len(want) - 1:
+                            continue
+                    elif kind == "cross" and m.group(1) != want:
+                        continue
+                    box = [int(v) for v in w[:4]]
+                    if kind == "last":
+                        box = [box[0], box[1] - 60, box[2], box[1] - 30]
+                    out[n - 1] = {"number": n - 1, "leaf": 0, "box": box}
+    _CROP_HEADINGS[k] = out
+    return out
+
+
 def solution_sources(dirs, scans, rels, held, sister):
     """({number: the solution heading a read takes, its "dir" set}, {number:
     {solution_source} of every page linking it}): each of `dirs`' linked
@@ -12385,6 +12442,13 @@ def solution_sources(dirs, scans, rels, held, sister):
                 also.setdefault(s["number"], []).append({**s, "dir": d})
             first.setdefault(s["number"], {**s, "dir": d})
             every.setdefault(s["number"], set()).add(solution_source({**s, "dir": d}))
+        # A Gale Sunday Telegraph's heading its scan missed, read in its cached clue-column crops (crop_headings).
+        if getattr(paper_of(d), "series", None) in HOSTLESS_ASKS:
+            nums = [p["number"] for p in scans[rels[d]].get("puzzles", ())]
+            for n, s in crop_headings(d, nums).items():
+                if n not in first:
+                    first[n] = {**s, "dir": d}
+                    every.setdefault(n, set()).add(solution_source(first[n]))
     for n, s in sister.items():
         every.setdefault(n, set()).add(solution_source(s))
         if n in first:
