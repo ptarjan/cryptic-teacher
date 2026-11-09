@@ -192,6 +192,36 @@ check("and no longer wanted", False, D(1965, 3, 2) in g.other_wanted("TGRH"))
 check("no Times edition", False, D(1965, 3, 2) in g.staged_matches())
 shutil.rmtree(od.parent)
 
+# The Sunday papers inside TGRH and INDA are issue series of their own: their
+# dates are wanted (Sundays first, newest first) unless filed or laid out,
+# and a fetched Sunday page lands under the Sunday paper's own item.
+_corpus = g.archive_coverage.corpus
+g.archive_coverage.corpus = lambda series: ({"2000-12-24": 1} if series == "sundaytel" else {}, {})
+_wk = g.other_wanted("TGRH", today=D(2000, 12, 31), laid=set())
+check("Sunday Telegraph rows come first, newest first, skipping filed ones",
+      (D(2000, 12, 31), D(2000, 12, 17)), tuple([d for d in _wk if d.weekday() == 6][:2]))
+check("and from 1961-02-05 (No 1)", D(1961, 2, 5), min(d for d in _wk if d.weekday() == 6))
+check("none before it", False, D(1961, 1, 29) in _wk)
+check("and Christmas Sunday is wanted", True, D(1994, 12, 25) in g.other_wanted("TGRH", today=D(2000, 12, 31), laid=set()))
+check("Sundays lead the weekday rows", True, _wk.index(D(2000, 12, 31)) < _wk.index(D(2000, 12, 30)))
+_ind = g.other_wanted("INDA", today=D(2020, 1, 1), laid={"GaleIndependentSunday2016/2016-12-25"})
+check("Independent on Sunday: from 1990-01-28 to 2016, laid-out ones left out",
+      (D(1990, 1, 28), D(2016, 12, 18), False), (min(d for d in _ind if d.weekday() == 6),
+       max(d for d in _ind if d.weekday() == 6), D(2016, 12, 25) in _ind))
+check("no Sunday before it", False, D(1990, 1, 21) in _ind)
+check("other_of: Sunday paper on a Sunday, the daily else", ("sundaytel", "telegraph", "independent"),
+      (g.other_of("TGRH", D(1965, 3, 7)).series, g.other_of("TGRH", D(1965, 3, 6)).series, g.other_of("INDA", D(2008, 5, 31)).series))
+check("FTHA has no Sunday paper", "ftcryptic", g.other_of("FTHA", D(2000, 1, 2)).series)
+_sd = g.lay_out_fetched(D(1965, 3, 7), "IO0700000002", _pdf.getvalue(),
+                        {"doc": "IO0700000002", "title": "Crossword No. 214", "page": 20}, cache, prod="TGRH")
+check("a fetched Sunday Telegraph page lands under its own item", cache / "GaleSundayTelegraph1965UKEnglish" / "1965-03-07", _sd)
+shutil.rmtree(_sd.parent)
+_sd = g.lay_out_fetched(D(2008, 6, 1), "IO0700000003", _pdf.getvalue(),
+                        {"doc": "IO0700000003", "title": "Beelzebub Prize Crossword No 954", "page": 30}, cache, prod="INDA")
+check("and an Independent on Sunday page too", cache / "GaleIndependentSunday2008UKEnglish" / "2008-06-01", _sd)
+shutil.rmtree(_sd.parent)
+g.archive_coverage.corpus = _corpus
+
 # Not on Gale: no issue, or no crossword listed and the page saved for the
 # day set aside (the set-aside log) as another puzzle.
 cryptic, concise = "The Times Crossword Puzzle No 17,275", "Concise Crossword No 1154"

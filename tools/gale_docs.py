@@ -46,6 +46,9 @@ PRODUCTS = {"TTDA": ("ttda", "Times", "The Times Digital Archive"),
             "INDA": ("inda", "Independent", "The Independent Digital Archive"),
             "STHA": ("stha", "Sunday Times", "The Sunday Times Historical Archive"),
             "TLSH": ("tlsh", "Times Literary Supplement", "The Times Literary Supplement Historical Archive")}
+#: The citation's paper on a Sunday, for the archives holding a Sunday paper
+#: (gale_inbox.SUNDAYS) beside the daily.
+SUNDAY_PAPER = {"TGRH": "Sunday Telegraph", "INDA": "Independent on Sunday"}
 MONTHS = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]
 DVI = re.compile(r"var dviResponse = (\{.*?\});\s*\n")
 
@@ -166,7 +169,8 @@ def numbered(title):
     competition article ("... Win £5,000", "Crossword Competition / 14"), or
     its plain "Crossword", "Today's Crossword Puzzle" (TELEGRAPH_PLAIN)."""
     return bool(TELEGRAPH_PLAIN.search(title) or re.search(r"(?<![£\d,.])\d{1,2},?\d{3}(?![\d,])", title)
-                or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE))
+                or re.search(r"prize\s+[cg]ross-? ?w[oa]rd", title, re.IGNORECASE)
+                or re.search(r"[cg]ross-? ?w[oa]rd\W*no\.?\W*\d", title, re.IGNORECASE))  # the Sunday's "Crossword No. 214"
 
 
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
@@ -321,6 +325,8 @@ def lookup_report(prod, day, gale, number):
 def download_url(prod, day, e):
     """Gale's Download (PDF) for entry `e` of `day`, as a GET."""
     _, paper, archive = PRODUCTS[prod]
+    if day.weekday() == 6 and prod in SUNDAY_PAPER:
+        paper = SUNDAY_PAPER[prod]
     cite = (f'"{e["title"].strip().rstrip(". ")}." {paper}, {day.day} {MONTHS[day.month - 1]} {day.year}, p. {e["page"]}. '
             f"{archive}, link.gale.com/apps/doc/{e['doc']}/{prod}?u=alberta_portal&sid=bookmark-{prod}.")
     q = urllib.parse.urlencode({"dl": e["doc"], "u": "alberta_portal", "p": prod, "recordIds": ",".join(e["records"]),

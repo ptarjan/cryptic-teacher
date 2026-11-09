@@ -360,6 +360,9 @@ assert gf.prod_of(turl) == "TGRH" and gf.prod_of(url) == "TTDA"
 assert "Daily Telegraph" in urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(turl).query)
                                                  ["citationTextJson"][0])
 assert gf.fetched_dir("TGRH") == f"{gf.GALE_ROOT}/Telegraph/Fetched" and gf.fetched_dir("TTDA") == gf.FETCHED_DIR
+assert gf.fetched_dir("TGRH", None, datetime.date(1965, 3, 7)) == f"{gf.GALE_ROOT}/Sunday Telegraph/Fetched"
+assert gf.fetched_dir("INDA", None, datetime.date(2008, 6, 1)) == f"{gf.GALE_ROOT}/Independent on Sunday/Fetched"
+assert gf.fetched_dir("INDA", None, datetime.date(2008, 5, 31)) == f"{gf.GALE_ROOT}/Independent/Fetched"
 assert gf.fetched_dir("LSNR") == f"{gf.GALE_ROOT}/Listener/Fetched"
 clock, starts, stored, kw = harness(n_rows=4)
 mixed = [("TTDA" if i < 2 else "TGRH", d, e) for i, (d, e) in enumerate(rows(4))]
