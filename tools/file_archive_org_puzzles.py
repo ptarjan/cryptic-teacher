@@ -11166,7 +11166,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r) and not joined_rescan(r):
+                    and not failed_rescan(r) and not joined_rescan(r) and not winners_rescan(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -12194,6 +12194,24 @@ def failed_rescan(row):
     scan = (row or {}).get("scan") or {}
     return bool(scan.get("failed")) and "inputs" in row and not row.get("verdicts") \
         and scan_queue.read_before(row, scan_queue.when(REREAD_FAILED_SCAN))
+
+
+#: The due reason of a Gale Sunday Times page of WINNERS_YEARS read before REREAD_WINNERS_TITLE: its scan predates
+#: SUNDAY_TIMES_TITLE refusing the winners box ("Crossword No. 3530: ..." two puzzles back) as the title, and
+#: _WINNERS_TITLE_FIX pinned the old scan keys to the new one, so no key moves and nothing scanned them again;
+#: their ledger scans hold numbers two too low. Scanned again, then read, once.
+WINNERS_TITLE = "Sunday Times page scanned before its winners box was refused as the title"
+REREAD_WINNERS_TITLE = "2026-11-09T04:10:00+00:00"
+WINNERS_YEARS = ("1993", "1994")
+
+
+def winners_rescan(row):
+    """Whether ledger `row` is due WINNERS_TITLE: a read (its "inputs" kept) edition of an item of
+    GaleSundayTimes<WINNERS_YEARS>, read before REREAD_WINNERS_TITLE. Its scan is stale (scan_current) and
+    rekey_scans leaves it, so it is scanned again by this code once."""
+    ed = str((row or {}).get("edition") or "")
+    return "inputs" in row and any(ed.startswith(f"GaleSundayTimes{y}") for y in WINNERS_YEARS) \
+        and scan_queue.read_before(row, scan_queue.when(REREAD_WINNERS_TITLE))
 
 
 #: The due reason of a Times page whose scan by current scan code finds no title (no puzzle; no verdict, or
@@ -17548,6 +17566,8 @@ def fix_reason(row):
         return FAILED_SCAN
     if joined_rescan(row):
         return HEADINGS_JOINED
+    if winners_rescan(row):
+        return WINNERS_TITLE
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -18140,7 +18160,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   VLM_PLAIN,
                   # 11-08: an untitled Gale FT, Telegraph, Independent or Sunday Times page, its title's number a column
                   # away or five digits (joined_rescan).
-                  HEADINGS_JOINED)
+                  HEADINGS_JOINED,
+                  # 11-09: a Gale Sunday Times 1993-94 page scanned before its winners box was refused as the title
+                  # (winners_rescan), scanned again then read once.
+                  WINNERS_TITLE)
 
 
 def refusal_passes(why):
@@ -18388,7 +18411,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -18426,7 +18449,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row) and not joined_rescan(row)
+        and not failed_rescan(row) and not joined_rescan(row) and not winners_rescan(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of

@@ -712,11 +712,18 @@ check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fi
       "tier 0, blanket-passing, never canary-held",
       [1, True, True, True, True, None, 0, 0, True],
       [f.RANKS[f.HEADINGS_JOINED], eq.evidence_reason(f.HEADINGS_JOINED), f.HEADINGS_JOINED in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1] == f.HEADINGS_JOINED, eq.UNFILED_FIRST.index(f.HEADINGS_JOINED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
+       f.HEADINGS_JOINED in eq.UNFILED_FIRST, eq.UNFILED_FIRST.index(f.HEADINGS_JOINED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
        eq.canary_failed({"paper": "telegraph", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
        eq.files_likely_tier(1, {"paper": "telegraph", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
        eq.files_likely_tier(2, {"paper": "ft", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "2004-01-02"}),
        f.HEADINGS_JOINED in f.BLANKET_PASSES])
+check("a Gale Sunday Times page due WINNERS_TITLE is ranked 1, evidence, fix-landed, in unfiled-first after "
+      "HEADINGS_JOINED, tier 0, blanket-passing",
+      [1, True, True, True, 0, True],
+      [f.RANKS[f.WINNERS_TITLE], eq.evidence_reason(f.WINNERS_TITLE), f.WINNERS_TITLE in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1] == f.WINNERS_TITLE,
+       eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.WINNERS_TITLE, "date": "1993-12-26"}),
+       f.WINNERS_TITLE in f.BLANKET_PASSES])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
