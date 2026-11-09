@@ -129,6 +129,7 @@ import collections
 import copy
 import functools
 import itertools
+import math
 import json
 import re
 import sys
@@ -1242,6 +1243,8 @@ def match(node, want, got=None):
                     break
             else:
                 _fill(parts_of(node)[0], got)
+        elif ok and op == "substitution" and _match_parts(node, want, got):
+            pass
         elif ok:
             for p in parts_of(node):
                 if op == "hidden":
@@ -1267,6 +1270,27 @@ def _match_composite(node, want, got):
                 same = []
             if same:
                 match(fodder, same[0], got)
+            return True
+    return False
+
+
+#: The most readings of a node's parts _match_parts tries together.
+PARTS_TRIED = 4096
+
+
+def _match_parts(node, want, got):
+    """Match each part of `node` to the reading of it that makes `want`, shortest
+    readings first, and say whether one did. _fill's defaults are each part's
+    plainest reading, which need not be the one the answer takes: "first letter
+    of European" is EU in sub(VOYEUR, EU, AGE) for VOYAGER, not E."""
+    parts = parts_of(node)
+    pools = [sorted(values(p), key=lambda v: (len(v), v)) for p in parts]
+    if not all(pools) or math.prod(len(v) for v in pools) > PARTS_TRIED:
+        return False
+    for combo in itertools.product(*pools):
+        if want in values({**node, "parts": [{"gives": v, "unchecked": True} for v in combo]}):
+            for p, v in zip(parts, combo):
+                match(p, v, got)
             return True
     return False
 
