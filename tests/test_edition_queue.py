@@ -772,6 +772,15 @@ check("a Gale Sunday Telegraph SUNDAY_RIGHT or SUNDAY_SIDES reread is canary-pro
       [bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_RIGHT, "date": "1993-12-05"})),
        bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1987-05-10"})),
        bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1999-05-10"}))])
+_sgrid = (229, 3491, 949, 4215)
+_sline = lambda x0, y0, x1, t: [(x0, y0, x1, y0 + 25, t)]
+_slines = [_sline(1080, 3979, 1206, "ACROSS"), _sline(1468, 3976, 1568, "DOWN"), _sline(1070, 3700, 1230, "ad words"),
+           _sline(985, 4018, 1320, "1 What tempted you"), _sline(1361, 4021, 1691, "1 It's no joke")]
+check("a Sunday Telegraph grid at the page's edge has its ACROSS and DOWN columns split at the least crossed gutter, from "
+      "the headings down; its windows are two columns right of the grid",
+      [(1340, 3966), [(954, 1322, 1322, 3969), (1322, 1725, 1725, 3969)]],
+      [f.sunday_gutter(_slines, _sgrid, (0, (1725, 1330), 5328)),
+       f.windows_of(_sgrid, left=(0, (1725, 1322, 3969), 5328))])
 check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
