@@ -9779,6 +9779,22 @@ def located_grid(d, leaf, img, title, right=False):
     return _LOCATED[key]
 
 
+#: Papers whose page prints its puzzle's solution nowhere the scan reads: the Gale Sunday Telegraph's (1961-2000)
+#: pages hold the puzzle and "COMPETITION No. 1676 WINNERS & SOLUTION" for the week before's, as a text list
+#: ("ACROSS: 1 Depth charge, 7 Aloofness ...") beside the Quickie's, in a column no solution heading or grid
+#: reader takes. 11-09: of 343 scanned editions (267 with a puzzle) none had a solution heading linked; the 25
+#: reads that parsed (237 more "no reading parses") each ended with 3-16 lights unfiled after 23-34 VLM asks, and
+#: 77% of the GPU's asks went to them. A puzzle of such a paper with no linked solution can never file whole:
+#: its clue columns are read by the scan's own readers alone, no VLM ask, until a solution is linked.
+HOSTLESS_ASKS = ("sundaytel",)
+
+
+def hostless_sunday_tel(paper, solutions, number):
+    """Whether `paper`'s puzzle `number` has no linked solution and its paper's solutions are never linked
+    (HOSTLESS_ASKS): the VLM is not asked for its clue columns."""
+    return paper.series in HOSTLESS_ASKS and not (solutions or {}).get(number)
+
+
 def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=False):
     """_read_page's one read from a window: `alt` is (kind, x) and moves the
     window edge of that kind ("lead": a lead column's left edge; "right": the
@@ -9790,10 +9806,10 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     is filled with the other windows near the one used, for read_page to
     try."""
     kind, alt_x = alt or (None, None)
-    vlm_on = vlm_for is not False
     n, leaf = hit["number"], hit["leaf"]
-    verdict = {"number": n, "leaf": leaf}
     paper = paper_of(d)
+    vlm_on = vlm_for is not False and not hostless_sunday_tel(paper, solutions, n)
+    verdict = {"number": n, "leaf": leaf}
     number, day, why = filed_number(d, found, hit)
     if why:
         return refuse(verdict, "number-date-mismatch", why), None
