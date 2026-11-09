@@ -155,7 +155,7 @@ import copy
 import contextlib
 import datetime
 import functools
-import glob
+import fnmatch
 import gzip
 import hashlib
 import json
@@ -12382,6 +12382,34 @@ _CROP_DIGITS = str.maketrans("OoLlIi|T", "00111111")
 _CROP_HEADINGS = {}
 
 
+_CROP_INDEX = {}
+
+
+def _crop_index(sub):
+    """{date prefix: [file names]} of CROPS/<sub>, listed once per process: a glob per edition over titles/ (~1M
+    files) held the planner minutes on every Gale Sunday Telegraph pass."""
+    key = (os.fspath(CROPS), sub)
+    if key not in _CROP_INDEX:
+        idx = {}
+        with contextlib.suppress(OSError):
+            for e in os.scandir(os.path.join(os.fspath(CROPS), sub)):
+                if e.name.endswith(".json") and (sub == "rapid" or e.name.startswith("GaleSunday")):
+                    idx.setdefault(e.name[:10] if sub == "rapid" else e.name.split("_", 2)[0], []).append(e.name)
+        _CROP_INDEX[key] = idx
+    return _CROP_INDEX[key]
+
+
+def _crop_paths(d):
+    """crop_headings' cached reads of edition `d`: rapid/<date>_*.ch.json/.en5.json, titles/<dir>_<date>_*_page.ch*/en5*.json."""
+    day, base = d.name, os.fspath(CROPS)
+    rapid = [n for n in _crop_index("rapid").get(day, ())
+             if fnmatch.fnmatch(n, f"{day}_*.ch.json") or fnmatch.fnmatch(n, f"{day}_*.en5.json")]
+    titles = [n for n in _crop_index("titles").get(d.parent.name, ())
+              if fnmatch.fnmatch(n, f"{d.parent.name}_{day}_*_page.ch*.json")
+              or fnmatch.fnmatch(n, f"{d.parent.name}_{day}_*_page.en5*.json")]
+    return [os.path.join(base, "rapid", n) for n in sorted(rapid)] + [os.path.join(base, "titles", n) for n in titles]
+
+
 def crop_headings(d, numbers):
     """{number: {"number", "leaf", "box"}} of the previous-week headings (a puzzle number of `numbers`, less one) a
     Gale Sunday Telegraph edition `d`'s cached RapidOCR clue-column reads (rapid/<date>_<n>.ch.json, .en5.json) print
@@ -12394,11 +12422,9 @@ def crop_headings(d, numbers):
         return _CROP_HEADINGS[k]
     out = {}
     day = d.name
+    paths = _crop_paths(d)
     for kind, pattern in (("head", CROP_WINNERS), ("cross", CROP_CROSSWORD), ("last", CROP_LAST_WEEK)):
-        for path in sorted(glob.glob(os.path.join(os.fspath(CROPS), "rapid", f"{day}_*.ch.json"))
-                           + glob.glob(os.path.join(os.fspath(CROPS), "rapid", f"{day}_*.en5.json"))
-                           + glob.glob(os.path.join(os.fspath(CROPS), "titles", f"{d.parent.name}_{day}_*_page.ch*.json"))
-                           + glob.glob(os.path.join(os.fspath(CROPS), "titles", f"{d.parent.name}_{day}_*_page.en5*.json"))):
+        for path in paths:
             try:
                 with open(path) as f:
                     words = json.load(f).get("words") or ()
