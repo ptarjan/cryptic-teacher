@@ -8866,6 +8866,14 @@ check("no-reading-parses fallback asks are skipped for FT 1981 and Gale 1960-66 
       [_fut(f.FT, "1981-10-02_28588"), _fut(f.GALE, "1960-01-04"), _fut(f.GALE, "1966-12-31"),
        _fut(f.FT, "1982-10-02_1"), _fut(f.FT, "1985-01-12_29522"), _fut(f.GALE, "1967-01-02"), _fut(f.GALE, "1945-04-11")])
 
+_rp = f._read_puzzle
+f._read_puzzle = lambda *a, **k: ({"number": 1, "_weak": {"1-across"}}, None)
+try:
+    check("read_puzzle's verdict never keeps read_page's private _weak set (the ledger row is JSON)",
+          {"number": 1}, f.read_puzzle(None, {}, {}, {})[0])
+finally:
+    f._read_puzzle = _rp
+
 print(f"FAILS {fails}")
 sys.stdout = _stdout
 out = _buf.getvalue().rstrip("\n")
