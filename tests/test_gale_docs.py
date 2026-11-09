@@ -174,6 +174,16 @@ check("the Sunday Telegraph's numbered title is a numbered crossword", [True, Tr
        gd.numbered("How to Crack the Cryptic Crossword and Win \u00a35,000")])
 check("a Sunday Telegraph crossword title is picked", 1, gd.crossword("TGRH", ["Letters", "Crossword No. 214"]))
 check("so is the Beelzebub", 0, gd.crossword("INDA", ["Beelzebub Prize Crossword No 954", "Quick Crossword"]))
+# Captured contents of missed Sundays (2000-03-26, 1990-06-03, 1980-06-01, INDA 2008-06-01).
+check("Sunday Telegraph 1990s: the Prize Puzzle, not the general knowledge crossword", 0,
+      gd.crossword("TGRH", ["Prize Puzzle No. 2022", "General knowledge Prize Crossword", "Letters"]))
+check("1990: Two-into-One is not rejected", 1, gd.crossword("TGRH", ["BAA: A profits and property puzzle",
+      "Sunday Telegraph Two-into-One Crossword", "A Chinese puzzle personified"]))
+check("1980: Two-in-One", 1, gd.crossword("TGRH", ["Elimination Puzzle", "Two-in-One Crossword"]))
+check("a Prize Puzzle title counts as numbered", True, gd.numbered("Prize Puzzle No. 1976"))
+check("the Independent on Sunday's Beelzebub first", 3, gd.crossword("INDA", ["British Red Cross", "The Prize Crossword",
+      "Concise Crossword No. 955", "Beelzebub Crossword No 954"]))
+check("the Sunday Times still refuses two-into-one", None, gd.crossword("STHA", ["Two-into-One Crossword"]))
 _cite = lambda prod, day: urllib.parse.unquote(dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.download_url(
     prod, day, {"doc": "X1", "title": "Crossword No. 214", "page": 26, "records": ["r"]})).query))["citationTextJson"])
 check("the citation names the Sunday paper on a Sunday only", [True, True, True],
