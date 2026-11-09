@@ -767,6 +767,11 @@ check("a Gale Sunday Telegraph 1993 page read since SUNDAY_SIDES, still no ACROS
        f.sunday_right_due({**_srrow, "readAt": "2026-11-09T17:00:00+00:00"}),
        f.sunday_right_due({**_srrow, "verdicts": [{**_srrow["verdicts"][0], "unparsed": {"ch": "across clues do not parse: x"}}]}),
        f.sunday_right_due({**_srrow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"})])
+check("a Gale Sunday Telegraph SUNDAY_RIGHT or SUNDAY_SIDES reread is canary-proven, so hold_refusal_rereads keeps it past never-read units",
+      [True, True, False],
+      [bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_RIGHT, "date": "1993-12-05"})),
+       bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1987-05-10"})),
+       bool(eq.canary_proven({"paper": "galesundaytelegraph", "reason": f.SUNDAY_SIDES, "date": "1999-05-10"}))])
 check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),

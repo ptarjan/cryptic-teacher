@@ -1504,6 +1504,11 @@ CANARY_PROVEN = (
     # Since 10-24 unfiled_blank leaves out a puzzle already filed with every clue, so these are pages never filed.
     ("gale", "unfiled", 1945, 1949, "10-24 canary: 3 of 8 never-filed 1945-48 pages filed whole (was 0), blanks 32 -> 5 "
                                     "on the 6 written, 1 refused, 1 found nothing; 51 live rereads since 10-22: blanks 366 -> 24"),
+    # 11-09: the Gale Sunday Telegraph's clue-column rereads were held behind its own 202 never-read and 182 never-scanned
+    # units (hold_refusal_rereads: 0 of either reason in the plan). Live SUNDAY_SIDES rereads: 84 of 173 pages gained clue
+    # lists (was 0 of 173), 8 filed; SUNDAY_RIGHT is 11 rows, a run too small to hold.
+    ("galesundaytelegraph", fa.SUNDAY_SIDES, 1987, 1998, "11-09 live: 84 of 173 reread pages gained clue lists (was 0), 8 filed"),
+    ("galesundaytelegraph", fa.SUNDAY_RIGHT, 1987, 1998, "11-09: 11 rows, the crop right of the grid; its own canary"),
 )
 
 
