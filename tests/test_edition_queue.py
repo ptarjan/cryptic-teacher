@@ -739,6 +739,21 @@ check("a Gale Telegraph Saturday refused no reading parses is due SIDES_READ (ra
        f.sides_due({**_srow, "edition": "GaleTelegraph2000UKEnglish/2000-12-29"}),
        f.sides_due({**_srow, "verdicts": [{**_srow["verdicts"][0], "imageUnread": "not a square grid"}]}),
        f.sides_due({**_srow, "readAt": "2026-11-09T11:00:00+00:00"})])
+# ---- a Gale Sunday Telegraph 1987-98 page refused no reading parses is due SUNDAY_SIDES once, last of unfiled-first.
+_strow = {"edition": "GaleSundayTelegraph1987UKEnglish/1987-05-10", "readAt": "2026-11-09T17:32:20+00:00",
+          "verdicts": [{"number": 1354, "refused": "no reading parses", "cause": "no-reading-parses"}]}
+check("a Gale Sunday Telegraph 1987 page refused no reading parses is due SUNDAY_SIDES (ranked, evidence, fix-landed, "
+      "last of unfiled-first); a 1999 page, an image-unread page and a page read since are not",
+      [True, 1, True, True, True, True, False, False, False],
+      [f.sunday_sides_due(_strow), f.RANKS[f.SUNDAY_SIDES], eq.evidence_reason(f.SUNDAY_SIDES), f.SUNDAY_SIDES in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1] == f.SUNDAY_SIDES, f.SUNDAY_SIDES in f.BLANKET_PASSES,
+       f.sunday_sides_due({**_strow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"}),
+       f.sunday_sides_due({**_strow, "verdicts": [{**_strow["verdicts"][0], "imageUnread": "not a square grid"}]}),
+       f.sunday_sides_due({**_strow, "readAt": "2026-11-09T19:00:00+00:00"})])
+check("the Two-in-One crossword's text is cut at its second ACROSS heading; a one-set text and the left column's start stand",
+      ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
+      [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
+       f.first_clue_set("ACROSS\n1 a (3)"), f.sunday_left((640, 3253, 1358, 4015))])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
