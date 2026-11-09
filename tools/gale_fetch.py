@@ -422,8 +422,8 @@ SKIP = int(os.environ.get("GALE_FETCH_SKIP", "0"))
 def plan(got, skip=SKIP):
     """[(product, date, cache entry or None, *ask)] to fetch: the Times' in
     next_up order past its first `skip` rows (wanted, not staged, set aside
-    or gone from Gale); then, with fewer than REPLAN of those, the
-    Listener's (gale_listener.wanted; ask is its (number, report)); then,
+    or gone from Gale); then the Sunday papers' (gale_inbox.sunday_wanted); then, with fewer
+    than REPLAN so far, the Listener's (gale_listener.wanted; ask is its (number, report)); then,
     still fewer, each OTHERS paper's other_wanted; none a document in
     `got`, none Gale has no crossword for. None: not looked up yet (run
     looks it up)."""
@@ -443,6 +443,11 @@ def plan(got, skip=SKIP):
     # Telegraph editions laid out from a competition article: looked up again.
     for day in gale_inbox.misfiled("TGRH"):
         out += want("TGRH", day, docs, got)
+    # The Sunday papers inside TGRH and INDA (a few thousand rows in all):
+    # ahead of the gated rows below, or they would wait out the Times' backlog.
+    for prod in gale_inbox.SUNDAYS:
+        for day in gale_inbox.sunday_wanted(prod):
+            out += want(prod, day, docs, got)
     if len(out) < REPLAN:
         import gale_listener
         for day, number, report in gale_listener.wanted():

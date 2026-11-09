@@ -724,23 +724,26 @@ def printed(other, until):
         d += datetime.timedelta(days=1)
 
 
-def other_wanted(prod, today=None, laid=None):
-    """[date] of each edition of OTHERS[prod] (and of its SUNDAYS paper) in
-    its Gale years with no puzzle filed and none laid out (the EDITIONS
-    manifest): the Sundays first (a few thousand), each newest first."""
+def other_wanted(prod, today=None, laid=None, sundays=False):
+    """[date] of each edition of OTHERS[prod] in its Gale years with no
+    puzzle filed and none laid out (the EDITIONS manifest), newest first;
+    with `sundays`, those of its SUNDAYS paper instead."""
+    other = SUNDAYS[prod] if sundays else OTHERS[prod]
     today = today or datetime.datetime.now().astimezone().date()
+    filed = archive_coverage.corpus(other.series)[0]
     laid = set(editions()) if laid is None else laid
     out = []
-    for other in [SUNDAYS[prod]] * (prod in SUNDAYS) + [OTHERS[prod]]:
-        filed = archive_coverage.corpus(other.series)[0]
-        days = []
-        for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
-            if d.year not in other.years or d.isoformat() in filed:
-                continue
-            if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
-                days.append(d)
-        out += days[::-1]
-    return out
+    for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
+        if d.year not in other.years or d.isoformat() in filed:
+            continue
+        if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
+            out.append(d)
+    return out[::-1]
+
+
+def sunday_wanted(prod, today=None, laid=None):
+    """other_wanted(prod, sundays=True): the Sunday paper's dates."""
+    return other_wanted(prod, today, laid, sundays=True)
 
 
 def misfiled(prod="TGRH", laid=None):

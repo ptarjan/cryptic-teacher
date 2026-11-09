@@ -380,13 +380,14 @@ assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
 #     no crossword for, or whose document is got, is left out.
 import dir_cache, gale_inbox, gale_listener
 D = datetime.date
-saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted", "misfiled")}
+saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted", "misfiled", "sunday_wanted")}
 saved_wanted = gale_listener.wanted
 gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
 gale_inbox.misfiled = lambda prod="TGRH": []  # it reads the media manifest, absent here
+gale_inbox.sunday_wanted = lambda prod: []  # tested below
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
 saved_tld = gf.times_listener_days
 gf.REQUESTS = Path("/nonexistent/requests.txt")  # not the machine's real request list
@@ -397,6 +398,16 @@ gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
 assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 4), None),
                              ("FTHA", D(2010, 1, 4), {"doc": "HS1"})], gf.plan(set(), 0)
 assert ("FTHA", D(2010, 1, 4), {"doc": "HS1"}) not in gf.plan({"HS1"}, 0)
+# The Sunday papers' rows are not gated by the Times' backlog: they follow its
+# rows at once, whatever their number.
+gale_inbox.sunday_wanted = lambda prod: {"TGRH": [D(2000, 12, 31), D(2000, 12, 24)], "INDA": [D(2016, 12, 25)]}.get(prod, [])
+_sp = gf.plan(set(), 0)
+assert [r[:2] for r in _sp[:5]] == [("TTDA", D(2001, 1, 2)), ("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)),
+                                    ("INDA", D(2016, 12, 25)), ("TGRH", D(2000, 1, 4))], _sp
+gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
+assert ("INDA", D(2016, 12, 25), None) in gf.plan(set(), 0), "Sundays do not wait for the Times"
+gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
+gale_inbox.sunday_wanted = lambda prod: []
 gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
 assert {r[0] for r in gf.plan(set(), 0)} == {"TTDA"}, "other papers wait while the Times has a plan's worth"
 # The Listener's rows come after the Times' and before the other papers',
