@@ -8366,6 +8366,7 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
     firm = {rc: ch for k, w in {**{k: w for k, w in held.items() if k not in ours}, **answers}.items()
             for rc, ch in zip(lts.get(_light_key(k), ()), w)}
     by = {}
+    fit = set()
     probs = None
     while True:
         new = False
@@ -8396,6 +8397,11 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
             if not word and len(left) == 1 and clue.get(lid):
                 # The only blank light: the one word its crossings and count leave that its definition links (ONE_BLANK_FIT).
                 word = one_blank_word(pattern, enums.get(key), clue[lid])
+            if not word:
+                # PRINTED_FIT: the one word of the lexicon and the past answers the print's own crossings leave.
+                word = t.printed_fit("".join(firm.get(rc, "?") for rc in cells), enums.get(key))
+                if word:
+                    fit.add(lid)
             if word:
                 by[lid] = word
                 letters.update(zip(cells, word))
@@ -8410,6 +8416,8 @@ def clue_solved_reads(entries, answers, info, grid, enums, crop, crossed=True, e
     if not took:
         return answers, info
     info = {**info, "clueSolved": took, "accepted": info.get("accepted", 0) + len(took)}
+    if fit & set(took):
+        info["fitFills"] = sorted(fit & set(took))
     return {**answers, **took}, info
 
 
@@ -8437,6 +8445,28 @@ def _set_printed(sol, printed):
     if isinstance(sol.get("check"), str):
         sol["check"] = provenance.PRINTED_COUNT.sub(f"agrees with the {len(printed)} answers the paper printed",
                                                     sol["check"])
+
+
+#: The tag PRINTED_FIT's fills carry: solutions.check ends "; printed-crossing fills: 5-down, 7-across". Those lights
+#: stand on print's own crossings alone, so clear_weak_fills leaves them, whatever else crosses their cells.
+FIT_TAG = "; printed-crossing fills: "
+
+
+def fit_lights(sol):
+    """The light ids solutions detail `sol` tags as PRINTED_FIT's fills (FIT_TAG); set() where none."""
+    check = sol.get("check") if isinstance(sol, dict) else None
+    if not isinstance(check, str) or FIT_TAG not in check:
+        return set()
+    return {x.strip() for x in check.rsplit(FIT_TAG, 1)[1].split(",") if x.strip()}
+
+
+def set_fit_lights(sol, lids):
+    """Tag solutions detail `sol` with PRINTED_FIT's fills `lids` (FIT_TAG; none: no tag), in its check text."""
+    check = sol.get("check")
+    if not isinstance(check, str):
+        return
+    check = check.split(FIT_TAG, 1)[0]
+    sol["check"] = check + FIT_TAG + ", ".join(sorted(lids)) if lids else check
 
 
 def clue_solved_for(old, puzzle, verdict):
@@ -8483,6 +8513,7 @@ def mark_clue_solved(old, verdict, answered):
     else:
         printed = {k: w for k, w in (sol.get("printed") or {}).items() if k not in ours}
     _set_printed(sol, printed)
+    set_fit_lights(sol, (fit_lights(sol) | set((verdict.get("solution") or {}).get("fitFills") or ())) & our_lights(old))
     verdict["clueSolved"] = sorted(ours)
 
 
@@ -17019,6 +17050,89 @@ def one_blank_short(row):
     return False
 
 
+#: The due reason of a Times edition read before REREAD_PRINTED_FIT whose linked solution grid read short for a puzzle held
+#: by this tool from that page with every clue and 1-2 blank lights (PRINTED_FIT_MAX), one of which has the print's own
+#: letters on two or more of its cells and one word of the lexicon (WordNet with inflections, the filed answers) fitting
+#: them and its enumeration, that word a past answer (trove_solution_ocr.printed_fit). clue_solved_reads takes it as ours,
+#: tagged (FIT_TAG: clear_weak_fills leaves it). Every crossing used is printed or hand-read (solutions.printed, .hand):
+#: 45942747984 found the past-answer routes 17% wrong where a crossing was a model fill or an OCR guess. 11-09 (r47): held
+#: out on Times files' lights (1 and 3 hidden of 3,500 puzzles) 0 wrong in 5,824 fills. ONE_BLANK_FIT, which needs a
+#: WordNet definition link, half the letters crossed and the puzzle's only blank light, stands beside it. Once.
+PRINTED_FIT = "solution short, its blank lights' only fitting word on printed crossings since"
+REREAD_PRINTED_FIT = "2026-11-09T07:00:00+00:00"
+PRINTED_FIT_MAX = 2
+
+
+def _held_printed_fit(p):
+    """held_printed_fit of the held file at `p`."""
+    t = trove_solution_ocr
+    try:
+        held = json.loads(p.read_text())
+        lts = t.lights(t.puzzle_grid(held))
+    except Exception:  # a broad catch on purpose: a held file or grid the reader cannot lay: nothing to read
+        return False
+    es = held.get("entries") or ()
+    if not es or (held.get("source") or {}).get("acquiredBy") != TOOL or not clue_solvable(held):
+        return False
+    blank = [e for e in es if not (e.get("solution") or "").strip()]
+    if not 1 <= len(blank) <= PRINTED_FIT_MAX or filled(held)[0] != len(es):
+        return False
+    ours = our_lights(held)
+    letters = {}
+    for e in es:
+        if entry_id(e) not in ours:
+            for rc, ch in zip(lts.get((e.get("number"), e.get("direction")), ()), re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())):
+                letters[rc] = ch
+    for e in blank:
+        cells = lts.get((e.get("number"), e.get("direction")))
+        if cells and len(cells) >= WORDPLAY_MIN and t.printed_fit("".join(letters.get(rc, "?") for rc in cells),
+                                                                   (e.get("clue") or {}).get("enumeration")):
+            return True
+    return False
+
+
+def held_printed_fit(series, number, sol_dir):
+    """Whether `series`' puzzle `number`, held by this tool with every clue filled, leaves 1-2 lights blank, one of which
+    trove_solution_ocr.printed_fit fills (a file clue_solvable), its linked solution grid's crop (the solution page's edition dir
+    name `sol_dir`) kept; parsed again only when the held file's stat moves."""
+    p = _HELD_PATH.get((series, number))
+    if p is None or not (CROPS / "solutions" / f"{sol_dir}_{number}.png").exists():
+        return False
+    stamp = _stat_stamp(p)
+    if stamp is None:
+        return False
+    hit = _WORDPLAY_HELD.get((p, "fit"))
+    if hit is None or hit[0] != stamp:
+        hit = _WORDPLAY_HELD[(p, "fit")] = (stamp, _held_printed_fit(p))
+    return hit[1]
+
+
+def printed_fit_short(row):
+    """Whether Times ledger `row`, read before REREAD_PRINTED_FIT, has a verdict (no held title's) of a linked
+    solution grid read short, not refused, for a puzzle held by this tool from that page whose one blank light
+    one_blank_word fills (held_printed_fit)."""
+    if not scan_queue.read_before(row, scan_queue.when(REREAD_PRINTED_FIT)):
+        return False
+    paper = paper_of(row.get("edition", ""))
+    if paper.series != SERIES:
+        return False
+    for v in row.get("verdicts", ()):
+        s = v.get("solution")
+        if (not v.get("id") or v.get("heldTitle") or v.get("refused") or v.get("pending") or not v.get("solutionFrom")
+                or not isinstance(v.get("number"), int) or not isinstance(s, dict) or s.get("refused")
+                or v.get("wrongGrid") or filed_state(paper.series, v["number"]) != (False, True)):
+            continue
+        try:
+            held = json.loads(_HELD_PATH[(paper.series, v["number"])].read_text())
+            if (held.get("source") or {}).get("url") != page_url(CACHE / row["edition"], row["scan"], v["leaf"]):
+                continue
+        except (KeyError, OSError, ValueError):
+            pass  # no pages.json or held file to tell (a test's row): answers_only judges
+        if held_printed_fit(paper.series, v["number"], v["solutionFrom"].rsplit(" leaf ", 1)[0]):
+            return True
+    return False
+
+
 #: The due reason of a Times edition read before REREAD_FINAL_STRIPS whose answers-only verdict took clue-solved fills
 #: ("clueSolved") and cut no late strip ("lateStrips") of a puzzle held by this tool from that page with every clue,
 #: 1 to LATE_MAX lights blank (held_blanks) that with the clue-solved ones came to more than LATE_MAX, one of the
@@ -17719,6 +17833,8 @@ def fix_reason(row):
         return PRINTED_CELLS
     if prepped_unasked(row):
         return PREPPED_STRIPS
+    if printed_fit_short(row):
+        return PRINTED_FIT
     if unsure_uncrossed(row):
         return UNSURE_LONE
     if not solution_current(row):
@@ -18406,7 +18522,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "short Times page, its third clue column read since": 2, "unfiled before its fix": 2, UNFILED_MODERN: 2, DASH_JOINED: 2, OLD_FORM: 2, LETTER_SPACED: 2, NAME_CLUSTER: 2, DERIVED_FORM: 2, NEIGHBOUR_TAIL: 2, PUNCT_MENDED: 2, STRIP_TAIL: 2, EDGE_LETTERS: 2, ALONE_READ: 2, BAND_GRID: 2, LEFT_SPLIT: 2, SCALED_GRID: 2, LEFT_LATE: 2, SCALED_EARLY: 2, LEAD_RETRY: 2, BAND_LATE: 2, SMALL_PAGE: 2, RIGHT_ADS: 2, FIFTIES_LEFT: 2, CLOSED_GRID: 2, LINKED_LEAD: 2, DOWN_CUT: 2, DOWN_FOOT: 2, SPECK_MENDED: 2, STOP_TAIL: 2, OPENING_GUTTER: 2, RUN_ON_TAIL: 2, LAID_BLANKS: 2, ONES_COUNT: 2, SEE_RUNS_ON: 2, TAIL_READ: 2, QUARTER_READ: 2, RIGHT_WIDE: 2, GAP_VOTED: 2, SHARED_WORD: 2, MARKED_WORD: 2, MARKED_NEXT_READ: 2, LINKED_COUNT_READ: 2, STRAY_LINK_READ: 2, BOOK_YIELDS: 2, VLM_LAID: 2,
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
-         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
+         HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, PRINTED_FIT: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
@@ -19036,7 +19152,7 @@ SOLUTION_FIXES = ("solution short, its cells unclassified", "solution short, rea
                   SWAP_WORD, DEFINED_WORD, MISREAD_STRIPS, AGREED_HELD, WIDE_AGREED, VLM_NAMED, NAME_RIVALS, ARGMAX_SHORT, PAIRED_SHORT, SPELT_SHORT, FILED_NAME, LATE_JUDGED, VLM_RIVALED, LATE_UNASKED, FAR_DEFINED, TIED_DEFINED, LONG_FLOOR, SHIFTED_WORD, LINKED_ANSWER, LINKED_NAME, FULL_SHORT,
                   READ_CROSSED, STRAY_GRID, UNSURE_LONE, RANKED_BLOCKS, BLURRED_BLOCKS, LETTERED_BLOCKS, CLASSED_CLASH, ONE_WORD_SHORT,
                   TWICE_READ, FORCED_WORD, VOUCHED_FIT, CLUE_REPEATED, LATE_LINKED, ONE_BLANK_FIT, FINAL_STRIPS, BLIND_STRIPS, PRINTED_CELLS,
-                  PREPPED_STRIPS)
+                  PREPPED_STRIPS, PRINTED_FIT)
 
 
 def keeps_vlm(why, row, unit=None):
