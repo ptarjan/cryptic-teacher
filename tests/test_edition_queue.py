@@ -4051,6 +4051,30 @@ _by2.noted(_tg[0][3], 0, 0)
 check("reaped: setup demotes a run-of-one band", True, _by2.demoted(_tg[0][3]))
 _by2.reaped(_tg[0][3], _pid)
 check("reaped: the filing is taken and its file removed", (False, False), (_by2.demoted(_tg[0][3]), (eq.yield_dir() / f"{_pid}.json").exists()))
+# A paper whose reads find puzzles but file none whole (answers blank, unfiled) goes behind all other papers.
+_pc = [0.0]
+_by3 = eq.BandYield(run=99, hours=2, clock=lambda: _pc[0], paper_run=3, paper_hours=1)
+eq.BANDS = _by3
+_st = [_bu("galesundaytelegraph", f"S/199{y}-05-0{d}", rank=0) for y in (3, 4) for d in (1, 2)]
+_tl = [_bu("telegraph", f"T/1990-05-0{d}", rank=2) for d in (1, 2)]
+check("tee: an unfiled wrote verdict is a filing but not a whole one", (1, 0),
+      (lambda t: (t.write("12:00:00 read A/1990-01-03: 1 wrote x-1 (incomplete: 8 blank, unfiled) (vlm 3)\n"),
+                  (t.filed, t.whole))[1])(eq.YieldTee(io.StringIO())))
+for _ in range(2):
+    _by3.noted(_st[0][3], 1, 1, 0)
+check("paper: two unfiled reads of three do not demote", False, _by3.paper_demoted(_st[0][3]))
+_by3.noted(_st[2][3], 1, 1, 0)
+check("paper: three reads with no whole filing demote the paper, whatever the year", (True, True),
+      (_by3.paper_demoted(_st[0][3]), _by3.paper_demoted(_st[3][3])))
+check("paper: another paper is not demoted", False, _by3.paper_demoted(_tl[0][3]))
+check("paper: its units go behind a lower-ranked paper's, none dropped", [u[3]["rel"] for u in _tl + _st],
+      [u[3]["rel"] for u in eq.by_paper_turns(_st + _tl)])
+_by3.noted(_st[0][3], 1, 1, 1)
+check("paper: one whole filing lifts it", False, _by3.paper_demoted(_st[0][3]))
+for _ in range(3):
+    _by3.noted(_st[0][3], 0, 0, 0)
+_pc[0] = 3601.0
+check("paper: lifted after the span", False, _by3.paper_demoted(_st[0][3]))
 eq.BANDS = _saved_bands
 
 print("FAILS", fails)
