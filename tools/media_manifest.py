@@ -142,6 +142,93 @@ def edition_files(d):
     return h.hexdigest()[:16]
 
 
+#: Where notice_refetched keeps each item (paper-year) dir's modification
+#: time as it last looked, {item: st_mtime_ns}; beside the manifests.
+EDITION_DIRS_SEEN = "edition-dirs-seen.json"
+#: Most edition dirs notice_refetched hashes (one listing and stat per file
+#: each, ~0.1 s cold on CIFS) in one call; the rest wait for the next plan.
+NOTICE_CAP = 300
+
+
+def notice_refetched(root=None, cap=NOTICE_CAP):
+    """Record the edition dirs under `root` (downloads.ARCHIVE_ORG) that were
+    laid out again by another host (the Mac re-fetching a Gale edition:
+    rmtree, then a rename of a fresh dir into the item dir) since the
+    manifests last said, so the queue's planner finds their files hash moved
+    (file_archive_org_puzzles.input_hash) and rescans them. Returns their
+    "<item>/<edition dir>" names.
+
+    Cheap on a CIFS share: one scandir of `root` and one stat per item dir
+    (a rename into or out of an item dir moves its mtime), then only for an
+    item dir that moved since EDITION_DIRS_SEEN a scandir, and a listing
+    and hash of just the edition dirs modified after their row's "at" (or
+    with no row). The first call only notes the mtimes (what it finds
+    changed before then is for the hand). A dir whose hash still matches its
+    row is left alone. Gale items' rows go to gale-editions (its rows win in
+    edition_rows), carrying the dir's sources-*.json as note_edition does."""
+    root = Path(downloads.ARCHIVE_ORG if root is None else root)
+    if not on_media(root):
+        return []
+    seen_path = DIR / EDITION_DIRS_SEEN
+    try:
+        seen = json.loads(seen_path.read_text())
+    except (OSError, ValueError):
+        seen = None
+    now = {}
+    with os.scandir(root) as it:
+        for e in it:
+            if e.is_dir():
+                now[e.name] = e.stat().st_mtime_ns
+    if seen is None:
+        _save_seen(seen_path, now)
+        return []
+    held = None
+    found = []
+    left = cap
+    for item in sorted(now):
+        if seen.get(item) == now[item]:
+            continue
+        held = edition_rows() if held is None else held
+        with os.scandir(root / item) as it:
+            eds = [(e.name, e.stat().st_mtime) for e in it if e.is_dir()]
+        for ed, mtime in sorted(eds):
+            row = held.get(f"{item}/{ed}")
+            if row is not None and row.get("at") is not None and mtime <= row["at"] + 1:
+                continue
+            if left <= 0:
+                break
+            d = root / item / ed
+            try:
+                if not (d / "pages.json").exists():
+                    continue
+                left -= 1
+                files = edition_files(d)
+                if row is not None and row.get("files") == files:
+                    continue
+                extra = {}
+                if item.startswith("Gale"):
+                    srcs = sorted(n for n in os.listdir(d) if n.startswith("sources-") and n.endswith(".json"))
+                    if srcs:
+                        extra["sources"] = json.loads((d / srcs[-1]).read_text())
+                record(GALE_EDITIONS if item.startswith("Gale") else ARCHIVE_EDITIONS, d,
+                       edition=f"{item}/{ed}", files=files, at=mtime, **extra)
+            except (FileNotFoundError, NotADirectoryError):
+                continue  # gone since the listing
+            found.append(f"{item}/{ed}")
+        if left <= 0:
+            now[item] = seen.get(item, 0)  # looked at again next call
+    _save_seen(seen_path, now)
+    return found
+
+
+def _save_seen(seen_path, now):
+    """Replace `seen_path` whole with `now`."""
+    DIR.mkdir(parents=True, exist_ok=True)
+    tmp = seen_path.with_suffix(f".{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(now))
+    os.replace(tmp, seen_path)
+
+
 def _fold_edition(acc, line):
     """Fold one archiveorg-editions or gale-editions row into {rel: {"files",
     "at"}}: a later row's fields stand, "at" when it was last laid out."""
