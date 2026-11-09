@@ -243,7 +243,7 @@ class YieldTee:
 
     def __init__(self, inner):
         self.inner, self.buf = inner, ""
-        self.puzzles = self.filed = self.seen = 0
+        self.puzzles = self.filed = self.seen = self.whole = 0
 
     def __getattr__(self, name):
         return getattr(self.inner, name)
@@ -272,6 +272,8 @@ class YieldTee:
                 self.puzzles += 1  # a verdict per puzzle found, filed or refused
             if " wrote " in rest:
                 self.filed += 1
+                if "unfiled" not in rest:
+                    self.whole += 1
 
     def save(self):
         if not self.seen:
@@ -280,7 +282,7 @@ class YieldTee:
             d = yield_dir()
             d.mkdir(parents=True, exist_ok=True)
             tmp = d / f"{os.getpid()}.part"
-            tmp.write_text(json.dumps({"puzzles": self.puzzles, "filed": self.filed}))
+            tmp.write_text(json.dumps({"puzzles": self.puzzles, "filed": self.filed, "whole": self.whole}))
             tmp.replace(d / f"{os.getpid()}.json")
         except OSError:
             pass
@@ -1731,6 +1733,8 @@ def alternate(a, b):
 #: it files, or after BAND_HOURS.
 BAND_RUN = 20
 BAND_HOURS = 4
+PAPER_RUN = 25
+PAPER_HOURS = 3
 
 
 def band_of(unit):
@@ -1743,17 +1747,22 @@ class BandYield:
     """The recent outcomes of the units this process ended, per band (band_of): the run of them in a row that
     found no puzzle and filed nothing, and the bands demoted for it (demoted())."""
 
-    def __init__(self, run=BAND_RUN, hours=BAND_HOURS, clock=time.monotonic):
+    def __init__(self, run=BAND_RUN, hours=BAND_HOURS, clock=time.monotonic, paper_run=PAPER_RUN,
+                 paper_hours=PAPER_HOURS):
         self.run, self.span, self.clock = run, hours * 3600, clock
+        self.paper_run, self.paper_span = paper_run, paper_hours * 3600
         self.zero, self.since = {}, {}
+        self.paper_zero, self.paper_since = {}, {}
         self.lock = threading.Lock()
 
-    def noted(self, unit, puzzles, filed):
-        """A completed unit of `unit`'s band found `puzzles` puzzles and filed or updated `filed`."""
+    def noted(self, unit, puzzles, filed, whole=None):
+        """A completed unit of `unit`'s band found `puzzles` puzzles and filed or updated `filed`, `whole` of
+        them complete (unset: all of them)."""
         band = band_of(unit)
         if band is None or unit.get("paper") == "times":
             return
         with self.lock:
+            self.paper_noted(unit, filed if whole is None else whole)
             if filed:
                 self.zero[band] = 0
                 if self.since.pop(band, None) is not None:
@@ -1765,6 +1774,39 @@ class BandYield:
                 if self.zero[band] >= self.run and band not in self.since:
                     self.since[band] = self.clock()
                     log(f"{band[0]} {band[1]}: last {self.run} pages found no puzzle; moved behind other work")
+
+    def paper_noted(self, unit, whole):
+        """A completed read of `unit`'s paper filed `whole` complete puzzles (the lock is held). 11-09: Gale
+        Sunday Telegraph 1993-97 took 61% of the GPU for ~0 filings: its reads found puzzles (so the band
+        count above never ran) but left 3-16 answers blank, unfiled. A paper whose last PAPER_RUN reads
+        filed nothing whole goes behind every other paper's work for PAPER_HOURS, or until a read files."""
+        if unit.get("kind") != "read":
+            return
+        paper = unit.get("paper")
+        if whole:
+            self.paper_zero[paper] = 0
+            if self.paper_since.pop(paper, None) is not None:
+                log(f"{paper}: a page filed whole; back in the usual order")
+            return
+        self.paper_zero[paper] = self.paper_zero.get(paper, 0) + 1
+        if self.paper_zero[paper] >= self.paper_run and paper not in self.paper_since:
+            self.paper_since[paper] = self.clock()
+            log(f"{paper}: last {self.paper_run} reads filed no whole puzzle; moved behind other papers' work")
+
+    def paper_demoted(self, unit):
+        """Whether `unit`'s paper is behind all other papers' work now; past its span it is lifted (logged)."""
+        paper = unit.get("paper")
+        if paper == "times" or paper in newest_first_papers():
+            return False
+        with self.lock:
+            if paper not in self.paper_since:
+                return False
+            if self.clock() - self.paper_since[paper] < self.paper_span:
+                return True
+            del self.paper_since[paper]
+            self.paper_zero[paper] = 0
+            log(f"{paper}: {self.paper_span / 3600:g} hours passed; back in the usual order")
+            return False
 
     def demoted(self, unit):
         """Whether `unit`'s band is behind other work now; a band past its span is lifted (and logged) here."""
@@ -1789,7 +1831,7 @@ class BandYield:
             path.unlink()
         except (OSError, ValueError):
             return
-        self.noted(unit, got.get("puzzles", 0), got.get("filed", 0))
+        self.noted(unit, got.get("puzzles", 0), got.get("filed", 0), got.get("whole"))
 
 
 BANDS = BandYield()
@@ -1798,7 +1840,7 @@ BANDS = BandYield()
 def demote_bands(units):
     """The (rank, ...) tuples `units` with each rank's units of demoted bands (BANDS) after the rest of it,
     every other order kept."""
-    return sorted(units, key=lambda t: (t[0], BANDS.demoted(t[3])))
+    return sorted(units, key=lambda t: (BANDS.paper_demoted(t[3]), t[0], BANDS.demoted(t[3])))
 
 
 def by_paper_turns(units):
