@@ -212,6 +212,11 @@ check("1980: Two-in-One", 1, gd.crossword("TGRH", ["Elimination Puzzle", "Two-in
 check("a Prize Puzzle title counts as numbered", True, gd.numbered("Prize Puzzle No. 1976"))
 check("the Independent on Sunday's Beelzebub first", 3, gd.crossword("INDA", ["British Red Cross", "The Prize Crossword",
       "Concise Crossword No. 955", "Beelzebub Crossword No 954"]))
+check("Sunday Telegraph two-into-one: 'Sunday Telegraph Two–into–One Crossword'", 0, gd.crossword("TGRH", ['Sunday Telegraph Two–into–One Crossword'], sunday=True))
+check("Sunday Telegraph two-into-one: 'Two—in—One Crossword'", 0, gd.crossword("TGRH", ['Two—in—One Crossword'], sunday=True))
+check("Sunday Telegraph two-into-one: 'Sunday Telegraph Two — into—One Crossword'", 0, gd.crossword("TGRH", ['Sunday Telegraph Two — into—One Crossword'], sunday=True))
+check("Sunday Telegraph two-into-one: 'Sunday Telegraph Two-Into-One Christmas Crossword'", 0, gd.crossword("TGRH", ['Sunday Telegraph Two-Into-One Christmas Crossword'], sunday=True))
+check("Sunday Telegraph two-into-one: 'Sunday Telegraph Two-Into-One-Crossword'", 0, gd.crossword("TGRH", ['Sunday Telegraph Two-Into-One-Crossword'], sunday=True))
 check("the Sunday Times still refuses two-into-one", None, gd.crossword("STHA", ["Two-into-One Crossword"]))
 _cite = lambda prod, day: urllib.parse.unquote(dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.download_url(
     prod, day, {"doc": "X1", "title": "Crossword No. 214", "page": 26, "records": ["r"]})).query))["citationTextJson"])
