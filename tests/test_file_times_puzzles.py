@@ -608,6 +608,31 @@ check('Club and TLS rows file under their own series; a TLS title dates it on a 
       captured(snippet_3884))
 
 
+def snippet_mephisto_setter():
+    import parse_timesforthetimes as tftt
+    posts = pathlib.Path(tempfile.mkdtemp())
+    body = {1: "We're back with Paul McKenna, who often offers an easier Mephisto. Across 1 Don Manley (5)",
+            2: "A Mephisto, relatively mild for a Teuton. Across 1 clue (5)",
+            3: "Both McKenna and Moorey have set one of these. Across 1 clue (5)",
+            4: "A puzzle with no name in it. Across 1 Paul McKenna (5)"}
+    for post_id, text in body.items():
+        (posts / f"{post_id}.json").write_text(json.dumps({"content": {"rendered": "<p>%s</p>" % text}}))
+    tftt.POSTS = posts
+    rec = lambda post_id, title: {"post_id": post_id, "title": title}
+    print("|".join(str(F.mephisto_setter(r)) for r in (
+        rec(1, "Mephisto 3450 - Bad pun?"),            # named in the intro, not the title
+        rec(2, "Mephisto 3451 - Whoa!"),               # by surname
+        rec(3, "Mephisto 3452 - Two names"),           # two setters named: none
+        rec(4, "Mephisto 3453 - Nothing before Across"),  # a clue's name is not the intro's
+        rec(9, "Mephisto 3454 - Paul McKenna - Saucy"),  # title names it, post not cached
+        rec(9, "Mephisto 3455 - Whoa!"))))
+
+
+check('a Mephisto setter is read from the blogger intro or the title, never from a clue or two names',
+      'Paul McKenna|Robert Teuton|None|None|Paul McKenna|None',
+      captured(snippet_mephisto_setter))
+
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

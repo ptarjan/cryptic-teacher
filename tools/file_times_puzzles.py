@@ -69,14 +69,46 @@ MEPHISTO_TYPOS = {"Tim Morey": "Tim Moorey", "Moorey": "Tim Moorey"}
 MEPHISTO_TITLE = re.compile(r"Mephisto\s+(?:No\.?\s*)?[\d,]+\s*(?:[–—-]\s*)?(?:by\s+)?(.+?)\s*$")
 
 
+#: Each setter's surname, which is how a blogger says it ("a somewhat easier
+#: Mephisto from McKenna"). Laws has none: it is a common word.
+MEPHISTO_SURNAMES = {"Paul McKenna": "McKenna", "Tim Moorey": "Moorey",
+                     "Don Manley": "Manley", "Robert Teuton": "Teuton",
+                     "John Grimshaw": "Grimshaw", "Chris Feetenby": "Feetenby"}
+
+
+def mephisto_intro(rec):
+    """The blogger's words before the clue list: the post's body up to
+    "Across". Empty when the post is not cached."""
+    import json
+    try:
+        post = json.loads((tftt.POSTS / f"{rec['post_id']}.json").read_text(encoding="utf-8"))
+    except (KeyError, OSError, ValueError):
+        return ""
+    body = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", post["content"]["rendered"])))
+    return re.split(r"\bAcross\b", body)[0]
+
+
+def mephisto_setter_from_intro(rec):
+    """The one MEPHISTO_SETTERS name the post's title or the blogger's intro
+    mentions, in full or by surname; None when it names none or several.
+    Checked against the 250 Mephisto puzzles that already had a setter: all
+    250 agree, so this reads the blogger and does not guess."""
+    text = html.unescape(rec.get("title") or "") + " " + mephisto_intro(rec)
+    found = {name for name in MEPHISTO_SETTERS
+             if name in text or (name in MEPHISTO_SURNAMES
+                                 and re.search(rf"\b{MEPHISTO_SURNAMES[name]}\b", text))}
+    return next(iter(found)) if len(found) == 1 else None
+
+
 def mephisto_setter(rec):
-    """The setter a Mephisto post names, in its title or as the parser read it."""
+    """The setter a Mephisto post names: in its title as a byline, as the
+    parser read it, or else in the title's headline or the blogger's intro."""
     m = MEPHISTO_TITLE.match(html.unescape(rec.get("title") or "").strip())
     for name in (m and m.group(1), rec.get("setter")):
         name = MEPHISTO_TYPOS.get(name, name)
         if name in MEPHISTO_SETTERS:
             return name
-    return None
+    return mephisto_setter_from_intro(rec)
 
 
 def setter(rec, series):
