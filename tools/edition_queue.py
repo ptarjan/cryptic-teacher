@@ -1193,6 +1193,9 @@ def evidence_reason(reason):
             # A puzzle whose solution heading prints in a late host (fa.LATE_SOLUTIONS) that links it since
             # (fa.late_linked, r37: 13 Times puzzles 1972-86 filed with every clue, none answered): once.
             or reason == fa.LATE_LINKED
+            # A Gale Sunday Telegraph puzzle whose solution list (the issue a week on) links since, or filed with
+            # every clue and no answers-only read tried (fa.sunday_listed): its held file answered by the list, once.
+            or reason == fa.SUNDAY_LISTED
             # A puzzle with one blank light that has one fitting word its clue's definition links
             # (fa.one_blank_word, taken by clue_solved_reads as ours): fa.held_one_blank, once.
             or reason == fa.ONE_BLANK_FIT
@@ -2019,7 +2022,9 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  fa.PRINTED_FIT,
                  # 11-09: a Gale Telegraph page refused no reading parses, its clue columns either side of its
                  # grid (fa.sides_columns), read again; the newest fix goes first.
-                 fa.SIDES_READ)
+                 fa.SIDES_READ,
+                 # 11-09: a Gale Sunday Telegraph puzzle whose text-list solution links (fa.sunday_listed); newest first.
+                 fa.SUNDAY_LISTED)
 
 
 def times_solution_work(unit):
@@ -2042,7 +2047,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.UNFILED_HELD, fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.VLM_REJUDGED, fa.CANDIDATE_READS, fa.HELD_STRIPS,
               fa.HELD_ASKED, fa.HELD_LINKED, fa.RENUMBERED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
               fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
+              fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
@@ -2126,7 +2131,7 @@ LOW_ASK = ("solution short, its cells unclassified", "solution short, read by ot
            fa.HELD_CLASH, fa.VLM_FLOOR_SHORT, fa.LATE_STRIPS, fa.WIDE_STRIPS, fa.SURE_FRAMING, fa.OTHER_GRID_SHORT, fa.RENUMBERED, fa.VLM_REJUDGED, fa.CANDIDATE_READS,
            fa.HELD_STRIPS, fa.HELD_ASKED, fa.CLUE_SHORT, fa.CLASH_SHORT, fa.CLUE_WIDE, fa.OTHER_COPY, fa.NEAR_WORD, fa.WORDPLAY_SHORT,
            fa.CLUE_SOLVED, fa.SWAP_WORD, fa.DEFINED_WORD, fa.MISREAD_STRIPS, fa.AGREED_HELD, fa.WIDE_AGREED, fa.VLM_NAMED,
-           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT)
+           fa.NAME_RIVALS, fa.ARGMAX_SHORT, fa.PAIRED_SHORT, fa.SPELT_SHORT, fa.FILED_NAME, fa.LATE_JUDGED, fa.VLM_RIVALED, fa.LATE_UNASKED, fa.FAR_DEFINED, fa.TIED_DEFINED, fa.LONG_FLOOR, fa.SHIFTED_WORD, fa.LINKED_ANSWER, fa.LINKED_NAME, fa.FULL_SHORT, fa.READ_CROSSED, fa.STRAY_GRID, fa.UNSURE_LONE, fa.RANKED_BLOCKS, fa.BLURRED_BLOCKS, fa.LETTERED_BLOCKS, fa.CLASSED_CLASH, fa.ONE_WORD_SHORT, fa.TWICE_READ, fa.FORCED_WORD, fa.VOUCHED_FIT, fa.CLUE_REPEATED, fa.LATE_LINKED, fa.ONE_BLANK_FIT, fa.FINAL_STRIPS, fa.BLIND_STRIPS, fa.PRINTED_CELLS, fa.PREPPED_STRIPS, fa.PRINTED_FIT, fa.SUNDAY_LISTED)
 #: Reason prefixes of a newest-first paper's solution work, ordered first of all (by_urgency; Paul 10-24:
 #: the Times with their solutions first): the short-solution rereads (LOW_ASK), the answers-linked and
 #: unmerged ones (CPU_ONLY) and the scans of the issues printing the answers (fa.HOST_REASONS).
