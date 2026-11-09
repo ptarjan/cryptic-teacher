@@ -11051,6 +11051,20 @@ for _paper, _pins in _LONE_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before SUNDAY_TIMES_TITLE refused a winners entry
+#: ("Crossword No. 3530: Ross Bryant", the box two puzzles back on the page of No 3532, 1993-94: e21a365e3ee). A page
+#: scanned with a title found finds the same one (a page with no winners box reads alike), so those scans stand
+#: (current_keys, rekey_scans); an untitled one is joined_rescan's, as under the joined-title fix below. A page
+#: whose scan took the winners number stands as scanned: the 21 filed 1993-94 files were renumbered, and the 1993-94
+#: pages are rescanned on the desktop for the rest.
+_WINNERS_TITLE_FIX = {
+    "galesundaytimes": ("5f265760af18773c", "7f343240ad4f6f22", "d2e3766df6a4cb1b"),
+}
+for _paper, _pins in _WINNERS_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
 #: {paper key: (scan_key, sized_scan_key, scan_key after)} before the headings parsers of the FT (five-digit
 #: numbers, FT_NUMBER), the Gale FT (gale_ft_headings), Telegraph (TELEGRAPH_BANNER, joined_titles), Independent
 #: (INDEPENDENT_BY_TITLE) and Sunday Times (joined_titles under) read the titles those pages print: only these
