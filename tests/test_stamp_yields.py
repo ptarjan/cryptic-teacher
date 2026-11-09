@@ -75,6 +75,19 @@ CASES = [
      {"charade": None, "substitution": "ANTBEA", "last": "R", "Anthea": None}),
 ]
 
+# A part of a substitution takes the reading the answer needs, not its default:
+# "European leaders" is EU in sub(VOYEUR, EU, AGE), and the formula said
+# "first letter of European → E" with a count one short of VOYAGER.
+CASES.append(
+    ("cryptic-22259 28A VOYAGER",
+     entry("5 is a pervert, switching European leaders for a time", "7", "VOYAGER", {
+         "definitions": [{"text": "5", "at": 0}],
+         "wordplay": {"op": "substitution", "indicators": [{"text": "switching"}], "parts": [
+             {"words": "a pervert", "gives": "VOYEUR"},
+             {"op": "first", "indicators": [{"text": "leaders"}], "parts": [{"words": "European"}]},
+             {"words": "a time", "gives": "AGE"}]}}),
+     {"substitution": None, "first": "EU"}))
+
 for name, e, want in CASES:
     stored = repr(e["annotation"])
     v = annotation.view(e["annotation"], e, {"entries": [e]})
@@ -83,6 +96,9 @@ for name, e, want in CASES:
         check(got.get(k) == y, f"{name}: {k} yields {y!r} (got {got.get(k)!r})")
     # The stored annotation is untouched: yields is the view's, never the file's
     # (tools/data/puzzle.schema.json would refuse it there).
+    if name.endswith("VOYAGER"):
+        check([b.get("gives") for b in v["blocks"]] == ["VOYEUR", "EU", "AGE"],
+              f"{name}: the blocks give VOYEUR, EU, AGE (got {[b.get('gives') for b in v['blocks']]})")
     check(repr(e["annotation"]) == stored, f"{name}: the stored annotation is left as it was")
 
 print(f"{failures} failed" if failures else "all ok")
