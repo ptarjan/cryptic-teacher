@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 6, "LSNR": 2, "TGRH": 5, "FTHA": 3, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -214,14 +214,25 @@ def numbered(title):
 #: "Crossword" as Gale's OCR misreads it in the Times' own title: "Crossworld",
 #: "Crossmord", "Crosswork", "Crosssword", "Crossoword", "Crossw0rd", "Crossworo",
 #: "Crosswor" (found 2026-10-21 on dates whose contents then read as no crossword).
-#: ("Corssword" too: the letters of "Cross" swapped, 2004-04-02.)
-CROSSWORD_OCR = r"(?:[cg]ros{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd|[cg]orss-?w[oa]rd)"
+#: ("Corssword" too: the letters of "Cross" swapped, 2004-04-02; "Cossword",
+#: its "r" lost, 1936-02-06; "Crcssword", its "o" read "c", 1968-08-10.)
+CROSSWORD_OCR = r"(?:[cg]r?[o0c]s{2,3}o?-?[wm][o0a]r[a-z0-9]{0,2}\b|[cg]ross-? ?w[oa]rd|[cg]orss-?w[oa]rd)"
 #: Page 2's (or 1's) "The Times Today ... Crossword: 22" contents line, which
 #: names the crossword's page: never the crossword itself, but its page when
 #: the crossword's own article is untitled or misspelt beyond reading
 #: (2004-03-10, 04-02, 04-08: the matcher kept this line as the crossword and
 #: so saved page 1).
 TIMES_TODAY = re.compile(r"\btimes?\W+today\b", re.IGNORECASE)
+#: The Times' solution to its previous cryptic, which it prints on the
+#: cryptic's own page: "Solution of Puzzle No 16,022" (1983), "Solution to
+#: yesterday's crossword 22,544" (2003). Some issues index their crossword
+#: page only by this line, the puzzle itself untitled (1983's Saturdays,
+#: 2003-12-27), and a room asking for the issue that holds an earlier
+#: puzzle's answers wants this page. A five-digit number only: the Concise,
+#: Times Two, Jumbo and Listener solutions name fewer digits or no
+#: "crossword"/"puzzle" ("Solution to No 3549 Why?").
+TIMES_SOLUTION = re.compile(r"^\W*solution\W+(?:of|to)\W+(?:yesterday'?s\W+)?(?:the\W+)?(?:times\W+)?(?:puzzle|"
+                            + CROSSWORD_OCR + r")\W*(?:puzzle\W*)?(?:no\b\.?\W*)?\d{2}[,.]?\d{3}\W*$", re.IGNORECASE)
 #: A title that may name the Times' crossword (TTDA's KIND).
 TIMES_KIND = re.compile(f"{CROSSWORD_OCR}|[cg]ross-? ?number", re.IGNORECASE)
 
@@ -346,9 +357,19 @@ def entry(prod, dvi, number=None, find=None, sunday=False):
             if m and int(m.group(1)) in pages:
                 return {"doc": a["docId"], "title": "Crossword", "page": int(m.group(1)),
                         "records": [pages[int(m.group(1))]], "how": "contents-line page"}
+    if k is None and prod == "TTDA" and not find:
+        # Nor a contents line: the page of the solution to the last cryptic.
+        k = next((i for i, t in enumerate(titles) if TIMES_SOLUTION.search(t)), None)
+        e = entry_of(arts[k], pages) if k is not None else None
+        return {**e, "how": "solution's page"} if e else None
     if k is None:
         return None
-    a = arts[k]
+    return entry_of(arts[k], pages)
+
+
+def entry_of(a, pages):
+    """The cache entry for article `a`, its pages' records among `pages`
+    ({page number: record}), or None when Gale holds none of them."""
     first = int(a["startingPage"])
     records = [pages[p] for p in range(first, first + int(a.get("pageCount") or 1)) if p in pages]
     if not records:
