@@ -2357,55 +2357,6 @@ def one_fit(pattern, enum=None, drop=()):
     return fits[0] if len(fits) == 1 else None
 
 
-#: printed_fit: a blank light is taken as the one word of the lexicon (WordNet's lemmas, letters only, and the past
-#: answers of corpus_words) that its crossings and enumeration leave, where PRINTED_KNOWN or more of its letters are
-#: crossed and every one is the print's (the caller passes only those), and that word is a past answer. No other
-#: lemma or past answer fits. 11-09 (r47, failure_shapes2/r47/ho2.py "B2"): held out on 3,500 complete Times files'
-#: lights with 1 and 3 of each puzzle's lights hidden, 5,824 fills, 0 wrong. _PRINTED_FIT holds the sets it was made
-#: of and {(length, place, letter): words} of them.
-PRINTED_KNOWN = 2
-_PRINTED_FIT = {}
-
-
-def lemma_words():
-    """WordNet's lemmas that are letters, spaces and hyphens only, upper case with those cut (ICECREAM); a set."""
-    if "lemmas" not in _PRINTED_FIT:
-        with gzip.open(TOOLS / "data" / "wordnet.json.gz", "rt", encoding="utf-8") as f:
-            names = json.load(f)["words"]
-        _PRINTED_FIT["lemmas"] = {w.replace(" ", "").replace("-", "").upper() for w in names
-                                  if w.replace(" ", "").replace("-", "").isalpha() and w.isascii()}
-    return _PRINTED_FIT["lemmas"]
-
-
-def printed_fit_of(n, place=None, letter=None):
-    """The words of `n` letters of lemma_words() and corpus_words(), those with `letter` at index `place` where
-    given; kept until the corpus set is another."""
-    past = corpus_words()
-    if _PRINTED_FIT.get("past") is not past:
-        by = {}
-        for x in lemma_words() | {w for w in past if w.isascii() and w.isalpha()}:
-            by.setdefault((len(x), None, None), []).append(x)
-            for i, ch in enumerate(x):
-                by.setdefault((len(x), i, ch), []).append(x)
-        _PRINTED_FIT.update(past=past, by=by)
-    return _PRINTED_FIT["by"].get((n, place, letter), [])
-
-
-def printed_fit(pattern, enum=None):
-    """The one word that fits `pattern` (upper case letters of the print's own crossings, ? open) with enumeration
-    `enum` (one or several words, their lengths adding up to the light's), at least PRINTED_KNOWN letters crossed
-    and one open, that is the only fit of printed_fit_of's lexicon and a past answer (corpus_words); else None."""
-    n = len(pattern)
-    parts = [int(x) for x in re.findall(r"\d+", enum or "")]
-    known = [i for i, ch in enumerate(pattern) if ch != "?"]
-    if not parts or sum(parts) != n or len(known) < PRINTED_KNOWN or len(known) == n \
-            or not all(pattern[i].isalpha() and pattern[i].isupper() for i in known):
-        return None
-    rx = re.compile(pattern.replace("?", "[A-Z]"))
-    fits = [w for w in printed_fit_of(n, known[0], pattern[known[0]]) if rx.fullmatch(w)]
-    return fits[0] if len(fits) == 1 and fits[0] in corpus_words() else None
-
-
 #: (words: {lemma: [synset ids]}, synsets: [(gloss, hypernyms, instance hypernyms, neighbours, generic)])
 #: of tools/data/wordnet.json.gz, for definition_linked; loaded on first use.
 _SYNSETS = []
