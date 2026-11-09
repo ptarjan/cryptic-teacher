@@ -705,6 +705,18 @@ check("a heading-titled 1933 Gale Times page due SMALL_HEADED is ranked, evidenc
        eq.canary_failed({"paper": "gale", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
        eq.files_likely_tier(2, {"paper": "gale", "kind": "read", "reason": f.SMALL_HEADED, "date": "1933-03-11"}),
        f.SMALL_HEADED in f.BLANKET_PASSES])
+# ---- an untitled Gale FT/Telegraph/Independent/Sunday Times page scanned before the joined titles (fa.joined_rescan)
+# is due HEADINGS_JOINED: ranked as never read (1), evidence, fix-landed, the newest unfiled-first fix, first tier,
+# blanket-passing, never canary-held.
+check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fix-landed, last of unfiled-first, "
+      "tier 0, blanket-passing, never canary-held",
+      [1, True, True, True, True, None, 0, 0, True],
+      [f.RANKS[f.HEADINGS_JOINED], eq.evidence_reason(f.HEADINGS_JOINED), f.HEADINGS_JOINED in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1] == f.HEADINGS_JOINED, eq.UNFILED_FIRST.index(f.HEADINGS_JOINED) > eq.UNFILED_FIRST.index(f.SMALL_TITLE),
+       eq.canary_failed({"paper": "telegraph", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
+       eq.files_likely_tier(1, {"paper": "telegraph", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "1990-04-24"}),
+       eq.files_likely_tier(2, {"paper": "ft", "kind": "read", "reason": f.HEADINGS_JOINED, "date": "2004-01-02"}),
+       f.HEADINGS_JOINED in f.BLANKET_PASSES])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",

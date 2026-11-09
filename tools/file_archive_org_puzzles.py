@@ -4000,7 +4000,8 @@ def guardian_expected_number(day):
 #: No. 5,613" in the 1980s, "CROSSWORD PUZZLE No. 2,766" on one line in
 #: the 1970s.
 FT_TITLE = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}(?:cross\s?word(?:\s+puzzle)?|cross\s+puzzle)\b\W*(.*)$", re.IGNORECASE)
-FT_NUMBER = re.compile(r"^\W*(?:puzzle\s+)?no\W{0,2}\s*(\d[,.?^]?\d{3})\b(.*)$", re.IGNORECASE)
+#: Its number is four digits to 9,999 (Feb 1999), five from 10,000: "No.10,116 Set by ...".
+FT_NUMBER = re.compile(r"^\W*(?:puzzle\s+)?no\W{0,2}\s*(\d{1,2}[,.?^]?\d{3})\b(.*)$", re.IGNORECASE)
 #: How many leading words of a line ft_headings drops to find a numbered
 #: title: the OCR runs the next column's last word into the title's line
 #: ("~nTupblfih“parkCtT- CROSSWORD PUZZLE NO. 1,652").
@@ -4023,6 +4024,39 @@ def box_of(ws):
 def centred(box, span):
     cx = (box[0] + box[2]) // 2
     return (cx - span // 2, box[1], cx + span // 2, box[3])
+
+
+#: A line that opens on a title's number: "19,986", "No 3217", "No 6828, 3 September 2008", "#7010".
+TITLE_NUMBER_LINE = re.compile(r"^\W*(?:puzzle\s+)?(?:n[o0]\W{0,3}\s*)?(?:#\s*)?[\dTIl]\d?[,.\-\s]?\d{3}(?!\d)",
+                               re.IGNORECASE)
+#: How many of a title's heights right of it its number may stand, on its row.
+JOIN_REACH = 40
+
+
+def joined_titles(lines, fits, under=False):
+    """The lines of `lines` ([(x0, y0, x1, y1, text)] each) that are a title with no number (`fits`, which
+    answers whether a text is a numbered title, says "Crossword No 1234" would be) joined to the line of its
+    number (TITLE_NUMBER_LINE): on its row, at most JOIN_REACH heights right of it, or with `under` the line
+    just under it, over it by its width. The page's printed_lines parts them where a gap is wider than three
+    heights: Gale's 1990-91 Telegraph "CROSSWORD" over the left clue column and its "19,986" over the right
+    (14 heights apart), the 1987-92 Sunday Times's "THE SUNDAY TIMES Crossword" over its "No 3217", the
+    Independent's 2008-10 "The Wednesday Crossword by Dac" and its "No 6828, 3 September 2008" (30 apart)."""
+    numbers = [ws for ws in lines if TITLE_NUMBER_LINE.match(" ".join(w[4] for w in ws))]
+    joined = []
+    for ws in lines if numbers else ():
+        text = " ".join(w[4] for w in ws)
+        if fits(text) or not fits(text + " No 1234"):
+            continue
+        box = box_of(ws)
+        h = max(box[3] - box[1], 1)
+        for v in numbers:
+            vb = box_of(v)
+            beside = abs((vb[1] + vb[3]) / 2 - (box[1] + box[3]) / 2) <= h / 2 and 0 <= vb[0] - box[2] <= JOIN_REACH * h
+            below = under and box[3] - h / 4 <= vb[1] <= box[3] + 3 * h and vb[0] < box[2] and vb[2] > box[0]
+            if v is not ws and (beside or below) and fits(text + " " + " ".join(w[4] for w in v)):
+                joined.append(list(ws) + list(v))
+                break
+    return joined
 
 
 _SETTERS = {}
@@ -4085,6 +4119,44 @@ def ft_headings(lines, titles=()):
         puzzles.append((number_of(num.group(1)), centred((box[0], whole[1], box[2], whole[3]), FT_GRID_SPAN),
                         setter.group(1).title() if setter else None))
     return puzzles, solutions
+
+
+#: The line under an FT cryptic's title word, from 1999 on: "No.10,116 Set by DANTE" (the title word's own line
+#: lost to the page read at times: 2000-02, "CROSSWORD" white on black).
+FT_SET_LINE = re.compile(r"^\W*no\W{0,2}\s*\d{1,2}[,.?^]?\d{3}\b.*\bs[eo]t\s+b[yv]\b", re.IGNORECASE)
+#: The Weekend FT's title, on one line with no "No": "Crossword 12,675 SET BY CINCINNUS" (up to its number).
+FT_WEEKEND = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word\s+(?=\d{1,2}[,.?^]?\d{3}\b)", re.IGNORECASE)
+#: The word after an FT title word ft_headings reads as part of it: "MONDAY PRIZE Crossword ACROSS".
+FT_TITLE_ONLY = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word(?:\s+across)?\W*$", re.IGNORECASE)
+
+
+def gale_ft_headings(lines, titles=()):
+    """ft_headings() of a Gale FT page, with each "No.10,116 Set by DANTE" line (FT_SET_LINE) read as the
+    title it is, where ft_headings finds none for its number: its title word ("Crossword", FT_TITLE_ONLY) over
+    it (its top within a height of the word's foot, as the lines of 2008 stand) or left of it on its row
+    (2004-05), the puzzle's box that word's span down its two lines; the line's own box where the word was
+    not read. Dated 1999-2010, the numbers five digits (FT_NUMBER) and the lines a column wide of the word.
+    A Saturday's "Crossword 12,675 SET BY CINCINNUS" on one line (FT_WEEKEND) is read as the same."""
+    puzzles, solutions = ft_headings(lines, titles)
+    seen = {p[0] for p in puzzles}
+    extra = []
+    for v in lines:
+        text = " ".join(w[4] for w in v)
+        vb = box_of(v)
+        weekend = FT_WEEKEND.match(text)
+        if weekend:
+            text = "No. " + text[weekend.end():]
+        if not FT_SET_LINE.match(text):
+            continue
+        h = max(vb[3] - vb[1], 1)
+        near = [box_of(ws) for ws in lines if FT_TITLE_ONLY.match(" ".join(w[4] for w in ws))
+                and (box_of(ws)[3] - h <= vb[1] <= box_of(ws)[3] + h and box_of(ws)[0] < vb[2] and box_of(ws)[2] > vb[0]
+                     or abs((box_of(ws)[1] + box_of(ws)[3]) / 2 - (vb[1] + vb[3]) / 2) <= h / 2
+                     and 0 <= vb[0] - box_of(ws)[2] <= JOIN_REACH * h)]
+        word = min(near, key=lambda b: abs(b[1] - vb[1])) if near else vb
+        extra.append([(word[0], min(word[1], vb[1]), word[2], max(word[3], vb[3]), "Crossword " + text)])
+    more = [p for p in ft_headings(extra, titles)[0] if p[0] not in seen]
+    return puzzles + more, solutions
 
 
 #: The Guardian's title, "Guardian Crossword No 20,538" over "Set by
@@ -4166,13 +4238,16 @@ def telegraph_headings(lines, titles=()):
 
 #: A Gale Telegraph page's title from ~1990: a banner "CROSSWORD / 21,502"
 #: over both clue columns (before it, "No. 15,301 ACROSS": telegraph_headings).
-TELEGRAPH_BANNER = re.compile(r"^\W*cr[o0]ssw[o0]rd\W{1,4}([\dTIl]\d?[,.\-\s]?\d{3})\W*$", re.IGNORECASE)
+#: The same on Saturday ("PRIZE CROSSWORD / 20,508", every year) and from ~Sep 2000 ("Crossword No 23,246").
+TELEGRAPH_BANNER = re.compile(r"^\W*(?:prize\s+)?cr[o0]ssw[o0]rd\W{1,4}(?:n[o0]\W{0,3}\s*)?([\dTIl]\d?[,.\-\s]?\d{3})\W*$",
+                              re.IGNORECASE)
 
 
 def gale_telegraph_headings(lines, titles=()):
-    """telegraph_headings(), and each TELEGRAPH_BANNER title."""
+    """telegraph_headings(), and each TELEGRAPH_BANNER title, its number's line joined to "CROSSWORD" where
+    the 1990-91 page prints it a column away (joined_titles)."""
     puzzles, solutions = telegraph_headings(lines)
-    for ws in lines:
+    for ws in lines + joined_titles(lines, TELEGRAPH_BANNER.match):
         m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
         if m:
             puzzles.append((number_digits(m.group(1)), box_of(ws), None))
@@ -4223,9 +4298,23 @@ def independent_expected_number(day):
     return anchored(INDEPENDENT_ANCHORS, day)
 
 
+#: The Independent's title from 2008 to early 2010: "The Wednesday Crossword by Dac" over the left clue column and
+#: its "No 6828, 3 September 2008" over the right (a line each), or on Saturday "The Saturday Prize Crossword by
+#: Bannsider #7010 4 April 2009" (its last digit read "o"); never the Concise.
+INDEPENDENT_BY_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+)?(?:(?:\w+day|weekend|prize|cryptic)\s+){0,2}"
+                                  r"cr[o0]ss\s?w[o0]rd\s+by\s+\S+(?:\s+\S+)?\s+(?:n[o0]\W{0,3}|#\s*)"
+                                  r"([\dTIl]?\d?[,.]?\d{1,3}[oO]?)(?!\d)", re.IGNORECASE)
+
+
 def independent_headings(lines, titles=()):
-    """titled_headings() of an Independent page."""
-    return titled_headings(lines, INDEPENDENT_TITLE, INDEPENDENT_SOLUTION)
+    """titled_headings() of an Independent page, and each INDEPENDENT_BY_TITLE title (a number's line
+    joined to its title's by joined_titles)."""
+    puzzles, solutions = titled_headings(lines, INDEPENDENT_TITLE, INDEPENDENT_SOLUTION)
+    for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
+        m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
+        if m:
+            puzzles.append((number_digits(m.group(1).replace("o", "0").replace("O", "0")), box_of(ws), None))
+    return puzzles, solutions
 
 
 #: The Sunday Times's title: "Cross-word Puzzle—No. 1" (11 January 1925),
@@ -4255,8 +4344,10 @@ def sunday_times_expected_number(day):
 
 
 def sunday_times_headings(lines, titles=()):
-    """titled_headings() of a Sunday Times page."""
-    return titled_headings(lines, SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
+    """titled_headings() of a Sunday Times page, its title's number taken from the line under it
+    ("THE SUNDAY TIMES Crossword" over "No 3217", 1987-92: joined_titles)."""
+    return titled_headings(lines + joined_titles(lines, SUNDAY_TIMES_TITLE.match, under=True),
+                           SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
 
 
 
@@ -4447,7 +4538,7 @@ GALE_TELEGRAPH = Paper("galetelegraph", "telegraph", re.compile(r"GaleTelegraph(
                        "Telegraph cryptic crossword No {:,}", telegraph_expected_number, gale_telegraph_headings,
                        margin=15, clues_above=True, title_heights=2)
 GALE_FT = Paper("galeft", "ftcryptic", re.compile(r"GaleFT((?:19|20)\d\d)UKEnglish$"),
-                "Financial Times cryptic crossword No {:,}", ft_expected_number, ft_headings)
+                "Financial Times cryptic crossword No {:,}", ft_expected_number, gale_ft_headings)
 GALE_INDEPENDENT = Paper("galeindependent", "independent", re.compile(r"GaleIndependent((?:19|20)\d\d)UKEnglish$"),
                          "Independent cryptic crossword No {:,}", independent_expected_number, independent_headings)
 GALE_SUNDAY_TIMES = Paper("galesundaytimes", "sundaytimes", re.compile(r"GaleSundayTimes((?:19|20)\d\d)UKEnglish$"),
@@ -10960,6 +11051,49 @@ for _paper, _pins in _LONE_TITLE_FIX.items():
         if _keys.get(_paper) == _pins[0]:
             _keys[_paper] = _pins[2]
     CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: {paper key: (scan_key, sized_scan_key, scan_key after)} before the headings parsers of the FT (five-digit
+#: numbers, FT_NUMBER), the Gale FT (gale_ft_headings), Telegraph (TELEGRAPH_BANNER, joined_titles), Independent
+#: (INDEPENDENT_BY_TITLE) and Sunday Times (joined_titles under) read the titles those pages print: only these
+#: five papers' keys move. A page of the archive.org FT (its numbers under 10,000 to its last, Mar 1999) or one
+#: with a title found finds the same, so every scan stands; a Gale FT, Telegraph, Independent or Sunday Times
+#: page scanned with no title found is scanned again (joined_rescan, HEADINGS_JOINED).
+_JOINED_TITLE_FIX = {
+    "ft": ("af0bb70f1d31431e", "34d3cc7e044498cc", "65d383ddecb7a517"),
+    "galeft": ("088566af00dc0064", "ef7332653d390b92", "cb68ea98e76bdda9"),
+    "galeindependent": ("b3fad67147027ed5", "eec1c668fa3c0cfb", "b7b36f05275381dd"),
+    "galesundaytimes": ("d2e3766df6a4cb1b", "8f3f743d2ad9764e", "b89011b1c4b6780d"),
+    "galetelegraph": ("0f463a6d003b7493", "e5b54044a9b8d7c4", "2a864ed971cd88bc"),
+}
+#: The scan keys a Gale FT, Telegraph, Independent or Sunday Times scan stood under before the headings
+#: parsers above: the old key, its sized twin, and every corpus-wide key then standing for it.
+_JOINED_OLD = {p: frozenset({*pins[:2], *(k for k, v in CORPUS_KEYS.items() if v.get(p) == pins[0])})
+               for p, pins in _JOINED_TITLE_FIX.items() if p != "ft"}
+for _paper, _pins in _JOINED_TITLE_FIX.items():
+    for _keys in CORPUS_KEYS.values():
+        if _keys.get(_paper) == _pins[0]:
+            _keys[_paper] = _pins[2]
+    CORPUS_KEYS.update({old: {_paper: _pins[2]} for old in _pins[:2]})
+#: The reason of a Gale FT, Telegraph, Independent or Sunday Times page whose scan found no title (no puzzle, no
+#: verdict) under scan code before the headings parsers read a title whose number stands a column away from it
+#: ("CROSSWORD" and "19,986", the 1990-91 Telegraph), over it or under it, five digits (the FT from 10,000,
+#: Feb 1999), or after "by <setter>" (the Independent 2008-10). 11-08, editions of the ledger with no title
+#: found: Telegraph 1990 222 of 222, 1991 132 of 311, 2000 132 of 312, and 52 of every year 1992-99 (its
+#: Saturdays); FT 1999-2010 2,837 of ~3,000; Independent 2008-09 412 of 413 and 2010 96 of 308; Sunday Times
+#: 1987-92 120 of 275. The cached page reads title most of them (FT 2004 62 of 63, Independent 2008-09 all,
+#: Telegraph 1990 38 of 56, its Saturdays "PRIZE CROSSWORD / 20,508" 49 of 52). Scanned again, then read, once.
+HEADINGS_JOINED = "untitled page, scanned before its title's number was joined to it"
+
+
+def joined_rescan(row):
+    """Whether ledger `row` is due HEADINGS_JOINED: an edition of a paper of _JOINED_OLD with no title found
+    (no puzzle in its scan, no verdict, not failed) under a scan key from before _JOINED_TITLE_FIX. Its scan is
+    stale (scan_current) and rekey_scans leaves it, so it is scanned again by this code once."""
+    scan = (row or {}).get("scan") or {}
+    old = _JOINED_OLD.get(paper_of(row.get("edition") or "").key)
+    return bool(old) and row.get("scanKey") in old and not scan.get("puzzles") and not row.get("verdicts") \
+        and not scan.get("failed")
+
+
 #: The Gale Times days (first, last) whose pages are 4600 px wide, scanned again for the wider
 #: band and grid cap.
 BAND_RESCAN = (datetime.date(2005, 5, 1), datetime.date(2006, 9, 30))
@@ -11014,7 +11148,7 @@ def rekey_scans(ledger):
             if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper) \
                     and not prize_rescan(paper, r.get("scanKey"), r.get("edition")) \
                     and not (paper is GALE and (inset_rescan(r) or lone_rescan(r) or gf_rescan(r) or gf_unread(r) or footer_rescan(r) or small_rescan(r))) \
-                    and not failed_rescan(r):
+                    and not failed_rescan(r) and not joined_rescan(r):
                 moved[k] = new
         if moved:
             tmp = ledger.with_suffix(".tmp")
@@ -17388,6 +17522,8 @@ def fix_reason(row):
         return SMALL_HEADED
     if failed_rescan(row):
         return FAILED_SCAN
+    if joined_rescan(row):
+        return HEADINGS_JOINED
     if scan_queue.read_before(row, scan_queue.when(REREAD_UNREAD_TITLES)) and unread_titles(row):
         return UNREAD_TITLES
     # Ahead of HELD_TITLE: the same answers-only held-title read, with its never-asked strips asked.
@@ -17977,7 +18113,10 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-03 r44: named Gale Times puzzles with cut or garbled clue text (clue_garbled_due).
                   CLUE_GARBLED,
                   # 11-03 r45: a 1930-33 Gale Times page unfiled over a count-less clue only the VLM's column reply holds (vlm_plain_due).
-                  VLM_PLAIN)
+                  VLM_PLAIN,
+                  # 11-08: an untitled Gale FT, Telegraph, Independent or Sunday Times page, its title's number a column
+                  # away or five digits (joined_rescan).
+                  HEADINGS_JOINED)
 
 
 def refusal_passes(why):
@@ -18222,7 +18361,10 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          "answers held back by a clue with no enumeration": 2, SHORT_UNFITTED: 2, UNMERGED: 2, UNLISTED: 2, VLM_UNLISTED: 2, VLM_FLOOR_SHORT: 2, LATE_STRIPS: 2, WIDE_STRIPS: 2, VLM_REJUDGED: 2, CANDIDATE_READS: 2, CLUE_SHORT: 2, CLASH_SHORT: 2, CLUE_WIDE: 2, OTHER_COPY: 2, NEAR_WORD: 2, WORDPLAY_SHORT: 2, CLUE_SOLVED: 2, SWAP_WORD: 2, DEFINED_WORD: 2, MISREAD_STRIPS: 2, AGREED_HELD: 2, WIDE_AGREED: 2, VLM_NAMED: 2, NAME_RIVALS: 2, ARGMAX_SHORT: 2, PAIRED_SHORT: 2, SPELT_SHORT: 2, FILED_NAME: 2, LATE_JUDGED: 2, VLM_RIVALED: 2, LATE_UNASKED: 2, FAR_DEFINED: 2, TIED_DEFINED: 2, LONG_FLOOR: 2, SHIFTED_WORD: 2, LINKED_ANSWER: 2, LINKED_NAME: 2, FULL_SHORT: 2, READ_CROSSED: 2, HELD_STRIPS: 2, HELD_ASKED: 2, SHORT_WIDE: 2,
          HEAVY_PRINT: 2, SURE_FRAMING: 2, OTHER_GRID_SHORT: 2, STRAY_GRID: 2, UNSURE_LONE: 2, RANKED_BLOCKS: 2, BLURRED_BLOCKS: 2, LETTERED_BLOCKS: 2, CLASSED_CLASH: 2, ONE_WORD_SHORT: 2, TWICE_READ: 2, FORCED_WORD: 2, VOUCHED_FIT: 2, CLUE_REPEATED: 2, LATE_LINKED: 2, ONE_BLANK_FIT: 2, FINAL_STRIPS: 2, BLIND_STRIPS: 2, PRINTED_CELLS: 2, PREPPED_STRIPS: 2, SUSPECT_HELD: 2, UNFILED_HELD: 2, HELD_CLASH: 2,
          REFUSED_GRID: 2, MATCHED_GRID: 2, NEAR_GRID: 2, TOUCHING_GRID: 2, RENUMBERED: 2, LOST_WRITE: 2, UNREAD_TITLES: 1, HELD_TITLE: 2, HELD_LINKED: 2, RIGHT_FOREIGN_READ: 2,
-         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2, "scan stale": 3, "--reread": 3,
+         NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
+         # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
+         # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
+         HEADINGS_JOINED: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -18260,7 +18402,7 @@ def scan_current(row, fh, rel=None):
             _CURRENT_PAPER[rel] = paper
     return row.get("scanKey") in current_keys(paper) and not prize_rescan(paper, row.get("scanKey"), rel) \
         and not (paper is GALE and (inset_rescan(row) or lone_rescan(row) or gf_rescan(row) or gf_unread(row) or footer_rescan(row) or small_rescan(row))) \
-        and not failed_rescan(row)
+        and not failed_rescan(row) and not joined_rescan(row)
 
 
 #: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
