@@ -233,6 +233,11 @@ def as_digits(text, s="5"):
     return text.translate(str.maketrans("IlOoS", "1100" + s))
 
 
+def zeros_read(text):
+    """`text` with an O or o read for a 0 put back ("#701o" is "#7010")."""
+    return text.replace("o", "0").replace("O", "0")
+
+
 def ones_read(text):
     """`text` with a 1 read as l or I before another digit put back
     ("l9th-century" is "19th-century")."""
