@@ -315,5 +315,57 @@ check("INDA Sunday: unnumbered Beelzebub years and the Prize Crossword", [1, 1, 
 check("INDA Sunday: a feature on crosswords is no puzzle", None, gd.crossword("INDA", ["Crossword fun for all the family"], sunday=True))
 check("a weekday keeps its looser match", 0, gd.crossword("TGRH", ["Prize Crossword"]))
 
+# Text search: no article titled as the crossword (Times 2000-02-05 p.32 is one
+# whole-page "The Saturday Times"), so the viewer pages of a few candidates are
+# read: those on the page the neighbouring Saturdays had it, then bare titles.
+fixture = (Path(__file__).parent / "fixtures" / "gale_viewer_times_2000-02-05.html").read_text()
+lines = gd.viewer_text(fixture)
+check("viewer text lines read from the page data", True, "THE TIMES CROSSWORD NO 21,331" in lines)
+check("a page with no text", [], gd.viewer_text("<html></html>"))
+check("title with its number is the crossword", True, gd.text_is_crossword(["THE TIMES CROSSWORD NO 21,331"]))
+check("solution notice is the crossword", True, gd.text_is_crossword(["x", "Solution tO Puzzle No 21,330"]))
+check("fixture text is the crossword", True, gd.text_is_crossword(lines))
+check("Concise or Jumbo numbers are no cryptic", False, gd.text_is_crossword(["Concise Crossword No 1,460", "Jumbo Crossword 129"]))
+check("a news page is not", False, gd.text_is_crossword(["Crossword fans gather in Cheltenham", "Solution to the crisis, 21,000 jobs"]))
+
+sat = issue([("Football", 30, 1), ("The Saturday Times", 31, 1), ("No Title", 31, 1), ("Weather", 32, 1),
+             ("The Saturday Times", 32, 1), ("Cricket", 32, 1)], 40)
+arts = list(gd.articles(sat["originalDocument"]["articleTableOfContents"]))
+check("near pages: nearest found Saturdays", [32, 31], gd.near_pages("TTDA", D(2000, 2, 5), {
+    "TTDA/2000-02-12": {"doc": "X", "page": 32}, "TTDA/2000-01-29": {"doc": "Y", "page": 32},
+    "TTDA/2000-02-19": {"doc": "Z", "page": 31}, "TTDA/2000-02-26": {"why": "miss"}}))
+check("candidates: the nearest page's bare title first, at most 3", ["The Saturday Times", "Weather", "Cricket"],
+      [a["docTitle"] for a in gd.text_candidates(arts, [32, 31])])
+check("with no neighbour page, bare titles anywhere", ["The Saturday Times", "No Title", "The Saturday Times"],
+      [a["docTitle"] for a in gd.text_candidates(arts, [])])
+
+class TextGale(FakeGale):
+    def __init__(self, days, texts):
+        super().__init__(days)
+        self.texts, self.viewed = texts, []
+    def get(self, prod, url):
+        doc = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(url).query))["id"].split("|")[1]
+        self.viewed.append(doc)
+        return self.texts.get(doc, '"fullTexts":["Football"]')
+
+day = D(2000, 2, 5)
+docs = {"TTDA/2000-02-12": {"doc": "X", "page": 32}}
+found = next(a["docId"] for a in arts if a["startingPage"] == 32 and a["docTitle"] == "The Saturday Times")
+g = TextGale({day: sat}, {found: fixture})
+e = gd.lookup("TTDA", day, g, docs=docs)
+check("text search finds the page", (found, 32, "text search", ["rec32%2F"]), (e.get("doc"), e.get("page"), e.get("how"), e.get("records")))
+check("the cap and the page order bound the lookups", True, len(g.viewed) <= gd.TEXT_LOOKUPS and g.viewed[0] == found)
+g = TextGale({day: sat}, {})
+e = gd.lookup("TTDA", day, g, docs=docs)
+check("no crossword text: a miss, after at most 3 lookups", ("no crossword in the issue's contents", True),
+      (e.get("why"), len(g.viewed) == gd.TEXT_LOOKUPS))
+g = TextGale({day: sat}, {found: fixture})
+check("other papers do not read pages", True, "why" in gd.lookup("LSNR", day, g, docs=docs) and not g.viewed)
+g = TextGale({day: times}, {})
+gd.lookup("TTDA", day, g, docs=docs)
+check("titled crossword needs no lookups", [], g.viewed)
+check("Times matcher moved so earlier misses are asked again", True,
+      gd.stale("TTDA", {"why": "no crossword in the issue's contents", "matcher": 6}))
+
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)
