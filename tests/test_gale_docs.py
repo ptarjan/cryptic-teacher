@@ -269,5 +269,22 @@ finally:
     gl.solutions = real
 check("report_lookups asks for the solutions a fixed number of times", True, len(calls) <= 3)
 
+# The Sunday papers: only a numbered puzzle, not the book ads, features or winners notices.
+SUN_BAD = ["Millennium Crossword Book", "Classics master tackles the Cross words", "A cross word over the Durrell family",
+           "Crossword fun for all the family", "Easter Crossword winners", "Christmas Crossword"]
+for prod, good in [("TGRH", "Prize Puzzle No. 2022"), ("TGRH", "Sunday Telegraph Two-into-One Crossword"),
+                   ("TGRH", "Prize Crossword Competition No 1512"), ("TGRH", "Two-in-One Crossword"),
+                   ("INDA", "Beelzebub Crossword No 954")]:
+    check(f"Sunday {prod} {good}", 1, gd.crossword(prod, ["Millennium Crossword Book", good, "Crossword fun for all the family"], sunday=True))
+check("Sunday ads, features, notices are no puzzle", [None] * len(SUN_BAD),
+      [gd.crossword(p, [t], sunday=True) for t in SUN_BAD for p in ("TGRH",)])
+check("INDA Sunday: unnumbered Beelzebub years and the Prize Crossword", [1, 1, 0, 1],
+      [gd.crossword("INDA", ["Concise Crossword", "Beelzebub prize crossword"], sunday=True),
+       gd.crossword("INDA", ["The Concise Crossword", "Beelzebub Crossword"], sunday=True),
+       gd.crossword("INDA", ["The Prize Crossword", "Beelzebub Crossword No 954"], sunday=True) - 1,
+       gd.crossword("INDA", ["Sunday Crosswords", "The Prize Crossword"], sunday=True)])
+check("INDA Sunday: a feature on crosswords is no puzzle", None, gd.crossword("INDA", ["Crossword fun for all the family"], sunday=True))
+check("a weekday keeps its looser match", 0, gd.crossword("TGRH", ["Prize Crossword"]))
+
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)
