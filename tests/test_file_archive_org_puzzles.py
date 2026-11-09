@@ -3565,7 +3565,7 @@ check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sun
             for k, v in f._JOINED_TITLE_FIX.items()),
        all(v[2] == f._SPECIAL_TITLE_FIX[k][0] for k, v in f._JOINED_TITLE_FIX.items()),
        sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
-       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
+       all(f.CORPUS_KEYS[o] == {k: f._SPECIAL_TITLE_FIX[k][2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
 check("the special-title fix pins every paper but the Gale Sunday Telegraph over the key before it, each pinned key "
       "its real scan key's, their old keys standing under it; the Sunday Telegraph's moves, so its scans are made again",
       [True, True, True, True, True],
