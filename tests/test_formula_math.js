@@ -70,15 +70,18 @@ const cutRange = (s) => {
 };
 const TERM_LETTERS = /^(?:(\d+) )?letters?$/;
 
-// [lo, hi] for a formula's parts, or null when a chip has no count.
+// The type rung's picture of a formula: a word told only once its chips are
+// out (formulaOf's `when`) reads as its blank, and an empty blank is nothing.
+const blank = (parts) => parts.map((p) => (p && typeof p === "object" ? p.hide : p)).filter((p) => p !== "");
+const SEPS = ["(", ")", "+", "−", "inside", "with", "for", "moved", "and"];
+
+// [lo, hi] for a formula's parts, or null when a chip has no count. An
+// operation word applies to the one term after it (a chip, or a bracket), the
+// way a function binds tighter than "+": "A + anagram of ( B + C )".
 function evaluate(parts, counts) {
+  parts = blank(parts);
   let i = 0;
   const seq = () => {
-    let lead = null;
-    const t0 = parts[i];
-    if (typeof t0 === "string" && !["(", ")", "+", "−", "inside", "with", "moved", "and"].includes(t0) && !t0.startsWith("− ") && !TERM_LETTERS.test(t0)) {
-      lead = t0; i++;
-    }
     let acc = term();
     if (!acc) return null;
     while (i < parts.length && parts[i] !== ")") {
@@ -95,15 +98,19 @@ function evaluate(parts, counts) {
       if (!b) return null;
       // "A with B moved": B's letters are A's own, so the count stays A's.
       if (sep === "with" && parts[i] === "moved") { i++; continue; }
+      // "A with B for C": C's letters out, B's in.
+      if (sep === "with" && parts[i] === "for") {
+        i++;
+        const c = term();
+        if (!c) return null;
+        acc = [Math.max(0, acc[0] + b[0] - c[1]), acc[1] + b[1] - c[0]];
+        continue;
+      }
       if (sep === "+" || sep === "inside" || sep === "and") acc = [acc[0] + b[0], acc[1] + b[1]];
       else if (sep === "−") acc = [Math.max(0, acc[0] - b[1]), acc[1] - b[0]];
       else return null;
     }
-    // A pick from a pick ("middle of (middle of selection 2)", a word stripped twice): the chip
-    // counts the innermost pick's letters, which the outer pick does not bound.
-    if (lead && PICK.has(lead) && acc.picked) return Object.assign([Math.min(1, acc[0]), INF], { picked: true });
-    const got = lead ? opRange(lead, acc) : acc;
-    return lead && PICK.has(lead) ? Object.assign([...got], { picked: true }) : got;
+    return acc;
   };
   const term = () => {
     const t = parts[i++];
@@ -115,14 +122,23 @@ function evaluate(parts, counts) {
     }
     const m = typeof t === "string" && TERM_LETTERS.exec(t);
     if (m) return [m[1] ? +m[1] : 1, m[1] ? +m[1] : 1];
-    return null;
+    if (typeof t !== "string" || SEPS.includes(t) || t.startsWith("− ")) return null;
+    // "made from A and B": pieces with no operation to say how, any count at all.
+    if (t === "made from") return seq() && [0, INF];
+    const acc = term();
+    if (!acc) return null;
+    // A pick from a pick ("middle of middle of selection 2", a word stripped twice): the chip
+    // counts the innermost pick's letters, which the outer pick does not bound.
+    if (PICK.has(t) && acc.picked) return Object.assign([Math.min(1, acc[0]), INF], { picked: true });
+    const got = opRange(t, acc);
+    return PICK.has(t) ? Object.assign([...got], { picked: true }) : got;
   };
   const r = seq();
   return i === parts.length ? r : null;
 }
 
 // The words of a formula as the rung prints them, for messages.
-const formulaText = (f) => `${f.lead} ${f.parts.map((p) => (typeof p === "number" ? f.chips[p] : p)).join(" ")}`;
+const formulaText = (f) => `${f.lead} ${blank(f.parts).map((p) => (typeof p === "number" ? f.chips[p] : p)).join(" ")}`;
 
 // Why a clue's formula does not add up, or null when it does (or cannot be told).
 function mathFault(ann) {
@@ -135,7 +151,7 @@ function mathFault(ann) {
   const want = appFormula.letterCount(built(ann));
   // A word masked because it is the answer ("inside" for LOOK INSIDE) is no
   // operation this can read; the line is left untold rather than called wrong.
-  if (f.parts.some((p) => typeof p === "string" && p.includes("\u2026"))) return null;
+  if (blank(f.parts).some((p) => typeof p === "string" && p.includes("\u2026"))) return null;
   const r = evaluate(f.parts, counts);
   if (!r) return { text: formulaText(f), why: "unreadable" };
   if (want < r[0] || want > r[1]) return { text: formulaText(f), why: `${r[0]}..${r[1]}` };
@@ -253,4 +269,4 @@ if (require.main === module) {
   process.exit(failures.length ? 1 : 0);
 }
 
-module.exports = { mathFault, evaluate, fixtures, treeMissesAnswer };
+module.exports = { mathFault, evaluate, fixtures, treeMissesAnswer, appFormula, blank };

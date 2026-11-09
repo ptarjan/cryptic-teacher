@@ -1379,8 +1379,13 @@
       return `<button type="button" class="formula-chip${a ? " arm-cost" : ""}" data-piece="${i}" data-arm="piece-${i}">${
         a ? ARMED_TEXT : label}</button>`;
     };
+    // A word told once its chips are out (formulaOf's `when`): the letters a
+    // step supplies, drops or makes. Blank on the type rung's picture.
+    const told = (p) => interactive && (groupSolved(e) || p.needs.every((i) => pieceOut(e, i)));
+    const word = (w) => `<span class="formula-word">${esc(w)}</span>`;
     return `<div class="formula"><span class="formula-lead">${esc(f.lead)}</span> ${
-      f.parts.map((p) => (typeof p === "string" ? `<span class="formula-word">${esc(p)}</span>` : chip(p))).join(" ")}${
+      f.parts.map((p) => (typeof p === "string" ? word(p) : typeof p === "number" ? chip(p) : (told(p) ? p.show : p.hide) ? word(told(p) ? p.show : p.hide) : ""))
+        .filter(Boolean).join(" ")}${
       f.after ? ` <span class="formula-word">${esc(f.after)}</span>` : ""}${
       !interactive || armed || !piecesLeft(e) ? "" : `<p class="muted">Tap a piece to see it.</p>`}</div>`;
   }

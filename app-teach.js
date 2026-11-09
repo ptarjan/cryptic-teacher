@@ -488,6 +488,8 @@
   function wpKnown(n) {
     if (typeof n.gives === "string") return wpLetters(n.gives);
     if (!n.op) return "words" in n ? wpLetters(n.words) : null;
+    // What the check found the step gives (annotation.py stamp_yields).
+    if (typeof n.yields === "string") return wpLetters(n.yields);
     const ks = (n.parts || []).map(wpKnown);
     if (n.op === "charade" && ks.length && ks.every((k) => k != null)) return ks.join("");
     if (n.op === "reversal" && ks[0] != null) return ks[0].split("").reverse().join("");
@@ -525,7 +527,8 @@
     const walk = (n, target) => {
       if (!n.op || n.unchecked) return;
       const ks = (n.parts || []).map(wpKnown);
-      let own = typeof n.gives === "string" ? wpLetters(n.gives) : target != null ? target : wpKnown(n);
+      let own = typeof n.gives === "string" ? wpLetters(n.gives) : typeof n.yields === "string" ? wpLetters(n.yields)
+        : target != null ? target : wpKnown(n);
       if (own != null && n.op === "anagram" && fodderOf(n) != null && wpSorted(fodderOf(n)) !== wpSorted(own)) own = null;
       if (own != null) out.set(n, own);
       const want = (n.parts || []).map((p, i) => ks[i]);
@@ -750,42 +753,98 @@
     // A whole-clue op has no fodder to name: the chip already labels it, and "cryptic of" is no prose.
     const WHOLE_CLUE = ["cryptic", "rebus", "reverse"];
     const chipless = (p) => p && !p.op && !p.words && val(p) != null;
+    // A token told only once its pieces are out (formulaHTML): `show` then,
+    // `hide` before and on the type rung's blank picture ("" prints nothing).
+    // `needs` is the chips it waits on, null until the step above sets it.
+    // Paul: "The math didn't put in the letters" — a letter the clue supplies,
+    // the letters a cut drops and what a step makes are all concrete letters
+    // once the chips around them are; only the blank picture says "letter".
+    const when = (show, hide, needs) => ({ show, hide, needs: needs || null });
+    const ALL = blocks.map((_, i) => i);
+    // Ops whose clue words are one block that already holds the result
+    // (annotation.py _blocks: a pick, a hidden run, a sound): the chip shows the
+    // words picked from and the step its result, not "first letter of S".
+    const PICKS = ["first", "last", "middle", "outer", "alternate", "regular", "nth", "hidden", "homophone"];
+    const fillOf = [];
     const used = new Set();
+    // A step's reading: {toks, kind, chips, yields, yNeeds}, or null when a leaf
+    // is not a chip. kind says where it needs brackets: "atom" (one chip, or
+    // already bracketed), "prefix" (an op word applied to what follows, which
+    // binds tighter than + as a function does), "sum" (pieces joined by +),
+    // "infix" (− / inside / with … for / with … moved), which a + or another
+    // op beside it would misread without brackets.
     const walk = (node, top) => {
       if (!node) return null;
       if (!node.op || !node.parts) {
         const i = at(node);
-        if (i >= 0 && !used.has(i)) { used.add(i); return [i]; }
-        // A letter the clue gives without words of its own, inside a charade.
-        if (chipless(node)) return [plural(val(node).length, "letter")];
+        if (i >= 0 && !used.has(i)) { used.add(i); return { toks: [i], kind: "atom", chips: [i] }; }
+        // A letter the clue gives without words of its own.
+        if (chipless(node)) return { toks: [when(val(node), plural(val(node).length, "letter"))], kind: "atom", chips: [] };
         return null;
       }
       const op = node.op;
       const here = top ? wholeWord(built) : val(node);
-      let out;
-      if (op === "deletion" && node.parts.slice(1).every(chipless)) {
-        const whole = walk(node.parts[0], false);
-        if (!whole) return null;
-        out = whole.concat(cutWords(val(node.parts[0]), node.parts.slice(1).map(val), here));
+      const kids = node.parts.map((p) => walk(p, false));
+      if (!kids.length || kids.some((k) => !k)) return null;
+      const chips = [].concat(...kids.map((k) => k.chips));
+      kids.forEach((k) => k.toks.forEach((t) => { if (t && typeof t === "object" && t.needs === null) t.needs = chips; }));
+      // A part as this step prints it: bracketed where the reading needs it,
+      // and once its chips are out what it makes ("→ CROS"), inside brackets
+      // that appear with it when it had none of its own.
+      const embed = (k, need) => {
+        const y = k.yields ? `→ ${k.yields}` : "";
+        if (need && k.kind !== "atom") return ["("].concat(k.toks, y ? [when(y, "", k.yNeeds)] : [], ")");
+        if (y) return [when("(", "", k.yNeeds)].concat(k.toks, when(`${y} )`, "", k.yNeeds));
+        return k.toks;
+      };
+      const term = (k) => embed(k, k.kind !== "atom");
+      const plus = (ks) => [].concat(...ks.map((k, n) => (n ? ["+"] : []).concat(embed(k, k.kind === "infix"))));
+      const operand = (ks) => (ks.length === 1 ? embed(ks[0], ks[0].kind === "sum" || ks[0].kind === "infix")
+        : ["("].concat(plus(ks), ")"));
+      let toks, kind = "infix";
+      // A step filed unchecked has parts whose roles were never proven (which
+      // piece is cut from which, what swaps for what): only its op word is told.
+      if (node.unchecked && op !== "charade") {
+        toks = [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`].concat(operand(kids));
+        kind = "prefix";
+      } else if (op === "deletion" && kids.length > 1 && node.parts.slice(1).every(chipless)) {
+        // The letters dropped have no clue words: told by where they come off
+        // and how many on the blank picture, by the letters once the whole is out.
+        const cuts = node.parts.slice(1).map(val);
+        toks = term(kids[0]).concat(when(`− ${cuts.join(" − ")}`, cutWords(val(node.parts[0]), cuts, here), chips));
+      } else if (op === "deletion" && kids.length > 1) {
+        toks = term(kids[0]).concat(...kids.slice(1).map((k) => ["−"].concat(term(k))));
+      } else if (op === "container" && kids.length === 2) toks = term(kids[1]).concat("inside", term(kids[0]));
+      // sub(x, OLD, NEW): x with NEW put in for OLD.
+      else if (op === "substitution" && kids.length === 3) toks = term(kids[0]).concat("with", term(kids[2]), "for", term(kids[1]));
+      // A composite anagram's fodder is the answer's letters plus the second
+      // piece's (comp(x, y), tools/wordplay.py): the answer is the first less the second.
+      else if (op === "composite" && kids.length === 2) { toks = ["anagram of", "("].concat(term(kids[0]), "−", term(kids[1]), ")"); kind = "prefix"; }
+      // A move's second piece is letters of the first, moved, not letters added to it.
+      else if (op === "move" && kids.length === 2) toks = term(kids[0]).concat("with", term(kids[1]), "moved");
+      else if (op === "charade" || op === "composite" || WHOLE_CLUE.includes(op)) {
+        toks = plus(kids);
+        kind = kids.length === 1 ? kids[0].kind : "sum";
       } else {
-        const kids = node.parts.map((p) => walk(p, false));
-        if (!kids.length || kids.some((k) => !k)) return null;
-        if (op === "container" && kids.length === 2) out = [].concat(kids[1], "inside", kids[0]);
-        else if (op === "deletion" && kids.length === 2) out = [].concat(kids[0], "−", kids[1]);
-        // A composite anagram's fodder is the answer's letters plus the second
-        // piece's (comp(x, y), tools/wordplay.py): the answer is the first less the second.
-        else if (op === "composite" && kids.length === 2) out = ["anagram of", "("].concat(kids[0], "−", kids[1], ")");
-        // A move's second piece is letters of the first, moved, not letters added to it.
-        else if (op === "move" && kids.length === 2) out = [].concat(kids[0], "with", kids[1], "moved");
-        else {
-          const lead = op === "charade" || op === "composite" || WHOLE_CLUE.includes(op) ? [] : [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`];
-          out = lead.concat(...kids.map((k, n) => (n ? ["+"].concat(k) : k)));
-        }
+        toks = [OP_WORDS[op] || `${op.replace(/_/g, " ")} of`].concat(operand(kids));
+        kind = "prefix";
       }
-      return top || out.every((x) => typeof x === "number") && out.length === 1 ? out : ["("].concat(out, ")");
+      // A result that is a word of the answer would only print as "…" (maskAnswer): left unsaid.
+      const yields = !top && !node.unchecked && op !== "charade" && !WHOLE_CLUE.includes(op) && val(node) != null
+        && maskAnswer(val(node), built) === val(node) ? val(node) : null;
+      if (yields && PICKS.includes(op)) {
+        node.parts.forEach((leaf, n) => {
+          const i = kids[n].toks.length === 1 && typeof kids[n].toks[0] === "number" ? kids[n].toks[0] : -1;
+          const src = op === "hidden" ? wpLetters(leaf.words) : wpKnown(leaf);
+          if (i >= 0 && src && src !== wholeWord(blocks[i].gives)) fillOf[i] = src;
+        });
+      }
+      // An anagram's result is its solve, which blockLetters holds back from a
+      // piece: told only once every piece of the clue is out.
+      return { toks, kind, chips, yields, yNeeds: op === "anagram" || op === "composite" ? ALL : chips };
     };
     const walked = tree.op && tree.parts && blocks.length ? walk(tree, true) : null;
-    const treeParts = walked && used.size === blocks.length ? walked : null;
+    const treeParts = walked && used.size === blocks.length ? walked.toks : null;
     // Pieces whose counts do not sum to the answer's, with no walkable tree to
     // say what else happens to them, are only "made from" each other: "+" would claim
     // SPACE + S is PACE.
@@ -794,16 +853,22 @@
       : outer >= 0 && inner >= 0 && outer !== inner ? [inner, "inside", outer]
       : whole >= 0 && cut >= 0 && whole !== cut ? [whole, "−", cut]
       : !sums ? ["made from"].concat(join(all, "and"))
+      : head && all.length > 1 ? [head, "("].concat(join(all, "+"), ")")
       : (head ? [head] : []).concat(join(all, "+"));
     const lead = ((ann.definitions || []).length && !ann.definedByPreamble ? "definition" : "answer")
       + ` (${letterCount(built)}) =`;
     // What a chip reads once its piece is out: the letters the piece gives
     // (blockLetters, so withheld ones stay withheld), else the clue words.
-    const fills = blocks.map((b) => blockLetters(ann, b) || b.clueFragment || "?");
+    // A piece whose letters are its own words ("corps" giving CORPS) shows them as
+    // letters, not as the clue's lower-case words; the answer itself stays withheld.
+    const own = (b) => (b.gives && wholeWord(b.gives) === wholeWord(b.clueFragment) && wholeWord(b.gives) !== wholeWord(built)
+      ? wholeWord(b.gives) : "");
+    const fills = blocks.map((b, i) => (treeParts && fillOf[i]) || blockLetters(ann, b) || own(b) || b.clueFragment || "?");
     // The step from the built answer to the grid entry, said by its length only.
     const after = ann.alteration && ann.entered && wholeWord(ann.entered) !== wholeWord(built)
       ? `then ${(ann.alteration.steps || []).map((x) => x.op).join(", ") || "altered"} \u2192 grid entry (${letterCount(ann.entered)})` : "";
-    return { after, lead: maskAnswer(lead, built), parts: parts.map((p) => typeof p === "string" ? maskAnswer(p, built) : p), chips, fills };
+    return { after, lead: maskAnswer(lead, built), parts: parts.map((p) => (typeof p === "string" ? maskAnswer(p, built)
+      : typeof p === "object" ? { ...p, show: maskAnswer(p.show, built), hide: maskAnswer(p.hide, built) } : p)), chips, fills };
   }
 
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.

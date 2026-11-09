@@ -760,11 +760,28 @@ def view(ann, entry, puzzle=None):
         out["assembly"] = asm
     if tree:
         # The located tree itself: the walkthrough rung steps through it (app.js wordplaySteps).
+        stamp_yields(tree, got)
         out["wordplay"] = tree
     for key in ("explanation", "features", "hiddenLetter"):
         if key in ann:
             out[key] = ann[key]
     return out
+
+
+def stamp_yields(tree, got):
+    """Write on every op node below the root the letters the check found it
+    gives (`yields`), so the app's formula can say what each step makes
+    ("anagram of (CORPS − P → CORS) → CROS") without re-deriving it: an
+    anagram's order, or a pick from a word, is known only against the answer,
+    which wordplay.evaluate has already matched. A node that stores its own
+    `gives`, an unchecked step and a whole-clue op are left as filed."""
+    for node, parent in _walk(tree):
+        if parent is None or "op" not in node or "gives" in node or node.get("unchecked") \
+                or node["op"] in ("cryptic", "rebus", "reverse"):
+            continue
+        letters = got.get(id(node))
+        if isinstance(letters, str) and letters:
+            node["yields"] = letters
 
 
 def name_repeated_pieces(blocks):
