@@ -34,7 +34,7 @@ CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
-MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 3, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
+MATCHER = {"TTDA": 5, "LSNR": 2, "TGRH": 4, "FTHA": 3, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
@@ -133,7 +133,12 @@ def crossword(prod, titles, number=None):
     if prod == "TTDA":
         cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
     if prod == "TGRH":
-        cands.sort(key=lambda i: not TELEGRAPH_DAILY.search(titles[i]))
+        cands.sort(key=lambda i: not (TELEGRAPH_DAILY.search(titles[i]) or TELEGRAPH_PLAIN.search(titles[i])))
+    if prod == "FTHA":
+        # The puzzle itself is titled "Crossword" or "Crossword / N"; promos
+        # ("Tomorrow: Out 10,000th Crossword") and "Ft Money Crossword" come after.
+        cands = [i for i in cands if not re.search(r"money|tomorrow", titles[i], re.IGNORECASE)] or cands
+        cands.sort(key=lambda i: not FT_DAILY.search(titles[i]))
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
@@ -145,6 +150,10 @@ def crossword(prod, titles, number=None):
 #: Competition / 14", "... Answers").
 TELEGRAPH_DAILY = re.compile(r"^\W*(?:[cg]ross-? ?w[oa]rd\W*/\W*\d[\d,]{2,}|prize\s+[cg]ross-? ?w[oa]rd)",
                              re.IGNORECASE)
+
+
+#: The FT's daily puzzle title: "Crossword" or "Crossword / 9,876".
+FT_DAILY = re.compile(r"^\W*[cg]ross-? ?w[oa]rd(\W*/\W*\d[\d,]*)?\W*$", re.IGNORECASE)
 
 
 #: The Telegraph's early (and some later) daily puzzle, titled with no number.
