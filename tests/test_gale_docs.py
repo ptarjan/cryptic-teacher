@@ -158,6 +158,13 @@ check("a day with its cryptic keeps it, not the solution's page", ("IF0000001000
 check("OCR's Cossword and Crcssword are the cryptic", [0, 0],
       [gd.crossword("TTDA", [t, "Women's Lacrosse", "The Weather"]) for t in
        ["Thee Times Cossword Puzzle No. 1,866", "The Times Crcssword Puzzle No. 11,924"]])
+check("OCR's Crassword and Crosword are the cryptic too", [0, 0],
+      [gd.crossword("TTDA", [t, "Solution to yesterday's crossword 22,544"]) for t in
+       ["The Times Crassword Puzzle No 14,936", "The Times Crosword"]])
+sun = issue([("The Sunday Times Concise Crossword No 517", 10, 1), ("The Sunday Times Word", 14, 1)])
+check("the Sunday Times cryptic as \"The Sunday Times Word\", not the Concise", 14, gd.entry("STHA", sun, sunday=True)["page"])
+check("its real title still wins", 12, gd.entry("STHA", issue([("The Sunday Times Word", 14, 1),
+                                                               ("The Sunday Times Crossword", 12, 1)]), sunday=True)["page"])
 check("other puzzles' solutions are not the cryptic's", [None] * 6,
       [gd.TIMES_SOLUTION.search(t) for t in ["Solution to No 3S49 Why?", "Crossword Solution for November",
                                               "Solution to Times 2 Crossword No 2680", "Solution to Jumbo Crossword 269",
