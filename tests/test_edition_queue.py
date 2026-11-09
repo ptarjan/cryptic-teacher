@@ -724,7 +724,8 @@ check("a Gale Sunday Times page due WINNERS_TITLE is ranked 1, evidence, fix-lan
       "HEADINGS_JOINED, tier 0, blanket-passing",
       [1, True, True, True, 0, True],
       [f.RANKS[f.WINNERS_TITLE], eq.evidence_reason(f.WINNERS_TITLE), f.WINNERS_TITLE in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1] == f.WINNERS_TITLE,
+       (f.WINNERS_TITLE in eq.UNFILED_FIRST
+        and eq.UNFILED_FIRST.index(f.WINNERS_TITLE) > eq.UNFILED_FIRST.index(f.HEADINGS_JOINED)),
        eq.files_likely_tier(1, {"paper": "galesundaytimes", "kind": "read", "reason": f.WINNERS_TITLE, "date": "1993-12-26"}),
        f.WINNERS_TITLE in f.BLANKET_PASSES])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,

@@ -4033,7 +4033,12 @@ TITLE_NUMBER_LINE = re.compile(r"^\W*(?:puzzle\s+)?(?:n[o0]\W{0,3}\s*)?(?:#\s*)?
 JOIN_REACH = 40
 
 
-def joined_titles(lines, fits, under=False):
+#: TITLE_NUMBER_LINE for a paper whose numbers run short (the Independent on Sunday's No 954): 1-4 digits, but
+#: only after "No" or "#".
+SHORT_NUMBER_LINE = re.compile(r"^\W*(?:puzzle\s+)?(?:n[o0]\W{0,3}\s*|#\s*)\d{1,4}(?!\d)", re.IGNORECASE)
+
+
+def joined_titles(lines, fits, under=False, number_line=TITLE_NUMBER_LINE):
     """The lines of `lines` ([(x0, y0, x1, y1, text)] each) that are a title with no number (`fits`, which
     answers whether a text is a numbered title, says "Crossword No 1234" would be) joined to the line of its
     number (TITLE_NUMBER_LINE): on its row, at most JOIN_REACH heights right of it, or with `under` the line
@@ -4041,7 +4046,7 @@ def joined_titles(lines, fits, under=False):
     heights: Gale's 1990-91 Telegraph "CROSSWORD" over the left clue column and its "19,986" over the right
     (14 heights apart), the 1987-92 Sunday Times's "THE SUNDAY TIMES Crossword" over its "No 3217", the
     Independent's 2008-10 "The Wednesday Crossword by Dac" and its "No 6828, 3 September 2008" (30 apart)."""
-    numbers = [ws for ws in lines if TITLE_NUMBER_LINE.match(" ".join(w[4] for w in ws))]
+    numbers = [ws for ws in lines if number_line.match(" ".join(w[4] for w in ws))]
     joined = []
     for ws in lines if numbers else ():
         text = " ".join(w[4] for w in ws)
@@ -4401,7 +4406,8 @@ def sunday_tel_headings(lines, titles=()):
 def indy_sunday_headings(lines, titles=()):
     """titled_headings() of an Independent on Sunday page, and each INDEPENDENT_BY_TITLE title ("Prize
     Crossword by Beelzebub No 954")."""
-    puzzles, solutions = titled_headings(lines + joined_titles(lines, INDY_SUNDAY_TITLE.match, under=True),
+    puzzles, solutions = titled_headings(lines + joined_titles(lines, INDY_SUNDAY_TITLE.match, under=True,
+                                                          number_line=SHORT_NUMBER_LINE),
                                          INDY_SUNDAY_TITLE, INDEPENDENT_SOLUTION)
     for ws in lines + joined_titles(lines, INDEPENDENT_BY_TITLE.match):
         m = INDEPENDENT_BY_TITLE.match(" ".join(w[4] for w in ws))
