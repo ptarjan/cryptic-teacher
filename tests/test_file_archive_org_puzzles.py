@@ -4763,9 +4763,9 @@ check("a Gale Independent on Sunday title: the setter's name before 'Prize Cross
        [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword", 100, 100), line("No 954", 330, 100)])[0]],
        [n for n, _, _ in f.indy_sunday_headings([line("The Prize Crossword")])[0]]))
 check("the Sunday Telegraph's number by date: its anchors, one a week outside them",
-      (1, 214, 2060, 2473, 1961 - 0, 2473 + 52),
+      (1, 214, 2062, 2473, 1959, 2473 + 52),
       (f.sunday_tel_expected_number(_d.date(1961, 2, 5)), f.sunday_tel_expected_number(_d.date(1965, 3, 7)),
-       f.sunday_tel_expected_number(_d.date(2000, 12, 3)), f.sunday_tel_expected_number(_d.date(2009, 3, 1)),
+       f.sunday_tel_expected_number(_d.date(2000, 12, 31)), f.sunday_tel_expected_number(_d.date(2009, 3, 1)),
        f.sunday_tel_expected_number(_d.date(1999, 1, 3)) // 1, f.sunday_tel_expected_number(_d.date(2010, 2, 28))))
 check("the Independent on Sunday's number by date: No 1 on 28 January 1990, No 954 on 1 June 2008, weekly after the last",
       (1, 954, 1099, 1913 + 52),

@@ -4375,10 +4375,13 @@ SUNDAY_TEL_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+telegraph\s+)?(?:two\
 SUNDAY_TEL_SPECIAL = re.compile(r"^\W*(?:\w{1,4}\s*)?sund\w*\s*(?:\S+\s*){1,6}?cr\w{2,4}ic\s*cr[o0]ss\W{0,3}w[o0]rd"
                                 r"(?:\s*for\s*[\w ]{3,20})?\W*$", re.IGNORECASE)
 #: Dated Sunday Telegraph issue numbers, which drift from the week count: No 1 (5 February 1961), 214 (7 March
-#: 1965), 2060 (3 December 2000) and our first sundaytel file, No 2473 (1 March 2009; the Gale run ends with 2000,
-#: so no id here meets one of those).
+#: 1965), 2044 (Bank Holiday giant, 27 August 2000) and 2062 (New Year giant, 31 December 2000: both pages print
+#: "Envelopes must be sealed and marked ST2044 / ST2062", eighteen weeks apart, so a holiday giant is that Sunday's
+#: issue number in the weekly series and files under it; the earlier 2060 for 3 December was two out) and our
+#: first sundaytel file, No 2473 (1 March 2009; no sundaytel file of 2000 exists, so no id here meets one).
 SUNDAY_TEL_ANCHORS = ((datetime.date(1961, 2, 5), 1), (datetime.date(1965, 3, 7), 214),
-                      (datetime.date(2000, 12, 3), 2060), (datetime.date(2009, 3, 1), 2473))
+                      (datetime.date(2000, 8, 27), 2044), (datetime.date(2000, 12, 31), 2062),
+                      (datetime.date(2009, 3, 1), 2473))
 #: The Independent on Sunday's title: "The Prize Crossword", "Beelzebub Prize Crossword No 954", "Sunday
 #: Crossword #955" (up to three words, the setter's name, before the kind). Its solution heading is the
 #: Independent's.
@@ -11353,7 +11356,7 @@ _SOLUTION_PINS = {"8e4b770296908774": "17927db190a32678",  # zeros_read moved in
                   # a scan's title, no solution's reading moves. The scan key lands on _JOINED_TITLE_FIX's own.
                   "e8b1229ab48f7223": "17927db190a32678",
                   # Paper.special (a numberless holiday title, ocr_headings and SUNDAY_TEL_TITLE): a scan's title only.
-                  "76e17a131db8711f": "17927db190a32678",
+                  "f34293ba4baec5bb": "17927db190a32678",
                   "5686cee2aa70239b": "41a56d0904b08e42", "b41c45427ac4fa11": "f9c2185f7546a1b8",
                   "056213fe33f38ceb": "8417cfb08f3a9706", "a2b38825dd50dc6a": "8417cfb08f3a9706",
                   "e1f457cc02985dda": "8417cfb08f3a9706", "f9e93b539e79a435": "8417cfb08f3a9706",
@@ -11525,7 +11528,7 @@ _SOLVED_PINS = {"113156e3aaee30b5": "050e93ff674ff62c",  # zeros_read moved into
                 # GALE_SUNDAY_TELEGRAPH and GALE_INDY_SUNDAY (two new Papers): no existing paper's read moves.
                 "4237a057c8a24f5e": "050e93ff674ff62c",
                 # Paper.special (a numberless holiday title, ocr_headings): no solution's read moves.
-                "18171f1ae4454662": "050e93ff674ff62c"}
+                "8fe83c999023241c": "050e93ff674ff62c"}
 
 
 def input_hash(d):
