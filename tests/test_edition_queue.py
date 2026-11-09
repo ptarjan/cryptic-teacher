@@ -3981,6 +3981,56 @@ check("batch: the read limit grows per edition, within 3600", (1200, 2040, 3600,
       (eq.unit_limit(_al[0], 1200), eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 1200),
        eq.unit_limit({**_al[0], "batch": ["a"] * 7}, 3600), eq.unit_limit({**_al[0], "batch": ["a"] * 30}, 1200)))
 
+# A (paper, year) band whose last BAND_RUN units found nothing goes behind its rank's other work.
+_clock = [0.0]
+_by = eq.BandYield(run=3, hours=2, clock=lambda: _clock[0])
+_saved_bands = eq.BANDS
+eq.BANDS = _by
+def _bu(paper, rel, rank=1):
+    return (rank, 0, 0, {"kind": "read", "paper": paper, "rel": rel, "rank": rank})
+_tg = [_bu("telegraph", f"T/1990-05-{d:02d}") for d in range(1, 5)]
+_ot = [_bu("ft", f"F/2001-05-{d:02d}") for d in range(1, 4)]
+_lo = _bu("telegraph", "T/1990-05-09", rank=2)
+for _ in range(2):
+    _by.noted(_tg[0][3], 0, 0)
+check("band: two empty units of three do not demote", False, _by.demoted(_tg[0][3]))
+_by.noted(_tg[0][3], 1, 0)
+_by.noted(_tg[0][3], 0, 0)
+_by.noted(_tg[0][3], 0, 0)
+check("band: a unit that found a puzzle restarts the run", False, _by.demoted(_tg[0][3]))
+_by.noted(_tg[0][3], 0, 0)
+check("band: three empty in a row demote the band", True, _by.demoted(_tg[0][3]))
+_order = eq.by_paper_turns(_tg + _ot + [_lo])
+check("band: demoted units go after the rank's others, none dropped, later rank untouched",
+      [u[3]["rel"] for u in _ot] + [u[3]["rel"] for u in _tg] + [_lo[3]["rel"]], [u[3]["rel"] for u in _order])
+check("band: another year of the paper is not demoted", False, _by.demoted(_bu("telegraph", "T/1991-01-01")[3]))
+_by.noted(_bu("times", "X/1990-05-01")[3], 0, 0)
+check("band: Times units are never demoted", False, _by.demoted(_bu("times", "X/1990-05-01")[3]))
+_clock[0] = 3600.0
+check("band: still demoted inside the span", True, _by.demoted(_tg[0][3]))
+_by.noted(_tg[1][3], 2, 1)
+check("band: a unit that files lifts it", False, _by.demoted(_tg[0][3]))
+for _ in range(3):
+    _by.noted(_tg[0][3], 0, 0)
+check("band: demoted again after a fresh run", True, _by.demoted(_tg[0][3]))
+_clock[0] = 3600.0 + 7201.0
+check("band: lifted after the span", False, _by.demoted(_tg[0][3]))
+# The unit's process leaves its tally; the queue takes it at the reap.
+_tee = eq.YieldTee(io.StringIO())
+_tee.write("12:00:00 read A/1990-01-01: nothing filed (vlm 0)\n12:00:01 scanned A/1990-01-02: 0 puzzle(")
+_tee.write("s)\n")
+check("yield tee: nothing filed and a scan of none tally nothing", (0, 0, 2), (_tee.puzzles, _tee.filed, _tee.seen))
+_tee.write("12:00:02 read A/1990-01-03: 1 wrote x-1990-01-03; 2 refused\n")
+check("yield tee: a wrote verdict is a filing", (1, 1), (_tee.puzzles, _tee.filed))
+_tee.save()
+_pid = os.getpid()
+_by2 = eq.BandYield(run=1, hours=1, clock=lambda: 0.0)
+_by2.noted(_tg[0][3], 0, 0)
+check("reaped: setup demotes a run-of-one band", True, _by2.demoted(_tg[0][3]))
+_by2.reaped(_tg[0][3], _pid)
+check("reaped: the filing is taken and its file removed", (False, False), (_by2.demoted(_tg[0][3]), (eq.yield_dir() / f"{_pid}.json").exists()))
+eq.BANDS = _saved_bands
+
 print("FAILS", fails)
 
 print("test_edition_queue: all passed" if not fails else "test_edition_queue: FAILED")
