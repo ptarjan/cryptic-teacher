@@ -440,14 +440,14 @@ def plan(got, skip=SKIP):
         out += want("TTDA", day, docs, got)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
-    # Telegraph editions laid out from a competition article: looked up again.
-    for day in gale_inbox.misfiled("TGRH"):
-        out += want("TGRH", day, docs, got)
     # The Sunday papers inside TGRH and INDA (a few thousand rows in all):
-    # ahead of the gated rows below, or they would wait out the Times' backlog.
+    # ahead of the Telegraph redo rows and the gated rows below, or they would wait out the Times' backlog.
     for prod in gale_inbox.SUNDAYS:
         for day in gale_inbox.sunday_wanted(prod):
             out += want(prod, day, docs, got)
+    # Telegraph editions laid out from a competition article: looked up again.
+    for day in gale_inbox.misfiled("TGRH"):
+        out += want("TGRH", day, docs, got)
     if len(out) < REPLAN:
         import gale_listener
         for day, number, report in gale_listener.wanted():
