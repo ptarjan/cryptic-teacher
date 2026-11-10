@@ -584,6 +584,28 @@ def times_listener_days(docs):
     return out
 
 
+#: A lookup Gale is known to answer (an issue-less day it says so for), asked after a 5xx.
+CONTROL = ("TGRH", datetime.date(2016, 12, 25))
+DAY_ALONE = "Gale answers 5xx for this day alone"
+
+
+def day_alone(prod, day, ask, lookup_of, keep):
+    """Whether the 5xx on a lookup of `day` is that day's alone: the control
+    lookup answers. Then the day is kept in the cache as set aside (a "why"
+    entry, as for a day Gale has no issue), so no plan asks for it again."""
+    if (prod, day) == CONTROL:
+        return False
+    try:
+        lookup_of(*CONTROL)
+    except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError):
+        return False
+    kind = ask[2] if len(ask) > 2 else None
+    keep(key(prod, day, *ask[:2], kind), {
+        "why": DAY_ALONE, "at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
+        "matcher": gale_docs.MATCHER[kind or prod], **({"kind": kind} if kind else {})})
+    return True
+
+
 def look_up(prod, day, gale, number=None, report=False, kind=None):
     """The cache entry for `day` of `prod` (gale_docs.lookup), or for the
     report on puzzle `number` of `day` (gale_docs.lookup_report, its issue's
@@ -646,7 +668,7 @@ def alert(text, quiet=False):
 
 
 def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None, got_of=None, log=print,
-        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None, reload=None, broken=BROKEN):
+        fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, keep=None, limits=LIMITS, tell=None, reload=None, broken=BROKEN):
     """Fetch until `limit` downloads, no row left, or a stop. The hooks
     (`fetch(url) -> body`, `store(body, prod, day, doc, entry)`, `plan_of(got)`,
     `got_of()`, `lookup_of(prod, day)`, `fetched`, `limits`, `tell(text)`) stand
@@ -757,6 +779,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         raise Stop(f"Gale still refused {PROBE_MAX * PROBE_EVERY / 3600:.0f} h after a refusal ({refusal})")
 
     lookup_of = lookup_of or real_lookup
+    keep = keep or gale_docs.keep
     got_of = got_of or have_docs
     n, errors, idle, outages = 0, 0, 0, 0
     same = None  # (doc) while every error in the streak is a 5xx on that one document
@@ -786,6 +809,9 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 try:
                     e = lookup_of(prod, day, *ask)
                 except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
+                    if outage_of(ex) and day_alone(prod, day, ask, lookup_of, keep):
+                        log(f"{day}: Gale answers 5xx for this day alone; set aside")
+                        continue
                     if outage_of(ex):
                         outages += 1
                         log(f"{day}: lookup {type(ex).__name__}: {ex} (Gale outage {outages}/{len(OUTAGE_WAITS)})")
