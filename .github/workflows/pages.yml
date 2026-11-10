@@ -794,12 +794,13 @@ jobs:
           FULL: ${{ inputs.full || github.event.schedule == '41 9 * * *' }}
         run: |
           set -euo pipefail
-          # The whole tree, as four fetches at once: one stream of ~50k blobs
-          # took ~55s, the bulk of this step on a full run. The checkout that
+          # The whole tree, as eight fetches at once: one stream of ~50k blobs
+          # took ~55s, the bulk of this step on a full run; four streams took
+          # 88-129s on 2026-11-10 as the burn grew the tree. The checkout that
           # follows finds them local, and fetches any this missed itself.
           fetch_tree() {
             git ls-tree -r HEAD -- puzzles clues_only | awk '$1 != "160000" { print $3 }' | sort -u > "$RUNNER_TEMP/blobs"
-            split -n l/4 "$RUNNER_TEMP/blobs" "$RUNNER_TEMP/blobs."
+            split -n l/8 "$RUNNER_TEMP/blobs" "$RUNNER_TEMP/blobs."
             for part in "$RUNNER_TEMP"/blobs.??; do
               git -c fetch.negotiationAlgorithm=noop fetch --no-tags --no-write-fetch-head \
                 --recurse-submodules=no --filter=blob:none --stdin origin < "$part" &
