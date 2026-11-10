@@ -32,6 +32,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import annotation
 from annotation import OP_TYPE
 
 MAX_WORDS = 9
@@ -131,7 +132,7 @@ def candidates(puzzles, want=None):
             yield t, score, {
                 "puzzle": puz["id"], "entry": eid, "clue": text,
                 "enumeration": (e.get("clue") or {}).get("enumeration"),
-                "answer": e.get("solution"), "voted": voted, "surface": surface,
+                "answer": annotation.whole_answer(e, puz) or None, "voted": voted, "surface": surface,
                 "gloss": (ann.get("explanation") or {}).get("surface"),
             }
 

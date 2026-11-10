@@ -33,6 +33,7 @@ import os
 import random
 import sys
 
+import annotation
 import fix_shape_suspects as fs
 import puzzle_paths
 import wordplay as W
@@ -89,7 +90,7 @@ def do_puzzle(path):
         stat["clues_flagged"] += 1
         cid = f"{puzzle.get('id') or path.stem}#{fs.eid_of(e)}"
         clue = (e.get("clue") or {}).get("text", "")
-        answer = e.get("solution", "")
+        answer = annotation.whole_answer(e, puzzle)
         new_ann = {**ann, "wordplay": repaired(ann["wordplay"])}
         old = fs.hits(ann, clue, answer)
         try:

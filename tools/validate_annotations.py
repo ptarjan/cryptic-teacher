@@ -378,12 +378,7 @@ def _whole_answer(held, puzzle):
     """The answer a held entry's wordplay must build: a linked lead's whole
     joined answer (annotation.display_answer), not its first light's letters;
     None when the entry holds no solution."""
-    if not held.get("solution"):
-        return None
-    try:
-        return annotation.display_answer(held, puzzle) or held["solution"]
-    except (KeyError, TypeError):
-        return held["solution"]
+    return annotation.whole_answer(held, puzzle) or None
 
 
 def tree_view(puzzle):
