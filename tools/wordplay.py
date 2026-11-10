@@ -1542,6 +1542,12 @@ def _hidden_looked_up_hint(node, want):
     lf = parts[0]
     if re.search(r"\d", str(lf.get("words"))) or letters(lf.get("words")) == letters(lf["gives"]):
         return None
+    printed = letters(lf.get("words"))
+    if want in printed and lf["gives"] != want and lf["gives"] not in printed:
+        # the answer's own letters are printed in the leaf's words and the filed letters are not: a slip
+        # in copying the run out, not a looked-up word
+        return (f"hid() reads the letters printed in the clue: {lf.get('words')!r} prints {want}, not "
+                f"{lf['gives']}; write {render({**lf, 'gives': want})}")
     if lf["gives"] == want:
         return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
                 f"hide it in the words the clue prints, or take it as a plain leaf ({render(lf)}) and drop the hid()")
@@ -1570,7 +1576,7 @@ def diagnose(node, want):
                 if match(p, want[at:at + n]) is None:
                     return diagnose(p, want[at:at + n])
                 at += n
-    if op == "reversal" and ls and len(want) in ls:
+    if op == "reversal" and (not ls or len(want) in ls):
         child = parts_of(node)[0]
         if "op" not in child and leaf_letters(child) == want:
             return (f"{render(child)} already reads {want}, but a leaf gives its letters "
@@ -1619,7 +1625,7 @@ def diagnose(node, want):
     if op is None and leaf_letters(node)[::-1] == want:
         msg += (f". {leaf_letters(node)} reads backwards: a leaf's letters come before any "
                 f"operation, so write rev<indicator>(...) round it")
-    elif ls is not None and len(want) not in ls:
+    elif ls and len(want) not in ls:
         msg += f" ({'/'.join(map(str, sorted(ls)))} letters against {len(want)})"
     return msg
 

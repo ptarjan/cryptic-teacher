@@ -139,6 +139,10 @@ BAD = [
     ("a stretch of the wrong size reversed", "KARST", "rev<last three of>([mini vehicles]KARTS)", "needs"),
     ("a stretch from the wrong end reversed", "KARST", "rev<first pair of>([mini vehicles]KARTS)", "needs"),
     ("an indicator naming no stretch turns the whole word", "KARST", "rev<flip>([mini vehicles]KARTS)", "needs"),
+    # 11-10 LOIRE: the run was copied out wrong (EROIL for ERIOL); the message named "gives nothing"
+    # and "( letters against 5)", not the letters the words print
+    ("a hidden run copied wrongly under rev", "LOIRE", "rev<up>(hid<in>([opera tie breaker Iolanthe]EROIL))",
+     "prints ERIOL, not EROIL", "write hid<in>([opera tie breaker Iolanthe]ERIOL)"),
     # book-24021 5D: the fodder's del gives nothing, which crashed diagnose()
     # with "min() iterable argument is empty" instead of naming the del.
     ("anagram fodder whose del finds no run", "NARCOTIC",
