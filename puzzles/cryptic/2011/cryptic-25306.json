@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,49 @@
     "text": "Charge is about right — nothing!",
     "enumeration": "4"
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 24,
+      "note": "free here is the adverbial sense, as in costing nothing"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is about",
+       "at": 7,
+       "note": "is about says the charge word surrounds the right abbreviation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Charge",
+       "at": 0,
+       "gives": "FEE",
+       "note": "a charge is a fee"
+      },
+      {
+       "words": "right",
+       "at": 16,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims that a charge, near enough, comes to nothing at all.",
+     "walkthrough": "'is about' puts R inside FEE.",
+     "definitionFit": "Something free costs nothing, so the two stand in for each other as in 'got it for nothing'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +90,65 @@
     "text": "Performance not quite open spoiled treat",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Performance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 12,
+         "note": "not quite says the word open loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "open",
+         "at": 22
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoiled",
+         "at": 27,
+         "note": "spoiled says the letters of treat are messed up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treat",
+         "at": 35
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A show that is not fully open has ruined someone's treat.",
+     "walkthrough": "'not quite' trims OPEN to OPE; 'spoiled' turns TREAT into RETTA.",
+     "definitionFit": "An operetta is a light musical stage work, a kind of theatrical performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spoiled"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +162,34 @@
     "text": "Character showing inclination?",
     "enumeration": "6"
    },
-   "solution": "ITALIC"
+   "solution": "ITALIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Character showing inclination?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Character showing inclination?",
+       "at": 0,
+       "note": "reads like a person with a leaning or fancy, but means a printed letter that slants to the right"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Italic type is a sloping typeface, so each character shows a lean or inclination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +203,50 @@
     "text": "Spooner's alarm for a tart?",
     "enumeration": "8"
    },
-   "solution": "BAKEWELL"
+   "solution": "BAKEWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tart",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "indicators": [
+      {
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner's says the opening sounds of the two words are swapped, after the Reverend Spooner"
+      }
+     ],
+     "parts": [
+      {
+       "words": "alarm",
+       "at": 10,
+       "gives": "WAKE",
+       "note": "a wake bell is an alarm that rouses you"
+      },
+      {
+       "words": "alarm",
+       "at": 10,
+       "gives": "BELL",
+       "note": "the second half of the alarm phrase, the bell"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what a muddled clergyman would call his wake-up alarm when asking for a pastry.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of the alarm phrase. A Bakewell is a British almond-and-jam tart named after a town in Derbyshire.",
+     "definitionFit": "A Bakewell tart is a classic English pastry, so the town name stands for the tart itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alarm"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +260,11 @@
     "text": "Agreement before the ceremony to smarten oneself",
     "enumeration": "6"
    },
-   "solution": "PRENUP"
+   "solution": "PRENUP",
+   "annotationWithheld": {
+    "why": "Agreement before the ceremony to smarten oneself (6): 'to smarten oneself' gives PREEN UP, one E too many, and no indicator removes the E or marks a sound-alike",
+    "clue": "Agreement before the ceremony to smarten oneself"
+   }
   },
   {
    "number": 6,
@@ -101,7 +278,43 @@
     "text": "What may be drawn from local essentials?",
     "enumeration": "4"
    },
-   "solution": "ALES"
+   "solution": "ALES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What may be",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "drawn from",
+       "at": 12,
+       "note": "drawn from says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "local essentials",
+       "at": 23,
+       "gives": "ALES",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what might be pulled from the basic supplies at the local pub.",
+     "walkthrough": "'drawn from' picks the run across loc-AL ES-sentials; ales are also drawn at the 'local', British slang for one's nearest pub.",
+     "definitionFit": "Beers are what is drawn from the pumps of a pub, so the clue's opening phrase describes them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essentials"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +328,42 @@
     "text": "Tramp is unlikely source of 12 down",
     "enumeration": "7"
    },
-   "solution": "ARMPITS"
+   "solution": "ARMPITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of 12 down",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unlikely",
+       "at": 9,
+       "note": "unlikely says the letters of tramp is form an improbable new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tramp is",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vagrant is claimed to be an improbable origin of a pleasant smell.",
+     "walkthrough": "'unlikely' rearranges TRAMPIS. 12 down is AROMA, and these body parts are a source of a less pleasant one.",
+     "definitionFit": "Underarms are a notorious source of body odour, the smell the cross-reference wryly calls an aroma."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Tramp"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +377,49 @@
     "text": "Staff vote about Scots town",
     "enumeration": "7"
    },
-   "solution": "PAYROLL"
+   "solution": "PAYROLL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "about says the vote word goes around the town's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vote",
+       "at": 6,
+       "gives": "POLL",
+       "note": "a poll is a vote"
+      },
+      {
+       "words": "Scots town",
+       "at": 17,
+       "gives": "AYR",
+       "note": "Ayr is a town on the west coast of Scotland"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Employees hold a ballot concerning a Scottish town.",
+     "walkthrough": "'about' puts the Scottish town inside the vote; Ayr is a seaside town in south-west Scotland.",
+     "definitionFit": "A payroll is the list of employees paid by a firm, so it stands for the staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +433,29 @@
     "text": "6 in Devon",
     "enumeration": "4"
    },
-   "solution": "BEER"
+   "solution": "BEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "6",
+      "at": 0,
+      "meaning": "6 down is ales, and this is the general drink they are"
+     },
+     {
+      "text": "in Devon",
+      "at": 2,
+      "meaning": "A seaside village on the south Devon coast"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Ale is a type of the brewed drink, and the Devon fishing village shares its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Devon"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +475,29 @@
      }
     ]
    },
-   "solution": "LOOSEENDS"
+   "solution": "LOOSEENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Uncertain purposes",
+      "at": 0,
+      "meaning": "unfinished matters, with ends meaning aims and loose meaning unsettled"
+     },
+     {
+      "text": "of Radio 4",
+      "at": 19,
+      "meaning": "A long-running BBC Radio 4 talk programme"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Unresolved details are idiomatically called by this phrase, and it also names a BBC radio show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "purposes"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +511,59 @@
     "text": "Shape of label put by officer on a trainee",
     "enumeration": "9"
    },
-   "solution": "OCTAGONAL"
+   "solution": "OCTAGONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shape",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "officer",
+       "at": 22,
+       "gives": "OC",
+       "note": "OC is Officer Commanding"
+      },
+      {
+       "words": "label",
+       "at": 9,
+       "gives": "TAG",
+       "note": "a tag is a label"
+      },
+      {
+       "words": "on",
+       "at": 30,
+       "gives": "ON",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "gives": "A"
+      },
+      {
+       "words": "trainee",
+       "at": 35,
+       "gives": "L",
+       "note": "L is a learner, from the L-plate on a learner driver's car"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks the form of a badge pinned by an officer on a recruit.",
+     "walkthrough": "'put by' sets the label within the officer. 'Shape' stands for an adjective here, read as 'of the eight-sided shape'.",
+     "definitionFit": "Octagonal describes a figure with eight sides, a geometric shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +577,49 @@
     "text": "Fantastic figure one can't produce",
     "enumeration": "5"
    },
-   "solution": "ANTIC"
+   "solution": "ANTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fantastic figure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "produce",
+       "at": 27,
+       "note": "produce is read as make anew, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 17,
+       "gives": "I",
+       "note": "one is I, the Roman numeral"
+      },
+      {
+       "words": "can't",
+       "at": 21,
+       "gives": "CANT",
+       "note": "can't gives its letters without the apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grotesque figure that one is unable to create.",
+     "walkthrough": "'produce' rearranges ICANT; read 'one can't' as 'I can't'.",
+     "definitionFit": "An antic was a grotesque or clownish performer in old usage, a fantastic figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "produce"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +633,40 @@
     "text": "A capital fragrance",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fragrance",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "capital",
+       "at": 2,
+       "gives": "ROMA",
+       "note": "Roma is the Italian name of the capital, Rome"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's characteristic scent.",
+     "definitionFit": "An aroma is a pleasant smell, a synonym of fragrance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +680,59 @@
     "text": "It's wrong to use clairvoyance in interpreting stars",
     "enumeration": "8"
    },
-   "solution": "TRESPASS"
+   "solution": "TRESPASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wrong",
+      "at": 5
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in says the clairvoyance letters go inside the rearranged stars"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "interpreting",
+         "at": 34,
+         "note": "interpreting says the letters of stars are read in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stars",
+         "at": 47
+        }
+       ]
+      },
+      {
+       "words": "clairvoyance",
+       "at": 18,
+       "gives": "ESP",
+       "note": "ESP is extrasensory perception"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Astrology using psychic powers to read the heavens is condemned as improper.",
+     "walkthrough": "'interpreting' rearranges the stars to TRASS, and 'in' sets the psychic abbreviation after its first two letters.",
+     "definitionFit": "A trespass is an old word for a sin or wrongdoing, as in the Lord's Prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +746,34 @@
     "text": "Trollope's inclination?",
     "enumeration": "5"
    },
-   "solution": "SLOPE"
+   "solution": "SLOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trollope's inclination?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Trollope's inclination?",
+       "at": 0,
+       "note": "reads as the novelist's personal leaning, but names a clergyman in his Barchester novels whose name also means a gradient"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Obadiah Slope is a scheming chaplain in Trollope's Barchester Towers, and a slope is an incline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inclination"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +787,40 @@
     "text": "Fish with a sort of tailpiece",
     "enumeration": "4"
    },
-   "solution": "CODA"
+   "solution": "CODA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sort of tailpiece",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "COD",
+       "note": "cod is a fish"
+      },
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish served with a kind of end piece.",
+     "definitionFit": "A coda is the closing passage of a musical piece, a kind of tailpiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailpiece"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +834,48 @@
     "text": "Of an ass, it's said, for example, all stupid",
     "enumeration": "5"
    },
-   "solution": "LEGAL"
+   "solution": "LEGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Of an ass, it's said",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stupid",
+       "at": 39,
+       "note": "stupid says the letters are made foolish, jumbled out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "for example",
+       "at": 22,
+       "gives": "EG",
+       "note": "EG is exempli gratia, for example"
+      },
+      {
+       "words": "all",
+       "at": 35
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speaking of a donkey, for instance, everyone is daft.",
+     "walkthrough": "'stupid' rearranges EGALL. Dickens's Mr Bumble said 'the law is an ass', so something of the law is of an ass.",
+     "definitionFit": "Legal means relating to the law, which a famous saying calls an ass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ass"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +889,52 @@
     "text": "Drink dairy product — it's set in stone",
     "enumeration": "8"
    },
-   "solution": "LAPIDARY"
+   "solution": "LAPIDARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "set in stone",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "LAP",
+       "note": "to lap is to drink like a cat"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "product",
+         "at": 12,
+         "note": "product is read as something made from the letters of dairy, a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dairy",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Consume a milk-based item, which is somehow fixed for ever.",
+     "walkthrough": "'product' rearranges DAIRY into IDARY.",
+     "definitionFit": "Lapidary means engraved on stone, as with inscriptions carved in monuments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "product"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +948,41 @@
     "text": "Low number may be seen at night",
     "enumeration": "4"
    },
-   "solution": "MOON"
+   "solution": "MOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "may be seen at night",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Low",
+       "at": 0,
+       "gives": "MOO",
+       "note": "to low is to moo, as cattle do"
+      },
+      {
+       "words": "number",
+       "at": 4,
+       "gives": "N",
+       "note": "N is an algebraic symbol for a number"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small figure is visible after dark.",
+     "definitionFit": "The satellite of Earth is what is commonly visible in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Low"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +996,59 @@
     "text": "A vehicle in 17 across takes the biscuit",
     "enumeration": "8"
    },
-   "solution": "MACAROON"
+   "solution": "MACAROON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "biscuit",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "in says the vehicle phrase sits inside the cross-referenced answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "17 across",
+       "at": 13,
+       "gives": "MOON",
+       "note": "17 across is the night-sky body"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "gives": "A"
+        },
+        {
+         "words": "vehicle",
+         "at": 2,
+         "gives": "CAR",
+         "note": "a car is a vehicle"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spacecraft on the lunar surface wins the prize.",
+     "walkthrough": "'in' sets the vehicle inside the cross-referenced answer. 'Takes the biscuit' is a British idiom for being the most outrageous.",
+     "definitionFit": "A macaroon is a small almond biscuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "biscuit"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1062,36 @@
     "text": "Nips with variation of ball",
     "enumeration": "8"
    },
-   "solution": "BACKSPIN"
+   "solution": "BACKSPIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "variation of ball",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "reverse",
+     "reading": "BACK + SPIN",
+     "parts": [
+      {
+       "words": "Nips",
+       "at": 0,
+       "note": "the word nips is what you get by reading the letters of spin backwards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Small bites combined with a change in a ball's movement.",
+     "walkthrough": "This is a reverse clue: the answer read as instructions, 'spin' taken back, produces the clue's word.",
+     "definitionFit": "Backspin is a rotation given to a ball, a variation in how it travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nips"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1105,54 @@
     "text": "No timber? Then it's back to China clay",
     "enumeration": "6"
    },
-   "solution": "KAOLIN"
+   "solution": "KAOLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "China clay",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 21,
+       "note": "back says the whole run of letters is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "No",
+         "at": 0,
+         "gives": "NIL",
+         "note": "nil means nothing, no"
+        },
+        {
+         "words": "timber",
+         "at": 3,
+         "gives": "OAK",
+         "note": "oak is a timber"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With no wood available, a return to porcelain clay.",
+     "walkthrough": "'back' turns NILOAK around.",
+     "definitionFit": "Kaolin is the fine white clay used for porcelain, known as china clay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1166,41 @@
     "text": "Hidden wealth is a pain to many",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hidden wealth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "many",
+       "at": 27,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, many"
+      },
+      {
+       "words": "pain",
+       "at": 19,
+       "gives": "ACHE",
+       "note": "an ache is a pain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A secret fortune troubles plenty of people.",
+     "definitionFit": "A cache is a hidden store, often of valuables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pain"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1214,57 @@
     "text": "Rodents shy at Manx cat",
     "enumeration": "6"
    },
-   "solution": "COYPUS"
+   "solution": "COYPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rodents",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "shy",
+       "at": 8,
+       "gives": "COY",
+       "note": "coy means shy"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Manx",
+         "at": 15,
+         "note": "a Manx cat has no tail, so the cat word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 20,
+         "gives": "PUSS",
+         "note": "puss is a cat"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Large rodents are timid around a tailless Isle of Man cat.",
+     "walkthrough": "'Manx' docks PUSS to PUS. The Manx breed from the Isle of Man is tailless.",
+     "definitionFit": "Coypus are large South American aquatic rodents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Manx"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1278,41 @@
     "text": "Point to puns, like fencing",
     "enumeration": "9"
    },
-   "solution": "SWORDPLAY"
+   "solution": "SWORDPLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fencing",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Point",
+       "at": 0,
+       "gives": "S",
+       "note": "S is south, a compass point"
+      },
+      {
+       "words": "puns",
+       "at": 9,
+       "gives": "WORDPLAY",
+       "note": "puns are wordplay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Indicate that jokes on words resemble a sword fight.",
+     "definitionFit": "Swordplay is the art of fighting with swords, as in fencing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Point"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1326,43 @@
     "text": "China's revolution has to cease",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cease",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "revolution",
+       "at": 8,
+       "note": "revolution says the crockery word turns round to read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China's",
+       "at": 0,
+       "gives": "POTS",
+       "note": "china is crockery, pots"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Chinese revolution must end.",
+     "walkthrough": "'revolution' reverses POTS.",
+     "definitionFit": "To stop is to cease, an exact synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China's"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1376,46 @@
     "text": "Stone's no good in ball game",
     "enumeration": "4"
    },
-   "solution": "RUBY"
+   "solution": "RUBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "at": 8,
+       "note": "no says the good letter is removed from the game"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ball game",
+       "at": 19,
+       "gives": "RUGBY",
+       "note": "rugby is a ball game"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gem is useless in a field sport.",
+     "walkthrough": "'no' drops G from RUGBY.",
+     "definitionFit": "A ruby is a red precious stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1429,29 @@
     "text": "Fish may be bottled 6",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0,
+      "meaning": "a sea ... is a fish"
+     },
+     {
+      "text": "may be bottled 6",
+      "at": 5,
+      "meaning": "A British brewery brand of beer sold in bottles, and 6 down is ales"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Bass is both a common fish and a well-known English bottled ale brand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1465,50 @@
     "text": "Dramatist increasingly without deceit",
     "enumeration": "7"
    },
-   "solution": "MOLIERE"
+   "solution": "MOLIERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dramatist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 23,
+       "note": "without in its old sense of outside, so the increasingly word surrounds the deceit word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "increasingly",
+       "at": 10,
+       "gives": "MORE",
+       "note": "more, as in more and more"
+      },
+      {
+       "words": "deceit",
+       "at": 31,
+       "gives": "LIE",
+       "note": "a lie is a deceit"
+      }
+     ]
+    },
+    "spelling": "MOLIÈRE",
+    "explanation": {
+     "surface": "A playwright growing ever more honest.",
+     "walkthrough": "'without' is used in its old sense of 'outside', so the deceit sits inside the comparative.",
+     "definitionFit": "Molière was the great seventeenth-century French comic playwright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1522,43 @@
     "text": "Operation that finds you past recovery",
     "enumeration": "7"
    },
-   "solution": "AUTOPSY"
+   "solution": "AUTOPSY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Operation that finds you past recovery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "recovery",
+       "at": 30,
+       "note": "recovery read as re-covery, the letters re-covered in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you past",
+       "at": 21
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A procedure that discovers you are beyond saving.",
+     "walkthrough": "'recovery' rearranges YOUPAST.",
+     "definitionFit": "A post-mortem examination is carried out once someone is dead, beyond recovery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "recovery"
+    }
+   }
   }
  ]
 }
