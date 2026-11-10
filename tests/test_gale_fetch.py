@@ -300,6 +300,10 @@ def lookups(code, fail):
     kw["plan_of"] = lambda g: [("TTDA", d, None) for d, e in rows(3) if e["doc"] not in g]
 
     def look(prod, day):
+        if (prod, day) == gf.CONTROL:  # the control lookup fails while Gale is down
+            if len(seen) <= fail:
+                raise urllib.error.HTTPError("u", code, f"HTTP {code}", None, None)
+            return {"why": "Gale has no issue that day"}
         seen.append(day)
         if len(seen) <= fail:
             raise urllib.error.HTTPError("u", code, f"HTTP {code}", None, None)
@@ -324,6 +328,34 @@ try:
     raise AssertionError("ran on past repeated 4xx")
 except gf.Stop as e:
     assert f"{gf.MAX_ERRORS} errors in a row" in str(e), e
+
+# 6c. A 5xx on one day while the control lookup answers is that day's alone:
+#     set aside (kept as a "why" entry), no wait, and the next row goes on.
+clock, starts, stored, kw = harness(n_rows=3)
+kept = {}
+bad = rows(3)[0][0]
+kw["plan_of"] = lambda g: [("TTDA", d, kept.get(gf.key("TTDA", d))) for d, e in rows(3)
+                           if e["doc"] not in g and not (gf.key("TTDA", d) in kept and "doc" not in kept[gf.key("TTDA", d)])]
+
+
+def alone(prod, day):
+    if (prod, day) == gf.CONTROL:
+        return {"why": "Gale has no issue that day"}
+    if day == bad:
+        raise urllib.error.HTTPError("u", 500, "HTTP 500", None, None)
+    return dict(next(e for d, e in rows(3) if d == day))
+
+
+kw["lookup_of"] = alone
+kw["keep"] = lambda k, e: kept.__setitem__(k, e)
+n, _ = gf.run(limit=2, **kw)
+assert n == 2 and not [x for x in clock.slept if x in gf.OUTAGE_WAITS], (n, clock.slept)
+assert kept[gf.key("TTDA", bad)]["why"] == gf.DAY_ALONE and "doc" not in kept[gf.key("TTDA", bad)], kept
+
+# 6d. The Independent on Sunday wants nothing past its last print issue.
+import datetime as _dt
+import gale_inbox
+assert max(gale_inbox.sunday_wanted("INDA", _dt.date(2026, 11, 1), laid=set())) <= gale_inbox.LAST_PRINTED["INDA"]
 
 # 7. Each download is written to the log.
 assert set(gf.load(kw["fetched"])) == {rows(3)[i][1]["doc"] for i in (0, 2)}

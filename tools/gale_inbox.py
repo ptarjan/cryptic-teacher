@@ -724,6 +724,11 @@ def printed(other, until):
         d += datetime.timedelta(days=1)
 
 
+#: The last issue a Sunday paper printed (the Independent on Sunday closed in March 2016):
+#: Gale answers HTTP 500 for the days after.
+LAST_PRINTED = {"INDA": datetime.date(2016, 3, 20)}
+
+
 def other_wanted(prod, today=None, laid=None, sundays=False):
     """[date] of each edition of OTHERS[prod] in its Gale years with no
     puzzle filed and none laid out (the EDITIONS manifest), newest first;
@@ -733,7 +738,10 @@ def other_wanted(prod, today=None, laid=None, sundays=False):
     filed = archive_coverage.corpus(other.series)[0]
     laid = set(editions()) if laid is None else laid
     out = []
-    for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
+    until = min(today, datetime.date(other.years[-1], 12, 31))
+    if sundays and prod in LAST_PRINTED:
+        until = min(until, LAST_PRINTED[prod])
+    for d in printed(other, until):
         if d.year not in other.years or d.isoformat() in filed:
             continue
         if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
