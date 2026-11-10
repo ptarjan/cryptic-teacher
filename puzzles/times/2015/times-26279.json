@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,31 @@
     "text": "That should get the swine clean? Rubbish!",
     "enumeration": "7"
    },
-   "solution": "HOGWASH"
+   "solution": "HOGWASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "That should get the swine clean?",
+      "at": 0,
+      "meaning": "read literally, a wash for a hog would clean a pig"
+     },
+     {
+      "text": "Rubbish!",
+      "at": 33,
+      "meaning": "an exclamation dismissing something as nonsense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading splits the answer into two words: a pig (hog) and a wash.",
+     "definitionFit": "The word is a common term for nonsense or worthless talk, so it serves as an exclamation of disbelief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swine"
+    }
+   }
   },
   {
    "number": 5,
@@ -44,7 +71,41 @@
     "text": "Tedious drone with instrument",
     "enumeration": "7"
    },
-   "solution": "HUMDRUM"
+   "solution": "HUMDRUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tedious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drone",
+       "at": 8,
+       "gives": "HUM",
+       "note": "a drone is a low continuous hum"
+      },
+      {
+       "words": "instrument",
+       "at": 19,
+       "gives": "DRUM",
+       "note": "a drum is a percussion instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull droning noise accompanied by some musical instrument.",
+     "definitionFit": "Something monotonous and dull is described as humdrum; a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +119,41 @@
     "text": "Appear more buoyant having forced the plug in",
     "enumeration": "7,2"
    },
-   "solution": "LIGHTENUP"
+   "solution": "LIGHTENUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appear more buoyant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "forced",
+       "at": 27,
+       "note": "the words are forced into a new shape, so their letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the plug in",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seems more cheerful after forcing a plug into its socket.",
+     "walkthrough": "'Buoyant' suggests floating, but here it means cheerful.",
+     "definitionFit": "To cheer up and become less gloomy is an idiom meaning to seem more cheerful, i.e. buoyant in mood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buoyant"
+    }
+   }
   },
   {
    "number": 10,
@@ -72,7 +167,44 @@
     "text": "Tinker reported in US city",
     "enumeration": "5"
    },
-   "solution": "TAMPA"
+   "solution": "TAMPA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TAMPA",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 7,
+       "note": "reported speech is something said, so the word for tinker is heard rather than written"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tinker",
+       "at": 0,
+       "gives": "TAMPER",
+       "note": "to tinker with something is to tamper with it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tinker was reported to be living in an American city.",
+     "walkthrough": "'Tinker' looks like the noun for a travelling mender, but it is the verb meaning meddle.",
+     "definitionFit": "Tampa is a city on the Gulf coast of Florida, an example of a US city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tinker"
+    }
+   }
   },
   {
    "number": 11,
@@ -86,7 +218,60 @@
     "text": "Heavyweight Australian boxer covering a crack in my pants!",
     "enumeration": "5,8"
    },
-   "solution": "ROCKYMARCIANO"
+   "solution": "ROCKYMARCIANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heavyweight",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 29,
+       "note": "the Australian creature wraps around the rest, covering it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australian boxer",
+       "at": 12,
+       "gives": "ROO",
+       "note": "a kangaroo (roo) is famous for boxing with its forelegs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "pants",
+         "at": 52,
+         "note": "pants is British slang for rubbish, so the letters are treated as a mess and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a crack in my",
+         "at": 38
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big Australian fighter whose trousers hide a crack, exclamation and all.",
+     "walkthrough": "'pants' (British slang for rubbish) mixes the letters of 'a crack in my'. 'boxer' seems to belong with 'Heavyweight' but goes with 'Australian': a kangaroo that boxes.",
+     "definitionFit": "Rocky Marciano was the undefeated American world heavyweight boxing champion of the 1950s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +285,47 @@
     "text": "Holder is cutting the pace",
     "enumeration": "8"
    },
-   "solution": "CANISTER"
+   "solution": "CANISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 10,
+       "note": "the small word cuts into the gait word, splitting it in two"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the pace",
+       "at": 18,
+       "gives": "CANTER",
+       "note": "a canter is a horse's pace between trot and gallop"
+      },
+      {
+       "words": "is",
+       "at": 7,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holder is cutting the pace of a race.",
+     "definitionFit": "A canister is a container, something that holds things such as tea or film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pace"
+    }
+   }
   },
   {
    "number": 15,
@@ -114,7 +339,59 @@
     "text": "Human right to receive support, ultimately",
     "enumeration": "6"
    },
-   "solution": "MORTAL"
+   "solution": "MORTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Human",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to receive",
+       "at": 12,
+       "note": "the word for right takes in another letter, receiving it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "MORAL",
+       "note": "moral means ethically right"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 32,
+         "note": "ultimately points to the final letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "support",
+         "at": 23
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Humanity has a right to receive support in the end.",
+     "walkthrough": "'right' tempts as R, but it is the adjective MORAL; the final T of 'support' goes inside.",
+     "definitionFit": "A mortal is a human being, subject to death, as opposed to a god."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +405,41 @@
     "text": "Comment on holy book",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "on",
+       "at": 8,
+       "gives": "RE",
+       "note": "re means concerning, on the subject of"
+      },
+      {
+       "words": "holy book",
+       "at": 11,
+       "gives": "MARK",
+       "note": "the Gospel of Mark is a book of the Bible"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Commentary on a holy book.",
+     "definitionFit": "A remark is a spoken or written comment; a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -142,7 +453,61 @@
     "text": "Inventor Sir Henry bitter about backfiring shambles",
     "enumeration": "8"
    },
-   "solution": "BESSEMER"
+   "solution": "BESSEMER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inventor Sir Henry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 26,
+       "note": "the beer goes round the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bitter",
+       "at": 19,
+       "gives": "BEER",
+       "note": "bitter is a type of British beer"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backfiring",
+         "at": 32,
+         "note": "backfiring sends the word back the other way, so it is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shambles",
+         "at": 43,
+         "gives": "MESS",
+         "note": "a shambles is a mess"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor's bitter complaint about a plan going wrong.",
+     "walkthrough": "'backfiring' turns the word for shambles round before it goes inside. Bitter is a hoppy British ale, so 'bitter' is a noun here, not an adjective.",
+     "definitionFit": "Sir Henry Bessemer invented the Bessemer process for mass-producing steel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 22,
@@ -156,7 +521,72 @@
     "text": "Literary idler requiring a fillip when about to marry wife after hesitation",
     "enumeration": "6,7"
    },
-   "solution": "BERTIEWOOSTER"
+   "solution": "BERTIEWOOSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Literary idler",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "the fillip goes about the other pieces, surrounding them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a fillip",
+       "at": 25,
+       "gives": "BOOSTER",
+       "note": "a fillip is a booster, something that gives a lift"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 59,
+         "note": "the marrying and wife come after the hesitation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hesitation",
+         "at": 65,
+         "gives": "ER",
+         "note": "er is the sound of hesitation"
+        },
+        {
+         "words": "to marry",
+         "at": 45,
+         "gives": "TIE",
+         "note": "to tie the knot is to marry"
+        },
+        {
+         "words": "wife",
+         "at": 54,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idle character needs a lift before he will marry after some hesitation.",
+     "walkthrough": "Bertie Wooster is the idle young gentleman of P. G. Wodehouse's stories.",
+     "definitionFit": "Wodehouse's Bertie Wooster is the archetypal idle rich young man in English comic fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fillip"
+    }
+   }
   },
   {
    "number": 25,
@@ -170,7 +600,40 @@
     "text": "In monogram, a tiny inscription on an old violin?",
     "enumeration": "5"
    },
-   "solution": "AMATI"
+   "solution": "AMATI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inscription on an old violin?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the letters sit inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "monogram, a tiny",
+       "at": 3
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny monogram is inscribed on an antique violin.",
+     "walkthrough": "The question mark marks a definition by example: the maker's label inside an old violin may bear this family name.",
+     "definitionFit": "The Amati family of Cremona made famous violins, whose labels carry the maker's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -184,7 +647,49 @@
     "text": "Pub worker, tattoo possibly etched into knee, say?",
     "enumeration": "9"
    },
-   "solution": "BARTENDER"
+   "solution": "BARTENDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pub worker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "etched into",
+       "at": 28,
+       "note": "a tattoo is etched into the skin, so this piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "knee, say",
+       "at": 40,
+       "gives": "BENDER",
+       "note": "a knee is an example of something that bends, a bender"
+      },
+      {
+       "words": "tattoo possibly",
+       "at": 12,
+       "gives": "ART",
+       "note": "a tattoo is a form of body art"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman has a tattoo etched into his knee.",
+     "definitionFit": "A bartender serves drinks behind the bar of a pub; a pub worker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knee"
+    }
+   }
   },
   {
    "number": 27,
@@ -198,7 +703,30 @@
     "text": "Current man on the board",
     "enumeration": "7"
    },
-   "solution": "DRAUGHT"
+   "solution": "DRAUGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0,
+      "meaning": "a current of air through a room"
+     },
+     {
+      "text": "man on the board",
+      "at": 8,
+      "meaning": "a piece in the British board game also known as checkers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain the game checkers is called draughts, and each piece is a draught.",
+     "definitionFit": "A draught is a flow of air and also a counter in the board game draughts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 28,
@@ -212,7 +740,46 @@
     "text": "Old king and old cardinal taught",
     "enumeration": "7"
    },
-   "solution": "TUTORED"
+   "solution": "TUTORED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taught",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old king",
+       "at": 0,
+       "gives": "TUT",
+       "note": "Tut, short for Tutankhamun, an Egyptian pharaoh"
+      },
+      {
+       "words": "old",
+       "at": 13,
+       "gives": "O"
+      },
+      {
+       "words": "cardinal",
+       "at": 17,
+       "gives": "RED",
+       "note": "cardinal is a deep red colour, from the cardinals' robes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old king and an old cardinal taught someone.",
+     "definitionFit": "To be tutored is to be taught, especially privately by a tutor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +793,55 @@
     "text": "Incredibly large person shortly having a dance",
     "enumeration": "4"
    },
-   "solution": "HULA"
+   "solution": "HULA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 24,
+         "note": "shortly means cut short, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Incredibly large person",
+         "at": 0,
+         "gives": "HULK",
+         "note": "the Incredible Hulk is a huge comic-book character"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 39,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge person briefly takes part in a dance.",
+     "definitionFit": "The hula is a Hawaiian dance with swaying hips."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Incredibly"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +855,61 @@
     "text": "Cosmonaut finding silence a feature of Saturn? Not quite",
     "enumeration": "7"
    },
-   "solution": "GAGARIN"
+   "solution": "GAGARIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cosmonaut",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "silence",
+       "at": 18,
+       "gives": "GAG",
+       "note": "to gag someone is to silence them"
+      },
+      {
+       "words": "a",
+       "at": 26,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 47,
+         "note": "not quite means not complete, losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feature of Saturn",
+         "at": 28,
+         "gives": "RING",
+         "note": "Saturn is known for its rings"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A space traveller silenced by something close to a ring of Saturn.",
+     "definitionFit": "Yuri Gagarin, a Soviet cosmonaut, was the first human in space in 1961."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silence"
+    }
+   }
   },
   {
    "number": 3,
@@ -254,7 +923,30 @@
     "text": "Greek prison for Rochester's wife?",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 0,
+      "meaning": "relating to Athens or ancient Greece"
+     },
+     {
+      "text": "prison for Rochester's wife?",
+      "at": 6,
+      "meaning": "in Jane Eyre, Mr Rochester's mad wife Bertha is locked in the top floor of the house"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rochester is not the Kent town but the hero of Charlotte Brontë's Jane Eyre.",
+     "definitionFit": "Attic means Athenian, and a loft room is where Bertha Mason was confined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rochester's"
+    }
+   }
   },
   {
    "number": 4,
@@ -268,7 +960,54 @@
     "text": "Darling expected, it's said, saccharine stuff",
     "enumeration": "8"
    },
-   "solution": "HONEYDEW"
+   "solution": "HONEYDEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "saccharine stuff",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Darling",
+       "at": 0,
+       "gives": "HONEY",
+       "note": "honey is a term of endearment like darling"
+      },
+      {
+       "op": "homophone",
+       "spelt": "DEW",
+       "indicators": [
+        {
+         "text": "it's said",
+         "at": 18,
+         "note": "said means spoken, so the word for expected is taken by sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "expected",
+         "at": 8,
+         "gives": "DUE",
+         "note": "something due is expected"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweetheart is said to be expected, bringing something sugary.",
+     "definitionFit": "Honeydew is the sweet sticky secretion of aphids, also a sweet melon, so sugary stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saccharine"
+    }
+   }
   },
   {
    "number": 5,
@@ -282,7 +1021,48 @@
     "text": "Scorcher taking in Bobby, cool dude",
     "enumeration": "6"
    },
-   "solution": "HEPCAT"
+   "solution": "HEPCAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cool dude",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking in",
+       "at": 9,
+       "note": "the heat takes the policeman in, surrounding him"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scorcher",
+       "at": 0,
+       "gives": "HEAT",
+       "note": "a scorcher is a very hot day, i.e. heat"
+      },
+      {
+       "words": "Bobby",
+       "at": 19,
+       "gives": "PC",
+       "note": "a bobby is a British police officer, a PC (police constable)"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a scorching day a policeman takes in a cool character.",
+     "definitionFit": "A hepcat is old jazz slang for a hip, stylish person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bobby"
+    }
+   }
   },
   {
    "number": 6,
@@ -296,7 +1076,46 @@
     "text": "Very little time to pass the ball in sport",
     "enumeration": "9"
    },
-   "solution": "MOTOCROSS"
+   "solution": "MOTOCROSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Very little time",
+       "at": 0,
+       "gives": "MO",
+       "note": "a mo is a moment, a very short time"
+      },
+      {
+       "words": "to",
+       "at": 17,
+       "note": "taken as written"
+      },
+      {
+       "words": "pass the ball",
+       "at": 20,
+       "gives": "CROSS",
+       "note": "in football to cross is to pass the ball across the field"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a sport, there is very little time to pass the ball.",
+     "definitionFit": "Motocross is the sport of off-road motorcycle racing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 7,
@@ -310,7 +1129,41 @@
     "text": "Fortification hit a bit",
     "enumeration": "7"
    },
-   "solution": "RAMPART"
+   "solution": "RAMPART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fortification",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "hit",
+       "at": 14,
+       "gives": "RAM",
+       "note": "to ram is to strike hard"
+      },
+      {
+       "words": "a bit",
+       "at": 18,
+       "gives": "PART",
+       "note": "a part is a bit of something"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fortification was hit a bit.",
+     "definitionFit": "A rampart is a defensive wall or bank around a fort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 8,
@@ -324,7 +1177,64 @@
     "text": "A bird me, a nocturnal flier in the night",
     "enumeration": "10"
    },
-   "solution": "MEADOWLARK"
+   "solution": "MEADOWLARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "me",
+       "at": 7,
+       "gives": "ME",
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 11,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 29,
+         "note": "the flier goes in the night word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the night",
+         "at": 32,
+         "gives": "DARK",
+         "note": "night is the dark"
+        },
+        {
+         "words": "nocturnal flier",
+         "at": 13,
+         "gives": "OWL",
+         "note": "the owl flies at night"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird speaks: me, a night-flying creature in the dark.",
+     "definitionFit": "The meadowlark is a North American songbird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 12,
@@ -338,7 +1248,58 @@
     "text": "Match reference book, a record so extraordinarily gripping",
     "enumeration": "10"
    },
-   "solution": "SCOREBOARD"
+   "solution": "SCOREBOARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Match reference",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 50,
+       "note": "the jumbled letters grip the abbreviation, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "extraordinarily",
+         "at": 34,
+         "note": "done in an extraordinary way, the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a record so",
+         "at": 22
+        }
+       ]
+      },
+      {
+       "words": "book",
+       "at": 16,
+       "gives": "B"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference book describes an extraordinary gripping record.",
+     "walkthrough": "'extraordinarily' mixes A RECORD SO into SCOREOARD, around B.",
+     "definitionFit": "A scoreboard is what spectators consult during a match to see the score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reference"
+    }
+   }
   },
   {
    "number": 14,
@@ -352,7 +1313,30 @@
     "text": "Function of a colander stretched to the limit?",
     "enumeration": "9"
    },
-   "solution": "STRAINING"
+   "solution": "STRAINING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Function of a colander",
+      "at": 0,
+      "meaning": "a colander drains, sieving liquid from food"
+     },
+     {
+      "text": "stretched to the limit?",
+      "at": 23,
+      "meaning": "pulling hard at full effort"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One sense is sieving food; the other is pulling or striving with all one's strength.",
+     "definitionFit": "Straining is both sieving out liquid and making a great effort, stretching oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stretched"
+    }
+   }
   },
   {
    "number": 16,
@@ -366,7 +1350,49 @@
     "text": "Politician right to punch purring protester?",
     "enumeration": "8"
    },
-   "solution": "DEMOCRAT"
+   "solution": "DEMOCRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to punch",
+       "at": 17,
+       "note": "the letter punches into the other piece, ending up inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "purring protester",
+       "at": 26,
+       "gives": "DEMOCAT",
+       "note": "playfully, a cat (purring) at a demo (protest)"
+      },
+      {
+       "words": "right",
+       "at": 11,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A right-winger punches a protester who purrs.",
+     "walkthrough": "The 'purring protester' is a whimsical demo cat.",
+     "definitionFit": "A Democrat is a member of the US Democratic Party, a politician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "purring"
+    }
+   }
   },
   {
    "number": 18,
@@ -380,7 +1406,49 @@
     "text": "Instrument adopted by mother, a sorceress",
     "enumeration": "7"
    },
-   "solution": "MORGANA"
+   "solution": "MORGANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sorceress",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopted by",
+       "at": 11,
+       "note": "the instrument is taken in by mother, adopted into her"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mother",
+       "at": 22,
+       "gives": "MA",
+       "note": "ma is mother"
+      },
+      {
+       "words": "Instrument",
+       "at": 0,
+       "gives": "ORGAN",
+       "note": "an organ is a musical instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instrument taken on by mother, a witch.",
+     "walkthrough": "Morgan le Fay, or Morgana, is the enchantress of Arthurian legend.",
+     "definitionFit": "Morgana is the sorceress Morgan le Fay of the King Arthur stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopted"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1462,59 @@
     "text": "Stick a border up for a high window",
     "enumeration": "7"
    },
-   "solution": "MIRADOR"
+   "solution": "MIRADOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high window",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 15,
+       "note": "in a down clue, up means the letters run upward, in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Stick",
+         "at": 0,
+         "gives": "ROD",
+         "note": "a rod is a stick"
+        },
+        {
+         "words": "a",
+         "at": 6,
+         "gives": "A"
+        },
+        {
+         "words": "border",
+         "at": 8,
+         "gives": "RIM",
+         "note": "a rim is a border"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fixing a border up high for a window.",
+     "walkthrough": "'up' reverses the whole of RODARIM.",
+     "definitionFit": "A mirador is a turret or balcony window with a view, typical of Spanish architecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1528,62 @@
     "text": "In America, petty idiot constrains our British leaders",
     "enumeration": "3-3"
    },
-   "solution": "TWOBIT"
+   "solution": "TWOBIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In America, petty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "constrains",
+       "at": 24,
+       "note": "the idiot constrains the letters, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "idiot",
+       "at": 18,
+       "gives": "TWIT",
+       "note": "a twit is an idiot"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leaders",
+         "at": 47,
+         "note": "leaders means the first letters of the next words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "our",
+         "at": 35
+        },
+        {
+         "words": "British",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In America an idiot constrains the British, petty-minded.",
+     "definitionFit": "Two-bit is American slang meaning cheap or insignificant, i.e. petty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "constrains"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1597,57 @@
     "text": "With a minimum of tact, little time for message?",
     "enumeration": "5"
    },
-   "solution": "TWEET"
+   "solution": "TWEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "message",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a minimum of",
+         "at": 5,
+         "note": "the least possible of the word, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tact",
+         "at": 18
+        }
+       ]
+      },
+      {
+       "words": "little",
+       "at": 24,
+       "gives": "WEE",
+       "note": "wee means little"
+      },
+      {
+       "words": "time",
+       "at": 31,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With very little tact, briefly sending a message.",
+     "walkthrough": "A tweet is a short message posted on Twitter.",
+     "definitionFit": "A tweet is a short social-media post, a message."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tact"
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1661,42 @@
     "text": "Conventional missile sent up",
     "enumeration": "4"
    },
-   "solution": "TRAD"
+   "solution": "TRAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conventional",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "sent up",
+       "at": 21,
+       "note": "in a down clue, sent up means read upwards, reversed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "missile",
+       "at": 13,
+       "gives": "DART",
+       "note": "a dart is a small thrown missile"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conventional missile was launched upward.",
+     "definitionFit": "Trad is short for traditional, i.e. conventional, as in trad jazz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missile"
+    }
+   }
   }
  ]
 }
