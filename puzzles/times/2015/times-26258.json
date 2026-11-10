@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,73 @@
     "text": "Perhaps wife's earnings docked by fellow director's principal deputy",
     "enumeration": "6-2-7"
    },
-   "solution": "SECONDINCOMMAND"
+   "solution": "SECONDINCOMMAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deputy",
+      "at": 62
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "docked",
+         "at": 24,
+         "note": "a docked tail is cut short, so the phrase loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Perhaps wife's earnings",
+         "at": 0,
+         "gives": "SECONDINCOME",
+         "note": "a wife's pay may be a household's second income"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "fellow",
+       "at": 34,
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principal",
+         "at": 52,
+         "note": "the principal, or leading, letter of the word director's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "director's",
+         "at": 41
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director's chief deputy finds a spouse's pay cut by a colleague.",
+     "walkthrough": "'docked' trims the last E from SECOND INCOME, leaving SECONDINCOM.",
+     "definitionFit": "A second-in-command is the officer who stands in for the leader, a deputy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 9,
@@ -44,7 +113,45 @@
     "text": "Equipment in lab coat, value uncertain",
     "enumeration": "9"
    },
-   "solution": "AUTOCLAVE"
+   "solution": "AUTOCLAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Equipment in lab",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "uncertain",
+       "at": 29,
+       "note": "letters whose order is uncertain may be arranged in any way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "coat",
+       "at": 17
+      },
+      {
+       "words": "value",
+       "at": 23
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is unsure what a laboratory coat is worth.",
+     "walkthrough": "'uncertain' rearranges COAT and VALUE into the answer. 'Equipment in lab' looks like part of the picture of a lab coat, but it is the definition.",
+     "definitionFit": "An autoclave is a pressurised steam vessel used in laboratories to sterilise apparatus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 10,
@@ -58,7 +165,59 @@
     "text": "Source of oil to provide power in my area",
     "enumeration": "5"
    },
-   "solution": "COPRA"
+   "solution": "COPRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of oil",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 31,
+         "note": "power is set inside the exclamation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "my",
+         "at": 34,
+         "gives": "COR",
+         "note": "'my!' and 'cor!' are both exclamations of surprise"
+        },
+        {
+         "words": "power",
+         "at": 25,
+         "gives": "P",
+         "note": "P is the physics abbreviation for power"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 37,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request for energy in one's own district comes from an oil producer.",
+     "walkthrough": "'in' puts P inside COR, giving COPR, then A follows. COR is a British exclamation like 'gosh'.",
+     "definitionFit": "Copra is dried coconut kernel, which is pressed to yield coconut oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +231,30 @@
     "text": "Out to provoke more fondness?",
     "enumeration": "6"
    },
-   "solution": "ABSENT"
+   "solution": "ABSENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Out",
+      "at": 0,
+      "meaning": "out means not present, away"
+     },
+     {
+      "text": "to provoke more fondness?",
+      "at": 4,
+      "meaning": "a playful nod to the saying that absence makes the heart grow fonder"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition leans on the proverb 'absence makes the heart grow fonder', so being away is what provokes more fondness.",
+     "definitionFit": "Someone who is out is not present, away from where they would be expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +268,30 @@
     "text": "Following the right path to have been accepted as student?",
     "enumeration": "2,6"
    },
-   "solution": "ONCOURSE"
+   "solution": "ONCOURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Following the right path",
+      "at": 0,
+      "meaning": "keeping to the correct route, as a ship or project might"
+     },
+     {
+      "text": "to have been accepted as student?",
+      "at": 25,
+      "meaning": "a student admitted to a programme of study is on a course"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the whimsical second reading: a student enrolled on a course of study.",
+     "definitionFit": "A plan proceeding as intended is on track, keeping to its planned route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +305,54 @@
     "text": "One struggling poet turns and runs",
     "enumeration": "6"
    },
-   "solution": "TOILER"
+   "solution": "TOILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One struggling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns",
+         "at": 20,
+         "note": "the poet's name turns round and is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poet",
+         "at": 15,
+         "gives": "ELIOT",
+         "note": "T. S. Eliot was a poet"
+        }
+       ]
+      },
+      {
+       "words": "runs",
+       "at": 30,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet keeps spinning round and running about, struggling.",
+     "walkthrough": "'turns' signals reversal of the poet's surname; 'runs' looks like part of the surface verb but gives the cricket abbreviation.",
+     "definitionFit": "A toiler is a person who labours hard, one who struggles at their work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 15,
@@ -114,7 +366,67 @@
     "text": "Highly desirable books man secures with mould on the front",
     "enumeration": "4-4"
    },
-   "solution": "MUSTHAVE"
+   "solution": "MUSTHAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highly desirable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on the front",
+       "at": 46,
+       "note": "the mould is placed before the rest of the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mould",
+       "at": 40,
+       "gives": "MUST",
+       "note": "must is mould or mustiness"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "secures",
+         "at": 27,
+         "note": "the man holds the books inside himself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 23,
+         "gives": "HE",
+         "note": "he is a man"
+        },
+        {
+         "words": "books",
+         "at": 17,
+         "gives": "AV",
+         "note": "AV is the Authorized Version of the Bible, a set of books"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector thinks old books with a bloom of mould on the cover are greatly prized.",
+     "walkthrough": "'secures' signals a container; 'on the front' fixes the mould at the start. AV for books is the Authorized Version of the Bible.",
+     "definitionFit": "A must-have is something considered essential to own, highly desirable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mould"
+    }
+   }
   },
   {
    "number": 18,
@@ -128,7 +440,75 @@
     "text": "A Republican, noticed without case, sent back with the rest",
     "enumeration": "2,6"
    },
-   "solution": "ETCETERA"
+   "solution": "ETCETERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the rest",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "sent back",
+       "at": 36,
+       "note": "the whole assembled string is sent back, read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "Republican",
+         "at": 2,
+         "gives": "R"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without case",
+           "at": 22,
+           "note": "the outer letters, its case, are stripped from the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "noticed",
+           "at": 14,
+           "gives": "DETECTED",
+           "note": "noticed means detected"
+          },
+          {
+           "gives": "D"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican spotted without his briefcase was sent home along with everyone else.",
+     "walkthrough": "'without case' strips the outer Ds from DETECTED, leaving ETECTE; A + R + ETECTE is then 'sent back' to make the answer.",
+     "definitionFit": "Et cetera is Latin for 'and the other things', used to mean all the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 19,
@@ -142,7 +522,49 @@
     "text": "Complaint I agree officer must accept",
     "enumeration": "6"
    },
-   "solution": "LAMENT"
+   "solution": "LAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must accept",
+       "at": 26,
+       "note": "the officer takes in the agreement, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "officer",
+       "at": 18,
+       "gives": "LT",
+       "note": "LT is the abbreviation for lieutenant, an officer"
+      },
+      {
+       "words": "I agree",
+       "at": 10,
+       "gives": "AMEN",
+       "note": "amen is said to express assent"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier grumbles that the officer has to take his agreement.",
+     "walkthrough": "'must accept' signals the officer abbreviation taking the word of assent inside it.",
+     "definitionFit": "A lament is an expression of grief or regret, a complaint in the sense of a mournful cry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Complaint"
+    }
+   }
   },
   {
    "number": 21,
@@ -156,7 +578,41 @@
     "text": "Ominous sign once seen with regret to be actualised",
     "enumeration": "4,4"
    },
-   "solution": "COMETRUE"
+   "solution": "COMETRUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "be actualised",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ominous sign once seen",
+       "at": 0,
+       "gives": "COMET",
+       "note": "comets were once regarded as omens of disaster"
+      },
+      {
+       "words": "regret",
+       "at": 28,
+       "gives": "RUE",
+       "note": "to rue is to regret"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark portent appears, accompanied by remorse, and it is made real.",
+     "definitionFit": "To come true is to happen in reality, as a hope or prophecy might, so to be actualised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 23,
@@ -170,7 +626,49 @@
     "text": "Football fan, maybe, dropping one drink for another",
     "enumeration": "6"
    },
-   "solution": "PORTER"
+   "solution": "PORTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "another",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropping",
+       "at": 21,
+       "note": "the fan lets one drink fall away from the front"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Football fan, maybe",
+       "at": 0,
+       "gives": "SUPPORTER",
+       "note": "a football fan is an example of a supporter"
+      },
+      {
+       "words": "one drink",
+       "at": 30,
+       "gives": "SUP",
+       "note": "a sup is a mouthful of drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan swaps one drink for a different one.",
+     "walkthrough": "'dropping' signals the removal. The definition 'another' means another drink, following on from 'one drink'.",
+     "definitionFit": "Porter is a dark beer, so it is another drink beside the sup taken away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Football"
+    }
+   }
   },
   {
    "number": 26,
@@ -184,7 +682,59 @@
     "text": "Be likely to possess ultimate in flair and fashion",
     "enumeration": "5"
    },
-   "solution": "TREND"
+   "solution": "TREND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fashion",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to possess",
+       "at": 10,
+       "note": "the verb holds the letter within itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Be likely",
+       "at": 0,
+       "gives": "TEND",
+       "note": "to tend to do something is to be likely to do it"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimate in",
+         "at": 21,
+         "note": "the ultimate, or final, letter of flair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flair",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is probably going to have the last word in style and fashion.",
+     "walkthrough": "'to possess' puts R, the last letter of 'flair', inside TEND.",
+     "definitionFit": "A trend is a prevailing style or fashion of the moment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flair"
+    }
+   }
   },
   {
    "number": 27,
@@ -198,7 +748,29 @@
     "text": "Being rather stupid is more than one should have to bear",
     "enumeration": "1,3,5"
    },
-   "solution": "ABITTHICK"
+   "solution": "ABITTHICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being rather stupid",
+      "at": 0,
+      "meaning": "somewhat dim-witted, slow on the uptake"
+     },
+     {
+      "text": "is more than one should have to bear",
+      "at": 20,
+      "meaning": "describes something unreasonable or excessive, beyond what is fair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both senses are British colloquialisms: 'thick' means stupid, and 'a bit thick' also means unreasonable or too much.",
+     "definitionFit": "Thick is informal for dim, so mildly thick means rather dim-witted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -212,7 +784,48 @@
     "text": "Appreciate class course at Oxford passed very quickly",
     "enumeration": "3,5,5,2"
    },
-   "solution": "SETGREATSTOREBY"
+   "solution": "SETGREATSTOREBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Appreciate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "class",
+       "at": 11,
+       "gives": "SET",
+       "note": "a set is a class or group, especially of pupils"
+      },
+      {
+       "words": "course at Oxford",
+       "at": 17,
+       "gives": "GREATS",
+       "note": "Greats is the Oxford University course in classics"
+      },
+      {
+       "words": "passed very quickly",
+       "at": 34,
+       "gives": "TOREBY",
+       "note": "tore by means rushed past"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone values a class on an Oxford course that flew past.",
+     "walkthrough": "GREATS is the informal name for the classics degree at Oxford University.",
+     "definitionFit": "To set great store by something is to value it highly, to appreciate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +839,42 @@
     "text": "Fact: one with six legs is upright on four",
     "enumeration": "7"
    },
-   "solution": "STATANT"
+   "solution": "STATANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "upright on four",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fact",
+       "at": 0,
+       "gives": "STAT",
+       "note": "a stat is a statistic, a fact"
+      },
+      {
+       "words": "one with six legs",
+       "at": 6,
+       "gives": "ANT",
+       "note": "an ant is an insect, which has six legs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is a fact that an insect stands upright on all fours.",
+     "walkthrough": "Statant is a heraldic term for an animal shown standing with all four feet on the ground.",
+     "definitionFit": "In heraldry a beast described as statant stands erect with all its feet on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "four"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +888,41 @@
     "text": "Shave one's skin",
     "enumeration": "5"
    },
-   "solution": "CUTIS"
+   "solution": "CUTIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "skin",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Shave",
+       "at": 0,
+       "gives": "CUT",
+       "note": "to shave is to cut"
+      },
+      {
+       "words": "one's",
+       "at": 6,
+       "gives": "IS",
+       "note": "one is I, and the 's is read as S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shaving one's skin.",
+     "definitionFit": "Cutis is the anatomical name for the skin, especially its true layer, the dermis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shave"
+    }
+   }
   },
   {
    "number": 3,
@@ -254,7 +936,45 @@
     "text": "Consent to struggle, its outcome preordained?",
     "enumeration": "2,7"
    },
-   "solution": "NOCONTEST"
+   "solution": "NOCONTEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "its outcome preordained?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "struggle",
+       "at": 11,
+       "note": "letters that struggle are thrown about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Consent",
+       "at": 0
+      },
+      {
+       "words": "to",
+       "at": 8
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Agreeing to a fight whose result was fixed in advance.",
+     "walkthrough": "'to struggle' rearranges CONSENT and TO into the answer.",
+     "definitionFit": "A contest with a certain result is a walkover, called no contest because it is no real competition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 4,
@@ -268,7 +988,48 @@
     "text": "Russian front I served on",
     "enumeration": "4"
    },
-   "solution": "IVAN"
+   "solution": "IVAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Russian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "served on",
+       "at": 16,
+       "note": "the letter is placed on, in front of, the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I",
+       "at": 14,
+       "gives": "I"
+      },
+      {
+       "words": "front",
+       "at": 8,
+       "gives": "VAN",
+       "note": "the van is the front, as in vanguard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier recalls serving on the Russian front.",
+     "walkthrough": "'served on' puts I before VAN.",
+     "definitionFit": "Ivan is a common Russian first name, used as a byword for a Russian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 5,
@@ -282,7 +1043,59 @@
     "text": "Take all someone's cash, working alone in card manoeuvre",
     "enumeration": "5,3"
    },
-   "solution": "CLEANOUT"
+   "solution": "CLEANOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take all someone's cash",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "the shuffled letters sit inside the card move"
+      }
+     ],
+     "parts": [
+      {
+       "words": "card manoeuvre",
+       "at": 42,
+       "gives": "CUT",
+       "note": "to cut is to divide a pack of cards"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 25,
+         "note": "letters set working are put into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alone",
+         "at": 33
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card sharp operating alone fleeces a mark with a sleight of hand.",
+     "walkthrough": "'working' rearranges the letters of 'alone', and 'in' places the result inside the card manoeuvre.",
+     "definitionFit": "To clean someone out is to take all their money, as in gambling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 6,
@@ -296,7 +1109,56 @@
     "text": "Aggressive move: army commanders hurled orders at the front",
     "enumeration": "5"
    },
-   "solution": "MACHO"
+   "solution": "MACHO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "at the front",
+       "at": 47,
+       "note": "the letters at the front of each of these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "move",
+       "at": 11
+      },
+      {
+       "words": "army",
+       "at": 17
+      },
+      {
+       "words": "commanders",
+       "at": 22
+      },
+      {
+       "words": "hurled",
+       "at": 33
+      },
+      {
+       "words": "orders",
+       "at": 40
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In an aggressive move, army commanders barked out orders.",
+     "definitionFit": "Macho describes a showy, aggressive masculinity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 7,
@@ -310,7 +1172,45 @@
     "text": "Sweetener in a box, mild",
     "enumeration": "9"
    },
-   "solution": "ASPARTAME"
+   "solution": "ASPARTAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweetener",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 13
+      },
+      {
+       "words": "box",
+       "at": 15,
+       "gives": "SPAR",
+       "note": "to spar is to box"
+      },
+      {
+       "words": "mild",
+       "at": 20,
+       "gives": "TAME",
+       "note": "tame means mild, gentle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artificial sweetener comes in a mild-looking box.",
+     "definitionFit": "Aspartame is an artificial low-calorie sweetener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 8,
@@ -324,7 +1224,42 @@
     "text": "Block is dull to look at",
     "enumeration": "7"
    },
-   "solution": "DEADEYE"
+   "solution": "DEADEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Block",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "dull",
+       "at": 9,
+       "gives": "DEAD",
+       "note": "dead means dull, lifeless"
+      },
+      {
+       "words": "to look at",
+       "at": 14,
+       "gives": "EYE",
+       "note": "to eye is to look at"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wooden block is uninteresting to the eye.",
+     "walkthrough": "A deadeye is a round wooden block with holes, used in a ship's rigging to tighten shrouds.",
+     "definitionFit": "In sailing, a deadeye is a pierced wooden block used to tension rigging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 14,
@@ -338,7 +1273,55 @@
     "text": "Parish priest's stipend pronounced criminal",
     "enumeration": "9"
    },
-   "solution": "INCUMBENT"
+   "solution": "INCUMBENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Parish priest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "INCUM",
+       "indicators": [
+        {
+         "text": "pronounced",
+         "at": 24,
+         "note": "the word for the stipend is only heard, not spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stipend",
+         "at": 16,
+         "gives": "INCOME",
+         "note": "a stipend is an income"
+        }
+       ]
+      },
+      {
+       "words": "criminal",
+       "at": 35,
+       "gives": "BENT",
+       "note": "bent is slang for crooked, criminal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's pay is declared to be crooked.",
+     "walkthrough": "'pronounced' means only the sound of INCOME is used, spelt INCUM. BENT is British slang for corrupt.",
+     "definitionFit": "An incumbent is the holder of a church benefice, such as a rector or vicar of a parish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1335,41 @@
     "text": "Devastate a fort, wounding a number inside",
     "enumeration": "3,3,3"
    },
-   "solution": "TEAFORTWO"
+   "solution": "TEAFORTWO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a number",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 36,
+       "note": "the answer sits inside the run of words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Devastate a fort, wounding",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army ruins a fortress, injuring its garrison within.",
+     "walkthrough": "'a number' looks like part of the battle, but it means a song.",
+     "definitionFit": "Tea for Two is a popular song, and a number is a song or musical piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 17,
@@ -366,7 +1383,55 @@
     "text": "Clamour to make 16 perhaps sound a laugh",
     "enumeration": "8"
    },
-   "solution": "BROUHAHA"
+   "solution": "BROUHAHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clamour",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "BROU",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 27,
+         "note": "the first word is only heard, not spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "make 16 perhaps",
+         "at": 11,
+         "gives": "BREW",
+         "note": "to make tea, which 16 is an example of, is to brew"
+        }
+       ]
+      },
+      {
+       "words": "a laugh",
+       "at": 33,
+       "gives": "HAHA",
+       "note": "ha ha is a laugh"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making a pot of tea seems to be followed by a noisy guffaw.",
+     "walkthrough": "16-down is TEA FOR TWO, which offers tea; making tea is to brew, heard as BROU.",
+     "definitionFit": "A brouhaha is a noisy commotion or uproar, a clamour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 18,
@@ -380,7 +1445,59 @@
     "text": "Suppressing quote \"Kinky sex is thrilling\"",
     "enumeration": "7"
    },
-   "solution": "EXCITES"
+   "solution": "EXCITES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "is thrilling",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Suppressing",
+       "at": 0,
+       "note": "the shuffled letters hold down the other word inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Kinky",
+         "at": 19,
+         "note": "kinky means twisted, so the letters are twisted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sex",
+         "at": 25
+        }
+       ]
+      },
+      {
+       "words": "quote",
+       "at": 12,
+       "gives": "CITE",
+       "note": "to cite is to quote"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quotes the line that kinky sex is thrilling.",
+     "walkthrough": "'Kinky' twists the three letters of 'sex' to EXS, and 'Suppressing' holds the quote inside them.",
+     "definitionFit": "Something that excites someone stirs them up, so it is thrilling them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suppressing"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1511,42 @@
     "text": "The old guard become vital",
     "enumeration": "7"
    },
-   "solution": "TURNKEY"
+   "solution": "TURNKEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old guard",
+      "at": 4
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "become",
+       "at": 14,
+       "gives": "TURN",
+       "note": "to turn is to become, as in turn sour"
+      },
+      {
+       "words": "vital",
+       "at": 21,
+       "gives": "KEY",
+       "note": "key means vital, crucial"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The old guard become indispensable.",
+     "walkthrough": "'The old guard' looks like a group of veterans, but it means an old-fashioned word for a jailer.",
+     "definitionFit": "Turnkey is an archaic word for a jailer, a prison guard who holds the keys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1560,54 @@
     "text": "Workers stick up for the royal family",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "royal family",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Workers",
+       "at": 0,
+       "gives": "TU",
+       "note": "TU is the trade union, a body of workers"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "in a down clue, up means the word is read upwards, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "at": 8,
+         "gives": "ROD",
+         "note": "a rod is a stick"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers make a stand for the monarchy.",
+     "walkthrough": "'up' reverses ROD to DOR in this down clue.",
+     "definitionFit": "The Tudors were the royal dynasty of England from 1485 to 1603."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1621,47 @@
     "text": "Wind temperature over port, say",
     "enumeration": "5"
    },
-   "solution": "TWINE"
+   "solution": "TWINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 17,
+       "note": "in a down clue, over means placed above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "temperature",
+       "at": 5,
+       "gives": "T"
+      },
+      {
+       "words": "port, say",
+       "at": 22,
+       "gives": "WINE",
+       "note": "port is an example of wine"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gusty wind sweeps over a warm harbour.",
+     "definitionFit": "To twine is to wind or twist something round, as a vine does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1675,46 @@
     "text": "Works hard to release head in waterproofs",
     "enumeration": "4"
    },
-   "solution": "OILS"
+   "solution": "OILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waterproofs",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "release head",
+       "at": 14,
+       "note": "the first letter is let go from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Works hard",
+       "at": 0,
+       "gives": "TOILS",
+       "note": "toils means works hard"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works hard to free their head from wet-weather gear.",
+     "walkthrough": "'release head' drops the T from TOILS.",
+     "definitionFit": "Oils is short for oilskins, waterproof garments made of oiled cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
