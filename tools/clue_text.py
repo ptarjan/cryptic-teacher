@@ -238,6 +238,15 @@ def zeros_read(text):
     return text.replace("o", "0").replace("O", "0")
 
 
+_DIGITS_READ = str.maketrans("OoLlIi|T", "00111111")
+
+
+def digits_read(text):
+    """`text` of a number read in letters put back as digits: O and o for 0,
+    L l I i | and T for 1 ("17LO" is "1710")."""
+    return text.translate(_DIGITS_READ)
+
+
 def ones_read(text):
     """`text` with a 1 read as l or I before another digit put back
     ("l9th-century" is "19th-century")."""
