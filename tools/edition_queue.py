@@ -1974,6 +1974,24 @@ def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()
     return fixes + solution + new + listener_order + [u for u in others if id(u) not in first]
 
 
+def fresh_turns(fresh, planned):
+    """The queue's order for the units just laid out (`fresh`, fresh()'s) and the plan's (`planned`) of one kind.
+    11-10: a fetch laid out ~100 Gale Sunday Telegraph editions an hour (CPU-only reads, no VLM asks), and
+    fresh units stood ahead of the whole plan, so they held the 4 scan slots and most read slots all night:
+    0 Gale Telegraph scans in 300 starts, 15,000 Telegraph/6,700 Independent/5,400 FT never-scanned units
+    waited and the VLM got 2-30 asks per 10 min. The named papers' fresh units (the Times') still go first;
+    the other papers' fresh units take turns by paper, then alternate one for one with the plan."""
+    named = newest_first_papers()
+    head = [u for u in fresh if u.get("paper") in named]
+    by_paper = {}
+    for u in fresh:
+        if u.get("paper") not in named:
+            by_paper.setdefault(u.get("paper"), []).append(u)
+    queues = list(by_paper.values())
+    rest = [q[i] for i in range(max(map(len, queues), default=0)) for q in queues if i < len(q)]
+    return head + alternate(rest, planned)
+
+
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
 #: pages (by_urgency): a lost write, or a page written unfiled for one blank a reader fix since reads.
 UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, fa.NAME_CLUSTER, fa.DERIVED_FORM,
@@ -3934,18 +3952,19 @@ class _RankPicker:
         sig = tuple((id(l), len(l)) for l in lists)
         self.times_papers = newest_first_papers()
         if self.queue_memo[0] != sig:
-            q = self.first + self.fresh_scans + self.fresh_reads + self.scans + self.reads + self.fetches
+            scans_q, reads_q = fresh_turns(self.fresh_scans, self.scans), fresh_turns(self.fresh_reads, self.reads)
+            q = self.first + scans_q + reads_q + self.fetches
             self.qkeys, self.qslots, self.last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
             for i, sl in enumerate(self.qslots):
                 self.last_of[sl] = i
-            body = self.fresh_scans + self.fresh_reads + self.scans + self.reads
+            body = scans_q + reads_q
             cands = [(u, key_of(u), slot_of(u)) for u in body
                      if (u["rank"] < fa.BLANKET or newest_first(u)) and self.pools.get(slot_of(u))]
             first_at = {}  # each urgent candidate's key: its first index in cands
             for i, (_, k, _) in enumerate(cands):
                 first_at.setdefault(k, i)
             self.queue_memo[:] = [sig, q, self.qkeys, self.qslots, self.last_of, cands,
-                             [(v, key_of(v)) for v in self.fresh_reads + self.reads if slot_of(v) == "read"], lists,  # lists held: no id reused
+                             [(v, key_of(v)) for v in reads_q if slot_of(v) == "read"], lists,  # lists held: no id reused
                              frozenset(first_at), first_at,
                              # A whole-corpus re-read (fa.BLANKET) waits behind the Listener's due reads anyway, so it
                              # is not "other work due": 10-24 five held FT/Guardian --reread units kept the pool at 8
