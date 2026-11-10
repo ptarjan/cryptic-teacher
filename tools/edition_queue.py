@@ -1509,6 +1509,9 @@ CANARY_PROVEN = (
     # lists (was 0 of 173), 8 filed; SUNDAY_RIGHT is 11 rows, a run too small to hold.
     ("galesundaytelegraph", fa.SUNDAY_SIDES, 1987, 1998, "11-09 live: 84 of 173 reread pages gained clue lists (was 0), 8 filed"),
     ("galesundaytelegraph", fa.SUNDAY_RIGHT, 1987, 1998, "11-09: 11 rows, the crop right of the grid; its own canary"),
+    # 11-09: SUNDAY_LISTED was held by this very hold (0 in the plan; 45 due once the crop headings link): an
+    # answers-only reread of a held file from the next issue's text lists, no clue-column read.
+    ("galesundaytelegraph", fa.SUNDAY_LISTED, 1987, 1998, "11-09: answers-only from the printed text lists, 45 due"),
 )
 
 
