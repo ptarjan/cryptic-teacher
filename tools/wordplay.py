@@ -1547,7 +1547,7 @@ def _hidden_looked_up_hint(node, want):
         # the answer's own letters are printed in the leaf's words and the filed letters are not: a slip
         # in copying the run out, not a looked-up word
         return (f"hid() reads the letters printed in the clue: {lf.get('words')!r} prints {want}, not "
-                f"{lf['gives']}; write {render({**lf, 'gives': want})}")
+                f"{lf['gives']}; write {render({**node, 'parts': [{**lf, 'gives': want}]})}")
     if lf["gives"] == want:
         return (f"hid() reads the letters printed in the clue, and {lf.get('words')!r} does not print {want}: "
                 f"hide it in the words the clue prints, or take it as a plain leaf ({render(lf)}) and drop the hid()")
