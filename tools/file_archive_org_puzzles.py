@@ -12383,20 +12383,27 @@ _CROP_HEADINGS = {}
 
 
 _CROP_INDEX = {}
+#: Seconds a crop dir's listing stands: rapid/ (a read cuts its edition's crops there) soon, titles/ (~1M files) rarely.
+_CROP_TTL = {"rapid": 300, "titles": 3600}
 
 
 def _crop_index(sub):
     """{date prefix: [file names]} of CROPS/<sub>, listed once per process: a glob per edition over titles/ (~1M
     files) held the planner minutes on every Gale Sunday Telegraph pass."""
     key = (os.fspath(CROPS), sub)
+    # Listed again after _CROP_TTL: the queue's one process plans for days, and a week-on edition's crops are
+    # cut by its own read, after the index was made (11-09: 54 Sunday Telegraph puzzles whose heading sat in
+    # such crops never came due SUNDAY_LISTED, the index and the empty headings it gave held for good).
+    if key in _CROP_INDEX and time.monotonic() - _CROP_INDEX[key][0] > _CROP_TTL[sub]:
+        del _CROP_INDEX[key]
     if key not in _CROP_INDEX:
         idx = {}
         with contextlib.suppress(OSError):
             for e in os.scandir(os.path.join(os.fspath(CROPS), sub)):
                 if e.name.endswith(".json") and (sub == "rapid" or e.name.startswith("GaleSunday")):
                     idx.setdefault(e.name[:10] if sub == "rapid" else e.name.split("_", 2)[0], []).append(e.name)
-        _CROP_INDEX[key] = idx
-    return _CROP_INDEX[key]
+        _CROP_INDEX[key] = (time.monotonic(), idx)
+    return _CROP_INDEX[key][1]
 
 
 def _crop_paths(d):
@@ -12417,12 +12424,11 @@ def crop_headings(d, numbers):
     (CROP_WINNERS, its digits agreeing with the number in three places of four), the 1988 "Crossword No N: The first
     three" line (CROP_CROSSWORD), or else the box over a "Last week's winners" line (CROP_LAST_WEEK, the heading
     sits ~55px above it). Read side only: no scan key moves."""
-    k = (d.name, tuple(numbers))
+    paths = _crop_paths(d)
+    k = (d.name, tuple(numbers), tuple(paths))
     if k in _CROP_HEADINGS:
         return _CROP_HEADINGS[k]
     out = {}
-    day = d.name
-    paths = _crop_paths(d)
     for kind, pattern in (("head", CROP_WINNERS), ("cross", CROP_CROSSWORD), ("last", CROP_LAST_WEEK)):
         for path in paths:
             try:
