@@ -1148,7 +1148,9 @@ def sides_columns(img, grid, title, x0, paper, right_of=False):
             min(img.height, int(grid[3] + 1.8 * gw))
     if grid[1] - title[3] > SIDES_BAND * k or grid[0] - x0 < SIDES_LEFT * gw:
         return None
-    return x0, (grid[2] + 5 + (grid[0] - 5 - x0) + 60,), min(img.height, int(grid[3] + 1.8 * gw))
+    edge = grid[2] + 5 + (grid[0] - 5 - x0) + 60
+    # A column wider than the grid's (SUNDAY_QUICKIE_LEFT) mirrors past the page's edge: cut there.
+    return x0, (min(img.width, edge) if grid[0] - x0 > gw else edge,), min(img.height, int(grid[3] + 1.8 * gw))
 
 
 #: The Gale Sunday Telegraph's Two-in-One prize crossword (1987-05-10: every full read "no reading parses", its
@@ -1165,11 +1167,32 @@ SUNDAY_SIDES_END = "1999"
 CLUE_HEADING = re.compile(r"^\W*(ACROSS|DOWN)\W*$", re.I)
 
 
+#: A line that opens the Two-in-One's straightforward set: its "Quickie No. 5" heading, or the advert over it.
+QUICKIE_HEADING = re.compile(r"^\W*quickie\b|^\W*clues\s*for\s*a?\s*simpler\b", re.I)
+#: Before this date the Sunday Telegraph's cryptic clues stand in one column left of the grid, wider than the
+#: 1987-98 page's (sunday_left: 0.52 of the grid's width cut every clue's opening, the headings and numbers among
+#: them, so only the Quickie set on the right parsed: 59 pages, 1972-04 to 1977-09-04, filed with its clues).
+SUNDAY_QUICKIE_END = "1977-09-18"
+SUNDAY_QUICKIE_LEFT = 1.1
+#: A clue list whose clues average fewer words than this (over at least QUICK_CLUES) is a Quickie, not cryptic.
+QUICK_WORDS, QUICK_CLUES = 3.0, 16
+
+
+def quick_set(parsed):
+    """Whether `parsed` ({"across": [...], "down": [...]}, parse()) is a straightforward (Quickie) clue set: its
+    clues are short plain definitions, not wordplay (the 1976-77 pages' averaged 1.4 to 2.2 words, the cryptic 5+)."""
+    texts = [c.get("text") or "" for v in parsed.values() for c in v]
+    return len(texts) >= QUICK_CLUES and sum(len(t.split()) for t in texts) < QUICK_WORDS * len(texts)
+
+
 def first_clue_set(text):
     """`text` cut where a second ACROSS heading follows a DOWN one: the Two-in-One crossword prints its
     cryptic clues, then the straightforward set for the same grid, which are not the puzzle's clues."""
     seen, out = [], []
     for line in text.splitlines():
+        # The 1972-77 print heads its straightforward set "Quickie No. 5" under an advert "clues for a simpler crossword".
+        if QUICKIE_HEADING.match(line.strip()):
+            break
         m = CLUE_HEADING.match(line.strip())
         if m:
             word = m.group(1).upper()
@@ -1194,9 +1217,10 @@ def sunday_gutter(lines, grid, sides):
     return gutter(lines, (gx1, sides[2], gx1, sides[2]), top, gx1 + 0.35 * gw, gx1 + 0.75 * gw), top
 
 
-def sunday_left(grid):
-    """The x where the Sunday Telegraph's left clue column starts, from its grid (SUNDAY_SIDES_LEFT)."""
-    return max(0, int(grid[0] - SUNDAY_SIDES_LEFT * (grid[2] - grid[0])))
+def sunday_left(grid, quickie=False):
+    """The x where the Sunday Telegraph's left clue column starts, from its grid (SUNDAY_SIDES_LEFT; a page
+    before SUNDAY_QUICKIE_END, `quickie`: SUNDAY_QUICKIE_LEFT)."""
+    return max(0, int(grid[0] - (SUNDAY_QUICKIE_LEFT if quickie else SUNDAY_SIDES_LEFT) * (grid[2] - grid[0])))
 
 
 #: The reason of a Gale Sunday Telegraph 1987-98 page read before its clue columns were cut either side of the grid
@@ -1221,6 +1245,23 @@ def sunday_sides_due(row):
 #: ended at 1238, cutting the DOWN list. 11-09 tally of the 1993-94 rereads that ended: 8 of 14 such. Once.
 SUNDAY_RIGHT = "Gale Sunday Telegraph page refused no reading parses, its clue columns right of its grid read since"
 REREAD_SUNDAY_RIGHT = "2026-11-09T20:40:00+00:00"
+
+
+#: The reason of a Gale Sunday Telegraph page of 1972-04 to 1977-09-04 read before its cryptic clue column was read whole
+#: (SUNDAY_QUICKIE_LEFT) with a puzzle filed: 11-10 census, all 59 filed sundaytel-580..859 carry the Quickie set
+#: (1.4 to 2.2 words a clue; 1976-02-08 "Old dance" for TURNING). Once.
+QUICK_SET = "Gale Sunday Telegraph page filed with the Quickie clue set, its cryptic clue column read since"
+REREAD_QUICK_SET = "2026-11-10T05:45:00+00:00"
+
+
+def quick_set_due(row):
+    """Whether Gale Sunday Telegraph ledger `row` of a date before SUNDAY_QUICKIE_END, read before REREAD_QUICK_SET,
+    holds a verdict with a puzzle id (the Quickie set was filed or held as its clues)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galesundaytelegraph" or Path(rel).name[:10] >= SUNDAY_QUICKIE_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_QUICK_SET)):
+        return False
+    return any(v.get("id") for v in row.get("verdicts", ()))
 
 
 def sunday_right_due(row):
@@ -10135,7 +10176,8 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
     sunday = paper.key == "galesundaytelegraph" and d.name[:4] < SUNDAY_SIDES_END
-    x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox) if sunday else None
+    quickie = sunday and d.name[:10] < SUNDAY_QUICKIE_END
+    x0 = clues_left(gbox, hit["box"], m) if top is not None else sunday_left(gbox, quickie) if sunday else None
     sides = sides_columns(img, gbox, hit["box"], x0, paper, sunday) if top is not None or sunday else None
     beside = side == "left"
     # The clues read from a crop left of the grid: two columns a grid's
@@ -10383,6 +10425,9 @@ def _read_window(d, found, hit, solutions, vlm_for, alt, alts, lent=None, defer=
     if not tried:
         return refuse(verdict, "no-reading-parses", "no reading parses"), None
     ok, done, count, _, order, parsed, laid, why = max(tried, key=lambda t: t[:4])
+    # A Two-in-One page's Quickie set is never the puzzle's clues (Sunday Telegraph 1976-77 filed with them).
+    if sunday and quick_set(parsed):
+        return refuse(verdict, "quick-set", "the clue list is the straightforward (Quickie) set, not the cryptic"), None
     verdict["readings"] = list(order)
     verdict["clues"] = count
     verdict["complete"] = done
@@ -18247,6 +18292,8 @@ def fix_reason(row):
         return SUNDAY_SIDES
     if sunday_right_due(row):
         return SUNDAY_RIGHT
+    if quick_set_due(row):
+        return QUICK_SET
     if vlm_plain_due(row):
         return VLM_PLAIN
     if vlm_laid_due(row):
@@ -18899,7 +18946,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-09: a Gale Sunday Telegraph 1987-98 page refused no reading parses, its columns either side of its grid.
                   SUNDAY_SIDES,
                   # 11-09: the same read since, still no ACROSS and DOWN lists: both columns right of a grid at the page's edge.
-                  SUNDAY_RIGHT)
+                  SUNDAY_RIGHT,
+                  # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (quick_set_due).
+                  QUICK_SET)
 
 
 def refusal_passes(why):
@@ -18936,7 +18985,9 @@ def blanket_or_fix(row, blanket):
             return SIDES_READ
         if sunday_sides_due(row):
             return SUNDAY_SIDES
-        return SUNDAY_RIGHT if sunday_right_due(row) else blanket
+        if sunday_right_due(row):
+            return SUNDAY_RIGHT
+        return QUICK_SET if quick_set_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -19155,7 +19206,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,

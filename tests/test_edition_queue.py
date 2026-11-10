@@ -785,6 +785,22 @@ check("the Two-in-One crossword's text is cut at its second ACROSS heading; a on
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
        f.first_clue_set("ACROSS\n1 a (3)"), f.sunday_left((640, 3253, 1358, 4015))])
+# ---- a Sunday Telegraph 1972-77 page filed with its Quickie set is due QUICK_SET once, last of unfiled-first.
+_qrow = {"edition": "GaleSundayTelegraph1976UKEnglish/1976-02-08", "readAt": "2026-11-10T02:26:34+00:00",
+         "verdicts": [{"number": 779, "id": "sundaytel-779", "wrote": True}]}
+check("a Gale Sunday Telegraph 1976 page filed is due QUICK_SET (ranked, evidence, fix-landed, last of unfiled-first); "
+      "a 1977-09-25 page, a page read since and a refused page with no puzzle are not",
+      [True, 1, True, True, True, False, False, False],
+      [f.quick_set_due(_qrow), f.RANKS[f.QUICK_SET], eq.evidence_reason(f.QUICK_SET), f.QUICK_SET in eq.FIX_LANDED,
+       eq.UNFILED_FIRST[-1] == f.QUICK_SET,
+       f.quick_set_due({**_qrow, "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
+       f.quick_set_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}),
+       f.quick_set_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
+check("the Quickie heading and its advert cut the text; the Quickie set is a short-clue list and a cryptic one is not",
+      ["ACROSS\n1 Made (9)\nDOWN\n2 Old (7)", True, False],
+      [f.first_clue_set("ACROSS\n1 Made (9)\nDOWN\n2 Old (7)\nclues fora simpler\nQuickie'No.5\nACROSS\n1 Big (5)"),
+       f.quick_set({"across": [{"text": "Old dance"}] * 20}),
+       f.quick_set({"across": [{"text": "Made to look larger than a planet nearby"}] * 20})])
 # ---- a held-title Times row whose host heading links since (fa.held_linked) is due HELD_LINKED: ranked, evidence,
 # fix-landed, tier 0, answers-only on CPU (no VLM ask), not an unfiled-first page (its puzzle is filed).
 check("a held-title row due HELD_LINKED is ranked, evidence, fix-landed, tier 0, cpu-only and not unfiled-first",
