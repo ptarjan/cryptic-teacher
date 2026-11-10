@@ -1984,12 +1984,14 @@ def fresh_turns(fresh, planned):
     named = newest_first_papers()
     head = [u for u in fresh if u.get("paper") in named]
     by_paper = {}
+    low = [u for u in fresh if no_ask_sunday(u)]
+    fresh = [u for u in fresh if not no_ask_sunday(u)]
     for u in fresh:
         if u.get("paper") not in named:
             by_paper.setdefault(u.get("paper"), []).append(u)
     queues = list(by_paper.values())
     rest = [q[i] for i in range(max(map(len, queues), default=0)) for q in queues if i < len(q)]
-    return head + alternate(rest, planned)
+    return head + alternate(rest, planned) + low
 
 
 #: Rank 2 rereads of the named papers that file a puzzle the corpus lacks, ordered with their never-read
@@ -2137,13 +2139,27 @@ def newest_first_papers():
     return frozenset(k.strip() for k in os.environ.get("CT_NEWEST_FIRST", "").split(",") if k.strip())
 
 
+#: First year of the Gale Sunday Telegraph pages that ask the VLM in numbers. 11-10: 1964-77 pages (no
+#: cryptic grid or the Quickie set) are CPU-only reads: ~17 asks for dozens of reads started, while 1978+
+#: pages made 20-140 a year. As fills and as fresh units they held all 14 slots; the GPU sat empty.
+SUNDAY_ASKS_FROM = 1978
+
+
+def no_ask_sunday(unit):
+    """Whether `unit` is a Gale Sunday Telegraph edition before SUNDAY_ASKS_FROM: it spools almost no asks."""
+    if unit.get("paper") != "galesundaytelegraph":
+        return False
+    band = band_of(unit)
+    return band is not None and int(band[1]) < SUNDAY_ASKS_FROM
+
+
 def fills_gpu(unit):
     """Whether `unit` is a read that asks the VLM: another paper's never-read read, or a
     CT_NEWEST_FIRST paper's reread of a page refused or unfiled before its fix (it reads
     its clue columns again; those papers' other rereads run on OCR alone). Paul 10-21:
     Times work goes ahead of FT's, and the GPU stays busy; the plan's order puts these
     Times rereads first."""
-    if unit["kind"] != "read" or not needs_vlm(unit):
+    if unit["kind"] != "read" or not needs_vlm(unit) or no_ask_sunday(unit):
         return False
     reason = unit.get("reason") or ""
     if reason.startswith(CPU_ONLY):
