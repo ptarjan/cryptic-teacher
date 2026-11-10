@@ -374,6 +374,18 @@ def check_no_abbreviation_notes(tag, tree, errors):
     errors += [_abbreviation_error(tag, node) for node in _restating(tree)]
 
 
+def _whole_answer(held, puzzle):
+    """The answer a held entry's wordplay must build: a linked lead's whole
+    joined answer (annotation.display_answer), not its first light's letters;
+    None when the entry holds no solution."""
+    if not held.get("solution"):
+        return None
+    try:
+        return annotation.display_answer(held, puzzle) or held["solution"]
+    except (KeyError, TypeError):
+        return held["solution"]
+
+
 def tree_view(puzzle):
     """(the puzzle as annotation.view_puzzle shows it, errors, warnings). A
     tree that does not give the answer is an error, and its annotation is
@@ -385,20 +397,21 @@ def tree_view(puzzle):
     errors = [f"{_tag_of(puzzle, where)}: wordplay: {msg}" for where, msg in problems]
     warnings = []
     for where, held, ann in puzzle_schema.annotations(puzzle):
-        n = len(unverified_unchecked(ann.get("wordplay"), held.get("solution") or None))  # steps computable from their leaf are not unchecked
+        whole = _whole_answer(held, puzzle)  # a linked lead's wordplay builds the joined answer
+        n = len(unverified_unchecked(ann.get("wordplay"), whole))  # steps computable from their leaf are not unchecked
         if ABBREVIATION_NOTES_STRIPPED:
             check_no_abbreviation_notes(_tag_of(puzzle, where), ann.get("wordplay"), errors)
         if n:
             warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
                             f"from the old blocks; write the step as an expression the "
                             f"evaluator checks (tools/wordplay.py)")
-        if k := anagram_charades(ann.get("wordplay"), held.get("solution") or None):
+        if k := anagram_charades(ann.get("wordplay"), whole):
             warnings.append(f"{_tag_of(puzzle, where)}: {k} {ANAGRAM_CHARADE}: an anagram's "
                             f"fodder is one pool of letters, so its pieces are its own parts "
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>; a letter piece at the answer's edge "
                             f"belongs outside it (I + N + ana(RIP SIGN)), not scrambled in")
-        warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"), held.get("solution") or None)
+        warnings += shape_warnings(_tag_of(puzzle, where), ann, (held.get("clue") or {}).get("text"), whole)
         warnings += lesson_warnings(_tag_of(puzzle, where), ann, held)
         warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)
     return viewed, errors, warnings
