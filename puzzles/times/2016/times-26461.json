@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,46 @@
     "text": "See you in Rome — that's worth cutting university",
     "enumeration": "4"
    },
-   "solution": "VALE"
+   "solution": "VALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "See you in Rome",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 31,
+       "note": "cutting here means removing a piece from the word for worth"
+      }
+     ],
+     "parts": [
+      {
+       "words": "worth",
+       "at": 25,
+       "gives": "VALUE",
+       "note": "worth means value"
+      },
+      {
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bids farewell in Rome, adding that the trip was worth leaving their studies for.",
+     "walkthrough": "'cutting' takes U out of VALUE. 'that's' is a link.",
+     "definitionFit": "The Latin farewell, as a Roman would say goodbye, is the word used here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worth"
+    }
+   }
   },
   {
    "number": 3,
@@ -44,7 +86,57 @@
     "text": "William was a top performer, not born unlucky",
     "enumeration": "3-7"
    },
-   "solution": "ILLSTARRED"
+   "solution": "ILLSTARRED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unlucky",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 29,
+         "note": "not tells us to leave out the letter for born from what precedes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "William",
+         "at": 0,
+         "gives": "BILL",
+         "note": "Bill is a short form of William"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "was a top performer",
+       "at": 8,
+       "gives": "STARRED",
+       "note": "starred means was the leading performer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A biography of a William who was a star from birth, yet ended unlucky.",
+     "walkthrough": "BILL + STARRED gives BILLSTARRED; 'not born' removes the B.",
+     "definitionFit": "Ill-starred is a synonym for unlucky, as if born under bad stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "born"
+    }
+   }
   },
   {
    "number": 10,
@@ -58,7 +150,58 @@
     "text": "Day on board lagoon working boat",
     "enumeration": "7"
    },
-   "solution": "GONDOLA"
+   "solution": "GONDOLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on board",
+       "at": 4,
+       "note": "on board means taken inside the other letters, as a passenger in a vessel"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 20,
+         "note": "working signals that the letters of lagoon are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lagoon",
+         "at": 13
+        }
+       ]
+      },
+      {
+       "words": "Day",
+       "at": 0,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A day spent aboard a boat working on the Venetian lagoon.",
+     "walkthrough": "'working' turns LAGOON into GONOLA, and 'on board' puts D inside it.",
+     "definitionFit": "A gondola is a type of boat, the Venetian rowing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +215,87 @@
     "text": "Retired faced pressure in a lot of work performed quickly",
     "enumeration": "7"
    },
-   "solution": "UPTEMPO"
+   "solution": "UPTEMPO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "performed quickly",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Retired",
+       "at": 0,
+       "note": "retired, as in withdrew, signals a backward movement of the whole assembly"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 23,
+         "note": "in places one piece inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "a lot of",
+           "at": 26,
+           "note": "a lot of means most of, dropping the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "work",
+           "at": 35,
+           "gives": "OPUS",
+           "note": "an opus is a work, especially of music"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "faced",
+           "at": 8,
+           "gives": "MET",
+           "note": "faced means met"
+          },
+          {
+           "words": "pressure",
+           "at": 14,
+           "gives": "P",
+           "note": "P is the symbol for pressure"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retiree met with pressure while doing a lot of work at speed.",
+     "walkthrough": "'a lot of' trims OPUS to OPU; 'in' puts METP inside, giving OPMETPU; 'Retired' turns the whole thing backwards.",
+     "definitionFit": "Music described as uptempo is played at a fast pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +309,35 @@
     "text": "Contest in which all runners finish tied",
     "enumeration": "5-6,4"
    },
-   "solution": "THREELEGGEDRACE"
+   "solution": "THREELEGGEDRACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Contest in which all runners finish tied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Contest in which all runners finish tied",
+       "at": 0,
+       "note": "seems to describe a dead heat, but the runners are literally tied together by the legs in pairs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A race where every competitor crosses the line at once.",
+     "definitionFit": "A school sports-day race run in pairs with one leg of each bound together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tied"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +351,42 @@
     "text": "Where one might spot a criminal band before judge",
     "enumeration": "4-2"
    },
-   "solution": "LINEUP"
+   "solution": "LINEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where one might spot a criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "band",
+       "at": 32,
+       "gives": "LINE",
+       "note": "a line is a band or stripe"
+      },
+      {
+       "words": "before judge",
+       "at": 37,
+       "gives": "UP",
+       "note": "to be up is to appear before a judge in court"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witness picks out an offender, and a gang awaits trial.",
+     "walkthrough": "An identity parade, where a witness picks out a suspect, is called a line-up.",
+     "definitionFit": "Police use an identity parade so a witness can point out the suspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 14,
@@ -114,7 +400,46 @@
     "text": "Whale needs power, alternatively graceful bearing",
     "enumeration": "8"
    },
-   "solution": "PORPOISE"
+   "solution": "PORPOISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Whale",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "power",
+       "at": 12,
+       "gives": "P"
+      },
+      {
+       "words": "alternatively",
+       "at": 19,
+       "gives": "OR",
+       "note": "or expresses an alternative"
+      },
+      {
+       "words": "graceful bearing",
+       "at": 33,
+       "gives": "POISE",
+       "note": "poise is graceful bearing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whale needs strength or else elegance as it moves.",
+     "definitionFit": "A porpoise is a small toothed cetacean, loosely called a whale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +453,48 @@
     "text": "Charge added to complimentary sponge",
     "enumeration": "8"
    },
-   "solution": "FREELOAD"
+   "solution": "FREELOAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sponge",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "added to",
+       "at": 7,
+       "note": "added to places the charge after the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "complimentary",
+       "at": 16,
+       "gives": "FREE",
+       "note": "complimentary means free of charge"
+      },
+      {
+       "words": "Charge",
+       "at": 0,
+       "gives": "LOAD",
+       "note": "a load is a charge, as of a gun or a burden"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fee added to something meant to be complimentary, like a bath sponge.",
+     "definitionFit": "To sponge is to live off others, which is to freeload."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sponge"
+    }
+   }
   },
   {
    "number": 18,
@@ -142,7 +508,59 @@
     "text": "Brewer's using this possibly to exploit books about English",
     "enumeration": "6"
    },
-   "solution": "TEAPOT"
+   "solution": "TEAPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brewer's using this possibly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 46,
+         "note": "about means going around, so the other words enclose the letter for English"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exploit",
+         "at": 32,
+         "gives": "TAP",
+         "note": "to tap is to exploit a resource"
+        },
+        {
+         "words": "English",
+         "at": 52,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "books",
+       "at": 40,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a set of books"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beer brewer exploits volumes about England.",
+     "walkthrough": "'about' means the pair encloses the E. 'to' is a link; the brewer is one brewing tea, not beer, and the definition leans on the rest of the clue.",
+     "definitionFit": "Someone brewing tea would likely be using a pot made for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brewer's"
+    }
+   }
   },
   {
    "number": 21,
@@ -156,7 +574,49 @@
     "text": "Turner working on water reproduced rices and weeds with charm",
     "enumeration": "10,5"
    },
-   "solution": "ARCHIMEDESSCREW"
+   "solution": "ARCHIMEDESSCREW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Turner working on water",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reproduced",
+       "at": 24,
+       "note": "reproduced suggests the letters are produced again in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rices",
+       "at": 35
+      },
+      {
+       "words": "weeds",
+       "at": 45
+      },
+      {
+       "words": "charm",
+       "at": 56
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A water-driven turner grows rice and weeds, as if by magic.",
+     "walkthrough": "'reproduced' rearranges RICES, WEEDS and CHARM; 'and' and 'with' are links.",
+     "definitionFit": "The ancient device is a rotating helix inside a tube that lifts water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 23,
@@ -170,7 +630,66 @@
     "text": "Copper leads anger about Conservative partitioned area",
     "enumeration": "7"
    },
-   "solution": "CUBICLE"
+   "solution": "CUBICLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "partitioned area",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "leads",
+       "at": 7,
+       "note": "leads means comes in front of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Copper",
+       "at": 0,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 19,
+         "note": "about means the word for anger surrounds the letter for Conservative"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 13,
+         "gives": "BILE",
+         "note": "bile means anger or bad temper"
+        },
+        {
+         "words": "Conservative",
+         "at": 25,
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman heads up angry protest about a Tory, in a divided room.",
+     "walkthrough": "'about' sets the anger round the Conservative and 'leads' puts the metal first. 'Copper' looks like a policeman but is the chemical element.",
+     "definitionFit": "A small screened-off compartment, as in an office or toilet block."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 24,
@@ -184,7 +703,56 @@
     "text": "Hoax challenge mostly overcome",
     "enumeration": "7"
    },
-   "solution": "CONQUER"
+   "solution": "CONQUER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "overcome",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hoax",
+       "at": 0,
+       "gives": "CON",
+       "note": "a con is a hoax or swindle"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly drops the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "challenge",
+         "at": 5,
+         "gives": "QUERY",
+         "note": "to query is to challenge"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hoax that challenges and nearly beats someone.",
+     "definitionFit": "To conquer is to defeat or overcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "challenge"
+    }
+   }
   },
   {
    "number": 25,
@@ -198,7 +766,44 @@
     "text": "Need priest working to ordain in advance",
     "enumeration": "10"
    },
-   "solution": "PREDESTINE"
+   "solution": "PREDESTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ordain in advance",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 12,
+       "note": "working signals the letters are put to work in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Need",
+       "at": 0
+      },
+      {
+       "words": "priest",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy priest is required to ordain someone ahead of time.",
+     "definitionFit": "To predestine is to fate or decree beforehand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 26,
@@ -212,7 +817,29 @@
     "text": "Straight man paid for professional services",
     "enumeration": "4"
    },
-   "solution": "FEED"
+   "solution": "FEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Straight man",
+      "at": 0,
+      "meaning": "the comedian's stooge who sets up the punchlines"
+     },
+     {
+      "text": "paid for professional services",
+      "at": 13,
+      "meaning": "having been paid a professional's charge"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A comic's stooge is called this, and the past participle of the verb for charging a fee is identical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Straight"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +853,49 @@
     "text": "Like a salad? Fetch in meat!",
     "enumeration": "7"
    },
-   "solution": "VEGETAL"
+   "solution": "VEGETAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like a salad?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in places one word inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "meat",
+       "at": 23,
+       "gives": "VEAL",
+       "note": "veal is a meat"
+      },
+      {
+       "words": "Fetch",
+       "at": 14,
+       "gives": "GET",
+       "note": "to get is to fetch"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner asks whether the salad is coming and demands meat.",
+     "walkthrough": "'in' puts the verb inside the meat; the question mark flags that the definition is an example of plant matter.",
+     "definitionFit": "Vegetal means relating to plants, which a salad is made of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fetch"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +909,46 @@
     "text": "Large working historic barn projected to last a good while",
     "enumeration": "4-5"
    },
-   "solution": "LONGRANGE"
+   "solution": "LONGRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "projected to last a good while",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Large",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "working",
+       "at": 6,
+       "gives": "ON",
+       "note": "on means working, as a machine that is on"
+      },
+      {
+       "words": "historic barn",
+       "at": 14,
+       "gives": "GRANGE",
+       "note": "a grange was historically a barn or granary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big old barn being restored is expected to stand for years.",
+     "definitionFit": "A long-range forecast is one covering a long time ahead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 4,
@@ -254,7 +962,48 @@
     "text": "Dull London market with no room for meetings",
     "enumeration": "6"
    },
-   "solution": "LEADEN"
+   "solution": "LEADEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "with no",
+       "at": 19,
+       "note": "with no tells us to remove the room from the market's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London market",
+       "at": 5,
+       "gives": "LEADENHALL",
+       "note": "Leadenhall Market is a covered market in the City of London"
+      },
+      {
+       "words": "room for meetings",
+       "at": 27,
+       "gives": "HALL",
+       "note": "a hall is a room for meetings"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A London market without a meeting room is a dreary place.",
+     "definitionFit": "Leaden, heavy like lead, means dull and lifeless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "market"
+    }
+   }
   },
   {
    "number": 5,
@@ -268,7 +1017,64 @@
     "text": "Fish is rock mostly sliced with egg on",
     "enumeration": "8"
    },
-   "solution": "STURGEON"
+   "solution": "STURGEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sliced with",
+       "at": 20,
+       "note": "sliced with means cut open and filled with the other piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly drops the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rock",
+         "at": 8,
+         "gives": "STONE",
+         "note": "stone is rock"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "egg on",
+       "at": 32,
+       "gives": "URGE",
+       "note": "to egg on is to urge"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish dish of sliced rock, served with an egg.",
+     "walkthrough": "'mostly' cuts STONE to STON, and 'sliced with' opens it for URGE: ST(URGE)ON. 'is' is a link.",
+     "definitionFit": "The sturgeon is a large fish, source of caviar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 6,
@@ -282,7 +1088,64 @@
     "text": "What lifts iron worker chasing a new surge",
     "enumeration": "14"
    },
-   "solution": "ANTIDEPRESSANT"
+   "solution": "ANTIDEPRESSANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What lifts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 23,
+       "note": "chasing means following behind the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      },
+      {
+       "words": "new",
+       "at": 33,
+       "gives": "N"
+      },
+      {
+       "words": "surge",
+       "at": 37,
+       "gives": "TIDE",
+       "note": "a tide is a surge"
+      },
+      {
+       "words": "iron",
+       "at": 11,
+       "gives": "PRESS",
+       "note": "to press is to iron clothes"
+      },
+      {
+       "words": "worker",
+       "at": 16,
+       "gives": "ANT",
+       "note": "an ant is the classic crossword worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ironworker runs after a sudden surge.",
+     "definitionFit": "Such a drug lifts the mood of someone who is depressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lifts"
+    }
+   }
   },
   {
    "number": 7,
@@ -296,7 +1159,49 @@
     "text": "Runs to the front in shadow dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "move",
+     "indicators": [
+      {
+       "text": "to the front",
+       "at": 5,
+       "note": "to the front moves that letter to the start of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shadow",
+       "at": 21,
+       "gives": "UMBRA",
+       "note": "an umbra is a shadow"
+      },
+      {
+       "words": "Runs",
+       "at": 0,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs forward in a shadowy dance.",
+     "walkthrough": "The R of UMBRA goes to the front, giving the Cuban dance.",
+     "definitionFit": "The rumba is a Latin ballroom dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shadow"
+    }
+   }
   },
   {
    "number": 8,
@@ -310,7 +1215,44 @@
     "text": "Ice does hurt a pastoral area",
     "enumeration": "7"
    },
-   "solution": "DIOCESE"
+   "solution": "DIOCESE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pastoral area",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "hurt",
+       "at": 9,
+       "note": "hurt suggests the letters are damaged into a new shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ice",
+       "at": 0
+      },
+      {
+       "words": "does",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Icy weather harms a rural farming district.",
+     "definitionFit": "A diocese is a bishop's district, over which pastoral care is exercised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pastoral"
+    }
+   }
   },
   {
    "number": 9,
@@ -324,7 +1266,47 @@
     "text": "Arrive having eaten with band and return to start again",
     "enumeration": "4,4,6"
    },
-   "solution": "COMEFULLCIRCLE"
+   "solution": "COMEFULLCIRCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "return to start again",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Arrive",
+       "at": 0,
+       "gives": "COME",
+       "note": "to come is to arrive"
+      },
+      {
+       "words": "having eaten",
+       "at": 7,
+       "gives": "FULL",
+       "note": "full means having eaten enough"
+      },
+      {
+       "words": "band",
+       "at": 25,
+       "gives": "CIRCLE",
+       "note": "a circle is a band or ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrives after a meal with a musical band and goes back to the beginning.",
+     "definitionFit": "The idiom means to end up back where one began."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 15,
@@ -338,7 +1320,58 @@
     "text": "Pester military policeman during routine working",
     "enumeration": "9"
    },
-   "solution": "IMPORTUNE"
+   "solution": "IMPORTUNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pester",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 26,
+       "note": "during places the policeman inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 41,
+         "note": "working signals the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "routine",
+         "at": 33
+        }
+       ]
+      },
+      {
+       "words": "military policeman",
+       "at": 7,
+       "gives": "MP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military policeman nags during a routine shift.",
+     "walkthrough": "'working' rearranges the routine into IORTUNE, and 'during' puts the policeman inside it.",
+     "definitionFit": "To importune is to pester with repeated requests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "routine"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1385,57 @@
     "text": "Concrete around a small window",
     "enumeration": "8"
    },
-   "solution": "CASEMENT"
+   "solution": "CASEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "window",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 9,
+       "note": "around means the first word encloses the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Concrete",
+       "at": 0,
+       "gives": "CEMENT",
+       "note": "cement is a binding material for concrete"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 16,
+         "gives": "A"
+        },
+        {
+         "words": "small",
+         "at": 18,
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Builders pour concrete around a small window frame.",
+     "definitionFit": "A casement is a hinged window."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Concrete"
+    }
+   }
   },
   {
    "number": 17,
@@ -366,7 +1449,60 @@
     "text": "Act up in agitation characteristic of the working class?",
     "enumeration": "4,3"
    },
-   "solution": "FLATCAP"
+   "solution": "FLATCAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "characteristic of the working class?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in places one piece inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "agitation",
+       "at": 10,
+       "gives": "FLAP",
+       "note": "a flap is a state of agitation"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 4,
+         "note": "in a down clue up means reading upwards, so the letters go backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Act",
+         "at": 0,
+         "gives": "ACT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker acts up angrily in a class protest.",
+     "walkthrough": "'up' turns the act round into TCA, and 'in' puts that inside the agitation. 'agitation' looks like an anagram signal but is the container.",
+     "definitionFit": "The cloth cap is stereotypically worn by working-class men in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "agitation"
+    }
+   }
   },
   {
    "number": 19,
@@ -380,7 +1516,46 @@
     "text": "Draw eastern crimson rose so very high",
     "enumeration": "7"
    },
-   "solution": "TOWERED"
+   "solution": "TOWERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rose so very high",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Draw",
+       "at": 0,
+       "gives": "TOW",
+       "note": "to tow is to draw or pull"
+      },
+      {
+       "words": "eastern",
+       "at": 5,
+       "gives": "E"
+      },
+      {
+       "words": "crimson",
+       "at": 13,
+       "gives": "RED",
+       "note": "crimson is a shade of red"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter draws an eastern crimson rose that grew very tall.",
+     "definitionFit": "Towered means loomed or rose to a great height."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1569,48 @@
     "text": "Warning for shipping company involved in Lima, perhaps",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Warning for shipping",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 29,
+       "note": "involved in places the company inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lima, perhaps",
+       "at": 41,
+       "gives": "BEAN",
+       "note": "the lima is a kind of bean"
+      },
+      {
+       "words": "company",
+       "at": 21,
+       "gives": "CO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping company warning involving the Peruvian capital.",
+     "walkthrough": "Lima looks like the capital of Peru, but is the bean.",
+     "definitionFit": "A beacon is a signal light warning ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lima"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1624,58 @@
     "text": "Message from taxi learner acquiring knowledge finally",
     "enumeration": "5"
    },
-   "solution": "CABLE"
+   "solution": "CABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Message",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "taxi",
+       "at": 13,
+       "gives": "CAB",
+       "note": "a cab is a taxi"
+      },
+      {
+       "words": "learner",
+       "at": 18,
+       "gives": "L",
+       "note": "L is the abbreviation for learner, as on L-plates"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 46,
+         "note": "finally picks the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "knowledge",
+         "at": 36
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taxi-driving learner gets a message about the Knowledge test.",
+     "walkthrough": "'acquiring' is a link. The Knowledge is London cabbies' test of street routes.",
+     "definitionFit": "A cable is a telegram, a message."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learner"
+    }
+   }
   }
  ]
 }
