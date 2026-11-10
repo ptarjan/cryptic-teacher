@@ -58,6 +58,15 @@ with open(path2, "w") as f:
     f.write("\n".join(json.dumps(x) for x in recs2))
 check(sorted(i["eid"] for i in r.refusals([path2], since)), ["4-down"], "an unreadable refusal line is skipped, not a crash")
 
+# a `--try` call prints the same refusal line; it is the model testing, not a refusal
+recs3 = [{"type": "user", "message": {"content": aud.BAG_PREFIX + " abc-1"}}]
+recs3 += turn(1, refused("5-down", "TRY", "t + r")); recs3[1]["message"]["content"][0]["input"]["command"] = \
+    'python3 tools/annotate_check.py --try abc-1 5-down "t + r"'
+path3 = os.path.join(d, "sess9999.jsonl")
+with open(path3, "w") as f:
+    f.write("\n".join(json.dumps(x) for x in recs3))
+check(r.refusals([path3], since), [], "a --try output is not counted as a refusal")
+
 # stub the evaluator: only the comma form passes, and the long one is a reorder
 def fake(wp, clue, ans):
     return None if "," in wp and ans != "BAD" else f"{ans}: wordplay gives {'ACT' if ans == 'CAT' else 'ZZZ'}; the answer needs {ans}"

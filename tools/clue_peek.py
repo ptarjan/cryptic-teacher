@@ -49,7 +49,8 @@ def try_wp(puzzle, eid, wp):
     if e is None:
         return _unknown(puzzle, eid)
     clue = (e.get("clue") or {}).get("text") or ""
-    answer = e.get("solution") or ""
+    # a linked answer ("22-across, 5-down") is the lights joined, as apply/check read it
+    answer = (annotation.display_answer(e, puzzle) if e.get("solution") else "") or ""
     try:
         tree = wordplay.translate({"wp": wp, "notes": {}}, clue, answer)
     except wordplay.WordplayError as err:
