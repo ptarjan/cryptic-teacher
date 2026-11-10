@@ -466,7 +466,9 @@ def plan(got, skip=SKIP):
     import gale_jumbo
     for day in gale_jumbo.wanted():
         out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_KIND)
-    for day in gale_inbox.sunday_wanted("INDA"):
+    # A paper in HOLDS waits for its reader (a room said its pages do not parse yet).
+    held = held_products()
+    for day in [] if "INDA" in held else gale_inbox.sunday_wanted("INDA"):
         out += want("INDA", day, docs, got)
     # Telegraph editions laid out from a competition article: looked up again.
     for day in gale_inbox.misfiled("TGRH"):
@@ -491,6 +493,21 @@ def plan(got, skip=SKIP):
 #: cache-key form) another Gale product's (never rewritten here; a date with
 #: nothing to fetch costs nothing once looked up).
 REQUESTS = Path(os.path.expanduser("~/.cache/gale_inbox/requests.txt"))
+
+
+#: Products whose full run waits, one code per line (# comments): a room
+#: whose reader cannot parse that paper yet asks for a hold, and deletes the
+#: line when it can. Requested dates (REQUESTS) still fetch.
+HOLDS = Path(os.path.expanduser("~/.cache/gale_inbox/holds.txt"))
+
+
+def held_products(path=None):
+    """{product} named in HOLDS; empty if no file."""
+    try:
+        text = (path or HOLDS).read_text()
+    except OSError:
+        return set()
+    return {w for line in text.splitlines() for w in line.split("#")[0].split()}
 
 
 def requested_rows(path=None):
