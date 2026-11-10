@@ -308,6 +308,18 @@ tree = w.translate({"wp": "ins<putting ... into>([Go wrong]AB, [last message]CD)
 check("'a ... b' indicator splits into two",
       [i["text"] for i in tree.get("indicators") or []] == ["putting", "into"], tree)
 
+# An indicator phrase split round the words it acts on is its runs (the refusal's own advice).
+tree = w.translate({"wp": "ins<putting on>([Go wrong]AB, [last message]CD)"},
+                   "Go wrong, putting last message on place", "ACDB")
+check("a gapped indicator splits into its runs",
+      [i["text"] for i in tree.get("indicators") or []] == ["putting", "on"], tree)
+try:
+    w.translate({"wp": "ins<putting off>([Go wrong]AB, [last message]CD)"},
+                "Go wrong, putting last message on place", "ACDB")
+    check("an indicator word the clue lacks stays refused", False, "accepted")
+except w.WordplayError:
+    check("an indicator word the clue lacks stays refused", True)
+
 # A selection whose leaf holds the pick, not the words it picks from (a third of the
 # 'does not give' refusals in the annotate audit): translate drops the leaf's letters.
 tree = w.translate({"wp": "[German agreement]JA + alt<regularly ignored>([most]MS)"},

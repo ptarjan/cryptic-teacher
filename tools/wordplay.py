@@ -626,6 +626,16 @@ def _split_ellipsis(node, clue):
             parts = [p for p in _ELLIPSIS.split(text) if p.strip()] if isinstance(text, str) else []
             if len(parts) > 1 and text not in clue and _ELLIPSIS.search(text):
                 out += [{**ind, "text": p} for p in parts]
+                continue
+            # 'putting on' for the clue's 'putting warning light on': an indicator
+            # phrase split round the words it acts on is its runs, the split the
+            # refusal would ask for (15 of the audit's 'quote not in clue' refusals
+            # in one day). Only when no other reading finds the text in the clue.
+            gapped = (_gapped_runs(text, clue) if isinstance(text, str)
+                      and fold_marks(text).lower() not in fold_marks(clue).lower()
+                      and not _reordered_run(text, clue) else None)
+            if gapped and len(gapped[1]) > 1:
+                out += [{**ind, "text": r} for r in gapped[1]]
             else:
                 out.append(ind)
         node["indicators"] = out
