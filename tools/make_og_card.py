@@ -98,7 +98,7 @@ def load(pid):
     puz = with_blog_facts(read_puzzle_view(puzzle_file(pid)))
     for e in puz["entries"]:
         if not e.get("annotation") and e.get("blog"):
-            e["annotation"] = blog_annotation(e)
+            e["annotation"] = blog_annotation(e, puz)
     return puz
 
 

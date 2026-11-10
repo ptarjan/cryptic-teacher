@@ -510,7 +510,7 @@ def clue_html(e, blog_note=True, pid=None, puz=None):
     somebody searching "guardian cryptic 30073 answers" wants, and it is
     honestly labelled rather than padded out.
     """
-    ann = e.get("annotation") or blog_annotation(e) or {}
+    ann = e.get("annotation") or blog_annotation(e, puz) or {}
     answer = (None if ann.get("fromBlog") else ann.get("answer")) or annotation.whole_answer(e, puz) or ""  # a linked lead shows its whole answer
     num = f"{e['number']} {e['direction']}"
     # Bare elements, one line per clue: style.css styles them by position
