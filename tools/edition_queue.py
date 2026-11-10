@@ -2150,6 +2150,8 @@ def fills_gpu(unit):
         return False  # answers_only: links answers, asks the VLM nothing
     if reason.startswith(LOW_ASK):
         return False  # solution rereads: minutes of CPU for 1-3 asks; they do not keep the VLM fed
+    if reason.startswith((fa.QUICK_SET, fa.QUICK_HELD)):
+        return False  # 11-10: Gale Sunday Telegraph Quickie-set rereads spool 0 asks ("0 asks spooled, target 4"); as fills they held the GPU empty
     if reason.startswith(fa.FOOTER_TITLE):
         return False  # 10-29: ~18 min of whole-page OCR before any ask; 6 counted as fills held the feed shut, GPU ~1%
     # Never-read reads of any paper, fix-landed rereads and canary-proven rereads ask the VLM.
