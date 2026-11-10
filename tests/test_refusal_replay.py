@@ -79,6 +79,17 @@ check(r._ins_swapped("ins<in>(DIY, [x]RA)", ""), "ins<in>([x]RA, DIY)", "ins arg
 check(r._ins_inner_reversed("ins<in>([a]DIY, [b]RA)", ""), "ins<in>([a]DIY, rev([b]RA))", "ins inner argument is reversed")
 check(r._ins_swapped("ins<in>(a, b, c)", ""), "ins<in>(a, b, c)", "three arguments are not a swap")
 
+# 11-10: the evaluator's message grew a sentence per cause, so the old fixed tail
+# ("gives X; the answer needs Y") matched none and the replay found nothing. The wordplay is
+# read from the head of whatever follows, and a message that names none is skipped.
+check(r.wordplay_of("ins<in>([a]CH, [b]LOTH) gives CLOTHH; the answer needs CLOTHE here"), "ins<in>([a]CH, [b]LOTH)", "wordplay before 'gives'")
+check(r.wordplay_of("ana<out>([a] + [b]) has the letters AAIL; the answer needs an anagram of SOL here"), "ana<out>([a] + [b])", "wordplay before 'has the letters'")
+check(r.wordplay_of("comp<x>([P], [a]): the fodder has the letters AEIN, which must be"), "comp<x>([P], [a])", "composite fodder message")
+check(r.wordplay_of("hid() takes one leaf, not a + list: put the words in one [bracket]"), None, "a message with no wordplay names none")
+m = list(r.LINE.finditer("23-down: the wordplay does not give IMPEL: x gives IMPELA, one letter too many\n"
+                          "18-across THEGRAVES: the wordplay does not give THEGRAVES: y gives Z; the answer needs W\n"))
+check([(x.group(1), x.group(2)) for x in m], [("23-down", "IMPEL"), ("18-across", "THEGRAVES")], "ids with or without the answer, indented or not")
+
 text = r.report(rep)
 check("2 distinct refused wordplays, 1 still fail, 1 already fixed" in text, True, "the replay counts lead the report")
 check("d + o + g" in text and "a clue" in text, True, "a real example carries clue and wordplay")

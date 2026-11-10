@@ -45,11 +45,21 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import puzzle_paths
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-LINE = re.compile(r"^\s+(\d+-(?:across|down)): the wordplay does not give ([A-Z]+): "
-                  r"(.*?) gives (.*?); the answer needs (.*)$", re.M)
+# One refusal line: "[  ]<id>[ ANS]: the wordplay does not give ANS: <message>". The message
+# has changed shape over time (a diagnose() sentence per cause), so only the head is fixed here
+# and wordplay_of() pulls the wordplay out of the message.
+LINE = re.compile(r"^[ \t]*(\d+-(?:across|down))(?: [A-Z]+)?: the wordplay does not give ([A-Z]+): (.*)$", re.M)
 SLIP_SHARE = 0.40
 ORDER_SHARE = 0.40
 EXAMPLES = 2
+
+def wordplay_of(msg):
+    """The refused wordplay a message starts with, or None when it names none (a message such
+    as "hid() takes one leaf, ..." says what to write, not what was written)."""
+    m = (re.match(r"^(.*?\)): the fodder has the letters ", msg)
+         or re.match(r"^(.*?) (?:gives|has the letters) ", msg))
+    return (m.group(1).strip() or None) if m else None
+
 
 def _ins_args(w):
     """(head, outer, inner) for a top-level ins<..>(outer, inner), else None."""
@@ -164,16 +174,17 @@ def refusals(paths, since):
             for pid, text in reports:
                 per[pid].append(text)
         for pid, texts in per.items():
-            for eid in dict.fromkeys(m.group(1) for t in texts for m in LINE.finditer(t)):
-                key = re.compile(r"^\s+" + re.escape(eid) + r": the wordplay does not give", re.M)
+            for eid in dict.fromkeys(m.group(1) for t in texts for m in LINE.finditer(t)
+                                     if wordplay_of(m.group(3))):
+                key = re.compile(r"^[ \t]*" + re.escape(eid) + r"(?: [A-Z]+)?: the wordplay does not give", re.M)
                 hits = [i for i, t in enumerate(texts) if key.search(t)]
                 # a refusal line of another shape (no "gives ...; the answer needs") is no
                 # item to replay: start at the first hit LINE reads, not crash on the audit
-                first = next((m for i in hits for m in LINE.finditer(texts[i]) if m.group(1) == eid), None)
+                first = next((m for i in hits for m in LINE.finditer(texts[i]) if m.group(1) == eid and wordplay_of(m.group(3))), None)
                 if first is None:
                     continue
                 end = next((i for i in range(hits[0] + 1, len(texts)) if not key.search(texts[i])), None)
-                out.append({"pid": pid, "eid": eid, "ans": first.group(2), "wp": first.group(3),
+                out.append({"pid": pid, "eid": eid, "ans": first.group(2), "wp": wordplay_of(first.group(3)),
                             "sess": pathlib.Path(path).stem[:8], "cleared": end is not None,
                             "retries": (end - hits[0]) if end is not None else len(texts) - hits[0] - 1})
     return out
