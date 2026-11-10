@@ -70,6 +70,9 @@ assert ct.HEADING_BEFORE_ONE.match("D0WN l Fish")
 assert not ct.HEADING_BEFORE_ONE.match("Across 1, 4")
 assert ct.HEADING_AFTER_COUNT.search("chance (5) DOWN")[1] == "DOWN"
 assert ct.ones_read("l9th-century and I3 more, still it") == "19th-century and 13 more, still it"
+# digits_read: a number's letters put back as digits (the cached crop headings "17LO", "17O3", "1T04")
+assert ct.digits_read("17LO") == "1710" and ct.digits_read("17O3") == "1703" and ct.digits_read("1T0i") == "1101"
+assert ct.digits_read("1704") == "1704" and ct.digits_read("|7oL") == "1701"
 assert ct.strip_count("hair (8)") == "hair" and ct.strip_count("hair (8") == "hair"
 assert ct.strip_count("writer 17).") == "writer" and ct.strip_count("two words (3,4).") == "two words"
 assert ct.strip_count("Fish (S)") == "Fish" and ct.strip_count("no count") == "no count"

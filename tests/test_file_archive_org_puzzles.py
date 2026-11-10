@@ -452,7 +452,8 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
                                                                       *f._INSET_GRID_FIX[gt.key][:2],
                                                                       *f._LONE_TITLE_FIX[gt.key][:2],
                                                                       *f._JOINED_TITLE_FIX[gt.key][:2],
-                                                                      *f._SPECIAL_TITLE_FIX[gt.key][:2]},
+                                                                      *f._SPECIAL_TITLE_FIX[gt.key][:2],
+                                                                      *f._WINNERS_BAND_FIX[gt.key][:2]},
        [True, True, True, False]),
       (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
@@ -3511,7 +3512,10 @@ check("a solution due on 25 Dec or a Sunday prints in the next issue; 26 Dec off
 def _final(paper):
     """The scan key a pinned key of `paper` (a key of its key) stands in for: the joined-title fix's where it moved
     the paper's key (the FT, Gale FT, Telegraph, Independent and Sunday Times), else the lone-title fix's; the
-    special-title fix's, over those, where it pins the paper (all but the Gale Sunday Telegraph)."""
+    special-title fix's, over those, where it pins the paper; the winners-band fix's over all of them, where it pins
+    the paper (all but the Gale Sunday Telegraph, whose scans the two last fixes make again)."""
+    if paper in f._WINNERS_BAND_FIX:
+        return f._WINNERS_BAND_FIX[paper][2]
     return f._SPECIAL_TITLE_FIX[paper][2] if paper in f._SPECIAL_TITLE_FIX else f._LONE_TITLE_FIX[paper][2]
 
 
@@ -3565,13 +3569,14 @@ check("the joined-title fix pins the FT, Gale FT, Telegraph, Independent and Sun
             for k, v in f._JOINED_TITLE_FIX.items()),
        all(v[2] == f._SPECIAL_TITLE_FIX[k][0] for k, v in f._JOINED_TITLE_FIX.items()),
        sorted(f._JOINED_TITLE_FIX) == ["ft", "galeft", "galeindependent", "galesundaytimes", "galetelegraph"],
-       all(f.CORPUS_KEYS[o] == {k: f._SPECIAL_TITLE_FIX[k][2]} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
+       all(f.CORPUS_KEYS[o] == {k: _final(k)} for k, v in f._JOINED_TITLE_FIX.items() for o in v[:2])])
 check("the special-title fix pins every paper but the Gale Sunday Telegraph over the key before it, each pinned key "
       "its real scan key's, their old keys standing under it; the Sunday Telegraph's moves, so its scans are made again",
       [True, True, True, True, True],
-      [all(f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k)) == v[2]
+      [all(f.scan_key(next(p for p in (*f.FILERS.values(), *(q for qs in f.ALSO.values() for q in qs)) if p.key == k))
+           == _final(k) and f._WINNERS_BAND_FIX[k][0] == v[2]
            for k, v in f._SPECIAL_TITLE_FIX.items()),
-       all(f.CORPUS_KEYS[o] == {k: v[2]} for k, v in f._SPECIAL_TITLE_FIX.items() for o in v[:2]),
+       all(f.CORPUS_KEYS[o] == {k: _final(k)} for k, v in f._SPECIAL_TITLE_FIX.items() for o in v[:2]),
        sorted(set(f.FILERS) - set(f._SPECIAL_TITLE_FIX)) == ["galesundaytelegraph"],
        not f.scan_current({"edition": "GaleSundayTelegraph2000UKEnglish/2000-12-31", "scanKey": "298202f644768e5f",
                            "filesHash": "h", "scan": {}}, "h"),
@@ -5529,13 +5534,14 @@ check("sunday_tel_headings links a COMPETITION No. N WINNERS & SOLUTION heading 
       ([1676], 4, {"1-across": "AB", "3-across": "CD", "1-down": "AC", "2-down": "BD"}, 0),
       ([n for n, _ in _sl_heads], f.list_answers(_sl_es, [_sl_text])[1].get("accepted"), f.list_answers(_sl_es, [_sl_text])[0],
        len(f.list_answers(_sl_es, [_sl_bad])[0])))
-check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, last of the queue; its solution key "
+check("SUNDAY_LISTED is a rank 2 answers-only fix reason, evidence, LOW, a fix landed, queued before SUNDAY_SIDES; its solution key "
       "stands pinned to the one before",
       (2, True, True, True, True, True, "17927db190a32678"),
       (f.RANKS[f.SUNDAY_LISTED], f.SUNDAY_LISTED in f.SOLUTION_FIXES,
        f.SUNDAY_LISTED in __import__("edition_queue").LOW_ASK, f.SUNDAY_LISTED in __import__("edition_queue").FIX_LANDED,
        __import__("edition_queue").evidence_reason(f.SUNDAY_LISTED),
-       __import__("edition_queue").UNFILED_FIRST[-1] == f.SUNDAY_LISTED,
+       __import__("edition_queue").UNFILED_FIRST.index(f.SUNDAY_LISTED)
+       < __import__("edition_queue").UNFILED_FIRST.index(f.SUNDAY_SIDES),
        f._SOLUTION_PINS["802de5c6f9a5f5f9"]))
 # crop_headings: a Sunday Telegraph heading its scan missed, read in its cached clue-column crops.
 _ch_tmp = tempfile.mkdtemp()

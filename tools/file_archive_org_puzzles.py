@@ -11697,7 +11697,7 @@ def prize_rescan(paper, key, rel):
         return True
     return (key not in (_GRID_CAP_FIX["gale"][2], _NEG_EXPECTED_FIX["gale"][2], _DOT_LEADER_FIX["gale"][2],
                         _DAY_HEADING_FIX["gale"][2], _CHAMPIONSHIP_FIX["gale"][2], _INSET_GRID_FIX["gale"][2],
-                        _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2])
+                        _LONE_TITLE_FIX["gale"][2], _SPECIAL_TITLE_FIX["gale"][2], _WINNERS_BAND_FIX["gale"][2])
             and BAND_RESCAN[0] <= day <= BAND_RESCAN[1])
 
 
@@ -12439,7 +12439,6 @@ def solution_source(sol):
 CROP_WINNERS = re.compile(r"(?:ti?o?n|ttion)\W{0,3}(?:n[o0]\W{0,3})?\s*(\S{3,6}?)\W{0,3}w[il1]nn", re.IGNORECASE)
 CROP_CROSSWORD = re.compile(r"cr[o0]ssw[o0]rd\W{0,3}n[o0]\W{0,3}(\d{4})\W{0,3}\s*the\s*first", re.IGNORECASE)
 CROP_LAST_WEEK = re.compile(r"last\s*week\W{0,2}s\s*winners", re.IGNORECASE)
-_CROP_DIGITS = str.maketrans("OoLlIi|T", "00111111")
 _CROP_HEADINGS = {}
 
 
@@ -12508,7 +12507,7 @@ def crop_headings(d, numbers):
                     if n - 1 in out:
                         continue
                     if kind == "head":
-                        got = m.group(1).translate(_CROP_DIGITS)
+                        got = clue_text.digits_read(m.group(1))
                         if len(got) != len(want) or sum(a == b for a, b in zip(got, want)) < len(want) - 1:
                             continue
                     elif kind == "cross" and m.group(1) != want:
