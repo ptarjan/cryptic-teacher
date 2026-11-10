@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,66 @@
     "text": "Drink manufacturer that is grasping yet accepted by thirsty",
     "enumeration": "10"
    },
-   "solution": "DISTILLERY"
+   "solution": "DISTILLERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink manufacturer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "at": 40,
+       "note": "something accepted by another is taken inside it, so the inner pieces sit within the word for thirsty"
+      }
+     ],
+     "parts": [
+      {
+       "words": "thirsty",
+       "at": 52,
+       "gives": "DRY",
+       "note": "thirsty means dry"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grasping",
+         "at": 27,
+         "note": "the abbreviation for 'that is' holds the next word in its grip, wrapping round it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "that is",
+         "at": 19,
+         "gives": "IE",
+         "note": "i.e. is the abbreviation of id est, 'that is'"
+        },
+        {
+         "words": "yet",
+         "at": 36,
+         "gives": "STILL",
+         "note": "still can mean yet, as in 'still, it worked'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinks maker is greedy, yet still welcomed by people who are thirsty.",
+     "definitionFit": "A distillery is a plant that produces spirits such as whisky, so it manufactures drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grasping"
+    }
+   }
   },
   {
    "number": 6,
@@ -44,7 +106,46 @@
     "text": "Orchestral section lacks right instrument",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lacks",
+       "at": 19,
+       "note": "the orchestral section is missing a letter, so lacking signals taking it away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Orchestral section",
+       "at": 0,
+       "gives": "BRASS",
+       "note": "the brass is the section of trumpets, horns and trombones"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra's section is missing the right instrument for the piece.",
+     "walkthrough": "'lacks' removes R from BRASS. 'Orchestral section' looks like the definition, but the definition is 'instrument' at the end.",
+     "definitionFit": "A bass is a low-pitched instrument, such as a double bass or bass guitar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +159,61 @@
     "text": "A young man finally starred in panto",
     "enumeration": "7"
    },
-   "solution": "ALADDIN"
+   "solution": "ALADDIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "panto",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "young man",
+       "at": 2,
+       "gives": "LAD",
+       "note": "a lad is a young man"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 12,
+         "note": "finally points to the closing letter of the word starred"
+        }
+       ],
+       "parts": [
+        {
+         "words": "starred",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 28,
+       "gives": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young lad ended up with the starring role in a pantomime.",
+     "walkthrough": "Panto, short for pantomime, is a British Christmas family theatre show based on fairy tales; Aladdin is a classic one.",
+     "definitionFit": "Aladdin is one of the best-known traditional British pantomime stories, so it names a panto by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 10,
@@ -72,7 +227,49 @@
     "text": "Tall vase has broken mug in kiln",
     "enumeration": "7"
    },
-   "solution": "FURNACE"
+   "solution": "FURNACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "kiln",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has broken",
+       "at": 10,
+       "note": "the vase breaks into the other word, splitting it open and sitting inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mug",
+       "at": 21,
+       "gives": "FACE",
+       "note": "mug is slang for face"
+      },
+      {
+       "words": "Tall vase",
+       "at": 0,
+       "gives": "URN",
+       "note": "an urn is a tall vase"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall vase has smashed a mug inside the pottery kiln.",
+     "walkthrough": "'has broken' signals the vase going inside the other word. 'mug' is slang for a face, not a cup, despite the pottery setting.",
+     "definitionFit": "A kiln and a furnace are both enclosed chambers heated to very high temperatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +283,46 @@
     "text": "Shocking revelation cut short more than one big show",
     "enumeration": "5"
    },
-   "solution": "EXPOS"
+   "solution": "EXPOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more than one big show",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cut short",
+       "at": 20,
+       "note": "cutting something short trims its end, so the final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Shocking revelation",
+       "at": 0,
+       "gives": "EXPOSE",
+       "note": "an ...é is a report revealing a scandal"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scandalous exposé was stopped early, much like several big exhibitions.",
+     "walkthrough": "'cut short' drops the last E of EXPOSE.",
+     "definitionFit": "An expo is a large exhibition, so the plural means more than one big show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shocking"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +336,30 @@
     "text": "Admit too many to where air displays can't take place",
     "enumeration": "9"
    },
-   "solution": "OVERCROWD"
+   "solution": "OVERCROWD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Admit too many",
+      "at": 0,
+      "meaning": "to let in more people than a place can hold"
+     },
+     {
+      "text": "where air displays can't take place",
+      "at": 18,
+      "meaning": "split as two words, over a crowd: aerobatic displays may not fly above the spectators"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Air-show rules forbid display aircraft from flying over the crowd, so the second definition is the answer split into two words.",
+     "definitionFit": "To overcrowd is to pack a space with more people than it should hold, which is admitting too many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -114,7 +373,31 @@
     "text": "One can't know why the votes aren't counted",
     "enumeration": "6,2,7"
    },
-   "solution": "THERESNOTELLING"
+   "solution": "THERESNOTELLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One can't know",
+      "at": 0,
+      "meaning": "an idiom meaning it is impossible to predict"
+     },
+     {
+      "text": "why the votes aren't counted",
+      "at": 15,
+      "meaning": "tellers count votes, so if votes go uncounted there is nobody doing the telling"
+     }
+    ],
+    "spelling": "THERE'S NO TELLING",
+    "explanation": {
+     "walkthrough": "In Parliament the MPs who count votes in a division are called tellers; 'telling' is the counting.",
+     "definitionFit": "The idiom expresses that nobody can predict or be sure of something, matching one being unable to know."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +411,45 @@
     "text": "Irregular bet incriminates leading politician",
     "enumeration": "7,8"
    },
-   "solution": "CABINETMINISTER"
+   "solution": "CABINETMINISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leading politician",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Irregular",
+       "at": 0,
+       "note": "irregular says the letters are out of their proper order and must be rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bet",
+       "at": 10
+      },
+      {
+       "words": "incriminates",
+       "at": 14
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An improper wager lands a senior politician in trouble.",
+     "walkthrough": "'Irregular' rearranges BET and INCRIMINATES, fifteen letters, into the two-word answer.",
+     "definitionFit": "A cabinet minister is a senior government member in the British system, hence a leading politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Irregular"
+    }
+   }
   },
   {
    "number": 20,
@@ -142,7 +463,49 @@
     "text": "Able to stretch out beside quiet part of garden",
     "enumeration": "9"
    },
-   "solution": "SHRUBBERY"
+   "solution": "SHRUBBERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of garden",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "beside",
+       "at": 20,
+       "note": "beside places one piece next to the other; here the quiet sign comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "quiet",
+       "at": 27,
+       "gives": "SH",
+       "note": "sh is the call for quiet"
+      },
+      {
+       "words": "Able to stretch out",
+       "at": 0,
+       "gives": "RUBBERY",
+       "note": "something rubbery is elastic and can be stretched"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener is able to stretch out next to a quiet corner of the garden.",
+     "walkthrough": "'beside' only says the two pieces sit side by side; here the quiet sign comes first. 'stretch out' suggests lounging in the garden.",
+     "definitionFit": "A shrubbery is an area of a garden planted with shrubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stretch"
+    }
+   }
   },
   {
    "number": 21,
@@ -156,7 +519,60 @@
     "text": "Potato cake served initially in bread",
     "enumeration": "5"
    },
-   "solution": "ROSTI"
+   "solution": "ROSTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Potato cake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "the opening letter is placed inside the word for bread"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bread",
+       "at": 32,
+       "gives": "ROTI",
+       "note": "roti is an Indian flatbread"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 19,
+         "note": "initially points to the first letter of served"
+        }
+       ],
+       "parts": [
+        {
+         "words": "served",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "spelling": "RÖSTI",
+    "explanation": {
+     "surface": "A potato cake is first served in a bread roll.",
+     "walkthrough": "'initially' takes S from 'served'; 'in' puts it inside ROTI.",
+     "definitionFit": "Rösti is a Swiss dish of grated potato fried into a flat cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 23,
@@ -170,7 +586,59 @@
     "text": "Flavouring I understand must be used in conjunction",
     "enumeration": "7"
    },
-   "solution": "ANISEED"
+   "solution": "ANISEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Flavouring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "must be used in",
+       "at": 24,
+       "note": "the first words have to go inside the word for a conjunction, so they are placed within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "conjunction",
+       "at": 40,
+       "gives": "AND",
+       "note": "and is the commonest conjunction in grammar"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 11,
+         "gives": "I"
+        },
+        {
+         "words": "understand",
+         "at": 13,
+         "gives": "SEE",
+         "note": "to see is to understand, as in 'I see'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook says she knows the flavouring must be used together with something else.",
+     "walkthrough": "'must be used in' places the phrase for 'I understand' inside the conjunction; the surface's 'in conjunction' means together, a false lead.",
+     "definitionFit": "Aniseed is the seed of the anise plant, used to give food and drink a liquorice taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conjunction"
+    }
+   }
   },
   {
    "number": 24,
@@ -184,7 +652,41 @@
     "text": "Ornamental plant a naturalist gathers",
     "enumeration": "7"
    },
-   "solution": "LANTANA"
+   "solution": "LANTANA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ornamental",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "gathers",
+       "at": 30,
+       "note": "the phrase gathers the answer into itself, holding it among its letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "plant a naturalist",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nature lover collects an ornamental plant.",
+     "walkthrough": "'Ornamental plant' looks like the definition, but 'plant' starts the run of letters that 'gathers' collects: pLANT A NAturalist. The definition is just 'Ornamental', used as a noun.",
+     "definitionFit": "Lantana is a flowering shrub grown in gardens for show, so it is an ornamental, a noun meaning a decorative plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 25,
@@ -198,7 +700,31 @@
     "text": "One may find a landlady here does mine",
     "enumeration": "4"
    },
-   "solution": "DIGS"
+   "solution": "DIGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One may find a landlady here",
+      "at": 0,
+      "meaning": "lodgings rented in someone's house, where a landlady looks after the tenant"
+     },
+     {
+      "text": "does mine",
+      "at": 29,
+      "meaning": "excavates, as a miner does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Digs is British slang for rented lodgings, classically run by a landlady.",
+     "definitionFit": "Digs is informal for lodgings with a landlady, and as a verb it means excavates, as mining does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 26,
@@ -212,7 +738,45 @@
     "text": "Again timetable is held secure for distribution",
     "enumeration": "10"
    },
-   "solution": "RESCHEDULE"
+   "solution": "RESCHEDULE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Again timetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "for distribution",
+       "at": 31,
+       "note": "letters handed out for distribution are scattered and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "held",
+       "at": 19
+      },
+      {
+       "words": "secure",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rearranged timetable is kept safe before being handed out.",
+     "walkthrough": "'for distribution' rearranges HELD and SECURE; 'is' only links.",
+     "definitionFit": "To reschedule is to timetable something a second time, setting a new date."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +790,57 @@
     "text": "Face East Enders' frantic investigation to determine truth",
     "enumeration": "9"
    },
-   "solution": "DIALECTIC"
+   "solution": "DIALECTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "investigation to determine truth",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Face",
+       "at": 0,
+       "gives": "DIAL",
+       "note": "the dial is the face of a clock or watch"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Enders'",
+         "at": 10,
+         "note": "as said by East Enders, Cockneys, who drop the H at the start of words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frantic",
+         "at": 18,
+         "gives": "HECTIC",
+         "note": "hectic means frantic"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A face from the soap EastEnders is involved in a frantic inquiry into the truth.",
+     "walkthrough": "'East Enders' is split: 'East' gives E, and 'Enders'' signals the London Cockney habit of dropping the H at the start of words. EastEnders is also a British TV soap.",
+     "definitionFit": "Dialectic is the philosophical method of seeking truth through reasoned argument and debate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Enders'"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +854,42 @@
     "text": "Small instrument needing tuning down a bit",
     "enumeration": "5"
    },
-   "solution": "SHARP"
+   "solution": "SHARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "needing tuning down a bit",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "instrument",
+       "at": 6,
+       "gives": "HARP",
+       "note": "the harp is a stringed instrument"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small instrument needs its tuning lowered slightly.",
+     "walkthrough": "A note that is sharp is slightly too high in pitch, so it needs tuning down a little.",
+     "definitionFit": "In music, sharp means slightly above the correct pitch, so the player must lower it a touch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 3,
@@ -254,7 +903,45 @@
     "text": "Vague brides incline to be all over the place",
     "enumeration": "13"
    },
-   "solution": "INDISCERNIBLE"
+   "solution": "INDISCERNIBLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vague",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be all over the place",
+       "at": 21,
+       "note": "being all over the place means scattered in disorder, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brides",
+       "at": 6
+      },
+      {
+       "words": "incline",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Uncertain brides tend to be disorganised on the day.",
+     "walkthrough": "'to be all over the place' rearranges BRIDES and INCLINE.",
+     "definitionFit": "Something indiscernible cannot be made out clearly, so it is vague or imperceptible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incline"
+    }
+   }
   },
   {
    "number": 4,
@@ -268,7 +955,74 @@
     "text": "US politician left most of soft drink in pub",
     "enumeration": "7"
    },
-   "solution": "LINCOLN"
+   "solution": "LINCOLN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "US politician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 14,
+       "gives": "L"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 38,
+         "note": "the shortened drink is placed inside the word for pub"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pub",
+         "at": 41,
+         "gives": "INN",
+         "note": "an inn is a pub"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 19,
+           "note": "most of a word means it loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soft drink",
+           "at": 27,
+           "gives": "COLA",
+           "note": "cola is a fizzy soft drink"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American politician left most of his cola in the pub.",
+     "walkthrough": "'most of' drops the final letter of the drink and 'in' places what remains inside the pub word. The surface 'left' reads as a verb, but is the abbreviation.",
+     "definitionFit": "Abraham Lincoln was the 16th US president, a famous American politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 5,
@@ -282,7 +1036,60 @@
     "text": "Ponder resistance and choose to embrace force",
     "enumeration": "7"
    },
-   "solution": "REFLECT"
+   "solution": "REFLECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ponder",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "resistance",
+       "at": 7,
+       "gives": "R",
+       "note": "R is the symbol for electrical resistance"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to embrace",
+         "at": 29,
+         "note": "the word for choose takes the next piece into its arms, enclosing it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "choose",
+         "at": 22,
+         "gives": "ELECT",
+         "note": "to elect is to choose"
+        },
+        {
+         "words": "force",
+         "at": 40,
+         "gives": "F",
+         "note": "F is the symbol for force in physics"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Think about resisting, and decide whether to welcome force.",
+     "walkthrough": "'to embrace' puts F inside ELECT, after R.",
+     "definitionFit": "To reflect is to think carefully about something, the same as to ponder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embrace"
+    }
+   }
   },
   {
    "number": 7,
@@ -296,7 +1103,59 @@
     "text": "Expert in figures in a haze about military organisation",
     "enumeration": "9"
    },
-   "solution": "ANATOMIST"
+   "solution": "ANATOMIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expert in figures",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 28,
+       "note": "about means going round, so the haze phrase surrounds the organisation"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 21,
+         "gives": "A"
+        },
+        {
+         "words": "haze",
+         "at": 23,
+         "gives": "MIST",
+         "note": "mist is a haze"
+        }
+       ]
+      },
+      {
+       "words": "military organisation",
+       "at": 34,
+       "gives": "NATO",
+       "note": "NATO is the North Atlantic Treaty Organisation, a military alliance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant expert in figures is in a fog about a military organisation.",
+     "walkthrough": "'about' wraps the hazy phrase round the alliance. 'figures' suggests numbers, but here it means human bodies.",
+     "definitionFit": "An anatomist studies the structure of the body, so is an expert in human figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 8,
@@ -310,7 +1169,46 @@
     "text": "Was sick with weight loss drug",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "loss",
+       "at": 21,
+       "note": "loss of the weight letter means it is taken away from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was sick",
+       "at": 0,
+       "gives": "SPEWED",
+       "note": "spewed means vomited, was sick"
+      },
+      {
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was sick after taking a weight-loss drug.",
+     "walkthrough": "'loss' takes W out of SPEWED. 'weight loss' reads as one phrase but splits across two jobs.",
+     "definitionFit": "Speed is slang for amphetamine, a stimulant drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 11,
@@ -324,7 +1222,49 @@
     "text": "Lack of co-operation redesigning an electric car",
     "enumeration": "13"
    },
-   "solution": "RECALCITRANCE"
+   "solution": "RECALCITRANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lack of co-operation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "redesigning",
+       "at": 21,
+       "note": "redesigning reshapes the letters of the phrase into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "an",
+       "at": 33
+      },
+      {
+       "words": "electric",
+       "at": 36
+      },
+      {
+       "words": "car",
+       "at": 45
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers stubbornly refuse to help with redesigning an electric car.",
+     "walkthrough": "'redesigning' rearranges AN ELECTRIC CAR.",
+     "definitionFit": "Recalcitrance is stubborn refusal to obey or comply, a lack of co-operation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "redesigning"
+    }
+   }
   },
   {
    "number": 15,
@@ -338,7 +1278,60 @@
     "text": "Yours truly elevated to prevent top man taking place on board",
     "enumeration": "9"
    },
-   "solution": "EMBARKING"
+   "solution": "EMBARKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "taking place on board",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevated",
+         "at": 12,
+         "note": "in a down entry, raising a word lifts it upwards so it reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yours truly",
+         "at": 0,
+         "gives": "ME",
+         "note": "yours truly means the speaker, me"
+        }
+       ]
+      },
+      {
+       "words": "to prevent",
+       "at": 21,
+       "gives": "BAR",
+       "note": "to bar is to prevent"
+      },
+      {
+       "words": "top man",
+       "at": 32,
+       "gives": "KING",
+       "note": "a king is the top man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "I was promoted to stop the boss from taking a seat on the board.",
+     "walkthrough": "'elevated' reverses ME to EM, as this is a down entry. 'taking place on board' suggests a company board, but means boarding a ship.",
+     "definitionFit": "Embarking means going aboard a ship or aircraft, taking one's place on board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1345,45 @@
     "text": "A regiment prepared to shoot",
     "enumeration": "9"
    },
-   "solution": "GERMINATE"
+   "solution": "GERMINATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to shoot",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "prepared",
+       "at": 11,
+       "note": "prepared means made ready by rearranging, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "regiment",
+       "at": 2
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regiment is ready to open fire.",
+     "walkthrough": "'prepared' rearranges A REGIMENT. 'shoot' looks military, but it means a plant sprouting.",
+     "definitionFit": "A seed germinates when it begins to sprout, so to germinate is to shoot as plants do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shoot"
+    }
+   }
   },
   {
    "number": 18,
@@ -366,7 +1397,35 @@
     "text": "One needing sole contact for power transmission",
     "enumeration": "7"
    },
-   "solution": "TREADLE"
+   "solution": "TREADLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One needing sole contact for power transmission",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "One needing sole contact for power transmission",
+       "at": 0,
+       "note": "a foot pedal driving a machine such as an old sewing machine works only when the sole of a shoe presses it"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'sole' suggests the fish or 'only', but it is the underside of the foot.",
+     "definitionFit": "A treadle is a foot-operated lever that drives a machine, so power passes through the sole pressing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 19,
@@ -380,7 +1439,77 @@
     "text": "Blissful days in Scilly Is going over without either son",
     "enumeration": "7"
    },
-   "solution": "IDYLLIC"
+   "solution": "IDYLLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blissful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "the letter for days sits within the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going over",
+         "at": 27,
+         "note": "going over is turning over, so the letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 38,
+           "note": "without means lacking, so both letters for son are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Scilly Is",
+           "at": 17
+          },
+          {
+           "words": "either son",
+           "at": 46,
+           "gives": "SS",
+           "note": "S is the abbreviation for son, and either means both of the two S letters"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "days",
+       "at": 9,
+       "gives": "D",
+       "note": "D is the abbreviation for days, as in diaries"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Days spent in the Isles of Scilly are perfect, travelling without either son.",
+     "walkthrough": "'without either son' drops both S letters from SCILLYIS to give CILLYI; 'going over' reverses it to IYLLIC; 'in' puts D inside. The Isles of Scilly are islands off Cornwall.",
+     "definitionFit": "Idyllic describes a peaceful, perfect scene, which is blissful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1523,43 @@
     "text": "Pulls up area of grass",
     "enumeration": "5"
    },
-   "solution": "SWARD"
+   "solution": "SWARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "area of grass",
+      "at": 9
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 6,
+       "note": "in a down entry, up means the word is read from the bottom, so it runs backwards"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pulls",
+       "at": 0,
+       "gives": "DRAWS",
+       "note": "draws means pulls, as a horse draws a cart"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pulls up a patch of grass.",
+     "walkthrough": "'up' reverses DRAWS in this down entry.",
+     "definitionFit": "A sward is an expanse of short grass, such as turf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pulls"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1573,54 @@
     "text": "Total confusion in United supporters' uprising",
     "enumeration": "5"
    },
-   "solution": "SNAFU"
+   "solution": "SNAFU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Total confusion",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "uprising",
+       "at": 38,
+       "note": "in a down entry, rising means reading from bottom to top, so both pieces run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "United",
+         "at": 19,
+         "gives": "U",
+         "note": "U is the abbreviation for United, as in football team names"
+        },
+        {
+         "words": "supporters'",
+         "at": 26,
+         "gives": "FANS",
+         "note": "fans are supporters"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There is total chaos when a football club's fans riot.",
+     "walkthrough": "'uprising' reverses U FANS. Snafu is a slang acronym for a chaotic mess.",
+     "definitionFit": "A snafu is a chaotic, badly botched situation, total confusion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   }
  ]
 }
