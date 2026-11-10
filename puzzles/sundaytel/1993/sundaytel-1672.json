@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,28 @@
     "text": "Over tipped",
     "enumeration": "5"
    },
-   "solution": "ENDED"
+   "solution": "ENDED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Over",
+      "at": 0,
+      "meaning": "a match or a party that is over has finished"
+     },
+     {
+      "text": "tipped",
+      "at": 5,
+      "meaning": "to end something is to stand it on its end, so a tipped barrel has been set on end"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses fit: finished (over) and stood on its end (tipped up)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +68,30 @@
     "text": "A bit of luck for the oarsman?",
     "enumeration": "6"
    },
-   "solution": "STROKE"
+   "solution": "STROKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A bit of luck",
+      "at": 0,
+      "meaning": "a fortunate chance"
+     },
+     {
+      "text": "for the oarsman?",
+      "at": 14,
+      "meaning": "in rowing, the oarsman nearest the stern sets the pace and is named after his position"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A stroke of luck is a fortunate chance, and the stroke is the pace-setting rower in an eight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "oarsman"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +105,43 @@
     "text": "Spear with a pointed tip for ear-piercing",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for ear-piercing",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pointed",
+       "at": 13,
+       "gives": "S",
+       "note": "S is a compass point, here put at the tip of the weapon"
+      },
+      {
+       "words": "Spear",
+       "at": 0,
+       "gives": "TRIDENT",
+       "note": "a trident is a three-pronged spear"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-tipped spear used to pierce ears.",
+     "walkthrough": "'With a pointed tip' tells you to put a compass point, S, at the front of the trident.",
+     "definitionFit": "Strident means harsh and loud, the kind of noise that pierces the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ear-piercing"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +155,51 @@
     "text": "Odd little street where anger explodes",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "little street",
+       "at": 4,
+       "gives": "ST",
+       "note": "ST is the usual abbreviation for street"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "explodes",
+         "at": 30,
+         "note": "the word anger is blown apart and its letters reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peculiar side street where tempers flare.",
+     "walkthrough": "'explodes' signals the anagram; 'where' is only a link joining the pieces to the definition 'Odd'.",
+     "definitionFit": "Strange and odd are synonyms for something unusual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -86,7 +213,41 @@
     "text": "A drink cupboard you don't let anyone know about",
     "enumeration": "8"
    },
-   "solution": "SUPPRESS"
+   "solution": "SUPPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "you don't let anyone know about",
+      "at": 17,
+      "note": "a relative phrase standing for a verb: what you keep quiet about you hush up"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A drink",
+       "at": 0,
+       "gives": "SUP",
+       "note": "a sup is a small mouthful of drink"
+      },
+      {
+       "words": "cupboard",
+       "at": 8,
+       "gives": "PRESS",
+       "note": "a press is an old word, still used in Ireland and Scotland, for a cupboard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a secret drinks cabinet.",
+     "definitionFit": "To keep news hidden from everyone is to hush it up, a synonym sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +267,28 @@
      }
     ]
    },
-   "solution": "TURNEDOUT"
+   "solution": "TURNEDOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shown the door",
+      "at": 0,
+      "meaning": "evicted or expelled from a place"
+     },
+     {
+      "text": "as it proved",
+      "at": 16,
+      "meaning": "as things transpired in the end"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase means both evicted and transpired, two quite separate idioms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +302,29 @@
     "text": "Found a home",
     "enumeration": "9"
    },
-   "solution": "INSTITUTE"
+   "solution": "INSTITUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Found",
+      "at": 0,
+      "meaning": "to found is to set up or establish"
+     },
+     {
+      "text": "a home",
+      "at": 6,
+      "meaning": "an establishment or institution, such as a care home"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To institute is to establish, and an institute is an organisation such as a home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 8,
@@ -140,7 +344,28 @@
      }
     ]
    },
-   "solution": "PUTUP"
+   "solution": "PUTUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Raised",
+      "at": 0,
+      "meaning": "lifted or erected, as a tent or a shelf"
+     },
+     {
+      "text": "gave accommodation to",
+      "at": 11,
+      "meaning": "housed a guest for the night"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrasal verb means both to erect something and to lodge a visitor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -154,7 +379,30 @@
     "text": "Pass the salt",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0,
+      "meaning": "to pass something is to give it across"
+     },
+     {
+      "text": "the salt",
+      "at": 5,
+      "meaning": "an old salt is a sailor, and a sailor is a ship's crew member"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To give across is to pass, and a crew member on a ship is a deckhand, also called a salt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +416,34 @@
     "text": "Miss one in Spain?",
     "enumeration": "8"
    },
-   "solution": "SENORITA"
+   "solution": "SENORITA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Miss one in Spain?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Miss one in Spain?",
+       "at": 0,
+       "note": "not a failure to hit something but the Spanish title for an unmarried young woman"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "It is the Spanish courtesy title equivalent to Miss for a young unmarried lady."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +457,48 @@
     "text": "Cask of beer brought round from the mountains",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from the mountains",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought round",
+       "at": 13,
+       "note": "the beer is put around the cask, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beer",
+       "at": 8,
+       "gives": "ALE",
+       "note": "ale is a kind of beer"
+      },
+      {
+       "words": "Cask",
+       "at": 0,
+       "gives": "PIN",
+       "note": "a pin is a small cask holding four and a half gallons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barrel of beer carried down from the hills.",
+     "walkthrough": "'brought round' is the container signal; a PIN is a little-known small cask, a crossword favourite.",
+     "definitionFit": "Alpine describes things of or from high mountains, especially the Alps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +512,41 @@
     "text": "Had been in\" Crewe recently",
     "enumeration": "4"
    },
-   "solution": "WERE"
+   "solution": "WERE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Had been",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 9,
+       "note": "the letters wanted sit inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Crewe recently",
+       "at": 13
+      }
+     ]
+    },
+    "spelling": "WE'RE",
+    "explanation": {
+     "surface": "Someone was in the railway town of Crewe lately.",
+     "walkthrough": "CREWE is a railway junction town in Cheshire, England; the answer straddles its end and the start of 'recently'.",
+     "definitionFit": "Were is a past form of to be, matching had been in a loose tense swap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +560,32 @@
     "text": "Boons for which we thank heaven!",
     "enumeration": "8"
    },
-   "solution": "GODSENDS"
+   "solution": "GODSENDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boons for which we thank heaven!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Boons for which we thank heaven!",
+       "at": 0,
+       "note": "blessings so welcome they seem delivered from on high"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "Unexpected blessings are said to be dispatched by the deity, hence the term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -224,7 +599,59 @@
     "text": "Catch her up-hang about",
     "enumeration": "9"
    },
-   "solution": "APPREHEND"
+   "solution": "APPREHEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "the attached word goes around the turned piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hang",
+       "at": 13,
+       "gives": "APPEND",
+       "note": "to append is to hang or attach something on"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 10,
+         "note": "in a down clue, up means the word her is read bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "her",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to seize a woman and hang about.",
+     "walkthrough": "'up' reverses (this is a down clue) and 'about' contains; the hyphen in 'up-hang' just disguises the join.",
+     "definitionFit": "To apprehend is to catch or arrest a suspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hang"
+    }
+   }
   },
   {
    "number": 15,
@@ -238,7 +665,29 @@
     "text": "Mood induced by alcohol?",
     "enumeration": "7"
    },
-   "solution": "SPIRITS"
+   "solution": "SPIRITS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mood",
+      "at": 0,
+      "meaning": "high or low frame of mind, as in good cheer"
+     },
+     {
+      "text": "alcohol?",
+      "at": 16,
+      "meaning": "strong distilled drinks such as gin and whisky"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One's frame of mind is one's spirits, and distilled liquors are also called spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -252,7 +701,33 @@
     "text": "Makes you think, doesn't it!",
     "enumeration": "8"
    },
-   "solution": "REMINDER"
+   "solution": "REMINDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Makes you think, doesn't it!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Makes you think, doesn't it!",
+       "at": 0,
+       "note": "something that prompts the memory, like a note or a nudge"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A prompt that jogs your memory brings something to mind, literally makes you think of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -272,7 +747,29 @@
      }
     ]
    },
-   "solution": "LETSOUT"
+   "solution": "LETSOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reveals",
+      "at": 0,
+      "meaning": "discloses a secret"
+     },
+     {
+      "text": "one takes in lodgers?",
+      "at": 8,
+      "meaning": "a landlord who rents rooms to tenants"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase means discloses, and also rents out rooms to paying tenants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -286,7 +783,11 @@
     "text": "Practise",
     "enumeration": "8"
    },
-   "solution": "ENVISAGE"
+   "solution": "ENVISAGE",
+   "annotationWithheld": {
+    "why": "Clue held as 'Practise (8)' for ENVISAGE: practise does not mean envisage and no wordplay is present, so the clue seems cut short or misplaced; no scan available.",
+    "clue": "Practise"
+   }
   },
   {
    "number": 19,
@@ -300,7 +801,51 @@
     "text": "Satisfied with the rise, having changed occupations",
     "enumeration": "7"
    },
-   "solution": "METIERS"
+   "solution": "METIERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "occupations",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Satisfied",
+       "at": 0,
+       "gives": "MET",
+       "note": "a demand that is met has been satisfied"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "having changed",
+         "at": 25,
+         "note": "the letters of rise are altered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rise",
+         "at": 19
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone content after a pay rise switched jobs.",
+     "walkthrough": "'having changed' is the anagram signal; 'the rise' suggests a pay rise, but only 'rise' is fodder.",
+     "definitionFit": "A métier is a trade or calling, so occupations is a plural synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -314,7 +859,43 @@
     "text": "Colour that's anything but fast flower",
     "enumeration": "8"
    },
-   "solution": "PRIMROSE"
+   "solution": "PRIMROSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "anything but fast",
+       "at": 14,
+       "gives": "PRIM",
+       "note": "fast can mean racy or loose, so its opposite is prudish and prim"
+      },
+      {
+       "words": "Colour",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "rose is a pinkish-red colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colour that will not stay fixed in the wash, belonging to a flower.",
+     "walkthrough": "'fast' looks like the dye sense, colourfast; here it is the racy sense, and its opposite is PRIM.",
+     "definitionFit": "The pale yellow spring bloom of the woodland is the best-known example of this flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 21,
@@ -328,7 +909,28 @@
     "text": "Left again",
     "enumeration": "4"
    },
-   "solution": "OVER"
+   "solution": "OVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0,
+      "meaning": "remaining, as in food left ..."
+     },
+     {
+      "text": "again",
+      "at": 5,
+      "meaning": "once more"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means remaining (left over) and once more (start over)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -342,7 +944,28 @@
     "text": "Failing as a deputy",
     "enumeration": "4"
    },
-   "solution": "VICE"
+   "solution": "VICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Failing",
+      "at": 0,
+      "meaning": "a moral fault or weakness"
+     },
+     {
+      "text": "as a deputy",
+      "at": 8,
+      "meaning": "the prefix for someone second in command"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A moral weakness is a vice, and vice is the prefix for a deputy role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -356,7 +979,59 @@
     "text": "Fold the first bit of red into the pink",
     "enumeration": "6"
    },
-   "solution": "CORRAL"
+   "solution": "CORRAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fold",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 26,
+       "note": "the single letter goes inside the colour word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pink",
+       "at": 35,
+       "gives": "CORAL",
+       "note": "coral is a pinkish-orange colour"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the first bit of",
+         "at": 5,
+         "note": "only the opening letter of red is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "red",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for mixing a dab of red into pink paint.",
+     "walkthrough": "'Fold' looks like a mixing instruction; it is the noun, a sheepfold.",
+     "definitionFit": "A fold is a pen for sheep, and a corral is an enclosure for livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fold"
+    }
+   }
   },
   {
    "number": 24,
@@ -370,7 +1045,40 @@
     "text": "Rascal came from a small group of tents",
     "enumeration": "5"
    },
-   "solution": "SCAMP"
+   "solution": "SCAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rascal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 19,
+       "gives": "S",
+       "note": "S is the usual abbreviation for small, as on clothing labels"
+      },
+      {
+       "words": "group of tents",
+       "at": 25,
+       "gives": "CAMP",
+       "note": "a camp is a set of tents pitched together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue emerged from a little campsite.",
+     "definitionFit": "A scamp is a mischievous rascal, the two being synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -384,7 +1092,28 @@
     "text": "Money for new dress",
     "enumeration": "6"
    },
-   "solution": "CHANGE"
+   "solution": "CHANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0,
+      "meaning": "loose coins, or the cash returned after paying"
+     },
+     {
+      "text": "new dress",
+      "at": 10,
+      "meaning": "to put on fresh clothes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Coins are called change, and to change is to put on different clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -398,7 +1127,29 @@
     "text": "Direct train",
     "enumeration": "8"
    },
-   "solution": "INSTRUCT"
+   "solution": "INSTRUCT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0,
+      "meaning": "to give orders"
+     },
+     {
+      "text": "train",
+      "at": 7,
+      "meaning": "to teach or coach"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To instruct is both to order someone and to teach them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 27,
@@ -412,7 +1163,28 @@
     "text": "Anaesthetised, but not enough",
     "enumeration": "5"
    },
-   "solution": "UNDER"
+   "solution": "UNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Anaesthetised",
+      "at": 0,
+      "meaning": "unconscious from an anaesthetic"
+     },
+     {
+      "text": "but not enough",
+      "at": 15,
+      "meaning": "the prefix for too little, as in undercooked"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A patient under is unconscious, and under as a prefix means insufficiently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -426,7 +1198,32 @@
     "text": "It tells you whose turn it is next",
     "enumeration": "9"
    },
-   "solution": "PROGRAMME"
+   "solution": "PROGRAMME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It tells you whose turn it is next",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It tells you whose turn it is next",
+       "at": 0,
+       "note": "the printed running order at a concert or show, listing each act"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A theatre or concert booklet lists the order of acts, so it tells you who performs next."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
