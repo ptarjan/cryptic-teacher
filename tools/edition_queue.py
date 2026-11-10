@@ -878,6 +878,7 @@ def evidence_reason(reason):
                           fa.SUNDAY_SIDES,  # the same for a Gale Sunday Telegraph 1987-98 page
                           fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
                           fa.QUICK_SET,  # a Gale Sunday Telegraph 1972-77 page filed with its Quickie clue set
+                          fa.QUICK_HELD,  # that page read under QUICK_SET, its cryptic reading held off by the Quickie file
                           fa.HEADINGS_JOINED)  # a Gale FT/Telegraph/Independent/Sunday Times page no title was found on
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
@@ -1513,6 +1514,7 @@ CANARY_PROVEN = (
     # 11-10: 59 filed Sunday Telegraph puzzles of 1972-77 carry the Quickie clue set (census of sundaytel-580..859, 1.4 to 2.2
     # words a clue): wrong files, so the reread stands whatever the paper's refusal hold.
     ("galesundaytelegraph", fa.QUICK_SET, 1972, 1977, "11-10 census: 59 filed puzzles carry the Quickie set, not the cryptic"),
+    ("galesundaytelegraph", fa.QUICK_HELD, 1972, 1977, "11-10: QUICK_SET rereads read the cryptic clues but decide() kept the Quickie file; wrong files, own canary"),
     # 11-09: SUNDAY_LISTED was held by this very hold (0 in the plan; 45 due once the crop headings link): an
     # answers-only reread of a held file from the next issue's text lists, no clue-column read.
     ("galesundaytelegraph", fa.SUNDAY_LISTED, 1987, 1998, "11-09: answers-only from the printed text lists, 45 due"),
@@ -2045,7 +2047,9 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # 11-09: the same page read since, still no clue lists (fa.sunday_right_due): its columns right of its grid.
                  fa.SUNDAY_RIGHT,
                  # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (fa.quick_set_due), read again.
-                 fa.QUICK_SET)
+                 fa.QUICK_SET,
+                 # 11-10: that page read under QUICK_SET, its cryptic reading held off by the Quickie-clue file (fa.quick_held_due).
+                 fa.QUICK_HELD)
 
 
 def times_solution_work(unit):
@@ -2072,7 +2076,7 @@ FIX_LANDED = ("short Times page, its third clue column read since", "solution sh
               fa.NEIGHBOUR_TAIL, fa.PUNCT_MENDED, fa.STRIP_TAIL, fa.EDGE_LETTERS, fa.ALONE_READ, fa.BAND_GRID, fa.LEFT_SPLIT, fa.SCALED_GRID, fa.LEFT_LATE, fa.SCALED_EARLY, fa.LEAD_RETRY, fa.BAND_LATE, fa.SMALL_PAGE, fa.RIGHT_ADS, fa.FIFTIES_LEFT, fa.CLOSED_GRID, fa.LINKED_LEAD, fa.DOWN_CUT, fa.DOWN_FOOT,
               fa.INSET_GRID, fa.LONE_TITLE, fa.SPECK_MENDED, fa.STOP_TAIL, fa.OPENING_GUTTER, fa.RUN_ON_TAIL, fa.LAID_BLANKS, fa.ONES_COUNT, fa.SEE_RUNS_ON,
               fa.GF_TITLE, fa.GAP_VOTED, fa.FAILED_SCAN, fa.GF_UNREAD, fa.SHARED_WORD, fa.MARKED_WORD, fa.MARKED_NEXT_READ,
-              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET)
+              fa.LINKED_COUNT_READ, fa.STRAY_LINK_READ, fa.BOOK_YIELDS, fa.FOOTER_TITLE, fa.TAIL_READ, fa.QUARTER_READ, fa.RIGHT_WIDE, fa.VLM_LAID, fa.SMALL_TITLE, fa.SMALL_HEADED, fa.CLUE_GARBLED, fa.VLM_PLAIN, fa.HEADINGS_JOINED, fa.WINNERS_TITLE, fa.SIDES_READ, fa.SUNDAY_SIDES, fa.SUNDAY_RIGHT, fa.QUICK_SET, fa.QUICK_HELD)
 
 
 def unproven_first(unit):
