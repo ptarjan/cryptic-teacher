@@ -46,6 +46,16 @@ for label, words in (("an all-Latin grid", latin), ("a mixed grid", mixed)):
 check("an unlisted majority is rarer than a common grid",
       D.rarity(puzzle("times", latin), RANK) > D.rarity(puzzle("times", common), RANK))
 
+_lead = {"number": 22, "direction": "across", "solution": "INSO", "group": ["22-across", "5-down"],
+         "clue": {"text": "Clue", "enumeration": "2,2,3,2"}}
+_tail = {"number": 5, "direction": "down", "solution": "FARAS", "clue": {"text": "See 22"}}
+_linked = {"id": "times-1", "series": "times", "entries": [_lead, _tail]}
+check("a linked lead's answer is the whole joined answer",
+      D.answer_words(_lead, _linked) == ("INSOFARAS", ["IN", "SO", "FAR", "AS"]), str(D.answer_words(_lead, _linked)))
+check("a linked answer's later lights are continuations", D.continuation_ids(_linked) == {"5-down"})
+check("a linked puzzle's rarity scores one answer, not two fragments",
+      D.rarity(_linked, RANK) == D.rarity(puzzle("times", ["INSOFARAS"]), RANK))
+
 measured = {"checking": 0.4, "rarity": 5.0, "device": 0.5, "clue_count": 28}
 base = {k: {"mean": 0.0, "sd": 1.0} for k in measured} | {"index": {"mean": 0.0, "sd": 1.0}}
 check("rate() takes no series", "series" not in inspect.signature(D.rate).parameters)

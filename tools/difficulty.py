@@ -496,8 +496,19 @@ def letters(s):
     return re.sub(r"[^A-Z]", "", (s or "").upper())
 
 
-def answer_words(e):
-    """The entry's answer split where its enumeration splits it."""
+def answer_words(e, puz=None):
+    """The entry's answer split where its enumeration splits it. Given its
+    puzzle, a linked lead's is the whole joined answer (annotation.display_answer),
+    not its first light's letters."""
+    if puz is not None and len(e.get("group") or ()) > 1 and e.get("solution"):
+        import annotation
+        try:
+            shown = annotation.display_answer(e, puz)
+        except KeyError:  # a group naming an entry the puzzle lacks: the light stands alone
+            shown = ""
+        words = [w for w in re.split(r"[^A-Z]+", shown.upper()) if w]
+        if words:
+            return "".join(words), words
     sol = letters(e.get("solution"))
     cuts = sorted({sep["at"] for sep in e["clue"].get("separators", [])})
     words, prev = [], 0
@@ -505,6 +516,16 @@ def answer_words(e):
         words.append(sol[prev:c])
         prev = c
     return sol, [w for w in words if w]
+
+
+def continuation_ids(puz):
+    """Entry ids that carry only a later light of another entry's linked answer."""
+    out = set()
+    for e in puz["entries"]:
+        group = e.get("group") or ()
+        if len(group) > 1:
+            out |= set(group) - {entry_id(e)}
+    return out
 
 
 def rarity(puz, rank):
@@ -524,8 +545,11 @@ def rarity(puz, rank):
     if not rank:
         return None
     found = []  # (rank of the answer's rarest listed word, whether any word is unlisted)
+    later = continuation_ids(puz)  # a linked answer is one answer, scored once at its lead
     for e in puz["entries"]:
-        sol, words = answer_words(e)
+        if entry_id(e) in later:
+            continue
+        sol, words = answer_words(e, puz)
         if not sol:
             continue
         if sol in rank:
@@ -659,7 +683,7 @@ def definition_unrelated(puz):
         clue = e["clue"].get("text", "").strip()
         if not clue or re.match(r"(?i)see\b", clue):
             continue
-        _, ws = answer_words(e)
+        _, ws = answer_words(e, puz)
         r = definition_related("_".join(w.lower() for w in ws), d)
         if r is not None:
             judged.append(not r)
