@@ -89,6 +89,7 @@ import clue_types
 import corroborate
 import definitions
 import groups
+import mend_cryptic_definition
 import provenance
 import puzzle_schema
 import shape_queue
@@ -1063,6 +1064,23 @@ def drop_derived_keys(pending):
     return changed
 
 
+def mend_cryptic_definitions(path, pending):
+    """Drop `gives` from, and strip bare "= ANSWER" notes out of, the blocks of each
+    pure cryptic definition written in the stored shape (mend_cryptic_definition);
+    the entry ids changed. check_cryptic_definition_blocks sends these back at a turn each."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        entries = read_puzzle_file(path)["entries"]
+    except (ValueError, OSError, KeyError):
+        return []
+    solutions = {entry_id(e): e.get("solution") for e in entries}
+    changed = [eid for eid, a in (ann.items() if isinstance(ann, dict) else ())
+               if mend_cryptic_definition.mend(a, solutions.get(eid))]
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
     can do it without judgement, or else blank the answer's words in the note
@@ -1400,6 +1418,10 @@ def main(argv):
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "
                   f"{pending.name}: {', '.join(unnamed)}\n")
+        cdm = mend_cryptic_definitions(path, pending)
+        if cdm:
+            print(f"cryptic definition blocks that gave letters or named the answer, mended "
+                  f"in {pending.name}: {', '.join(cdm)}\n")
         flipped = fix_directions(path, pending)
         if flipped:
             print(f"keys naming a clue in the wrong direction, renamed in {pending.name}: "
