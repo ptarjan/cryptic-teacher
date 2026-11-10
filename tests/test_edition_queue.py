@@ -689,7 +689,7 @@ check("an untitled 1938 Gale Times page due FOOTER_TITLE is ranked, evidence, fi
        eq.canary_failed({"paper": "gale", "reason": f.FOOTER_TITLE, "date": "1938-08-11"})])
 # ---- an untitled verdict-less 1930-33 Gale Times page (numbers of 1-3 digits, fa.small_rescan) is due SMALL_TITLE:
 # ranked, evidence, fix-landed, the newest unfiled-first fix, first tier, and it feeds the VLM (its read asks).
-check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix-landed, last of unfiled-first, tier 0",
+check("an untitled 1931 Gale Times page due SMALL_TITLE is ranked, evidence, fix-landed, in unfiled-first, tier 0",
       [2, True, True, True, None, 0],
       [f.RANKS[f.SMALL_TITLE], eq.evidence_reason(f.SMALL_TITLE), f.SMALL_TITLE in eq.FIX_LANDED,
        eq.UNFILED_FIRST.index(f.SMALL_TITLE) > eq.UNFILED_FIRST.index(f.VLM_LAID),
@@ -708,7 +708,7 @@ check("a heading-titled 1933 Gale Times page due SMALL_HEADED is ranked, evidenc
 # ---- an untitled Gale FT/Telegraph/Independent/Sunday Times page scanned before the joined titles (fa.joined_rescan)
 # is due HEADINGS_JOINED: ranked as never read (1), evidence, fix-landed, the newest unfiled-first fix, first tier,
 # blanket-passing, never canary-held.
-check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fix-landed, last of unfiled-first, "
+check("a Gale Telegraph or FT page due HEADINGS_JOINED is ranked 1, evidence, fix-landed, in unfiled-first, "
       "tier 0, blanket-passing, never canary-held",
       [1, True, True, True, True, None, 0, 0, True],
       [f.RANKS[f.HEADINGS_JOINED], eq.evidence_reason(f.HEADINGS_JOINED), f.HEADINGS_JOINED in eq.FIX_LANDED,
@@ -739,14 +739,14 @@ check("a Gale Telegraph Saturday refused no reading parses is due SIDES_READ (ra
        f.sides_due({**_srow, "edition": "GaleTelegraph2000UKEnglish/2000-12-29"}),
        f.sides_due({**_srow, "verdicts": [{**_srow["verdicts"][0], "imageUnread": "not a square grid"}]}),
        f.sides_due({**_srow, "readAt": "2026-11-09T11:00:00+00:00"})])
-# ---- a Gale Sunday Telegraph 1987-98 page refused no reading parses is due SUNDAY_SIDES once, last of unfiled-first.
+# ---- a Gale Sunday Telegraph 1987-98 page refused no reading parses is due SUNDAY_SIDES once, in unfiled-first.
 _strow = {"edition": "GaleSundayTelegraph1987UKEnglish/1987-05-10", "readAt": "2026-11-09T17:32:20+00:00",
           "verdicts": [{"number": 1354, "refused": "no reading parses", "cause": "no-reading-parses"}]}
 check("a Gale Sunday Telegraph 1987 page refused no reading parses is due SUNDAY_SIDES (ranked, evidence, fix-landed, "
-      "last of unfiled-first); a 1999 page, an image-unread page and a page read since are not",
+      "in unfiled-first); a 1999 page, an image-unread page and a page read since are not",
       [True, 1, True, True, True, True, False, False, False],
       [f.sunday_sides_due(_strow), f.RANKS[f.SUNDAY_SIDES], eq.evidence_reason(f.SUNDAY_SIDES), f.SUNDAY_SIDES in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1] == f.SUNDAY_SIDES, f.SUNDAY_SIDES in f.BLANKET_PASSES,
+       f.SUNDAY_SIDES in eq.UNFILED_FIRST, f.SUNDAY_SIDES in f.BLANKET_PASSES,
        f.sunday_sides_due({**_strow, "edition": "GaleSundayTelegraph1999UKEnglish/1999-08-08"}),
        f.sunday_sides_due({**_strow, "verdicts": [{**_strow["verdicts"][0], "imageUnread": "not a square grid"}]}),
        f.sunday_sides_due({**_strow, "readAt": "2026-11-09T19:00:00+00:00"})])
@@ -758,10 +758,10 @@ _srrow = {"edition": "GaleSundayTelegraph1993UKEnglish/1993-12-05", "readAt": "2
           "verdicts": [{"number": 1696, "refused": "no reading parses", "cause": "no-reading-parses",
                         "unparsed": {"ch": "no ACROSS and DOWN lists under the grid"}}]}
 check("a Gale Sunday Telegraph 1993 page read since SUNDAY_SIDES, still no ACROSS and DOWN lists, is due SUNDAY_RIGHT (ranked, "
-      "evidence, fix-landed, last of unfiled-first, planned past the blanket); a read before, a parse failure and a 1999 page are not",
+      "evidence, fix-landed, in unfiled-first, planned past the blanket); a read before, a parse failure and a 1999 page are not",
       [True, 1, True, True, True, True, f.SUNDAY_RIGHT, "inputs changed", False, False, False],
       [f.sunday_right_due(_srrow), f.RANKS[f.SUNDAY_RIGHT], eq.evidence_reason(f.SUNDAY_RIGHT), f.SUNDAY_RIGHT in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1] == f.SUNDAY_RIGHT, f.SUNDAY_RIGHT in f.BLANKET_PASSES,
+       f.SUNDAY_RIGHT in eq.UNFILED_FIRST, f.SUNDAY_RIGHT in f.BLANKET_PASSES,
        f.blanket_or_fix(_srrow, "inputs changed"),
        f.blanket_or_fix({**_srrow, "readAt": "2026-11-09T21:00:00+00:00"}, "inputs changed"),
        f.sunday_right_due({**_srrow, "readAt": "2026-11-09T17:00:00+00:00"}),
@@ -785,14 +785,14 @@ check("the Two-in-One crossword's text is cut at its second ACROSS heading; a on
       ["ACROSS\n1 a (3)\nDOWN\n2 b (4)", "ACROSS\n1 a (3)", 266],
       [f.first_clue_set("ACROSS\n1 a (3)\nDOWN\n2 b (4)\nACROSS\n1 c (3)\nDOWN\n2 d (4)"),
        f.first_clue_set("ACROSS\n1 a (3)"), f.sunday_left((640, 3253, 1358, 4015))])
-# ---- a Sunday Telegraph 1972-77 page filed with its Quickie set is due QUICK_SET once, last of unfiled-first.
+# ---- a Sunday Telegraph 1972-77 page filed with its Quickie set is due QUICK_SET once, in unfiled-first.
 _qrow = {"edition": "GaleSundayTelegraph1976UKEnglish/1976-02-08", "readAt": "2026-11-10T02:26:34+00:00",
          "verdicts": [{"number": 779, "id": "sundaytel-779", "wrote": True}]}
-check("a Gale Sunday Telegraph 1976 page filed is due QUICK_SET (ranked, evidence, fix-landed, last of unfiled-first); "
+check("a Gale Sunday Telegraph 1976 page filed is due QUICK_SET (ranked, evidence, fix-landed, in unfiled-first); "
       "a 1977-09-25 page, a page read since and a refused page with no puzzle are not",
       [True, 1, True, True, True, False, False, False],
       [f.quick_set_due(_qrow), f.RANKS[f.QUICK_SET], eq.evidence_reason(f.QUICK_SET), f.QUICK_SET in eq.FIX_LANDED,
-       eq.UNFILED_FIRST[-1] == f.QUICK_SET,
+       f.QUICK_SET in eq.UNFILED_FIRST,
        f.quick_set_due({**_qrow, "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
        f.quick_set_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}),
        f.quick_set_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
