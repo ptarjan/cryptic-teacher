@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Not physically fit, but willing to participate",
     "enumeration": "4"
    },
-   "solution": "GAME"
+   "solution": "GAME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not physically fit",
+      "at": 0,
+      "meaning": "a lame or injured one, so the word can mean disabled"
+     },
+     {
+      "text": "willing to participate",
+      "at": 24,
+      "meaning": "someone who is up for anything is said to be ready and eager to join in"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: an injured, lame limb, and being keen or up for a challenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 3,
@@ -44,7 +69,83 @@
     "text": "Great Detective Agency receives bill it rejected — that leaves a sour taste",
     "enumeration": "6,4"
    },
-   "solution": "ACETICACID"
+   "solution": "ACETICACID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that leaves a sour taste",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receives",
+       "at": 23,
+       "note": "the outer pieces take in the inner run, as a recipient takes delivery"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Great",
+         "at": 0,
+         "gives": "ACE",
+         "note": "ace is slang for great or excellent"
+        },
+        {
+         "words": "Detective Agency",
+         "at": 6,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the detective branch of British police"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 40,
+         "note": "something rejected is sent back, so the two words are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "bill",
+           "at": 32,
+           "gives": "AC",
+           "note": "AC is short for account, a bill"
+          },
+          {
+           "words": "it",
+           "at": 37,
+           "gives": "IT",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous firm of private eyes gets an invoice it sends back, leaving a bitter aftertaste.",
+     "walkthrough": "'rejected' gives TICA, which 'receives' places between the two halves of the outer charade. CID is the Criminal Investigation Department, the British police detective branch, which is how it stands for a detective agency.",
+     "definitionFit": "Acetic acid is the compound that gives vinegar its sharp sour flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 9,
@@ -58,7 +159,49 @@
     "text": "Final customer puts up with swapping a couple of positions",
     "enumeration": "3,4"
    },
-   "solution": "ENDUSER"
+   "solution": "ENDUSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Final customer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "swapping a couple of positions",
+       "at": 28,
+       "note": "two letters change places, the R and the S trading spots in the synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "puts up with",
+       "at": 15,
+       "gives": "ENDURES",
+       "note": "to endure something is to put up with it"
+      },
+      {
+       "gives": "RES"
+      },
+      {
+       "gives": "SER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The last buyer in a chain tolerates being shuffled between roles.",
+     "walkthrough": "In ENDURES, swap the R and the S to get the answer.",
+     "definitionFit": "The end user is the person who finally uses a product, the last customer in the chain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "positions"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +215,54 @@
     "text": "In turn, can choose to cavil",
     "enumeration": "7"
    },
-   "solution": "NITPICK"
+   "solution": "NITPICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to cavil",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "In turn",
+         "at": 0,
+         "note": "turning the word round reads its letters backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 9,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
+      },
+      {
+       "words": "choose",
+       "at": 13,
+       "gives": "PICK",
+       "note": "to pick is to choose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One by one, you may select what to complain about.",
+     "walkthrough": "'In turn' looks like a link phrase meaning one at a time, but it reverses the can; 'cavil' is a verb, so 'to' belongs with it.",
+     "definitionFit": "To nitpick is to find fault over trivial details, which is what cavilling means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +276,47 @@
     "text": "Short measure in utterance: cry of horror: not seriously!",
     "enumeration": "6-2-5"
    },
-   "solution": "TONGUEINCHEEK"
+   "solution": "TONGUEINCHEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not seriously!",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "utterance",
+       "at": 17,
+       "gives": "TONGUE",
+       "note": "tongue can mean speech or language, an utterance"
+      },
+      {
+       "words": "Short measure",
+       "at": 0,
+       "gives": "INCH",
+       "note": "an inch is a small unit of length"
+      },
+      {
+       "words": "cry of horror",
+       "at": 28,
+       "gives": "EEK",
+       "note": "eek is an exclamation of alarm"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone speaking of a skimpy portion yelps in fright, then insists they were only joking.",
+     "definitionFit": "Saying something tongue-in-cheek means saying it ironically, as a joke rather than in earnest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 14,
@@ -100,7 +330,29 @@
     "text": "Strong leggings for men",
     "enumeration": "5"
    },
-   "solution": "CHAPS"
+   "solution": "CHAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Strong leggings",
+      "at": 0,
+      "meaning": "sturdy leather leg coverings worn over trousers by cowboys and riders"
+     },
+     {
+      "text": "men",
+      "at": 20,
+      "meaning": "informal plural for fellows or blokes"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word names both protective leather riding leggings and, informally, a group of fellows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strong"
+    }
+   }
   },
   {
    "number": 15,
@@ -114,7 +366,92 @@
     "text": "Heartily disbelieve endless correspondence I entered into in dungeon",
     "enumeration": "9"
    },
-   "solution": "OUBLIETTE"
+   "solution": "OUBLIETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dungeon",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Heartily",
+         "at": 0,
+         "note": "only the heart of the synonym is kept, its first and last letters dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "disbelieve",
+         "at": 9,
+         "gives": "DOUBT",
+         "note": "to doubt is to disbelieve"
+        },
+        {
+         "gives": "D"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entered into",
+         "at": 45,
+         "note": "the letter goes inside the shortened word"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 20,
+           "note": "the synonym loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "correspondence",
+           "at": 28,
+           "gives": "LETTER",
+           "note": "a letter is a piece of correspondence"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "words": "I",
+         "at": 43,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sincerely doubts that an unfinished letter was slipped into a prison cell.",
+     "walkthrough": "'Heartily' gives OUB, 'endless' gives LETTE, and 'entered into' turns that into LIETTE. The word comes from French oublier, to forget: prisoners were left there and forgotten.",
+     "definitionFit": "An oubliette is a secret dungeon reached only through a trapdoor in its ceiling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartily"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +465,59 @@
     "text": "Curious respect in which man gets feeling of repulsion",
     "enumeration": "3,6"
    },
-   "solution": "THECREEPS"
+   "solution": "THECREEPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "feeling of repulsion",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in which",
+       "at": 16,
+       "note": "the second piece sits inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Curious",
+         "at": 0,
+         "note": "curious means odd or strange, so the letters are put in an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "respect",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "man",
+       "at": 25,
+       "gives": "HE",
+       "note": "he is a man in pronoun form"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peculiar sort of regard, where a fellow comes to feel revulsion.",
+     "walkthrough": "'Curious' gives TCREEPS and 'in which' slots the man in after its first letter; 'gets' is only a link. 'Curious' reads as an adjective on respect, hiding its job.",
+     "definitionFit": "Having the creeps is an idiom for feeling uneasy disgust or revulsion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Curious"
+    }
+   }
   },
   {
    "number": 19,
@@ -142,7 +531,41 @@
     "text": "European lake giving one 17",
     "enumeration": "5"
    },
-   "solution": "EERIE"
+   "solution": "EERIE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "giving one 17",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "European",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "lake",
+       "at": 9,
+       "gives": "ERIE",
+       "note": "Lake Erie is one of the North American Great Lakes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lake in Europe that sends shivers down your spine.",
+     "walkthrough": "17 across is THE CREEPS, so the definition means spooky.",
+     "definitionFit": "Something spooky or uncanny makes your flesh crawl with unease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 21,
@@ -156,7 +579,49 @@
     "text": "Section of treaty requiring clergy group to attend party",
     "enumeration": "6,7"
    },
-   "solution": "SOCIALCHAPTER"
+   "solution": "SOCIALCHAPTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Section of treaty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to attend",
+       "at": 41,
+       "note": "the clergy group comes along to the party, sitting beside it after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "party",
+       "at": 51,
+       "gives": "SOCIAL",
+       "note": "a social is a party or gathering"
+      },
+      {
+       "words": "clergy group",
+       "at": 28,
+       "gives": "CHAPTER",
+       "note": "a chapter is the body of canons of a cathedral"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of an international agreement obliges a cathedral's clergy to show up at a party.",
+     "walkthrough": "The Social Chapter was the part of the EU's Maastricht Treaty covering employment rights.",
+     "definitionFit": "The Social Chapter was the employment-rights protocol in the 1992 Maastricht Treaty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 24,
@@ -170,7 +635,59 @@
     "text": "Conspicuous net deployed around hole in ground",
     "enumeration": "7"
    },
-   "solution": "EMINENT"
+   "solution": "EMINENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 25,
+       "note": "the rearranged letters wrap around the second piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "deployed",
+         "at": 16,
+         "note": "deployed means spread out or arranged, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "net",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "hole in ground",
+       "at": 32,
+       "gives": "MINE",
+       "note": "a mine is a hole dug in the ground"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A highly visible net is spread around a pit in the earth.",
+     "walkthrough": "'deployed' gives ENT, and 'around' wraps those letters about the hole so it sits between the E and the NT; 'Conspicuous' is a fair stretch for prominent.",
+     "definitionFit": "Eminent means standing out or prominent, which is a near synonym for conspicuous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deployed"
+    }
+   }
   },
   {
    "number": 25,
@@ -184,7 +701,40 @@
     "text": "Level a baby clings to?",
     "enumeration": "7"
    },
-   "solution": "ABREAST"
+   "solution": "ABREAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Level",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "baby clings to?",
+       "at": 8,
+       "gives": "BREAST",
+       "note": "a nursing infant holds on to its mother's breast"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flat surface for an infant to hang on to?",
+     "definitionFit": "To be abreast is to be side by side, level with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 26,
@@ -198,7 +748,43 @@
     "text": "Judge wise men, honest sounding",
     "enumeration": "10"
    },
-   "solution": "MAGISTRATE"
+   "solution": "MAGISTRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MAGISTRATE",
+     "indicators": [
+      {
+       "text": "sounding",
+       "at": 23,
+       "note": "the pieces are said aloud and give a word that sounds the same"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wise men, honest",
+       "at": 6,
+       "gives": "MAGISTRAIGHT",
+       "note": "the Magi were the wise men of the Nativity; straight means honest"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Assessing the Magi, who seem to be truthful.",
+     "definitionFit": "A magistrate is a judicial officer who judges minor cases in a lower court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 27,
@@ -212,7 +798,40 @@
     "text": "Small child a danger for driver",
     "enumeration": "4"
    },
-   "solution": "SKID"
+   "solution": "SKID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "danger for driver",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "child",
+       "at": 6,
+       "gives": "KID",
+       "note": "a kid is a child"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little youngster is a hazard to someone at the wheel.",
+     "definitionFit": "A skid is a loss of grip on the road, a real hazard for motorists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 1,
@@ -226,7 +845,45 @@
     "text": "My go-cart test is abandoned",
     "enumeration": "5,5"
    },
-   "solution": "GREATSCOTT"
+   "solution": "GREATSCOTT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abandoned",
+       "at": 19,
+       "note": "abandoned means wild or unrestrained, so the letters run loose into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "go-cart",
+       "at": 3
+      },
+      {
+       "words": "test",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's kart trial has been called off.",
+     "walkthrough": "'abandoned' rearranges GOCARTTEST. 'My' is an exclamation of surprise.",
+     "definitionFit": "Both are dated exclamations of astonishment, like gosh or goodness me."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 2,
@@ -240,7 +897,49 @@
     "text": "Revered figure's heavenly food taken round party",
     "enumeration": "7"
    },
-   "solution": "MADONNA"
+   "solution": "MADONNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Revered figure's",
+      "at": 0,
+      "note": "read as Revered figure is, the 's standing for is"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken round",
+       "at": 31,
+       "note": "the food wraps round the party, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heavenly food",
+       "at": 17,
+       "gives": "MANNA",
+       "note": "manna was the food sent from heaven to the Israelites"
+      },
+      {
+       "words": "party",
+       "at": 43,
+       "gives": "DO",
+       "note": "a do is a party"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint's divine bread is passed around at a celebration.",
+     "definitionFit": "The Madonna is the Virgin Mary, venerated in Christian worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 4,
@@ -254,7 +953,74 @@
     "text": "Elephant is not one to bother about new tusk being incomplete",
     "enumeration": "9"
    },
-   "solution": "CARNIVORE"
+   "solution": "CARNIVORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Elephant is not one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 30,
+       "note": "the synonym goes around the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bother",
+       "at": 23,
+       "gives": "CARE",
+       "note": "to care is to bother about something"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 36,
+         "gives": "N"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "being incomplete",
+           "at": 45,
+           "note": "the synonym is missing its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tusk",
+           "at": 40,
+           "gives": "IVORY",
+           "note": "ivory is the material of a tusk, and the tusk itself"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The elephant is no meat-eater, so why fret over a fresh tusk being partial?",
+     "walkthrough": "'being incomplete' gives IVOR and 'about' wraps the worry round N plus that. The definition is a whole phrase: elephants eat plants, so they are not meat-eaters.",
+     "definitionFit": "Elephants are herbivores, so they are not meat-eaters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Elephant"
+    }
+   }
   },
   {
    "number": 5,
@@ -268,7 +1034,57 @@
     "text": "African capital almost cold: put this on?",
     "enumeration": "5"
    },
-   "solution": "TUNIC"
+   "solution": "TUNIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put this on?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 16,
+         "note": "almost the whole word, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "African capital",
+         "at": 0,
+         "gives": "TUNIS",
+         "note": "Tunis is the capital of Tunisia"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "at": 23,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a chilly North African capital, should you wear this?",
+     "walkthrough": "'almost' cuts TUNIS to TUNI. The definition hints at a garment someone would put on.",
+     "definitionFit": "A tunic is a loose garment, something worn and so put on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 6,
@@ -282,7 +1098,45 @@
     "text": "Train preacher to dance for queen",
     "enumeration": "9,4"
    },
-   "solution": "CATHERINEPARR"
+   "solution": "CATHERINEPARR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "queen",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to dance",
+       "at": 15,
+       "note": "dancing makes the letters move about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Train",
+       "at": 0
+      },
+      {
+       "words": "preacher",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coaching a clergyman to dance for a monarch.",
+     "walkthrough": "'to dance' rearranges TRAINPREACHER.",
+     "definitionFit": "Catherine Parr was the sixth and last wife of Henry VIII, hence a queen of England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 7,
@@ -296,7 +1150,42 @@
     "text": "Chirpy type finds painful spasm alien",
     "enumeration": "7"
    },
-   "solution": "CRICKET"
+   "solution": "CRICKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chirpy type",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "painful spasm",
+       "at": 18,
+       "gives": "CRICK",
+       "note": "a crick is a painful stiffness of the neck or back"
+      },
+      {
+       "words": "alien",
+       "at": 32,
+       "gives": "ET",
+       "note": "ET is the extraterrestrial of the film"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful person discovers a sharp twinge is from outer space.",
+     "definitionFit": "A cricket is an insect that chirps, so a chirping creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chirpy"
+    }
+   }
   },
   {
    "number": 8,
@@ -310,7 +1199,48 @@
     "text": "Expected to entertain king or other royal",
     "enumeration": "4"
    },
-   "solution": "DUKE"
+   "solution": "DUKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "other royal",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to entertain",
+       "at": 9,
+       "note": "a host entertains guests, holding the piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Expected",
+       "at": 0,
+       "gives": "DUE",
+       "note": "due means expected"
+      },
+      {
+       "words": "king",
+       "at": 22,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Due to host the king or some other nobleman.",
+     "definitionFit": "A royal duke is a duke of the royal family, a member of royalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertain"
+    }
+   }
   },
   {
    "number": 10,
@@ -324,7 +1254,42 @@
     "text": "Put an end to scams in 1 ac",
     "enumeration": "6,7"
    },
-   "solution": "SQUASHRACKETS"
+   "solution": "SQUASHRACKETS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "1 ac",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Put an end to",
+       "at": 0,
+       "gives": "SQUASH",
+       "note": "to squash something is to put a stop to it"
+      },
+      {
+       "words": "scams",
+       "at": 14,
+       "gives": "RACKETS",
+       "note": "rackets are fraudulent schemes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stop the frauds in a sporting contest.",
+     "walkthrough": "1 ac is 1 across, GAME: the answer is a racket sport.",
+     "definitionFit": "Squash rackets is the full name of squash, a sport and therefore a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scams"
+    }
+   }
   },
   {
    "number": 13,
@@ -338,7 +1303,49 @@
     "text": "No longer to be used religiously when criminal leaves, having done this?",
     "enumeration": "10"
    },
-   "solution": "DESECRATED"
+   "solution": "DESECRATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having done this?",
+      "at": 55
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaves",
+       "at": 47,
+       "note": "the criminal departs, so those letters are taken out of the longer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "No longer to be used religiously",
+       "at": 0,
+       "gives": "DECONSECRATED",
+       "note": "a deconsecrated church is no longer in religious use"
+      },
+      {
+       "words": "criminal",
+       "at": 38,
+       "gives": "CON",
+       "note": "a con is a convict, a criminal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church taken out of religious use, after a crook departs having violated it?",
+     "walkthrough": "The definition points back to the criminal: having profaned the place.",
+     "definitionFit": "To desecrate is to violate something sacred, which a criminal might have done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1359,60 @@
     "text": "Wild survival technique requires two conveyances, including horse",
     "enumeration": "9"
    },
-   "solution": "BUSHCRAFT"
+   "solution": "BUSHCRAFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wild survival technique",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 50,
+       "note": "the two vehicles include the extra letter between them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "two conveyances",
+         "at": 33,
+         "gives": "BUS",
+         "note": "a bus is a road conveyance"
+        },
+        {
+         "words": "two conveyances",
+         "at": 33,
+         "gives": "CRAFT",
+         "note": "a craft is a vessel, a conveyance on water or in the air"
+        }
+       ]
+      },
+      {
+       "words": "horse",
+       "at": 60,
+       "gives": "H",
+       "note": "H is slang for heroin, horse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A survival skill in the wilds calls for two vehicles and a horse.",
+     "walkthrough": "H for horse comes from drug slang: both mean heroin.",
+     "definitionFit": "Bushcraft is the skill of living and surviving in the wild outdoors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 18,
@@ -366,7 +1426,48 @@
     "text": "The distance to the sun getting less — about time",
     "enumeration": "7"
    },
-   "solution": "EASTING"
+   "solution": "EASTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The distance to the sun",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "the synonym goes about the extra letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "getting less",
+       "at": 24,
+       "gives": "EASING",
+       "note": "easing means lessening"
+      },
+      {
+       "words": "time",
+       "at": 45,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How far it is to the sun is shrinking, approximately in time.",
+     "walkthrough": "The sun rises in the east, so the definition is a playful take on eastward distance.",
+     "definitionFit": "An easting is a distance measured eastward on a map, towards where the sun rises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sun"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1481,69 @@
     "text": "Press without restraint at head of person held in torture instrument",
     "enumeration": "7"
    },
-   "solution": "RATPACK"
+   "solution": "RATPACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Press without restraint",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held in",
+       "at": 42,
+       "note": "the pieces are held inside the instrument"
+      }
+     ],
+     "parts": [
+      {
+       "words": "torture instrument",
+       "at": 50,
+       "gives": "RACK",
+       "note": "the rack was a device for stretching victims"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "at",
+         "at": 24,
+         "gives": "AT",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "head of",
+           "at": 27,
+           "note": "the first letter of the word is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "person",
+           "at": 35
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unrestrained journalists turn up, with someone's head stuck in a torture device.",
+     "definitionFit": "A rat pack is a pushy group of journalists or photographers hounding celebrities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1557,46 @@
     "text": "Daisy, unmarried teacher",
     "enumeration": "5"
    },
-   "solution": "ASTER"
+   "solution": "ASTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daisy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "unmarried",
+       "at": 7,
+       "note": "M stands for married, so unmarried means losing that letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "teacher",
+       "at": 17,
+       "gives": "MASTER",
+       "note": "a master is a schoolteacher"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Daisy is a single schoolteacher.",
+     "walkthrough": "M is the standard abbreviation for married.",
+     "definitionFit": "Asters are flowers of the daisy family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daisy"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1610,41 @@
     "text": "Join a lot of water marks",
     "enumeration": "4"
    },
-   "solution": "SEAM"
+   "solution": "SEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a lot of water",
+       "at": 5,
+       "gives": "SEA",
+       "note": "a sea is a large body of water"
+      },
+      {
+       "words": "marks",
+       "at": 20,
+       "gives": "M",
+       "note": "M is the abbreviation for marks, the old German currency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Join a body of water that leaves stains.",
+     "definitionFit": "A seam is the line where two pieces are joined together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marks"
+    }
+   }
   }
  ]
 }
