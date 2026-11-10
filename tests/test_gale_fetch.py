@@ -427,6 +427,7 @@ gale_inbox.sunday_wanted = lambda prod: []  # tested below
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
 saved_tld = gf.times_listener_days
 gf.REQUESTS = Path("/nonexistent/requests.txt")  # not the machine's real request list
+gf.HOLDS = Path("/nonexistent/holds.txt")  # nor its holds
 gf.times_listener_days = lambda docs: []  # the Saturday Listener articles are tested below
 docs ={"TGRH/2000-01-03": {"why": "no crossword in the issue's contents", "matcher": gale_docs.MATCHER["TGRH"]}, "FTHA/2010-01-04": {"doc": "HS1"}}
 gale_docs.load = lambda *a: docs
@@ -561,4 +562,8 @@ assert gf.requested_days(req) == [D(1981, 6, 20), D(1930, 4, 18)], gf.requested_
 req.write_text("1981-06-20 INDA/1995-01-01 NOPE/1995-01-08 INDA/bad 1930-04-18\n")
 assert gf.requested_rows(req) == [("TTDA", D(1981, 6, 20)), ("INDA", D(1995, 1, 1)), ("TTDA", D(1930, 4, 18))], gf.requested_rows(req)
 assert gf.requested_days(req) == [D(1981, 6, 20), D(1930, 4, 18)]
+hold = req.parent / "holds.txt"
+assert gf.held_products(hold) == set()
+hold.write_text("INDA  # reader not ready\n# FTHA\n")
+assert gf.held_products(hold) == {"INDA"}, gf.held_products(hold)
 print("test_gale_fetch: ok")
