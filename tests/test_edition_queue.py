@@ -796,6 +796,22 @@ check("a Gale Sunday Telegraph 1976 page filed is due QUICK_SET (ranked, evidenc
        f.quick_set_due({**_qrow, "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
        f.quick_set_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}),
        f.quick_set_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
+check("a Gale Sunday Telegraph 1976 page read after QUICK_SET is due QUICK_HELD (ranked, evidence, fix-landed, in unfiled-first); "
+      "a page read since, a 1977-09-25 page and a refused page are not",
+      [True, 1, True, True, True, False, False, False],
+      [f.quick_held_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00"}), f.RANKS[f.QUICK_HELD],
+       eq.evidence_reason(f.QUICK_HELD), f.QUICK_HELD in eq.FIX_LANDED, f.QUICK_HELD in eq.UNFILED_FIRST,
+       f.quick_held_due({**_qrow, "readAt": "2026-11-10T09:00:00+00:00"}),
+       f.quick_held_due({**_qrow, "readAt": "2026-11-10T07:00:00+00:00", "edition": "GaleSundayTelegraph1977UKEnglish/1977-09-25"}),
+       f.quick_held_due({**_qrow, "verdicts": [{"number": 779, "refused": "no reading parses"}]})])
+def _held_entries(texts):
+    return [{"number": i + 1, "direction": "across", "position": {"x": 0, "y": i}, "length": 3, "solution": None,
+             "clue": {"text": t, "enumeration": "3"}} for i, t in enumerate(texts)]
+_held_old = {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 3, "rows": 20}, "entries": _held_entries(["Old dance"] * 20)}
+_held_new = {"source": {"acquiredBy": f.TOOL}, "dimensions": {"cols": 3, "rows": 20}, "entries": _held_entries(["Made to look larger than a planet nearby"] * 20)}
+check("a Quickie-clue held file is replaced by a cryptic reading on its grid, not the other way round",
+      [True, False, False],
+      [f.quick_held(_held_new, _held_old), f.quick_held(_held_old, _held_new), f.quick_held(_held_new, _held_new)])
 check("the Quickie heading and its advert cut the text; the Quickie set is a short-clue list and a cryptic one is not",
       ["ACROSS\n1 Made (9)\nDOWN\n2 Old (7)", True, False],
       [f.first_clue_set("ACROSS\n1 Made (9)\nDOWN\n2 Old (7)\nclues fora simpler\nQuickie'No.5\nACROSS\n1 Big (5)"),

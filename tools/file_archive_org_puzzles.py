@@ -1264,6 +1264,22 @@ def quick_set_due(row):
     return any(v.get("id") for v in row.get("verdicts", ()))
 
 
+#: The reason of a Gale Sunday Telegraph page of 1972-04 to 1977-09-04 reread under QUICK_SET (read after
+#: REREAD_QUICK_SET) whose cryptic reading decide() held off: the file's Quickie clues had every clue, so improves()
+#: found nothing better (quick_held now replaces it). Once.
+QUICK_HELD = "Gale Sunday Telegraph page whose cryptic reading was held off by its Quickie-clue file, read since"
+REREAD_QUICK_HELD = "2026-11-10T07:05:00+00:00"
+
+
+def quick_held_due(row):
+    """quick_set_due for a row read before REREAD_QUICK_HELD (after REREAD_QUICK_SET it is QUICK_SET's no more)."""
+    rel = row.get("edition") or ""
+    if paper_of(Path(rel)).key != "galesundaytelegraph" or Path(rel).name[:10] >= SUNDAY_QUICKIE_END \
+            or not scan_queue.read_before(row, scan_queue.when(REREAD_QUICK_HELD)):
+        return False
+    return any(v.get("id") for v in row.get("verdicts", ()))
+
+
 def sunday_right_due(row):
     """Whether Gale Sunday Telegraph ledger `row`, read after REREAD_SUNDAY_SIDES and before REREAD_SUNDAY_RIGHT, holds
     a verdict refused "no reading parses" with its grid read (no imageUnread), every reading finding "no ACROSS and
@@ -18294,6 +18310,8 @@ def fix_reason(row):
         return SUNDAY_RIGHT
     if quick_set_due(row):
         return QUICK_SET
+    if quick_held_due(row):
+        return QUICK_HELD
     if vlm_plain_due(row):
         return VLM_PLAIN
     if vlm_laid_due(row):
@@ -18948,7 +18966,9 @@ BLANKET_PASSES = (LOST_WRITE, PUNCT_MENDED, STRIP_TAIL, UNREAD_TITLES, "unfiled 
                   # 11-09: the same read since, still no ACROSS and DOWN lists: both columns right of a grid at the page's edge.
                   SUNDAY_RIGHT,
                   # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (quick_set_due).
-                  QUICK_SET)
+                  QUICK_SET,
+                  # 11-10: that page read under QUICK_SET, its cryptic reading held off by the Quickie-clue file (quick_held_due).
+                  QUICK_HELD)
 
 
 def refusal_passes(why):
@@ -18987,7 +19007,9 @@ def blanket_or_fix(row, blanket):
             return SUNDAY_SIDES
         if sunday_right_due(row):
             return SUNDAY_RIGHT
-        return QUICK_SET if quick_set_due(row) else blanket
+        if quick_set_due(row):
+            return QUICK_SET
+        return QUICK_HELD if quick_held_due(row) else blanket
     titles = {p.get("number") for p in (row.get("scan") or {}).get("puzzles") or ()}
     lost = any(v.get("read_as", v.get("number")) not in titles for v in row.get("verdicts", ())) \
         and not held_titles(row)
@@ -19206,7 +19228,7 @@ RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 
          NO_TITLE_RESCAN: 2, INSET_GRID: 2, LONE_TITLE: 2, GF_TITLE: 2, FAILED_SCAN: 2, GF_UNREAD: 2, FOOTER_TITLE: 2, SMALL_TITLE: 2, SMALL_HEADED: 2, CLUE_GARBLED: 2, VLM_PLAIN: 2,
          # A page whose title the scan could not join to its number (joined_rescan): as good as never read (1), its
          # puzzle is on it, and the 28,000 never-scanned units of the queue stood ahead of every rank 2 reread.
-         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, "scan stale": 3, "--reread": 3,
+         HEADINGS_JOINED: 1, WINNERS_TITLE: 1, SIDES_READ: 1, SUNDAY_SIDES: 1, SUNDAY_RIGHT: 1, QUICK_SET: 1, QUICK_HELD: 1, "scan stale": 3, "--reread": 3,
          # A Saturday Times Listener page read before its cut's fix (gale_listener.TIMES_CUTS).
          "Times Listener page read before its cut's fix": 2,
          "read by another VLM": 3,
@@ -20731,7 +20753,14 @@ def decide(verdict, puzzle, series, puzzles, held, commit, path=filer_path):
     # An answers-only reading (answers_only) is the held file's own clues: merged, never laid over it.
     better = target.exists() and not verdict.get("answersOnly") and improves(puzzle, target)
     if better:
-        kept = keep_held_clues(puzzle, json.loads(target.read_text()))
+        held_file = json.loads(target.read_text())
+        if quick_held(puzzle, held_file):
+            # The held Quickie clues never lay over the cryptic reading; its blank lights take the held answers
+            # (same grid and solution), as merge_answers(keep) fills a blank light crossing no letter.
+            merge_answers(puzzle, held_file, keep=True)
+            kept = []
+        else:
+            kept = keep_held_clues(puzzle, held_file)
         if kept:
             verdict["heldClues"] = kept
     old = json.loads(target.read_text()) if target.exists() and not better else None
@@ -20804,6 +20833,21 @@ def filled(puzzle):
             sum(1 for e in es if e.get("solution")))
 
 
+def quick_held(puzzle, old, tool=TOOL):
+    """Whether the held file `old` (`tool`'s, on `puzzle`'s grid) carries a Quickie clue set (quick_set of its
+    entries' clues) and `puzzle` does not: the new reading's cryptic clues replace it whole (QUICK_HELD; improves()
+    found nothing to add, the Quickie file having every clue)."""
+    if (old.get("source") or {}).get("acquiredBy") != tool \
+            or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
+        return False
+    def clues(p):
+        out = {"across": [], "down": []}
+        for e in p["entries"]:
+            out.setdefault(e.get("direction"), []).append({"text": (e.get("clue") or {}).get("text") or ""})
+        return out
+    return quick_set(clues(old)) and not quick_set(clues(puzzle))
+
+
 def improves(puzzle, path, tool=TOOL):
     """Whether `puzzle` should replace the file at `path`: one `tool`
     filed, on the same grid, that the new reading beats on clues or answers
@@ -20813,6 +20857,8 @@ def improves(puzzle, path, tool=TOOL):
             or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle) \
             or provenance.hand_lights(old):
         return False
+    if quick_held(puzzle, old, tool):
+        return True
     def have(p, field):
         return {entry_id(e) for e in p["entries"]
                 if field == "clue" and ((e.get("clue") or {}).get("text") or "").strip()
