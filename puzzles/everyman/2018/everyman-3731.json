@@ -877,6 +877,7 @@
      "parts": [
       {
        "words": "stage",
+       "at": 11,
        "gives": "LEG",
        "note": "a leg is a stage of a journey or race"
       },
@@ -885,49 +886,58 @@
        "indicators": [
         {
          "text": "interrupted by",
-         "note": "'that is' is broken into by 'small' and the rearranged word"
+         "at": 25,
+         "note": "being interrupted by something means having it break in, so the letters for that is are split"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "upset",
-           "note": "something upset is knocked over and disordered, so 'important' is rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "that is",
-           "gives": "IE",
-           "note": "i.e., id est, means that is"
-          },
-          {
-           "words": "small",
-           "gives": "S",
-           "note": "standard abbreviation for small"
-          }
-         ]
+         "words": "that is",
+         "at": 17,
+         "gives": "IE",
+         "note": "IE is the abbreviation of id est, that is"
         },
         {
-         "words": "important",
-         "gives": "LATIV",
-         "note": "vital rearranged"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "small",
+           "at": 40,
+           "gives": "S"
+          },
+          {
+           "op": "reversal",
+           "indicators": [
+            {
+             "text": "upset",
+             "at": 57,
+             "note": "in a down answer upset means turned upside down, so the word reads from bottom to top"
+            }
+           ],
+           "parts": [
+            {
+             "words": "important",
+             "at": 47,
+             "gives": "VITAL",
+             "note": "vital means important"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bill's passage through parliament being disrupted by a minor but significant upset.",
-     "walkthrough": "'Important' becomes VITAL before being rearranged; S and LATIV go inside I.E.",
-     "definitionFit": "The legislative branch is the one that makes laws, an adjectival synonym."
+     "surface": "A legislative stage is disrupted by something small but important going wrong.",
+     "walkthrough": "In a down clue 'upset' turns the synonym of important upside down; 'interrupted by' splits the letters for that is around the inserted pieces.",
+     "definitionFit": "An adjective for anything concerned with making laws, as a parliament's functions are."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stage"
+     "misdirectedWord": "upset"
     }
    }
   },
