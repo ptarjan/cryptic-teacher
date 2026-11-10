@@ -167,6 +167,18 @@ def display_answer(entry, puzzle=None):
     return re.sub(r" {2,}", " ", "".join(out)).strip(" -")
 
 
+def whole_answer(entry, puzzle=None):
+    """What an entry's wordplay must build: display_answer (a linked lead's
+    whole joined answer), but the entry's own solution when its group names an
+    entry the puzzle lacks. "" when the entry holds no solution."""
+    if not entry.get("solution"):
+        return ""
+    try:
+        return display_answer(entry, puzzle) or str(entry["solution"])
+    except (KeyError, TypeError):
+        return str(entry["solution"])
+
+
 # An enumeration this code reads as word lengths and the marks between them:
 # "8", "3,5", "2-3,4", "4'1". Worded ones ("two words") say nothing reliable.
 ENUM_SHAPE = re.compile(r"\s*\d+(\s*[,.\-–'’\s]\s*\d+)*\s*")

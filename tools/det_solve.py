@@ -30,6 +30,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+import annotation
 import det_synonyms  # the synonym dictionary: sources, ranking, leaf coverage
 import puzzle_paths
 CACHE = Path.home() / ".cache" / "detsolve"
@@ -111,7 +112,7 @@ def _load_one(p):
             continue
         out.append({"pid": d["id"], "series": s, "num": e["number"], "dir": e["direction"],
                     "clue": e["clue"]["text"], "enum": e["clue"].get("enumeration", ""),
-                    "answer": letters(e["solution"]),
+                    "answer": letters(annotation.whole_answer(e, d)),
                     "defs": [x.get("text", "") for x in a.get("definitions", [])],
                     "tree": w, "andlit": bool(a.get("andLit"))})
     return out

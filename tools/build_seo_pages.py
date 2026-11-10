@@ -499,7 +499,7 @@ def listed(names):
     return ", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else "".join(names)
 
 
-def clue_html(e, blog_note=True, pid=None):
+def clue_html(e, blog_note=True, pid=None, puz=None):
     """One clue: text, answer, and whatever explanation exists for it.
 
     blog_note=False when the page says once, above the clues, that every
@@ -511,7 +511,7 @@ def clue_html(e, blog_note=True, pid=None):
     honestly labelled rather than padded out.
     """
     ann = e.get("annotation") or blog_annotation(e) or {}
-    answer = ann.get("answer") or e.get("solution") or ""
+    answer = (None if ann.get("fromBlog") else ann.get("answer")) or annotation.whole_answer(e, puz) or ""  # a linked lead shows its whole answer
     num = f"{e['number']} {e['direction']}"
     # Bare elements, one line per clue: style.css styles them by position
     # under .s-list, because this runs once per clue on the site and a class on
@@ -856,7 +856,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
                     + "; our own explanations are not written yet.</p>")
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')
-        body.extend(clue_html(e, blog_note=not blog_only, pid=puz["id"]) for e in entries)
+        body.extend(clue_html(e, blog_note=not blog_only, pid=puz["id"], puz=puz) for e in entries)
         body.append("</section>")
 
     if nav:

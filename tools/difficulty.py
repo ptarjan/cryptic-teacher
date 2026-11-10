@@ -547,7 +547,7 @@ def rarity(puz, rank):
     found = []  # (rank of the answer's rarest listed word, whether any word is unlisted)
     later = continuation_ids(puz)  # a linked answer is one answer, scored once at its lead
     for e in puz["entries"]:
-        if entry_id(e) in later:
+        if later and entry_id(e) in later:
             continue
         sol, words = answer_words(e, puz)
         if not sol:

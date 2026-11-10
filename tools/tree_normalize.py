@@ -38,6 +38,7 @@ import os
 import sys
 
 import wordplay
+import annotation
 import validate_annotations as V
 
 
@@ -463,7 +464,7 @@ def normalize_puzzle(puzzle):
         if not ann or not isinstance(ann.get("wordplay"), dict):
             continue
         clue = (e.get("clue") or {}).get("text", "")
-        new, used = normalize(ann["wordplay"], clue, e.get("solution", ""))
+        new, used = normalize(ann["wordplay"], clue, annotation.whole_answer(e, puzzle))
         if used:
             out.append((f"{e.get('number')}{(e.get('direction') or '?')[:1]}", used,
                         cs.compact(ann["wordplay"]), cs.compact(new)))
