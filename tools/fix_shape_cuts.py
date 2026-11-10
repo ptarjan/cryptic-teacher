@@ -8,7 +8,7 @@ import re
 import annotation
 import validate_annotations as V
 import wordplay as W
-from fix_shape_base import TAIL, HEAD, MID, walk, leaf, vals, checked, _eval_swapped
+from fix_shape_base import TAIL, HEAD, MID, walk, leaf, vals, checked, _eval_swapped, _whole
 from fix_shape_leaves import _tokens, _abbreviations
 from fix_shape_indicators import _mine_for_op, _lexicon_owns
 
@@ -330,6 +330,42 @@ def r_halved_deletion(node, parent, ctx):
         return None
     new = {"op": ops[0], "indicators": copy.deepcopy(inds), "parts": [copy.deepcopy(whole)]}
     return new if _eval_swapped(node, parent, new, ctx) else None
+
+
+def r_trim_selection(node, parent, ctx):
+    """trimAsSelection: first/last/middle<ind>([synonym]WORD) keeping 2+ letters of a synonym leaf (gives
+    differs from the clue words) is a trim of a word the clue does not print: del<ind>(WORD, cut...).
+    first keeps the head, so the tail is cut; last cuts the head; middle (only the word less both ends)
+    cuts the same number of letters off both ends, as two bare leaves. The kept letters are what the tree evaluates the
+    node to, so the cut is exactly determined; kept only when the tree still gives the answer and the
+    rule no longer fires."""
+    parts = node.get("parts") or []
+    if node.get("op") not in ("first", "last", "middle") or node.get("unchecked") or len(parts) != 1 \
+            or not ctx.get("answer") or not ctx.get("tree") or not leaf(parts[0]) or parts[0].get("select") \
+            or parts[0].get("unchecked") or not parts[0].get("gives"):
+        return None
+    try:
+        pick = W.evaluate(ctx["tree"], ctx["answer"]).get(id(node)) or ""
+    except (W.WordplayError, IndexError, KeyError, TypeError, ValueError, W._NeedTarget):
+        return None
+    whole = W.letters(parts[0]["gives"])
+    n, op = len(pick), node["op"]
+    if op == "first" and whole.startswith(pick):
+        cuts = [whole[n:]]
+    elif op == "last" and whole.endswith(pick):
+        cuts = [whole[:len(whole) - n]]
+    elif op == "middle" and (len(whole) - n) % 2 == 0 and (len(whole) - n) // 2 >= 1 \
+            and pick == whole[(len(whole) - n) // 2:(len(whole) + n) // 2]:
+        a = (len(whole) - n) // 2
+        cuts = [whole[:a], whole[-a:]]
+    else:
+        return None
+    new = {"op": "deletion", "indicators": copy.deepcopy(node.get("indicators") or []),
+           "parts": [copy.deepcopy(parts[0])] + [{"gives": c.upper()} for c in cuts]}
+    if not new["indicators"] or not _eval_swapped(node, parent, new, ctx):
+        return None
+    before = V.trims_as_selection(ctx["tree"], ctx["answer"])
+    return new if V.trims_as_selection(_whole(node, parent, new, ctx), ctx["answer"]) < before else None
 
 
 def r_moved_letter(node, parent, ctx):

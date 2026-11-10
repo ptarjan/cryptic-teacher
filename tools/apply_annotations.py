@@ -507,6 +507,7 @@ def rule_counters():
     import validate_annotations as V
     table = {**F._DETECTOR_RULES, **shape_queue._validator_rules()}
     table["unindicatedBare"] = lambda t, a, c: V.unindicated_ops(t)
+    table["trimAsSelection"] = lambda t, a, c: V.trims_as_selection(t, a.get("_answer"))
     table["repeatedSelection"] = lambda t, a, c: V.repeated_selections(t)
     table["spanOverlap"] = lambda t, a, c: _span_overlaps(t, c)
     table["doesNotGive"] = lambda t, a, c: _gives_not(t, a.get("_answer"))
