@@ -816,7 +816,8 @@ def wait_answered(keys):
             if not keys:
                 return True
             if time.monotonic() - t0 >= budget or not any(pending(k) for k in keys):
-                return False
+                # The drainer may have cached the answer and left the spool since the look above.
+                return all(answered(k) for k in keys)
             time.sleep(SPOOL_POLL)
     finally:
         _WAITED[0] += time.monotonic() - t0
