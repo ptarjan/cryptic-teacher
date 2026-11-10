@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,32 @@
     "text": "Describing dialogue, excluding relations?",
     "enumeration": "8"
    },
-   "solution": "PLATONIC"
+   "solution": "PLATONIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Describing dialogue",
+      "at": 0,
+      "meaning": "Plato wrote his philosophy as dialogues, and those works carry his name as an adjective"
+     },
+     {
+      "text": "excluding relations",
+      "at": 21,
+      "meaning": "a friendship with no sexual relations is called by this name"
+     }
+    ],
+    "explanation": {
+     "surface": "A grammarian asks what word fits a conversation that leaves out family members.",
+     "walkthrough": "'Relations' looks like relatives; it means sexual relations.",
+     "definitionFit": "The adjective names both the dialogues of the Greek philosopher Plato and love that stays non-sexual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 5,
@@ -44,7 +72,48 @@
     "text": "'Last word in service' written about copper showing keenness",
     "enumeration": "6"
    },
-   "solution": "ACUMEN"
+   "solution": "ACUMEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "keenness",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "written about",
+       "at": 23,
+       "note": "one word written around another encloses it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Last word in service",
+       "at": 1,
+       "gives": "AMEN",
+       "note": "a prayer in a church service ends with amen"
+      },
+      {
+       "words": "copper",
+       "at": 37,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church sign about a copper roof shows enthusiasm for the closing prayer.",
+     "definitionFit": "Acumen is sharpness of mind, a synonym for keenness of judgement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 10,
@@ -58,7 +127,79 @@
     "text": "Shocking line I had, ringing you at last, right?",
     "enumeration": "5"
    },
-   "solution": "LURID"
+   "solution": "LURID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shocking",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "ringing",
+       "at": 21,
+       "note": "the outer letters encircle the others as a ring does"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "line",
+         "at": 9,
+         "gives": "L"
+        },
+        {
+         "words": "I had",
+         "at": 14,
+         "gives": "ID",
+         "note": "I'd is the contraction of I had"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "at last",
+           "at": 33,
+           "note": "at last picks the final letter of the word you"
+          }
+         ],
+         "parts": [
+          {
+           "words": "you",
+           "at": 29
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "at": 42,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A caller asks whether a startling remark they made when phoning was correct.",
+     "walkthrough": "L and ID enclose UR, the last letter of 'you' plus R for 'right'.",
+     "definitionFit": "Lurid means sensational or shocking, as in lurid headlines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +213,46 @@
     "text": "What St. George needs if dragon's rampaging?",
     "enumeration": "9"
    },
-   "solution": "SANGFROID"
+   "solution": "SANGFROID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What St. George needs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rampaging",
+       "at": 34,
+       "note": "a rampaging beast throws things into disorder, so these letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "if",
+       "at": 22
+      },
+      {
+       "words": "dragon's",
+       "at": 25,
+       "gives": "DRAGONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Facing a raging dragon, the patron saint of England would need to keep calm.",
+     "walkthrough": "'dragon's' is read as 'dragons', so IF DRAGONS is the fodder.",
+     "definitionFit": "Coolness under danger is exactly what a dragon-slaying knight requires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rampaging"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +266,70 @@
     "text": "Camping hotshots maybe securing first of lines which reach a long way?",
     "enumeration": "9"
    },
-   "solution": "TENTACLES"
+   "solution": "TENTACLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "which reach a long way",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Camping",
+       "at": 0,
+       "gives": "TENT",
+       "note": "camping is done in a tent"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "securing",
+         "at": 23,
+         "note": "to secure is to hold fast, so one piece encloses another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hotshots",
+         "at": 8,
+         "gives": "ACES",
+         "note": "aces are top performers or hotshots"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first of",
+           "at": 32,
+           "note": "first of picks the opening letter of lines"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lines",
+           "at": 41
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Star campers grab long ropes that stretch far.",
+     "walkthrough": "'maybe' flags that camping hotshots is only loosely tent aces.",
+     "definitionFit": "An octopus's long limbs extend far from its body to grasp things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Camping"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +343,50 @@
     "text": "Stops after cutting 100 inches?",
     "enumeration": "5"
    },
-   "solution": "EASES"
+   "solution": "EASES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inches",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after cutting",
+       "at": 6,
+       "note": "the word for stops, once something is cut from it, loses letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stops",
+       "at": 0,
+       "gives": "CEASES",
+       "note": "ceases means stops"
+      },
+      {
+       "words": "100",
+       "at": 20,
+       "gives": "C",
+       "note": "C is the Roman numeral for 100"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor halts after trimming a hundred inches off.",
+     "walkthrough": "'inches' looks like a measurement noun; it is a verb meaning moves slowly.",
+     "definitionFit": "To inch along is to move gradually, a synonym of eases forward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "inches"
+    }
+   }
   },
   {
    "number": 14,
@@ -114,7 +400,49 @@
     "text": "Hide article tragic hero wants to hold",
     "enumeration": "7"
    },
-   "solution": "LEATHER"
+   "solution": "LEATHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wants to hold",
+       "at": 25,
+       "note": "one word holding another contains it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tragic hero",
+       "at": 13,
+       "gives": "LEAR",
+       "note": "King Lear is the tragic hero of Shakespeare's play"
+      },
+      {
+       "words": "article",
+       "at": 5,
+       "gives": "THE",
+       "note": "the is the definite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tragic hero longs to clutch some concealed item.",
+     "definitionFit": "A hide is an animal skin, which when tanned becomes this material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 16,
@@ -128,7 +456,48 @@
     "text": "Unacceptable to have one blocking opinion",
     "enumeration": "6"
    },
-   "solution": "NOTION"
+   "solution": "NOTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "opinion",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 25,
+       "note": "one piece blocking another sits in its middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unacceptable",
+       "at": 0,
+       "gives": "NOTON",
+       "note": "not on is a British idiom for unacceptable"
+      },
+      {
+       "words": "one",
+       "at": 21,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is not right for someone to obstruct a view held by others.",
+     "definitionFit": "A notion is an idea or belief, a synonym of opinion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blocking"
+    }
+   }
   },
   {
    "number": 18,
@@ -142,7 +511,48 @@
     "text": "Superfluous to seize spades, having little vegetation?",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having little vegetation",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to seize",
+       "at": 12,
+       "note": "seizing something means holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Superfluous",
+       "at": 0,
+       "gives": "SPARE",
+       "note": "spare means extra or superfluous"
+      },
+      {
+       "words": "spades",
+       "at": 21,
+       "gives": "S",
+       "note": "S is the card-suit abbreviation for spades"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener with extra tools grabs spades for thin land.",
+     "definitionFit": "Sparse vegetation is thinly scattered, so the land has few plants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 20,
@@ -156,7 +566,59 @@
     "text": "Inferior marine vehicle caught in water flow",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inferior",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "marine vehicle",
+       "at": 9,
+       "gives": "SUB",
+       "note": "a sub is a submarine"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 31,
+         "note": "the letter for caught goes inside the word for water flow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "water flow",
+         "at": 34,
+         "gives": "JET",
+         "note": "a jet is a stream of water"
+        },
+        {
+         "words": "caught",
+         "at": 24,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lesser submarine gets trapped in a powerful current.",
+     "definitionFit": "Someone subject to another is subordinate or lower in rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inferior"
+    }
+   }
   },
   {
    "number": 22,
@@ -170,7 +632,42 @@
     "text": "Some of the art here reveals connection with the ground?",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reveals connection with the ground",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some of",
+       "at": 0,
+       "note": "Some of says the answer is a run of letters hidden inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the art here",
+       "at": 8,
+       "gives": "EARTH",
+       "note": "the letters run across the end of one word into the next"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallery visitor finds part of the exhibition shows a link to the soil.",
+     "definitionFit": "An electrical earth is the wire connecting a circuit to the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "art"
+    }
+   }
   },
   {
    "number": 23,
@@ -184,7 +681,59 @@
     "text": "Chinaware represented Alice in blue material",
     "enumeration": "9"
    },
-   "solution": "PORCELAIN"
+   "solution": "PORCELAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chinaware",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "one piece sits inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "blue material",
+       "at": 31,
+       "gives": "PORN",
+       "note": "blue means smutty, so blue material is porn"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "represented",
+         "at": 10,
+         "note": "represented means presented again in a new form, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Alice",
+         "at": 22
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Alice appears depicted on blue fabric.",
+     "walkthrough": "'blue' here means smutty, not the colour; 'represented' signals that Alice's letters are rearranged before going inside.",
+     "definitionFit": "Fine china is another name for this translucent ceramic ware."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 25,
@@ -198,7 +747,63 @@
     "text": "Guy and a second guy capturing Arab boat",
     "enumeration": "9"
    },
-   "solution": "CATAMARAN"
+   "solution": "CATAMARAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Guy",
+       "at": 0,
+       "gives": "CAT",
+       "note": "cat is slang for a guy or fellow"
+      },
+      {
+       "words": "a",
+       "at": 8
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "capturing",
+         "at": 21,
+         "note": "capturing means holding inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "second guy",
+         "at": 10,
+         "gives": "MAN",
+         "note": "man is another word for a guy"
+        },
+        {
+         "words": "Arab",
+         "at": 31,
+         "gives": "AR",
+         "note": "Ar is an abbreviation for Arab or Arabic"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two men seize an Arab on a boat.",
+     "definitionFit": "A catamaran is a twin-hulled sailing vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capturing"
+    }
+   }
   },
   {
    "number": 26,
@@ -212,7 +817,45 @@
     "text": "Suggest strongbox should not be opened",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Suggest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "should not be opened",
+       "at": 18,
+       "note": "a word not opened has lost its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "strongbox",
+       "at": 8,
+       "gives": "COFFER",
+       "note": "a coffer is a strongbox"
+      },
+      {
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that a safe must stay locked.",
+     "definitionFit": "To offer an idea is to put it forward, or suggest it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opened"
+    }
+   }
   },
   {
    "number": 27,
@@ -226,7 +869,47 @@
     "text": "Think about island waste?",
     "enumeration": "6"
    },
-   "solution": "MISUSE"
+   "solution": "MISUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "waste",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "about means around, so one piece goes round the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Think",
+       "at": 0,
+       "gives": "MUSE",
+       "note": "to muse is to think"
+      },
+      {
+       "words": "island",
+       "at": 12,
+       "gives": "IS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reflect on the barren isle.",
+     "definitionFit": "To misuse resources is to waste them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 28,
@@ -240,7 +923,69 @@
     "text": "American educational centre? Fool ending in college in English city",
     "enumeration": "8"
    },
-   "solution": "BERKELEY"
+   "solution": "BERKELEY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American educational centre",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fool",
+       "at": 29,
+       "gives": "BERK",
+       "note": "berk is British slang for a fool"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 52,
+         "note": "the letter goes inside the city"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English city",
+         "at": 55,
+         "gives": "ELY",
+         "note": "Ely is a cathedral city in Cambridgeshire"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ending in",
+           "at": 34,
+           "note": "ending in picks the last letter of college"
+          }
+         ],
+         "parts": [
+          {
+           "words": "college",
+           "at": 44
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clue asks about a US university, then mocks a foolish student in an English town.",
+     "definitionFit": "The University of California campus at Berkeley is a famous seat of learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 1,
@@ -254,7 +999,63 @@
     "text": "Object mostly accepted by parrot with good grace",
     "enumeration": "8"
    },
-   "solution": "POLITELY"
+   "solution": "POLITELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with good grace",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepted by",
+       "at": 14,
+       "note": "something accepted by another is taken inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "parrot",
+       "at": 26,
+       "gives": "POLLY",
+       "note": "Polly is a traditional name for a pet parrot"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means losing the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Object",
+         "at": 0,
+         "gives": "ITEM",
+         "note": "an item is an object"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parrot graciously takes most of a thing it is offered.",
+     "definitionFit": "Doing something politely is doing it courteously, with good grace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 2,
@@ -268,7 +1069,48 @@
     "text": "Article encapsulating specialist chef's gear?",
     "enumeration": "5"
    },
-   "solution": "APRON"
+   "solution": "APRON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chef's gear",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encapsulating",
+       "at": 8,
+       "note": "encapsulating means enclosing"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
+      {
+       "words": "specialist",
+       "at": 22,
+       "gives": "PRO",
+       "note": "a pro is a professional or specialist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An item describes a specialist cook's equipment.",
+     "definitionFit": "A cook wears this garment to protect clothes in the kitchen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "specialist"
+    }
+   }
   },
   {
    "number": 3,
@@ -282,7 +1124,44 @@
     "text": "River, most half-hearted, slopping around",
     "enumeration": "3,6,6"
    },
-   "solution": "OLDFATHERTHAMES"
+   "solution": "OLDFATHERTHAMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "slopping around",
+       "at": 26,
+       "note": "liquid slopping around is jumbled about, so the letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "most",
+       "at": 7
+      },
+      {
+       "words": "half-hearted",
+       "at": 12
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river described as listless as it washes about.",
+     "definitionFit": "The personification of London's River Thames, a traditional nickname for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 4,
@@ -296,7 +1175,72 @@
     "text": "Slight cut clipped craft as island arrived at",
     "enumeration": "7"
    },
-   "solution": "INSULAR"
+   "solution": "INSULAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "as island",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 7,
+         "note": "cut means trimmed of its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Slight",
+         "at": 0,
+         "gives": "INSULT",
+         "note": "an insult is a slight"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "clipped",
+         "at": 11,
+         "note": "clipped means shortened at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "craft",
+         "at": 19,
+         "gives": "ARK",
+         "note": "an ark is a boat or craft"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trimmed boat lands at an island.",
+     "walkthrough": "'arrived at' is link wording meaning 'gives'.",
+     "definitionFit": "Insular comes from the Latin for island and means of or like one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 6,
@@ -310,7 +1254,75 @@
     "text": "Board having reserve after company beginning to face cost in large volume",
     "enumeration": "6,5,4"
    },
-   "solution": "COFFEETABLEBOOK"
+   "solution": "COFFEETABLEBOOK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "large volume",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "after puts the board and reserve pieces later in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "company",
+       "at": 27,
+       "gives": "CO"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 35,
+         "note": "beginning to picks the first letter of face"
+        }
+       ],
+       "parts": [
+        {
+         "words": "face",
+         "at": 48
+        }
+       ]
+      },
+      {
+       "words": "cost",
+       "at": 53,
+       "gives": "FEE",
+       "note": "a fee is a cost"
+      },
+      {
+       "words": "Board",
+       "at": 0,
+       "gives": "TABLE",
+       "note": "a table is a board"
+      },
+      {
+       "words": "reserve",
+       "at": 13,
+       "gives": "BOOK",
+       "note": "to book is to reserve"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A board with funds held back faces costs in a big ledger.",
+     "definitionFit": "A coffee table book is a large illustrated volume meant for display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 7,
@@ -324,7 +1336,58 @@
     "text": "Majority will keep working when given one gem",
     "enumeration": "9"
    },
-   "solution": "MOONSTONE"
+   "solution": "MOONSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gem",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "will keep",
+         "at": 9,
+         "note": "keeping something means holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Majority",
+         "at": 0,
+         "gives": "MOST",
+         "note": "most means the majority"
+        },
+        {
+         "words": "working",
+         "at": 19,
+         "gives": "ON",
+         "note": "on means working or operating"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 38,
+       "gives": "ONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most will stay employed when each receives a jewel.",
+     "definitionFit": "Moonstone is a pearly feldspar used as a gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 8,
@@ -338,7 +1401,34 @@
     "text": "What's not being covered as a leisure pursuit?",
     "enumeration": "6"
    },
-   "solution": "NUDISM"
+   "solution": "NUDISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What's not being covered as a leisure pursuit?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What's not being covered as a leisure pursuit",
+       "at": 0,
+       "note": "an uncovered recreation: going without clothes as a pastime, not leaving an unreported hobby"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "The practice of going unclothed for leisure is the naturist lifestyle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 9,
@@ -352,7 +1442,57 @@
     "text": "United wrong to pick up on identity of pitch",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "identity of pitch",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "United",
+       "at": 0,
+       "gives": "U"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to pick up",
+         "at": 13,
+         "note": "in a down clue picking up lifts the word so it reads upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrong",
+         "at": 7,
+         "gives": "SIN",
+         "note": "a sin is a wrong"
+        }
+       ]
+      },
+      {
+       "words": "on",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football club, wronged, gets a ruling about its pitch.",
+     "definitionFit": "Notes sung in unison share exactly the same pitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 15,
@@ -366,7 +1506,58 @@
     "text": "Soldier clad in appropriate American gear",
     "enumeration": "9"
    },
-   "solution": "APPARATUS"
+   "solution": "APPARATUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "gear",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "clad in",
+         "at": 8,
+         "note": "clad in means wrapped inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "appropriate",
+         "at": 16,
+         "gives": "APT",
+         "note": "apt means appropriate"
+        },
+        {
+         "words": "Soldier",
+         "at": 0,
+         "gives": "PARA",
+         "note": "a para is a paratrooper"
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 28,
+       "gives": "US"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier dressed in suitable US kit.",
+     "definitionFit": "Apparatus is equipment, a synonym of gear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Soldier"
+    }
+   }
   },
   {
    "number": 17,
@@ -380,7 +1571,59 @@
     "text": "Dangerous fish near, circling river area",
     "enumeration": "5-3"
    },
-   "solution": "STINGRAY"
+   "solution": "STINGRAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dangerous fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circling",
+       "at": 21,
+       "note": "circling means surrounding"
+      }
+     ],
+     "parts": [
+      {
+       "words": "near",
+       "at": 15,
+       "gives": "STINGY",
+       "note": "near is old slang for mean or stingy"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "river",
+         "at": 30,
+         "gives": "R"
+        },
+        {
+         "words": "area",
+         "at": 36,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deadly fish lurks nearby, swimming round a river.",
+     "walkthrough": "'near' looks like close by; it means tight-fisted.",
+     "definitionFit": "The stingray has a venomous barbed tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 19,
@@ -394,7 +1637,43 @@
     "text": "No longer saucy in the buff?",
     "enumeration": "6"
    },
-   "solution": "EXPERT"
+   "solution": "EXPERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the buff",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "No longer",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former, no longer"
+      },
+      {
+       "words": "saucy",
+       "at": 10,
+       "gives": "PERT",
+       "note": "pert means cheeky or saucy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone once cheeky now stands naked.",
+     "walkthrough": "'in the buff' looks like naked; a buff is an enthusiast, hence skilled.",
+     "definitionFit": "A buff is a knowledgeable enthusiast, so being one makes you skilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buff"
+    }
+   }
   },
   {
    "number": 20,
@@ -408,7 +1687,59 @@
     "text": "One puts in excited \"Yes\" receiving item from fiancé",
     "enumeration": "7"
    },
-   "solution": "SYRINGE"
+   "solution": "SYRINGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One puts in",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 26,
+       "note": "receiving means taking inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "excited",
+         "at": 12,
+         "note": "excited means stirred up, so the letters are mixed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yes",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "words": "item from fiancé",
+       "at": 36,
+       "gives": "RING",
+       "note": "an engagement ring is given by a fiancé"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excited yes greets the gift of a ring.",
+     "walkthrough": "'excited' turns YES into SYE, which receives RING.",
+     "definitionFit": "A syringe injects fluid, so it puts things into the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 21,
@@ -422,7 +1753,71 @@
     "text": "Cry going up about wrecked cab? One supplies images for site",
     "enumeration": "6"
    },
-   "solution": "WEBCAM"
+   "solution": "WEBCAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One supplies images for site",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about here means positioned around, so the reversed cry wraps round the wrecked cab"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going up",
+         "at": 4,
+         "note": "in a down clue going up reads the word upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cry",
+         "at": 0,
+         "gives": "MEW",
+         "note": "a mew is a cry, as of a gull or cat"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrecked",
+         "at": 19,
+         "note": "wrecked means smashed up, so the letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cab",
+         "at": 27
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shout goes up around a crashed taxi.",
+     "walkthrough": "'going up' reverses the cry, since down clues read upwards; 'wrecked' scrambles cab, and that scramble sits within the reversal.",
+     "definitionFit": "A webcam is a camera feeding pictures to a website."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "site"
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1831,46 @@
     "text": "Allowed to go topless, with dreadful consequences",
     "enumeration": "5"
    },
-   "solution": "AWFUL"
+   "solution": "AWFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with dreadful consequences",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to go topless",
+       "at": 8,
+       "note": "going topless means losing the first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Allowed",
+       "at": 0,
+       "gives": "LAWFUL",
+       "note": "lawful means allowed"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Topless sunbathing was permitted, with terrible results.",
+     "definitionFit": "Awful describes something terrible in effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   }
  ]
 }
