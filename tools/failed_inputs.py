@@ -54,7 +54,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 import clues_only
 import enumeration
@@ -295,12 +295,17 @@ def code_cooldown_days(rec):
     return min(2 ** rec.get("retries", 0), 16)
 
 
-def code_age_days(rec, today=None):
+def code_age_days(rec, now=None):
+    """Days since the record, to the second. A record keeps its UTC time
+    ("date"), so one written at 23:59 is not a day old at 00:00. Rows
+    written before 11-10 hold a bare date, read as its midnight UTC."""
     try:
-        then = datetime.fromisoformat(rec["date"]).date()
+        then = datetime.fromisoformat(rec["date"])
     except (KeyError, ValueError):
         return 10 ** 6   # undated: nothing to wait out
-    return ((today or datetime.now(timezone.utc).date()) - then).days
+    if then.tzinfo is None:
+        then = then.replace(tzinfo=UTC)
+    return ((now or datetime.now(UTC)) - then).total_seconds() / 86400
 
 
 def load():
@@ -354,7 +359,7 @@ def cmd_record(args):
         "retries": retries,
         "puzzle": puzzle,
         "code": code_version(args.kind, args.id, reason),
-        "date": datetime.now(timezone.utc).date().isoformat(),
+        "date": datetime.now(UTC).isoformat(timespec="seconds"),
         "reason": reason,
     }
     save(data)
@@ -396,20 +401,31 @@ def cmd_summary(args):
 
     Records whose puzzle has changed are dropped here. They are eligible again
     anyway, and keeping them would make the ledger look like a list of blocks.
+
+    A record released by a code edit alone is kept. Its `retries` is the
+    back-off: when the run is bought again and fails on the same puzzle,
+    cmd_record counts it up, and the next code-only release waits twice as
+    long. Until 11-10 this dropped every due row, released ones too. The
+    nightly summary then deleted each code-released row, the next failure
+    recorded it fresh with retries=0, and its cooldown stayed at one day.
+    The checkers are edited most days (9 commits 11-04..11-10), so by 11-10
+    116 annotate rows recorded in the burn's log were gone uncommitted, each
+    re-bagged after a day for the same "no change" (everyman-3984 three
+    times).
     """
     data = load()
-    parts, stale = [], False
+    parts, stale, total = [], False, 0
     for kind in KINDS:
         held = skipped(data, kind)
-        for i in list(data[kind]):
-            if i not in held:
+        for i, rec in list(data[kind].items()):
+            if rec["puzzle"] != input_hash(i):
                 del data[kind][i]
                 stale = True
+        total += len(held)
         if held:
             parts.append(f"{kind} {len(held)} ({' '.join(held)})")
     if stale:
         save(data)
-    total = sum(len(data[k]) for k in KINDS)
     print(f"skipped as failed on unchanged inputs: {total}"
           + (" — " + "; ".join(parts) if parts else ""))
 
