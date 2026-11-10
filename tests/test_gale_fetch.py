@@ -443,12 +443,13 @@ assert [r[:2] for r in _sp[:5]] == [("TTDA", D(2001, 1, 2)), ("TGRH", D(2000, 12
                                     ("INDA", D(2016, 12, 25)), ("TGRH", D(2000, 1, 4))] or \
     [r[:2] for r in _sp[:5]][1:4] == [("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)), ("INDA", D(2016, 12, 25))], _sp
 # The Times Jumbo rows (kind "jumbo", their own cache key) come after the
-# Sunday papers' and before the Telegraph redo and other papers' rows.
+# Sunday Telegraph's and before the Independent on Sunday's (6eee53dfe1a: IoS
+# runs after the Jumbos), then the Telegraph redo and other papers' rows.
 gale_jumbo.wanted = lambda: [D(2000, 2, 5), D(2000, 1, 29)]
 _jp = gf.plan(set(), 0)
-assert [r[:2] for r in _jp[1:7]] == [("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)), ("INDA", D(2016, 12, 25)),
-                                      ("TTDA", D(2000, 2, 5)), ("TTDA", D(2000, 1, 29)), ("TGRH", D(2000, 1, 4))], _jp
-assert _jp[4][3:] == (None, False, "jumbo"), _jp[4]
+assert [r[:2] for r in _jp[1:7]] == [("TGRH", D(2000, 12, 31)), ("TGRH", D(2000, 12, 24)), ("TTDA", D(2000, 2, 5)),
+                                      ("TTDA", D(2000, 1, 29)), ("INDA", D(2016, 12, 25)), ("TGRH", D(2000, 1, 4))], _jp
+assert _jp[3][3:] == (None, False, "jumbo"), _jp[3]
 docs["TTDA/jumbo/2000-02-05"] = {"doc": "JU1", "title": "Jumbo Crossword 269", "page": 38, "records": ["R"], "kind": "jumbo",
                                  "matcher": gale_docs.MATCHER["jumbo"]}
 assert [r[:2] for r in gf.plan(set(), 0)].count(("TTDA", D(2000, 2, 5))) == 1
