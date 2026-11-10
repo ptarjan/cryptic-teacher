@@ -24,4 +24,11 @@ ok = clue_peek.try_wp(puzzle, "6-down", "[Elected]CHOSE + first<leader>([sociali
 check("try says ok for a wp that gives the answer", "ok, the letters come out" in ok)
 bad = clue_peek.try_wp(puzzle, "6-down", "[Elected]CHOSE + [socialist]X")
 check("try gives the checker's own refusal", "does not give CHOSES" in bad)
+linked = {"entries": [
+    {"number": 22, "direction": "across", "solution": "GENTLE", "group": ["22-across", "5-down"],
+     "clue": {"text": "Kind pachyderm, say", "enumeration": "6,5"}},
+    {"number": 5, "direction": "down", "solution": "GIANT", "group": ["22-across", "5-down"],
+     "clue": {"text": "See 22", "enumeration": "5"}}]}
+lk = clue_peek.try_wp(linked, "22-across", "[Kind]GENTLE + GIANT")
+check("try judges a linked answer whole, not its first light", "11 letters against 6" not in lk and "GENTLE GIANT" in lk)
 sys.exit(1 if fails else 0)

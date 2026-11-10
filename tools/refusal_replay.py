@@ -164,6 +164,8 @@ def refusals(paths, since):
                         calls[b.get("id")] = (b.get("input") or {}).get("command") or ""
                     elif b.get("type") == "tool_result":
                         cmd = calls.get(b.get("tool_use_id"), "")
+                        if "--try" in cmd:      # the model's own test of a wp, not a refusal
+                            continue
                         if "annotate_check" in cmd or "annotate_bag.py check" in cmd:
                             reports = (aud.bag_reports(aud._text(b.get("content")))
                                        if "annotate_bag.py check" in cmd
