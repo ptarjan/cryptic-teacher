@@ -137,7 +137,7 @@ from fix_shape_container import (
 )
 from fix_shape_cuts import (
     r_sel_one_letter, SEL_FIRST, SEL_LAST, _SEL_PHRASE, _SELW, _SEL_PAIR, _del_selection_pair,
-    r_del_selection, _at_named_end, r_deletion_inside, _cut_of, r_del_single, r_halved_deletion,
+    r_del_selection, _at_named_end, r_deletion_inside, _cut_of, r_del_single, r_halved_deletion, r_trim_selection,
     r_moved_letter, _CUT_PUNCT, _CUT_LINKS, _cut_note_fulls, r_cut_note_leaf, r_del_one_piece, _single_pick,
     r_repeated_selection, r_sel_edge, r_leaf_select,
 )
@@ -173,7 +173,7 @@ REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap":
            "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 
 
-RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "reversalSplit": r_reversal_split, "reversedCharadeOrder": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
+RULE_REPAIRS = {"doubledApostrophe": r_doubled_apostrophe, "repeatedSelection": r_repeated_selection, "delWrapsCharade": r_del_wraps_charade,"nestedSameOp": r_nested_same_op, "delOnePiece": r_del_one_piece,"cutNoteLeaf": r_cut_note_leaf, "movedLetter": r_moved_letter, "halvedAsDeletion": r_halved_deletion, "trimAsSelection": r_trim_selection, "reversalSplit": r_reversal_split, "reversedCharadeOrder": r_reversal_split,"anaLoneEdge": r_ana_lone_edge,"splitSharedIndicator": r_split_shared_indicator,
                 "scrambledLeaf": r_scrambled_swap,"anaCharade": lambda n, p, c: r_ana_charade(n, p, c) or r_ana_pull(n, p, c) or r_ana_edge(n, p, c) or r_ana_flatten(n, p, c), "anaSelectEdge": r_ana_select_edge,
                 "linkInLeaf": r_link_in_leaf, "indLeafOverlap": r_ind_leaf_overlap, "swappedPair": r_swapped_pair, "halfLeaf": r_half_leaf, "arity_other": lambda n, p, c: r_arity_other(n, p, c) or r_arity_ins(n, p, c),
                 "unchecked_step": r_literal_fodder, "unchecked_leaf": r_removed_leaf, "arity_ins": r_arity_ins, "anaSynonym": r_ana_synonym_charade, "anaStandIn": r_ana_stand_in, "anagramOfContainer": r_ana_of_container,
