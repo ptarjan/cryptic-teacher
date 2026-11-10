@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Post office",
     "enumeration": "9"
    },
-   "solution": "SITUATION"
+   "solution": "SITUATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Post",
+      "at": 0,
+      "meaning": "a post is a job or appointment held by someone"
+     },
+     {
+      "text": "office",
+      "at": 5,
+      "meaning": "an office is a position of responsibility one holds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like mail and a building, but each means a job or position.",
+     "definitionFit": "A situation is a job or position, as in 'situations vacant', matching both a post and an office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Post"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +71,29 @@
     "text": "Keep shop",
     "enumeration": "5"
    },
-   "solution": "STORE"
+   "solution": "STORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0,
+      "meaning": "to keep something is to hold it in reserve"
+     },
+     {
+      "text": "shop",
+      "at": 5,
+      "meaning": "a shop is a retail outlet"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To store goods is to keep them, and a store is a shop, as in a department store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +107,71 @@
     "text": "Chap comes up in new suit, gets big wave",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "big wave",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "one piece is placed inside the other, the chap sitting in the suit"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 17,
+         "note": "a new version of the word suit has its letters rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suit",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "comes up",
+         "at": 5,
+         "note": "in a down clue, coming up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Chap",
+         "at": 0,
+         "gives": "MAN",
+         "note": "a chap is a man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man appears in a new suit and is then hit by a huge wave.",
+     "walkthrough": "In a down clue 'comes up' reads the chap from the bottom; 'new' rearranges the suit, and 'in' puts the chap inside it, between its third and fourth letters.",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake or undersea disturbance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +185,34 @@
     "text": "He's not himself when working",
     "enumeration": "5"
    },
-   "solution": "ACTOR"
+   "solution": "ACTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He's not himself when working",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "He's not himself when working",
+       "at": 0,
+       "note": "someone who plays a part on stage pretends to be another person while at work"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A performer playing a role is someone else, the character, whenever on the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "himself"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +226,34 @@
     "text": "Vessel making way for others",
     "enumeration": "7"
    },
-   "solution": "ICEBOAT"
+   "solution": "ICEBOAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vessel making way for others",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Vessel making way for others",
+       "at": 0,
+       "note": "a craft built for frozen waters that clears a path through the ice so other ships can follow"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Making way' sounds like giving way politely, but it means clearing a passage through ice.",
+     "definitionFit": "An iceboat can be a boat used to break a channel through ice for other vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +267,52 @@
     "text": "Strange thing to observe in a club",
     "enumeration": "9"
    },
-   "solution": "NIGHTSPOT"
+   "solution": "NIGHTSPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "club",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Strange",
+         "at": 0,
+         "note": "something strange is out of its normal order, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thing",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "to observe",
+       "at": 14,
+       "gives": "SPOT",
+       "note": "to spot something is to observe it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees something odd while in a nightclub.",
+     "walkthrough": "'Strange' rearranges THING into NIGHT.",
+     "definitionFit": "A nightspot is a nightclub, a place of evening entertainment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +326,42 @@
     "text": "Be depressed when doctor introduces exercise",
     "enumeration": "4"
    },
-   "solution": "MOPE"
+   "solution": "MOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Be depressed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "doctor",
+       "at": 18,
+       "gives": "MO",
+       "note": "MO is a medical officer, a doctor"
+      },
+      {
+       "words": "exercise",
+       "at": 36,
+       "gives": "PE",
+       "note": "PE is physical education, exercise at school"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy patient is told by the doctor to take some exercise.",
+     "walkthrough": "'introduces' here just has the doctor going first, then the exercise.",
+     "definitionFit": "To mope is to be listless and gloomy, a synonym for being depressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introduces"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +375,59 @@
     "text": "Music masters require note when taking a rest off",
     "enumeration": "7"
    },
-   "solution": "MAESTRI"
+   "solution": "MAESTRI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Music masters",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when taking",
+       "at": 27,
+       "note": "the note takes in the other letters, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "note",
+       "at": 22,
+       "gives": "MI",
+       "note": "MI is a note of the sol-fa scale"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 46,
+         "note": "letters that are off are out of order, so a rest is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a rest",
+         "at": 39
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Great musicians need a note telling them they are no longer resting.",
+     "walkthrough": "'off' rearranges A REST into AESTR, which MI holds.",
+     "definitionFit": "Maestri is the Italian plural of maestro, a master musician or conductor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +441,48 @@
     "text": "I'd put in now for a position in society",
     "enumeration": "9"
    },
-   "solution": "PRESIDENT"
+   "solution": "PRESIDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a position in society",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 4,
+       "note": "one piece is put inside another, signalled plainly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "now",
+       "at": 11,
+       "gives": "PRESENT",
+       "note": "the present is now, the current time"
+      },
+      {
+       "words": "I'd",
+       "at": 0,
+       "gives": "ID",
+       "note": "taken as written, without the apostrophe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks to be put forward now for a role in a club.",
+     "definitionFit": "The president of a society is its head, holding the top office in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "now"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +496,33 @@
     "text": "She vainly seeks masculine attention",
     "enumeration": "8"
    },
-   "solution": "COQUETTE"
+   "solution": "COQUETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "She vainly seeks masculine attention",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "She vainly seeks masculine attention",
+       "at": 0,
+       "note": "a woman who flirts lightly with men to win admiration, without serious intent"
+      }
+     ]
+    },
+    "explanation": {
+     "definitionFit": "A coquette is a flirt, a woman who seeks men's admiration for vanity's sake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vainly"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +536,44 @@
     "text": "A warm spring, we hear, for this old man",
     "enumeration": "6"
    },
-   "solution": "GEEZER"
+   "solution": "GEEZER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old man",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GEEZER",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 15,
+       "note": "what we hear is a word spoken, so a soundalike is wanted"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A warm spring",
+       "at": 0,
+       "gives": "GEYSER",
+       "note": "a geyser is a hot spring that spouts water"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old man is compared to a hot spring.",
+     "walkthrough": "GEEZER is British slang for a man, often an old one.",
+     "definitionFit": "A geezer is informal slang for a man, especially an elderly one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +587,31 @@
     "text": "Go off to find another partner",
     "enumeration": "6"
    },
-   "solution": "REPAIR"
+   "solution": "REPAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Go off",
+      "at": 0,
+      "meaning": "to ... to a place is to go there"
+     },
+     {
+      "text": "find another partner",
+      "at": 10,
+      "meaning": "to ... is to be paired again with someone new"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go off' suggests going bad; it means going away, as in 'repair to the bar'.",
+     "definitionFit": "To repair is to go somewhere, and read as re-pair it means to pair up again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +625,35 @@
     "text": "Barely beat the opposition?",
     "enumeration": "8"
    },
-   "solution": "OUTSTRIP"
+   "solution": "OUTSTRIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Barely beat the opposition?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Barely beat the opposition?",
+       "at": 0,
+       "note": "read literally, to win by taking off more clothes than a rival, not to win narrowly"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Barely' looks like 'only just', but it is about being bare.",
+     "definitionFit": "To outstrip is to surpass or outdo, and read playfully it means out-undress someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barely"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +667,40 @@
     "text": "It goes amiss to be a selfish type",
     "enumeration": "6"
    },
-   "solution": "EGOIST"
+   "solution": "EGOIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a selfish type",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "amiss",
+       "at": 8,
+       "note": "something gone amiss is wrong, so the letters are put in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It goes",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things going wrong make someone turn self-centred.",
+     "definitionFit": "An egoist is someone self-centred who puts their own interests first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +714,41 @@
     "text": "Organised chaos on a grand scale",
     "enumeration": "9"
    },
-   "solution": "GRANDIOSE"
+   "solution": "GRANDIOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on a grand scale",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "chaos",
+       "at": 10,
+       "note": "chaos throws things into disorder, so the word's letters are shuffled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Organised",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Organised chaos happening on an impressive scale.",
+     "walkthrough": "The surface plays on the phrase 'organised chaos'.",
+     "definitionFit": "Grandiose means impressively large or ambitious in scale, sometimes pretentiously so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chaos"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +768,85 @@
      }
     ]
    },
-   "solution": "TESTTUBES"
+   "solution": "TESTTUBES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Laboratory equipment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 37,
+       "note": "outside, as in old usage, so one piece holds the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "twice",
+         "at": 24,
+         "note": "the reversed word is used two times over"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "up",
+           "at": 34,
+           "note": "in a down clue, up means the word is read from bottom to top"
+          }
+         ],
+         "parts": [
+          {
+           "words": "set",
+           "at": 30,
+           "gives": "SET",
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "being raised",
+         "at": 55,
+         "note": "raising in a down clue reads the word from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "objection",
+         "at": 45,
+         "gives": "BUT",
+         "note": "a but is an objection, as in 'no buts'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lab gear is set up twice with no one raising an objection.",
+     "walkthrough": "'up' turns SET into TES, used 'twice'; 'being raised' turns BUT into TUB, which the second TES holds 'without' it.",
+     "definitionFit": "Test tubes are glass tubes closed at one end, standard laboratory apparatus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "objection"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +860,40 @@
     "text": "Dicky, Interpol star",
     "enumeration": "8"
    },
-   "solution": "TOPLINER"
+   "solution": "TOPLINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "star",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Dicky",
+       "at": 0,
+       "note": "dicky is British slang for weak or faulty, so the letters are disordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Interpol",
+       "at": 7
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star turn at Interpol is a bit dodgy.",
+     "definitionFit": "A topliner is a headline performer, the star at the top of the bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +907,42 @@
     "text": "Many disturbed when people had a drunken party",
     "enumeration": "8"
    },
-   "solution": "CAROUSED"
+   "solution": "CAROUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "had a drunken party",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Many",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred, so many"
+      },
+      {
+       "words": "disturbed",
+       "at": 5,
+       "gives": "AROUSED",
+       "note": "to be aroused is to be stirred or disturbed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people are woken up by a noisy drinking party.",
+     "walkthrough": "'disturbed' looks like an anagram signal but it is a synonym.",
+     "definitionFit": "To carouse is to drink and make merry noisily, so caroused means partied drunkenly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +956,29 @@
     "text": "Rosalind's lover is located in Florida",
     "enumeration": "7"
    },
-   "solution": "ORLANDO"
+   "solution": "ORLANDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rosalind's lover",
+      "at": 0,
+      "meaning": "in Shakespeare's As You Like It, Rosalind loves the young nobleman of this name"
+     },
+     {
+      "text": "located in Florida",
+      "at": 20,
+      "meaning": "a large city in central Florida, home of theme parks"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Orlando is the hero loved by Rosalind in As You Like It, and also a Florida city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +992,44 @@
     "text": "Bad rule may become permanent",
     "enumeration": "7"
    },
-   "solution": "DURABLE"
+   "solution": "DURABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "permanent",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "may become",
+       "at": 9,
+       "note": "the words may turn into something else, so their letters are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bad",
+       "at": 0
+      },
+      {
+       "words": "rule",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bad rule may end up lasting forever.",
+     "definitionFit": "Durable means long-lasting, which is close to permanent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bad"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1049,46 @@
      }
     ]
    },
-   "solution": "TURNTO"
+   "solution": "TURNTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Set to work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "after assembly",
+       "at": 27,
+       "note": "after being assembled the pieces form a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "new",
+       "at": 17,
+       "gives": "N"
+      },
+      {
+       "words": "tutor",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school sets to work with a new tutor after morning assembly.",
+     "walkthrough": "'assembly' looks like a school gathering but signals putting the letters together anew.",
+     "definitionFit": "To turn to a task is to set to work on it, a phrasal-verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assembly"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1102,60 @@
     "text": "Censured about plot involving UK",
     "enumeration": "7"
    },
-   "solution": "REBUKED"
+   "solution": "REBUKED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Censured",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 9,
+       "gives": "RE",
+       "note": "re means about, concerning"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "at": 20,
+         "note": "to involve is to take in, so one piece holds the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plot",
+         "at": 15,
+         "gives": "BED",
+         "note": "a bed is a garden plot"
+        },
+        {
+         "words": "UK",
+         "at": 30,
+         "gives": "UK",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is reprimanded over a scheme involving Britain.",
+     "walkthrough": "'plot' suggests a conspiracy but means a flower bed.",
+     "definitionFit": "To be rebuked is to be reprimanded sharply, which is the same as censured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1169,47 @@
     "text": "One to perform afterwards for a devoted fan",
     "enumeration": "8"
    },
-   "solution": "IDOLATER"
+   "solution": "IDOLATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a devoted fan",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "to perform",
+       "at": 4,
+       "gives": "DO",
+       "note": "to do is to perform"
+      },
+      {
+       "words": "afterwards",
+       "at": 15,
+       "gives": "LATER",
+       "note": "later means afterwards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone does something later for an ardent admirer.",
+     "definitionFit": "An idolater worships an idol, and figuratively is an adoring devotee or fan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perform"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1223,49 @@
     "text": "Lower by degrees into river",
     "enumeration": "6"
    },
-   "solution": "DEBASE"
+   "solution": "DEBASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 17,
+       "note": "one piece goes into the other, signalled directly"
+      }
+     ],
+     "parts": [
+      {
+       "words": "river",
+       "at": 22,
+       "gives": "DEE",
+       "note": "the Dee is a river in Britain"
+      },
+      {
+       "words": "degrees",
+       "at": 9,
+       "gives": "BAS",
+       "note": "BAs are Bachelor of Arts degrees"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is lowered by degrees into a river.",
+     "walkthrough": "'by degrees' looks like 'gradually', but degrees are BAs; 'by' is a link.",
+     "definitionFit": "To debase is to lower in quality, value or character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "degrees"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1279,49 @@
     "text": "Fall out of love and languish",
     "enumeration": "5"
    },
-   "solution": "DROOP"
+   "solution": "DROOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "languish",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 5,
+       "note": "the fall is made out of love, built around it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fall",
+       "at": 0,
+       "gives": "DROP",
+       "note": "to drop is to fall"
+      },
+      {
+       "words": "love",
+       "at": 12,
+       "gives": "O",
+       "note": "O is love, zero in tennis scores"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who falls out of love pines away.",
+     "walkthrough": "'Fall out of love' reads as a phrase; DROP is wrapped round O.",
+     "definitionFit": "To droop is to flag or lose vigour, a synonym for languish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1335,30 @@
     "text": "Battle for the chairman's seat?",
     "enumeration": "5"
    },
-   "solution": "SEDAN"
+   "solution": "SEDAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0,
+      "meaning": "the Battle of ... in 1870 was a decisive French defeat in the Franco-Prussian War"
+     },
+     {
+      "text": "the chairman's seat?",
+      "at": 11,
+      "meaning": "a ... chair was carried by chairmen, its bearers, so it is their seat in a playful sense"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Sedan names a famous 1870 battle and the enclosed chair carried on poles by two bearers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chairman's"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1372,60 @@
     "text": "Without love, tramp and wealthy man don't do this",
     "enumeration": "6"
    },
-   "solution": "HOBNOB"
+   "solution": "HOBNOB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "don't do this",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Without",
+         "at": 0,
+         "note": "without means lacking, so a letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tramp",
+         "at": 14,
+         "gives": "HOBO",
+         "note": "a hobo is a tramp"
+        },
+        {
+         "words": "love",
+         "at": 8,
+         "gives": "O",
+         "note": "O is love, zero in tennis"
+        }
+       ]
+      },
+      {
+       "words": "wealthy man",
+       "at": 24,
+       "gives": "NOB",
+       "note": "a nob is a wealthy or upper-class person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp and a rich man, sharing no love, never socialise.",
+     "walkthrough": "The definition plays on the clue: the tramp and the nob are not the sort to mix socially.",
+     "definitionFit": "To hobnob is to mix socially, which a tramp and a wealthy man would not do together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1439,49 @@
     "text": "Told to include security to prevent access",
     "enumeration": "8"
    },
-   "solution": "BLOCKADE"
+   "solution": "BLOCKADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "prevent access",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "at": 5,
+       "note": "one piece takes in the other, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Told",
+       "at": 0,
+       "gives": "BADE",
+       "note": "bade is a past tense of bid, meaning told or ordered"
+      },
+      {
+       "words": "security",
+       "at": 16,
+       "gives": "LOCK",
+       "note": "a lock provides security"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is ordered to add security to keep people out.",
+     "walkthrough": "'Told' looks like a soundalike signal but means ordered.",
+     "definitionFit": "To blockade is to seal off a place so that nothing can get in or out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Told"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1495,29 @@
     "text": "Less than one hour for action",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Less than one",
+      "at": 0,
+      "meaning": "nought is a number below one"
+     },
+     {
+      "text": "hour for action",
+      "at": 14,
+      "meaning": "... hour is the time set for an operation to begin"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Zero is the number below one, and zero hour is when an operation is due to start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hour"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1537,42 @@
      }
     ]
    },
-   "solution": "STEPPEDON"
+   "solution": "STEPPEDON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "treated like a doormat",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "plain",
+       "at": 2,
+       "gives": "STEPPE",
+       "note": "a steppe is a vast grassy plain"
+      },
+      {
+       "words": "fellow",
+       "at": 8,
+       "gives": "DON",
+       "note": "a don is a college fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary man is walked all over by others.",
+     "walkthrough": "'A plain fellow' reads as an ordinary man; plain is a noun, a grassland.",
+     "definitionFit": "Being stepped on means being trodden on or treated with contempt, like a doormat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   }
  ]
 }
