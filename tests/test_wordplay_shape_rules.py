@@ -729,4 +729,13 @@ check("round 25: nonWordOperand is a warning only, the rest are gated", (True, F
 check("a warning-only rule never fails a puzzle, whatever its allowance", ([], True),
       (v.backlog_errors("x-1", [v.BARE_INITIAL, v.IND_FOLDED], {"wordplay.bareInitial": {}, "wordplay.indFolded": {}}),
        bool(v.backlog_errors("x-1", [v.SINGLE_LEAF], {"wordplay.singleLeaf": {}}))))
+_lead = {"number": 22, "direction": "across", "solution": "INSO", "group": ["22-across", "5-down"],
+         "clue": {"text": "x", "enumeration": "2,2,3,2"}}
+_tail = {"number": 5, "direction": "down", "solution": "FARAS", "clue": {"text": "See 22"}}
+_puz = {"entries": [_lead, _tail]}
+check("a linked lead's answer for the shape checks is the whole joined answer", "IN SO FAR AS",
+      v._whole_answer(_lead, _puz))
+check("an unlinked entry's answer is its own solution", "COD",
+      v._whole_answer({"number": 1, "direction": "across", "solution": "COD", "clue": {}}, {"entries": []}))
+check("an entry with no solution has no answer", None, v._whole_answer({"number": 1, "direction": "across"}, {"entries": []}))
 raise SystemExit(fails)
