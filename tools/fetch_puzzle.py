@@ -807,18 +807,21 @@ def has_blog_hints(browser_puzzle):
     return any(e.get("blog") for e in browser_puzzle["entries"])
 
 
-def blog_annotation(e):
+def blog_annotation(e, puzzle=None):
     """A clue's blog facts shaped as the partial annotation app.js's blogAnn()
     makes of them, or None: what the static page and the social card read in
     place of an annotation we have not written. The answer is the solution,
-    which the blog facts never carry."""
+    which the blog facts never carry; a linked lead's is its whole joined answer
+    (`puzzle` holds the other lights)."""
+    import annotation
     b = e.get("blog")
     if not b:
         return None
     defs = b.get("definitions") or []
-    ann = {"fromBlog": True, "answer": e.get("solution") or "", "type": b.get("type") or [],
+    ann_answer = annotation.whole_answer(e, puzzle)
+    ann = {"fromBlog": True, "answer": ann_answer, "type": b.get("type") or [],
            "indicators": list(b.get("indicators") or []),
-           "blocks": [blog_block(e.get("solution"), block) for block in b.get("blocks") or []]}
+           "blocks": [blog_block(ann_answer, block) for block in b.get("blocks") or []]}
     defs = defs if len(defs) == 2 and "double_definition" in ann["type"] else defs[:1]
     if defs:
         ann["definitions"] = [dict(d) for d in defs]

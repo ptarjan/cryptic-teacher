@@ -318,6 +318,16 @@ import json, os, sys
 sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
 import blog_facts as bf
 print(json.dumps(sorted(bf._items("blocks", [["TL", "tea"], ["LAGER", "lager", "anagrammed"]]))))')"
+check "a linked blog-only clue's answer is the whole joined answer, not its first light" \
+  'INSOFARAS INSOFARAS' \
+  "$(REPO="$REPO" python3 -c '
+import os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf, fetch_puzzle as fp
+a = {"number": 22, "direction": "across", "solution": "INSO", "group": ["22-across", "5-down"], "clue": {"text": "Fossa rain", "enumeration": "2,2,3,2"}}
+d = {"number": 5, "direction": "down", "solution": "FARAS", "clue": {"text": "", "enumeration": ""}}
+ann = fp.blog_annotation({**a, "blog": bf.fact_json({"blocks": [["INSOFARAS", "fossa rain", "inferred"]]}, "Fossa rain")}, {"entries": [a, d]})
+print(ann["answer"].replace(" ", ""), "".join(ch for ch in ann["answer"] if ch.isalpha()))')"
 check "a hidden word's carrier gets the note ours write, the run in capitals" \
   '["hidden in saW HIZbollah", "hidden backwards in whoM SIN A GROtesque", null]' \
   "$(REPO="$REPO" python3 -c '

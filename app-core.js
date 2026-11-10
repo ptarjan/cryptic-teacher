@@ -1252,7 +1252,10 @@
     const b = e.blog;
     if (!b) return null;
     const defs = b.definitions || [];
-    const answer = clueAnswer(e);
+    // A linked answer is built from all its lights, joined in group order.
+    const lights = (e.group || []).map((id) => (id === entryId(e) ? e : byId[id]));
+    const answer = lights.length > 1 && lights.every((l) => l && l.solution)
+      ? lights.map((l) => (l === e ? clueAnswer(l) : l.solution)).join("") : clueAnswer(e);
     const ann = { fromBlog: true, answer, type: b.type || [], indicators: b.indicators || [],
                   blocks: (b.blocks || []).map((block) => {
                     if (block.soundsLike) return block;
