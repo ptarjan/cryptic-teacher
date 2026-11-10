@@ -133,7 +133,8 @@ in a double definition each definition's note says what that sense means.
 **Special clue kinds.**
 - **Double definition**: two `def`s and no `wp`.
 - **Cryptic definition**: `def` the whole clue, `wp` `cd([the clue's words])`: ONE leaf
-  holding the clue words once (never `cd([a], [b])`), with a note, no letters. Two
+  holding the clue words once (never `cd([a], [b])`), with a note, no letters. The note
+  describes the reading and never names the answer (no "= ANSWER"). Two
   readings in two stretches is a double definition instead.
 - **Rebus**, **composite anagram**, **move** and **reverse clue** have their own
   forms in the grammar (`rebus`, `comp`, `move`, `reverse`): use them, never a
