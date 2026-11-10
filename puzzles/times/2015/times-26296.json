@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Getting on so well, as we all know",
     "enumeration": "8"
    },
-   "solution": "FAMOUSLY"
+   "solution": "FAMOUSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Getting on so well",
+      "at": 0,
+      "meaning": "people who get on brilliantly are said to get on like a house on fire, or in this idiom, splendidly"
+     },
+     {
+      "text": "as we all know",
+      "at": 20,
+      "meaning": "a sentence adverb meaning notoriously, as is common knowledge"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are idioms: getting on extremely well together, and an ironic aside meaning as is widely known."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 5,
@@ -44,7 +69,59 @@
     "text": "Did wrong to impound vehicle, producing official documentation",
     "enumeration": "2,4"
    },
-   "solution": "IDCARD"
+   "solution": "IDCARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "official documentation",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to impound",
+       "at": 10,
+       "note": "to impound is to shut something in, so one piece goes inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrong",
+         "at": 4,
+         "note": "done wrong, the letters of the word did are put in a different order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Did",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "words": "vehicle",
+       "at": 21,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who did wrong has their vehicle impounded and must show their papers.",
+     "walkthrough": "'Did' reads as the past of do in the surface, but its three letters are anagram fodder; 'to impound' signals the container.",
+     "definitionFit": "An identity card is a piece of official documentation proving who you are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impound"
+    }
+   }
   },
   {
    "number": 10,
@@ -58,7 +135,74 @@
     "text": "Commonly, school jumper needs treating initially in starch",
     "enumeration": "9"
    },
-   "solution": "ARROWROOT"
+   "solution": "ARROWROOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "starch",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Commonly",
+         "at": 0,
+         "note": "common speech drops its aitches, so the initial H of the school's name goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school",
+         "at": 10,
+         "gives": "HARROW",
+         "note": "Harrow is a famous English public school"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "jumper",
+       "at": 17,
+       "gives": "ROO",
+       "note": "a roo, short for kangaroo, is a jumper"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 39,
+         "note": "initially means the first letter of the following word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treating",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy athlete needs some starch treatment, in a confusing culinary sense.",
+     "walkthrough": "'Commonly' drops the H from HARROW to give ARROW, the way a Cockney would say it. 'Jumper' looks like a sweater but is the kangaroo.",
+     "definitionFit": "Arrowroot is a starch extracted from the rhizomes of a tropical plant, used to thicken sauces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +216,43 @@
     "text": "Day's wet, filling this?",
     "enumeration": "5"
    },
-   "solution": "DRAIN"
+   "solution": "DRAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Day's wet, filling this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Day's",
+       "at": 0,
+       "gives": "D",
+       "note": "D is the abbreviation for day"
+      },
+      {
+       "words": "wet",
+       "at": 6,
+       "gives": "RAIN",
+       "note": "rain is wet weather"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A rainy day fills the gutter outlet to overflowing.",
+     "walkthrough": "The whole clue doubles as the definition: on a wet day, rainwater fills the outlet the answer names.",
+     "definitionFit": "A drain is the channel or pipe that rainwater on a wet day runs into and fills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +266,43 @@
     "text": "Shabby appearance remarked",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shabby",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MEAN",
+     "indicators": [
+      {
+       "text": "remarked",
+       "at": 18,
+       "note": "something remarked is spoken, so the word is taken by its pronunciation"
+      }
+     ],
+     "parts": [
+      {
+       "words": "appearance",
+       "at": 7,
+       "gives": "MIEN",
+       "note": "mien is a person's bearing or appearance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone comments that a person looks shabby.",
+     "definitionFit": "Mean can describe something poor and shabby in quality, as in a mean little room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +316,41 @@
     "text": "Joint study perhaps that one needs to manoeuvre",
     "enumeration": "5,4"
    },
-   "solution": "ELBOWROOM"
+   "solution": "ELBOWROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that one needs to manoeuvre",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Joint",
+       "at": 0,
+       "gives": "ELBOW",
+       "note": "the elbow is a joint of the arm"
+      },
+      {
+       "words": "study perhaps",
+       "at": 6,
+       "gives": "ROOM",
+       "note": "a study is an example of a room in a house"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moving furniture into a study finds they need space to turn round.",
+     "definitionFit": "Elbow room is space enough to move freely, which is what manoeuvring requires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 15,
@@ -114,7 +364,69 @@
     "text": "Sweet to study a female out of tenderness",
     "enumeration": "10"
    },
-   "solution": "CONFECTION"
+   "solution": "CONFECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to study",
+       "at": 6,
+       "gives": "CON",
+       "note": "to con is to study or learn by heart"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out of",
+         "at": 24,
+         "note": "out of means these letters are taken away from the longer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tenderness",
+         "at": 31,
+         "gives": "AFFECTION",
+         "note": "affection is tenderness"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 15,
+           "gives": "A"
+          },
+          {
+           "words": "female",
+           "at": 17,
+           "gives": "F"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves to study a woman simply out of tender feeling, with a sweet on offer.",
+     "walkthrough": "'out of' looks like 'because of' in the surface, but it signals removing A and F, given by 'a female', from the synonym for tenderness.",
+     "definitionFit": "A confection is a sweet, a dish or delicacy made with sugar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +440,58 @@
     "text": "Skirt length shortened among set of clothes",
     "enumeration": "4"
    },
-   "solution": "KILT"
+   "solution": "KILT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skirt",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "among",
+       "at": 23,
+       "note": "among means one piece is placed inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "set of clothes",
+       "at": 29,
+       "gives": "KIT",
+       "note": "kit is a set of clothes, as in football kit"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 13,
+         "note": "shortened means the word length is cut to its first letter, the usual abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "length",
+         "at": 6
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A skirt has been taken up and packed with other clothes.",
+     "definitionFit": "A kilt is a pleated knee-length skirt, traditionally worn by Scottish men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Skirt"
+    }
+   }
   },
   {
    "number": 19,
@@ -142,7 +505,31 @@
     "text": "What de Gaulle gave our Common Market application soon",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What de Gaulle gave our Common Market application",
+      "at": 0,
+      "meaning": "de Gaulle vetoed Britain's 1963 bid to join the EEC, giving it a French refusal, a 'non'"
+     },
+     {
+      "text": "soon",
+      "at": 50,
+      "meaning": "an old word for soon or shortly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "President de Gaulle of France famously said non to Britain joining the European Common Market.",
+     "definitionFit": "Anon is an archaic adverb meaning shortly or in a little while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "application"
+    }
+   }
   },
   {
    "number": 20,
@@ -156,7 +543,35 @@
     "text": "Killing time",
     "enumeration": "4,6"
    },
-   "solution": "OPENSEASON"
+   "solution": "OPENSEASON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Killing time",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Killing time",
+       "at": 0,
+       "note": "read not as idling away hours but as the period when hunting a species is permitted"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The phrase wants to mean passing time idly; instead it is the season when killing game is allowed.",
+     "definitionFit": "This is the period when game may legally be hunted, so a time for killing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Killing"
+    }
+   }
   },
   {
    "number": 22,
@@ -170,7 +585,52 @@
     "text": "One priestly and laic curiously accepted",
     "enumeration": "9"
    },
-   "solution": "CANONICAL"
+   "solution": "CANONICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "accepted",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One priestly",
+       "at": 0,
+       "gives": "CANON",
+       "note": "a canon is a member of the clergy, one who is priestly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "curiously",
+         "at": 22,
+         "note": "curiously signals that the letters of laic are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "laic",
+         "at": 17
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman and a layman are oddly both welcomed.",
+     "walkthrough": "'curiously' turns LAIC into ICAL.",
+     "definitionFit": "Canonical means authorised or generally accepted, as in a canonical text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 24,
@@ -184,7 +644,43 @@
     "text": "Boat turned into a national symbol",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a national symbol",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turned",
+       "at": 5,
+       "note": "turned means the word is read the other way round"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boat",
+       "at": 0,
+       "gives": "KEEL",
+       "note": "a keel is a flat-bottomed boat, as on the Tyne"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat is converted into a monument for the nation.",
+     "walkthrough": "The leek is the national emblem of Wales.",
+     "definitionFit": "The leek is an emblem of Wales, worn on St David's Day, so a national symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boat"
+    }
+   }
   },
   {
    "number": 26,
@@ -198,7 +694,54 @@
     "text": "Primate's outrageous work rebuffed",
     "enumeration": "5"
    },
-   "solution": "POTTO"
+   "solution": "POTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Primate's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rebuffed",
+       "at": 26,
+       "note": "rebuffed suggests being turned back, so the pieces are read backwards together"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "outrageous",
+         "at": 10,
+         "gives": "OTT",
+         "note": "OTT, over the top, means outrageous"
+        },
+        {
+         "words": "work",
+         "at": 21,
+         "gives": "OP",
+         "note": "op is short for opus, a work"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An archbishop's scandalous composition is rejected.",
+     "walkthrough": "'Primate' suggests an archbishop, but it is the animal; 'rebuffed' turns OTTOP round to give the answer.",
+     "definitionFit": "The potto is a slow-moving African primate related to the lorises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Primate's"
+    }
+   }
   },
   {
    "number": 27,
@@ -212,7 +755,48 @@
     "text": "Such arms carried little at first",
     "enumeration": "5-4"
    },
-   "solution": "SMALLBORE"
+   "solution": "SMALLBORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Such arms",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at first",
+       "at": 25,
+       "note": "at first means this piece comes before the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "little",
+       "at": 18,
+       "gives": "SMALL",
+       "note": "small means little"
+      },
+      {
+       "words": "carried",
+       "at": 10,
+       "gives": "BORE",
+       "note": "bore is the past tense of bear, to carry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weapons of this kind were carried by children at the beginning.",
+     "definitionFit": "Small-bore describes firearms with a narrow barrel, such as .22 rifles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 28,
@@ -226,7 +810,31 @@
     "text": "German who has lost a few pounds?",
     "enumeration": "6"
    },
-   "solution": "DIETER"
+   "solution": "DIETER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German",
+      "at": 0,
+      "meaning": "A common German man's name"
+     },
+     {
+      "text": "who has lost a few pounds?",
+      "at": 7,
+      "meaning": "a person on a diet who has shed some weight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second, playful sense: a slimmer.",
+     "definitionFit": "A man's name typical in Germany, and also one who follows a diet to reduce weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 29,
@@ -240,7 +848,46 @@
     "text": "Having provocative appearance, began scrubbing face",
     "enumeration": "6,2"
    },
-   "solution": "TARTEDUP"
+   "solution": "TARTEDUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having provocative appearance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "scrubbing face",
+       "at": 37,
+       "note": "scrubbing the face removes the front, so the first letter goes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "began",
+       "at": 31,
+       "gives": "STARTEDUP",
+       "note": "started up means began"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a racy look began washing their face.",
+     "walkthrough": "'scrubbing face' takes S off STARTED UP.",
+     "definitionFit": "Tarted up means dressed or made up in a showy, provocative way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrubbing"
+    }
+   }
   },
   {
    "number": 1,
@@ -254,7 +901,48 @@
     "text": "Wicked to grab a pound, and extra pounds?",
     "enumeration": "4"
    },
-   "solution": "FLAB"
+   "solution": "FLAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "extra pounds",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to grab",
+       "at": 7,
+       "note": "to grab means one piece holds the other inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wicked",
+       "at": 0,
+       "gives": "FAB",
+       "note": "in slang, wicked and fab both mean excellent"
+      },
+      {
+       "words": "a pound",
+       "at": 15,
+       "gives": "L",
+       "note": "L is the abbreviation for a pound, from Latin libra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is wicked to pocket a pound, and then some more pounds.",
+     "definitionFit": "Flab is excess body fat, the pounds of weight someone would like to lose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wicked"
+    }
+   }
   },
   {
    "number": 2,
@@ -268,7 +956,71 @@
     "text": "Her termination, late executed, found moving by English",
     "enumeration": "5,10"
    },
-   "solution": "MARIEANTOINETTE"
+   "solution": "MARIEANTOINETTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Her termination, late executed, found moving by English",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 38,
+         "note": "moving means the letters are shifted into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "termination",
+         "at": 4
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "executed",
+           "at": 22,
+           "note": "executed means beheaded, so the first letter of late is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "late",
+           "at": 17
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "English",
+       "at": 48,
+       "gives": "E"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A queen's death by execution is found affecting by English onlookers.",
+     "walkthrough": "'executed' cuts L from LATE, leaving ATE; with TERMINATION and E, 'moving' rearranges them. The whole clue also describes the French queen guillotined in 1793.",
+     "definitionFit": "The French queen whose life ended under the guillotine is the woman this whole clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 3,
@@ -282,7 +1034,54 @@
     "text": "Surplus article replaced by nothing out of the ordinary here",
     "enumeration": "8"
    },
-   "solution": "UNWONTED"
+   "solution": "UNWONTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "out of the ordinary",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replaced by",
+       "at": 16,
+       "note": "replaced by means one letter is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Surplus",
+       "at": 0,
+       "gives": "UNWANTED",
+       "note": "surplus goods are unwanted"
+      },
+      {
+       "words": "article",
+       "at": 8,
+       "gives": "A",
+       "note": "A is the indefinite article"
+      },
+      {
+       "words": "nothing",
+       "at": 28,
+       "gives": "O",
+       "note": "O, the figure zero, means nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extra goods turn up where nothing unusual normally happens.",
+     "definitionFit": "Unwonted means unaccustomed or unusual, so out of the ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 4,
@@ -296,7 +1095,30 @@
     "text": "Fast companion on the run",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fast companion",
+      "at": 0,
+      "meaning": "the word that goes with fast in the phrase fast and ___, playing deceitfully"
+     },
+     {
+      "text": "on the run",
+      "at": 15,
+      "meaning": "escaped and at large, free from captivity"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Its partner word in the idiom 'fast and ___', and also free or at large after escaping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "companion"
+    }
+   }
   },
   {
    "number": 6,
@@ -310,7 +1132,51 @@
     "text": "Disparage bird no longer on wing regularly",
     "enumeration": "2,4"
    },
-   "solution": "DODOWN"
+   "solution": "DODOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disparage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bird no longer",
+       "at": 10,
+       "gives": "DODO",
+       "note": "the dodo is an extinct bird"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 33,
+         "note": "regularly means every other letter of wing is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wing",
+         "at": 28
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone belittles a flightless bird that no longer flies.",
+     "definitionFit": "To do down is to belittle or speak disparagingly of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 7,
@@ -324,7 +1190,56 @@
     "text": "In car-boot sale unexpectedly I had body-building aid",
     "enumeration": "8,7"
    },
-   "solution": "ANABOLICSTEROID"
+   "solution": "ANABOLICSTEROID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "body-building aid",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unexpectedly",
+         "at": 17,
+         "note": "unexpectedly signals the letters turn up in a surprising order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "In",
+         "at": 0
+        },
+        {
+         "words": "car-boot sale",
+         "at": 3
+        }
+       ]
+      },
+      {
+       "words": "I had",
+       "at": 30,
+       "gives": "ID",
+       "note": "I'd is the contraction of I had"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a car-boot sale someone unexpectedly came across a gym drug.",
+     "walkthrough": "A car-boot sale is a British flea market where people sell from their car boots (trunks).",
+     "definitionFit": "Anabolic steroids are drugs taken to build muscle, a notorious aid to body-building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aid"
+    }
+   }
   },
   {
    "number": 8,
@@ -338,7 +1253,72 @@
     "text": "Dispatching with charge? Very keen to accept soldier raised appeal",
     "enumeration": "10"
    },
-   "solution": "DYNAMITING"
+   "solution": "DYNAMITING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dispatching with charge?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to accept",
+       "at": 35,
+       "note": "to accept means one piece takes the others inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Very keen",
+       "at": 25,
+       "gives": "DYING",
+       "note": "dying, as in dying to go, means very keen"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "raised",
+           "at": 53,
+           "note": "raised in a down clue means read upwards, so backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soldier",
+           "at": 45,
+           "gives": "MAN",
+           "note": "a man is a soldier, as in officers and men"
+          }
+         ]
+        },
+        {
+         "words": "appeal",
+         "at": 60,
+         "gives": "IT",
+         "note": "it is sex appeal"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eager to get a soldier's backing makes an appeal.",
+     "walkthrough": "In a down clue 'raised' means read upwards. The question mark warns that the definition is playful: dispatching means destroying, with an explosive charge.",
+     "definitionFit": "Blowing something up with an explosive charge is a way of destroying, or dispatching, it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 9,
@@ -352,7 +1332,41 @@
     "text": "Cussed fag-end brought to life",
     "enumeration": "8"
    },
-   "solution": "STUBBORN"
+   "solution": "STUBBORN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cussed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fag-end",
+       "at": 7,
+       "gives": "STUB",
+       "note": "a stub is the end of a cigarette, called a fag in Britain"
+      },
+      {
+       "words": "brought to life",
+       "at": 15,
+       "gives": "BORN",
+       "note": "born means brought into life"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cigarette butt somehow comes alive.",
+     "definitionFit": "Cussed means obstinate or perverse, which is what stubborn means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cussed"
+    }
+   }
   },
   {
    "number": 14,
@@ -366,7 +1380,63 @@
     "text": "Distributed cards: apt to keep check in short-term memory",
     "enumeration": "10"
    },
-   "solution": "SCRATCHPAD"
+   "solution": "SCRATCHPAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short-term memory",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 23,
+       "note": "to keep means one piece is held inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Distributed",
+         "at": 0,
+         "note": "distributed, like dealt cards, means the letters are spread into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cards",
+         "at": 12
+        },
+        {
+         "words": "apt",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "words": "check",
+       "at": 31,
+       "gives": "CH",
+       "note": "CH is the chess abbreviation for check"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cards dealt out help you keep track of a check in your head.",
+     "walkthrough": "'Distributed' suggests dealing cards but is the anagram signal for both words; 'to keep' places the chess abbreviation inside.",
+     "definitionFit": "A scratchpad is a temporary store, either a notepad for jottings or fast working memory in computing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 16,
@@ -380,7 +1450,41 @@
     "text": "The sort to be thrown, given similar parts?",
     "enumeration": "8"
    },
-   "solution": "TYPECAST"
+   "solution": "TYPECAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "given similar parts?",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sort",
+       "at": 4,
+       "gives": "TYPE",
+       "note": "a type is a sort or kind"
+      },
+      {
+       "words": "thrown",
+       "at": 15,
+       "gives": "CAST",
+       "note": "cast means thrown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The kind of thing to be tossed, given parts that match.",
+     "definitionFit": "An actor who is typecast is always given the same kind of role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 18,
@@ -394,7 +1498,41 @@
     "text": "Hill, not at all steep, made little impression",
     "enumeration": "4,4"
    },
-   "solution": "FELLFLAT"
+   "solution": "FELLFLAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "made little impression",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hill",
+       "at": 0,
+       "gives": "FELL",
+       "note": "a fell is a hill, especially in the north of England"
+      },
+      {
+       "words": "not at all steep",
+       "at": 6,
+       "gives": "FLAT",
+       "note": "flat ground is not steep at all"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hill with no steep slopes was unimpressive.",
+     "definitionFit": "A joke or plan that fell flat failed to make the intended impression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hill"
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1546,41 @@
     "text": "German and I are ruined!",
     "enumeration": "6"
    },
-   "solution": "UNDONE"
+   "solution": "UNDONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ruined",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German and",
+       "at": 0,
+       "gives": "UND",
+       "note": "und is the German for and"
+      },
+      {
+       "words": "I",
+       "at": 11,
+       "gives": "ONE",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German cries out that he and I are done for.",
+     "definitionFit": "Undone, in older or dramatic usage, means ruined or brought to destruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1594,40 @@
     "text": "City Hall has altered a bit",
     "enumeration": "5"
    },
-   "solution": "LHASA"
+   "solution": "LHASA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "a bit",
+       "at": 22,
+       "note": "a bit means only a portion of these words is taken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hall has altered",
+       "at": 5
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city's town hall has been slightly modified.",
+     "definitionFit": "Lhasa is the capital city of Tibet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "altered"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1641,29 @@
     "text": "Living in tower",
     "enumeration": "4"
    },
-   "solution": "KEEP"
+   "solution": "KEEP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Living",
+      "at": 0,
+      "meaning": "board and lodging, a livelihood"
+     },
+     {
+      "text": "tower",
+      "at": 10,
+      "meaning": "the strongest central tower of a castle"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "One's board and subsistence, and also the fortified central stronghold of a castle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Living"
+    }
+   }
   }
  ]
 }
