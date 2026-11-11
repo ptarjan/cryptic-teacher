@@ -349,4 +349,10 @@ new = A.repair_pool_gap({"wordplay": wp}, {"solution": "CHOSES", "clue": {"text"
 check("selectorInLeaf: the leaf becomes the selection op over its source",
       new["parts"][1].get("op") == "first" and new["parts"][1]["indicators"][0]["text"] == "leader"
       and not A.rule_counters()["selectorInLeaf"](new, {}, clue))
+check("doesNotGive: one leaf a letter too long at its end (QUINT for QUIN) is cut when no other edit gives the answer",
+      mend("ins<in>([street]ST, [One of five]QUINT) + last<finally>([recognises]S)", "street in One of five finally recognises", "SQUINTS")
+      == "ins<in>([street]ST, [One of five]QUIN) + last<finally>([recognises]S)")
+msg = mend("[to cut back]POLL + [lighting unit]LUX", "to cut back lighting unit", "POLLUX")
+check("doesNotGive: a letter doubled at a join (POLL + LUX: either piece could lose it) stays refused", msg.startswith("REFUSED"))
+
 sys.exit(1 if fails else 0)
