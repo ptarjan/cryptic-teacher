@@ -381,6 +381,13 @@ same("a Listener page saved through the library portal is stamped like one from 
      stamped_from("https://abresearchportal.ca/ps/retrieve.do?docId=GALE%7CX", "tools/file_gale_listener.py", pid="listener-4279"),
      listener_gale)
 same("...and is not refused", listener_gale != "refused", True)
+jumbo_gale = stamped_from("https://link.gale.com/apps/doc/GALE%7CIF0502304389/TTDA?sid=bookmark-TTDA",
+                          "tools/gale_jumbo_read.py", pid="timesjumbo-256")
+same("a Times Jumbo page read by tools/gale_jumbo_read.py is stamped from its link.gale.com permalink",
+     jumbo_gale != "refused", True)
+same("...and so is one saved through the library portal",
+     stamped_from("https://abresearchportal.ca/ps/retrieve.do?docId=GALE%7CX", "tools/gale_jumbo_read.py",
+                  pid="timesjumbo-256"), jumbo_gale)
 same("a filer's first write from a host with no row is refused",
      stamped_from("https://example.org/page"), "refused")
 same("another tool's file is left to derive as before",
