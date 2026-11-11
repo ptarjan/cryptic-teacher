@@ -19216,7 +19216,9 @@ HOST_ERA_RESCAN = "solution host, the heading's place by its title unread, 1947-
 REREAD_HOST_ERAS = "2026-10-29T08:15:00+00:00"
 #: The reasons of a scan unit read in its solution bands alone (scan_unit's `host`).
 HOST_REASONS = (HOST_SCAN, HOST_RESCAN, HOST_GRID_RESCAN, HOST_COLUMN_RESCAN, HOST_WEEK_ON_RESCAN, HOST_LAYOUT_RESCAN, HOST_ERA_RESCAN)
-RANKS = {HOST_SCAN: 1, HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, HOST_ERA_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
+#: A Times Jumbo puzzle tools/gale_jumbo_read.py filed whose solution page is now on disk (answers only).
+JUMBO_SOLUTION = "Times Jumbo solution page fetched"
+RANKS = {JUMBO_SOLUTION: 2, HOST_SCAN: 1,HOST_RESCAN: 1, HOST_GRID_RESCAN: 1, HOST_COLUMN_RESCAN: 1, HOST_WEEK_ON_RESCAN: 1, HOST_LAYOUT_RESCAN: 1, HOST_ERA_RESCAN: 1, "just laid out": 0, "never read (Gale fetch)": 0, "never read": 1, "annotation asked": 1, UNCONFIGURED_READ: 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          "solution short, its cells unclassified": 2, UNCLASSIFIED_HELD: 2, "refused clues-short before its fix": 2,
          **{f"refused {c} before its fix": 2 for c in (*REFUSALS, "writeFailed", "unparsed")}, "scan stale, answers missing": 2,
