@@ -738,4 +738,40 @@ check("a linked lead's answer for the shape checks is the whole joined answer", 
 check("an unlinked entry's answer is its own solution", "COD",
       v._whole_answer({"number": 1, "direction": "across", "solution": "COD", "clue": {}}, {"entries": []}))
 check("an entry with no solution has no answer", None, v._whole_answer({"number": 1, "direction": "across"}, {"entries": []}))
+# One standard abbreviation scrambled with the clue's own words is fodder (IE, EG, CO, ED, PA, CL, HO, UN, MI)
+ie_pool = {"op": "anagram", "parts": [{"words": "farm"}, {"words": "that is shortly", "gives": "IE"}]}
+ie_ins = {"op": "container", "parts": [{"words": "Centre for kids", "gives": "CRECHE"}, ie_pool]}
+check("a lone abbreviation (IE) in a container's anagram is not a stand-in", 0, v.ana_stand_in(ie_ins))
+check("nor a synonym-count under the anagram", 0, v.anagram_synonyms(ie_pool))
+check("an abbreviation beside a charade of fodder is fodder too", 0, v.anagram_synonyms(
+    {"op": "anagram", "parts": [{"op": "charade", "parts": [{"words": "rid"}, {"words": "for example", "gives": "EG"}]}]}))
+two_stand = {"op": "container", "parts": [{"words": "Centre for kids", "gives": "CRECHE"}, {"op": "anagram", "parts": [
+    {"words": "farm"}, {"words": "that is shortly", "gives": "IE"}, {"words": "for example", "gives": "EG"}]}]}
+check("two stand-ins in one anagram are still counted", 1, v.ana_stand_in(two_stand))
+syn_ins = {"op": "container", "parts": [{"words": "x", "gives": "CRECHE"}, {"op": "anagram", "parts": [
+    {"words": "farm"}, {"words": "lettuce", "gives": "COS"}]}]}
+check("a synonym (not an abbreviation) in a container's anagram is still counted", 1, v.ana_stand_in(syn_ins))
+check("a synonym beside fodder under an anagram is still counted", 1, v.anagram_synonyms(wis))
+
+# One reversal over a charade may turn each piece round where it stands (PAMPER: plan -> MAP, agent -> REP)
+pam = wordplay.parse("rev<make a comeback>([plan]MAP + [agent]REP)", "plan agent make a comeback")
+try:
+    wordplay.evaluate(pam, "PAMPER")
+    check("each piece reversed in place spells PAMPER", True, True)
+except wordplay.WordplayError as e:
+    check("each piece reversed in place spells PAMPER", True, str(e))
+whole = wordplay.parse("rev<back>([agent]REP + [plan]MAP)", "agent plan back")
+try:
+    wordplay.evaluate(whole, "PAMPER")
+    check("the whole run reversed still works", True, True)
+except wordplay.WordplayError as e:
+    check("the whole run reversed still works", True, str(e))
+wrong = wordplay.parse("rev<back>([plan]MAP + [agent]PER)", "plan agent back")
+try:
+    wordplay.evaluate(wrong, "PAMPER")
+    check("a reversal that fits neither way is refused", "refused", "accepted")
+except wordplay.WordplayError:
+    check("a reversal that fits neither way is refused", True, True)
+check("in-place pieces are PAM + PER", ["PAM", "PER"], annotation._pieces(pam, {id(pam): "PAMPER", id(pam["parts"][0]): "MAPREP", id(pam["parts"][0]["parts"][0]): "MAP", id(pam["parts"][0]["parts"][1]): "REP"}))
+
 raise SystemExit(fails)

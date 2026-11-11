@@ -590,7 +590,13 @@ def _pieces(node, got):
     if op == "charade" or (op == "palindrome" and wordplay.lettered(_parts(node))):
         return [x for p in _parts(node) for x in _pieces(p, got) if x]
     if op == "reversal":
-        return [p[::-1] for p in reversed(_pieces(_parts(node)[0], got))]
+        child = _parts(node)[0]
+        inner = _pieces(child, got)
+        if child.get("op") == "charade" and not child.get("unchecked") and id(node) in got:
+            # one reversal over a charade may turn each piece round where it stands (PAM + PER)
+            if "".join(p[::-1] for p in inner) == got[id(node)] != "".join(p[::-1] for p in reversed(inner)):
+                return [p[::-1] for p in inner]
+        return [p[::-1] for p in reversed(inner)]
     if op == "container":
         outer, inner = _parts(node)
         o, i, r = got[id(outer)], got[id(inner)], got[id(node)]

@@ -1005,7 +1005,8 @@ def values(node):
         return out
     if op == "reversal":
         vs = values(parts[0])
-        return {v[::-1] for v in vs}.union(*(_span_flips(node, v) for v in vs))
+        out = {v[::-1] for v in vs}.union(*(_span_flips(node, v) for v in vs))
+        return out | _each_flipped(parts[0])
     if op == "container":
         outs = {o[:k] + i + o[k:] for o in values(parts[0]) for i in values(parts[1])
                 for k in range(1, len(o))}
@@ -1103,6 +1104,32 @@ def values(node):
     raise WordplayError(f"unknown op {op!r}")
 
 
+def _is_plain_charade(child):
+    return (isinstance(child, dict) and child.get("op") == "charade" and not child.get("unchecked")
+            and len(child.get("parts") or []) >= 2)
+
+
+def _flipped_run(charade):
+    """A copy of a charade with each piece turned round where it stands (sharing the pieces, so
+    their gives fill in): one reversal indicator over a charade reads PAM + PER for PAMPER's
+    plan + agent as well as the whole run backwards (setters: 'plan agent coming back')."""
+    return {**charade, "parts": [{"op": "reversal", "parts": [p]} for p in charade["parts"]]}
+
+
+def _each_flipped(child):
+    """The readings of `child` when it is a charade whose every piece is reversed in place."""
+    if not _is_plain_charade(child):
+        return set()
+    return values(_flipped_run(child))
+
+
+def _each_flipped_ok(child, want):
+    try:
+        return want in _each_flipped(child)
+    except (_NeedTarget, WordplayError):
+        return False
+
+
 def lengths(node):
     """Every length `node` can give."""
     op = node.get("op")
@@ -1182,6 +1209,8 @@ def match(node, want, got=None):
         ok = _match_run(parts_of(node), want, got)
     elif op == "reversal":
         ok = match(parts_of(node)[0], want[::-1], got) is not None
+        if not ok and _each_flipped_ok(parts_of(node)[0], want):
+            ok = match(_flipped_run(parts_of(node)[0]), want, got) is not None
         if not ok and _span_words(node):
             try:
                 whole = sorted(v for v in values(parts_of(node)[0]) if want in _span_flips(node, v))
