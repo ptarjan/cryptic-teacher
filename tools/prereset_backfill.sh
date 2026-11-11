@@ -1900,7 +1900,13 @@ fi
 # Its per-puzzle report covers the whole corpus, a megabyte that would trim the
 # run's own story out of the log; only the summary and a failure are kept.
 tighten_summary() { grep -v -e " — OK$" -e " — skipped$" -e "^ *warn:" -e "^$" <<<"$tighten_out"; }
-if tighten_out=$(python3 tools/validate_annotations.py --tighten 2>&1); then
+if [ "$(date +%s)" -ge "$STOP_AT" ] && [ ! -e "$PRERESET_PAUSE" ]; then
+  # Stopped at the weekly reset: the corpus-wide --tighten took ~1.6h here
+  # (11-11: 04:59 stop, 06:49 done), holding the lock while the new week's quota
+  # sat unspent. It reads the whole corpus, so the next run's tail records this
+  # run's drained puzzles too; the new week starts burning now.
+  echo "reset reached: --tighten left to the next run's tail, so the new week starts at once"
+elif tighten_out=$(python3 tools/validate_annotations.py --tighten 2>&1); then
   tighten_summary || true
 else
   alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes:
