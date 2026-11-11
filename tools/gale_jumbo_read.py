@@ -58,7 +58,7 @@ SOLUTIONS = downloads.TIMES_JUMBO_SOLUTIONS
 DOCS = Path(os.path.expanduser("~/.cache/gale_inbox/docs.json"))
 SOLVED = "solved.jsonl"
 #: Bumped when the solution reading changes, so every filed puzzle is tried again.
-SOLVED_VERSION = 2
+SOLVED_VERSION = 3
 SOLUTION_PREFIX = PREFIX + "solution:"
 #: "Solution to Bank Holiday Jumbo 168", "Jumbo Corssword 169": the number after the word Jumbo.
 SOLUTION_REF = re.compile(r"\bjumbo\b\D{0,30}?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -269,27 +269,49 @@ def plan_solutions(store=STORE, solutions=SOLUTIONS, docs=DOCS):
     return out
 
 
+def grid_candidates(img):
+    """[box] of the grid-sized ink on a solution page: page_grids' boxes and every square patch of ink
+    (a Times page prints its grid ~38% of the page wide; page_grids keeps the widest *lattice-like* box,
+    which can be a photo or a text block, and then never offers the real grid). The block fit judges them."""
+    out = [list(b) for b in gi.page_grids(img)]
+    for b in fa.grids_on(img, shaped=gi.square):
+        b = list(b)
+        if not any(max(abs(x - y) for x, y in zip(b, o)) < 0.05 * (b[2] - b[0]) for o in out):
+            out.append(b)
+    return [b for b in out if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
+
+
 def solution_box(path, grid, store=STORE):
     """(block agreement, page index, box) of the grid-sized ink on a solution page whose blocks are the
     puzzle's `grid`'s, or None. The page's grid-shaped boxes are kept in the store."""
     import numpy as np
     import archive_org_jumbo as aj
     import trove_solution_ocr
-    cache = Path(store) / "solboxes" / f"{Path(path).stem}.json"
+    cache = Path(store) / "solboxes2" / f"{Path(path).stem}.json"
     pages = gi.images(Path(path))
     if cache.exists():
         boxes = json.loads(cache.read_text())
     else:
-        boxes = [[i, list(b)] for i, (img, _) in enumerate(pages) for b in gi.page_grids(img)
-                 if GRID_PX[0] <= b[2] - b[0] <= GRID_PX[1]]
+        boxes = [[i, b] for i, (img, _) in enumerate(pages) for b in grid_candidates(img)]
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(json.dumps(boxes))
     best = None
     for i, box in boxes:
         gray = np.asarray(pages[i][0].crop(tuple(box)).convert("L"))
+        fits = []
         try:
-            fit = aj.block_fit(gray, grid, trove_solution_ocr.lattice(gray, len(grid), tight=True))
+            fits.append(aj.block_fit(gray, grid, trove_solution_ocr.lattice(gray, len(grid), tight=True)))
         except ValueError:
+            pass
+        # A crop whose frame is no clean rules (a top rule too thin to count: lattice() starts a row
+        # low): the reader's own framings, as read_framed matches them, are fitted too.
+        try:
+            fits += [trove_solution_ocr.block_agreement(g, grid, (ys, xs))
+                     for g, ys, xs in trove_solution_ocr.framings(gray, grid)]
+        except ValueError:
+            pass
+        fit = max(fits, default=None)
+        if fit is None:
             continue
         if best is None or fit > best[0]:
             best = (fit, i, tuple(box))
