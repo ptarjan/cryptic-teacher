@@ -357,8 +357,8 @@ import datetime as _dt
 import gale_inbox
 assert max(gale_inbox.sunday_wanted("INDA", _dt.date(2026, 11, 1), laid=set())) <= gale_inbox.LAST_PRINTED["INDA"]
 
-# 7. Each download is written to the log.
-assert set(gf.load(kw["fetched"])) == {rows(3)[i][1]["doc"] for i in (0, 2)}
+# 7. Each download is written to the log (6c's run: row 0 was set aside).
+assert set(gf.load(kw["fetched"])) == {rows(3)[i][1]["doc"] for i in (1, 2)}
 
 # 8. The session is browsed as a person does: the portal, its Times link
 #    landing on Gale, then each document's page before its Download, every
