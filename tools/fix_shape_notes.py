@@ -300,6 +300,14 @@ def _does_not_give_edits(node, k, clue=None):
         new, t = fresh()
         t["gives"] = t["gives"][:-1]
         out.append(new)
+    if leaf(n) and n.get("words") and str(n.get("gives") or "").isalpha() and len(n["gives"]) >= 3:
+        # a leaf one letter too long at an end ([One of five]QUINT for QUIN, [sons]SS for S): the end cut,
+        # kept only when no other edit in the tree gives the answer (a letter doubled at a join between two
+        # leaves, where either could lose it, has two edits and stays refused)
+        for cut in (n["gives"][1:], n["gives"][:-1]):
+            new, t = fresh()
+            t["gives"] = cut
+            out.append(new)
     if n.get("op") == "charade" and len(parts) >= 2:
         # a piece the answer does not need ([dense]D after LARD in DULLARD: the definition word filed as a
         # leaf): a plain leaf cut, its clue word left to the definition or as a link word
