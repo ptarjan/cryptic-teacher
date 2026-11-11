@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,41 @@
     "text": "Worker filling in, hired as a model",
     "enumeration": "7"
    },
-   "solution": "TEMPLET"
+   "solution": "TEMPLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "model",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Worker filling in",
+       "at": 0,
+       "gives": "TEMP",
+       "note": "a temp is a worker standing in for someone absent"
+      },
+      {
+       "words": "hired",
+       "at": 19,
+       "gives": "LET",
+       "note": "let means rented out, hired"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stand-in employee has been taken on as a fashion model.",
+     "definitionFit": "A templet is a variant spelling of template, a pattern or guide used as a model."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 5,
@@ -44,7 +81,70 @@
     "text": "Something partially fermented is returned — beer's not right",
     "enumeration": "6"
    },
-   "solution": "SILAGE"
+   "solution": "SILAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something partially fermented",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 33,
+         "note": "returned says the little word is is to be read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "is",
+         "at": 30,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not right",
+         "at": 51,
+         "note": "not right says the letter standing for right is dropped from the beer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer's",
+         "at": 44,
+         "gives": "LAGER",
+         "note": "beer's here reads as beer is, with lager the beer"
+        },
+        {
+         "gives": "R",
+         "note": "R is the abbreviation for right"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brewer complains that a half-fermented batch came back because the beer was off.",
+     "walkthrough": "The apostrophe in 'beer's' stands for 'is', so the beer is without its R; 'returned' turns only the little word 'is'.",
+     "definitionFit": "Silage is fodder kept in a silo, where it is preserved by partial fermentation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 8,
@@ -58,7 +158,75 @@
     "text": "College wizard is entertaining a learner in study",
     "enumeration": "9"
    },
-   "solution": "MAGDALENE"
+   "solution": "MAGDALENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "College",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is entertaining",
+       "at": 15,
+       "note": "entertaining as a host does means holding the next pieces inside the wizard"
+      }
+     ],
+     "parts": [
+      {
+       "words": "wizard",
+       "at": 8,
+       "gives": "MAGE",
+       "note": "a mage is a magician or wizard"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 41,
+         "note": "in says the article and learner go inside the study"
+        }
+       ],
+       "parts": [
+        {
+         "words": "study",
+         "at": 44,
+         "gives": "DEN",
+         "note": "a den is a private study or work room"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 31
+          },
+          {
+           "words": "learner",
+           "at": 33,
+           "gives": "L",
+           "note": "L is the learner sign on British cars"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college magician hosts a student in his study.",
+     "walkthrough": "Magdalene College at Cambridge; 'is entertaining' and 'in' are two separate container signals, one nested in the other.",
+     "definitionFit": "Magdalene is one of the colleges of Cambridge University."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -72,7 +240,47 @@
     "text": "Sporting venue's no good? Not quite a description of the Oval!",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not quite a description of the Oval!",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "at": 17,
+       "note": "no here means the venue is without the letter for good"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sporting venue's",
+       "at": 0,
+       "gives": "GROUND",
+       "note": "a ground is a sports venue; 's reads as is"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a famous sports ground is no good, nor even properly circular.",
+     "walkthrough": "The Oval is a London cricket ground; an oval shape is close to circular but not quite, so the definition is playful.",
+     "definitionFit": "An oval is nearly circular, so this word describes it only approximately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oval"
+    }
+   }
   },
   {
    "number": 11,
@@ -86,7 +294,53 @@
     "text": "Wig as Counsel's foremost disguise",
     "enumeration": "5"
    },
-   "solution": "CHIDE"
+   "solution": "CHIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wig",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "foremost",
+         "at": 17,
+         "note": "foremost asks for the leading letter of the word Counsel's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Counsel's",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "words": "disguise",
+       "at": 26,
+       "gives": "HIDE",
+       "note": "to hide is to conceal or disguise"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barrister's wig serves as his main disguise.",
+     "walkthrough": "'Wig' looks like a barrister's headgear but is the verb meaning to scold, as in 'wigging'.",
+     "definitionFit": "To wig someone, in old British slang, is to rebuke or scold them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wig"
+    }
+   }
   },
   {
    "number": 12,
@@ -100,7 +354,66 @@
     "text": "Dog can repeatedly run home to begin with",
     "enumeration": "3,3,3"
    },
-   "solution": "RINTINTIN"
+   "solution": "RINTINTIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to begin with",
+       "at": 28,
+       "note": "to begin with places the run and home letters at the front of the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "run",
+       "at": 19,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "words": "home",
+       "at": 23,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 8,
+         "note": "repeatedly says the container word appears more than once"
+        }
+       ],
+       "parts": [
+        {
+         "words": "can",
+         "at": 4,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog keeps running home to its can of food.",
+     "walkthrough": "Here 'repeatedly' gives TIN twice.",
+     "definitionFit": "Rin Tin Tin was a famous German Shepherd film star of Hollywood's silent era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -114,7 +427,59 @@
     "text": "Parker's characteristic as head admitting old shortcoming",
     "enumeration": "8"
    },
-   "solution": "NOSINESS"
+   "solution": "NOSINESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Parker's characteristic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "admitting",
+       "at": 32,
+       "note": "admitting means letting the following pieces inside the headland"
+      }
+     ],
+     "parts": [
+      {
+       "words": "head",
+       "at": 27,
+       "gives": "NESS",
+       "note": "a ness is a headland or head"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 42,
+         "gives": "O"
+        },
+        {
+         "words": "shortcoming",
+         "at": 46,
+         "gives": "SIN",
+         "note": "a sin is a failing or shortcoming"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school head confesses to a past failing as the defining trait of someone named Parker.",
+     "walkthrough": "A Nosey Parker is a British term for a busybody.",
+     "definitionFit": "A nosey parker's defining trait is prying curiosity into other people's business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Parker's"
+    }
+   }
   },
   {
    "number": 15,
@@ -128,7 +493,58 @@
     "text": "Quiet tavern, extremely agreeable, The Feathers?",
     "enumeration": "6"
    },
-   "solution": "PINNAE"
+   "solution": "PINNAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feathers",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quiet",
+       "at": 0,
+       "gives": "P",
+       "note": "P is piano, the musical marking for quiet"
+      },
+      {
+       "words": "tavern",
+       "at": 6,
+       "gives": "INN",
+       "note": "an inn is a tavern"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extremely",
+         "at": 14,
+         "note": "extremely asks for the outermost letters of agreeable"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agreeable",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peaceful pub called The Feathers is very pleasant.",
+     "walkthrough": "The Feathers sounds like a pub name, but it is the definition.",
+     "definitionFit": "Pinnae are feathers or wings, also the leaflets of a compound leaf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Feathers"
+    }
+   }
   },
   {
    "number": 17,
@@ -142,7 +558,55 @@
     "text": "Topped up? Not at first — time to provide liquid shortfall",
     "enumeration": "6"
    },
-   "solution": "ULLAGE"
+   "solution": "ULLAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "liquid shortfall",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not at first",
+         "at": 11,
+         "note": "Not at first says the opening letter of the filled-up word is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Topped up",
+         "at": 0,
+         "gives": "FULL",
+         "note": "a glass topped up is full"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 26,
+       "gives": "AGE",
+       "note": "an age is a period of time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman fails to top up drinks at first and is then given time to make up the shortfall.",
+     "definitionFit": "Ullage is the amount by which a container falls short of being full."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -156,7 +620,34 @@
     "text": "Money needed to secure one or other being this?",
     "enumeration": "8"
    },
-   "solution": "RANSOMED"
+   "solution": "RANSOMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money needed to secure one or other being this?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Money needed to secure one or other being this?",
+       "at": 0,
+       "note": "a captive whose freedom is bought by payment of a sum is in this state"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of what someone is when cash is needed to secure them.",
+     "definitionFit": "A person freed by payment of a demanded sum has been redeemed for money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 22,
@@ -170,7 +661,44 @@
     "text": "Paint setting with time — not keen to watch it though?",
     "enumeration": "9"
    },
-   "solution": "IMPATIENT"
+   "solution": "IMPATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not keen to watch it though?",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "setting",
+       "at": 6,
+       "note": "setting, as paint hardens, signals the letters being rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Paint",
+       "at": 0
+      },
+      {
+       "words": "time",
+       "at": 19
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching paint set takes time, and nobody wants to.",
+     "walkthrough": "'setting' rearranges PAINT and TIME; the definition alludes to the boredom of watching paint dry.",
+     "definitionFit": "Someone short of patience would dread watching paint dry, which is proverbially tedious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -184,7 +712,48 @@
     "text": "Ancient civilisation captured by the German artist from Nuremburg",
     "enumeration": "5"
    },
-   "solution": "DURER"
+   "solution": "DURER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "artist from Nuremburg",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 21,
+       "note": "captured by means held inside the German article"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the German",
+       "at": 33,
+       "gives": "DER",
+       "note": "der is German for the"
+      },
+      {
+       "words": "Ancient civilisation",
+       "at": 0,
+       "gives": "UR",
+       "note": "Ur was the ancient Sumerian city-state"
+      }
+     ]
+    },
+    "spelling": "DÜRER",
+    "explanation": {
+     "surface": "An ancient civilisation was depicted by a German painter from Nuremberg.",
+     "definitionFit": "Albrecht Dürer, the Renaissance painter and engraver, was born in Nuremberg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -198,7 +767,31 @@
     "text": "Creative powers in the first verse of the Bible?",
     "enumeration": "5"
    },
-   "solution": "GENII"
+   "solution": "GENII",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Creative powers",
+      "at": 0,
+      "meaning": "plural of genius, an inborn creative gift"
+     },
+     {
+      "text": "the first verse of the Bible?",
+      "at": 19,
+      "meaning": "Genesis chapter 1 verse 1 written as Gen i i"
+     }
+    ],
+    "explanation": {
+     "surface": "Creative inspiration lies in the opening words of the Bible.",
+     "walkthrough": "Genesis 1:1 is abbreviated Gen. i. i.",
+     "definitionFit": "Genii is a plural of genius, meaning spirits or exceptional creative talents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -212,7 +805,50 @@
     "text": "Greek character borne by transport. Opposite of hair-raising experience?",
     "enumeration": "9"
    },
-   "solution": "EPILATION"
+   "solution": "EPILATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opposite of hair-raising experience?",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "borne by",
+       "at": 16,
+       "note": "borne by means carried inside the word for rapture"
+      }
+     ],
+     "parts": [
+      {
+       "words": "transport",
+       "at": 25,
+       "gives": "ELATION",
+       "note": "transport in the sense of rapture or elation"
+      },
+      {
+       "words": "Greek character",
+       "at": 0,
+       "gives": "PI",
+       "note": "pi is a letter of the Greek alphabet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek is carried by a vehicle, then a hair-raising experience is mentioned.",
+     "walkthrough": "'transport' looks like a vehicle but means rapture, ELATION.",
+     "definitionFit": "Hair removal is the reverse of raising hairs, playfully the opposite of hair-raising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 26,
@@ -226,7 +862,48 @@
     "text": "Encourage newspaper to include something prophetic",
     "enumeration": "6"
    },
-   "solution": "FOMENT"
+   "solution": "FOMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Encourage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to include",
+       "at": 20,
+       "note": "to include means holding the next piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "newspaper",
+       "at": 10,
+       "gives": "FT",
+       "note": "FT is the Financial Times"
+      },
+      {
+       "words": "something prophetic",
+       "at": 31,
+       "gives": "OMEN",
+       "note": "an omen foretells the future"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request that a paper print a prediction.",
+     "definitionFit": "To foment is to stir up or incite trouble, hence to encourage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "newspaper"
+    }
+   }
   },
   {
    "number": 27,
@@ -240,7 +917,41 @@
     "text": "Material from festival meal",
     "enumeration": "7"
    },
-   "solution": "GALATEA"
+   "solution": "GALATEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "festival",
+       "at": 14,
+       "gives": "GALA",
+       "note": "a gala is a festive occasion"
+      },
+      {
+       "words": "meal",
+       "at": 23,
+       "gives": "TEA",
+       "note": "tea is a light afternoon or evening meal in Britain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric taken from a festive dinner.",
+     "definitionFit": "Galatea is a strong striped cotton fabric, once used for children's clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 1,
@@ -254,7 +965,35 @@
     "text": "What I'm experiencing is not suitable for those who are 22",
     "enumeration": "4-9"
    },
-   "solution": "TIMECONSUMING"
+   "solution": "TIMECONSUMING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What I'm experiencing is not suitable for those who are 22",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "What I'm experiencing is not suitable for those who are 22",
+       "at": 0,
+       "note": "read literally, the period eats up the word I'm, framing it; such long-winded tasks are wrong for people lacking patience"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that slow tasks are not for restless people.",
+     "walkthrough": "The 22 answer is IMPATIENT; T and E of TIME literally enclose I'M.",
+     "definitionFit": "Lengthy tasks that take ages suit nobody short of patience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -268,7 +1007,48 @@
     "text": "Sucker wanting drink in cups",
     "enumeration": "7"
    },
-   "solution": "MUGGINS"
+   "solution": "MUGGINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sucker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places the drink inside the cups"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cups",
+       "at": 24,
+       "gives": "MUGS",
+       "note": "mugs are drinking cups"
+      },
+      {
+       "words": "drink",
+       "at": 15,
+       "gives": "GIN",
+       "note": "gin is a drink"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dupe wants gin served in cups.",
+     "definitionFit": "Muggins is British slang for a fool or easy dupe, often oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sucker"
+    }
+   }
   },
   {
    "number": 3,
@@ -282,7 +1062,28 @@
     "text": "Abandon holiday",
     "enumeration": "5"
    },
-   "solution": "LEAVE"
+   "solution": "LEAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Abandon",
+      "at": 0,
+      "meaning": "to go away from or desert"
+     },
+     {
+      "text": "holiday",
+      "at": 8,
+      "meaning": "time off work"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To leave is to abandon; leave is also permitted time off work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -296,7 +1097,50 @@
     "text": "Men taken in by sort of believer who might be looking for proof?",
     "enumeration": "8"
    },
-   "solution": "THEORIST"
+   "solution": "THEORIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who might be looking for proof?",
+      "at": 33,
+      "note": "the definition is a relative clause standing for a person who seeks proof"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taken in by",
+       "at": 4,
+       "note": "taken in by means placed inside the believer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sort of believer",
+       "at": 16,
+       "gives": "THEIST",
+       "note": "a theist believes in God"
+      },
+      {
+       "words": "Men",
+       "at": 0,
+       "gives": "OR",
+       "note": "OR, other ranks, are soldiers who are not officers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers are converted by a believer who wants evidence.",
+     "walkthrough": "'Men' as other ranks, ordinary soldiers, is a standard crossword abbreviation.",
+     "definitionFit": "A theoretician proposes ideas that then need testing and proof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Men"
+    }
+   }
   },
   {
    "number": 5,
@@ -310,7 +1154,49 @@
     "text": "Capital city wants new leader to bring colour",
     "enumeration": "6"
    },
-   "solution": "SIENNA"
+   "solution": "SIENNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "wants new leader",
+       "at": 13,
+       "note": "wants new leader says the city's first letter is swapped for another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Capital city",
+       "at": 0,
+       "gives": "VIENNA",
+       "note": "Vienna is the capital of Austria"
+      },
+      {
+       "gives": "V"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capital city needs a fresh mayor to brighten it up.",
+     "walkthrough": "The V of VIENNA is replaced by S; the clue does not say which letter, so crossings settle it.",
+     "definitionFit": "Sienna is a reddish-brown earth pigment, and the colour named after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 6,
@@ -324,7 +1210,59 @@
     "text": "English poet's entertaining revolutionary Irish yobs",
     "enumeration": "9"
    },
-   "solution": "LARRIKINS"
+   "solution": "LARRIKINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yobs",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 15,
+       "note": "entertaining means holding the next piece inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "English poet's",
+       "at": 0,
+       "gives": "LARKINS",
+       "note": "Philip Larkin was an English poet; the 's supplies the final letter"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 28,
+         "note": "revolutionary means turning the abbreviation round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish",
+         "at": 42,
+         "gives": "IR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English poet hosts a rebellious Irishman among hooligans.",
+     "definitionFit": "Larrikin is Australian slang for a rowdy hooligan or lout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 7,
@@ -338,7 +1276,69 @@
     "text": "One ultimately full in stomach that's put on much weight?",
     "enumeration": "7"
    },
-   "solution": "GLUTTON"
+   "solution": "GLUTTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One ultimately full in stomach that's put on much weight?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in places the letter inside the stomach"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stomach",
+         "at": 23,
+         "gives": "GUT",
+         "note": "gut is the stomach"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 4,
+           "note": "ultimately asks for the closing letter of full"
+          }
+         ],
+         "parts": [
+          {
+           "words": "full",
+           "at": 15
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "much weight",
+       "at": 45,
+       "gives": "TON",
+       "note": "a ton is a large weight"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A person stuffed to the gills has gained a lot of weight.",
+     "definitionFit": "An overeater ends up full in the belly and heavy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -352,7 +1352,39 @@
     "text": "A learned don, I'd rewritten book",
     "enumeration": "6,7"
    },
-   "solution": "DANIELDERONDA"
+   "solution": "DANIELDERONDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "book",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rewritten",
+       "at": 19,
+       "note": "rewritten says the letters are set out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A learned don, I'd",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarly don has redrafted a book.",
+     "definitionFit": "Daniel Deronda is George Eliot's last novel, published in 1876."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -366,7 +1398,59 @@
     "text": "Dark story containing fine entertainment",
     "enumeration": "9"
    },
-   "solution": "NIGHTLIFE"
+   "solution": "NIGHTLIFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entertainment",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Dark",
+       "at": 0,
+       "gives": "NIGHT",
+       "note": "night is darkness"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "containing",
+         "at": 11,
+         "note": "containing means the story holds the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "story",
+         "at": 5,
+         "gives": "LIE",
+         "note": "a lie is a made-up story"
+        },
+        {
+         "words": "fine",
+         "at": 22,
+         "gives": "F",
+         "note": "F is the pencil abbreviation for fine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim tale includes a good show.",
+     "definitionFit": "Nightlife means evening entertainment such as clubs, bars and shows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 16,
@@ -380,7 +1464,42 @@
     "text": "Move on board launch to get fish",
     "enumeration": "8"
    },
-   "solution": "CASTLING"
+   "solution": "CASTLING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Move on board",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "launch",
+       "at": 14,
+       "gives": "CAST",
+       "note": "to cast is to throw or launch"
+      },
+      {
+       "words": "fish",
+       "at": 28,
+       "gives": "LING",
+       "note": "ling is a long cod-like fish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Throwing a line from a boat to land a fish.",
+     "definitionFit": "Castling is a chess move in which king and rook shift together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 18,
@@ -394,7 +1513,47 @@
     "text": "One of the popes with long internal battle",
     "enumeration": "7"
    },
-   "solution": "LEPANTO"
+   "solution": "LEPANTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "internal",
+       "at": 27,
+       "note": "internal means sitting inside the pope's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One of the popes",
+       "at": 0,
+       "gives": "LEO",
+       "note": "Leo is a name taken by many popes"
+      },
+      {
+       "words": "long",
+       "at": 22,
+       "gives": "PANT",
+       "note": "to pant for is to long for"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pope with an inner yearning fights.",
+     "definitionFit": "Lepanto was the 1571 sea battle in which the Holy League beat the Ottoman fleet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -408,7 +1567,61 @@
     "text": "Number turning up in market wanting redistribution of goods etc?",
     "enumeration": "7"
    },
-   "solution": "MARXIST"
+   "solution": "MARXIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wanting redistribution of goods etc?",
+      "at": 28,
+      "note": "adjective use: a supporter of communist redistribution"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places the number inside the market"
+      }
+     ],
+     "parts": [
+      {
+       "words": "market",
+       "at": 21,
+       "gives": "MART",
+       "note": "a mart is a market"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning up",
+         "at": 7,
+         "note": "turning up in a down clue means the number reads upward, backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Number",
+         "at": 0,
+         "gives": "SIX",
+         "note": "six is a number"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a market calls for goods to be shared out.",
+     "walkthrough": "In a down clue 'turning up' reads a word bottom to top, so the number is written backwards.",
+     "definitionFit": "A follower of Karl Marx seeks common ownership and fair sharing of wealth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -422,7 +1635,48 @@
     "text": "Feel bitter about what tenant has to pay around Home Counties",
     "enumeration": "6"
    },
-   "solution": "RESENT"
+   "solution": "RESENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feel bitter about",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 41,
+       "note": "around means the payment wraps the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "what tenant has to pay",
+       "at": 18,
+       "gives": "RENT",
+       "note": "rent is paid by a tenant"
+      },
+      {
+       "words": "Home Counties",
+       "at": 48,
+       "gives": "SE",
+       "note": "SE, south-east, is the region of the Home Counties around London"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant feels bitter about rent in the Home Counties.",
+     "walkthrough": "The Home Counties are the English counties around London, in the South East.",
+     "definitionFit": "To resent something is to feel aggrieved or bitter about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -436,7 +1690,61 @@
     "text": "Slow speech to attract lover — but maiden maybe put off",
     "enumeration": "5"
    },
-   "solution": "DRAWL"
+   "solution": "DRAWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slow speech",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to attract",
+       "at": 12,
+       "gives": "DRAW",
+       "note": "to draw is to attract"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "put off",
+         "at": 48,
+         "note": "put off means the cricket term is removed from the lover"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lover",
+         "at": 23,
+         "gives": "LOVER",
+         "note": "taken as written"
+        },
+        {
+         "words": "maiden maybe",
+         "at": 35,
+         "gives": "OVER",
+         "note": "a maiden is one kind of over in cricket, one with no runs"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drawling to attract a lover, though a young woman may be put off.",
+     "walkthrough": "A maiden over in cricket is one with no runs scored; 'maiden' looks like a young woman.",
+     "definitionFit": "A drawl is a slow, lengthened manner of speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "maiden"
+    }
+   }
   }
  ]
 }
