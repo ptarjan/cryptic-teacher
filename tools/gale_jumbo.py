@@ -164,3 +164,11 @@ def wanted(have=None):
     have = held() if have is None else have
     done = {date_of(n)[0] for n in have if FIRST <= date_of(n)[0] <= LAST}
     return [d for d in reversed(days(FIRST, LAST)) if d not in done]
+
+
+def solution_days():
+    """[date] of every day a Jumbo may have run on, FIRST to LAST, newest first:
+    the issues that may print a Jumbo's solution (gale_docs.JUMBO_SOLUTION_KIND),
+    a week or two after the puzzle. All of them, not only those lacking from
+    puzzles/timesjumbo: the solutions are wanted for the held puzzles too."""
+    return list(reversed(days(FIRST, LAST)))

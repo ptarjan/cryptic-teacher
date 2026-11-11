@@ -294,8 +294,55 @@ def jumbo_article(titles, number=None):
     return cands[0] if cands else None
 
 
+#: The Jumbo's solution, printed one or two Saturdays after the puzzle (same
+#: Saturday/Bank Holiday issues, on the puzzles page): "Solution to Jumbo 477",
+#: "Solution to Bank Holiday Jumbo 168", "Solution to Jumbo Corssword 169"
+#: (OCR). The title's number is the puzzle's, not the issue's own Jumbo. A row
+#: of kind JUMBO_SOLUTION_KIND, saved apart from the puzzles (gale_fetch
+#: JUMBO_SOLUTIONS_DIR); crossword() keeps rejecting "solution" titles.
+JUMBO_SOLUTION_KIND = "jumbo-solution"
+MATCHER[JUMBO_SOLUTION_KIND] = 1
+JUMBO_SOLUTION_ARTICLE = re.compile(r"\bsolutions?\b.*\bj?umbo\b|\bj?umbo\b.*\bsolutions?\b", re.IGNORECASE)
+JUMBO_SOLUTION_NOT = re.compile(r"winners|report on|competition|\bwin\b|concise|sports|knowledge|quick|mini\b"
+                                r"|times ?(two|2)\b|\bt2\b|today's weather|listener", re.IGNORECASE)
+
+
+def jumbo_solution_article(titles, number=None):
+    """The index into `titles` of the solution to a Times Jumbo, or None: the
+    one naming `number` first, then a numbered title before an unnumbered one."""
+    cands = [i for i, t in enumerate(titles)
+             if JUMBO_SOLUTION_ARTICLE.search(t) and not JUMBO_SOLUTION_NOT.search(t)]
+    cands.sort(key=lambda i: not re.search(r"\d", titles[i]))
+    if number is not None:
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
+    return cands[0] if cands else None
+
+
+#: From about 2004 the Jumbo's solution is no article of its own: it is one of the
+#: answers on the page titled "Answers" ("Solution to Cryptic Jumbo 569", 2005-03-19
+#: p.151), so that article is read for a line of the Jumbo solution.
+ANSWERS_ARTICLE = re.compile(r"^\W*(?:crossword\W+)?(?:answers|solutions?)\W*$", re.IGNORECASE)
+JUMBO_SOLUTION_TEXT = JUMBO_SOLUTION_ARTICLE
+
+
+def jumbo_answers_entry(prod, dvis, gale):
+    """The entry of an "Answers" article of the issues `dvis` whose scanned text has
+    a Jumbo solution line, marked how "answers page", or None. One viewer-page
+    request per candidate (not a download)."""
+    for dvi in dvis:
+        arts = [a for a in articles(dvi["originalDocument"].get("articleTableOfContents"))
+                if str(a["docId"]).upper() not in REJECTED_DOCS and ANSWERS_ARTICLE.search(a["docTitle"] or "")]
+        by_page = {int(p["pageNumber"]): p["mediaRecordId"] for p in dvi.get("pageDocuments") or ()}
+        for a in arts[:TEXT_LOOKUPS]:
+            if any(JUMBO_SOLUTION_TEXT.search(t[:60]) and not JUMBO_SOLUTION_NOT.search(t[:60]) for t in viewer_text(gale.get(prod, page_url(prod, a["docId"])))):
+                e = entry_of(a, by_page)
+                if e:
+                    return {**e, "how": "answers page"}
+    return None
+
+
 #: The finder of each kind of row in TTDA beside the daily cryptic.
-KINDS = {LISTENER_KIND: listener_article, JUMBO_KIND: jumbo_article}
+KINDS = {LISTENER_KIND: listener_article, JUMBO_KIND: jumbo_article, JUMBO_SOLUTION_KIND: jumbo_solution_article}
 
 
 #: Documents known not to be the day's cryptic (one line each, last word the
@@ -498,6 +545,10 @@ def lookup(prod, day, gale, number=None, kind=None, docs=None):
         e = text_entry(prod, day, dvis, gale, docs)
         if e:
             return e
+    if kind == JUMBO_SOLUTION_KIND:
+        e = jumbo_answers_entry(prod, dvis, gale)
+        if e:
+            return {**e, "kind": kind}
     return {"why": "no crossword in the issue's contents", "crosswordish": [t for t in titles if "ross" in t.lower()]}
 
 
