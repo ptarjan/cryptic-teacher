@@ -1,6 +1,7 @@
 """Note repairs of fix_shape_suspects.py: indicator and block notes, the doesNotGive edits, the doubled
 apostrophe, and note_deletions. Each r_* takes (node, parent, ctx) and returns a replacement node or None.
 """
+import collections
 import copy
 import itertools
 import json
@@ -281,6 +282,24 @@ def _does_not_give_edits(node, k, clue=None):
                     t.clear()
                     t.update(only)
                 out.append(new)
+    if n.get("op") == "charade" and len(parts) >= 2 and not n.get("indicators") and clue:
+        # a charade that is really a container, no indicator of its own (UGLY = U[G]LY: 'U + LY' with 'grabbing'
+        # left over): one neighbouring pair written as a container, the indicator the ONE clue word no leaf or
+        # indicator claims that the table lists as a container word. evaluate() then keeps it only when exactly
+        # one arrangement of the pieces gives the answer.
+        word = _lone_container_word(node, clue)
+        if word:
+            for i in range(len(parts) - 1):
+                for outer, inner in ((i, i + 1), (i + 1, i)):
+                    new, t = fresh()
+                    box = {"op": "container", "indicators": [{"text": word, "note": f"'{word}' puts one piece inside the other"}],
+                           "parts": [t["parts"][outer], t["parts"][inner]]}
+                    t["parts"][i:i + 2] = [box]
+                    if len(t["parts"]) == 1:
+                        only = t["parts"][0]
+                        t.clear()
+                        t.update(only)
+                    out.append(new)
     if leaf(n) and re.search(r"['’]s$", str(n.get("words") or "")) and str(n.get("gives") or "").isalpha() \
             and len(n["gives"]) > 3 and n["gives"].upper().endswith("S"):
         # the possessive spelt out ('hostel's' is INN, not INNS)
@@ -322,6 +341,30 @@ def _does_not_give_edits(node, k, clue=None):
                 t.update(only)
             out.append(new)
     return [_flat_charades(new) for new in out]
+
+
+def _lone_container_word(node, clue):
+    """The one clue word that no leaf or indicator of the tree claims and the indicator table lists as a
+    container word (at least 20 uses, 70% of them container); None when there is none or more than one."""
+    toks = lambda t: re.findall(r"[\w']+", str(t).lower().replace("’", "'"))
+    claimed = collections.Counter()
+    for x, _ in walk(node):
+        claimed.update(toks(x.get("words") or ""))
+        for i in x.get("indicators") or []:
+            claimed.update(toks(i.get("text") or ""))
+    left = []
+    for w in toks(clue):
+        if claimed[w] > 0:
+            claimed[w] -= 1
+        else:
+            left.append(w)
+    hits = []
+    for w in left:
+        counts = V._role_counts(V.indicator_role_key(w))
+        total = sum(counts.values())
+        if total >= 20 and counts.get("container", 0) >= 0.7 * total:
+            hits.append(w)
+    return hits[0] if len(hits) == 1 else None
 
 
 def _anagram_fodder_edits(fresh, n, clue):
