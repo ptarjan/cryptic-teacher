@@ -452,6 +452,13 @@ gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 import gale_jumbo
 gale_jumbo.wanted = lambda: []  # tested below
+_solution_days = gale_jumbo.solution_days
+_sd = _solution_days()
+assert _sd[:2] == [D(1998, 1, 31), D(1998, 2, 7)] and D(1999, 6, 5) in _sd[:18] and D(1999, 11, 27) in _sd[:18], _sd[:18]
+assert _sd[18] == D(1997, 1, 1) and len(_sd) == len(set(_sd)) and _sd[-1] == D(2004, 1, 1) and _sd[-2] == D(2004, 1, 3) and _sd[-1] < _sd[-2]
+assert gale_jumbo.number_on(D(1998, 1, 31)) == 149 and gale_jumbo.number_on(D(1999, 6, 5)) == 230 and gale_jumbo.number_on(D(1998, 1, 30)) is None
+assert gale_docs.jumbo_solution_article(["Crossword", "Solution to Jumbo 149"], 149) == 1
+assert gale_docs.MATCHER["jumbo-solution"] >= 2 and gale_docs.stale("TTDA", {"kind": "jumbo-solution", "matcher": 1, "why": "x"})
 gale_jumbo.solution_days = lambda: []  # tested below
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
