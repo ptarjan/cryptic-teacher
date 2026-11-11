@@ -1449,7 +1449,7 @@ try:
     readings = iter([({"clues": 2, "agreed": 2}, {"1-across": ("A", None, None), "63-down": ("Green Lane", None, None)}),
                      ({"clues": 2, "agreed": 1}, {"1-across": ("A", None, None), "1-down": ("B", None, None)}),
                      ({"refused": "no clue list on the page"}, None)])
-    g.read_page = lambda img, key: next(readings)
+    g.read_page = lambda img, key, lengths=None: next(readings)
     verdict, laid = g.times_read([(None, "a"), (None, "b"), (None, "c")])
     check("a Times page's first cut is its reading, another's an alternative, an unread one none",
           (["1-across", "63-down"], [(1, 1, ["1-across", "1-down"])]),
