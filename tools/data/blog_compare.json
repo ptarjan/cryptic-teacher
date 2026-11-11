@@ -1,14 +1,14 @@
 {
  "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). Rates are disagreements per clue where both sides mark that fact; `due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, not an overwrite.",
  "coverage": {
-  "blog_hinted_clues": 29022,
-  "blog_hinted_partial_puzzles": 117,
-  "blog_hinted_puzzles": 1337,
-  "blog_marked_clues": 26297,
-  "clues": 2241297,
-  "puzzles": 74733,
-  "unhinted_clues": 1065625,
-  "unhinted_puzzles": 34852
+  "blog_hinted_clues": 26911,
+  "blog_hinted_partial_puzzles": 120,
+  "blog_hinted_puzzles": 1258,
+  "blog_marked_clues": 24214,
+  "clues": 2247822,
+  "puzzles": 74947,
+  "unhinted_clues": 1063445,
+  "unhinted_puzzles": 34767
  },
  "summary": {
   "azed": {
@@ -24,14 +24,14 @@
    "type_rate": 0.0
   },
   "cryptic": {
-   "blocks_compared": 80624,
+   "blocks_compared": 80641,
    "blocks_disagree": 3,
    "blocks_kept": 108,
-   "clues": 121159,
+   "clues": 121183,
    "definition_compared": 110124,
    "definition_disagree": 1,
    "definition_kept": 155,
-   "type_compared": 73427,
+   "type_compared": 73441,
    "type_disagree": 20,
    "type_kept": 507,
    "definition_rate": 0.0,
@@ -66,16 +66,16 @@
    "type_rate": 0.01
   },
   "ftcryptic": {
-   "blocks_compared": 83439,
+   "blocks_compared": 83493,
    "blocks_disagree": 3,
    "blocks_kept": 107,
-   "clues": 116432,
+   "clues": 116506,
    "definition_compared": 108557,
    "definition_disagree": 2,
    "definition_kept": 162,
-   "type_compared": 77866,
+   "type_compared": 77929,
    "type_disagree": 27,
-   "type_kept": 633,
+   "type_kept": 634,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.03
@@ -94,7 +94,7 @@
    "type_rate": 0.07
   },
   "independent": {
-   "blocks_compared": 70062,
+   "blocks_compared": 70057,
    "blocks_kept": 79,
    "clues": 112926,
    "definition_compared": 92100,
@@ -177,16 +177,16 @@
    "type_rate": 0.0
   },
   "telegraph": {
-   "blocks_compared": 37150,
+   "blocks_compared": 37970,
    "blocks_disagree": 1,
-   "blocks_kept": 14,
-   "clues": 112524,
-   "definition_compared": 101156,
-   "definition_disagree": 4,
-   "definition_kept": 80,
-   "type_compared": 30169,
-   "type_disagree": 14,
-   "type_kept": 212,
+   "blocks_kept": 15,
+   "clues": 114565,
+   "definition_compared": 102989,
+   "definition_disagree": 5,
+   "definition_kept": 81,
+   "type_compared": 30740,
+   "type_disagree": 16,
+   "type_kept": 217,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
    "type_rate": 0.05
@@ -266,19 +266,19 @@
    "type_rate": 0.0
   },
   "ALL": {
-   "blocks_compared": 511907,
+   "blocks_compared": 512793,
    "blocks_disagree": 8,
-   "blocks_kept": 496,
-   "clues": 914577,
-   "definition_compared": 828971,
-   "definition_disagree": 9,
-   "definition_kept": 1018,
-   "type_compared": 471845,
-   "type_disagree": 70,
-   "type_kept": 3214,
+   "blocks_kept": 497,
+   "clues": 916716,
+   "definition_compared": 830804,
+   "definition_disagree": 10,
+   "definition_kept": 1019,
+   "type_compared": 472493,
+   "type_disagree": 72,
+   "type_kept": 3220,
    "definition_rate": 0.0,
    "blocks_rate": 0.0,
-   "type_rate": 0.01
+   "type_rate": 0.02
   }
  },
  "examples": {
@@ -461,6 +461,13 @@
     "clue": "Worried about fabricated denial? The opposite is conveyed",
     "answer": "ALIENATED",
     "warning": "definition 'conveyed' shares no word with the definition Fifteensquared underlined ('Worried', https://fifteensquared.net/2024/02/29/independent-11665-by-coot/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "telegraph-26959",
+    "entry": "11-across",
+    "clue": "A lot will go after it's gone down",
+    "answer": "GAVEL",
+    "warning": "definition \"A lot will go after it's gone down\" shares no word with the definition Big Dave's Crossword Blog underlined ('it', https://bigdave44.com/2012/08/31/dt-26959/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
    },
    {
     "puzzle": "telegraph-27136",
@@ -874,6 +881,24 @@
   "independent-11922": [
    [
     "1-across",
+    "type"
+   ]
+  ],
+  "telegraph-26959": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "telegraph-27026": [
+   [
+    "2-across",
+    "type"
+   ]
+  ],
+  "telegraph-27033": [
+   [
+    "16-down",
     "type"
    ]
   ],
