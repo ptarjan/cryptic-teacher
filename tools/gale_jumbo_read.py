@@ -238,8 +238,16 @@ def candidates(row, files):
 
 
 def filed_rows(store=STORE):
-    """The ledger rows of the puzzles this tool filed whole."""
-    return [r for r in load_ledger(store).values() if r.get("wrote") and r.get("whole") and r.get("number") and r.get("date")]
+    """The ledger rows of the puzzles filed whole: by this tool (wrote), or by hand (a whole row whose
+    puzzle file exists in the puzzles store; one stat per such row)."""
+    from fetch_puzzle import puzzle_path
+    out = []
+    for r in load_ledger(store).values():
+        if not (r.get("whole") and r.get("number") and r.get("date")):
+            continue
+        if r.get("wrote") or puzzle_path(SERIES, r["number"]).exists():
+            out.append(r)
+    return out
 
 
 def plan_solutions(store=STORE, solutions=SOLUTIONS, docs=DOCS):

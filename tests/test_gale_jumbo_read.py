@@ -161,6 +161,16 @@ docs.write_text(json.dumps({
     "TTDA/jumbo-solution/1998-03-14": {"doc": "BMYQQQ097178141", "title": "Solution to Jumbo 477"}}))
 check("a new page for it makes it due again", ["jumbo:solution:477"], [u["rel"] for u in gj.plan_solutions(store, sols, docs)])
 
+# --- a puzzle filed by hand (wrote None, whole) counts once its file exists
+import fetch_puzzle
+gj.append_row({"file": "H.pdf", "number": 479, "date": "1998-03-14", "whole": True, "wrote": None, "version": gj.VERSION}, store)
+_pp = fetch_puzzle.puzzle_path
+fetch_puzzle.puzzle_path = lambda series, n: Path(store) / f"nofile-{n}.json"
+check("by hand, no puzzle file: not filed", [477], sorted(r["number"] for r in gj.filed_rows(store)))
+(Path(store) / "nofile-479.json").write_text("{}")
+check("by hand, file exists: filed", [477, 479], sorted(r["number"] for r in gj.filed_rows(store)))
+fetch_puzzle.puzzle_path = _pp
+
 # --- reading a solution into a puzzle
 def puzzle(**over):
     e = lambda d, sol=None: {"number": 1, "direction": d, "length": 3, "position": {"x": 0, "y": 0},
