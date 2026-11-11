@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,31 @@
     "text": "Makeshift draught excluder?",
     "enumeration": "7"
    },
-   "solution": "STOPGAP"
+   "solution": "STOPGAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Makeshift",
+      "at": 0,
+      "meaning": "a makeshift is a temporary substitute used until something better turns up"
+     },
+     {
+      "text": "draught excluder?",
+      "at": 10,
+      "meaning": "read literally, something that blocks an opening in a door or window to keep cold air out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second definition is cryptic: a draught excluder literally plugs a crack, hence the question mark.",
+     "definitionFit": "A temporary measure filling in for the real thing is exactly what a makeshift arrangement is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "draught"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +72,30 @@
     "text": "Peter is out of danger",
     "enumeration": "4"
    },
-   "solution": "SAFE"
+   "solution": "SAFE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Peter",
+      "at": 0,
+      "meaning": "peter is old criminal slang for a strongbox that thieves crack"
+     },
+     {
+      "text": "out of danger",
+      "at": 9,
+      "meaning": "unharmed and secure, no longer at risk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Peter' looks like a man's name, but in old underworld slang a peter is a strongbox.",
+     "definitionFit": "Both senses fit: a strongbox in thieves' slang, and an adjective meaning secure from harm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +109,60 @@
     "text": "To turn us in or turn us out?",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "turn us out?",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in means the second word is placed inside the flipped one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 3,
+         "note": "to turn the little word To is to flip it end to end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "To",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "us",
+       "at": 8,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about whether someone means to let us in or throw us out.",
+     "walkthrough": "'turn' flips the first word and 'in' tucks the second inside it; the clue's second half is the definition, mirroring the wordplay with 'out' for 'in'.",
+     "definitionFit": "To expel or eject someone from a place or position is to turn them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +176,35 @@
     "text": "Swift traveller",
     "enumeration": "8"
    },
-   "solution": "GULLIVER"
+   "solution": "GULLIVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Swift traveller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Swift traveller",
+       "at": 0,
+       "note": "not a speedy journeyer but the voyaging hero created by Jonathan Swift, satirist and author"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Swift' looks like an adjective meaning fast; the capital is the clue that it is the author Jonathan Swift.",
+     "definitionFit": "Jonathan Swift's most famous book follows a ship's surgeon on voyages to Lilliput and beyond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swift"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +218,43 @@
     "text": "Sound of harmony in musical composition",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical composition",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "PIECE",
+     "indicators": [
+      {
+       "text": "Sound of",
+       "at": 0,
+       "note": "says the word for harmony is to be heard rather than spelt"
+      }
+     ],
+     "parts": [
+      {
+       "words": "harmony",
+       "at": 9,
+       "gives": "PEACE",
+       "note": "harmony, as freedom from strife, means peace"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something about harmonious sound within a work of music.",
+     "definitionFit": "A single work of music is commonly called a piece, as in a piano piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harmony"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +268,57 @@
     "text": "A right squabble about the price list",
     "enumeration": "6"
    },
-   "solution": "TARIFF"
+   "solution": "TARIFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the price list",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "about means the squabble goes around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "squabble",
+       "at": 8,
+       "gives": "TIFF",
+       "note": "a tiff is a petty quarrel"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "right",
+         "at": 2,
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heated row breaks out over the menu of charges.",
+     "definitionFit": "A tariff is a schedule of charges, as for hotel rooms or imported goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +338,30 @@
      }
     ]
    },
-   "solution": "ALLOUT"
+   "solution": "ALLOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Completely exhausted",
+      "at": 0,
+      "meaning": "worn out or used up entirely, as in old slang for being spent"
+     },
+     {
+      "text": "making maximum effort",
+      "at": 26,
+      "meaning": "going at something with every ounce of strength, as in a full-scale attempt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket a side that is dismissed entirely is also described this way, which feeds the first sense.",
+     "definitionFit": "The phrase is used both for being utterly spent and for giving everything one has."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exhausted"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +375,41 @@
     "text": "Impracticable, perhaps, in italicised form",
     "enumeration": "10"
    },
-   "solution": "IDEALISTIC"
+   "solution": "IDEALISTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Impracticable, perhaps",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "form",
+       "at": 38,
+       "note": "putting the word into a new form means arranging its letters differently"
+      }
+     ],
+     "parts": [
+      {
+       "words": "italicised",
+       "at": 27
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that some printed text in sloping type is somehow unworkable.",
+     "walkthrough": "'form' rearranges the letters of ITALICISED; 'perhaps' warns that impracticable is only one example of the sense.",
+     "definitionFit": "Visionary schemes driven by high principles are often dismissed as unrealistic, so impracticable is one shade of meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "italicised"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +429,35 @@
      }
     ]
    },
-   "solution": "FREESAMPLE"
+   "solution": "FREESAMPLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It costs nothing to give it a try",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It costs nothing to give it a try",
+       "at": 0,
+       "note": "reads like encouragement to have a go, but describes a product handed out without charge so people can test it"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface is the proverb-like 'no harm in trying'; the cryptic reading is a literal giveaway for trial.",
+     "definitionFit": "Shops hand out small amounts of a product without charge so that customers can try it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +471,52 @@
     "text": "Universal rifle is adjusted for infantryman",
     "enumeration": "8"
    },
-   "solution": "FUSILIER"
+   "solution": "FUSILIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "infantryman",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "adjusted",
+       "at": 19,
+       "note": "adjusted means the letters are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Universal",
+       "at": 0,
+       "gives": "U",
+       "note": "U is the film classification abbreviation for universal"
+      },
+      {
+       "words": "rifle",
+       "at": 10,
+       "note": "taken as written"
+      },
+      {
+       "words": "is",
+       "at": 16,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A general-purpose rifle has been modified for a foot soldier.",
+     "definitionFit": "A fusilier is a soldier of certain infantry regiments, originally armed with a light musket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Universal"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +530,49 @@
     "text": "Run across City swindle",
     "enumeration": "6"
    },
-   "solution": "FLEECE"
+   "solution": "FLEECE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swindle",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 4,
+       "note": "across means the word for run spans or straddles the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Run",
+       "at": 0,
+       "gives": "FLEE",
+       "note": "to run away is to flee"
+      },
+      {
+       "words": "City",
+       "at": 11,
+       "gives": "EC",
+       "note": "EC is the postcode for the City of London, its financial district"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees the City after pulling a con.",
+     "walkthrough": "The City (capital C) is London's financial district, whose postcode area is EC.",
+     "definitionFit": "To fleece someone is to cheat them out of money, like shearing a sheep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +586,42 @@
     "text": "Counsel may remind us of the wickedness of our times",
     "enumeration": "6"
    },
-   "solution": "ADVICE"
+   "solution": "ADVICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Counsel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "our times",
+       "at": 43,
+       "gives": "AD",
+       "note": "AD, anno domini, marks the years of the present era"
+      },
+      {
+       "words": "wickedness",
+       "at": 29,
+       "gives": "VICE",
+       "note": "vice means immoral conduct"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice serves as a reminder of how sinful the modern age is.",
+     "walkthrough": "'may remind us of' is a link; the pieces are read in answer order, the era first then its wickedness.",
+     "definitionFit": "Counsel, as a noun, is recommendation offered about what someone should do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +641,31 @@
      }
     ]
    },
-   "solution": "MIXEDDOUBLES"
+   "solution": "MIXEDDOUBLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assorted drinks",
+      "at": 0,
+      "meaning": "a mixture of large measures of spirits"
+     },
+     {
+      "text": "bring people to court",
+      "at": 16,
+      "meaning": "a tennis event in which pairs of one man and one woman take to the court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'court' suggests a law court; here it is a tennis court.",
+     "definitionFit": "Literally varied large measures of spirits, and also the tennis event for pairs of a man and a woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +685,35 @@
      }
     ]
    },
-   "solution": "PRIMEMOVER"
+   "solution": "PRIMEMOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The first one on the shift?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The first one on the shift?",
+       "at": 0,
+       "note": "reads like the earliest worker clocking on, but means the original cause that sets everything else in motion"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Prime can mean first, and a mover is one who shifts things, so the factory-shift picture hides a philosophical term.",
+     "definitionFit": "In philosophy the originating source of all motion, and more loosely the person who starts something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +727,56 @@
     "text": "Company director — one involved in Paris and Rome",
     "enumeration": "10"
    },
-   "solution": "IMPRESARIO"
+   "solution": "IMPRESARIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Company director",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "involved in",
+         "at": 23,
+         "note": "involved suggests the letters are tangled up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paris",
+         "at": 35
+        },
+        {
+         "words": "Rome",
+         "at": 45
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The head of a firm, someone with business in Paris and Rome.",
+     "walkthrough": "'Company' suggests a business; here it is a theatrical or opera company. 'involved in' is the anagram signal, and 'and' just joins the two cities.",
+     "definitionFit": "An impresario organises and manages a theatre, opera or concert company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +796,48 @@
      }
     ]
    },
-   "solution": "ROMPERSUIT"
+   "solution": "ROMPERSUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Just the wear",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "about here means the preceding letters are turned around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prime",
+       "at": 18,
+       "note": "taken as written"
+      },
+      {
+       "words": "roust",
+       "at": 24,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ideal clothing for a top-class labourer on a fairground or oil rig.",
+     "walkthrough": "The anagram signal hides inside 'roustabout', a casual labourer: its last five letters, 'about', act on 'prime' plus its first five. 'for' is a link.",
+     "definitionFit": "A one-piece garment for a toddler, ideal clothing for romping about in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "roustabout"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +851,30 @@
     "text": "Wild geese yarns?",
     "enumeration": "6"
    },
-   "solution": "SKEINS"
+   "solution": "SKEINS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wild geese",
+      "at": 0,
+      "meaning": "a flight of wild geese in the air is called by this collective noun"
+     },
+     {
+      "text": "yarns?",
+      "at": 11,
+      "meaning": "loosely coiled lengths of thread or wool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'yarns' suggests tall tales, as in wild-goose chases; here it is wool coiled into hanks.",
+     "definitionFit": "Both a collective noun for geese in flight and coiled lengths of wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yarns"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +888,44 @@
     "text": "Unknown quantity, we hear, in maths problem",
     "enumeration": "3"
    },
-   "solution": "SUM"
+   "solution": "SUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "maths problem",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SUM",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 18,
+       "note": "tells us the word is judged by how it sounds when spoken"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unknown quantity",
+       "at": 0,
+       "gives": "SOME",
+       "note": "some means an unspecified amount"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mystery variable appears in an arithmetic exercise.",
+     "walkthrough": "'Unknown quantity' looks like algebra's X; here it is the word some, as in 'some milk'.",
+     "definitionFit": "A sum is an arithmetic calculation set as an exercise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unknown"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +945,41 @@
      }
     ]
    },
-   "solution": "FINETUNE"
+   "solution": "FINETUNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make delicate adjustments",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "splendid",
+       "at": 29,
+       "gives": "FINE",
+       "note": "fine means excellent or splendid"
+      },
+      {
+       "words": "melody",
+       "at": 38,
+       "gives": "TUNE",
+       "note": "a tune is a melody"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tweaking a lovely piece of music.",
+     "definitionFit": "To make small precise adjustments, as when tuning an instrument or engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "melody"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +993,46 @@
     "text": "Spoil the planet no end",
     "enumeration": "3"
    },
-   "solution": "MAR"
+   "solution": "MAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spoil",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no end",
+       "at": 17,
+       "note": "no end means the final letter of the planet's name is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the planet",
+       "at": 6,
+       "gives": "MARS",
+       "note": "Mars is the red planet"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ruin the planet entirely.",
+     "walkthrough": "'no end' looks like 'endlessly', but it trims the last letter of MARS.",
+     "definitionFit": "To mar something is to spoil or damage its appearance or quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1046,48 @@
     "text": "Helpful belief I can spread around",
     "enumeration": "10"
    },
-   "solution": "BENEFICIAL"
+   "solution": "BENEFICIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Helpful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spread around",
+       "at": 21,
+       "note": "spread around means the letters are scattered into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "belief",
+       "at": 8
+      },
+      {
+       "words": "I",
+       "at": 15
+      },
+      {
+       "words": "can",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useful conviction that one can share with others.",
+     "definitionFit": "Something beneficial is advantageous or does good, so it is helpful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1101,35 @@
     "text": "It involved two banks in a row",
     "enumeration": "6"
    },
-   "solution": "BIREME"
+   "solution": "BIREME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It involved two banks in a row",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "It involved two banks in a row",
+       "at": 0,
+       "note": "reads like a dispute between two lenders, but describes an ancient galley with two tiers of oars"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'banks' are tiers of oars and 'row' is rowing, not a quarrel.",
+     "definitionFit": "An ancient galley propelled by two banks of oars, one above the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1143,42 @@
     "text": "Aim to sign evangelists",
     "enumeration": "12"
    },
-   "solution": "MISSIONARIES"
+   "solution": "MISSIONARIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "evangelists",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Aim",
+       "at": 0,
+       "gives": "MISSION",
+       "note": "a mission is a goal or purpose"
+      },
+      {
+       "words": "sign",
+       "at": 7,
+       "gives": "ARIES",
+       "note": "Aries is a sign of the zodiac, the ram"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Aiming to recruit preachers.",
+     "walkthrough": "'sign' looks like a verb meaning to recruit; it is a zodiac sign.",
+     "definitionFit": "Missionaries travel to spread their religion, so they are evangelists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1192,30 @@
     "text": "Evidence of high pressure produces the hump",
     "enumeration": "5"
    },
-   "solution": "RIDGE"
+   "solution": "RIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evidence of high pressure",
+      "at": 0,
+      "meaning": "on a weather chart, an elongated area of high atmospheric pressure"
+     },
+     {
+      "text": "the hump",
+      "at": 35,
+      "meaning": "a raised crest or long narrow hill"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'high pressure' suggests stress; it is meteorology.",
+     "definitionFit": "A weather term for an elongated high and also a raised strip or crest of land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1229,48 @@
     "text": "Strike supported by a devout Buddhist",
     "enumeration": "4"
    },
-   "solution": "LAMA"
+   "solution": "LAMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "devout Buddhist",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supported by",
+       "at": 7,
+       "note": "in a down answer, the word for strike sits on top of the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Strike",
+       "at": 0,
+       "gives": "LAM",
+       "note": "to lam is to hit or thrash"
+      },
+      {
+       "words": "a",
+       "at": 20,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pious Buddhist backs a walkout.",
+     "walkthrough": "'Strike' looks like industrial action; it is lam, to beat.",
+     "definitionFit": "A lama is a Tibetan Buddhist monk or spiritual teacher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strike"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1284,35 @@
     "text": "Author's retainer?",
     "enumeration": "4"
    },
-   "solution": "STET"
+   "solution": "STET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Author's retainer?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Author's retainer?",
+       "at": 0,
+       "note": "reads like a writer's servant or fee, but means a proofreading mark telling the printer to keep a deleted passage"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Latin for 'let it stand', written in the margin to keep text that was struck out.",
+     "definitionFit": "A proof mark used to retain text that had been marked for deletion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retainer"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1326,40 @@
     "text": "Divert expedition around summit",
     "enumeration": "6"
    },
-   "solution": "VERTEX"
+   "solution": "VERTEX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "summit",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "around signals that the letters are found round about the junction of these two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Divert expedition",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Redirect a climbing party round the mountain top.",
+     "definitionFit": "A vertex is the highest point or apex of something, such as a peak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Divert"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1373,48 @@
     "text": "Military assistant gives notice to project worker",
     "enumeration": "8"
    },
-   "solution": "ADJUTANT"
+   "solution": "ADJUTANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Military assistant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "notice",
+       "at": 25,
+       "gives": "AD",
+       "note": "an ad is a notice or advertisement"
+      },
+      {
+       "words": "project",
+       "at": 35,
+       "gives": "JUT",
+       "note": "to jut is to project or stick out"
+      },
+      {
+       "words": "worker",
+       "at": 43,
+       "gives": "ANT",
+       "note": "a worker ant is the classic crossword worker"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aide-de-camp posts a notice about an engineering scheme to a labourer.",
+     "walkthrough": "'project' looks like a noun; here it is the verb, to stick out.",
+     "definitionFit": "An adjutant is an officer who assists a commanding officer with administration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "project"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1428,29 @@
     "text": "Island colonialist",
     "enumeration": "6"
    },
-   "solution": "RHODES"
+   "solution": "RHODES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0,
+      "meaning": "a Greek island in the Aegean, once home to the Colossus"
+     },
+     {
+      "text": "colonialist",
+      "at": 7,
+      "meaning": "Cecil, the British empire-builder in southern Africa after whom Rhodesia was named"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both a Greek island and the surname of the Victorian imperialist Cecil, founder of Rhodesia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colonialist"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1464,59 @@
     "text": "Member in neat outfit showing good taste",
     "enumeration": "7"
    },
-   "solution": "ELEGANT"
+   "solution": "ELEGANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "showing good taste",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in means the limb goes inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "outfit",
+         "at": 15,
+         "note": "outfit, as a verb, means to fit out anew, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "neat",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "words": "Member",
+       "at": 0,
+       "gives": "LEG",
+       "note": "a leg is a limb, or member, of the body"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A limb shown off in a smart outfit looks stylish.",
+     "walkthrough": "'outfit' looks like clothes; read as a verb, fit out anew, it rearranges the letters of 'neat', and the limb goes inside them.",
+     "definitionFit": "Elegant means graceful and stylish, showing refined taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outfit"
+    }
+   }
   }
  ]
 }
