@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,28 @@
     "text": "Pirate gets second prize",
     "enumeration": "6"
    },
-   "solution": "SILVER"
+   "solution": "SILVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pirate",
+      "at": 0,
+      "meaning": "Long John ... is the pirate of Stevenson's Treasure Island"
+     },
+     {
+      "text": "second prize",
+      "at": 12,
+      "meaning": "the medal for coming second, after gold"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Long John Silver is a famous fictional buccaneer, and second place earns the silver medal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +70,60 @@
     "text": "Make no comment on stream nearly left to dry up",
     "enumeration": "7"
    },
-   "solution": "SHRIVEL"
+   "solution": "SHRIVEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dry up",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Make no comment",
+       "at": 0,
+       "gives": "SH",
+       "note": "sh is the call for silence, a request to say nothing"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 26,
+         "note": "nearly says the word for stream stops short of its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stream",
+         "at": 19,
+         "gives": "RIVER",
+         "note": "a river is a stream"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "left",
+       "at": 33,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps quiet while a stream nearly runs dry.",
+     "definitionFit": "To wither is to dry up and wrinkle, losing moisture and shrinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +137,28 @@
     "text": "Bearing much from terrorist",
     "enumeration": "5"
    },
-   "solution": "LADEN"
+   "solution": "LADEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bearing much",
+      "at": 0,
+      "meaning": "heavily loaded, carrying a great deal"
+     },
+     {
+      "text": "terrorist",
+      "at": 18,
+      "meaning": "the surname of the al-Qaeda leader Osama bin ..., 'from' because bin means son of"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Laden means heavily loaded, and it is also the family name of a notorious terrorist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +172,47 @@
     "text": "Odd boy accepting one-dollar entry",
     "enumeration": "9"
    },
-   "solution": "ECCENTRIC"
+   "solution": "ECCENTRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 8,
+       "note": "accepting means the boy's name takes another piece into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "boy",
+       "at": 4,
+       "gives": "ERIC",
+       "note": "Eric is a boy's name"
+      },
+      {
+       "words": "one-dollar entry",
+       "at": 18,
+       "gives": "CCENT",
+       "note": "C is a hundred, and a hundred cents make one dollar, so C CENT is the entry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange lad pays a dollar to get in.",
+     "definitionFit": "Someone eccentric is odd or unconventional in behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +226,67 @@
     "text": "A new Irish president's first subject to inflation",
     "enumeration": "7"
    },
-   "solution": "AIRSHIP"
+   "solution": "AIRSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "subject to inflation",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 2,
+         "note": "new means the letters of the word Irish are made into a fresh arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Irish",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 24,
+         "note": "first says only the opening letter of president's is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "president's",
+         "at": 12
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly elected Irish head of state is caught up in rising prices.",
+     "walkthrough": "'new' turns IRISH into IRSHI. 'subject to inflation' sounds like economics, but an airship is literally inflated with gas.",
+     "definitionFit": "A dirigible balloon is filled with gas, so it is literally something blown up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +300,40 @@
     "text": "A circle with some power is soothing",
     "enumeration": "7"
    },
-   "solution": "ANODYNE"
+   "solution": "ANODYNE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soothing",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A circle",
+       "at": 0,
+       "gives": "ANO",
+       "note": "a circle is an O, so 'a circle' is AN O"
+      },
+      {
+       "words": "some power",
+       "at": 14,
+       "gives": "DYNE",
+       "note": "a dyne is a unit of force, so a quantity of power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ring with a little strength in it calms things down.",
+     "definitionFit": "An anodyne is a painkiller, so as an adjective it means soothing or inoffensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +347,41 @@
     "text": "Put off sick person getting up",
     "enumeration": "5"
    },
-   "solution": "REPEL"
+   "solution": "REPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "getting up",
+       "at": 20,
+       "note": "in a down clue, getting up means the word is read from bottom to top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sick person",
+       "at": 8,
+       "gives": "LEPER",
+       "note": "a leper is a person with leprosy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ill man rising from bed proves off-putting.",
+     "definitionFit": "To repel is to drive back or disgust, putting someone off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +395,53 @@
     "text": "Audible breeze is threatening things in the family",
     "enumeration": "9"
    },
-   "solution": "HEIRLOOMS"
+   "solution": "HEIRLOOMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "things in the family",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HEIR",
+       "indicators": [
+        {
+         "text": "Audible",
+         "at": 0,
+         "note": "audible says the next word is to be taken by its sound, not its spelling"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breeze",
+         "at": 8,
+         "gives": "AIR",
+         "note": "air is a light breeze"
+        }
+       ]
+      },
+      {
+       "words": "is threatening",
+       "at": 15,
+       "gives": "LOOMS",
+       "note": "something that looms is threatening"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breeze you can hear seems menacing to the household.",
+     "definitionFit": "Heirlooms are possessions handed down through generations of a family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +478,29 @@
    "group": [
     "8-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nearly enough for two chess sets",
+      "at": 0,
+      "meaning": "two chess sets hold 32 men, so two short of that"
+     },
+     {
+      "text": "the 10 of 26 if 1 across",
+      "at": 34,
+      "meaning": "the price of blood if silver: Judas was paid that many silver coins to betray Jesus"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "10 is PRICE, 26 BLOOD and 1 across SILVER: the blood money Judas received.",
+     "definitionFit": "Judas's blood money was paid in silver coins, so the price of blood in silver was that number of coins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +514,43 @@
     "text": "Salad vegetable for choir with acid effect",
     "enumeration": "9"
    },
-   "solution": "RADICCHIO"
+   "solution": "RADICCHIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salad vegetable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "effect",
+       "at": 36,
+       "note": "effect, as in to effect a change, says the letters of choir and acid are worked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "choir",
+       "at": 20
+      },
+      {
+       "words": "acid",
+       "at": 31
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's salad dressing has an acidic effect on the choir.",
+     "definitionFit": "Radicchio is a bitter red chicory eaten raw in salads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +564,50 @@
     "text": "How much food goes on top of plate?",
     "enumeration": "5"
    },
-   "solution": "PRICE"
+   "solution": "PRICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How much",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 22,
+         "note": "top of says only the first letter of plate is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plate",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "words": "food",
+       "at": 9,
+       "gives": "RICE",
+       "note": "rice is a staple food"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner asks the cost of the food heaped on a plate.",
+     "definitionFit": "The price of a thing is the answer to asking how much it costs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +621,39 @@
     "text": "Toxic element in ravening wolves",
     "enumeration": "5"
    },
-   "solution": "VENIN"
+   "solution": "VENIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Toxic element",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "in says the answer is sitting inside the following words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ravening wolves",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild hungry wolves carry poison in their bite.",
+     "definitionFit": "Venin is a toxic substance found in snake venom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +673,40 @@
      }
     ]
    },
-   "solution": "ROYALBLUE"
+   "solution": "ROYALBLUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shade",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "King's",
+       "at": 0,
+       "gives": "ROYAL",
+       "note": "belonging to a king is royal"
+      },
+      {
+       "words": "depressed",
+       "at": 7,
+       "gives": "BLUE",
+       "note": "to feel blue is to be depressed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is in a gloomy mood.",
+     "definitionFit": "Royal blue is a deep bright shade of blue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +720,28 @@
     "text": "Presumption OK in this hall?",
     "enumeration": "7"
    },
-   "solution": "LIBERTY"
+   "solution": "LIBERTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presumption",
+      "at": 0,
+      "meaning": "taking a ... is acting with presumption"
+     },
+     {
+      "text": "OK in this hall?",
+      "at": 12,
+      "meaning": "... Hall is a place where anyone may do as they like"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A liberty is an act of presumption, and Liberty Hall is the proverbial place where anything goes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +755,41 @@
     "text": "Second helping of Indian food with American port",
     "enumeration": "9"
    },
-   "solution": "BALTIMORE"
+   "solution": "BALTIMORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American port",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Indian food",
+       "at": 18,
+       "gives": "BALTI",
+       "note": "a balti is a curry dish cooked in a metal pan, popular in Britain"
+      },
+      {
+       "words": "Second helping",
+       "at": 0,
+       "gives": "MORE",
+       "note": "asking for more is asking for a second helping"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner goes back for seconds of curry alongside an American.",
+     "walkthrough": "The clue gives the second helping first; the pieces join with the curry first.",
+     "definitionFit": "Baltimore is a major seaport city in Maryland, USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +803,40 @@
     "text": "Get along mostly with spectroscopic device",
     "enumeration": "6"
    },
-   "solution": "ETALON"
+   "solution": "ETALON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spectroscopic device",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "mostly",
+       "at": 10,
+       "note": "mostly says the phrase loses a little, here its outer letters, leaving most of it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get along",
+       "at": 0,
+       "gives": "ETALON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muddles through with a piece of lab kit.",
+     "definitionFit": "An etalon is an interferometer of two parallel mirrors used in spectroscopy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +850,69 @@
     "text": "Day off during which space station's key to board",
     "enumeration": "9"
    },
-   "solution": "ADMIRALTY"
+   "solution": "ADMIRALTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "board",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during which",
+       "at": 8,
+       "note": "during which places the following pieces inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 4,
+         "note": "off says the letters of day are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Day",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "space station's",
+         "at": 21,
+         "gives": "MIR",
+         "note": "Mir was the Soviet and Russian space station"
+        },
+        {
+         "words": "key",
+         "at": 37,
+         "gives": "ALT",
+         "note": "Alt is a key on a computer keyboard"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a day off, the space station's key to the boardroom goes missing.",
+     "walkthrough": "The anagram signal 'off' makes ADY. Admiralty here means the naval governing board, not the sea power itself.",
+     "definitionFit": "The Admiralty Board was the body that governed the British Royal Navy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +926,44 @@
     "text": "Girl who would have a good start around Santiago de Compostela",
     "enumeration": "6"
    },
-   "solution": "ALICIA"
+   "solution": "ALICIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "who would have a",
+       "at": 5,
+       "note": "the girl's name would become the region if given a G at its start, so that letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "around Santiago de Compostela",
+       "at": 33,
+       "gives": "GALICIA",
+       "note": "Galicia is the Spanish region whose capital is Santiago de Compostela"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with good beginnings lives near the pilgrim city in Spain.",
+     "definitionFit": "Alicia is a female first name, a Spanish form related to Alice, so it fits a girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +977,42 @@
     "text": "One of three in song heard who has come",
     "enumeration": "7"
    },
-   "solution": "ARRIVAL"
+   "solution": "ARRIVAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "who has come",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ARRIVAL",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 21,
+       "note": "heard says the phrase is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "One of three in song",
+       "at": 0,
+       "gives": "ARIVAL",
+       "note": "a rival, the third party in the love triangle songs dwell on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer hears that one of a trio has turned up.",
+     "definitionFit": "An arrival is a person who has just come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1026,62 @@
     "text": "Diffusion of liquid is consequent upon the world blowing its top",
     "enumeration": "7"
    },
-   "solution": "OSMOSIS"
+   "solution": "OSMOSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Diffusion of liquid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "consequent upon",
+       "at": 23,
+       "note": "consequent upon means following after, so the next piece is placed after"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "blowing its top",
+         "at": 49,
+         "note": "blowing its top says the word for the world loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the world",
+         "at": 39,
+         "gives": "COSMOS",
+         "note": "the cosmos is the world or universe"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "is",
+       "at": 20,
+       "gives": "IS",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liquid spreads as a result of the world flying into a rage.",
+     "definitionFit": "Osmosis is the diffusion of a solvent through a membrane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1101,58 @@
      }
     ]
    },
-   "solution": "ONHIGH"
+   "solution": "ONHIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heaven?",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oxygen",
+       "at": 0,
+       "gives": "O",
+       "note": "O is the chemical symbol for oxygen"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 20,
+         "note": "in places one piece within another"
+        }
+       ],
+       "parts": [
+        {
+         "words": "close",
+         "at": 23,
+         "gives": "NIGH",
+         "note": "nigh means near or close to"
+        },
+        {
+         "words": "hydrogen",
+         "at": 11,
+         "gives": "H",
+         "note": "H is the chemical symbol for hydrogen"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two gases are close to the skies.",
+     "definitionFit": "On high means in the heavens, up above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1166,39 @@
     "text": "Singer and painter second to 1 across",
     "enumeration": "7"
    },
-   "solution": "SARGENT"
+   "solution": "SARGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer and painter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "second",
+       "at": 19,
+       "gives": "S"
+      },
+      {
+       "words": "1 across",
+       "at": 29,
+       "gives": "ARGENT",
+       "note": "the answer to 1 across is the metal argent names in heraldry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer and an artist come second to a pirate.",
+     "definitionFit": "John Singer Sargent was an American portrait painter, so Singer is his middle name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1212,28 @@
     "text": "Holding one's own and the horses?",
     "enumeration": "6"
    },
-   "solution": "STABLE"
+   "solution": "STABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holding one's own",
+      "at": 0,
+      "meaning": "steady, not wavering"
+     },
+     {
+      "text": "the horses?",
+      "at": 22,
+      "meaning": "the building where horses are kept, or the horses kept there"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Stable means steady and firm, and a stable houses horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1247,57 @@
     "text": "Skipper, formerly Roman Catholic, embraced by Harriet who's lapsed",
     "enumeration": "9"
    },
-   "solution": "TRIERARCH"
+   "solution": "TRIERARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Skipper, formerly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 34,
+       "note": "embraced by puts the earlier piece inside the following one"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "who's lapsed",
+         "at": 54,
+         "note": "lapsed means fallen away from its proper state, so the letters of Harriet are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harriet",
+         "at": 46
+        }
+       ]
+      },
+      {
+       "words": "Roman Catholic",
+       "at": 18,
+       "gives": "RC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Catholic captain is hugged by Harriet, who has stopped attending church.",
+     "walkthrough": "The anagram signal 'who's lapsed' makes TRIERAH; 'Skipper, formerly' points to an ancient Greek trireme captain, not a modern skipper.",
+     "definitionFit": "A trierarch commanded a trireme in ancient Greece, a ship's captain of former times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1311,42 @@
     "text": "Gas attack being made audibly",
     "enumeration": "5"
    },
-   "solution": "RADON"
+   "solution": "RADON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RADON",
+     "indicators": [
+      {
+       "text": "audibly",
+       "at": 22,
+       "note": "audibly says the phrase is taken by sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "attack being made",
+       "at": 4,
+       "gives": "RAIDON",
+       "note": "a raid on something is an attack being made on it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gas attack is launched with a lot of noise.",
+     "definitionFit": "Radon is a radioactive noble gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1360,39 @@
     "text": "Right about dog?",
     "enumeration": "5"
    },
-   "solution": "ROVER"
+   "solution": "ROVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Right",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "words": "about",
+       "at": 6,
+       "gives": "OVER",
+       "note": "over means about, as in a quarrel over money"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Correct, that is about a dog.",
+     "definitionFit": "Rover is a traditional name for a pet dog, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1406,58 @@
     "text": "Records of some village outside US city",
     "enumeration": "5"
    },
-   "solution": "VINYL"
+   "solution": "VINYL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Records",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 24,
+       "note": "outside puts the first piece round the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "some",
+         "at": 11,
+         "note": "some says only part of the word village is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "village",
+         "at": 16,
+         "gives": "VIL"
+        }
+       ]
+      },
+      {
+       "words": "US city",
+       "at": 32,
+       "gives": "NY",
+       "note": "NY is New York"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Records of a village somewhere outside an American city.",
+     "definitionFit": "Vinyl stands for gramophone records, which are pressed from that plastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1471,29 @@
     "text": "Pedigree for fully paid 10 of 16, according to Kipling",
     "enumeration": "5"
    },
-   "solution": "BLOOD"
+   "solution": "BLOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pedigree",
+      "at": 0,
+      "meaning": "ancestry or breeding, as in a horse's lineage"
+     },
+     {
+      "text": "fully paid 10 of 16, according to Kipling",
+      "at": 13,
+      "meaning": "Kipling wrote 'If ... be the price of admiralty, Lord God, we ha' paid in full!'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "10 is PRICE and 16 ADMIRALTY.",
+     "definitionFit": "Blood means lineage or descent, and Kipling's Song of the English names it as the price of admiralty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1507,47 @@
     "text": "Cable holds monster that needs watching",
     "enumeration": "9"
    },
-   "solution": "VIGILANCE"
+   "solution": "VIGILANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "watching",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 6,
+       "note": "holds says the first piece has the second inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cable",
+       "at": 0,
+       "gives": "VINCE",
+       "note": "Vince Cable is a British Liberal Democrat politician"
+      },
+      {
+       "words": "monster",
+       "at": 12,
+       "gives": "GILA",
+       "note": "the Gila monster is a venomous lizard"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cable contains something monstrous that has to be kept an eye on.",
+     "definitionFit": "Vigilance is keeping careful watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1561,11 @@
     "text": "Bird first in line to show this 27 the 10 of 13",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotationWithheld": {
+    "why": "Bird first in line to show this 27 the 10 of 13 (7): TERN accounts for four letters of ETERNAL, but no parse of the remaining E, A, L from 'first in line to show this' was found",
+    "clue": "Bird first in line to show this 27 the 10 of 13"
+   }
   },
   {
    "number": 29,
@@ -487,7 +1579,42 @@
     "text": "Little hole for (say) 8, say",
     "enumeration": "6"
    },
-   "solution": "EYELET"
+   "solution": "EYELET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Little hole",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "EYELET",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 25,
+       "note": "the second say marks a sound-alike"
+      }
+     ],
+     "parts": [
+      {
+       "words": "(say) 8",
+       "at": 16,
+       "gives": "ISLET",
+       "note": "eight said aloud is ait, a little river island or islet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small hole made for an island.",
+     "definitionFit": "An eyelet is a small hole for a lace or cord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
