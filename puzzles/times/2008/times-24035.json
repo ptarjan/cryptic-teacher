@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,61 @@
     "text": "Extra-hearty lettuce is back in city",
     "enumeration": "6"
    },
-   "solution": "DALLAS"
+   "solution": "DALLAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "city",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "is back",
+       "at": 21,
+       "note": "is back tells us the built word is read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Extra-hearty",
+         "at": 0,
+         "note": "an extra heart means the middle letter of the word is doubled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lettuce",
+         "at": 13,
+         "gives": "SALAD",
+         "note": "lettuce is the basis of a salad, so it stands for the word salad"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "LL"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city is praised for its unusually robust lettuce.",
+     "walkthrough": "'Extra-hearty' doubles the central L of SALAD to give SALLAD, and 'is back' turns that round.",
+     "definitionFit": "Dallas is a large city in Texas, so it is an example of a city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearty"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +101,59 @@
     "text": "A hairstyle, one pound less — that's charming",
     "enumeration": "6"
    },
-   "solution": "AMULET"
+   "solution": "AMULET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's charming",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "less",
+         "at": 23,
+         "note": "less means that letter is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hairstyle",
+         "at": 2,
+         "gives": "MULLET",
+         "note": "a mullet is a haircut short at the front and long at the back"
+        },
+        {
+         "words": "one pound",
+         "at": 13,
+         "gives": "L",
+         "note": "L stands for one pound sterling, from Latin libra"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haircut that costs a pound less is such a delight.",
+     "definitionFit": "An amulet is a charm worn for protection, so it is something that charms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charming"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +173,42 @@
      }
     ]
    },
-   "solution": "LOLLIPOPMAN"
+   "solution": "LOLLIPOPMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sweet fellow that holds up all the traffic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sweet",
+       "at": 0,
+       "gives": "LOLLIPOP",
+       "note": "a lollipop is a sweet on a stick"
+      },
+      {
+       "words": "fellow",
+       "at": 6,
+       "gives": "MAN",
+       "note": "a man is a fellow"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A kind man brings the whole road to a standstill.",
+     "walkthrough": "In Britain a school crossing patrol carries a round stop sign on a pole, resembling a giant lolly, to halt cars for children.",
+     "definitionFit": "A school crossing patrol stops all the vehicles with a round sign shaped like a lolly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +222,49 @@
     "text": "Rush away, fly — on horse?",
     "enumeration": "9"
    },
-   "solution": "SKEDADDLE"
+   "solution": "SKEDADDLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rush away",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 17,
+       "note": "on here means the fly is set within the saddle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "horse?",
+       "at": 20,
+       "gives": "SADDLE",
+       "note": "the question mark points to what sits on a horse, its saddle"
+      },
+      {
+       "words": "fly",
+       "at": 11,
+       "gives": "KED",
+       "note": "a ked is a wingless fly that lives on sheep"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether to flee on horseback.",
+     "walkthrough": "A ked (sheep ked) is a parasitic fly; it goes inside SADDLE, the thing on a horse.",
+     "definitionFit": "To skedaddle is a colloquial verb meaning to run off hurriedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +278,71 @@
     "text": "Lands round front of green: God! About seven feet for an eagle",
     "enumeration": "8"
    },
-   "solution": "WINGSPAN"
+   "solution": "WINGSPAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "About seven feet for an eagle",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 6,
+         "note": "round says the first word goes around the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lands",
+         "at": 0,
+         "gives": "WINS",
+         "note": "lands as in gains or secures, a sense of wins"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "front of",
+           "at": 12,
+           "note": "front of picks the opening letter of the word green"
+          }
+         ],
+         "parts": [
+          {
+           "words": "green",
+           "at": 21
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "God",
+       "at": 28,
+       "gives": "PAN",
+       "note": "Pan is the Greek god of the wild"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer shouts in delight on landing near the green, then the clue turns to birds.",
+     "walkthrough": "The golfing words (green, eagle) set up a course, but the eagle is the bird and the definition is its measurement.",
+     "definitionFit": "A wingspan is the tip-to-tip width of outstretched wings, about two metres in a golden eagle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eagle"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +362,45 @@
      }
     ]
    },
-   "solution": "WEEFREE"
+   "solution": "WEEFREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Presbyterian",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "WEEFREE",
+     "indicators": [
+      {
+       "text": "in London said",
+       "at": 16,
+       "note": "a Cockney accent turns the th sound into f, so the phrase sounds different in London"
+      }
+     ],
+     "parts": [
+      {
+       "words": "The three of us",
+       "at": 0,
+       "gives": "WETHREE",
+       "note": "a trio including the speaker is we three"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trio of friends in the capital are rumoured to be Presbyterians.",
+     "walkthrough": "Cockney speech turns 'th' into 'f', so WE THREE becomes WEE FREE.",
+     "definitionFit": "Members of the Free Church of Scotland, a Presbyterian body, are nicknamed this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +414,40 @@
     "text": "New to a person's service",
     "enumeration": "5"
    },
-   "solution": "NONES"
+   "solution": "NONES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "service",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "New",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "words": "a person's",
+       "at": 7,
+       "gives": "ONES",
+       "note": "one's means belonging to a person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer is introduced to someone's church service.",
+     "definitionFit": "Nones is a daily office of prayer said at the ninth hour, a church service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +461,45 @@
     "text": "No time for deck-chair-one may be pounding the beach",
     "enumeration": "3"
    },
-   "solution": "SEA"
+   "solution": "SEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one may be pounding the beach",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "No",
+       "at": 0,
+       "note": "no means the time abbreviation is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deck-chair",
+       "at": 12,
+       "gives": "SEAT",
+       "note": "a deckchair is a type of seat"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "No time to relax in a deckchair while waves crash ashore.",
+     "definitionFit": "The sea's waves pound the shore, so it is something that may be pounding the beach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pounding"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +513,50 @@
     "text": "White man went over province — he made notes",
     "enumeration": "8"
    },
-   "solution": "ALBINONI"
+   "solution": "ALBINONI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "he made notes",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "went over",
+       "at": 10,
+       "note": "in a down clue, going over means sitting above the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "words": "White man",
+       "at": 0,
+       "gives": "ALBINO",
+       "note": "an albino lacks pigment, so is a white man"
+      },
+      {
+       "words": "province",
+       "at": 20,
+       "gives": "NI",
+       "note": "NI is Northern Ireland, often called the Province"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pale man travelled across a province.",
+     "walkthrough": "Northern Ireland is called 'the Province' in Britain; in a down answer 'went over' puts ALBINO above NI.",
+     "definitionFit": "Tomaso Albinoni was a Venetian baroque composer, so he made musical notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +576,35 @@
      }
     ]
    },
-   "solution": "BULLSEYE"
+   "solution": "BULLSEYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give it one's best shot?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Give it one's best shot?",
+       "at": 0,
+       "note": "read literally, the best shot in darts or archery is the one hitting the centre of the target"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An encouragement to try as hard as possible.",
+     "definitionFit": "The bullseye is the centre of a target, the spot a perfect shot strikes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +618,57 @@
     "text": "Mean to run tailender out and close",
     "enumeration": "6"
    },
-   "solution": "NEARBY"
+   "solution": "NEARBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mean",
+       "at": 0,
+       "gives": "NEAR",
+       "note": "mean in the sense of stingy, also near in British usage"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailender out",
+         "at": 12,
+         "note": "tailender out removes the final letter of the word for a run"
+        }
+       ],
+       "parts": [
+        {
+         "words": "run",
+         "at": 8,
+         "gives": "BYE",
+         "note": "a bye is a run scored in cricket without the batter hitting the ball"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket captain plans to run out the last batsman, ending the game.",
+     "walkthrough": "Cricket: a bye is a run conceded when the ball passes the batter and keeper; a tailender is a weak late-order batter. Here 'tailender out' drops the last letter of BYE.",
+     "definitionFit": "Close in the sense of not far away is a synonym for the adverb nearby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailender"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +682,41 @@
     "text": "Holy city famed in all parts",
     "enumeration": "6"
    },
-   "solution": "MEDINA"
+   "solution": "MEDINA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holy city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "parts",
+       "at": 23,
+       "note": "parts means the answer is made of parts of these words, hidden across them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "famed in all",
+       "at": 10,
+       "gives": "MEDINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy city celebrated throughout the land.",
+     "definitionFit": "Medina in Saudi Arabia is the second holiest city in Islam, burial place of the Prophet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +730,64 @@
     "text": "Girl, sort of drip, almost embraced by Pole",
     "enumeration": "8"
    },
-   "solution": "ROSALIND"
+   "solution": "ROSALIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 27,
+       "note": "embraced by puts the shortened word inside the pole"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pole",
+       "at": 39,
+       "gives": "ROD",
+       "note": "a rod is a pole or stick"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 20,
+         "note": "almost cuts the final letter from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sort of drip",
+         "at": 6,
+         "gives": "SALINE",
+         "note": "a saline drip is a kind of drip used in hospitals"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl, rather a wet type, is nearly hugged by a man from Poland.",
+     "walkthrough": "'Pole' looks like a nationality but is a rod; 'sort of drip' is SALINE, and 'almost' trims it to SALIN.",
+     "definitionFit": "Rosalind is a girl's name, for instance the heroine of As You Like It."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +801,43 @@
     "text": "Beat one promising streetwalker in the evening",
     "enumeration": "11"
    },
-   "solution": "LAMPLIGHTER"
+   "solution": "LAMPLIGHTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "streetwalker in the evening",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beat",
+       "at": 0,
+       "gives": "LAM",
+       "note": "to lam is to beat or thrash"
+      },
+      {
+       "words": "one promising",
+       "at": 5,
+       "gives": "PLIGHTER",
+       "note": "a plighter is one who plights, or pledges"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thug beats a prostitute who is making promises at night.",
+     "walkthrough": "'Streetwalker' suggests a prostitute, but the lamplighter walked the streets at dusk lighting gas lamps.",
+     "definitionFit": "A lamplighter walked the streets each evening lighting gas lamps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "streetwalker"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +857,40 @@
      }
     ]
    },
-   "solution": "OLDTESTAMENT"
+   "solution": "OLDTESTAMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writing",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Edition of",
+       "at": 0,
+       "note": "an edition is a version, so these words are issued in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "most talented",
+       "at": 11
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collection of work by the most gifted authors is published.",
+     "definitionFit": "The Old Testament is the first part of the Christian Bible, sacred scripture or writings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Edition"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +904,48 @@
     "text": "Competitor in marquee with a number of bonds",
     "enumeration": "9"
    },
-   "solution": "TRIVALENT"
+   "solution": "TRIVALENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with a number of bonds",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 11,
+       "note": "in puts the competitor inside the marquee"
+      }
+     ],
+     "parts": [
+      {
+       "words": "marquee",
+       "at": 14,
+       "gives": "TENT",
+       "note": "a marquee is a large tent"
+      },
+      {
+       "words": "Competitor",
+       "at": 0,
+       "gives": "RIVAL",
+       "note": "a rival is a competitor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contestant is in a big tent with several financial bonds.",
+     "definitionFit": "A trivalent atom has a valency of three, forming three chemical bonds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bonds"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +959,63 @@
     "text": "South American countess broke the hearts of noble kings",
     "enumeration": "8"
    },
-   "solution": "BOLIVIAN"
+   "solution": "BOLIVIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "South American",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "broke",
+       "at": 24,
+       "note": "broke means the countess breaks in between those letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "the hearts of",
+         "at": 30,
+         "note": "the hearts of takes the centre letter of each of the two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "noble",
+         "at": 44
+        },
+        {
+         "words": "kings",
+         "at": 50
+        }
+       ]
+      },
+      {
+       "words": "countess",
+       "at": 15,
+       "gives": "OLIVIA",
+       "note": "Olivia is the countess in Shakespeare's Twelfth Night"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Latin American countess left aristocratic monarchs heartbroken.",
+     "walkthrough": "The hearts of 'noble' and 'kings' are B and N; 'broke' puts OLIVIA between them.",
+     "definitionFit": "Someone from Bolivia, a country in South America, is a South American."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1039,29 @@
      }
     ]
    },
-   "solution": "BOYMEETSGIRL"
+   "solution": "BOYMEETSGIRL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Potential item?",
+      "at": 0,
+      "meaning": "an item is a couple, and a first meeting of two young people may become one"
+     },
+     {
+      "text": "It's a very old story",
+      "at": 16,
+      "meaning": "the stock romantic plot, told countless times"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase names both a first romantic encounter and the oldest plot in fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "item"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1075,41 @@
     "text": "Anger man put into verse",
     "enumeration": "7"
    },
-   "solution": "STROPHE"
+   "solution": "STROPHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "verse",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Anger",
+       "at": 0,
+       "gives": "STROP",
+       "note": "a strop is a bad temper or fit of anger"
+      },
+      {
+       "words": "man",
+       "at": 6,
+       "gives": "HE",
+       "note": "he refers to a man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's rage is turned into poetry.",
+     "definitionFit": "A strophe is a stanza or section of a poem, a unit of verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1123,40 @@
     "text": "Judge view to be in contention",
     "enumeration": "6"
    },
-   "solution": "JANGLE"
+   "solution": "JANGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "be in contention",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Judge",
+       "at": 0,
+       "gives": "J"
+      },
+      {
+       "words": "view",
+       "at": 6,
+       "gives": "ANGLE",
+       "note": "an angle is a point of view"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge's opinion is up for debate.",
+     "definitionFit": "To jangle in an old sense is to quarrel or wrangle, so to be in contention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contention"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1170,42 @@
     "text": "Red conspirator brought to prisoner's place",
     "enumeration": "8"
    },
-   "solution": "CINNABAR"
+   "solution": "CINNABAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "conspirator",
+       "at": 4,
+       "gives": "CINNA",
+       "note": "Cinna was one of the conspirators against Julius Caesar"
+      },
+      {
+       "words": "prisoner's place",
+       "at": 27,
+       "gives": "BAR",
+       "note": "the bar is where the accused stands in a courtroom"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A communist plotter is taken to the dock.",
+     "walkthrough": "'Red' looks like a political label for the conspirator but is the definition, a colour.",
+     "definitionFit": "Cinnabar is a mercury ore whose name also means a vivid scarlet colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1219,29 @@
     "text": "Don't agree with party …",
     "enumeration": "5"
    },
-   "solution": "BEANO"
+   "solution": "BEANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't agree",
+      "at": 0,
+      "meaning": "cast a vote against"
+     },
+     {
+      "text": "party",
+      "at": 17,
+      "meaning": "a jolly celebration or knees-up"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Beano is British slang for a lively party, and split it reads be a no, refuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1255,41 @@
     "text": "Golden tree needing laborious cleaning?",
     "enumeration": "6"
    },
-   "solution": "AUGEAN"
+   "solution": "AUGEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "needing laborious cleaning?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Golden",
+       "at": 0,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
+      },
+      {
+       "words": "tree",
+       "at": 7,
+       "gives": "GEAN",
+       "note": "the gean is the wild cherry tree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gilded tree is so filthy it needs a great deal of scrubbing.",
+     "walkthrough": "AU is gold's chemical symbol; the gean is the European wild cherry.",
+     "definitionFit": "Augean recalls the stables of King Augeas, cleaned by Hercules, so it means extremely filthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1303,57 @@
     "text": "Writing English arrested at a public event abroad",
     "enumeration": "6"
    },
-   "solution": "FIESTA"
+   "solution": "FIESTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "public event abroad",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arrested",
+         "at": 16,
+         "note": "arrested means the abbreviation is held inside the word for writing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Writing",
+         "at": 0,
+         "gives": "FIST",
+         "note": "fist is an old informal word for handwriting"
+        },
+        {
+         "words": "English",
+         "at": 8,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English writer is arrested at a public gathering overseas.",
+     "definitionFit": "A fiesta is a festival or holiday celebration in Spanish-speaking countries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Writing"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1367,29 @@
     "text": "… have interview with Salisbury, for one",
     "enumeration": "3"
    },
-   "solution": "SEE"
+   "solution": "SEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "have interview with",
+      "at": 2,
+      "meaning": "to meet and talk with someone"
+     },
+     {
+      "text": "Salisbury, for one",
+      "at": 22,
+      "meaning": "Salisbury is the seat of a bishop's diocese"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To see someone is to meet them; a bishop's diocese is called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Salisbury"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1403,59 @@
     "text": "Highly-regarded exercise involving wild tigers",
     "enumeration": "8"
    },
-   "solution": "PRESTIGE"
+   "solution": "PRESTIGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Highly-regarded",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 25,
+       "note": "involving means the exercise abbreviation wraps around the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "exercise",
+       "at": 16,
+       "gives": "PE",
+       "note": "PE is physical education, school exercise"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 35,
+         "note": "wild means the letters of tigers run wild into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tigers",
+         "at": 40
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An esteemed fitness class with untamed big cats.",
+     "walkthrough": "The definition is a noun used attributively, as in 'a prestige brand', so it stands fairly for 'highly-regarded'.",
+     "definitionFit": "Prestige used as an adjective describes something of high status, as in a prestige car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1469,59 @@
     "text": "Work in eleven parts that may bear your stamp",
     "enumeration": "8"
    },
-   "solution": "ENVELOPE"
+   "solution": "ENVELOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that may bear your stamp",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in places the work abbreviation inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "parts",
+         "at": 15,
+         "note": "parts suggests the word eleven is broken up and reassembled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eleven",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "words": "Work",
+       "at": 0,
+       "gives": "OP",
+       "note": "op, short for opus, is a work"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music composed in eleven sections bearing your mark.",
+     "walkthrough": "'Work in eleven parts' suggests a musical composition; the definition hides at the end. 'in' sets OP inside ENVELE, the rearrangement 'parts' makes.",
+     "definitionFit": "A letter's paper cover carries a postage stamp, so it may bear your stamp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stamp"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1535,53 @@
     "text": "Holder of first course originally called dull routine gets backing",
     "enumeration": "6"
    },
-   "solution": "TUREEN"
+   "solution": "TUREEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Holder of first course",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "gets backing",
+       "at": 54,
+       "note": "gets backing means the joined pieces are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "originally called",
+         "at": 23,
+         "gives": "NEE",
+         "note": "née introduces a woman's original name"
+        },
+        {
+         "words": "dull routine",
+         "at": 41,
+         "gives": "RUT",
+         "note": "a rut is a dull routine"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull routine that was once called something else is now supported.",
+     "definitionFit": "A tureen is a deep serving dish for soup, the usual first course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "backing"
+    }
+   }
   }
  ]
 }
