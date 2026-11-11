@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,31 @@
     "text": "Augustus who painted smallest room",
     "enumeration": "4"
    },
-   "solution": "JOHN"
+   "solution": "JOHN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Augustus who painted",
+      "at": 0,
+      "meaning": "Augustus ... was a Welsh portrait painter of the early twentieth century"
+     },
+     {
+      "text": "smallest room",
+      "at": 21,
+      "meaning": "the smallest room is a euphemism for the lavatory"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about which painter named Augustus decorated the lavatory.",
+     "definitionFit": "Double definition: the painter's surname, and a slang word for a toilet, which British euphemism calls the smallest room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +73,75 @@
     "text": "High taxation in East Yorkshire city? Not quite",
     "enumeration": "8"
    },
-   "solution": "ELEVATED"
+   "solution": "ELEVATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "High",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "East",
+       "at": 17,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 14,
+         "note": "in says the tax goes inside the shortened city name"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Not quite",
+           "at": 38,
+           "note": "not quite means the city's name loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Yorkshire city",
+           "at": 22,
+           "gives": "LEEDS",
+           "note": "Leeds is a large city in West Yorkshire"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        },
+        {
+         "words": "taxation",
+         "at": 5,
+         "gives": "VAT",
+         "note": "VAT, value added tax, is the British sales tax"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that a Yorkshire city charges heavy taxes, with a doubt about its exact location.",
+     "walkthrough": "'East Yorkshire city' looks like one place, such as Hull, but East gives only E; the city is in West Yorkshire. 'Not quite' drops its last letter and 'in' sets the tax inside.",
+     "definitionFit": "Synonym: something high is raised up, or elevated, above its surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +155,47 @@
     "text": "Pole not entirely free",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pole",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not entirely",
+       "at": 5,
+       "note": "not entirely means the synonym is used short of its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "free",
+       "at": 18,
+       "gives": "SPARE",
+       "note": "spare can mean free, as in spare time"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish man who is not completely at liberty.",
+     "walkthrough": "Pole looks like a nationality; it is the long pole, such as a ship's mast or boom.",
+     "definitionFit": "Synonym: a spar is a stout pole, used especially as a mast or boom on a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +209,41 @@
     "text": "Old people dancing, for instance",
     "enumeration": "8"
    },
-   "solution": "ANCIENTS"
+   "solution": "ANCIENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dancing",
+       "at": 11,
+       "note": "letters that are dancing move about, so instance is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "instance",
+       "at": 24
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly folk, for example the ones taking to the dance floor.",
+     "walkthrough": "'for' is only a link; the anagram is of INSTANCE alone, dancing being its signal.",
+     "definitionFit": "The ancients are people of long ago, so the plural noun fits old people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instance"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +257,43 @@
     "text": "Girl and boy with ducks",
     "enumeration": "6"
    },
-   "solution": "EVADES"
+   "solution": "EVADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ducks",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "EVA",
+       "note": "Eva is a girl's name"
+      },
+      {
+       "words": "boy",
+       "at": 9,
+       "gives": "DES",
+       "note": "Des, short for Desmond, is a boy's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl and a boy out with some ducks.",
+     "walkthrough": "'ducks' looks like the birds; it is the verb, as in ducks a question.",
+     "definitionFit": "Synonym verb: someone who ducks a question or a blow avoids it, that is, evades it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +313,61 @@
      }
     ]
    },
-   "solution": "ETONJACKET"
+   "solution": "ETONJACKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garment of the old school",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Running up",
+         "at": 0,
+         "note": "in a down clue running up means the word is read from bottom to top, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mark",
+         "at": 11,
+         "gives": "NOTE",
+         "note": "a note is a mark, as in take note"
+        }
+       ]
+      },
+      {
+       "words": "1",
+       "at": 16,
+       "gives": "JACK",
+       "note": "1 points to the solution of 1 down, and Jack is a familiar form of that first name"
+      },
+      {
+       "words": "French Connection",
+       "at": 20,
+       "gives": "ET",
+       "note": "et is the French word for and, a connecting word"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment from the French Connection fashion chain's Mark 1 range, worn at an old-fashioned school.",
+     "walkthrough": "French Connection looks like the clothing brand; it means the French connecting word ET. The 1 is a cross-reference to 1 down.",
+     "definitionFit": "A short black jacket formerly worn by younger boys at Eton College, so literally a garment of an old school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Connection"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +381,30 @@
     "text": "Come to pass, possibly, in northern England",
     "enumeration": "6"
    },
-   "solution": "HAPPEN"
+   "solution": "HAPPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Come to pass",
+      "at": 0,
+      "meaning": "to come to pass is to occur or take place"
+     },
+     {
+      "text": "possibly, in northern England",
+      "at": 14,
+      "meaning": "in northern English dialect the same word is used to mean perhaps or maybe"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that may well occur up in the north of England.",
+     "definitionFit": "Double definition: the standard verb meaning occur, and the northern English dialect adverb meaning perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "possibly"
+    }
+   }
   },
   {
    "number": 8,
@@ -136,7 +418,30 @@
     "text": "Take off old prime minister",
     "enumeration": "4"
    },
-   "solution": "PEEL"
+   "solution": "PEEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Take off",
+      "at": 0,
+      "meaning": "to take off the skin of fruit is to ... it"
+     },
+     {
+      "text": "old prime minister",
+      "at": 9,
+      "meaning": "Sir Robert ... was British prime minister in the 1830s and 1840s and founded the police"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to remove a former head of government from office.",
+     "definitionFit": "Double definition: the verb meaning strip off a skin, and the surname of Sir Robert Peel, a nineteenth-century British prime minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 9,
@@ -150,7 +455,47 @@
     "text": "Men left work on deck",
     "enumeration": "5"
    },
-   "solution": "ORLOP"
+   "solution": "ORLOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Men",
+       "at": 0,
+       "gives": "OR",
+       "note": "OR, other ranks, means ordinary soldiers as opposed to officers"
+      },
+      {
+       "words": "left",
+       "at": 4,
+       "gives": "L"
+      },
+      {
+       "words": "work",
+       "at": 9,
+       "gives": "OP",
+       "note": "op, short for opus, is a work of music"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors abandoned their jobs while on board ship.",
+     "walkthrough": "'on' is a link word here. Orlop is the lowest deck of a sailing ship.",
+     "definitionFit": "The orlop is a ship's lowest deck, so the answer is an example of a deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +509,53 @@
     "text": "Probationary period in order to turn on pervert?",
     "enumeration": "9"
    },
-   "solution": "NOVITIATE"
+   "solution": "NOVITIATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Probationary period",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 32,
+         "note": "turn says the little word on is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on",
+         "at": 37
+        }
+       ]
+      },
+      {
+       "words": "pervert",
+       "at": 40,
+       "gives": "VITIATE",
+       "note": "to vitiate is to corrupt or spoil, to pervert"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trial period designed to arouse a deviant.",
+     "walkthrough": "'in order to' is a link phrase; 'turn on' looks like the arousing idiom, but 'turn' just turns the little word round.",
+     "definitionFit": "A novitiate is the trial period a novice spends before taking religious vows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +575,61 @@
      }
     ]
    },
-   "solution": "NEVERMIND"
+   "solution": "NEVERMIND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Don't worry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "occupied by",
+       "at": 23,
+       "note": "occupied by says the room has the unpleasant people inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 12,
+         "note": "about says the word for room is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "room",
+         "at": 18,
+         "gives": "DEN",
+         "note": "a den is a small private room"
+        }
+       ]
+      },
+      {
+       "words": "obnoxious people",
+       "at": 35,
+       "gives": "VERMIN",
+       "note": "vermin is a contemptuous name for nasty, worthless people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice not to fret about a room full of horrible people.",
+     "walkthrough": "'about' looks like part of the phrase 'worry about' but reverses DEN to NED, which holds VERMIN.",
+     "definitionFit": "Idiom: the phrase is said to tell someone not to bother or not to worry about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +643,43 @@
     "text": "Quarters found by comrade somewhere in the Himalayas",
     "enumeration": "5"
    },
-   "solution": "NEPAL"
+   "solution": "NEPAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "somewhere in the Himalayas",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Quarters",
+       "at": 0,
+       "gives": "NE",
+       "note": "N and E are two compass quarters, north and east"
+      },
+      {
+       "words": "comrade",
+       "at": 18,
+       "gives": "PAL",
+       "note": "a pal is a friend or comrade"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lodgings discovered by a friend in the Himalayas.",
+     "walkthrough": "'Quarters' looks like lodgings; it means points of the compass.",
+     "definitionFit": "Example: the country lies across the Himalayas between India and China."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Quarters"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +699,42 @@
      }
     ]
    },
-   "solution": "SITUPON"
+   "solution": "SITUPON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottom",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "assembly",
+       "at": 20,
+       "note": "assembly means the letters are put together in a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "top in US",
+       "at": 10
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of who comes out at the bottom or the top in an American legislature.",
+     "walkthrough": "'or' is a link. 'Bottom' looks like the opposite of 'top' in the surface; it is the backside.",
+     "definitionFit": "Humorous slang: the part of the body one sits on is the bottom, or buttocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +748,53 @@
     "text": "Horse finding way over river",
     "enumeration": "5"
    },
-   "solution": "STEED"
+   "solution": "STEED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "way",
+       "at": 14,
+       "gives": "ST",
+       "note": "ST, street, is a way"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 18,
+         "note": "over here means turned over, so the river's name is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "river",
+         "at": 23,
+         "gives": "DEE",
+         "note": "the Dee is a river in Scotland and another in Wales"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse discovering a path across a river.",
+     "definitionFit": "Synonym: a steed is a horse, especially a spirited riding horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +808,71 @@
     "text": "Dogmatic traveller rising or appearing in hollow",
     "enumeration": "10"
    },
-   "solution": "PEREMPTORY"
+   "solution": "PEREMPTORY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dogmatic",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 19,
+         "note": "in a down clue rising means the word is read upwards, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "traveller",
+         "at": 9,
+         "gives": "REP",
+         "note": "a rep, a sales representative, is a commercial traveller"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "appearing in",
+         "at": 29,
+         "note": "appearing in says the little word sits inside the word for hollow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hollow",
+         "at": 42,
+         "gives": "EMPTY",
+         "note": "something hollow is empty"
+        },
+        {
+         "words": "or",
+         "at": 26,
+         "gives": "OR"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dogmatic salesman going up, or turning up in a valley.",
+     "walkthrough": "'hollow' looks like a valley noun; it is the adjective, and 'appearing in' sets the little word inside it.",
+     "definitionFit": "Synonym: peremptory means insisting on immediate obedience, allowing no discussion, much like dogmatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +886,41 @@
     "text": "Tin cans made of tin",
     "enumeration": "7"
    },
-   "solution": "STANNIC"
+   "solution": "STANNIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of tin",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "made",
+       "at": 9,
+       "note": "made says these letters are made into something new, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Tin cans",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that tin cans are, unsurprisingly, made of tin.",
+     "walkthrough": "The clue reads as a tautology; the definition is just 'of tin', with 'made' as the anagram signal.",
+     "definitionFit": "Stannic is the chemical adjective for tin, from Latin stannum, meaning relating to tin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +934,50 @@
     "text": "One article from China for lover of Wuthering Heights",
     "enumeration": "5"
    },
-   "solution": "CATHY"
+   "solution": "CATHY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lover of Wuthering Heights",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "from",
+       "at": 12,
+       "note": "from here means taken away from, so the article is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "China",
+       "at": 17,
+       "gives": "CATHAY",
+       "note": "Cathay is an old poetic name for China"
+      },
+      {
+       "words": "One article",
+       "at": 0,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single item from China for a fan of the Brontë novel.",
+     "walkthrough": "'lover of Wuthering Heights' sounds like a reader who loves the book; it is the heroine loved by Heathcliff.",
+     "definitionFit": "Cathy Earnshaw is Heathcliff's beloved in Emily Brontë's novel Wuthering Heights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +991,32 @@
     "text": "Bush may be a sort of statesman",
     "enumeration": "5"
    },
-   "solution": "ELDER"
+   "solution": "ELDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0,
+      "meaning": "a shrub with white flowers and dark berries"
+     },
+     {
+      "text": "a sort of statesman",
+      "at": 12,
+      "meaning": "an ... statesman is a respected senior figure"
+     }
+    ],
+    "explanation": {
+     "surface": "A suggestion that the American president Bush could be called a statesman.",
+     "walkthrough": "'Bush' looks like the US president; it is the shrub.",
+     "definitionFit": "Double definition: a shrub of the genus Sambucus, and the word before statesman in the phrase elder statesman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1030,30 @@
     "text": "Established group",
     "enumeration": "3"
    },
-   "solution": "SET"
+   "solution": "SET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Established",
+      "at": 0,
+      "meaning": "something ... is fixed or established, as in ... in its ways"
+     },
+     {
+      "text": "group",
+      "at": 12,
+      "meaning": "a group of things or people that belong together"
+     }
+    ],
+    "explanation": {
+     "surface": "A group that has been around for a long time.",
+     "definitionFit": "Double definition: the adjective meaning fixed or settled, and the noun meaning a collection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Established"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1067,41 @@
     "text": "Rusty one revised for medieval contests",
     "enumeration": "8"
    },
-   "solution": "TOURNEYS"
+   "solution": "TOURNEYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "medieval contests",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "revised",
+       "at": 10,
+       "note": "revised says these letters are reworked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Rusty one",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone out of practice getting a refresher for jousting events.",
+     "walkthrough": "'for' is a link word between the anagram and the definition.",
+     "definitionFit": "Tourneys were medieval tournaments, mock combats between knights."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rusty"
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1115,57 @@
     "text": "Car turned up on time, but it's not working",
     "enumeration": "5"
    },
-   "solution": "KAPUT"
+   "solution": "KAPUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Car",
+       "at": 0,
+       "gives": "KA",
+       "note": "the Ka is a small car made by Ford"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 4,
+         "note": "turned says the little word up is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "up",
+         "at": 11
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 17,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The car arrived punctually, but it has broken down.",
+     "walkthrough": "'turned up on time' reads as punctual arrival; it is KA, UP turned to PU, and T. 'but it's' is link.",
+     "definitionFit": "Kaput, from German, means broken or no longer functioning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1179,32 @@
     "text": "Breakfast food that's served in jug",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Breakfast food",
+      "at": 0,
+      "meaning": "oatmeal boiled in milk or water is eaten at breakfast"
+     },
+     {
+      "text": "that's served in jug",
+      "at": 15,
+      "meaning": "jug is slang for prison, and ... is British slang for a prison sentence, served or done"
+     }
+    ],
+    "explanation": {
+     "surface": "A breakfast dish poured from a jug.",
+     "walkthrough": "'jug' looks like a pitcher; it is prison, and a sentence is 'served'. The British TV sitcom Porridge was set in a prison.",
+     "definitionFit": "Double definition: oat breakfast, and British slang for time spent in prison, which one serves in jug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jug"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1218,61 @@
     "text": "Forceful policemen holding a crowd back",
     "enumeration": "7"
    },
-   "solution": "DYNAMIC"
+   "solution": "DYNAMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Forceful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 35,
+       "note": "back says the whole assembly is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "holding",
+         "at": 19,
+         "note": "holding says the police abbreviation is wrapped round the crowd"
+        }
+       ],
+       "parts": [
+        {
+         "words": "policemen",
+         "at": 9,
+         "gives": "CID",
+         "note": "CID, Criminal Investigation Department, is the British plain-clothes police"
+        },
+        {
+         "words": "a crowd",
+         "at": 27,
+         "gives": "MANY",
+         "note": "a crowd is many people"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police forcing a crowd to retreat with heavy-handed tactics.",
+     "walkthrough": "'holding' puts the crowd inside the police letters, and 'back' then turns the whole run round, giving CIMANYD read backwards.",
+     "definitionFit": "Synonym: dynamic means energetic and forceful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1286,55 @@
     "text": "Flipping Scotsman notices water nymphs",
     "enumeration": "6"
    },
-   "solution": "NAIADS"
+   "solution": "NAIADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "water nymphs",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Flipping",
+         "at": 0,
+         "note": "flipping says the name is flipped over, read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scotsman",
+         "at": 9,
+         "gives": "IAN",
+         "note": "Ian is a typical Scottish man's name"
+        }
+       ]
+      },
+      {
+       "words": "notices",
+       "at": 18,
+       "gives": "ADS",
+       "note": "ads, advertisements, are notices"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious Scot spots some water nymphs.",
+     "walkthrough": "'Flipping' looks like a mild oath; it reverses IAN to NAI.",
+     "definitionFit": "In Greek myth naiads are nymphs living in rivers, springs and lakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1348,61 @@
     "text": "Persian, possibly, with paperback King James Bible in stock?",
     "enumeration": "6"
    },
-   "solution": "CRAVAT"
+   "solution": "CRAVAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stock",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 51,
+       "note": "in says the Bible letters go inside the animal"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Persian, possibly",
+       "at": 0,
+       "gives": "CAT",
+       "note": "a Persian is a breed of cat"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "paperback",
+         "at": 24,
+         "gives": "R",
+         "note": "the back of the word paper is its final letter"
+        },
+        {
+         "words": "King James Bible",
+         "at": 34,
+         "gives": "AV",
+         "note": "AV, the Authorised Version, is the King James Bible"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Persian kept with a cheap edition of the Bible on the shop shelves.",
+     "walkthrough": "'stock' looks like goods held by a shop; it is the old neckcloth. 'with' is a link word.",
+     "definitionFit": "A stock is a wide band of cloth worn round the neck, much like a cravat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1416,52 @@
     "text": "Quite articulate? Lucy is heartless",
     "enumeration": "7"
    },
-   "solution": "UTTERLY"
+   "solution": "UTTERLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Quite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "articulate",
+       "at": 6,
+       "gives": "UTTER",
+       "note": "to utter is to articulate, to say aloud"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 26,
+         "note": "heartless means the name loses its middle, keeping only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lucy",
+         "at": 18
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a cruel Lucy is well spoken.",
+     "walkthrough": "'is' is a link. 'articulate' looks like an adjective, well spoken; it is the verb.",
+     "definitionFit": "Synonym: utterly and quite both mean completely, as in quite mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articulate"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1475,41 @@
     "text": "Order cited in order",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in order",
+       "at": 12,
+       "note": "in order here means put into a fresh order, rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cited",
+       "at": 6
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction quoted in its proper sequence.",
+     "walkthrough": "'Order' and 'in order' play on two senses: a command, and a rearrangement.",
+     "definitionFit": "Synonym: an edict is an official order or decree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1523,58 @@
     "text": "Novel about a male: Orlando?",
     "enumeration": "4"
    },
-   "solution": "EMMA"
+   "solution": "EMMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 6,
+       "note": "about says the whole run is turned round"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 12,
+         "gives": "A"
+        },
+        {
+         "words": "male",
+         "at": 14,
+         "gives": "M"
+        },
+        {
+         "words": "Orlando",
+         "at": 20,
+         "gives": "ME",
+         "note": "Orlando is the setter of this puzzle, so the name means me"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter asks whether a novel about a man is his own.",
+     "walkthrough": "'about' looks like 'concerning'; it reverses A, M and ME together.",
+     "definitionFit": "Example: Emma is a novel by Jane Austen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1588,42 @@
     "text": "Girl on location for studios, making things tougher",
     "enumeration": "9"
    },
-   "solution": "ANNEALING"
+   "solution": "ANNEALING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making things tougher",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "ANN",
+       "note": "Ann is a girl's name"
+      },
+      {
+       "words": "location for studios",
+       "at": 8,
+       "gives": "EALING",
+       "note": "Ealing in west London is home to the famous Ealing film studios"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl on a film set makes life harder for everyone.",
+     "walkthrough": "'on' is only a link word, the girl's name coming first; Ealing Studios in London made the classic Ealing comedies.",
+     "definitionFit": "Annealing heats and slowly cools metal or glass to toughen it, so it makes materials tougher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "studios"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1637,39 @@
     "text": "Seaweed included in botanical garden",
     "enumeration": "4"
    },
-   "solution": "ALGA"
+   "solution": "ALGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seaweed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "included in",
+       "at": 8,
+       "note": "included in says the answer is found inside the words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "botanical garden",
+       "at": 20
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaweed among the plants of a botanic garden.",
+     "definitionFit": "Example: seaweeds are large marine algae, so a single one is an alga."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1683,42 @@
     "text": "Good booze responsible for a lot of wind?",
     "enumeration": "4"
    },
-   "solution": "GALE"
+   "solution": "GALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a lot of wind",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Good",
+       "at": 0,
+       "gives": "G"
+      },
+      {
+       "words": "booze",
+       "at": 5,
+       "gives": "ALE",
+       "note": "ale is beer, booze"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drinking good beer causes flatulence.",
+     "walkthrough": "'responsible for' is a link phrase. The surface suggests beer-induced wind, a joke.",
+     "definitionFit": "A gale is a very strong wind, so a lot of wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 30,
@@ -490,7 +1738,49 @@
      }
     ]
    },
-   "solution": "MADEREADY"
+   "solution": "MADEREADY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prepared",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "crackers",
+       "at": 9,
+       "gives": "MAD",
+       "note": "crackers is slang for mad"
+      },
+      {
+       "words": "before",
+       "at": 18,
+       "gives": "ERE",
+       "note": "ere is an old word for before"
+      },
+      {
+       "words": "daybreak",
+       "at": 25,
+       "gives": "ADY",
+       "note": "the word day broken up gives its letters in a new order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Biscuits got ready before dawn.",
+     "walkthrough": "'crackers' looks like biscuits; it means mad. 'daybreak' looks like dawn; it is DAY broken, ADY.",
+     "definitionFit": "Synonym: something made ready has been prepared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 31,
@@ -504,7 +1794,52 @@
     "text": "Try repeating line from Russian author",
     "enumeration": "5"
    },
-   "solution": "GOGOL"
+   "solution": "GOGOL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Russian author",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "repeat",
+       "indicators": [
+        {
+         "text": "repeating",
+         "at": 4,
+         "note": "repeating means the word for try is given twice"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Try",
+         "at": 0,
+         "gives": "GO",
+         "note": "a go is a try, an attempt"
+        }
+       ]
+      },
+      {
+       "words": "line",
+       "at": 14,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attempting again and again a line from a Russian writer.",
+     "definitionFit": "Nikolai Gogol was a nineteenth-century Russian writer, author of Dead Souls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   }
  ]
 }
