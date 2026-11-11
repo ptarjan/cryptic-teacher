@@ -439,8 +439,8 @@ SKIP = int(os.environ.get("GALE_FETCH_SKIP", "0"))
 
 
 def plan(got, skip=SKIP):
-    """[(product, date, cache entry or None, *ask)] to fetch: the Times' in
-    next_up order past its first `skip` rows (wanted, not staged, set aside
+    """[(product, date, cache entry or None, *ask)] to fetch: the Times Jumbo solutions
+    (gale_jumbo.solution_days); the Times' in next_up order past its first `skip` rows (wanted, not staged, set aside
     or gone from Gale); then the Sunday papers' (gale_inbox.sunday_wanted); then the Times Jumbos
     (gale_jumbo.wanted); then, with fewer
     than REPLAN so far, the Listener's (gale_listener.wanted; ask is its (number, report)); then,
@@ -459,6 +459,11 @@ def plan(got, skip=SKIP):
     # A tagged token (INDA/1995-01-01) is that product's, a Sunday in its Sunday paper (other_of).
     for prod, day in requested_rows():
         out += want(prod, day, docs, got)
+    # The Jumbo solutions (a room asked for them, ~1,000 lookups): ahead of the Times' daily backlog,
+    # which would take days to reach them. Every Jumbo day of 1997-2014: a solution runs a week or two after its puzzle.
+    import gale_jumbo
+    for day in gale_jumbo.solution_days():
+        out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_SOLUTION_KIND)
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
     # The Sunday Telegraph's Sundays: ahead of the Telegraph redo rows and the gated rows below,
@@ -467,12 +472,8 @@ def plan(got, skip=SKIP):
         out += want("TGRH", day, docs, got)
     # The Saturday Times' Jumbo cryptics we lack (gale_jumbo), then the Independent on Sunday's full run
     # (its test year goes first, via REQUESTS).
-    import gale_jumbo
     for day in gale_jumbo.wanted():
         out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_KIND)
-    # Their solutions, printed on the Jumbo days a week or two on: every Jumbo day of the same range.
-    for day in gale_jumbo.solution_days():
-        out += want("TTDA", day, docs, got, kind=gale_docs.JUMBO_SOLUTION_KIND)
     # A paper in HOLDS waits for its reader (a room said its pages do not parse yet).
     held = held_products()
     for day in [] if "INDA" in held else gale_inbox.sunday_wanted("INDA"):

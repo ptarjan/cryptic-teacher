@@ -493,6 +493,9 @@ gale_jumbo.wanted = lambda: []
 gale_jumbo.solution_days = lambda: [D(2000, 2, 12)]
 _sp = [r for r in gf.plan(set(), 0) if r[3:] == (None, False, "jumbo-solution")]
 assert [r[:2] for r in _sp] == [("TTDA", D(2000, 2, 12))], _sp
+_all = gf.plan(set(), 0)
+assert [r[3:] for r in _all].index((None, False, "jumbo-solution")) < len(_all) - 1 or len(_all) == 1
+assert _all.index(_sp[0]) == 0 or _all[0][3:] == (), "the solutions come ahead of the Times' backlog"
 assert gf.key("TTDA", D(2000, 2, 12), kind="jumbo-solution") == "TTDA/jumbo-solution/2000-02-12"
 assert gf.fetched_dir("TTDA", "jumbo-solution", D(2000, 2, 12)) == gf.TIMES_JUMBO_SOLUTIONS_DIR
 assert gf.TIMES_JUMBO_SOLUTIONS_DIR.endswith("/TimesJumbo/Solutions") and gf.TIMES_JUMBO_SOLUTIONS_DIR != gf.TIMES_JUMBO_DIR
