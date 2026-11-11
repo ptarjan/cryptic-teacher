@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 4
+VERSION = 5
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -493,8 +493,96 @@ def area(box):
     return max(0, box[2] - box[0]) * max(0, box[3] - box[1])
 
 
-def read_page(path, store=STORE):
-    """(verdict, puzzle or None) of one saved page."""
+#: The VLM is asked for a page's columns when this many lights or fewer are blank (more is a page whose lists are lost).
+VLM_BLANKS = 16
+#: A number opening a line within this of a blank light's puts its column among those asked.
+NEAR_NUMBER = 3
+#: The blank-light reason fa.vlm_laid lays a VLM clue on.
+UNLAID = "no reading laid a clue on it"
+
+
+#: A Jumbo clue line opens on its number with no stop ("20 Temporary quarters"): its words follow.
+NUMBER_LINE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}$")
+
+
+def numbers_of(located):
+    """[word] of the clue numbers in `located` (page words): a figure of one or two digits with a word of letters
+    on its line just to its right."""
+    out = []
+    for w in located:
+        if not NUMBER_LINE.match(w[4] or ""):
+            continue
+        mid = (w[1] + w[3]) / 2
+        if any(o is not w and 0 <= o[0] - w[2] <= 60 and o[1] <= mid <= o[3] and re.search(r"[A-Za-z]{2}", o[4])
+               for o in located):
+            out.append(w)
+    return out
+
+
+def number_lefts(located, step=40, least=3):
+    """The left edges of the clue columns: where lines opening on a number line up (gale_listener.column_lefts
+    wants a stop after the number, which a Jumbo's lists do not print)."""
+    xs = sorted(w[0] for w in numbers_of(located))
+    runs = []
+    for x in xs:
+        if runs and x - runs[-1][-1] <= step:
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    return [min(r) - 15 for r in runs if len(r) >= least]
+
+
+def vlm_strips(blocks, numbers, gl):
+    """[(image, box)] of the clue columns of `blocks` ((image, key)) holding a line that opens on a number
+    within NEAR_NUMBER of one of `numbers` (the blank lights'): the columns cut at gale_listener.column_lefts."""
+    out = []
+    for bimg, bkey in blocks:
+        located = gl.figures(gl.page_words(bimg, bkey))
+        lefts = number_lefts(located)
+        if not lefts:
+            continue
+        edges = lefts + [bimg.width]
+        for i, x0 in enumerate(lefts):
+            x1 = edges[i + 1]
+            for w in numbers_of(located):
+                m = NUMBER_LINE.match(w[4])
+                if x0 <= w[0] < x1 and any(abs(int(m.group(1)) - n) <= NEAR_NUMBER for n in numbers):
+                    out.append((bimg, (max(0, int(x0)), 0, min(bimg.width, int(x1)), bimg.height)))
+                    break
+    return out
+
+
+def vlm_mended(blocks, laid, blank, lengths, gl, reader=None):
+    """(laid, blank) with each blank light the VLM's reading of the clue columns holding it lays
+    (fa.vlm_laid: the one clue under its number whose count fills the light, its words spelt in
+    the page's own readings). The VLM is asked the columns holding a blank light only, and only
+    when VLM_BLANKS lights or fewer are blank. `reader` (img, box) -> text stands in for the VLM."""
+    if not blank or len(blank) > VLM_BLANKS:
+        return laid, blank, 0
+    if reader is None:
+        if not (fa.vlm.wanted()):
+            return laid, blank, 0
+        reader = lambda im, box: fa.vlm.read(fa.vlm.crop(im, box))  # noqa: E731
+    strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in blank}), gl)
+    if not strips:
+        return laid, blank, 0
+    parts = []
+    try:
+        for im, box in strips:
+            parts.append(reader(im, box))
+    except RuntimeError:
+        return laid, blank, len(parts)  # the VLM gone or spooled: the page is read as without it
+    texts = {"vlm": "\n".join(p for p in parts if p)}
+    for bimg, bkey in blocks:
+        located = gl.figures(gl.page_words(bimg, bkey))
+        texts[f"page{len(texts)}"] = " ".join(w[4] for w in located)
+    marked = {k: UNLAID for k in blank}
+    got, left = fa.vlm_laid(texts, laid, marked, lengths)
+    return got, {k: v for k, v in blank.items() if k in left}, len(strips)
+
+
+def read_page(path, store=STORE, asker=None):
+    """(verdict, puzzle or None) of one saved page. `asker` stands in for the VLM (vlm_mended)."""
     import gale_listener as gl
     import archive_org_jumbo as aj
     import trove_grid
@@ -555,6 +643,15 @@ def read_page(path, store=STORE):
     verdict["lights"] = len(laid)
     # The vote's own blanks (a clue it laid empty: unfit, a suspect word) are blank lights too.
     blank = {**(read.get("blank") or {}), **blank}
+    # A light laid with no words that no linked clue covers is blank as well (the vote's grid-counted empty).
+    tails = {t for _, _, group in laid.values() for t in (group or [])[1:]}
+    for lid, (text, _, _) in laid.items():
+        if lid not in tails and not (text or "").strip():
+            blank.setdefault(lid, UNLAID)
+    laid, blank, asked = vlm_mended(blocks, laid, blank, lengths, gl, asker)
+    if asked:
+        verdict["vlmColumns"] = asked
+    verdict["lights"] = len(laid)
     verdict["blank"] = sorted(blank)
     verdict["why"] = {k: str(v)[:80] for k, v in sorted(blank.items())}
     doc = gi.DOC_ID.search(path.name)
