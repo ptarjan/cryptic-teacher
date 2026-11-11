@@ -1885,6 +1885,16 @@ def by_paper_turns(units):
 
 
 def by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
+    """`ordered_by_urgency`'s order with the Jumbo solution units first of all (11-11): answers only, local
+    CPU, a handful of units; they stood last of the plan behind the Times work and ~300 Jumbo page reads,
+    so no jumbo:solution unit had run in 8 hours."""
+    out = ordered_by_urgency(units, serves, fixing, newest)
+    sol = gale_jumbo_read.SOLUTION_PREFIX
+    first = [u for u in out if str(u.get("rel", "")).startswith(sol)]
+    return first + [u for u in out if not str(u.get("rel", "")).startswith(sol)] if first else out
+
+
+def ordered_by_urgency(units, serves=frozenset(), fixing=frozenset(), newest=frozenset()):
     """The units of (rank, paper's place, plan's place, unit) by rank, then
     the most puzzles predicted to file whole (fa.likely_gain), then the
     newest edition first ("date") across papers, rank 0 (never read, Gale fetch) in
