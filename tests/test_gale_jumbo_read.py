@@ -89,6 +89,36 @@ check("a verdict and a page crashed too often are read; a crash and a page with 
       ["jumbo:B.pdf", "jumbo:D.pdf"], sorted(u["rel"] for u in gj.plan_pages(saved, store)))
 check("the pages' reason is a never-read one", {"never read (Gale fetch)"}, {u["reason"] for u in gj.plan_pages(saved, store)})
 
+# --- the number off the page's text
+check("the number after the entry address, a line apart", 139,
+      gj.number_in_text("Entries should be sent to: Jumbo coming the 3\nCrossword 139, The Times, 1 Pennington Street"))
+check("the banner's number", 168, gj.number_in_text("40 SPORT / JUMBO CROSSWORD 1.68\nBedtime bugle"))
+check("a typo'd Jumbo word", 145, gj.number_in_text("Entries sent to: Junbo Jim's first\nCrossword 145, The Times 1 Pennington"))
+check("the book advert is no number", None, gj.number_in_text("The Times Jumbo Crosswords Book 3 is available"))
+check("a prize-text number", 1033, gj.number_in_text("sent to: Jumbo 1,033"))
+check("a typo'd citation word", 140, gj.cite_of('"Jumbo Crosswrd 140." Times, 13 Dec. 1997, p. 92.')[0])
+
+# --- the grid: Jumbo-sized lattices only, boxes widened when cut short
+calls = []
+
+
+def fake(box, pad):
+    calls.append((box[0], pad))
+    if box[0] == 0:
+        return ["x" * 15] * 15, None
+    return (["x" * 27] * 27, None) if pad > 6 else (None, "a 27x27 lattice at 70px a cell is larger than the frame")
+
+
+check("the Jumbo-sized box after a bigger 15x15", ((100, 0, 1100, 1000), 27),
+      (lambda r: (r[0], len(r[1])))(gj.pick_grid([(0, 0, 1000, 1000), (100, 0, 1100, 1000)], fake)))
+check("the narrow pad tried, then the wide", [(0, 6), (100, 6), (100, 80)], calls)
+check("only a 15x15 is no Jumbo", (None, None, "the grid on the page is 15x15, not a Jumbo's"),
+      gj.pick_grid([(0, 0, 1000, 1000)], fake))
+check("a refusal is the first why", "x", gj.pick_grid([(100, 0, 1100, 1000)], lambda b, p: (None, "x"))[2])
+check("the title fallback follows the real titles", [(1, 2, 3, 4), (0, 0, 500, 0)],
+      gj.with_fallback_title(lambda w: [(1, 2, 3, 4)], 500)([]))
+check("VERSION bumped", True, gj.VERSION >= 2)
+
 # --- the queue's lists hold the new reason
 import edition_queue as eq
 check("ranked", True, fa.JUMBO_SOLUTION in fa.RANKS)
