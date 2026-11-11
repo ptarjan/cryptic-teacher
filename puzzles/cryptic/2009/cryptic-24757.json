@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,49 @@
     "text": "A partner out of place is cut off",
     "enumeration": "8"
    },
-   "solution": "AMPUTATE"
+   "solution": "AMPUTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cut off",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 10,
+       "note": "A partner sits out of, i.e. around, the word for place, so the second piece is held within the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A partner",
+       "at": 0,
+       "gives": "AMATE",
+       "note": "a partner is a mate, so 'a partner' gives A plus MATE"
+      },
+      {
+       "words": "place",
+       "at": 17,
+       "gives": "PUT",
+       "note": "to place something is to put it down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone whose partner has gone missing is left on their own.",
+     "walkthrough": "'out of' signals that A MATE wraps round PUT. The answer is a verb, so 'is' is only a link.",
+     "definitionFit": "To amputate a limb is to sever it surgically from the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +90,46 @@
     "text": "Heartless poet performed",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "performed",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Heartless",
+       "at": 0,
+       "note": "a heartless word loses its central letter, here one of the middle pair of the poet's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "poet",
+       "at": 10,
+       "gives": "DONNE",
+       "note": "John Donne was the English metaphysical poet"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold, unfeeling versifier gave a performance.",
+     "walkthrough": "'Heartless' removes one N from the middle of DONNE.",
+     "definitionFit": "Something done has been carried out or performed, as in a deed already accomplished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartless"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +143,53 @@
     "text": "Considerable rise with hazard for old lags",
     "enumeration": "6"
    },
-   "solution": "GIBBET"
+   "solution": "GIBBET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for old lags",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rise",
+         "at": 13,
+         "note": "in a down clue, a rise means the word reads upwards, so its letters are turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Considerable",
+         "at": 0,
+         "gives": "BIG",
+         "note": "considerable means big"
+        }
+       ]
+      },
+      {
+       "words": "hazard",
+       "at": 23,
+       "gives": "BET",
+       "note": "to hazard money is to bet it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big increase in gambling among former prisoners.",
+     "walkthrough": "'rise' turns BIG into GIB. The definition is loose: a gibbet was the gallows where old criminals ('lags' is British slang for convicts) were hanged.",
+     "definitionFit": "A gallows-like post on which executed criminals were hung was meant for hardened offenders of old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +203,41 @@
     "text": "Blame me for designing inlaid ornament",
     "enumeration": "7"
    },
-   "solution": "EMBLEMA"
+   "solution": "EMBLEMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inlaid ornament",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "designing",
+       "at": 13,
+       "note": "designing the letters of the first two words means arranging them into a fresh pattern"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Blame me",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Accept the blame for designing a decorative inlay.",
+     "walkthrough": "'designing' rearranges BLAMEME; 'for' is a link.",
+     "definitionFit": "An emblema is a decorative inlaid piece, as in mosaic work or metal inlay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designing"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +251,11 @@
     "text": "Composer lifts side overhead",
     "enumeration": "8"
    },
-   "solution": "MASSENET"
+   "solution": "MASSENET",
+   "annotationWithheld": {
+    "why": "Composer lifts side overhead (8): per the fifteensquared blog the parse is NESS (head, headland) inside TEAM (side) reversed, so the single word 'overhead' is both the container indicator 'over' and the fodder 'head'.",
+    "clue": "Composer lifts side overhead"
+   }
   },
   {
    "number": 6,
@@ -101,7 +269,54 @@
     "text": "Furniture items, one slightly damaged, for a good cause",
     "enumeration": "10"
    },
-   "solution": "CHARITABLE"
+   "solution": "CHARITABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for a good cause",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "one slightly damaged",
+         "at": 17,
+         "note": "one of the two pieces of furniture is knocked about a little, so its letters are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Furniture items",
+         "at": 0,
+         "gives": "CHAIR",
+         "note": "a chair is one item of furniture"
+        }
+       ]
+      },
+      {
+       "words": "Furniture items",
+       "at": 0,
+       "gives": "TABLE",
+       "note": "a table is the other item of furniture"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Selling off slightly battered furniture to raise money for a charity.",
+     "walkthrough": "'Furniture items' gives two pieces, CHAIR and TABLE; 'one slightly damaged' scrambles CHAIR into CHARI.",
+     "definitionFit": "Charitable work or giving is done in support of a worthy cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 7,
@@ -115,7 +330,47 @@
     "text": "Stingers make one dance wildly",
     "enumeration": "6"
    },
-   "solution": "CNIDAE"
+   "solution": "CNIDAE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stingers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "wildly",
+       "at": 24,
+       "note": "wildly signals that the letters of one and dance are thrown about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one",
+       "at": 14,
+       "gives": "I",
+       "note": "one is the Roman numeral I"
+      },
+      {
+       "words": "dance",
+       "at": 18
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being stung makes a person leap about frantically.",
+     "walkthrough": "'wildly' rearranges I plus DANCE; 'make' is a link.",
+     "definitionFit": "Cnidae are the stinging cells of jellyfish and related creatures, also called nematocysts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 8,
@@ -129,7 +384,70 @@
     "text": "This might need a doctor — none within miles, unfortunately",
     "enumeration": "8"
    },
-   "solution": "EMBOLISM"
+   "solution": "EMBOLISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "This might need a doctor — none within miles, unfortunately",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "within",
+       "at": 32,
+       "note": "within shows the doctor and the nothing are placed inside the scrambled distance word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 46,
+         "note": "unfortunately suggests things have gone awry, so the letters of miles are disordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "miles",
+         "at": 39
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a doctor",
+         "at": 16,
+         "gives": "MB",
+         "note": "MB, Bachelor of Medicine, is a doctor's degree"
+        },
+        {
+         "words": "none",
+         "at": 27,
+         "gives": "O",
+         "note": "none is nothing, the letter O"
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A medical emergency far from help, with no doctor anywhere near.",
+     "walkthrough": "'unfortunately' scrambles the distance word, and 'within' sets the doctor and the zero inside after its first letter. As an &lit the whole clue describes the condition; the blog notes some words work twice.",
+     "definitionFit": "An embolism, a blood clot or air bubble blocking a vessel, is a medical emergency that calls for a physician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -143,7 +461,54 @@
     "text": "City set in layers after a time",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "the layers come after the opening pair of letters in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 25,
+       "gives": "A"
+      },
+      {
+       "words": "time",
+       "at": 27,
+       "gives": "T"
+      },
+      {
+       "words": "layers",
+       "at": 12,
+       "gives": "HENS",
+       "note": "hens are birds that lay eggs, so layers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city built up in strata over a long period.",
+     "walkthrough": "'layers' is not strata but egg-layers, HENS; 'set in' is a link.",
+     "definitionFit": "Athens is the capital city of Greece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "layers"
+    }
+   }
   },
   {
    "number": 10,
@@ -157,7 +522,32 @@
     "text": "Parson's duty to smoke?",
     "enumeration": "4"
    },
-   "solution": "CURE"
+   "solution": "CURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Parson's duty",
+      "at": 0,
+      "meaning": "the ... of souls is a priest's spiritual charge over a parish"
+     },
+     {
+      "text": "smoke",
+      "at": 17,
+      "meaning": "to smoke fish or meat is to preserve it, one way of curing it"
+     }
+    ],
+    "explanation": {
+     "surface": "A vicar's obligation to light up a pipe.",
+     "walkthrough": "Two senses of one word: a clergyman's charge over a parish, and preserving food by smoking.",
+     "definitionFit": "A curate's charge is a cure of souls; curing meat over smoke preserves it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smoke"
+    }
+   }
   },
   {
    "number": 11,
@@ -171,7 +561,66 @@
     "text": "Protection from fall of American commerce after party backing",
     "enumeration": "10"
    },
-   "solution": "BALUSTRADE"
+   "solution": "BALUSTRADE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protection from fall",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 42,
+       "note": "the American commerce comes after the reversed party in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backing",
+         "at": 54,
+         "note": "backing means the party word is read from the back, so its letters run in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party",
+         "at": 48,
+         "gives": "LAB",
+         "note": "Lab is short for the UK Labour Party"
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 24,
+       "gives": "US"
+      },
+      {
+       "words": "commerce",
+       "at": 33,
+       "gives": "TRADE",
+       "note": "commerce is trade"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party propping up a measure to protect the US economy from collapse.",
+     "walkthrough": "'backing' reverses LAB to BAL. 'fall' suggests an economic slump, but it is a literal fall from a height.",
+     "definitionFit": "A balustrade is a railing on a stair or balcony that stops people from tumbling over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 12,
@@ -185,7 +634,41 @@
     "text": "Sign of vehicle legislation",
     "enumeration": "6"
    },
-   "solution": "CARACT"
+   "solution": "CARACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vehicle",
+       "at": 8,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "words": "legislation",
+       "at": 16,
+       "gives": "ACT",
+       "note": "an act of Parliament is a piece of legislation"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic sign put up under a new motoring law.",
+     "walkthrough": "An old Shakespearean-era word, not in every dictionary.",
+     "definitionFit": "Caract is an archaic word for a mark or distinguishing character, so a sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +688,56 @@
      }
     ]
    },
-   "solution": "ARABLEAGUE"
+   "solution": "ARABLEAGUE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Middle East alliance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "to be cultivated",
+       "at": 21,
+       "gives": "ARABLE",
+       "note": "arable land is land fit to be farmed"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 38,
+         "note": "without signals the abbreviation for right is dropped from the word for contradicting"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to contradict",
+         "at": 52,
+         "gives": "ARGUE",
+         "note": "to argue is to contradict someone"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regional alliance formed to farm land without anyone daring to object.",
+     "walkthrough": "'without' takes R out of ARGUE, leaving AGUE.",
+     "definitionFit": "The Arab League is the regional organisation of Arab states in the Middle East and North Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +751,54 @@
     "text": "Fellow reported relaxing with Sirenians",
     "enumeration": "8"
    },
-   "solution": "MANATEES"
+   "solution": "MANATEES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sirenians",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Fellow",
+       "at": 0,
+       "gives": "MAN",
+       "note": "a fellow is a man"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ATEES",
+       "indicators": [
+        {
+         "text": "reported",
+         "at": 7,
+         "note": "reported means the word for relaxing is to be heard, not read, giving a near sound-alike"
+        }
+       ],
+       "parts": [
+        {
+         "words": "relaxing",
+         "at": 16,
+         "gives": "ATEASE",
+         "note": "relaxing is being at ease"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man said to be lounging about with sea creatures.",
+     "walkthrough": "'reported' turns AT EASE into its sound-alike ATEES; 'with' is a link.",
+     "definitionFit": "Manatees, the sea cows, belong to the order Sirenia, the group named after the sirens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +812,35 @@
     "text": "How to make grandee enraged or …",
     "enumeration": "7"
    },
-   "solution": "DERANGE"
+   "solution": "DERANGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How to make grandee enraged or …",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "How to make grandee enraged or",
+       "at": 0,
+       "note": "the clue asks what you would do to the letters of grandee to turn it into enraged: jumble them, the very verb that also means drive mad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on how to infuriate a nobleman, running on into the next clue.",
+     "walkthrough": "The ellipsis links this to the next clue, where 'turning potty' continues the sense of driving someone mad. Grandee and enraged are both scrambles of the answer.",
+     "definitionFit": "To derange is to throw into disorder, whether letters or a person's mind, so both readings fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +854,50 @@
     "text": "Bloomer makes Roundhead lose head for good",
     "enumeration": "8"
    },
-   "solution": "GROMWELL"
+   "solution": "GROMWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bloomer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "lose head for good",
+       "at": 24,
+       "note": "the first letter is swapped out in favour of the abbreviation for good, so the head changes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Roundhead",
+       "at": 14,
+       "gives": "CROMWELL",
+       "note": "Oliver Cromwell led the Roundheads, Parliament's side in the English Civil War"
+      },
+      {
+       "gives": "C"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's mistake makes a Puritan leader lose his head for ever.",
+     "walkthrough": "'lose head for good' replaces the C of CROMWELL with G (good). 'Bloomer' looks like a blunder but means a flowering plant, and 'for good' seems to mean permanently.",
+     "definitionFit": "Gromwell is a flowering plant of the borage family, so a bloomer in the botanical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bloomer"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +911,54 @@
     "text": "… turning potty preceded getting shut up",
     "enumeration": "7"
    },
-   "solution": "STABLED"
+   "solution": "STABLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shut up",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 2,
+         "note": "turning means the word for potty is flipped so it reads in the other direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "potty",
+         "at": 10,
+         "gives": "BATS",
+         "note": "potty means crazy, which in slang is bats"
+        }
+       ]
+      },
+      {
+       "words": "preceded",
+       "at": 16,
+       "gives": "LED",
+       "note": "to have preceded is to have led"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone going mad and then being locked away.",
+     "walkthrough": "'turning' reverses BATS to STAB. The ellipsis continues from the previous clue, but the clue stands alone; 'getting' is a link.",
+     "definitionFit": "A stabled horse is shut up in its stall, so stabled means confined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "potty"
+    }
+   }
   },
   {
    "number": 18,
@@ -275,7 +972,41 @@
     "text": "Curse managerial salary?",
     "enumeration": "8"
    },
-   "solution": "EXECRATE"
+   "solution": "EXECRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Curse",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "managerial",
+       "at": 6,
+       "gives": "EXEC",
+       "note": "an exec, executive, is a manager"
+      },
+      {
+       "words": "salary",
+       "at": 17,
+       "gives": "RATE",
+       "note": "a rate of pay is a salary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grumbling about a boss's pay packet.",
+     "definitionFit": "To execrate is to denounce or call down curses upon someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salary"
+    }
+   }
   },
   {
    "number": 19,
@@ -289,7 +1020,47 @@
     "text": "Stupefied by 20 in bed?",
     "enumeration": "7"
    },
-   "solution": "BEMUSED"
+   "solution": "BEMUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stupefied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 16,
+       "note": "the muse is placed in the bed, splitting it before its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bed",
+       "at": 19,
+       "gives": "BED"
+      },
+      {
+       "words": "20",
+       "at": 13,
+       "gives": "MUSE",
+       "note": "the answer to 20, Calliope, is a muse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dazed after sharing a bed with a poet's inspiration.",
+     "walkthrough": "'20' refers to Calliope, the Muse of epic poetry; 'by' is a link.",
+     "definitionFit": "Bemused means bewildered or stupefied, unable to think clearly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -303,7 +1074,60 @@
     "text": "Inspiration for poetry and everything one can manage without",
     "enumeration": "8"
    },
-   "solution": "CALLIOPE"
+   "solution": "CALLIOPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inspiration for poetry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 53,
+       "note": "without in its old sense of outside: the managing word stands outside the others"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can manage",
+       "at": 42,
+       "gives": "COPE",
+       "note": "to cope is to be able to manage"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "everything",
+         "at": 27,
+         "gives": "ALL",
+         "note": "everything is all"
+        },
+        {
+         "words": "one",
+         "at": 38,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet needs inspiration, and must cope without anything else.",
+     "walkthrough": "'without' is used in its old sense of outside, not lacking: the managing word stands round the other two.",
+     "definitionFit": "Calliope is the Muse of epic poetry in Greek myth, a source of a poet's inspiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 21,
@@ -317,7 +1141,56 @@
     "text": "You can count on a god abandoning church",
     "enumeration": "6"
    },
-   "solution": "ABACUS"
+   "solution": "ABACUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "You can count on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abandoning",
+         "at": 23,
+         "note": "abandoning signals the god's name gives up the abbreviation for church"
+        }
+       ],
+       "parts": [
+        {
+         "words": "god",
+         "at": 19,
+         "gives": "BACCHUS",
+         "note": "Bacchus is the Roman god of wine"
+        },
+        {
+         "gives": "CH"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A believer you can rely on, though one deity has left the church.",
+     "walkthrough": "'abandoning' takes CH out of BACCHUS, leaving BACUS.",
+     "definitionFit": "An abacus is a frame of beads used for counting, so something one literally counts on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -331,7 +1204,70 @@
     "text": "Examples of relativity — complex science church leader rejected",
     "enumeration": "6"
    },
-   "solution": "NIECES"
+   "solution": "NIECES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Examples of relativity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "complex",
+       "at": 25,
+       "note": "complex suggests a tangle, so the remaining letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 55,
+         "note": "rejected signals the leading letter is thrown out of the word science"
+        }
+       ],
+       "parts": [
+        {
+         "words": "science",
+         "at": 33
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "leader",
+           "at": 48,
+           "note": "leader points to the first letter of church"
+          }
+         ],
+         "parts": [
+          {
+           "words": "church",
+           "at": 41
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Einstein's relativity is explained through complicated science, with a clergyman's objections set aside.",
+     "walkthrough": "'leader' gives C (church), which 'rejected' removes from SCIENCE, and 'complex' rearranges SIENCE.",
+     "definitionFit": "Nieces are relatives, so they illustrate relativity in the punning sense of family relations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relativity"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1281,45 @@
     "text": "Fresh air is said to be a reason for this",
     "enumeration": "6"
    },
-   "solution": "NUDITY"
+   "solution": "NUDITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a reason for this",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "NUDITY",
+     "indicators": [
+      {
+       "text": "is said",
+       "at": 10,
+       "note": "is said means the phrase for a new tune is spoken, so its sound gives the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Fresh air",
+       "at": 0,
+       "gives": "NEWDITTY",
+       "note": "a fresh air is a new tune, a new ditty"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naturists claim being outdoors in the open air is why they strip.",
+     "walkthrough": "'air' is a tune, not the atmosphere; 'this' points back to fresh air, which going unclothed lets you feel.",
+     "definitionFit": "Being unclothed exposes the skin to the breeze, so it is a cause of feeling the open air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1339,40 @@
      }
     ]
    },
-   "solution": "FATALWOUND"
+   "solution": "FATALWOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a possible cause of death",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to be",
+       "at": 13,
+       "note": "to be signals that the first three words are to become something else, rearranged into a new phrase"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Found at law",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coroner's legal finding about how someone died.",
+     "walkthrough": "'to be' rearranges FOUNDATLAW; the indicator is weak, as the blog notes.",
+     "definitionFit": "A fatal wound is an injury that kills, so one possible way of dying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1386,45 @@
     "text": "Begin without beginning to be sweet and sour",
     "enumeration": "4"
    },
-   "solution": "TART"
+   "solution": "TART",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sweet and sour",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without beginning",
+       "at": 6,
+       "note": "without beginning means the word for begin loses its opening letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Begin",
+       "at": 0,
+       "gives": "START",
+       "note": "to begin is to start"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step for a sweet-and-sour dish.",
+     "walkthrough": "'without beginning' drops the S of START. A tart is a sweet pastry dish, and tart also means sour.",
+     "definitionFit": "A tart is a sweet dessert, and as an adjective tart means sharp or sour in taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1438,46 @@
     "text": "The last place to take part in bingo",
     "enumeration": "4"
    },
-   "solution": "TOMB"
+   "solution": "TOMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The last place",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "take part in",
+       "at": 18,
+       "note": "taking part in the game means taking only a part of it, the opening portion"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bingo",
+       "at": 31,
+       "gives": "TOMBOLA",
+       "note": "tombola is a game of chance much like bingo"
+      },
+      {
+       "gives": "OLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where someone ends up after playing bingo.",
+     "walkthrough": "'take part in' keeps only TOMB from TOMBOLA, a raffle-style game like bingo; the surface sense of joining in a game misleads.",
+     "definitionFit": "A tomb is the grave, where one is laid at the very end of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1491,53 @@
     "text": "Reciprocal element reflected in typical autumn fashion",
     "enumeration": "6"
    },
-   "solution": "MUTUAL"
+   "solution": "MUTUAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reciprocal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "reflected",
+       "at": 19,
+       "note": "reflected means the run of letters is seen as in a mirror, back to front"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "element",
+         "at": 11,
+         "note": "an element is a component, so the answer is a run of letters forming part of the phrase that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "typical autumn",
+         "at": 32,
+         "gives": "LAUTUM"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seasonal styles of autumn mirrored in each other.",
+     "walkthrough": "'element' points to LAUTUM inside typicAL AUTUMn, and 'reflected' turns it round; 'in' and 'fashion' only join the surface.",
+     "definitionFit": "Mutual means shared or felt by each towards the other, the same as reciprocal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1551,69 @@
     "text": "Guess Gordius is in the end condition",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guess",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end",
+         "at": 24,
+         "note": "the end of the word the means its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 20
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 17,
+         "note": "the setter's self-reference goes in the middle of the word for condition"
+        }
+       ],
+       "parts": [
+        {
+         "words": "condition",
+         "at": 28,
+         "gives": "STATE",
+         "note": "a state is a condition"
+        },
+        {
+         "words": "Gordius is",
+         "at": 6,
+         "gives": "IM",
+         "note": "the setter Gordius says I am, contracted to I'm"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter guesses at the condition they will be in at the end.",
+     "walkthrough": "'the end' takes the final letter of 'the', and 'in' is the container signal; a setter's name standing for I'm is a crossword convention.",
+     "definitionFit": "To estimate is to make a rough judgement or approximate reckoning, which is what guessing a figure means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
