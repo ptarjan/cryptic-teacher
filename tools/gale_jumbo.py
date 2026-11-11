@@ -166,9 +166,28 @@ def wanted(have=None):
     return [d for d in reversed(days(FIRST, LAST)) if d not in done]
 
 
+#: Dates whose solution windows go first: the Jumbos 149, 230 and 256, which
+#: puzzles/timesjumbo lacks, and the five Saturdays after each.
+PRIORITY_DAYS = [datetime.date(1998, 1, 31), datetime.date(1999, 6, 5), datetime.date(1999, 11, 27)]
+
+
+def number_on(day):
+    """The number of the Jumbo printed on `day`, or None (date_of inverted)."""
+    for n in range(1, 1300):
+        if date_of(n)[0] == day:
+            return n
+    return None
+
+
 def solution_days():
-    """[date] of every day a Jumbo may have run on, FIRST to LAST, newest first:
-    the issues that may print a Jumbo's solution (gale_docs.JUMBO_SOLUTION_KIND),
-    a week or two after the puzzle. All of them, not only those lacking from
-    puzzles/timesjumbo: the solutions are wanted for the held puzzles too."""
-    return list(reversed(days(FIRST, LAST)))
+    """[date] of every day a Jumbo may have run on, FIRST to LAST: the issues
+    that may print a Jumbo's solution (gale_docs.JUMBO_SOLUTION_KIND), a week
+    or two (1997-2003: up to five) after the puzzle. All of them, not only those
+    lacking from puzzles/timesjumbo. Order: PRIORITY_DAYS and the five
+    Saturdays after each, then 1997-2003 earliest first, then the rest newest first."""
+    week = datetime.timedelta(weeks=1)
+    first = [d + k * week for d in PRIORITY_DAYS for k in range(6)]
+    every = days(FIRST, LAST)
+    early = [d for d in every if d.year < 2004]
+    late = [d for d in reversed(every) if d.year >= 2004]
+    return list(dict.fromkeys(first + early + late))

@@ -301,7 +301,11 @@ def jumbo_article(titles, number=None):
 #: of kind JUMBO_SOLUTION_KIND, saved apart from the puzzles (gale_fetch
 #: JUMBO_SOLUTIONS_DIR); crossword() keeps rejecting "solution" titles.
 JUMBO_SOLUTION_KIND = "jumbo-solution"
-MATCHER[JUMBO_SOLUTION_KIND] = 1
+#: Matcher 2: 1997-2003 days also search the SOLUTION_WEEKS issues after the
+#: puzzle for the one naming its number (the matcher 1 misses are looked up again).
+MATCHER[JUMBO_SOLUTION_KIND] = 2
+SOLUTION_WEEKS = 5
+SOLUTION_WINDOW_END = datetime.date(2004, 1, 1)
 JUMBO_SOLUTION_ARTICLE = re.compile(r"\bsolutions?\b.*\bj?umbo\b|\bj?umbo\b.*\bsolutions?\b", re.IGNORECASE)
 JUMBO_SOLUTION_NOT = re.compile(r"winners|report on|competition|\bwin\b|concise|sports|knowledge|quick|mini\b"
                                 r"|times ?(two|2)\b|\bt2\b|today's weather|listener", re.IGNORECASE)
@@ -522,6 +526,23 @@ def text_entry(prod, day, dvis, gale, docs=None):
     return None
 
 
+def jumbo_solution_window(prod, day, gale):
+    """The entry of the "Solution to Jumbo N" article, N the Jumbo printed on
+    `day`, in the SOLUTION_WEEKS issues after it (1997-2003: the solution
+    runs a few weeks after the puzzle), marked kind, or None."""
+    import gale_jumbo
+    number = gale_jumbo.number_on(day)
+    if number is None:
+        return None
+    for w in range(1, SOLUTION_WEEKS + 1):
+        for i in gale.issues(prod, day + datetime.timedelta(weeks=w)):
+            dvi = gale.issue(prod, i)
+            e = entry(prod, dvi, find=lambda ts: jumbo_solution_article(ts, number))
+            if e and named(number).search(e.get("title") or ""):
+                return {**e, "kind": JUMBO_SOLUTION_KIND, "how": f"solution window +{w}w"}
+    return None
+
+
 def lookup(prod, day, gale, number=None, kind=None, docs=None):
     """The entry for `day`, or {"why": ...} when Gale has no such crossword.
     `kind` LISTENER_KIND: the Saturday Times' Listener article, JUMBO_KIND:
@@ -543,6 +564,10 @@ def lookup(prod, day, gale, number=None, kind=None, docs=None):
         titles += [a["docTitle"] for a in articles(dvi["originalDocument"].get("articleTableOfContents"))]
     if kind not in KINDS:
         e = text_entry(prod, day, dvis, gale, docs)
+        if e:
+            return e
+    if kind == JUMBO_SOLUTION_KIND and day < SOLUTION_WINDOW_END:
+        e = jumbo_solution_window(prod, day, gale)
         if e:
             return e
     if kind == JUMBO_SOLUTION_KIND:
