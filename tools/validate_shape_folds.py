@@ -17,7 +17,7 @@ from validate_shape_base import (
     _walk, _OP_LEXICON, REPEAT_WORDS, indicator_role_key, _role_counts, _known_pair, _owner_type, CUT_WORDS,
     _clue_words, CONNECTIVE_WORDS, _accounted_words,
 )
-from validate_shape_ops import _not_a_rotation
+from validate_shape_ops import _not_a_rotation, _stand_in_piece, lone_abbreviation
 
 #: Three more shapes a re-parse can pass the gates above with (audit of the burn's
 #: redos, 10-17). Each is a ratchet field like the rest.
@@ -239,6 +239,8 @@ def anagram_synonyms(tree, ann=None, clue=None):
             pool = [q for q in p.get("parts") or [] if isinstance(q, dict) and "op" not in q
                     and q.get("words")]
             same = [q for q in pool if not q.get("gives") or wordplay.letters(q["gives"]) == wordplay.letters(q["words"])]
+            if same and lone_abbreviation([q for q in pool if _stand_in_piece(q)]):
+                continue  # one standard abbreviation among the clue's own words is fodder
             n += bool(same) and sum(1 for q in pool if len(wordplay.letters(q.get("gives"))) >= 2
                                     and wordplay.letters(q["gives"]) != wordplay.letters(q["words"])
                                     and not _doubled(q) and not _near_literal(q) and not _phrase_letters(q)

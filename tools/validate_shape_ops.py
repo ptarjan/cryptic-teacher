@@ -32,6 +32,19 @@ def _stand_in_piece(p):
     return bool(p.get("select") or p.get("soundsLike") or (g and g != w and sorted(g) != sorted(w)))
 
 
+def lone_abbreviation(stand_ins):
+    """Whether the stand-in pieces of an anagram's fodder are one leaf giving a standard abbreviation
+    (IE, EG, CO, ED, PA, CL, HO, UN, MI for M1): published setters scramble those with the clue's own
+    words, so a single one is fodder, not a fault. Two stand-ins, or a synonym (more than two letters
+    the abbreviation table does not hold), still count: that is the indirect anagram."""
+    if len(stand_ins) != 1:
+        return False
+    p = stand_ins[0]
+    if "op" in p or p.get("select") or p.get("soundsLike"):
+        return False
+    return len(wordplay.letters(p.get("gives"))) <= 2 or annotation.is_abbreviation(p)
+
+
 def _pulled_edges(tree, node, j, k):
     """A copy of `tree` with the first j and last k parts of anagram `node` taken out of it and
     set beside it in a charade (the answer's edge letters standing outside the scramble)."""

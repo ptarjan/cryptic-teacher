@@ -11,7 +11,7 @@ import wordplay
 from validate_shape_base import (
     _walk, _OP_LEXICON, indicator_role_key, _role_counts, _known_pair, _owner_type, CUT_WORDS,
 )
-from validate_shape_ops import _stand_in_piece, anagram_edge_pieces
+from validate_shape_ops import _stand_in_piece, anagram_edge_pieces, lone_abbreviation
 from validate_shape_folds import _lexicon_letters
 from validate_shape_inside import _SHARED_OK, _pair_adjacent
 from validate_shape_order import moved_letters, _ind_adjacent, _own_word, _subtree_spans, pool_gaps
@@ -241,6 +241,8 @@ def ana_stand_in(tree):
             if node.get("op") != "anagram" or node.get("unchecked") or len(parts) < 2:
                 continue
             st = [_stand_in_piece(p) and not p.get("select") and not _initial_abbreviation(p) for p in parts]
+            if lone_abbreviation([p for p, s in zip(parts, st) if s]):
+                continue  # one standard abbreviation scrambled with the clue's own words is fodder
             n += any(st) and not all(st) and any("op" not in p and not s for p, s in zip(parts, st))
     return n
 
