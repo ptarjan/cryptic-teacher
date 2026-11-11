@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,41 @@
     "text": "Introduce former husband to model",
     "enumeration": "6"
    },
-   "solution": "EXPOSE"
+   "solution": "EXPOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Introduce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "former husband",
+       "at": 10,
+       "gives": "EX",
+       "note": "an ex is a former spouse, so former husband gives EX"
+      },
+      {
+       "words": "model",
+       "at": 28,
+       "gives": "POSE",
+       "note": "to model for an artist is to pose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presents their ex to a fashion model at a party.",
+     "definitionFit": "To expose someone to an experience is to introduce them to it, a verb sense the clue's opening word shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +82,63 @@
     "text": "At far end of the Bowery vagrant is a minor feature!",
     "enumeration": "7"
    },
-   "solution": "EYEBROW"
+   "solution": "EYEBROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a minor feature",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "far end of",
+         "at": 3,
+         "note": "the far end of a word is its last letter, here the final letter of the"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "vagrant",
+         "at": 25,
+         "note": "vagrant means wandering, so the letters of Bowery wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bowery",
+         "at": 18,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Down at the end of the Bowery in New York, a tramp counts as a small detail.",
+     "walkthrough": "The Bowery is a New York street once known for its down-and-outs, so 'vagrant' reads as a tramp, but it is the signal that the street's letters wander, giving YEBROW.",
+     "definitionFit": "An eyebrow is a small feature of the face, so a minor feature describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +152,50 @@
     "text": "An animal, not a vegetable",
     "enumeration": "5"
    },
-   "solution": "POTTO"
+   "solution": "POTTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 11,
+       "note": "not means without, so the following letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vegetable",
+       "at": 17,
+       "gives": "POTATO",
+       "note": "the potato is a vegetable"
+      },
+      {
+       "words": "a",
+       "at": 15,
+       "gives": "A",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It's a creature, not a plant, the question of animal or vegetable.",
+     "walkthrough": "'not a vegetable' sounds like the parlour game question but means POTATO without its A.",
+     "definitionFit": "The potto is a slow-moving primate of African forests, so it is a kind of animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +215,52 @@
      }
     ]
    },
-   "solution": "SMASHUP"
+   "solution": "SMASHUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crash",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Catastrophic",
+         "at": 0,
+         "note": "catastrophic suggests a disaster scrambling things, so the letters of mass are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mass",
+         "at": 13,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "turn to right",
+       "at": 18,
+       "gives": "HUP",
+       "note": "hup is a call to a horse to turn to the right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disastrous mass swerve to the right follows a car crash.",
+     "walkthrough": "'Catastrophic' scrambles mass. The call to a horse to turn right is old carters' language that few solvers will know. 'after' only links to the definition.",
+     "definitionFit": "A smash-up is a violent collision, so it is another word for a crash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +274,11 @@
     "text": "Could Cockney sound grand?",
     "enumeration": "6"
    },
-   "solution": "MIGHTY"
+   "solution": "MIGHTY",
+   "annotationWithheld": {
+    "why": "Could Cockney sound grand? (6): the parse needs Cockney 'might 'e' for 'might he', but no clue word supplies 'he'; Could gives only MIGHT, so the final Y has no source",
+    "clue": "Could Cockney sound grand?"
+   }
   },
   {
    "number": 5,
@@ -107,7 +292,53 @@
     "text": "In charge of opening up the polar regions?",
     "enumeration": "7"
    },
-   "solution": "ICECAPS"
+   "solution": "ICECAPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the polar regions?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In charge",
+       "at": 0,
+       "gives": "IC"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 21,
+         "note": "in a down clue, up means the word is read from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "opening",
+         "at": 13,
+         "gives": "SPACE",
+         "note": "a space is an opening or gap"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in authority is opening up the Arctic and Antarctic.",
+     "walkthrough": "'opening up' reads as exploring, but 'up' reverses SPACE in this down entry; 'of' is a link.",
+     "definitionFit": "Ice caps cover the land at the poles, so the polar regions are described by what covers them, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +358,75 @@
      }
     ]
    },
-   "solution": "HOIPOLLOI"
+   "solution": "HOIPOLLOI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the masses",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 33,
+       "note": "in a down entry a piece that supports another sits beneath it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "House",
+       "at": 0,
+       "gives": "HO"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 6,
+         "note": "originally points to the first letter of insisted"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insisted",
+         "at": 17
+        }
+       ]
+      },
+      {
+       "words": "voting",
+       "at": 42,
+       "gives": "POLL",
+       "note": "a poll is a vote"
+      },
+      {
+       "words": "no",
+       "at": 26,
+       "gives": "O",
+       "note": "O is the figure nought, used for no"
+      },
+      {
+       "words": "one",
+       "at": 29,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The House said nobody backs giving ordinary people the vote.",
+     "walkthrough": "'supports' places O and I below POLL in this down entry.",
+     "definitionFit": "Hoi polloi, Greek for the many, is used in English for ordinary people, so it means the masses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +446,58 @@
      }
     ]
    },
-   "solution": "YEARDOT"
+   "solution": "YEARDOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "When",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the old",
+       "at": 5,
+       "gives": "YE",
+       "note": "ye is an old form of the"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first stripped off",
+         "at": 28,
+         "note": "the first letter is stripped away from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "French actress",
+         "at": 13,
+         "gives": "BARDOT",
+         "note": "Brigitte Bardot is the famous French actress"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "When did the ageing French film star first take her clothes off?",
+     "walkthrough": "'stripped off' suggests a nude scene, fitting Bardot's image, but it removes the B from BARDOT.",
+     "definitionFit": "The year dot is an informal phrase for a time long ago, so it answers the question when, as a time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +511,50 @@
     "text": "Gunners put French international up front where there's lots of empty space",
     "enumeration": "6"
    },
-   "solution": "SAHARA"
+   "solution": "SAHARA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where there's lots of empty space",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "up front",
+       "at": 33,
+       "note": "placed up front means set at the head, so this piece comes before the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "French international",
+       "at": 12,
+       "gives": "SAHA",
+       "note": "Louis Saha was a French international footballer"
+      },
+      {
+       "words": "Gunners",
+       "at": 0,
+       "gives": "RA",
+       "note": "RA, the Royal Artillery, are the gunners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal, the Gunners, play a French international up front and leave lots of space.",
+     "walkthrough": "'Gunners' is Arsenal's nickname, suggesting football, but here it is the Royal Artillery, RA; 'put' is a link.",
+     "definitionFit": "The Sahara is a vast desert, so it is a place with great stretches of empty land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +574,52 @@
      }
     ]
    },
-   "solution": "CENTRALAMERICAN"
+   "solution": "CENTRALAMERICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from Nicaragua, perhaps",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Corrupt",
+       "at": 0,
+       "note": "corrupt as a verb means to spoil or twist, so the letters of the following words are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "CIA men",
+       "at": 8,
+       "note": "taken as written"
+      },
+      {
+       "words": "ran",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "words": "cartel",
+       "at": 20,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American intelligence agents run a drug cartel from Central America.",
+     "walkthrough": "'Corrupt' reads as a verb ordering the CIA men about, but it signals that CIAMENRANCARTEL is to be rearranged.",
+     "definitionFit": "Nicaragua is one country of the Central American isthmus, so its people are an example, marked by 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Corrupt"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +633,58 @@
     "text": "Start to bedizen jumper with chain and ornamental clasp",
     "enumeration": "6"
    },
-   "solution": "BROOCH"
+   "solution": "BROOCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ornamental clasp",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "at": 0,
+         "note": "the start of a word is its opening letter, here the first of bedizen"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bedizen",
+         "at": 9
+        }
+       ]
+      },
+      {
+       "words": "jumper",
+       "at": 17,
+       "gives": "ROO",
+       "note": "a roo, short for kangaroo, is a famous jumper"
+      },
+      {
+       "words": "chain",
+       "at": 29,
+       "gives": "CH",
+       "note": "CH is the abbreviation for chain, an old unit of length"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Begin decorating a sweater with a chain and a fancy fastening.",
+     "walkthrough": "'jumper' suggests a British sweater, but it is the kangaroo; 'chain' is the surveyors' length of 22 yards, abbreviated CH.",
+     "definitionFit": "A brooch is a decorative pin fastened onto clothing, so an ornamental clasp describes it directly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +698,74 @@
     "text": "Canada used to provide habitat for one short snake",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "snake",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to provide habitat for",
+       "at": 12,
+       "note": "giving a home to something means holding it inside, so one piece sits within another"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "used",
+         "at": 7,
+         "note": "used in the sense of worked over or knocked about, so the letters of Canada are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Canada",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 39,
+         "note": "short means cut off before the end, so the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 35,
+         "gives": "ONE",
+         "note": "one written out as a word"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Canada once offered a home to a single undersized snake.",
+     "walkthrough": "'used' scrambles the country into ANACDA, and 'to provide habitat for' means the shortened word goes into it after the fourth letter. 'snake' alone is the definition.",
+     "definitionFit": "The anaconda is a very large South American constrictor, one kind of snake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +785,56 @@
      }
     ]
    },
-   "solution": "SWEETPEA"
+   "solution": "SWEETPEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bloom",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Delightful",
+       "at": 0,
+       "gives": "SWEET",
+       "note": "sweet can mean charming or delightful"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 22,
+         "note": "almost means not quite all, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit tree",
+         "at": 11,
+         "gives": "PEAR",
+         "note": "a pear is a common fruit tree"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely orchard tree is very nearly in flower.",
+     "walkthrough": "'in' only links to the definition; 'bloom' means a flower, not a blush.",
+     "definitionFit": "The sweet pea is a fragrant climbing garden flower, so a bloom names it by category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +848,42 @@
     "text": "In possession of mescal, a torturous way of getting high",
     "enumeration": "9"
    },
-   "solution": "ESCALATOR"
+   "solution": "ESCALATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "way of getting high",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In possession of",
+       "at": 0,
+       "note": "being in possession of means holding, so the answer is held within these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "mescal, a torturous",
+       "at": 17
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having some mescal is a painful route to intoxication.",
+     "walkthrough": "'getting high' suggests the drug mescal, but the answer rises between floors: mESCAL A TORturous.",
+     "definitionFit": "An escalator is a moving staircase, which carries people up to a higher level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +897,60 @@
     "text": "Gunshots from a drab outlying part of London",
     "enumeration": "6"
    },
-   "solution": "SALUTE"
+   "solution": "SALUTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gunshots",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "outlying",
+         "at": 21,
+         "note": "lying around the outside means one piece encloses the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "drab",
+         "at": 16,
+         "gives": "SLUT",
+         "note": "drab is an old word for a slovenly woman, a slut"
+        },
+        {
+         "words": "a",
+         "at": 14,
+         "gives": "A",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "part of London",
+       "at": 30,
+       "gives": "E",
+       "note": "E is the East London postal district"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gunfire is heard from a dreary district on the edge of London.",
+     "walkthrough": "'drab' looks like an adjective but is the old noun for a slattern; 'outlying' puts SLUT around A, and E is London's East postal area.",
+     "definitionFit": "A salute can be a ceremonial firing of guns, so gunshots fired in honour describe it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drab"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +970,68 @@
      }
     ]
    },
-   "solution": "FATCAT"
+   "solution": "FATCAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wealthy banker, for example",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Gutless",
+         "at": 0,
+         "note": "gutless means with the insides removed, leaving only the outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "FSA",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 17,
+         "note": "ultimately points to the final letter of must"
+        }
+       ],
+       "parts": [
+        {
+         "words": "must",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "words": "tackle",
+       "at": 28,
+       "gives": "CAT",
+       "note": "a cat is a nautical tackle used for hoisting an anchor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The spineless Financial Services Authority must finally take on a rich banker.",
+     "walkthrough": "The FSA was Britain's financial regulator. 'tackle' looks like a verb but is the noun: a cat is a ship's hoisting tackle.",
+     "definitionFit": "A fat cat is a slang term for a rich, privileged person, and a highly paid banker is a typical example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1045,41 @@
     "text": "Alternative stock market's not so unpredictable",
     "enumeration": "7"
    },
-   "solution": "AIMLESS"
+   "solution": "AIMLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "unpredictable",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Alternative stock market",
+       "at": 0,
+       "gives": "AIM",
+       "note": "AIM is the London Alternative Investment Market"
+      },
+      {
+       "words": "not so",
+       "at": 27,
+       "gives": "LESS",
+       "note": "less means to a smaller degree, not so much"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The smaller-company stock market is not as volatile as it seems.",
+     "walkthrough": "AIM is the London Stock Exchange's market for smaller companies; the 's is a link.",
+     "definitionFit": "Aimless means without direction or purpose, so random and unpredictable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1099,32 @@
      }
     ]
    },
-   "solution": "TOPGEAR"
+   "solution": "TOPGEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps Fourth",
+      "at": 0,
+      "meaning": "fourth gear in a car may be the highest one available, marked by perhaps"
+     },
+     {
+      "text": "Programme — a long-standing BBC production",
+      "at": 15,
+      "meaning": "the BBC motoring show running since 1977"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio channel called the Fourth Programme might be a long-running BBC show.",
+     "walkthrough": "'Fourth Programme' recalls BBC radio's old Home and Third Programmes, but fourth is a car gear.",
+     "definitionFit": "In a four-speed gearbox fourth is the highest ratio, and the motoring programme of that name is a long-running BBC show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Programme"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1138,60 @@
     "text": "Shami at Liberty pens letter to provoke leaders",
     "enumeration": "8"
    },
-   "solution": "MESSIAHS"
+   "solution": "MESSIAHS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leaders",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pens",
+       "at": 17,
+       "note": "to pen is to enclose, so one piece is written inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at Liberty",
+         "at": 6,
+         "note": "at liberty means set free, so the letters of Shami are loosed and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Shami",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "letter",
+       "at": 22,
+       "gives": "ESS",
+       "note": "ess is the spelt-out name of the letter S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shami Chakrabarti of the campaign group Liberty writes a letter to stir up those in charge.",
+     "walkthrough": "Shami Chakrabarti ran the British civil-liberties group Liberty, so 'at Liberty' looks like her job title; here it rearranges her name to MIAHS. 'to provoke' is surface padding.",
+     "definitionFit": "Messiahs are saviours or charismatic figures whom people follow, hence leaders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberty"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1211,47 @@
      }
     ]
    },
-   "solution": "MIXUPS"
+   "solution": "MIXUPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "misunderstandings",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 12,
+       "note": "following means coming after, so one piece goes after the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cross",
+       "at": 22,
+       "gives": "MIX",
+       "note": "to cross breeds is to mix them"
+      },
+      {
+       "words": "High points",
+       "at": 0,
+       "gives": "UPS",
+       "note": "ups are good times or high points"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peaks of success come after an angry confrontation of confusion.",
+     "definitionFit": "Mix-ups are confusions where things are mistaken for one another, so misunderstandings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1271,54 @@
      }
     ]
    },
-   "solution": "SUBROSA"
+   "solution": "SUBROSA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Secretly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "felling",
+         "at": 9,
+         "note": "felling a tree turns it on its side, so the word is turned around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tree",
+         "at": 19,
+         "gives": "SORBUS",
+         "note": "Sorbus is the genus of trees including the rowan"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts down a tree without anyone knowing.",
+     "walkthrough": "'felling' gives SUBROS. Sorbus is the botanical genus of the rowan and whitebeam, a name few solvers know.",
+     "definitionFit": "Sub rosa is Latin for under the rose, a symbol of confidentiality, so it means in secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "felling"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1332,43 @@
     "text": "It protects one's thatch from the rain storm",
     "enumeration": "7"
    },
-   "solution": "HAIRNET"
+   "solution": "HAIRNET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It protects one's thatch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "storm",
+       "at": 39,
+       "note": "storm suggests violent upheaval, so the letters are thrown into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the rain",
+       "at": 30,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something shields your hair from a downpour.",
+     "walkthrough": "'thatch' is slang for a head of hair; 'from' is a link before the fodder.",
+     "definitionFit": "A hairnet is a fine mesh worn to keep the hair in place, so it protects a person's hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thatch"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1382,45 @@
     "text": "Little prince gets animal virus",
     "enumeration": "8"
    },
-   "solution": "SMALLPOX"
+   "solution": "SMALLPOX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "virus",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Little",
+       "at": 0,
+       "gives": "SMALL",
+       "note": "small is a synonym of little"
+      },
+      {
+       "words": "prince",
+       "at": 7,
+       "gives": "P"
+      },
+      {
+       "words": "animal",
+       "at": 19,
+       "gives": "OX",
+       "note": "an ox is a farm animal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young prince catches a disease passed on from livestock.",
+     "definitionFit": "Smallpox is a disease caused by the variola virus, so the illness is named by its cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1434,63 @@
     "text": "VIP initially bet £1,000 and won £1,000",
     "enumeration": "6"
    },
-   "solution": "BIGWIG"
+   "solution": "BIGWIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "VIP",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 4,
+         "note": "initially points to the opening letter of bet"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bet",
+         "at": 14
+        }
+       ]
+      },
+      {
+       "words": "£1,000",
+       "at": 18,
+       "gives": "IG",
+       "note": "one grand, written as I for one and G for grand, a thousand pounds"
+      },
+      {
+       "words": "won",
+       "at": 29,
+       "gives": "W",
+       "note": "W is the abbreviation for won in sports results tables"
+      },
+      {
+       "words": "£1,000",
+       "at": 33,
+       "gives": "IG",
+       "note": "again one grand: I for one and G for grand"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important gambler first stakes a thousand pounds and wins a thousand back.",
+     "walkthrough": "G for grand (a thousand pounds) is a crossword staple; here each £1,000 is read as 1 G, the 1 becoming the Roman I.",
+     "definitionFit": "A bigwig is an informal term for an important person, just as VIP abbreviates very important person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1504,49 @@
     "text": "Assistant making sportsman lose weight",
     "enumeration": "5"
    },
-   "solution": "GOFER"
+   "solution": "GOFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assistant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "lose",
+       "at": 27,
+       "note": "to lose something is to have it taken away, so the letter is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sportsman",
+       "at": 17,
+       "gives": "GOLFER",
+       "note": "a golfer is a sportsman"
+      },
+      {
+       "words": "weight",
+       "at": 32,
+       "gives": "L",
+       "note": "L stands for pound, the weight, from Latin libra"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A helper turns a player into a slimmer one.",
+     "walkthrough": "'lose weight' sounds like dieting, but it removes L (pound) from GOLFER; 'making' is a link.",
+     "definitionFit": "A gofer is a junior who runs errands, so an assistant, from go for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1560,52 @@
     "text": "Protection from the elements when poor frigate founders",
     "enumeration": "15"
    },
-   "solution": "WEATHERPROOFING"
+   "solution": "WEATHERPROOFING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Protection from the elements",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "founders",
+       "at": 47,
+       "note": "a ship that founders sinks and breaks up, so the letters are wrecked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "at": 29,
+       "note": "taken as written"
+      },
+      {
+       "words": "poor",
+       "at": 34,
+       "note": "taken as written"
+      },
+      {
+       "words": "frigate",
+       "at": 39,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship needs shelter from the storm when a weak frigate goes down.",
+     "walkthrough": "'founders' reads as the sinking of the frigate but signals that WHENPOORFRIGATE is rearranged.",
+     "definitionFit": "Weatherproofing is treatment that keeps out wind and rain, so it gives protection against the weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "founders"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1619,41 @@
     "text": "Writer's art really captivated philosopher",
     "enumeration": "6"
    },
-   "solution": "SARTRE"
+   "solution": "SARTRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "philosopher",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "captivated",
+       "at": 20,
+       "note": "captivated means held captive, so the answer is held within these clue words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Writer's art really",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's skill truly enthralled a thinker.",
+     "walkthrough": "'captivated' looks like praise but means the run is held inside: writer'S ART REally.",
+     "definitionFit": "Jean-Paul Sartre was the French existentialist philosopher, so he is an example of a philosopher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1667,48 @@
     "text": "Incentive to swap rubbish vehicle",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Incentive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "swap",
+       "at": 13,
+       "note": "swap tells us to exchange the order of the two pieces as they appear in the clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vehicle",
+       "at": 26,
+       "gives": "CAR",
+       "note": "a car is a vehicle"
+      },
+      {
+       "words": "rubbish",
+       "at": 18,
+       "gives": "ROT",
+       "note": "rot means nonsense or rubbish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reason to trade in an old banger of a car.",
+     "walkthrough": "'swap' does the work: the clue names rubbish first and vehicle second, and the answer takes them the other way round.",
+     "definitionFit": "A carrot, as in carrot and stick, is a reward dangled to encourage someone, an idiomatic incentive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
