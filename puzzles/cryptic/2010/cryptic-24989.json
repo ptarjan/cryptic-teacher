@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "South African leader bleats",
     "enumeration": "4"
    },
-   "solution": "BAAS"
+   "solution": "BAAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "South African leader",
+      "at": 0,
+      "meaning": "an Afrikaans word for a master or boss, used in South Africa"
+     },
+     {
+      "text": "bleats",
+      "at": 21,
+      "meaning": "the cries a sheep makes, as a plural noun"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Baas is the Afrikaans term for a boss, and baas is also the written cry of sheep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bleats"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,64 @@
     "text": "Coin to chuck? Not good when it contains gold",
     "enumeration": "6"
    },
-   "solution": "FLORIN"
+   "solution": "FLORIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Coin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when it contains",
+       "at": 24,
+       "note": "when it contains says the shortened word is wrapped round the next piece"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 15,
+         "note": "Not tells us the letter for good is to be dropped from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chuck",
+         "at": 8,
+         "gives": "FLING",
+         "note": "to chuck something is to fling it"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "words": "gold",
+       "at": 41,
+       "gives": "OR",
+       "note": "OR is the heraldic term for gold"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether to toss a coin away, unless it has gold in it.",
+     "walkthrough": "'chuck' reads as a verb about the coin, but it is the synonym source; 'Not good' and 'when it contains' then trim and wrap it, leaving FLIN around the gold.",
+     "definitionFit": "The florin was an old British two-shilling coin, worth ten pence after decimalisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chuck"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +162,64 @@
     "18-down",
     "10-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What is a prime bit of the best all-night ice verse conjured up?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "conjured up",
+       "at": 52,
+       "note": "conjured up suggests the letters are magicked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "words": "What is a",
+       "at": 0,
+       "note": "taken as written, part of the letters to rearrange"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "prime bit of",
+         "at": 10,
+         "note": "the prime bit of a word is its opening letter, so only that letter of the word the is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "words": "best all-night ice verse",
+       "at": 27,
+       "note": "taken as written, the rest of the letters to rearrange"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A riddle asking which line of poetry is the finest about a freezing night.",
+     "walkthrough": "'conjured up' rearranges WHATISA, T (first letter of 'the') and BESTALLNIGHTICEVERSE, 28 letters, into the opening line of Keats's poem The Eve of St Agnes, which is indeed icy verse about one long night.",
+     "definitionFit": "Keats's The Eve of St Agnes begins with this line, describing a bitterly cold night, so it is a prime piece of icy verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "conjured"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +233,47 @@
     "text": "Body discovered outside University College in Oxford",
     "enumeration": "6"
    },
-   "solution": "CORPUS"
+   "solution": "CORPUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "College in Oxford",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "discovered outside",
+       "at": 5,
+       "note": "discovered outside says the first word is found wrapped around the next letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Body",
+       "at": 0,
+       "gives": "CORPS",
+       "note": "a corps is an organised body of people"
+      },
+      {
+       "words": "University",
+       "at": 24,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dead body turns up just outside a university college in Oxford.",
+     "definitionFit": "Corpus Christi is one of the colleges of Oxford University, usually called by its first word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +287,49 @@
     "text": "Grass, full of hypocrisy, renounced former practice",
     "enumeration": "8"
    },
-   "solution": "RECANTED"
+   "solution": "RECANTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "renounced former practice",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "full of",
+       "at": 7,
+       "note": "full of says the grass word holds the next piece inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Grass",
+       "at": 0,
+       "gives": "REED",
+       "note": "a reed is a tall grass"
+      },
+      {
+       "words": "hypocrisy",
+       "at": 15,
+       "gives": "CANT",
+       "note": "cant is insincere, hypocritical talk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An informer, steeped in hypocrisy, gives up their old habits.",
+     "walkthrough": "'Grass' looks like an informer here, but it is the plant REED.",
+     "definitionFit": "To recant is to take back a belief or practice publicly, so renounced former practice is a fair paraphrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grass"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +343,51 @@
     "text": "Proceed to first item on agenda — Minutes",
     "enumeration": "4"
    },
-   "solution": "ACTA"
+   "solution": "ACTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minutes",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Proceed",
+       "at": 0,
+       "gives": "ACT",
+       "note": "to act is to proceed or take action"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first item on",
+         "at": 11,
+         "note": "the first item on a word is its opening letter, here of agenda"
+        }
+       ],
+       "parts": [
+        {
+         "words": "agenda",
+         "at": 25
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chairperson moves the meeting to item one, the minutes.",
+     "definitionFit": "Acta is a Latin-derived term for official records or proceedings, in effect the minutes of a meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Proceed"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +401,60 @@
     "text": "Earnest raising of hat when meeting one distinguished fellow",
     "enumeration": "8"
    },
-   "solution": "DILIGENT"
+   "solution": "DILIGENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Earnest",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raising of",
+         "at": 8,
+         "note": "in a down clue, raising the word means reading it from bottom to top, so backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hat",
+         "at": 19,
+         "gives": "LID",
+         "note": "a lid is slang for a hat"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 36,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "distinguished fellow",
+       "at": 40,
+       "gives": "GENT",
+       "note": "a gent is a gentleman, a distinguished fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sincerely raises their hat on meeting an eminent man.",
+     "walkthrough": "In a down clue 'raising of' turns the hat word upward, giving DIL; 'when meeting' is only a link.",
+     "definitionFit": "Diligent means hard-working and conscientious, which is close to earnest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +468,49 @@
     "text": "House is virtuous, no drug being found",
     "enumeration": "4"
    },
-   "solution": "CLAN"
+   "solution": "CLAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "no",
+       "at": 19,
+       "note": "no says the drug letter is absent from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "virtuous",
+       "at": 9,
+       "gives": "CLEAN",
+       "note": "clean can mean morally pure or virtuous"
+      },
+      {
+       "words": "drug",
+       "at": 22,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household is respectable because no drugs are found there.",
+     "walkthrough": "'House' is a family line, as in the House of Windsor.",
+     "definitionFit": "A noble house is a family line, and a clan is likewise an extended family group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +524,41 @@
     "text": "Differing form for scientists showing grant — something binding?",
     "enumeration": "9"
    },
-   "solution": "ALLOTROPE"
+   "solution": "ALLOTROPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Differing form for scientists",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "grant",
+       "at": 38,
+       "gives": "ALLOT",
+       "note": "to allot is to grant or assign"
+      },
+      {
+       "words": "something binding",
+       "at": 46,
+       "gives": "ROPE",
+       "note": "a rope is something used to tie or bind"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Researchers are shown a grant, apparently with strings attached.",
+     "definitionFit": "Chemists call each different structural form of the same element, such as diamond and graphite, by this term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "binding"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +591,45 @@
     "text": "Shoot in due season, new to emerge",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "to emerge",
+       "at": 25,
+       "note": "to emerge says the letter for new comes out of the season word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "due season",
+       "at": 9,
+       "gives": "SPRING",
+       "note": "spring is the season when new growth is due"
+      },
+      {
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young shoot appears at the proper time of year.",
+     "definitionFit": "A sprig is a small shoot or twig of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "emerge"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +643,41 @@
     "text": "Scheme laid down by heretic, a sort of worm",
     "enumeration": "9"
    },
-   "solution": "PLANARIAN"
+   "solution": "PLANARIAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a sort of worm",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Scheme",
+       "at": 0,
+       "gives": "PLAN",
+       "note": "a plan is a scheme"
+      },
+      {
+       "words": "heretic",
+       "at": 20,
+       "gives": "ARIAN",
+       "note": "an Arian followed Arius, whose teaching the early Church condemned as heresy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heretic lays down a plan, which turns out to be a kind of worm.",
+     "definitionFit": "Planarians are small flatworms often studied for their power to regrow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heretic"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +691,68 @@
     "text": "Crazy types getting huge bonuses should receive nothing (not ace!)",
     "enumeration": "7"
    },
-   "solution": "BONKERS"
+   "solution": "BONKERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "should receive",
+       "at": 33,
+       "note": "should receive says the shortened word takes the next letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 57,
+         "note": "not says the letter for ace is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "types getting huge bonuses",
+         "at": 6,
+         "gives": "BANKERS",
+         "note": "bankers are notorious for their large bonuses"
+        },
+        {
+         "words": "ace",
+         "at": 61,
+         "gives": "A",
+         "note": "A is the abbreviation for ace in cards"
+        }
+       ]
+      },
+      {
+       "words": "nothing",
+       "at": 48,
+       "gives": "O",
+       "note": "O is a zero, nothing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that people paid enormous bonuses ought to get nothing.",
+     "walkthrough": "'not ace' takes A from BANKERS, leaving BNKERS; 'should receive' puts O inside.",
+     "definitionFit": "Bonkers is informal British slang for mad or crazy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "receive"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +766,42 @@
     "text": "John, useless dud",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dud",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "John",
+       "at": 0,
+       "gives": "BOG",
+       "note": "john is US slang for a toilet, and bog is British slang for one"
+      },
+      {
+       "words": "useless",
+       "at": 6,
+       "gives": "US",
+       "note": "US is shorthand for useless, from the Latin-style abbreviation used in British slang"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named John is dismissed as a useless failure.",
+     "walkthrough": "'John' looks like a name; it is a toilet, and BOG is the British slang equivalent.",
+     "definitionFit": "Bogus means fake, and a dud is something fake or worthless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +821,48 @@
      }
     ]
    },
-   "solution": "TAILEND"
+   "solution": "TAILEND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "There's nothing after this",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 8,
+       "note": "held by says the first piece sits inside the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse",
+       "at": 16,
+       "gives": "TEND",
+       "note": "to tend a patient is to nurse them"
+      },
+      {
+       "words": "Be ill",
+       "at": 0,
+       "gives": "AIL",
+       "note": "to ail is to be ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick patient is cared for by a nurse, with a hint that this is the end.",
+     "definitionFit": "The tail end is the very last part of something, with nothing following it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +876,51 @@
     "text": "Arsonist in church with name put on record",
     "enumeration": "10"
    },
-   "solution": "INCENDIARY"
+   "solution": "INCENDIARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arsonist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 9,
+       "gives": "IN"
+      },
+      {
+       "words": "church",
+       "at": 12,
+       "gives": "CE",
+       "note": "CE stands for the Church of England"
+      },
+      {
+       "words": "name",
+       "at": 24,
+       "gives": "N"
+      },
+      {
+       "words": "record",
+       "at": 36,
+       "gives": "DIARY",
+       "note": "a diary is a daily record"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fire-raiser in church has his name put on file.",
+     "definitionFit": "An incendiary is a person who deliberately starts fires, the same as an arsonist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +934,49 @@
     "text": "Maybe disco gate's sealed off at ten",
     "enumeration": "5"
    },
-   "solution": "DANCE"
+   "solution": "DANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe disco",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "sealed off",
+       "at": 19,
+       "note": "sealed off says those letters are shut off from the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gate's",
+       "at": 12,
+       "gives": "ATTENDANCE",
+       "note": "gate is the number attending a sports match, its attendance; the 's reads as is"
+      },
+      {
+       "words": "at ten",
+       "at": 30,
+       "gives": "ATTEN",
+       "note": "taken as written, the letters removed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disco shuts its gates at ten o'clock.",
+     "walkthrough": "In British sport a match's 'gate' is the attendance; remove ATTEN to leave the answer.",
+     "definitionFit": "A disco is one example of a dance, an event for dancing, hence the maybe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gate's"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +990,45 @@
     "text": "Wine running short? That's serious",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "running short",
+       "at": 5,
+       "note": "running short says the wine's name loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Wine",
+       "at": 0,
+       "gives": "GRAVES",
+       "note": "Graves is a wine from the Bordeaux region of France"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running out of wine is no laughing matter.",
+     "definitionFit": "Grave as an adjective means serious or solemn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wine"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1065,30 @@
     "text": "Hero who may track down criminals?",
     "enumeration": "3"
    },
-   "solution": "CID"
+   "solution": "CID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hero",
+      "at": 0,
+      "meaning": "El ..., the medieval Spanish champion, is a national hero"
+     },
+     {
+      "text": "who may track down criminals?",
+      "at": 5,
+      "meaning": "the Criminal Investigation Department of British police, the detectives"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "El Cid was the Castilian warrior hero, and CID is the British police detective branch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hero"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1102,59 @@
     "text": "Thief is a great evil — put criminal inside",
     "enumeration": "8"
    },
-   "solution": "CUTPURSE"
+   "solution": "CUTPURSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thief",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 37,
+       "note": "inside says the rearranged letters go within the evil word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a great evil",
+       "at": 9,
+       "gives": "CURSE",
+       "note": "a curse is a great evil or affliction"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 28,
+         "note": "criminal suggests the following letters are twisted out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "put",
+         "at": 24
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief is declared a great evil and told to be locked up.",
+     "walkthrough": "'criminal' makes TPU from the word 'put', and 'inside' sets it in the great evil; 'is' is a link.",
+     "definitionFit": "A cutpurse was an old word for a pickpocket, a thief who cut purse strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1174,54 @@
      }
     ]
    },
-   "solution": "CUTIN"
+   "solution": "CUTIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to drive dangerously?",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Copper",
+       "at": 0,
+       "gives": "CU",
+       "note": "Cu is the chemical symbol for copper"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 15,
+         "note": "about indicates the word for idiot is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idiot",
+         "at": 9,
+         "gives": "NIT",
+         "note": "a nit is a fool"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer calls someone an idiot for reckless driving.",
+     "walkthrough": "'Copper' looks like a policeman; it is the metal. 'about' turns NIT to TIN.",
+     "definitionFit": "To cut in is to pull sharply in front of another vehicle, a dangerous piece of driving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1235,55 @@
     "text": "Exhaust-emitting vehicle brought back gets Green upset",
     "enumeration": "7"
    },
-   "solution": "SUBVERT"
+   "solution": "SUBVERT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "upset",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought back",
+         "at": 25,
+         "note": "brought back says the vehicle word is turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Exhaust-emitting vehicle",
+         "at": 0,
+         "gives": "BUS",
+         "note": "a bus is a vehicle with a smoky exhaust"
+        }
+       ]
+      },
+      {
+       "words": "Green",
+       "at": 43,
+       "gives": "VERT",
+       "note": "vert is the heraldic word for green"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smoky bus returns and annoys an environmentalist.",
+     "walkthrough": "'Green' looks like an environmentalist; it is the heraldic colour VERT. 'brought back' turns BUS into SUB.",
+     "definitionFit": "To subvert something is to undermine or overturn it, to upset it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1303,50 @@
      }
     ]
    },
-   "solution": "SANJOSE"
+   "solution": "SANJOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "City's",
+      "at": 0,
+      "note": "the 's reads as is, linking the definition to the wordplay"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodated in",
+       "at": 22,
+       "note": "accommodated in says the first piece is housed within the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stable",
+       "at": 38,
+       "gives": "SANE",
+       "note": "sane means mentally stable"
+      },
+      {
+       "words": "little woman's",
+       "at": 7,
+       "gives": "JOS",
+       "note": "Jo is one of the sisters in Little Women, so Jo's"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town where a young woman's things are kept in a stable.",
+     "walkthrough": "'stable' looks like a horse's home; it means mentally steady.",
+     "definitionFit": "San Jose is a city in California, and also the capital of Costa Rica."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1360,72 @@
     "text": "Servant to play truant, finishing early, very weary at the end",
     "enumeration": "6"
    },
-   "solution": "SKIVVY"
+   "solution": "SKIVVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Servant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finishing early",
+         "at": 24,
+         "note": "finishing early says the word stops before its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to play truant",
+         "at": 8,
+         "gives": "SKIVE",
+         "note": "to skive is British slang for dodging school or work"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "at": 41,
+       "gives": "V"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at the end",
+         "at": 52,
+         "note": "at the end picks the final letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "weary",
+         "at": 46
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant bunks off early because they are exhausted.",
+     "walkthrough": "SKIVE loses its E to give SKIV; then V and Y from the end of 'weary'.",
+     "definitionFit": "A skivvy is a British slang word for a lowly household servant who does menial work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1439,41 @@
     "text": "Men supply author",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "author",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Men",
+       "at": 0,
+       "gives": "OR",
+       "note": "OR means other ranks, soldiers who are not officers"
+      },
+      {
+       "words": "supply",
+       "at": 4,
+       "gives": "WELL",
+       "note": "a well is a source or supply"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men provide for a writer.",
+     "definitionFit": "George Orwell was the English author of Animal Farm and Nineteen Eighty-Four."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1487,40 @@
     "text": "Asiatic tree hit cupola in storm",
     "enumeration": "9"
    },
-   "solution": "PATCHOULI"
+   "solution": "PATCHOULI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Asiatic tree",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "in storm",
+       "at": 24,
+       "note": "in storm suggests the letters are blown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hit cupola",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree in Asia strikes a domed roof during a storm.",
+     "definitionFit": "Patchouli is an Asian plant of the mint family, the source of a fragrant oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 24,
@@ -461,7 +1534,46 @@
     "text": "\"Stupid boy\" — headless goon",
     "enumeration": "4"
    },
-   "solution": "PIKE"
+   "solution": "PIKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"Stupid boy\"",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "headless",
+       "at": 15,
+       "note": "headless says the name loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "goon",
+       "at": 24,
+       "gives": "SPIKE",
+       "note": "Spike Milligan was one of the Goons of the radio comedy The Goon Show"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insult hurled at a decapitated fool.",
+     "walkthrough": "In the British sitcom Dad's Army, Captain Mainwaring calls young Private Pike a stupid boy.",
+     "definitionFit": "Private Pike is the character constantly called a stupid boy in the TV comedy Dad's Army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "goon"
+    }
+   }
   },
   {
    "number": 25,
@@ -475,7 +1587,47 @@
     "text": "Lake in dangerous wood",
     "enumeration": "4"
    },
-   "solution": "HOLT"
+   "solution": "HOLT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "in places the letter inside the next word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dangerous",
+       "at": 8,
+       "gives": "HOT",
+       "note": "hot can mean dangerous, as with stolen goods"
+      },
+      {
+       "words": "Lake",
+       "at": 0,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lake sits in a perilous forest.",
+     "definitionFit": "A holt is an old or poetic word for a wood or copse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dangerous"
+    }
+   }
   },
   {
    "number": 26,
@@ -508,7 +1660,43 @@
     "text": "Island that sounds like heaven",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "SKYE",
+     "indicators": [
+      {
+       "text": "that sounds like",
+       "at": 7,
+       "note": "that sounds like says the answer is said the same as the next word's synonym"
+      }
+     ],
+     "parts": [
+      {
+       "words": "heaven",
+       "at": 24,
+       "gives": "SKY",
+       "note": "the sky is the heavens"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island with a heavenly-sounding name.",
+     "definitionFit": "Skye is the largest island of the Inner Hebrides in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heaven"
+    }
+   }
   },
   {
    "number": 28,
@@ -522,7 +1710,43 @@
     "text": "Girl heard something indicating death",
     "enumeration": "5"
    },
-   "solution": "KNELL"
+   "solution": "KNELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something indicating death",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNELL",
+     "indicators": [
+      {
+       "text": "heard",
+       "at": 5,
+       "note": "heard says the girl's name is spoken, giving a word with the same sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Girl",
+       "at": 0,
+       "gives": "NELL",
+       "note": "Nell is a girl's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl hears an ominous sign of death.",
+     "definitionFit": "A knell is the tolling of a bell to announce a death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 29,
@@ -536,7 +1760,41 @@
     "text": "Particularly cut off, needing friend",
     "enumeration": "9"
    },
-   "solution": "SEVERALLY"
+   "solution": "SEVERALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Particularly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cut off",
+       "at": 13,
+       "gives": "SEVER",
+       "note": "to sever is to cut off"
+      },
+      {
+       "words": "friend",
+       "at": 30,
+       "gives": "ALLY",
+       "note": "an ally is a friend"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cut off from others particularly needs a friend.",
+     "definitionFit": "Severally means separately or individually, each in particular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Particularly"
+    }
+   }
   }
  ]
 }
