@@ -143,6 +143,22 @@ for pieces, name in (([w[:2], w[2:]], "FROM"), ([e["solution"][:2], e["solution"
     errors = va.validate_puzzle(p)[1]
     emit("PIECES", name, any("wordplay does not give" in x for x in errors))
 
+# A hidden word that is one part of a charade hides that part's letters, not
+# the whole answer: TRI in "Triumphant" under a "leaders" indicator.
+p = copy.deepcopy(good)
+t = next(x for x in p["entries"] if "alteration" in x)
+t.pop("alteration")
+t["solution"] = "TRICOLOUR"
+t["clue"] = {**t["clue"], "text": "Triumphant leaders adopt standard flag"}
+t["annotation"] = {"definitions": t["annotation"]["definitions"],
+                   "wordplay": {"op": "charade", "parts": [
+                       {"op": "hidden", "indicators": [{"text": "leaders", "at": 11}],
+                        "parts": [{"words": "Triumphant", "gives": "TRI", "at": 0}]},
+                       {"words": "standard", "gives": "COLOUR", "at": 25}]}}
+errors = va.validate_puzzle(p)[1]
+emit("HIDDENPART", any("hidden answer" in x for x in errors))
+same("a hidden part of a charade is not held to hide the whole answer", grep("HIDDENPART"), "HIDDENPART False")
+
 for op in "reversal anagram move deletion insertion substitution".split():
     same(f"{op} accepts its mapping and refuses a wrong one", grep(f"OP {op} "), f"OP {op} True False")
 same("a correct alteration is written", grep("GOOD"), "GOOD accepted")
