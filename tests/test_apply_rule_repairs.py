@@ -355,4 +355,9 @@ check("doesNotGive: one leaf a letter too long at its end (QUINT for QUIN) is cu
 msg = mend("[to cut back]POLL + [lighting unit]LUX", "to cut back lighting unit", "POLLUX")
 check("doesNotGive: a letter doubled at a join (POLL + LUX: either piece could lose it) stays refused", msg.startswith("REFUSED"))
 
+check("doesNotGive: a charade that is really a container (A + SPIN for SPAIN, 'holding' the one container word left over) is rewritten as one",
+      mend("[article]A + [spinning]SPIN", "holding article spinning", "SPAIN").startswith("ins<holding>([spinning]SPIN, [article]A)"))
+msg = mend("[article]A + [spinning]SPIN", "holding in article spinning", "SPAIN")
+check("doesNotGive: two container words left over ('holding' and 'in') are ambiguous and stay refused", msg.startswith("REFUSED"))
+
 sys.exit(1 if fails else 0)
