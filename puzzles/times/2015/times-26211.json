@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,29 @@
     "text": "Paraffin, for example, in workers' enclosure",
     "enumeration": "8"
    },
-   "solution": "COMPOUND"
+   "solution": "COMPOUND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Paraffin, for example",
+      "at": 0,
+      "meaning": "paraffin is a chemical substance made of more than one element, a combination of hydrocarbons"
+     },
+     {
+      "text": "workers' enclosure",
+      "at": 26,
+      "meaning": "a fenced area where labourers are housed, as at a mine or plantation"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Both senses are standard: a chemical combination of elements, and a fenced camp housing labourers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paraffin"
+    }
+   }
   },
   {
    "number": 9,
@@ -44,7 +69,64 @@
     "text": "Female sibling murdered in Scottish island? That's not unknown",
     "enumeration": "8"
    },
-   "solution": "ISABELLA"
+   "solution": "ISABELLA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the murdered brother is placed within the island's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "That's not unknown",
+         "at": 44,
+         "note": "an unknown in algebra is often Y, so this tells us to drop that letter from the island"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scottish island",
+         "at": 27,
+         "gives": "ISLAY",
+         "note": "Islay is an island of the Inner Hebrides"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "sibling murdered",
+       "at": 7,
+       "gives": "ABEL",
+       "note": "Abel was the brother murdered by Cain in Genesis"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim tale of a sister killed on a remote Scottish isle, with a doubtful aside.",
+     "walkthrough": "An unknown in algebra is conventionally Y, so 'That's not unknown' drops it, leaving ISLA. Abel is the Bible's first murder victim, killed by his brother Cain.",
+     "definitionFit": "Isabella is a woman's given name, so it can stand for a female."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 10,
@@ -58,7 +140,75 @@
     "text": "Coming back lacking time to tour a western state",
     "enumeration": "6"
    },
-   "solution": "NEVADA"
+   "solution": "NEVADA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "western state",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "back",
+       "at": 7,
+       "note": "coming back tells us the whole built word is read in the opposite direction"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to tour",
+         "at": 25,
+         "note": "touring something means going around it, so the shortened word encloses the A"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lacking",
+           "at": 12,
+           "note": "lacking tells us one letter is missing from the word for an arrival"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Coming",
+           "at": 0,
+           "gives": "ADVENT",
+           "note": "advent means a coming or arrival"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "a",
+         "at": 33,
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returning without time to travel round a state in the American West.",
+     "walkthrough": "'lacking' removes T from ADVENT to give ADVEN; 'to tour' puts A inside, making ADAVEN; 'back' reverses that.",
+     "definitionFit": "Nevada is one of the states in the western United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coming"
+    }
+   }
   },
   {
    "number": 11,
@@ -72,7 +222,50 @@
     "text": "Evangelist's lines on Scottish beauty queen?",
     "enumeration": "10"
    },
-   "solution": "MISSIONARY"
+   "solution": "MISSIONARY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evangelist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 19,
+       "note": "in an across clue, one piece on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Scottish beauty queen",
+       "at": 22,
+       "gives": "MISSIONA",
+       "note": "a pageant winner gets the title Miss plus a place, and Iona is a Scottish island"
+      },
+      {
+       "words": "lines",
+       "at": 13,
+       "gives": "RY",
+       "note": "RY is short for railway, a set of lines"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher's railway journey linked to a Scottish pageant winner.",
+     "walkthrough": "The 's stands for 'is', linking definition to wordplay. Iona is a small island in the Hebrides.",
+     "definitionFit": "A missionary goes out to spread the faith, which is what an evangelist does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 12,
@@ -86,7 +279,48 @@
     "text": "Hebrew patriarch opposed to wearing garland of flowers",
     "enumeration": "4"
    },
-   "solution": "LEVI"
+   "solution": "LEVI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hebrew patriarch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 28,
+       "note": "the garland wears the letter, so the letter goes inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "garland of flowers",
+       "at": 36,
+       "gives": "LEI",
+       "note": "a lei is a Hawaiian flower garland"
+      },
+      {
+       "words": "opposed to",
+       "at": 17,
+       "gives": "V",
+       "note": "V stands for versus, meaning against"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Old Testament figure who refuses to put on a floral wreath.",
+     "definitionFit": "Levi, son of Jacob, founded one of the tribes of Israel, making him a patriarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 13,
@@ -100,7 +334,54 @@
     "text": "Get better park and superior gym class",
     "enumeration": "10"
    },
-   "solution": "RECUPERATE"
+   "solution": "RECUPERATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get better",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "park",
+       "at": 11,
+       "gives": "REC",
+       "note": "a rec is a recreation ground, a public park"
+      },
+      {
+       "words": "superior",
+       "at": 20,
+       "gives": "U",
+       "note": "U means upper-class, socially superior"
+      },
+      {
+       "words": "gym",
+       "at": 29,
+       "gives": "PE",
+       "note": "PE is physical education, gym lessons at school"
+      },
+      {
+       "words": "class",
+       "at": 33,
+       "gives": "RATE",
+       "note": "rate means class or grade, as in first-rate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recovering by going to a park and an upmarket fitness session.",
+     "walkthrough": "U is an old label for upper-class speech or manners, hence 'superior'.",
+     "definitionFit": "To recuperate is to recover from illness, a synonym for getting better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 16,
@@ -114,7 +395,42 @@
     "text": "Divine decree introduced by priestly leaders",
     "enumeration": "7"
    },
-   "solution": "PREDICT"
+   "solution": "PREDICT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Divine",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "priestly leaders",
+       "at": 28,
+       "gives": "PR",
+       "note": "the leading letters of priestly are its first two"
+      },
+      {
+       "words": "decree",
+       "at": 7,
+       "gives": "EDICT",
+       "note": "an edict is an official decree"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divine decree announced by senior clergy.",
+     "walkthrough": "'Divine' looks like an adjective describing the decree but is the verb, to foresee.",
+     "definitionFit": "To divine is to foretell or forecast by intuition, a synonym of the verb in the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Divine"
+    }
+   }
   },
   {
    "number": 17,
@@ -128,7 +444,68 @@
     "text": "Silly rule about European Court's carpeting",
     "enumeration": "7"
    },
-   "solution": "LECTURE"
+   "solution": "LECTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "carpeting",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 11,
+       "note": "the scrambled word goes around the two abbreviations"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Silly",
+         "at": 0,
+         "note": "silly suggests the word rule is to be jumbled up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rule",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "European",
+         "at": 17,
+         "gives": "E"
+        },
+        {
+         "words": "Court",
+         "at": 26,
+         "gives": "CT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish regulation concerning the European Court is being criticised.",
+     "walkthrough": "'Silly' gives LURE; 'about' wraps it round the court abbreviations. Carpeting is British slang for a reprimand: being called onto the boss's carpet.",
+     "definitionFit": "Being carpeted means being called in for a telling-off, which is a stern talk or lecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carpeting"
+    }
+   }
   },
   {
    "number": 20,
@@ -142,7 +519,55 @@
     "text": "Surpass old Lee and U Grant, somehow?",
     "enumeration": "10"
    },
-   "solution": "OUTGENERAL"
+   "solution": "OUTGENERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surpass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old",
+       "at": 8,
+       "gives": "O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "at": 29,
+         "note": "somehow says the letters come together in some unstated arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lee",
+         "at": 12
+        },
+        {
+         "words": "U Grant",
+         "at": 20
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether one Civil War general outdid his rival.",
+     "walkthrough": "'and' joins the fodder and gives no letters. Lee and Grant were the opposing generals of the American Civil War, and the surface plays on that.",
+     "definitionFit": "To outgeneral someone is to outmanoeuvre them through superior tactics, so to surpass them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grant"
+    }
+   }
   },
   {
    "number": 22,
@@ -156,7 +581,29 @@
     "text": "Well-groomed and generous",
     "enumeration": "4"
    },
-   "solution": "TIDY"
+   "solution": "TIDY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Well-groomed",
+      "at": 0,
+      "meaning": "neat and orderly in appearance"
+     },
+     {
+      "text": "generous",
+      "at": 17,
+      "meaning": "large or considerable, as in a handsome sum of money"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Neat in appearance, and the informal British sense of a sizeable amount, as a nice sum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "generous"
+    }
+   }
   },
   {
    "number": 23,
@@ -170,7 +617,59 @@
     "text": "Stand-offs over initiation of Rastafarian hairstyle",
     "enumeration": "10"
    },
-   "solution": "DREADLOCKS"
+   "solution": "DREADLOCKS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hairstyle",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 11,
+       "note": "the stalemates are placed over, covering, the single letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stand-offs",
+       "at": 0,
+       "gives": "DEADLOCKS",
+       "note": "deadlocks are stand-offs where neither side can advance"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initiation of",
+         "at": 16,
+         "note": "the initiation of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rastafarian",
+         "at": 30
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disputes about the start of Rastafarian hair fashion.",
+     "walkthrough": "'Rastafarian hairstyle' reads like the definition, but only 'hairstyle' defines; R comes from 'initiation of'.",
+     "definitionFit": "Dreadlocks are a hairstyle of long matted or twisted ropes of hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initiation"
+    }
+   }
   },
   {
    "number": 25,
@@ -184,7 +683,42 @@
     "text": "Depressed man with newspaper",
     "enumeration": "6"
    },
-   "solution": "SUNKEN"
+   "solution": "SUNKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Depressed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "newspaper",
+       "at": 19,
+       "gives": "SUN",
+       "note": "The Sun is a British tabloid newspaper"
+      },
+      {
+       "words": "man",
+       "at": 10,
+       "gives": "KEN",
+       "note": "Ken is a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy man reading his paper.",
+     "walkthrough": "The Sun is a well-known British daily tabloid.",
+     "definitionFit": "Sunken means lowered or hollow, as in sunken cheeks, so depressed in the physical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Depressed"
+    }
+   }
   },
   {
    "number": 26,
@@ -198,7 +732,48 @@
     "text": "Act amorously, viewing rings in source of gentle light",
     "enumeration": "8"
    },
-   "solution": "CANOODLE"
+   "solution": "CANOODLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Act amorously",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "the two circles are placed inside the light source"
+      }
+     ],
+     "parts": [
+      {
+       "words": "source of gentle light",
+       "at": 32,
+       "gives": "CANDLE",
+       "note": "a candle gives a soft gentle glow"
+      },
+      {
+       "words": "rings",
+       "at": 23,
+       "gives": "OO",
+       "note": "O is shaped like a ring, so two rings are two Os"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lovers getting cosy, gazing at rings by candlelight.",
+     "definitionFit": "To canoodle is to kiss and cuddle, behaving amorously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 27,
@@ -212,7 +787,47 @@
     "text": "Cavalier, once — a fellow with a record!",
     "enumeration": "8"
    },
-   "solution": "ROYALIST"
+   "solution": "ROYALIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cavalier, once",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fellow",
+       "at": 19,
+       "gives": "ROY",
+       "note": "Roy is a man's name"
+      },
+      {
+       "words": "a",
+       "at": 31,
+       "gives": "A"
+      },
+      {
+       "words": "record",
+       "at": 33,
+       "gives": "LIST",
+       "note": "a list is a written record"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seventeenth-century dashing gentleman who owns a vinyl disc.",
+     "walkthrough": "In the English Civil War, Cavaliers were the supporters of King Charles I.",
+     "definitionFit": "Cavaliers backed the crown against Parliament, so a Cavalier then was a supporter of the king."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 2,
@@ -226,7 +841,55 @@
     "text": "Accidentally pick up deliveries in this place, say",
     "enumeration": "8"
    },
-   "solution": "OVERHEAR"
+   "solution": "OVERHEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Accidentally pick up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "deliveries",
+       "at": 21,
+       "gives": "OVER",
+       "note": "in cricket an over is a set of six balls bowled, deliveries"
+      },
+      {
+       "op": "homophone",
+       "spelt": "HEAR",
+       "indicators": [
+        {
+         "text": "say",
+         "at": 47,
+         "note": "say signals that the word for this place should be taken as spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in this place",
+         "at": 32,
+         "gives": "HERE",
+         "note": "here means in this place"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unexpectedly receiving parcels at this address.",
+     "walkthrough": "An over in cricket is six balls delivered by one bowler.",
+     "definitionFit": "To overhear is to hear something by chance, picking up talk not meant for you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 3,
@@ -240,7 +903,59 @@
     "text": "Atmosphere breathed in by podgier foreign rodent",
     "enumeration": "7,3"
    },
-   "solution": "PRAIRIEDOG"
+   "solution": "PRAIRIEDOG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rodent",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breathed in by",
+       "at": 11,
+       "note": "something breathed in goes inside the breather, so this signals insertion"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "foreign",
+         "at": 34,
+         "note": "foreign suggests the word podgier is made strange, rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "podgier",
+         "at": 26
+        }
+       ]
+      },
+      {
+       "words": "Atmosphere",
+       "at": 0,
+       "gives": "AIR",
+       "note": "air means atmosphere"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chubbier overseas animal inhales the air.",
+     "walkthrough": "'foreign' gives PRIEDOG; 'breathed in by' makes it hold the atmosphere. The surface pictures a plump animal, but 'foreign' is the anagram signal, not a description.",
+     "definitionFit": "A prairie dog is a North American burrowing ground squirrel, a kind of rodent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 4,
@@ -254,7 +969,59 @@
     "text": "Girls retaining maiden name? It's not in Uncle Sam's interests",
     "enumeration": "2-8"
    },
-   "solution": "UNAMERICAN"
+   "solution": "UNAMERICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not in Uncle Sam's interests",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "retaining",
+         "at": 6,
+         "note": "the two girls hold the single letter between them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Girls",
+         "at": 0,
+         "gives": "UNAERICA",
+         "note": "Una and Erica are girls' names"
+        },
+        {
+         "words": "maiden",
+         "at": 16,
+         "gives": "M",
+         "note": "M is the cricket abbreviation for a maiden over"
+        }
+       ]
+      },
+      {
+       "words": "name",
+       "at": 23,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women keeping their maiden name, an idea said to be against American values.",
+     "walkthrough": "'It's' links. Uncle Sam personifies the US government.",
+     "definitionFit": "Something un-American goes against the interests or values of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 5,
@@ -268,7 +1035,48 @@
     "text": "Faction inspector's first to investigate",
     "enumeration": "7"
    },
-   "solution": "DISSECT"
+   "solution": "DISSECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "investigate",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "first",
+       "at": 20,
+       "note": "the inspector piece is placed first, before the faction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "inspector's",
+       "at": 8,
+       "gives": "DIS",
+       "note": "DI is a Detective Inspector, and the 's adds an S"
+      },
+      {
+       "words": "Faction",
+       "at": 0,
+       "gives": "SECT",
+       "note": "a sect is a faction or splinter group"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police inspector being first on the scene to look into a breakaway group.",
+     "definitionFit": "To dissect is to analyse or examine closely, to investigate in detail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Faction"
+    }
+   }
   },
   {
    "number": 6,
@@ -282,7 +1090,47 @@
     "text": "Saw shortened garment? This one isn't, surely",
     "enumeration": "4"
    },
-   "solution": "MAXI"
+   "solution": "MAXI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "shortened",
+       "at": 4,
+       "note": "shortened tells us the word for a proverb loses its last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Saw",
+       "at": 0,
+       "gives": "MAXIM",
+       "note": "a saw is an old saying, a maxim"
+      },
+      {
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a long skirt surely isn't a cut-down item.",
+     "walkthrough": "'Saw' looks like a tool or a verb, but it means a proverb. 'This one isn't, surely' adds the joke that a maxi garment is not short.",
+     "definitionFit": "A maxi is a long skirt, dress or coat, an item of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 7,
@@ -296,7 +1144,55 @@
     "text": "Cloth of highest grade Henry's left for Bill?",
     "enumeration": "6"
    },
-   "solution": "ALPACA"
+   "solution": "ALPACA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cloth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "'s left for",
+       "at": 28,
+       "note": "Henry has gone and the bill takes his place"
+      }
+     ],
+     "parts": [
+      {
+       "words": "highest grade",
+       "at": 9,
+       "gives": "ALPHA",
+       "note": "an alpha is the top mark in grading"
+      },
+      {
+       "words": "Henry",
+       "at": 23,
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      },
+      {
+       "words": "Bill",
+       "at": 40,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether top-quality fabric remains once Henry has gone to pay the bill.",
+     "walkthrough": "'Henry's left for Bill' swaps H in ALPHA for AC.",
+     "definitionFit": "Alpaca is a fine wool cloth made from the fleece of the South American alpaca."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 8,
@@ -310,7 +1206,63 @@
     "text": "Beautiful youth ultimately becoming a city lawmaker",
     "enumeration": "8"
    },
-   "solution": "GANYMEDE"
+   "solution": "GANYMEDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beautiful youth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 16,
+         "note": "ultimately points to the final letter of becoming"
+        }
+       ],
+       "parts": [
+        {
+         "words": "becoming",
+         "at": 27
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 36,
+       "gives": "A"
+      },
+      {
+       "words": "city",
+       "at": 38,
+       "gives": "NY",
+       "note": "NY is New York city"
+      },
+      {
+       "words": "lawmaker",
+       "at": 43,
+       "gives": "MEDE",
+       "note": "the Medes are proverbial for their unalterable laws of the Medes and Persians"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handsome young man finally turning into an urban legislator.",
+     "walkthrough": "The phrase 'law of the Medes and Persians' means a rule that cannot change, so a Mede is a lawmaker.",
+     "definitionFit": "In Greek myth Ganymede was the beautiful Trojan boy carried off to be cupbearer to Zeus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lawmaker"
+    }
+   }
   },
   {
    "number": 14,
@@ -324,7 +1276,30 @@
     "text": "How the Lower House works, having no equal?",
     "enumeration": "10"
    },
-   "solution": "PEERLESSLY"
+   "solution": "PEERLESSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "How the Lower House works",
+      "at": 0,
+      "meaning": "the Commons operates without members of the nobility, who sit in the Lords"
+     },
+     {
+      "text": "having no equal",
+      "at": 27,
+      "meaning": "in a way unmatched by any rival"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Unrivalled, unsurpassed; and literally 'without lords', as the House of Commons operates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lower"
+    }
+   }
   },
   {
    "number": 15,
@@ -338,7 +1313,49 @@
     "text": "Sensible to digest books going round",
     "enumeration": "10"
    },
-   "solution": "ROTATIONAL"
+   "solution": "ROTATIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going round",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to digest",
+       "at": 9,
+       "note": "digesting means taking something inside, so the books go within"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sensible",
+       "at": 0,
+       "gives": "RATIONAL",
+       "note": "rational means sensible, reasonable"
+      },
+      {
+       "words": "books",
+       "at": 19,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a set of books"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is wise to work through some reading while travelling.",
+     "walkthrough": "OT, the Old Testament, is a common crossword abbreviation for books.",
+     "definitionFit": "Rotational describes turning, the motion of something going round an axis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digest"
+    }
+   }
   },
   {
    "number": 16,
@@ -352,7 +1369,60 @@
     "text": "Works head to head to adorn part of vessel",
     "enumeration": "4,4"
    },
-   "solution": "POOPDECK"
+   "solution": "POOPDECK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of vessel",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "head to head",
+         "at": 6,
+         "note": "two copies of the works set face to face, the first one turned round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Works",
+         "at": 0,
+         "gives": "OP",
+         "note": "OP is short for opus, a work"
+        }
+       ]
+      },
+      {
+       "words": "Works",
+       "at": 0,
+       "gives": "OP",
+       "note": "a second copy of opus, a work"
+      },
+      {
+       "words": "adorn",
+       "at": 22,
+       "gives": "DECK",
+       "note": "to deck is to decorate or adorn"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces placed facing each other to decorate part of a ship.",
+     "walkthrough": "'head to head' places OP backwards against OP so the heads meet, giving PO then OP.",
+     "definitionFit": "The poop deck is the raised deck at the stern of a ship, a part of the vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 18,
@@ -366,7 +1436,77 @@
     "text": "Simplicity initially detected in plant on loch",
     "enumeration": "8"
    },
-   "solution": "RUDENESS"
+   "solution": "RUDENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Simplicity",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 39,
+       "note": "in a down clue, one piece on another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 30,
+         "note": "the first letter goes inside the plant's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plant",
+         "at": 33,
+         "gives": "RUE",
+         "note": "rue is a bitter herb"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 11,
+           "note": "initially points to the first letter of detected"
+          }
+         ],
+         "parts": [
+          {
+           "words": "detected",
+           "at": 21
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "loch",
+       "at": 42,
+       "gives": "NESS",
+       "note": "Loch Ness is the famous Scottish lake"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something plain being spotted first among plants by a Scottish lake.",
+     "walkthrough": "Rudeness here is the old sense of roughness or lack of sophistication, not bad manners.",
+     "definitionFit": "Rudeness can mean primitive plainness, unrefined simplicity, an older sense of rude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Simplicity"
+    }
+   }
   },
   {
    "number": 19,
@@ -380,7 +1520,46 @@
     "text": "Crisp biscuit and almost all bananas",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Crisp biscuit",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost all",
+       "at": 18,
+       "note": "almost all means the word loses its final letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bananas",
+       "at": 29,
+       "gives": "CRACKERS",
+       "note": "bananas and crackers both mean crazy"
+      },
+      {
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crunchy snack combined with most of a bunch of fruit.",
+     "walkthrough": "'bananas' looks like fruit but means mad.",
+     "definitionFit": "A cracker is a thin crisp savoury biscuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1573,29 @@
     "text": "Maid's child of middle school age?",
     "enumeration": "6"
    },
-   "solution": "TWEENY"
+   "solution": "TWEENY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maid",
+      "at": 0,
+      "meaning": "a between-maid, a servant helping both cook and housemaid"
+     },
+     {
+      "text": "child of middle school age",
+      "at": 7,
+      "meaning": "a tween, a pre-teen between childhood and adolescence"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A between-maid of old households, and informally a child aged about ten to twelve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Maid"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1609,49 @@
     "text": "Bathing beach yours truly would look around",
     "enumeration": "4"
    },
-   "solution": "LIDO"
+   "solution": "LIDO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bathing beach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 37,
+       "note": "the word for look goes around the contraction"
+      }
+     ],
+     "parts": [
+      {
+       "words": "look",
+       "at": 32,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or behold"
+      },
+      {
+       "words": "yours truly would",
+       "at": 14,
+       "gives": "ID",
+       "note": "yours truly is I, and I would is shortened to I'd"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside spot that the speaker would like to examine.",
+     "walkthrough": "'yours truly' is a jokey way of saying 'I', so 'yours truly would' gives I'D.",
+     "definitionFit": "A lido is a public open-air swimming pool or bathing beach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "truly"
+    }
+   }
   }
  ]
 }
