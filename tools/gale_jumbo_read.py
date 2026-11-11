@@ -44,7 +44,7 @@ SAVED = downloads.GALE_CROSSWORDS / "TimesJumbo" / "Fetched"
 STORE = Path(os.path.expanduser("~/.cache/gale_jumbo"))
 LEDGER = "ledger.jsonl"
 #: Bumped when the reading changes, so every page is read again.
-VERSION = 5
+VERSION = 6
 PREFIX = "jumbo:"
 CITED = re.compile(r'^\W*"([^"]*)"\s*Times\b\W*([0-3]?\d)\s+' + gi.MON + r"\s*(\d{4})", re.IGNORECASE)
 CITED_NUMBER = re.compile(r"jumbo\s+cross\s?w[a-z]{0,3}d\W{0,3}(?:n[o0]\W{0,3})?(\d[\d,. ]{0,5})", re.IGNORECASE)
@@ -552,18 +552,21 @@ def vlm_strips(blocks, numbers, gl):
     return out
 
 
-def vlm_mended(blocks, laid, blank, lengths, gl, reader=None):
+def vlm_mended(blocks, laid, blank, lengths, gl, reader=None, voted=None):
     """(laid, blank) with each blank light the VLM's reading of the clue columns holding it lays
     (fa.vlm_laid: the one clue under its number whose count fills the light, its words spelt in
     the page's own readings). The VLM is asked the columns holding a blank light only, and only
     when VLM_BLANKS lights or fewer are blank. `reader` (img, box) -> text stands in for the VLM."""
-    if not blank or len(blank) > VLM_BLANKS:
+    # A laid clue ocr_clues refuses (a stray letter, a digit in a word) is asked after too: the VLM may spell it.
+    weak = {lid for lid, (text, enum, group) in laid.items() if text and lid in lengths and (
+        fa.ocr_clues.suspect(text) or fa.ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid])))}
+    if not (blank or weak) or len(blank) > VLM_BLANKS:
         return laid, blank, 0
     if reader is None:
         if not (fa.vlm.wanted()):
             return laid, blank, 0
         reader = lambda im, box: fa.vlm.read(fa.vlm.crop(im, box))  # noqa: E731
-    strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in blank}), gl)
+    strips = vlm_strips(blocks, sorted({int(k.split("-")[0]) for k in [*blank, *weak]}), gl)
     if not strips:
         return laid, blank, 0
     parts = []
@@ -576,9 +579,106 @@ def vlm_mended(blocks, laid, blank, lengths, gl, reader=None):
     for bimg, bkey in blocks:
         located = gl.figures(gl.page_words(bimg, bkey))
         texts[f"page{len(texts)}"] = " ".join(w[4] for w in located)
-    marked = {k: UNLAID for k in blank}
-    got, left = fa.vlm_laid(texts, laid, marked, lengths)
-    return got, {k: v for k, v in blank.items() if k in left}, len(strips)
+    got, left = vlm_laid(texts, laid, blank, lengths, voted or {})
+    got = vlm_spelt(texts, got, weak - set(blank), lengths)
+    return got, left, len(strips)
+
+
+def vlm_spelt(texts, laid, weak, lengths):
+    """`laid` with each clue of `weak` (laid, but with a word ocr_clues refuses) put as the VLM's reply spells it
+    when that clue is the page's own but for its spelling (ALIKE) and the only one under the light's number
+    (told apart from its rival by vlm_direction) that is itself unrefused, its count the light's."""
+    clues = fa.vlm_clues(texts.get("vlm") or "")
+    laid = dict(laid)
+    for lid in sorted(weak):
+        text, enum, group = laid[lid]
+        number, way = lid.split("-")
+        cells = sum(lengths.get(i, 0) for i in group or [lid])
+        rival = any(o != lid and o.split("-")[0] == number and lengths.get(o) == lengths.get(lid) for o in lengths)
+        found = []
+        for k, (m, words, count) in enumerate(clues):
+            if str(m) != number or (rival and vlm_direction(clues, k, number, lengths) != way):
+                continue
+            words = fa.ocr_clues.trimmed(fa.ocr_clues.clean(words), lid)
+            if fa.ocr_clues.similar(words.lower(), text.lower()) >= ALIKE and fa.ftp.count(count) == cells \
+                    and not fa.ocr_clues.unfit(words, fa.ocr_clues.shape(count), cells):
+                found.append((words, fa.ocr_clues.shape(count)))
+        if len(found) == 1:
+            laid[lid] = (found[0][0], found[0][1], group)
+    return laid
+
+
+#: A VLM clue's words and the page's own for the same light are the one clue at this similarity or more.
+ALIKE = 0.85
+
+
+def vlm_direction(clues, k, number, lengths):
+    """"across" or "down": the list the VLM clue `k` ((number, words, count) in `clues`' order) stands in, from its
+    neighbours in the reply (the clue before it numbered the same-direction light just under it, or the one after the
+    light just over it); None when both lists fit or neither."""
+    n, fits = int(number), []
+    for way in ("across", "down"):
+        if f"{number}-{way}" not in lengths:
+            continue
+        same = sorted(int(o.split("-")[0]) for o in lengths if o.endswith("-" + way))
+        below, above = [x for x in same if x < n], [x for x in same if x > n]
+        if (k > 0 and below and clues[k - 1][0] == below[-1]) or (
+                k + 1 < len(clues) and above and clues[k + 1][0] == above[0]):
+            fits.append(way)
+    return fits[0] if len(fits) == 1 else None
+
+
+def vlm_laid(texts, laid, blank, lengths, voted):
+    """(laid, blank) with each blank light the VLM's reply lays a clue on: fa.vlm_laid's rule (the one clue under
+    the light's number whose count fills it, two words or more, fit to file, its words of four letters or more
+    mostly spelt in the page's own readings) with two more ways in. A number the grid gives two lights of one
+    length is told apart by the reply's lists (vlm_direction). A light whose own reading (`voted`) printed a count
+    short of the light (a count's tail lost to the line end: "(9" for "(9,4)", or one digit off) takes the VLM's
+    words when they are those of its own reading (ALIKE) and the only such clue under the number: two readings
+    agree on the clue, the light's length gives the count (a grid count, marked so)."""
+    text = texts.get("vlm") or ""
+    clues = fa.vlm_clues(text)
+    bag = {w for k, t in texts.items() if k != "vlm" for w in re.findall(r"[a-z]{4,}", t.lower())}
+    laid, left = dict(laid), dict(blank)
+
+    def fit(words, enum, cells, lid, agreed=False):
+        words = fa.ocr_clues.trimmed(fa.ocr_clues.clean(words), lid)
+        spelt = re.findall(r"[a-z]{4,}", words.lower())
+        # `agreed`: the page's own reading prints the same clue, which is the second reading the bag stands for.
+        if len(fa.ocr_clues.tokens(words)) < 2 or not spelt or fa.ocr_clues.merged(words) \
+                or (not agreed and (sum(1 for w in spelt if w not in bag) > fa.VLM_LAID_MISS * len(spelt)
+                                    or not any(w in bag for w in spelt))) or fa.ocr_clues.unfit(words, enum, cells):
+            return None
+        return words
+
+    for lid, why in blank.items():
+        cells = lengths.get(lid)
+        number, way = lid.split("-")
+        if not cells:
+            continue
+        here = [(k, w, c) for k, (m, w, c) in enumerate(clues) if str(m) == number]
+        rival = any(o != lid and o.split("-")[0] == number and lengths.get(o) == cells for o in lengths)
+        whole = [x for x in here if fa.ftp.count(x[2]) == cells]
+        if rival:
+            whole = [x for x in whole if vlm_direction(clues, x[0], number, lengths) == way]
+        if len(whole) == 1:
+            enum = fa.ocr_clues.shape(whole[0][2])
+            if words := fit(whole[0][1], enum, cells, lid):
+                laid[lid], _ = (words, enum, None), left.pop(lid)
+                continue
+        own = (voted.get(lid) or ("",))[0]
+        if not own or not why.startswith("its count"):
+            continue
+        agree = []
+        for k, w, c in here:
+            cut = re.split(r"\s\(\s*\d", w)[0].strip()
+            if cut and fa.ocr_clues.similar(cut.lower(), own.lower()[:len(cut) + 6]) >= ALIKE:
+                agree.append(cut)
+        if len(agree) == 1:
+            enum = fa.ocr_clues.GridCount(cells)
+            if words := fit(agree[0], enum, cells, lid, agreed=True):
+                laid[lid], _ = (words, enum, None), left.pop(lid)
+    return laid, left
 
 
 def read_page(path, store=STORE, asker=None):
@@ -639,6 +739,7 @@ def read_page(path, store=STORE, asker=None):
     verdict.update({k: v for k, v in read.items() if k in ("agreed", "clues", "refused")})
     if laid is None:
         return verdict, None
+    voted = dict(laid)
     laid, blank = aj.lay_on(dict(laid), g)
     verdict["lights"] = len(laid)
     # The vote's own blanks (a clue it laid empty: unfit, a suspect word) are blank lights too.
@@ -648,7 +749,7 @@ def read_page(path, store=STORE, asker=None):
     for lid, (text, _, _) in laid.items():
         if lid not in tails and not (text or "").strip():
             blank.setdefault(lid, UNLAID)
-    laid, blank, asked = vlm_mended(blocks, laid, blank, lengths, gl, asker)
+    laid, blank, asked = vlm_mended(blocks, laid, blank, lengths, gl, asker, voted)
     if asked:
         verdict["vlmColumns"] = asked
     verdict["lights"] = len(laid)
@@ -657,7 +758,7 @@ def read_page(path, store=STORE, asker=None):
     doc = gi.DOC_ID.search(path.name)
     url = f"https://link.gale.com/apps/doc/{doc.group(1).upper()}/TTDA?sid=bookmark-TTDA" if doc else None
     puzzle = fa.build(n, day, g, "image", laid, None, 0, series=SERIES, name=f"Times jumbo cryptic crossword No {n:,}",
-                      url=url)
+                      url=url, printed=read.get("asPrinted"))
     verdict["whole"] = bool(fa.complete(puzzle))
     return verdict, puzzle
 
