@@ -37,9 +37,11 @@ SIDECAR = re.compile(r"puzzles/[^/]+/[^/]+/[^/]+\.blog")
 #: test's code key).
 QUEUE_STATE = validate_scope.QUEUE_STATE
 BACKLOG = validate_scope.BACKLOG
-#: Derived report the daily job rewrites (tools/blog_compare.py's output). Only
-#: build_readme.py's prose names it; no test or validator reads the file.
-DERIVED_DATA = {"tools/data/blog_compare.json"}
+#: Derived files the daily jobs rewrite: blog_compare.py's report (only
+#: build_readme.py's prose names it) and blog_facts.py's input hashes (read only by
+#: blog_facts.py, blog_store.py and prereset_backfill.sh). No test or validator
+#: reads either, so a change to one must not send the push down the full path.
+DERIVED_DATA = {"tools/data/blog_compare.json", "tools/data/blog_facts/inputs.sha256"}
 MAX_FILES = 1500
 
 
