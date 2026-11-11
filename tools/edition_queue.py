@@ -883,6 +883,7 @@ def evidence_reason(reason):
                           fa.SUNDAY_RIGHT,  # that page read since, still no clue lists: its columns right of its grid
                           fa.QUICK_SET,  # a Gale Sunday Telegraph 1972-77 page filed with its Quickie clue set
                           fa.QUICK_HELD,  # that page read under QUICK_SET, its cryptic reading held off by the Quickie file
+                          fa.JUMBO_SOLUTION,  # a filed Times Jumbo whose Gale solution page is on disk
                           fa.HEADINGS_JOINED)  # a Gale FT/Telegraph/Independent/Sunday Times page no title was found on
             # A Times page refused "not a grid" whose grid's heavy ink runs up into its title, its blocks
             # backsolved from the clue list since (fa.touching_grid, fa.touching_refused), once.
@@ -2075,7 +2076,10 @@ UNFILED_FIRST = (fa.LOST_WRITE, fa.DASH_JOINED, fa.OLD_FORM, fa.LETTER_SPACED, f
                  # 11-10: a Gale Sunday Telegraph 1972-77 page filed with the Quickie clue set (fa.quick_set_due), read again.
                  fa.QUICK_SET,
                  # 11-10: that page read under QUICK_SET, its cryptic reading held off by the Quickie-clue file (fa.quick_held_due).
-                 fa.QUICK_HELD)
+                 fa.QUICK_HELD,
+                 # 11-11: a Times Jumbo puzzle gale_jumbo_read filed whose Gale solution page is on disk
+                 # (answers only); the newest fix goes first.
+                 fa.JUMBO_SOLUTION)
 
 
 def times_solution_work(unit):
@@ -2185,7 +2189,8 @@ def fills_gpu(unit):
 #: fa.UNMERGED: a solution grid a full read read whole, its answers never merged; answers_only reads it
 #: again whole (no light short, no strip asked) and merges them.
 #: fa.HELD_TITLE: a page its scan found no title on, read answers-only under its held puzzle's number.
-CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE, fa.HELD_LINKED)
+CPU_ONLY = ("inputs changed: answers linked", "scan stale, answers linked", fa.UNMERGED, fa.HELD_TITLE, fa.HELD_LINKED,
+            fa.JUMBO_SOLUTION)  # a Jumbo solution grid read on CPU, asks the VLM nothing
 #: Reasons of rereads that ask the VLM only a little: a Times solution reread spends 30-250 s of CPU, spools
 #: 1-3 asks (solution strips are capped at vlm_reader STRIP_MAX) and defers. Paul 10-22: with all 18 slots
 #: on these the GPU sat ~27% busy (~160 asks/h of ~400) while 798 FT never-read reads waited. They keep
